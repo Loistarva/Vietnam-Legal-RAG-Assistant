@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Legal Document Schema",
+  "type": "object",
+  "required": ["document_id", "document_metadata", "articles"],
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "document_metadata": {
+      "type": "object",
+      "required": ["title", "document_type", "issue_date", "effective_date", "validity_status"],
+      "properties": {
+        "title": { "type": "string" },
+        "document_type": {
+          "type": "string",
+          "enum": ["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
+        },
+        "document_number": { "type": "string" },
+        "issue_date": { "type": "string", "format": "date" },
+        "effective_date": { "type": "string", "format": "date" },
+        "issuing_body": { "type": "string" },
+        "validity_status": {
+          "type": "string",
+          "enum": ["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
+        }
+      }
+    },
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["article_id", "article_number", "chunks"],
+        "properties": {
+          "article_id": { "type": "string" },
+          "article_number": { "type": "string" },
+          "article_title": { "type": "string" },
+          "chunks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["chunk_id", "text", "parent_id"],
+              "properties": {
+                "chunk_id": { "type": "string" },
+                "clause_number": { "type": "string" },
+                "point_letter": { "type": "string" },
+                "text": { "type": "string", "minLength": 10 },
+                "parent_id": { "type": "string" },
+                "char_count": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

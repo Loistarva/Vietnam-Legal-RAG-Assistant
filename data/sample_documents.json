@@ -1,0 +1,39 @@
+[
+  {
+    "document_id": "nd_100_2019_nd_cp",
+    "document_metadata": {
+      "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+      "document_type": "Nghị định",
+      "document_number": "100/2019/NĐ-CP",
+      "issue_date": "2019-12-30",
+      "effective_date": "2020-01-01",
+      "issuing_body": "Chính phủ",
+      "validity_status": "Còn hiệu lực"
+    },
+    "articles": [
+      {
+        "article_id": "nd_100_2019_nd_cp_art_6",
+        "article_number": "6",
+        "article_title": "Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+        "chunks": [
+          {
+            "chunk_id": "nd_100_2019_nd_cp_art_6_chunk_2_b",
+            "clause_number": "2",
+            "point_letter": "b",
+            "text": "Phạt tiền từ 300.000 đồng đến 400.000 đồng đối với người điều khiển xe thực hiện hành vi: Không đội “mũ bảo hiểm cho người đi mô tô, xe máy” hoặc đội “mũ bảo hiểm cho người đi mô tô, xe máy” không cài quai đúng quy cách khi điều khiển xe tham gia giao thông trên đường bộ;",
+            "parent_id": "nd_100_2019_nd_cp_art_6",
+            "char_count": 272
+          },
+          {
+            "chunk_id": "nd_100_2019_nd_cp_art_6_chunk_2_c",
+            "clause_number": "2",
+            "point_letter": "c",
+            "text": "Phạt tiền từ 300.000 đồng đến 400.000 đồng đối với người điều khiển xe thực hiện hành vi: Điều khiển xe chạy quá tốc độ quy định từ 05 km/h đến dưới 10 km/h;",
+            "parent_id": "nd_100_2019_nd_cp_art_6",
+            "char_count": 159
+          }
+        ]
+      }
+    ]
+  }
+]
