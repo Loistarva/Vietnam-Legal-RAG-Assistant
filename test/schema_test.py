@@ -2,7 +2,8 @@ import json
 import pytest
 from datetime import date
 from typing import List, Optional, Literal
-from pydantic import BaseModel, Field, constr, validator, ValidationError
+from pydantic import BaseModel, Field, constr, field_validator, ValidationError
+
 
 # --- Pydantic Models for Validation ---
 
@@ -14,25 +15,29 @@ class ChunkSchema(BaseModel):
     parent_id: str
     char_count: Optional[int] = None
 
-    @validator('text')
+    @field_validator('text')
+    @classmethod
     def text_must_be_clean(cls, v):
         if '\x00' in v:
             raise ValueError('Văn bản chứa ký tự lỗi (null byte)')
         return v.strip()
 
+
 class ArticleSchema(BaseModel):
     article_id: str
     article_number: str
     article_title: Optional[str] = None
-    chunks: List[ChunkSchema] = Field(..., min_items=1)
+    chunks: List[ChunkSchema] = Field(..., min_length=1)
 
-    @validator('chunks')
-    def chunks_parent_id_must_match_article(cls, v, values):
-        if 'article_id' in values:
+    @field_validator('chunks')
+    @classmethod
+    def chunks_parent_id_must_match_article(cls, v, info):
+        if 'article_id' in info.data:
             for chunk in v:
-                if chunk.parent_id != values['article_id']:
+                if chunk.parent_id != info.data['article_id']:
                     raise ValueError(f"Chunk {chunk.chunk_id} có parent_id không khớp với article_id")
         return v
+
 
 class DocumentMetadataSchema(BaseModel):
     title: str = Field(..., min_length=5)
@@ -43,24 +48,26 @@ class DocumentMetadataSchema(BaseModel):
     issuing_body: str
     validity_status: Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
 
+
 class LegalDocumentSchema(BaseModel):
-    document_id: constr(regex=r'^[a-z0-9_]+$')
+    document_id: constr(pattern=r'^[a-z0-9_]+$')
     document_metadata: DocumentMetadataSchema
-    articles: List[ArticleSchema] = Field(..., min_items=1)
+    articles: List[ArticleSchema] = Field(..., min_length=1)
+
 
 # --- Pytest Test Cases ---
 
 def test_valid_sample_document():
-    with open("sample_documents.json", "r", encoding="utf-8") as f:
+    with open("data/sample_documents.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Validate every document in the array
     for doc in data:
         try:
             validated_doc = LegalDocumentSchema(**doc)
             assert validated_doc.document_id == doc["document_id"]
         except ValidationError as e:
             pytest.fail(f"Lỗi schema trên document {doc.get('document_id', 'unknown')}: {e}")
+
 
 def test_invalid_chunk_parent_id_relation():
     invalid_data = {
@@ -82,7 +89,7 @@ def test_invalid_chunk_parent_id_relation():
                     {
                         "chunk_id": "chunk_1",
                         "text": "Nội dung hợp lệ độ dài trên 10 ký tự",
-                        "parent_id": "WRONG_PARENT_ID" # Lỗi cố ý
+                        "parent_id": "WRONG_PARENT_ID"
                     }
                 ]
             }
