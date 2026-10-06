@@ -50,7 +50,8 @@ class DocumentMetadataSchema(BaseModel):
 
 
 class LegalDocumentSchema(BaseModel):
-    document_id: constr(pattern=r'^[a-z0-9_]+$')
+    # document_id: constr(pattern=r'^[a-z0-9_]+$')
+    document_id: str = Field(..., pattern=r'^[a-zA-Z0-9_]+$')
     document_metadata: DocumentMetadataSchema
     articles: List[ArticleSchema] = Field(..., min_length=1)
 
