@@ -27,64 +27,6 @@ from pydantic import BaseModel, Field, field_validator
 # ==========================================
 # CẤU HÌNH
 # ==========================================
-INPUT_FILE = r"E:\nhom AI\Vietnam-Legal-RAG-Assistant\parser\cleaned_texts\L01.txt"
-OUTPUT_FILE = r"E:\nhom AI\Vietnam-Legal-RAG-Assistant\parser\cleaned_texts\L01_schema_parsed.json"
-
-DOCUMENT_ID = "L01"
-DOCUMENT_TITLE = "Luật Hôn nhân và Gia đình"
-DOCUMENT_NUMBER = "52/2014/QH13"
-
-FIRST_PAGE_NUMBER = 2          # số trang đầu tiên xuất hiện trong luồng văn bản
-SPLIT_LONG_CLAUSES = True      # tách khoản dài theo điểm a), b), ...
-MAX_CLAUSE_CHARS = 1500
-
-# Tiêu đề các Điều không thể tự tách (không có khoản, hoặc có câu dẫn nhập).
-# Lấy từ chính văn bản luật; bổ sung thêm nếu log báo "không rõ tiêu đề".
-TITLES: Dict[str, str] = {
-    "1": "Phạm vi điều chỉnh",
-    "3": "Giải thích từ ngữ",
-    "6": "Áp dụng quy định của Bộ luật dân sự và các luật khác có liên quan",
-    "13": "Xử lý việc đăng ký kết hôn không đúng thẩm quyền",
-    "15": "Quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn",
-    "17": "Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng",
-    "18": "Bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồng",
-    "20": "Lựa chọn nơi cư trú của vợ chồng",
-    "21": "Tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng",
-    "22": "Tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng",
-    "23": "Quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội",
-    "31": "Giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng",
-    "36": "Tài sản chung được đưa vào kinh doanh",
-    "37": "Nghĩa vụ chung về tài sản của vợ chồng",
-    "42": "Chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu",
-    "45": "Nghĩa vụ riêng về tài sản của vợ, chồng",
-    "47": "Thỏa thuận xác lập chế độ tài sản của vợ chồng",
-    "52": "Khuyến khích hòa giải ở cơ sở",
-    "54": "Hòa giải tại Tòa án",
-    "55": "Thuận tình ly hôn",
-    "58": "Quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn",
-    "63": "Quyền lưu cư của vợ hoặc chồng khi ly hôn",
-    "64": "Chia tài sản chung của vợ chồng đưa vào kinh doanh",
-    "65": "Thời điểm chấm dứt hôn nhân",
-    "74": "Bồi thường thiệt hại do con gây ra",
-    "80": "Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng",
-    "92": "Xác định cha, mẹ, con trong trường hợp người có yêu cầu chết",
-    "94": "Xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo",
-    "100": "Xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ",
-    "105": "Quyền, nghĩa vụ của anh, chị, em",
-    "106": "Quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột",
-    "108": "Một người cấp dưỡng cho nhiều người",
-    "109": "Nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người",
-    "110": "Nghĩa vụ cấp dưỡng của cha, mẹ đối với con",
-    "111": "Nghĩa vụ cấp dưỡng của con đối với cha, mẹ",
-    "112": "Nghĩa vụ cấp dưỡng giữa anh, chị, em",
-    "115": "Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn",
-    "117": "Phương thức cấp dưỡng",
-    "118": "Chấm dứt nghĩa vụ cấp dưỡng",
-    "120": "Khuyến khích việc trợ giúp của tổ chức, cá nhân",
-    "124": "Hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình",
-    "130": "Áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài",
-}
-
 # Chữ in hoa tiếng Việt (KHÔNG dùng khoảng À-Ỵ vì khoảng đó lẫn cả chữ thường)
 UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
 POINT_LETTERS = "abcdđeghiklmnopqrstuvxy"  # bảng chữ cái dùng cho điểm (không có f, j, w, z)
@@ -136,17 +78,18 @@ class ArticleSchema(BaseModel):
         return v
 
 
-class LegalMetadata(BaseModel):
-    title: str
+class DocumentMetadataSchema(BaseModel):
+    title: str = Field(..., min_length=5)
     document_type: Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
     document_number: str
-    issue_date: str
-    effective_date: Optional[str] = None
+    issue_date: date
+    effective_date: date
     issuing_body: str
-    validity_status: str
+    validity_status: Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
 
 
-class DocumentSchema(BaseModel):
+
+class LegaDocumentSchema(BaseModel):
     document_id: str = Field(..., pattern=r"^[A-Za-z0-9_]+$")
     metadata: LegalMetadata
     articles: List[ArticleSchema]
@@ -457,7 +400,7 @@ def parse_raw_text_to_legal_doc(raw_text: str, doc_id: str, metadata: dict) -> d
     """
     meta = LegalMetadata(**metadata)  # validate metadata trước khi tốn công parse
     articles, footnotes = parse_text_to_articles(raw_text)
-    doc = DocumentSchema(
+    doc = LegaDocumentSchema(
         document_id=doc_id,
         metadata=meta,
         articles=articles,
@@ -545,9 +488,9 @@ def main():
         with open(args.output, "w", encoding="utf-8") as f:
             json.dump(doc, f, ensure_ascii=False, indent=2)
         quality_report(doc["articles"], doc["footnotes"])
-        print(f"✅ Xử lý thành công! Đã trích xuất {len(doc['articles'])} Điều -> {args.output}")
+        print(f" Xử lý thành công! Đã trích xuất {len(doc['articles'])} Điều -> {args.output}")
     except Exception as e:
-        print(f"❌ Xử lý thất bại: {e}")
+        print(f" Xử lý thất bại: {e}")
 
 
 if __name__ == "__main__":
