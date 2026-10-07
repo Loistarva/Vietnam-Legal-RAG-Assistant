@@ -1,22 +1,22 @@
 {
   "document_id": "TT03",
   "metadata": {
-    "title": "Văn bản pháp luật TT03",
-    "document_type": "Luật",
-    "document_number": "TT03",
-    "issue_date": "2024-01-01",
-    "effective_date": "2024-01-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "title": "Luật hôn nhân và gia đình ngày 19 tháng 6 năm 2014;",
+    "document_type": "Nghị định",
+    "document_number": "32/2016/TT-BYT",
+    "issue_date": "2016-09-15",
+    "effective_date": null,
+    "issuing_body": "Bộ Tài chính",
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
       "article_id": "dieu_1",
       "article_number": "1",
-      "article_title": "Phạm vi điều chỉnh",
+      "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": "Thông tư này quy định việc chi trả các chi phí thực tế để bảo đảm việc chăm sóc sức khỏe sinh sản thuộc trách nhiệm của bên nhờ mang thai hộ cho người mang thai hộ vì mục đích nhân đạo phát sinh trong các trường hợp sau đây:",
+      "intro": "Phạm vi điều chỉnh Thông tư này quy định việc chi trả các chi phí thực tế để bảo đảm việc chăm sóc sức khỏe sinh sản thuộc trách nhiệm của bên nhờ mang thai hộ cho người mang thai hộ vì mục đích nhân đạo phát sinh trong các trường hợp sau đây:",
       "chunks": [
         {
           "chunk_id": "dieu_1_chunk_1",
@@ -71,10 +71,10 @@
     {
       "article_id": "dieu_2",
       "article_number": "2",
-      "article_title": null,
+      "article_title": "Đối tượng áp dụng Thông tư này áp dụng đối với",
       "chapter": null,
       "section": null,
-      "intro": "Đối tượng áp dụng Thông tư này áp dụng đối với:",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_2_chunk_1",
@@ -105,10 +105,10 @@
     {
       "article_id": "dieu_3",
       "article_number": "3",
-      "article_title": "Các chi phí thực tế để bảo đảm việc chăm sóc sức khỏe sinh sản cho người mang thai hộ vì mục đích nhân đạo",
+      "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": null,
+      "intro": "Các chi phí thực tế để bảo đảm việc chăm sóc sức khỏe sinh sản cho người mang thai hộ vì mục đích nhân đạo",
       "chunks": [
         {
           "chunk_id": "dieu_3_chunk_1",
@@ -176,7 +176,7 @@
       "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": null,
+      "intro": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 01 tháng 11 năm 2016.",
       "chunks": [
         {
           "chunk_id": "dieu_5_chunk_1",

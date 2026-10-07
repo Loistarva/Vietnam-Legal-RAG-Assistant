@@ -1,30 +1,30 @@
 {
   "document_id": "TT04",
   "metadata": {
-    "title": "Văn bản pháp luật TT04",
-    "document_type": "Luật",
-    "document_number": "TT04",
-    "issue_date": "2024-01-01",
-    "effective_date": "2024-01-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "title": "Luật Hôn nhân và gia đình ngày 19 tháng 6 năm 2014;",
+    "document_type": "Nghị định",
+    "document_number": "34/2017/TT-BYT",
+    "issue_date": "2017-08-18",
+    "effective_date": null,
+    "issuing_body": "Chính phủ",
+    "validity_status": "Hết hiệu lực"
   },
   "articles": [
     {
       "article_id": "dieu_1",
       "article_number": "1",
-      "article_title": "Phạm vi điều chỉnh",
+      "article_title": null,
       "chapter": "Chương I QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
       "chunks": [
         {
           "chunk_id": "dieu_1_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
+          "text": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
           "parent_id": "dieu_1",
-          "char_count": 85
+          "char_count": 104
         }
       ]
     },
@@ -82,7 +82,7 @@
       "article_id": "dieu_3",
       "article_number": "3",
       "article_title": "Nguyên tắc tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
-      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -116,7 +116,7 @@
       "article_id": "dieu_4",
       "article_number": "4",
       "article_title": "Sàng lọc trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -158,7 +158,7 @@
       "article_id": "dieu_5",
       "article_number": "5",
       "article_title": "Chẩn đoán trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -200,7 +200,7 @@
       "article_id": "dieu_6",
       "article_number": "6",
       "article_title": "Điều trị trước sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -234,7 +234,7 @@
       "article_id": "dieu_7",
       "article_number": "7",
       "article_title": "Điều trị sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -250,9 +250,9 @@
           "chunk_id": "dieu_7_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể.",
+          "text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể. Chương III ĐIỀU KHOẢN THI HÀNH",
           "parent_id": "dieu_7",
-          "char_count": 174
+          "char_count": 205
         }
       ]
     },
@@ -260,9 +260,9 @@
       "article_id": "dieu_8",
       "article_number": "8",
       "article_title": null,
-      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
-      "intro": null,
+      "intro": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
       "chunks": [
         {
           "chunk_id": "dieu_8_chunk_1",
@@ -277,8 +277,8 @@
     {
       "article_id": "dieu_9",
       "article_number": "9",
-      "article_title": null,
-      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
+      "article_title": "Trách nhiệm thi hành Tổng cục trưởng Tổng cục Dân số;",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
       "section": null,
       "intro": null,
       "chunks": [
@@ -286,9 +286,9 @@
           "chunk_id": "dieu_9_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trách nhiệm thi hành Tổng cục trưởng Tổng cục Dân số; Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết./. KT. BỘ TRƯỞNG THỨ TRƯỞNG Nguyễn Viết Tiến",
+          "text": "Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết./. KT. BỘ TRƯỞNG THỨ TRƯỞNG Nguyễn Viết Tiến",
           "parent_id": "dieu_9",
-          "char_count": 485
+          "char_count": 431
         }
       ]
     }

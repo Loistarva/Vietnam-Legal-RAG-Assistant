@@ -1,40 +1,40 @@
 {
   "document_id": "L01",
   "metadata": {
-    "title": "Văn bản pháp luật L01",
-    "document_type": "Luật",
-    "document_number": "L01",
-    "issue_date": "2024-01-01",
-    "effective_date": "2024-01-01",
+    "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH Luật Hôn nhân và gia đình",
+    "document_type": "Quyết định",
+    "document_number": "52/2014/QH",
+    "issue_date": "2014-06-19",
+    "effective_date": null,
     "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
       "article_id": "dieu_1",
       "article_number": "1",
-      "article_title": "Phạm vi điều chỉnh",
+      "article_title": null,
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Phạm vi điều chỉnh Luật này quy định chế độ hôn nhân và gia đình; chuẩn mực pháp lý cho cách ứng xử giữa các thành viên gia đình; trách nhiệm của cá nhân, tổ chức, Nhà nước và xã hội trong việc xây dựng, củng cố chế độ hôn nhân và gia đình.",
       "chunks": [
         {
           "chunk_id": "dieu_1_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Luật này quy định chế độ hôn nhân và gia đình; chuẩn mực pháp lý cho cách ứng xử giữa các thành viên gia đình; trách nhiệm của cá nhân, tổ chức, Nhà nước và xã hội trong việc xây dựng, củng cố chế độ hôn nhân và gia đình.",
+          "text": "Phạm vi điều chỉnh Luật này quy định chế độ hôn nhân và gia đình; chuẩn mực pháp lý cho cách ứng xử giữa các thành viên gia đình; trách nhiệm của cá nhân, tổ chức, Nhà nước và xã hội trong việc xây dựng, củng cố chế độ hôn nhân và gia đình.",
           "parent_id": "dieu_1",
-          "char_count": 221
+          "char_count": 240
         }
       ]
     },
     {
       "article_id": "dieu_2",
       "article_number": "2",
-      "article_title": "Những nguyên tắc cơ bản của chế độ hôn nhân và gia đình",
+      "article_title": null,
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Những nguyên tắc cơ bản của chế độ hôn nhân và gia đình",
       "chunks": [
         {
           "chunk_id": "dieu_2_chunk_1",
@@ -81,10 +81,10 @@
     {
       "article_id": "dieu_3",
       "article_number": "3",
-      "article_title": "Giải thích từ ngữ",
+      "article_title": "Giải thích từ ngữ Trong Luật này, các từ ngữ dưới đây được hiểu như sau",
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": "Trong Luật này, các từ ngữ dưới đây được hiểu như sau:",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_3_chunk_1",
@@ -367,18 +367,18 @@
     {
       "article_id": "dieu_6",
       "article_number": "6",
-      "article_title": "Áp dụng quy định của Bộ luật dân sự và các luật khác có liên quan",
+      "article_title": null,
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Áp dụng quy định của Bộ luật dân sự và các luật khác có liên quan Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
       "chunks": [
         {
           "chunk_id": "dieu_6_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
+          "text": "Áp dụng quy định của Bộ luật dân sự và các luật khác có liên quan Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
           "parent_id": "dieu_6",
-          "char_count": 186
+          "char_count": 252
         }
       ]
     },
@@ -402,9 +402,9 @@
           "chunk_id": "dieu_7_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Chính phủ quy định chi tiết khoản 1 Điều này.",
+          "text": "2. Chính phủ quy định chi tiết khoản 1 Điều này. Chương II KẾT HÔN",
           "parent_id": "dieu_7",
-          "char_count": 48
+          "char_count": 66
         }
       ]
     },
@@ -412,7 +412,7 @@
       "article_id": "dieu_8",
       "article_number": "8",
       "article_title": "Điều kiện kết hôn",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "chunks": [
@@ -438,7 +438,7 @@
       "article_id": "dieu_9",
       "article_number": "9",
       "article_title": "Đăng ký kết hôn",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "chunks": [
@@ -463,10 +463,10 @@
     {
       "article_id": "dieu_10",
       "article_number": "10",
-      "article_title": "Người có quyền yêu cầu hủy việc kết hôn trái pháp luật",
-      "chapter": "Chương II KẾT HÔN",
+      "article_title": null,
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Người có quyền yêu cầu hủy việc kết hôn trái pháp luật",
       "chunks": [
         {
           "chunk_id": "dieu_10_chunk_1",
@@ -498,7 +498,7 @@
       "article_id": "dieu_11",
       "article_number": "11",
       "article_title": "Xử lý việc kết hôn trái pháp luật",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "chunks": [
@@ -540,7 +540,7 @@
       "article_id": "dieu_12",
       "article_number": "12",
       "article_title": "Hậu quả pháp lý của việc hủy kết hôn trái pháp luật",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "chunks": [
@@ -573,18 +573,18 @@
     {
       "article_id": "dieu_13",
       "article_number": "13",
-      "article_title": "Xử lý việc đăng ký kết hôn không đúng thẩm quyền",
-      "chapter": "Chương II KẾT HÔN",
+      "article_title": null,
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Xử lý việc đăng ký kết hôn không đúng thẩm quyền Trong trường hợp việc đăng ký kết hôn không đúng thẩm quyền thì khi có yêu cầu, cơ quan nhà nước có thẩm quyền thu hồi, hủy bỏ giấy chứng nhận kết hôn theo quy định của pháp luật về hộ tịch và yêu cầu hai bên thực hiện lại việc đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền. Trong trường hợp này, quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước.",
       "chunks": [
         {
           "chunk_id": "dieu_13_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp việc đăng ký kết hôn không đúng thẩm quyền thì khi có yêu cầu, cơ quan nhà nước có thẩm quyền thu hồi, hủy bỏ giấy chứng nhận kết hôn theo quy định của pháp luật về hộ tịch và yêu cầu hai bên thực hiện lại việc đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền. Trong trường hợp này, quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước.",
+          "text": "Xử lý việc đăng ký kết hôn không đúng thẩm quyền Trong trường hợp việc đăng ký kết hôn không đúng thẩm quyền thì khi có yêu cầu, cơ quan nhà nước có thẩm quyền thu hồi, hủy bỏ giấy chứng nhận kết hôn theo quy định của pháp luật về hộ tịch và yêu cầu hai bên thực hiện lại việc đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền. Trong trường hợp này, quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước.",
           "parent_id": "dieu_13",
-          "char_count": 362
+          "char_count": 411
         }
       ]
     },
@@ -592,7 +592,7 @@
       "article_id": "dieu_14",
       "article_number": "14",
       "article_title": "Giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "chunks": [
@@ -617,18 +617,18 @@
     {
       "article_id": "dieu_15",
       "article_number": "15",
-      "article_title": "Quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn",
-      "chapter": "Chương II KẾT HÔN",
+      "article_title": null,
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
       "chunks": [
         {
           "chunk_id": "dieu_15_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
+          "text": "Quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
           "parent_id": "dieu_15",
-          "char_count": 149
+          "char_count": 266
         }
       ]
     },
@@ -636,7 +636,7 @@
       "article_id": "dieu_16",
       "article_number": "16",
       "article_title": "Giải quyết quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn",
-      "chapter": "Chương II KẾT HÔN",
+      "chapter": "Chương III QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -661,36 +661,36 @@
     {
       "article_id": "dieu_17",
       "article_number": "17",
-      "article_title": "Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": null,
+      "intro": "Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng Vợ, chồng bình đẳng với nhau, có quyền, nghĩa vụ ngang nhau về mọi mặt trong gia đình, trong việc thực hiện các quyền, nghĩa vụ của công dân được quy định trong Hiến pháp, Luật này và các luật khác có liên quan.",
       "chunks": [
         {
           "chunk_id": "dieu_17_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Vợ, chồng bình đẳng với nhau, có quyền, nghĩa vụ ngang nhau về mọi mặt trong gia đình, trong việc thực hiện các quyền, nghĩa vụ của công dân được quy định trong Hiến pháp, Luật này và các luật khác có liên quan.",
+          "text": "Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng Vợ, chồng bình đẳng với nhau, có quyền, nghĩa vụ ngang nhau về mọi mặt trong gia đình, trong việc thực hiện các quyền, nghĩa vụ của công dân được quy định trong Hiến pháp, Luật này và các luật khác có liên quan.",
           "parent_id": "dieu_17",
-          "char_count": 211
+          "char_count": 255
         }
       ]
     },
     {
       "article_id": "dieu_18",
       "article_number": "18",
-      "article_title": "Bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": null,
+      "intro": "Bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồng Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật Dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
       "chunks": [
         {
           "chunk_id": "dieu_18_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật Dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
+          "text": "Bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồng Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật Dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
           "parent_id": "dieu_18",
-          "char_count": 136
+          "char_count": 186
         }
       ]
     },
@@ -698,8 +698,8 @@
       "article_id": "dieu_19",
       "article_number": "19",
       "article_title": "Tình nghĩa vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
+      "chapter": "Chương III QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -723,82 +723,82 @@
     {
       "article_id": "dieu_20",
       "article_number": "20",
-      "article_title": "Lựa chọn nơi cư trú của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": null,
+      "intro": "Lựa chọn nơi cư trú của vợ chồng Việc lựa chọn nơi cư trú của vợ chồng do vợ chồng thỏa thuận, không bị ràng buộc bởi phong tục, tập quán, địa giới hành chính.",
       "chunks": [
         {
           "chunk_id": "dieu_20_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Việc lựa chọn nơi cư trú của vợ chồng do vợ chồng thỏa thuận, không bị ràng buộc bởi phong tục, tập quán, địa giới hành chính.",
+          "text": "Lựa chọn nơi cư trú của vợ chồng Việc lựa chọn nơi cư trú của vợ chồng do vợ chồng thỏa thuận, không bị ràng buộc bởi phong tục, tập quán, địa giới hành chính.",
           "parent_id": "dieu_20",
-          "char_count": 126
+          "char_count": 159
         }
       ]
     },
     {
       "article_id": "dieu_21",
       "article_number": "21",
-      "article_title": "Tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": null,
+      "intro": "Tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng Vợ, chồng có nghĩa vụ tôn trọng, giữ gìn và bảo vệ danh dự, nhân phẩm, uy tín cho nhau.",
       "chunks": [
         {
           "chunk_id": "dieu_21_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Vợ, chồng có nghĩa vụ tôn trọng, giữ gìn và bảo vệ danh dự, nhân phẩm, uy tín cho nhau.",
+          "text": "Tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng Vợ, chồng có nghĩa vụ tôn trọng, giữ gìn và bảo vệ danh dự, nhân phẩm, uy tín cho nhau.",
           "parent_id": "dieu_21",
-          "char_count": 87
+          "char_count": 138
         }
       ]
     },
     {
       "article_id": "dieu_22",
       "article_number": "22",
-      "article_title": "Tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": null,
+      "intro": "Tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau.",
       "chunks": [
         {
           "chunk_id": "dieu_22_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau.",
+          "text": "Tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau.",
           "parent_id": "dieu_22",
-          "char_count": 74
+          "char_count": 131
         }
       ]
     },
     {
       "article_id": "dieu_23",
       "article_number": "23",
-      "article_title": "Quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội Vợ, chồng có quyền, nghĩa vụ tạo điều kiện, giúp đỡ nhau chọn nghề nghiệp; học tập, nâng cao trình độ văn hóa, chuyên môn, nghiệp vụ; tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội.",
       "chunks": [
         {
           "chunk_id": "dieu_23_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Vợ, chồng có quyền, nghĩa vụ tạo điều kiện, giúp đỡ nhau chọn nghề nghiệp; học tập, nâng cao trình độ văn hóa, chuyên môn, nghiệp vụ; tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội.",
+          "text": "Quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội Vợ, chồng có quyền, nghĩa vụ tạo điều kiện, giúp đỡ nhau chọn nghề nghiệp; học tập, nâng cao trình độ văn hóa, chuyên môn, nghiệp vụ; tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội.",
           "parent_id": "dieu_23",
-          "char_count": 189
+          "char_count": 282
         }
       ]
     },
     {
       "article_id": "dieu_24",
       "article_number": "24",
-      "article_title": "Căn cứ xác lập đại diện giữa vợ và chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 2 ĐẠI DIỆN GIỮA VỢ VÀ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Căn cứ xác lập đại diện giữa vợ và chồng",
       "chunks": [
         {
           "chunk_id": "dieu_24_chunk_1",
@@ -830,8 +830,8 @@
       "article_id": "dieu_25",
       "article_number": "25",
       "article_title": "Đại diện giữa vợ và chồng trong quan hệ kinh doanh",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 2 ĐẠI DIỆN GIỮA VỢ VÀ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -855,10 +855,10 @@
     {
       "article_id": "dieu_26",
       "article_number": "26",
-      "article_title": "Đại diện giữa vợ và chồng trong trường hợp giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng đối với tài sản chung nhưng chỉ ghi tên vợ hoặc chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 2 ĐẠI DIỆN GIỮA VỢ VÀ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Đại diện giữa vợ và chồng trong trường hợp giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng đối với tài sản chung nhưng chỉ ghi tên vợ hoặc chồng",
       "chunks": [
         {
           "chunk_id": "dieu_26_chunk_1",
@@ -882,8 +882,8 @@
       "article_id": "dieu_27",
       "article_number": "27",
       "article_title": "Trách nhiệm liên đới của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 2 ĐẠI DIỆN GIỮA VỢ VÀ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -898,9 +898,9 @@
           "chunk_id": "dieu_27_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Vợ, chồng chịu trách nhiệm liên đới về các nghĩa vụ quy định tại Điều 37 của Luật này.",
+          "text": "2. Vợ, chồng chịu trách nhiệm liên đới về các nghĩa vụ quy định tại Điều 37 của Luật này. Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
           "parent_id": "dieu_27",
-          "char_count": 89
+          "char_count": 123
         }
       ]
     },
@@ -908,8 +908,8 @@
       "article_id": "dieu_28",
       "article_number": "28",
       "article_title": "Áp dụng chế độ tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -942,8 +942,8 @@
       "article_id": "dieu_29",
       "article_number": "29",
       "article_title": "Nguyên tắc chung về chế độ tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -976,8 +976,8 @@
       "article_id": "dieu_30",
       "article_number": "30",
       "article_title": "Quyền, nghĩa vụ của vợ, chồng trong việc đáp ứng nhu cầu thiết yếu của gia đình",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1001,28 +1001,28 @@
     {
       "article_id": "dieu_31",
       "article_number": "31",
-      "article_title": "Giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
       "chunks": [
         {
           "chunk_id": "dieu_31_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
+          "text": "Giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
           "parent_id": "dieu_31",
-          "char_count": 319
+          "char_count": 378
         }
       ]
     },
     {
       "article_id": "dieu_32",
       "article_number": "32",
-      "article_title": "Giao dịch với người thứ ba ngay tình liên quan đến tài khoản ngân hàng, tài khoản chứng khoán và động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu, quyền sử dụng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Giao dịch với người thứ ba ngay tình liên quan đến tài khoản ngân hàng, tài khoản chứng khoán và động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu, quyền sử dụng",
       "chunks": [
         {
           "chunk_id": "dieu_32_chunk_1",
@@ -1046,8 +1046,8 @@
       "article_id": "dieu_33",
       "article_number": "33",
       "article_title": "Tài sản chung của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1080,8 +1080,8 @@
       "article_id": "dieu_34",
       "article_number": "34",
       "article_title": "Đăng ký quyền sở hữu, quyền sử dụng đối với tài sản chung",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1106,8 +1106,8 @@
       "article_id": "dieu_35",
       "article_number": "35",
       "article_title": "Chiếm hữu, sử dụng, định đoạt tài sản chung",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1131,28 +1131,28 @@
     {
       "article_id": "dieu_36",
       "article_number": "36",
-      "article_title": "Tài sản chung được đưa vào kinh doanh",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Tài sản chung được đưa vào kinh doanh Trong trường hợp vợ chồng có thỏa thuận về việc một bên đưa tài sản chung vào kinh doanh thì người này có quyền tự mình thực hiện giao dịch liên quan đến tài sản chung đó. Thỏa thuận này phải lập thành văn bản.",
       "chunks": [
         {
           "chunk_id": "dieu_36_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp vợ chồng có thỏa thuận về việc một bên đưa tài sản chung vào kinh doanh thì người này có quyền tự mình thực hiện giao dịch liên quan đến tài sản chung đó. Thỏa thuận này phải lập thành văn bản.",
+          "text": "Tài sản chung được đưa vào kinh doanh Trong trường hợp vợ chồng có thỏa thuận về việc một bên đưa tài sản chung vào kinh doanh thì người này có quyền tự mình thực hiện giao dịch liên quan đến tài sản chung đó. Thỏa thuận này phải lập thành văn bản.",
           "parent_id": "dieu_36",
-          "char_count": 210
+          "char_count": 248
         }
       ]
     },
     {
       "article_id": "dieu_37",
       "article_number": "37",
-      "article_title": "Nghĩa vụ chung về tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": "Vợ chồng có các nghĩa vụ chung về tài sản sau đây:",
+      "article_title": "Nghĩa vụ chung về tài sản của vợ chồng Vợ chồng có các nghĩa vụ chung về tài sản sau đây",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_37_chunk_1",
@@ -1208,8 +1208,8 @@
       "article_id": "dieu_38",
       "article_number": "38",
       "article_title": "Chia tài sản chung trong thời kỳ hôn nhân",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1242,8 +1242,8 @@
       "article_id": "dieu_39",
       "article_number": "39",
       "article_title": "Thời điểm có hiệu lực của việc chia tài sản chung trong thời kỳ hôn nhân",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1284,8 +1284,8 @@
       "article_id": "dieu_40",
       "article_number": "40",
       "article_title": "Hậu quả của việc chia tài sản chung trong thời kỳ hôn nhân",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1310,8 +1310,8 @@
       "article_id": "dieu_41",
       "article_number": "41",
       "article_title": "Chấm dứt hiệu lực của việc chia tài sản chung trong thời kỳ hôn nhân",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1351,10 +1351,10 @@
     {
       "article_id": "dieu_42",
       "article_number": "42",
-      "article_title": "Chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": "Việc chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu khi thuộc một trong các trường hợp sau đây:",
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu Việc chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu khi thuộc một trong các trường hợp sau đây:",
       "chunks": [
         {
           "chunk_id": "dieu_42_chunk_1",
@@ -1378,8 +1378,8 @@
       "article_id": "dieu_43",
       "article_number": "43",
       "article_title": "Tài sản riêng của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1404,8 +1404,8 @@
       "article_id": "dieu_44",
       "article_number": "44",
       "article_title": "Chiếm hữu, sử dụng, định đoạt tài sản riêng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1445,10 +1445,10 @@
     {
       "article_id": "dieu_45",
       "article_number": "45",
-      "article_title": "Nghĩa vụ riêng về tài sản của vợ, chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": "Vợ, chồng có các nghĩa vụ riêng về tài sản sau đây:",
+      "article_title": "Nghĩa vụ riêng về tài sản của vợ, chồng Vợ, chồng có các nghĩa vụ riêng về tài sản sau đây",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_45_chunk_1",
@@ -1488,8 +1488,8 @@
       "article_id": "dieu_46",
       "article_number": "46",
       "article_title": "Nhập tài sản riêng của vợ, chồng vào tài sản chung",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1521,18 +1521,18 @@
     {
       "article_id": "dieu_47",
       "article_number": "47",
-      "article_title": "Thỏa thuận xác lập chế độ tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
+      "intro": "Thỏa thuận xác lập chế độ tài sản của vợ chồng Trong trường hợp hai bên kết hôn lựa chọn chế độ tài sản theo thỏa thuận thì thỏa thuận này phải được lập trước khi kết hôn, bằng hình thức văn bản có công chứng hoặc chứng thực. Chế độ tài sản của vợ chồng theo thỏa thuận được xác lập kể từ ngày đăng ký kết hôn.",
       "chunks": [
         {
           "chunk_id": "dieu_47_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp hai bên kết hôn lựa chọn chế độ tài sản theo thỏa thuận thì thỏa thuận này phải được lập trước khi kết hôn, bằng hình thức văn bản có công chứng hoặc chứng thực. Chế độ tài sản của vợ chồng theo thỏa thuận được xác lập kể từ ngày đăng ký kết hôn.",
+          "text": "Thỏa thuận xác lập chế độ tài sản của vợ chồng Trong trường hợp hai bên kết hôn lựa chọn chế độ tài sản theo thỏa thuận thì thỏa thuận này phải được lập trước khi kết hôn, bằng hình thức văn bản có công chứng hoặc chứng thực. Chế độ tài sản của vợ chồng theo thỏa thuận được xác lập kể từ ngày đăng ký kết hôn.",
           "parent_id": "dieu_47",
-          "char_count": 263
+          "char_count": 310
         }
       ]
     },
@@ -1540,8 +1540,8 @@
       "article_id": "dieu_48",
       "article_number": "48",
       "article_title": "Nội dung cơ bản của thỏa thuận về chế độ tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1566,8 +1566,8 @@
       "article_id": "dieu_49",
       "article_number": "49",
       "article_title": "Sửa đổi, bổ sung nội dung của thỏa thuận về chế độ tài sản của vợ chồng",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 ĐẠI",
       "intro": null,
       "chunks": [
         {
@@ -1592,8 +1592,8 @@
       "article_id": "dieu_50",
       "article_number": "50",
       "article_title": "Thỏa thuận về chế độ tài sản của vợ chồng bị vô hiệu",
-      "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
+      "section": "Mục 1 LY HÔN",
       "intro": null,
       "chunks": [
         {
@@ -1651,18 +1651,18 @@
     {
       "article_id": "dieu_52",
       "article_number": "52",
-      "article_title": "Khuyến khích hòa giải ở cơ sở",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
       "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "intro": "Khuyến khích hòa giải ở cơ sở Nhà nước và xã hội khuyến khích việc hòa giải ở cơ sở khi vợ, chồng có yêu cầu ly hôn. Việc hòa giải được thực hiện theo quy định của pháp luật về hòa giải ở cơ sở.",
       "chunks": [
         {
           "chunk_id": "dieu_52_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Nhà nước và xã hội khuyến khích việc hòa giải ở cơ sở khi vợ, chồng có yêu cầu ly hôn. Việc hòa giải được thực hiện theo quy định của pháp luật về hòa giải ở cơ sở.",
+          "text": "Khuyến khích hòa giải ở cơ sở Nhà nước và xã hội khuyến khích việc hòa giải ở cơ sở khi vợ, chồng có yêu cầu ly hôn. Việc hòa giải được thực hiện theo quy định của pháp luật về hòa giải ở cơ sở.",
           "parent_id": "dieu_52",
-          "char_count": 164
+          "char_count": 194
         }
       ]
     },
@@ -1695,36 +1695,36 @@
     {
       "article_id": "dieu_54",
       "article_number": "54",
-      "article_title": "Hòa giải tại Tòa án",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
       "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "intro": "Hòa giải tại Tòa án Sau khi đã thụ lý đơn yêu cầu ly hôn, Tòa án tiến hành hòa giải theo quy định của pháp luật về tố tụng dân sự.",
       "chunks": [
         {
           "chunk_id": "dieu_54_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Sau khi đã thụ lý đơn yêu cầu ly hôn, Tòa án tiến hành hòa giải theo quy định của pháp luật về tố tụng dân sự.",
+          "text": "Hòa giải tại Tòa án Sau khi đã thụ lý đơn yêu cầu ly hôn, Tòa án tiến hành hòa giải theo quy định của pháp luật về tố tụng dân sự.",
           "parent_id": "dieu_54",
-          "char_count": 110
+          "char_count": 130
         }
       ]
     },
     {
       "article_id": "dieu_55",
       "article_number": "55",
-      "article_title": "Thuận tình ly hôn",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
       "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "intro": "Thuận tình ly hôn Trong trường hợp vợ chồng cùng yêu cầu ly hôn, nếu xét thấy hai bên thật sự tự nguyện ly hôn và đã thỏa thuận về việc chia tài sản, việc trông nom, nuôi dưỡng, chăm sóc, giáo dục con trên cơ sở bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án công nhận thuận tình ly hôn; nếu không thỏa thuận được hoặc có thỏa thuận nhưng không bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án giải quyết việc ly hôn.",
       "chunks": [
         {
           "chunk_id": "dieu_55_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp vợ chồng cùng yêu cầu ly hôn, nếu xét thấy hai bên thật sự tự nguyện ly hôn và đã thỏa thuận về việc chia tài sản, việc trông nom, nuôi dưỡng, chăm sóc, giáo dục con trên cơ sở bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án công nhận thuận tình ly hôn; nếu không thỏa thuận được hoặc có thỏa thuận nhưng không bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án giải quyết việc ly hôn.",
+          "text": "Thuận tình ly hôn Trong trường hợp vợ chồng cùng yêu cầu ly hôn, nếu xét thấy hai bên thật sự tự nguyện ly hôn và đã thỏa thuận về việc chia tài sản, việc trông nom, nuôi dưỡng, chăm sóc, giáo dục con trên cơ sở bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án công nhận thuận tình ly hôn; nếu không thỏa thuận được hoặc có thỏa thuận nhưng không bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án giải quyết việc ly hôn.",
           "parent_id": "dieu_55",
-          "char_count": 411
+          "char_count": 429
         }
       ]
     },
@@ -1791,18 +1791,18 @@
     {
       "article_id": "dieu_58",
       "article_number": "58",
-      "article_title": "Quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
       "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "intro": "Quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn được áp dụng theo quy định tại các điều 81, 82, 83 và 84 của Luật này.",
       "chunks": [
         {
           "chunk_id": "dieu_58_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn được áp dụng theo quy định tại các điều 81, 82, 83 và 84 của Luật này.",
+          "text": "Quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn được áp dụng theo quy định tại các điều 81, 82, 83 và 84 của Luật này.",
           "parent_id": "dieu_58",
-          "char_count": 136
+          "char_count": 185
         }
       ]
     },
@@ -1953,54 +1953,54 @@
     {
       "article_id": "dieu_63",
       "article_number": "63",
-      "article_title": "Quyền lưu cư của vợ hoặc chồng khi ly hôn",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
       "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "intro": "Quyền lưu cư của vợ hoặc chồng khi ly hôn Nhà ở thuộc sở hữu riêng của vợ, chồng đã đưa vào sử dụng chung thì khi ly hôn vẫn thuộc sở hữu riêng của người đó; trường hợp vợ hoặc chồng có khó khăn về chỗ ở thì được quyền lưu cư trong thời hạn 06 tháng kể từ ngày quan hệ hôn nhân chấm dứt, trừ trường hợp các bên có thỏa thuận khác.",
       "chunks": [
         {
           "chunk_id": "dieu_63_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Nhà ở thuộc sở hữu riêng của vợ, chồng đã đưa vào sử dụng chung thì khi ly hôn vẫn thuộc sở hữu riêng của người đó; trường hợp vợ hoặc chồng có khó khăn về chỗ ở thì được quyền lưu cư trong thời hạn 06 tháng kể từ ngày quan hệ hôn nhân chấm dứt, trừ trường hợp các bên có thỏa thuận khác.",
+          "text": "Quyền lưu cư của vợ hoặc chồng khi ly hôn Nhà ở thuộc sở hữu riêng của vợ, chồng đã đưa vào sử dụng chung thì khi ly hôn vẫn thuộc sở hữu riêng của người đó; trường hợp vợ hoặc chồng có khó khăn về chỗ ở thì được quyền lưu cư trong thời hạn 06 tháng kể từ ngày quan hệ hôn nhân chấm dứt, trừ trường hợp các bên có thỏa thuận khác.",
           "parent_id": "dieu_63",
-          "char_count": 288
+          "char_count": 330
         }
       ]
     },
     {
       "article_id": "dieu_64",
       "article_number": "64",
-      "article_title": "Chia tài sản chung của vợ chồng đưa vào kinh doanh",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
-      "section": "Mục 1 LY HÔN",
-      "intro": null,
+      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG",
+      "intro": "Chia tài sản chung của vợ chồng đưa vào kinh doanh Vợ, chồng đang thực hiện hoạt động kinh doanh liên quan đến tài sản chung có quyền được nhận tài sản đó và phải thanh toán cho bên kia phần giá trị tài sản mà họ được hưởng, trừ trường hợp pháp luật về kinh doanh có quy định khác.",
       "chunks": [
         {
           "chunk_id": "dieu_64_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Vợ, chồng đang thực hiện hoạt động kinh doanh liên quan đến tài sản chung có quyền được nhận tài sản đó và phải thanh toán cho bên kia phần giá trị tài sản mà họ được hưởng, trừ trường hợp pháp luật về kinh doanh có quy định khác.",
+          "text": "Chia tài sản chung của vợ chồng đưa vào kinh doanh Vợ, chồng đang thực hiện hoạt động kinh doanh liên quan đến tài sản chung có quyền được nhận tài sản đó và phải thanh toán cho bên kia phần giá trị tài sản mà họ được hưởng, trừ trường hợp pháp luật về kinh doanh có quy định khác.",
           "parent_id": "dieu_64",
-          "char_count": 230
+          "char_count": 281
         }
       ]
     },
     {
       "article_id": "dieu_65",
       "article_number": "65",
-      "article_title": "Thời điểm chấm dứt hôn nhân",
+      "article_title": null,
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
-      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG CHẾT HOẶC BỊ TÒA ÁN TUYÊN BỐ LÀ ĐÃ CHẾT",
-      "intro": null,
+      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG",
+      "intro": "Thời điểm chấm dứt hôn nhân Hôn nhân chấm dứt kể từ thời điểm vợ hoặc chồng chết. Trong trường hợp Tòa án tuyên bố vợ hoặc chồng là đã chết thì thời điểm hôn nhân chấm dứt được xác định theo ngày chết được ghi trong bản án, quyết định của Tòa án.",
       "chunks": [
         {
           "chunk_id": "dieu_65_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Hôn nhân chấm dứt kể từ thời điểm vợ hoặc chồng chết. Trong trường hợp Tòa án tuyên bố vợ hoặc chồng là đã chết thì thời điểm hôn nhân chấm dứt được xác định theo ngày chết được ghi trong bản án, quyết định của Tòa án.",
+          "text": "Thời điểm chấm dứt hôn nhân Hôn nhân chấm dứt kể từ thời điểm vợ hoặc chồng chết. Trong trường hợp Tòa án tuyên bố vợ hoặc chồng là đã chết thì thời điểm hôn nhân chấm dứt được xác định theo ngày chết được ghi trong bản án, quyết định của Tòa án.",
           "parent_id": "dieu_65",
-          "char_count": 218
+          "char_count": 246
         }
       ]
     },
@@ -2009,7 +2009,7 @@
       "article_number": "66",
       "article_title": "Giải quyết tài sản của vợ chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết",
       "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
-      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG CHẾT HOẶC BỊ TÒA ÁN TUYÊN BỐ LÀ ĐÃ CHẾT",
+      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG",
       "intro": null,
       "chunks": [
         {
@@ -2050,8 +2050,8 @@
       "article_id": "dieu_67",
       "article_number": "67",
       "article_title": "Quan hệ nhân thân, tài sản khi vợ, chồng bị tuyên bố là đã chết mà trở về",
-      "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
-      "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG CHẾT HOẶC BỊ TÒA ÁN TUYÊN BỐ LÀ ĐÃ CHẾT",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2076,8 +2076,8 @@
       "article_id": "dieu_68",
       "article_number": "68",
       "article_title": "Bảo vệ quyền và nghĩa vụ của cha mẹ và con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2118,8 +2118,8 @@
       "article_id": "dieu_69",
       "article_number": "69",
       "article_title": "Nghĩa vụ và quyền của cha mẹ",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2160,8 +2160,8 @@
       "article_id": "dieu_70",
       "article_number": "70",
       "article_title": "Quyền và nghĩa vụ của con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2210,8 +2210,8 @@
       "article_id": "dieu_71",
       "article_number": "71",
       "article_title": "Nghĩa vụ và quyền chăm sóc, nuôi dưỡng",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2236,8 +2236,8 @@
       "article_id": "dieu_72",
       "article_number": "72",
       "article_title": "Nghĩa vụ và quyền giáo dục con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2270,8 +2270,8 @@
       "article_id": "dieu_73",
       "article_number": "73",
       "article_title": "Đại diện cho con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2311,18 +2311,18 @@
     {
       "article_id": "dieu_74",
       "article_number": "74",
-      "article_title": "Bồi thường thiệt hại do con gây ra",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương V QUAN",
+      "section": null,
+      "intro": "Bồi thường thiệt hại do con gây ra Cha mẹ phải bồi thường thiệt hại do con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự gây ra theo quy định của Bộ luật Dân sự.",
       "chunks": [
         {
           "chunk_id": "dieu_74_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Cha mẹ phải bồi thường thiệt hại do con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự gây ra theo quy định của Bộ luật Dân sự.",
+          "text": "Bồi thường thiệt hại do con gây ra Cha mẹ phải bồi thường thiệt hại do con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự gây ra theo quy định của Bộ luật Dân sự.",
           "parent_id": "dieu_74",
-          "char_count": 143
+          "char_count": 178
         }
       ]
     },
@@ -2330,8 +2330,8 @@
       "article_id": "dieu_75",
       "article_number": "75",
       "article_title": "Quyền có tài sản riêng của con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2364,8 +2364,8 @@
       "article_id": "dieu_76",
       "article_number": "76",
       "article_title": "Quản lý tài sản riêng của con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2406,8 +2406,8 @@
       "article_id": "dieu_77",
       "article_number": "77",
       "article_title": "Định đoạt tài sản riêng của con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2440,8 +2440,8 @@
       "article_id": "dieu_78",
       "article_number": "78",
       "article_title": "Quyền, nghĩa vụ của cha nuôi, mẹ nuôi và con nuôi",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2474,8 +2474,8 @@
       "article_id": "dieu_79",
       "article_number": "79",
       "article_title": "Quyền, nghĩa vụ của cha dượng, mẹ kế và con riêng của vợ hoặc của chồng",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2499,28 +2499,28 @@
     {
       "article_id": "dieu_80",
       "article_number": "80",
-      "article_title": "Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương V QUAN",
+      "section": null,
+      "intro": "Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
       "chunks": [
         {
           "chunk_id": "dieu_80_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
+          "text": "Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
           "parent_id": "dieu_80",
-          "char_count": 215
+          "char_count": 276
         }
       ]
     },
     {
       "article_id": "dieu_81",
       "article_number": "81",
-      "article_title": "Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương V QUAN",
+      "section": null,
+      "intro": "Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn",
       "chunks": [
         {
           "chunk_id": "dieu_81_chunk_1",
@@ -2552,8 +2552,8 @@
       "article_id": "dieu_82",
       "article_number": "82",
       "article_title": "Nghĩa vụ, quyền của cha, mẹ không trực tiếp nuôi con sau khi ly hôn",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2586,8 +2586,8 @@
       "article_id": "dieu_83",
       "article_number": "83",
       "article_title": "Nghĩa vụ, quyền của cha, mẹ trực tiếp nuôi con đối với người không trực tiếp nuôi con sau khi ly hôn",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2612,8 +2612,8 @@
       "article_id": "dieu_84",
       "article_number": "84",
       "article_title": "Thay đổi người trực tiếp nuôi con sau khi ly hôn",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2662,8 +2662,8 @@
       "article_id": "dieu_85",
       "article_number": "85",
       "article_title": "Hạn chế quyền của cha, mẹ đối với con chưa thành niên",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": null,
       "intro": null,
       "chunks": [
         {
@@ -2687,10 +2687,10 @@
     {
       "article_id": "dieu_86",
       "article_number": "86",
-      "article_title": "Người có quyền yêu cầu Tòa án hạn chế quyền của cha, mẹ đối với con chưa thành niên",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương V QUAN",
+      "section": null,
+      "intro": "Người có quyền yêu cầu Tòa án hạn chế quyền của cha, mẹ đối với con chưa thành niên",
       "chunks": [
         {
           "chunk_id": "dieu_86_chunk_1",
@@ -2722,8 +2722,8 @@
       "article_id": "dieu_87",
       "article_number": "87",
       "article_title": "Hậu quả pháp lý của việc cha, mẹ bị hạn chế quyền đối với con chưa thành niên",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
+      "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
         {
@@ -2756,7 +2756,7 @@
       "article_id": "dieu_88",
       "article_number": "88",
       "article_title": "Xác định cha, mẹ",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2782,7 +2782,7 @@
       "article_id": "dieu_89",
       "article_number": "89",
       "article_title": "Xác định con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2808,7 +2808,7 @@
       "article_id": "dieu_90",
       "article_number": "90",
       "article_title": "Quyền nhận cha, mẹ",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2834,7 +2834,7 @@
       "article_id": "dieu_91",
       "article_number": "91",
       "article_title": "Quyền nhận con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2859,18 +2859,18 @@
     {
       "article_id": "dieu_92",
       "article_number": "92",
-      "article_title": "Xác định cha, mẹ, con trong trường hợp người có yêu cầu chết",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "article_title": null,
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
-      "intro": null,
+      "intro": "Xác định cha, mẹ, con trong trường hợp người có yêu cầu chết Trong trường hợp có yêu cầu về việc xác định cha, mẹ, con mà người có yêu cầu chết thì người thân thích của người này có quyền yêu cầu Tòa án xác định cha, mẹ, con cho người yêu cầu đã chết. 29",
       "chunks": [
         {
           "chunk_id": "dieu_92_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp có yêu cầu về việc xác định cha, mẹ, con mà người có yêu cầu chết thì người thân thích của người này có quyền yêu cầu Tòa án xác định cha, mẹ, con cho người yêu cầu đã chết. 29",
+          "text": "Xác định cha, mẹ, con trong trường hợp người có yêu cầu chết Trong trường hợp có yêu cầu về việc xác định cha, mẹ, con mà người có yêu cầu chết thì người thân thích của người này có quyền yêu cầu Tòa án xác định cha, mẹ, con cho người yêu cầu đã chết. 29",
           "parent_id": "dieu_92",
-          "char_count": 193
+          "char_count": 254
         }
       ]
     },
@@ -2878,7 +2878,7 @@
       "article_id": "dieu_93",
       "article_number": "93",
       "article_title": "Xác định cha, mẹ trong trường hợp sinh con bằng kỹ thuật hỗ trợ sinh sản",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2919,18 +2919,18 @@
     {
       "article_id": "dieu_94",
       "article_number": "94",
-      "article_title": "Xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "article_title": null,
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
-      "intro": null,
+      "intro": "Xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo Con sinh ra trong trường hợp mang thai hộ vì mục đích nhân đạo là con chung của vợ chồng nhờ mang thai hộ kể từ thời điểm con được sinh ra.",
       "chunks": [
         {
           "chunk_id": "dieu_94_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Con sinh ra trong trường hợp mang thai hộ vì mục đích nhân đạo là con chung của vợ chồng nhờ mang thai hộ kể từ thời điểm con được sinh ra.",
+          "text": "Xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo Con sinh ra trong trường hợp mang thai hộ vì mục đích nhân đạo là con chung của vợ chồng nhờ mang thai hộ kể từ thời điểm con được sinh ra.",
           "parent_id": "dieu_94",
-          "char_count": 139
+          "char_count": 207
         }
       ]
     },
@@ -2938,7 +2938,7 @@
       "article_id": "dieu_95",
       "article_number": "95",
       "article_title": "Điều kiện mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -2988,7 +2988,7 @@
       "article_id": "dieu_96",
       "article_number": "96",
       "article_title": "Thỏa thuận về mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -3014,7 +3014,7 @@
       "article_id": "dieu_97",
       "article_number": "97",
       "article_title": "Quyền, nghĩa vụ của bên mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -3064,7 +3064,7 @@
       "article_id": "dieu_98",
       "article_number": "98",
       "article_title": "Quyền, nghĩa vụ của bên nhờ mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -3114,7 +3114,7 @@
       "article_id": "dieu_99",
       "article_number": "99",
       "article_title": "Giải quyết tranh chấp liên quan đến việc sinh con bằng kỹ thuật hỗ trợ sinh sản, mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -3139,18 +3139,18 @@
     {
       "article_id": "dieu_100",
       "article_number": "100",
-      "article_title": "Xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "article_title": null,
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
-      "intro": null,
+      "intro": "Xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ Các bên trong quan hệ sinh con bằng kỹ thuật hỗ trợ sinh sản, mang thai hộ vi phạm điều kiện, quyền, nghĩa vụ được quy định tại Luật này thì tùy theo tính chất, mức độ vi phạm mà bị xử lý theo trách nhiệm dân sự, hành chính, hình sự.",
       "chunks": [
         {
           "chunk_id": "dieu_100_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Các bên trong quan hệ sinh con bằng kỹ thuật hỗ trợ sinh sản, mang thai hộ vi phạm điều kiện, quyền, nghĩa vụ được quy định tại Luật này thì tùy theo tính chất, mức độ vi phạm mà bị xử lý theo trách nhiệm dân sự, hành chính, hình sự.",
+          "text": "Xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ Các bên trong quan hệ sinh con bằng kỹ thuật hỗ trợ sinh sản, mang thai hộ vi phạm điều kiện, quyền, nghĩa vụ được quy định tại Luật này thì tùy theo tính chất, mức độ vi phạm mà bị xử lý theo trách nhiệm dân sự, hành chính, hình sự.",
           "parent_id": "dieu_100",
-          "char_count": 233
+          "char_count": 313
         }
       ]
     },
@@ -3158,7 +3158,7 @@
       "article_id": "dieu_101",
       "article_number": "101",
       "article_title": "Thẩm quyền giải quyết việc xác định cha, mẹ, con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+      "chapter": "Chương V QUAN",
       "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
       "intro": null,
       "chunks": [
@@ -3183,10 +3183,10 @@
     {
       "article_id": "dieu_102",
       "article_number": "102",
-      "article_title": "Người có quyền yêu cầu xác định cha, mẹ, con",
-      "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-      "section": "Mục 2 XÁC ĐỊNH CHA, MẸ, CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương VI QUAN",
+      "section": null,
+      "intro": "Người có quyền yêu cầu xác định cha, mẹ, con",
       "chunks": [
         {
           "chunk_id": "dieu_102_chunk_1",
@@ -3218,7 +3218,7 @@
       "article_id": "dieu_103",
       "article_number": "103",
       "article_title": "Quyền, nghĩa vụ giữa các thành viên khác của gia đình",
-      "chapter": "Chương VI QUAN HỆ GIỮA CÁC THÀNH VIÊN KHÁC CỦA GIA ĐÌNH",
+      "chapter": "Chương VI QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3252,7 +3252,7 @@
       "article_id": "dieu_104",
       "article_number": "104",
       "article_title": "Quyền, nghĩa vụ của ông bà nội, ông bà ngoại và cháu",
-      "chapter": "Chương VI QUAN HỆ GIỮA CÁC THÀNH VIÊN KHÁC CỦA GIA ĐÌNH",
+      "chapter": "Chương VI QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3277,36 +3277,36 @@
     {
       "article_id": "dieu_105",
       "article_number": "105",
-      "article_title": "Quyền, nghĩa vụ của anh, chị, em",
-      "chapter": "Chương VI QUAN HỆ GIỮA CÁC THÀNH VIÊN KHÁC CỦA GIA ĐÌNH",
+      "article_title": null,
+      "chapter": "Chương VI QUAN",
       "section": null,
-      "intro": null,
+      "intro": "Quyền, nghĩa vụ của anh, chị, em Anh, chị, em có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp không còn cha mẹ hoặc cha mẹ không có điều kiện trông nom, nuôi dưỡng, chăm sóc, giáo dục con.",
       "chunks": [
         {
           "chunk_id": "dieu_105_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Anh, chị, em có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp không còn cha mẹ hoặc cha mẹ không có điều kiện trông nom, nuôi dưỡng, chăm sóc, giáo dục con.",
+          "text": "Quyền, nghĩa vụ của anh, chị, em Anh, chị, em có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp không còn cha mẹ hoặc cha mẹ không có điều kiện trông nom, nuôi dưỡng, chăm sóc, giáo dục con.",
           "parent_id": "dieu_105",
-          "char_count": 214
+          "char_count": 247
         }
       ]
     },
     {
       "article_id": "dieu_106",
       "article_number": "106",
-      "article_title": "Quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột",
-      "chapter": "Chương VI QUAN HỆ GIỮA CÁC THÀNH VIÊN KHÁC CỦA GIA ĐÌNH",
+      "article_title": null,
+      "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột Cô, dì, chú, cậu, bác ruột và cháu ruột có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp người cần được nuôi dưỡng không còn cha, mẹ, con và những người được quy định tại Điều 104 và Điều 105 của Luật này hoặc còn nhưng những người này không có điều kiện để thực hiện nghĩa vụ nuôi dưỡng.",
       "chunks": [
         {
           "chunk_id": "dieu_106_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Cô, dì, chú, cậu, bác ruột và cháu ruột có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp người cần được nuôi dưỡng không còn cha, mẹ, con và những người được quy định tại Điều 104 và Điều 105 của Luật này hoặc còn nhưng những người này không có điều kiện để thực hiện nghĩa vụ nuôi dưỡng.",
+          "text": "Quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột Cô, dì, chú, cậu, bác ruột và cháu ruột có quyền, nghĩa vụ thương yêu, chăm sóc, giúp đỡ nhau; có quyền, nghĩa vụ nuôi dưỡng nhau trong trường hợp người cần được nuôi dưỡng không còn cha, mẹ, con và những người được quy định tại Điều 104 và Điều 105 của Luật này hoặc còn nhưng những người này không có điều kiện để thực hiện nghĩa vụ nuôi dưỡng.",
           "parent_id": "dieu_106",
-          "char_count": 346
+          "char_count": 406
         }
       ]
     },
@@ -3339,90 +3339,90 @@
     {
       "article_id": "dieu_108",
       "article_number": "108",
-      "article_title": "Một người cấp dưỡng cho nhiều người",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Một người cấp dưỡng cho nhiều người Trong trường hợp một người có nghĩa vụ cấp dưỡng cho nhiều người thì người cấp dưỡng và những người được cấp dưỡng thỏa thuận với nhau về phương thức và mức cấp dưỡng phù hợp với thu nhập, khả năng thực tế của người có nghĩa vụ cấp dưỡng và nhu cầu thiết yếu của những người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
       "chunks": [
         {
           "chunk_id": "dieu_108_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp một người có nghĩa vụ cấp dưỡng cho nhiều người thì người cấp dưỡng và những người được cấp dưỡng thỏa thuận với nhau về phương thức và mức cấp dưỡng phù hợp với thu nhập, khả năng thực tế của người có nghĩa vụ cấp dưỡng và nhu cầu thiết yếu của những người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
+          "text": "Một người cấp dưỡng cho nhiều người Trong trường hợp một người có nghĩa vụ cấp dưỡng cho nhiều người thì người cấp dưỡng và những người được cấp dưỡng thỏa thuận với nhau về phương thức và mức cấp dưỡng phù hợp với thu nhập, khả năng thực tế của người có nghĩa vụ cấp dưỡng và nhu cầu thiết yếu của những người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
           "parent_id": "dieu_108",
-          "char_count": 347
+          "char_count": 383
         }
       ]
     },
     {
       "article_id": "dieu_109",
       "article_number": "109",
-      "article_title": "Nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người Trong trường hợp nhiều người cùng có nghĩa vụ cấp dưỡng cho một người hoặc cho nhiều người thì những người này thỏa thuận với nhau về phương thức và mức đóng góp phù hợp với thu nhập, khả năng thực tế của mỗi người và nhu cầu thiết yếu của người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
       "chunks": [
         {
           "chunk_id": "dieu_109_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp nhiều người cùng có nghĩa vụ cấp dưỡng cho một người hoặc cho nhiều người thì những người này thỏa thuận với nhau về phương thức và mức đóng góp phù hợp với thu nhập, khả năng thực tế của mỗi người và nhu cầu thiết yếu của người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
+          "text": "Nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người Trong trường hợp nhiều người cùng có nghĩa vụ cấp dưỡng cho một người hoặc cho nhiều người thì những người này thỏa thuận với nhau về phương thức và mức đóng góp phù hợp với thu nhập, khả năng thực tế của mỗi người và nhu cầu thiết yếu của người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
           "parent_id": "dieu_109",
-          "char_count": 318
+          "char_count": 380
         }
       ]
     },
     {
       "article_id": "dieu_110",
       "article_number": "110",
-      "article_title": "Nghĩa vụ cấp dưỡng của cha, mẹ đối với con",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Nghĩa vụ cấp dưỡng của cha, mẹ đối với con Cha, mẹ có nghĩa vụ cấp dưỡng cho con chưa thành niên, con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình trong trường hợp không sống chung với con hoặc sống chung với con nhưng vi phạm nghĩa vụ nuôi dưỡng con.",
       "chunks": [
         {
           "chunk_id": "dieu_110_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Cha, mẹ có nghĩa vụ cấp dưỡng cho con chưa thành niên, con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình trong trường hợp không sống chung với con hoặc sống chung với con nhưng vi phạm nghĩa vụ nuôi dưỡng con.",
+          "text": "Nghĩa vụ cấp dưỡng của cha, mẹ đối với con Cha, mẹ có nghĩa vụ cấp dưỡng cho con chưa thành niên, con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình trong trường hợp không sống chung với con hoặc sống chung với con nhưng vi phạm nghĩa vụ nuôi dưỡng con.",
           "parent_id": "dieu_110",
-          "char_count": 240
+          "char_count": 283
         }
       ]
     },
     {
       "article_id": "dieu_111",
       "article_number": "111",
-      "article_title": "Nghĩa vụ cấp dưỡng của con đối với cha, mẹ",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Nghĩa vụ cấp dưỡng của con đối với cha, mẹ Con đã thành niên không sống chung với cha, mẹ có nghĩa vụ cấp dưỡng cho cha, mẹ trong trường hợp cha, mẹ không có khả năng lao động và không có tài sản để tự nuôi mình.",
       "chunks": [
         {
           "chunk_id": "dieu_111_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Con đã thành niên không sống chung với cha, mẹ có nghĩa vụ cấp dưỡng cho cha, mẹ trong trường hợp cha, mẹ không có khả năng lao động và không có tài sản để tự nuôi mình.",
+          "text": "Nghĩa vụ cấp dưỡng của con đối với cha, mẹ Con đã thành niên không sống chung với cha, mẹ có nghĩa vụ cấp dưỡng cho cha, mẹ trong trường hợp cha, mẹ không có khả năng lao động và không có tài sản để tự nuôi mình.",
           "parent_id": "dieu_111",
-          "char_count": 169
+          "char_count": 212
         }
       ]
     },
     {
       "article_id": "dieu_112",
       "article_number": "112",
-      "article_title": "Nghĩa vụ cấp dưỡng giữa anh, chị, em",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Nghĩa vụ cấp dưỡng giữa anh, chị, em Trong trường hợp không còn cha mẹ hoặc cha mẹ không có khả năng lao động và không có tài sản để cấp dưỡng cho con thì anh, chị đã thành niên không sống chung với em có nghĩa vụ cấp dưỡng cho em chưa thành niên không có tài sản để tự nuôi mình hoặc em đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình; em đã thành niên không sống chung với anh, chị có nghĩa vụ cấp dưỡng cho anh, chị không có khả năng lao động và không có tài sản để tự nuôi mình.",
       "chunks": [
         {
           "chunk_id": "dieu_112_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp không còn cha mẹ hoặc cha mẹ không có khả năng lao động và không có tài sản để cấp dưỡng cho con thì anh, chị đã thành niên không sống chung với em có nghĩa vụ cấp dưỡng cho em chưa thành niên không có tài sản để tự nuôi mình hoặc em đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình; em đã thành niên không sống chung với anh, chị có nghĩa vụ cấp dưỡng cho anh, chị không có khả năng lao động và không có tài sản để tự nuôi mình.",
+          "text": "Nghĩa vụ cấp dưỡng giữa anh, chị, em Trong trường hợp không còn cha mẹ hoặc cha mẹ không có khả năng lao động và không có tài sản để cấp dưỡng cho con thì anh, chị đã thành niên không sống chung với em có nghĩa vụ cấp dưỡng cho em chưa thành niên không có tài sản để tự nuôi mình hoặc em đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình; em đã thành niên không sống chung với anh, chị có nghĩa vụ cấp dưỡng cho anh, chị không có khả năng lao động và không có tài sản để tự nuôi mình.",
           "parent_id": "dieu_112",
-          "char_count": 474
+          "char_count": 511
         }
       ]
     },
@@ -3481,18 +3481,18 @@
     {
       "article_id": "dieu_115",
       "article_number": "115",
-      "article_title": "Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn Khi ly hôn nếu bên khó khăn, túng thiếu có yêu cầu cấp dưỡng mà có lý do chính đáng thì bên kia có nghĩa vụ cấp dưỡng theo khả năng của mình.",
       "chunks": [
         {
           "chunk_id": "dieu_115_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Khi ly hôn nếu bên khó khăn, túng thiếu có yêu cầu cấp dưỡng mà có lý do chính đáng thì bên kia có nghĩa vụ cấp dưỡng theo khả năng của mình.",
+          "text": "Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn Khi ly hôn nếu bên khó khăn, túng thiếu có yêu cầu cấp dưỡng mà có lý do chính đáng thì bên kia có nghĩa vụ cấp dưỡng theo khả năng của mình.",
           "parent_id": "dieu_115",
-          "char_count": 141
+          "char_count": 188
         }
       ]
     },
@@ -3525,28 +3525,28 @@
     {
       "article_id": "dieu_117",
       "article_number": "117",
-      "article_title": "Phương thức cấp dưỡng",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Phương thức cấp dưỡng Việc cấp dưỡng có thể được thực hiện định kỳ hàng tháng, hàng quý, nửa năm, hàng năm hoặc một lần. Các bên có thể thỏa thuận thay đổi phương thức cấp dưỡng, tạm ngừng cấp dưỡng trong trường hợp người có nghĩa vụ cấp dưỡng lâm vào tình trạng khó khăn về kinh tế mà không có khả năng thực hiện nghĩa vụ cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
       "chunks": [
         {
           "chunk_id": "dieu_117_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Việc cấp dưỡng có thể được thực hiện định kỳ hàng tháng, hàng quý, nửa năm, hàng năm hoặc một lần. Các bên có thể thỏa thuận thay đổi phương thức cấp dưỡng, tạm ngừng cấp dưỡng trong trường hợp người có nghĩa vụ cấp dưỡng lâm vào tình trạng khó khăn về kinh tế mà không có khả năng thực hiện nghĩa vụ cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
+          "text": "Phương thức cấp dưỡng Việc cấp dưỡng có thể được thực hiện định kỳ hàng tháng, hàng quý, nửa năm, hàng năm hoặc một lần. Các bên có thể thỏa thuận thay đổi phương thức cấp dưỡng, tạm ngừng cấp dưỡng trong trường hợp người có nghĩa vụ cấp dưỡng lâm vào tình trạng khó khăn về kinh tế mà không có khả năng thực hiện nghĩa vụ cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
           "parent_id": "dieu_117",
-          "char_count": 368
+          "char_count": 390
         }
       ]
     },
     {
       "article_id": "dieu_118",
       "article_number": "118",
-      "article_title": "Chấm dứt nghĩa vụ cấp dưỡng",
+      "article_title": "Chấm dứt nghĩa vụ cấp dưỡng Nghĩa vụ cấp dưỡng chấm dứt trong các trường hợp sau đây",
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": "Nghĩa vụ cấp dưỡng chấm dứt trong các trường hợp sau đây:",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_118_chunk_1",
@@ -3601,10 +3601,10 @@
     {
       "article_id": "dieu_119",
       "article_number": "119",
-      "article_title": "Người có quyền yêu cầu thực hiện nghĩa vụ cấp dưỡng",
+      "article_title": null,
       "chapter": "Chương VII CẤP DƯỠNG",
       "section": null,
-      "intro": null,
+      "intro": "Người có quyền yêu cầu thực hiện nghĩa vụ cấp dưỡng",
       "chunks": [
         {
           "chunk_id": "dieu_119_chunk_1",
@@ -3635,18 +3635,18 @@
     {
       "article_id": "dieu_120",
       "article_number": "120",
-      "article_title": "Khuyến khích việc trợ giúp của tổ chức, cá nhân",
-      "chapter": "Chương VII CẤP DƯỠNG",
+      "article_title": null,
+      "chapter": "Chương VIII QUAN",
       "section": null,
-      "intro": null,
+      "intro": "Khuyến khích việc trợ giúp của tổ chức, cá nhân Nhà nước và xã hội khuyến khích tổ chức, cá nhân trợ giúp bằng tiền hoặc tài sản khác cho gia đình, cá nhân có hoàn cảnh đặc biệt khó khăn, túng thiếu.",
       "chunks": [
         {
           "chunk_id": "dieu_120_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Nhà nước và xã hội khuyến khích tổ chức, cá nhân trợ giúp bằng tiền hoặc tài sản khác cho gia đình, cá nhân có hoàn cảnh đặc biệt khó khăn, túng thiếu.",
+          "text": "Khuyến khích việc trợ giúp của tổ chức, cá nhân Nhà nước và xã hội khuyến khích tổ chức, cá nhân trợ giúp bằng tiền hoặc tài sản khác cho gia đình, cá nhân có hoàn cảnh đặc biệt khó khăn, túng thiếu.",
           "parent_id": "dieu_120",
-          "char_count": 151
+          "char_count": 199
         }
       ]
     },
@@ -3654,7 +3654,7 @@
       "article_id": "dieu_121",
       "article_number": "121",
       "article_title": "Bảo vệ quyền, lợi ích hợp pháp của các bên trong quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3696,7 +3696,7 @@
       "article_id": "dieu_122",
       "article_number": "122",
       "article_title": "Áp dụng pháp luật đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3730,7 +3730,7 @@
       "article_id": "dieu_123",
       "article_number": "123",
       "article_title": "Thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3763,18 +3763,18 @@
     {
       "article_id": "dieu_124",
       "article_number": "124",
-      "article_title": "Hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "article_title": null,
+      "chapter": "Chương VIII QUAN",
       "section": null,
-      "intro": null,
+      "intro": "Hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình Giấy tờ do cơ quan có thẩm quyền của nước ngoài lập, cấp hoặc xác nhận để sử dụng giải quyết các vụ việc hôn nhân và gia đình thì phải được hợp pháp hoá lãnh sự, trừ trường hợp được miễn hợp pháp hóa lãnh sự theo điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên hoặc theo nguyên tắc có đi có lại.",
       "chunks": [
         {
           "chunk_id": "dieu_124_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Giấy tờ do cơ quan có thẩm quyền của nước ngoài lập, cấp hoặc xác nhận để sử dụng giải quyết các vụ việc hôn nhân và gia đình thì phải được hợp pháp hoá lãnh sự, trừ trường hợp được miễn hợp pháp hóa lãnh sự theo điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên hoặc theo nguyên tắc có đi có lại.",
+          "text": "Hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình Giấy tờ do cơ quan có thẩm quyền của nước ngoài lập, cấp hoặc xác nhận để sử dụng giải quyết các vụ việc hôn nhân và gia đình thì phải được hợp pháp hoá lãnh sự, trừ trường hợp được miễn hợp pháp hóa lãnh sự theo điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên hoặc theo nguyên tắc có đi có lại.",
           "parent_id": "dieu_124",
-          "char_count": 316
+          "char_count": 379
         }
       ]
     },
@@ -3782,7 +3782,7 @@
       "article_id": "dieu_125",
       "article_number": "125",
       "article_title": "Công nhận, ghi chú bản án, quyết định của Tòa án, cơ quan có thẩm quyền của nước ngoài về hôn nhân và gia đình",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3808,7 +3808,7 @@
       "article_id": "dieu_126",
       "article_number": "126",
       "article_title": "Kết hôn có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3834,7 +3834,7 @@
       "article_id": "dieu_127",
       "article_number": "127",
       "article_title": "Ly hôn có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3868,7 +3868,7 @@
       "article_id": "dieu_128",
       "article_number": "128",
       "article_title": "Xác định cha, mẹ, con có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3894,7 +3894,7 @@
       "article_id": "dieu_129",
       "article_number": "129",
       "article_title": "Nghĩa vụ cấp dưỡng có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [
@@ -3919,18 +3919,18 @@
     {
       "article_id": "dieu_130",
       "article_number": "130",
-      "article_title": "Áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài",
-      "chapter": "Chương VIII QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+      "article_title": null,
+      "chapter": "Chương VIII QUAN",
       "section": null,
-      "intro": null,
+      "intro": "Áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết. Chương IX ĐIỀU KHOẢN THI HÀNH",
       "chunks": [
         {
           "chunk_id": "dieu_130_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
+          "text": "Áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết. Chương IX ĐIỀU KHOẢN THI HÀNH",
           "parent_id": "dieu_130",
-          "char_count": 322
+          "char_count": 520
         }
       ]
     },
@@ -3938,7 +3938,7 @@
       "article_id": "dieu_131",
       "article_number": "131",
       "article_title": "Điều khoản chuyển tiếp",
-      "chapter": "Chương IX ĐIỀU KHOẢN THI HÀNH",
+      "chapter": "Chương VIII QUAN",
       "section": null,
       "intro": null,
       "chunks": [

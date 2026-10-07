@@ -1,30 +1,30 @@
 {
   "document_id": "ND01",
   "metadata": {
-    "title": "Văn bản pháp luật ND01",
-    "document_type": "Luật",
-    "document_number": "ND01",
-    "issue_date": "2024-01-01",
-    "effective_date": "2024-01-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "title": "LUẬT CHÍNH PHỦ CHÍNH PHỦ CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc",
+    "document_type": "Nghị định",
+    "document_number": "126/2014/NĐ-CP",
+    "issue_date": "2014-12-31",
+    "effective_date": null,
+    "issuing_body": "Bộ Tư pháp",
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
       "article_id": "dieu_1",
       "article_number": "1",
-      "article_title": "Phạm vi điều chỉnh",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
+      "article_title": null,
+      "chapter": "Chương I PHẠM VI",
       "section": null,
-      "intro": null,
+      "intro": "Phạm vi điều chỉnh Nghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình.",
       "chunks": [
         {
           "chunk_id": "dieu_1_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Nghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình.",
+          "text": "Phạm vi điều chỉnh Nghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình.",
           "parent_id": "dieu_1",
-          "char_count": 226
+          "char_count": 245
         }
       ]
     },
@@ -32,7 +32,7 @@
       "article_id": "dieu_2",
       "article_number": "2",
       "article_title": "Nguyên tắc áp dụng tập quán",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
+      "chapter": "Chương I PHẠM VI",
       "section": null,
       "intro": null,
       "chunks": [
@@ -66,7 +66,7 @@
       "article_id": "dieu_3",
       "article_number": "3",
       "article_title": "Thỏa thuận về áp dụng tập quán",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
+      "chapter": "Chương I PHẠM VI",
       "section": null,
       "intro": null,
       "chunks": [
@@ -92,7 +92,7 @@
       "article_id": "dieu_4",
       "article_number": "4",
       "article_title": "Giải quyết vụ, việc hôn nhân và gia đình có áp dụng tập quán",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
+      "chapter": "Chương I PHẠM VI",
       "section": null,
       "intro": null,
       "chunks": [
@@ -118,7 +118,7 @@
       "article_id": "dieu_5",
       "article_number": "5",
       "article_title": "Tuyên truyền, vận động nhân dân về áp dụng tập quán",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
+      "chapter": "Chương I PHẠM VI",
       "section": null,
       "intro": null,
       "chunks": [
@@ -144,8 +144,8 @@
       "article_id": "dieu_6",
       "article_number": "6",
       "article_title": "Trách nhiệm về xây dựng danh mục tập quán được áp dụng",
-      "chapter": "Chương I PHẠM VI ĐIỀU CHỈNH, ÁP DỤNG TẬP QUÁN VỀ HÔN NHÂN VÀ GIA ĐÌNH",
-      "section": null,
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -160,9 +160,9 @@
           "chunk_id": "dieu_6_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Căn cứ vào thực tiễn áp dụng tập quán về hôn nhân và gia đình tại địa phương, Ủy ban nhân dân cấp tỉnh trình Hội đồng nhân dân cùng cấp sửa đổi, bổ sung danh mục tập quán đã ban hành. CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 5",
+          "text": "2. Căn cứ vào thực tiễn áp dụng tập quán về hôn nhân và gia đình tại địa phương, Ủy ban nhân dân cấp tỉnh trình Hội đồng nhân dân cùng cấp sửa đổi, bổ sung danh mục tập quán đã ban hành. CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 5 Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
           "parent_id": "dieu_6",
-          "char_count": 224
+          "char_count": 262
         }
       ]
     },
@@ -170,9 +170,9 @@
       "article_id": "dieu_7",
       "article_number": "7",
       "article_title": null,
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương I PHẠM VI",
       "section": "Mục 1 QUY ĐỊNH CHUNG",
-      "intro": null,
+      "intro": "Áp dụng chế độ tài sản của vợ chồng theo luật định Chế độ tài sản của vợ chồng theo luật định được áp dụng trong trường hợp vợ chồng không lựa chọn áp dụng chế độ tài sản theo thỏa thuận hoặc có thỏa thuận về chế độ tài sản nhưng thỏa thuận này bị Tòa án tuyên bố vô hiệu theo quy định tại Điều 50 của Luật Hôn nhân và gia đình.",
       "chunks": [
         {
           "chunk_id": "dieu_7_chunk_1",
@@ -188,7 +188,7 @@
       "article_id": "dieu_8",
       "article_number": "8",
       "article_title": null,
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+      "chapter": "Chương I PHẠM VI",
       "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": "Người thứ ba không ngay tình khi xác lập, thực hiện giao dịch với vợ, chồng liên quan đến tài khoản ngân hàng, tài khoản chứng khoán, động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu Người thứ ba xác lập, thực hiện giao dịch với vợ, chồng liên quan đến tài khoản ngân hàng, tài khoản chứng khoán, động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu thì bị coi là không ngay tình trong những trường hợp sau đây:",
       "chunks": [
@@ -204,9 +204,9 @@
           "chunk_id": "dieu_8_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Vợ chồng đã công khai thỏa thuận theo quy định của pháp luật có liên quan về việc chiếm hữu, sử dụng, định đoạt tài sản và người thứ ba biết hoặc phải biết nhưng vẫn xác lập, thực hiện giao dịch trái với thỏa thuận của vợ chồng.",
+          "text": "2. Vợ chồng đã công khai thỏa thuận theo quy định của pháp luật có liên quan về việc chiếm hữu, sử dụng, định đoạt tài sản và người thứ ba biết hoặc phải biết nhưng vẫn xác lập, thực hiện giao dịch trái với thỏa thuận của vợ chồng. Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
           "parent_id": "dieu_8",
-          "char_count": 231
+          "char_count": 280
         }
       ]
     },
@@ -214,8 +214,8 @@
       "article_id": "dieu_9",
       "article_number": "9",
       "article_title": "Thu nhập hợp pháp khác của vợ, chồng trong thời kỳ hôn nhân",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -248,8 +248,8 @@
       "article_id": "dieu_10",
       "article_number": "10",
       "article_title": "Hoa lợi, lợi tức phát sinh từ tài sản riêng của vợ, chồng",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -274,8 +274,8 @@
       "article_id": "dieu_11",
       "article_number": "11",
       "article_title": "Tài sản riêng khác của vợ, chồng theo quy định của pháp luật",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -308,8 +308,8 @@
       "article_id": "dieu_12",
       "article_number": "12",
       "article_title": "Đăng ký tài sản chung của vợ chồng",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -342,8 +342,8 @@
       "article_id": "dieu_13",
       "article_number": "13",
       "article_title": "Chiếm hữu, sử dụng, định đoạt tài sản chung của vợ chồng",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -368,8 +368,8 @@
       "article_id": "dieu_14",
       "article_number": "14",
       "article_title": "Hậu quả của việc chia tài sản chung của vợ chồng trong thời kỳ hôn nhân",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 2 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO LUẬT ĐỊNH",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -392,9 +392,9 @@
           "chunk_id": "dieu_14_chunk_3",
           "clause_number": "3",
           "point_letter": null,
-          "text": "3. Từ thời điểm việc chia tài sản chung của vợ chồng có hiệu lực, nếu tài sản có được từ việc khai thác tài sản riêng của vợ, chồng mà không xác định được đó là thu nhập do lao động, hoạt động sản xuất, kinh doanh của vợ, chồng hay là hoa lợi, lợi tức phát sinh từ tài sản riêng đó thì thuộc sở hữu chung của vợ chồng.",
+          "text": "3. Từ thời điểm việc chia tài sản chung của vợ chồng có hiệu lực, nếu tài sản có được từ việc khai thác tài sản riêng của vợ, chồng mà không xác định được đó là thu nhập do lao động, hoạt động sản xuất, kinh doanh của vợ, chồng hay là hoa lợi, lợi tức phát sinh từ tài sản riêng đó thì thuộc sở hữu chung của vợ chồng. Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO THỎA THUẬN",
           "parent_id": "dieu_14",
-          "char_count": 318
+          "char_count": 368
         }
       ]
     },
@@ -402,8 +402,8 @@
       "article_id": "dieu_15",
       "article_number": "15",
       "article_title": "Xác định tài sản của vợ chồng theo thỏa thuận",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO THỎA THUẬN",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -428,9 +428,9 @@
       "article_id": "dieu_16",
       "article_number": "16",
       "article_title": null,
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO THỎA THUẬN",
-      "intro": null,
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
+      "intro": "Cung cấp thông tin về chế độ tài sản của vợ chồng theo thỏa thuận trong giao dịch với người thứ ba Trường hợp chế độ tài sản của vợ chồng theo thỏa thuận được áp dụng thì khi xác lập, thực hiện giao dịch vợ, chồng có nghĩa vụ cung cấp cho người thứ ba biết về những thông tin liên quan; nếu vợ, chồng vi phạm nghĩa vụ này thì người thứ ba được coi là ngay tình và được bảo vệ quyền lợi theo quy định của Bộ luật Dân sự.",
       "chunks": [
         {
           "chunk_id": "dieu_16_chunk_1",
@@ -446,8 +446,8 @@
       "article_id": "dieu_17",
       "article_number": "17",
       "article_title": "Sửa đổi, bổ sung nội dung của chế độ tài sản của vợ chồng",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO THỎA THUẬN",
+      "chapter": "Chương I PHẠM VI",
+      "section": "Mục 1 QUY ĐỊNH CHUNG",
       "intro": null,
       "chunks": [
         {
@@ -472,8 +472,8 @@
       "article_id": "dieu_18",
       "article_number": "18",
       "article_title": "Hậu quả của việc sửa đổi, bổ sung nội dung của chế độ tài sản của vợ chồng",
-      "chapter": "Chương II CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
-      "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG THEO THỎA THUẬN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -498,8 +498,8 @@
       "article_id": "dieu_19",
       "article_number": "19",
       "article_title": "Thẩm quyền đăng ký kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -532,8 +532,8 @@
       "article_id": "dieu_20",
       "article_number": "20",
       "article_title": "Hồ sơ đăng ký kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -590,8 +590,8 @@
       "article_id": "dieu_21",
       "article_number": "21",
       "article_title": "Thủ tục nộp, tiếp nhận hồ sơ",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -624,8 +624,8 @@
       "article_id": "dieu_22",
       "article_number": "22",
       "article_title": "Thời hạn giải quyết việc đăng ký kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -650,8 +650,8 @@
       "article_id": "dieu_23",
       "article_number": "23",
       "article_title": "Trình tự giải quyết việc đăng ký kết hôn tại Việt Nam",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -692,8 +692,8 @@
       "article_id": "dieu_24",
       "article_number": "24",
       "article_title": "Lễ đăng ký kết hôn tại Việt Nam",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -734,8 +734,8 @@
       "article_id": "dieu_25",
       "article_number": "25",
       "article_title": "Trình tự đăng ký kết hôn tại Cơ quan đại diện",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 1 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -784,8 +784,8 @@
       "article_id": "dieu_26",
       "article_number": "26",
       "article_title": "Từ chối đăng ký kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN",
       "intro": null,
       "chunks": [
         {
@@ -810,9 +810,9 @@
       "article_id": "dieu_27",
       "article_number": "27",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN VIỆT NAM CƯ TRÚ TRONG NƯỚC ĐỂ ĐĂNG KÝ KẾT HÔN VỚI NGƯỜI NƯỚC NGOÀI TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI Ở NƯỚC NGOÀI",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN",
+      "intro": "Thẩm quyền cấp giấy xác nhận tình trạng hôn nhân Ủy ban nhân dân cấp xã, nơi đăng ký thường trú của công dân Việt Nam thực hiện cấp giấy xác nhận tình trạng hôn nhân cho người đó để làm thủ tục đăng ký kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài. Trường hợp công dân Việt Nam không có đăng ký thường trú nhưng có đăng ký tạm trú theo quy định của pháp luật về cư trú thì Ủy ban nhân dân cấp xã, nơi đăng ký tạm trú của người đó thực hiện cấp giấy xác nhận tình trạng hôn nhân.",
       "chunks": [
         {
           "chunk_id": "dieu_27_chunk_1",
@@ -828,8 +828,8 @@
       "article_id": "dieu_28",
       "article_number": "28",
       "article_title": "Thủ tục cấp giấy xác nhận tình trạng hôn nhân",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN VIỆT NAM CƯ TRÚ TRONG NƯỚC ĐỂ ĐĂNG KÝ KẾT HÔN VỚI NGƯỜI NƯỚC NGOÀI TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI Ở NƯỚC NGOÀI",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN",
       "intro": null,
       "chunks": [
         {
@@ -894,8 +894,8 @@
       "article_id": "dieu_29",
       "article_number": "29",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 2 CẤP GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN CHO CÔNG DÂN VIỆT NAM CƯ TRÚ TRONG NƯỚC ĐỂ ĐĂNG KÝ KẾT HÔN VỚI NGƯỜI NƯỚC NGOÀI TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI Ở NƯỚC NGOÀI",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": "Từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài Yêu cầu cấp giấy xác nhận tình trạng hôn nhân của công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài bị từ chối trong các trường hợp sau đây:",
       "chunks": [
         {
@@ -936,8 +936,8 @@
       "article_id": "dieu_30",
       "article_number": "30",
       "article_title": "Điều kiện nhận cha, mẹ, con",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -978,8 +978,8 @@
       "article_id": "dieu_31",
       "article_number": "31",
       "article_title": "Thẩm quyền đăng ký việc nhận cha, mẹ, con",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1004,8 +1004,8 @@
       "article_id": "dieu_32",
       "article_number": "32",
       "article_title": "Hồ sơ nhận cha, mẹ, con",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1030,9 +1030,9 @@
       "article_id": "dieu_33",
       "article_number": "33",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Thời hạn giải quyết việc nhận cha, mẹ, con Thời hạn giải quyết việc nhận cha, mẹ, con không quá 25 ngày, kể từ ngày Sở Tư pháp, Cơ quan đại diện nhận đủ hồ sơ hợp lệ và lệ phí. Trường hợp cần xác minh theo quy định tại Khoản 3 Điều 34 hoặc Điểm a Khoản 1 Điều 35 của Nghị định này thì thời hạn trên được kéo dài thêm không quá 10 ngày làm việc.",
       "chunks": [
         {
           "chunk_id": "dieu_33_chunk_1",
@@ -1048,8 +1048,8 @@
       "article_id": "dieu_34",
       "article_number": "34",
       "article_title": "Trình tự giải quyết việc nhận cha, mẹ, con tại Việt Nam",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1098,8 +1098,8 @@
       "article_id": "dieu_35",
       "article_number": "35",
       "article_title": "Trình tự giải quyết việc nhận cha, mẹ, con tại Cơ quan đại diện",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1123,10 +1123,10 @@
     {
       "article_id": "dieu_36",
       "article_number": "36",
-      "article_title": "Điều kiện, hình thức công nhận việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 19",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Điều kiện, hình thức công nhận việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 19",
       "chunks": [
         {
           "chunk_id": "dieu_36_chunk_1",
@@ -1149,10 +1149,10 @@
     {
       "article_id": "dieu_37",
       "article_number": "37",
-      "article_title": "Thẩm quyền ghi vào sổ đăng ký kết hôn việc kết hôn, ghi vào sổ hộ tịch việc nhận cha, mẹ, con của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Thẩm quyền ghi vào sổ đăng ký kết hôn việc kết hôn, ghi vào sổ hộ tịch việc nhận cha, mẹ, con của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài",
       "chunks": [
         {
           "chunk_id": "dieu_37_chunk_1",
@@ -1176,8 +1176,8 @@
       "article_id": "dieu_38",
       "article_number": "38",
       "article_title": "Hồ sơ, trình tự, thủ tục ghi vào sổ việc kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1217,10 +1217,10 @@
     {
       "article_id": "dieu_39",
       "article_number": "39",
-      "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": "Từ chối ghi vào sổ việc kết hôn Yêu cầu ghi vào sổ việc kết hôn bị từ chối nếu thuộc một trong các trường hợp sau đây:",
+      "article_title": "Từ chối ghi vào sổ việc kết hôn Yêu cầu ghi vào sổ việc kết hôn bị từ chối nếu thuộc một trong các trường hợp sau đây",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_39_chunk_1",
@@ -1252,8 +1252,8 @@
       "article_id": "dieu_40",
       "article_number": "40",
       "article_title": "Hồ sơ, trình tự, thủ tục ghi vào sổ việc nhận cha, mẹ, con",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1286,9 +1286,9 @@
       "article_id": "dieu_41",
       "article_number": "41",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Điều kiện ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài Bản án, quyết định ly hôn, bản thỏa thuận ly hôn hoặc giấy tờ khác công nhận việc ly hôn do cơ quan có thẩm quyền của nước ngoài cấp không có yêu cầu thi hành tại Việt Nam hoặc không có đơn yêu cầu không công nhận tại Việt Nam.",
       "chunks": [
         {
           "chunk_id": "dieu_41_chunk_1",
@@ -1304,8 +1304,8 @@
       "article_id": "dieu_42",
       "article_number": "42",
       "article_title": "Thẩm quyền ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1337,10 +1337,10 @@
     {
       "article_id": "dieu_43",
       "article_number": "43",
-      "article_title": "Các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
       "chunks": [
         {
           "chunk_id": "dieu_43_chunk_1",
@@ -1372,8 +1372,8 @@
       "article_id": "dieu_44",
       "article_number": "44",
       "article_title": "Hồ sơ ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1398,8 +1398,8 @@
       "article_id": "dieu_45",
       "article_number": "45",
       "article_title": "Trình tự, thủ tục ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1432,8 +1432,8 @@
       "article_id": "dieu_46",
       "article_number": "46",
       "article_title": "Cách ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1458,9 +1458,9 @@
       "article_id": "dieu_47",
       "article_number": "47",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Ghi vào sổ hộ tịch việc hủy kết hôn trái pháp luật đã được giải quyết ở nước ngoài Việc ghi vào sổ hộ tịch việc hủy kết hôn trái pháp luật đã được giải quyết ở nước ngoài được thực hiện như quy định về ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài. Mục ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "chunks": [
         {
           "chunk_id": "dieu_47_chunk_1",
@@ -1476,9 +1476,9 @@
       "article_id": "dieu_48",
       "article_number": "48",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con Ủy ban nhân dân cấp xã ở khu vực biên giới thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con của công dân Việt Nam thường trú ở khu vực biên giới với công dân của nước láng giềng thường trú ở khu vực biên giới với Việt Nam theo quy định của Nghị định này.",
       "chunks": [
         {
           "chunk_id": "dieu_48_chunk_1",
@@ -1494,8 +1494,8 @@
       "article_id": "dieu_49",
       "article_number": "49",
       "article_title": "Trình tự, thủ tục đăng ký kết hôn",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1560,8 +1560,8 @@
       "article_id": "dieu_50",
       "article_number": "50",
       "article_title": "Trình tự, thủ tục đăng ký nhận cha, mẹ, con",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1618,9 +1618,9 @@
       "article_id": "dieu_51",
       "article_number": "51",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài Trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài (sau đây gọi là Trung tâm) là đơn vị sự nghiệp thuộc Trung ương Hội Liên hiệp Phụ nữ Việt Nam hoặc Hội Liên hiệp phụ nữ tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là Hội Liên hiệp phụ nữ).",
       "chunks": [
         {
           "chunk_id": "dieu_51_chunk_1",
@@ -1636,8 +1636,8 @@
       "article_id": "dieu_52",
       "article_number": "52",
       "article_title": "Nguyên tắc hoạt động tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1669,10 +1669,10 @@
     {
       "article_id": "dieu_53",
       "article_number": "53",
-      "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": "Điều kiện thành lập Trung tâm Hội Liên hiệp phụ nữ quyết định thành lập Trung tâm khi có đủ các điều kiện sau đây:",
+      "article_title": "Điều kiện thành lập Trung tâm Hội Liên hiệp phụ nữ quyết định thành lập Trung tâm khi có đủ các điều kiện sau đây",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": null,
       "chunks": [
         {
           "chunk_id": "dieu_53_chunk_1",
@@ -1704,8 +1704,8 @@
       "article_id": "dieu_54",
       "article_number": "54",
       "article_title": "Thủ tục đăng ký hoạt động của Trung tâm, cấp lại giấy đăng ký hoạt động của Trung tâm",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1746,8 +1746,8 @@
       "article_id": "dieu_55",
       "article_number": "55",
       "article_title": "Quyền hạn, nghĩa vụ của Trung tâm",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1844,8 +1844,8 @@
       "article_id": "dieu_56",
       "article_number": "56",
       "article_title": "Thay đổi nội dung giấy đăng ký hoạt động của Trung tâm",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1870,8 +1870,8 @@
       "article_id": "dieu_57",
       "article_number": "57",
       "article_title": "Chấm dứt hoạt động của Trung tâm",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -1912,8 +1912,8 @@
       "article_id": "dieu_58",
       "article_number": "58",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": "Nhiệm vụ, quyền hạn của Bộ Tư pháp Bộ Tư pháp chịu trách nhiệm trước Chính phủ thống nhất quản lý nhà nước về hôn nhân và gia đình có yếu tố nước ngoài trong phạm vi toàn quốc, có nhiệm vụ và quyền hạn sau đây:",
       "chunks": [
         {
@@ -1970,8 +1970,8 @@
       "article_id": "dieu_59",
       "article_number": "59",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": "Nhiệm vụ, quyền hạn của Bộ Ngoại giao Bộ Ngoại giao thực hiện quản lý nhà nước về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật, có nhiệm vụ và quyền hạn sau đây:",
       "chunks": [
         {
@@ -2036,8 +2036,8 @@
       "article_id": "dieu_60",
       "article_number": "60",
       "article_title": "Nhiệm vụ, quyền hạn của Cơ quan đại diện",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -2062,8 +2062,8 @@
       "article_id": "dieu_61",
       "article_number": "61",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": "Nhiệm vụ, quyền hạn của Bộ Công an Bộ Công an thực hiện quản lý nhà nước về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật, có nhiệm vụ và quyền hạn sau đây:",
       "chunks": [
         {
@@ -2104,9 +2104,9 @@
       "article_id": "dieu_62",
       "article_number": "62",
       "article_title": null,
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Nhiệm vụ của các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ Các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ, trong phạm vi chức năng, nhiệm vụ, quyền hạn của mình, có trách nhiệm phối hợp với Bộ Tư pháp trong việc thực hiện quản lý nhà nước về hôn nhân và gia đình có yếu tố nước ngoài.",
       "chunks": [
         {
           "chunk_id": "dieu_62_chunk_1",
@@ -2122,8 +2122,8 @@
       "article_id": "dieu_63",
       "article_number": "63",
       "article_title": "Nhiệm vụ, quyền hạn của Ủy ban nhân dân cấp tỉnh",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -2148,8 +2148,8 @@
       "article_id": "dieu_64",
       "article_number": "64",
       "article_title": "Trách nhiệm của Trung ương Hội Liên hiệp Phụ nữ Việt Nam trong lĩnh vực hôn nhân và gia đình có yếu tố nước ngoài",
-      "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-      "section": "Mục 3 ĐĂNG KÝ VIỆC NHẬN CHA, MẸ, CON",
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -2164,9 +2164,9 @@
           "chunk_id": "dieu_64_chunk_2",
           "clause_number": "2",
           "point_letter": null,
-          "text": "2. Trung ương Hội Liên hiệp Phụ nữ Việt Nam có trách nhiệm sau đây: a) Thành lập Trung tâm theo quy định của Nghị định này và thực hiện quản lý hoạt động của Trung tâm; b) Chỉ đạo, hướng dẫn Hội Liên hiệp phụ nữ tỉnh, thành phố trực thuộc Trung ương thành lập Trung tâm và thực hiện quản lý hoạt động của Trung tâm; c) Chỉ đạo, hướng dẫn về tổ chức và hoạt động của Trung tâm; d) Phối hợp với Bộ Tư pháp kiểm tra, thanh tra về tổ chức và hoạt động của Trung tâm.",
+          "text": "2. Trung ương Hội Liên hiệp Phụ nữ Việt Nam có trách nhiệm sau đây: a) Thành lập Trung tâm theo quy định của Nghị định này và thực hiện quản lý hoạt động của Trung tâm; b) Chỉ đạo, hướng dẫn Hội Liên hiệp phụ nữ tỉnh, thành phố trực thuộc Trung ương thành lập Trung tâm và thực hiện quản lý hoạt động của Trung tâm; c) Chỉ đạo, hướng dẫn về tổ chức và hoạt động của Trung tâm; d) Phối hợp với Bộ Tư pháp kiểm tra, thanh tra về tổ chức và hoạt động của Trung tâm. Chương IV ĐIỀU KHOẢN THI HÀNH",
           "parent_id": "dieu_64",
-          "char_count": 462
+          "char_count": 492
         }
       ]
     },
@@ -2174,8 +2174,8 @@
       "article_id": "dieu_65",
       "article_number": "65",
       "article_title": "Hiệu lực thi hành",
-      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
-      "section": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
       "intro": null,
       "chunks": [
         {
@@ -2200,9 +2200,9 @@
       "article_id": "dieu_66",
       "article_number": "66",
       "article_title": null,
-      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
-      "section": null,
-      "intro": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Điều khoản chuyển tiếp Hồ sơ yêu cầu đăng ký kết hôn; nhận cha, mẹ, con; cấp Giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để đăng ký kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài; ghi vào sổ việc kết hôn, nhận cha, mẹ, con đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài được cơ quan có thẩm quyền của Việt Nam tiếp nhận trước ngày Nghị định này có hiệu lực thì tiếp tục được giải quyết theo quy định của Nghị định số 24/2013/NĐ-CP ngày 28 tháng 3 năm 2013 quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài.",
       "chunks": [
         {
           "chunk_id": "dieu_66_chunk_1",
@@ -2217,10 +2217,10 @@
     {
       "article_id": "dieu_67",
       "article_number": "67",
-      "article_title": "Trách nhiệm thi hành Các Bộ trưởng, Thủ trưởng cơ quan ngang Bộ, Thủ trưởng cơ quan thuộc Chính phủ, Chủ tịch Ủy ban nhân dân các cấp và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Nghị định này./. TM. CHÍNH PHỦ THỦ TƯỚNG Nguyễn Tấn Dũng 34 CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 Phụ lục DANH MỤC CÁC TẬP QUÁN LẠC HẬU VỀ HÔN NHÂN VÀ GIA ĐÌNH CẦN VẬN ĐỘNG XÓA BỎ HOẶC CẤM ÁP DỤNG (Ban hành kèm theo Nghị định số 126/2014/NĐ-CP ngày 31 tháng 12 năm 2014 của Chính phủ) I. CÁC TẬP QUÁN LẠC HẬU VỀ HÔN NHÂN VÀ GIA ĐÌNH CẦN VẬN ĐỘNG XÓA BỎ",
-      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
-      "section": null,
-      "intro": null,
+      "article_title": null,
+      "chapter": "Chương III QUAN",
+      "section": "Mục 3 ĐĂNG KÝ",
+      "intro": "Trách nhiệm thi hành Các Bộ trưởng, Thủ trưởng cơ quan ngang Bộ, Thủ trưởng cơ quan thuộc Chính phủ, Chủ tịch Ủy ban nhân dân các cấp và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Nghị định này./. TM. CHÍNH PHỦ THỦ TƯỚNG Nguyễn Tấn Dũng 34 CÔNG BÁO/Số 71 + 72/Ngày 18-01-2015 Phụ lục DANH MỤC CÁC TẬP QUÁN LẠC HẬU VỀ HÔN NHÂN VÀ GIA ĐÌNH CẦN VẬN ĐỘNG XÓA BỎ HOẶC CẤM ÁP DỤNG (Ban hành kèm theo Nghị định số 126/2014/NĐ-CP ngày 31 tháng 12 năm 2014 của Chính phủ) I. CÁC TẬP QUÁN LẠC HẬU VỀ HÔN NHÂN VÀ GIA ĐÌNH CẦN VẬN ĐỘNG XÓA BỎ",
       "chunks": [
         {
           "chunk_id": "dieu_67_chunk_1",

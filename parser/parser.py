@@ -1,93 +1,20 @@
-# -*- coding: utf-8 -*-
-"""
-Parser văn bản luật (file TXT một dòng) -> JSON theo Điều / Khoản.
-
-Cách làm:
-  1. Làm sạch: bỏ phần đầu văn bản, bỏ dấu chú thích dính chữ, bỏ chú thích cuối trang
-     và số trang (đếm tuần tự: trang 2, 3, 4, ...).
-  2. Tìm Điều theo số thứ tự mong đợi (1, 2, 3, ...), chỉ nhận dạng "Điều N. Chữ-hoa".
-     Tham chiếu như "Điều 8 của Luật này" không có dấu chấm nên không bị nhầm.
-  3. Tách Chương/Mục (viết HOA) ra metadata, không để dính vào nội dung Điều.
-  4. Trong mỗi Điều: tách tiêu đề, phần dẫn nhập (intro) và các Khoản (1., 2., 3. ... tuần tự).
-  5. Khoản quá dài (> MAX_CLAUSE_CHARS) và có điểm a), b)... thì tách thêm theo điểm,
-     mỗi chunk điểm được gắn câu dẫn của khoản.
-
-Dùng trong test_parser.py:  parse_raw_text_to_legal_doc(raw_text, doc_id, metadata)
-Chạy độc lập:  python parser.py -i input.txt -o output.json
-"""
+"""Thư viện parse văn bản luật (TXT) thành JSON theo Điều / Khoản. Không có main; entry point là test_parser.py."""
 import argparse
 import json
 import re
-import sys
 from pathlib import Path
 from typing import Dict, List, Literal, Optional, Tuple
 
 from pydantic import BaseModel, Field, field_validator
 
-# ==========================================
-# CẤU HÌNH
-# ==========================================
-INPUT_FILE = r"E:\nhom AI\Vietnam-Legal-RAG-Assistant\parser\cleaned_texts\L01.txt"
-OUTPUT_FILE = r"E:\nhom AI\Vietnam-Legal-RAG-Assistant\parser\cleaned_texts\L01_schema_parsed.json"
 
-DOCUMENT_ID = "L01"
-DOCUMENT_TITLE = "Luật Hôn nhân và Gia đình"
-DOCUMENT_NUMBER = "52/2014/QH13"
-
-FIRST_PAGE_NUMBER = 2          # số trang đầu tiên xuất hiện trong luồng văn bản
-SPLIT_LONG_CLAUSES = True      # tách khoản dài theo điểm a), b), ...
+FIRST_PAGE_NUMBER = 2
+SPLIT_LONG_CLAUSES = True
 MAX_CLAUSE_CHARS = 1500
 
-# Tiêu đề các Điều không thể tự tách (không có khoản, hoặc có câu dẫn nhập).
-# Lấy từ chính văn bản luật; bổ sung thêm nếu log báo "không rõ tiêu đề".
-TITLES: Dict[str, str] = {
-    "1": "Phạm vi điều chỉnh",
-    "3": "Giải thích từ ngữ",
-    "6": "Áp dụng quy định của Bộ luật dân sự và các luật khác có liên quan",
-    "13": "Xử lý việc đăng ký kết hôn không đúng thẩm quyền",
-    "15": "Quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn",
-    "17": "Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng",
-    "18": "Bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồng",
-    "20": "Lựa chọn nơi cư trú của vợ chồng",
-    "21": "Tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng",
-    "22": "Tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng",
-    "23": "Quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội",
-    "31": "Giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng",
-    "36": "Tài sản chung được đưa vào kinh doanh",
-    "37": "Nghĩa vụ chung về tài sản của vợ chồng",
-    "42": "Chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu",
-    "45": "Nghĩa vụ riêng về tài sản của vợ, chồng",
-    "47": "Thỏa thuận xác lập chế độ tài sản của vợ chồng",
-    "52": "Khuyến khích hòa giải ở cơ sở",
-    "54": "Hòa giải tại Tòa án",
-    "55": "Thuận tình ly hôn",
-    "58": "Quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn",
-    "63": "Quyền lưu cư của vợ hoặc chồng khi ly hôn",
-    "64": "Chia tài sản chung của vợ chồng đưa vào kinh doanh",
-    "65": "Thời điểm chấm dứt hôn nhân",
-    "74": "Bồi thường thiệt hại do con gây ra",
-    "80": "Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng",
-    "92": "Xác định cha, mẹ, con trong trường hợp người có yêu cầu chết",
-    "94": "Xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo",
-    "100": "Xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ",
-    "105": "Quyền, nghĩa vụ của anh, chị, em",
-    "106": "Quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột",
-    "108": "Một người cấp dưỡng cho nhiều người",
-    "109": "Nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người",
-    "110": "Nghĩa vụ cấp dưỡng của cha, mẹ đối với con",
-    "111": "Nghĩa vụ cấp dưỡng của con đối với cha, mẹ",
-    "112": "Nghĩa vụ cấp dưỡng giữa anh, chị, em",
-    "115": "Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn",
-    "117": "Phương thức cấp dưỡng",
-    "118": "Chấm dứt nghĩa vụ cấp dưỡng",
-    "120": "Khuyến khích việc trợ giúp của tổ chức, cá nhân",
-    "124": "Hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình",
-    "130": "Áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài",
-}
+UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
 
-# Chữ in hoa tiếng Việt (KHÔNG dùng khoảng À-Ỵ vì khoảng đó lẫn cả chữ thường)
-UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
-POINT_LETTERS = "abcdđeghiklmnopqrstuvxy"  # bảng chữ cái dùng cho điểm (không có f, j, w, z)
+POINT_LETTERS = "abcdđeghiklmnopqrstuvxy"
 
 WARNINGS: List[str] = []
 
@@ -96,9 +23,6 @@ def warn(msg: str):
     WARNINGS.append(msg)
 
 
-# ==========================================
-# 1. PYDANTIC SCHEMAS
-# ==========================================
 class ChunkSchema(BaseModel):
     chunk_id: str
     clause_number: Optional[str] = None
@@ -138,7 +62,9 @@ class ArticleSchema(BaseModel):
 
 class DocumentMetadataSchema(BaseModel):
     title: str
-    document_type: Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
+    document_type: Literal[
+        "Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"
+    ]
     document_number: str
     issue_date: str
     effective_date: Optional[str] = None
@@ -153,81 +79,88 @@ class LegalDocumentSchema(BaseModel):
     footnotes: List[str] = Field(default_factory=list)
 
 
-# ==========================================
-# 2. LÀM SẠCH: CHÚ THÍCH + SỐ TRANG
-# ==========================================
-# Số lẻ dính liền chữ cái, ví dụ "khu vực2", "THI HÀNH3" -> dấu chú thích
 GLUED_MARKER = re.compile(r"(?<=[^\W\d_])\d(?=[\s.,;:”]|$)")
-# Số đứng riêng (ứng viên số trang)
 NUM_TOKEN = re.compile(r"(?<=\s)(\d{1,3})(?=\s|$)")
 
-# Số đứng sau/trước các từ này là số thật trong câu, không phải số trang
-PREV_BAD = {"Điều", "điều", "khoản", "điểm", "các", "và", "từ", "đến", "ngày", "tháng", "năm", "số", "hoặc"}
+PREV_BAD = {
+    "Điều", "điều", "khoản", "điểm", "các", "và", "từ",
+    "đến", "ngày", "tháng", "năm", "số", "hoặc"
+}
+
 NEXT_BAD = {"tháng", "năm", "ngày", "tuổi"}
 
 
 def find_page_token(text: str, pos: int, page: int):
     for m in NUM_TOKEN.finditer(text, pos):
         tok = m.group(1)
+
         if tok.startswith("0") or int(tok) != page:
             continue
-        prev = text[: m.start()].rstrip().rsplit(" ", 1)[-1]
+
+        prev = text[:m.start()].rstrip().rsplit(" ", 1)[-1]
         nxt = text[m.end():].lstrip().split(" ", 1)[0]
+
         if prev in PREV_BAD or prev.endswith(","):
             continue
+
         if nxt in NEXT_BAD:
             continue
+
         return m
+
     return None
 
 
 def footnote_regex(n: int):
-    # Thân chú thích: đứng sau dấu kết câu, dạng " 1 Luật số ...", " 3 Điều 3 của ..."
     return re.compile(rf"(?<=[.”\"]\s){n}\s+(?=[{UP}])")
 
 
 def clean_text(text: str) -> Tuple[str, List[str]]:
-    """Bỏ chú thích cuối trang và số trang. Trả về (text sạch, danh sách chú thích)."""
     text = GLUED_MARKER.sub("", text)
+
     footnotes: List[str] = []
-    page, fn, pos, misses, pages_removed = FIRST_PAGE_NUMBER, 1, 0, 0, 0
+    page = FIRST_PAGE_NUMBER
+    fn = 1
+    pos = 0
+    misses = 0
+    pages_removed = 0
 
     while misses < 5:
         m_pg = find_page_token(text, pos, page)
         m_fn = footnote_regex(fn).search(text, pos)
 
         if m_fn and (m_pg is None or m_fn.start() < m_pg.start()):
-            # Chú thích thường kết thúc ở số trang. Tuy nhiên nếu số trang
-            # bị lệch/mất (ví dụ parser đang chờ trang 26 nhưng văn bản đã
-            # chuyển sang một số trang khác), TUYỆT ĐỐI không được xóa tới EOF.
+
             if m_pg is None:
-                # Tìm một số trang "giống số trang" ngay sau chú thích.
-                # Ưu tiên số đứng ngay trước "Điều" hoặc "Chương", vì đây là
-                # dạng xuất hiện ở ranh giới trang trong file TXT này.
                 next_page = None
+
                 for cand in NUM_TOKEN.finditer(text, m_fn.end()):
                     after = text[cand.end():].lstrip()
+
                     if re.match(r"(?:Điều|Chương)\b", after):
                         next_page = cand
                         break
 
                 if next_page:
                     end = next_page.end()
-                    footnotes.append(text[m_fn.start():next_page.start()].strip())
+
+                    footnotes.append(
+                        text[m_fn.start():next_page.start()].strip()
+                    )
+
                     text = text[:m_fn.start()] + " " + text[end:]
                     pos = m_fn.start()
                     fn += 1
                     pages_removed += 1
                     misses = 0
-                    # Không tăng page ở đây vì số trang thực tế đã lệch.
+
                     warn(
-                        f"Không tìm thấy số trang {page}; đã bỏ chú thích {fn - 1} "
-                        f"bằng mốc trang kế tiếp {next_page.group(1)}."
+                        f"Không tìm thấy số trang {page}; đã bỏ chú thích "
+                        f"{fn - 1} bằng mốc trang kế tiếp "
+                        f"{next_page.group(1)}."
                     )
                     continue
 
-                # Không tìm được điểm kết thúc an toàn: giữ nguyên phần còn lại.
-                # Quan trọng: không bao giờ cắt từ chú thích tới EOF.
                 warn(
                     f"Không tìm thấy số trang {page}; giữ nguyên phần còn lại "
                     f"để tránh mất dữ liệu."
@@ -235,41 +168,57 @@ def clean_text(text: str) -> Tuple[str, List[str]]:
                 break
 
             end = m_pg.end()
-            footnotes.append(text[m_fn.start():end].strip())
-            text = text[: m_fn.start()] + " " + text[end:]
+
+            footnotes.append(
+                text[m_fn.start():end].strip()
+            )
+
+            text = text[:m_fn.start()] + " " + text[end:]
             pos = m_fn.start()
             fn += 1
             page += 1
             pages_removed += 1
             misses = 0
+
         elif m_pg:
-            text = text[: m_pg.start()] + " " + text[m_pg.end():]
+            text = text[:m_pg.start()] + " " + text[m_pg.end():]
             pos = m_pg.start()
             page += 1
             pages_removed += 1
             misses = 0
+
         else:
-            warn(f"Không tìm thấy số trang {page} (có thể do trang cuối hoặc sai lệch đếm).")
+            warn(
+                f"Không tìm thấy số trang {page} "
+                f"(có thể do trang cuối hoặc sai lệch đếm)."
+            )
             page += 1
             misses += 1
 
-    print(f"[clean] đã bỏ {pages_removed} số trang, {len(footnotes)} chú thích")
+    print(
+        f"[clean] đã bỏ {pages_removed} số trang, "
+        f"{len(footnotes)} chú thích"
+    )
+
     text = re.sub(r"\s+", " ", text).strip()
+
     return text, footnotes
 
 
-# ==========================================
-# 3. CHƯƠNG / MỤC
-# ==========================================
 HEAD_RE = re.compile(
-    rf"(?<!\S)(Chương\s+[IVXLC]+|Mục\s+\d+)\s+((?:[{UP}][{UP},]*(?:\s+|$))+)"
+    rf"(?<!\S)(Chương\s+[IVXLC]+|Mục\s+\d+)\s+"
+    rf"((?:[{UP}][{UP},]*(?:\s+|$))+)"
 )
 
 
-def update_headings(fragment: str, state: Dict[str, Optional[str]]):
+def update_headings(
+    fragment: str,
+    state: Dict[str, Optional[str]]
+):
     for m in HEAD_RE.finditer(fragment):
         label = re.sub(r"\s+", " ", m.group(1)).strip()
         title = m.group(2).strip()
+
         if label.startswith("Chương"):
             state["chapter"] = f"{label} {title}"
             state["section"] = None
@@ -277,101 +226,337 @@ def update_headings(fragment: str, state: Dict[str, Optional[str]]):
             state["section"] = f"{label} {title}"
 
 
-# ==========================================
-# 4. TÁCH ĐIỀU / KHOẢN / ĐIỂM
-# ==========================================
 def find_articles(text: str) -> List[Tuple[int, int, int]]:
     markers = []
-    pos, n = 0, 1
+    pos = 0
+    n = 1
+
     while True:
-        m = re.compile(rf"(?<!\S)Điều\s+{n}\.\s+(?=[{UP}])").search(text, pos)
+        m = re.compile(
+            rf"(?<!\S)Điều\s+{n}\.\s+(?=[{UP}])"
+        ).search(text, pos)
+
         if not m:
             break
+
         markers.append((n, m.start(), m.end()))
         pos = m.end()
         n += 1
+
     return markers
 
 
 def clause_regex(k: int):
-    return re.compile(rf"(?<!\S){k}\.\s+(?=[{UP}])")
+    return re.compile(
+        rf"(?<!\S){k}\.\s+(?=[{UP}])"
+    )
 
 
 def split_clauses(body: str) -> List[Tuple[str, str]]:
     first = clause_regex(1).search(body)
+
+    if not first:
+        return []
+
     starts = [(1, first.start())]
-    pos, k = first.end(), 2
+
+    pos = first.end()
+    k = 2
+
     while True:
         m = clause_regex(k).search(body, pos)
+
         if not m:
             break
+
         starts.append((k, m.start()))
         pos = m.end()
         k += 1
+
     out = []
+
     for i, (k, s) in enumerate(starts):
-        e = starts[i + 1][1] if i + 1 < len(starts) else len(body)
-        out.append((str(k), body[s:e].strip()))
+        e = (
+            starts[i + 1][1]
+            if i + 1 < len(starts)
+            else len(body)
+        )
+
+        out.append(
+            (str(k), body[s:e].strip())
+        )
+
     return out
 
 
-def split_points(clause_text: str) -> Optional[List[Tuple[str, str]]]:
-    """Tách khoản thành các điểm a), b), ... (tuần tự). Mỗi phần gắn câu dẫn của khoản."""
+def split_points(
+    clause_text: str
+) -> Optional[List[Tuple[str, str]]]:
+
     starts = []
     pos = 0
+
     for ch in POINT_LETTERS:
-        m = re.compile(rf"(?<!\S){re.escape(ch)}\)\s+").search(clause_text, pos)
+        m = re.compile(
+            rf"(?<!\S){re.escape(ch)}\)\s+"
+        ).search(clause_text, pos)
+
         if not m:
             break
+
         starts.append((ch, m.start()))
         pos = m.end()
+
     if len(starts) < 2:
         return None
-    lead = clause_text[: starts[0][1]].strip()
+
+    lead = clause_text[:starts[0][1]].strip()
+
     out = []
+
     for i, (ch, s) in enumerate(starts):
-        e = starts[i + 1][1] if i + 1 < len(starts) else len(clause_text)
-        out.append((ch, f"{lead} {clause_text[s:e].strip()}".strip()))
+        e = (
+            starts[i + 1][1]
+            if i + 1 < len(starts)
+            else len(clause_text)
+        )
+
+        point_text = clause_text[s:e].strip()
+
+        if lead:
+            point_text = f"{lead} {point_text}"
+
+        out.append((ch, point_text.strip()))
+
     return out
 
 
-def split_head(num: str, raw: str):
-    """Trả về (title, intro, body_text, has_clauses)."""
-    first = clause_regex(1).search(raw)
-    head = raw[: first.start()].strip() if first else raw.strip()
-    body = raw[first.start():] if first else ""
+INTRO_END_RE = re.compile(
+    r"(?:"
+    r":|"
+    r"như sau|"
+    r"bao gồm|"
+    r"cụ thể như sau|"
+    r"sau đây|"
+    r"theo quy định sau|"
+    r"được quy định như sau"
+    r")"
+    r"\s*[.:]?\s*$",
+    re.IGNORECASE
+)
 
-    known = TITLES.get(num)
-    if known and head.startswith(known):
-        title, rest = known, head[len(known):].strip()
-    elif first and not head.endswith(":"):
-        title, rest = head, ""          # Điều có khoản, không có câu dẫn: phần đầu là tiêu đề
-    else:
-        title, rest = None, head
-        warn(f"Điều {num}: không rõ tiêu đề, hãy bổ sung vào TITLES. Đầu Điều: {head[:70]!r}")
+
+def normalize_spaces(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def split_sentences(text: str) -> List[str]:
+    text = normalize_spaces(text)
+
+    if not text:
+        return []
+
+    parts = re.split(
+        r"(?<=[.!?;:])\s+(?=[A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬ"
+        r"ÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢ"
+        r"ÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ])",
+        text
+    )
+
+    return [
+        p.strip()
+        for p in parts
+        if p.strip()
+    ]
+
+
+def looks_like_title(text: str) -> bool:
+
+    text = normalize_spaces(text)
+
+    if not text:
+        return False
+
+    if text.endswith(":"):
+        return False
+
+    if len(text) > 220:
+        return False
+
+    intro_words = (
+        "việc ",
+        "theo ",
+        "trong ",
+        "đối với ",
+        "khi ",
+        "nếu ",
+        "trường hợp ",
+        "căn cứ ",
+        "người ",
+        "các ",
+        "những ",
+        "để ",
+        "nhằm ",
+        "khiếu ",
+        "cơ quan ",
+    )
+
+    lower = text.lower()
+
+    if lower.startswith(intro_words):
+        return False
+
+    if re.search(r"[.!?]$", text):
+        return False
+
+    word_count = len(text.split())
+
+    if word_count > 30:
+        return False
+
+    return True
+
+
+def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
+
+    head = normalize_spaces(head)
+
+    if not head:
+        return None, None
+
+    if INTRO_END_RE.search(head):
+        colon_pos = head.rfind(":")
+
+        if colon_pos > 0:
+            before = head[:colon_pos].strip()
+            after = head[colon_pos + 1:].strip()
+
+            sentences = split_sentences(before)
+
+            if len(sentences) >= 2:
+                candidate_title = sentences[0]
+                intro_before = " ".join(sentences[1:]).strip()
+
+                if looks_like_title(candidate_title):
+                    intro = (
+                        f"{intro_before}:"
+                        if intro_before
+                        else ""
+                    )
+
+                    if after:
+                        intro = f"{intro} {after}".strip()
+
+                    return candidate_title, intro or None
+
+            if looks_like_title(before):
+                intro = after
+
+                if intro:
+                    intro = f"{intro}"
+
+                return before, intro or None
+
+        return None, head
+
+    sentences = split_sentences(head)
+
+    if len(sentences) >= 2:
+        candidate = sentences[0]
+        remainder = " ".join(sentences[1:]).strip()
+
+        if looks_like_title(candidate):
+            return candidate, remainder or None
+
+    if looks_like_title(head):
+        return head, None
+
+    warn(
+        f"Không chắc chắn title tự động: {head[:120]!r}"
+    )
+
+    return None, head
+
+
+def split_head(
+    num: str,
+    raw: str
+):
+
+    first = clause_regex(1).search(raw)
 
     if first:
-        return title, (rest or None), body, True
-    return title, None, (rest or head), False
+        head = raw[:first.start()].strip()
+        body = raw[first.start():].strip()
+    else:
+        head = raw.strip()
+        body = ""
+
+    title, intro = detect_title_and_intro(head)
+
+    if first:
+        return title, intro, body, True
+
+    if title and intro:
+        body = intro
+        intro = None
+
+    elif title:
+        body = raw
+
+    else:
+        body = raw
+
+    return title, intro, body, False
 
 
-def build_chunks(art_id: str, body: str, has_clauses: bool) -> List[ChunkSchema]:
-    pieces: List[Tuple[Optional[str], Optional[str], str]] = []
+def build_chunks(
+    art_id: str,
+    body: str,
+    has_clauses: bool
+) -> List[ChunkSchema]:
+
+    pieces: List[
+        Tuple[Optional[str], Optional[str], str]
+    ] = []
 
     if not has_clauses:
-        pieces.append((None, None, body))
+        pieces.append(
+            (None, None, body)
+        )
+
     else:
-        for k, ctext in split_clauses(body):
-            sub = split_points(ctext) if (SPLIT_LONG_CLAUSES and len(ctext) > MAX_CLAUSE_CHARS) else None
+        clauses = split_clauses(body)
+
+        for k, ctext in clauses:
+
+            sub = (
+                split_points(ctext)
+                if (
+                    SPLIT_LONG_CLAUSES
+                    and len(ctext) > MAX_CLAUSE_CHARS
+                )
+                else None
+            )
+
             if sub:
                 for letter, ptext in sub:
-                    pieces.append((k, letter, ptext))
+                    pieces.append(
+                        (k, letter, ptext)
+                    )
             else:
-                pieces.append((k, None, ctext))
+                pieces.append(
+                    (k, None, ctext)
+                )
 
     chunks = []
-    for i, (k, letter, t) in enumerate(pieces, start=1):
+
+    for i, (k, letter, t) in enumerate(
+        pieces,
+        start=1
+    ):
         t = t.strip()
+
         chunks.append(
             ChunkSchema(
                 chunk_id=f"{art_id}_chunk_{i}",
@@ -382,56 +567,134 @@ def build_chunks(art_id: str, body: str, has_clauses: bool) -> List[ChunkSchema]
                 char_count=len(t),
             )
         )
+
     return chunks
 
 
 def parse_text_to_articles(raw_text: str):
-    """Phân tích văn bản thô -> (danh sách Điều dạng dict, danh sách chú thích)."""
-    WARNINGS.clear()  # mỗi lần gọi là một văn bản mới
 
-    text = re.sub(r"\s+", " ", raw_text).strip()
+    """Tách văn bản thô thành danh sách Điều và chú thích."""
+    WARNINGS.clear()
 
-    # Cắt phần đầu (quốc hiệu, tên luật, căn cứ...) trước "Chương I"
-    m0 = re.search(rf"(?<!\S)Chương\s+I\s+[{UP}]", text)
+    text = re.sub(
+        r"\s+",
+        " ",
+        raw_text
+    ).strip()
+
+
+    m0 = re.search(
+        rf"(?<!\S)Chương\s+I\s+[{UP}]",
+        text
+    )
+
     if m0:
         text = text[m0.start():]
+
     else:
-        warn("Không tìm thấy 'Chương I', giữ nguyên phần đầu văn bản.")
+        warn(
+            "Không tìm thấy 'Chương I', "
+            "giữ nguyên phần đầu văn bản."
+        )
+
 
     text, footnotes = clean_text(text)
 
-    markers = find_articles(text)
-    if not markers:
-        raise RuntimeError("Không tìm thấy Điều nào.")
 
-    # Kiểm tra không bị mất Điều trong quá trình làm sạch.
-    found_numbers = [n for n, _s, _e in markers]
-    if found_numbers != list(range(1, found_numbers[-1] + 1)):
-        missing = sorted(set(range(1, found_numbers[-1] + 1)) - set(found_numbers))
+    markers = find_articles(text)
+
+    if not markers:
         raise RuntimeError(
-            f"Chuỗi Điều bị đứt sau khi làm sạch. "
-            f"Điều bị thiếu: {missing}. Không tiếp tục xuất JSON."
+            "Không tìm thấy Điều nào."
         )
 
-    state: Dict[str, Optional[str]] = {"chapter": None, "section": None}
-    update_headings(text[: markers[0][1]], state)
+    found_numbers = [
+        n
+        for n, _s, _e in markers
+    ]
+
+    if found_numbers != list(
+        range(
+            1,
+            found_numbers[-1] + 1
+        )
+    ):
+        missing = sorted(
+            set(
+                range(
+                    1,
+                    found_numbers[-1] + 1
+                )
+            )
+            -
+            set(found_numbers)
+        )
+
+        raise RuntimeError(
+            "Chuỗi Điều bị đứt sau khi làm sạch. "
+            f"Điều bị thiếu: {missing}. "
+            "Không tiếp tục xuất JSON."
+        )
+
+
+    state: Dict[
+        str,
+        Optional[str]
+    ] = {
+        "chapter": None,
+        "section": None
+    }
+
+    update_headings(
+        text[:markers[0][1]],
+        state
+    )
 
     articles = []
+
+
     for i, (n, _s, e) in enumerate(markers):
-        end = markers[i + 1][1] if i + 1 < len(markers) else len(text)
+
+        end = (
+            markers[i + 1][1]
+            if i + 1 < len(markers)
+            else len(text)
+        )
+
         raw = text[e:end].strip()
+
         num = str(n)
 
-        chapter, section = state["chapter"], state["section"]
-        mh = HEAD_RE.search(raw)
-        if mh:
-            update_headings(raw[mh.start():], state)
-            raw = raw[: mh.start()].strip()
+        chapter = state["chapter"]
+        section = state["section"]
 
-        title, intro, body, has_clauses = split_head(num, raw)
+        mh = HEAD_RE.search(raw)
+
+        if mh:
+            update_headings(
+                raw[mh.start():],
+                state
+            )
+
+            chapter = state["chapter"]
+            section = state["section"]
+
+            raw = raw[:mh.start()].strip()
+
+        title, intro, body, has_clauses = split_head(
+            num,
+            raw
+        )
+
         art_id = f"dieu_{num}"
+
         try:
-            chunks = build_chunks(art_id, body, has_clauses)
+            chunks = build_chunks(
+                art_id,
+                body,
+                has_clauses
+            )
+
             articles.append(
                 ArticleSchema(
                     article_id=art_id,
@@ -443,112 +706,423 @@ def parse_text_to_articles(raw_text: str):
                     chunks=chunks,
                 ).model_dump()
             )
-        except Exception as ex:  # không bao giờ bỏ Điều trong im lặng
-            warn(f"Điều {num} lỗi khi dựng chunk: {ex}")
+
+        except Exception as ex:
+            warn(
+                f"Điều {num} lỗi khi dựng chunk: {ex}"
+            )
 
     return articles, footnotes
 
 
-def parse_raw_text_to_legal_doc(raw_text: str, doc_id: str, metadata: dict) -> dict:
-    """
-    Hàm chính cho test_parser.py.
-    Nhận text thô + doc_id + metadata, trả về dict JSON-serializable:
-    {"document_id", "metadata", "articles", "footnotes"}.
-    """
-    meta = DocumentMetadataSchema(**metadata)  # validate metadata trước khi tốn công parse
-    articles, footnotes = parse_text_to_articles(raw_text)
+DOCUMENT_TYPE_PATTERNS = [
+    ("Luật", re.compile(r"(?<!\w)L(?:UẬT|uật)\b")),
+    ("Nghị định", re.compile(r"(?<!\w)N(?:GHỊ ĐỊNH|ghị định)\b")),
+    ("Thông tư", re.compile(r"(?<!\w)T(?:HÔNG TƯ|hông tư)\b")),
+    ("Quyết định", re.compile(r"(?<!\w)Q(?:UYẾT ĐỊNH|uyết định)\b")),
+    ("Chỉ thị", re.compile(r"(?<!\w)C(?:HỈ THỊ|hỉ thị)\b")),
+]
+
+DOCUMENT_NUMBER_RE = re.compile(
+    r"(?:Số|Số:|số|số:)\s*"
+    r"([0-9]{1,5}/[0-9]{4}/[A-ZĐ]+(?:-[A-Z0-9Đ]+)?)"
+)
+
+DATE_RE = re.compile(
+    r"(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})",
+    re.IGNORECASE
+)
+
+ISO_DATE_RE = re.compile(
+    r"\b(20\d{2})[-/](\d{1,2})[-/](\d{1,2})\b"
+)
+
+ISSUING_BODY_PATTERNS = [
+    (re.compile(r"\bQUỐC HỘI\b", re.IGNORECASE), "Quốc hội"),
+    (re.compile(r"\bCHÍNH PHỦ\b", re.IGNORECASE), "Chính phủ"),
+    (re.compile(r"\bTHỦ TƯỚNG CHÍNH PHỦ\b", re.IGNORECASE), "Thủ tướng Chính phủ"),
+    (re.compile(r"\bBỘ TƯ PHÁP\b", re.IGNORECASE), "Bộ Tư pháp"),
+    (re.compile(r"\bBỘ CÔNG AN\b", re.IGNORECASE), "Bộ Công an"),
+    (re.compile(r"\bBỘ TÀI CHÍNH\b", re.IGNORECASE), "Bộ Tài chính"),
+    (re.compile(r"\bBỘ Y TẾ\b", re.IGNORECASE), "Bộ Y tế"),
+    (re.compile(r"\bBỘ GIÁO DỤC VÀ ĐÀO TẠO\b", re.IGNORECASE),
+     "Bộ Giáo dục và Đào tạo"),
+    (re.compile(r"\bTÒA ÁN NHÂN DÂN TỐI CAO\b", re.IGNORECASE),
+     "Tòa án nhân dân tối cao"),
+    (re.compile(r"\bVIỆN KIỂM SÁT NHÂN DÂN TỐI CAO\b", re.IGNORECASE),
+     "Viện kiểm sát nhân dân tối cao"),
+]
+
+VALIDITY_PATTERNS = [
+    (re.compile(r"còn hiệu lực", re.IGNORECASE), "Còn hiệu lực"),
+    (re.compile(r"hết hiệu lực", re.IGNORECASE), "Hết hiệu lực"),
+    (re.compile(r"ngưng hiệu lực", re.IGNORECASE), "Ngưng hiệu lực"),
+    (re.compile(r"đang có hiệu lực", re.IGNORECASE), "Còn hiệu lực"),
+]
+
+
+def normalize_document_id(file_path: str) -> str:
+    """Tạo document_id hợp lệ từ tên file."""
+    stem = Path(file_path).stem.strip()
+
+    if not stem:
+        raise ValueError("Không thể tạo document_id từ tên file rỗng.")
+
+    doc_id = re.sub(r"[^A-Za-z0-9_]+", "_", stem)
+    doc_id = re.sub(r"_+", "_", doc_id).strip("_")
+
+    if not doc_id:
+        raise ValueError(
+            f"Tên file {Path(file_path).name!r} không tạo được document_id hợp lệ."
+        )
+
+    return doc_id
+
+
+def extract_document_type(text: str) -> str:
+    head = text[:5000]
+
+    for doc_type, pattern in [
+        ("Nghị định", re.compile(r"\bNGHỊ ĐỊNH\b", re.IGNORECASE)),
+        ("Thông tư", re.compile(r"\bTHÔNG TƯ\b", re.IGNORECASE)),
+        ("Quyết định", re.compile(r"\bQUYẾT ĐỊNH\b", re.IGNORECASE)),
+        ("Chỉ thị", re.compile(r"\bCHỈ THỊ\b", re.IGNORECASE)),
+        ("Luật", re.compile(r"\bLUẬT\b", re.IGNORECASE)),
+    ]:
+        if pattern.search(head):
+            return doc_type
+
+    warn("Không tự nhận diện được document_type; mặc định là 'Luật'.")
+    return "Luật"
+
+
+def extract_document_number(text: str) -> str:
+    head = text[:8000]
+
+    m = DOCUMENT_NUMBER_RE.search(head)
+
+    if m:
+        return m.group(1)
+
+    fallback = re.search(
+        r"\b\d{1,5}/\d{4}/[A-ZĐ]+(?:-[A-Z0-9Đ]+)?\b",
+        head
+    )
+
+    if fallback:
+        return fallback.group(0)
+
+    warn("Không tự nhận diện được document_number.")
+    return ""
+
+
+def vietnamese_date_to_iso(day: str, month: str, year: str) -> str:
+    return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+
+
+def extract_issue_date(text: str) -> str:
+    head = text[:10000]
+
+    m = DATE_RE.search(head)
+
+    if m:
+        return vietnamese_date_to_iso(
+            m.group(1),
+            m.group(2),
+            m.group(3)
+        )
+
+    m = ISO_DATE_RE.search(head)
+
+    if m:
+        return (
+            f"{int(m.group(1)):04d}-"
+            f"{int(m.group(2)):02d}-"
+            f"{int(m.group(3)):02d}"
+        )
+
+    warn("Không tự nhận diện được issue_date.")
+    return ""
+
+
+def extract_issuing_body(text: str) -> str:
+    head = text[:5000]
+
+    ordered = sorted(
+        ISSUING_BODY_PATTERNS,
+        key=lambda x: len(x[1]),
+        reverse=True
+    )
+
+    for pattern, body in ordered:
+        if pattern.search(head):
+            return body
+
+    warn("Không tự nhận diện được issuing_body.")
+    return ""
+
+
+def extract_validity_status(text: str) -> str:
+    head = text[:12000]
+
+    for pattern, status in VALIDITY_PATTERNS:
+        if pattern.search(head):
+            return status
+
+    return "Không xác định"
+
+
+def clean_document_title_candidate(text: str) -> Optional[str]:
+    head = re.sub(r"\s+", " ", text[:12000]).strip()
+
+    patterns = [
+        r"\b(LUẬT\s+.+?)(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+        r"\b(NGHỊ ĐỊNH\s+.+?)(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+        r"\b(THÔNG TƯ\s+.+?)(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+        r"\b(QUYẾT ĐỊNH\s+.+?)(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+        r"\b(CHỈ THỊ\s+.+?)(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+    ]
+
+    for p in patterns:
+        m = re.search(p, head, re.IGNORECASE)
+        if m:
+            candidate = normalize_spaces(m.group(1))
+            candidate = re.sub(
+                r"\s+Số[:\s].*$",
+                "",
+                candidate,
+                flags=re.IGNORECASE
+            )
+            if 2 <= len(candidate.split()) <= 40:
+                return candidate
+
+    m = re.search(
+        r"\b(LUẬT|NGHỊ ĐỊNH|THÔNG TƯ|QUYẾT ĐỊNH|CHỈ THỊ)\b"
+        r"(.{0,300}?)"
+        r"(?=\s+(?:Căn cứ|Chương\s+I)\b)",
+        head,
+        re.IGNORECASE
+    )
+
+    if m:
+        candidate = normalize_spaces(m.group(0))
+        if 2 <= len(candidate.split()) <= 40:
+            return candidate
+
+    return None
+
+
+def extract_document_title(text: str) -> str:
+    candidate = clean_document_title_candidate(text)
+
+    if candidate:
+        return candidate
+
+    head = re.sub(r"\s+", " ", text[:8000]).strip()
+
+    m = re.search(
+        r"\b(?:LUẬT|NGHỊ ĐỊNH|THÔNG TƯ|QUYẾT ĐỊNH|CHỈ THỊ)\b"
+        r".{0,200}?(?=\s+Chương\s+I\b)",
+        head,
+        re.IGNORECASE
+    )
+
+    if m:
+        candidate = normalize_spaces(m.group(0))
+        if candidate:
+            return candidate
+
+    warn("Không tự nhận diện được document title.")
+    return Path("unknown").stem
+
+
+def extract_metadata(
+    raw_text: str,
+    file_path: Optional[str] = None
+) -> dict:
+    """Tự nhận diện metadata của văn bản từ nội dung."""
+    if file_path:
+        document_id = normalize_document_id(file_path)
+    else:
+        document_id = "document"
+
+    return {
+        "title": extract_document_title(raw_text),
+        "document_type": extract_document_type(raw_text),
+        "document_number": extract_document_number(raw_text),
+        "issue_date": extract_issue_date(raw_text),
+        "effective_date": None,
+        "issuing_body": extract_issuing_body(raw_text),
+        "validity_status": extract_validity_status(raw_text),
+    }
+
+
+def parse_raw_text_to_legal_doc(
+    raw_text: str,
+    doc_id: str,
+    metadata: dict
+) -> dict:
+
+    """Parse văn bản thô thành dict LegalDocumentSchema."""
+    meta = DocumentMetadataSchema(
+        **metadata
+    )
+
+    articles, footnotes = parse_text_to_articles(
+        raw_text
+    )
+
     doc = LegalDocumentSchema(
         document_id=doc_id,
         metadata=meta,
         articles=articles,
         footnotes=footnotes,
     )
+
     return doc.model_dump()
 
 
-def parse_legal_document_to_schema(file_path: str):
-    """Tiện ích đọc từ file .txt -> (articles, footnotes). Giữ lại cho tương thích cũ."""
+def parse_legal_document_to_schema(
+    file_path: str
+):
+
+    """Đọc file .txt rồi parse thành (articles, footnotes)."""
     path = Path(file_path)
+
     if not path.is_file():
-        raise FileNotFoundError(f"Đường dẫn file không hợp lệ: {path.resolve()}")
-    with open(path, "r", encoding="utf-8-sig", errors="ignore") as f:
+        raise FileNotFoundError(
+            f"Đường dẫn file không hợp lệ: "
+            f"{path.resolve()}"
+        )
+
+    with open(
+        path,
+        "r",
+        encoding="utf-8-sig",
+        errors="ignore"
+    ) as f:
         content = f.read()
+
     return parse_text_to_articles(content)
 
 
-# ==========================================
-# 5. KIỂM TRA CHẤT LƯỢNG
-# ==========================================
-def quality_report(articles, footnotes):
-    last_article = articles[-1]["article_number"] if articles else "N/A"
-    print(f"\n[report] Số Điều: {len(articles)} (Điều cuối: {last_article})")
-    print(f"[report] Số chunk: {sum(len(a['chunks']) for a in articles)}")
+def quality_report(
+    articles,
+    footnotes
+):
+    """In báo cáo chất lượng kết quả parse."""
+    last_article = (
+        articles[-1]["article_number"]
+        if articles
+        else "N/A"
+    )
+
+    print(
+        f"\n[report] Số Điều: {len(articles)} "
+        f"(Điều cuối: {last_article})"
+    )
+
+    print(
+        "[report] Số chunk: "
+        f"{sum(len(a['chunks']) for a in articles)}"
+    )
 
     if articles:
-        nums = [int(a["article_number"]) for a in articles]
-        missing = sorted(set(range(1, max(nums) + 1)) - set(nums))
+
+        nums = [
+            int(a["article_number"])
+            for a in articles
+        ]
+
+        missing = sorted(
+            set(
+                range(
+                    1,
+                    max(nums) + 1
+                )
+            )
+            -
+            set(nums)
+        )
+
         if missing:
-            print(f"[report] CẢNH BÁO: thiếu Điều: {missing}")
+            print(
+                f"[report] CẢNH BÁO: thiếu Điều: {missing}"
+            )
+
         else:
-            print(f"[report] Chuỗi Điều liên tục: 1 -> {max(nums)}")
+            print(
+                "[report] Chuỗi Điều liên tục: "
+                f"1 -> {max(nums)}"
+            )
 
-    sus_footnote = re.compile(r"Luật số \d+/\d{4}/QH|Cụm từ “")
-    sus_heading = re.compile(rf"(?<!\S)(Chương [IVXLC]+|Mục \d+) [{UP}]{{2}}")
+    sus_footnote = re.compile(
+        r"Luật số \d+/\d{4}/QH|Cụm từ “"
+    )
+
+    sus_heading = re.compile(
+        rf"(?<!\S)(Chương [IVXLC]+|Mục \d+) [{UP}]{{2}}"
+    )
+
     bad = []
-    for a in articles:
-        for c in a["chunks"]:
-            t = c["text"]
-            if sus_footnote.search(t) or sus_heading.search(t):
-                bad.append((c["chunk_id"], "lẫn chú thích/tiêu đề Chương-Mục"))
-            elif not re.search(r"[.;:”)]$", t):
-                bad.append((c["chunk_id"], "không kết thúc bằng dấu câu (nghi dư số trang)"))
-    print(f"[report] Chunk đáng nghi: {len(bad)}")
-    for cid, why in bad[:15]:
-        print(f"   - {cid}: {why}")
 
-    empty_title = [a["article_number"] for a in articles if not a["article_title"]]
+    for a in articles:
+
+        for c in a["chunks"]:
+
+            t = c["text"]
+
+            if sus_footnote.search(t) or sus_heading.search(t):
+
+                bad.append(
+                    (
+                        c["chunk_id"],
+                        "lẫn chú thích/tiêu đề Chương-Mục"
+                    )
+                )
+
+            elif not re.search(
+                r"[.;:”)]$",
+                t
+            ):
+
+                bad.append(
+                    (
+                        c["chunk_id"],
+                        "không kết thúc bằng dấu câu "
+                        "(nghi dư số trang)"
+                    )
+                )
+
+    print(
+        f"[report] Chunk đáng nghi: {len(bad)}"
+    )
+
+    for cid, why in bad[:15]:
+        print(
+            f"   - {cid}: {why}"
+        )
+
+    empty_title = [
+        a["article_number"]
+        for a in articles
+        if not a["article_title"]
+    ]
+
     if empty_title:
-        print(f"[report] Điều chưa có tiêu đề: {empty_title}")
+        print(
+            "[report] Điều chưa có tiêu đề: "
+            f"{empty_title}"
+        )
 
     for w in WARNINGS[:30]:
-        print("[warn]", w)
+        print(
+            "[warn]",
+            w
+        )
+
     if len(WARNINGS) > 30:
-        print(f"[warn] ... và {len(WARNINGS) - 30} cảnh báo khác")
-
-
-# ==========================================
-# 6. CHẠY ĐỘC LẬP (CLI)
-# ==========================================
-def main():
-    ap = argparse.ArgumentParser(description="Legal Document Parser to RAG-ready JSON")
-    ap.add_argument("--input", "-i", default=INPUT_FILE, help="Đường dẫn file TXT đầu vào")
-    ap.add_argument("--output", "-o", default=OUTPUT_FILE, help="Đường dẫn xuất file JSON")
-    ap.add_argument("--doc-id", default=DOCUMENT_ID, help="Mã định danh văn bản")
-    ap.add_argument("--doc-title", default=DOCUMENT_TITLE, help="Tên văn bản luật")
-    ap.add_argument("--doc-num", default=DOCUMENT_NUMBER, help="Số hiệu văn bản")
-    args = ap.parse_args()
-
-    metadata = {
-        "title": args.doc_title,
-        "document_type": "Luật",
-        "document_number": args.doc_num,
-        "issue_date": "2024-01-01",
-        "effective_date": "2024-01-01",
-        "issuing_body": "Quốc hội",
-        "validity_status": "Còn hiệu lực",
-    }
-
-    try:
-        with open(args.input, "r", encoding="utf-8-sig", errors="ignore") as f:
-            raw_text = f.read()
-        doc = parse_raw_text_to_legal_doc(raw_text, args.doc_id, metadata)
-        with open(args.output, "w", encoding="utf-8") as f:
-            json.dump(doc, f, ensure_ascii=False, indent=2)
-        quality_report(doc["articles"], doc["footnotes"])
-        print(f"✅ Xử lý thành công! Đã trích xuất {len(doc['articles'])} Điều -> {args.output}")
-    except Exception as e:
-        print(f"❌ Xử lý thất bại: {e}")
-
-
-if __name__ == "__main__":
-    main()
+        print(
+            "[warn] ... và "
+            f"{len(WARNINGS) - 30} cảnh báo khác"
+        )

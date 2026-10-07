@@ -1,30 +1,30 @@
 {
   "document_id": "TT01",
   "metadata": {
-    "title": "Văn bản pháp luật TT01",
-    "document_type": "Luật",
-    "document_number": "TT01",
-    "issue_date": "2024-01-01",
-    "effective_date": "2024-01-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "title": "Nghị định",
+    "document_type": "Nghị định",
+    "document_number": "01/2016/TTLT-TANDTC",
+    "issue_date": "2016-01-06",
+    "effective_date": null,
+    "issuing_body": "Viện kiểm sát nhân dân tối cao",
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
       "article_id": "dieu_1",
       "article_number": "1",
-      "article_title": "Phạm vi điều chỉnh",
+      "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": null,
+      "intro": "Phạm vi điều chỉnh Thông tư liên tịch này hướng dẫn thi hành quy định về xử lý việc kết hôn trái pháp luật, thỏa thuận về chế độ tài sản của vợ chồng bị vô hiệu và nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn tại các điều 11, 50 và 59 của Luật hôn nhân và gia đình.",
       "chunks": [
         {
           "chunk_id": "dieu_1_chunk_1",
           "clause_number": null,
           "point_letter": null,
-          "text": "Thông tư liên tịch này hướng dẫn thi hành quy định về xử lý việc kết hôn trái pháp luật, thỏa thuận về chế độ tài sản của vợ chồng bị vô hiệu và nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn tại các điều 11, 50 và 59 của Luật hôn nhân và gia đình.",
+          "text": "Phạm vi điều chỉnh Thông tư liên tịch này hướng dẫn thi hành quy định về xử lý việc kết hôn trái pháp luật, thỏa thuận về chế độ tài sản của vợ chồng bị vô hiệu và nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn tại các điều 11, 50 và 59 của Luật hôn nhân và gia đình.",
           "parent_id": "dieu_1",
-          "char_count": 255
+          "char_count": 274
         }
       ]
     },
@@ -34,7 +34,7 @@
       "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": null,
+      "intro": "Căn cứ hủy việc kết hôn trái pháp luật Khi giải quyết yêu cầu hủy việc kết hôn trái pháp luật, Tòa án phải căn cứ vào điều kiện kết hôn quy định tại Điều 8 của Luật hôn nhân và gia đình để xem xét, quyết định xử lý việc kết hôn trái pháp luật và lưu ý một số điểm như sau: 1. “Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên” quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình là trường hợp nam đã đủ hai mươi tuổi, nữ đã đủ mười tám tuổi trở lên và được xác định theo ngày, tháng, năm sinh. Trường hợp không xác định được ngày sinh, tháng sinh thì thực hiện như sau: a) Nếu xác định được năm sinh nhưng không xác định được tháng sinh thì tháng sinh được xác định là tháng một của năm sinh; CÔNG BÁO/Số 159 + 160/Ngày 04-02-2016 b) Nếu xác định được năm sinh, tháng sinh nhưng không xác định được ngày sinh thì ngày sinh được xác định là ngày mùng một của tháng sinh. Ví dụ: Chị B sinh ngày 10-01-1997, đến ngày 08-01-2015 chị B đăng ký kết hôn với anh A tại Ủy ban nhân dân xã X. Tại thời điểm đăng ký kết hôn chị B chưa đủ 18 tuổi (ngày chị B đủ 18 tuổi là ngày 10-01-2015), như vậy, theo quy định tại khoản 1 Điều 9 của Luật hôn nhân và gia đình năm 2000 thì chị B đã đủ tuổi kết hôn, tuy nhiên vì ngày chị B đăng ký kết hôn Luật hôn nhân và gia đình đã có hiệu lực (ngày 01-01-2015) nên chị B đã vi phạm điều kiện về tuổi kết hôn quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình. 2. “Việc kết hôn do nam và nữ tự nguyện quyết định” quy định tại điểm b khoản 1 Điều 8 của Luật hôn nhân và gia đình là trường hợp nam nữ xác lập quan hệ vợ chồng với nhau hoàn toàn tự do theo ý chí của họ. 3. “Lừa dối kết hôn” quy định tại điểm b khoản 2 Điều 5 của Luật hôn nhân và gia đình là hành vi cố ý của một bên hoặc của người thứ ba nhằm làm cho bên kia hiểu sai lệch và dẫn đến việc đồng ý kết hôn; nếu không có hành vi này thì bên bị lừa dối đã không đồng ý kết hôn. 4. “Người đang có vợ hoặc có chồng” quy định tại điểm c khoản 2 Điều 5 của Luật hôn nhân và gia đình là người thuộc một trong các trường hợp sau đây: a) Người đã kết hôn với người khác theo đúng quy định của pháp luật về hôn nhân và gia đình nhưng chưa ly hôn hoặc không có sự kiện vợ (chồng) của họ chết hoặc vợ (chồng) của họ không bị tuyên bố là đã chết; b) Người xác lập quan hệ vợ chồng với người khác trước ngày 03-01-1987 mà chưa đăng ký kết hôn và chưa ly hôn hoặc không có sự kiện vợ (chồng) của họ chết hoặc vợ (chồng) của họ không bị tuyên bố là đã chết; c) Người đã kết hôn với người khác vi phạm điều kiện kết hôn theo quy định của Luật hôn nhân và gia đình nhưng đã được Tòa án công nhận quan hệ hôn nhân bằng bản án, quyết định của Tòa án đã có hiệu lực pháp luật và chưa ly hôn hoặc không có sự kiện vợ (chồng) của họ chết hoặc vợ (chồng) của họ không bị tuyên bố là đã chết. 5. Việc xác định thời điểm “cả hai bên kết hôn đã có đủ các điều kiện kết hôn” quy định tại khoản 2 Điều 11 của Luật hôn nhân và gia đình phải căn cứ vào các quy định của pháp luật. Tòa án yêu cầu đương sự xác định và cung cấp các tài liệu, chứng cứ để xác định thời điểm cả hai bên kết hôn đã có đủ các điều kiện kết hôn theo quy định tại Điều 8 của Luật hôn nhân và gia đình. Ví dụ 1: Trường hợp kết hôn khi một bên bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn là vi phạm điều kiện kết hôn quy định tại điểm d khoản 1 Điều 8 của Luật hôn nhân và gia đình. Tuy nhiên, nếu sau khi bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn mà bên bị cưỡng ép kết hôn, bị lừa dối kết hôn đã biết nhưng đã thông cảm, tiếp tục chung sống hòa thuận thì thời điểm đủ điều kiện kết hôn là thời điểm đương sự biết mình bị cưỡng ép, bị lừa dối kết hôn nhưng vẫn tiếp tục sống chung như vợ chồng. CÔNG BÁO/Số 159 + 160/Ngày 04-02-2016 Ví dụ 2: Ngày 15-01-2005, chị B kết hôn với anh A. Đến ngày 15-01-2010, chị B lại kết hôn với anh C. Ngày 25-01-2012, Tòa án có quyết định tuyên bố anh A chết. Ngày 12-6-2015, Tòa án mở phiên họp giải quyết yêu cầu hủy việc kết hôn trái pháp luật giữa chị B và anh C. Tại phiên họp, chị B và anh C đều yêu cầu công nhận quan hệ hôn nhân thì chị B và anh C phải cung cấp Quyết định của Tòa án tuyên bố anh A đã chết để xác định thời điểm chị B và anh C đủ điều kiện kết hôn. Trong trường hợp này, thời điểm chị B và anh C có đủ điều kiện kết hôn là thời điểm mà Tòa án xác định anh A chết được ghi trong quyết định của Tòa án có hiệu lực pháp luật.",
       "chunks": [
         {
           "chunk_id": "dieu_2_chunk_1",
@@ -336,7 +336,7 @@
       "article_title": null,
       "chapter": null,
       "section": null,
-      "intro": null,
+      "intro": "Giải thích, sửa đổi, bổ sung Thông tư liên tịch Trong quá trình thực hiện, nếu có vướng mắc cần được giải thích hoặc cần sửa đổi, bổ sung Thông tư liên tịch thì Tòa án nhân dân, Viện kiểm sát nhân dân các cấp, cơ quan, tổ chức, cá nhân phản ánh với Tòa án nhân dân tối cao, Viện kiểm sát nhân dân tối cao, Bộ Tư pháp để giải thích, sửa đổi, bổ sung kịp thời./. KT. BỘ TRƯỞNG KT. VIỆN TRƯỞNG KT. CHÁNH ÁN BỘ TƯ PHÁP VIỆN KIỂM SÁT NHÂN DÂN TÒA ÁN NHÂN DÂN THỨ TRƯỞNG TỐI CAO TỐI CAO PHÓ VIỆN TRƯỞNG PHÓ CHÁNH ÁN Đinh Trung Tụng Nguyễn Thị Thủy Khiêm Tống Anh Hào",
       "chunks": [
         {
           "chunk_id": "dieu_9_chunk_1",
