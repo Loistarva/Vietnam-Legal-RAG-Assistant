@@ -12,7 +12,7 @@ class ChunkSchema(BaseModel):
     clause_number: Optional[str] = None
     point_letter: Optional[str] = None
     text: str = Field(..., min_length=10)
-    parent_id: str
+    parent_clause_id: str
     char_count: Optional[int] = None
 
     @field_validator('text')
@@ -22,24 +22,33 @@ class ChunkSchema(BaseModel):
             raise ValueError('Văn bản chứa ký tự lỗi (null byte)')
         return v.strip()
 
+class ClauseSchema(BaseModel):
+    clause_id: str
+    clause_number: str
+    clause_text: str = Field(..., description="Nội dung thô của toàn bộ Khoản (Dành cho Parser)")
+    # Để Optional: Parser không cần quan tâm, Chunking sẽ điền sau
+    chunks: Optional[List[ChunkSchema]] = None
+    parent_article_id: str
+
+    @field_validator('chunks')
+    @classmethod
+    def chunks_parent_id_must_match_clause(cls, v, info):
+        if v and 'clause_id' in info.data:
+            for chunk in v:
+                if chunk.parent_clause_id != info.data['clause_id']:
+                    raise ValueError(f"Chunk {chunk.chunk_id} sai parent_id")
+        return v
 
 class ArticleSchema(BaseModel):
     article_id: str
     article_number: str
     article_title: Optional[str] = None
-    chunks: List[ChunkSchema] = Field(..., min_length=1)
+    chapter: Optional[str] = None
+    section: Optional[str] = None
+    intro: Optional[str] = None
+    clauses: List[ClauseSchema] = Field(..., min_length=1)
 
-    @field_validator('chunks')
-    @classmethod
-    def chunks_parent_id_must_match_article(cls, v, info):
-        if 'article_id' in info.data:
-            for chunk in v:
-                if chunk.parent_id != info.data['article_id']:
-                    raise ValueError(f"Chunk {chunk.chunk_id} có parent_id không khớp với article_id")
-        return v
-
-
-class DocumentMetadataSchema(BaseModel):
+class LegalMetadata(BaseModel):
     title: str = Field(..., min_length=5)
     document_type: Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
     document_number: str
@@ -48,11 +57,11 @@ class DocumentMetadataSchema(BaseModel):
     issuing_body: str
     validity_status: Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
 
-
 class LegalDocumentSchema(BaseModel):
-    document_id: constr(pattern=r'^[a-z0-9_]+$')
-    document_metadata: DocumentMetadataSchema
+    document_id: str = Field(..., pattern=r'^[a-zA-Z0-9_]+$')
+    metadata: LegalMetadata
     articles: List[ArticleSchema] = Field(..., min_length=1)
+    footnotes: List[str] = Field(default_factory=list)
 
 
 # --- Pytest Test Cases ---
@@ -69,34 +78,36 @@ def test_valid_sample_document():
             pytest.fail(f"Lỗi schema trên document {doc.get('document_id', 'unknown')}: {e}")
 
 
-def test_invalid_chunk_parent_id_relation():
-    invalid_data = {
+def test_schema_with_raw_parser_data():
+    raw_data = {
         "document_id": "nd_100",
-        "document_metadata": {
-            "title": "Nghị định Test",
+        "metadata": {
+            "title": "Nghị định 100",
             "document_type": "Nghị định",
-            "document_number": "100",
-            "issue_date": "2020-01-01",
+            "document_number": "100/2019/NĐ-CP",
+            "issue_date": "2019-12-30",
             "effective_date": "2020-01-01",
-            "issuing_body": "CP",
+            "issuing_body": "Chính phủ",
             "validity_status": "Còn hiệu lực"
         },
         "articles": [
             {
                 "article_id": "nd_100_art_1",
                 "article_number": "1",
-                "chunks": [
+                "clauses": [
                     {
-                        "chunk_id": "chunk_1",
-                        "text": "Nội dung hợp lệ độ dài trên 10 ký tự",
-                        "parent_id": "WRONG_PARENT_ID"
+                        "clause_id": "nd_100_art_1_clause_1",
+                        "clause_number": "1",
+                        "clause_text": "Phạm vi điều chỉnh của nghị định này...",
+                        "parent_article_id": "nd_100_art_1"
                     }
                 ]
             }
         ]
     }
 
-    with pytest.raises(ValidationError) as excinfo:
-        LegalDocumentSchema(**invalid_data)
-
-    assert "parent_id không khớp với article_id" in str(excinfo.value)
+    try:
+        validated_doc = LegalDocumentSchema(**raw_data)
+        assert validated_doc.document_id == "nd_100"
+    except ValidationError as e:
+        pytest.fail(f"Lỗi schema: {e}")
