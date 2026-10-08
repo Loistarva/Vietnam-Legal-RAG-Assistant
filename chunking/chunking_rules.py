@@ -196,7 +196,6 @@ def word_segment(text: str | None) -> str:
         tokens = word_tokenize(text)
         return " ".join(tok.replace(" ", "_") for tok in tokens if tok.strip())
     except ImportError:
-        # Fallback: giữ nguyên khoảng trắng
         return text.strip()
 
 
@@ -256,8 +255,65 @@ class _ClauseUnit:
     char_count: int
 
 
-def _extract_clause_units(raw_chunks: list[dict[str, Any]]) -> list[_ClauseUnit]:
-    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit."""
+def _split_long_clause_unit(
+    u: _ClauseUnit,
+    max_chars: int,
+) -> list[_ClauseUnit]:
+    """Tách một Khoản/Điểm quá dài thành các sub-units không vượt quá max_chars."""
+    if u.char_count <= max_chars:
+        return [u]
+
+    # Cắt nhỏ theo đoạn văn hoặc câu
+    paragraphs = [p.strip() for p in u.text.split("\n") if p.strip()]
+    if not paragraphs:
+        paragraphs = [u.text]
+
+    chunks_text: list[str] = []
+    curr_pieces: list[str] = []
+    curr_len = 0
+
+    for p in paragraphs:
+        if len(p) > max_chars:
+            sentences = re.split(r"(?<=[.!?;:])\s+", p)
+            for s in sentences:
+                s_strip = s.strip()
+                if not s_strip:
+                    continue
+                if curr_pieces and curr_len + len(s_strip) > max_chars:
+                    chunks_text.append(" ".join(curr_pieces))
+                    curr_pieces = [s_strip]
+                    curr_len = len(s_strip)
+                else:
+                    curr_pieces.append(s_strip)
+                    curr_len += len(s_strip)
+        else:
+            if curr_pieces and curr_len + len(p) > max_chars:
+                chunks_text.append("\n".join(curr_pieces))
+                curr_pieces = [p]
+                curr_len = len(p)
+            else:
+                curr_pieces.append(p)
+                curr_len += len(p)
+
+    if curr_pieces:
+        chunks_text.append("\n".join(curr_pieces))
+
+    result_units: list[_ClauseUnit] = []
+    base_ref = u.clause_number or ""
+    for idx, c_text in enumerate(chunks_text, start=1):
+        suffix = f" (phần {idx})" if len(chunks_text) > 1 else ""
+        result_units.append(_ClauseUnit(
+            clause_number=f"{base_ref}{suffix}".strip() if base_ref else (f"Đoạn {idx}" if len(chunks_text) > 1 else None),
+            point_letter=u.point_letter,
+            text=c_text,
+            char_count=len(c_text),
+        ))
+
+    return result_units
+
+
+def _extract_clause_units(raw_chunks: list[dict[str, Any]], max_unit_chars: int = 1200) -> list[_ClauseUnit]:
+    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars)."""
     units: list[_ClauseUnit] = []
     for item in raw_chunks:
         txt = normalize_text(item.get("text", ""))
@@ -265,12 +321,16 @@ def _extract_clause_units(raw_chunks: list[dict[str, Any]]) -> list[_ClauseUnit]
             continue
         cl_num = str(item.get("clause_number")).strip() if item.get("clause_number") is not None else None
         pt_let = str(item.get("point_letter")).strip() if item.get("point_letter") is not None else None
-        units.append(_ClauseUnit(
+        base_u = _ClauseUnit(
             clause_number=cl_num,
             point_letter=pt_let,
             text=txt,
             char_count=len(txt),
-        ))
+        )
+        if base_u.char_count > max_unit_chars:
+            units.extend(_split_long_clause_unit(base_u, max_unit_chars))
+        else:
+            units.append(base_u)
     return units
 
 
@@ -304,7 +364,6 @@ def _split_units_to_parent_groups(
     current_size = header_len
 
     for u in units:
-        # Nếu nhóm hiện tại đã có phần tử và việc cộng thêm unit này làm vượt quá max_chars
         if current_group and (current_size + u.char_count > max_chars):
             groups.append(current_group)
             current_group = [u]
@@ -338,8 +397,7 @@ def _create_child_chunks_from_units(
     min_words = int(cfg.get("child_min_words", CHILD_MIN_WORDS))
 
     children: list[ChildChunk] = []
-    
-    # Trường hợp Parent không có units (chỉ có tiêu đề hoặc lời dẫn)
+
     if not units:
         raw_text = parent.text
         words_count = len(raw_text.split())
@@ -364,7 +422,6 @@ def _create_child_chunks_from_units(
             return [child]
         return []
 
-    # Gom nhóm các units nhỏ hoặc chia nhỏ unit lớn
     buffer_units: list[_ClauseUnit] = []
     buffer_words = 0
 
@@ -377,11 +434,9 @@ def _create_child_chunks_from_units(
         cl_refs = [u.clause_number for u in buffer_units if u.clause_number]
         pt_refs = [u.point_letter for u in buffer_units if u.point_letter]
 
-        # Xác định clause_ref và point_ref
         cl_ref_str = f"Khoản {cl_refs[0]}" if len(cl_refs) == 1 else (f"Khoản {cl_refs[0]}-{cl_refs[-1]}" if cl_refs else None)
         pt_ref_str = f"Điểm {pt_refs[0]}" if len(pt_refs) == 1 else None
 
-        # Semantic Child ID
         if len(cl_refs) == 1:
             if pt_refs and len(pt_refs) == 1:
                 cid = f"{parent.parent_id}_chunk_{_clean_id(cl_refs[0])}_{_clean_id(pt_refs[0])}"
@@ -390,7 +445,6 @@ def _create_child_chunks_from_units(
         else:
             cid = f"{parent.parent_id}_chunk_{idx}"
 
-        # Breadcrumb chi tiết cho Child
         child_bc = parent.breadcrumb
         if cl_ref_str and cl_ref_str not in child_bc:
             child_bc = f"{child_bc} > {cl_ref_str}"
@@ -424,15 +478,12 @@ def _create_child_chunks_from_units(
     for u in units:
         u_words = len(u.text.split())
 
-        # Nếu một unit quá dài vượt quá max_units (~200 units)
         if u_words > max_units:
-            # Xả buffer hiện tại trước
             c = _flush_buffer(child_idx)
             if c:
                 children.append(c)
                 child_idx += 1
 
-            # Tách nhỏ unit dài theo câu/sliding window
             units_list = segment_units(u.text)
             for sub_i in range(0, len(units_list), max_units):
                 slice_units = units_list[sub_i : sub_i + max_units]
@@ -460,7 +511,6 @@ def _create_child_chunks_from_units(
                 ))
             continue
 
-        # Gom nhóm: nếu cộng thêm unit này mà vượt quá max_units, xả buffer trước
         if buffer_words + u_words > max_units and buffer_units:
             c = _flush_buffer(child_idx)
             if c:
@@ -470,14 +520,12 @@ def _create_child_chunks_from_units(
         buffer_units.append(u)
         buffer_words += u_words
 
-        # Nếu buffer đã đạt đủ độ dài >= min_words và là một khoản độc lập kết thúc
         if buffer_words >= min_words:
             c = _flush_buffer(child_idx)
             if c:
                 children.append(c)
                 child_idx += 1
 
-    # Xả phần còn lại trong buffer
     if buffer_units:
         c = _flush_buffer(child_idx)
         if c:
@@ -498,7 +546,6 @@ def _chunk_structured_document(
 
     doc_id = str(doc.get("document_id") or doc.get("id") or "unknown_doc")
 
-    # Metadata xử lý tương thích cả "document_metadata" và "metadata"
     meta = doc.get("document_metadata") or doc.get("metadata") or {}
     title = str(meta.get("title") or doc.get("title") or "Văn bản pháp luật")
     title_seg = word_segment(title)
@@ -516,7 +563,6 @@ def _chunk_structured_document(
 
     articles = doc.get("articles", [])
     if not articles:
-        # Nếu mảng articles rỗng, fallback sang xử lý raw text nếu có
         raw_text = doc.get("content_text") or doc.get("content_html") or ""
         if raw_text:
             return _fallback_sliding_window(raw_text, doc_id, title, common_metadata, config)
@@ -528,28 +574,50 @@ def _chunk_structured_document(
     for art in articles:
         art_id_raw = str(art.get("article_id") or "")
         art_num = str(art.get("article_number") or "")
-        art_title = art.get("article_title") or art.get("intro") or ""
-        art_intro = art.get("intro") if art.get("article_title") else ""
+
+        # Trích xuất tiêu đề ngắn gọn
+        raw_title = (art.get("article_title") or "").strip()
+        raw_intro = (art.get("intro") or "").strip()
+
+        if raw_title:
+            art_title = raw_title if len(raw_title) <= 120 else raw_title[:120].rsplit(" ", 1)[0] + "..."
+            art_intro = raw_intro
+        elif raw_intro:
+            title_candidate = raw_intro.split("\n")[0].split(".")[0].strip()
+            if len(title_candidate) > 100:
+                title_candidate = title_candidate[:100].rsplit(" ", 1)[0] + "..."
+            art_title = title_candidate
+            art_intro = raw_intro
+        else:
+            art_title = ""
+            art_intro = ""
+
         chapter = art.get("chapter")
         section = art.get("section")
         raw_chunks = art.get("chunks", [])
 
-        # Semantic ID cho Article / Parent
         clean_doc = _clean_id(doc_id)
         clean_num = _clean_id(art_num or art_id_raw, default="0")
         base_parent_id = f"{clean_doc}_art_{clean_num}"
 
         article_ref = f"Điều {art_num}" if art_num else (f"Điều {art_id_raw}" if art_id_raw else "Điều")
         base_bc = build_breadcrumb(chapter, section, article_ref, art_title)
-
         article_header = f"[{article_ref}. {art_title}]".strip() if art_title else f"[{article_ref}]"
-        units = _extract_clause_units(raw_chunks)
+
+        # Trích xuất và giới hạn kích thước từng unit
+        units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300)
+
+        # Tránh lặp lại intro nếu parser đã đưa toàn bộ nội dung bài vào cả intro và chunk[0]
+        if art_intro and units:
+            unit_sample = units[0].text[:200].strip()
+            if art_intro.startswith(unit_sample) or units[0].text.startswith(art_intro[:200]) or len(art_intro) > 250:
+                art_intro = ""
 
         # Tính tổng kích thước bài viết
         full_article_text = _build_parent_text_from_units(article_header, art_intro, units)
 
         # TRƯỜNG HỢP 1: Toàn bộ Điều vừa trong PARENT_MAX_CHARS -> 1 Parent Chunk duy nhất
-        if len(full_article_text) <= max_chars or len(units) <= 1:
+        if len(full_article_text) <= max_chars:
             p_chunk = ParentChunk(
                 parent_id=base_parent_id,
                 doc_id=doc_id,
@@ -561,7 +629,6 @@ def _chunk_structured_document(
                 chunk_type=ChunkType.ARTICLE,
                 metadata={**common_metadata, "chapter": chapter, "section": section, "article_number": art_num},
             )
-            # Tách Child chunks
             children = _create_child_chunks_from_units(p_chunk, units, title_seg, config)
             p_chunk.child_ids = [c.chunk_id for c in children]
 
@@ -570,7 +637,7 @@ def _chunk_structured_document(
 
         # TRƯỜNG HỢP 2: Điều DÀI -> Tách thành nhiều Parent chunks theo nhóm Khoản
         else:
-            header_len = len(article_header) + (len(art_intro) if art_intro else 0) + 2
+            header_len = len(article_header) + 2
             groups = _split_units_to_parent_groups(units, max_chars, header_len)
 
             for g_idx, group_units in enumerate(groups, start=1):
@@ -584,7 +651,7 @@ def _chunk_structured_document(
                 group_bc = f"{base_bc} > {range_str}"
                 group_text = _build_parent_text_from_units(
                     article_header,
-                    art_intro if g_idx == 1 else None,  # Chỉ đưa intro vào phần đầu tiên
+                    art_intro if g_idx == 1 else None,
                     group_units,
                 )
 
@@ -672,7 +739,6 @@ def _fallback_sliding_window(
             metadata=metadata.copy(),
         )
 
-        # Tạo 1 child chunk cho parent fallback
         cid = f"{pid}_chunk_1"
         seg_text = word_segment(chunk_text)
         bc_seg = word_segment(bc)
@@ -785,7 +851,6 @@ def _demo():
     print("🚀 DEMO: HIERARCHICAL PARENT-CHILD CHUNKING FOR VIETNAMESE LEGAL RAG")
     print("=" * 70)
 
-    # Tìm file mẫu trong repo
     sample_files = [
         Path(__file__).parent.parent / "parser" / "parsed_jsons" / "L01.json",
         Path(__file__).parent.parent / "parser" / "parsed_jsons" / "ND01.json",
