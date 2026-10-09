@@ -216,61 +216,31 @@ hơn; cần đánh giá cùng với chất lượng retrieval.
 
 # 5. Các model được nghiên cứu
 
-Dựa trên benchmark tiếng Việt và các model embedding đã khảo sát, các
-ứng viên gồm:
+Dự án đã chạy thực nghiệm với ba model ID xác thực sau:
 
-1.  `BAAI/bge-vi-base`
-2.  `sBERT-Vi`
-3.  `PhoBERT`
-4.  `ViEmbedding`
-5.  `AITeamVN/Vietnamese_Embedding`
-6.  `BAAI/bge-m3`
-7.  `intfloat/multilingual-e5-base`
-8.  `hivetechVN/vietnamese-sbert-base-law-768-v2`
+1.  `AITeamVN/Vietnamese_Embedding`
+2.  `bkai-foundation-models/vietnamese-bi-encoder`
+3.  `BAAI/bge-m3`
 
-Không nhất thiết phải đưa cả 8 model vào thực nghiệm. Phần nghiên cứu
-dùng để lọc ra các ứng viên phù hợp nhất.
+Một số tên model khác trong các mục khảo sát dưới đây chỉ là ghi chú
+nghiên cứu ban đầu, không nằm trong lượt chạy so sánh ở mục 19. Cụ thể,
+`BAAI/bge-vi-base` không được dùng vì không xác minh được model ID đó trên
+Hugging Face; ứng viên đã chạy thay thế là model BKAI ở trên.
 
 ------------------------------------------------------------------------
 
 # 6. Phân tích từng model
 
-## 6.1. BAAI/bge-vi-base
+## 6.1. bkai-foundation-models/vietnamese-bi-encoder
 
-### Kết quả benchmark tham khảo
+Đây là model ID đã được xác minh và chạy trong thực nghiệm. Model card
+yêu cầu word segmentation tiếng Việt trước khi encode; pipeline dùng
+`underthesea` cho cả document chunks và query. Cấu hình chạy giới hạn đầu
+vào ở 256 tokens và trả vector 768 chiều.
 
-Theo benchmark Việt 2025 được nhóm cung cấp:
-
-  Chỉ số                   Kết quả
-  ------------------- ------------
-  Accuracy (STS-Vi)       **0.88**
-  MRR@10                  **0.84**
-  Tốc độ                950 sent/s
-  Dimension                    768
-
-Đây là model có kết quả cao nhất trong bảng benchmark được cung cấp.
-
-### Ưu điểm
-
--   Kết quả benchmark tiếng Việt rất tốt.
--   MRR@10 cao, phù hợp với mục tiêu retrieval.
--   Dimension 768 tương đối hợp lý cho Vector DB.
--   Có sự cân bằng tốt giữa chất lượng và kích thước vector.
--   Là ứng viên rất mạnh cho tiếng Việt.
-
-### Nhược điểm
-
--   Benchmark trên STS-Vi không đồng nghĩa với benchmark trực tiếp trên
-    Luật Hôn nhân và Gia đình.
--   Cần kiểm tra thực tế khả năng xử lý thuật ngữ pháp lý.
--   Cần kiểm tra khả năng xử lý chunk dài theo chunking strategy của
-    nhóm.
-
-### Đánh giá cho dự án
-
-**Rất phù hợp.**
-
-Đây là một trong những model cần ưu tiên thử nghiệm.
+Kết quả benchmark do model khác công bố không được xem là kết quả của
+thử nghiệm này. Số đo retrieval trực tiếp trên fixture của dự án được ghi
+riêng ở mục 19; chưa có ground truth để tính Recall@5 hoặc MRR@10.
 
 ------------------------------------------------------------------------
 
@@ -289,13 +259,13 @@ Theo benchmark Việt 2025 được nhóm cung cấp:
 
 -   Chất lượng benchmark tiếng Việt cao.
 -   MRR@10 tốt.
--   Nhanh hơn BAAI/bge-vi-base theo benchmark được cung cấp.
+-   Nhanh hơn model tham chiếu chưa xác thực ID trong benchmark được cung cấp.
 -   Dimension 768.
 -   Có thể là lựa chọn cân bằng giữa accuracy và tốc độ.
 
 ### Nhược điểm
 
--   Kết quả thấp hơn BAAI/bge-vi-base trong benchmark hiện có.
+-   Kết quả thấp hơn model tham chiếu chưa xác thực ID trong benchmark hiện có.
 -   Chưa có bằng chứng trực tiếp đủ mạnh để khẳng định vượt các model
     được fine-tune cho retrieval/legal.
 -   Cần thử trên dữ liệu Luật Hôn nhân và Gia đình.
@@ -328,7 +298,7 @@ Theo benchmark Việt 2025 được nhóm cung cấp:
 
 -   PhoBERT là pretrained language model, không phải bản thân checkpoint
     gốc được thiết kế chuyên biệt cho sentence retrieval.
--   Kết quả benchmark thấp hơn BAAI/bge-vi-base và sBERT-Vi.
+-   Kết quả benchmark thấp hơn model tham chiếu chưa xác thực ID và sBERT-Vi.
 -   Cần xem chính xác cách benchmark tạo sentence embedding từ PhoBERT.
 
 ### Đánh giá cho dự án
@@ -406,7 +376,7 @@ dữ liệu pháp luật tiếng Việt.
 
 ### Nhược điểm
 
--   Dimension 1024 lớn hơn BAAI/bge-vi-base/sBERT-Vi.
+-   Dimension 1024 lớn hơn model tham chiếu chưa xác thực ID/sBERT-Vi.
 -   Tốn dung lượng Vector DB hơn.
 -   Maximum sequence length ngắn hơn BGE-M3.
 -   Không được fine-tune riêng cho Luật Hôn nhân và Gia đình.
@@ -519,82 +489,24 @@ benchmark rõ ràng hơn.
 
 # 14. Bảng so sánh tổng hợp
 
-| Model | Tiếng Việt | Legal retrieval | Retrieval quality | Tốc độ | Dimension | Context length | Đánh giá sơ bộ |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| `BAAI/bge-vi-base` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 768 | Cần kiểm tra | Ứng viên chính |
-| `AITeamVN/Vietnamese_Embedding` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | 1024 | 2048 | Ứng viên chính |
-| `BAAI/bge-m3` | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | 1024 | 8192 | Baseline mạnh |
-| `sBERT-Vi` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 768 | Cần kiểm tra | Đối chứng |
-| `hivetechVN/vietnamese-sbert-base-law-768-v2` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | TBD | ⭐⭐⭐⭐ | 768 | Cần kiểm tra | Ứng viên bổ sung |
-| `PhoBERT` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 768 | Cần kiểm tra | Baseline |
-| `ViEmbedding` | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 300 | Cần kiểm tra | Efficiency baseline |
-| `intfloat/multilingual-e5-base` | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 768 | 512 | Baseline multilingual |
+| Model ID đã chạy | Hướng tiếp cận | Dimension đo được | Vai trò |
+| --- | --- | ---: | --- |
+| `AITeamVN/Vietnamese_Embedding` | Embedding tiếng Việt, định hướng retrieval/legal | 1024 | Ứng viên tiếng Việt |
+| `bkai-foundation-models/vietnamese-bi-encoder` | Vietnamese bi-encoder, có word segmentation | 768 | Ứng viên tiếng Việt |
+| `BAAI/bge-m3` | Multilingual dense retrieval, context dài | 1024 | Baseline đa ngôn ngữ |
 
-> Các đánh giá bằng sao ở trên là **đánh giá định hướng trước thực
-> nghiệm**, không phải kết quả benchmark mới. Model cuối cùng phải được
-> đánh giá trên cùng một tập dữ liệu của project, với cùng bộ metric và
-> cùng chiến lược chunking.
+Dimension được lấy từ model lúc chạy, không phải xếp hạng chất lượng.
+Kết quả đo thực nghiệm nằm ở mục 19.
 
 ------------------------------------------------------------------------
 
-# 15. Preliminary Ranking trước khi thử nghiệm
+# 15. Nhận định trước khi đánh giá
 
-Dựa trên mục tiêu của project:
-
-> **Legal RAG → ưu tiên retrieval accuracy, sau đó cân nhắc tốc độ và
-> chi phí.**
-
-Ranking sơ bộ:
-
-## 🥇 1. AITeamVN/Vietnamese_Embedding
-
-Lý do:
-
--   tiếng Việt;
--   được fine-tune cho retrieval;
--   có benchmark Legal Zalo 2021;
--   phù hợp trực tiếp với bài toán legal retrieval.
-
-Điểm cần kiểm tra:
-
--   tốc độ;
--   chi phí dimension 1024;
--   chất lượng trên Luật Hôn nhân và Gia đình cụ thể.
-
-------------------------------------------------------------------------
-
-## 🥈 2. BAAI/bge-vi-base
-
-Lý do:
-
--   dẫn đầu benchmark Việt 2025 được nhóm cung cấp;
--   Accuracy = 0.88;
--   MRR@10 = 0.84;
--   dimension 768;
--   cân bằng tốt giữa chất lượng và hiệu năng.
-
-Điểm cần kiểm tra:
-
--   khả năng retrieval trên domain pháp luật;
--   xử lý chunk dài;
--   so sánh trực tiếp với Vietnamese_Embedding.
-
-------------------------------------------------------------------------
-
-## 🥉 3. BAAI/bge-m3
-
-Lý do:
-
--   retrieval-oriented;
--   context dài;
--   phù hợp với văn bản pháp luật;
--   baseline mạnh.
-
-Điểm hạn chế:
-
--   lớn hơn;
--   dimension 1024;
--   không chuyên legal Việt Nam.
+Định hướng của dự án là ưu tiên retrieval accuracy, sau đó cân nhắc tốc
+độ và chi phí. Không đưa ra ranking chất lượng trước khi có ground truth.
+Các quan sát runtime một query ở mục 19 chỉ so sánh hiệu năng đo được;
+chúng không thay thế Recall@5/MRR@10 và không chứng minh model nào chính
+xác hơn.
 
 ------------------------------------------------------------------------
 
@@ -640,31 +552,22 @@ Có ưu điểm multilingual và dimension 768, nhưng không có lợi thế r�
 
 # 16. Ba model đề xuất đưa vào thực nghiệm
 
-đề xuất chọn:
+Ba model đã chạy trong thử nghiệm này, với model ID chính xác:
 
 ``` text
 1. AITeamVN/Vietnamese_Embedding
-2. BAAI/bge-vi-base
+2. bkai-foundation-models/vietnamese-bi-encoder
 3. BAAI/bge-m3
 ```
 
-Lý do:
+`BAAI/bge-vi-base` xuất hiện trong phần khảo sát sơ bộ trước đó nhưng không
+phải model ID được smoke test này sử dụng. Model BKAI ở trên là ứng viên
+thay thế có model ID xác thực và hỗ trợ tiền xử lý tiếng Việt bằng
+`underthesea`.
 
-  Model                                     Vai trò
-  ----------------------------------------- ---------------------------------------
-  **AITeamVN/Vietnamese_Embedding**         Ứng viên accuracy/legal-oriented
-  **BAAI/bge-vi-base**                     Ứng viên accuracy + efficiency
-  **BAAI/bge-m3**                          Baseline retrieval mạnh + context dài
-
-Ba model này tạo ra một thử nghiệm có ý nghĩa:
-
-``` text
-Vietnamese legal-oriented
-          VS
-Vietnamese high-performing
-          VS
-Multilingual retrieval-oriented
-```
+Dependency cơ bản: `python -m pip install -r embedding/requirements.txt`.
+Để chạy BKAI, cài thêm `python -m pip install -r
+embedding/requirements-bkai.txt`.
 
 ------------------------------------------------------------------------
 
@@ -760,14 +663,67 @@ Memory/storage
 
 # 19. Kết quả thực nghiệm
 
-| Model | Recall@5 | MRR@10 | Query latency | Embedding throughput | Dimension |
-| --- | --- | --- | --- | --- | --- |
-| `AITeamVN/Vietnamese_Embedding` | TBD | TBD | TBD | TBD | 1024 |
-| `BAAI/bge-vi-base` | TBD | TBD | TBD | TBD | 768 |
-| `BAAI/bge-m3` | TBD | TBD | TBD | TBD | 1024 |
+Đã chạy ngày 2026-10-10 trên cùng một fixture gồm 321 child chunks,
+SHA-256 `f1d9af4423dd337072d467cf6fad31aa1436859eb77035ba6eb14d22796cce0b`.
+Cả ba lượt dùng cùng query mặc định “Điều kiện về độ tuổi kết hôn được
+quy định như thế nào?”, Top-K = 5, batch size = 32, vector cosine đã
+chuẩn hóa, Qdrant local embedded, cùng máy Windows 11 / Python 3.12.10 /
+PyTorch 2.14.1 CPU (không có CUDA). Model được tải trước khi đo thời gian
+embedding; thời gian khởi tạo đo quanh lúc tải model vào
+Sentence-Transformers, và bao gồm thời gian tải từ Hugging Face nếu cần.
 
-> Bảng trên là template lưu kết quả thực nghiệm. Các giá trị thực tế sẽ
-> được điền sau khi chạy cùng một tập query và cùng một chiến lược chunking.
+Môi trường dùng `sentence-transformers 5.7.0`, `qdrant-client 1.19.1`
+và `underthesea 8.3.0`.
+
+| Model ID | Input handling / max tokens | Dimension | Model load (s) | Embedding 321 chunks (s) | Chunks/s | Query encode (ms) | Qdrant search (ms) | Query embedding + search (ms) | Top-1 chunk (cosine score) | Vector bytes ước tính |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
+| `AITeamVN/Vietnamese_Embedding` | Nguyên văn / 2048 | 1024 | 41.399 | 456.061 | 0.70 | 272.36 | 34.28 | 306.64 | `l01_art_8_chunk_1` (0.60566) | 1,314,816 |
+| `bkai-foundation-models/vietnamese-bi-encoder` | Underthesea word segmentation / 256 | 768 | 80.983 | 53.319 | 6.02 | 64.13 | 10.96 | 75.09 | `l01_art_8_chunk_1` (0.65203) | 986,112 |
+| `BAAI/bge-m3` | Nguyên văn / 8192 | 1024 | 214.229 | 249.314 | 1.29 | 361.74 | 45.47 | 407.22 | `l01_art_8_chunk_1` (0.73843) | 1,314,816 |
+
+Các số đo là một lần chạy smoke test trên CPU, không phải benchmark thống
+kê nhiều lượt. `Model load` gồm chi phí khởi tạo model. Độ trễ truy vấn
+được tính riêng là thời gian encode query cộng thời gian Qdrant vector
+search; không bao gồm tải model, embedding toàn bộ tài liệu, reranking
+hoặc LLM. Dung lượng vector là ước tính float32 (`321 × dimension × 4`),
+không gồm payload, index hoặc overhead lưu trữ. Điểm cosine giữa các model
+khác nhau không phải thước đo chất lượng có thể so sánh trực tiếp.
+
+Mỗi model đã ghi 321 point vào Qdrant; payload gồm chunk ID, nội dung,
+metadata pháp lý. Kết quả Top-5 và cấu hình từng lượt được lưu tại:
+
+- `embedding/results/aiteamvn.json`
+- `embedding/results/bkai.json`
+- `embedding/results/bge-m3.json`
+
+Top-1 của cả ba model là `l01_art_8_chunk_1` (Điều 8, Khoản 1), có nội
+dung điều kiện tuổi kết hôn. Đây là kiểm tra phù hợp với một query mẫu,
+không đủ để kết luận model nào truy hồi chính xác hơn.
+
+**Chưa đo được Recall@5, MRR@10, Recall@1 hoặc Recall@10** vì dự án chưa
+có tập query kèm nhãn `relevant_chunk_ids` (ground truth). Không xếp hạng
+model theo độ chính xác cho đến khi có bộ nhãn đánh giá.
+
+Có thể chạy lại từng lượt trong PowerShell từ thư mục gốc repo:
+
+```powershell
+$env:QDRANT_PATH = "$PWD\qdrant_data"
+python embedding\retrieval_smoke_test.py --model AITeamVN/Vietnamese_Embedding --results embedding\results\aiteamvn.json
+python embedding\retrieval_smoke_test.py --model bkai-foundation-models/vietnamese-bi-encoder --results embedding\results\bkai.json
+python embedding\retrieval_smoke_test.py --model BAAI/bge-m3 --results embedding\results\bge-m3.json
+```
+
+Mặc định collection Qdrant gắn 12 ký tự đầu của SHA-256 dataset để mỗi
+fixture có collection riêng. Khi truyền `--collection`, hãy tự bảo đảm
+collection được dành riêng cho đúng dataset; script kiểm tra tổng số
+points sau ingestion và không tự động xóa collection hoặc dữ liệu cũ.
+
+Trước khi chạy model BKAI, cài thêm `python -m pip install -r
+embedding\requirements-bkai.txt`. Thêm `--ground-truth <file.json>` khi có
+nhãn để tính Recall@5 và MRR@10. Recall@5 là trung bình theo từng query
+của số chunk liên quan tìm thấy trong Top-5 chia cho tổng số chunk liên
+quan đã gán nhãn cho query đó; MRR@10 là trung bình nghịch đảo thứ hạng
+của chunk liên quan đầu tiên trong Top-10.
 
 ------------------------------------------------------------------------
 
@@ -818,16 +774,14 @@ hơn.
 
 # 21. Kết luận
 
-Tuy nhiên, ranking sơ bộ cho mục tiêu **Legal RAG -- ưu tiên độ chính
-xác nhưng vẫn xét tốc độ** là:
+Ba model đã được chạy lại được trên cùng tập chunk; cả ba trả về đúng
+chunk Điều 8 cho query smoke test và các số đo thời gian/dimension được
+ghi ở mục 19. Trên máy đo này, BKAI có throughput cao nhất và latency
+thấp nhất; đây chỉ là quan sát hiệu năng của một lần chạy CPU, không phải
+ranking chất lượng truy hồi.
 
-| Ranking | Model | Lý do chính |
-| --- | --- | --- |
-| 🥇 1 | `AITeamVN/Vietnamese_Embedding` | Có định hướng Vietnamese retrieval và bằng chứng benchmark legal |
-| 🥈 2 | `BAAI/bge-vi-base` | Benchmark Việt mạnh, MRR cao, dimension 768 |
-| 🥉 3 | `BAAI/bge-m3` | Retrieval mạnh, context dài, baseline tốt |
-| 4 | `sBERT-Vi` | Chất lượng Việt tốt và khá nhanh |
-| 5 | `hivetechVN/vietnamese-sbert-base-law-768-v2` | Rất sát domain nhưng cần benchmark trực tiếp |
-| 6 | `PhoBERT` | Baseline tiếng Việt tốt nhưng không chuyên retrieval |
-| 7 | `ViEmbedding` | Rất nhanh nhưng chất lượng thấp hơn |
-| 8 | `intfloat/multilingual-e5-base` | Multilingual tốt nhưng ít lợi thế cho bài toán này |
+**Chưa chọn model** Cần tạo hoặc cung cấp một tập query pháp
+luật được gán nhãn relevant chunk IDs, sau đó chạy cùng ground truth cho
+cả ba model để so sánh Recall@5/MRR@10. Cần xác minh thêm metadata nguồn
+trước khi dùng fixture cho production: parser hiện ghi loại văn bản
+“Quyết định” và hiệu lực “Không xác định”.
