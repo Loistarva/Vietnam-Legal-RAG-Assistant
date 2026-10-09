@@ -2,7 +2,7 @@ import json
 import pytest
 from datetime import date
 from typing import List, Optional, Literal
-from pydantic import BaseModel, Field, constr, field_validator, ValidationError
+from pydantic import BaseModel, Field, field_validator, ValidationError
 
 
 # --- Pydantic Models for Validation ---
