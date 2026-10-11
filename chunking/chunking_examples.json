@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "title": "Tập hợp các trường hợp mẫu (Chunking Examples) theo quy tắc RAG",
+    "version": "2.0",
+    "document_contract": "docs/data_contract.md"
+  },
+  "examples": [
+    {
+      "case_name": "Case 3: Khoản chi tiết có nhiều Điểm (Points in Clause)",
+      "description": "Mỗi điểm a, b, c được gán Semantic ID chi tiết và gắn phần lời dẫn của khoản.",
+      "parent_chunk": {
+        "parent_id": "nd_100_2019_nd_cp_art_6",
+        "doc_id": "nd_100_2019_nd_cp",
+        "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+        "text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "breadcrumb": "Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+        "article_ref": "Điều 6",
+        "clause_refs": "",
+        "chunk_type": "ARTICLE",
+        "child_ids": [
+          "nd_100_2019_nd_cp_art_6_chunk_0"
+        ],
+        "metadata": {
+          "doc_id": "nd_100_2019_nd_cp",
+          "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+          "document_type": "Nghị định",
+          "document_number": "100/2019/NĐ-CP",
+          "issue_date": "2019-12-30",
+          "effective_date": "2020-01-01",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Còn hiệu lực",
+          "chapter": null,
+          "section": null,
+          "article_number": "6"
+        }
+      },
+      "child_chunks": [
+        {
+          "id": "nd_100_2019_nd_cp_art_6_chunk_0",
+          "parent_id": "nd_100_2019_nd_cp_art_6",
+          "doc_id": "nd_100_2019_nd_cp",
+          "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+          "text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+          "seg_text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+          "embed_text": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ [Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+          "breadcrumb": "Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+          "article_ref": "Điều 6",
+          "clause_ref": null,
+          "point_ref": null,
+          "chunk_type": "ARTICLE",
+          "document_type": "Nghị định",
+          "document_number": "100/2019/NĐ-CP",
+          "issue_date": "2019-12-30",
+          "effective_date": "2020-01-01",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Còn hiệu lực",
+          "chapter": null,
+          "section": null,
+          "article_number": "6"
+        }
+      ]
+    },
+    {
+      "case_name": "Case 4: Định dạng Payload nạp vào Cơ sở dữ liệu (Database Payloads)",
+      "description": "Minh họa cấu trúc JSON sẵn sàng nạp vào Vector DB (Qdrant), Sparse Index (Elasticsearch) và Parent Store.",
+      "qdrant_payload": {
+        "id": "nd_100_2019_nd_cp_art_6_chunk_0",
+        "parent_id": "nd_100_2019_nd_cp_art_6",
+        "doc_id": "nd_100_2019_nd_cp",
+        "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+        "text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "seg_text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "embed_text": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ [Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "breadcrumb": "Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+        "article_ref": "Điều 6",
+        "clause_ref": null,
+        "point_ref": null,
+        "chunk_type": "ARTICLE",
+        "document_type": "Nghị định",
+        "document_number": "100/2019/NĐ-CP",
+        "issue_date": "2019-12-30",
+        "effective_date": "2020-01-01",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Còn hiệu lực",
+        "chapter": null,
+        "section": null,
+        "article_number": "6"
+      },
+      "elasticsearch_doc": {
+        "chunk_id": "nd_100_2019_nd_cp_art_6_chunk_0",
+        "parent_id": "nd_100_2019_nd_cp_art_6",
+        "doc_id": "nd_100_2019_nd_cp",
+        "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+        "content": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "content_segmented": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "breadcrumb": "Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+        "article_ref": "Điều 6"
+      },
+      "parent_store_record": {
+        "parent_id": "nd_100_2019_nd_cp_art_6",
+        "doc_id": "nd_100_2019_nd_cp",
+        "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+        "text": "[Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ]",
+        "breadcrumb": "Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy vi phạm quy tắc giao thông đường bộ",
+        "article_ref": "Điều 6",
+        "clause_refs": "",
+        "chunk_type": "ARTICLE",
+        "child_ids": [
+          "nd_100_2019_nd_cp_art_6_chunk_0"
+        ],
+        "metadata": {
+          "doc_id": "nd_100_2019_nd_cp",
+          "title": "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt",
+          "document_type": "Nghị định",
+          "document_number": "100/2019/NĐ-CP",
+          "issue_date": "2019-12-30",
+          "effective_date": "2020-01-01",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Còn hiệu lực",
+          "chapter": null,
+          "section": null,
+          "article_number": "6"
+        }
+      }
+    }
+  ]
+}
