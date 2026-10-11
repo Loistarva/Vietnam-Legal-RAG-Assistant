@@ -1,0 +1,10 @@
+# Python virtual environments
+/.venv*/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local embedded Qdrant database
+/qdrant_data/
