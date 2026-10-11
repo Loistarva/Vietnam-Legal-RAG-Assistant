@@ -1,16 +1,16 @@
 {
   "model": "bkai-foundation-models/vietnamese-bi-encoder",
-  "collection": "legal_embedding_bkai_foundation_models_vietnamese_bi_encoder",
+  "collection": "legal_embedding_bkai_foundation_models_vietnamese_bi_encoder_f1d9af4423dd",
   "chunk_count": 321,
   "chunk_file_sha256": "f1d9af4423dd337072d467cf6fad31aa1436859eb77035ba6eb14d22796cce0b",
   "dimension": 768,
-  "load_seconds": 80.9833421000003,
-  "embedding_seconds": 53.31897340000069,
-  "chunks_per_second": 6.020370977360113,
+  "load_seconds": 5.4535879000013665,
+  "embedding_seconds": 42.70765869999923,
+  "chunks_per_second": 7.51621628932812,
   "vector_bytes_float32_estimate": 986112,
-  "query_embedding_seconds": 0.06412790000103996,
-  "qdrant_search_seconds": 0.010964000000967644,
-  "query_embedding_plus_search_seconds": 0.0750919000020076,
+  "query_embedding_seconds": 0.05547689999912109,
+  "qdrant_search_seconds": 0.005241299999397597,
+  "query_embedding_plus_search_seconds": 0.060718199998518685,
   "query_latency_scope": "query embedding + Qdrant vector search; excludes model loading, document embedding, reranking, and LLM",
   "top_k": [
     {

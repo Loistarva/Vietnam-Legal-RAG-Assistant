@@ -1,16 +1,16 @@
 {
   "model": "BAAI/bge-m3",
-  "collection": "legal_embedding_baai_bge_m3",
+  "collection": "legal_embedding_baai_bge_m3_f1d9af4423dd",
   "chunk_count": 321,
   "chunk_file_sha256": "f1d9af4423dd337072d467cf6fad31aa1436859eb77035ba6eb14d22796cce0b",
   "dimension": 1024,
-  "load_seconds": 214.22857529999965,
-  "embedding_seconds": 249.31411260000095,
-  "chunks_per_second": 1.2875324090257647,
+  "load_seconds": 7.868241899999703,
+  "embedding_seconds": 255.5387286999994,
+  "chunks_per_second": 1.2561696680304442,
   "vector_bytes_float32_estimate": 1314816,
-  "query_embedding_seconds": 0.3617448000004515,
-  "qdrant_search_seconds": 0.04547169999932521,
-  "query_embedding_plus_search_seconds": 0.4072164999997767,
+  "query_embedding_seconds": 1.007873999998992,
+  "qdrant_search_seconds": 0.03633019999870157,
+  "query_embedding_plus_search_seconds": 1.0442041999976936,
   "query_latency_scope": "query embedding + Qdrant vector search; excludes model loading, document embedding, reranking, and LLM",
   "top_k": [
     {
