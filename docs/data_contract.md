@@ -13,11 +13,11 @@ Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt bu�
 ## 2. Quy ước Định danh (Semantic ID Convention)
 Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường (hoặc hoa), không dấu, không khoảng trắng, chỉ dùng ký tự `[a-zA-Z0-9_]`.
 
-*   **Document ID:** `[loại_văn_bản]_[số_hiệu]_[năm]` (VD: `nd_100_2019_nd_cp`)
-*   **Article ID:** `[document_id]_art_[số_điều]` (VD: `nd_100_2019_nd_cp_art_6`)
-*   **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: `nd_100_2019_nd_cp_art_6_clause_2`)
-*   **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_b`)
 
+*   **Document ID:** `[loại_văn_bản]_[số_hiệu đầy đủ]` (VD: Nghị định 100/2019/NĐ-CP `nd_100_2019_nd_cp`)
+*   **Article ID:** `[document_id]_art_[số_điều]` (VD: Điều 6 `nd_100_2019_nd_cp_art_6`)
+*   **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: Khoản 2 `nd_100_2019_nd_cp_art_6_clause_2`)
+*   **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_b`)
 ---
 
 ## 3. Đặc tả Chi tiết Đối tượng (Entity Specifications)
