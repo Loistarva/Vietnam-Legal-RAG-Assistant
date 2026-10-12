@@ -663,22 +663,23 @@ Memory/storage
 
 # 19. Kết quả thực nghiệm
 
-Đã chạy lại ngày 2026-10-11 trên cùng một fixture gồm 321 child chunks,
+Đã chạy ngày 2026-10-10 trên cùng một fixture gồm 321 child chunks,
 SHA-256 `f1d9af4423dd337072d467cf6fad31aa1436859eb77035ba6eb14d22796cce0b`.
 Cả ba lượt dùng cùng query mặc định “Điều kiện về độ tuổi kết hôn được
 quy định như thế nào?”, Top-K = 5, batch size = 32, vector cosine đã
-chuẩn hóa và Qdrant local embedded. Chạy bằng Python 3.12.10 trên CPU.
-Model đã có trong Hugging Face cache; thời gian khởi tạo đo lúc nạp model
-vào Sentence-Transformers.
+chuẩn hóa, Qdrant local embedded, cùng máy Windows 11 / Python 3.12.10 /
+PyTorch 2.14.1 CPU (không có CUDA). Model được tải trước khi đo thời gian
+embedding; thời gian khởi tạo đo quanh lúc tải model vào
+Sentence-Transformers, và bao gồm thời gian tải từ Hugging Face nếu cần.
 
 Môi trường dùng `sentence-transformers 5.7.0`, `qdrant-client 1.19.1`
 và `underthesea 8.3.0`.
 
 | Model ID | Input handling / max tokens | Dimension | Model load (s) | Embedding 321 chunks (s) | Chunks/s | Query encode (ms) | Qdrant search (ms) | Query embedding + search (ms) | Top-1 chunk (cosine score) | Vector bytes ước tính |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
-| `AITeamVN/Vietnamese_Embedding` | Nguyên văn / 2048 | 1024 | 24.297 | 194.055 | 1.65 | 184.37 | 23.48 | 207.84 | `l01_art_8_chunk_1` (0.60566) | 1,314,816 |
-| `bkai-foundation-models/vietnamese-bi-encoder` | Underthesea word segmentation / 256 | 768 | 5.454 | 42.708 | 7.52 | 55.48 | 5.24 | 60.72 | `l01_art_8_chunk_1` (0.65203) | 986,112 |
-| `BAAI/bge-m3` | Nguyên văn / 8192 | 1024 | 7.868 | 255.539 | 1.26 | 1007.87 | 36.33 | 1044.20 | `l01_art_8_chunk_1` (0.73843) | 1,314,816 |
+| `AITeamVN/Vietnamese_Embedding` | Nguyên văn / 2048 | 1024 | 41.399 | 456.061 | 0.70 | 272.36 | 34.28 | 306.64 | `l01_art_8_chunk_1` (0.60566) | 1,314,816 |
+| `bkai-foundation-models/vietnamese-bi-encoder` | Underthesea word segmentation / 256 | 768 | 80.983 | 53.319 | 6.02 | 64.13 | 10.96 | 75.09 | `l01_art_8_chunk_1` (0.65203) | 986,112 |
+| `BAAI/bge-m3` | Nguyên văn / 8192 | 1024 | 214.229 | 249.314 | 1.29 | 361.74 | 45.47 | 407.22 | `l01_art_8_chunk_1` (0.73843) | 1,314,816 |
 
 Các số đo là một lần chạy smoke test trên CPU, không phải benchmark thống
 kê nhiều lượt. `Model load` gồm chi phí khởi tạo model. Độ trễ truy vấn

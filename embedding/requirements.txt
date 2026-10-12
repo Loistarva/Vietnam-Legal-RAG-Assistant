@@ -1,4 +1,2 @@
-# Versions resolved by the 2026-10-11 benchmark (Python 3.12.10, CPU):
-# sentence-transformers 5.7.0, qdrant-client 1.19.1.
 sentence-transformers>=3.4,<6
 qdrant-client>=1.13,<2

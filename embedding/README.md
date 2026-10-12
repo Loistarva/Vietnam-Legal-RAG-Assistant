@@ -141,25 +141,6 @@ embedding tài liệu, reranking hoặc LLM.
 Lượt chạy thành công sẽ báo 321 points và trả Top-K có nội dung cùng
 metadata.
 
-### Kết quả lần chạy gần nhất (2026-10-11)
-
-Chạy trên CPU với Python 3.12.10, `sentence-transformers 5.7.0`,
-`qdrant-client 1.19.1` và `underthesea 8.3.0`. Cả ba model dùng cùng 321
-chunk (SHA-256 bắt đầu `f1d9af4423dd`), batch size 32 và Qdrant local.
-
-| Model | Embedding (s) | Chunk/s | Query encode (ms) | Qdrant search (ms) | Tổng query (ms) | Dimension |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| AITeamVN/Vietnamese_Embedding | 194.055 | 1.65 | 184.37 | 23.48 | 207.84 | 1024 |
-| BKAI Vietnamese Bi-Encoder | 42.708 | 7.52 | 55.48 | 5.24 | 60.72 | 768 |
-| BAAI/bge-m3 | 255.539 | 1.26 | 1007.87 | 36.33 | 1044.20 | 1024 |
-
-Cả ba lượt đã nạp đủ 321 point và trả `l01_art_8_chunk_1` (Điều 8,
-Khoản 1) ở hạng nhất cho query mặc định. Đây là một query smoke test;
-chưa có ground truth để so sánh Recall@5 hoặc MRR@10, và cosine score
-giữa các model không so sánh trực tiếp được. Kết quả chi tiết nằm trong
-`embedding/results/aiteamvn.json`, `embedding/results/bkai.json` và
-`embedding/results/bge-m3.json`.
-
 Một số lỗi thường gặp:
 
 - **`Could not open requirements file`:** kiểm tra thư mục hiện tại bằng
