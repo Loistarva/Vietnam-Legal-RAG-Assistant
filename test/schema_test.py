@@ -26,8 +26,8 @@ SAMPLE_PATH = Path(__file__).parent.parent / "data" / "sample_documents.json"
 # 4. Mọi validator quan hệ cha-con dùng chung một helper và một mẫu thông báo lỗi.
 # =============================================================================
 
-DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
-ValidityStatus = Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
+DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch" ]
+ValidityStatus = Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]
 
 
 def clean_text(value):
@@ -104,7 +104,7 @@ class DocumentMetadataSchema(BaseSchema):
     document_type: DocumentType
     document_number: str
     issue_date: date
-    effective_date: date
+    effective_date: Optional[date] = None
     issuing_body: str
     validity_status: ValidityStatus
 
@@ -227,3 +227,12 @@ def test_empty_clauses_rejected(make_doc):
     data["articles"][0]["clauses"] = []
     with pytest.raises(ValidationError):
         LegalDocumentSchema(**data)
+
+def test_all_parsed_json_files():
+    parsed_dir = Path(__file__).parent.parent / "parser" / "parsed_jsons"
+    json_files = list(parsed_dir.glob("*.json"))
+    assert len(json_files) > 0, "Không tìm thấy file JSON nào trong parser/parsed_jsons"
+    for f in json_files:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        doc = LegalDocumentSchema(**data)
+        assert doc.document_id in f.stem

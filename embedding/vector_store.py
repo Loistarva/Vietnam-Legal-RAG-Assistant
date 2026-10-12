@@ -195,14 +195,32 @@ class VectorStore:
                                                    vector=list(vector), payload=payload))
         self.client.upload_points(self.collection_name, points=points, batch_size=128, wait=True)
 
-    def search(self, query_vector: Sequence[float], top_k: int = 5) -> list[dict[str, Any]]:
+    def search(self, query_vector: Sequence[float], top_k: int = 5, exclude_expired: bool = True) -> list[dict[str, Any]]:
         if len(query_vector) != self.dimension:
             raise ValueError(f"Query dimension {len(query_vector)} != collection dimension {self.dimension}")
         if top_k < 1:
             raise ValueError("top_k phải lớn hơn 0")
+
+        # Cấu hình filter loại trừ văn bản hết hiệu lực
+        query_filter = None
+        if exclude_expired:
+            query_filter = self.models.Filter(
+                must_not=[
+                    self.models.FieldCondition(
+                        key="metadata.validity_status",
+                        match=self.models.MatchValue(value="Hết hiệu lực"),
+                    )
+                ]
+            )
+
         started = time.perf_counter()
-        hits = self.client.query_points(collection_name=self.collection_name, query=list(query_vector),
-                                        limit=top_k, with_payload=True).points
+        hits = self.client.query_points(
+            collection_name=self.collection_name,
+            query=list(query_vector),
+            query_filter=query_filter,  # Pre-filter trước khi tính distance
+            limit=top_k,
+            with_payload=True
+        ).points
         self.last_search_seconds = time.perf_counter() - started
         return [{"chunk_id": hit.payload["chunk_id"], "score": float(hit.score),
                  "text": hit.payload["text"], "metadata": hit.payload["metadata"]} for hit in hits]

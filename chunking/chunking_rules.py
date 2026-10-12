@@ -594,7 +594,17 @@ def _chunk_structured_document(
 
         chapter = art.get("chapter")
         section = art.get("section")
-        raw_chunks = art.get("chunks", [])
+        clauses = art.get("clauses", [])
+        raw_chunks = []
+        if clauses:
+            for cl in clauses:
+                raw_chunks.append({
+                    "clause_number": cl.get("clause_number"),
+                    "text": cl.get("clause_text") or cl.get("text", ""),
+                    "point_letter": None,
+                })
+        else:
+            raw_chunks = art.get("chunks", [])
 
         clean_doc = _clean_id(doc_id)
         clean_num = _clean_id(art_num or art_id_raw, default="0")

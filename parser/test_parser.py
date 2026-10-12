@@ -219,3 +219,12 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+def test_all_parsed_json_structures():
+    """Pytest test case kiem tra toan bo output json cua parser."""
+    json_files = list(PARSED_DIR.glob("*.json"))
+    assert len(json_files) > 0, "Khong tim thay file JSON nao trong parsed_jsons"
+    for jf in json_files:
+        doc = json.loads(jf.read_text(encoding="utf-8"))
+        errors, _ = check_doc_structure(doc)
+        assert not errors, f"Loi cau truc tai {jf.name}: {errors}"
