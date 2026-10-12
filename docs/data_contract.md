@@ -34,15 +34,15 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 **Cấu trúc `metadata`:**
 
-| Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation) |
-| :--- | :--- | :---: | :--- |
-| `title` | String | **Có** | Tên văn bản. Ràng buộc: `minLength: 5`. |
-| `document_type` | String | **Có** | Enum: `["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]`. |
-| `document_number` | String | **Có** | Số hiệu văn bản (VD: "100/2019/NĐ-CP"). |
-| `issue_date` | Date | **Có** | Ngày ban hành. Định dạng chuẩn: `YYYY-MM-DD`. |
-| `effective_date` | Date | **Có** | Ngày có hiệu lực. Định dạng chuẩn: `YYYY-MM-DD`. |
-| `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ"). |
-| `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]`. |
+| Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation)                                                                                        |
+| :--- | :--- | :---: |:----------------------------------------------------------------------------------------------------------------------|
+| `title` | String | **Có** | Tên văn bản. Ràng buộc: `minLength: 5`.                                                                               |
+| `document_type` | String | **Có** | Enum: `["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]`.                                                   |
+| `document_number` | String | **Có** | Số hiệu văn bản (VD: "100/2019/NĐ-CP").                                                                               |
+| `issue_date` | Date | **Có** | Ngày ban hành. Định dạng chuẩn: `YYYY-MM-DD`.                                                                         |
+| `effective_date` | Date | **Có** | Ngày có hiệu lực. Định dạng chuẩn: `YYYY-MM-DD`.                                                                      |
+| `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ").                                                                                   |
+| `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"], "Sắp có hiệu lực", "Không xác định"]`. |
 
 ### 3.2. Cấp độ Article (Điều luật)
 *Nhóm logic cung cấp ngữ cảnh cha cho các Khoản bên trong.*
