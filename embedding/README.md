@@ -1,5 +1,83 @@
 # Thử nghiệm Embedding và Qdrant
 
+## BM25 lexical retrieval
+
+Từ thư mục gốc repo, chạy BM25 trên fixture chunk hiện có (không cần tải
+embedding model hoặc chạy Qdrant):
+
+```powershell
+.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --query "Điều kiện ly hôn đơn phương theo Điều 56" --top-k 10
+```
+
+`--chunks` tùy chọn đường dẫn JSON chunk khác; `--top-k` mặc định là 10.
+Có thể ghi kết quả JSON ra file bằng `--output`:
+
+```powershell
+.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json --query "ly hôn đơn phương" --top-k 20 --output .\embedding\results\bm25.json
+```
+
+Mỗi kết quả gồm `rank`, `score`, `chunk_id`, `text` và `metadata`. Chỉ mục
+BM25 được dựng trong bộ nhớ mỗi lần chạy; cần chạy lại lệnh khi truy vấn câu
+hỏi mới.
+
+## Hybrid retrieval với RRF
+
+Hybrid gọi BM25 và dense retrieval với cùng `candidate_k`, sau đó hợp nhất
+theo thứ hạng. `rrf_k` mặc định là 60; không cộng score BM25 với cosine score.
+Dense search yêu cầu collection Qdrant đã được nạp bằng cùng bộ chunk và
+embedding model. Ví dụ gọi từ Python:
+
+```python
+from embedding.vector_store import EmbeddingService, VectorStore
+from retrieval.bm25_retriever import BM25Index
+from retrieval.hybrid_retriever import hybrid_search
+
+chunks_path = "embedding/data/han_gia_dinh_smoke_chunks.json"
+bm25 = BM25Index.from_file(chunks_path)
+embedder = EmbeddingService("bkai-foundation-models/vietnamese-bi-encoder")
+# Dùng đúng collection đã tạo bởi retrieval_smoke_test.py cho model và fixture này.
+store = VectorStore("<collection_name>", embedder.dimension)
+hits = hybrid_search(
+    "Điều kiện ly hôn đơn phương theo Điều 56", bm25, embedder, store,
+    top_k=10, candidate_k=50, rrf_k=60,
+)
+for hit in hits:
+    print(hit["rank"], hit["chunk_id"], hit["rrf_score"], hit["source_ranks"])
+```
+
+Kết quả có `rrf_score`, `source_ranks`, `source_scores`, `retrieval_sources`,
+cùng `chunk_id`, `text` và `metadata`. Có thể kiểm thử gộp mà không cần model
+hay Qdrant bằng `python -m unittest test.test_hybrid_retriever -v`.
+
+## Dev set retrieval
+
+Dev set khởi tạo gồm 14 câu hỏi tiếng Việt về các chủ đề trong fixture Hôn
+nhân và Gia đình, kèm `relevant_chunk_ids`, nằm tại
+`embedding/data/dev_queries.json`. Nhãn đã được kiểm tra tồn tại và đối chiếu
+với nội dung chunk, nhưng chưa được chuyên gia pháp lý duyệt; dùng để thử
+pipeline, chưa nên xem như benchmark chất lượng chính thức.
+
+Chạy BM25, Dense và Hybrid (cùng BKAI model, fixture, Top-10 và tập query):
+
+```powershell
+$env:QDRANT_PATH = "$PWD\qdrant_data"
+.\.venv312\Scripts\python.exe -m retrieval.run_dev_retrieval --queries .\embedding\data\dev_queries.json --model bkai-foundation-models/vietnamese-bi-encoder --top-k 10 --candidate-k 50 --rrf-k 60
+```
+
+Mỗi phương pháp ghi một file trong `retrieval/results/` với các trường
+`query`, `chunk_id`, `score`, `rank`: `dev_bm25.json`, `dev_dense.json` và
+`dev_hybrid.json`. Kết quả hiện tại được tạo từ fixture có SHA-256 bắt đầu
+`f1d9af4423dd`.
+
+Sau khi có ba file kết quả, tổng hợp CSV và tính Recall@10/MRR@10 bằng:
+
+```powershell
+.\.venv312\Scripts\python.exe -m retrieval.retrieval_evaluation
+```
+
+Lệnh ghi `retrieval/results/retrieval_results.csv` và
+`retrieval/results/retrieval_report.md`.
+
 Thử nghiệm này chuyển các child chunk pháp luật cố định thành vector, lưu
 vector cùng payload vào Qdrant local và chạy truy vấn Top-K cho từng model.
 Quy trình dùng parser và thuật toán chunking đã có trong repo, không viết

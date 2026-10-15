@@ -1,0 +1,421 @@
+﻿method,query,chunk_id,score,rank
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_8_chunk_1,18.95267017595208,1
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_130_chunk_1,18.91301090282295,2
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_15_chunk_1,17.846963310203638,3
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_14_chunk_2,17.151064990596826,4
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_16_chunk_1,15.537423474111264,5
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_14_chunk_1,15.351039379218685,6
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_5,15.13877684150834,7
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_6,14.26490658306226,8
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p2_chunk_12,13.886544389577193,9
+bm25,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p2_chunk_11,12.81326765767183,10
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_1,39.55309049379079,1
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_13_chunk_1,33.997100953688694,2
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_53_chunk_2,28.10330137954848,3
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_14_chunk_2,24.753931356726202,4
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_16_chunk_1,24.240802167684986,5
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_2,23.907341730053755,6
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_130_chunk_1,23.016446921462666,7
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_3_p1_chunk_5,22.745408663318763,8
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_3_p2_chunk_13,20.83968798566486,9
+bm25,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_123_chunk_1,20.18515486132592,10
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_3,17.883933713299534,1
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p2_chunk_3,15.755053513386834,2
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_1,15.540937120666872,3
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p4_chunk_25,14.231026899971637,4
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_6_chunk_1,14.041545130107416,5
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_4,12.804982955213088,6
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_131_chunk_1,12.725057028671271,7
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_8_chunk_1,12.588211152658118,8
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_100_chunk_1,12.49723608048685,9
+bm25,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_1_chunk_1,12.219395855304976,10
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_51_chunk_1,20.962692354419897,1
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_54_chunk_1,19.826283796413737,2
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_56_chunk_1,19.73287243091943,3
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_53_chunk_1,18.044251781534644,4
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_56_chunk_2,17.8115477836402,5
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_125_chunk_2,16.411754661807862,6
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_55_chunk_1,16.36310840049112,7
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_117_chunk_1,15.50386750655095,8
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_89_chunk_1,14.71894989271983,9
+bm25,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_53_chunk_2,14.70671783554225,10
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_3,26.504308319698666,1
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_5_p1_chunk_2_1,21.590843727613198,2
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_95_chunk_2,20.21239096845502,3
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_3_p4_chunk_22,17.242684651223154,4
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_82_chunk_2,16.52749583425997,5
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_1,16.045604001554864,6
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_56_chunk_1,15.794557035697995,7
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_55_chunk_1,15.656609183327616,8
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_95_chunk_3,15.432553228580502,9
+bm25,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_98_chunk_5,15.10000607284286,10
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_55_chunk_1,21.667637092908898,1
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_56_chunk_1,15.742476491620893,2
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_29_chunk_2,15.011107989668979,3
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_11_chunk_2,13.754916589557038,4
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_62_chunk_1,13.194057166006768,5
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_51_chunk_1,13.191944263409793,6
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_48_chunk_2,12.805281350595296,7
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_41_chunk_4,12.453083135883395,8
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_56_chunk_2,12.428913172570292,9
+bm25,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_66_chunk_1,12.149930842012092,10
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_2,30.977301495518404,1
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_55_chunk_1,24.11470394202824,2
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_82_chunk_2,23.93620502518397,3
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_56_chunk_1,23.097498721917727,4
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_84_chunk_2,22.853436237476544,5
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_61_chunk_1,22.477887420178913,6
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_116_chunk_1,20.49866881947642,7
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_58_chunk_1,18.3923732074372,8
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_56_chunk_3,18.138318962325314,9
+bm25,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_116_chunk_2,17.54964420050069,10
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_3,37.42383171985508,1
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_82_chunk_2,29.174849515951454,2
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_2,25.45576320716144,3
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_2,21.985603410728988,4
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_51_chunk_3,21.87299641248525,5
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_76_chunk_2,19.77675557902239,6
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_82_chunk_1,18.9195459880997,7
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_2,18.259167514526762,8
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_58_chunk_1,18.19159366215115,9
+bm25,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_1,18.120393416675356,10
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_1,28.54810637166683,1
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_88_chunk_1,24.135160922409398,2
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_2,22.324251038223988,3
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_41_chunk_1,20.641820679762812,4
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_1,20.48547897715972,5
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_41_chunk_4,19.22648467077072,6
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_59_p1_chunk_2,19.08289226271379,7
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_75_chunk_1,18.937714226271602,8
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_38_chunk_1,18.402902080595442,9
+bm25,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_35_chunk_1,18.211085233280663,10
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_66_chunk_2,22.091327954092147,1
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_48_chunk_1,19.628677024510278,2
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_41_chunk_4,18.198660458490288,3
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_39_chunk_3,18.013220781201923,4
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_3,17.609106593189914,5
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_40_chunk_1,16.4640852196263,6
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_62_chunk_1,15.737422747709534,7
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_61_chunk_1,15.622745701939866,8
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_41_chunk_1,15.52321313625492,9
+bm25,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_67_chunk_2,15.395521547849894,10
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_1,18.902645106227048,1
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_108_chunk_1,16.44879443207432,2
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_2,13.715760136648175,3
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_109_chunk_1,13.258438727522893,4
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_3_p1_chunk_3,9.916436381870664,5
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_84_chunk_5,9.91241941316926,6
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_2,9.403098148099557,7
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_3,9.096088652863637,8
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_117_chunk_1,8.989050666120438,9
+bm25,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_88_chunk_2,8.520299685631496,10
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_2,30.563540255035534,1
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_1,27.06536802451259,2
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_1,24.53739734629829,3
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_2,24.13103280905695,4
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_2,23.905077105161215,5
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_3,22.224772402883417,6
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_2,20.991645295542284,7
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_58_chunk_1,20.528473979323298,8
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_110_chunk_1,19.626227521283614,9
+bm25,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_5_p1_chunk_2_1,19.38208358658069,10
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_1,43.699992764963866,1
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_2,34.62040169726577,2
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_127_chunk_1,27.231688417997272,3
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_2,26.824717789635883,4
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_128_chunk_1,25.377443303239843,5
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_2_chunk_1,25.275371408516932,6
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_3,24.29569520421801,7
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_8_chunk_1,23.592507390821783,8
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_3_p4_chunk_25,23.53477636292664,9
+bm25,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_123_chunk_3,21.962929071290638,10
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_3,15.655039530385782,1
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p4_chunk_25,13.773239312569867,2
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_1,12.834285072651644,3
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_4_chunk_2,12.809340596150767,4
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_131_chunk_1,12.67705400542851,5
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_4,12.475926814905993,6
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_5_p1_chunk_1,12.345228993094873,7
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_6_chunk_1,11.838052516080463,8
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_1_chunk_1,11.668410314308744,9
+bm25,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_124_chunk_1,11.630149853476786,10
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_8_chunk_1,0.6578213613747561,1
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_4_chunk_1,0.5167043463252032,2
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_9_chunk_1,0.5087621039549726,3
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_8_chunk_2,0.49976747124632753,4
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_19_chunk_1,0.4889324596860999,5
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_5,0.48641992897945785,6
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_8,0.48443591776645134,7
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_19_chunk_2,0.4834188545452692,8
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_6,0.4811991533848216,9
+dense,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_14_chunk_1,0.4777322389235044,10
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_1,0.5784989772500615,1
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_2,0.4327000919057721,2
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_14_chunk_2,0.4318769223665486,3
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_14_chunk_1,0.4122564531928361,4
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_3_p1_chunk_5,0.3971579973571109,5
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_34_chunk_1,0.3710533283904429,6
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_19_chunk_2,0.3642601217025474,7
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_8_chunk_2,0.3630345102672322,8
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_19_chunk_1,0.36277592870966346,9
+dense,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_10_chunk_1,0.3589879798640985,10
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_70_chunk_2,0.585388839987617,1
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p1_chunk_2_1,0.5777473765813415,2
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p2_chunk_10,0.5690329322290621,3
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_23_chunk_1,0.5605077237547207,4
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_19_chunk_1,0.5578280699572171,5
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_70_chunk_1,0.5563388090377198,6
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_69_chunk_4,0.5534071436855303,7
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_8,0.5526382134802135,8
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_1,0.5485163780197118,9
+dense,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p2_chunk_3,0.5473278246119107,10
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_51_chunk_1,0.45569206243321336,1
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_125_chunk_1,0.4145842743829286,2
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_56_chunk_1,0.4077370299036415,3
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_51_chunk_3,0.40758764977331324,4
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_55_chunk_1,0.3998344324763943,5
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_52_chunk_1,0.3919258250691179,6
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_63_chunk_1,0.37325836459930006,7
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_54_chunk_1,0.36787893491636436,8
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_53_chunk_1,0.3656269486110014,9
+dense,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_81_chunk_3,0.3594720740400851,10
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_3,0.5705578861514332,1
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_1,0.47043421252163353,2
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_84_chunk_2,0.4549453715311774,3
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_81_chunk_3,0.4342208915633047,4
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_84_chunk_5,0.4317544126646627,5
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_82_chunk_2,0.4212112725173032,6
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_84_chunk_4,0.4160759720589342,7
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_88_chunk_1,0.41530765894967336,8
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_81_chunk_1,0.41003931114841463,9
+dense,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_81_chunk_2,0.40916255474646623,10
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_55_chunk_1,0.5703096379473103,1
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_125_chunk_1,0.5526715916839097,2
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p2_chunk_4,0.4889660858418069,3
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_11_chunk_2,0.4852078414999737,4
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p1_chunk_3,0.4832686506819486,5
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p1_chunk_2,0.4807206218814963,6
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p1_chunk_1,0.4778708395987136,7
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p2_chunk_6,0.475751865248963,8
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p2_chunk_5,0.4726618393201498,9
+dense,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_125_chunk_2,0.455154622654068,10
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_83_chunk_1,0.6362785972306616,1
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_1,0.6293655162391969,2
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_82_chunk_1,0.6207263139366161,3
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_82_chunk_2,0.6090596640667488,4
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_2,0.604354622407508,5
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_83_chunk_2,0.5988411224386863,6
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_58_chunk_1,0.58019315021074,7
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_12_chunk_2,0.5683118264764513,8
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_84_chunk_4,0.5508171922802563,9
+dense,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_84_chunk_1,0.5461974076035976,10
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_3,0.7731215390293183,1
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_2,0.643362754417297,2
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_2,0.6366821833199137,3
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_1,0.6177132799672945,4
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_82_chunk_2,0.5902230010603596,5
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_3,0.5851874214210706,6
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_5,0.584226959147603,7
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_4,0.5830664375176858,8
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_1,0.5784546152938915,9
+dense,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_2,0.5427836928614241,10
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_1,0.6812469413776265,1
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_2,0.6275421615038559,2
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_38_chunk_1,0.5984225326731207,3
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_1,0.5790409687340135,4
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_41_chunk_2,0.5387652542150726,5
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_36_chunk_1,0.5372886773199507,6
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_2,0.5330745605996822,7
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_3,0.5219676663202406,8
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_64_chunk_1,0.5185275567036911,9
+dense,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_39_chunk_1,0.5154628839438018,10
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_2,0.6514781899101478,1
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_3,0.6411226406628449,2
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p2_chunk_4,0.6071391612986434,3
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_1,0.5876135335316043,4
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p2_chunk_5,0.5755683170895841,5
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p2_chunk_6,0.544540250446641,6
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_61_chunk_1,0.5403901095690473,7
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_38_chunk_1,0.5368072243594215,8
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_61_chunk_2,0.5161632788934427,9
+dense,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_62_chunk_2_1,0.5148352445215414,10
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_1,0.4314850478295758,1
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_6,0.3278490241516437,2
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_107_chunk_1,0.31041455392162626,3
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_2,0.30638053192235215,4
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_107_chunk_2,0.3019940954587331,5
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_115_chunk_1,0.30012228202535457,6
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_1,0.29667242863911236,7
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_109_chunk_1,0.28621420928135455,8
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_119_chunk_1,0.2858974299811792,9
+dense,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_119_chunk_2,0.284947244179313,10
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_2,0.8373627085683897,1
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_1,0.8082319329641041,2
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_1,0.788334070460663,3
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_2,0.7526477667270884,4
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_1,0.7035387202458085,5
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_4,0.6926619138339363,6
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_2,0.688872815524397,7
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_1,0.6713065452606072,8
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_2,0.6677809948592273,9
+dense,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_3,0.667339725389334,10
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_1,0.7482140777096065,1
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_2,0.6532365620379748,2
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_122_chunk_2,0.5586754383333243,3
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_2,0.5481784097237932,4
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_8_chunk_1,0.5368494233291854,5
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_3,0.5363875083743032,6
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_122_chunk_1,0.5330593136542249,7
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_129_chunk_1,0.517419645250378,8
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_127_chunk_1,0.5162806114749888,9
+dense,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_9_chunk_1,0.5136403664962482,10
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_14,0.6940087463080983,1
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_62_chunk_2_2,0.579155539869949,2
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_1,0.5608881427436689,3
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_8,0.5483585074027402,4
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_10,0.5407364500657614,5
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_62_chunk_1,0.5396602967276845,6
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_13,0.5385272942758136,7
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_3,0.5375430528533196,8
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_7,0.5363306392744334,9
+dense,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_54_chunk_1,0.5276302634468846,10
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_8_chunk_1,0.03278688524590164,1
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_5,0.03007688828584351,2
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_14_chunk_1,0.029437229437229435,3
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_6,0.02919863597612958,4
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_9_chunk_1,0.02886002886002886,5
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_14_chunk_2,0.028125,6
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_7,0.027031963470319637,7
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_3_p1_chunk_8,0.0266900790166813,8
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_4_chunk_1,0.026438310608579978,9
+hybrid,Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?,l01_art_16_chunk_1,0.02625418060200669,10
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_1,0.03278688524590164,1
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_14_chunk_2,0.03149801587301587,2
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_9_chunk_2,0.03128054740957967,3
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_3_p1_chunk_5,0.030090497737556562,4
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_53_chunk_2,0.029571646010002173,5
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_14_chunk_1,0.029513888888888888,6
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_16_chunk_1,0.02946912242686891,7
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_13_chunk_1,0.02946236559139785,8
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_3_p1_chunk_6,0.02702702702702703,9
+hybrid,"Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",l01_art_34_chunk_1,0.026916221033868093,10
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p2_chunk_3,0.0304147465437788,1
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p1_chunk_1,0.03036576949620428,2
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p1_chunk_2_1,0.02878726010616578,3
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_3_p2_chunk_10,0.028068137824235385,4
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_4_chunk_2,0.02668564312399929,5
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_103_chunk_3,0.02523809523809524,6
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_4_chunk_3,0.025098039215686277,7
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_6_chunk_1,0.02455892731122089,8
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_85_chunk_1,0.024007908487501763,9
+hybrid,Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?,l01_art_5_p1_chunk_2_2,0.02369989165763814,10
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_51_chunk_1,0.03278688524590164,1
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_56_chunk_1,0.031746031746031744,2
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_54_chunk_1,0.030834914611005692,3
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_55_chunk_1,0.030309988518943745,4
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_53_chunk_1,0.030117753623188408,5
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_125_chunk_2,0.028665028665028666,6
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_53_chunk_2,0.02817460317460317,7
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_51_chunk_3,0.028125,8
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_125_chunk_1,0.027893738140417457,9
+hybrid,Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?,l01_art_24_chunk_3,0.027212143650499815,10
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_3,0.03278688524590164,1
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_51_chunk_1,0.03128054740957967,2
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_82_chunk_2,0.030536130536130537,3
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_56_chunk_1,0.028814262023217248,4
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_88_chunk_1,0.027205882352941177,5
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_83_chunk_1,0.026279628993473032,6
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_81_chunk_2,0.026190476190476188,7
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_55_chunk_1,0.02557544757033248,8
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_115_chunk_1,0.025503573749187783,9
+hybrid,Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?,l01_art_84_chunk_2,0.025488400488400488,10
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_55_chunk_1,0.03278688524590164,1
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_11_chunk_2,0.03125,2
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_56_chunk_1,0.02928692699490662,3
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p1_chunk_1,0.02900988017658188,4
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_62_chunk_1,0.028371628371628373,5
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_51_chunk_1,0.027651515151515153,6
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_125_chunk_1,0.02736498731424429,7
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_66_chunk_1,0.026050420168067225,8
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_59_p1_chunk_3,0.026022913256955812,9
+hybrid,Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?,l01_art_53_chunk_2,0.025793650793650792,10
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_2,0.03177805800756621,1
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_82_chunk_2,0.03149801587301587,2
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_58_chunk_1,0.029631255487269532,3
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_84_chunk_2,0.029083245521601686,4
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_1,0.02878726010616578,5
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_12_chunk_2,0.026200135226504394,6
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_59_p1_chunk_1,0.026132699813337858,7
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_81_chunk_3,0.025849212924606464,8
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_84_chunk_4,0.025728708679368183,9
+hybrid,"Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",l01_art_78_chunk_1,0.02564102564102564,10
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_3,0.03278688524590164,1
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_81_chunk_2,0.03200204813108039,2
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_82_chunk_2,0.0315136476426799,3
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_2,0.03149801587301587,4
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_3,0.02904040404040404,5
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_2,0.028991596638655463,6
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_82_chunk_1,0.028814262023217248,7
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_84_chunk_4,0.028790389395194696,8
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_83_chunk_1,0.02877846790890269,9
+hybrid,Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?,l01_art_51_chunk_3,0.02871794871794872,10
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_1,0.03278688524590164,1
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_2,0.03200204813108039,2
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_43_chunk_1,0.031009615384615385,3
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_38_chunk_1,0.03036576949620428,4
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_41_chunk_1,0.027820121951219513,5
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_39_chunk_1,0.02761904761904762,6
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_33_chunk_3,0.027364110201042444,7
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_40_chunk_1,0.027031963470319637,8
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_46_chunk_1,0.02668564312399929,9
+hybrid,Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?,l01_art_61_chunk_1,0.026234567901234566,10
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_3,0.0315136476426799,1
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_59_p1_chunk_2,0.029906956136464335,2
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_61_chunk_1,0.029631255487269532,3
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_39_chunk_3,0.028612012987012988,4
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_61_chunk_2,0.028577260665441927,5
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_62_chunk_1,0.028438886647841874,6
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_62_chunk_2_1,0.027443609022556388,7
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_38_chunk_1,0.027364110201042444,8
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_48_chunk_1,0.026129032258064518,9
+hybrid,"Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",l01_art_41_chunk_4,0.025774005972025775,10
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_1,0.03278688524590164,1
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_116_chunk_2,0.03149801587301587,2
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_109_chunk_1,0.030330882352941176,3
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_108_chunk_1,0.028629032258064516,4
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_2,0.028438886647841874,5
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_118_chunk_3,0.02803921568627451,6
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_107_chunk_1,0.02792120864410021,7
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_115_chunk_1,0.027809742999616416,8
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_117_chunk_1,0.027650648360030512,9
+hybrid,Mức cấp dưỡng được xác định dựa trên những căn cứ nào?,l01_art_119_chunk_1,0.027479766610201392,10
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_2,0.03278688524590164,1
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_82_chunk_1,0.03200204813108039,2
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_1,0.03200204813108039,3
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_83_chunk_2,0.03055037313432836,4
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_2,0.030309988518943745,5
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_2,0.030117753623188408,6
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_1,0.02946912242686891,7
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_81_chunk_3,0.029437229437229435,8
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_58_chunk_1,0.028404512489927477,9
+hybrid,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?,l01_art_84_chunk_4,0.02813852813852814,10
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_1,0.03278688524590164,1
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_126_chunk_2,0.03225806451612903,2
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_2,0.03125,3
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_127_chunk_1,0.03036576949620428,4
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_8_chunk_1,0.030090497737556562,5
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_121_chunk_3,0.03007688828584351,6
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_122_chunk_2,0.029206349206349208,7
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_2_chunk_1,0.028850145288501453,8
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_129_chunk_1,0.028404512489927477,9
+hybrid,Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?,l01_art_3_p4_chunk_25,0.028006267136701922,10
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_1,0.031746031746031744,1
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_3,0.031099324975891997,2
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_14,0.027146130794993832,3
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_56_chunk_1,0.027071520029266508,4
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_10,0.02674825174825175,5
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_62_chunk_3,0.025252525252525252,6
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_13,0.02523465148484382,7
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_61_chunk_2,0.02454080096356519,8
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p2_chunk_9,0.023614523614523618,9
+hybrid,"Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",l01_art_3_p1_chunk_5,0.023412698412698413,10

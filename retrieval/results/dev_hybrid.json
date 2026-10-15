@@ -1,0 +1,842 @@
+[
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_8_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_3_p1_chunk_5",
+    "score": 0.03007688828584351,
+    "rank": 2
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_14_chunk_1",
+    "score": 0.029437229437229435,
+    "rank": 3
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_3_p1_chunk_6",
+    "score": 0.02919863597612958,
+    "rank": 4
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_9_chunk_1",
+    "score": 0.02886002886002886,
+    "rank": 5
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_14_chunk_2",
+    "score": 0.028125,
+    "rank": 6
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_3_p1_chunk_7",
+    "score": 0.027031963470319637,
+    "rank": 7
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_3_p1_chunk_8",
+    "score": 0.0266900790166813,
+    "rank": 8
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_4_chunk_1",
+    "score": 0.026438310608579978,
+    "rank": 9
+  },
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "chunk_id": "l01_art_16_chunk_1",
+    "score": 0.02625418060200669,
+    "rank": 10
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_9_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_14_chunk_2",
+    "score": 0.03149801587301587,
+    "rank": 2
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_9_chunk_2",
+    "score": 0.03128054740957967,
+    "rank": 3
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_3_p1_chunk_5",
+    "score": 0.030090497737556562,
+    "rank": 4
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_53_chunk_2",
+    "score": 0.029571646010002173,
+    "rank": 5
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_14_chunk_1",
+    "score": 0.029513888888888888,
+    "rank": 6
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_16_chunk_1",
+    "score": 0.02946912242686891,
+    "rank": 7
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_13_chunk_1",
+    "score": 0.02946236559139785,
+    "rank": 8
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_3_p1_chunk_6",
+    "score": 0.02702702702702703,
+    "rank": 9
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "chunk_id": "l01_art_34_chunk_1",
+    "score": 0.026916221033868093,
+    "rank": 10
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_5_p2_chunk_3",
+    "score": 0.0304147465437788,
+    "rank": 1
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_3_p1_chunk_1",
+    "score": 0.03036576949620428,
+    "rank": 2
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_5_p1_chunk_2_1",
+    "score": 0.02878726010616578,
+    "rank": 3
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_3_p2_chunk_10",
+    "score": 0.028068137824235385,
+    "rank": 4
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_4_chunk_2",
+    "score": 0.02668564312399929,
+    "rank": 5
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_103_chunk_3",
+    "score": 0.02523809523809524,
+    "rank": 6
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_4_chunk_3",
+    "score": 0.025098039215686277,
+    "rank": 7
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_6_chunk_1",
+    "score": 0.02455892731122089,
+    "rank": 8
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_85_chunk_1",
+    "score": 0.024007908487501763,
+    "rank": 9
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "chunk_id": "l01_art_5_p1_chunk_2_2",
+    "score": 0.02369989165763814,
+    "rank": 10
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_51_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_56_chunk_1",
+    "score": 0.031746031746031744,
+    "rank": 2
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_54_chunk_1",
+    "score": 0.030834914611005692,
+    "rank": 3
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_55_chunk_1",
+    "score": 0.030309988518943745,
+    "rank": 4
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_53_chunk_1",
+    "score": 0.030117753623188408,
+    "rank": 5
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_125_chunk_2",
+    "score": 0.028665028665028666,
+    "rank": 6
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_53_chunk_2",
+    "score": 0.02817460317460317,
+    "rank": 7
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_51_chunk_3",
+    "score": 0.028125,
+    "rank": 8
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_125_chunk_1",
+    "score": 0.027893738140417457,
+    "rank": 9
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "chunk_id": "l01_art_24_chunk_3",
+    "score": 0.027212143650499815,
+    "rank": 10
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_51_chunk_3",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_51_chunk_1",
+    "score": 0.03128054740957967,
+    "rank": 2
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_82_chunk_2",
+    "score": 0.030536130536130537,
+    "rank": 3
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_56_chunk_1",
+    "score": 0.028814262023217248,
+    "rank": 4
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_88_chunk_1",
+    "score": 0.027205882352941177,
+    "rank": 5
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_83_chunk_1",
+    "score": 0.026279628993473032,
+    "rank": 6
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_81_chunk_2",
+    "score": 0.026190476190476188,
+    "rank": 7
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_55_chunk_1",
+    "score": 0.02557544757033248,
+    "rank": 8
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_115_chunk_1",
+    "score": 0.025503573749187783,
+    "rank": 9
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "chunk_id": "l01_art_84_chunk_2",
+    "score": 0.025488400488400488,
+    "rank": 10
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_55_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_11_chunk_2",
+    "score": 0.03125,
+    "rank": 2
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_56_chunk_1",
+    "score": 0.02928692699490662,
+    "rank": 3
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_59_p1_chunk_1",
+    "score": 0.02900988017658188,
+    "rank": 4
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_62_chunk_1",
+    "score": 0.028371628371628373,
+    "rank": 5
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_51_chunk_1",
+    "score": 0.027651515151515153,
+    "rank": 6
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_125_chunk_1",
+    "score": 0.02736498731424429,
+    "rank": 7
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_66_chunk_1",
+    "score": 0.026050420168067225,
+    "rank": 8
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_59_p1_chunk_3",
+    "score": 0.026022913256955812,
+    "rank": 9
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "chunk_id": "l01_art_53_chunk_2",
+    "score": 0.025793650793650792,
+    "rank": 10
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_81_chunk_2",
+    "score": 0.03177805800756621,
+    "rank": 1
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_82_chunk_2",
+    "score": 0.03149801587301587,
+    "rank": 2
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_58_chunk_1",
+    "score": 0.029631255487269532,
+    "rank": 3
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_84_chunk_2",
+    "score": 0.029083245521601686,
+    "rank": 4
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_81_chunk_1",
+    "score": 0.02878726010616578,
+    "rank": 5
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_12_chunk_2",
+    "score": 0.026200135226504394,
+    "rank": 6
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_59_p1_chunk_1",
+    "score": 0.026132699813337858,
+    "rank": 7
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_81_chunk_3",
+    "score": 0.025849212924606464,
+    "rank": 8
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_84_chunk_4",
+    "score": 0.025728708679368183,
+    "rank": 9
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "chunk_id": "l01_art_78_chunk_1",
+    "score": 0.02564102564102564,
+    "rank": 10
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_81_chunk_3",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_81_chunk_2",
+    "score": 0.03200204813108039,
+    "rank": 2
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_82_chunk_2",
+    "score": 0.0315136476426799,
+    "rank": 3
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_84_chunk_2",
+    "score": 0.03149801587301587,
+    "rank": 4
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_84_chunk_3",
+    "score": 0.02904040404040404,
+    "rank": 5
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_83_chunk_2",
+    "score": 0.028991596638655463,
+    "rank": 6
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_82_chunk_1",
+    "score": 0.028814262023217248,
+    "rank": 7
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_84_chunk_4",
+    "score": 0.028790389395194696,
+    "rank": 8
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_83_chunk_1",
+    "score": 0.02877846790890269,
+    "rank": 9
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "chunk_id": "l01_art_51_chunk_3",
+    "score": 0.02871794871794872,
+    "rank": 10
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_33_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_43_chunk_2",
+    "score": 0.03200204813108039,
+    "rank": 2
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_43_chunk_1",
+    "score": 0.031009615384615385,
+    "rank": 3
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_38_chunk_1",
+    "score": 0.03036576949620428,
+    "rank": 4
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_41_chunk_1",
+    "score": 0.027820121951219513,
+    "rank": 5
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_39_chunk_1",
+    "score": 0.02761904761904762,
+    "rank": 6
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_33_chunk_3",
+    "score": 0.027364110201042444,
+    "rank": 7
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_40_chunk_1",
+    "score": 0.027031963470319637,
+    "rank": 8
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_46_chunk_1",
+    "score": 0.02668564312399929,
+    "rank": 9
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "chunk_id": "l01_art_61_chunk_1",
+    "score": 0.026234567901234566,
+    "rank": 10
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_59_p1_chunk_3",
+    "score": 0.0315136476426799,
+    "rank": 1
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_59_p1_chunk_2",
+    "score": 0.029906956136464335,
+    "rank": 2
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_61_chunk_1",
+    "score": 0.029631255487269532,
+    "rank": 3
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_39_chunk_3",
+    "score": 0.028612012987012988,
+    "rank": 4
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_61_chunk_2",
+    "score": 0.028577260665441927,
+    "rank": 5
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_62_chunk_1",
+    "score": 0.028438886647841874,
+    "rank": 6
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_62_chunk_2_1",
+    "score": 0.027443609022556388,
+    "rank": 7
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_38_chunk_1",
+    "score": 0.027364110201042444,
+    "rank": 8
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_48_chunk_1",
+    "score": 0.026129032258064518,
+    "rank": 9
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "chunk_id": "l01_art_41_chunk_4",
+    "score": 0.025774005972025775,
+    "rank": 10
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_116_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_116_chunk_2",
+    "score": 0.03149801587301587,
+    "rank": 2
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_109_chunk_1",
+    "score": 0.030330882352941176,
+    "rank": 3
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_108_chunk_1",
+    "score": 0.028629032258064516,
+    "rank": 4
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_118_chunk_2",
+    "score": 0.028438886647841874,
+    "rank": 5
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_118_chunk_3",
+    "score": 0.02803921568627451,
+    "rank": 6
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_107_chunk_1",
+    "score": 0.02792120864410021,
+    "rank": 7
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_115_chunk_1",
+    "score": 0.027809742999616416,
+    "rank": 8
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_117_chunk_1",
+    "score": 0.027650648360030512,
+    "rank": 9
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "chunk_id": "l01_art_119_chunk_1",
+    "score": 0.027479766610201392,
+    "rank": 10
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_82_chunk_2",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_82_chunk_1",
+    "score": 0.03200204813108039,
+    "rank": 2
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_83_chunk_1",
+    "score": 0.03200204813108039,
+    "rank": 3
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_83_chunk_2",
+    "score": 0.03055037313432836,
+    "rank": 4
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_81_chunk_2",
+    "score": 0.030309988518943745,
+    "rank": 5
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_84_chunk_2",
+    "score": 0.030117753623188408,
+    "rank": 6
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_81_chunk_1",
+    "score": 0.02946912242686891,
+    "rank": 7
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_81_chunk_3",
+    "score": 0.029437229437229435,
+    "rank": 8
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_58_chunk_1",
+    "score": 0.028404512489927477,
+    "rank": 9
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "chunk_id": "l01_art_84_chunk_4",
+    "score": 0.02813852813852814,
+    "rank": 10
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_126_chunk_1",
+    "score": 0.03278688524590164,
+    "rank": 1
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_126_chunk_2",
+    "score": 0.03225806451612903,
+    "rank": 2
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_121_chunk_2",
+    "score": 0.03125,
+    "rank": 3
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_127_chunk_1",
+    "score": 0.03036576949620428,
+    "rank": 4
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_8_chunk_1",
+    "score": 0.030090497737556562,
+    "rank": 5
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_121_chunk_3",
+    "score": 0.03007688828584351,
+    "rank": 6
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_122_chunk_2",
+    "score": 0.029206349206349208,
+    "rank": 7
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_2_chunk_1",
+    "score": 0.028850145288501453,
+    "rank": 8
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_129_chunk_1",
+    "score": 0.028404512489927477,
+    "rank": 9
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "chunk_id": "l01_art_3_p4_chunk_25",
+    "score": 0.028006267136701922,
+    "rank": 10
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p1_chunk_1",
+    "score": 0.031746031746031744,
+    "rank": 1
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p1_chunk_3",
+    "score": 0.031099324975891997,
+    "rank": 2
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p2_chunk_14",
+    "score": 0.027146130794993832,
+    "rank": 3
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_56_chunk_1",
+    "score": 0.027071520029266508,
+    "rank": 4
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p2_chunk_10",
+    "score": 0.02674825174825175,
+    "rank": 5
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_62_chunk_3",
+    "score": 0.025252525252525252,
+    "rank": 6
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p2_chunk_13",
+    "score": 0.02523465148484382,
+    "rank": 7
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_61_chunk_2",
+    "score": 0.02454080096356519,
+    "rank": 8
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p2_chunk_9",
+    "score": 0.023614523614523618,
+    "rank": 9
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "chunk_id": "l01_art_3_p1_chunk_5",
+    "score": 0.023412698412698413,
+    "rank": 10
+  }
+]
