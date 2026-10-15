@@ -125,8 +125,22 @@ python -m retrieval.retrieval_evaluation
 
 Lệnh kiểm tra schema, query và ID trùng, sau đó tạo:
 
-- `retrieval/results/retrieval_results.csv`: kết quả chi tiết với `method`, `query`, `chunk_id`, `score`, `rank`.
+- `retrieval/results/retrieval_results.csv`: kết quả chi tiết với `method`, `query`, `chunk_id`, `score`, `rank`, `is_relevant`, `chunk_text`, `relevant_chunk_ids`, `relevant_chunk_text`. Hai cột văn bản cho phép xem trực tiếp chunk được truy xuất và chunk chuẩn từ Dev set.
 - `retrieval/results/retrieval_report.md`: macro Recall@10 và MRR@10 cùng cấu hình và giới hạn đánh giá.
+
+### So sánh BM25, Dense và Hybrid
+
+Các phương pháp dùng cùng 14 câu hỏi, cùng corpus và cùng Top-10. Kết quả hiện tại với BKAI Dense, candidate depth 50 và RRF k=60:
+
+| Phương pháp | Cách tìm | Recall@10 | MRR@10 | Đọc kết quả |
+| --- | --- | ---: | ---: | --- |
+| BM25 | Khớp từ khóa, số Điều và thuật ngữ trong chunk/metadata | 0.7857 | 0.7381 | Baseline lexical; có thể bỏ sót câu hỏi diễn đạt khác từ trong luật. |
+| Dense | Tương đồng ngữ nghĩa qua embedding | 0.9643 | **0.8595** | Chunk đúng thường xuất hiện sớm hơn; có thể không ưu tiên số hiệu chính xác như BM25. |
+| Hybrid (RRF) | Hợp nhất thứ hạng BM25 và Dense | **1.0000** | 0.8333 | Bao phủ toàn bộ chunk relevant trong Top-10 ở Dev set này, nhưng hạng relevant đầu tiên trung bình thấp hơn Dense một chút. |
+
+**Kết luận cho lượt chạy này:** Hybrid có Recall@10 cao nhất, Dense có MRR@10 cao nhất. Vì vậy Hybrid tìm được toàn bộ chunk đã gán nhãn trong Top-10 trên Dev set nhỏ này, còn Dense thường đưa chunk relevant lên vị trí sớm hơn. Đây là hai khía cạnh khác nhau; không thể kết luận một phương pháp thắng tuyệt đối chỉ từ một chỉ số.
+
+Điểm `score` trong CSV **không so sánh trực tiếp giữa các phương pháp**: BM25 là điểm lexical, Dense là cosine similarity, còn Hybrid là điểm RRF từ thứ hạng. So sánh chất lượng bằng Recall/MRR trên cùng Dev set và xem `is_relevant`, `chunk_text`, `relevant_chunk_text` để kiểm tra từng truy vấn. Các con số trên là kết quả của một cấu hình cố định, không phải kết quả tuning; nhãn Dev chưa được chuyên gia pháp lý thẩm định.
 
 Muốn dùng Dev set, thư mục kết quả hoặc output khác, truyền `--dev-set`, `--results-dir`, `--output-dir`. Ví dụ:
 

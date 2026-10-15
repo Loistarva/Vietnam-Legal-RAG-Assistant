@@ -3,6 +3,7 @@
 - Ngày tạo: 2026-10-15
 - Dev set: `embedding/data/dev_queries.json` (14 câu hỏi)
 - Corpus: `embedding/data/han_gia_dinh_smoke_chunks.json` (321 chunks; fixture SHA-256 bắt đầu `f1d9af4423dd`).
+- CSV includes retrieved chunk text, relevance flag, and expected relevant chunk IDs/text for direct comparison.
 - Dense model: BKAI Vietnamese Bi-Encoder; Qdrant local collection khớp fixture.
 - Cấu hình truy xuất: Top-10; Hybrid candidate depth=50; RRF k=60.
 - Nhãn relevant được đối chiếu với nội dung chunk nhưng chưa được chuyên gia pháp lý thẩm định.
