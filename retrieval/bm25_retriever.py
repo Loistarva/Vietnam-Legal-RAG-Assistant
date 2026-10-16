@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 from collections import Counter
 from pathlib import Path
 from typing import Any, Sequence
@@ -103,11 +104,30 @@ def main() -> int:
                         help="JSON chunk theo schema chung (mặc định: fixture Hôn nhân gia đình)")
     parser.add_argument("--query", required=True, help="Câu hỏi cần truy vấn")
     parser.add_argument("--top-k", type=int, default=10, help="Số kết quả tối đa (mặc định: 10)")
+    parser.add_argument("--backend", choices=["elasticsearch", "local"], default="elasticsearch",
+                        help="BM25 chạy trong Elasticsearch (mặc định) hoặc baseline in-memory")
+    parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"),
+                        help="URL Elasticsearch (hoặc đặt biến ELASTICSEARCH_URL)")
+    parser.add_argument("--index", default=os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev"),
+                        help="Elasticsearch index đã chứa child chunks")
     parser.add_argument("--output", type=Path, help="Tùy chọn: lưu kết quả ra JSON")
     args = parser.parse_args()
     try:
-        index = BM25Index.from_file(str(args.chunks))
-        results = index.search(args.query, args.top_k)
+        if args.backend == "local":
+            index = BM25Index.from_file(str(args.chunks))
+            results = index.search(args.query, args.top_k)
+        else:
+            if not args.elasticsearch_url:
+                raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL")
+            try:
+                from elasticsearch import Elasticsearch
+            except ImportError as exc:
+                raise RuntimeError("Cần cài elasticsearch client: pip install elasticsearch") from exc
+            from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
+            client = Elasticsearch(args.elasticsearch_url)
+            if not client.ping():
+                raise ConnectionError(f"Không kết nối được Elasticsearch tại {args.elasticsearch_url}")
+            results = ElasticsearchBM25Retriever(client, args.index).search(args.query, args.top_k)
         rendered = json.dumps(results, ensure_ascii=False, indent=2)
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -116,7 +136,7 @@ def main() -> int:
         else:
             print(rendered)
         return 0
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, RuntimeError) as exc:
         parser.error(str(exc))
         return 2
 

@@ -1,0 +1,58 @@
+[
+  {
+    "query": "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
+    "relevant_chunk_ids": ["l01_art_8_chunk_1"]
+  },
+  {
+    "query": "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
+    "relevant_chunk_ids": ["l01_art_9_chunk_1"]
+  },
+  {
+    "query": "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
+    "relevant_chunk_ids": ["l01_art_5_p1_chunk_2_1", "l01_art_5_p1_chunk_2_2"]
+  },
+  {
+    "query": "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
+    "relevant_chunk_ids": ["l01_art_56_chunk_1"]
+  },
+  {
+    "query": "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
+    "relevant_chunk_ids": ["l01_art_51_chunk_3"]
+  },
+  {
+    "query": "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
+    "relevant_chunk_ids": ["l01_art_55_chunk_1"]
+  },
+  {
+    "query": "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
+    "relevant_chunk_ids": ["l01_art_81_chunk_2"]
+  },
+  {
+    "query": "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
+    "relevant_chunk_ids": ["l01_art_81_chunk_3"]
+  },
+  {
+    "query": "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
+    "relevant_chunk_ids": ["l01_art_33_chunk_1"]
+  },
+  {
+    "query": "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
+    "relevant_chunk_ids": ["l01_art_59_p1_chunk_2"]
+  },
+  {
+    "query": "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
+    "relevant_chunk_ids": ["l01_art_116_chunk_1"]
+  },
+  {
+    "query": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
+    "relevant_chunk_ids": ["l01_art_82_chunk_2"]
+  },
+  {
+    "query": "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
+    "relevant_chunk_ids": ["l01_art_126_chunk_1"]
+  },
+  {
+    "query": "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
+    "relevant_chunk_ids": ["l01_art_3_p2_chunk_14"]
+  }
+]

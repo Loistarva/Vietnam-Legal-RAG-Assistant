@@ -38,6 +38,7 @@ def _normalize_chunk(raw: dict[str, Any]) -> dict[str, Any]:
     if not metadata:
         raise ValueError(f"Chunk {chunk_id!r} thiếu metadata pháp lý")
     return {"chunk_id": chunk_id.strip(), "text": text.strip(), "metadata": metadata,
+            "seg_text": raw.get("seg_text") or text.strip(),
             "embed_text": raw.get("embed_text") or text.strip()}
 
 

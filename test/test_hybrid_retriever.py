@@ -2,6 +2,7 @@ import unittest
 
 from retrieval.hybrid_retriever import (
     EmbeddingQdrantAdapter,
+    ElasticsearchBM25Retriever,
     HybridRetriever,
     HybridSearchConfig,
     hybrid_search,
@@ -15,6 +16,29 @@ def hit(chunk_id, text=None, score=1.0):
 
 
 class HybridRetrieverTest(unittest.TestCase):
+    def test_elasticsearch_bm25_adapter_uses_match_and_returns_shared_chunk_shape(self):
+        class ElasticsearchStub:
+            def search(self, **kwargs):
+                self.kwargs = kwargs
+                return {"hits": {"hits": [
+                    {"_id": "chunk-a", "_score": 3.7, "_source": {
+                        "chunk_id": "chunk-a", "text": "kết quả", "metadata": {"article_ref": "Điều 5"}}},
+                ]}}
+
+        client = ElasticsearchStub()
+        results = ElasticsearchBM25Retriever(client, "legal-chunks").search("Điều 5", top_k=4)
+        self.assertEqual(client.kwargs["index"], "legal-chunks")
+        self.assertEqual(client.kwargs["size"], 4)
+        multi_match = client.kwargs["query"]["bool"]["must"][0]["multi_match"]
+        self.assertEqual(multi_match["query"], "Điều 5")
+        self.assertIn("content_segmented", multi_match["fields"])
+        self.assertIn("article_ref^4", multi_match["fields"])
+        self.assertEqual(results, [{
+            "chunk_id": "chunk-a", "text": "kết quả", "parent_id": None,
+            "metadata": {"article_ref": "Điều 5"},
+            "score": 3.7, "rank": 1,
+        }])
+
     def test_rrf_combines_overlap_and_preserves_single_branch_results(self):
         bm25 = [hit("A", score=9), hit("C", score=7)]
         dense = [hit("B", score=0.9), hit("A", score=0.8)]

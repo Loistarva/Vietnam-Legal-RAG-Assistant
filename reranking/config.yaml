@@ -1,0 +1,5 @@
+reranker:
+  enabled: false
+  model: BAAI/bge-reranker-v2-m3
+  candidate_k: 50
+  top_k: 10

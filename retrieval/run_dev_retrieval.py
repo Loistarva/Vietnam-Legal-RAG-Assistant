@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -13,9 +14,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from embedding.vector_store import EmbeddingService, VectorStore, chunk_file_sha256, load_chunks
-from retrieval.bm25_retriever import BM25Index
 from retrieval.hybrid_retriever import (
     EmbeddingQdrantAdapter,
+    ElasticsearchBM25Retriever,
     HybridRetriever,
     HybridSearchConfig,
 )
@@ -45,14 +46,18 @@ def compact(method: str, query: str, hits: list[dict[str, Any]]) -> list[dict[st
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--queries", type=Path, required=True,
+    parser.add_argument("--queries", type=Path, default=ROOT / "data" / "benchmark" / "queries_dev.json",
                         help='JSON list of query strings or objects: [{"query":"..."}]')
     parser.add_argument("--chunks", type=Path,
                         default=ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json")
-    parser.add_argument("--model", default="bkai-foundation-models/vietnamese-bi-encoder",
+    parser.add_argument("--model", default="BAAI/bge-m3",
                         choices=["AITeamVN/Vietnamese_Embedding", "bkai-foundation-models/vietnamese-bi-encoder", "BAAI/bge-m3"])
     parser.add_argument("--collection", default=None,
                         help="Qdrant collection đã nạp đúng model và chunk fixture")
+    parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"),
+                        help="URL Elasticsearch (hoặc đặt biến ELASTICSEARCH_URL)")
+    parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev"),
+                        help="Index Elasticsearch đã chứa cùng corpus chunks")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "retrieval" / "results")
     parser.add_argument("--top-k", type=int, default=10)
     parser.add_argument("--candidate-k", type=int, default=50)
@@ -63,7 +68,18 @@ def main() -> int:
             raise ValueError("Cần top_k >= 1 và candidate_k >= top_k")
         queries = read_queries(args.queries)
         chunks = load_chunks(args.chunks)
-        bm25 = BM25Index(chunks)
+        if not args.elasticsearch_url:
+            raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL; sparse/BM25 được Elasticsearch xử lý")
+        try:
+            from elasticsearch import Elasticsearch
+        except ImportError as exc:
+            raise RuntimeError("Cần cài elasticsearch client để chạy retrieval theo kiến trúc") from exc
+        es_client = Elasticsearch(args.elasticsearch_url)
+        if not es_client.ping():
+            raise ConnectionError(f"Không kết nối được Elasticsearch tại {args.elasticsearch_url}")
+        if not es_client.indices.exists(index=args.elasticsearch_index):
+            raise ValueError(f"Elasticsearch index không tồn tại: {args.elasticsearch_index}; nạp child chunks trước")
+        sparse = ElasticsearchBM25Retriever(es_client, args.elasticsearch_index)
         embedding = EmbeddingService(args.model)
         slug = re.sub(r"[^a-z0-9]+", "_", args.model.lower()).strip("_")
         default_collection = f"legal_embedding_{slug}_{chunk_file_sha256(args.chunks)[:12]}"
@@ -73,7 +89,7 @@ def main() -> int:
         if count != len(chunks):
             raise ValueError(f"Collection {collection} có {count} points, fixture có {len(chunks)} chunks")
         config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
-        hybrid_retriever = HybridRetriever(bm25, EmbeddingQdrantAdapter(embedding, store), config)
+        hybrid_retriever = HybridRetriever(sparse, EmbeddingQdrantAdapter(embedding, store), config)
 
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
         for query in queries:

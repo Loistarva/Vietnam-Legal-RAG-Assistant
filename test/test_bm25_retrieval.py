@@ -7,9 +7,21 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from retrieval.bm25_retriever import BM25Index
+from retrieval.index_elasticsearch import build_document
+from embedding.vector_store import load_chunks
 
 
 class BM25RetrievalTest(unittest.TestCase):
+    def test_chunk_loader_and_elasticsearch_document_use_segmented_content_field(self):
+        fixture = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+        chunk = load_chunks(fixture)[0]
+        document = build_document(chunk)
+        self.assertTrue(chunk["seg_text"])
+        self.assertEqual(document["chunk_id"], chunk["chunk_id"])
+        self.assertEqual(document["content"], chunk["text"])
+        self.assertEqual(document["content_segmented"], chunk["seg_text"])
+        self.assertEqual(document["metadata"], chunk["metadata"])
+
     def setUp(self):
         self.chunks = [
             {"chunk_id": "law_art_56", "text": "Điều 56 ly hôn đơn phương khi hôn nhân trầm trọng.",

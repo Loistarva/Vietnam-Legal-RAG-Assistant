@@ -1,26 +1,29 @@
-# Retrieval evaluation report
+# Báo cáo đánh giá truy xuất
 
-- Ngày tạo: 2026-10-15
-- Dev set: `embedding/data/dev_queries.json` (14 câu hỏi)
-- Corpus: `embedding/data/han_gia_dinh_smoke_chunks.json` (321 chunks; fixture SHA-256 bắt đầu `f1d9af4423dd`).
-- CSV includes retrieved chunk text, relevance flag, and expected relevant chunk IDs/text for direct comparison.
-- Dense model: BKAI Vietnamese Bi-Encoder; Qdrant local collection khớp fixture.
-- Cấu hình truy xuất: Top-10; Hybrid candidate depth=50; RRF k=60.
-- Nhãn relevant được đối chiếu với nội dung chunk nhưng chưa được chuyên gia pháp lý thẩm định.
-- Cấu hình hiện tại là một lượt chạy cố định, chưa phải sweep tuning. Tinh chỉnh tham số chỉ trên Dev set; repo hiện chưa có Test set tách biệt.
+- Ngày tạo: 2026-10-16
+- Bộ Dev: `data/benchmark/queries_dev.json` (14 câu hỏi)
+- Corpus: `embedding/data/han_gia_dinh_smoke_chunks.json` (321 chunk; SHA-256 bắt đầu `f1d9af4423dd`).
+- Phạm vi: bộ smoke test phát triển trên một văn bản; chưa phải đánh giá trên corpus lớn hoặc bộ kiểm thử độc lập.
+- CSV chứa nội dung chunk được truy xuất, cờ liên quan và nội dung/mã chunk chuẩn để đối chiếu.
+- Truy xuất thưa: Elasticsearch BM25 `multi_match` trên nội dung phân đoạn, đường dẫn ngữ cảnh và metadata Điều/Khoản.
+- Elasticsearch index: `legal-child-chunks-dev`.
+- Dense model: `BAAI/bge-m3`; collection Qdrant embedded dùng cùng corpus.
+- Cấu hình: Top-10; Hybrid candidate depth=50; RRF k=60.
+- Nhãn liên quan chưa được chuyên gia pháp lý thẩm định.
+- Đây là một lượt chạy cố định, chưa phải khảo sát tinh chỉnh tham số. Chỉ tinh chỉnh trên Dev set; repo chưa có Test set độc lập.
 
-## Kết quả
+## Kết quả định lượng
 
-| Phương pháp | Số kết quả | Recall@10 | MRR@10 |
-| --- | ---: | ---: | ---: |
-| BM25 | 140 | 0.7857 | 0.7381 |
-| DENSE | 140 | 0.9643 | 0.8595 |
-| HYBRID | 140 | 1.0000 | 0.8333 |
+| Phương pháp | Số kết quả | Recall@10 | MRR@10 | nDCG@10 | Precision@10 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| BM25 | 140 | 0.8929 | 0.5620 | 0.6415 | 0.0929 |
+| DENSE | 140 | 1.0000 | 0.9524 | 0.9586 | 0.1071 |
+| HYBRID | 140 | 1.0000 | 0.8197 | 0.8684 | 0.1071 |
 
-## Diễn giải và giới hạn
+## Cách đọc và giới hạn
 
-Các chỉ số là macro average trên 14 câu hỏi. Recall@10 là tỷ lệ chunk có nhãn relevant được lấy về trong 10 kết quả; MRR@10 là nghịch đảo hạng của chunk relevant đầu tiên, hoặc 0 nếu không có chunk relevant trong Top-10.
+Các chỉ số là trung bình macro trên các câu hỏi Dev. Recall@10 đo tỷ lệ chunk liên quan được lấy về trong Top-10; MRR@10 là nghịch đảo thứ hạng của chunk liên quan đầu tiên; nDCG@10 dùng nhãn liên quan nhị phân; Precision@10 chia số chunk liên quan trong Top-10 cho 10.
 
-Đây là bộ Dev nhỏ, được tạo từ một văn bản và nhãn chưa qua đánh giá chuyên gia. Kết quả chỉ xác nhận quy trình và hỗ trợ phát triển; không đại diện cho chất lượng trên các lĩnh vực pháp luật hoặc văn bản khác.
+Bộ Dev nhỏ này chỉ gồm một văn bản và nhãn chưa được chuyên gia thẩm định. Kết quả xác nhận quy trình và hỗ trợ phát triển; không đại diện cho chất lượng trên các lĩnh vực hoặc văn bản pháp luật khác.
 
-Chi tiết từng truy vấn và chunk nằm trong `retrieval_results.csv`.
+Chi tiết từng truy vấn và chunk nằm trong `retrieval_results.csv`. Tên cột CSV được viết bằng tiếng Việt.
