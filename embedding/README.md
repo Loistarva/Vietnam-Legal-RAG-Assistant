@@ -6,21 +6,22 @@ BM25 dùng sẵn thuật toán của Elasticsearch. Để nạp bộ chunk Hôn 
 đình đang có trong repo vào index, đặt URL và tên index (mặc định là
 `legal-child-chunks-dev`), sau đó chạy từ thư mục gốc repo:
 
-```powershell
-$env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
-.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index
+```python
+from retrieval.build_bm25_index import build_bm25_index
+
+stats = build_bm25_index(
+    chunks_file="embedding/data/han_gia_dinh_smoke_chunks.json",
+    es_url="http://localhost:9200",
+    index_name="legal-child-chunks-dev",
+)
+print(stats)
 ```
 
-Lệnh build index đọc trực tiếp file chunk làm dữ liệu đầu vào; không tự parse PDF
-hay chạy chunking lại. Có thể đổi nguồn bằng `--chunks`, và dùng `--recreate`
-chỉ khi muốn xóa index đích trước khi nạp lại:
-
-```powershell
-.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
-```
-
-Index dùng trường `content_segmented` cùng các trường tham chiếu điều/khoản.
+Lời gọi này đọc trực tiếp file chunk làm dữ liệu đầu vào; không tự parse PDF hay
+chạy chunking lại. Có thể truyền file khác qua `chunks_file`. Mặc định hàm không
+xóa index đang có; nếu cần build lại từ đầu, truyền `recreate=True` sau khi đã
+xác nhận có thể thay index đích. Index dùng trường `content_segmented` cùng các
+trường tham chiếu điều/khoản.
 Các truy vấn BM25 được thực hiện bởi Elasticsearch adapter trong pipeline
 retrieval/hybrid, không cần cài thêm thuật toán BM25 trong Python.
 

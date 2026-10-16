@@ -67,11 +67,10 @@ Thay `<user>` và `<ip-máy-chủ>` bằng tài khoản và địa chỉ do ngư
 ```powershell
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
 $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
-.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index `
-  --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
+python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
 ```
 
-File chunk phải tồn tại trên máy thành viên và phải là corpus nhóm muốn nạp. Nếu dùng file khác, thay đường dẫn sau `--chunks`. Không thêm `--recreate` trừ khi được thống nhất xóa và tạo lại index. Thành viên không có SSH access cần được cấp kết nối qua VPN riêng của nhóm hoặc endpoint Elasticsearch có xác thực; chỉ gửi URL `localhost` sẽ không tạo kết nối tới máy người khác.
+File chunk phải tồn tại trên máy thành viên và phải là corpus nhóm muốn nạp. Nếu index đã có, hàm upsert theo `chunk_id`; truyền `recreate=True` khi muốn thay toàn bộ index và xóa các chunk không còn trong file. Thành viên không có SSH access cần được cấp kết nối qua VPN riêng của nhóm hoặc endpoint Elasticsearch có xác thực; chỉ gửi URL `localhost` sẽ không tạo kết nối tới máy người khác.
 
 ### 1. Cài dependencies và khởi chạy Elasticsearch
 
@@ -90,14 +89,13 @@ $env:ELASTICSEARCH_URL = "http://localhost:9200"
 $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 ```
 
-### 2. Nạp child chunks vào Elasticsearch
+### 2. Build index từ file child chunks
 
 ```powershell
-python -m retrieval.build_bm25_index `
-  --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
+python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
 ```
 
-Lệnh trên tạo hoặc cập nhật index mặc định. Chỉ truyền `--recreate` khi chủ động muốn xóa và tạo lại index.
+Hàm tạo index nếu chưa tồn tại, hoặc upsert các chunk theo `chunk_id` nếu index đã có. Gọi với `recreate=True` khi chủ động muốn xóa và tạo lại index.
 
 ### 3. Chạy BM25-only, Dense-only và Hybrid trên cùng bộ Dev
 
