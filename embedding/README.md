@@ -2,25 +2,27 @@
 
 ## BM25 lexical retrieval
 
-BM25 dùng sẵn thuật toán của Elasticsearch. Cần chạy Elasticsearch và nạp chunk
-vào index trước. Đặt URL và tên index (mặc định là
+BM25 dùng sẵn thuật toán của Elasticsearch. Để nạp bộ chunk Hôn nhân và Gia
+đình đang có trong repo vào index, đặt URL và tên index (mặc định là
 `legal-child-chunks-dev`), sau đó chạy từ thư mục gốc repo:
 
 ```powershell
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
 $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
-.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --query "Điều kiện ly hôn đơn phương theo Điều 56" --top-k 10
+.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index
 ```
 
-`--top-k` mặc định là 10. Có thể ghi kết quả JSON ra file bằng `--output`:
+Lệnh build index đọc trực tiếp file chunk làm dữ liệu đầu vào; không tự parse PDF
+hay chạy chunking lại. Có thể đổi nguồn bằng `--chunks`, và dùng `--recreate`
+chỉ khi muốn xóa index đích trước khi nạp lại:
 
 ```powershell
-.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --query "ly hôn đơn phương" --top-k 20 --output .\embedding\results\bm25.json
+.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
 ```
 
-Mỗi kết quả gồm `rank`, `score` do Elasticsearch trả về, `chunk_id`, `text` và
-`metadata`. Nội dung được truy vấn trong trường `content_segmented` cùng các
-trường tham chiếu điều/khoản; index được tái sử dụng cho nhiều câu hỏi.
+Index dùng trường `content_segmented` cùng các trường tham chiếu điều/khoản.
+Các truy vấn BM25 được thực hiện bởi Elasticsearch adapter trong pipeline
+retrieval/hybrid, không cần cài thêm thuật toán BM25 trong Python.
 
 ## Hybrid retrieval với RRF
 

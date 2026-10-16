@@ -8,10 +8,10 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 
 | Thành phần | Công nghệ / tệp | Vai trò |
 | --- | --- | --- |
-| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py`, `retrieval/bm25_retriever.py` | Tìm theo từ khóa. Dùng `multi_match` trên `content_segmented`, breadcrumb và metadata Điều/Khoản. Elasticsearch tự chấm điểm BM25. |
+| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py` | Tìm theo từ khóa. Dùng `multi_match` trên `content_segmented`, breadcrumb và metadata Điều/Khoản. Elasticsearch tự chấm điểm BM25. |
 | Dense | BGE-M3, Sentence Transformers, Qdrant; `embedding/vector_store.py` | Tạo embedding câu hỏi và tìm các chunk gần nhau theo vector/ngữ nghĩa. |
 | Hợp nhất | RRF; `retrieval/rrf.py`, `retrieval/hybrid_retriever.py` | Kết hợp thứ hạng BM25 và Dense, không cộng trực tiếp điểm BM25 với cosine similarity. |
-| Nạp chỉ mục | `retrieval/index_elasticsearch.py` | Chuyển chunk dùng chung thành tài liệu Elasticsearch; dùng `content_segmented` cho tìm kiếm sparse. |
+| Build index | `retrieval/build_bm25_index.py` | Đọc file chunk Hôn nhân và Gia đình, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
 | Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả. |
 | Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
 
@@ -54,7 +54,7 @@ py -3.12 -m venv .venv312
 
 Nếu `py -3.12 --version` không chạy, hãy cài Python 3.12 kèm Python Launcher rồi mở lại PowerShell. Không cần kích hoạt môi trường ảo; chạy trực tiếp `python.exe` bên trong `.venv312` như lệnh ở trên sẽ tránh lỗi PowerShell không tìm thấy `python`.
 
-### Thành viên nạp chunk vào Elasticsearch dùng chung
+### Thành viên build index Elasticsearch dùng chung
 
 Elasticsearch local trong `docker-compose.yml` chỉ bind vào máy chủ (`localhost:9200`). Không mở trực tiếp cổng Elasticsearch chưa bật xác thực ra mạng. Nếu thành viên có SSH access tới máy chủ, họ mở SSH tunnel trong một PowerShell và để cửa sổ đó chạy:
 
@@ -67,7 +67,7 @@ Thay `<user>` và `<ip-máy-chủ>` bằng tài khoản và địa chỉ do ngư
 ```powershell
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
 $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
-.\.venv312\Scripts\python.exe -m retrieval.index_elasticsearch `
+.\.venv312\Scripts\python.exe -m retrieval.build_bm25_index `
   --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
 ```
 
@@ -93,23 +93,13 @@ $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 ### 2. Nạp child chunks vào Elasticsearch
 
 ```powershell
-python -m retrieval.index_elasticsearch `
+python -m retrieval.build_bm25_index `
   --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json
 ```
 
 Lệnh trên tạo hoặc cập nhật index mặc định. Chỉ truyền `--recreate` khi chủ động muốn xóa và tạo lại index.
 
-### 3. Chạy BM25-only
-
-```powershell
-python -m retrieval.bm25_retriever `
-  --query "Điều kiện kết hôn về độ tuổi" `
-  --top-k 10
-```
-
-Kết quả gồm `chunk_id`, thứ hạng, điểm BM25 do Elasticsearch tính, nội dung và metadata. Có thể chỉ định file xuất với `--output`. Elasticsearch thực thi BM25 trên index đã nạp sẵn; lệnh này chỉ gửi truy vấn và định dạng kết quả.
-
-### 4. Chạy BM25-only, Dense-only và Hybrid trên cùng bộ Dev
+### 3. Chạy BM25-only, Dense-only và Hybrid trên cùng bộ Dev
 
 ```powershell
 $env:QDRANT_PATH = (Resolve-Path .\qdrant_data).Path

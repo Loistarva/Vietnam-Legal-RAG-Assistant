@@ -1,4 +1,4 @@
-"""Load normalized child chunks into a local Elasticsearch BM25 index."""
+"""Build an Elasticsearch BM25 index from a prepared legal chunk JSON file."""
 from __future__ import annotations
 
 import argparse

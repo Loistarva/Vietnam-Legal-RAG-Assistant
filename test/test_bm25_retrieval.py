@@ -7,7 +7,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
-from retrieval.index_elasticsearch import build_document
+from retrieval.build_bm25_index import build_document
 from embedding.vector_store import load_chunks
 
 
