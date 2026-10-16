@@ -6,9 +6,19 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from retrieval.bm25_retriever import BM25Index
+from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
 from retrieval.index_elasticsearch import build_document
 from embedding.vector_store import load_chunks
+
+
+class FakeElasticsearchClient:
+    def __init__(self, hits):
+        self.hits = hits
+        self.request = None
+
+    def search(self, **kwargs):
+        self.request = kwargs
+        return {"hits": {"hits": self.hits}}
 
 
 class BM25RetrievalTest(unittest.TestCase):
@@ -22,92 +32,33 @@ class BM25RetrievalTest(unittest.TestCase):
         self.assertEqual(document["content_segmented"], chunk["seg_text"])
         self.assertEqual(document["metadata"], chunk["metadata"])
 
-    def setUp(self):
-        self.chunks = [
-            {"chunk_id": "law_art_56", "text": "Điều 56 ly hôn đơn phương khi hôn nhân trầm trọng.",
-             "metadata": {"document_id": "law", "article_number": "56"}},
-            {"chunk_id": "law_art_55", "text": "Thuận tình ly hôn do hai bên tự nguyện.",
-             "metadata": {"document_id": "law", "article_number": "55"}},
-            {"chunk_id": "law_art_8", "text": "Điều kiện kết hôn về độ tuổi.",
-             "metadata": {"document_id": "law", "article_number": "8"}},
-        ]
-        self.index = BM25Index(self.chunks)
+    def test_search_uses_elasticsearch_bm25_and_returns_ranked_shared_chunk_shape(self):
+        client = FakeElasticsearchClient([
+            {"_id": "chunk-1", "_score": 3.2, "_source": {
+                "chunk_id": "chunk-1", "content": "Nội dung luật", "parent_id": "parent-1",
+                "metadata": {"article_ref": "Điều 56"},
+            }},
+        ])
+        hits = ElasticsearchBM25Retriever(client, "legal-child-chunks-dev").search("Điều 56", 5)
 
-    def test_search_returns_ranked_shared_chunk_shape_and_top_k(self):
-        results = self.index.search("Điều kiện ly hôn đơn phương Điều 56", top_k=1)
-        self.assertEqual(len(results), 1)
-        hit = results[0]
-        self.assertEqual(hit["chunk_id"], "law_art_56")
-        self.assertEqual(hit["rank"], 1)
-        self.assertGreater(hit["score"], 0)
-        self.assertEqual(hit["metadata"], {"document_id": "law", "article_number": "56"})
-        self.assertIn("text", hit)
+        self.assertEqual(client.request["index"], "legal-child-chunks-dev")
+        self.assertEqual(client.request["size"], 5)
+        self.assertEqual(client.request["query"]["bool"]["must"][0]["multi_match"]["query"], "Điều 56")
+        self.assertEqual(hits, [{
+            "chunk_id": "chunk-1", "text": "Nội dung luật", "parent_id": "parent-1",
+            "metadata": {"article_ref": "Điều 56"}, "score": 3.2, "rank": 1,
+        }])
 
-    def test_empty_match_and_invalid_top_k(self):
-        self.assertEqual(self.index.search("từ khóa không có"), [])
+    def test_search_returns_empty_list_when_elasticsearch_has_no_hits(self):
+        client = FakeElasticsearchClient([])
+        self.assertEqual(ElasticsearchBM25Retriever(client, "idx").search("không có", 10), [])
+
+    def test_search_rejects_empty_query_and_invalid_top_k(self):
+        retriever = ElasticsearchBM25Retriever(FakeElasticsearchClient([]), "idx")
         with self.assertRaises(ValueError):
-            self.index.search("ly hôn", top_k=0)
-
-    def test_rejects_empty_chunks_invalid_chunk_and_duplicate_id(self):
+            retriever.search("  ", 10)
         with self.assertRaises(ValueError):
-            BM25Index([])
-        with self.assertRaises(ValueError):
-            BM25Index([{"chunk_id": "missing_text", "metadata": {}}])
-        with self.assertRaises(ValueError):
-            BM25Index([self.chunks[0], self.chunks[0]])
-
-    def test_rejects_invalid_queries_and_top_k_types(self):
-        for query in ("", "   ", None):
-            with self.subTest(query=query), self.assertRaises(ValueError):
-                self.index.search(query)
-        for top_k in (0, -1, 1.5, True):
-            with self.subTest(top_k=top_k), self.assertRaises(ValueError):
-                self.index.search("ly hôn", top_k=top_k)
-
-    def test_results_are_score_ordered_and_do_not_include_zero_scores(self):
-        results = self.index.search("ly hôn")
-        self.assertGreater(len(results), 0)
-        self.assertEqual(
-            [hit["score"] for hit in results],
-            sorted((hit["score"] for hit in results), reverse=True),
-        )
-        self.assertTrue(all(hit["score"] > 0 for hit in results))
-        self.assertEqual(
-            [hit["rank"] for hit in results],
-            list(range(1, len(results) + 1)),
-        )
-
-    def test_loads_normalized_fixture_and_returns_shared_result_shape(self):
-        fixture = (
-            ROOT
-            / "embedding"
-            / "data"
-            / "han_gia_dinh_smoke_chunks.json"
-        )
-        index = BM25Index.from_file(str(fixture))
-        results = index.search("ly hôn đơn phương", top_k=3)
-
-        self.assertEqual(index.document_count, 321)
-        self.assertEqual(len(results), 3)
-        for hit in results:
-            with self.subTest(chunk_id=hit["chunk_id"]):
-                self.assertEqual(
-                    set(hit), {"rank", "score", "chunk_id", "text", "metadata"}
-                )
-                self.assertIsInstance(hit["metadata"], dict)
-                self.assertGreater(hit["score"], 0)
-
-    def test_exact_article_reference_ranks_matching_article_first(self):
-        fixture = (
-            ROOT
-            / "embedding"
-            / "data"
-            / "han_gia_dinh_smoke_chunks.json"
-        )
-        index = BM25Index.from_file(str(fixture))
-
-        first_hit = index.search("Điều 56", top_k=1)[0]
-        self.assertEqual(first_hit["metadata"]["article_ref"], "Điều 56")
+            retriever.search("luật", 0)
 
 
 if __name__ == "__main__":

@@ -107,7 +107,7 @@ python -m retrieval.bm25_retriever `
   --top-k 10
 ```
 
-Kết quả gồm `chunk_id`, thứ hạng, điểm BM25, nội dung và metadata. Có thể chỉ định file xuất với `--output`. Backend mặc định là Elasticsearch; `--backend local` dùng BM25 in-memory để kiểm tra offline, không thay cho nhánh production Elasticsearch.
+Kết quả gồm `chunk_id`, thứ hạng, điểm BM25 do Elasticsearch tính, nội dung và metadata. Có thể chỉ định file xuất với `--output`. Elasticsearch thực thi BM25 trên index đã nạp sẵn; lệnh này chỉ gửi truy vấn và định dạng kết quả.
 
 ### 4. Chạy BM25-only, Dense-only và Hybrid trên cùng bộ Dev
 

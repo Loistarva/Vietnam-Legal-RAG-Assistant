@@ -2,23 +2,25 @@
 
 ## BM25 lexical retrieval
 
-Từ thư mục gốc repo, chạy BM25 trên fixture chunk hiện có (không cần tải
-embedding model hoặc chạy Qdrant):
+BM25 dùng sẵn thuật toán của Elasticsearch. Cần chạy Elasticsearch và nạp chunk
+vào index trước. Đặt URL và tên index (mặc định là
+`legal-child-chunks-dev`), sau đó chạy từ thư mục gốc repo:
 
 ```powershell
+$env:ELASTICSEARCH_URL = "http://localhost:9200"
+$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 .\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --query "Điều kiện ly hôn đơn phương theo Điều 56" --top-k 10
 ```
 
-`--chunks` tùy chọn đường dẫn JSON chunk khác; `--top-k` mặc định là 10.
-Có thể ghi kết quả JSON ra file bằng `--output`:
+`--top-k` mặc định là 10. Có thể ghi kết quả JSON ra file bằng `--output`:
 
 ```powershell
-.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json --query "ly hôn đơn phương" --top-k 20 --output .\embedding\results\bm25.json
+.\.venv312\Scripts\python.exe -m retrieval.bm25_retriever --query "ly hôn đơn phương" --top-k 20 --output .\embedding\results\bm25.json
 ```
 
-Mỗi kết quả gồm `rank`, `score`, `chunk_id`, `text` và `metadata`. Chỉ mục
-BM25 được dựng trong bộ nhớ mỗi lần chạy; cần chạy lại lệnh khi truy vấn câu
-hỏi mới.
+Mỗi kết quả gồm `rank`, `score` do Elasticsearch trả về, `chunk_id`, `text` và
+`metadata`. Nội dung được truy vấn trong trường `content_segmented` cùng các
+trường tham chiếu điều/khoản; index được tái sử dụng cho nhiều câu hỏi.
 
 ## Hybrid retrieval với RRF
 
@@ -28,12 +30,13 @@ Dense search yêu cầu collection Qdrant đã được nạp bằng cùng bộ 
 embedding model. Ví dụ gọi từ Python:
 
 ```python
+import os
+from elasticsearch import Elasticsearch
 from embedding.vector_store import EmbeddingService, VectorStore
-from retrieval.bm25_retriever import BM25Index
-from retrieval.hybrid_retriever import hybrid_search
+from retrieval.hybrid_retriever import ElasticsearchBM25Retriever, hybrid_search
 
-chunks_path = "embedding/data/han_gia_dinh_smoke_chunks.json"
-bm25 = BM25Index.from_file(chunks_path)
+es = Elasticsearch(os.environ["ELASTICSEARCH_URL"])
+bm25 = ElasticsearchBM25Retriever(es, os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev"))
 embedder = EmbeddingService("bkai-foundation-models/vietnamese-bi-encoder")
 # Dùng đúng collection đã tạo bởi retrieval_smoke_test.py cho model và fixture này.
 store = VectorStore("<collection_name>", embedder.dimension)
