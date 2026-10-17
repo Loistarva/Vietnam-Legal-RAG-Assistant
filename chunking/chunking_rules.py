@@ -531,6 +531,25 @@ def _create_child_chunks_from_units(
         if c:
             children.append(c)
 
+    # Tranh trung chunk_id khi ID theo so khoan va ID theo thu tu cung ton tai.
+    # Giu nguyen ID lan xuat hien dau tien de han che thay doi ID da su dung.
+    # Neu ID da ton tai, chi them hau to _part2, _part3, ... cho chunk sau.
+    # Dat truoc return de parent.child_ids duoc cap nhat dung o ham goi.
+    original_ids = {child.chunk_id for child in children}
+    assigned_ids: set[str] = set()
+
+    for child in children:
+        original_id = child.chunk_id
+        if original_id in assigned_ids:
+            suffix = 2
+            candidate = f"{original_id}_part{suffix}"
+            while candidate in assigned_ids or candidate in original_ids:
+                suffix += 1
+                candidate = f"{original_id}_part{suffix}"
+            child.chunk_id = candidate
+
+        assigned_ids.add(child.chunk_id)
+
     return children
 
 
