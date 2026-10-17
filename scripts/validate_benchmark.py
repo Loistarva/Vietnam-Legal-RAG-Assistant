@@ -69,7 +69,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     # Production được cấp bởi người làm Chunking; ID từ smoke không được coi là index chính thức.
     prod_file=REF/'production_chunk_index.json'
     prod_index={}
-    if final:
+    if final or prod_file.exists():
         if not prod_file.exists():
             issues.append('Chưa nhập production_chunk_index.json từ output Chunking của nhóm')
         else:
@@ -110,7 +110,11 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if cid in article_index:issues.append(f'{qid}: article_id không được dùng làm chunk_id: {cid}')
             if cid.startswith(('DEMO_','FAKE_','PLACEHOLDER_')):
                 issues.append(f'{qid}: chunk ID giả: {cid}')
-            info=(prod_index.get(cid) if final and cid in g.get('gold_context_ids',[]) else chunk_index.get(cid))
+            # Production IDs are valid as unverified candidates and reviewed Gold.
+            # Smoke IDs must still resolve exclusively in the smoke registry.
+            is_production_gold = final and cid in g.get('gold_context_ids',[])
+            info = (prod_index.get(cid) if cid in prod_index or is_production_gold
+                    else chunk_index.get(cid))
             if not info:issues.append(f'{qid}: chunk ID không nằm trong registry: {cid}')
             else:
                 if info['document_number'] not in docnos:issues.append(f'{qid}: chunk {cid} sai văn bản so với citation')
@@ -132,7 +136,12 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if status!='production_verified' or g.get('context_id_provenance')!='production_index':
                 issues.append(f'{qid}: xác nhận production nhưng nhãn chưa đồng nhất')
         elif status=='production_verified':issues.append(f'{qid}: production_verified cần gold_context_ids_confirmed=true')
-        if status not in ('smoke_candidate','partial_evidence_only','not_mapped','production_verified'):
+        if status=='production_candidate_unverified':
+            if g.get('gold_context_ids') or not g.get('candidate_context_ids'):
+                issues.append(f'{qid}: production candidate requires candidate IDs only, not Gold')
+            if g.get('context_id_provenance')!='production_index':
+                issues.append(f'{qid}: production candidate provenance must be production_index')
+        if status not in ('smoke_candidate','partial_evidence_only','not_mapped','production_verified','production_candidate_unverified'):
             issues.append(f'{qid}: mapping_status không hợp lệ')
         if g.get('context_id_provenance')=='smoke_unconfirmed' and status!='smoke_candidate':
             issues.append(f'{qid}: trạng thái nguồn ID smoke chưa đồng nhất')

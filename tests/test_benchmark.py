@@ -24,22 +24,25 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_unique_context_registry(self):self.assertEqual(len({c['chunk_id'] for c in self.chunks}),len(self.chunks))
     def test_all_mapped_chunks_in_registry(self):
         seen={c['chunk_id'] for c in self.chunks}
+        production=ROOT/'data'/'reference'/'production_chunk_index.json'
+        self.assertTrue(production.exists())
+        seen |= {c['chunk_id'] for c in json.loads(production.read_text(encoding='utf-8'))}
         self.assertTrue(all(set(g['gold_context_ids']+g['candidate_context_ids'])<=seen for g in self.gold))
     def test_unmapped_explicit_not_faked(self):
         pending=[g for g in self.gold if g['mapping_status']=='not_mapped']
-        self.assertEqual(len(pending),264)
+        self.assertEqual(len(pending),24)
         self.assertTrue(all(not g['gold_context_ids'] and not g['candidate_context_ids'] for g in pending))
     def test_mapping_counts(self):
         from collections import Counter
         self.assertEqual(Counter(g['mapping_status'] for g in self.gold),
-                         {'smoke_candidate':34,'partial_evidence_only':2,'not_mapped':264})
-        self.assertEqual(sum(bool(g['candidate_context_ids']) for g in self.gold),36)
+                         {'production_candidate_unverified':276,'not_mapped':24})
+        self.assertEqual(sum(bool(g['candidate_context_ids']) for g in self.gold),276)
         self.assertEqual(sum(bool(g['gold_context_ids']) for g in self.gold),0)
     def test_expansion_is_unverified_and_unmapped(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
         self.assertEqual(len(added),240)
-        self.assertTrue(all(g['review_status']=='draft' and g['mapping_status']=='not_mapped'
-                            and not g['gold_context_ids'] and bool(g['gold_article_ids'])
+        self.assertTrue(all(g['review_status']=='draft' and g['mapping_status']=='production_candidate_unverified'
+                            and not g['gold_context_ids'] and bool(g['candidate_context_ids']) and bool(g['gold_article_ids'])
                             and not g['gold_context_ids_confirmed'] for g in added))
     def test_all_new_answers_are_pdf_based_drafts(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]

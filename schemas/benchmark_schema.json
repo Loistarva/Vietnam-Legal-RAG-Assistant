@@ -179,7 +179,8 @@
             "smoke_candidate",
             "partial_evidence_only",
             "not_mapped",
-            "production_verified"
+            "production_verified",
+            "production_candidate_unverified"
           ]
         },
         "evidence_level": {

@@ -20,12 +20,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_8_chunk_1"
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -50,12 +51,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_8_chunk_1"
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -80,12 +82,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_8_chunk_1"
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -110,12 +113,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_8_chunk_1"
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -140,12 +144,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_9_chunk_1"
+      "luat_52_2014_qh13_art_9_chunk_1",
+      "luat_52_2014_qh13_art_9_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -170,12 +175,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_9_chunk_2"
+      "luat_52_2014_qh13_art_9_chunk_2",
+      "luat_52_2014_qh13_art_9_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -200,12 +206,16 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_5_p1_chunk_2_1"
+      "luat_52_2014_qh13_art_5_p1_chunk_2_1",
+      "luat_52_2014_qh13_art_5_p2_chunk_3",
+      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
+      "luat_52_2014_qh13_art_5_p1_chunk_1",
+      "luat_52_2014_qh13_art_5_p2_chunk_4"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -230,12 +240,16 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_5_p1_chunk_2_1"
+      "luat_52_2014_qh13_art_5_p1_chunk_2_1",
+      "luat_52_2014_qh13_art_5_p2_chunk_3",
+      "luat_52_2014_qh13_art_5_p1_chunk_1",
+      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
+      "luat_52_2014_qh13_art_5_p2_chunk_4"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -260,12 +274,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_14_chunk_1"
+      "luat_52_2014_qh13_art_14_chunk_1",
+      "luat_52_2014_qh13_art_14_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -290,12 +305,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_14_chunk_2"
+      "luat_52_2014_qh13_art_14_chunk_2",
+      "luat_52_2014_qh13_art_14_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -320,12 +336,12 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_15_chunk_1"
+      "luat_52_2014_qh13_art_15_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -350,12 +366,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_16_chunk_1"
+      "luat_52_2014_qh13_art_16_chunk_1",
+      "luat_52_2014_qh13_art_16_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -380,12 +397,12 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_17_chunk_1"
+      "luat_52_2014_qh13_art_17_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -410,12 +427,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_19_chunk_2"
+      "luat_52_2014_qh13_art_19_chunk_2",
+      "luat_52_2014_qh13_art_19_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -440,12 +458,12 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_20_chunk_1"
+      "luat_52_2014_qh13_art_20_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -470,12 +488,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_33_chunk_1"
+      "luat_52_2014_qh13_art_33_chunk_1",
+      "luat_52_2014_qh13_art_33_chunk_3",
+      "luat_52_2014_qh13_art_33_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -500,12 +520,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_33_chunk_1"
+      "luat_52_2014_qh13_art_33_chunk_1",
+      "luat_52_2014_qh13_art_33_chunk_3",
+      "luat_52_2014_qh13_art_33_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -536,13 +558,16 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_43_chunk_1",
-      "l01_art_46_chunk_1"
+      "luat_52_2014_qh13_art_43_chunk_1",
+      "luat_52_2014_qh13_art_43_chunk_2",
+      "luat_52_2014_qh13_art_46_chunk_3",
+      "luat_52_2014_qh13_art_46_chunk_1",
+      "luat_52_2014_qh13_art_46_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -573,13 +598,16 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_43_chunk_1",
-      "l01_art_46_chunk_1"
+      "luat_52_2014_qh13_art_43_chunk_1",
+      "luat_52_2014_qh13_art_43_chunk_2",
+      "luat_52_2014_qh13_art_46_chunk_1",
+      "luat_52_2014_qh13_art_46_chunk_3",
+      "luat_52_2014_qh13_art_46_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -604,12 +632,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_38_chunk_1"
+      "luat_52_2014_qh13_art_38_chunk_1",
+      "luat_52_2014_qh13_art_38_chunk_2",
+      "luat_52_2014_qh13_art_38_chunk_3"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -634,12 +664,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_51_chunk_3"
+      "luat_52_2014_qh13_art_51_chunk_3",
+      "luat_52_2014_qh13_art_51_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -664,12 +695,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_51_chunk_3"
+      "luat_52_2014_qh13_art_51_chunk_3",
+      "luat_52_2014_qh13_art_51_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -694,12 +726,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_51_chunk_1"
+      "luat_52_2014_qh13_art_51_chunk_1",
+      "luat_52_2014_qh13_art_51_chunk_3"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -724,12 +757,12 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_55_chunk_1"
+      "luat_52_2014_qh13_art_55_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -754,12 +787,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_56_chunk_1"
+      "luat_52_2014_qh13_art_56_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_3",
+      "luat_52_2014_qh13_art_56_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -784,12 +819,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_57_chunk_1"
+      "luat_52_2014_qh13_art_57_chunk_1",
+      "luat_52_2014_qh13_art_57_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -814,12 +850,16 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_59_p1_chunk_2"
+      "luat_52_2014_qh13_art_59_p1_chunk_2",
+      "luat_52_2014_qh13_art_59_p1_chunk_1",
+      "luat_52_2014_qh13_art_59_p1_chunk_3",
+      "luat_52_2014_qh13_art_59_p2_chunk_4",
+      "luat_52_2014_qh13_art_59_p2_chunk_5"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -844,12 +884,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_81_chunk_2"
+      "luat_52_2014_qh13_art_81_chunk_2",
+      "luat_52_2014_qh13_art_81_chunk_3",
+      "luat_52_2014_qh13_art_81_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -874,12 +916,14 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_81_chunk_3"
+      "luat_52_2014_qh13_art_81_chunk_3",
+      "luat_52_2014_qh13_art_81_chunk_2",
+      "luat_52_2014_qh13_art_81_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -904,12 +948,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_82_chunk_2"
+      "luat_52_2014_qh13_art_82_chunk_2",
+      "luat_52_2014_qh13_art_82_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -934,12 +979,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_82_chunk_2"
+      "luat_52_2014_qh13_art_82_chunk_2",
+      "luat_52_2014_qh13_art_82_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -964,12 +1010,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_116_chunk_1"
+      "luat_52_2014_qh13_art_116_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -994,12 +1041,12 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_117_chunk_1"
+      "luat_52_2014_qh13_art_117_chunk_1"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -1024,12 +1071,13 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "l01_art_107_chunk_1"
+      "luat_52_2014_qh13_art_107_chunk_1",
+      "luat_52_2014_qh13_art_107_chunk_2"
     ],
-    "mapping_status": "smoke_candidate",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "smoke_unconfirmed",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -1056,12 +1104,13 @@
     ],
     "evidence_level": "partial_chunk_support_unverified",
     "candidate_context_ids": [
-      "l01_art_8_chunk_2"
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
     ],
-    "mapping_status": "partial_evidence_only",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -1089,12 +1138,14 @@
     ],
     "evidence_level": "partial_chunk_support_unverified",
     "candidate_context_ids": [
-      "l01_art_131_chunk_1"
+      "luat_52_2014_qh13_art_131_chunk_3_1",
+      "luat_52_2014_qh13_art_131_chunk_1",
+      "luat_52_2014_qh13_art_131_chunk_2"
     ],
-    "mapping_status": "partial_evidence_only",
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "draft_answer_unreviewed"
   },
@@ -1770,11 +1821,13 @@
       "L01_D01"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_1_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1798,11 +1851,16 @@
       "L01_D02"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_2_chunk_1",
+      "luat_52_2014_qh13_art_2_chunk_4",
+      "luat_52_2014_qh13_art_2_chunk_5",
+      "luat_52_2014_qh13_art_2_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1826,11 +1884,17 @@
       "L01_D03"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_3_p1_chunk_3",
+      "luat_52_2014_qh13_art_3_p1_chunk_1",
+      "luat_52_2014_qh13_art_3_p1_chunk_4",
+      "luat_52_2014_qh13_art_3_p4_chunk_25",
+      "luat_52_2014_qh13_art_3_p3_chunk_19"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1854,11 +1918,15 @@
       "L01_D04"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_4_chunk_2",
+      "luat_52_2014_qh13_art_4_chunk_1",
+      "luat_52_2014_qh13_art_4_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1882,11 +1950,17 @@
       "L01_D05"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_5_p1_chunk_1",
+      "luat_52_2014_qh13_art_5_p2_chunk_3",
+      "luat_52_2014_qh13_art_5_p2_chunk_4",
+      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
+      "luat_52_2014_qh13_art_5_p1_chunk_2_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1910,11 +1984,13 @@
       "L01_D06"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_6_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1938,11 +2014,14 @@
       "L01_D07"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_7_chunk_1",
+      "luat_52_2014_qh13_art_7_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1966,11 +2045,14 @@
       "L01_D08"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -1994,11 +2076,14 @@
       "L01_D09"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_9_chunk_1",
+      "luat_52_2014_qh13_art_9_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2022,11 +2107,15 @@
       "L01_D10"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_10_chunk_2",
+      "luat_52_2014_qh13_art_10_chunk_3",
+      "luat_52_2014_qh13_art_10_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2050,11 +2139,16 @@
       "L01_D11"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_11_chunk_2",
+      "luat_52_2014_qh13_art_11_chunk_3",
+      "luat_52_2014_qh13_art_11_chunk_1",
+      "luat_52_2014_qh13_art_11_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2078,11 +2172,15 @@
       "L01_D12"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_12_chunk_3",
+      "luat_52_2014_qh13_art_12_chunk_1",
+      "luat_52_2014_qh13_art_12_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2106,11 +2204,13 @@
       "L01_D13"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_13_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2134,11 +2234,14 @@
       "L01_D14"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_14_chunk_1",
+      "luat_52_2014_qh13_art_14_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2162,11 +2265,13 @@
       "L01_D15"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_15_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2190,11 +2295,14 @@
       "L01_D16"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_16_chunk_1",
+      "luat_52_2014_qh13_art_16_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2218,11 +2326,13 @@
       "L01_D17"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_17_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2246,11 +2356,13 @@
       "L01_D18"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_18_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2274,11 +2386,14 @@
       "L01_D19"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_19_chunk_2",
+      "luat_52_2014_qh13_art_19_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2302,11 +2417,13 @@
       "L01_D20"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_20_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2330,11 +2447,13 @@
       "L01_D21"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_21_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2358,11 +2477,13 @@
       "L01_D22"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_22_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2386,11 +2507,13 @@
       "L01_D23"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_23_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2414,11 +2537,15 @@
       "L01_D24"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_24_chunk_3",
+      "luat_52_2014_qh13_art_24_chunk_1",
+      "luat_52_2014_qh13_art_24_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2442,11 +2569,14 @@
       "L01_D25"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_25_chunk_1",
+      "luat_52_2014_qh13_art_25_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2470,11 +2600,14 @@
       "L01_D26"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_26_chunk_2",
+      "luat_52_2014_qh13_art_26_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2498,11 +2631,14 @@
       "L01_D27"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_27_chunk_1",
+      "luat_52_2014_qh13_art_27_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2526,11 +2662,15 @@
       "L01_D28"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_28_chunk_1",
+      "luat_52_2014_qh13_art_28_chunk_2",
+      "luat_52_2014_qh13_art_28_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2554,11 +2694,15 @@
       "L01_D29"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_29_chunk_1",
+      "luat_52_2014_qh13_art_29_chunk_3",
+      "luat_52_2014_qh13_art_29_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2582,11 +2726,14 @@
       "L01_D30"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_30_chunk_2",
+      "luat_52_2014_qh13_art_30_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2610,11 +2757,13 @@
       "L01_D31"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_31_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2638,11 +2787,14 @@
       "L01_D32"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_32_chunk_2",
+      "luat_52_2014_qh13_art_32_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2666,11 +2818,15 @@
       "L01_D33"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_33_chunk_1",
+      "luat_52_2014_qh13_art_33_chunk_2",
+      "luat_52_2014_qh13_art_33_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2694,11 +2850,14 @@
       "L01_D34"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_34_chunk_1",
+      "luat_52_2014_qh13_art_34_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2722,11 +2881,13 @@
       "L01_D35"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_35_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2750,11 +2911,13 @@
       "L01_D36"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_36_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2778,11 +2941,17 @@
       "L01_D37"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_37_chunk_2",
+      "luat_52_2014_qh13_art_37_chunk_1",
+      "luat_52_2014_qh13_art_37_chunk_4",
+      "luat_52_2014_qh13_art_37_chunk_5",
+      "luat_52_2014_qh13_art_37_chunk_6"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2806,11 +2975,15 @@
       "L01_D38"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_38_chunk_1",
+      "luat_52_2014_qh13_art_38_chunk_2",
+      "luat_52_2014_qh13_art_38_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2834,11 +3007,16 @@
       "L01_D39"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_39_chunk_2",
+      "luat_52_2014_qh13_art_39_chunk_1",
+      "luat_52_2014_qh13_art_39_chunk_3",
+      "luat_52_2014_qh13_art_39_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2862,11 +3040,14 @@
       "L01_D40"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_40_chunk_1",
+      "luat_52_2014_qh13_art_40_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2890,11 +3071,16 @@
       "L01_D41"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_41_chunk_4",
+      "luat_52_2014_qh13_art_41_chunk_1",
+      "luat_52_2014_qh13_art_41_chunk_3",
+      "luat_52_2014_qh13_art_41_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2918,11 +3104,14 @@
       "L01_D42"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_42_chunk_2",
+      "luat_52_2014_qh13_art_42_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2946,11 +3135,14 @@
       "L01_D43"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_43_chunk_1",
+      "luat_52_2014_qh13_art_43_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -2974,11 +3166,16 @@
       "L01_D44"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_44_chunk_1",
+      "luat_52_2014_qh13_art_44_chunk_4",
+      "luat_52_2014_qh13_art_44_chunk_2",
+      "luat_52_2014_qh13_art_44_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3002,11 +3199,15 @@
       "L01_D45"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_45_chunk_1",
+      "luat_52_2014_qh13_art_45_chunk_3",
+      "luat_52_2014_qh13_art_45_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3030,11 +3231,15 @@
       "L01_D46"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_46_chunk_1",
+      "luat_52_2014_qh13_art_46_chunk_3",
+      "luat_52_2014_qh13_art_46_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3058,11 +3263,13 @@
       "L01_D47"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_47_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3086,11 +3293,14 @@
       "L01_D48"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_48_chunk_1",
+      "luat_52_2014_qh13_art_48_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3114,11 +3324,13 @@
       "L01_D49"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_49_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3142,11 +3354,14 @@
       "L01_D50"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_50_chunk_1",
+      "luat_52_2014_qh13_art_50_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3170,11 +3385,14 @@
       "L01_D51"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_51_chunk_1",
+      "luat_52_2014_qh13_art_51_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3198,11 +3416,13 @@
       "L01_D52"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_52_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3226,11 +3446,14 @@
       "L01_D53"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_53_chunk_1",
+      "luat_52_2014_qh13_art_53_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3254,11 +3477,13 @@
       "L01_D54"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_54_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3282,11 +3507,13 @@
       "L01_D55"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_55_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3310,11 +3537,15 @@
       "L01_D56"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_56_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_3",
+      "luat_52_2014_qh13_art_56_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3338,11 +3569,14 @@
       "L01_D57"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_57_chunk_2",
+      "luat_52_2014_qh13_art_57_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3366,11 +3600,13 @@
       "L01_D58"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_58_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3394,11 +3630,17 @@
       "L01_D59"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_59_p1_chunk_1",
+      "luat_52_2014_qh13_art_59_p1_chunk_2",
+      "luat_52_2014_qh13_art_59_p2_chunk_4",
+      "luat_52_2014_qh13_art_59_p1_chunk_3",
+      "luat_52_2014_qh13_art_59_p2_chunk_5"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3422,11 +3664,14 @@
       "L01_D60"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_60_chunk_1",
+      "luat_52_2014_qh13_art_60_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3450,11 +3695,14 @@
       "L01_D61"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_61_chunk_1",
+      "luat_52_2014_qh13_art_61_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3478,11 +3726,16 @@
       "L01_D62"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_62_chunk_2_1",
+      "luat_52_2014_qh13_art_62_chunk_3",
+      "luat_52_2014_qh13_art_62_chunk_1",
+      "luat_52_2014_qh13_art_62_chunk_2_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3506,11 +3759,13 @@
       "L01_D63"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_63_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3534,11 +3789,13 @@
       "L01_D64"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_64_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3562,11 +3819,13 @@
       "L01_D65"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_65_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3590,11 +3849,16 @@
       "L01_D66"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_66_chunk_1",
+      "luat_52_2014_qh13_art_66_chunk_2",
+      "luat_52_2014_qh13_art_66_chunk_3",
+      "luat_52_2014_qh13_art_66_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3618,11 +3882,14 @@
       "L01_D67"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_67_chunk_2",
+      "luat_52_2014_qh13_art_67_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3646,11 +3913,16 @@
       "L01_D68"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_68_chunk_2",
+      "luat_52_2014_qh13_art_68_chunk_1",
+      "luat_52_2014_qh13_art_68_chunk_3",
+      "luat_52_2014_qh13_art_68_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3674,11 +3946,16 @@
       "L01_D69"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_69_chunk_4",
+      "luat_52_2014_qh13_art_69_chunk_1",
+      "luat_52_2014_qh13_art_69_chunk_3",
+      "luat_52_2014_qh13_art_69_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3702,11 +3979,17 @@
       "L01_D70"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_70_chunk_1",
+      "luat_52_2014_qh13_art_70_chunk_4",
+      "luat_52_2014_qh13_art_70_chunk_3",
+      "luat_52_2014_qh13_art_70_chunk_5",
+      "luat_52_2014_qh13_art_70_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3730,11 +4013,14 @@
       "L01_D71"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_71_chunk_2",
+      "luat_52_2014_qh13_art_71_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3758,11 +4044,15 @@
       "L01_D72"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_72_chunk_1",
+      "luat_52_2014_qh13_art_72_chunk_3",
+      "luat_52_2014_qh13_art_72_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3786,11 +4076,16 @@
       "L01_D73"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_73_chunk_4",
+      "luat_52_2014_qh13_art_73_chunk_1",
+      "luat_52_2014_qh13_art_73_chunk_2",
+      "luat_52_2014_qh13_art_73_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3814,11 +4109,13 @@
       "L01_D74"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_74_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3842,11 +4139,15 @@
       "L01_D75"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_75_chunk_1",
+      "luat_52_2014_qh13_art_75_chunk_3",
+      "luat_52_2014_qh13_art_75_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3870,11 +4171,16 @@
       "L01_D76"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_76_chunk_3",
+      "luat_52_2014_qh13_art_76_chunk_4",
+      "luat_52_2014_qh13_art_76_chunk_2",
+      "luat_52_2014_qh13_art_76_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3898,11 +4204,15 @@
       "L01_D77"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_77_chunk_3",
+      "luat_52_2014_qh13_art_77_chunk_1",
+      "luat_52_2014_qh13_art_77_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3926,11 +4236,15 @@
       "L01_D78"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_78_chunk_3",
+      "luat_52_2014_qh13_art_78_chunk_1",
+      "luat_52_2014_qh13_art_78_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3954,11 +4268,14 @@
       "L01_D79"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_79_chunk_1",
+      "luat_52_2014_qh13_art_79_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -3982,11 +4299,13 @@
       "L01_D80"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_80_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4010,11 +4329,15 @@
       "L01_D81"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_81_chunk_1",
+      "luat_52_2014_qh13_art_81_chunk_3",
+      "luat_52_2014_qh13_art_81_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4038,11 +4361,14 @@
       "L01_D82"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_82_chunk_2",
+      "luat_52_2014_qh13_art_82_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4066,11 +4392,14 @@
       "L01_D83"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_83_chunk_1",
+      "luat_52_2014_qh13_art_83_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4094,11 +4423,17 @@
       "L01_D84"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_84_chunk_5",
+      "luat_52_2014_qh13_art_84_chunk_1",
+      "luat_52_2014_qh13_art_84_chunk_2",
+      "luat_52_2014_qh13_art_84_chunk_4",
+      "luat_52_2014_qh13_art_84_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4122,11 +4457,14 @@
       "L01_D85"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_85_chunk_1",
+      "luat_52_2014_qh13_art_85_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4150,11 +4488,15 @@
       "L01_D86"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_86_chunk_2",
+      "luat_52_2014_qh13_art_86_chunk_3",
+      "luat_52_2014_qh13_art_86_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4178,11 +4520,15 @@
       "L01_D87"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_87_chunk_2",
+      "luat_52_2014_qh13_art_87_chunk_1",
+      "luat_52_2014_qh13_art_87_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4206,11 +4552,14 @@
       "L01_D88"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_88_chunk_1",
+      "luat_52_2014_qh13_art_88_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4234,11 +4583,14 @@
       "L01_D89"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_89_chunk_1",
+      "luat_52_2014_qh13_art_89_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4262,11 +4614,13 @@
       "L01_D90"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_90_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4290,11 +4644,13 @@
       "L01_D91"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_91_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4318,11 +4674,13 @@
       "L01_D92"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_92_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4346,11 +4704,16 @@
       "L01_D93"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_93_chunk_1",
+      "luat_52_2014_qh13_art_93_chunk_2",
+      "luat_52_2014_qh13_art_93_chunk_3",
+      "luat_52_2014_qh13_art_93_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4374,11 +4737,13 @@
       "L01_D94"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_94_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4402,11 +4767,17 @@
       "L01_D95"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_95_chunk_4",
+      "luat_52_2014_qh13_art_95_chunk_1",
+      "luat_52_2014_qh13_art_95_chunk_2",
+      "luat_52_2014_qh13_art_95_chunk_3",
+      "luat_52_2014_qh13_art_95_chunk_5"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4430,11 +4801,14 @@
       "L01_D96"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_96_p1_chunk_1",
+      "luat_52_2014_qh13_art_96_p2_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4458,11 +4832,17 @@
       "L01_D97"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_97_chunk_3",
+      "luat_52_2014_qh13_art_97_chunk_4",
+      "luat_52_2014_qh13_art_97_chunk_1",
+      "luat_52_2014_qh13_art_97_chunk_2",
+      "luat_52_2014_qh13_art_97_chunk_5"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4486,11 +4866,17 @@
       "L01_D98"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_98_chunk_2",
+      "luat_52_2014_qh13_art_98_chunk_4",
+      "luat_52_2014_qh13_art_98_chunk_3",
+      "luat_52_2014_qh13_art_98_chunk_1",
+      "luat_52_2014_qh13_art_98_chunk_5"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4514,11 +4900,14 @@
       "L01_D99"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_99_chunk_1",
+      "luat_52_2014_qh13_art_99_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4542,11 +4931,13 @@
       "L01_D100"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_100_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4570,11 +4961,14 @@
       "L01_D101"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_101_chunk_2",
+      "luat_52_2014_qh13_art_101_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4598,11 +4992,15 @@
       "L01_D102"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_102_chunk_3",
+      "luat_52_2014_qh13_art_102_chunk_2",
+      "luat_52_2014_qh13_art_102_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4626,11 +5024,15 @@
       "L01_D103"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_103_chunk_1",
+      "luat_52_2014_qh13_art_103_chunk_2",
+      "luat_52_2014_qh13_art_103_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4654,11 +5056,14 @@
       "L01_D104"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_104_chunk_1",
+      "luat_52_2014_qh13_art_104_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4682,11 +5087,13 @@
       "L01_D105"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_105_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4710,11 +5117,13 @@
       "L01_D106"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_106_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4738,11 +5147,14 @@
       "L01_D107"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_107_chunk_1",
+      "luat_52_2014_qh13_art_107_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4766,11 +5178,13 @@
       "L01_D108"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_108_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4794,11 +5208,13 @@
       "L01_D109"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_109_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4822,11 +5238,13 @@
       "L01_D110"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_110_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4850,11 +5268,13 @@
       "L01_D111"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_111_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4878,11 +5298,13 @@
       "L01_D112"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_112_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4906,11 +5328,14 @@
       "L01_D113"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_113_chunk_1",
+      "luat_52_2014_qh13_art_113_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4934,11 +5359,14 @@
       "L01_D114"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_114_chunk_1",
+      "luat_52_2014_qh13_art_114_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4962,11 +5390,13 @@
       "L01_D115"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_115_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -4990,11 +5420,14 @@
       "L01_D116"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_116_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5018,11 +5451,13 @@
       "L01_D117"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_117_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5046,11 +5481,16 @@
       "L01_D118"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_118_chunk_6",
+      "luat_52_2014_qh13_art_118_chunk_1",
+      "luat_52_2014_qh13_art_118_chunk_3",
+      "luat_52_2014_qh13_art_118_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5074,11 +5514,15 @@
       "L01_D119"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_119_chunk_2",
+      "luat_52_2014_qh13_art_119_chunk_3",
+      "luat_52_2014_qh13_art_119_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5102,11 +5546,13 @@
       "L01_D120"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_120_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5130,11 +5576,16 @@
       "L01_D121"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_121_chunk_4",
+      "luat_52_2014_qh13_art_121_chunk_1",
+      "luat_52_2014_qh13_art_121_chunk_3",
+      "luat_52_2014_qh13_art_121_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5158,11 +5609,15 @@
       "L01_D122"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_122_chunk_1",
+      "luat_52_2014_qh13_art_122_chunk_2",
+      "luat_52_2014_qh13_art_122_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5186,11 +5641,15 @@
       "L01_D123"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_123_chunk_2",
+      "luat_52_2014_qh13_art_123_chunk_1",
+      "luat_52_2014_qh13_art_123_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5214,11 +5673,13 @@
       "L01_D124"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_124_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5242,11 +5703,14 @@
       "L01_D125"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_125_chunk_2",
+      "luat_52_2014_qh13_art_125_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5270,11 +5734,14 @@
       "L01_D126"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_126_chunk_1",
+      "luat_52_2014_qh13_art_126_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5298,11 +5765,15 @@
       "L01_D127"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_127_chunk_1",
+      "luat_52_2014_qh13_art_127_chunk_3",
+      "luat_52_2014_qh13_art_127_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5326,11 +5797,14 @@
       "L01_D128"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_128_chunk_2",
+      "luat_52_2014_qh13_art_128_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5354,11 +5828,14 @@
       "L01_D129"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_129_chunk_1",
+      "luat_52_2014_qh13_art_129_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5382,11 +5859,13 @@
       "L01_D130"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_130_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5410,11 +5889,15 @@
       "L01_D131"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_131_chunk_2",
+      "luat_52_2014_qh13_art_131_chunk_3_1",
+      "luat_52_2014_qh13_art_131_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5438,11 +5921,15 @@
       "ND01_D2"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_2_chunk_1",
+      "nd_126_2014_nd_cp_art_2_chunk_2",
+      "nd_126_2014_nd_cp_art_2_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5466,11 +5953,14 @@
       "ND01_D4"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_4_chunk_1",
+      "nd_126_2014_nd_cp_art_4_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5494,11 +5984,14 @@
       "ND01_D5"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_5_chunk_1",
+      "nd_126_2014_nd_cp_art_5_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5522,11 +6015,14 @@
       "ND01_D6"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_6_chunk_1",
+      "nd_126_2014_nd_cp_art_6_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5550,11 +6046,13 @@
       "ND01_D7"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_7_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5578,11 +6076,14 @@
       "ND01_D8"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_8_chunk_2",
+      "nd_126_2014_nd_cp_art_8_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5606,11 +6107,15 @@
       "ND01_D9"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_9_chunk_3",
+      "nd_126_2014_nd_cp_art_9_chunk_2",
+      "nd_126_2014_nd_cp_art_9_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5634,11 +6139,14 @@
       "ND01_D10"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_10_chunk_2",
+      "nd_126_2014_nd_cp_art_10_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5662,11 +6170,15 @@
       "ND01_D11"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_11_chunk_2",
+      "nd_126_2014_nd_cp_art_11_chunk_3",
+      "nd_126_2014_nd_cp_art_11_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5690,11 +6202,15 @@
       "ND01_D12"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_12_chunk_3",
+      "nd_126_2014_nd_cp_art_12_chunk_1",
+      "nd_126_2014_nd_cp_art_12_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5718,11 +6234,14 @@
       "ND01_D13"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_13_chunk_1",
+      "nd_126_2014_nd_cp_art_13_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5746,11 +6265,15 @@
       "ND01_D14"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_14_chunk_1",
+      "nd_126_2014_nd_cp_art_14_chunk_3",
+      "nd_126_2014_nd_cp_art_14_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5774,11 +6297,14 @@
       "ND01_D15"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_15_chunk_1",
+      "nd_126_2014_nd_cp_art_15_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5802,11 +6328,13 @@
       "ND01_D16"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_16_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5830,11 +6358,14 @@
       "ND01_D17"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_17_chunk_1",
+      "nd_126_2014_nd_cp_art_17_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5858,11 +6389,14 @@
       "ND01_D18"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_18_chunk_1",
+      "nd_126_2014_nd_cp_art_18_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5886,11 +6420,15 @@
       "ND01_D19"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_19_chunk_3",
+      "nd_126_2014_nd_cp_art_19_chunk_1",
+      "nd_126_2014_nd_cp_art_19_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5914,11 +6452,16 @@
       "ND01_D20"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_20_p2_chunk_2_1",
+      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phần_2",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5942,11 +6485,15 @@
       "ND01_D21"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_21_chunk_3",
+      "nd_126_2014_nd_cp_art_21_chunk_2",
+      "nd_126_2014_nd_cp_art_21_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5970,11 +6517,14 @@
       "ND01_D22"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_22_chunk_1",
+      "nd_126_2014_nd_cp_art_22_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -5998,11 +6548,17 @@
       "ND01_D23"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_23_p3_chunk_3",
+      "nd_126_2014_nd_cp_art_23_p2_chunk_2",
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_2",
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6026,11 +6582,16 @@
       "ND01_D24"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_24_chunk_4",
+      "nd_126_2014_nd_cp_art_24_chunk_2",
+      "nd_126_2014_nd_cp_art_24_chunk_3",
+      "nd_126_2014_nd_cp_art_24_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6054,11 +6615,17 @@
       "ND01_D25"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_25_p1_chunk_1_1",
+      "nd_126_2014_nd_cp_art_25_p2_chunk_3",
+      "nd_126_2014_nd_cp_art_25_p3_chunk_5",
+      "nd_126_2014_nd_cp_art_25_p2_chunk_4",
+      "nd_126_2014_nd_cp_art_25_p2_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6082,11 +6649,14 @@
       "ND01_D26"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_26_chunk_1",
+      "nd_126_2014_nd_cp_art_26_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6110,11 +6680,13 @@
       "ND01_D27"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_27_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6138,11 +6710,17 @@
       "ND01_D28"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_28_p1_chunk_1",
+      "nd_126_2014_nd_cp_art_28_p2_chunk_4_phần_1_1",
+      "nd_126_2014_nd_cp_art_28_p3_chunk_4_phần_2_1",
+      "nd_126_2014_nd_cp_art_28_p1_chunk_3",
+      "nd_126_2014_nd_cp_art_28_p1_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6166,11 +6744,16 @@
       "ND01_D29"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_29_chunk_1",
+      "nd_126_2014_nd_cp_art_29_chunk_2",
+      "nd_126_2014_nd_cp_art_29_chunk_3",
+      "nd_126_2014_nd_cp_art_29_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6194,11 +6777,16 @@
       "ND01_D30"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_30_chunk_1",
+      "nd_126_2014_nd_cp_art_30_chunk_2",
+      "nd_126_2014_nd_cp_art_30_chunk_3",
+      "nd_126_2014_nd_cp_art_30_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6222,11 +6810,14 @@
       "ND01_D31"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_31_chunk_2",
+      "nd_126_2014_nd_cp_art_31_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6250,11 +6841,14 @@
       "ND01_D32"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_32_chunk_1",
+      "nd_126_2014_nd_cp_art_32_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6278,11 +6872,13 @@
       "ND01_D33"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_33_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6306,11 +6902,17 @@
       "ND01_D34"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_34_p1_chunk_1",
+      "nd_126_2014_nd_cp_art_34_p1_chunk_3",
+      "nd_126_2014_nd_cp_art_34_p1_chunk_4",
+      "nd_126_2014_nd_cp_art_34_p2_chunk_5",
+      "nd_126_2014_nd_cp_art_34_p1_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6334,11 +6936,14 @@
       "ND01_D35"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_35_chunk_1",
+      "nd_126_2014_nd_cp_art_35_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6362,11 +6967,14 @@
       "ND01_D36"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_36_chunk_1",
+      "nd_126_2014_nd_cp_art_36_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6390,11 +6998,14 @@
       "ND01_D37"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_37_chunk_1",
+      "nd_126_2014_nd_cp_art_37_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6418,11 +7029,16 @@
       "ND01_D38"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_38_p1_chunk_1",
+      "nd_126_2014_nd_cp_art_38_p1_chunk_3",
+      "nd_126_2014_nd_cp_art_38_p1_chunk_2",
+      "nd_126_2014_nd_cp_art_38_p2_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6446,11 +7062,15 @@
       "ND01_D39"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_39_chunk_3",
+      "nd_126_2014_nd_cp_art_39_chunk_2",
+      "nd_126_2014_nd_cp_art_39_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6474,11 +7094,15 @@
       "ND01_D40"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_40_chunk_3",
+      "nd_126_2014_nd_cp_art_40_chunk_1",
+      "nd_126_2014_nd_cp_art_40_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6502,11 +7126,13 @@
       "ND01_D41"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_41_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6530,11 +7156,15 @@
       "ND01_D42"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_42_chunk_1",
+      "nd_126_2014_nd_cp_art_42_chunk_2",
+      "nd_126_2014_nd_cp_art_42_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6558,11 +7188,15 @@
       "ND01_D43"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_43_chunk_1",
+      "nd_126_2014_nd_cp_art_43_chunk_2",
+      "nd_126_2014_nd_cp_art_43_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6586,11 +7220,14 @@
       "ND01_D44"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_44_chunk_1",
+      "nd_126_2014_nd_cp_art_44_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6614,11 +7251,15 @@
       "ND01_D45"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_45_chunk_3",
+      "nd_126_2014_nd_cp_art_45_chunk_2",
+      "nd_126_2014_nd_cp_art_45_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6642,11 +7283,15 @@
       "ND01_D46"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_46_p1_chunk_1_1",
+      "nd_126_2014_nd_cp_art_46_p2_chunk_2",
+      "nd_126_2014_nd_cp_art_46_p1_chunk_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6670,11 +7315,13 @@
       "ND01_D47"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_47_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6698,11 +7345,13 @@
       "ND01_D48"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_48_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6726,11 +7375,17 @@
       "ND01_D49"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_49_p1_chunk_1",
+      "nd_126_2014_nd_cp_art_49_p2_chunk_6",
+      "nd_126_2014_nd_cp_art_49_p2_chunk_7",
+      "nd_126_2014_nd_cp_art_49_p1_chunk_2",
+      "nd_126_2014_nd_cp_art_49_p1_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6754,11 +7409,17 @@
       "ND01_D50"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_50_p1_chunk_5",
+      "nd_126_2014_nd_cp_art_50_p1_chunk_1",
+      "nd_126_2014_nd_cp_art_50_p1_chunk_2",
+      "nd_126_2014_nd_cp_art_50_p1_chunk_3",
+      "nd_126_2014_nd_cp_art_50_p1_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6782,11 +7443,13 @@
       "ND01_D51"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_51_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6810,11 +7473,15 @@
       "ND01_D52"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_52_chunk_1",
+      "nd_126_2014_nd_cp_art_52_chunk_3",
+      "nd_126_2014_nd_cp_art_52_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6838,11 +7505,14 @@
       "ND01_D53"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_53_chunk_1",
+      "nd_126_2014_nd_cp_art_53_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6866,11 +7536,16 @@
       "ND01_D54"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_54_chunk_2",
+      "nd_126_2014_nd_cp_art_54_chunk_3",
+      "nd_126_2014_nd_cp_art_54_chunk_4",
+      "nd_126_2014_nd_cp_art_54_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6894,11 +7569,17 @@
       "ND01_D55"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_55_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_1_1",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_1_2",
+      "nd_126_2014_nd_cp_art_55_p2_chunk_1_phần_2",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6922,11 +7603,14 @@
       "ND01_D56"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_56_chunk_1",
+      "nd_126_2014_nd_cp_art_56_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6950,11 +7634,16 @@
       "ND01_D57"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_57_chunk_3",
+      "nd_126_2014_nd_cp_art_57_chunk_1",
+      "nd_126_2014_nd_cp_art_57_chunk_2",
+      "nd_126_2014_nd_cp_art_57_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -6978,11 +7667,13 @@
       "ND02_D01"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_1_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7006,11 +7697,17 @@
       "ND02_D02"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_2_chunk_1",
+      "nd_207_2025_nd_cp_art_2_chunk_2",
+      "nd_207_2025_nd_cp_art_2_chunk_4",
+      "nd_207_2025_nd_cp_art_2_chunk_5",
+      "nd_207_2025_nd_cp_art_2_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7034,11 +7731,17 @@
       "ND02_D03"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_3_chunk_5",
+      "nd_207_2025_nd_cp_art_3_chunk_4",
+      "nd_207_2025_nd_cp_art_3_chunk_1",
+      "nd_207_2025_nd_cp_art_3_chunk_3",
+      "nd_207_2025_nd_cp_art_3_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7062,11 +7765,15 @@
       "ND02_D04"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_4_chunk_1",
+      "nd_207_2025_nd_cp_art_4_chunk_3",
+      "nd_207_2025_nd_cp_art_4_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7090,11 +7797,16 @@
       "ND02_D05"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_5_chunk_4",
+      "nd_207_2025_nd_cp_art_5_chunk_1",
+      "nd_207_2025_nd_cp_art_5_chunk_3",
+      "nd_207_2025_nd_cp_art_5_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7118,11 +7830,14 @@
       "ND02_D06"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_6_chunk_1",
+      "nd_207_2025_nd_cp_art_6_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7146,11 +7861,16 @@
       "ND02_D07"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_7_p1_chunk_1_1",
+      "nd_207_2025_nd_cp_art_7_p2_chunk_2",
+      "nd_207_2025_nd_cp_art_7_p2_chunk_3",
+      "nd_207_2025_nd_cp_art_7_p1_chunk_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7174,11 +7894,15 @@
       "ND02_D08"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_8_chunk_1",
+      "nd_207_2025_nd_cp_art_8_chunk_2",
+      "nd_207_2025_nd_cp_art_8_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7202,11 +7926,17 @@
       "ND02_D09"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_9_p1_chunk_2_phần_1_1",
+      "nd_207_2025_nd_cp_art_9_p2_chunk_3",
+      "nd_207_2025_nd_cp_art_9_p1_chunk_1",
+      "nd_207_2025_nd_cp_art_9_p3_chunk_4",
+      "nd_207_2025_nd_cp_art_9_p2_chunk_2_phần_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7230,11 +7960,17 @@
       "ND02_D10"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_10_p2_chunk_4_1",
+      "nd_207_2025_nd_cp_art_10_p3_chunk_5",
+      "nd_207_2025_nd_cp_art_10_p1_chunk_1",
+      "nd_207_2025_nd_cp_art_10_p1_chunk_2",
+      "nd_207_2025_nd_cp_art_10_p1_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7258,11 +7994,13 @@
       "ND02_D11"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_11_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7286,11 +8024,14 @@
       "ND02_D12"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_12_chunk_2",
+      "nd_207_2025_nd_cp_art_12_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7314,11 +8055,14 @@
       "ND02_D13"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_13_chunk_1",
+      "nd_207_2025_nd_cp_art_13_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7342,11 +8086,17 @@
       "ND02_D14"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_14_p1_chunk_1_1",
+      "nd_207_2025_nd_cp_art_14_p2_chunk_2",
+      "nd_207_2025_nd_cp_art_14_p2_chunk_3",
+      "nd_207_2025_nd_cp_art_14_p2_chunk_4",
+      "nd_207_2025_nd_cp_art_14_p1_chunk_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7370,11 +8120,14 @@
       "ND02_D15"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_15_chunk_2_1",
+      "nd_207_2025_nd_cp_art_15_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7398,11 +8151,14 @@
       "ND02_D16"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_16_chunk_2",
+      "nd_207_2025_nd_cp_art_16_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7426,11 +8182,17 @@
       "ND02_D17"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_207_2025_nd_cp_art_17_p2_chunk_2_phần_1",
+      "nd_207_2025_nd_cp_art_17_p4_chunk_3_phần_1_1",
+      "nd_207_2025_nd_cp_art_17_p1_chunk_1",
+      "nd_207_2025_nd_cp_art_17_p5_chunk_3_phần_2",
+      "nd_207_2025_nd_cp_art_17_p6_chunk_3_phần_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7454,11 +8216,13 @@
       "ND03_D01"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_1_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7482,11 +8246,15 @@
       "ND03_D02"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phần_1_1",
+      "nq_01_2024_nq_hdtp_art_2_p2_chunk_1_phần_2",
+      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7510,11 +8278,14 @@
       "ND03_D03"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_3_chunk_1_1",
+      "nq_01_2024_nq_hdtp_art_3_chunk_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7538,11 +8309,14 @@
       "ND03_D04"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_4_chunk_1_1",
+      "nq_01_2024_nq_hdtp_art_4_chunk_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7566,11 +8340,15 @@
       "ND03_D05"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phần_1_1",
+      "nq_01_2024_nq_hdtp_art_5_p2_chunk_1_phần_2",
+      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7594,11 +8372,16 @@
       "ND03_D06"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_6_p1_chunk_1",
+      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phần_1_1",
+      "nq_01_2024_nq_hdtp_art_6_p3_chunk_2_phần_2",
+      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7622,11 +8405,16 @@
       "ND03_D07"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_7_p1_chunk_2",
+      "nq_01_2024_nq_hdtp_art_7_p1_chunk_3",
+      "nq_01_2024_nq_hdtp_art_7_p2_chunk_4",
+      "nq_01_2024_nq_hdtp_art_7_p1_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7650,11 +8438,17 @@
       "ND03_D08"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_2_1",
+      "nq_01_2024_nq_hdtp_art_8_p1_chunk_1_phần_1_1",
+      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_3",
+      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_2_2",
+      "nq_01_2024_nq_hdtp_art_8_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7678,11 +8472,14 @@
       "ND03_D09"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_9_chunk_1",
+      "nq_01_2024_nq_hdtp_art_9_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7706,11 +8503,14 @@
       "ND03_D10"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_10_chunk_1",
+      "nq_01_2024_nq_hdtp_art_10_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7734,11 +8534,15 @@
       "ND03_D11"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_11_chunk_2",
+      "nq_01_2024_nq_hdtp_art_11_chunk_1",
+      "nq_01_2024_nq_hdtp_art_11_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7762,11 +8566,14 @@
       "ND03_D12"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nq_01_2024_nq_hdtp_art_12_chunk_1",
+      "nq_01_2024_nq_hdtp_art_12_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7796,11 +8603,17 @@
       "ND01_D20"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_20_p2_chunk_2_1",
+      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phần_2",
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7830,11 +8643,16 @@
       "ND01_D26"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "nd_126_2014_nd_cp_art_26_chunk_1",
+      "luat_52_2014_qh13_art_8_chunk_1",
+      "nd_126_2014_nd_cp_art_26_chunk_2",
+      "luat_52_2014_qh13_art_8_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7864,11 +8682,17 @@
       "L01_D11"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_10_chunk_2",
+      "luat_52_2014_qh13_art_10_chunk_3",
+      "luat_52_2014_qh13_art_11_chunk_2",
+      "luat_52_2014_qh13_art_10_chunk_1",
+      "luat_52_2014_qh13_art_11_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7898,11 +8722,16 @@
       "L01_D15"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_12_chunk_1",
+      "luat_52_2014_qh13_art_15_chunk_1",
+      "luat_52_2014_qh13_art_12_chunk_3",
+      "luat_52_2014_qh13_art_12_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7932,11 +8761,16 @@
       "L01_D16"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_14_chunk_1",
+      "luat_52_2014_qh13_art_16_chunk_1",
+      "luat_52_2014_qh13_art_14_chunk_2",
+      "luat_52_2014_qh13_art_16_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -7966,11 +8800,15 @@
       "L01_D20"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_20_chunk_1",
+      "luat_52_2014_qh13_art_19_chunk_2",
+      "luat_52_2014_qh13_art_19_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8000,11 +8838,17 @@
       "L01_D25"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_24_chunk_3",
+      "luat_52_2014_qh13_art_24_chunk_1",
+      "luat_52_2014_qh13_art_25_chunk_1",
+      "luat_52_2014_qh13_art_24_chunk_2",
+      "luat_52_2014_qh13_art_25_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8034,11 +8878,14 @@
       "L01_D35"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_31_chunk_1",
+      "luat_52_2014_qh13_art_35_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8068,11 +8915,16 @@
       "L01_D27"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_32_chunk_1",
+      "luat_52_2014_qh13_art_27_chunk_1",
+      "luat_52_2014_qh13_art_32_chunk_2",
+      "luat_52_2014_qh13_art_27_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8102,11 +8954,17 @@
       "L01_D37"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_37_chunk_4",
+      "luat_52_2014_qh13_art_36_chunk_1",
+      "luat_52_2014_qh13_art_37_chunk_2",
+      "luat_52_2014_qh13_art_37_chunk_5",
+      "luat_52_2014_qh13_art_37_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8136,11 +8994,17 @@
       "L01_D39"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_39_chunk_1",
+      "luat_52_2014_qh13_art_39_chunk_2",
+      "luat_52_2014_qh13_art_38_chunk_1",
+      "luat_52_2014_qh13_art_39_chunk_4",
+      "luat_52_2014_qh13_art_39_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8170,11 +9034,17 @@
       "L01_D42"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_41_chunk_4",
+      "luat_52_2014_qh13_art_41_chunk_3",
+      "luat_52_2014_qh13_art_41_chunk_1",
+      "luat_52_2014_qh13_art_41_chunk_2",
+      "luat_52_2014_qh13_art_42_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8204,11 +9074,17 @@
       "L01_D46"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_44_chunk_1",
+      "luat_52_2014_qh13_art_46_chunk_3",
+      "luat_52_2014_qh13_art_44_chunk_2",
+      "luat_52_2014_qh13_art_44_chunk_4",
+      "luat_52_2014_qh13_art_46_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8238,11 +9114,16 @@
       "L01_D50"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_50_chunk_1",
+      "luat_52_2014_qh13_art_48_chunk_1",
+      "luat_52_2014_qh13_art_48_chunk_2",
+      "luat_52_2014_qh13_art_50_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8272,11 +9153,17 @@
       "L01_D56"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_51_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_3",
+      "luat_52_2014_qh13_art_56_chunk_2",
+      "luat_52_2014_qh13_art_51_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8306,11 +9193,16 @@
       "L01_D56"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_55_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_1",
+      "luat_52_2014_qh13_art_56_chunk_3",
+      "luat_52_2014_qh13_art_56_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8340,11 +9232,17 @@
       "L01_D60"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_60_chunk_1",
+      "luat_52_2014_qh13_art_59_p1_chunk_1",
+      "luat_52_2014_qh13_art_59_p1_chunk_2",
+      "luat_52_2014_qh13_art_59_p2_chunk_4",
+      "luat_52_2014_qh13_art_59_p1_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8374,11 +9272,17 @@
       "L01_D62"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_62_chunk_2_1",
+      "luat_52_2014_qh13_art_62_chunk_3",
+      "luat_52_2014_qh13_art_59_p1_chunk_1",
+      "luat_52_2014_qh13_art_59_p2_chunk_4",
+      "luat_52_2014_qh13_art_62_chunk_1"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8408,11 +9312,17 @@
       "L01_D82"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_81_chunk_2",
+      "luat_52_2014_qh13_art_82_chunk_2",
+      "luat_52_2014_qh13_art_81_chunk_1",
+      "luat_52_2014_qh13_art_82_chunk_1",
+      "luat_52_2014_qh13_art_81_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8442,11 +9352,17 @@
       "L01_D84"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_84_chunk_2",
+      "luat_52_2014_qh13_art_84_chunk_5",
+      "luat_52_2014_qh13_art_81_chunk_2",
+      "luat_52_2014_qh13_art_84_chunk_1",
+      "luat_52_2014_qh13_art_84_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8476,11 +9392,17 @@
       "L01_D87"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_86_chunk_2",
+      "luat_52_2014_qh13_art_87_chunk_1",
+      "luat_52_2014_qh13_art_87_chunk_2",
+      "luat_52_2014_qh13_art_86_chunk_1",
+      "luat_52_2014_qh13_art_86_chunk_3"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8510,11 +9432,17 @@
       "L01_D94"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_93_chunk_1",
+      "luat_52_2014_qh13_art_93_chunk_2",
+      "luat_52_2014_qh13_art_93_chunk_3",
+      "luat_52_2014_qh13_art_94_chunk_1",
+      "luat_52_2014_qh13_art_93_chunk_4"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8544,11 +9472,17 @@
       "L01_D99"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_99_chunk_1",
+      "luat_52_2014_qh13_art_95_chunk_2",
+      "luat_52_2014_qh13_art_95_chunk_3",
+      "luat_52_2014_qh13_art_95_chunk_1",
+      "luat_52_2014_qh13_art_99_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8578,11 +9512,15 @@
       "L01_D116"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_110_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   },
@@ -8612,11 +9550,15 @@
       "L01_D117"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "candidate_context_ids": [
+      "luat_52_2014_qh13_art_117_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_1",
+      "luat_52_2014_qh13_art_116_chunk_2"
+    ],
+    "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
+    "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
     "answer_kind": "extracted_article_text_unreviewed"
   }
