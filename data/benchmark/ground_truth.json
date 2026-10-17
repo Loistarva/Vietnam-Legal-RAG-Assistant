@@ -1,87 +1,1693 @@
-﻿[
-    {
-        "query":  "Pháp luật quy định độ tuổi tối thiểu để nam và nữ được kết hôn như thế nào?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_8_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Đăng ký kết hôn có bắt buộc không, và nếu không đăng ký thì quan hệ có giá trị pháp lý không?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_9_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Những hành vi nào bị cấm trong quan hệ hôn nhân và gia đình?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_5_p1_chunk_2_1",
-                                   "l01_art_5_p1_chunk_2_2"
-                               ]
-    },
-    {
-        "query":  "Khi nào Tòa án có thể chấp nhận yêu cầu ly hôn đơn phương của vợ hoặc chồng?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_56_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Người chồng có được yêu cầu ly hôn khi vợ đang mang thai hoặc nuôi con nhỏ không?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_51_chunk_3"
-                               ]
-    },
-    {
-        "query":  "Tòa án công nhận thuận tình ly hôn khi vợ chồng đáp ứng những điều kiện nào?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_55_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Sau khi ly hôn, cha mẹ thỏa thuận việc ai nuôi con thế nào; nếu không thống nhất thì Tòa án căn cứ vào đâu?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_81_chunk_2"
-                               ]
-    },
-    {
-        "query":  "Con dưới 36 tháng tuổi thường được giao cho ai trực tiếp nuôi sau khi cha mẹ ly hôn?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_81_chunk_3"
-                               ]
-    },
-    {
-        "query":  "Thu nhập và tài sản nào được xem là tài sản chung của vợ chồng trong thời kỳ hôn nhân?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_33_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Khi chia tài sản chung lúc ly hôn, Tòa án cân nhắc những yếu tố nào ngoài nguyên tắc chia đôi?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_59_p1_chunk_2"
-                               ]
-    },
-    {
-        "query":  "Mức cấp dưỡng được xác định dựa trên những căn cứ nào?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_116_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ và quyền gì với con?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_82_chunk_2"
-                               ]
-    },
-    {
-        "query":  "Công dân Việt Nam kết hôn với người nước ngoài phải tuân thủ điều kiện kết hôn theo pháp luật nào?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_126_chunk_1"
-                               ]
-    },
-    {
-        "query":  "Theo Luật Hôn nhân và Gia đình, ly hôn được hiểu là gì?",
-        "relevant_chunk_ids":  [
-                                   "l01_art_3_p2_chunk_14"
-                               ]
-    }
+[
+  {
+    "id": "HN_001",
+    "answer": "Nam từ đủ 20 tuổi trở lên.",
+    "explanation": "Điểm a khoản 1 Điều 8 đặt điều kiện tuổi tối thiểu với nam là từ đủ 20 tuổi; không được hiểu là bước sang tuổi 20 khi chưa đến ngày sinh.",
+    "gold_context_ids": [
+      "l01_art_8_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "8(1)(a)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D08"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_002",
+    "answer": "Nữ từ đủ 18 tuổi trở lên.",
+    "explanation": "Điểm a khoản 1 Điều 8 đặt điều kiện tuổi tối thiểu với nữ là từ đủ 18 tuổi; \"đủ\" tính theo ngày tháng năm sinh.",
+    "gold_context_ids": [
+      "l01_art_8_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "8(1)(a)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D08"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_003",
+    "answer": "Có. Việc kết hôn phải do nam và nữ tự nguyện quyết định.",
+    "explanation": "Điểm b khoản 1 Điều 8 yêu cầu việc kết hôn do hai bên tự nguyện quyết định, không dựa trên việc cưỡng ép hay thỏa thuận của người khác.",
+    "gold_context_ids": [
+      "l01_art_8_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "8(1)(b)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D08"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_004",
+    "answer": "Không. Người kết hôn phải không bị mất năng lực hành vi dân sự.",
+    "explanation": "Điểm c khoản 1 Điều 8 liệt kê việc không bị mất năng lực hành vi dân sự là một trong các điều kiện kết hôn.",
+    "gold_context_ids": [
+      "l01_art_8_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "8(1)(c)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D08"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_005",
+    "answer": "Không. Việc kết hôn không đăng ký theo quy định thì không có giá trị pháp lý.",
+    "explanation": "Khoản 1 Điều 9 đòi hỏi đăng ký kết hôn tại cơ quan có thẩm quyền; việc kết hôn không được đăng ký không có giá trị pháp lý.",
+    "gold_context_ids": [
+      "l01_art_9_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "9(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D09"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_006",
+    "answer": "Có. Vợ chồng đã ly hôn muốn xác lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
+    "explanation": "Khoản 2 Điều 9 yêu cầu vợ chồng đã ly hôn muốn thiết lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
+    "gold_context_ids": [
+      "l01_art_9_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "9(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D09"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_007",
+    "answer": "Không. Hành vi kết hôn hoặc chung sống như vợ chồng với người khác khi đang có vợ hoặc chồng thuộc trường hợp bị cấm.",
+    "explanation": "Điểm c khoản 2 Điều 5 cấm người đang có vợ/chồng kết hôn hoặc chung sống như vợ/chồng với người khác, với các chủ thể còn lại theo quy định.",
+    "gold_context_ids": [
+      "l01_art_5_p1_chunk_2_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "5(2)(c)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D05"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_008",
+    "answer": "Không. Kết hôn giữa những người cùng dòng máu về trực hệ là trường hợp bị cấm.",
+    "explanation": "Điểm d khoản 2 Điều 5 cấm kết hôn giữa những người cùng dòng máu về trực hệ; đây không chỉ là điều kiện tuổi hay tự nguyện.",
+    "gold_context_ids": [
+      "l01_art_5_p1_chunk_2_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "5(2)(d)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D05"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_009",
+    "answer": "Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo Luật Hôn nhân và gia đình; quyền con cái, tài sản được giải quyết theo quy định riêng.",
+    "explanation": "Khoản 1 Điều 14 tách quan hệ vợ chồng khỏi quan hệ cha mẹ-con và tài sản khi nam nữ chung sống mà không đăng ký.",
+    "gold_context_ids": [
+      "l01_art_14_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "14(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D14"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_010",
+    "answer": "Từ thời điểm đăng ký kết hôn theo quy định pháp luật.",
+    "explanation": "Khoản 2 Điều 14 xác định quan hệ hôn nhân phát sinh kể từ thời điểm đăng ký kết hôn hợp lệ nếu sau đó các bên đăng ký.",
+    "gold_context_ids": [
+      "l01_art_14_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "14(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D14"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_011",
+    "answer": "Theo quy định của Luật Hôn nhân và gia đình về quyền, nghĩa vụ của cha mẹ và con.",
+    "explanation": "Điều 15 nêu quyền, nghĩa vụ giữa cha mẹ và con khi không đăng ký kết hôn vẫn được giải quyết theo quy định của Luật.",
+    "gold_context_ids": [
+      "l01_art_15_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "15",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D15"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_012",
+    "answer": "Ưu tiên thỏa thuận giữa các bên; nếu không có thỏa thuận thì áp dụng Bộ luật dân sự và pháp luật có liên quan.",
+    "explanation": "Khoản 1 Điều 16 ưu tiên thỏa thuận về tài sản, nghĩa vụ, hợp đồng; khi không thỏa thuận được thì theo Bộ luật dân sự và luật liên quan.",
+    "gold_context_ids": [
+      "l01_art_16_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "16(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D16"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_013",
+    "answer": "Có. Vợ chồng bình đẳng và có quyền, nghĩa vụ ngang nhau trong gia đình.",
+    "explanation": "Điều 17 khẳng định vợ chồng bình đẳng về quyền, nghĩa vụ trên mọi mặt trong gia đình và trong quan hệ dân sự.",
+    "gold_context_ids": [
+      "l01_art_17_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "17",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D17"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_014",
+    "answer": "Không tuyệt đối. Hai bên có nghĩa vụ sống chung, trừ trường hợp thỏa thuận khác hoặc vì nghề nghiệp, công tác, học tập và lý do chính đáng khác.",
+    "explanation": "Khoản 2 Điều 19 có nghĩa vụ sống chung nhưng ghi nhận ngoại lệ vì thỏa thuận, công tác, học tập hoặc lý do chính đáng khác.",
+    "gold_context_ids": [
+      "l01_art_19_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "19(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D19"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_015",
+    "answer": "Do vợ chồng thỏa thuận và không bị ràng buộc bởi phong tục, tập quán hay địa giới hành chính.",
+    "explanation": "Điều 20 giao quyền quyết định nơi cư trú cho vợ chồng theo thỏa thuận, không phụ thuộc tập quán hoặc địa giới hành chính.",
+    "gold_context_ids": [
+      "l01_art_20_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "20",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D20"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_016",
+    "answer": "Về nguyên tắc là tài sản chung của vợ chồng, trừ trường hợp pháp luật có quy định khác.",
+    "explanation": "Khoản 1 Điều 33 xác định thu nhập do lao động, hoạt động sản xuất kinh doanh trong thời kỳ hôn nhân thuộc tài sản chung theo nguyên tắc luật định.",
+    "gold_context_ids": [
+      "l01_art_33_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "33(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D33"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_017",
+    "answer": "Là tài sản chung của vợ chồng.",
+    "explanation": "Khoản 1 Điều 33 quy định tài sản được tặng cho chung là tài sản chung của vợ chồng.",
+    "gold_context_ids": [
+      "l01_art_33_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "33(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D33"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_018",
+    "answer": "Không. Tài sản mỗi người có trước khi kết hôn về nguyên tắc là tài sản riêng, trừ khi nhập vào tài sản chung.",
+    "explanation": "Khoản 1 Điều 43 xác định tài sản có trước khi kết hôn là tài sản riêng; khoản 1 Điều 46 cho phép nhập tài sản riêng vào tài sản chung.",
+    "gold_context_ids": [
+      "l01_art_43_chunk_1",
+      "l01_art_46_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "43(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      },
+      {
+        "document_id": "52/2014/QH13",
+        "article": "46(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D43",
+      "L01_D46"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_019",
+    "answer": "Về nguyên tắc là tài sản riêng của người được thừa kế, trừ khi có việc nhập vào tài sản chung.",
+    "explanation": "Khoản 1 Điều 43 coi tài sản được thừa kế riêng là tài sản riêng; Điều 46 cho phép nhập thành tài sản chung nếu đáp ứng yêu cầu pháp luật.",
+    "gold_context_ids": [
+      "l01_art_43_chunk_1",
+      "l01_art_46_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "43(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      },
+      {
+        "document_id": "52/2014/QH13",
+        "article": "46(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D43",
+      "L01_D46"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_020",
+    "answer": "Có. Vợ chồng có quyền thỏa thuận chia một phần hoặc toàn bộ tài sản chung trong thời kỳ hôn nhân, trừ trường hợp luật hạn chế.",
+    "explanation": "Khoản 1 Điều 38 cho phép thỏa thuận chia tài sản chung ngay khi đang có hôn nhân, nhưng không vượt qua giới hạn luật định.",
+    "gold_context_ids": [
+      "l01_art_38_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "38(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D38"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_021",
+    "answer": "Không. Khoản 3 Điều 51 hạn chế quyền yêu cầu ly hôn của chồng khi vợ đang mang thai.",
+    "explanation": "Khoản 3 Điều 51 giới hạn quyền yêu cầu ly hôn của người chồng trong thời kỳ vợ đang có thai; giới hạn này không áp dụng tương tự đối với người vợ.",
+    "gold_context_ids": [
+      "l01_art_51_chunk_3"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "51(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D51"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_022",
+    "answer": "Không. Chồng không có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi.",
+    "explanation": "Khoản 3 Điều 51 giới hạn quyền của người chồng yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi.",
+    "gold_context_ids": [
+      "l01_art_51_chunk_3"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "51(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D51"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_023",
+    "answer": "Có. Vợ, chồng hoặc cả hai đều có quyền yêu cầu Tòa án giải quyết ly hôn.",
+    "explanation": "Khoản 1 Điều 51 cho phép vợ, chồng hoặc cả hai có quyền yêu cầu Tòa án giải quyết ly hôn nếu không thuộc hạn chế cụ thể.",
+    "gold_context_ids": [
+      "l01_art_51_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "51(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D51"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_024",
+    "answer": "Không. Tòa án còn xem xét sự tự nguyện thật sự và thỏa thuận về tài sản, con bảo đảm quyền lợi chính đáng của vợ và con.",
+    "explanation": "Điều 55 yêu cầu cả hai thực sự tự nguyện và thỏa thuận tài sản, chăm sóc con phải bảo đảm quyền lợi chính đáng; chỉ đồng ý không đủ.",
+    "gold_context_ids": [
+      "l01_art_55_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "55",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D55"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_025",
+    "answer": "Có thể, nếu đáp ứng căn cứ tại khoản 1 Điều 56 và hòa giải tại Tòa án không thành.",
+    "explanation": "Khoản 1 Điều 56 quy định căn cứ để Tòa án giải quyết ly hôn theo yêu cầu một bên trong các tình huống bạo lực hoặc vi phạm nghiêm trọng.",
+    "gold_context_ids": [
+      "l01_art_56_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "56(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D56"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_026",
+    "answer": "Kể từ ngày bản án, quyết định ly hôn của Tòa án có hiệu lực pháp luật.",
+    "explanation": "Khoản 1 Điều 57 xác định thời điểm hôn nhân chấm dứt là ngày bản án hoặc quyết định ly hôn có hiệu lực pháp luật.",
+    "gold_context_ids": [
+      "l01_art_57_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "57(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D57"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_027",
+    "answer": "Không. Nguyên tắc chia đôi có xét đến hoàn cảnh, công sức, lợi ích nghề nghiệp và lỗi vi phạm nghĩa vụ của mỗi bên.",
+    "explanation": "Khoản 2 Điều 59 quy định nguyên tắc chia đôi có xét đến hoàn cảnh mỗi bên, công sức, lợi ích nghề nghiệp và lỗi trong vi phạm quyền, nghĩa vụ.",
+    "gold_context_ids": [
+      "l01_art_59_p1_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "59(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D59"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_028",
+    "answer": "Có. Tòa án phải xem xét nguyện vọng của con từ đủ 7 tuổi trở lên.",
+    "explanation": "Khoản 2 Điều 81 bắt buộc xem xét nguyện vọng trẻ từ đủ 7 tuổi khi xác định người trực tiếp nuôi; ý kiến của trẻ không đương nhiên quyết định toàn bộ.",
+    "gold_context_ids": [
+      "l01_art_81_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "81(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D81"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_029",
+    "answer": "Không tuyệt đối. Nguyên tắc giao mẹ trực tiếp nuôi, trừ khi mẹ không đủ điều kiện hoặc cha mẹ có thỏa thuận khác phù hợp lợi ích của con.",
+    "explanation": "Khoản 3 Điều 81 đặt ưu tiên cho mẹ đối với con dưới 36 tháng tuổi, ngoại trừ trường hợp mẹ không đủ điều kiện hoặc có thỏa thuận khác vì lợi ích trẻ.",
+    "gold_context_ids": [
+      "l01_art_81_chunk_3"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "81(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D81"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_030",
+    "answer": "Có. Cha hoặc mẹ không trực tiếp nuôi con có nghĩa vụ cấp dưỡng cho con.",
+    "explanation": "Khoản 2 Điều 82 quy định người không trực tiếp nuôi con phải cấp dưỡng cho con sau ly hôn.",
+    "gold_context_ids": [
+      "l01_art_82_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "82(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D82"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_031",
+    "answer": "Có quyền và nghĩa vụ thăm nom con, không ai được cản trở; việc thăm nom bị hạn chế nếu lạm dụng gây ảnh hưởng xấu theo quy định.",
+    "explanation": "Khoản 3 Điều 82 quy định quyền và nghĩa vụ thăm nom; không ai được cản trở, song việc lạm dụng thăm nom gây ảnh hưởng xấu có thể bị hạn chế.",
+    "gold_context_ids": [
+      "l01_art_82_chunk_2"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "82(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D82"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_032",
+    "answer": "Không. Mức cấp dưỡng do các bên thỏa thuận theo thu nhập, khả năng thực tế và nhu cầu thiết yếu; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
+    "explanation": "Khoản 1 Điều 116 xác định mức cấp dưỡng dựa trên thu nhập, khả năng thực tế của người cấp dưỡng và nhu cầu thiết yếu của người được cấp dưỡng.",
+    "gold_context_ids": [
+      "l01_art_116_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "116(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D116"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_033",
+    "answer": "Có. Phương thức cấp dưỡng có thể theo tháng, quý, nửa năm, năm hoặc một lần.",
+    "explanation": "Điều 117 cho phép cấp dưỡng định kỳ theo tháng, quý, nửa năm, năm hoặc cấp dưỡng một lần.",
+    "gold_context_ids": [
+      "l01_art_117_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "117",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D117"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_034",
+    "answer": "Không. Nghĩa vụ cấp dưỡng không thể thay thế bằng nghĩa vụ khác hoặc chuyển giao cho người khác.",
+    "explanation": "Khoản 1 Điều 107 quy định nghĩa vụ cấp dưỡng không thể được thay thế bằng nghĩa vụ khác và không thể chuyển giao.",
+    "gold_context_ids": [
+      "l01_art_107_chunk_1"
+    ],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "107(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D107"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
+    "candidate_context_ids": [],
+    "mapping_status": "smoke_candidate",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "smoke_unconfirmed",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_035",
+    "answer": "Không. Luật 2000 đã hết hiệu lực; Luật 2014 quy định Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính, không liệt kê đây là một trường hợp cấm kết hôn như Luật 2000.",
+    "explanation": "Luật 2000 từng cấm kết hôn cùng giới, nhưng khoản 2 Điều 8 Luật 2014 sử dụng quy định Nhà nước không thừa nhận hôn nhân giữa người cùng giới; không áp dụng nguyên văn điều cấm cũ cho năm 2026.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "8(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "22/2000/QH10"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D08"
+    ],
+    "evidence_level": "partial_chunk_support_unverified",
+    "candidate_context_ids": [
+      "l01_art_8_chunk_2"
+    ],
+    "mapping_status": "partial_evidence_only",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_036",
+    "answer": "Không thể dùng Luật 2000 như luật hiện hành: luật này đã hết hiệu lực từ 01/01/2015; phải kiểm tra luật hiện hành và quy định chuyển tiếp cho từng vụ việc.",
+    "explanation": "Điều 132 Luật 2014 quy định Luật 2000 hết hiệu lực từ 01/01/2015; Điều 131 có quy định chuyển tiếp nên phải xét ngày xác lập quan hệ và tình huống cụ thể.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "131,132",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "22/2000/QH10"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [
+      "L01_D131",
+      "L01_D132"
+    ],
+    "evidence_level": "partial_chunk_support_unverified",
+    "candidate_context_ids": [
+      "l01_art_131_chunk_1"
+    ],
+    "mapping_status": "partial_evidence_only",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_037",
+    "answer": "Không. Nghị định 70/2001/NĐ-CP đã hết hiệu lực toàn bộ từ 15/02/2015.",
+    "explanation": "Nghị định 70/2001/NĐ-CP bị bãi bỏ với mốc 15/02/2015; không dùng làm quy định đang có hiệu lực cho tình huống mới năm 2026.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "70/2001/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=23101"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "70/2001/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_038",
+    "answer": "Không. Nghị định 77/2001/NĐ-CP hết hiệu lực toàn bộ từ 01/01/2016.",
+    "explanation": "Nghị định 77/2001/NĐ-CP không còn hiệu lực toàn bộ ở thời điểm hỏi, nên không thể được xem là quy tắc đăng ký kết hôn hiện hành.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "77/2001/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "77/2001/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_039",
+    "answer": "Không. Nghị định 68/2002/NĐ-CP hết hiệu lực toàn bộ từ 15/05/2013.",
+    "explanation": "Nghị định 68/2002/NĐ-CP đã hết hiệu lực toàn bộ; phải chuyển sang chuỗi quy định mới về quan hệ hôn nhân có yếu tố nước ngoài.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "68/2002/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=22363"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "68/2002/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_040",
+    "answer": "Không. Thông tư 02a/2015/TT-BTP hết hiệu lực toàn bộ từ 02/01/2016.",
+    "explanation": "Theo trang thuộc tính pháp lý, Thông tư 02a/2015/TT-BTP hết hiệu lực từ 02/01/2016; năm 2026 không được viện dẫn như quy định hiện hành.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "02a/2015/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=59908"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "02a/2015/TT-BTP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_041",
+    "answer": "Không. Thông tư 15/2015/TT-BTP hết hiệu lực toàn bộ từ 16/07/2020.",
+    "explanation": "Trang thuộc tính ghi Thông tư 15/2015/TT-BTP hết hiệu lực từ 16/07/2020; cần dùng quy định hộ tịch phù hợp thời điểm 2026.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "15/2015/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=94691"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "15/2015/TT-BTP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_042",
+    "answer": "Không. Nghị định 10/2015/NĐ-CP đã hết hiệu lực toàn bộ từ 01/10/2025; cần đối chiếu Nghị định 207/2025/NĐ-CP.",
+    "explanation": "Nghị định 10/2015/NĐ-CP hết hiệu lực toàn bộ từ 01/10/2025; khi hỏi chính sách hiện hành cần tham khảo văn bản thay thế.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "10/2015/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=49308"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "10/2015/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_043",
+    "answer": "Có. Nghị định 207/2025/NĐ-CP có hiệu lực từ 01/10/2025 và Nghị định 10/2015/NĐ-CP hết hiệu lực từ cùng mốc.",
+    "explanation": "Nghị định 207/2025/NĐ-CP có hiệu lực từ 01/10/2025, cùng mốc Nghị định 10/2015/NĐ-CP chấm dứt hiệu lực toàn bộ; tránh dùng NĐ cũ thay NĐ mới.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "207/2025/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=179714"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "10/2015/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_044",
+    "answer": "Không. Thông tư 38/2025/TT-BYT có hiệu lực từ 01/10/2025 và là văn bản quy định chi tiết một số điều của Nghị định 207/2025/NĐ-CP.",
+    "explanation": "Thông tư 38/2025/TT-BYT có hiệu lực ngày 01/10/2025 theo dữ liệu hiệu lực; đây là văn bản hướng dẫn, không thể thay thế vai trò một nghị định.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "38/2025/TT-BYT",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=181195"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "10/2015/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_045",
+    "answer": "Không. CSDL quốc gia ghi nhận nghị định này hết hiệu lực một phần; phải đối chiếu từng điều khoản và thời điểm áp dụng.",
+    "explanation": "Nghị định 126/2014/NĐ-CP có trạng thái hết hiệu lực một phần; không thể suy từ nhãn tổng thể rằng mọi khoản của nghị định đều còn nguyên.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "126/2014/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "70/2001/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_046",
+    "answer": "Không. Thông tư 04/2020/TT-BTP được ghi nhận hết hiệu lực một phần, cần tra lịch sử sửa đổi ở cấp điều khoản.",
+    "explanation": "Thông tư 04/2020/TT-BTP bị sửa đổi/bãi bỏ một phần, nên câu hỏi về điều khoản năm 2026 cần xét đúng phiên bản có hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "04/2020/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "15/2015/TT-BTP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_047",
+    "answer": "Không thể coi toàn bộ bản gốc còn nguyên hiệu lực: CSDL quốc gia ghi nhận thông tư này hết hiệu lực một phần.",
+    "explanation": "Thông tư 57/2015/TT-BYT có lịch sử thay đổi hiệu lực; phải kiểm tra từng nội dung thay vì mặc định toàn văn bản gốc còn nguyên hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "57/2015/TT-BYT",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=97365"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "10/2015/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_048",
+    "answer": "Không. Thông tư 07/2002/TT-BTP đã hết hiệu lực toàn bộ từ 20/03/2018.",
+    "explanation": "Thông tư 07/2002/TT-BTP đã hết hiệu lực toàn bộ năm 2018; văn bản cũ có thể dùng để trả lời câu hỏi lịch sử nhưng không làm căn cứ trực tiếp cho thủ tục mới.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "07/2002/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=25124"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "07/2002/TT-BTP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_049",
+    "answer": "Không. Vì Nghị định 126/2014/NĐ-CP hết hiệu lực một phần nên phải kiểm tra hiệu lực cấp điều, khoản và thời điểm.",
+    "explanation": "Nhãn \"hết hiệu lực một phần\" ở cấp văn bản không chỉ ra khoản nào còn áp dụng; cần liên kết văn bản sửa đổi/bãi bỏ và ngày áp dụng.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "126/2014/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "70/2001/NĐ-CP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_050",
+    "answer": "Không. Văn bản đã được sửa đổi, bãi bỏ một phần; cần đối chiếu các văn bản sửa đổi và điều khoản cụ thể.",
+    "explanation": "Thông tư 04/2020/TT-BTP không còn nguyên trạng toàn bộ như khi ban hành; phải đối chiếu lịch sử sửa đổi theo từng khoản.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "04/2020/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [
+      "15/2015/TT-BTP"
+    ],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_051",
+    "answer": "Có. Khoản 5 Điều 10 Luật Hôn nhân và gia đình 2000 cấm kết hôn giữa những người cùng giới tính.",
+    "explanation": "Khoản 5 Điều 10 Luật HNGĐ 2000 có quy định cấm kết hôn giữa người cùng giới; câu hỏi đặt vào năm 2010 nên dùng pháp luật tại thời điểm đó.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "22/2000/QH10",
+        "article": "10(5)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=6117"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2010-06-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_052",
+    "answer": "Chưa. Luật 22/2000/QH10 có hiệu lực từ 01/01/2001 và hết hiệu lực từ 01/01/2015.",
+    "explanation": "Luật 22/2000/QH10 có hiệu lực 01/01/2001 và đến 01/01/2015 mới hết hiệu lực toàn bộ, vì vậy năm 2012 vẫn thuộc thời kỳ có hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "22/2000/QH10",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=6117"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2012-03-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_053",
+    "answer": "Chưa. Luật 52/2014/QH13 có hiệu lực từ 01/01/2015.",
+    "explanation": "Điều 132 Luật 52/2014/QH13 ghi hiệu lực từ 01/01/2015; được ban hành năm 2014 không có nghĩa đã có hiệu lực vào tháng 7/2014.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "52/2014/QH13",
+        "article": "132",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2014-07-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_054",
+    "answer": "Có, về trạng thái toàn văn nghị định này vẫn chưa hết hiệu lực; mốc hết hiệu lực toàn bộ là 01/10/2025 (cần xem từng điều khoản nếu có sửa đổi).",
+    "explanation": "Nghị định 10/2015/NĐ-CP hết hiệu lực toàn bộ ngày 01/10/2025, nên xét cấp toàn văn bản thì tháng 6/2024 chưa qua mốc hết hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "10/2015/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=49308"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2024-06-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_055",
+    "answer": "Có. Thông tư có hiệu lực từ 10/04/2015 đến trước ngày 02/01/2016.",
+    "explanation": "Thông tư 02a/2015/TT-BTP bắt đầu hiệu lực 10/04/2015 và hết hiệu lực 02/01/2016; ngày 01/12/2015 nằm trong khoảng hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "02a/2015/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=59908"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2015-12-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_056",
+    "answer": "Đã hết hiệu lực toàn bộ từ 02/01/2016.",
+    "explanation": "Thông tư 02a/2015/TT-BTP hết hiệu lực 02/01/2016; vì thế đến 01/03/2017 đã hết hiệu lực toàn bộ.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "02a/2015/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=59908"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2017-03-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_057",
+    "answer": "Hết hiệu lực một phần. Cần kiểm tra hiệu lực từng điều, khoản trước khi sử dụng.",
+    "explanation": "CSDL quốc gia ghi nhận Nghị định 126/2014/NĐ-CP hết hiệu lực một phần; cần đối chiếu các điều cụ thể mới kết luận nội dung còn hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "126/2014/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_058",
+    "answer": "Không. Văn bản có lịch sử sửa đổi và hết hiệu lực một phần; phải xem lịch sử và điều khoản bị thay đổi.",
+    "explanation": "Ngày ban hành chỉ là một thuộc tính, không xác định đầy đủ trạng thái cấp điều của Thông tư 04/2020/TT-BTP khi đã có thay đổi hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "04/2020/TT-BTP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_059",
+    "answer": "Hết hiệu lực một phần; không suy ra mọi điều khoản đều bị bãi bỏ.",
+    "explanation": "Trạng thái hết hiệu lực một phần của Thông tư 57/2015/TT-BYT không đồng nghĩa mọi điều khoản đã hết hiệu lực.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "57/2015/TT-BYT",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=97365"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  },
+  {
+    "id": "HN_060",
+    "answer": "Không nên. Trạng thái được ghi nhận là hết hiệu lực một phần; cần đối chiếu điều khoản đã bị sửa đổi hoặc bãi bỏ.",
+    "explanation": "Đối với nghị định có hiệu lực một phần, phải tra điều khoản sửa đổi/bãi bỏ cụ thể thay vì kết luận từ trạng thái tổng quát.",
+    "gold_context_ids": [],
+    "citations": [
+      {
+        "document_id": "123/2015/NĐ-CP",
+        "article": "Trạng thái hiệu lực",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897"
+      }
+    ],
+    "review_status": "draft",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "outdated_document_ids": [],
+    "outdated_context_ids": [],
+    "gold_article_ids": [],
+    "evidence_level": "not_mapped",
+    "candidate_context_ids": [],
+    "mapping_status": "not_mapped",
+    "verified_by": null,
+    "verified_at": null,
+    "context_id_provenance": "pending_chunking",
+    "gold_context_ids_confirmed": false
+  }
 ]

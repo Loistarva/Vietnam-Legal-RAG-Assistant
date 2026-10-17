@@ -9,7 +9,7 @@ from typing import Dict, List, Literal, Optional, Tuple
 from pydantic import BaseModel, Field, field_validator
 
 FIRST_PAGE_NUMBER = 2
-UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
+UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
 WARNINGS: List[str] = []
 
 def warn(msg: str):
@@ -164,15 +164,35 @@ def clean_text(text: str) -> Tuple[str, List[str]]:
     return text, footnotes
 
 
-HEAD_RE = re.compile(
-    rf"(?<!\S)(Chương\s+[IVXLC]+|Mục\s+\d+)\s+"
-    rf"((?:[{UP}][{UP},]*(?:\s+|$))+)"
+HEAD_LABEL_RE = re.compile(r"(?<!\S)(Chương\s+[IVXLCDM]+|Mục\s+\d+)(?=\s)")
+# Giữ lại để quality_report dùng
+HEAD_RE = HEAD_LABEL_RE
+
+# Ranh giới tiêu đề: không dựa vào chữ hoa. Tiêu đề Chương/Mục được lấy
+# nguyên văn cho tới khi gặp tiêu đề Mục, Chương hoặc một Điều có số và dấu chấm.
+HEADING_BOUNDARY_RE = re.compile(
+    r"(?<!\S)(?:Chương\s+[IVXLCDM]+|Mục\s+\d+|Điều\s+\d+\.)"
 )
 
-def update_headings(fragment: str, state: Dict[str, Optional[str]]):
-    for m in HEAD_RE.finditer(fragment):
+
+def iter_headings(fragment: str):
+    """Sinh (vị_trí_bắt_đầu, nhãn, tiêu_đề); tiêu đề kết thúc ở Mục/Điều kế tiếp."""
+    matches = list(HEAD_LABEL_RE.finditer(fragment))
+    for i, m in enumerate(matches):
         label = re.sub(r"\s+", " ", m.group(1)).strip()
-        title = m.group(2).strip()
+        title_start = m.end()
+
+        # Tìm ranh giới kế tiếp trong văn bản, không giả định tiêu đề viết HOA.
+        boundary = HEADING_BOUNDARY_RE.search(fragment, title_start)
+        title_end = boundary.start() if boundary else len(fragment)
+        title = re.sub(r"\s+", " ", fragment[title_start:title_end]).strip(" \t\r\n:–—-;,. ")
+        if not title:
+            continue
+        yield m.start(), label, title
+
+
+def update_headings(fragment: str, state: Dict[str, Optional[str]]):
+    for _start, label, title in iter_headings(fragment):
         if label.startswith("Chương"):
             state["chapter"] = f"{label} {title}"
             state["section"] = None
@@ -250,6 +270,97 @@ def looks_like_title(text: str) -> bool:
         return False
     return True
 
+# Các cụm thường mở đầu phần quy phạm/nội dung của Điều khi văn bản TXT
+# đã bị làm phẳng thành một dòng, khiến tiêu đề không còn dấu xuống dòng.
+# Chỉ dùng để tìm ranh giới khi phần trước thực sự giống một tiêu đề ngắn.
+ARTICLE_BODY_STARTS = (
+    "Các bên", "Nghị định này", "Luật này", "Bộ luật này", "Pháp lệnh này",
+    "Thông tư này", "Cơ quan", "Tòa án", "Tòa án nhân dân", "Người",
+    "Việc", "Trong trường hợp", "Trường hợp", "Hành vi", "Các tổ chức",
+    "Tổ chức, cá nhân", "Mọi tổ chức", "Chính phủ", "Bộ trưởng",
+    "Ủy ban", "Đối với", "Khi", "Nếu", "Nội dung", "Quyền và nghĩa vụ",
+    "Việc xác định", "Các cá nhân", "Cá nhân", "Bên mang thai hộ",
+)
+
+
+def split_title_from_unlabelled_body(head: str) -> Optional[Tuple[str, str]]:
+    """Tách tiêu đề khỏi nội dung Điều khi không có Khoản 1 và TXT bị làm phẳng.
+
+    Trả về (title, body) khi tìm được ranh giới đủ đáng tin cậy; ngược lại None.
+    Không dùng danh sách này cho phần đã có các khoản đánh số.
+    """
+    head = normalize_spaces(head)
+    candidates = []
+
+    for start_phrase in ARTICLE_BODY_STARTS:
+        # Cụm mở đầu nội dung phải xuất hiện đúng dạng viết hoa ở đầu câu.
+        pattern = re.compile(rf"(?<!\S)({re.escape(start_phrase)})\b")
+        for match in pattern.finditer(head):
+            title = head[:match.start()].strip(" ,;:")
+            body = head[match.start():].strip()
+            words = title.split()
+
+            # Tránh cắt vào tiêu đề quá ngắn hoặc nhận nhầm cả đoạn dài là tiêu đề.
+            if not (3 <= len(words) <= 25):
+                continue
+            if not (len(title) >= 15 and len(title) <= 220 and len(body) >= 25):
+                continue
+            if not looks_like_title(title):
+                continue
+            if re.search(r"[.!?]$", title):
+                continue
+
+            candidates.append((match.start(), title, body))
+
+    if not candidates:
+        return None
+
+    # Ranh giới sớm nhất là điểm bắt đầu nội dung đầu tiên hợp lệ.
+    _, title, body = min(candidates, key=lambda item: item[0])
+    return title, body
+
+
+# Từ đứng TRƯỚC một chữ hoa mà cho thấy chữ hoa đó vẫn thuộc tiêu đề
+# (danh từ riêng: "của Bộ luật dân sự", "theo Luật này"...), không phải đầu câu nội dung.
+TITLE_CONNECTORS = {
+    "của", "và", "về", "với", "theo", "trong", "cho", "hoặc", "tại", "từ", "đến",
+    "do", "bởi", "như", "khi", "các", "những", "giữa", "đối", "để", "nhằm", "bằng",
+    "là", "có", "được", "bị", "trên", "dưới", "ở", "qua", "sau", "trước", "thì",
+    "mà", "nếu", "bao", "gồm", "tới", "vào", "cùng",
+}
+
+
+def split_title_by_capital(head: str) -> Optional[Tuple[str, str]]:
+    """Tách tiêu đề khỏi nội dung khi TXT bị làm phẳng và Điều không có Khoản 1.
+
+    Tiêu đề Điều viết kiểu câu (chỉ chữ đầu viết hoa) và không có dấu chấm cuối,
+    còn nội dung bắt đầu bằng một chữ hoa mới. Chọn chữ hoa đầu tiên đứng sau một
+    từ KHÔNG phải từ nối/giới từ (để bỏ qua danh từ riêng nằm trong tiêu đề)."""
+    head = normalize_spaces(head)
+    tokens = head.split(" ")
+    pos = 0
+    offsets = []
+    for tok in tokens:
+        offsets.append(pos)
+        pos += len(tok) + 1
+
+    for i in range(3, len(tokens)):  # tiêu đề tối thiểu 3 từ
+        tok = tokens[i]
+        if not tok or not tok[0].isupper():
+            continue
+        prev = tokens[i - 1]
+        if prev[-1:] in ",;:" or prev.lower().strip(",;:") in TITLE_CONNECTORS:
+            continue
+        title = head[:offsets[i]].strip(" ,;:")
+        body = head[offsets[i]:].strip()
+        if len(title.split()) > 40 or len(body) < 25:
+            continue
+        if re.search(r"[.!?]$", title):
+            continue
+        return title, body
+    return None
+
+
 def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
     head = normalize_spaces(head)
     if not head:
@@ -269,6 +380,12 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
                     if after:
                         intro = f"{intro} {after}".strip()
                     return candidate_title, intro or None
+            # Tiêu đề dính liền câu dẫn: "<Tiêu đề> Việc ... như sau:" -> tách theo chữ hoa đầu câu
+            split = split_title_by_capital(before)
+            if split:
+                t, lead = split
+                intro = f"{lead}: {after}".strip() if after else f"{lead}:"
+                return t, intro
             if looks_like_title(before):
                 intro = after
                 return before, intro or None
@@ -297,9 +414,23 @@ def split_head(num: str, raw: str):
         head = raw.strip()
         body = ""
 
-    title, intro = detect_title_and_intro(head)
+    # Khi có Khoản 1, ranh giới tiêu đề/khoản đã rõ: không dò body-start.
     if first:
+        title, intro = detect_title_and_intro(head)
+        if title is None and intro and not re.search(r"[.!?:]$", intro) and len(intro.split()) <= 40:
+            # Giữa "Điều n." và Khoản 1 chỉ có một cụm không dấu câu cuối: đó là tiêu đề
+            # (kể cả khi bắt đầu bằng "Người", "Những", "Việc", "Căn cứ"...).
+            title, intro = intro, None
         return title, intro, body, True
+
+    # Với Điều không đánh số khoản, TXT thường bị làm phẳng nên tiêu đề và
+    # câu quy phạm dính liền nhau (vd: "... mang thai hộ Các bên trong ...").
+    split_result = split_title_by_capital(head) or split_title_from_unlabelled_body(head)
+    if split_result:
+        title, body = split_result
+        return title, None, body, False
+
+    title, intro = detect_title_and_intro(head)
     if title and intro:
         body = intro
         intro = None
@@ -341,15 +472,49 @@ def build_clauses(art_id: str, body: str, has_clauses: bool) -> List[ClauseSchem
     return clauses
 
 
+APPENDIX_HEADING_RE = re.compile(
+    r"(?<!\S)PHỤ LỤC(?:\s+[IVXLCDM]+)?(?:\s+MẪU)?(?=\s|$)"
+)
+ARTICLE_MARKER_ANY_RE = re.compile(r"(?<!\S)Điều\s+\d+[a-z]?\.\s+(?=[" + UP + r"])" , re.IGNORECASE)
+
+
+def strip_appendices(text: str) -> str:
+    """Cắt bỏ phần phụ lục ở cuối văn bản, không đưa biểu mẫu vào các Điều.
+
+    Chỉ cắt khi đã có nội dung Điều trước tiêu đề PHỤ LỤC và không còn
+    Điều luật đánh số tiếp theo sau mốc đó. Tránh cắt nhầm câu đang nhắc tới phụ lục.
+    """
+    first_article = ARTICLE_MARKER_ANY_RE.search(text)
+    if not first_article:
+        return text
+
+    for match in APPENDIX_HEADING_RE.finditer(text, first_article.end()):
+        # Nếu sau mốc này còn Điều N. theo cấu trúc điều luật, không coi đây là phụ lục cuối.
+        if ARTICLE_MARKER_ANY_RE.search(text, match.end()):
+            continue
+        removed_chars = len(text) - match.start()
+        print(f"[clean] đã bỏ phần phụ lục từ vị trí {match.start()} ({removed_chars} ký tự)")
+        return text[:match.start()].rstrip()
+    return text
+
+
 def parse_text_to_articles(raw_text: str, doc_id: str):
     WARNINGS.clear()
+    # Chuẩn hóa Unicode về NFC: TXT trích từ PDF hay chứa ký tự tiếng Việt dạng
+    # tổ hợp (NFD, vd "Ệ" = "E" + dấu mũ + dấu nặng). Khi đó các regex/từ khóa
+    # dựng sẵn (UP, ARTICLE_BODY_STARTS, "Các bên"...) không khớp.
+    raw_text = unicodedata.normalize("NFC", raw_text)
+    raw_text = re.sub(r"[\u200b-\u200d\u2060\ufeff\u00ad]", "", raw_text)  # ký tự vô hình
     text = re.sub(r"\s+", " ", raw_text).strip()
+
     m0 = re.search(rf"(?<!\S)Chương\s+I\s+[{UP}]", text)
     if m0:
         text = text[m0.start():]
     else:
         warn("Không tìm thấy 'Chương I', giữ nguyên phần đầu văn bản.")
 
+    # Bỏ phụ lục ở cuối trước khi tách Điều/Khoản, để biểu mẫu không bị nhập vào Điều cuối.
+    text = strip_appendices(text)
     text, footnotes = clean_text(text)
     markers = find_articles(text)
     if not markers:
@@ -371,12 +536,13 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
         chapter = state["chapter"]
         section = state["section"]
 
-        mh = HEAD_RE.search(raw)
+        mh = next(iter_headings(raw), None)
         if mh:
-            update_headings(raw[mh.start():], state)
-            chapter = state["chapter"]
-            section = state["section"]
-            raw = raw[:mh.start()].strip()
+            # Tiêu đề Chương/Mục ở cuối đoạn hiện tại mở đầu phần kế tiếp.
+            # Cập nhật state cho các Điều tiếp theo nhưng giữ chapter/section
+            # đã chụp ở đầu vòng lặp cho Điều đang xử lý.
+            update_headings(raw[mh[0]:], state)
+            raw = raw[:mh[0]].strip()
 
         title, intro, body, has_clauses = split_head(num, raw)
         art_id = f"{doc_id}_art_{num}"
@@ -811,7 +977,7 @@ def parse_legal_document_to_schema(file_path: str):
     if not path.is_file():
         raise FileNotFoundError(f"Đường dẫn file không hợp lệ: {path.resolve()}")
     with open(path, "r", encoding="utf-8-sig", errors="ignore") as f:
-        content = f.read()
+        content = unicodedata.normalize("NFC", f.read())
     number = extract_document_number(content)
     doc_id = build_document_id(resolve_document_type(content, number), number)
     return parse_text_to_articles(content, doc_id)

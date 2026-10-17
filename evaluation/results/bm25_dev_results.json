@@ -1,0 +1,1712 @@
+[
+  {
+    "question_id": "HN_001",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?",
+    "retrieved_chunk_ids": [
+      "l01_art_8_chunk_1",
+      "l01_art_4_chunk_1",
+      "l01_art_3_p4_chunk_25",
+      "l01_art_3_p2_chunk_10",
+      "l01_art_11_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_8_chunk_1",
+        "rank": 1,
+        "score": 60.437233
+      },
+      {
+        "chunk_id": "l01_art_4_chunk_1",
+        "rank": 2,
+        "score": 46.179047
+      },
+      {
+        "chunk_id": "l01_art_3_p4_chunk_25",
+        "rank": 3,
+        "score": 45.19272
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_10",
+        "rank": 4,
+        "score": 44.61494
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_2",
+        "rank": 5,
+        "score": 42.204945
+      }
+    ]
+  },
+  {
+    "question_id": "HN_002",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, nữ phải đủ bao nhiêu tuổi để kết hôn?",
+    "retrieved_chunk_ids": [
+      "l01_art_8_chunk_1",
+      "l01_art_4_chunk_1",
+      "l01_art_3_p2_chunk_10",
+      "l01_art_11_chunk_2",
+      "l01_art_3_p1_chunk_8"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_8_chunk_1",
+        "rank": 1,
+        "score": 62.32382
+      },
+      {
+        "chunk_id": "l01_art_4_chunk_1",
+        "rank": 2,
+        "score": 47.16226
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_10",
+        "rank": 3,
+        "score": 44.61494
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_2",
+        "rank": 4,
+        "score": 42.204945
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_8",
+        "rank": 5,
+        "score": 42.170475
+      }
+    ]
+  },
+  {
+    "question_id": "HN_003",
+    "question": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
+    "retrieved_chunk_ids": [
+      "l01_art_8_chunk_1",
+      "l01_art_55_chunk_1",
+      "l01_art_11_chunk_2",
+      "l01_art_3_p1_chunk_6",
+      "l01_art_3_p2_chunk_12"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_8_chunk_1",
+        "rank": 1,
+        "score": 46.058586
+      },
+      {
+        "chunk_id": "l01_art_55_chunk_1",
+        "rank": 2,
+        "score": 41.133915
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_2",
+        "rank": 3,
+        "score": 40.760754
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_6",
+        "rank": 4,
+        "score": 37.69496
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_12",
+        "rank": 5,
+        "score": 37.4654
+      }
+    ]
+  },
+  {
+    "question_id": "HN_005",
+    "question": "Kết hôn nhưng không đăng ký theo pháp luật hộ tịch có giá trị pháp lý không?",
+    "retrieved_chunk_ids": [
+      "l01_art_9_chunk_1",
+      "l01_art_13_chunk_1",
+      "l01_art_101_chunk_1",
+      "l01_art_123_chunk_1",
+      "l01_art_11_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_9_chunk_1",
+        "rank": 1,
+        "score": 105.67218
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 2,
+        "score": 74.44514
+      },
+      {
+        "chunk_id": "l01_art_101_chunk_1",
+        "rank": 3,
+        "score": 65.50404
+      },
+      {
+        "chunk_id": "l01_art_123_chunk_1",
+        "rank": 4,
+        "score": 59.214027
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_3",
+        "rank": 5,
+        "score": 58.452915
+      }
+    ]
+  },
+  {
+    "question_id": "HN_006",
+    "question": "Hai người đã ly hôn muốn trở lại quan hệ vợ chồng có cần đăng ký kết hôn lại không?",
+    "retrieved_chunk_ids": [
+      "l01_art_9_chunk_2",
+      "l01_art_13_chunk_1",
+      "l01_art_57_chunk_2",
+      "l01_art_3_p2_chunk_10",
+      "l01_art_11_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_9_chunk_2",
+        "rank": 1,
+        "score": 122.86942
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 2,
+        "score": 82.63648
+      },
+      {
+        "chunk_id": "l01_art_57_chunk_2",
+        "rank": 3,
+        "score": 62.29462
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_10",
+        "rank": 4,
+        "score": 61.62573
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_3",
+        "rank": 5,
+        "score": 58.110886
+      }
+    ]
+  },
+  {
+    "question_id": "HN_007",
+    "question": "Pháp luật hôn nhân và gia đình có cho phép người đang có vợ hoặc chồng kết hôn với người khác không?",
+    "retrieved_chunk_ids": [
+      "l01_art_10_chunk_2",
+      "l01_art_67_chunk_1",
+      "l01_art_5_p1_chunk_2_1",
+      "l01_art_3_p1_chunk_3",
+      "l01_art_3_p1_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_10_chunk_2",
+        "rank": 1,
+        "score": 70.92979
+      },
+      {
+        "chunk_id": "l01_art_67_chunk_1",
+        "rank": 2,
+        "score": 65.19765
+      },
+      {
+        "chunk_id": "l01_art_5_p1_chunk_2_1",
+        "rank": 3,
+        "score": 60.68615
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_3",
+        "rank": 4,
+        "score": 55.9145
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_1",
+        "rank": 5,
+        "score": 54.848217
+      }
+    ]
+  },
+  {
+    "question_id": "HN_009",
+    "question": "Nam nữ đủ điều kiện nhưng chung sống như vợ chồng mà không đăng ký kết hôn thì có phát sinh quyền nghĩa vụ giữa vợ chồng không?",
+    "retrieved_chunk_ids": [
+      "l01_art_14_chunk_1",
+      "l01_art_15_chunk_1",
+      "l01_art_130_chunk_1",
+      "l01_art_14_chunk_2",
+      "l01_art_16_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_14_chunk_1",
+        "rank": 1,
+        "score": 141.41536
+      },
+      {
+        "chunk_id": "l01_art_15_chunk_1",
+        "rank": 2,
+        "score": 119.62253
+      },
+      {
+        "chunk_id": "l01_art_130_chunk_1",
+        "rank": 3,
+        "score": 102.53919
+      },
+      {
+        "chunk_id": "l01_art_14_chunk_2",
+        "rank": 4,
+        "score": 99.453224
+      },
+      {
+        "chunk_id": "l01_art_16_chunk_1",
+        "rank": 5,
+        "score": 96.64444
+      }
+    ]
+  },
+  {
+    "question_id": "HN_010",
+    "question": "Nếu cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân được xác lập từ thời điểm nào?",
+    "retrieved_chunk_ids": [
+      "l01_art_14_chunk_2",
+      "l01_art_13_chunk_1",
+      "l01_art_3_p2_chunk_13",
+      "l01_art_9_chunk_2",
+      "l01_art_88_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_14_chunk_2",
+        "rank": 1,
+        "score": 127.93707
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 2,
+        "score": 93.23393
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_13",
+        "rank": 3,
+        "score": 82.798195
+      },
+      {
+        "chunk_id": "l01_art_9_chunk_2",
+        "rank": 4,
+        "score": 81.31236
+      },
+      {
+        "chunk_id": "l01_art_88_chunk_1",
+        "rank": 5,
+        "score": 79.95115
+      }
+    ]
+  },
+  {
+    "question_id": "HN_011",
+    "question": "Quyền và nghĩa vụ với con khi bố mẹ chung sống như vợ chồng nhưng không đăng ký kết hôn được xử lý ra sao?",
+    "retrieved_chunk_ids": [
+      "l01_art_15_chunk_1",
+      "l01_art_14_chunk_1",
+      "l01_art_14_chunk_2",
+      "l01_art_13_chunk_1",
+      "l01_art_130_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_15_chunk_1",
+        "rank": 1,
+        "score": 96.81536
+      },
+      {
+        "chunk_id": "l01_art_14_chunk_1",
+        "rank": 2,
+        "score": 81.06207
+      },
+      {
+        "chunk_id": "l01_art_14_chunk_2",
+        "rank": 3,
+        "score": 77.32387
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 4,
+        "score": 67.82895
+      },
+      {
+        "chunk_id": "l01_art_130_chunk_1",
+        "rank": 5,
+        "score": 65.9686
+      }
+    ]
+  },
+  {
+    "question_id": "HN_013",
+    "question": "Vợ chồng có bình đẳng về quyền và nghĩa vụ trong gia đình không?",
+    "retrieved_chunk_ids": [
+      "l01_art_17_chunk_1",
+      "l01_art_29_chunk_1",
+      "l01_art_4_chunk_1",
+      "l01_art_2_chunk_1",
+      "l01_art_3_p1_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_17_chunk_1",
+        "rank": 1,
+        "score": 78.703316
+      },
+      {
+        "chunk_id": "l01_art_29_chunk_1",
+        "rank": 2,
+        "score": 70.0296
+      },
+      {
+        "chunk_id": "l01_art_4_chunk_1",
+        "rank": 3,
+        "score": 44.693054
+      },
+      {
+        "chunk_id": "l01_art_2_chunk_1",
+        "rank": 4,
+        "score": 38.556305
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_3",
+        "rank": 5,
+        "score": 36.155388
+      }
+    ]
+  },
+  {
+    "question_id": "HN_014",
+    "question": "Vợ chồng có buộc luôn phải sống chung tại một địa chỉ không?",
+    "retrieved_chunk_ids": [
+      "l01_art_20_chunk_1",
+      "l01_art_66_chunk_1",
+      "l01_art_61_chunk_1",
+      "l01_art_62_chunk_3",
+      "l01_art_3_p1_chunk_7"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_20_chunk_1",
+        "rank": 1,
+        "score": 44.46549
+      },
+      {
+        "chunk_id": "l01_art_66_chunk_1",
+        "rank": 2,
+        "score": 37.106018
+      },
+      {
+        "chunk_id": "l01_art_61_chunk_1",
+        "rank": 3,
+        "score": 34.255875
+      },
+      {
+        "chunk_id": "l01_art_62_chunk_3",
+        "rank": 4,
+        "score": 32.026913
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_7",
+        "rank": 5,
+        "score": 27.763065
+      }
+    ]
+  },
+  {
+    "question_id": "HN_015",
+    "question": "Việc lựa chọn nơi cư trú của vợ chồng do ai quyết định?",
+    "retrieved_chunk_ids": [
+      "l01_art_20_chunk_1",
+      "l01_art_70_chunk_4",
+      "l01_art_129_chunk_1",
+      "l01_art_127_chunk_2",
+      "l01_art_129_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_20_chunk_1",
+        "rank": 1,
+        "score": 105.32638
+      },
+      {
+        "chunk_id": "l01_art_70_chunk_4",
+        "rank": 2,
+        "score": 51.157253
+      },
+      {
+        "chunk_id": "l01_art_129_chunk_1",
+        "rank": 3,
+        "score": 47.847782
+      },
+      {
+        "chunk_id": "l01_art_127_chunk_2",
+        "rank": 4,
+        "score": 46.723755
+      },
+      {
+        "chunk_id": "l01_art_129_chunk_2",
+        "rank": 5,
+        "score": 45.755287
+      }
+    ]
+  },
+  {
+    "question_id": "HN_017",
+    "question": "Tài sản vợ chồng được tặng cho chung trong thời kỳ hôn nhân là loại tài sản gì?",
+    "retrieved_chunk_ids": [
+      "l01_art_33_chunk_1",
+      "l01_art_43_chunk_1",
+      "l01_art_88_chunk_1",
+      "l01_art_43_chunk_2",
+      "l01_art_41_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_33_chunk_1",
+        "rank": 1,
+        "score": 80.61212
+      },
+      {
+        "chunk_id": "l01_art_43_chunk_1",
+        "rank": 2,
+        "score": 72.88318
+      },
+      {
+        "chunk_id": "l01_art_88_chunk_1",
+        "rank": 3,
+        "score": 66.31637
+      },
+      {
+        "chunk_id": "l01_art_43_chunk_2",
+        "rank": 4,
+        "score": 62.427204
+      },
+      {
+        "chunk_id": "l01_art_41_chunk_1",
+        "rank": 5,
+        "score": 60.44549
+      }
+    ]
+  },
+  {
+    "question_id": "HN_018",
+    "question": "Tài sản có trước khi kết hôn mặc nhiên là tài sản chung không?",
+    "retrieved_chunk_ids": [
+      "l01_art_47_chunk_1",
+      "l01_art_40_chunk_1",
+      "l01_art_67_chunk_2",
+      "l01_art_33_chunk_1",
+      "l01_art_43_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_47_chunk_1",
+        "rank": 1,
+        "score": 45.73246
+      },
+      {
+        "chunk_id": "l01_art_40_chunk_1",
+        "rank": 2,
+        "score": 43.35144
+      },
+      {
+        "chunk_id": "l01_art_67_chunk_2",
+        "rank": 3,
+        "score": 42.994377
+      },
+      {
+        "chunk_id": "l01_art_33_chunk_1",
+        "rank": 4,
+        "score": 42.878662
+      },
+      {
+        "chunk_id": "l01_art_43_chunk_1",
+        "rank": 5,
+        "score": 42.480553
+      }
+    ]
+  },
+  {
+    "question_id": "HN_019",
+    "question": "Tài sản được thừa kế riêng trong thời kỳ hôn nhân là tài sản chung hay riêng?",
+    "retrieved_chunk_ids": [
+      "l01_art_33_chunk_1",
+      "l01_art_43_chunk_1",
+      "l01_art_43_chunk_2",
+      "l01_art_75_chunk_1",
+      "l01_art_88_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_33_chunk_1",
+        "rank": 1,
+        "score": 89.740585
+      },
+      {
+        "chunk_id": "l01_art_43_chunk_1",
+        "rank": 2,
+        "score": 84.14831
+      },
+      {
+        "chunk_id": "l01_art_43_chunk_2",
+        "rank": 3,
+        "score": 74.89735
+      },
+      {
+        "chunk_id": "l01_art_75_chunk_1",
+        "rank": 4,
+        "score": 68.99454
+      },
+      {
+        "chunk_id": "l01_art_88_chunk_1",
+        "rank": 5,
+        "score": 66.477325
+      }
+    ]
+  },
+  {
+    "question_id": "HN_021",
+    "question": "Chồng có quyền tự yêu cầu ly hôn khi vợ đang mang thai không?",
+    "retrieved_chunk_ids": [
+      "l01_art_51_chunk_3",
+      "l01_art_95_chunk_2",
+      "l01_art_3_p4_chunk_22",
+      "l01_art_5_p1_chunk_2_1",
+      "l01_art_56_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_51_chunk_3",
+        "rank": 1,
+        "score": 65.425735
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_2",
+        "rank": 2,
+        "score": 52.105164
+      },
+      {
+        "chunk_id": "l01_art_3_p4_chunk_22",
+        "rank": 3,
+        "score": 48.04921
+      },
+      {
+        "chunk_id": "l01_art_5_p1_chunk_2_1",
+        "rank": 4,
+        "score": 42.99482
+      },
+      {
+        "chunk_id": "l01_art_56_chunk_1",
+        "rank": 5,
+        "score": 41.84628
+      }
+    ]
+  },
+  {
+    "question_id": "HN_022",
+    "question": "Chồng có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi không?",
+    "retrieved_chunk_ids": [
+      "l01_art_51_chunk_3",
+      "l01_art_81_chunk_3",
+      "l01_art_81_chunk_2",
+      "l01_art_55_chunk_1",
+      "l01_art_5_p1_chunk_2_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_51_chunk_3",
+        "rank": 1,
+        "score": 127.752106
+      },
+      {
+        "chunk_id": "l01_art_81_chunk_3",
+        "rank": 2,
+        "score": 51.5752
+      },
+      {
+        "chunk_id": "l01_art_81_chunk_2",
+        "rank": 3,
+        "score": 45.44077
+      },
+      {
+        "chunk_id": "l01_art_55_chunk_1",
+        "rank": 4,
+        "score": 44.838234
+      },
+      {
+        "chunk_id": "l01_art_5_p1_chunk_2_1",
+        "rank": 5,
+        "score": 43.790386
+      }
+    ]
+  },
+  {
+    "question_id": "HN_023",
+    "question": "Hai vợ chồng có thể cùng yêu cầu Tòa án giải quyết ly hôn không?",
+    "retrieved_chunk_ids": [
+      "l01_art_51_chunk_1",
+      "l01_art_55_chunk_1",
+      "l01_art_56_chunk_1",
+      "l01_art_56_chunk_2",
+      "l01_art_53_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_51_chunk_1",
+        "rank": 1,
+        "score": 69.07605
+      },
+      {
+        "chunk_id": "l01_art_55_chunk_1",
+        "rank": 2,
+        "score": 65.5161
+      },
+      {
+        "chunk_id": "l01_art_56_chunk_1",
+        "rank": 3,
+        "score": 63.450447
+      },
+      {
+        "chunk_id": "l01_art_56_chunk_2",
+        "rank": 4,
+        "score": 59.640465
+      },
+      {
+        "chunk_id": "l01_art_53_chunk_2",
+        "rank": 5,
+        "score": 50.50355
+      }
+    ]
+  },
+  {
+    "question_id": "HN_025",
+    "question": "Một bên có thể được Tòa án giải quyết cho ly hôn khi có bạo lực gia đình nghiêm trọng không?",
+    "retrieved_chunk_ids": [
+      "l01_art_56_chunk_1",
+      "l01_art_51_chunk_1",
+      "l01_art_56_chunk_3",
+      "l01_art_24_chunk_3",
+      "l01_art_67_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_56_chunk_1",
+        "rank": 1,
+        "score": 103.549065
+      },
+      {
+        "chunk_id": "l01_art_51_chunk_1",
+        "rank": 2,
+        "score": 96.3698
+      },
+      {
+        "chunk_id": "l01_art_56_chunk_3",
+        "rank": 3,
+        "score": 84.77056
+      },
+      {
+        "chunk_id": "l01_art_24_chunk_3",
+        "rank": 4,
+        "score": 65.61328
+      },
+      {
+        "chunk_id": "l01_art_67_chunk_1",
+        "rank": 5,
+        "score": 53.761883
+      }
+    ]
+  },
+  {
+    "question_id": "HN_026",
+    "question": "Hôn nhân chấm dứt do ly hôn kể từ thời điểm nào?",
+    "retrieved_chunk_ids": [
+      "l01_art_65_chunk_1",
+      "l01_art_88_chunk_1",
+      "l01_art_57_chunk_1",
+      "l01_art_3_p2_chunk_13",
+      "l01_art_63_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_65_chunk_1",
+        "rank": 1,
+        "score": 79.31032
+      },
+      {
+        "chunk_id": "l01_art_88_chunk_1",
+        "rank": 2,
+        "score": 70.17526
+      },
+      {
+        "chunk_id": "l01_art_57_chunk_1",
+        "rank": 3,
+        "score": 63.587852
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_13",
+        "rank": 4,
+        "score": 55.834316
+      },
+      {
+        "chunk_id": "l01_art_63_chunk_1",
+        "rank": 5,
+        "score": 53.145065
+      }
+    ]
+  },
+  {
+    "question_id": "HN_027",
+    "question": "Khi ly hôn, tài sản chung lúc nào cũng chia đúng 50/50 bất kể hoàn cảnh hay công sức không?",
+    "retrieved_chunk_ids": [
+      "l01_art_61_chunk_1",
+      "l01_art_59_p1_chunk_2",
+      "l01_art_62_chunk_1",
+      "l01_art_127_chunk_3",
+      "l01_art_59_p1_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_61_chunk_1",
+        "rank": 1,
+        "score": 56.60236
+      },
+      {
+        "chunk_id": "l01_art_59_p1_chunk_2",
+        "rank": 2,
+        "score": 50.094017
+      },
+      {
+        "chunk_id": "l01_art_62_chunk_1",
+        "rank": 3,
+        "score": 47.08584
+      },
+      {
+        "chunk_id": "l01_art_127_chunk_3",
+        "rank": 4,
+        "score": 46.57567
+      },
+      {
+        "chunk_id": "l01_art_59_p1_chunk_3",
+        "rank": 5,
+        "score": 42.704952
+      }
+    ]
+  },
+  {
+    "question_id": "HN_029",
+    "question": "Sau ly hôn, con dưới 36 tháng tuổi có đương nhiên luôn phải giao mẹ nuôi không?",
+    "retrieved_chunk_ids": [
+      "l01_art_81_chunk_3",
+      "l01_art_51_chunk_3",
+      "l01_art_81_chunk_2",
+      "l01_art_77_chunk_1",
+      "l01_art_76_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_81_chunk_3",
+        "rank": 1,
+        "score": 79.33445
+      },
+      {
+        "chunk_id": "l01_art_51_chunk_3",
+        "rank": 2,
+        "score": 71.23166
+      },
+      {
+        "chunk_id": "l01_art_81_chunk_2",
+        "rank": 3,
+        "score": 49.16294
+      },
+      {
+        "chunk_id": "l01_art_77_chunk_1",
+        "rank": 4,
+        "score": 41.69552
+      },
+      {
+        "chunk_id": "l01_art_76_chunk_2",
+        "rank": 5,
+        "score": 38.663555
+      }
+    ]
+  },
+  {
+    "question_id": "HN_030",
+    "question": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ cấp dưỡng không?",
+    "retrieved_chunk_ids": [
+      "l01_art_82_chunk_2",
+      "l01_art_82_chunk_1",
+      "l01_art_84_chunk_2",
+      "l01_art_83_chunk_1",
+      "l01_art_83_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_82_chunk_2",
+        "rank": 1,
+        "score": 96.80908
+      },
+      {
+        "chunk_id": "l01_art_82_chunk_1",
+        "rank": 2,
+        "score": 70.4531
+      },
+      {
+        "chunk_id": "l01_art_84_chunk_2",
+        "rank": 3,
+        "score": 68.75459
+      },
+      {
+        "chunk_id": "l01_art_83_chunk_1",
+        "rank": 4,
+        "score": 66.749405
+      },
+      {
+        "chunk_id": "l01_art_83_chunk_2",
+        "rank": 5,
+        "score": 66.64537
+      }
+    ]
+  },
+  {
+    "question_id": "HN_031",
+    "question": "Cha mẹ không trực tiếp nuôi con có quyền thăm nom con sau ly hôn không?",
+    "retrieved_chunk_ids": [
+      "l01_art_82_chunk_2",
+      "l01_art_83_chunk_2",
+      "l01_art_84_chunk_2",
+      "l01_art_81_chunk_3",
+      "l01_art_82_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_82_chunk_2",
+        "rank": 1,
+        "score": 115.812965
+      },
+      {
+        "chunk_id": "l01_art_83_chunk_2",
+        "rank": 2,
+        "score": 92.093
+      },
+      {
+        "chunk_id": "l01_art_84_chunk_2",
+        "rank": 3,
+        "score": 77.24972
+      },
+      {
+        "chunk_id": "l01_art_81_chunk_3",
+        "rank": 4,
+        "score": 69.857254
+      },
+      {
+        "chunk_id": "l01_art_82_chunk_1",
+        "rank": 5,
+        "score": 69.85584
+      }
+    ]
+  },
+  {
+    "question_id": "HN_033",
+    "question": "Cấp dưỡng có thể thực hiện một lần thay vì hằng tháng không?",
+    "retrieved_chunk_ids": [
+      "l01_art_117_chunk_1",
+      "l01_art_116_chunk_2",
+      "l01_art_107_chunk_1",
+      "l01_art_108_chunk_1",
+      "l01_art_45_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_117_chunk_1",
+        "rank": 1,
+        "score": 83.75867
+      },
+      {
+        "chunk_id": "l01_art_116_chunk_2",
+        "rank": 2,
+        "score": 49.268547
+      },
+      {
+        "chunk_id": "l01_art_107_chunk_1",
+        "rank": 3,
+        "score": 48.104145
+      },
+      {
+        "chunk_id": "l01_art_108_chunk_1",
+        "rank": 4,
+        "score": 37.451622
+      },
+      {
+        "chunk_id": "l01_art_45_chunk_3",
+        "rank": 5,
+        "score": 37.42792
+      }
+    ]
+  },
+  {
+    "question_id": "HN_034",
+    "question": "Nghĩa vụ cấp dưỡng có thể chuyển giao tùy ý cho người khác không?",
+    "retrieved_chunk_ids": [
+      "l01_art_107_chunk_1",
+      "l01_art_117_chunk_1",
+      "l01_art_108_chunk_1",
+      "l01_art_114_chunk_2",
+      "l01_art_113_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_107_chunk_1",
+        "rank": 1,
+        "score": 73.914856
+      },
+      {
+        "chunk_id": "l01_art_117_chunk_1",
+        "rank": 2,
+        "score": 47.42874
+      },
+      {
+        "chunk_id": "l01_art_108_chunk_1",
+        "rank": 3,
+        "score": 45.846535
+      },
+      {
+        "chunk_id": "l01_art_114_chunk_2",
+        "rank": 4,
+        "score": 45.477272
+      },
+      {
+        "chunk_id": "l01_art_113_chunk_2",
+        "rank": 5,
+        "score": 42.797363
+      }
+    ]
+  },
+  {
+    "question_id": "HN_035",
+    "question": "Theo quy định HNGĐ hiện hành năm 2026, kết hôn cùng giới vẫn là hành vi bị cấm theo Luật 2000 đúng không?",
+    "retrieved_chunk_ids": [
+      "l01_art_8_chunk_1",
+      "l01_art_3_p2_chunk_10",
+      "l01_art_13_chunk_1",
+      "l01_art_24_chunk_3",
+      "l01_art_5_p1_chunk_2_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_8_chunk_1",
+        "rank": 1,
+        "score": 62.261917
+      },
+      {
+        "chunk_id": "l01_art_3_p2_chunk_10",
+        "rank": 2,
+        "score": 50.18475
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 3,
+        "score": 48.64108
+      },
+      {
+        "chunk_id": "l01_art_24_chunk_3",
+        "rank": 4,
+        "score": 47.909435
+      },
+      {
+        "chunk_id": "l01_art_5_p1_chunk_2_1",
+        "rank": 5,
+        "score": 46.013393
+      }
+    ]
+  },
+  {
+    "question_id": "HN_037",
+    "question": "Năm 2026, Nghị định 70/2001/NĐ-CP còn là nghị định hướng dẫn luật hôn nhân và gia đình đang có hiệu lực không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_131_chunk_1",
+      "l01_art_131_chunk_2",
+      "l01_art_10_chunk_3",
+      "l01_art_11_chunk_4"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 71.78992
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_1",
+        "rank": 2,
+        "score": 46.397633
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_2",
+        "rank": 3,
+        "score": 43.547337
+      },
+      {
+        "chunk_id": "l01_art_10_chunk_3",
+        "rank": 4,
+        "score": 42.344093
+      },
+      {
+        "chunk_id": "l01_art_11_chunk_4",
+        "rank": 5,
+        "score": 39.851776
+      }
+    ]
+  },
+  {
+    "question_id": "HN_038",
+    "question": "Nghị định 77/2001/NĐ-CP còn có thể dùng làm quy định đăng ký kết hôn hiện hành năm 2026 không?",
+    "retrieved_chunk_ids": [
+      "l01_art_9_chunk_1",
+      "l01_art_13_chunk_1",
+      "l01_art_14_chunk_2",
+      "l01_art_14_chunk_1",
+      "l01_art_131_chunk_3_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_9_chunk_1",
+        "rank": 1,
+        "score": 52.600597
+      },
+      {
+        "chunk_id": "l01_art_13_chunk_1",
+        "rank": 2,
+        "score": 51.726288
+      },
+      {
+        "chunk_id": "l01_art_14_chunk_2",
+        "rank": 3,
+        "score": 46.53108
+      },
+      {
+        "chunk_id": "l01_art_14_chunk_1",
+        "rank": 4,
+        "score": 46.029236
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 5,
+        "score": 41.516205
+      }
+    ]
+  },
+  {
+    "question_id": "HN_039",
+    "question": "Năm 2026, Nghị định 68/2002/NĐ-CP còn hiệu lực về hôn nhân có yếu tố nước ngoài không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_123_chunk_1",
+      "l01_art_123_chunk_2",
+      "l01_art_3_p4_chunk_25",
+      "l01_art_3_p1_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 58.362915
+      },
+      {
+        "chunk_id": "l01_art_123_chunk_1",
+        "rank": 2,
+        "score": 49.090298
+      },
+      {
+        "chunk_id": "l01_art_123_chunk_2",
+        "rank": 3,
+        "score": 48.450954
+      },
+      {
+        "chunk_id": "l01_art_3_p4_chunk_25",
+        "rank": 4,
+        "score": 47.685688
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_3",
+        "rank": 5,
+        "score": 42.62201
+      }
+    ]
+  },
+  {
+    "question_id": "HN_041",
+    "question": "Năm 2026 có thể dùng Thông tư 15/2015/TT-BTP như thông tư hộ tịch còn hiệu lực không?",
+    "retrieved_chunk_ids": [
+      "l01_art_3_p3_chunk_20",
+      "l01_art_131_chunk_3_1",
+      "l01_art_95_chunk_2",
+      "l01_art_5_p2_chunk_4",
+      "l01_art_77_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_3_p3_chunk_20",
+        "rank": 1,
+        "score": 52.640007
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 2,
+        "score": 39.42979
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_2",
+        "rank": 3,
+        "score": 38.810677
+      },
+      {
+        "chunk_id": "l01_art_5_p2_chunk_4",
+        "rank": 4,
+        "score": 35.37284
+      },
+      {
+        "chunk_id": "l01_art_77_chunk_2",
+        "rank": 5,
+        "score": 31.510513
+      }
+    ]
+  },
+  {
+    "question_id": "HN_042",
+    "question": "Năm 2026 có thể dùng Nghị định 10/2015/NĐ-CP như nghị định đang hiệu lực điều chỉnh hỗ trợ sinh sản không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_95_chunk_2",
+      "l01_art_72_chunk_3",
+      "l01_art_95_chunk_4",
+      "l01_art_93_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 65.35521
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_2",
+        "rank": 2,
+        "score": 51.045063
+      },
+      {
+        "chunk_id": "l01_art_72_chunk_3",
+        "rank": 3,
+        "score": 46.139362
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_4",
+        "rank": 4,
+        "score": 43.075523
+      },
+      {
+        "chunk_id": "l01_art_93_chunk_1",
+        "rank": 5,
+        "score": 42.947803
+      }
+    ]
+  },
+  {
+    "question_id": "HN_043",
+    "question": "Vào tháng 10/2026, Nghị định 207/2025/NĐ-CP có phải văn bản thay thế khung nghị định 10/2015 về hỗ trợ sinh sản không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_96_p2_chunk_2",
+      "l01_art_95_chunk_4",
+      "l01_art_97_chunk_4",
+      "l01_art_38_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 60.185574
+      },
+      {
+        "chunk_id": "l01_art_96_p2_chunk_2",
+        "rank": 2,
+        "score": 50.305424
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_4",
+        "rank": 3,
+        "score": 46.968945
+      },
+      {
+        "chunk_id": "l01_art_97_chunk_4",
+        "rank": 4,
+        "score": 45.42202
+      },
+      {
+        "chunk_id": "l01_art_38_chunk_2",
+        "rank": 5,
+        "score": 43.065804
+      }
+    ]
+  },
+  {
+    "question_id": "HN_045",
+    "question": "Nghị định 126/2014/NĐ-CP có còn nguyên vẹn hiệu lực của tất cả điều khoản vào năm 2026 không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_85_chunk_2",
+      "l01_art_41_chunk_1",
+      "l01_art_39_chunk_1",
+      "l01_art_62_chunk_2_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 51.33441
+      },
+      {
+        "chunk_id": "l01_art_85_chunk_2",
+        "rank": 2,
+        "score": 30.070715
+      },
+      {
+        "chunk_id": "l01_art_41_chunk_1",
+        "rank": 3,
+        "score": 29.310736
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 4,
+        "score": 29.298594
+      },
+      {
+        "chunk_id": "l01_art_62_chunk_2_1",
+        "rank": 5,
+        "score": 28.391193
+      }
+    ]
+  },
+  {
+    "question_id": "HN_046",
+    "question": "Thông tư 04/2020/TT-BTP trong năm 2026 còn hiệu lực toàn bộ như bản gốc không?",
+    "retrieved_chunk_ids": [
+      "l01_art_39_chunk_1",
+      "l01_art_131_chunk_3_1",
+      "l01_art_39_chunk_3",
+      "l01_art_41_chunk_4",
+      "l01_art_67_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 1,
+        "score": 41.315895
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 2,
+        "score": 37.930294
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_3",
+        "rank": 3,
+        "score": 33.155807
+      },
+      {
+        "chunk_id": "l01_art_41_chunk_4",
+        "rank": 4,
+        "score": 32.222927
+      },
+      {
+        "chunk_id": "l01_art_67_chunk_2",
+        "rank": 5,
+        "score": 30.352165
+      }
+    ]
+  },
+  {
+    "question_id": "HN_047",
+    "question": "Thông tư 57/2015/TT-BYT còn toàn bộ các quy định ban đầu không bị tác động sửa đổi vào năm 2026?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_117_chunk_1",
+      "l01_art_49_chunk_1",
+      "l01_art_4_chunk_2",
+      "l01_art_87_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 47.253677
+      },
+      {
+        "chunk_id": "l01_art_117_chunk_1",
+        "rank": 2,
+        "score": 37.95565
+      },
+      {
+        "chunk_id": "l01_art_49_chunk_1",
+        "rank": 3,
+        "score": 36.48764
+      },
+      {
+        "chunk_id": "l01_art_4_chunk_2",
+        "rank": 4,
+        "score": 31.598282
+      },
+      {
+        "chunk_id": "l01_art_87_chunk_2",
+        "rank": 5,
+        "score": 30.724497
+      }
+    ]
+  },
+  {
+    "question_id": "HN_049",
+    "question": "Nếu chatbot nói chỉ cần kiểm tra trạng thái văn bản cấp tổng thể để biết một khoản của NĐ 126/2014 còn hiệu lực thì có chính xác không?",
+    "retrieved_chunk_ids": [
+      "l01_art_39_chunk_1",
+      "l01_art_117_chunk_1",
+      "l01_art_116_chunk_2",
+      "l01_art_56_chunk_1",
+      "l01_art_131_chunk_3_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 1,
+        "score": 71.18154
+      },
+      {
+        "chunk_id": "l01_art_117_chunk_1",
+        "rank": 2,
+        "score": 52.856716
+      },
+      {
+        "chunk_id": "l01_art_116_chunk_2",
+        "rank": 3,
+        "score": 47.061806
+      },
+      {
+        "chunk_id": "l01_art_56_chunk_1",
+        "rank": 4,
+        "score": 39.389675
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 5,
+        "score": 37.78224
+      }
+    ]
+  },
+  {
+    "question_id": "HN_050",
+    "question": "Tháng 10/2026 có được kết luận mọi quy định Thông tư 04/2020/TT-BTP còn nguyên như khi ban hành không?",
+    "retrieved_chunk_ids": [
+      "l01_art_3_p2_chunk_10",
+      "l01_art_126_chunk_1",
+      "l01_art_131_chunk_3_1",
+      "l01_art_12_chunk_1",
+      "l01_art_130_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_3_p2_chunk_10",
+        "rank": 1,
+        "score": 36.728386
+      },
+      {
+        "chunk_id": "l01_art_126_chunk_1",
+        "rank": 2,
+        "score": 31.776695
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 3,
+        "score": 31.407368
+      },
+      {
+        "chunk_id": "l01_art_12_chunk_1",
+        "rank": 4,
+        "score": 28.676281
+      },
+      {
+        "chunk_id": "l01_art_130_chunk_1",
+        "rank": 5,
+        "score": 27.844715
+      }
+    ]
+  },
+  {
+    "question_id": "HN_051",
+    "question": "Năm 2010, Luật Hôn nhân và gia đình 2000 có cấm kết hôn giữa những người cùng giới tính không?",
+    "retrieved_chunk_ids": [
+      "l01_art_8_chunk_2",
+      "l01_art_5_p1_chunk_2_1",
+      "l01_art_3_p1_chunk_3",
+      "l01_art_3_p1_chunk_1",
+      "l01_art_123_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_8_chunk_2",
+        "rank": 1,
+        "score": 90.78405
+      },
+      {
+        "chunk_id": "l01_art_5_p1_chunk_2_1",
+        "rank": 2,
+        "score": 66.0533
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_3",
+        "rank": 3,
+        "score": 63.325516
+      },
+      {
+        "chunk_id": "l01_art_3_p1_chunk_1",
+        "rank": 4,
+        "score": 55.919586
+      },
+      {
+        "chunk_id": "l01_art_123_chunk_3",
+        "rank": 5,
+        "score": 50.679546
+      }
+    ]
+  },
+  {
+    "question_id": "HN_053",
+    "question": "Tháng 7/2014, Luật Hôn nhân và gia đình 52/2014/QH13 đã có hiệu lực chưa?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_131_chunk_2",
+      "l01_art_131_chunk_1",
+      "l01_art_67_chunk_1",
+      "l01_art_123_chunk_3"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 64.03074
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_2",
+        "rank": 2,
+        "score": 47.18068
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_1",
+        "rank": 3,
+        "score": 46.397633
+      },
+      {
+        "chunk_id": "l01_art_67_chunk_1",
+        "rank": 4,
+        "score": 39.114506
+      },
+      {
+        "chunk_id": "l01_art_123_chunk_3",
+        "rank": 5,
+        "score": 38.784706
+      }
+    ]
+  },
+  {
+    "question_id": "HN_054",
+    "question": "Trong tháng 6/2024, Nghị định 10/2015/NĐ-CP còn hiệu lực điều chỉnh hỗ trợ sinh sản không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_93_chunk_1",
+      "l01_art_100_chunk_1",
+      "l01_art_95_chunk_4",
+      "l01_art_97_chunk_4"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 53.85241
+      },
+      {
+        "chunk_id": "l01_art_93_chunk_1",
+        "rank": 2,
+        "score": 43.491405
+      },
+      {
+        "chunk_id": "l01_art_100_chunk_1",
+        "rank": 3,
+        "score": 42.39855
+      },
+      {
+        "chunk_id": "l01_art_95_chunk_4",
+        "rank": 4,
+        "score": 41.07624
+      },
+      {
+        "chunk_id": "l01_art_97_chunk_4",
+        "rank": 5,
+        "score": 40.588223
+      }
+    ]
+  },
+  {
+    "question_id": "HN_055",
+    "question": "Ngày 01/12/2015, Thông tư 02a/2015/TT-BTP còn hiệu lực không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_39_chunk_1",
+      "l01_art_39_chunk_3",
+      "l01_art_57_chunk_1",
+      "l01_art_131_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 44.626976
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 2,
+        "score": 34.204422
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_3",
+        "rank": 3,
+        "score": 31.299215
+      },
+      {
+        "chunk_id": "l01_art_57_chunk_1",
+        "rank": 4,
+        "score": 29.618431
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_1",
+        "rank": 5,
+        "score": 26.34481
+      }
+    ]
+  },
+  {
+    "question_id": "HN_057",
+    "question": "Nghị định 126/2014/NĐ-CP hiện được ghi nhận hết hiệu lực toàn bộ hay một phần?",
+    "retrieved_chunk_ids": [
+      "l01_art_38_chunk_1",
+      "l01_art_131_chunk_3_1",
+      "l01_art_39_chunk_1",
+      "l01_art_41_chunk_4",
+      "l01_art_57_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_38_chunk_1",
+        "rank": 1,
+        "score": 44.223736
+      },
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 2,
+        "score": 39.03697
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 3,
+        "score": 37.152515
+      },
+      {
+        "chunk_id": "l01_art_41_chunk_4",
+        "rank": 4,
+        "score": 36.745777
+      },
+      {
+        "chunk_id": "l01_art_57_chunk_2",
+        "rank": 5,
+        "score": 34.983875
+      }
+    ]
+  },
+  {
+    "question_id": "HN_058",
+    "question": "Đối với Thông tư 04/2020/TT-BTP, chỉ dựa vào ngày ban hành có đủ để xác định một điều còn hiệu lực không?",
+    "retrieved_chunk_ids": [
+      "l01_art_131_chunk_3_1",
+      "l01_art_24_chunk_3",
+      "l01_art_87_chunk_2",
+      "l01_art_78_chunk_3",
+      "l01_art_39_chunk_1"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_131_chunk_3_1",
+        "rank": 1,
+        "score": 60.37577
+      },
+      {
+        "chunk_id": "l01_art_24_chunk_3",
+        "rank": 2,
+        "score": 50.51428
+      },
+      {
+        "chunk_id": "l01_art_87_chunk_2",
+        "rank": 3,
+        "score": 48.40238
+      },
+      {
+        "chunk_id": "l01_art_78_chunk_3",
+        "rank": 4,
+        "score": 47.57768
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 5,
+        "score": 43.300117
+      }
+    ]
+  },
+  {
+    "question_id": "HN_059",
+    "question": "Văn bản 57/2015/TT-BYT được CSDL quốc gia ghi nhận trạng thái hiệu lực nào?",
+    "retrieved_chunk_ids": [
+      "l01_art_39_chunk_1",
+      "l01_art_41_chunk_4",
+      "l01_art_57_chunk_2",
+      "l01_art_39_chunk_3",
+      "l01_art_38_chunk_2"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk_id": "l01_art_39_chunk_1",
+        "rank": 1,
+        "score": 62.262577
+      },
+      {
+        "chunk_id": "l01_art_41_chunk_4",
+        "rank": 2,
+        "score": 38.885143
+      },
+      {
+        "chunk_id": "l01_art_57_chunk_2",
+        "rank": 3,
+        "score": 30.519928
+      },
+      {
+        "chunk_id": "l01_art_39_chunk_3",
+        "rank": 4,
+        "score": 30.219923
+      },
+      {
+        "chunk_id": "l01_art_38_chunk_2",
+        "rank": 5,
+        "score": 28.826813
+      }
+    ]
+  }
+]
