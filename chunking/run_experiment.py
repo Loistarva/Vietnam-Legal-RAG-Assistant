@@ -72,18 +72,38 @@ CONFIGS: dict[str, dict[str, Any]] = {
 
 
 def load_test_documents() -> dict[str, dict[str, Any]]:
-    """Nạp tất cả các file JSON mẫu có trong repo."""
+    """Nạp tất cả các file JSON từ data/parser_validated/, parser/parsed_jsons/ và các file mẫu."""
     docs: dict[str, dict[str, Any]] = {}
 
-    candidates = [
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "L01.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "ND01.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "TT01.json",
+    # 1. Quét các file đã validate trong data/parser_validated/
+    validated_dir = BASE_DIR.parent / "data" / "parser_validated"
+    if validated_dir.exists():
+        for p in sorted(validated_dir.glob("*.json")):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    docs[f"validated_{p.stem}"] = json.load(f)
+            except Exception as e:
+                print(f"[Cảnh báo] Không thể đọc {p.name}: {e}")
+
+    # 2. Quét các file trong parser/parsed_jsons/
+    parsed_dir = BASE_DIR.parent / "parser" / "parsed_jsons"
+    if parsed_dir.exists():
+        for p in sorted(parsed_dir.glob("*.json")):
+            if p.stem == "l_52_2014_qh13":
+                continue  # Bỏ qua file trích đoạn mẫu vì đã có bản đầy đủ luat_52_2014_qh13
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    docs[p.stem] = json.load(f)
+            except Exception as e:
+                print(f"[Cảnh báo] Không thể đọc {p.name}: {e}")
+
+    # 3. Bổ sung các file mẫu quy chuẩn nếu có
+    extra_candidates = [
         BASE_DIR.parent / "data" / "sample_documents.json",
         BASE_DIR.parent / "parsed_output_test.json",
     ]
 
-    for p in candidates:
+    for p in extra_candidates:
         if p.exists():
             try:
                 with open(p, "r", encoding="utf-8") as f:
@@ -263,9 +283,9 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
       - Case 4: Gom các Khoản ngắn (< 20 từ)
       - Case 5: Định dạng đầy đủ payload cho Qdrant, Elasticsearch, Parent Store.
     """
-    # Chạy config A trên L01 và sample_documents
-    l01_doc = docs.get("L01")
-    sample_doc = docs.get("sample_documents_0") or docs.get("sample_documents")
+    # Chạy config A trên văn bản mẫu và sample_documents
+    l01_doc = docs.get("L01") or docs.get("luat_52_2014_qh13") or docs.get("validated_L02") or docs.get("validated_ND04")
+    sample_doc = docs.get("sample_documents_0") or docs.get("sample_documents") or docs.get("validated_ND04")
 
     examples: dict[str, Any] = {
         "metadata": {

@@ -176,14 +176,14 @@ Phục vụ **`Dense Vector Search (BGE-M3)`** và **`Sparse Search (BM25)`**:
 
 ## 7. Kết quả Thử nghiệm & Đánh giá Cấu hình (Evaluation Matrix)
 
-Dựa trên script thử nghiệm `run_experiment.py` thực thi trên toàn bộ các tệp dữ liệu mẫu trong dự án (`L01.json`, `ND01.json`, `TT01.json`, `sample_documents.json`, `parsed_output_test.json`), bảng số liệu so sánh 4 cấu hình đã được xuất tại [`chunking_evaluation.xlsx`](file:///d:/AI_PRJ/Vietnam-Legal-RAG-Assistant/chunking/chunking_evaluation.xlsx):
+Dựa trên script thử nghiệm `run_experiment.py` thực thi trên toàn bộ tập dữ liệu mở rộng (13 tài liệu từ `data/parser_validated/*.json` gồm `L02`, `ND04`, `ND05`, `parser/parsed_jsons/*.json` gồm 8 văn bản, `data/sample_documents.json`, và `parsed_output_test.json`), bảng số liệu so sánh 4 cấu hình đã được xuất tại [`chunking_evaluation.xlsx`](file:///d:/AI_PRJ/Vietnam-Legal-RAG-Assistant/chunking/chunking_evaluation.xlsx):
 
 | Cấu hình | Ngưỡng Parent (chars) | Ngưỡng Child (tokens) | Min Child (từ) | Tổng Parent | Tổng Child | Tỷ lệ Child/Parent | Parent TB (chars) | Child TB (từ) | Bao phủ Breadcrumb | Đánh giá & Khuyến nghị |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Config A (Baseline)** | **1500** | **256** | **20** | **250** | **572** | **2.29** | **551.9** | **78.4** | **100%** | **KHUYẾN NGHỊ**: Cân bằng hoàn hảo giữa khả năng bao quát của Parent và độ chính xác của Child. |
-| **Config B (Small)** | 800 | 128 | 15 | 352 | 668 | 1.90 | 412.5 | 58.2 | 100% | Phù hợp khi dùng Embedding context hẹp (128 tokens); số lượng parent tăng 40%. |
-| **Config C (Large)** | 2500 | 512 | 30 | 225 | 513 | 2.28 | 610.2 | 87.1 | 100% | Giữ ngữ cảnh rộng nhưng tăng nguy cơ mất tập trung (dilution) khi so khớp vector. |
-| **Config D (Strict)** | 1500 | 256 | 1 | 250 | 596 | 2.38 | 551.9 | 72.8 | 100% | Không gom khoản ngắn $\rightarrow$ sinh ra nhiều chunk vụn (< 20 từ) gây nhiễu Vector DB. |
+| **Config A (Baseline)** | **1500** | **256** | **20** | **566** | **1182** | **2.09** | **781.3** | **71.0** | **73.0%** | **KHUYẾN NGHỊ**: Cân bằng hoàn hảo giữa khả năng bao quát của Parent và độ chính xác của Child; tối ưu cho mô hình BGE-M3. |
+| **Config B (Small)** | 800 | 128 | 15 | 878 | 1451 | 1.65 | 525.5 | 57.4 | 86.1% | Phù hợp khi dùng Embedding context hẹp (128 tokens); số lượng parent tăng 55% (tăng dung lượng lưu trữ). |
+| **Config C (Large)** | 2500 | 512 | 30 | 491 | 1027 | 2.09 | 891.6 | 81.9 | 66.2% | Giữ ngữ cảnh rộng nhưng tăng nguy cơ mất tập trung (dilution) khi so khớp vector similarity. |
+| **Config D (Strict)** | 1500 | 256 | 1 | 566 | 1247 | 2.20 | 781.3 | 67.4 | 73.0% | Không gom khoản ngắn $\rightarrow$ sinh ra thêm 65 chunk vụn (< 20 từ) gây nhiễu Vector DB. |
 
 Các trường hợp mẫu minh họa (Điều bình thường, Điều dài tách Parent, Khoản có nhiều Điểm, và Định dạng DB Payload) được lưu trữ đầy đủ trong [`chunking_examples.json`](file:///d:/AI_PRJ/Vietnam-Legal-RAG-Assistant/chunking/chunking_examples.json).
 
