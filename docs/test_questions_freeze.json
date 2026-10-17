@@ -1,0 +1,24 @@
+{
+  "scope": "TEST_QUERIES_ONLY_NOT_GOLD_ANSWERS",
+  "frozen_file": "data/benchmark/queries_test.json",
+  "sha256": "0b4b3a2f75a02ace122333fedddb45a8b36229217841619ea55107c36cacdbdf",
+  "question_count": 15,
+  "test_ids": [
+    "HN_004",
+    "HN_008",
+    "HN_012",
+    "HN_016",
+    "HN_020",
+    "HN_024",
+    "HN_028",
+    "HN_032",
+    "HN_036",
+    "HN_040",
+    "HN_044",
+    "HN_048",
+    "HN_052",
+    "HN_056",
+    "HN_060"
+  ],
+  "note": "Các đáp án gold_context_ids vẫn cần đối chiếu sau khi index chunk."
+}
