@@ -50,7 +50,7 @@ Audit không sửa code, fixture, JSON kết quả hiện có hoặc Qdrant data
 | `parser/parsed_jsons/L01.json` | Có; nguồn JSON thực tế của fixture, 131 Điều | Payload `metadata` không khớp JSON Schema; giá trị loại văn bản/ngày/status cần đối chiếu nguồn chuẩn. |
 | `data/normalized_metadata.json` | Có; 9 văn bản và 261 bản ghi metadata cấp Điều | Scope ghi `raw_data_received: false`; bản ghi Điều chỉ có metadata/title, không có `text`, `content`, `body` hoặc `chunks`. |
 | `data/raw_data/` | Có PDF L01, ND01–ND03 và TT01–TT04 | PDF L01 tồn tại, nhưng chưa được xác minh nội dung PDF có khớp parser JSON. Đường dẫn trong normalized metadata không trỏ đến các file này. |
-| `test/schema_test.py`, `parser/test_parser.py` | Có test nguồn | Không chạy được pytest trong `.venv312`; test schema dùng Pydantic riêng, không chứng minh parser output tuân thủ `schemas/metadata_schema.json`. |
+| `../tests`, `parser/test_parser.py` | Có test nguồn | Không chạy được pytest trong `.venv312`; test schema dùng Pydantic riêng, không chứng minh parser output tuân thủ `schemas/metadata_schema.json`. |
 | `.gitignore` | Có | Bỏ qua `.venv*`, bytecode và `/qdrant_data/`; không bao phủ mọi tên local Qdrant/cache nếu đặt chỗ khác trong repo. |
 | BM25/hybrid/reranker | Không thấy module thực thi trong các file Python của repository | Chunker chỉ xuất định dạng Elasticsearch; SRS và tài liệu chunking mô tả BM25/RRF/reranker nhưng không có implementation retrieval tương ứng. |
 
@@ -122,7 +122,7 @@ Không có prompt/prefix riêng cho query hoặc document trong wrapper: query v
 - `embedding/README.md` hướng dẫn tương đối đủ cho smoke test: tạo environment Python 3.12, cài dependencies, tạo fixture, chọn Qdrant local, chạy ba model, lưu JSON và cấu trúc ground truth. Cần bổ sung cảnh báo fixture phụ thuộc `underthesea`, truncation BKAI và thực tế preprocessing time đang bị loại khỏi timing.
 - `docs/embedding_experiment.md` và JSON kết quả cùng ghi một query, 321 chunks, dimension, timing và không có ground truth; kết luận chưa chọn model là phù hợp. Nội dung này không phải benchmark chất lượng.
 - README gốc chỉ có tiêu đề; chưa dẫn người mới tới module embedding. `docs/embedding_model_research.md` không tồn tại riêng; phần nghiên cứu nằm trong experiment doc.
-- `docs/data_contract.md`/`schemas/metadata_schema.json` yêu cầu key `document_metadata`, trong khi parser tạo key `metadata`. Schema còn yêu cầu ngày hiệu lực dạng date và status trong enum; dữ liệu parser có `null`/`"Không xác định"`. `test/schema_test.py` khai báo Pydantic schema khác và không tự áp dụng JSON Schema file nói trên.
+- `docs/data_contract.md`/`schemas/metadata_schema.json` yêu cầu key `document_metadata`, trong khi parser tạo key `metadata`. Schema còn yêu cầu ngày hiệu lực dạng date và status trong enum; dữ liệu parser có `null`/`"Không xác định"`. `../tests` khai báo Pydantic schema khác và không tự áp dụng JSON Schema file nói trên.
 - Hướng dẫn chạy ghi đúng CLI và vị trí JSON kết quả, nhưng các tên JSON mặc định được ghi đè nếu chạy đúng ví dụ trên repository. Dùng tên file khác khi cần giữ kết quả cũ.
 
 ### Dependencies
@@ -201,7 +201,7 @@ Không có prompt/prefix riêng cho query hoặc document trong wrapper: query v
 - **Bằng chứng:** contract/JSON Schema yêu cầu `document_metadata`; parser dùng `metadata`. Schema bắt ngày hiệu lực dạng date và enum status giới hạn, trong khi parser có null/`Không xác định`. Test Pydantic lại định nghĩa biến thể schema khác và chưa chạy được do pytest thiếu.
 - **Ảnh hưởng:** validation hiện tại không thể bảo đảm dữ liệu pháp luật đầu vào phù hợp contract/metadata filter.
 - **Cách khắc phục:** chọn một schema chuẩn, cập nhật parser/chunker/test cùng một contract; thêm test schema trên JSON đã parse.
-- **File cần sửa:** `schemas/metadata_schema.json`, `docs/data_contract.md`, `parser/parser.py`, `test/schema_test.py`.
+- **File cần sửa:** `schemas/metadata_schema.json`, `docs/data_contract.md`, `parser/parser.py`, `../tests`.
 - **Điều kiện nghiệm thu:** bộ parser fixtures thật validate qua schema duy nhất; các trường bắt buộc/null/unknown có policy được kiểm tra bằng unit tests.
 
 ### F-08 — LOW: Thiếu test runner trong môi trường xác nhận và trạng thái Git không biết
