@@ -16,7 +16,7 @@ from evaluation.benchmark_runner import run_benchmark_bm25
 QUERIES_TEST_PATH = ROOT_DIR / "data" / "benchmark" / "queries_test.json"
 RESULTS_PATH = ROOT_DIR / "evaluation" /"results"/ "bm25_test_results.json"
 GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
-METRICS_TEST_PATH = ROOT_DIR / "evaluation" / "bm25_test_metrics.json"
+METRICS_TEST_PATH = ROOT_DIR / "evaluation" /"results" /"bm25_test_metrics.json"
 
 TOP_K = 5
 
