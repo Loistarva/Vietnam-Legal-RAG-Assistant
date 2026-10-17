@@ -1,0 +1,31 @@
+{
+  "total_questions": 300,
+  "dev": 285,
+  "test": 15,
+  "ground_truth_records": 300,
+  "draft_ground_truth": 300,
+  "legally_reviewed_ground_truth": 0,
+  "confirmed_production_gold_context_ids": 0,
+  "smoke_chunk_candidates": 34,
+  "partial_candidate_evidence": 2,
+  "not_mapped": 264,
+  "article_registry_records": 442,
+  "test_sha256": "0b4b3a2f75a02ace122333fedddb45a8b36229217841619ea55107c36cacdbdf",
+  "required_files": [
+    "schemas/benchmark_schema.json",
+    "data/benchmark/queries_dev.json",
+    "data/benchmark/queries_test.json",
+    "data/benchmark/ground_truth.json",
+    "tests/test_benchmark.py",
+    "docs/sprint6_benchmark.md"
+  ],
+  "test_count": 41,
+  "status": "STRUCTURAL_HANDOFF_PASSED; FINAL_GOLD_NOT_VERIFIED; PDF_EXCERPTS_REQUIRE_ANSWER_REWRITE",
+  "confirmed_gold_context_ids_count": 0,
+  "candidate_context_mapped_questions": 36,
+  "answer_kind_counts": {
+    "draft_answer_unreviewed": 60,
+    "extracted_article_text_unreviewed": 240,
+    "reviewed_answer": 0
+  }
+}
