@@ -21,7 +21,7 @@ Theo sơ đồ kiến trúc tổng thể (`system_architecture.drawio` & `new da
 │             MODULE CHUNKING (chunking_rules.py)             │
 │  - Phân bổ ngân sách token (PARENT_MAX_CHARS, CHILD_TOKENS) │
 │  - Gộp / Tách Parent Chunks (theo Điều hoặc nhóm Khoản)     │
-│  - Tạo Child Chunks (underthesea; fallback whitespace nếu thiếu) │
+│  - Tạo Child Chunks theo ranh giới whitespace ổn định           │
 │  - Gắn chuỗi Breadcrumb định vị phân cấp                    │
 │  - Gán Semantic ID ([doc_id]_art_[num]_chunk_[cl]_[pt])     │
 └─────────────────────────────────────────────────────────────┘
@@ -37,7 +37,7 @@ Theo sơ đồ kiến trúc tổng thể (`system_architecture.drawio` & `new da
 * **Module `chunking/`:** **Không parse lại regex text thô từ đầu**. Module này nhận Structured JSON từ Parser và chịu trách nhiệm tối ưu hóa ngữ nghĩa cho mô hình RAG:
   1. Kiểm soát giới hạn ký tự và token ($\le 1500$ chars cho Parent, $\le 256$ tokens cho Child).
   2. Gom cụm các Khoản ngắn, tách các Điều dài hoặc Khoản dài.
-  3. Word-segmentation tiếng Việt (`underthesea`) cho Child embedding; nếu package chưa có thì dùng nguyên văn tách theo khoảng trắng và exporter ghi backend vào `chunking_report.json`.
+  3. Tách cấu trúc Child theo đơn vị whitespace trên văn bản gốc để ranh giới chunk và nội dung ổn định giữa các môi trường. `underthesea` chỉ tạo `seg_text`/`embed_text`; nếu package chưa có thì dùng văn bản gốc và exporter ghi backend vào `chunking_report.json`.
   4. Đóng gói payload tương thích với Elasticsearch, Qdrant và Parent Key-Value Store.
 
 ---
@@ -91,7 +91,7 @@ Child Chunk là đơn vị đưa vào vector hóa (BGE-M3) và lập chỉ mục
 
 ### 4.1 Giới hạn kích thước
 * `CHILD_MAX_TOKENS = 256`: Tương thích với `max_seq_length` của các mô hình embedding tiếng Việt (BKAI, BGE-M3).
-* `CHILD_MAX_UNITS = 200`: Giới hạn đơn vị từ sau word-segmentation.
+* `CHILD_MAX_UNITS = 200`: Giới hạn 200 đơn vị whitespace trong văn bản gốc của mỗi Child; không phụ thuộc phiên bản tokenizer.
 * `CHILD_MIN_WORDS = 20`: Ngưỡng lọc / gom nhóm để loại trừ chunk rác.
 
 ### 4.2 Chiến lược sinh Child Chunks từ Parent

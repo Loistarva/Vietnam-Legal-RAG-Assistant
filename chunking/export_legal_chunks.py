@@ -199,7 +199,9 @@ def main() -> None:
                 raise ValueError(f"Chunk rỗng: {child.chunk_id}")
             if "\x00" in child.text or "\x00" in child.seg_text or "\x00" in child.embed_text:
                 raise ValueError(f"Chunk chứa NUL byte: {child.chunk_id}")
-            if len(child.seg_text.split()) > CHILD_MAX_UNITS:
+            # The structural limit is based on canonical source whitespace units.
+            # Segmented text can have a different token count across Underthesea versions.
+            if len(child.text.split()) > CHILD_MAX_UNITS:
                 raise ValueError(f"Chunk vượt CHILD_MAX_UNITS: {child.chunk_id}")
             payload = child.to_qdrant_payload()
             payload.update({

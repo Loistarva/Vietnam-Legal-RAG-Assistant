@@ -194,21 +194,30 @@ def word_segment(text: str | None) -> str:
         return ""
     try:
         from underthesea import word_tokenize
-        tokens = word_tokenize(text)
+        try:
+            segmented = word_tokenize(text, format="text")
+        except TypeError:
+            # Support older Underthesea APIs without relying on their default format.
+            segmented = word_tokenize(text)
+        if isinstance(segmented, str):
+            tokens = segmented.split()
+        else:
+            tokens = []
+            for token in segmented:
+                if isinstance(token, (list, tuple)):
+                    tokens.extend(str(part) for part in token if str(part).strip())
+                elif str(token).strip():
+                    tokens.append(str(token))
         return " ".join(tok.replace(" ", "_") for tok in tokens if tok.strip())
     except ImportError:
         return text.strip()
 
 
 def segment_units(text: str | None) -> list[str]:
-    """Trả về danh sách các từ/đơn vị từ đã phân đoạn."""
+    """Tách theo khoảng trắng để ranh giới chunk ổn định giữa các máy."""
     if not text:
         return []
-    try:
-        from underthesea import word_tokenize
-        return [tok.replace(" ", "_") for tok in word_tokenize(text) if tok.strip()]
-    except ImportError:
-        return text.split() if text else []
+    return text.split()
 
 
 def _clean_id(raw_str: str | None, default: str = "item") -> str:
@@ -497,11 +506,15 @@ def _create_child_chunks_from_units(
                 children.append(c)
                 child_idx += 1
 
-            units_list = segment_units(u.text)
-            for sub_i in range(0, len(units_list), max_units):
-                slice_units = units_list[sub_i : sub_i + max_units]
-                sub_seg = " ".join(slice_units)
-                sub_raw = sub_seg.replace("_", " ")
+            # Split original source at whitespace boundaries instead of rebuilding
+            # legal text from tokenizer output, which varies between package versions.
+            source_spans = list(re.finditer(r"\S+", u.text))
+            for sub_i in range(0, len(source_spans), max_units):
+                span_group = source_spans[sub_i : sub_i + max_units]
+                if not span_group:
+                    continue
+                sub_raw = u.text[span_group[0].start() : span_group[-1].end()]
+                sub_seg = word_segment(sub_raw)
                 # Không loại bỏ phần đuôi ngắn: mỗi token trong văn bản pháp luật
                 # phải được giữ lại, kể cả khi đoạn cuối ít hơn min_words.
                 sub_cid = f"{parent.parent_id}_chunk_{_clean_id(u.clause_number)}_{sub_i // max_units + 1}"
