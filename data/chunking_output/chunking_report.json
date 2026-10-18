@@ -12,16 +12,15 @@
     "fallback_overlap_words": 40
   },
   "tokenization_backend": "fallback_whitespace",
-  "corrected_document": "data/parser_validated/tt_02a_2015_tt_btp.json",
   "included_source_files": [
     "parser/parsed_jsons/l_22_2000_qh10.json",
     "parser/parsed_jsons/l_52_2014_qh13.json",
     "parser/parsed_jsons/nd_10_2015_nd_cp.json",
     "parser/parsed_jsons/nd_126_2014_nd_cp.json",
-    "parser/parsed_jsons/nd_158_2005_nd_cp.json",
     "parser/parsed_jsons/nd_207_2025_nd_cp.json",
     "parser/parsed_jsons/nd_70_2001_nd_cp.json",
     "parser/parsed_jsons/nq_01_2024_nq_hdtp.json",
+    "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
     "parser/parsed_jsons/tt_32_2016_tt_byt.json",
     "parser/parsed_jsons/tt_34_2017_tt_byt.json",
     "parser/parsed_jsons/ttlt_01_2016_ttlt_tandtc.json"
@@ -69,16 +68,6 @@
       "num_children": 202
     },
     {
-      "source": "parser/parsed_jsons/nd_158_2005_nd_cp.json",
-      "chunking_source": "data/parser_validated/tt_02a_2015_tt_btp.json",
-      "document_id": "tt_02a_2015_tt_btp",
-      "document_number": "02A/2015/TT-BTP",
-      "validity_status": "Hết hiệu lực",
-      "num_articles": 17,
-      "num_parents": 49,
-      "num_children": 77
-    },
-    {
       "source": "parser/parsed_jsons/nd_207_2025_nd_cp.json",
       "chunking_source": "parser/parsed_jsons/nd_207_2025_nd_cp.json",
       "document_id": "nd_207_2025_nd_cp",
@@ -109,6 +98,16 @@
       "num_children": 29
     },
     {
+      "source": "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
+      "chunking_source": "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
+      "document_id": "tt_02a_2015_tt_btp",
+      "document_number": "02A/2015/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 17,
+      "num_parents": 49,
+      "num_children": 77
+    },
+    {
       "source": "parser/parsed_jsons/tt_32_2016_tt_byt.json",
       "chunking_source": "parser/parsed_jsons/tt_32_2016_tt_byt.json",
       "document_id": "tt_32_2016_tt_byt",
@@ -123,7 +122,7 @@
       "chunking_source": "parser/parsed_jsons/tt_34_2017_tt_byt.json",
       "document_id": "tt_34_2017_tt_byt",
       "document_number": "34/2017/TT-BYT",
-      "validity_status": "Hết hiệu lực",
+      "validity_status": "Không xác định",
       "num_articles": 9,
       "num_parents": 12,
       "num_children": 26
@@ -141,8 +140,6 @@
   ],
   "warnings": [
     "Chưa hoàn thành xác minh hiệu lực pháp lý ở các JSON nguồn khác.",
-    "JSON parser l_52_2014_qh13.json chỉ có 131 điều; văn bản chính thức có Điều 132-133 nên corpus đang thiếu phần này.",
-    "JSON parser nq_01_2024_nq_hdtp.json: Điều 8 chỉ có một khoản và clause_text kết thúc ở 'tại'; cần khôi phục toàn văn từ nguồn chính thức.",
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức."
   ]
 }

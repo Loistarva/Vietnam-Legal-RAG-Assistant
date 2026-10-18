@@ -909,10 +909,7 @@ def extract_issuing_body(text: str) -> str:
 
 
 def extract_validity_status(text: str) -> str:
-    head = text[:12000]
-    for pattern, status in VALIDITY_PATTERNS:
-        if pattern.search(head):
-            return status
+    """Tạm thời không tự suy đoán trạng thái hiệu lực từ nội dung văn bản."""
     return "Không xác định"
 
 # Tên văn bản: chỉ nhận chữ IN HOA (phân biệt hoa/thường), bỏ qua "PHÁP LUẬT" trong
