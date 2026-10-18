@@ -21,7 +21,7 @@ Theo sơ đồ kiến trúc tổng thể (`system_architecture.drawio` & `new da
 │             MODULE CHUNKING (chunking_rules.py)             │
 │  - Phân bổ ngân sách token (PARENT_MAX_CHARS, CHILD_TOKENS) │
 │  - Gộp / Tách Parent Chunks (theo Điều hoặc nhóm Khoản)     │
-│  - Tạo Child Chunks (word-segmented qua underthesea)        │
+│  - Tạo Child Chunks theo ranh giới whitespace ổn định           │
 │  - Gắn chuỗi Breadcrumb định vị phân cấp                    │
 │  - Gán Semantic ID ([doc_id]_art_[num]_chunk_[cl]_[pt])     │
 └─────────────────────────────────────────────────────────────┘
@@ -37,7 +37,7 @@ Theo sơ đồ kiến trúc tổng thể (`system_architecture.drawio` & `new da
 * **Module `chunking/`:** **Không parse lại regex text thô từ đầu**. Module này nhận Structured JSON từ Parser và chịu trách nhiệm tối ưu hóa ngữ nghĩa cho mô hình RAG:
   1. Kiểm soát giới hạn ký tự và token ($\le 1500$ chars cho Parent, $\le 256$ tokens cho Child).
   2. Gom cụm các Khoản ngắn, tách các Điều dài hoặc Khoản dài.
-  3. Word-segmentation tiếng Việt (`underthesea`) cho Child embedding.
+  3. Tách cấu trúc Child theo đơn vị whitespace trên văn bản gốc để ranh giới chunk và nội dung ổn định giữa các môi trường. `underthesea` chỉ tạo `seg_text`/`embed_text`; nếu package chưa có thì dùng văn bản gốc và exporter ghi backend vào `chunking_report.json`.
   4. Đóng gói payload tương thích với Elasticsearch, Qdrant và Parent Key-Value Store.
 
 ---
@@ -91,7 +91,7 @@ Child Chunk là đơn vị đưa vào vector hóa (BGE-M3) và lập chỉ mục
 
 ### 4.1 Giới hạn kích thước
 * `CHILD_MAX_TOKENS = 256`: Tương thích với `max_seq_length` của các mô hình embedding tiếng Việt (BKAI, BGE-M3).
-* `CHILD_MAX_UNITS = 200`: Giới hạn đơn vị từ sau word-segmentation.
+* `CHILD_MAX_UNITS = 200`: Giới hạn 200 đơn vị whitespace trong văn bản gốc của mỗi Child; không phụ thuộc phiên bản tokenizer.
 * `CHILD_MIN_WORDS = 20`: Ngưỡng lọc / gom nhóm để loại trừ chunk rác.
 
 ### 4.2 Chiến lược sinh Child Chunks từ Parent
@@ -174,7 +174,26 @@ Phục vụ **`Dense Vector Search (BGE-M3)`** và **`Sparse Search (BM25)`**:
 
 ---
 
-## 7. Kết quả Thử nghiệm & Đánh giá Cấu hình (Evaluation Matrix)
+## 7. Xuất corpus chunks
+
+Chạy exporter từ thư mục gốc repository:
+
+```powershell
+.\.venv\Scripts\python.exe chunking\export_legal_chunks.py
+```
+
+Exporter đọc toàn bộ JSON trong `parser/parsed_jsons/` và sinh:
+
+* `data/chunking_output/chunks.jsonl` — Child chunks, một bản ghi JSON trên mỗi dòng.
+* `data/chunking_output/parents.json` — Parent chunks liên kết với Child chunks.
+* `data/chunking_output/chunking_report.json` — Số lượng, nguồn và kết quả theo từng văn bản.
+* Payload của mỗi dòng `chunks.jsonl` tuân theo [`schemas/chunk_payload_schema.json`](../schemas/chunk_payload_schema.json).
+
+Không loại trừ `l_52_2014_qh13.json`. Riêng `nd_158_2005_nd_cp.json` có nhãn nguồn sai; exporter dùng bản đã chuẩn hóa `data/parser_validated/tt_02a_2015_tt_btp.json` để tạo chunks TT 02a/2015, đồng thời ghi nhận file parser gốc làm nguồn trong báo cáo. Quy tắc chia nội dung lấy từ `chunking/chunking_rules.py`.
+
+Trước khi ghi file, exporter kiểm tra ID ASCII, ID duy nhất, liên kết Parent–Child, giới hạn 1.500 ký tự của Parent, giới hạn 200 đơn vị từ của Child, các alias payload và thứ tự token của nội dung clause so với parser. Đoạn đuôi ngắn vẫn được xuất để không làm mất nội dung. Các kiểm tra này xác nhận độ toàn vẹn so với JSON parser; chúng không chứng minh JSON parser đã chép đủ hoặc chính xác toàn văn luật. Các nguồn thiếu điều hoặc bị cắt phải được xử lý ở parser/nguồn pháp luật và được ghi rõ trong báo cáo.
+
+## 8. Kết quả Thử nghiệm & Đánh giá Cấu hình (Evaluation Matrix)
 
 Dựa trên script thử nghiệm `run_experiment.py` thực thi trên toàn bộ các tệp dữ liệu mẫu trong dự án (`L01.json`, `ND01.json`, `TT01.json`, `sample_documents.json`, `parsed_output_test.json`), bảng số liệu so sánh 4 cấu hình đã được xuất tại [`chunking_evaluation.xlsx`](file:///d:/AI_PRJ/Vietnam-Legal-RAG-Assistant/chunking/chunking_evaluation.xlsx):
 
@@ -189,7 +208,7 @@ Các trường hợp mẫu minh họa (Điều bình thường, Điều dài tá
 
 ---
 
-## 8. Tổng kết
+## 9. Tổng kết
 
 Việc tinh chỉnh và loại bỏ bộ Parser trùng lặp trong module Chunking mang lại các lợi ích trực tiếp:
 1. **Kiến trúc sạch (Clean Architecture):** Tách bạch rõ ranh giới: `parser/` xử lý cấu trúc file PDF/TXT $\rightarrow$ `chunking/` xử lý tối ưu hóa token và quan hệ Parent-Child cho RAG.

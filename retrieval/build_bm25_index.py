@@ -9,7 +9,7 @@ from typing import Any
 from elasticsearch import Elasticsearch, helpers
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_CHUNKS_FILE = ROOT_DIR / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
 
@@ -42,17 +42,25 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
     if not chunks_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file chunks: {chunks_path}")
 
+    raw_chunks: list[dict[str, Any]] = []
     try:
-        data = json.loads(chunks_path.read_text(encoding="utf-8-sig"))
-    except json.JSONDecodeError as exc:
-        raise ValueError(f"JSON chunks không hợp lệ tại {chunks_path}: {exc}") from exc
-
-    if isinstance(data, list):
-        raw_chunks = data
-    elif isinstance(data, dict) and isinstance(data.get("chunks"), list):
-        raw_chunks = data["chunks"]
-    else:
-        raise ValueError("JSON phải là danh sách chunks hoặc object có trường 'chunks'")
+        with chunks_path.open("r", encoding="utf-8-sig") as f:
+            for line_num, line in enumerate(f, start=1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    item = json.loads(line)
+                    if isinstance(item, dict):
+                        raw_chunks.append(item)
+                    else:
+                        raise ValueError(f"Dòng {line_num} không phải là object JSON")
+                except json.JSONDecodeError as exc:
+                    raise ValueError(f"JSON không hợp lệ tại dòng {line_num} trong {chunks_path}: {exc}") from exc
+    except Exception as exc:
+        if isinstance(exc, ValueError):
+            raise
+        raise ValueError(f"Không thể đọc file chunks tại {chunks_path}: {exc}") from exc
 
     chunks: list[dict[str, Any]] = []
     seen_ids: set[str] = set()

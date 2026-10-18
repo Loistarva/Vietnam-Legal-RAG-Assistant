@@ -574,8 +574,14 @@ DOCUMENT_TYPE_PATTERNS = [
     ("Chỉ thị", re.compile(r"(?<!\w)C(?:HỈ THỊ|hỉ thị)\b")),
 ]
 
-DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
-DOCUMENT_NUMBER_RE = re.compile(rf"(?:Số|Số:|số|số:)\s*({DOCUMENT_NUMBER_CODE})")
+# Cho phép chữ cái gắn sau phần số đầu tiên: 02a/2015/TT-BTP
+DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}[A-Za-z]?/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
+
+# Ưu tiên số hiệu chính thức ngay sau nhãn "Số:".
+DOCUMENT_NUMBER_RE = re.compile(
+    rf"(?<!\\w)Số\\s*:\\s*({DOCUMENT_NUMBER_CODE})",
+    re.IGNORECASE
+)
 DATE_RE = re.compile(r"(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})", re.IGNORECASE)
 ISO_DATE_RE = re.compile(r"\b(20\d{2})[-/](\d{1,2})[-/](\d{1,2})\b")
 
@@ -713,15 +719,38 @@ def extract_document_type(text: str) -> str:
     return "Luật"
 
 def extract_document_number(text: str) -> str:
-    head = text[:8000]
-    m = DOCUMENT_NUMBER_RE.search(head)
-    if m:
-        return m.group(1)
-    fallback = re.search(rf"\b{DOCUMENT_NUMBER_CODE}", head)
+    """
+    Trích xuất số hiệu văn bản.
+    Ưu tiên số hiệu nằm sau nhãn "Số:" trong phần đầu văn bản để tránh
+    nhầm số hiệu của văn bản được trích dẫn ở phần "Căn cứ".
+    Hỗ trợ chữ cái sau phần số, ví dụ 02a/2015/TT-BTP.
+    """
+    head = re.sub(r"\s+", " ", text[:5000]).strip()
+
+    match = DOCUMENT_NUMBER_RE.search(head)
+    if match:
+        return match.group(1)
+
+    # Dự phòng: nếu không có nhãn "Số:", chỉ tìm trước tên văn bản.
+    title_match = re.search(
+        r"\b(?:LUẬT|BỘ LUẬT|NGHỊ ĐỊNH|THÔNG TƯ|QUYẾT ĐỊNH|CHỈ THỊ)\b",
+        head,
+        re.IGNORECASE,
+    )
+    pre_title = head[:title_match.start()] if title_match else head
+    fallback = re.search(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", pre_title)
     if fallback:
-        return fallback.group(0)
+        return fallback.group(1)
+
+    # Fallback cuối cùng chỉ quét vùng rất đầu văn bản, không quét sâu
+    # qua các phần căn cứ pháp lý dễ chứa số hiệu văn bản khác.
+    fallback = re.search(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", head[:1000])
+    if fallback:
+        return fallback.group(1)
+
     warn("Không tự nhận diện được document_number.")
     return ""
+
 
 def vietnamese_date_to_iso(day: str, month: str, year: str) -> str:
     return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"

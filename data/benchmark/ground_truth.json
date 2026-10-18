@@ -4,7 +4,7 @@
     "answer": "Nam từ đủ 20 tuổi trở lên.",
     "explanation": "Điểm a khoản 1 Điều 8 đặt điều kiện tuổi tối thiểu với nam là từ đủ 20 tuổi; không được hiểu là bước sang tuổi 20 khi chưa đến ngày sinh.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1"
+      "l_52_2014_qh13_art_8_chunk_1"
     ],
     "citations": [
       {
@@ -22,7 +22,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -36,7 +36,7 @@
     "answer": "Nữ từ đủ 18 tuổi trở lên.",
     "explanation": "Điểm a khoản 1 Điều 8 đặt điều kiện tuổi tối thiểu với nữ là từ đủ 18 tuổi; \"đủ\" tính theo ngày tháng năm sinh.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1"
+      "l_52_2014_qh13_art_8_chunk_1"
     ],
     "citations": [
       {
@@ -54,7 +54,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -68,7 +68,7 @@
     "answer": "Có. Việc kết hôn phải do nam và nữ tự nguyện quyết định.",
     "explanation": "Điểm b khoản 1 Điều 8 yêu cầu việc kết hôn do hai bên tự nguyện quyết định, không dựa trên việc cưỡng ép hay thỏa thuận của người khác.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1"
+      "l_52_2014_qh13_art_8_chunk_1"
     ],
     "citations": [
       {
@@ -86,7 +86,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -100,7 +100,7 @@
     "answer": "Không. Người kết hôn phải không bị mất năng lực hành vi dân sự.",
     "explanation": "Điểm c khoản 1 Điều 8 liệt kê việc không bị mất năng lực hành vi dân sự là một trong các điều kiện kết hôn.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1"
+      "l_52_2014_qh13_art_8_chunk_1"
     ],
     "citations": [
       {
@@ -118,7 +118,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -132,7 +132,7 @@
     "answer": "Không. Việc kết hôn không đăng ký theo quy định thì không có giá trị pháp lý.",
     "explanation": "Khoản 1 Điều 9 đòi hỏi đăng ký kết hôn tại cơ quan có thẩm quyền; việc kết hôn không được đăng ký không có giá trị pháp lý.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_9_chunk_1"
+      "l_52_2014_qh13_art_9_chunk_1"
     ],
     "citations": [
       {
@@ -150,7 +150,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_9_chunk_2"
+      "l_52_2014_qh13_art_9_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -164,7 +164,7 @@
     "answer": "Có. Vợ chồng đã ly hôn muốn xác lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
     "explanation": "Khoản 2 Điều 9 yêu cầu vợ chồng đã ly hôn muốn thiết lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_9_chunk_2"
+      "l_52_2014_qh13_art_9_chunk_2"
     ],
     "citations": [
       {
@@ -182,7 +182,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_9_chunk_1"
+      "l_52_2014_qh13_art_9_chunk_1"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -196,7 +196,7 @@
     "answer": "Không. Hành vi kết hôn hoặc chung sống như vợ chồng với người khác khi đang có vợ hoặc chồng thuộc trường hợp bị cấm.",
     "explanation": "Điểm c khoản 2 Điều 5 cấm người đang có vợ/chồng kết hôn hoặc chung sống như vợ/chồng với người khác, với các chủ thể còn lại theo quy định.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_5_p1_chunk_2_1"
+      "l_52_2014_qh13_art_5_p1_chunk_2_1"
     ],
     "citations": [
       {
@@ -214,10 +214,10 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_5_p2_chunk_3",
-      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
-      "luat_52_2014_qh13_art_5_p1_chunk_1",
-      "luat_52_2014_qh13_art_5_p2_chunk_4"
+      "l_52_2014_qh13_art_5_p2_chunk_3",
+      "l_52_2014_qh13_art_5_p1_chunk_2_2",
+      "l_52_2014_qh13_art_5_p1_chunk_1",
+      "l_52_2014_qh13_art_5_p2_chunk_4"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -231,7 +231,7 @@
     "answer": "Không. Kết hôn giữa những người cùng dòng máu về trực hệ là trường hợp bị cấm.",
     "explanation": "Điểm d khoản 2 Điều 5 cấm kết hôn giữa những người cùng dòng máu về trực hệ; đây không chỉ là điều kiện tuổi hay tự nguyện.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_5_p1_chunk_2_1"
+      "l_52_2014_qh13_art_5_p1_chunk_2_1"
     ],
     "citations": [
       {
@@ -249,10 +249,10 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_5_p2_chunk_3",
-      "luat_52_2014_qh13_art_5_p1_chunk_1",
-      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
-      "luat_52_2014_qh13_art_5_p2_chunk_4"
+      "l_52_2014_qh13_art_5_p2_chunk_3",
+      "l_52_2014_qh13_art_5_p1_chunk_1",
+      "l_52_2014_qh13_art_5_p1_chunk_2_2",
+      "l_52_2014_qh13_art_5_p2_chunk_4"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -266,7 +266,7 @@
     "answer": "Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo Luật Hôn nhân và gia đình; quyền con cái, tài sản được giải quyết theo quy định riêng.",
     "explanation": "Khoản 1 Điều 14 tách quan hệ vợ chồng khỏi quan hệ cha mẹ-con và tài sản khi nam nữ chung sống mà không đăng ký.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_1"
+      "l_52_2014_qh13_art_14_chunk_1"
     ],
     "citations": [
       {
@@ -284,7 +284,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_2"
+      "l_52_2014_qh13_art_14_chunk_2"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -298,7 +298,7 @@
     "answer": "Từ thời điểm đăng ký kết hôn theo quy định pháp luật.",
     "explanation": "Khoản 2 Điều 14 xác định quan hệ hôn nhân phát sinh kể từ thời điểm đăng ký kết hôn hợp lệ nếu sau đó các bên đăng ký.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_2"
+      "l_52_2014_qh13_art_14_chunk_2"
     ],
     "citations": [
       {
@@ -316,7 +316,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_1"
+      "l_52_2014_qh13_art_14_chunk_1"
     ],
     "mapping_status": "production_verified",
     "verified_by": "HO_TEN_THUC_TE",
@@ -330,7 +330,7 @@
     "answer": "Theo quy định của Luật Hôn nhân và gia đình về quyền, nghĩa vụ của cha mẹ và con.",
     "explanation": "Điều 15 nêu quyền, nghĩa vụ giữa cha mẹ và con khi không đăng ký kết hôn vẫn được giải quyết theo quy định của Luật.",
     "gold_context_ids": [
-      "luat_52_2014_qh13_art_15_chunk_1"
+      "l_52_2014_qh13_art_15_chunk_1"
     ],
     "citations": [
       {
@@ -376,8 +376,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_16_chunk_1",
-      "luat_52_2014_qh13_art_16_chunk_2"
+      "l_52_2014_qh13_art_16_chunk_1",
+      "l_52_2014_qh13_art_16_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -407,7 +407,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_17_chunk_1"
+      "l_52_2014_qh13_art_17_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -437,8 +437,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_19_chunk_2",
-      "luat_52_2014_qh13_art_19_chunk_1"
+      "l_52_2014_qh13_art_19_chunk_2",
+      "l_52_2014_qh13_art_19_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -468,7 +468,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_20_chunk_1"
+      "l_52_2014_qh13_art_20_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -498,9 +498,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_33_chunk_1",
-      "luat_52_2014_qh13_art_33_chunk_3",
-      "luat_52_2014_qh13_art_33_chunk_2"
+      "l_52_2014_qh13_art_33_chunk_1",
+      "l_52_2014_qh13_art_33_chunk_3",
+      "l_52_2014_qh13_art_33_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -530,9 +530,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_33_chunk_1",
-      "luat_52_2014_qh13_art_33_chunk_3",
-      "luat_52_2014_qh13_art_33_chunk_2"
+      "l_52_2014_qh13_art_33_chunk_1",
+      "l_52_2014_qh13_art_33_chunk_3",
+      "l_52_2014_qh13_art_33_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -568,11 +568,11 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_43_chunk_1",
-      "luat_52_2014_qh13_art_43_chunk_2",
-      "luat_52_2014_qh13_art_46_chunk_3",
-      "luat_52_2014_qh13_art_46_chunk_1",
-      "luat_52_2014_qh13_art_46_chunk_2"
+      "l_52_2014_qh13_art_43_chunk_1",
+      "l_52_2014_qh13_art_43_chunk_2",
+      "l_52_2014_qh13_art_46_chunk_3",
+      "l_52_2014_qh13_art_46_chunk_1",
+      "l_52_2014_qh13_art_46_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -608,11 +608,11 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_43_chunk_1",
-      "luat_52_2014_qh13_art_43_chunk_2",
-      "luat_52_2014_qh13_art_46_chunk_1",
-      "luat_52_2014_qh13_art_46_chunk_3",
-      "luat_52_2014_qh13_art_46_chunk_2"
+      "l_52_2014_qh13_art_43_chunk_1",
+      "l_52_2014_qh13_art_43_chunk_2",
+      "l_52_2014_qh13_art_46_chunk_1",
+      "l_52_2014_qh13_art_46_chunk_3",
+      "l_52_2014_qh13_art_46_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -642,9 +642,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_38_chunk_1",
-      "luat_52_2014_qh13_art_38_chunk_2",
-      "luat_52_2014_qh13_art_38_chunk_3"
+      "l_52_2014_qh13_art_38_chunk_1",
+      "l_52_2014_qh13_art_38_chunk_2",
+      "l_52_2014_qh13_art_38_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -674,8 +674,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_51_chunk_3",
-      "luat_52_2014_qh13_art_51_chunk_1"
+      "l_52_2014_qh13_art_51_chunk_3",
+      "l_52_2014_qh13_art_51_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -705,8 +705,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_51_chunk_3",
-      "luat_52_2014_qh13_art_51_chunk_1"
+      "l_52_2014_qh13_art_51_chunk_3",
+      "l_52_2014_qh13_art_51_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -736,8 +736,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_51_chunk_1",
-      "luat_52_2014_qh13_art_51_chunk_3"
+      "l_52_2014_qh13_art_51_chunk_1",
+      "l_52_2014_qh13_art_51_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -767,7 +767,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_55_chunk_1"
+      "l_52_2014_qh13_art_55_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -797,9 +797,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_56_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_3",
-      "luat_52_2014_qh13_art_56_chunk_2"
+      "l_52_2014_qh13_art_56_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_3",
+      "l_52_2014_qh13_art_56_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -829,8 +829,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_57_chunk_1",
-      "luat_52_2014_qh13_art_57_chunk_2"
+      "l_52_2014_qh13_art_57_chunk_1",
+      "l_52_2014_qh13_art_57_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -860,11 +860,11 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_59_p1_chunk_2",
-      "luat_52_2014_qh13_art_59_p1_chunk_1",
-      "luat_52_2014_qh13_art_59_p1_chunk_3",
-      "luat_52_2014_qh13_art_59_p2_chunk_4",
-      "luat_52_2014_qh13_art_59_p2_chunk_5"
+      "l_52_2014_qh13_art_59_p1_chunk_2",
+      "l_52_2014_qh13_art_59_p1_chunk_1",
+      "l_52_2014_qh13_art_59_p1_chunk_3",
+      "l_52_2014_qh13_art_59_p2_chunk_4",
+      "l_52_2014_qh13_art_59_p2_chunk_5"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -894,9 +894,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_81_chunk_2",
-      "luat_52_2014_qh13_art_81_chunk_3",
-      "luat_52_2014_qh13_art_81_chunk_1"
+      "l_52_2014_qh13_art_81_chunk_2",
+      "l_52_2014_qh13_art_81_chunk_3",
+      "l_52_2014_qh13_art_81_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -926,9 +926,9 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_81_chunk_3",
-      "luat_52_2014_qh13_art_81_chunk_2",
-      "luat_52_2014_qh13_art_81_chunk_1"
+      "l_52_2014_qh13_art_81_chunk_3",
+      "l_52_2014_qh13_art_81_chunk_2",
+      "l_52_2014_qh13_art_81_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -958,8 +958,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_82_chunk_2",
-      "luat_52_2014_qh13_art_82_chunk_1"
+      "l_52_2014_qh13_art_82_chunk_2",
+      "l_52_2014_qh13_art_82_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -989,8 +989,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_82_chunk_2",
-      "luat_52_2014_qh13_art_82_chunk_1"
+      "l_52_2014_qh13_art_82_chunk_2",
+      "l_52_2014_qh13_art_82_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1020,8 +1020,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_116_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_2"
+      "l_52_2014_qh13_art_116_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1051,7 +1051,7 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_117_chunk_1"
+      "l_52_2014_qh13_art_117_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1081,8 +1081,8 @@
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_107_chunk_1",
-      "luat_52_2014_qh13_art_107_chunk_2"
+      "l_52_2014_qh13_art_107_chunk_1",
+      "l_52_2014_qh13_art_107_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1114,8 +1114,8 @@
     ],
     "evidence_level": "partial_chunk_support_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1",
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_1",
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1148,9 +1148,9 @@
     ],
     "evidence_level": "partial_chunk_support_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_131_chunk_3_1",
-      "luat_52_2014_qh13_art_131_chunk_1",
-      "luat_52_2014_qh13_art_131_chunk_2"
+      "l_52_2014_qh13_art_131_chunk_3_1",
+      "l_52_2014_qh13_art_131_chunk_1",
+      "l_52_2014_qh13_art_131_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1832,7 +1832,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_1_chunk_1"
+      "l_52_2014_qh13_art_1_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1862,10 +1862,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_2_chunk_1",
-      "luat_52_2014_qh13_art_2_chunk_4",
-      "luat_52_2014_qh13_art_2_chunk_5",
-      "luat_52_2014_qh13_art_2_chunk_3"
+      "l_52_2014_qh13_art_2_chunk_1",
+      "l_52_2014_qh13_art_2_chunk_4",
+      "l_52_2014_qh13_art_2_chunk_5",
+      "l_52_2014_qh13_art_2_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1895,11 +1895,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_3_p1_chunk_3",
-      "luat_52_2014_qh13_art_3_p1_chunk_1",
-      "luat_52_2014_qh13_art_3_p1_chunk_4",
-      "luat_52_2014_qh13_art_3_p4_chunk_25",
-      "luat_52_2014_qh13_art_3_p3_chunk_19"
+      "l_52_2014_qh13_art_3_p1_chunk_3",
+      "l_52_2014_qh13_art_3_p1_chunk_1",
+      "l_52_2014_qh13_art_3_p1_chunk_4",
+      "l_52_2014_qh13_art_3_p4_chunk_25",
+      "l_52_2014_qh13_art_3_p3_chunk_19"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1929,9 +1929,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_4_chunk_2",
-      "luat_52_2014_qh13_art_4_chunk_1",
-      "luat_52_2014_qh13_art_4_chunk_3"
+      "l_52_2014_qh13_art_4_chunk_2",
+      "l_52_2014_qh13_art_4_chunk_1",
+      "l_52_2014_qh13_art_4_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1961,11 +1961,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_5_p1_chunk_1",
-      "luat_52_2014_qh13_art_5_p2_chunk_3",
-      "luat_52_2014_qh13_art_5_p2_chunk_4",
-      "luat_52_2014_qh13_art_5_p1_chunk_2_2",
-      "luat_52_2014_qh13_art_5_p1_chunk_2_1"
+      "l_52_2014_qh13_art_5_p1_chunk_1",
+      "l_52_2014_qh13_art_5_p2_chunk_3",
+      "l_52_2014_qh13_art_5_p2_chunk_4",
+      "l_52_2014_qh13_art_5_p1_chunk_2_2",
+      "l_52_2014_qh13_art_5_p1_chunk_2_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -1995,7 +1995,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_6_chunk_1"
+      "l_52_2014_qh13_art_6_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2025,8 +2025,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_7_chunk_1",
-      "luat_52_2014_qh13_art_7_chunk_2"
+      "l_52_2014_qh13_art_7_chunk_1",
+      "l_52_2014_qh13_art_7_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2056,8 +2056,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_8_chunk_1",
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_1",
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2087,8 +2087,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_9_chunk_1",
-      "luat_52_2014_qh13_art_9_chunk_2"
+      "l_52_2014_qh13_art_9_chunk_1",
+      "l_52_2014_qh13_art_9_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2118,9 +2118,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_10_chunk_2",
-      "luat_52_2014_qh13_art_10_chunk_3",
-      "luat_52_2014_qh13_art_10_chunk_1"
+      "l_52_2014_qh13_art_10_chunk_2",
+      "l_52_2014_qh13_art_10_chunk_3",
+      "l_52_2014_qh13_art_10_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2150,10 +2150,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_11_chunk_2",
-      "luat_52_2014_qh13_art_11_chunk_3",
-      "luat_52_2014_qh13_art_11_chunk_1",
-      "luat_52_2014_qh13_art_11_chunk_4"
+      "l_52_2014_qh13_art_11_chunk_2",
+      "l_52_2014_qh13_art_11_chunk_3",
+      "l_52_2014_qh13_art_11_chunk_1",
+      "l_52_2014_qh13_art_11_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2183,9 +2183,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_12_chunk_3",
-      "luat_52_2014_qh13_art_12_chunk_1",
-      "luat_52_2014_qh13_art_12_chunk_2"
+      "l_52_2014_qh13_art_12_chunk_3",
+      "l_52_2014_qh13_art_12_chunk_1",
+      "l_52_2014_qh13_art_12_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2215,7 +2215,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_13_chunk_1"
+      "l_52_2014_qh13_art_13_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2245,8 +2245,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_1",
-      "luat_52_2014_qh13_art_14_chunk_2"
+      "l_52_2014_qh13_art_14_chunk_1",
+      "l_52_2014_qh13_art_14_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2276,7 +2276,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_15_chunk_1"
+      "l_52_2014_qh13_art_15_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2306,8 +2306,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_16_chunk_1",
-      "luat_52_2014_qh13_art_16_chunk_2"
+      "l_52_2014_qh13_art_16_chunk_1",
+      "l_52_2014_qh13_art_16_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2337,7 +2337,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_17_chunk_1"
+      "l_52_2014_qh13_art_17_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2367,7 +2367,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_18_chunk_1"
+      "l_52_2014_qh13_art_18_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2397,8 +2397,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_19_chunk_2",
-      "luat_52_2014_qh13_art_19_chunk_1"
+      "l_52_2014_qh13_art_19_chunk_2",
+      "l_52_2014_qh13_art_19_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2428,7 +2428,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_20_chunk_1"
+      "l_52_2014_qh13_art_20_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2458,7 +2458,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_21_chunk_1"
+      "l_52_2014_qh13_art_21_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2488,7 +2488,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_22_chunk_1"
+      "l_52_2014_qh13_art_22_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2518,7 +2518,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_23_chunk_1"
+      "l_52_2014_qh13_art_23_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2548,9 +2548,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_24_chunk_3",
-      "luat_52_2014_qh13_art_24_chunk_1",
-      "luat_52_2014_qh13_art_24_chunk_2"
+      "l_52_2014_qh13_art_24_chunk_3",
+      "l_52_2014_qh13_art_24_chunk_1",
+      "l_52_2014_qh13_art_24_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2580,8 +2580,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_25_chunk_1",
-      "luat_52_2014_qh13_art_25_chunk_2"
+      "l_52_2014_qh13_art_25_chunk_1",
+      "l_52_2014_qh13_art_25_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2611,8 +2611,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_26_chunk_2",
-      "luat_52_2014_qh13_art_26_chunk_1"
+      "l_52_2014_qh13_art_26_chunk_2",
+      "l_52_2014_qh13_art_26_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2642,8 +2642,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_27_chunk_1",
-      "luat_52_2014_qh13_art_27_chunk_2"
+      "l_52_2014_qh13_art_27_chunk_1",
+      "l_52_2014_qh13_art_27_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2673,9 +2673,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_28_chunk_1",
-      "luat_52_2014_qh13_art_28_chunk_2",
-      "luat_52_2014_qh13_art_28_chunk_3"
+      "l_52_2014_qh13_art_28_chunk_1",
+      "l_52_2014_qh13_art_28_chunk_2",
+      "l_52_2014_qh13_art_28_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2705,9 +2705,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_29_chunk_1",
-      "luat_52_2014_qh13_art_29_chunk_3",
-      "luat_52_2014_qh13_art_29_chunk_2"
+      "l_52_2014_qh13_art_29_chunk_1",
+      "l_52_2014_qh13_art_29_chunk_3",
+      "l_52_2014_qh13_art_29_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2737,8 +2737,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_30_chunk_2",
-      "luat_52_2014_qh13_art_30_chunk_1"
+      "l_52_2014_qh13_art_30_chunk_2",
+      "l_52_2014_qh13_art_30_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2768,7 +2768,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_31_chunk_1"
+      "l_52_2014_qh13_art_31_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2798,8 +2798,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_32_chunk_2",
-      "luat_52_2014_qh13_art_32_chunk_1"
+      "l_52_2014_qh13_art_32_chunk_2",
+      "l_52_2014_qh13_art_32_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2829,9 +2829,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_33_chunk_1",
-      "luat_52_2014_qh13_art_33_chunk_2",
-      "luat_52_2014_qh13_art_33_chunk_3"
+      "l_52_2014_qh13_art_33_chunk_1",
+      "l_52_2014_qh13_art_33_chunk_2",
+      "l_52_2014_qh13_art_33_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2861,8 +2861,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_34_chunk_1",
-      "luat_52_2014_qh13_art_34_chunk_2"
+      "l_52_2014_qh13_art_34_chunk_1",
+      "l_52_2014_qh13_art_34_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2892,7 +2892,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_35_chunk_1"
+      "l_52_2014_qh13_art_35_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2922,7 +2922,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_36_chunk_1"
+      "l_52_2014_qh13_art_36_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2952,11 +2952,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_37_chunk_2",
-      "luat_52_2014_qh13_art_37_chunk_1",
-      "luat_52_2014_qh13_art_37_chunk_4",
-      "luat_52_2014_qh13_art_37_chunk_5",
-      "luat_52_2014_qh13_art_37_chunk_6"
+      "l_52_2014_qh13_art_37_chunk_2",
+      "l_52_2014_qh13_art_37_chunk_1",
+      "l_52_2014_qh13_art_37_chunk_4",
+      "l_52_2014_qh13_art_37_chunk_5",
+      "l_52_2014_qh13_art_37_chunk_6"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -2986,9 +2986,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_38_chunk_1",
-      "luat_52_2014_qh13_art_38_chunk_2",
-      "luat_52_2014_qh13_art_38_chunk_3"
+      "l_52_2014_qh13_art_38_chunk_1",
+      "l_52_2014_qh13_art_38_chunk_2",
+      "l_52_2014_qh13_art_38_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3018,10 +3018,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_39_chunk_2",
-      "luat_52_2014_qh13_art_39_chunk_1",
-      "luat_52_2014_qh13_art_39_chunk_3",
-      "luat_52_2014_qh13_art_39_chunk_4"
+      "l_52_2014_qh13_art_39_chunk_2",
+      "l_52_2014_qh13_art_39_chunk_1",
+      "l_52_2014_qh13_art_39_chunk_3",
+      "l_52_2014_qh13_art_39_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3051,8 +3051,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_40_chunk_1",
-      "luat_52_2014_qh13_art_40_chunk_2"
+      "l_52_2014_qh13_art_40_chunk_1",
+      "l_52_2014_qh13_art_40_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3082,10 +3082,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_41_chunk_4",
-      "luat_52_2014_qh13_art_41_chunk_1",
-      "luat_52_2014_qh13_art_41_chunk_3",
-      "luat_52_2014_qh13_art_41_chunk_2"
+      "l_52_2014_qh13_art_41_chunk_4",
+      "l_52_2014_qh13_art_41_chunk_1",
+      "l_52_2014_qh13_art_41_chunk_3",
+      "l_52_2014_qh13_art_41_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3115,8 +3115,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_42_chunk_2",
-      "luat_52_2014_qh13_art_42_chunk_1"
+      "l_52_2014_qh13_art_42_chunk_2",
+      "l_52_2014_qh13_art_42_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3146,8 +3146,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_43_chunk_1",
-      "luat_52_2014_qh13_art_43_chunk_2"
+      "l_52_2014_qh13_art_43_chunk_1",
+      "l_52_2014_qh13_art_43_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3177,10 +3177,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_44_chunk_1",
-      "luat_52_2014_qh13_art_44_chunk_4",
-      "luat_52_2014_qh13_art_44_chunk_2",
-      "luat_52_2014_qh13_art_44_chunk_3"
+      "l_52_2014_qh13_art_44_chunk_1",
+      "l_52_2014_qh13_art_44_chunk_4",
+      "l_52_2014_qh13_art_44_chunk_2",
+      "l_52_2014_qh13_art_44_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3210,9 +3210,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_45_chunk_1",
-      "luat_52_2014_qh13_art_45_chunk_3",
-      "luat_52_2014_qh13_art_45_chunk_4"
+      "l_52_2014_qh13_art_45_chunk_1",
+      "l_52_2014_qh13_art_45_chunk_3",
+      "l_52_2014_qh13_art_45_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3242,9 +3242,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_46_chunk_1",
-      "luat_52_2014_qh13_art_46_chunk_3",
-      "luat_52_2014_qh13_art_46_chunk_2"
+      "l_52_2014_qh13_art_46_chunk_1",
+      "l_52_2014_qh13_art_46_chunk_3",
+      "l_52_2014_qh13_art_46_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3274,7 +3274,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_47_chunk_1"
+      "l_52_2014_qh13_art_47_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3304,8 +3304,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_48_chunk_1",
-      "luat_52_2014_qh13_art_48_chunk_2"
+      "l_52_2014_qh13_art_48_chunk_1",
+      "l_52_2014_qh13_art_48_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3335,7 +3335,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_49_chunk_1"
+      "l_52_2014_qh13_art_49_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3365,8 +3365,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_50_chunk_1",
-      "luat_52_2014_qh13_art_50_chunk_2"
+      "l_52_2014_qh13_art_50_chunk_1",
+      "l_52_2014_qh13_art_50_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3396,8 +3396,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_51_chunk_1",
-      "luat_52_2014_qh13_art_51_chunk_3"
+      "l_52_2014_qh13_art_51_chunk_1",
+      "l_52_2014_qh13_art_51_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3427,7 +3427,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_52_chunk_1"
+      "l_52_2014_qh13_art_52_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3457,8 +3457,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_53_chunk_1",
-      "luat_52_2014_qh13_art_53_chunk_2"
+      "l_52_2014_qh13_art_53_chunk_1",
+      "l_52_2014_qh13_art_53_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3488,7 +3488,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_54_chunk_1"
+      "l_52_2014_qh13_art_54_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3518,7 +3518,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_55_chunk_1"
+      "l_52_2014_qh13_art_55_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3548,9 +3548,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_56_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_3",
-      "luat_52_2014_qh13_art_56_chunk_2"
+      "l_52_2014_qh13_art_56_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_3",
+      "l_52_2014_qh13_art_56_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3580,8 +3580,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_57_chunk_2",
-      "luat_52_2014_qh13_art_57_chunk_1"
+      "l_52_2014_qh13_art_57_chunk_2",
+      "l_52_2014_qh13_art_57_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3611,7 +3611,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_58_chunk_1"
+      "l_52_2014_qh13_art_58_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3641,11 +3641,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_59_p1_chunk_1",
-      "luat_52_2014_qh13_art_59_p1_chunk_2",
-      "luat_52_2014_qh13_art_59_p2_chunk_4",
-      "luat_52_2014_qh13_art_59_p1_chunk_3",
-      "luat_52_2014_qh13_art_59_p2_chunk_5"
+      "l_52_2014_qh13_art_59_p1_chunk_1",
+      "l_52_2014_qh13_art_59_p1_chunk_2",
+      "l_52_2014_qh13_art_59_p2_chunk_4",
+      "l_52_2014_qh13_art_59_p1_chunk_3",
+      "l_52_2014_qh13_art_59_p2_chunk_5"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3675,8 +3675,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_60_chunk_1",
-      "luat_52_2014_qh13_art_60_chunk_2"
+      "l_52_2014_qh13_art_60_chunk_1",
+      "l_52_2014_qh13_art_60_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3706,8 +3706,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_61_chunk_1",
-      "luat_52_2014_qh13_art_61_chunk_2"
+      "l_52_2014_qh13_art_61_chunk_1",
+      "l_52_2014_qh13_art_61_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3737,10 +3737,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_62_chunk_2_1",
-      "luat_52_2014_qh13_art_62_chunk_3",
-      "luat_52_2014_qh13_art_62_chunk_1",
-      "luat_52_2014_qh13_art_62_chunk_2_2"
+      "l_52_2014_qh13_art_62_chunk_2_1",
+      "l_52_2014_qh13_art_62_chunk_3",
+      "l_52_2014_qh13_art_62_chunk_1",
+      "l_52_2014_qh13_art_62_chunk_2_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3770,7 +3770,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_63_chunk_1"
+      "l_52_2014_qh13_art_63_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3800,7 +3800,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_64_chunk_1"
+      "l_52_2014_qh13_art_64_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3830,7 +3830,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_65_chunk_1"
+      "l_52_2014_qh13_art_65_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3860,10 +3860,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_66_chunk_1",
-      "luat_52_2014_qh13_art_66_chunk_2",
-      "luat_52_2014_qh13_art_66_chunk_3",
-      "luat_52_2014_qh13_art_66_chunk_4"
+      "l_52_2014_qh13_art_66_chunk_1",
+      "l_52_2014_qh13_art_66_chunk_2",
+      "l_52_2014_qh13_art_66_chunk_3",
+      "l_52_2014_qh13_art_66_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3893,8 +3893,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_67_chunk_2",
-      "luat_52_2014_qh13_art_67_chunk_1"
+      "l_52_2014_qh13_art_67_chunk_2",
+      "l_52_2014_qh13_art_67_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3924,10 +3924,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_68_chunk_2",
-      "luat_52_2014_qh13_art_68_chunk_1",
-      "luat_52_2014_qh13_art_68_chunk_3",
-      "luat_52_2014_qh13_art_68_chunk_4"
+      "l_52_2014_qh13_art_68_chunk_2",
+      "l_52_2014_qh13_art_68_chunk_1",
+      "l_52_2014_qh13_art_68_chunk_3",
+      "l_52_2014_qh13_art_68_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3957,10 +3957,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_69_chunk_4",
-      "luat_52_2014_qh13_art_69_chunk_1",
-      "luat_52_2014_qh13_art_69_chunk_3",
-      "luat_52_2014_qh13_art_69_chunk_2"
+      "l_52_2014_qh13_art_69_chunk_4",
+      "l_52_2014_qh13_art_69_chunk_1",
+      "l_52_2014_qh13_art_69_chunk_3",
+      "l_52_2014_qh13_art_69_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -3990,11 +3990,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_70_chunk_1",
-      "luat_52_2014_qh13_art_70_chunk_4",
-      "luat_52_2014_qh13_art_70_chunk_3",
-      "luat_52_2014_qh13_art_70_chunk_5",
-      "luat_52_2014_qh13_art_70_chunk_2"
+      "l_52_2014_qh13_art_70_chunk_1",
+      "l_52_2014_qh13_art_70_chunk_4",
+      "l_52_2014_qh13_art_70_chunk_3",
+      "l_52_2014_qh13_art_70_chunk_5",
+      "l_52_2014_qh13_art_70_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4024,8 +4024,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_71_chunk_2",
-      "luat_52_2014_qh13_art_71_chunk_1"
+      "l_52_2014_qh13_art_71_chunk_2",
+      "l_52_2014_qh13_art_71_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4055,9 +4055,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_72_chunk_1",
-      "luat_52_2014_qh13_art_72_chunk_3",
-      "luat_52_2014_qh13_art_72_chunk_2"
+      "l_52_2014_qh13_art_72_chunk_1",
+      "l_52_2014_qh13_art_72_chunk_3",
+      "l_52_2014_qh13_art_72_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4087,10 +4087,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_73_chunk_4",
-      "luat_52_2014_qh13_art_73_chunk_1",
-      "luat_52_2014_qh13_art_73_chunk_2",
-      "luat_52_2014_qh13_art_73_chunk_3"
+      "l_52_2014_qh13_art_73_chunk_4",
+      "l_52_2014_qh13_art_73_chunk_1",
+      "l_52_2014_qh13_art_73_chunk_2",
+      "l_52_2014_qh13_art_73_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4120,7 +4120,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_74_chunk_1"
+      "l_52_2014_qh13_art_74_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4150,9 +4150,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_75_chunk_1",
-      "luat_52_2014_qh13_art_75_chunk_3",
-      "luat_52_2014_qh13_art_75_chunk_2"
+      "l_52_2014_qh13_art_75_chunk_1",
+      "l_52_2014_qh13_art_75_chunk_3",
+      "l_52_2014_qh13_art_75_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4182,10 +4182,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_76_chunk_3",
-      "luat_52_2014_qh13_art_76_chunk_4",
-      "luat_52_2014_qh13_art_76_chunk_2",
-      "luat_52_2014_qh13_art_76_chunk_1"
+      "l_52_2014_qh13_art_76_chunk_3",
+      "l_52_2014_qh13_art_76_chunk_4",
+      "l_52_2014_qh13_art_76_chunk_2",
+      "l_52_2014_qh13_art_76_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4215,9 +4215,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_77_chunk_3",
-      "luat_52_2014_qh13_art_77_chunk_1",
-      "luat_52_2014_qh13_art_77_chunk_2"
+      "l_52_2014_qh13_art_77_chunk_3",
+      "l_52_2014_qh13_art_77_chunk_1",
+      "l_52_2014_qh13_art_77_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4247,9 +4247,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_78_chunk_3",
-      "luat_52_2014_qh13_art_78_chunk_1",
-      "luat_52_2014_qh13_art_78_chunk_2"
+      "l_52_2014_qh13_art_78_chunk_3",
+      "l_52_2014_qh13_art_78_chunk_1",
+      "l_52_2014_qh13_art_78_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4279,8 +4279,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_79_chunk_1",
-      "luat_52_2014_qh13_art_79_chunk_2"
+      "l_52_2014_qh13_art_79_chunk_1",
+      "l_52_2014_qh13_art_79_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4310,7 +4310,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_80_chunk_1"
+      "l_52_2014_qh13_art_80_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4340,9 +4340,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_81_chunk_1",
-      "luat_52_2014_qh13_art_81_chunk_3",
-      "luat_52_2014_qh13_art_81_chunk_2"
+      "l_52_2014_qh13_art_81_chunk_1",
+      "l_52_2014_qh13_art_81_chunk_3",
+      "l_52_2014_qh13_art_81_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4372,8 +4372,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_82_chunk_2",
-      "luat_52_2014_qh13_art_82_chunk_1"
+      "l_52_2014_qh13_art_82_chunk_2",
+      "l_52_2014_qh13_art_82_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4403,8 +4403,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_83_chunk_1",
-      "luat_52_2014_qh13_art_83_chunk_2"
+      "l_52_2014_qh13_art_83_chunk_1",
+      "l_52_2014_qh13_art_83_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4434,11 +4434,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_84_chunk_5",
-      "luat_52_2014_qh13_art_84_chunk_1",
-      "luat_52_2014_qh13_art_84_chunk_2",
-      "luat_52_2014_qh13_art_84_chunk_4",
-      "luat_52_2014_qh13_art_84_chunk_3"
+      "l_52_2014_qh13_art_84_chunk_5",
+      "l_52_2014_qh13_art_84_chunk_1",
+      "l_52_2014_qh13_art_84_chunk_2",
+      "l_52_2014_qh13_art_84_chunk_4",
+      "l_52_2014_qh13_art_84_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4468,8 +4468,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_85_chunk_1",
-      "luat_52_2014_qh13_art_85_chunk_2"
+      "l_52_2014_qh13_art_85_chunk_1",
+      "l_52_2014_qh13_art_85_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4499,9 +4499,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_86_chunk_2",
-      "luat_52_2014_qh13_art_86_chunk_3",
-      "luat_52_2014_qh13_art_86_chunk_1"
+      "l_52_2014_qh13_art_86_chunk_2",
+      "l_52_2014_qh13_art_86_chunk_3",
+      "l_52_2014_qh13_art_86_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4531,9 +4531,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_87_chunk_2",
-      "luat_52_2014_qh13_art_87_chunk_1",
-      "luat_52_2014_qh13_art_87_chunk_3"
+      "l_52_2014_qh13_art_87_chunk_2",
+      "l_52_2014_qh13_art_87_chunk_1",
+      "l_52_2014_qh13_art_87_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4563,8 +4563,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_88_chunk_1",
-      "luat_52_2014_qh13_art_88_chunk_2"
+      "l_52_2014_qh13_art_88_chunk_1",
+      "l_52_2014_qh13_art_88_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4594,8 +4594,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_89_chunk_1",
-      "luat_52_2014_qh13_art_89_chunk_2"
+      "l_52_2014_qh13_art_89_chunk_1",
+      "l_52_2014_qh13_art_89_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4625,7 +4625,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_90_chunk_1"
+      "l_52_2014_qh13_art_90_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4655,7 +4655,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_91_chunk_1"
+      "l_52_2014_qh13_art_91_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4685,7 +4685,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_92_chunk_1"
+      "l_52_2014_qh13_art_92_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4715,10 +4715,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_93_chunk_1",
-      "luat_52_2014_qh13_art_93_chunk_2",
-      "luat_52_2014_qh13_art_93_chunk_3",
-      "luat_52_2014_qh13_art_93_chunk_4"
+      "l_52_2014_qh13_art_93_chunk_1",
+      "l_52_2014_qh13_art_93_chunk_2",
+      "l_52_2014_qh13_art_93_chunk_3",
+      "l_52_2014_qh13_art_93_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4748,7 +4748,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_94_chunk_1"
+      "l_52_2014_qh13_art_94_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4778,11 +4778,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_95_chunk_4",
-      "luat_52_2014_qh13_art_95_chunk_1",
-      "luat_52_2014_qh13_art_95_chunk_2",
-      "luat_52_2014_qh13_art_95_chunk_3",
-      "luat_52_2014_qh13_art_95_chunk_5"
+      "l_52_2014_qh13_art_95_chunk_4",
+      "l_52_2014_qh13_art_95_chunk_1",
+      "l_52_2014_qh13_art_95_chunk_2",
+      "l_52_2014_qh13_art_95_chunk_3",
+      "l_52_2014_qh13_art_95_chunk_5"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4812,8 +4812,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_96_p1_chunk_1",
-      "luat_52_2014_qh13_art_96_p2_chunk_2"
+      "l_52_2014_qh13_art_96_p1_chunk_1",
+      "l_52_2014_qh13_art_96_p2_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4843,11 +4843,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_97_chunk_3",
-      "luat_52_2014_qh13_art_97_chunk_4",
-      "luat_52_2014_qh13_art_97_chunk_1",
-      "luat_52_2014_qh13_art_97_chunk_2",
-      "luat_52_2014_qh13_art_97_chunk_5"
+      "l_52_2014_qh13_art_97_chunk_3",
+      "l_52_2014_qh13_art_97_chunk_4",
+      "l_52_2014_qh13_art_97_chunk_1",
+      "l_52_2014_qh13_art_97_chunk_2",
+      "l_52_2014_qh13_art_97_chunk_5"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4877,11 +4877,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_98_chunk_2",
-      "luat_52_2014_qh13_art_98_chunk_4",
-      "luat_52_2014_qh13_art_98_chunk_3",
-      "luat_52_2014_qh13_art_98_chunk_1",
-      "luat_52_2014_qh13_art_98_chunk_5"
+      "l_52_2014_qh13_art_98_chunk_2",
+      "l_52_2014_qh13_art_98_chunk_4",
+      "l_52_2014_qh13_art_98_chunk_3",
+      "l_52_2014_qh13_art_98_chunk_1",
+      "l_52_2014_qh13_art_98_chunk_5"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4911,8 +4911,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_99_chunk_1",
-      "luat_52_2014_qh13_art_99_chunk_2"
+      "l_52_2014_qh13_art_99_chunk_1",
+      "l_52_2014_qh13_art_99_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4942,7 +4942,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_100_chunk_1"
+      "l_52_2014_qh13_art_100_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -4972,8 +4972,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_101_chunk_2",
-      "luat_52_2014_qh13_art_101_chunk_1"
+      "l_52_2014_qh13_art_101_chunk_2",
+      "l_52_2014_qh13_art_101_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5003,9 +5003,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_102_chunk_3",
-      "luat_52_2014_qh13_art_102_chunk_2",
-      "luat_52_2014_qh13_art_102_chunk_1"
+      "l_52_2014_qh13_art_102_chunk_3",
+      "l_52_2014_qh13_art_102_chunk_2",
+      "l_52_2014_qh13_art_102_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5035,9 +5035,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_103_chunk_1",
-      "luat_52_2014_qh13_art_103_chunk_2",
-      "luat_52_2014_qh13_art_103_chunk_3"
+      "l_52_2014_qh13_art_103_chunk_1",
+      "l_52_2014_qh13_art_103_chunk_2",
+      "l_52_2014_qh13_art_103_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5067,8 +5067,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_104_chunk_1",
-      "luat_52_2014_qh13_art_104_chunk_2"
+      "l_52_2014_qh13_art_104_chunk_1",
+      "l_52_2014_qh13_art_104_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5098,7 +5098,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_105_chunk_1"
+      "l_52_2014_qh13_art_105_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5128,7 +5128,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_106_chunk_1"
+      "l_52_2014_qh13_art_106_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5158,8 +5158,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_107_chunk_1",
-      "luat_52_2014_qh13_art_107_chunk_2"
+      "l_52_2014_qh13_art_107_chunk_1",
+      "l_52_2014_qh13_art_107_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5189,7 +5189,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_108_chunk_1"
+      "l_52_2014_qh13_art_108_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5219,7 +5219,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_109_chunk_1"
+      "l_52_2014_qh13_art_109_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5249,7 +5249,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_110_chunk_1"
+      "l_52_2014_qh13_art_110_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5279,7 +5279,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_111_chunk_1"
+      "l_52_2014_qh13_art_111_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5309,7 +5309,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_112_chunk_1"
+      "l_52_2014_qh13_art_112_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5339,8 +5339,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_113_chunk_1",
-      "luat_52_2014_qh13_art_113_chunk_2"
+      "l_52_2014_qh13_art_113_chunk_1",
+      "l_52_2014_qh13_art_113_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5370,8 +5370,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_114_chunk_1",
-      "luat_52_2014_qh13_art_114_chunk_2"
+      "l_52_2014_qh13_art_114_chunk_1",
+      "l_52_2014_qh13_art_114_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5401,7 +5401,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_115_chunk_1"
+      "l_52_2014_qh13_art_115_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5431,8 +5431,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_116_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_2"
+      "l_52_2014_qh13_art_116_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5462,7 +5462,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_117_chunk_1"
+      "l_52_2014_qh13_art_117_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5492,10 +5492,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_118_chunk_6",
-      "luat_52_2014_qh13_art_118_chunk_1",
-      "luat_52_2014_qh13_art_118_chunk_3",
-      "luat_52_2014_qh13_art_118_chunk_2"
+      "l_52_2014_qh13_art_118_chunk_6",
+      "l_52_2014_qh13_art_118_chunk_1",
+      "l_52_2014_qh13_art_118_chunk_3",
+      "l_52_2014_qh13_art_118_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5525,9 +5525,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_119_chunk_2",
-      "luat_52_2014_qh13_art_119_chunk_3",
-      "luat_52_2014_qh13_art_119_chunk_1"
+      "l_52_2014_qh13_art_119_chunk_2",
+      "l_52_2014_qh13_art_119_chunk_3",
+      "l_52_2014_qh13_art_119_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5557,7 +5557,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_120_chunk_1"
+      "l_52_2014_qh13_art_120_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5587,10 +5587,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_121_chunk_4",
-      "luat_52_2014_qh13_art_121_chunk_1",
-      "luat_52_2014_qh13_art_121_chunk_3",
-      "luat_52_2014_qh13_art_121_chunk_2"
+      "l_52_2014_qh13_art_121_chunk_4",
+      "l_52_2014_qh13_art_121_chunk_1",
+      "l_52_2014_qh13_art_121_chunk_3",
+      "l_52_2014_qh13_art_121_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5620,9 +5620,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_122_chunk_1",
-      "luat_52_2014_qh13_art_122_chunk_2",
-      "luat_52_2014_qh13_art_122_chunk_3"
+      "l_52_2014_qh13_art_122_chunk_1",
+      "l_52_2014_qh13_art_122_chunk_2",
+      "l_52_2014_qh13_art_122_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5652,9 +5652,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_123_chunk_2",
-      "luat_52_2014_qh13_art_123_chunk_1",
-      "luat_52_2014_qh13_art_123_chunk_3"
+      "l_52_2014_qh13_art_123_chunk_2",
+      "l_52_2014_qh13_art_123_chunk_1",
+      "l_52_2014_qh13_art_123_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5684,7 +5684,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_124_chunk_1"
+      "l_52_2014_qh13_art_124_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5714,8 +5714,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_125_chunk_2",
-      "luat_52_2014_qh13_art_125_chunk_1"
+      "l_52_2014_qh13_art_125_chunk_2",
+      "l_52_2014_qh13_art_125_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5745,8 +5745,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_126_chunk_1",
-      "luat_52_2014_qh13_art_126_chunk_2"
+      "l_52_2014_qh13_art_126_chunk_1",
+      "l_52_2014_qh13_art_126_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5776,9 +5776,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_127_chunk_1",
-      "luat_52_2014_qh13_art_127_chunk_3",
-      "luat_52_2014_qh13_art_127_chunk_2"
+      "l_52_2014_qh13_art_127_chunk_1",
+      "l_52_2014_qh13_art_127_chunk_3",
+      "l_52_2014_qh13_art_127_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5808,8 +5808,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_128_chunk_2",
-      "luat_52_2014_qh13_art_128_chunk_1"
+      "l_52_2014_qh13_art_128_chunk_2",
+      "l_52_2014_qh13_art_128_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5839,8 +5839,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_129_chunk_1",
-      "luat_52_2014_qh13_art_129_chunk_2"
+      "l_52_2014_qh13_art_129_chunk_1",
+      "l_52_2014_qh13_art_129_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5870,7 +5870,7 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_130_chunk_1"
+      "l_52_2014_qh13_art_130_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -5900,9 +5900,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_131_chunk_2",
-      "luat_52_2014_qh13_art_131_chunk_3_1",
-      "luat_52_2014_qh13_art_131_chunk_1"
+      "l_52_2014_qh13_art_131_chunk_2",
+      "l_52_2014_qh13_art_131_chunk_3_1",
+      "l_52_2014_qh13_art_131_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -6463,10 +6463,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phan_1_1",
       "nd_126_2014_nd_cp_art_20_p2_chunk_2_1",
-      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phần_2",
-      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_2"
+      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phan_2",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -6561,9 +6561,9 @@
     "candidate_context_ids": [
       "nd_126_2014_nd_cp_art_23_p3_chunk_3",
       "nd_126_2014_nd_cp_art_23_p2_chunk_2",
-      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_1_1",
-      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_2",
-      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phần_1_2"
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phan_1_1",
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phan_2",
+      "nd_126_2014_nd_cp_art_23_p1_chunk_1_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -6722,8 +6722,8 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nd_126_2014_nd_cp_art_28_p1_chunk_1",
-      "nd_126_2014_nd_cp_art_28_p2_chunk_4_phần_1_1",
-      "nd_126_2014_nd_cp_art_28_p3_chunk_4_phần_2_1",
+      "nd_126_2014_nd_cp_art_28_p2_chunk_4_phan_1_1",
+      "nd_126_2014_nd_cp_art_28_p3_chunk_4_phan_2_1",
       "nd_126_2014_nd_cp_art_28_p1_chunk_3",
       "nd_126_2014_nd_cp_art_28_p1_chunk_2"
     ],
@@ -7580,11 +7580,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nd_126_2014_nd_cp_art_55_p1_chunk_1_phần_1_1",
-      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_1_1",
-      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_1_2",
-      "nd_126_2014_nd_cp_art_55_p2_chunk_1_phần_2",
-      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phần_2"
+      "nd_126_2014_nd_cp_art_55_p1_chunk_1_phan_1_1",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phan_1_1",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phan_1_2",
+      "nd_126_2014_nd_cp_art_55_p2_chunk_1_phan_2",
+      "nd_126_2014_nd_cp_art_55_p3_chunk_2_phan_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -7937,11 +7937,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nd_207_2025_nd_cp_art_9_p1_chunk_2_phần_1_1",
+      "nd_207_2025_nd_cp_art_9_p1_chunk_2_phan_1_1",
       "nd_207_2025_nd_cp_art_9_p2_chunk_3",
       "nd_207_2025_nd_cp_art_9_p1_chunk_1",
       "nd_207_2025_nd_cp_art_9_p3_chunk_4",
-      "nd_207_2025_nd_cp_art_9_p2_chunk_2_phần_2"
+      "nd_207_2025_nd_cp_art_9_p2_chunk_2_phan_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8193,11 +8193,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nd_207_2025_nd_cp_art_17_p2_chunk_2_phần_1",
-      "nd_207_2025_nd_cp_art_17_p4_chunk_3_phần_1_1",
+      "nd_207_2025_nd_cp_art_17_p2_chunk_2_phan_1",
+      "nd_207_2025_nd_cp_art_17_p4_chunk_3_phan_1_1",
       "nd_207_2025_nd_cp_art_17_p1_chunk_1",
-      "nd_207_2025_nd_cp_art_17_p5_chunk_3_phần_2",
-      "nd_207_2025_nd_cp_art_17_p6_chunk_3_phần_3"
+      "nd_207_2025_nd_cp_art_17_p5_chunk_3_phan_2",
+      "nd_207_2025_nd_cp_art_17_p6_chunk_3_phan_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8257,9 +8257,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phần_1_1",
-      "nq_01_2024_nq_hdtp_art_2_p2_chunk_1_phần_2",
-      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phần_1_2"
+      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phan_1_1",
+      "nq_01_2024_nq_hdtp_art_2_p2_chunk_1_phan_2",
+      "nq_01_2024_nq_hdtp_art_2_p1_chunk_1_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8351,9 +8351,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phần_1_1",
-      "nq_01_2024_nq_hdtp_art_5_p2_chunk_1_phần_2",
-      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phần_1_2"
+      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phan_1_1",
+      "nq_01_2024_nq_hdtp_art_5_p2_chunk_1_phan_2",
+      "nq_01_2024_nq_hdtp_art_5_p1_chunk_1_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8384,9 +8384,9 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nq_01_2024_nq_hdtp_art_6_p1_chunk_1",
-      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phần_1_1",
-      "nq_01_2024_nq_hdtp_art_6_p3_chunk_2_phần_2",
-      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phần_1_2"
+      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phan_1_1",
+      "nq_01_2024_nq_hdtp_art_6_p3_chunk_2_phan_2",
+      "nq_01_2024_nq_hdtp_art_6_p2_chunk_2_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8448,13 +8448,7 @@
       "ND03_D08"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
-    "candidate_context_ids": [
-      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_2_1",
-      "nq_01_2024_nq_hdtp_art_8_p1_chunk_1_phần_1_1",
-      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_3",
-      "nq_01_2024_nq_hdtp_art_8_p2_chunk_1_phần_2_2",
-      "nq_01_2024_nq_hdtp_art_8_p1_chunk_1_phần_1_2"
-    ],
+    "candidate_context_ids": [],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
     "verified_at": null,
@@ -8614,11 +8608,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_1",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phan_1_1",
       "nd_126_2014_nd_cp_art_20_p2_chunk_2_1",
-      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phần_2",
-      "luat_52_2014_qh13_art_8_chunk_1",
-      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phần_1_2"
+      "nd_126_2014_nd_cp_art_20_p2_chunk_1_phan_2",
+      "l_52_2014_qh13_art_8_chunk_1",
+      "nd_126_2014_nd_cp_art_20_p1_chunk_1_phan_1_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8655,9 +8649,9 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nd_126_2014_nd_cp_art_26_chunk_1",
-      "luat_52_2014_qh13_art_8_chunk_1",
+      "l_52_2014_qh13_art_8_chunk_1",
       "nd_126_2014_nd_cp_art_26_chunk_2",
-      "luat_52_2014_qh13_art_8_chunk_2"
+      "l_52_2014_qh13_art_8_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8693,11 +8687,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_10_chunk_2",
-      "luat_52_2014_qh13_art_10_chunk_3",
-      "luat_52_2014_qh13_art_11_chunk_2",
-      "luat_52_2014_qh13_art_10_chunk_1",
-      "luat_52_2014_qh13_art_11_chunk_1"
+      "l_52_2014_qh13_art_10_chunk_2",
+      "l_52_2014_qh13_art_10_chunk_3",
+      "l_52_2014_qh13_art_11_chunk_2",
+      "l_52_2014_qh13_art_10_chunk_1",
+      "l_52_2014_qh13_art_11_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8733,10 +8727,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_12_chunk_1",
-      "luat_52_2014_qh13_art_15_chunk_1",
-      "luat_52_2014_qh13_art_12_chunk_3",
-      "luat_52_2014_qh13_art_12_chunk_2"
+      "l_52_2014_qh13_art_12_chunk_1",
+      "l_52_2014_qh13_art_15_chunk_1",
+      "l_52_2014_qh13_art_12_chunk_3",
+      "l_52_2014_qh13_art_12_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8772,10 +8766,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_14_chunk_1",
-      "luat_52_2014_qh13_art_16_chunk_1",
-      "luat_52_2014_qh13_art_14_chunk_2",
-      "luat_52_2014_qh13_art_16_chunk_2"
+      "l_52_2014_qh13_art_14_chunk_1",
+      "l_52_2014_qh13_art_16_chunk_1",
+      "l_52_2014_qh13_art_14_chunk_2",
+      "l_52_2014_qh13_art_16_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8811,9 +8805,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_20_chunk_1",
-      "luat_52_2014_qh13_art_19_chunk_2",
-      "luat_52_2014_qh13_art_19_chunk_1"
+      "l_52_2014_qh13_art_20_chunk_1",
+      "l_52_2014_qh13_art_19_chunk_2",
+      "l_52_2014_qh13_art_19_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8849,11 +8843,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_24_chunk_3",
-      "luat_52_2014_qh13_art_24_chunk_1",
-      "luat_52_2014_qh13_art_25_chunk_1",
-      "luat_52_2014_qh13_art_24_chunk_2",
-      "luat_52_2014_qh13_art_25_chunk_2"
+      "l_52_2014_qh13_art_24_chunk_3",
+      "l_52_2014_qh13_art_24_chunk_1",
+      "l_52_2014_qh13_art_25_chunk_1",
+      "l_52_2014_qh13_art_24_chunk_2",
+      "l_52_2014_qh13_art_25_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8889,8 +8883,8 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_31_chunk_1",
-      "luat_52_2014_qh13_art_35_chunk_1"
+      "l_52_2014_qh13_art_31_chunk_1",
+      "l_52_2014_qh13_art_35_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8926,10 +8920,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_32_chunk_1",
-      "luat_52_2014_qh13_art_27_chunk_1",
-      "luat_52_2014_qh13_art_32_chunk_2",
-      "luat_52_2014_qh13_art_27_chunk_2"
+      "l_52_2014_qh13_art_32_chunk_1",
+      "l_52_2014_qh13_art_27_chunk_1",
+      "l_52_2014_qh13_art_32_chunk_2",
+      "l_52_2014_qh13_art_27_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8965,11 +8959,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_37_chunk_4",
-      "luat_52_2014_qh13_art_36_chunk_1",
-      "luat_52_2014_qh13_art_37_chunk_2",
-      "luat_52_2014_qh13_art_37_chunk_5",
-      "luat_52_2014_qh13_art_37_chunk_1"
+      "l_52_2014_qh13_art_37_chunk_4",
+      "l_52_2014_qh13_art_36_chunk_1",
+      "l_52_2014_qh13_art_37_chunk_2",
+      "l_52_2014_qh13_art_37_chunk_5",
+      "l_52_2014_qh13_art_37_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9005,11 +8999,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_39_chunk_1",
-      "luat_52_2014_qh13_art_39_chunk_2",
-      "luat_52_2014_qh13_art_38_chunk_1",
-      "luat_52_2014_qh13_art_39_chunk_4",
-      "luat_52_2014_qh13_art_39_chunk_3"
+      "l_52_2014_qh13_art_39_chunk_1",
+      "l_52_2014_qh13_art_39_chunk_2",
+      "l_52_2014_qh13_art_38_chunk_1",
+      "l_52_2014_qh13_art_39_chunk_4",
+      "l_52_2014_qh13_art_39_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9045,11 +9039,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_41_chunk_4",
-      "luat_52_2014_qh13_art_41_chunk_3",
-      "luat_52_2014_qh13_art_41_chunk_1",
-      "luat_52_2014_qh13_art_41_chunk_2",
-      "luat_52_2014_qh13_art_42_chunk_1"
+      "l_52_2014_qh13_art_41_chunk_4",
+      "l_52_2014_qh13_art_41_chunk_3",
+      "l_52_2014_qh13_art_41_chunk_1",
+      "l_52_2014_qh13_art_41_chunk_2",
+      "l_52_2014_qh13_art_42_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9085,11 +9079,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_44_chunk_1",
-      "luat_52_2014_qh13_art_46_chunk_3",
-      "luat_52_2014_qh13_art_44_chunk_2",
-      "luat_52_2014_qh13_art_44_chunk_4",
-      "luat_52_2014_qh13_art_46_chunk_1"
+      "l_52_2014_qh13_art_44_chunk_1",
+      "l_52_2014_qh13_art_46_chunk_3",
+      "l_52_2014_qh13_art_44_chunk_2",
+      "l_52_2014_qh13_art_44_chunk_4",
+      "l_52_2014_qh13_art_46_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9125,10 +9119,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_50_chunk_1",
-      "luat_52_2014_qh13_art_48_chunk_1",
-      "luat_52_2014_qh13_art_48_chunk_2",
-      "luat_52_2014_qh13_art_50_chunk_2"
+      "l_52_2014_qh13_art_50_chunk_1",
+      "l_52_2014_qh13_art_48_chunk_1",
+      "l_52_2014_qh13_art_48_chunk_2",
+      "l_52_2014_qh13_art_50_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9164,11 +9158,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_51_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_3",
-      "luat_52_2014_qh13_art_56_chunk_2",
-      "luat_52_2014_qh13_art_51_chunk_3"
+      "l_52_2014_qh13_art_51_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_3",
+      "l_52_2014_qh13_art_56_chunk_2",
+      "l_52_2014_qh13_art_51_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9204,10 +9198,10 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_55_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_1",
-      "luat_52_2014_qh13_art_56_chunk_3",
-      "luat_52_2014_qh13_art_56_chunk_2"
+      "l_52_2014_qh13_art_55_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_1",
+      "l_52_2014_qh13_art_56_chunk_3",
+      "l_52_2014_qh13_art_56_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9243,11 +9237,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_60_chunk_1",
-      "luat_52_2014_qh13_art_59_p1_chunk_1",
-      "luat_52_2014_qh13_art_59_p1_chunk_2",
-      "luat_52_2014_qh13_art_59_p2_chunk_4",
-      "luat_52_2014_qh13_art_59_p1_chunk_3"
+      "l_52_2014_qh13_art_60_chunk_1",
+      "l_52_2014_qh13_art_59_p1_chunk_1",
+      "l_52_2014_qh13_art_59_p1_chunk_2",
+      "l_52_2014_qh13_art_59_p2_chunk_4",
+      "l_52_2014_qh13_art_59_p1_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9283,11 +9277,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_62_chunk_2_1",
-      "luat_52_2014_qh13_art_62_chunk_3",
-      "luat_52_2014_qh13_art_59_p1_chunk_1",
-      "luat_52_2014_qh13_art_59_p2_chunk_4",
-      "luat_52_2014_qh13_art_62_chunk_1"
+      "l_52_2014_qh13_art_62_chunk_2_1",
+      "l_52_2014_qh13_art_62_chunk_3",
+      "l_52_2014_qh13_art_59_p1_chunk_1",
+      "l_52_2014_qh13_art_59_p2_chunk_4",
+      "l_52_2014_qh13_art_62_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9323,11 +9317,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_81_chunk_2",
-      "luat_52_2014_qh13_art_82_chunk_2",
-      "luat_52_2014_qh13_art_81_chunk_1",
-      "luat_52_2014_qh13_art_82_chunk_1",
-      "luat_52_2014_qh13_art_81_chunk_3"
+      "l_52_2014_qh13_art_81_chunk_2",
+      "l_52_2014_qh13_art_82_chunk_2",
+      "l_52_2014_qh13_art_81_chunk_1",
+      "l_52_2014_qh13_art_82_chunk_1",
+      "l_52_2014_qh13_art_81_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9363,11 +9357,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_84_chunk_2",
-      "luat_52_2014_qh13_art_84_chunk_5",
-      "luat_52_2014_qh13_art_81_chunk_2",
-      "luat_52_2014_qh13_art_84_chunk_1",
-      "luat_52_2014_qh13_art_84_chunk_4"
+      "l_52_2014_qh13_art_84_chunk_2",
+      "l_52_2014_qh13_art_84_chunk_5",
+      "l_52_2014_qh13_art_81_chunk_2",
+      "l_52_2014_qh13_art_84_chunk_1",
+      "l_52_2014_qh13_art_84_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9403,11 +9397,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_86_chunk_2",
-      "luat_52_2014_qh13_art_87_chunk_1",
-      "luat_52_2014_qh13_art_87_chunk_2",
-      "luat_52_2014_qh13_art_86_chunk_1",
-      "luat_52_2014_qh13_art_86_chunk_3"
+      "l_52_2014_qh13_art_86_chunk_2",
+      "l_52_2014_qh13_art_87_chunk_1",
+      "l_52_2014_qh13_art_87_chunk_2",
+      "l_52_2014_qh13_art_86_chunk_1",
+      "l_52_2014_qh13_art_86_chunk_3"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9443,11 +9437,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_93_chunk_1",
-      "luat_52_2014_qh13_art_93_chunk_2",
-      "luat_52_2014_qh13_art_93_chunk_3",
-      "luat_52_2014_qh13_art_94_chunk_1",
-      "luat_52_2014_qh13_art_93_chunk_4"
+      "l_52_2014_qh13_art_93_chunk_1",
+      "l_52_2014_qh13_art_93_chunk_2",
+      "l_52_2014_qh13_art_93_chunk_3",
+      "l_52_2014_qh13_art_94_chunk_1",
+      "l_52_2014_qh13_art_93_chunk_4"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9483,11 +9477,11 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_99_chunk_1",
-      "luat_52_2014_qh13_art_95_chunk_2",
-      "luat_52_2014_qh13_art_95_chunk_3",
-      "luat_52_2014_qh13_art_95_chunk_1",
-      "luat_52_2014_qh13_art_99_chunk_2"
+      "l_52_2014_qh13_art_99_chunk_1",
+      "l_52_2014_qh13_art_95_chunk_2",
+      "l_52_2014_qh13_art_95_chunk_3",
+      "l_52_2014_qh13_art_95_chunk_1",
+      "l_52_2014_qh13_art_99_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9523,9 +9517,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_110_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_2"
+      "l_52_2014_qh13_art_110_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -9561,9 +9555,9 @@
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
-      "luat_52_2014_qh13_art_117_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_1",
-      "luat_52_2014_qh13_art_116_chunk_2"
+      "l_52_2014_qh13_art_117_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_1",
+      "l_52_2014_qh13_art_116_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
