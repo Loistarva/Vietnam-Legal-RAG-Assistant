@@ -15,7 +15,7 @@ from evaluation.benchmark_runner import run_benchmark_bm25
 # Đường dẫn dữ liệu Dev Set
 QUERIES_DEV_PATH = ROOT_DIR / "data" / "benchmark" / "queries_dev.json"
 RESULTS_PATH = ROOT_DIR / "evaluation" /"results"/ "bm25_dev_results.json"
-GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
+GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "gold_id_proposals_300.json"
 METRICS_PATH = ROOT_DIR / "evaluation" /"results"/ "bm25_dev_metrics.json"
 
 TOP_K = 5
