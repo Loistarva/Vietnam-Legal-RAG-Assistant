@@ -94,4 +94,12 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
    * Gắn đúng `parent_clause_id` để kết nối lại thành cây.
 3. **Quy tắc Ngoại lệ (Edge Cases):**
    * Nếu một Điều luật không phân chia thành các Khoản (chỉ có một đoạn văn duy nhất), Parser vẫn phải khởi tạo một Clause (VD: `clause_number: "1"`) để bọc lấy đoạn văn đó, giữ vững tính toàn vẹn của cây 4 tầng.
-   * Document có `validity_status` là `"Hết hiệu lực"` sẽ không được đưa vào tiến trình Chunking & Embedding.
+   * Chunker không tự loại văn bản theo `validity_status`; trạng thái được giữ trong metadata để hệ thống retrieval lọc theo thời điểm câu hỏi. Nếu nghiệp vụ chỉ chọn văn bản còn hiệu lực, bộ chọn corpus phải áp dụng điều kiện đó trước khi export.
+
+## 5. Hợp đồng đầu ra Child Chunk JSONL
+
+Parser giữ nguyên JSON nguồn và không cần ghi chunks ngược vào `clauses[].chunks`. Exporter tạo một bản ghi Child Chunk độc lập trên mỗi dòng tại `data/chunking_output/chunks.jsonl`; cấu trúc bản ghi được mô tả trong [`schemas/chunk_payload_schema.json`](../schemas/chunk_payload_schema.json).
+
+Các trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_text` là các alias tương thích tích hợp và phải có giá trị bằng nhau. `metadata` chứa metadata tài liệu cùng `chapter`, `section` và `article_number`; các trường này cũng được trải phẳng ở cấp gốc cho hệ thống retrieval. `parent_id` phải trỏ đến một Parent trong `data/chunking_output/parents.json`, và danh sách `child_ids` của Parent phải khớp với các Child.
+
+Chunk ID chỉ dùng ASCII theo biểu thức `^[A-Za-z0-9_]+$`. Chunker phải bảo toàn nguyên thứ tự token của `clause_text`; không được bỏ đoạn đuôi ngắn chỉ vì nó ít hơn ngưỡng gom chunk. Việc xác nhận nội dung có đầy đủ và đúng với văn bản pháp luật gốc vẫn phụ thuộc vào chất lượng JSON parser và đối chiếu nguồn chính thức.

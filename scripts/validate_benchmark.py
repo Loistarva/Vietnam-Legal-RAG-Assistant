@@ -47,7 +47,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
         issues.append('Thiếu manifest đóng băng câu hỏi Test')
     else:
         expected = load(frozen)
-        raw = (DATA/'queries_test.json').read_bytes()
+        # Git may check out LF content as CRLF on Windows. The freeze manifest
+        # hashes canonical UTF-8/LF bytes, so normalize line endings first.
+        raw = (DATA/'queries_test.json').read_bytes().replace(b'\r\n', b'\n')
         digest = hashlib.sha256(raw).hexdigest()
         if (expected.get('sha256')!=digest or expected.get('test_ids')!=[q.get('id') for q in test]
                 or expected.get('question_count')!=len(test)):

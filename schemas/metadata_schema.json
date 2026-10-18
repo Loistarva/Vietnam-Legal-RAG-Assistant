@@ -17,7 +17,7 @@
         "title": { "type": "string", "minLength": 5 },
         "document_type": {
           "type": "string",
-          "enum": ["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
+          "enum": ["Luật", "Nghị định", "Nghị quyết", "Thông tư", "Thông tư liên tịch", "Quyết định", "Chỉ thị"]
         },
         "document_number": { "type": "string" },
         "issue_date": { "type": "string", "format": "date" },
@@ -25,7 +25,7 @@
         "issuing_body": { "type": "string" },
         "validity_status": {
           "type": "string",
-          "enum": ["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
+          "enum": ["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]
         }
       }
     },

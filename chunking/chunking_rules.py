@@ -20,6 +20,7 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from pathlib import Path
@@ -211,12 +212,22 @@ def segment_units(text: str | None) -> list[str]:
 
 
 def _clean_id(raw_str: str | None, default: str = "item") -> str:
-    """Làm sạch chuỗi để dùng làm Semantic ID an toàn."""
+    """Chuẩn hóa ID về ASCII theo data contract, giữ chữ/số và dấu gạch dưới."""
     if not raw_str:
         return default
-    cleaned = re.sub(r"[^\w]+", "_", str(raw_str).strip().lower())
+    value = str(raw_str).strip().lower().replace("đ", "d")
+    value = "".join(
+        char for char in unicodedata.normalize("NFKD", value)
+        if not unicodedata.combining(char)
+    )
+    cleaned = re.sub(r"[^a-z0-9]+", "_", value)
     cleaned = re.sub(r"_+", "_", cleaned).strip("_")
     return cleaned or default
+
+
+def _text_tokens(text: str) -> list[str]:
+    """Token hóa bảo thủ để so sánh nội dung, không phụ thuộc NLP tokenizer."""
+    return re.findall(r"[^\W_]+", normalize_text(text).lower(), flags=re.UNICODE)
 
 
 def build_breadcrumb(
@@ -354,23 +365,25 @@ def _split_units_to_parent_groups(
     units: list[_ClauseUnit],
     max_chars: int,
     header_len: int,
+    first_group_extra: int = 0,
 ) -> list[list[_ClauseUnit]]:
-    """Gom các Khoản/Điểm thành các nhóm Parent không vượt quá giới hạn ký tự."""
+    """Gom các Khoản/Điểm thành nhóm Parent, tính cả header và xuống dòng."""
     if not units:
         return []
 
     groups: list[list[_ClauseUnit]] = []
     current_group: list[_ClauseUnit] = []
-    current_size = header_len
+    current_size = header_len + first_group_extra
 
     for u in units:
-        if current_group and (current_size + u.char_count > max_chars):
+        unit_size = u.char_count + 1  # newline trước unit trong parent.text
+        if current_group and (current_size + unit_size > max_chars):
             groups.append(current_group)
             current_group = [u]
-            current_size = header_len + u.char_count
+            current_size = header_len + unit_size
         else:
             current_group.append(u)
-            current_size += u.char_count
+            current_size += unit_size
 
     if current_group:
         groups.append(current_group)
@@ -489,8 +502,8 @@ def _create_child_chunks_from_units(
                 slice_units = units_list[sub_i : sub_i + max_units]
                 sub_seg = " ".join(slice_units)
                 sub_raw = sub_seg.replace("_", " ")
-                if len(sub_raw.split()) < min_words and sub_i > 0:
-                    continue
+                # Không loại bỏ phần đuôi ngắn: mỗi token trong văn bản pháp luật
+                # phải được giữ lại, kể cả khi đoạn cuối ít hơn min_words.
                 sub_cid = f"{parent.parent_id}_chunk_{_clean_id(u.clause_number)}_{sub_i // max_units + 1}"
                 sub_bc = f"{parent.breadcrumb} > Khoản {u.clause_number}" if u.clause_number else parent.breadcrumb
                 bc_seg = word_segment(sub_bc)
@@ -636,10 +649,16 @@ def _chunk_structured_document(
         # Trích xuất và giới hạn kích thước từng unit
         units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300)
 
-        # Tránh lặp lại intro nếu parser đã đưa toàn bộ nội dung bài vào cả intro và chunk[0]
+        # Chỉ bỏ intro khi toàn bộ intro đã nằm ở đầu clause đầu tiên.
+        # Không dùng ngưỡng độ dài để bỏ intro vì có thể làm mất nội dung luật.
         if art_intro and units:
-            unit_sample = units[0].text[:200].strip()
-            if art_intro.startswith(unit_sample) or units[0].text.startswith(art_intro[:200]) or len(art_intro) > 250:
+            intro_tokens = _text_tokens(art_intro)
+            first_unit_tokens = _text_tokens(units[0].text)
+            if (
+                intro_tokens
+                and len(intro_tokens) <= len(first_unit_tokens)
+                and first_unit_tokens[:len(intro_tokens)] == intro_tokens
+            ):
                 art_intro = ""
 
         # Tính tổng kích thước bài viết
@@ -666,8 +685,14 @@ def _chunk_structured_document(
 
         # TRƯỜNG HỢP 2: Điều DÀI -> Tách thành nhiều Parent chunks theo nhóm Khoản
         else:
-            header_len = len(article_header) + 2
-            groups = _split_units_to_parent_groups(units, max_chars, header_len)
+            header_len = len(article_header) + 1
+            first_group_extra = len(art_intro) + 1 if art_intro else 0
+            groups = _split_units_to_parent_groups(
+                units,
+                max_chars,
+                header_len,
+                first_group_extra=first_group_extra,
+            )
 
             for g_idx, group_units in enumerate(groups, start=1):
                 p_id = f"{base_parent_id}_p{g_idx}"

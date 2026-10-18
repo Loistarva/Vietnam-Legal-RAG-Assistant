@@ -37,15 +37,19 @@ from embedding.vector_store import LegalVectorStore  # noqa: E402
 
 def load_chunks_from_repo(input_path: Path | None = None) -> List[Dict[str, Any]]:
     """
-    Ưu tiên đọc file JSON chứa danh sách chunks đã xử lý.
+    Ưu tiên đọc file JSON/JSONL chứa danh sách chunks đã xử lý.
     Nếu chưa có file phẳng, tự động đọc từ parser/parsed_jsons/*.json và chạy chunking_rules.
     """
     if input_path and input_path.exists():
-        raw_data = json.loads(input_path.read_text(encoding="utf-8"))
+        raw_text = input_path.read_text(encoding="utf-8-sig")
+        if input_path.suffix.lower() == ".jsonl":
+            raw_data = [json.loads(line) for line in raw_text.splitlines() if line.strip()]
+        else:
+            raw_data = json.loads(raw_text)
         if isinstance(raw_data, list):
-            return raw_data
+            return [_adapt_chunk_for_vector_store(row) for row in raw_data]
         if isinstance(raw_data, dict) and "chunks" in raw_data:
-            return raw_data["chunks"]
+            return [_adapt_chunk_for_vector_store(row) for row in raw_data["chunks"]]
 
     processed_candidates = sorted(glob.glob(str(BASE_DIR / "data" / "processed" / "*.json")))
     if processed_candidates:
@@ -96,6 +100,46 @@ def load_chunks_from_repo(input_path: Path | None = None) -> List[Dict[str, Any]
     raise FileNotFoundError(
         "Không tìm thấy dữ liệu chunks trong data/processed/ hoặc parser/parsed_jsons/."
     )
+
+
+def _adapt_chunk_for_vector_store(raw: Dict[str, Any]) -> Dict[str, Any]:
+    """Adapt current chunk-export aliases to the payload fields required by Qdrant."""
+    if not isinstance(raw, dict):
+        raise ValueError("Chunk input phải là JSON object")
+
+    metadata = dict(raw.get("metadata") or {})
+    chunk_id = str(raw.get("chunk_id") or raw.get("id") or "").strip()
+    document_id = str(raw.get("document_id") or raw.get("doc_id") or metadata.get("doc_id") or "").strip()
+    article_number = str(raw.get("article_number") or metadata.get("article_number") or "").strip()
+    article_id = str(raw.get("article_id") or metadata.get("article_id") or "").strip()
+    if not article_id and document_id and article_number:
+        article_id = f"{document_id}_art_{article_number}"
+
+    parent_clause_id = str(
+        raw.get("parent_clause_id") or metadata.get("parent_clause_id")
+        or raw.get("parent_id") or metadata.get("parent_id") or ""
+    ).strip()
+    if not parent_clause_id and article_id:
+        parent_clause_id = f"{article_id}_clause_1"
+
+    chunk_text = raw.get("chunk_text") or raw.get("text") or raw.get("content") or ""
+    metadata.setdefault("document_id", document_id)
+    metadata.setdefault("document_number", raw.get("document_number", ""))
+    metadata.setdefault("document_title", raw.get("title", ""))
+    metadata.setdefault("article_number", article_number)
+    metadata.setdefault("validity_status", raw.get("validity_status", "Không xác định"))
+    metadata.setdefault("breadcrumb", raw.get("breadcrumb", ""))
+
+    return {
+        **raw,
+        "chunk_id": chunk_id,
+        "document_id": document_id,
+        "article_id": article_id,
+        "clause_id": str(raw.get("clause_id") or metadata.get("clause_id") or chunk_id),
+        "parent_clause_id": parent_clause_id,
+        "chunk_text": chunk_text,
+        "metadata": metadata,
+    }
 
 
 def main() -> int:

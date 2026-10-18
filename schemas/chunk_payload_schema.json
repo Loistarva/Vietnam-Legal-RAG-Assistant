@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Legal Child Chunk payload (JSONL)",
+  "description": "One exported child chunk record from chunking/export_legal_chunks.py. Fields duplicated at the root are retained for Qdrant/BM25 compatibility.",
+  "type": "object",
+  "required": [
+    "id", "chunk_id", "parent_id", "doc_id", "document_id", "title",
+    "text", "chunk_text", "seg_text", "embed_text", "breadcrumb",
+    "article_ref", "clause_ref", "point_ref", "chunk_type", "document_type",
+    "document_number", "issue_date", "effective_date", "issuing_body",
+    "validity_status", "chapter", "section", "article_number", "metadata"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "chunk_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "parent_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "doc_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "document_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "text": {"type": "string", "minLength": 1},
+    "chunk_text": {"type": "string", "minLength": 1},
+    "seg_text": {"type": "string", "minLength": 1},
+    "embed_text": {"type": "string", "minLength": 1},
+    "breadcrumb": {"type": "string"},
+    "article_ref": {"type": ["string", "null"]},
+    "clause_ref": {"type": ["string", "null"]},
+    "point_ref": {"type": ["string", "null"]},
+    "chunk_type": {
+      "type": "string",
+      "enum": ["ARTICLE", "TABLE", "PREAMBLE", "FOOTER", "APPENDIX", "FALLBACK_WINDOW"]
+    },
+    "document_type": {
+      "type": ["string", "null"],
+      "enum": ["Luật", "Nghị định", "Nghị quyết", "Thông tư", "Thông tư liên tịch", "Quyết định", "Chỉ thị", null]
+    },
+    "document_number": {"type": ["string", "null"]},
+    "issue_date": {"type": "string"},
+    "effective_date": {"type": "string"},
+    "issuing_body": {"type": ["string", "null"]},
+    "validity_status": {
+      "type": "string",
+      "enum": ["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]
+    },
+    "chapter": {"type": ["string", "null"]},
+    "section": {"type": ["string", "null"]},
+    "article_number": {"type": ["string", "null"]},
+    "metadata": {
+      "type": "object",
+      "required": [
+        "doc_id", "title", "document_type", "document_number", "issue_date",
+        "effective_date", "issuing_body", "validity_status", "chapter", "section",
+        "article_number"
+      ],
+      "properties": {
+        "doc_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "document_type": {"type": ["string", "null"]},
+        "document_number": {"type": ["string", "null"]},
+        "issue_date": {"type": "string"},
+        "effective_date": {"type": "string"},
+        "issuing_body": {"type": ["string", "null"]},
+        "validity_status": {"type": "string"},
+        "chapter": {"type": ["string", "null"]},
+        "section": {"type": ["string", "null"]},
+        "article_number": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

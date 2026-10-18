@@ -1,4 +1,4 @@
-# Retrieval
+﻿# Retrieval
 
 ## Phạm vi
 
@@ -92,52 +92,60 @@ $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 ### 2. Build index từ file child chunks
 
 ```powershell
-python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
+$env:ELASTICSEARCH_URL = "http://localhost:9200"
+$env:ELASTICSEARCH_INDEX = "task4-legal-proposal300-current"
+.\.venv\Scripts\python.exe -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\data\chunking_output\chunks.jsonl', index_name='task4-legal-proposal300-current', recreate=True))"
 ```
 
-Hàm tạo index nếu chưa tồn tại, hoặc upsert các chunk theo `chunk_id` nếu index đã có. Gọi với `recreate=True` khi chủ động muốn xóa và tạo lại index.
+Lệnh trên lập index từ corpus hiện tại (1.159 chunks). Dùng tên index mới để không nhầm với snapshot benchmark 1.175 chunks.
 
-### 3. Chạy BM25-only, Dense-only và Hybrid trên cùng bộ Dev
+### 3. Lập Dense index và chạy ba nhánh trên cùng bộ Dev
 
 ```powershell
-$env:QDRANT_PATH = (Resolve-Path .\qdrant_data).Path
-python -m retrieval.run_dev_retrieval `
+$env:QDRANT_PATH = (Resolve-Path .\qdrant_data\task4_proposal_300_current\qdrant_storage).Path
+.\.venv\Scripts\python.exe scripts\build_index.py `
+  --input .\data\chunking_output\chunks.jsonl `
+  --index-dir .\qdrant_data\task4_proposal_300_current `
+  --collection task4-bkai-proposal300-current `
+  --model bkai-foundation-models/vietnamese-bi-encoder
+
+.\.venv\Scripts\python.exe -m retrieval.run_dev_retrieval `
   --queries .\data\benchmark\queries_dev.json `
-  --chunks .\embedding\data\han_gia_dinh_smoke_chunks.json `
-  --model BAAI/bge-m3 `
+  --chunks .\data\chunking_output\chunks.jsonl `
+  --model bkai-foundation-models/vietnamese-bi-encoder `
+  --collection task4-bkai-proposal300-current `
+  --elasticsearch-url http://localhost:9200 `
+  --elasticsearch-index task4-legal-proposal300-current `
+  --output-dir .\retrieval\results\task4_proposal_300_current `
   --top-k 10 `
   --candidate-k 50 `
   --rrf-k 60
 ```
 
-Runner yêu cầu Elasticsearch index và Qdrant collection khớp cùng corpus. Collection mặc định được xác định từ tên model và hash của file chunk. Kết quả được lưu tại:
+Runner yêu cầu Elasticsearch index và Qdrant collection khớp cùng corpus. Kết quả được lưu tại:
 
-- `retrieval/results/dev_bm25.json`
-- `retrieval/results/dev_dense.json`
-- `retrieval/results/dev_hybrid.json`
+- `retrieval/results/task4_proposal_300_current/dev_bm25.json`
+- `retrieval/results/task4_proposal_300_current/dev_dense.json`
+- `retrieval/results/task4_proposal_300_current/dev_hybrid.json`
 
-### 5. Tính metric và tạo báo cáo
+### 4. Tính metric với snapshot nhãn tạm proposal
 
 ```powershell
-python -m retrieval.retrieval_evaluation
+.\.venv\Scripts\python.exe scripts\evaluate_task4.py `
+  --dev .\data\benchmark\queries_dev.json `
+  --ground-truth .\retrieval\results\task4_proposal_300_current\ground_truth_proposal_300_chunks_only.json `
+  --chunks .\data\chunking_output\chunks.jsonl `
+  --results .\retrieval\results\task4_proposal_300_current `
+  --output .\retrieval\results\task4_proposal_300_current\metrics.csv `
+  --article-index .\data\reference\article_index.json `
+  --article-output .\retrieval\results\task4_proposal_300_current\article_metrics.csv
 ```
 
-Lệnh đọc bộ Dev cùng ba tệp JSON kết quả, sau đó ghi:
+Snapshot nhãn trong thư mục kết quả giữ nguyên đầu vào của lần chạy; ID `version_*` bị loại khỏi nhãn chunk vì không thuộc corpus truy xuất. Evaluator ánh xạ chunk sang Điều bằng `document_number` và `article_number`, không phụ thuộc ID chunk của snapshot cũ.
 
-- `retrieval/results/retrieval_report.md`: cấu hình, metric, diễn giải và giới hạn.
-- `retrieval/results/retrieval_results.csv`: kết quả từng truy vấn/chunk, với tên cột và cờ liên quan bằng tiếng Việt.
+## Kết quả Task 4 hiện tại
 
-## Kết quả Dev hiện có
-
-Các số dưới đây được tính từ kết quả lưu gần nhất: 14 câu hỏi, 321 chunk từ một văn bản, Top-10 mỗi phương pháp. Đây là bộ smoke test phát triển, không phải benchmark trên corpus lớn. Nhãn chưa được chuyên gia pháp lý thẩm định.
-
-| Phương pháp | Recall@10 | MRR@10 | nDCG@10 | Precision@10 |
-| --- | ---: | ---: | ---: | ---: |
-| BM25 Elasticsearch | 0,8929 | 0,5620 | 0,6415 | 0,0929 |
-| Dense BGE-M3 | 1,0000 | 0,9524 | 0,9586 | 0,1071 |
-| Hybrid RRF | 1,0000 | 0,8197 | 0,8684 | 0,1071 |
-
-Trong Dev set này, Dense và Hybrid cùng thu hồi đủ chunk được gán nhãn trong Top-10; Dense xếp chunk liên quan sớm hơn theo MRR và nDCG. Chưa có căn cứ từ kết quả này để khẳng định Hybrid tốt hơn Dense.
+Task 4 đã chạy lại trên 285 câu Dev với corpus `data/chunking_output/chunks.jsonl` hiện tại (1.159 chunks), dùng `gold_id_proposals_300.json` làm nhãn tạm. Kết quả lần chạy mới được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; Hybrid dẫn đầu ở chunk-level, Dense dẫn đầu ở article-level. Có 268 câu được chấm chunk-level (9 nhãn gold đã xác nhận, 259 nhãn proposal chưa xác minh) và 17 câu chưa có nhãn chunk; các metric chỉ mang tính thử nghiệm. Báo cáo snapshot 1.175 chunk trước đây vẫn được lưu trong [báo cáo retrieval](../docs/retrieval_report.md).
 
 ## Kiểm thử
 
@@ -157,3 +165,5 @@ python -m unittest discover -s retrieval/test -v
 - Chưa có Test set độc lập; không dùng Dev để khẳng định chất lượng tổng quát.
 - Metadata/time filter trong sơ đồ kiến trúc cần được đặt đúng vị trí pre-filter trước hai nhánh nếu đó là yêu cầu bắt buộc của pipeline production.
 - Reranker có adapter nhưng không bật trong benchmark này, để so sánh riêng BM25, Dense và RRF.
+
+

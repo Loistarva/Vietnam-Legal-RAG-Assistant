@@ -23,15 +23,20 @@ def reciprocal_rank_fusion(
             if chunk_id in seen:
                 continue
             seen.add(chunk_id)
+            hit_text = hit.get("text") or hit.get("chunk_text", "")
             row = fused.setdefault(chunk_id, {
-                "chunk_id": chunk_id, "text": hit.get("text", ""),
+                "chunk_id": chunk_id, "text": hit_text, "chunk_text": hit_text,
                 "metadata": hit.get("metadata", {}), "rrf_score": 0.0,
                 "source_ranks": {}, "source_scores": {}, "retrieval_sources": [],
             })
-            if not row["text"] and hit.get("text"):
-                row["text"] = hit["text"]
+            if not row["text"] and hit_text:
+                row["text"] = hit_text
+                row["chunk_text"] = hit_text
             if not row["metadata"] and hit.get("metadata"):
                 row["metadata"] = hit["metadata"]
+            for field in ("document_id", "article_id", "clause_id", "parent_clause_id", "parent_id"):
+                if field in hit and field not in row:
+                    row[field] = hit[field]
             row["rrf_score"] += 1.0 / (rrf_k + position)
             row["source_ranks"][source_name] = position
             if "score" in hit:

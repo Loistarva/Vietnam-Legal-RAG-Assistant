@@ -43,11 +43,18 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
         raise FileNotFoundError(f"Không tìm thấy file chunks: {chunks_path}")
 
     try:
-        data = json.loads(chunks_path.read_text(encoding="utf-8-sig"))
-    except json.JSONDecodeError as exc:
+        if chunks_path.suffix.lower() == ".jsonl":
+            raw_chunks = [json.loads(line) for line in chunks_path.read_text(encoding="utf-8-sig").splitlines()
+                          if line.strip()]
+            data = None
+        else:
+            data = json.loads(chunks_path.read_text(encoding="utf-8-sig"))
+    except (json.JSONDecodeError, OSError) as exc:
         raise ValueError(f"JSON chunks không hợp lệ tại {chunks_path}: {exc}") from exc
 
-    if isinstance(data, list):
+    if chunks_path.suffix.lower() == ".jsonl":
+        pass
+    elif isinstance(data, list):
         raw_chunks = data
     elif isinstance(data, dict) and isinstance(data.get("chunks"), list):
         raw_chunks = data["chunks"]

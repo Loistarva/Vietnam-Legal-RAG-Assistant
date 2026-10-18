@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -13,9 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from embedding.vector_store import EmbeddingService, VectorStore, chunk_file_sha256, load_chunks
+from embedding.dense_retriever import DEFAULT_MODEL_NAME, MODEL_DIMENSIONS, DenseRetriever
+from embedding.vector_store import LegalVectorStore
 from retrieval.hybrid_retriever import (
-    EmbeddingQdrantAdapter,
     ElasticsearchBM25Retriever,
     HybridRetriever,
     HybridSearchConfig,
@@ -31,11 +30,34 @@ def read_queries(path: Path) -> list[str]:
         raise ValueError("Dev set phải là JSON list không rỗng")
     queries = []
     for index, row in enumerate(data, 1):
-        query = row if isinstance(row, str) else row.get("query") if isinstance(row, dict) else None
+        query = (row if isinstance(row, str) else
+                 (row.get("query") or row.get("question")) if isinstance(row, dict) else None)
         if not isinstance(query, str) or not query.strip():
             raise ValueError(f"Dev query #{index} phải là chuỗi hoặc object có query không rỗng")
         queries.append(query.strip())
     return queries
+
+
+def count_chunks(path: Path) -> int:
+    """Count and validate chunk IDs without requiring a dense-index payload schema."""
+    try:
+        if path.suffix.lower() == ".jsonl":
+            data = [json.loads(line) for line in path.read_text(encoding="utf-8-sig").splitlines()
+                    if line.strip()]
+        else:
+            data = json.loads(path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Không đọc được chunk file {path}: {exc}") from exc
+    chunks = data if isinstance(data, list) else data.get("chunks") if isinstance(data, dict) else None
+    if not isinstance(chunks, list) or not chunks:
+        raise ValueError("Chunk file phải là JSON list không rỗng hoặc object có trường chunks")
+    chunk_ids = [str(row.get("chunk_id") or row.get("id") or "").strip()
+                 for row in chunks if isinstance(row, dict)]
+    if len(chunk_ids) != len(chunks) or any(not chunk_id for chunk_id in chunk_ids):
+        raise ValueError("Mỗi chunk phải là object có chunk_id hoặc id không rỗng")
+    if len(set(chunk_ids)) != len(chunk_ids):
+        raise ValueError("Chunk file có chunk_id trùng lặp")
+    return len(chunks)
 
 
 def compact(method: str, query: str, hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -50,7 +72,7 @@ def main() -> int:
                         help='JSON list of query strings or objects: [{"query":"..."}]')
     parser.add_argument("--chunks", type=Path,
                         default=ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json")
-    parser.add_argument("--model", default="BAAI/bge-m3",
+    parser.add_argument("--model", default=DEFAULT_MODEL_NAME,
                         choices=["AITeamVN/Vietnamese_Embedding", "bkai-foundation-models/vietnamese-bi-encoder", "BAAI/bge-m3"])
     parser.add_argument("--collection", default=None,
                         help="Qdrant collection đã nạp đúng model và chunk fixture")
@@ -67,7 +89,7 @@ def main() -> int:
         if args.top_k < 1 or args.candidate_k < args.top_k:
             raise ValueError("Cần top_k >= 1 và candidate_k >= top_k")
         queries = read_queries(args.queries)
-        chunks = load_chunks(args.chunks)
+        chunk_count = count_chunks(args.chunks)
         if not args.elasticsearch_url:
             raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL; sparse/BM25 được Elasticsearch xử lý")
         try:
@@ -80,16 +102,20 @@ def main() -> int:
         if not es_client.indices.exists(index=args.elasticsearch_index):
             raise ValueError(f"Elasticsearch index không tồn tại: {args.elasticsearch_index}; nạp child chunks trước")
         sparse = ElasticsearchBM25Retriever(es_client, args.elasticsearch_index)
-        embedding = EmbeddingService(args.model)
-        slug = re.sub(r"[^a-z0-9]+", "_", args.model.lower()).strip("_")
-        default_collection = f"legal_embedding_{slug}_{chunk_file_sha256(args.chunks)[:12]}"
-        collection = args.collection or default_collection
-        store = VectorStore(collection, embedding.dimension)
+        dimension = MODEL_DIMENSIONS[args.model]
+        collection = args.collection or "vietnam_legal_chunks"
+        qdrant_path = os.getenv("QDRANT_PATH", str(ROOT / "data" / "indexes" / "qdrant_storage"))
+        store = LegalVectorStore(
+            collection_name=collection,
+            dimension=dimension,
+            storage_path=qdrant_path,
+        )
         count = store.count()
-        if count != len(chunks):
-            raise ValueError(f"Collection {collection} có {count} points, fixture có {len(chunks)} chunks")
+        if count != chunk_count:
+            raise ValueError(f"Collection {collection} có {count} points, fixture có {chunk_count} chunks")
+        dense = DenseRetriever(vector_store=store, model_name=args.model)
         config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
-        hybrid_retriever = HybridRetriever(sparse, EmbeddingQdrantAdapter(embedding, store), config)
+        hybrid_retriever = HybridRetriever(sparse, dense, config)
 
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
         for query in queries:
