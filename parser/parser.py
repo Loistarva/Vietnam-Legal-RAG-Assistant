@@ -578,7 +578,7 @@ DOCUMENT_TYPE_PATTERNS = [
 DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}[A-Za-z]?/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
 # Ưu tiên số hiệu có nhãn "Số:" để tránh bắt nhầm số hiệu được nhắc trong nội dung.
 DOCUMENT_NUMBER_RE = re.compile(
-    rf"(?<!\\w)Số\\s*:\\s*({DOCUMENT_NUMBER_CODE})",
+    rf"(?<!\w)Số\s*:\s*({DOCUMENT_NUMBER_CODE})",
     re.IGNORECASE
 )
 DATE_RE = re.compile(r"(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})", re.IGNORECASE)
@@ -729,12 +729,12 @@ def extract_document_number(text: str) -> str:
     _head, title_start, _located_title = locate_document_title(text)
     if title_start is not None:
         before_title = text[:title_start]
-        matches = list(re.finditer(rf"(?<!\\w)({DOCUMENT_NUMBER_CODE})(?!\\w)", before_title))
+        matches = list(re.finditer(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", before_title))
         if matches:
             return matches[-1].group(1)
 
     # Dự phòng cuối: chỉ tìm trong 1000 ký tự đầu văn bản.
-    fallback = re.search(rf"(?<!\\w)({DOCUMENT_NUMBER_CODE})(?!\\w)", text[:1000])
+    fallback = re.search(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", text[:1000])
     if fallback:
         return fallback.group(1)
 
