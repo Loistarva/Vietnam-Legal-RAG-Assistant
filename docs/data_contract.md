@@ -11,7 +11,7 @@ Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt bu�
 ---
 
 ## 2. Quy ước Định danh (Semantic ID Convention)
-Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường (hoặc hoa), không dấu, không khoảng trắng, chỉ dùng ký tự `[a-zA-Z0-9_]`.
+Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường, không dấu, không khoảng trắng, chỉ dùng ký tự `[a-zA-Z0-9_]`.
 
 
 *   **Document ID:** `[loại_văn_bản]_[số_hiệu đầy đủ]` (VD: Nghị định 100/2019/NĐ-CP `nd_100_2019_nd_cp`)
