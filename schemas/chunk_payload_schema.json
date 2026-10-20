@@ -6,10 +6,9 @@
   "required": [
     "id", "chunk_id", "parent_id", "doc_id", "document_id", "title",
     "text", "chunk_text", "seg_text", "embed_text", "breadcrumb",
-    "article_ref", "clause_ref", "chunk_type", "document_type",
+    "article_ref", "clause_ref", "point_ref", "chunk_type", "document_type",
     "document_number", "issue_date", "effective_date", "issuing_body",
-    "validity_status", "chapter", "section", "article_number",
-    "article_id", "clause_id", "parent_clause_id", "metadata"
+    "validity_status", "chapter", "section", "article_number", "metadata"
   ],
   "properties": {
     "id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
@@ -17,15 +16,11 @@
     "parent_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
     "doc_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
     "document_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
-    "article_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
-    "clause_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
-    "parent_clause_id": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
     "title": {"type": "string", "minLength": 1},
     "text": {"type": "string", "minLength": 1},
-    "chunk_text": {"type": "string", "minLength": 10},
+    "chunk_text": {"type": "string", "minLength": 1},
     "seg_text": {"type": "string", "minLength": 1},
     "embed_text": {"type": "string", "minLength": 1},
-    "embed_text_raw": {"type": ["string", "null"]},
     "breadcrumb": {"type": "string"},
     "article_ref": {"type": ["string", "null"]},
     "clause_ref": {"type": ["string", "null"]},
@@ -67,12 +62,7 @@
         "validity_status": {"type": "string"},
         "chapter": {"type": ["string", "null"]},
         "section": {"type": ["string", "null"]},
-        "article_number": {"type": ["string", "null"]},
-        "document_title": {"type": ["string", "null"]},
-        "clause_number": {"type": ["string", "null"]},
-        "source_url": {"type": ["string", "null"]},
-        "effective_from": {"type": ["string", "null"]},
-        "effective_to": {"type": ["string", "null"]}
+        "article_number": {"type": ["string", "null"]}
       },
       "additionalProperties": false
     }

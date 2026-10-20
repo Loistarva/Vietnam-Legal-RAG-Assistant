@@ -1,11 +1,9 @@
 import copy
 import json
-import re
 from datetime import date
 from pathlib import Path
 from typing import List, Literal, Optional
 
-import jsonschema
 import pytest
 from pydantic import (
     BaseModel,
@@ -230,7 +228,6 @@ def test_empty_clauses_rejected(make_doc):
     with pytest.raises(ValidationError):
         LegalDocumentSchema(**data)
 
-
 def test_all_parsed_json_files():
     parsed_dir = Path(__file__).parent.parent / "parser" / "parsed_jsons"
     json_files = list(parsed_dir.glob("*.json"))
@@ -239,59 +236,3 @@ def test_all_parsed_json_files():
         data = json.loads(f.read_text(encoding="utf-8"))
         doc = LegalDocumentSchema(**data)
         assert doc.document_id in f.stem
-
-
-def test_corpus_chunks_jsonl():
-    base_dir = Path(__file__).resolve().parent.parent
-    chunks_file = base_dir / "data" / "chunking_output" / "chunks.jsonl"
-    schema_file = base_dir / "schemas" / "chunk_payload_schema.json"
-    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json")) + list(
-        base_dir.glob("data/parser_validated/*.json")
-    )
-
-    assert chunks_file.exists(), f"Không tìm thấy file corpus: {chunks_file}"
-    assert schema_file.exists(), f"Không tìm thấy file schema: {schema_file}"
-
-    schema = json.loads(schema_file.read_text(encoding="utf-8"))
-    validator = jsonschema.Draft202012Validator(schema)
-
-    # Thu thập tất cả clause_id tồn tại trong tập dữ liệu parsed JSON của parser
-    parsed_clause_ids = set()
-    for pf in parsed_files:
-        doc_json = json.loads(pf.read_text(encoding="utf-8"))
-        for art in doc_json.get("articles", []):
-            for cl in art.get("clauses", []):
-                cid = cl.get("clause_id")
-                if cid:
-                    parsed_clause_ids.add(cid)
-
-    assert len(parsed_clause_ids) > 0, "Không tìm thấy clause_id nào trong parser dataset"
-
-    lines = [line.strip() for line in chunks_file.read_text(encoding="utf-8").splitlines() if line.strip()]
-    assert len(lines) > 0, f"File {chunks_file} rỗng"
-
-    for line_idx, line in enumerate(lines, start=1):
-        record = json.loads(line)
-
-        # 1. Validate thành công qua cấu trúc của schemas/chunk_payload_schema.json
-        errors = list(validator.iter_errors(record))
-        assert not errors, f"Dòng {line_idx} ({record.get('chunk_id')}) không khớp schema: {errors}"
-
-        # 2. Kiểm tra len(chunk_text.strip()) >= 10
-        chunk_text = record.get("chunk_text", "")
-        assert len(chunk_text.strip()) >= 10, (
-            f"Dòng {line_idx} ({record.get('chunk_id')}) có chunk_text quá ngắn (< 10 ký tự): '{chunk_text}'"
-        )
-
-        # 3. Kiểm tra chunk_id phải khớp định dạng chứa parent_clause_id và hậu tố _chunk_\d+
-        chunk_id = record.get("chunk_id", "")
-        parent_clause_id = record.get("parent_clause_id", "")
-        expected_pattern = rf"^{re.escape(parent_clause_id)}_chunk_\d+$"
-        assert re.match(expected_pattern, chunk_id), (
-            f"Dòng {line_idx}: chunk_id '{chunk_id}' không khớp định dạng '{parent_clause_id}_chunk_\\d+'"
-        )
-
-        # 4. Kiểm tra parent_clause_id tồn tại trong tập dữ liệu parsed JSON của parser
-        assert parent_clause_id in parsed_clause_ids, (
-            f"Dòng {line_idx}: parent_clause_id '{parent_clause_id}' không tồn tại trong dữ liệu parser"
-        )

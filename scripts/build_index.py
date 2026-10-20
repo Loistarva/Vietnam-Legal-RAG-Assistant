@@ -47,9 +47,9 @@ def load_chunks_from_repo(input_path: Path | None = None) -> List[Dict[str, Any]
         else:
             raw_data = json.loads(raw_text)
         if isinstance(raw_data, list):
-            return raw_data
+            return [_adapt_chunk_for_vector_store(row) for row in raw_data]
         if isinstance(raw_data, dict) and "chunks" in raw_data:
-            return raw_data["chunks"]
+            return [_adapt_chunk_for_vector_store(row) for row in raw_data["chunks"]]
 
     processed_candidates = sorted(glob.glob(str(BASE_DIR / "data" / "processed" / "*.json")))
     if processed_candidates:
@@ -70,12 +70,76 @@ def load_chunks_from_repo(input_path: Path | None = None) -> List[Dict[str, Any]
             doc_json = json.loads(Path(fpath).read_text(encoding="utf-8"))
             res = chunk_legal_document(doc_json)
             for payload in res.get_qdrant_payloads():
-                all_payloads.append(payload)
+                cid = payload.get("chunk_id") or payload.get("id")
+                parent_cid = (
+                    payload.get("parent_clause_id")
+                    or payload.get("clause_id")
+                    or f"{payload.get('article_id', 'art')}_clause_1"
+                )
+                all_payloads.append(
+                    {
+                        "chunk_id": cid,
+                        "document_id": payload.get("document_id"),
+                        "article_id": payload.get("article_id"),
+                        "clause_id": parent_cid,
+                        "parent_clause_id": parent_cid,
+                        "chunk_text": payload.get("chunk_text") or payload.get("content") or "",
+                        "embed_text": payload.get("embed_text"),
+                        "metadata": {
+                            "document_number": payload.get("document_number", ""),
+                            "document_title": payload.get("title", ""),
+                            "article_number": payload.get("article_number", ""),
+                            "clause_number": payload.get("clause_number", ""),
+                            "validity_status": payload.get("validity_status", "Không xác định"),
+                            "breadcrumb": payload.get("breadcrumb", ""),
+                        },
+                    }
+                )
         return all_payloads
 
     raise FileNotFoundError(
-        "Không tìm thấy dữ liệu chunks trong data/chunking_output/, data/processed/ hoặc parser/parsed_jsons/."
+        "Không tìm thấy dữ liệu chunks trong data/processed/ hoặc parser/parsed_jsons/."
     )
+
+
+def _adapt_chunk_for_vector_store(raw: Dict[str, Any]) -> Dict[str, Any]:
+    """Adapt current chunk-export aliases to the payload fields required by Qdrant."""
+    if not isinstance(raw, dict):
+        raise ValueError("Chunk input phải là JSON object")
+
+    metadata = dict(raw.get("metadata") or {})
+    chunk_id = str(raw.get("chunk_id") or raw.get("id") or "").strip()
+    document_id = str(raw.get("document_id") or raw.get("doc_id") or metadata.get("doc_id") or "").strip()
+    article_number = str(raw.get("article_number") or metadata.get("article_number") or "").strip()
+    article_id = str(raw.get("article_id") or metadata.get("article_id") or "").strip()
+    if not article_id and document_id and article_number:
+        article_id = f"{document_id}_art_{article_number}"
+
+    parent_clause_id = str(
+        raw.get("parent_clause_id") or metadata.get("parent_clause_id")
+        or raw.get("parent_id") or metadata.get("parent_id") or ""
+    ).strip()
+    if not parent_clause_id and article_id:
+        parent_clause_id = f"{article_id}_clause_1"
+
+    chunk_text = raw.get("chunk_text") or raw.get("text") or raw.get("content") or ""
+    metadata.setdefault("document_id", document_id)
+    metadata.setdefault("document_number", raw.get("document_number", ""))
+    metadata.setdefault("document_title", raw.get("title", ""))
+    metadata.setdefault("article_number", article_number)
+    metadata.setdefault("validity_status", raw.get("validity_status", "Không xác định"))
+    metadata.setdefault("breadcrumb", raw.get("breadcrumb", ""))
+
+    return {
+        **raw,
+        "chunk_id": chunk_id,
+        "document_id": document_id,
+        "article_id": article_id,
+        "clause_id": str(raw.get("clause_id") or metadata.get("clause_id") or chunk_id),
+        "parent_clause_id": parent_clause_id,
+        "chunk_text": chunk_text,
+        "metadata": metadata,
+    }
 
 
 def main() -> int:
@@ -83,8 +147,8 @@ def main() -> int:
     parser.add_argument(
         "--input",
         type=str,
-        default=str(BASE_DIR / "data" / "chunking_output" / "chunks.jsonl"),
-        help="Đường dẫn file JSON/JSONL chứa danh sách chunks đầu vào",
+        default=None,
+        help="Đường dẫn file JSON chứa danh sách chunks đầu vào",
     )
     parser.add_argument(
         "--index-dir",
