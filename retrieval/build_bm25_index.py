@@ -9,7 +9,7 @@ from typing import Any
 from elasticsearch import Elasticsearch, helpers
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_CHUNKS_FILE = ROOT_DIR / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
 
@@ -42,24 +42,34 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
     if not chunks_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file chunks: {chunks_path}")
 
+    raw_chunks: list[dict[str, Any]] = []
     try:
         if chunks_path.suffix.lower() == ".jsonl":
-            raw_chunks = [json.loads(line) for line in chunks_path.read_text(encoding="utf-8-sig").splitlines()
-                          if line.strip()]
-            data = None
+            with chunks_path.open("r", encoding="utf-8-sig") as f:
+                for line_num, line in enumerate(f, start=1):
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        item = json.loads(line)
+                        if isinstance(item, dict):
+                            raw_chunks.append(item)
+                        else:
+                            raise ValueError(f"Dòng {line_num} không phải là object JSON")
+                    except json.JSONDecodeError as exc:
+                        raise ValueError(f"JSON không hợp lệ tại dòng {line_num} trong {chunks_path}: {exc}") from exc
         else:
             data = json.loads(chunks_path.read_text(encoding="utf-8-sig"))
-    except (json.JSONDecodeError, OSError) as exc:
-        raise ValueError(f"JSON chunks không hợp lệ tại {chunks_path}: {exc}") from exc
-
-    if chunks_path.suffix.lower() == ".jsonl":
-        pass
-    elif isinstance(data, list):
-        raw_chunks = data
-    elif isinstance(data, dict) and isinstance(data.get("chunks"), list):
-        raw_chunks = data["chunks"]
-    else:
-        raise ValueError("JSON phải là danh sách chunks hoặc object có trường 'chunks'")
+            if isinstance(data, list):
+                raw_chunks = data
+            elif isinstance(data, dict) and isinstance(data.get("chunks"), list):
+                raw_chunks = data["chunks"]
+            else:
+                raise ValueError("JSON phải là danh sách chunks hoặc object có trường 'chunks'")
+    except Exception as exc:
+        if isinstance(exc, ValueError):
+            raise
+        raise ValueError(f"Không thể đọc file chunks tại {chunks_path}: {exc}") from exc
 
     chunks: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -68,12 +78,12 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
             raise ValueError(f"Chunk thứ {position} không phải object")
 
         raw_id = item.get("chunk_id", item.get("id"))
-        text = item.get("text") or item.get("content")
+        text = item.get("chunk_text") or item.get("text") or item.get("content")
         metadata = item.get("metadata")
         if metadata is None:
             reserved = {
-                "id", "chunk_id", "text", "content", "metadata",
-                "content_segmented", "seg_text", "embed_text",
+                "id", "chunk_id", "text", "content", "chunk_text", "metadata",
+                "content_segmented", "seg_text", "embed_text", "embed_text_raw",
             }
             metadata = {key: value for key, value in item.items() if key not in reserved}
         if not isinstance(raw_id, (str, int)) or not str(raw_id).strip():
@@ -88,15 +98,24 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
         seen_ids.add(chunk_id)
 
         article_ref = (metadata.get("article_ref") or metadata.get("article_number")
-                       or item.get("article_ref") or "")
+                       or item.get("article_ref") or item.get("article_number") or "")
+        parent_id = (item.get("parent_clause_id") or metadata.get("parent_clause_id")
+                     or item.get("parent_id") or metadata.get("parent_id") or "")
+        doc_id = (item.get("document_id") or metadata.get("document_id")
+                  or item.get("doc_id") or metadata.get("doc_id") or "")
+        title = str(metadata.get("document_title") or metadata.get("title")
+                    or item.get("document_title") or item.get("title") or "")
+        content_seg = (item.get("content_segmented") or item.get("seg_text")
+                       or item.get("embed_text") or text)
+
         chunks.append({
             "chunk_id": chunk_id,
-            "parent_id": metadata.get("parent_id") or item.get("parent_id") or "",
-            "doc_id": metadata.get("doc_id") or item.get("doc_id") or "",
-            "title": str(metadata.get("title") or metadata.get("document_title") or ""),
+            "parent_id": str(parent_id),
+            "doc_id": str(doc_id),
+            "title": title,
             "content": text,
-            "content_segmented": item.get("content_segmented") or item.get("seg_text") or text,
-            "breadcrumb": str(metadata.get("breadcrumb") or ""),
+            "content_segmented": content_seg,
+            "breadcrumb": str(metadata.get("breadcrumb") or item.get("breadcrumb") or ""),
             "article_ref": str(article_ref),
             "metadata": metadata,
         })

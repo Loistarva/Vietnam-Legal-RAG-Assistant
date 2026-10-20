@@ -574,8 +574,13 @@ DOCUMENT_TYPE_PATTERNS = [
     ("Chỉ thị", re.compile(r"(?<!\w)C(?:HỈ THỊ|hỉ thị)\b")),
 ]
 
-DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
-DOCUMENT_NUMBER_RE = re.compile(rf"(?:Số|Số:|số|số:)\s*({DOCUMENT_NUMBER_CODE})")
+# Hỗ trợ số hiệu có chữ cái gắn ngay sau phần số, ví dụ 02a/2015/TT-BTP.
+DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}[A-Za-z]?/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
+# Ưu tiên số hiệu có nhãn "Số:" để tránh bắt nhầm số hiệu được nhắc trong nội dung.
+DOCUMENT_NUMBER_RE = re.compile(
+    rf"(?<!\w)Số\s*:\s*({DOCUMENT_NUMBER_CODE})",
+    re.IGNORECASE
+)
 DATE_RE = re.compile(r"(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})", re.IGNORECASE)
 ISO_DATE_RE = re.compile(r"\b(20\d{2})[-/](\d{1,2})[-/](\d{1,2})\b")
 
@@ -713,13 +718,26 @@ def extract_document_type(text: str) -> str:
     return "Luật"
 
 def extract_document_number(text: str) -> str:
-    head = text[:8000]
+    # Ưu tiên số hiệu có nhãn trong phần đầu văn bản.
+    head = text[:5000]
     m = DOCUMENT_NUMBER_RE.search(head)
     if m:
         return m.group(1)
-    fallback = re.search(rf"\b{DOCUMENT_NUMBER_CODE}", head)
+
+    # Dự phòng: tìm số hiệu trước tên văn bản, tránh bắt số hiệu được dẫn lại
+    # ở phần căn cứ/nội dung phía sau.
+    _head, title_start, _located_title = locate_document_title(text)
+    if title_start is not None:
+        before_title = text[:title_start]
+        matches = list(re.finditer(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", before_title))
+        if matches:
+            return matches[-1].group(1)
+
+    # Dự phòng cuối: chỉ tìm trong 1000 ký tự đầu văn bản.
+    fallback = re.search(rf"(?<!\w)({DOCUMENT_NUMBER_CODE})(?!\w)", text[:1000])
     if fallback:
-        return fallback.group(0)
+        return fallback.group(1)
+
     warn("Không tự nhận diện được document_number.")
     return ""
 
@@ -727,13 +745,68 @@ def vietnamese_date_to_iso(day: str, month: str, year: str) -> str:
     return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
 
 def extract_issue_date(text: str) -> str:
-    head = text[:10000]
-    m = DATE_RE.search(head)
-    if m:
-        return vietnamese_date_to_iso(m.group(1), m.group(2), m.group(3))
-    m = ISO_DATE_RE.search(head)
-    if m:
-        return f"{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
+    """
+    Trích xuất ngày ban hành theo ngữ cảnh, không lấy ngày hiệu lực làm ngày ban hành.
+
+    Thứ tự:
+    1. Ngày gắn với cụm thông qua / ban hành / ký.
+    2. Ngày trong phần đầu văn bản (trước Chương I), loại ngữ cảnh hiệu lực.
+    3. Không đủ căn cứ thì trả về chuỗi rỗng và ghi cảnh báo.
+    """
+    text = re.sub(r"\s+", " ", text).strip()
+
+    # Hỗ trợ ngày dạng "19 tháng 6 năm 2014", "2014-06-19",
+    # hoặc "2014/06/19".
+    date_pattern = (
+        r"(?:"
+        r"(?P<vn_day>\d{1,2})\s+tháng\s+"
+        r"(?P<vn_month>\d{1,2})\s+năm\s+(?P<vn_year>\d{4})"
+        r"|"
+        r"(?P<iso_year>20\d{2})[-/](?P<iso_month>\d{1,2})[-/](?P<iso_day>\d{1,2})"
+        r")"
+    )
+
+    def to_iso(match: re.Match) -> str:
+        if match.group("vn_day"):
+            return vietnamese_date_to_iso(
+                match.group("vn_day"),
+                match.group("vn_month"),
+                match.group("vn_year"),
+            )
+        return (
+            f"{int(match.group('iso_year')):04d}-"
+            f"{int(match.group('iso_month')):02d}-"
+            f"{int(match.group('iso_day')):02d}"
+        )
+
+    # Chỉ ưu tiên ngày nằm ngay sau cụm ngữ cảnh ban hành/thông qua/ký.
+    # Cho phép có phần mô tả như "được Quốc hội ... thông qua ngày ...".
+    contextual_patterns = [
+        rf"(?:được\s+quốc hội\b.{{0,200}}?thông qua|"
+        rf"quốc hội\b.{{0,200}}?thông qua|"
+        rf"thông qua|ban hành|ngày ký|ký)\s+"
+        rf"(?:vào\s+)?(?:ngày\s+)?{date_pattern}",
+    ]
+
+    for pattern in contextual_patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            return to_iso(match)
+
+    # Dự phòng: tìm trong phần đầu văn bản, thường chứa thông tin ban hành.
+    # Nếu tìm thấy Chương I thì không quét qua phần nội dung điều luật.
+    chapter_match = re.search(r"(?<!\S)Chương\s+I\b", text, re.IGNORECASE)
+    header = text[:chapter_match.start()] if chapter_match else text[:10000]
+
+    for match in re.finditer(date_pattern, header, re.IGNORECASE):
+        context = header[max(0, match.start() - 150):match.start()].lower()
+
+        # Bỏ qua ngày xuất hiện trong ngữ cảnh hiệu lực thi hành.
+        if re.search(r"hiệu lực(?:\s+thi hành)?|có hiệu lực", context):
+            continue
+
+        return to_iso(match)
+
     warn("Không tự nhận diện được issue_date.")
     return ""
 
@@ -836,10 +909,7 @@ def extract_issuing_body(text: str) -> str:
 
 
 def extract_validity_status(text: str) -> str:
-    head = text[:12000]
-    for pattern, status in VALIDITY_PATTERNS:
-        if pattern.search(head):
-            return status
+    """Tạm thời không tự suy đoán trạng thái hiệu lực từ nội dung văn bản."""
     return "Không xác định"
 
 # Tên văn bản: chỉ nhận chữ IN HOA (phân biệt hoa/thường), bỏ qua "PHÁP LUẬT" trong
