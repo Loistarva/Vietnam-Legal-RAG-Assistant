@@ -50,6 +50,7 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
 
     raw_meta = raw.get("metadata") if isinstance(raw.get("metadata"), dict) else {}
 
+    # Đọc trực tiếp các trường ID từ root-level của bản ghi
     parent_clause_id = str(
         raw.get("parent_clause_id")
         or raw_meta.get("parent_clause_id")
@@ -78,23 +79,27 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     ).strip()
 
     validity_status = str(
-        raw_meta.get("validity_status")
-        or raw.get("validity_status")
+        raw.get("validity_status")
+        or raw_meta.get("validity_status")
         or "Không xác định"
     ).strip()
 
     metadata: Dict[str, Any] = {
         "document_id": document_id,
-        "document_number": raw_meta.get("document_number") or raw.get("document_number") or "",
-        "document_title": raw_meta.get("document_title") or raw.get("title") or "",
-        "article_number": raw_meta.get("article_number") or raw.get("article_number") or "",
-        "clause_number": raw_meta.get("clause_number") or raw.get("clause_number") or "",
+        "document_number": raw.get("document_number") or raw_meta.get("document_number") or "",
+        "document_title": raw.get("document_title") or raw_meta.get("document_title") or raw.get("title") or "",
+        "article_number": raw.get("article_number") or raw_meta.get("article_number") or "",
+        "clause_number": raw.get("clause_number") or raw_meta.get("clause_number") or "",
         "validity_status": validity_status,
-        "source_url": raw_meta.get("source_url") or raw.get("source_url") or "",
-        "breadcrumb": raw_meta.get("breadcrumb") or raw.get("breadcrumb") or "",
+        "source_url": raw.get("source_url") or raw_meta.get("source_url") or "",
+        "breadcrumb": raw.get("breadcrumb") or raw_meta.get("breadcrumb") or "",
     }
+    if "effective_from" in raw_meta or "effective_from" in raw:
+        metadata["effective_from"] = raw_meta.get("effective_from") or raw.get("effective_from")
+    if "effective_to" in raw_meta or "effective_to" in raw:
+        metadata["effective_to"] = raw_meta.get("effective_to") or raw.get("effective_to")
 
-    return {
+    result: Dict[str, Any] = {
         "chunk_id": chunk_id,
         "document_id": document_id,
         "article_id": article_id,
@@ -105,6 +110,11 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "validity_status": validity_status,
         "metadata": metadata,
     }
+    if "embed_text_raw" in raw:
+        result["embed_text_raw"] = raw["embed_text_raw"]
+    if "point_ref" in raw and raw["point_ref"] is not None:
+        result["point_ref"] = raw["point_ref"]
+    return result
 
 
 def _cosine_similarity(vec_a: Sequence[float], vec_b: Sequence[float]) -> float:

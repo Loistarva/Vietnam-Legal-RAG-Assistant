@@ -32,7 +32,7 @@ BAD_NAME = "nd_158_2005_nd_cp.json"
 CORRECT_NAME = "tt_02a_2015_tt_btp.json"
 OLD_ID = "nd_158_2005_nd_cp"
 NEW_ID = "tt_02a_2015_tt_btp"
-ID_KEYS = {"id", "document_id", "article_id", "clause_id", "parent_article_id", "chunk_id", "parent_id"}
+ID_KEYS = {"id", "document_id", "article_id", "clause_id", "parent_article_id", "chunk_id", "parent_id", "parent_clause_id"}
 
 
 def update_internal_identifiers(value: Any) -> Any:
@@ -84,7 +84,7 @@ def create_corrected_source() -> Path:
 
 
 def _tokens(text: str) -> list[str]:
-    """Token stream d?ng ?? b?o ??m kh?ng l?m r?i ch?/s? so v?i parser."""
+    """Token stream dùng để bảo đảm không làm rơi chữ/số so với parser."""
     return re.findall(r"[^\W_]+", text.lower(), flags=re.UNICODE)
 
 def _assert_source_text_preserved(doc: dict[str, Any], result: Any, source_name: str) -> None:
@@ -207,6 +207,9 @@ def main() -> None:
             payload.update({
                 "chunk_id": child.chunk_id,
                 "document_id": child.doc_id,
+                "article_id": child.article_id,
+                "clause_id": child.clause_id,
+                "parent_clause_id": child.parent_clause_id,
                 "article_number": child.metadata.get("article_number"),
                 "chunk_text": child.text,
                 "metadata": child.metadata.copy(),

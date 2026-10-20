@@ -27,9 +27,9 @@ from pathlib import Path
 from typing import Any
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  CONFIGURATION DEFAULTS
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 # --- Parent Chunk Limits (Dành cho Context LLM & Grounding) ---
 PARENT_MAX_CHARS: int = 1500     # Ký tự tối đa cho 1 parent chunk
@@ -48,9 +48,9 @@ TABLE_MAX_ROWS: int = 15
 TABLE_MAX_CHARS: int = 2500
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  DATA CLASSES & SCHEMAS
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 class ChunkType(Enum):
     ARTICLE = auto()
@@ -99,8 +99,12 @@ class ChildChunk:
     doc_id: str
     title: str
     text: str                    # Original text chuẩn tiếng Việt
+    article_id: str = ""
+    clause_id: str = ""
+    parent_clause_id: str = ""
     seg_text: str = ""           # Word-segmented text (underthesea)
     embed_text: str = ""         # Title_seg + Breadcrumb_seg + Body_seg cho embedding
+    embed_text_raw: str = ""
     breadcrumb: str = ""
     article_ref: str | None = None
     clause_ref: str | None = None
@@ -110,21 +114,38 @@ class ChildChunk:
 
     def to_qdrant_payload(self) -> dict[str, Any]:
         """Format payload cho Vector DB (Qdrant)."""
-        return {
+        payload = {
             "id": self.chunk_id,
+            "chunk_id": self.chunk_id,
             "parent_id": self.parent_id,
             "doc_id": self.doc_id,
+            "document_id": self.doc_id,
+            "article_id": self.article_id,
+            "clause_id": self.clause_id,
+            "parent_clause_id": self.parent_clause_id,
             "title": self.title,
             "text": self.text,
+            "chunk_text": self.text,
             "seg_text": self.seg_text,
             "embed_text": self.embed_text,
+            "embed_text_raw": self.embed_text_raw or self.text,
             "breadcrumb": self.breadcrumb,
             "article_ref": self.article_ref,
             "clause_ref": self.clause_ref,
             "point_ref": self.point_ref,
             "chunk_type": self.chunk_type.name,
-            **self.metadata,
+            "document_type": self.metadata.get("document_type"),
+            "document_number": self.metadata.get("document_number"),
+            "issue_date": str(self.metadata.get("issue_date") or ""),
+            "effective_date": str(self.metadata.get("effective_date") or ""),
+            "issuing_body": self.metadata.get("issuing_body"),
+            "validity_status": self.metadata.get("validity_status") or "Còn hiệu lực",
+            "chapter": self.metadata.get("chapter"),
+            "section": self.metadata.get("section"),
+            "article_number": self.metadata.get("article_number"),
+            "metadata": self.metadata.copy(),
         }
+        return payload
 
     def to_elasticsearch_doc(self) -> dict[str, Any]:
         """Format document cho Elasticsearch BM25 index."""
@@ -132,6 +153,9 @@ class ChildChunk:
             "chunk_id": self.chunk_id,
             "parent_id": self.parent_id,
             "doc_id": self.doc_id,
+            "article_id": self.article_id,
+            "clause_id": self.clause_id,
+            "parent_clause_id": self.parent_clause_id,
             "title": self.title,
             "content": self.text,
             "content_segmented": self.seg_text,
@@ -171,9 +195,9 @@ class ChunkResult:
         return [p.to_store_dict() for p in self.parents]
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  NLP & TEXT UTILITIES
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 def normalize_text(text: str | None) -> str:
     """Chuẩn hóa văn bản: gỡ bỏ ký tự rác, chuẩn hóa khoảng trắng."""
@@ -197,7 +221,6 @@ def word_segment(text: str | None) -> str:
         try:
             segmented = word_tokenize(text, format="text")
         except TypeError:
-            # Support older Underthesea APIs without relying on their default format.
             segmented = word_tokenize(text)
         if isinstance(segmented, str):
             tokens = segmented.split()
@@ -262,93 +285,121 @@ def build_breadcrumb(
     return " > ".join(parts)
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  CORE: CHUNKING CHO STRUCTURED PARSED DOCUMENT
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 @dataclass
 class _ClauseUnit:
     """Đơn vị Khoản / Điểm bóc tách từ bài viết."""
+    clause_id: str
+    article_id: str
+    parent_article_id: str
     clause_number: str | None
     point_letter: str | None
     text: str
     char_count: int
+    sub_index: int = 1
+    total_subs: int = 1
 
 
 def _split_long_clause_unit(
     u: _ClauseUnit,
-    max_chars: int,
+    max_chars: int = 1200,
+    max_words: int = 190,
 ) -> list[_ClauseUnit]:
-    """Tách một Khoản/Điểm quá dài thành các sub-units không vượt quá max_chars."""
-    if u.char_count <= max_chars:
+    """Tách một Khoản/Điểm quá dài thành các sub-units theo ranh giới câu (<= max_chars và <= max_words)."""
+    words = u.text.split()
+    if u.char_count <= max_chars and len(words) <= max_words:
         return [u]
 
-    # Cắt nhỏ theo đoạn văn hoặc câu
     paragraphs = [p.strip() for p in u.text.split("\n") if p.strip()]
     if not paragraphs:
-        paragraphs = [u.text]
+        paragraphs = [u.text.strip()]
+
+    sentences: list[str] = []
+    for p in paragraphs:
+        for s in re.split(r"(?<=[.!?;:])\s+", p):
+            s_strip = s.strip()
+            if s_strip:
+                sentences.append(s_strip)
+    if not sentences:
+        sentences = [u.text.strip()]
+
+    atomic_pieces: list[str] = []
+    for s in sentences:
+        s_words = s.split()
+        if len(s) > max_chars or len(s_words) > max_words:
+            for i in range(0, len(s_words), max_words):
+                piece = " ".join(s_words[i:i + max_words])
+                if piece.strip():
+                    atomic_pieces.append(piece.strip())
+        else:
+            atomic_pieces.append(s)
 
     chunks_text: list[str] = []
     curr_pieces: list[str] = []
     curr_len = 0
-
-    for p in paragraphs:
-        if len(p) > max_chars:
-            sentences = re.split(r"(?<=[.!?;:])\s+", p)
-            for s in sentences:
-                s_strip = s.strip()
-                if not s_strip:
-                    continue
-                if curr_pieces and curr_len + len(s_strip) > max_chars:
-                    chunks_text.append(" ".join(curr_pieces))
-                    curr_pieces = [s_strip]
-                    curr_len = len(s_strip)
-                else:
-                    curr_pieces.append(s_strip)
-                    curr_len += len(s_strip)
+    curr_words = 0
+    for p in atomic_pieces:
+        p_len = len(p)
+        p_words = len(p.split())
+        add_len = p_len + (1 if curr_pieces else 0)
+        if curr_pieces and (curr_len + add_len > max_chars or curr_words + p_words > max_words):
+            chunks_text.append(" ".join(curr_pieces))
+            curr_pieces = [p]
+            curr_len = p_len
+            curr_words = p_words
         else:
-            if curr_pieces and curr_len + len(p) > max_chars:
-                chunks_text.append("\n".join(curr_pieces))
-                curr_pieces = [p]
-                curr_len = len(p)
-            else:
-                curr_pieces.append(p)
-                curr_len += len(p)
+            curr_pieces.append(p)
+            curr_len += add_len
+            curr_words += p_words
 
     if curr_pieces:
-        chunks_text.append("\n".join(curr_pieces))
+        chunks_text.append(" ".join(curr_pieces))
 
+    while len(chunks_text) > 1 and len(chunks_text[-1].strip()) < 10:
+        tail = chunks_text.pop()
+        chunks_text[-1] = chunks_text[-1] + " " + tail.strip()
+
+    total_subs = len(chunks_text)
     result_units: list[_ClauseUnit] = []
-    base_ref = u.clause_number or ""
     for idx, c_text in enumerate(chunks_text, start=1):
-        suffix = f" (phần {idx})" if len(chunks_text) > 1 else ""
         result_units.append(_ClauseUnit(
-            clause_number=f"{base_ref}{suffix}".strip() if base_ref else (f"Đoạn {idx}" if len(chunks_text) > 1 else None),
+            clause_id=u.clause_id,
+            article_id=u.article_id,
+            parent_article_id=u.parent_article_id,
+            clause_number=u.clause_number,
             point_letter=u.point_letter,
             text=c_text,
             char_count=len(c_text),
+            sub_index=idx,
+            total_subs=total_subs,
         ))
 
     return result_units
 
 
-def _extract_clause_units(raw_chunks: list[dict[str, Any]], max_unit_chars: int = 1200) -> list[_ClauseUnit]:
-    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars)."""
+def _extract_clause_units(raw_chunks: list[dict[str, Any]], max_unit_chars: int = 1200, max_unit_words: int = 190) -> list[_ClauseUnit]:
+    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars và <= max_unit_words)."""
     units: list[_ClauseUnit] = []
     for item in raw_chunks:
         txt = normalize_text(item.get("text", ""))
         if not txt:
             continue
-        cl_num = str(item.get("clause_number")).strip() if item.get("clause_number") is not None else None
-        pt_let = str(item.get("point_letter")).strip() if item.get("point_letter") is not None else None
         base_u = _ClauseUnit(
-            clause_number=cl_num,
-            point_letter=pt_let,
+            clause_id=str(item.get("clause_id") or "").strip(),
+            article_id=str(item.get("article_id") or "").strip(),
+            parent_article_id=str(item.get("parent_article_id") or "").strip(),
+            clause_number=str(item.get("clause_number")).strip() if item.get("clause_number") is not None else None,
+            point_letter=str(item.get("point_letter")).strip() if item.get("point_letter") is not None else None,
             text=txt,
             char_count=len(txt),
+            sub_index=1,
+            total_subs=1,
         )
-        if base_u.char_count > max_unit_chars:
-            units.extend(_split_long_clause_unit(base_u, max_unit_chars))
+        if base_u.char_count > max_unit_chars or len(txt.split()) > max_unit_words:
+            units.extend(_split_long_clause_unit(base_u, max_chars=max_unit_chars, max_words=max_unit_words))
         else:
             units.append(base_u)
     return units
@@ -409,33 +460,32 @@ def _create_child_chunks_from_units(
     """
     Tạo các Child Chunk từ các đơn vị Khoản/Điểm của Parent.
     Quy tắc:
-      1. Đóng gói các đơn vị liên tiếp để đạt >= CHILD_MIN_WORDS và <= CHILD_MAX_UNITS.
-      2. Nếu 1 Khoản đủ dài: tạo 1 Child riêng biệt.
-      3. Nếu nhiều Khoản ngắn (< CHILD_MIN_WORDS): gom thành 1 Child.
-      4. Gán Semantic ID theo format: [parent_id]_chunk_[clause]_[point].
+      1. Mỗi chunk thuộc đúng 1 Clause, không gộp các Khoản khác nhau qua ranh giới Khoản.
+      2. Semantic ID chuẩn: {clause_id}_chunk_{idx}.
+      3. Gán trực tiếp parent_clause_id = clause_id.
     """
-    cfg = config or {}
-    max_units = int(cfg.get("child_max_units", CHILD_MAX_UNITS))
-    min_words = int(cfg.get("child_min_words", CHILD_MIN_WORDS))
-
     children: list[ChildChunk] = []
 
     if not units:
         raw_text = parent.text
         words_count = len(raw_text.split())
-        if words_count >= min_words or parent.chunk_type in (ChunkType.PREAMBLE, ChunkType.APPENDIX):
+        if words_count >= 1 or parent.chunk_type in (ChunkType.PREAMBLE, ChunkType.APPENDIX):
             seg_text = word_segment(raw_text)
             bc_seg = word_segment(parent.breadcrumb)
             embed_text = f"{title_seg} {bc_seg} {seg_text}".strip()
-            cid = f"{parent.parent_id}_chunk_0"
+            cid = f"{parent.parent_id}_chunk_1"
             child = ChildChunk(
                 chunk_id=cid,
                 parent_id=parent.parent_id,
                 doc_id=parent.doc_id,
+                article_id=parent.parent_id,
+                clause_id=f"{parent.parent_id}_clause_1",
+                parent_clause_id=f"{parent.parent_id}_clause_1",
                 title=parent.title,
                 text=raw_text,
                 seg_text=seg_text,
                 embed_text=embed_text,
+                embed_text_raw=f"{parent.title} {parent.breadcrumb} {raw_text}".strip(),
                 breadcrumb=parent.breadcrumb,
                 article_ref=parent.article_ref,
                 chunk_type=parent.chunk_type,
@@ -444,137 +494,53 @@ def _create_child_chunks_from_units(
             return [child]
         return []
 
-    buffer_units: list[_ClauseUnit] = []
-    buffer_words = 0
+    for u in units:
+        combined_text = u.text
+        seg_text = word_segment(combined_text)
 
-    def _flush_buffer(idx: int) -> ChildChunk | None:
-        nonlocal buffer_units, buffer_words
-        if not buffer_units:
-            return None
+        # Định dạng chunk_id chuẩn: {clause_id}_chunk_{idx}
+        cid = f"{u.clause_id}_chunk_{u.sub_index}"
 
-        combined_text = "\n".join(u.text for u in buffer_units).strip()
-        cl_refs = [u.clause_number for u in buffer_units if u.clause_number]
-        pt_refs = [u.point_letter for u in buffer_units if u.point_letter]
-
-        cl_ref_str = f"Khoản {cl_refs[0]}" if len(cl_refs) == 1 else (f"Khoản {cl_refs[0]}-{cl_refs[-1]}" if cl_refs else None)
-        pt_ref_str = f"Điểm {pt_refs[0]}" if len(pt_refs) == 1 else None
-
-        if len(cl_refs) == 1:
-            if pt_refs and len(pt_refs) == 1:
-                cid = f"{parent.parent_id}_chunk_{_clean_id(cl_refs[0])}_{_clean_id(pt_refs[0])}"
-            else:
-                cid = f"{parent.parent_id}_chunk_{_clean_id(cl_refs[0])}"
-        else:
-            cid = f"{parent.parent_id}_chunk_{idx}"
+        cl_ref_str = f"Khoản {u.clause_number}" if u.clause_number else None
+        pt_ref_str = f"Điểm {u.point_letter}" if u.point_letter else None
 
         child_bc = parent.breadcrumb
         if cl_ref_str and cl_ref_str not in child_bc:
             child_bc = f"{child_bc} > {cl_ref_str}"
-        if pt_ref_str:
+        if pt_ref_str and pt_ref_str not in child_bc:
             child_bc = f"{child_bc} > {pt_ref_str}"
 
-        seg_text = word_segment(combined_text)
         bc_seg = word_segment(child_bc)
         embed_text = f"{title_seg} {bc_seg} {seg_text}".strip()
+        embed_text_raw = f"{parent.title} {child_bc} {combined_text}".strip()
+
+        child_meta = parent.metadata.copy()
+        child_meta["document_title"] = child_meta.get("title") or parent.title
+        child_meta["clause_number"] = str(u.clause_number) if u.clause_number is not None else None
+        child_meta["source_url"] = child_meta.get("source_url") or None
+        child_meta["effective_from"] = child_meta.get("effective_date") or None
+        child_meta["effective_to"] = child_meta.get("expiry_date") or None
 
         child = ChildChunk(
             chunk_id=cid,
             parent_id=parent.parent_id,
             doc_id=parent.doc_id,
+            article_id=u.article_id,
+            clause_id=u.clause_id,
+            parent_clause_id=u.clause_id,
             title=parent.title,
             text=combined_text,
             seg_text=seg_text,
             embed_text=embed_text,
+            embed_text_raw=embed_text_raw,
             breadcrumb=child_bc,
             article_ref=parent.article_ref,
             clause_ref=cl_ref_str,
             point_ref=pt_ref_str,
             chunk_type=parent.chunk_type,
-            metadata=parent.metadata.copy(),
+            metadata=child_meta,
         )
-        buffer_units = []
-        buffer_words = 0
-        return child
-
-    child_idx = 1
-    for u in units:
-        u_words = len(u.text.split())
-
-        if u_words > max_units:
-            c = _flush_buffer(child_idx)
-            if c:
-                children.append(c)
-                child_idx += 1
-
-            # Split original source at whitespace boundaries instead of rebuilding
-            # legal text from tokenizer output, which varies between package versions.
-            source_spans = list(re.finditer(r"\S+", u.text))
-            for sub_i in range(0, len(source_spans), max_units):
-                span_group = source_spans[sub_i : sub_i + max_units]
-                if not span_group:
-                    continue
-                sub_raw = u.text[span_group[0].start() : span_group[-1].end()]
-                sub_seg = word_segment(sub_raw)
-                # Không loại bỏ phần đuôi ngắn: mỗi token trong văn bản pháp luật
-                # phải được giữ lại, kể cả khi đoạn cuối ít hơn min_words.
-                sub_cid = f"{parent.parent_id}_chunk_{_clean_id(u.clause_number)}_{sub_i // max_units + 1}"
-                sub_bc = f"{parent.breadcrumb} > Khoản {u.clause_number}" if u.clause_number else parent.breadcrumb
-                bc_seg = word_segment(sub_bc)
-                children.append(ChildChunk(
-                    chunk_id=sub_cid,
-                    parent_id=parent.parent_id,
-                    doc_id=parent.doc_id,
-                    title=parent.title,
-                    text=sub_raw,
-                    seg_text=sub_seg,
-                    embed_text=f"{title_seg} {bc_seg} {sub_seg}".strip(),
-                    breadcrumb=sub_bc,
-                    article_ref=parent.article_ref,
-                    clause_ref=f"Khoản {u.clause_number}" if u.clause_number else None,
-                    point_ref=f"Điểm {u.point_letter}" if u.point_letter else None,
-                    chunk_type=parent.chunk_type,
-                    metadata=parent.metadata.copy(),
-                ))
-            continue
-
-        if buffer_words + u_words > max_units and buffer_units:
-            c = _flush_buffer(child_idx)
-            if c:
-                children.append(c)
-                child_idx += 1
-
-        buffer_units.append(u)
-        buffer_words += u_words
-
-        if buffer_words >= min_words:
-            c = _flush_buffer(child_idx)
-            if c:
-                children.append(c)
-                child_idx += 1
-
-    if buffer_units:
-        c = _flush_buffer(child_idx)
-        if c:
-            children.append(c)
-
-    # Tranh trung chunk_id khi ID theo so khoan va ID theo thu tu cung ton tai.
-    # Giu nguyen ID lan xuat hien dau tien de han che thay doi ID da su dung.
-    # Neu ID da ton tai, chi them hau to _part2, _part3, ... cho chunk sau.
-    # Dat truoc return de parent.child_ids duoc cap nhat dung o ham goi.
-    original_ids = {child.chunk_id for child in children}
-    assigned_ids: set[str] = set()
-
-    for child in children:
-        original_id = child.chunk_id
-        if original_id in assigned_ids:
-            suffix = 2
-            candidate = f"{original_id}_part{suffix}"
-            while candidate in assigned_ids or candidate in original_ids:
-                suffix += 1
-                candidate = f"{original_id}_part{suffix}"
-            child.chunk_id = candidate
-
-        assigned_ids.add(child.chunk_id)
+        children.append(child)
 
     return children
 
@@ -620,6 +586,11 @@ def _chunk_structured_document(
         art_id_raw = str(art.get("article_id") or "")
         art_num = str(art.get("article_number") or "")
 
+        clean_doc = _clean_id(doc_id)
+        clean_num = _clean_id(art_num or art_id_raw, default="0")
+        base_parent_id = f"{clean_doc}_art_{clean_num}"
+        art_id = art_id_raw if art_id_raw else base_parent_id
+
         # Trích xuất tiêu đề ngắn gọn
         raw_title = (art.get("article_title") or "").strip()
         raw_intro = (art.get("intro") or "").strip()
@@ -643,27 +614,42 @@ def _chunk_structured_document(
         raw_chunks = []
         if clauses:
             for cl in clauses:
+                cl_num = str(cl.get("clause_number")).strip() if cl.get("clause_number") is not None else None
+                cl_id = str(cl.get("clause_id") or "").strip()
+                if not cl_id:
+                    cl_id = f"{art_id}_clause_{_clean_id(cl_num or '1')}"
+                parent_art_id = str(cl.get("parent_article_id") or "").strip() or art_id
                 raw_chunks.append({
-                    "clause_number": cl.get("clause_number"),
+                    "clause_id": cl_id,
+                    "article_id": art_id,
+                    "parent_article_id": parent_art_id,
+                    "clause_number": cl_num,
                     "text": cl.get("clause_text") or cl.get("text", ""),
                     "point_letter": None,
                 })
         else:
-            raw_chunks = art.get("chunks", [])
-
-        clean_doc = _clean_id(doc_id)
-        clean_num = _clean_id(art_num or art_id_raw, default="0")
-        base_parent_id = f"{clean_doc}_art_{clean_num}"
+            for ch in art.get("chunks", []):
+                cl_num = str(ch.get("clause_number")).strip() if ch.get("clause_number") is not None else None
+                cl_id = str(ch.get("clause_id") or "").strip()
+                if not cl_id:
+                    cl_id = f"{art_id}_clause_{_clean_id(cl_num or '1')}"
+                raw_chunks.append({
+                    "clause_id": cl_id,
+                    "article_id": art_id,
+                    "parent_article_id": art_id,
+                    "clause_number": cl_num,
+                    "text": ch.get("text", ""),
+                    "point_letter": ch.get("point_letter"),
+                })
 
         article_ref = f"Điều {art_num}" if art_num else (f"Điều {art_id_raw}" if art_id_raw else "Điều")
         base_bc = build_breadcrumb(chapter, section, article_ref, art_title)
         article_header = f"[{article_ref}. {art_title}]".strip() if art_title else f"[{article_ref}]"
 
         # Trích xuất và giới hạn kích thước từng unit
-        units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300)
+        units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300, max_unit_words=CHILD_MAX_UNITS - 10)
 
         # Chỉ bỏ intro khi toàn bộ intro đã nằm ở đầu clause đầu tiên.
-        # Không dùng ngưỡng độ dài để bỏ intro vì có thể làm mất nội dung luật.
         if art_intro and units:
             intro_tokens = _text_tokens(art_intro)
             first_unit_tokens = _text_tokens(units[0].text)
@@ -756,9 +742,9 @@ def _chunk_structured_document(
     )
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  FALLBACK: SLIDING WINDOW (Khi tài liệu là text phẳng phi cấu trúc)
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 def _fallback_sliding_window(
     text: str,
@@ -815,10 +801,14 @@ def _fallback_sliding_window(
             chunk_id=cid,
             parent_id=pid,
             doc_id=doc_id,
+            article_id=f"{clean_doc}_art_0",
+            clause_id=f"{clean_doc}_art_0_clause_{p_idx}",
+            parent_clause_id=f"{clean_doc}_art_0_clause_{p_idx}",
             title=title,
             text=chunk_text,
             seg_text=seg_text,
             embed_text=embed_text,
+            embed_text_raw=f"{title} {bc} {chunk_text}".strip(),
             breadcrumb=bc,
             chunk_type=ChunkType.FALLBACK_WINDOW,
             metadata=metadata.copy(),
@@ -846,9 +836,9 @@ def _fallback_sliding_window(
     )
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  PUBLIC API
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 def chunk_legal_document(
     doc: dict[str, Any],
@@ -903,9 +893,9 @@ def chunk_parsed_file(
     return chunk_legal_document(data, config)
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 #  CLI / DEMO
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════
 
 def _demo():
     """Chạy thử nghiệm trên các file mẫu có sẵn trong repo."""

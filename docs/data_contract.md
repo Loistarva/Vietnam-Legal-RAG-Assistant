@@ -17,7 +17,7 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 *   **Document ID:** `[loại_văn_bản]_[số_hiệu đầy đủ]` (VD: Nghị định 100/2019/NĐ-CP `nd_100_2019_nd_cp`)
 *   **Article ID:** `[document_id]_art_[số_điều]` (VD: Điều 6 `nd_100_2019_nd_cp_art_6`)
 *   **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: Khoản 2 `nd_100_2019_nd_cp_art_6_clause_2`)
-*   **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_b`)
+*   **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_1`)
 ---
 
 ## 3. Đặc tả Chi tiết Đối tượng (Entity Specifications)
@@ -73,8 +73,10 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 | Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation) |
 | :--- | :--- | :---: | :--- |
-| `chunk_id` | String | **Có** | ID duy nhất của Chunk. |
+| `chunk_id` | String | **Có** | ID duy nhất của Chunk. Định dạng chuẩn: `{clause_id}_chunk_{idx}`. |
 | `parent_clause_id` | String | **Có** | Khóa ngoại. Bắt buộc phải khớp chính xác với `clause_id` chứa nó. |
+| `clause_id` | String | **Có** | Định danh của Khoản cha. |
+| `article_id` | String | **Có** | Định danh của Điều chứa Khoản. |
 | `clause_number` | String | Không | Sao chép từ Clause cha xuống để dễ truy xuất. |
 | `point_letter` | String | Không | Chữ cái của Điểm (VD: "a", "b", "c"). |
 | `chunk_text` | String | **Có** | Nội dung đã cắt nhỏ. Ràng buộc: `minLength: 10`, tuyệt đối không chứa ký tự null byte. |
@@ -100,6 +102,22 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 Parser giữ nguyên JSON nguồn và không cần ghi chunks ngược vào `clauses[].chunks`. Exporter tạo một bản ghi Child Chunk độc lập trên mỗi dòng tại `data/chunking_output/chunks.jsonl`; cấu trúc bản ghi được mô tả trong [`schemas/chunk_payload_schema.json`](../schemas/chunk_payload_schema.json).
 
-Các trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_text` là các alias tương thích tích hợp và phải có giá trị bằng nhau. `metadata` chứa metadata tài liệu cùng `chapter`, `section` và `article_number`; các trường này cũng được trải phẳng ở cấp gốc cho hệ thống retrieval. `parent_id` phải trỏ đến một Parent trong `data/chunking_output/parents.json`, và danh sách `child_ids` của Parent phải khớp với các Child.
+### 5.1. Định danh và Khóa ngoại bắt buộc ở cấp Root
+* **`chunk_id` / `id`**: ID duy nhất của Child Chunk theo định dạng chuẩn: `{clause_id}_chunk_{idx}` (trong đó `idx` đếm tuần tự từ 1 trong phạm vi từng Khoản).
+* **`parent_clause_id`**: Khóa ngoại bắt buộc, trỏ chính xác đến `clause_id` của Khoản chứa chunk (`parent_clause_id == clause_id`).
+* **`clause_id`**: Khóa định danh của Khoản cha chứa chunk.
+* **`article_id`**: Khóa định danh của Điều chứa Khoản.
+* **`parent_id`**: Khóa ngoại trỏ đến một ParentChunk trong `data/chunking_output/parents.json`, và danh sách `child_ids` của Parent phải khớp với các Child.
+* **`doc_id` / `document_id`**: Khóa định danh của Văn bản pháp luật.
 
-Chunk ID chỉ dùng ASCII theo biểu thức `^[A-Za-z0-9_]+$`. Chunker phải bảo toàn nguyên thứ tự token của `clause_text`; không được bỏ đoạn đuôi ngắn chỉ vì nó ít hơn ngưỡng gom chunk. Việc xác nhận nội dung có đầy đủ và đúng với văn bản pháp luật gốc vẫn phụ thuộc vào chất lượng JSON parser và đối chiếu nguồn chính thức.
+Các cặp trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_text` là các alias tương thích tích hợp và phải có giá trị bằng nhau.
+
+### 5.2. Nội dung và Embedding
+* **`chunk_text`**: Nội dung văn bản của chunk. Ràng buộc: `minLength: 10`, tuyệt đối không chứa ký tự null byte (`\x00`). Nếu đoạn đuôi cắt cuối cùng trong một Khoản có độ dài dưới 10 ký tự, engine chunking tự động gộp vào chunk liền trước để tránh sinh chunk vụn.
+* **`seg_text`**: Nội dung đã tách từ tiếng Việt (Underthesea).
+* **`embed_text`**: Chuỗi kết hợp tiêu đề, breadcrumb và nội dung đã tách từ phục vụ sinh vector dense embedding.
+* **`embed_text_raw`** *(Tùy chọn)*: Chuỗi text kết hợp thô trước khi tách từ.
+* **`point_ref`**: Tùy chọn (`["string", "null"]`), chứa thông tin Điểm nếu có hoặc `null`.
+
+### 5.3. Metadata mở rộng
+Trường `metadata` chứa metadata của văn bản cùng `chapter`, `section`, `article_number`, và các trường mở rộng phục vụ lọc downstream: `document_title`, `clause_number`, `source_url`, `effective_from`, `effective_to`.
