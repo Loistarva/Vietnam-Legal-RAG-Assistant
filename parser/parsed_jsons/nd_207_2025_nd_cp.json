@@ -13,16 +13,16 @@
     {
       "article_id": "nd_207_2025_nd_cp_art_1",
       "article_number": "1",
-      "article_title": null,
+      "article_title": "Phạm vi điều chỉnh",
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": "Phạm vi điều chỉnh Nghị định này quy định về việc hiến, nhận, sử dụng, lưu giữ, gửi tinh trùng, noãn, phôi; sinh con bằng kỹ thuật hỗ trợ sinh sản; điều kiện, hồ sơ, thủ tục, thẩm quyền cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật thụ tinh trong ống nghiệm và mang thai hộ vì mục đích nhân đạo; điều kiện mang thai hộ vì mục đích nhân đạo. 4 CÔNG BÁO/Số 1003 + 1004/Ngày 29-7-2025",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "nd_207_2025_nd_cp_art_1_clause_1",
           "parent_article_id": "nd_207_2025_nd_cp_art_1",
           "clause_number": "1",
-          "clause_text": "Phạm vi điều chỉnh Nghị định này quy định về việc hiến, nhận, sử dụng, lưu giữ, gửi tinh trùng, noãn, phôi; sinh con bằng kỹ thuật hỗ trợ sinh sản; điều kiện, hồ sơ, thủ tục, thẩm quyền cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật thụ tinh trong ống nghiệm và mang thai hộ vì mục đích nhân đạo; điều kiện mang thai hộ vì mục đích nhân đạo. 4 CÔNG BÁO/Số 1003 + 1004/Ngày 29-7-2025",
+          "clause_text": "Nghị định này quy định về việc hiến, nhận, sử dụng, lưu giữ, gửi tinh trùng, noãn, phôi; sinh con bằng kỹ thuật hỗ trợ sinh sản; điều kiện, hồ sơ, thủ tục, thẩm quyền cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật thụ tinh trong ống nghiệm và mang thai hộ vì mục đích nhân đạo; điều kiện mang thai hộ vì mục đích nhân đạo. 4 CÔNG BÁO/Số 1003 + 1004/Ngày 29-7-2025",
           "chunks": null
         }
       ]
@@ -30,10 +30,10 @@
     {
       "article_id": "nd_207_2025_nd_cp_art_2",
       "article_number": "2",
-      "article_title": "Giải thích từ ngữ Trong Nghị định này, các từ ngữ dưới đây được hiểu như sau",
+      "article_title": "Giải thích từ ngữ",
       "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": null,
+      "intro": "Trong Nghị định này, các từ ngữ dưới đây được hiểu như sau:",
       "clauses": [
         {
           "clause_id": "nd_207_2025_nd_cp_art_2_clause_1",
@@ -76,7 +76,7 @@
       "article_id": "nd_207_2025_nd_cp_art_3",
       "article_number": "3",
       "article_title": "Nguyên tắc áp dụng kỹ thuật hỗ trợ sinh sản và mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "clauses": [
@@ -121,8 +121,8 @@
       "article_id": "nd_207_2025_nd_cp_art_4",
       "article_number": "4",
       "article_title": "Quy định về việc hiến tinh trùng, hiến noãn, hiến phôi",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -152,8 +152,8 @@
       "article_id": "nd_207_2025_nd_cp_art_5",
       "article_number": "5",
       "article_title": "Điều kiện của người nhận tinh trùng, nhận noãn, nhận phôi để sinh con bằng kỹ thuật hỗ trợ sinh sản",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -190,8 +190,8 @@
       "article_id": "nd_207_2025_nd_cp_art_6",
       "article_number": "6",
       "article_title": "Quy định về việc sử dụng tinh trùng của người hiến trong thực hiện kỹ thuật thụ tinh nhân tạo",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -214,8 +214,8 @@
       "article_id": "nd_207_2025_nd_cp_art_7",
       "article_number": "7",
       "article_title": "Quy định về việc xử lý tinh trùng, noãn, phôi dư",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -245,8 +245,8 @@
       "article_id": "nd_207_2025_nd_cp_art_8",
       "article_number": "8",
       "article_title": "Lưu giữ tinh trùng, lưu giữ noãn, lưu giữ phôi",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -276,8 +276,8 @@
       "article_id": "nd_207_2025_nd_cp_art_9",
       "article_number": "9",
       "article_title": "Gửi tinh trùng, gửi noãn, gửi phôi",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -314,8 +314,8 @@
       "article_id": "nd_207_2025_nd_cp_art_10",
       "article_number": "10",
       "article_title": "Điều kiện của cơ sở được phép thực hiện kỹ thuật thụ tinh trong ống nghiệm",
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
       "intro": null,
       "clauses": [
         {
@@ -358,16 +358,16 @@
     {
       "article_id": "nd_207_2025_nd_cp_art_11",
       "article_number": "11",
-      "article_title": null,
-      "chapter": "Chương II QUY ĐỊNH",
-      "section": null,
-      "intro": "Hồ sơ, thủ tục, thẩm quyền cho phép thực hiện thụ tinh trong ống nghiệm Hồ sơ, thủ tục, thẩm quyền đề nghị cho phép, bổ sung kỹ thuật thực hiện thụ tinh trong ống nghiệm thực hiện theo hồ sơ, thủ tục, thẩm quyền điều chỉnh giấy phép hoạt động của pháp luật về khám bệnh, chữa bệnh. Chương III ĐIỀU KIỆN MANG THAI HỘ VÌ MỤC ĐÍCH NHÂN ĐẠO",
+      "article_title": "Hồ sơ, thủ tục, thẩm quyền cho phép thực hiện thụ tinh trong ống nghiệm",
+      "chapter": "Chương II QUY ĐỊNH VỀ HIẾN, NHẬN, SỬ DỤNG, LƯU GIỮ, GỬI TINH TRÙNG, NOÃN, PHÔI; SINH CON BẰNG KỸ THUẬT HỖ TRỢ SINH SẢN",
+      "section": "Mục 1 HIẾN, NHẬN, SỬ DỤNG TINH TRÙNG, NOÃN, PHÔI HIẾN VÀ XỬ LÝ TINH TRÙNG, NOÃN, PHÔI DƯ",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "nd_207_2025_nd_cp_art_11_clause_1",
           "parent_article_id": "nd_207_2025_nd_cp_art_11",
           "clause_number": "1",
-          "clause_text": "Hồ sơ, thủ tục, thẩm quyền cho phép thực hiện thụ tinh trong ống nghiệm Hồ sơ, thủ tục, thẩm quyền đề nghị cho phép, bổ sung kỹ thuật thực hiện thụ tinh trong ống nghiệm thực hiện theo hồ sơ, thủ tục, thẩm quyền điều chỉnh giấy phép hoạt động của pháp luật về khám bệnh, chữa bệnh. Chương III ĐIỀU KIỆN MANG THAI HỘ VÌ MỤC ĐÍCH NHÂN ĐẠO",
+          "clause_text": "Hồ sơ, thủ tục, thẩm quyền đề nghị cho phép, bổ sung kỹ thuật thực hiện thụ tinh trong ống nghiệm thực hiện theo hồ sơ, thủ tục, thẩm quyền điều chỉnh giấy phép hoạt động của pháp luật về khám bệnh, chữa bệnh.",
           "chunks": null
         }
       ]
@@ -376,7 +376,7 @@
       "article_id": "nd_207_2025_nd_cp_art_12",
       "article_number": "12",
       "article_title": "Điều kiện của cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo CÔNG BÁO/Số 1003 + 1004/Ngày 29-7-2025 11",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương III ĐIỀU KIỆN MANG THAI HỘ VÌ MỤC ĐÍCH NHÂN ĐẠO",
       "section": null,
       "intro": null,
       "clauses": [
@@ -400,7 +400,7 @@
       "article_id": "nd_207_2025_nd_cp_art_13",
       "article_number": "13",
       "article_title": "Hồ sơ, thủ tục, thẩm quyền cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương III ĐIỀU KIỆN MANG THAI HỘ VÌ MỤC ĐÍCH NHÂN ĐẠO",
       "section": null,
       "intro": null,
       "clauses": [
@@ -424,7 +424,7 @@
       "article_id": "nd_207_2025_nd_cp_art_14",
       "article_number": "14",
       "article_title": "Hồ sơ, thủ tục đề nghị mang thai hộ vì mục đích nhân đạo",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương III ĐIỀU KIỆN MANG THAI HỘ VÌ MỤC ĐÍCH NHÂN ĐẠO",
       "section": null,
       "intro": null,
       "clauses": [
@@ -453,7 +453,7 @@
           "clause_id": "nd_207_2025_nd_cp_art_14_clause_4",
           "parent_article_id": "nd_207_2025_nd_cp_art_14",
           "clause_number": "4",
-          "clause_text": "4. Trường hợp người mang thai hộ và cặp vợ chồng nhờ mang thai hộ không đáp ứng đủ điều kiện sức khỏe để thực hiện việc mang thai hộ, trong thời hạn 10 ngày làm việc, cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo phải trả lời bằng văn bản và nêu rõ lý do. Chương IV ĐIỀU KHOẢN THI HÀNH",
+          "clause_text": "4. Trường hợp người mang thai hộ và cặp vợ chồng nhờ mang thai hộ không đáp ứng đủ điều kiện sức khỏe để thực hiện việc mang thai hộ, trong thời hạn 10 ngày làm việc, cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo phải trả lời bằng văn bản và nêu rõ lý do.",
           "chunks": null
         }
       ]
@@ -462,7 +462,7 @@
       "article_id": "nd_207_2025_nd_cp_art_15",
       "article_number": "15",
       "article_title": "Hiệu lực thi hành",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -486,7 +486,7 @@
       "article_id": "nd_207_2025_nd_cp_art_16",
       "article_number": "16",
       "article_title": "Quy định chuyển tiếp",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -510,7 +510,7 @@
       "article_id": "nd_207_2025_nd_cp_art_17",
       "article_number": "17",
       "article_title": "Trách nhiệm thi hành",
-      "chapter": "Chương II QUY ĐỊNH",
+      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
       "section": null,
       "intro": null,
       "clauses": [

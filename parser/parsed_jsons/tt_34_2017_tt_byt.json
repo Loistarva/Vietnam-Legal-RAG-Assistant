@@ -13,16 +13,16 @@
     {
       "article_id": "tt_34_2017_tt_byt_art_1",
       "article_number": "1",
-      "article_title": null,
+      "article_title": "Phạm vi điều chỉnh",
       "chapter": "Chương I QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "tt_34_2017_tt_byt_art_1_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_1",
           "clause_number": "1",
-          "clause_text": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
+          "clause_text": "Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
           "chunks": null
         }
       ]
@@ -76,7 +76,7 @@
       "article_id": "tt_34_2017_tt_byt_art_3",
       "article_number": "3",
       "article_title": "Nguyên tắc tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "clauses": [
@@ -107,7 +107,7 @@
       "article_id": "tt_34_2017_tt_byt_art_4",
       "article_number": "4",
       "article_title": "Sàng lọc trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -145,7 +145,7 @@
       "article_id": "tt_34_2017_tt_byt_art_5",
       "article_number": "5",
       "article_title": "Chẩn đoán trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -183,7 +183,7 @@
       "article_id": "tt_34_2017_tt_byt_art_6",
       "article_number": "6",
       "article_title": "Điều trị trước sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -214,7 +214,7 @@
       "article_id": "tt_34_2017_tt_byt_art_7",
       "article_number": "7",
       "article_title": "Điều trị sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN, ĐIỀU TRỊ TRƯỚC SINH VÀ SƠ SINH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -229,7 +229,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_7_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_7",
           "clause_number": "2",
-          "clause_text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể. Chương III ĐIỀU KHOẢN THI HÀNH",
+          "clause_text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể.",
           "chunks": null
         }
       ]
@@ -237,16 +237,16 @@
     {
       "article_id": "tt_34_2017_tt_byt_art_8",
       "article_number": "8",
-      "article_title": null,
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "article_title": "Hiệu lực thi hành",
+      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
       "section": null,
-      "intro": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "tt_34_2017_tt_byt_art_8_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_8",
           "clause_number": "1",
-          "clause_text": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
+          "clause_text": "Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
           "chunks": null
         }
       ]
@@ -254,8 +254,8 @@
     {
       "article_id": "tt_34_2017_tt_byt_art_9",
       "article_number": "9",
-      "article_title": "Trách nhiệm thi hành Tổng cục trưởng Tổng cục Dân số;",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "article_title": "Trách nhiệm thi hành",
+      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -263,7 +263,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_9_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_9",
           "clause_number": "1",
-          "clause_text": "Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết./. KT. BỘ TRƯỞNG THỨ TRƯỞNG Nguyễn Viết Tiến",
+          "clause_text": "Tổng cục trưởng Tổng cục Dân số; Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết./. KT. BỘ TRƯỞNG THỨ TRƯỞNG Nguyễn Viết Tiến",
           "chunks": null
         }
       ]

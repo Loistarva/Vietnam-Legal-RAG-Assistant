@@ -10,7 +10,7 @@ Entry point của pipeline: PDF -> cleaned_texts/*.txt -> parsed_jsons/*.json
 Sau khi parse, mỗi file JSON được kiểm tra cấu trúc (check_doc_structure).
 File nào vi phạm sẽ bị tính là THẤT BẠI và không được ghi ra parsed_jsons.
 
-Unit test từng hàm của parser nằm ở test_parser_unit.py (chạy bằng pytest).
+Unit tests từng hàm của parser nằm ở test_parser_unit.py (chạy bằng pytest).
 """
 
 import argparse
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     sys.exit(main())
 
 def test_all_parsed_json_structures():
-    """Pytest test case kiem tra toan bo output json cua parser."""
+    """Pytest tests case kiem tra toan bo output json cua parser."""
     json_files = list(PARSED_DIR.glob("*.json"))
     assert len(json_files) > 0, "Khong tim thay file JSON nao trong parsed_jsons"
     for jf in json_files:

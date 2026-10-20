@@ -12,12 +12,11 @@ Tạo ra 2 sản phẩm đầu ra bắt buộc theo yêu cầu:
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
 from typing import Any
-
-import pandas as pd
 
 # Đảm bảo import được chunking_rules
 BASE_DIR = Path(__file__).resolve().parent
@@ -183,6 +182,8 @@ def evaluate_config(
 
 def generate_evaluation_excel(results: list[dict[str, Any]], out_path: Path):
     """Xuất file Excel đánh giá đẹp mắt với nhiều sheet phân tích."""
+    import pandas as pd
+
     with pd.ExcelWriter(out_path, engine="openpyxl") as writer:
         # Sheet 1: Bảng so sánh tổng quan
         summary_rows = []
@@ -350,13 +351,21 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Chạy thử nghiệm đánh giá cấu hình chunking.")
+    parser.add_argument(
+        "--export-reports",
+        action="store_true",
+        help="Xuất chunking_evaluation.xlsx và chunking_examples.json.",
+    )
+    args = parser.parse_args()
+
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except Exception:
         pass
 
     print("=" * 70)
-    print("🔬 CHẠY THỬ NGHIỆM ĐÁNH GIÁ CẤU HÌNH CHUNKING VÀ XUẤT BÁO CÁO")
+    print("CHẠY THỬ NGHIỆM ĐÁNH GIÁ CẤU HÌNH CHUNKING")
     print("=" * 70)
 
     docs = load_test_documents()
@@ -370,23 +379,23 @@ def main():
         results.append(r)
         print(f"      -> {r['total_parents']} Parents, {r['total_children']} Children (Tỷ lệ: {r['child_per_parent_ratio']})")
 
-    # Xuất file Excel
-    excel_path = BASE_DIR / "chunking_evaluation.xlsx"
-    print(f"\n📊 Đang xuất bảng đánh giá: {excel_path.name}...")
-    generate_evaluation_excel(results, excel_path)
-    print(f"  ✅ Đã lưu {excel_path}")
+    if args.export_reports:
+        excel_path = BASE_DIR / "chunking_evaluation.xlsx"
+        print(f"\nĐang xuất bảng đánh giá: {excel_path.name}...")
+        generate_evaluation_excel(results, excel_path)
+        print(f"Đã lưu {excel_path}")
 
-    # Xuất file JSON ví dụ
-    json_path = BASE_DIR / "chunking_examples.json"
-    print(f"📋 Đang xuất các trường hợp mẫu: {json_path.name}...")
-    generate_examples_json(docs, json_path)
-    print(f"  ✅ Đã lưu {json_path}")
+        json_path = BASE_DIR / "chunking_examples.json"
+        print(f"Đang xuất các trường hợp mẫu: {json_path.name}...")
+        generate_examples_json(docs, json_path)
+        print(f"Đã lưu {json_path}")
+    else:
+        print("\nKhông xuất file báo cáo. Dùng --export-reports nếu cần tạo Excel và JSON.")
 
     print("\n" + "=" * 70)
-    print("🎉 HOÀN THÀNH THỬ NGHIỆM VÀ XUẤT TẤT CẢ FILE BÁO CÁO!")
+    print("HOÀN THÀNH THỬ NGHIỆM!")
     print("=" * 70)
 
 
 if __name__ == "__main__":
     main()
-

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Retrieval result",
+  "type": "object",
+  "required": ["chunk_id", "rank", "score", "metadata"],
+  "properties": {
+    "chunk_id": {"type": "string", "minLength": 1},
+    "rank": {"type": "integer", "minimum": 1},
+    "score": {"type": "number"},
+    "rrf_score": {"type": "number", "minimum": 0},
+    "text": {"type": "string"},
+    "metadata": {"type": "object"},
+    "retrieval_sources": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

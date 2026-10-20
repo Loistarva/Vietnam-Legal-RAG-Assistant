@@ -1,0 +1,29 @@
+{
+  "method": "zero_shot",
+  "metric_type": "traditional_text_overlap",
+  "normalization": "Unicode NFKC, case-insensitive, punctuation removed, whitespace tokenization",
+  "exact_match": 0.0,
+  "token_f1": 0.17458424625848493,
+  "evaluated_questions": 45,
+  "prediction_records": 45,
+  "ground_truth_records": 60,
+  "prediction_ids_without_reference": [],
+  "ground_truth_ids_without_prediction": [
+    "HN_004",
+    "HN_008",
+    "HN_012",
+    "HN_016",
+    "HN_020",
+    "HN_024",
+    "HN_028",
+    "HN_032",
+    "HN_036",
+    "HN_040",
+    "HN_044",
+    "HN_048",
+    "HN_052",
+    "HN_056",
+    "HN_060"
+  ],
+  "note": "Exact Match and token F1 are lexical-overlap metrics. They do not call an LLM and may penalize semantically correct answers that use different wording."
+}
