@@ -67,6 +67,8 @@ class DocumentMetadataSchema(BaseSchema):
     effective_date: Optional[str] = None
     issuing_body: str
     validity_status: str
+    expiry_date: Optional[str] = None
+    source_url: str = ""
 
 
 class LegalDocumentSchema(BaseModel):
@@ -890,6 +892,10 @@ def metadata_from_document_version(record: dict, extracted_number: str) -> dict:
         "effective_date": effective_date or None,
         "issuing_body": issuing_body or "Không xác định",
         "validity_status": validity_status,
+        # Các trường này lấy từ đúng bản ghi registry khớp document_number.
+        # Không suy diễn ngày hết hiệu lực hoặc URL nếu registry không có dữ liệu.
+        "expiry_date": record.get("expiry_date") or None,
+        "source_url": str(record.get("source_url") or "").strip(),
     }
 
 
