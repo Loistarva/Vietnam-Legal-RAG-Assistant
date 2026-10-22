@@ -14,7 +14,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Luật Hôn nhân và gia đình",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "l_52_2014_qh13",
+    "file_code": "L01",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "126/2014/NĐ-CP",
@@ -31,7 +34,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-    "provision_status": "requires_review"
+    "provision_status": "requires_review",
+    "document_id": "nd_126_2014_nd_cp",
+    "file_code": "ND01",
+    "validity_status": "Sửa đổi bổ sung"
   },
   {
     "document_number": "207/2025/NĐ-CP",
@@ -48,7 +54,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_207_2025_nd_cp",
+    "file_code": "ND02",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "01/2024/NQ-HĐTP",
@@ -65,7 +74,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Hướng dẫn áp dụng một số quy định về giải quyết vụ việc hôn nhân và gia đình",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nq_01_2024_nq_hdtp",
+    "file_code": "ND03",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
@@ -82,7 +94,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Hướng dẫn một số quy định Luật Hôn nhân và gia đình",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "ttlt_01_2016_ttlt_tandtc",
+    "file_code": "TT01",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "02a/2015/TT-BTP",
@@ -99,7 +114,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Hướng dẫn một số điều Nghị định 126/2014 về hôn nhân có yếu tố nước ngoài",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_02a_2015_tt_btp",
+    "file_code": "TT02",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "32/2016/TT-BYT",
@@ -116,7 +134,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Quy định liên quan đến hỗ trợ sinh sản",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_32_2016_tt_byt",
+    "file_code": "TT03",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "34/2017/TT-BYT",
@@ -133,7 +154,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_34_2017_tt_byt",
+    "file_code": "TT04",
+    "validity_status": "Sửa đổi bổ sung"
   },
   {
     "document_number": "30/2019/TT-BYT",
@@ -150,7 +174,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Trạng thái cấp văn bản; cần xét điều/khoản",
     "title": "Sửa đổi, bổ sung một số điều về sàng lọc, chẩn đoán trước sinh và sơ sinh",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_30_2019_tt_byt",
+    "file_code": "TT05",
+    "validity_status": "Không xác định"
   },
   {
     "document_number": "22/2000/QH10",
@@ -167,7 +194,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Luật Hôn nhân và gia đình 2000",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "l_22_2000_qh10",
+    "file_code": "L02",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "Luật HNGĐ 1986 (không số)",
@@ -184,7 +214,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Luật Hôn nhân và gia đình năm 1986",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "l_hngd_1986",
+    "file_code": "L03",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "70/2001/NĐ-CP",
@@ -201,7 +234,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Quy định chi tiết thi hành Luật Hôn nhân và gia đình 2000",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_70_2001_nd_cp",
+    "file_code": "ND05",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "32/2002/NĐ-CP",
@@ -218,7 +254,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Áp dụng Luật Hôn nhân và gia đình đối với dân tộc thiểu số",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_32_2002_nd_cp",
+    "file_code": "ND06",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "68/2002/NĐ-CP",
@@ -235,7 +274,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Hôn nhân và gia đình có yếu tố nước ngoài",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_68_2002_nd_cp",
+    "file_code": "ND07",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "77/2001/NĐ-CP",
@@ -252,7 +294,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Đăng ký kết hôn theo Nghị quyết 35/2000/QH10",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_77_2001_nd_cp",
+    "file_code": "ND08",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "07/2001/TT-BTP",
@@ -269,7 +314,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Hướng dẫn đăng ký kết hôn",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_07_2001_tt_btp",
+    "file_code": "TT06",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "07/2002/TT-BTP",
@@ -286,7 +334,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Hướng dẫn Nghị định 68/2002 về hôn nhân có yếu tố nước ngoài",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_07_2002_tt_btp",
+    "file_code": "TT07",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "15/2015/TT-BTP",
@@ -303,7 +354,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Quy định chi tiết thi hành Luật Hộ tịch và Nghị định 123/2015",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_15_2015_tt_btp",
+    "file_code": "TT08",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "10/2015/NĐ-CP",
@@ -320,7 +374,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Thụ tinh trong ống nghiệm và mang thai hộ vì mục đích nhân đạo",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "nd_10_2015_nd_cp",
+    "file_code": "ND04",
+    "validity_status": "Hết hiệu lực"
   },
   {
     "document_number": "04/2020/TT-BTP",
@@ -337,7 +394,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Quy định chi tiết một số điều về hộ tịch",
-    "provision_status": "requires_review"
+    "provision_status": "requires_review",
+    "document_id": "tt_04_2020_tt_btp",
+    "file_code": "TT09",
+    "validity_status": "Sửa đổi bổ sung"
   },
   {
     "document_number": "57/2015/TT-BYT",
@@ -354,7 +414,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Chi tiết một số điều Nghị định 10/2015 về thụ tinh trong ống nghiệm",
-    "provision_status": "requires_review"
+    "provision_status": "requires_review",
+    "document_id": "tt_57_2015_tt_byt",
+    "file_code": "TT10",
+    "validity_status": "Sửa đổi bổ sung"
   },
   {
     "document_number": "38/2025/TT-BYT",
@@ -371,7 +434,10 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Chi tiết một số điều Nghị định 207/2025 về hỗ trợ sinh sản",
-    "provision_status": "document_level_only"
+    "provision_status": "document_level_only",
+    "document_id": "tt_38_2025_tt_byt",
+    "file_code": "TT11",
+    "validity_status": "Còn hiệu lực"
   },
   {
     "document_number": "123/2015/NĐ-CP",
@@ -388,6 +454,9 @@
     "verified_at": "2026-10-15",
     "verification_scope": "Đối chiếu sơ bộ nguồn VBPL; chưa kiểm chứng từng điều khoản",
     "title": "Quy định chi tiết một số điều của Luật Hộ tịch",
-    "provision_status": "requires_review"
+    "provision_status": "requires_review",
+    "document_id": "nd_123_2015_nd_cp",
+    "file_code": "ND09",
+    "validity_status": "Sửa đổi bổ sung"
   }
 ]

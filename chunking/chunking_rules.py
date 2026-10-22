@@ -139,7 +139,7 @@ class ChildChunk:
             "issue_date": str(self.metadata.get("issue_date") or ""),
             "effective_date": str(self.metadata.get("effective_date") or ""),
             "issuing_body": self.metadata.get("issuing_body"),
-            "validity_status": self.metadata.get("validity_status") or "Còn hiệu lực",
+            "validity_status": self.metadata.get("validity_status"),
             "chapter": self.metadata.get("chapter"),
             "section": self.metadata.get("section"),
             "article_number": self.metadata.get("article_number"),
@@ -517,9 +517,10 @@ def _create_child_chunks_from_units(
         child_meta = parent.metadata.copy()
         child_meta["document_title"] = child_meta.get("title") or parent.title
         child_meta["clause_number"] = str(u.clause_number) if u.clause_number is not None else None
-        child_meta["source_url"] = child_meta.get("source_url") or None
-        child_meta["effective_from"] = child_meta.get("effective_date") or None
-        child_meta["effective_to"] = child_meta.get("expiry_date") or None
+        child_meta["source_url"] = parent.metadata.get("source_url") or ""
+        child_meta["effective_from"] = parent.metadata.get("effective_from") or parent.metadata.get("effective_date") or ""
+        child_meta["effective_to"] = parent.metadata.get("effective_to")
+        child_meta["validity_status"] = parent.metadata.get("validity_status")
 
         child = ChildChunk(
             chunk_id=cid,
@@ -561,15 +562,32 @@ def _chunk_structured_document(
     title = str(meta.get("title") or doc.get("title") or "Văn bản pháp luật")
     title_seg = word_segment(title)
 
+    validity_status = meta.get("validity_status") or doc.get("tinh_trang_hieu_luc")
+    if not validity_status:
+        raise ValueError(f"Thiếu validity_status cho văn bản {doc_id}")
+
+    effective_date = meta.get("effective_date") or doc.get("ngay_co_hieu_luc")
+    if not effective_date:
+        raise ValueError(f"Thiếu effective_date cho văn bản {doc_id}")
+
+    effective_from = str(effective_date).strip()
+    raw_expiry = meta.get("expiry_date") or meta.get("effective_to")
+    effective_to = str(raw_expiry).strip() if raw_expiry else None
+
+    source_url = str(meta.get("source_url") or doc.get("source_url") or "").strip()
+
     common_metadata = {
         "doc_id": doc_id,
         "title": title,
         "document_type": meta.get("document_type") or doc.get("loai_van_ban"),
         "document_number": meta.get("document_number") or doc.get("so_ky_hieu"),
         "issue_date": str(meta.get("issue_date") or ""),
-        "effective_date": str(meta.get("effective_date") or doc.get("ngay_co_hieu_luc") or ""),
+        "effective_date": effective_from,
+        "effective_from": effective_from,
+        "effective_to": effective_to,
+        "source_url": source_url,
         "issuing_body": meta.get("issuing_body") or doc.get("co_quan_ban_hanh"),
-        "validity_status": meta.get("validity_status") or doc.get("tinh_trang_hieu_luc") or "Còn hiệu lực",
+        "validity_status": validity_status,
     }
 
     articles = doc.get("articles", [])
@@ -909,8 +927,8 @@ def _demo():
     print("=" * 70)
 
     sample_files = [
-        Path(__file__).parent.parent / "parser" / "parsed_jsons" / "L01.json",
-        Path(__file__).parent.parent / "parser" / "parsed_jsons" / "ND01.json",
+        Path(__file__).parent.parent / "parser" / "parsed_jsons" / "l_52_2014_qh13.json",
+        Path(__file__).parent.parent / "parser" / "parsed_jsons" / "nd_126_2014_nd_cp.json",
         Path(__file__).parent.parent / "data" / "sample_documents.json",
         Path(__file__).parent.parent / "parsed_output_test.json",
     ]

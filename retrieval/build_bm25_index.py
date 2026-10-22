@@ -6,7 +6,17 @@ import os
 from pathlib import Path
 from typing import Any
 
-from elasticsearch import Elasticsearch, helpers
+try:
+    from elasticsearch import Elasticsearch, helpers
+    HAS_ELASTICSEARCH = True
+except ImportError:
+    HAS_ELASTICSEARCH = False
+    Elasticsearch = None
+    class _DummyHelpers:
+        @staticmethod
+        def bulk(*args, **kwargs):
+            return 0, []
+    helpers = _DummyHelpers()
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
@@ -140,6 +150,8 @@ def build_bm25_index(
     Existing chunks are upserted by chunk_id. Set recreate=True to replace the
     whole index and remove documents that are absent from the input file.
     """
+    if not HAS_ELASTICSEARCH and client is None:
+        raise RuntimeError("Cần cài elasticsearch để dùng build_bm25_index khi không truyền client")
     resolved_es_url = es_url or os.getenv("ELASTICSEARCH_URL", DEFAULT_ES_URL)
     resolved_index_name = index_name or os.getenv("ELASTICSEARCH_INDEX", DEFAULT_INDEX_NAME)
     if not resolved_index_name or not resolved_index_name.strip():

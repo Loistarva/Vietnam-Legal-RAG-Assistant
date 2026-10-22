@@ -1,3 +1,21 @@
+import sys
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+VALIDITY_STATUS_MAP = {
+    "Còn hiệu lực": "Còn hiệu lực",
+    "Hết hiệu lực toàn bộ": "Hết hiệu lực",
+    "Hết hiệu lực": "Hết hiệu lực",
+    "Hết hiệu lực một phần": "Sửa đổi bổ sung",
+    "Có điều khoản bị sửa đổi / bãi bỏ": "Sửa đổi bổ sung",
+    "Sắp có hiệu lực": "Sắp có hiệu lực",
+    "Cần kiểm tra trạng thái mới nhất": "Không xác định",
+    "Không xác định": "Không xác định",
+}
 """Thư viện parse văn bản luật (TXT) thành JSON theo Điều / Khoản (Kiến trúc 4 tầng). Không có main; entry point là test_parser.py."""
 import argparse
 import json
@@ -64,6 +82,8 @@ class LegalMetadata(BaseModel):
     document_number: str
     issue_date: str
     effective_date: Optional[str] = None
+    expiry_date: Optional[str] = None
+    source_url: str = ""
     issuing_body: str
     validity_status: str
 
@@ -473,7 +493,8 @@ def build_clauses(art_id: str, body: str, has_clauses: bool) -> List[ClauseSchem
 
 
 APPENDIX_HEADING_RE = re.compile(
-    r"(?<!\S)PHỤ LỤC(?:\s+[IVXLCDM]+)?(?:\s+MẪU)?(?=\s|$)"
+    r"(?<!\S)(?:PHỤ\s+LỤC|Phụ\s+lục)(?:\s+[IVXLCDM]+)?(?:\s+MẪU)?(?=\s|$)",
+    re.IGNORECASE,
 )
 ARTICLE_MARKER_ANY_RE = re.compile(r"(?<!\S)Điều\s+\d+[a-z]?\.\s+(?=[" + UP + r"])" , re.IGNORECASE)
 
@@ -1016,19 +1037,65 @@ def extract_document_title(text: str) -> str:
 def extract_metadata(raw_text: str, file_path: Optional[str] = None) -> dict:
     if file_path:
         document_id = normalize_document_id(file_path)
+        file_stem = Path(file_path).stem
     else:
         document_id = "document"
+        file_stem = ""
 
     document_number = extract_document_number(raw_text)
+
+    # Đồng bộ metadata với data/reference/document_versions.json
+    versions_file = Path(__file__).resolve().parent.parent / "data" / "reference" / "document_versions.json"
+    matched_entry = None
+    if versions_file.exists():
+        try:
+            with open(versions_file, "r", encoding="utf-8") as f:
+                versions_data = json.load(f)
+            for entry in versions_data:
+                if file_stem and (entry.get("file_code") == file_stem or entry.get("document_id") == file_stem):
+                    matched_entry = entry
+                    break
+                if document_number and (
+                    entry.get("document_number") == document_number
+                    or document_number.startswith(entry.get("document_number", "___"))
+                    or entry.get("document_number", "").startswith(document_number)
+                ):
+                    matched_entry = entry
+                    break
+        except Exception as ex:
+            warn(f"Không thể đọc document_versions.json: {ex}")
+
+    extracted_effective_date = extract_effective_date(raw_text)
+    extracted_issue_date = extract_issue_date(raw_text)
+
+    validity_status = "Không xác định"
+    expiry_date = None
+    source_url = ""
+
+    if matched_entry:
+        raw_status = matched_entry.get("status") or matched_entry.get("validity_status") or ""
+        validity_status = VALIDITY_STATUS_MAP.get(raw_status, "Không xác định")
+        expiry_date = matched_entry.get("expiry_date") or None
+        if expiry_date == "":
+            expiry_date = None
+        source_url = matched_entry.get("source_url") or ""
+        if not extracted_effective_date and matched_entry.get("effective_date"):
+            extracted_effective_date = matched_entry.get("effective_date")
+        if not extracted_issue_date and matched_entry.get("issue_date"):
+            extracted_issue_date = matched_entry.get("issue_date")
+    else:
+        validity_status = extract_validity_status(raw_text)
 
     return {
         "title": extract_document_title(raw_text),
         "document_type": resolve_document_type(raw_text, document_number),
         "document_number": document_number,
-        "issue_date": extract_issue_date(raw_text),
-        "effective_date": extract_effective_date(raw_text),
+        "issue_date": extracted_issue_date,
+        "effective_date": extracted_effective_date,
+        "expiry_date": expiry_date,
+        "source_url": source_url,
         "issuing_body": extract_issuing_body(raw_text),
-        "validity_status": extract_validity_status(raw_text),
+        "validity_status": validity_status,
     }
 
 def parse_raw_text_to_legal_doc(raw_text: str, doc_id: str, metadata: dict) -> dict:

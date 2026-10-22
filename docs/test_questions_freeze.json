@@ -1,7 +1,7 @@
 {
   "scope": "TEST_QUERIES_ONLY_NOT_GOLD_ANSWERS",
   "frozen_file": "data/benchmark/queries_test.json",
-  "sha256": "0b4b3a2f75a02ace122333fedddb45a8b36229217841619ea55107c36cacdbdf",
+  "sha256": "6942c3353a622c14d498f34c9bccce5e09f87b297efaeb6706417c6979ffb889",
   "question_count": 15,
   "test_ids": [
     "HN_004",

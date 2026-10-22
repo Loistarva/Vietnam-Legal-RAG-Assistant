@@ -53,14 +53,29 @@ raw_data/
 
 Khi xử lý dữ liệu để xây dựng Knowledge Base, hệ thống sẽ trích xuất nội dung từ file gốc và tạo mã định danh cho từng Điều hoặc chunk.
 
-Ví dụ:
+Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_code`), định danh hệ thống slug (`document_id`), và số hiệu văn bản:
 
-- `L01_D01`: Điều 1 của văn bản có `document_id = L01`.
-- `L01_D02`: Điều 2 của văn bản có `document_id = L01`.
-- `L01_D02_C01`: Chunk 1 của Điều 2.
+| Mã File (`file_code`) | Định danh hệ thống (`document_id`) | Số hiệu văn bản (`document_number`) | Trạng thái hiệu lực | Tên văn bản |
+| :--- | :--- | :--- | :--- | :--- |
+| **L01** | `l_52_2014_qh13` | 52/2014/QH13 | Còn hiệu lực | Luật Hôn nhân và gia đình 2014 |
+| **ND01** | `nd_126_2014_nd_cp` | 126/2014/NĐ-CP | Sửa đổi bổ sung | Nghị định quy định chi tiết một số điều và biện pháp thi hành Luật HNGĐ |
+| **ND02** | `nd_207_2025_nd_cp` | 207/2025/NĐ-CP | Còn hiệu lực | Nghị định sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ |
+| **ND03** | `nq_01_2024_nq_hdtp` | 01/2024/NQ-HĐTP | Còn hiệu lực | Nghị quyết hướng dẫn áp dụng quy định giải quyết vụ việc hôn nhân và gia đình |
+| **TT01** | `ttlt_01_2016_ttlt_tandtc` | 01/2016/TTLT-TANDTC-VKSNDTC-BTP | Còn hiệu lực | Thông tư liên tịch hướng dẫn một số quy định của Luật HNGĐ |
+| **TT02** | `tt_02a_2015_tt_btp` | 02a/2015/TT-BTP | Hết hiệu lực | Thông tư hướng dẫn một số điều Nghị định 126/2014/NĐ-CP |
+| **TT03** | `tt_32_2016_tt_byt` | 32/2016/TT-BYT | Còn hiệu lực | Thông tư quy định liên quan đến hỗ trợ sinh sản |
+| **TT04** | `tt_34_2017_tt_byt` | 34/2017/TT-BYT | Sửa đổi bổ sung | Thông tư tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh |
+| **L02** | `l_22_2000_qh10` | 22/2000/QH10 | Hết hiệu lực | Luật Hôn nhân và gia đình 2000 |
+| **ND04** | `nd_10_2015_nd_cp` | 10/2015/NĐ-CP | Hết hiệu lực | Nghị định quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm |
+| **ND05** | `nd_70_2001_nd_cp` | 70/2001/NĐ-CP | Hết hiệu lực | Nghị định quy định chi tiết thi hành Luật Hôn nhân và gia đình 2000 |
 
-Các mã này được tạo trong quá trình xử lý dữ liệu, không yêu cầu phải đổi tên file PDF gốc.
-Không sử dụng cùng một document_id cho hai văn bản khác nhau. Khi đổi tên file, cần cập nhật đường dẫn tương ứng trong bảng kiểm kê.
+Quy tắc định danh cấu trúc phân cấp:
+- **Article ID**: `[document_id]_art_[số_điều]` (Ví dụ: `l_52_2014_qh13_art_8`). Mã quản lý tương ứng: `L01_D08`.
+- **Clause ID**: `[article_id]_clause_[số_khoản]` (Ví dụ: `l_52_2014_qh13_art_8_clause_1`).
+- **Chunk ID**: `[clause_id]_chunk_[chỉ_số]` (Ví dụ: `l_52_2014_qh13_art_8_clause_1_chunk_1`).
+
+Các mã này được tạo tự động trong quá trình xử lý dữ liệu, không yêu cầu phải đổi tên file PDF gốc.
+Không sử dụng cùng một document_id cho hai văn bản khác nhau.
 
 ## 4. Bảng kiểm kê văn bản
 

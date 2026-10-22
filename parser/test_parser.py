@@ -1,3 +1,10 @@
+import sys
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 """
 Entry point của pipeline: PDF -> cleaned_texts/*.txt -> parsed_jsons/*.json
 (parser kiến trúc 4 tầng: Văn bản -> Điều -> Khoản -> Chunk)

@@ -34,9 +34,17 @@ class HybridRetrieverTest(unittest.TestCase):
         self.assertIn("content_segmented", multi_match["fields"])
         self.assertIn("article_ref^4", multi_match["fields"])
         self.assertEqual(results, [{
-            "chunk_id": "chunk-a", "text": "kết quả", "parent_id": None,
+            "chunk_id": "chunk-a",
+            "document_id": "",
+            "article_id": "",
+            "clause_id": "",
+            "parent_clause_id": "",
+            "rank": 1,
+            "score": 3.7,
+            "chunk_text": "kết quả",
+            "text": "kết quả",
+            "parent_id": None,
             "metadata": {"article_ref": "Điều 5"},
-            "score": 3.7, "rank": 1,
         }])
 
     def test_rrf_combines_overlap_and_preserves_single_branch_results(self):
