@@ -1,3 +1,10 @@
+import sys
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 """
 Entry point của pipeline: PDF -> cleaned_texts/*.txt -> parsed_jsons/*.json
 (parser kiến trúc 4 tầng: Văn bản -> Điều -> Khoản -> Chunk)
@@ -135,9 +142,7 @@ def parse_one_file(txt_path: Path, show_report: bool = True) -> Path:
     metadata = legal_parser.extract_metadata(raw_text, str(txt_path))
     metadata_warnings = list(legal_parser.WARNINGS)
 
-    doc_id = legal_parser.build_document_id(
-        metadata["document_type"], metadata["document_number"]
-    )
+    doc_id = legal_parser.resolve_document_id(metadata)
 
     doc = legal_parser.parse_raw_text_to_legal_doc(raw_text, doc_id, metadata)
 

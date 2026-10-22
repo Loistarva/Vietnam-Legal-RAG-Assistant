@@ -28,7 +28,7 @@ SAMPLE_PATH = Path(__file__).parent.parent / "data" / "sample_documents.json"
 # 4. Mọi validator quan hệ cha-con dùng chung một helper và một mẫu thông báo lỗi.
 # =============================================================================
 
-DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch" ]
+DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch"]
 ValidityStatus = Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]
 
 
@@ -107,8 +107,10 @@ class DocumentMetadataSchema(BaseSchema):
     document_number: str
     issue_date: date
     effective_date: Optional[date] = None
+    expiry_date: Optional[date] = None
     issuing_body: str
     validity_status: ValidityStatus
+    source_url: Optional[str] = ""
 
 
 class LegalDocumentSchema(BaseSchema):
@@ -152,8 +154,10 @@ def make_doc():
                 "document_number": "100/2019/NĐ-CP",
                 "issue_date": "2019-12-30",
                 "effective_date": "2020-01-01",
+                "expiry_date": None,
                 "issuing_body": "Chính phủ",
                 "validity_status": "Còn hiệu lực",
+                "source_url": "https://thuvienphapluat.vn",
             },
             "articles": [{
                 "article_id": "nd_100_art_1",
@@ -295,3 +299,21 @@ def test_corpus_chunks_jsonl():
         assert parent_clause_id in parsed_clause_ids, (
             f"Dòng {line_idx}: parent_clause_id '{parent_clause_id}' không tồn tại trong dữ liệu parser"
         )
+
+        # 5. Metadata checks: effective_from và source_url không rỗng; Hết hiệu lực -> effective_to khác null
+        meta = record.get("metadata", {})
+        eff_from = meta.get("effective_from")
+        src_url = meta.get("source_url")
+        val_status = meta.get("validity_status")
+        eff_to = meta.get("effective_to")
+
+        assert eff_from and isinstance(eff_from, str) and eff_from.strip(), (
+            f"Dòng {line_idx} ({record.get('chunk_id')}): effective_from không được rỗng"
+        )
+        assert src_url and isinstance(src_url, str) and src_url.strip(), (
+            f"Dòng {line_idx} ({record.get('chunk_id')}): source_url không được rỗng"
+        )
+        if val_status == "Hết hiệu lực":
+            assert eff_to is not None and isinstance(eff_to, str) and eff_to.strip(), (
+                f"Dòng {line_idx} ({record.get('chunk_id')}): văn bản Hết hiệu lực bắt buộc phải có effective_to khác null"
+            )

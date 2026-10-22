@@ -26,6 +26,54 @@ try:
 except ImportError:
     HAS_QDRANT = False
 
+VALID_STATUSES = {
+    "Còn hiệu lực",
+    "Hết hiệu lực",
+    "Sắp có hiệu lực",
+    "Sửa đổi bổ sung",
+    "Không xác định",
+}
+
+
+def load_chunks(chunks_file: str | Path) -> List[Dict[str, Any]]:
+    """Tải danh sách chunk từ file json hoặc jsonl."""
+    path = Path(chunks_file)
+    if not path.is_file():
+        raise FileNotFoundError(f"Không tìm thấy file chunk tại: {path}")
+
+    reserved = {
+        "id", "chunk_id", "text", "content", "chunk_text", "metadata",
+        "content_segmented", "seg_text", "embed_text", "embed_text_raw",
+    }
+    records = []
+    if path.suffix.lower() == ".jsonl":
+        with path.open("r", encoding="utf-8-sig") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    item = json.loads(line)
+                    if isinstance(item, dict):
+                        if "chunk_id" not in item and "id" in item:
+                            item["chunk_id"] = item["id"]
+                        if "metadata" not in item:
+                            item["metadata"] = {k: v for k, v in item.items() if k not in reserved}
+                    records.append(item)
+    else:
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
+        if isinstance(data, list):
+            records = data
+        elif isinstance(data, dict) and "chunks" in data:
+            records = data["chunks"]
+        else:
+            records = [data]
+        for item in records:
+            if isinstance(item, dict):
+                if "chunk_id" not in item and "id" in item:
+                    item["chunk_id"] = item["id"]
+                if "metadata" not in item:
+                    item["metadata"] = {k: v for k, v in item.items() if k not in reserved}
+    return records
+
 
 def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -84,6 +132,29 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         or "Không xác định"
     ).strip()
 
+    if validity_status not in VALID_STATUSES:
+        raise ValueError(
+            f"Chunk '{chunk_id}' có validity_status '{validity_status}' không hợp lệ. "
+            f"Chỉ chấp nhận các giá trị: {sorted(list(VALID_STATUSES))}"
+        )
+
+    effective_from = str(
+        raw.get("effective_from")
+        or raw_meta.get("effective_from")
+        or raw_meta.get("effective_date")
+        or ""
+    ).strip()
+
+    effective_to = raw.get("effective_to") if "effective_to" in raw else raw_meta.get("effective_to")
+    if effective_to is not None:
+        effective_to = str(effective_to).strip()
+
+    source_url = str(
+        raw.get("source_url")
+        or raw_meta.get("source_url")
+        or ""
+    ).strip()
+
     metadata: Dict[str, Any] = {
         "document_id": document_id,
         "document_number": raw.get("document_number") or raw_meta.get("document_number") or "",
@@ -91,8 +162,10 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "article_number": raw.get("article_number") or raw_meta.get("article_number") or "",
         "clause_number": raw.get("clause_number") or raw_meta.get("clause_number") or "",
         "validity_status": validity_status,
-        "source_url": raw.get("source_url") or raw_meta.get("source_url") or "",
+        "source_url": source_url,
         "breadcrumb": raw.get("breadcrumb") or raw_meta.get("breadcrumb") or "",
+        "effective_from": effective_from,
+        "effective_to": effective_to,
     }
     if "effective_from" in raw_meta or "effective_from" in raw:
         metadata["effective_from"] = raw_meta.get("effective_from") or raw.get("effective_from")
@@ -108,6 +181,9 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "chunk_text": chunk_text,
         "embed_text": embed_text,
         "validity_status": validity_status,
+        "effective_from": effective_from,
+        "effective_to": effective_to,
+        "source_url": source_url,
         "metadata": metadata,
     }
     if "embed_text_raw" in raw:
@@ -168,7 +244,7 @@ class LegalVectorStore:
             )
 
     @staticmethod
-    def build_active_legal_filter() -> Optional[Any]:
+    def build_active_legal_filter(as_of_date: Optional[str] = None) -> Optional[Any]:
         """
         Tạo bộ lọc loại trừ văn bản có validity_status == 'Hết hiệu lực'
         trước giai đoạn tính toán khoảng cách vector (Ràng buộc kỹ thuật Task 5).
@@ -240,6 +316,7 @@ class LegalVectorStore:
         query_vector: Sequence[float],
         top_k: int = 5,
         exclude_expired: bool = True,
+        as_of_date: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k <= 0:
             raise ValueError(f"Tham số top_k phải là số nguyên dương (nhận được: {top_k!r}).")
@@ -249,14 +326,17 @@ class LegalVectorStore:
                 f"Query vector dimension ({len(query_vector)}) khác cấu hình ({self.dimension})."
             )
 
+        as_of_str = str(as_of_date)[:10] if as_of_date else None
+
         if self.use_qdrant and self.client is not None:
-            query_filter = self.build_active_legal_filter() if exclude_expired else None
+            query_filter = self.build_active_legal_filter(as_of_date=as_of_date) if exclude_expired else None
+            fetch_k = top_k * 3 if (exclude_expired or as_of_str) else top_k
             if hasattr(self.client, "query_points"):
                 response = self.client.query_points(
                     collection_name=self.collection_name,
                     query=list(map(float, query_vector)),
                     query_filter=query_filter,
-                    limit=top_k,
+                    limit=fetch_k,
                     with_payload=True,
                 )
                 hits = response.points
@@ -265,23 +345,44 @@ class LegalVectorStore:
                     collection_name=self.collection_name,
                     query_vector=list(map(float, query_vector)),
                     query_filter=query_filter,
-                    limit=top_k,
+                    limit=fetch_k,
                     with_payload=True,
                 )
 
-            results: List[Dict[str, Any]] = []
-            for rank_idx, hit in enumerate(hits, start=1):
+            filtered_hits = []
+            for hit in hits:
                 payload = hit.payload or {}
-                results.append(self._format_hit(payload, rank=rank_idx, score=float(hit.score)))
-            return results
+                status = payload.get("validity_status") or payload.get("metadata", {}).get("validity_status")
+                if exclude_expired and status == "Hết hiệu lực":
+                    continue
+                if as_of_str:
+                    meta = payload.get("metadata", {})
+                    eff_from = payload.get("effective_from") or meta.get("effective_from")
+                    eff_to = payload.get("effective_to") if "effective_to" in payload else meta.get("effective_to")
+                    if eff_from and as_of_str < str(eff_from)[:10]:
+                        continue
+                    if eff_to and as_of_str >= str(eff_to)[:10]:
+                        continue
+                filtered_hits.append(self._format_hit(payload, rank=len(filtered_hits) + 1, score=float(hit.score)))
+                if len(filtered_hits) >= top_k:
+                    break
+            return filtered_hits
 
         # In-Memory search
         candidates = []
         for item in self._memory_records:
             rec = item["record"]
-            status = rec.get("validity_status") or rec.get("metadata", {}).get("validity_status")
+            meta = rec.get("metadata", {})
+            status = rec.get("validity_status") or meta.get("validity_status")
             if exclude_expired and status == "Hết hiệu lực":
                 continue
+            if as_of_str:
+                eff_from = rec.get("effective_from") or meta.get("effective_from")
+                eff_to = rec.get("effective_to") if "effective_to" in rec else meta.get("effective_to")
+                if eff_from and as_of_str < str(eff_from)[:10]:
+                    continue
+                if eff_to and as_of_str >= str(eff_to)[:10]:
+                    continue
             score = _cosine_similarity(query_vector, item["vector"])
             candidates.append((score, rec))
 
@@ -289,7 +390,7 @@ class LegalVectorStore:
         top_candidates = candidates[:top_k]
 
         return [
-            self._format_hit(rec, rank=idx, score= float(score))
+            self._format_hit(rec, rank=idx, score=float(score))
             for idx, (score, rec) in enumerate(top_candidates, start=1)
         ]
 

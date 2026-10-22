@@ -102,8 +102,17 @@ class BM25RetrievalTest(unittest.TestCase):
         self.assertEqual(client.request["size"], 5)
         self.assertEqual(client.request["query"]["bool"]["must"][0]["multi_match"]["query"], "Điều 56")
         self.assertEqual(hits, [{
-            "chunk_id": "chunk-1", "text": "Nội dung luật", "parent_id": "parent-1",
-            "metadata": {"article_ref": "Điều 56"}, "score": 3.2, "rank": 1,
+            "chunk_id": "chunk-1",
+            "document_id": "",
+            "article_id": "",
+            "clause_id": "parent-1",
+            "parent_clause_id": "parent-1",
+            "rank": 1,
+            "score": 3.2,
+            "chunk_text": "Nội dung luật",
+            "text": "Nội dung luật",
+            "parent_id": "parent-1",
+            "metadata": {"article_ref": "Điều 56"},
         }])
 
     def test_search_returns_empty_list_when_elasticsearch_has_no_hits(self):

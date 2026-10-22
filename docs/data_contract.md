@@ -41,6 +41,8 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 | `document_number` | String | **Có** | Số hiệu văn bản (VD: "100/2019/NĐ-CP").                                                                              |
 | `issue_date` | Date | **Có** | Ngày ban hành. Định dạng chuẩn: `YYYY-MM-DD`.                                                                        |
 | `effective_date` | Date | **Có** | Ngày có hiệu lực. Định dạng chuẩn: `YYYY-MM-DD`.                                                                     |
+| `expiry_date` | Date / Null | Không | Ngày hết hiệu lực (hoặc `null` nếu còn hiệu lực). Định dạng chuẩn: `YYYY-MM-DD`.                                      |
+| `source_url` | String | Không | Đường dẫn URL chính thức tra cứu văn bản pháp luật.                                                                 |
 | `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ").                                                                                  |
 | `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]`. |
 
@@ -121,3 +123,23 @@ Các cặp trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_t
 
 ### 5.3. Metadata mở rộng
 Trường `metadata` chứa metadata của văn bản cùng `chapter`, `section`, `article_number`, và các trường mở rộng phục vụ lọc downstream: `document_title`, `clause_number`, `source_url`, `effective_from`, `effective_to`.
+
+---
+
+## 6. Bảng Ánh xạ Định danh Văn bản (Document ID Mapping Registry)
+
+Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_code`), định danh hệ thống slug (`document_id`), số hiệu văn bản pháp luật, tên văn bản và trạng thái hiệu lực:
+
+| Mã File (`file_code`) | Định danh hệ thống (`document_id`) | Số hiệu văn bản (`document_number`) | Trạng thái hiệu lực (`validity_status`) | Tên văn bản |
+| :--- | :--- | :--- | :--- | :--- |
+| **L01** | `l_52_2014_qh13` | 52/2014/QH13 | Còn hiệu lực | Luật Hôn nhân và gia đình 2014 |
+| **ND01** | `nd_126_2014_nd_cp` | 126/2014/NĐ-CP | Sửa đổi bổ sung | Nghị định quy định chi tiết một số điều và biện pháp thi hành Luật HNGĐ |
+| **ND02** | `nd_207_2025_nd_cp` | 207/2025/NĐ-CP | Còn hiệu lực | Nghị định sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ |
+| **ND03** | `nq_01_2024_nq_hdtp` | 01/2024/NQ-HĐTP | Còn hiệu lực | Nghị quyết hướng dẫn áp dụng quy định giải quyết vụ việc hôn nhân và gia đình |
+| **TT01** | `ttlt_01_2016_ttlt_tandtc` | 01/2016/TTLT-TANDTC-VKSNDTC-BTP | Còn hiệu lực | Thông tư liên tịch hướng dẫn một số quy định của Luật Hôn nhân và gia đình |
+| **TT02** | `tt_02a_2015_tt_btp` | 02a/2015/TT-BTP | Hết hiệu lực | Thông tư hướng dẫn một số điều Nghị định 126/2014/NĐ-CP |
+| **TT03** | `tt_32_2016_tt_byt` | 32/2016/TT-BYT | Còn hiệu lực | Thông tư quy định liên quan đến hỗ trợ sinh sản |
+| **TT04** | `tt_34_2017_tt_byt` | 34/2017/TT-BYT | Sửa đổi bổ sung | Thông tư tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh |
+| **L02** | `l_22_2000_qh10` | 22/2000/QH10 | Hết hiệu lực | Luật Hôn nhân và gia đình 2000 |
+| **ND04** | `nd_10_2015_nd_cp` | 10/2015/NĐ-CP | Hết hiệu lực | Nghị định quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm |
+| **ND05** | `nd_70_2001_nd_cp` | 70/2001/NĐ-CP | Hết hiệu lực | Nghị định quy định chi tiết thi hành Luật Hôn nhân và gia đình 2000 |

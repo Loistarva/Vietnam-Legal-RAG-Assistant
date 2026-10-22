@@ -23,14 +23,14 @@ def reciprocal_rank_fusion(
             if chunk_id in seen:
                 continue
             seen.add(chunk_id)
-            hit_text = hit.get("text") or hit.get("chunk_text", "")
+            hit_text = hit.get("chunk_text") or hit.get("text", "")
             row = fused.setdefault(chunk_id, {
-                "chunk_id": chunk_id, "text": hit_text, "chunk_text": hit_text,
+                "chunk_id": chunk_id, "chunk_text": hit_text,
                 "metadata": hit.get("metadata", {}), "rrf_score": 0.0,
+                "score": 0.0,
                 "source_ranks": {}, "source_scores": {}, "retrieval_sources": [],
             })
-            if not row["text"] and hit_text:
-                row["text"] = hit_text
+            if not row["chunk_text"] and hit_text:
                 row["chunk_text"] = hit_text
             if not row["metadata"] and hit.get("metadata"):
                 row["metadata"] = hit["metadata"]
@@ -45,4 +45,5 @@ def reciprocal_rank_fusion(
     ranked = sorted(fused.values(), key=lambda row: (-row["rrf_score"], row["chunk_id"]))
     for rank, row in enumerate(ranked, 1):
         row["rank"] = rank
+        row["score"] = row["rrf_score"]
     return ranked[:top_k]

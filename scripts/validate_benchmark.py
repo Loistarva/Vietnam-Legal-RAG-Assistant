@@ -132,9 +132,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                     issues.append(f'{qid}: chunk {cid} không thuộc gold_article_ids')
                 if not info['chunk_text'].strip():issues.append(f'{qid}: chunk {cid} rỗng')
         status=g.get('mapping_status')
-        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: smoke_candidate chỉ được có candidate_context_ids, không có Gold')
-        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: partial_evidence_only phải có candidate, không có gold')
         if status=='not_mapped' and all_ids:
             issues.append(f'{qid}: not_mapped nhưng có context ID')
@@ -167,6 +167,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             issues.append(f'{qid}: đã review nhưng thiếu verified_at')
         if g.get('verified_at') and not g.get('verified_by'):
             issues.append(f'{qid}: có verified_at nhưng thiếu verified_by')
+        if g.get('review_status') != 'draft' and g.get('verified_by') == 'HO_TEN_THUC_TE':
+            issues.append(f"{qid}: verified_by không được để giá trị giữ chỗ 'HO_TEN_THUC_TE' khi đã qua review")
         if final:
             if g.get('answer_kind')!='reviewed_answer':
                 issues.append(f'{qid}: answer chưa được biên soạn và duyệt thành câu trả lời trực tiếp')

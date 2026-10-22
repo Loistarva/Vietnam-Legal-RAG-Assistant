@@ -53,11 +53,40 @@ class ElasticsearchBM25Retriever:
         rows = []
         for rank, hit in enumerate(response["hits"]["hits"], 1):
             source = hit.get("_source", {})
-            rows.append({"chunk_id": source.get("chunk_id", hit.get("_id")),
-                         "text": source.get("content", source.get("text", "")),
-                         "parent_id": source.get("parent_id"),
-                         "metadata": source.get("metadata", {}),
-                         "score": float(hit.get("_score", 0.0)), "rank": rank})
+            chunk_id = source.get("chunk_id", hit.get("_id"))
+            meta = source.get("metadata", {})
+            chunk_text = source.get("chunk_text") or source.get("content") or source.get("text", "")
+            parent_clause_id = (
+                source.get("parent_clause_id")
+                or source.get("parent_id")
+                or meta.get("parent_clause_id")
+                or ""
+            )
+            doc_id = (
+                source.get("document_id")
+                or source.get("doc_id")
+                or meta.get("document_id")
+                or (chunk_id.split("_art_")[0] if "_art_" in str(chunk_id) else "")
+            )
+            art_id = (
+                source.get("article_id")
+                or meta.get("article_id")
+                or (parent_clause_id.split("_clause_")[0] if "_clause_" in str(parent_clause_id) else "")
+            )
+            cl_id = source.get("clause_id") or meta.get("clause_id") or parent_clause_id
+            rows.append({
+                "chunk_id": chunk_id,
+                "document_id": doc_id,
+                "article_id": art_id,
+                "clause_id": cl_id,
+                "parent_clause_id": parent_clause_id,
+                "rank": rank,
+                "score": float(hit.get("_score", 0.0)),
+                "chunk_text": chunk_text,
+                "text": chunk_text,
+                "parent_id": source.get("parent_id"),
+                "metadata": meta,
+            })
         return rows
 
 
@@ -80,7 +109,7 @@ class CrossEncoderReranker:
     def rerank(self, query: str, hits: Sequence[dict[str, Any]], top_k: int) -> list[dict[str, Any]]:
         if not hits:
             return []
-        scores = self.model.predict([(query, hit.get("text", "")) for hit in hits])
+        scores = self.model.predict([(query, hit.get("chunk_text") or hit.get("text", "")) for hit in hits])
         ranked = []
         for hit, score in zip(hits, scores):
             row = dict(hit)
@@ -93,18 +122,36 @@ def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None 
                           filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
     """Apply the shared metadata/temporal gate after retrieval where backend filters are absent."""
     as_of = as_of or date.today()
+    as_of_str = as_of.isoformat()
     accepted = []
     for hit in hits:
         metadata = hit.get("metadata", {})
-        if metadata.get("validity_status") == "Hết hiệu lực":
+        if metadata.get("validity_status") == "Hết hiệu lực" or hit.get("validity_status") == "Hết hiệu lực":
             continue
-        effective = metadata.get("effective_date")
-        if effective:
+        effective_from = (
+            metadata.get("effective_from")
+            or metadata.get("effective_date")
+            or hit.get("effective_from")
+        )
+        effective_to = (
+            metadata.get("effective_to")
+            if "effective_to" in metadata
+            else hit.get("effective_to")
+        )
+        if effective_from:
             try:
-                if date.fromisoformat(str(effective)[:10]) > as_of:
+                eff_from_str = str(effective_from)[:10]
+                if as_of_str < eff_from_str:
                     continue
-            except ValueError:
-                logger.warning("Ignoring invalid effective_date on chunk %s", hit.get("chunk_id"))
+            except (ValueError, TypeError):
+                logger.warning("Ignoring invalid effective_from on chunk %s", hit.get("chunk_id"))
+        if effective_to:
+            try:
+                eff_to_str = str(effective_to)[:10]
+                if as_of_str >= eff_to_str:
+                    continue
+            except (ValueError, TypeError):
+                logger.warning("Ignoring invalid effective_to on chunk %s", hit.get("chunk_id"))
         if filters and any(metadata.get(key) != value for key, value in filters.items()):
             continue
         accepted.append(dict(hit))
@@ -255,4 +302,3 @@ def hybrid_search(
     config = HybridSearchConfig(top_k=top_k, candidate_k=candidate_k, rrf_k=rrf_k)
     dense = EmbeddingQdrantAdapter(embedding_service, vector_store)
     return HybridRetriever(bm25_index, dense, config).search(query)
-
