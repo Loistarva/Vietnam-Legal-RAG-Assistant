@@ -1,10 +1,7 @@
 """Xuất Parent/Child Chunk từ parser/parsed_jsons.
 
-Cách chạy (từ thư mục worktree Chunking):
+Cách chạy (từ thư mục gốc repository):
     python chunking/export_legal_chunks.py
-
-Không thay thế nguồn parser gốc bị ghi nhầm; tạo bản chuẩn hóa riêng tại
-    data/parser_validated/tt_02a_2015_tt_btp.json
 """
 from __future__ import annotations
 
@@ -32,7 +29,7 @@ BAD_NAME = "nd_158_2005_nd_cp.json"
 CORRECT_NAME = "tt_02a_2015_tt_btp.json"
 OLD_ID = "nd_158_2005_nd_cp"
 NEW_ID = "tt_02a_2015_tt_btp"
-ID_KEYS = {"id", "document_id", "article_id", "clause_id", "parent_article_id", "chunk_id", "parent_id"}
+ID_KEYS = {"id", "document_id", "article_id", "clause_id", "parent_article_id", "chunk_id", "parent_id", "parent_clause_id"}
 
 
 def update_internal_identifiers(value: Any) -> Any:
@@ -84,8 +81,9 @@ def create_corrected_source() -> Path:
 
 
 def _tokens(text: str) -> list[str]:
-    """Token stream d?ng ?? b?o ??m kh?ng l?m r?i ch?/s? so v?i parser."""
+    """Token stream dùng để bảo đảm không làm rơi chữ/số so với parser."""
     return re.findall(r"[^\W_]+", text.lower(), flags=re.UNICODE)
+
 
 def _assert_source_text_preserved(doc: dict[str, Any], result: Any, source_name: str) -> None:
     """Bảo đảm clause parser không bị mất token trong Child chunks."""
@@ -149,18 +147,21 @@ def _assert_source_text_preserved(doc: dict[str, Any], result: Any, source_name:
 
 
 def main() -> None:
-    corrected_path = create_corrected_source()
     parser_sources = sorted((REPO / "parser/parsed_jsons").glob("*.json"))
     if not parser_sources:
         raise FileNotFoundError("Không tìm thấy JSON nguồn trong parser/parsed_jsons")
 
-    # Giữ đủ mọi file parser, kể cả l_52_2014_qh13.json. File nd_158 là
-    # nội dung TT 02a/2015 bị gắn nhãn sai, nên chunk từ bản đã chuẩn hóa,
-    # nhưng vẫn ghi nhận nd_158 là nguồn parser trong báo cáo.
-    inputs = [
-        (source, corrected_path if source.name == BAD_NAME else source)
-        for source in parser_sources
-    ]
+    original_bad = REPO / "parser/parsed_jsons" / BAD_NAME
+    if original_bad.exists():
+        corrected_path = create_corrected_source()
+        inputs = [
+            (source, corrected_path if source.name == BAD_NAME else source)
+            for source in parser_sources
+        ]
+        corrected_doc_str = str(corrected_path.relative_to(REPO)).replace("\\", "/")
+    else:
+        inputs = [(source, source) for source in parser_sources]
+        corrected_doc_str = "parser/parsed_jsons/tt_02a_2015_tt_btp.json"
 
     parents = []
     children = []
@@ -207,6 +208,9 @@ def main() -> None:
             payload.update({
                 "chunk_id": child.chunk_id,
                 "document_id": child.doc_id,
+                "article_id": child.article_id,
+                "clause_id": child.clause_id,
+                "parent_clause_id": child.parent_clause_id,
                 "article_number": child.metadata.get("article_number"),
                 "chunk_text": child.text,
                 "metadata": child.metadata.copy(),
@@ -283,7 +287,7 @@ def main() -> None:
             "fallback_overlap_words": FALLBACK_OVERLAP_WORDS,
         },
         "tokenization_backend": tokenization_backend,
-        "corrected_document": str(corrected_path.relative_to(REPO)).replace("\\", "/"),
+        "corrected_document": corrected_doc_str,
         "included_source_files": [str(p.relative_to(REPO)).replace("\\", "/") for p in parser_sources],
         "excluded_source_files": [],
         "documents": file_summary,
@@ -309,7 +313,7 @@ def main() -> None:
     print("Parent:", len(parents))
     print("Child:", len(children))
     print("ID trung:", len(dup_child))
-    print("Da sua nhan TT02a:", corrected_path.relative_to(REPO))
+    print("Da sua nhan TT02a:", corrected_doc_str)
     print("Tokenization:", tokenization_backend)
     print("Child output:", chunks_path.relative_to(REPO))
     print("Parent output:", parent_path.relative_to(REPO))
