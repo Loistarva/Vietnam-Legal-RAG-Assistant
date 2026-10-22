@@ -41,8 +41,18 @@ def run_cleaner() -> None:
 
     import cleaner
 
-    total = cleaner.process_all_pdfs()
-    print(f"Đã xử lý {total} file PDF.")
+    # cleaner.py cung cấp run_cleaner(), trả về thống kê dạng dict.
+    result = cleaner.run_cleaner()
+    print(
+        "Kết quả cleaner: "
+        f"{result.get('succeeded', 0)} thành công, "
+        f"{result.get('skipped', 0)} bỏ qua, "
+        f"{result.get('failed', 0)} cần kiểm tra "
+        f"(tổng {result.get('total', 0)} file PDF)."
+    )
+
+    if result.get("failed", 0) > 0:
+        print("[cảnh báo] Có PDF chưa xử lý thành công; xem log cleaner để biết chi tiết.")
 
 
 def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
