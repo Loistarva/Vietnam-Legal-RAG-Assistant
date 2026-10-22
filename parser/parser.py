@@ -239,6 +239,8 @@ ARTICLE_BODY_STARTS = (
     "Tổ chức, cá nhân", "Mọi tổ chức", "Chính phủ", "Bộ trưởng",
     "Ủy ban", "Đối với", "Khi", "Nếu", "Nội dung", "Quyền và nghĩa vụ",
     "Việc xác định", "Các cá nhân", "Cá nhân", "Bên mang thai hộ",
+    "Yêu cầu", "Hội Liên hiệp", "Bộ Tư pháp", "Bộ Ngoại giao", "Bộ Công an",
+    "Các Bộ", "Trong vụ án", "Trong trường hợp", "Ủy ban nhân dân",
 )
 
 
@@ -364,6 +366,55 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
     return None, head
 
 
+def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
+    """Tách tiêu đề theo xuống dòng còn nguyên từ cleaner, không dựa vào chữ hoa.
+
+    Tiêu đề dài có thể tự xuống nhiều dòng trong TXT/PDF. Các dòng tiếp nối
+    tiêu đề thường ngắn hơn rõ rệt dòng đầu; phần nội dung thường bắt đầu ở
+    dòng mới với một câu quy phạm dài hơn. Trả về (title, remainder).
+    """
+    if "\n" not in head:
+        return None
+
+    lines = [line.strip() for line in head.splitlines() if line.strip()]
+    if len(lines) < 2:
+        return None
+
+    first_line = normalize_spaces(lines[0]).strip(" :;")
+    if not first_line or len(first_line) > 220:
+        return None
+
+    title_lines = [first_line]
+    # Dòng ngắn ngay sau dòng đầu có thể là phần tiếp nối của tiêu đề bị wrap.
+    # Giới hạn theo độ dài dòng đầu để tránh nuốt câu mở đầu của nội dung.
+    continuation_limit = max(24, int(len(first_line) * 0.72))
+    idx = 1
+    while idx < len(lines):
+        line = normalize_spaces(lines[idx]).strip(" :;")
+        if not line:
+            idx += 1
+            continue
+        # Các cụm này thường mở đầu phần nội dung quy phạm; không gộp vào title.
+        if line.lower().startswith(tuple(p.lower() for p in ARTICLE_BODY_STARTS)):
+            break
+        # Một dòng kết thúc bằng dấu câu câu hoàn chỉnh không phải phần title.
+        if re.search(r"[.!?]$", line):
+            break
+        title_lines.append(line)
+        idx += 1
+
+    if idx >= len(lines):
+        return None
+
+    title = normalize_spaces(" ".join(title_lines))
+    remainder = normalize_spaces(" ".join(lines[idx:]))
+    # Tiêu đề pháp luật có thể dài hơn 30 từ; chỉ loại trường hợp rỗng hoặc
+    # kết thúc như một câu hoàn chỉnh, không áp dụng giới hạn của heuristic cũ.
+    if not title or not remainder or re.search(r"[.!?]$", title):
+        return None
+    return title, remainder
+
+
 def split_head(num: str, raw: str):
     first = clause_regex(1).search(raw)
     if first:
@@ -373,17 +424,23 @@ def split_head(num: str, raw: str):
         head = raw.strip()
         body = ""
 
+    # Ưu tiên ranh giới dòng của TXT đã qua cleaner. Điều này giữ được danh từ
+    # riêng trong tiêu đề (Bộ Tư pháp, Bộ Ngoại giao, Việt Nam...) và tiêu đề wrap.
+    line_split = split_title_from_line_structure(head)
+    if line_split:
+        title, remainder = line_split
+        if first:
+            return title, remainder or None, body, True
+        return title, None, remainder, False
+
     # Khi có Khoản 1, ranh giới tiêu đề/khoản đã rõ: không dò body-start.
     if first:
         title, intro = detect_title_and_intro(head)
         if title is None and intro and not re.search(r"[.!?:]$", intro) and len(intro.split()) <= 40:
-            # Giữa "Điều n." và Khoản 1 chỉ có một cụm không dấu câu cuối: đó là tiêu đề
-            # (kể cả khi bắt đầu bằng "Người", "Những", "Việc", "Căn cứ"...).
             title, intro = intro, None
         return title, intro, body, True
 
-    # Với Điều không đánh số khoản, TXT thường bị làm phẳng nên tiêu đề và
-    # câu quy phạm dính liền nhau (vd: "... mang thai hộ Các bên trong ...").
+    # Phương án dự phòng cho TXT đã bị làm phẳng.
     split_result = split_title_by_capital(head) or split_title_from_unlabelled_body(head)
     if split_result:
         title, body = split_result
@@ -697,29 +754,49 @@ def normalize_document_number(document_number: str) -> str:
 
 
 def find_document_versions_file() -> Path:
-    """Tìm document_versions.json theo đường dẫn cấu hình của dự án."""
-    env_path = os.getenv("DOCUMENT_VERSIONS_PATH")
+    """Tìm registry metadata theo cấu hình, sau đó theo cấu trúc repository.
+
+    Thứ tự:
+    1. DOCUMENT_VERSIONS_PATH nếu được cấu hình.
+    2. <repo>/data/reference/document_versions.json.
+    3. Các vị trí dự phòng: cạnh parser.py và trong các thư mục cha.
+    """
     candidates = []
+    env_path = os.getenv("DOCUMENT_VERSIONS_PATH")
     if env_path:
         candidates.append(Path(env_path).expanduser())
 
-    # Đường dẫn metadata chuẩn của dự án trên máy người dùng.
-    candidates.append(
-        Path(r"E:\nhom AI\Vietnam-Legal-RAG-Assistant\data\reference\document_versions.json")
+    parser_dir = Path(__file__).resolve().parent
+    # parser.py thường nằm tại <repo>/parser/parser.py.
+    # Xác định đường dẫn từ vị trí mã nguồn, không phụ thuộc thư mục chạy lệnh.
+    repo_root = parser_dir.parent
+    candidates.append(repo_root / "data" / "reference" / "document_versions.json")
+
+    # Dự phòng để tương thích với bố cục dự án cũ.
+    candidates.append(parser_dir / "document_versions.json")
+    candidates.extend(
+        parent / "document_versions.json"
+        for parent in list(parser_dir.parents)[:4]
     )
 
-    # Dự phòng: tìm cạnh parser hoặc trong các thư mục cha của dự án.
-    here = Path(__file__).resolve().parent
-    candidates.extend(parent / "document_versions.json" for parent in [here, *list(here.parents)[:4]])
-
+    # Loại đường dẫn trùng, giữ nguyên thứ tự ưu tiên.
+    unique_candidates = []
+    seen = set()
     for candidate in candidates:
+        key = str(candidate.expanduser().resolve(strict=False)).casefold()
+        if key not in seen:
+            seen.add(key)
+            unique_candidates.append(candidate)
+
+    for candidate in unique_candidates:
         if candidate.is_file():
             return candidate.resolve()
 
-    searched = "\n".join(f" - {p}" for p in candidates)
+    searched = "\\n".join(f" - {p}" for p in unique_candidates)
     raise FileNotFoundError(
-        "Không tìm thấy document_versions.json. Đặt file cạnh parser/trong thư mục cha "
-        "hoặc thiết lập biến môi trường DOCUMENT_VERSIONS_PATH.\nĐã tìm:\n" + searched
+        "Không tìm thấy document_versions.json. Đặt registry tại "
+        "<repo>/data/reference/document_versions.json hoặc cấu hình "
+        "DOCUMENT_VERSIONS_PATH.\\nĐã tìm:\\n" + searched
     )
 
 

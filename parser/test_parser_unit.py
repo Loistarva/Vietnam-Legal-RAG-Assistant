@@ -22,6 +22,8 @@ from pathlib import Path
 
 import pytest
 
+from parser import parse_text_to_articles
+
 
 # This test file lives inside <repo>/parser, so parents[1] is the repository root.
 PARSER_DIR = Path(__file__).resolve().parent
@@ -199,3 +201,73 @@ def test_source_and_json_article_numbers_agree(source_text, parsed):
         "Danh sách số Điều trong TXT và JSON không trùng nhau. "
         "Nếu TXT chứa mục lục/chú thích có dạng 'Điều N.', hãy tinh chỉnh regex."
     )
+
+# ---------------------------------------------------------------------------
+# Regression tests: title/intro splitting when source TXT preserves line breaks
+# ---------------------------------------------------------------------------
+TITLE_TEST_DIR = Path(__file__).resolve().parent
+ND126_TXT = Path(os.getenv(
+    "LEGAL_ND126_SOURCE_TXT", TITLE_TEST_DIR / "cleaned_texts" / "ND01.txt"
+))
+NQ012024_TXT = Path(os.getenv(
+    "LEGAL_NQ012024_SOURCE_TXT", TITLE_TEST_DIR / "cleaned_texts" / "ND03.txt"
+))
+
+
+@pytest.fixture(scope="module")
+def nd126_articles():
+    if not ND126_TXT.is_file():
+        pytest.skip(f"Không có TXT nguồn NĐ 126/2014: {ND126_TXT}")
+    articles, _ = parse_text_to_articles(
+        ND126_TXT.read_text(encoding="utf-8"),
+        "nd_126_2014_nd_cp",
+    )
+    return {str(a["article_number"]): a for a in articles}
+
+
+@pytest.fixture(scope="module")
+def nq012024_articles():
+    if not NQ012024_TXT.is_file():
+        pytest.skip(f"Không có TXT nguồn NQ 01/2024: {NQ012024_TXT}")
+    articles, _ = parse_text_to_articles(
+        NQ012024_TXT.read_text(encoding="utf-8"),
+        "nq_01_2024_nq_hdtp",
+    )
+    return {str(a["article_number"]): a for a in articles}
+
+
+@pytest.mark.parametrize(
+    ("number", "expected_title", "expected_intro_start"),
+    [
+        ("29", "Từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài", "Yêu cầu cấp giấy xác nhận tình trạng hôn nhân"),
+        ("53", "Điều kiện thành lập Trung tâm", "Hội Liên hiệp phụ nữ quyết định thành lập Trung tâm"),
+        ("58", "Nhiệm vụ, quyền hạn của Bộ Tư pháp", "Bộ Tư pháp chịu trách nhiệm"),
+        ("59", "Nhiệm vụ, quyền hạn của Bộ Ngoại giao", "Bộ Ngoại giao thực hiện"),
+        ("61", "Nhiệm vụ, quyền hạn của Bộ Công an", "Bộ Công an thực hiện"),
+    ],
+)
+def test_nd126_title_and_intro_are_split_by_lines(
+    nd126_articles, number, expected_title, expected_intro_start
+):
+    article = nd126_articles[number]
+    assert article["article_title"] == expected_title
+    assert (article.get("intro") or "").startswith(expected_intro_start)
+
+
+def test_nq012024_article10_title_is_not_cut_at_vietnam(nq012024_articles):
+    article = nq012024_articles["10"]
+    assert article["article_title"] == (
+        "Giải quyết vụ án ly hôn có bị đơn là người Việt Nam ở nước ngoài nhưng không rõ địa chỉ"
+    )
+    assert (article.get("intro") or "").startswith("Trong vụ án ly hôn,")
+
+
+def test_nd126_article62_body_is_not_absorbed_into_title(nd126_articles):
+    article = nd126_articles["62"]
+    assert article["article_title"] == (
+        "Nhiệm vụ của các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ"
+    )
+    assert article["clauses"][0]["clause_text"].startswith(
+        "Các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ"
+    )
+
