@@ -332,6 +332,51 @@ def split_title_by_capital(head: str) -> Optional[Tuple[str, str]]:
     return None
 
 
+# Chữ hoa mở đầu thường là danh từ riêng/tên văn bản nằm TRONG tiêu đề, không phải đầu câu.
+PROPER_NOUN_PREFIXES = {
+    "Bộ", "Luật", "Nghị", "Thông", "Hiến", "Việt", "Quốc", "Hội", "Tòa",
+    "Viện", "Ủy", "Chính", "Nhà", "Hôn", "Hợp", "Cộng", "Liên", "Tổng", "Hà", "Thành",
+}
+
+
+def split_title_by_capital_loose(head: str) -> Optional[Tuple[str, str]]:
+    """Dự phòng khi nội dung mở đầu bằng cụm KHÔNG có trong ARTICLE_BODY_STARTS
+    (ví dụ "Giữa", "Vì lợi ích", "Sau khi", "Thời hạn").
+
+    Chọn chữ hoa đầu tiên đứng sau một từ thường, không phải từ nối, không thuộc
+    PROPER_NOUN_PREFIXES; phần sau phải đủ dài và phần trước không có dấu kết câu."""
+    head = normalize_spaces(head)
+    tokens = head.split(" ")
+    pos, offsets = 0, []
+    for tok in tokens:
+        offsets.append(pos)
+        pos += len(tok) + 1
+    for i in range(3, len(tokens)):
+        tok, prev = tokens[i], tokens[i - 1]
+        if not tok or not tok[0].isupper() or not prev:
+            continue
+        if prev[-1:] in ",;:" or prev.lower().strip(",;:") in TITLE_CONNECTORS:
+            continue
+        if prev[0].isupper() and prev[1:].islower():  # "Việt" / "Nam"
+            continue
+        if tok.strip(",;:.") in PROPER_NOUN_PREFIXES:
+            continue
+        title = head[:offsets[i]].strip(" ,;:")
+        body = head[offsets[i]:].strip()
+        if not (3 <= len(title.split()) <= MAX_TITLE_WORDS) or len(body) < 40:
+            continue
+        if re.search(r"[.!?]$", title):
+            continue
+        return title, body
+    return None
+
+
+def split_title_best(head: str) -> Optional[Tuple[str, str]]:
+    """Chọn ranh giới tiêu đề/nội dung sớm nhất giữa bản chặt và bản lỏng."""
+    found = [r for r in (split_title_by_capital(head), split_title_by_capital_loose(head)) if r]
+    return min(found, key=lambda r: len(r[0])) if found else None
+
+
 def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
     head = normalize_spaces(head)
     if not head:
@@ -352,7 +397,7 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
                         intro = f"{intro} {after}".strip()
                     return candidate_title, intro or None
             # Tiêu đề dính liền câu dẫn: "<Tiêu đề> Việc ... như sau:" -> tách theo chữ hoa đầu câu
-            split = split_title_by_capital(before)
+            split = split_title_best(before)
             if split:
                 t, lead = split
                 intro = f"{lead}: {after}".strip() if after else f"{lead}:"
@@ -361,6 +406,10 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
                 intro = after
                 return before, intro or None
         return None, head
+
+    best = split_title_best(head)
+    if best:
+        return best[0], best[1]
 
     sentences = split_sentences(head)
     if len(sentences) >= 2:
@@ -391,6 +440,14 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
     return None, head
 
 
+# Từ đầu của tên riêng nhiều từ; nếu dòng tiêu đề kết thúc bằng một trong các từ này
+# thì dòng sau chắc chắn là phần tiếp ("Việt / Nam", "Luật / Hôn nhân và gia đình").
+PROPER_NOUN_LINE_ENDINGS = {
+    "Việt", "Luật", "Bộ", "Hiến", "Nghị", "Cộng", "Liên", "Quốc", "Hội", "Ủy",
+    "Thành", "Hà", "Hồ", "Đà", "Cần",
+}
+
+
 def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
     """Tách tiêu đề khỏi nội dung dựa trên cấu trúc xuống dòng của TXT.
 
@@ -409,17 +466,6 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
     first_line = lines[0].strip(" :;")
     if not first_line or len(first_line) > MAX_TITLE_CHARS:
         return None
-
-    # Ưu tiên dòng mở đầu nội dung rõ ràng xuất hiện sau phần tiêu đề.
-    # Các dòng trước đó có thể là tiêu đề bị wrap và phải được ghép lại,
-    # kể cả khi dòng cuối của tiêu đề bắt đầu bằng chữ thường (vd. "sản khác").
-    for body_idx in range(1, len(lines)):
-        candidate_body = lines[body_idx].strip(" :;")
-        if any(candidate_body.startswith(phrase) for phrase in ARTICLE_BODY_STARTS):
-            candidate_title = normalize_spaces(" ".join(lines[:body_idx])).rstrip(".")
-            remainder = normalize_spaces(" ".join(lines[body_idx:]))
-            if candidate_title and remainder and len(candidate_title.split()) <= MAX_TITLE_WORDS:
-                return candidate_title, remainder
 
     title_lines = [first_line]
     idx = 1
@@ -445,8 +491,22 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
 
         # Nội dung thường mở đầu bằng các cụm quy phạm này. So khớp có phân biệt
         # hoa/thường để không chặn nhầm phần tiêu đề như "Trung tâm", "Thông tin...".
+        previous_last_raw = re.findall(r"[A-Za-zÀ-ỹĐđ0-9]+", previous)
+        previous_proper_prefix = bool(
+            previous_last_raw and previous_last_raw[-1] in PROPER_NOUN_LINE_ENDINGS
+            and len(previous_last_raw) >= 2
+        )
+        if previous_proper_prefix:
+            title_lines.append(line.rstrip("."))
+            idx += 1
+            continue
+
         starts_body = any(line.startswith(phrase) for phrase in ARTICLE_BODY_STARTS)
-        if starts_body:
+        if starts_body and not (
+            previous.endswith((",", ";", ":", "-", "–", "—"))
+            or previous_word in title_incomplete_endings
+            or previous_tail in title_incomplete_endings
+        ):
             break
 
         # Phần bổ nghĩa viết thường ở đầu dòng có thể là phần tiếp của tiêu đề,
@@ -569,6 +629,21 @@ def split_head(num: str, raw: str):
         if first:
             return title, remainder or None, body, True
         return title, None, remainder or "", False
+
+    # Phần head chỉ có MỘT dòng và dòng đó không kết thúc bằng dấu câu: đó là dòng
+    # tiêu đề (không có intro). Không được coi là text bị làm phẳng rồi cắt tại chữ
+    # hoa giữa dòng (vd. "Người có quyền yêu cầu Tòa án chấm dứt việc nuôi con nuôi").
+    # Text làm phẳng thật sự có intro thì kết thúc bằng ":" hoặc dấu chấm nên không vào đây.
+    if first:
+        head_lines = [ln for ln in head.splitlines() if ln.strip()]
+        if len(head_lines) == 1:
+            only = normalize_spaces(head_lines[0]).strip()
+            if (
+                only
+                and not re.search(r"[.!?:;]$", only)
+                and len(only.split()) <= MAX_TITLE_WORDS
+            ):
+                return only, None, body, True
 
     # Khi có Khoản 1, vẫn dò điểm bắt đầu nội dung nếu phần head có câu quy phạm
     # bị dính ngay sau tiêu đề; nếu không có điểm cắt đáng tin cậy thì dùng detector cũ.
