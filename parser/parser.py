@@ -628,7 +628,11 @@ def split_head(num: str, raw: str):
         title, remainder = line_split
         if first:
             return title, remainder or None, body, True
-        return title, None, remainder or "", False
+        if remainder:
+            return title, None, remainder, False
+        # Không có Khoản 1 và cả head bị nối thành "tiêu đề" -> đây là nội dung Điều
+        # không có tiêu đề riêng; giữ nguyên làm body.
+        return None, None, head, False
 
     # Phần head chỉ có MỘT dòng và dòng đó không kết thúc bằng dấu câu: đó là dòng
     # tiêu đề (không có intro). Không được coi là text bị làm phẳng rồi cắt tại chữ
@@ -742,7 +746,13 @@ TERMINAL_MARKER_PATTERNS = (
     ),
     ("CHỦ TỊCH QUỐC HỘI", re.compile(r"(?i)(?<!\S)CHỦ\s+TỊCH\s+QUỐC\s+HỘI")),
     ("(Đã ký)", re.compile(r"(?i)\(\s*Đã\s+ký\s*\)")),
+    # Chức danh ký đứng riêng một dòng, viết hoa (TM. CHÍNH PHỦ / THỦ TƯỚNG / PHÓ THỦ TƯỚNG).
+    # Phân biệt hoa/thường để không cắt nhầm "Thủ tướng Chính phủ" trong nội dung.
+    ("TM./KT. CHÍNH PHỦ", re.compile(r"(?<!\S)(?:TM|KT|Q|TL)\.\s+CHÍNH\s+PHỦ\b")),
+    ("dòng chức danh THỦ TƯỚNG", re.compile(r"(?m)^\s*(?:KT\.\s+)?(?:PHÓ\s+)?THỦ\s+TƯỚNG\b(?:[ \t]*$|[ \t]+[A-ZĐ][a-zà-ỹ])")),
     ("người ký Nông Đức Mạnh", re.compile(r"(?im)^\s*Nông\s+Đức\s+Mạnh\s*$")),
+    ("người ký Phan Văn Khải", re.compile(r"(?im)^\s*Phan\s+Văn\s+Khải\s*$")),
+    ("người ký Nguyễn Tấn Dũng", re.compile(r"(?im)^\s*Nguyễn\s+Tấn\s+Dũng\s*$")),
 )
 
 
@@ -875,11 +885,29 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
     return articles, footnotes
 
 
-# Hỗ trợ số hiệu có chữ cái gắn ngay sau phần số, ví dụ 02a/2015/TT-BTP.
-DOCUMENT_NUMBER_CODE = r"[0-9]{1,5}[A-Za-z]?/[0-9]{4}/[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
+# Số hiệu theo cách ghi hiện đại, ví dụ:
+#   02a/2015/TT-BTP
+#   01/2016/TTLT-TANDTC-VKSNDTC-BTP
+DOCUMENT_NUMBER_MODERN_CODE = (
+    r"[0-9]{1,5}[A-Za-z]?/[0-9]{4}/"
+    r"[A-ZĐ][A-ZĐ0-9]*(?:-[A-Za-z0-9Đđ]+)*"
+)
+
+# Một số văn bản cũ dùng định dạng như "21-LCT/HĐNN7":
+# số thứ tự - ký hiệu loại văn bản / ký hiệu cơ quan ban hành.
+# Giới hạn từng thành phần để tránh bắt nhầm các cụm tùy ý trong nội dung.
+DOCUMENT_NUMBER_LEGACY_CODE = (
+    r"[0-9]{1,5}-[A-Za-zĐđ]{1,12}/[A-Za-zĐđ0-9]{1,12}"
+)
+
+# Kết hợp hai định dạng; giữ nguyên hỗ trợ số hiệu hiện đại hiện có.
+DOCUMENT_NUMBER_CODE = (
+    rf"(?:{DOCUMENT_NUMBER_MODERN_CODE}|{DOCUMENT_NUMBER_LEGACY_CODE})"
+)
+
 # Ưu tiên số hiệu có nhãn "Số:" để tránh bắt nhầm số hiệu được nhắc trong nội dung.
 DOCUMENT_NUMBER_RE = re.compile(
-    rf"(?<!\w)Số\s*:\s*({DOCUMENT_NUMBER_CODE})",
+    rf"(?<!\\w)Số\\s*:\\s*({DOCUMENT_NUMBER_CODE})",
     re.IGNORECASE
 )
 def normalize_document_id(file_path: str) -> str:

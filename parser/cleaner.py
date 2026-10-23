@@ -31,7 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_DATA_DIR = BASE_DIR / "data" / "raw_data"
 RAW_OUTPUT_DIR = Path(__file__).resolve().parent / "extracted_texts_qwen"
 OUTPUT_DIR = Path(__file__).resolve().parent / "cleaned_texts"
-SUB_FOLDERS = ["circulars", "laws_and_decrees"]
+SUB_FOLDERS = ["circulars", "laws_and_decrees","additional_documents"]
+
 
 MODEL_NAME = "qwen3-vl:8b-instruct"
 OLLAMA_KEEP_ALIVE = "10m"

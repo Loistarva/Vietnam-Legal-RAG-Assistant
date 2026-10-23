@@ -1,7 +1,7 @@
 {
   "num_documents": 11,
-  "num_parents": 511,
-  "num_children": 1160,
+  "num_parents": 508,
+  "num_children": 1156,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -11,7 +11,7 @@
     "child_min_words": 20,
     "fallback_overlap_words": 40
   },
-  "tokenization_backend": "underthesea",
+  "tokenization_backend": "fallback_whitespace",
   "corrected_document": "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
   "included_source_files": [
     "parser/parsed_jsons/l_22_2000_qh10.json",
@@ -46,7 +46,7 @@
       "validity_status": "Còn hiệu lực",
       "num_articles": 133,
       "num_parents": 139,
-      "num_children": 337
+      "num_children": 334
     },
     {
       "source": "parser/parsed_jsons/nd_10_2015_nd_cp.json",
@@ -55,7 +55,7 @@
       "document_number": "10/2015/NĐ-CP",
       "validity_status": "Hết hiệu lực",
       "num_articles": 26,
-      "num_parents": 32,
+      "num_parents": 30,
       "num_children": 79
     },
     {
@@ -76,7 +76,7 @@
       "validity_status": "Còn hiệu lực",
       "num_articles": 17,
       "num_parents": 22,
-      "num_children": 56
+      "num_children": 55
     },
     {
       "source": "parser/parsed_jsons/nd_70_2001_nd_cp.json",
@@ -85,7 +85,7 @@
       "document_number": "70/2001/NĐ-CP",
       "validity_status": "Hết hiệu lực",
       "num_articles": 33,
-      "num_parents": 39,
+      "num_parents": 38,
       "num_children": 82
     },
     {
