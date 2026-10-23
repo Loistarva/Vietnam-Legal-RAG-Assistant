@@ -13,7 +13,8 @@
         "question_type",
         "difficulty",
         "as_of_date",
-        "test_type"
+        "test_type",
+        "split"
       ],
       "properties": {
         "id": {
@@ -55,6 +56,13 @@
             "historical_law",
             "partially_expired",
             "unanswerable"
+          ]
+        },
+        "split": {
+          "type": "string",
+          "enum": [
+            "dev",
+            "test"
           ]
         }
       }
@@ -227,7 +235,29 @@
           ],
           "description": "Extracted excerpts must be rewritten into question-specific answers and independently verified before marked reviewed_answer."
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "review_status": {
+                "not": {
+                  "const": "draft"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "verified_by": {
+                "not": {
+                  "const": "HO_TEN_THUC_TE"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

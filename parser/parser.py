@@ -934,6 +934,18 @@ def build_document_id(document_type: str, document_number: str) -> str:
     return f"{prefix}_{number_slug}" if prefix else number_slug
 
 
+def resolve_document_id(metadata: dict) -> str:
+    """
+    document_id chuẩn lấy từ document_versions.json (bảng ánh xạ của data contract).
+    Chỉ tạo bằng build_document_id() khi bản ghi registry chưa có document_id.
+    """
+    record = lookup_document_version(metadata.get("document_number") or "")
+    registry_id = str((record or {}).get("document_id") or "").strip()
+    if registry_id:
+        return registry_id
+    return build_document_id(metadata["document_type"], metadata["document_number"])
+
+
 def extract_document_number(text: str) -> str:
     """
     Nhận diện số hiệu ở phần đầu văn bản.
@@ -1173,7 +1185,7 @@ def parse_legal_document_to_schema(file_path: str):
             "không thể tạo document_id theo metadata chuẩn."
         )
     metadata = metadata_from_document_version(record, number)
-    doc_id = build_document_id(metadata["document_type"], metadata["document_number"])
+    doc_id = resolve_document_id(metadata)
     return parse_text_to_articles(content, doc_id)
 
 

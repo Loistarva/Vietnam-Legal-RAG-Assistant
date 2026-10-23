@@ -1,9 +1,11 @@
 import copy
 import json
+import re
 from datetime import date
 from pathlib import Path
 from typing import List, Literal, Optional
 
+import jsonschema
 import pytest
 from pydantic import (
     BaseModel,
@@ -26,7 +28,7 @@ SAMPLE_PATH = Path(__file__).parent.parent / "data" / "sample_documents.json"
 # 4. Mọi validator quan hệ cha-con dùng chung một helper và một mẫu thông báo lỗi.
 # =============================================================================
 
-DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch" ]
+DocumentType = Literal["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch"]
 ValidityStatus = Literal["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]
 
 
@@ -105,8 +107,10 @@ class DocumentMetadataSchema(BaseSchema):
     document_number: str
     issue_date: date
     effective_date: Optional[date] = None
+    expiry_date: Optional[date] = None
     issuing_body: str
     validity_status: ValidityStatus
+    source_url: Optional[str] = ""
 
 
 class LegalDocumentSchema(BaseSchema):
@@ -150,8 +154,10 @@ def make_doc():
                 "document_number": "100/2019/NĐ-CP",
                 "issue_date": "2019-12-30",
                 "effective_date": "2020-01-01",
+                "expiry_date": None,
                 "issuing_body": "Chính phủ",
                 "validity_status": "Còn hiệu lực",
+                "source_url": "https://thuvienphapluat.vn",
             },
             "articles": [{
                 "article_id": "nd_100_art_1",
@@ -228,6 +234,7 @@ def test_empty_clauses_rejected(make_doc):
     with pytest.raises(ValidationError):
         LegalDocumentSchema(**data)
 
+
 def test_all_parsed_json_files():
     parsed_dir = Path(__file__).parent.parent / "parser" / "parsed_jsons"
     json_files = list(parsed_dir.glob("*.json"))
@@ -236,3 +243,77 @@ def test_all_parsed_json_files():
         data = json.loads(f.read_text(encoding="utf-8"))
         doc = LegalDocumentSchema(**data)
         assert doc.document_id in f.stem
+
+
+def test_corpus_chunks_jsonl():
+    base_dir = Path(__file__).resolve().parent.parent
+    chunks_file = base_dir / "data" / "chunking_output" / "chunks.jsonl"
+    schema_file = base_dir / "schemas" / "chunk_payload_schema.json"
+    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json")) + list(
+        base_dir.glob("data/parser_validated/*.json")
+    )
+
+    assert chunks_file.exists(), f"Không tìm thấy file corpus: {chunks_file}"
+    assert schema_file.exists(), f"Không tìm thấy file schema: {schema_file}"
+
+    schema = json.loads(schema_file.read_text(encoding="utf-8"))
+    validator = jsonschema.Draft202012Validator(schema)
+
+    # Thu thập tất cả clause_id tồn tại trong tập dữ liệu parsed JSON của parser
+    parsed_clause_ids = set()
+    for pf in parsed_files:
+        doc_json = json.loads(pf.read_text(encoding="utf-8"))
+        for art in doc_json.get("articles", []):
+            for cl in art.get("clauses", []):
+                cid = cl.get("clause_id")
+                if cid:
+                    parsed_clause_ids.add(cid)
+
+    assert len(parsed_clause_ids) > 0, "Không tìm thấy clause_id nào trong parser dataset"
+
+    lines = [line.strip() for line in chunks_file.read_text(encoding="utf-8").splitlines() if line.strip()]
+    assert len(lines) > 0, f"File {chunks_file} rỗng"
+
+    for line_idx, line in enumerate(lines, start=1):
+        record = json.loads(line)
+
+        # 1. Validate thành công qua cấu trúc của schemas/chunk_payload_schema.json
+        errors = list(validator.iter_errors(record))
+        assert not errors, f"Dòng {line_idx} ({record.get('chunk_id')}) không khớp schema: {errors}"
+
+        # 2. Kiểm tra len(chunk_text.strip()) >= 10
+        chunk_text = record.get("chunk_text", "")
+        assert len(chunk_text.strip()) >= 10, (
+            f"Dòng {line_idx} ({record.get('chunk_id')}) có chunk_text quá ngắn (< 10 ký tự): '{chunk_text}'"
+        )
+
+        # 3. Kiểm tra chunk_id phải khớp định dạng chứa parent_clause_id và hậu tố _chunk_\d+
+        chunk_id = record.get("chunk_id", "")
+        parent_clause_id = record.get("parent_clause_id", "")
+        expected_pattern = rf"^{re.escape(parent_clause_id)}_chunk_\d+$"
+        assert re.match(expected_pattern, chunk_id), (
+            f"Dòng {line_idx}: chunk_id '{chunk_id}' không khớp định dạng '{parent_clause_id}_chunk_\\d+'"
+        )
+
+        # 4. Kiểm tra parent_clause_id tồn tại trong tập dữ liệu parsed JSON của parser
+        assert parent_clause_id in parsed_clause_ids, (
+            f"Dòng {line_idx}: parent_clause_id '{parent_clause_id}' không tồn tại trong dữ liệu parser"
+        )
+
+        # 5. Metadata checks: effective_from và source_url không rỗng; Hết hiệu lực -> effective_to khác null
+        meta = record.get("metadata", {})
+        eff_from = meta.get("effective_from")
+        src_url = meta.get("source_url")
+        val_status = meta.get("validity_status")
+        eff_to = meta.get("effective_to")
+
+        assert eff_from and isinstance(eff_from, str) and eff_from.strip(), (
+            f"Dòng {line_idx} ({record.get('chunk_id')}): effective_from không được rỗng"
+        )
+        assert src_url and isinstance(src_url, str) and src_url.strip(), (
+            f"Dòng {line_idx} ({record.get('chunk_id')}): source_url không được rỗng"
+        )
+        if val_status == "Hết hiệu lực":
+            assert eff_to is not None and isinstance(eff_to, str) and eff_to.strip(), (
+                f"Dòng {line_idx} ({record.get('chunk_id')}): văn bản Hết hiệu lực bắt buộc phải có effective_to khác null"
+            )

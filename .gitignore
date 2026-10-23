@@ -3,8 +3,13 @@
 
 # Python-generated files
 __pycache__/
+**/__pycache__/
 *.py[cod]
+*.pyo
 .pytest_cache/
 
 # Local embedded Qdrant database
 /qdrant_data/
+
+# Office lock files (created while a document is open)
+~$*

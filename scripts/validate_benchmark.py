@@ -2,6 +2,14 @@
 from __future__ import annotations
 import argparse, datetime, json, re, sys, hashlib
 from pathlib import Path
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -47,7 +55,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
         issues.append('Thiếu manifest đóng băng câu hỏi Test')
     else:
         expected = load(frozen)
-        raw = (DATA/'queries_test.json').read_bytes()
+        # Git may check out LF content as CRLF on Windows. The freeze manifest
+        # hashes canonical UTF-8/LF bytes, so normalize line endings first.
+        raw = (DATA/'queries_test.json').read_bytes().replace(b'\r\n', b'\n')
         digest = hashlib.sha256(raw).hexdigest()
         if (expected.get('sha256')!=digest or expected.get('test_ids')!=[q.get('id') for q in test]
                 or expected.get('question_count')!=len(test)):
@@ -122,9 +132,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                     issues.append(f'{qid}: chunk {cid} không thuộc gold_article_ids')
                 if not info['chunk_text'].strip():issues.append(f'{qid}: chunk {cid} rỗng')
         status=g.get('mapping_status')
-        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: smoke_candidate chỉ được có candidate_context_ids, không có Gold')
-        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: partial_evidence_only phải có candidate, không có gold')
         if status=='not_mapped' and all_ids:
             issues.append(f'{qid}: not_mapped nhưng có context ID')
@@ -157,6 +167,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             issues.append(f'{qid}: đã review nhưng thiếu verified_at')
         if g.get('verified_at') and not g.get('verified_by'):
             issues.append(f'{qid}: có verified_at nhưng thiếu verified_by')
+        if g.get('review_status') != 'draft' and g.get('verified_by') == 'HO_TEN_THUC_TE':
+            issues.append(f"{qid}: verified_by không được để giá trị giữ chỗ 'HO_TEN_THUC_TE' khi đã qua review")
         if final:
             if g.get('answer_kind')!='reviewed_answer':
                 issues.append(f'{qid}: answer chưa được biên soạn và duyệt thành câu trả lời trực tiếp')

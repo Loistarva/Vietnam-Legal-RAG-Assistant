@@ -1,11 +1,20 @@
 """Freeze ONLY the Test questions, so context IDs can be added later without changing test split."""
 import argparse, hashlib, json, sys
 from pathlib import Path
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 ROOT=Path(__file__).resolve().parents[1]
 Q=ROOT/'data'/'benchmark'/'queries_test.json'
 MANIFEST=ROOT/'docs'/'test_questions_freeze.json'
 
-def sha256(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def sha256(p):
+    return hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 
 def manifest():
     q=json.loads(Q.read_text(encoding='utf8'))

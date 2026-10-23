@@ -2,7 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Legal Document Schema",
   "type": "object",
-  "required": ["document_id", "metadata", "articles"],
+  "required": [
+    "document_id",
+    "metadata",
+    "articles"
+  ],
   "additionalProperties": false,
   "properties": {
     "document_id": {
@@ -11,21 +15,65 @@
     },
     "metadata": {
       "type": "object",
-      "required": ["title", "document_type", "document_number", "issue_date", "effective_date", "issuing_body", "validity_status"],
+      "required": [
+        "title",
+        "document_type",
+        "document_number",
+        "issue_date",
+        "effective_date",
+        "issuing_body",
+        "validity_status"
+      ],
       "additionalProperties": false,
       "properties": {
-        "title": { "type": "string", "minLength": 5 },
+        "title": {
+          "type": "string",
+          "minLength": 5
+        },
         "document_type": {
           "type": "string",
-          "enum": ["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị"]
+          "enum": [
+            "Luật",
+            "Nghị định",
+            "Nghị quyết",
+            "Thông tư",
+            "Thông tư liên tịch",
+            "Quyết định",
+            "Chỉ thị"
+          ]
         },
-        "document_number": { "type": "string" },
-        "issue_date": { "type": "string", "format": "date" },
-        "effective_date": { "type": "string", "format": "date" },
-        "issuing_body": { "type": "string" },
+        "document_number": {
+          "type": "string"
+        },
+        "issue_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "issuing_body": {
+          "type": "string"
+        },
         "validity_status": {
           "type": "string",
-          "enum": ["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung"]
+          "enum": [
+            "Còn hiệu lực",
+            "Hết hiệu lực",
+            "Sắp có hiệu lực",
+            "Sửa đổi bổ sung",
+            "Không xác định"
+          ]
+        },
+        "expiry_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_url": {
+          "type": "string"
         }
       }
     },
@@ -34,40 +82,112 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["article_id", "article_number", "clauses"],
+        "required": [
+          "article_id",
+          "article_number",
+          "clauses"
+        ],
         "additionalProperties": false,
         "properties": {
-          "article_id": { "type": "string" },
-          "article_number": { "type": "string" },
-          "article_title": { "type": ["string", "null"] },
-          "chapter": { "type": ["string", "null"] },
-          "section": { "type": ["string", "null"] },
-          "intro": { "type": ["string", "null"] },
+          "article_id": {
+            "type": "string"
+          },
+          "article_number": {
+            "type": "string"
+          },
+          "article_title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "chapter": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "section": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "intro": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "clauses": {
             "type": "array",
             "minItems": 1,
             "items": {
               "type": "object",
-              "required": ["clause_id", "clause_number", "clause_text", "parent_article_id"],
+              "required": [
+                "clause_id",
+                "clause_number",
+                "clause_text",
+                "parent_article_id"
+              ],
               "additionalProperties": false,
               "properties": {
-                "clause_id": { "type": "string" },
-                "parent_article_id": { "type": "string" },
-                "clause_number": { "type": "string" },
-                "clause_text": { "type": "string", "minLength": 1, "description": "Nội dung thô của Khoản (dành cho Parser)" },
+                "clause_id": {
+                  "type": "string"
+                },
+                "parent_article_id": {
+                  "type": "string"
+                },
+                "clause_number": {
+                  "type": "string"
+                },
+                "clause_text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Nội dung thô của Khoản (dành cho Parser)"
+                },
                 "chunks": {
-                  "type": ["array", "null"],
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "object",
-                    "required": ["chunk_id", "chunk_text", "parent_clause_id"],
+                    "required": [
+                      "chunk_id",
+                      "chunk_text",
+                      "parent_clause_id"
+                    ],
                     "additionalProperties": false,
                     "properties": {
-                      "chunk_id": { "type": "string" },
-                      "parent_clause_id": { "type": "string" },
-                      "clause_number": { "type": ["string", "null"] },
-                      "point_letter": { "type": ["string", "null"] },
-                      "chunk_text": { "type": "string", "minLength": 10 },
-                      "char_count": { "type": ["integer", "null"] }
+                      "chunk_id": {
+                        "type": "string"
+                      },
+                      "parent_clause_id": {
+                        "type": "string"
+                      },
+                      "clause_number": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "point_letter": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "chunk_text": {
+                        "type": "string",
+                        "minLength": 10
+                      },
+                      "char_count": {
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
+                      }
                     }
                   }
                 }
