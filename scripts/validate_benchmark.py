@@ -2,6 +2,14 @@
 from __future__ import annotations
 import argparse, datetime, json, re, sys, hashlib
 from pathlib import Path
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -47,7 +55,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
         issues.append('Thiếu manifest đóng băng câu hỏi Test')
     else:
         expected = load(frozen)
-        raw = (DATA/'queries_test.json').read_bytes()
+        # Git may check out LF content as CRLF on Windows. The freeze manifest
+        # hashes canonical UTF-8/LF bytes, so normalize line endings first.
+        raw = (DATA/'queries_test.json').read_bytes().replace(b'\r\n', b'\n')
         digest = hashlib.sha256(raw).hexdigest()
         if (expected.get('sha256')!=digest or expected.get('test_ids')!=[q.get('id') for q in test]
                 or expected.get('question_count')!=len(test)):
@@ -69,7 +79,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     # Production được cấp bởi người làm Chunking; ID từ smoke không được coi là index chính thức.
     prod_file=REF/'production_chunk_index.json'
     prod_index={}
-    if final:
+    if final or prod_file.exists():
         if not prod_file.exists():
             issues.append('Chưa nhập production_chunk_index.json từ output Chunking của nhóm')
         else:
@@ -110,7 +120,11 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if cid in article_index:issues.append(f'{qid}: article_id không được dùng làm chunk_id: {cid}')
             if cid.startswith(('DEMO_','FAKE_','PLACEHOLDER_')):
                 issues.append(f'{qid}: chunk ID giả: {cid}')
-            info=(prod_index.get(cid) if final and cid in g.get('gold_context_ids',[]) else chunk_index.get(cid))
+            # Production IDs are valid as unverified candidates and reviewed Gold.
+            # Smoke IDs must still resolve exclusively in the smoke registry.
+            is_production_gold = final and cid in g.get('gold_context_ids',[])
+            info = (prod_index.get(cid) if cid in prod_index or is_production_gold
+                    else chunk_index.get(cid))
             if not info:issues.append(f'{qid}: chunk ID không nằm trong registry: {cid}')
             else:
                 if info['document_number'] not in docnos:issues.append(f'{qid}: chunk {cid} sai văn bản so với citation')
@@ -118,9 +132,9 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                     issues.append(f'{qid}: chunk {cid} không thuộc gold_article_ids')
                 if not info['chunk_text'].strip():issues.append(f'{qid}: chunk {cid} rỗng')
         status=g.get('mapping_status')
-        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: smoke_candidate chỉ được có candidate_context_ids, không có Gold')
-        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
+        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
             issues.append(f'{qid}: partial_evidence_only phải có candidate, không có gold')
         if status=='not_mapped' and all_ids:
             issues.append(f'{qid}: not_mapped nhưng có context ID')
@@ -132,7 +146,12 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if status!='production_verified' or g.get('context_id_provenance')!='production_index':
                 issues.append(f'{qid}: xác nhận production nhưng nhãn chưa đồng nhất')
         elif status=='production_verified':issues.append(f'{qid}: production_verified cần gold_context_ids_confirmed=true')
-        if status not in ('smoke_candidate','partial_evidence_only','not_mapped','production_verified'):
+        if status=='production_candidate_unverified':
+            if g.get('gold_context_ids') or not g.get('candidate_context_ids'):
+                issues.append(f'{qid}: production candidate requires candidate IDs only, not Gold')
+            if g.get('context_id_provenance')!='production_index':
+                issues.append(f'{qid}: production candidate provenance must be production_index')
+        if status not in ('smoke_candidate','partial_evidence_only','not_mapped','production_verified','production_candidate_unverified'):
             issues.append(f'{qid}: mapping_status không hợp lệ')
         if g.get('context_id_provenance')=='smoke_unconfirmed' and status!='smoke_candidate':
             issues.append(f'{qid}: trạng thái nguồn ID smoke chưa đồng nhất')
@@ -148,6 +167,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             issues.append(f'{qid}: đã review nhưng thiếu verified_at')
         if g.get('verified_at') and not g.get('verified_by'):
             issues.append(f'{qid}: có verified_at nhưng thiếu verified_by')
+        if g.get('review_status') != 'draft' and g.get('verified_by') == 'HO_TEN_THUC_TE':
+            issues.append(f"{qid}: verified_by không được để giá trị giữ chỗ 'HO_TEN_THUC_TE' khi đã qua review")
         if final:
             if g.get('answer_kind')!='reviewed_answer':
                 issues.append(f'{qid}: answer chưa được biên soạn và duyệt thành câu trả lời trực tiếp')

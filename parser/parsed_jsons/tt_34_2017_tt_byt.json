@@ -1,28 +1,30 @@
 {
   "document_id": "tt_34_2017_tt_byt",
   "metadata": {
-    "title": "THÔNG TƯ Hướng dẫn tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
+    "title": "Tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
     "document_type": "Thông tư",
     "document_number": "34/2017/TT-BYT",
     "issue_date": "2017-08-18",
     "effective_date": "2017-10-02",
     "issuing_body": "Bộ Y tế",
-    "validity_status": "Hết hiệu lực"
+    "validity_status": "Sửa đổi bổ sung",
+    "expiry_date": null,
+    "source_url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-34-2017-tt-byt-huong-dan-tu-van-sang-loc-chan-doan-dieu-tri-truoc-sinh-va-so-sinh--132220"
   },
   "articles": [
     {
       "article_id": "tt_34_2017_tt_byt_art_1",
       "article_number": "1",
-      "article_title": null,
+      "article_title": "Phạm vi điều chỉnh",
       "chapter": "Chương I QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "tt_34_2017_tt_byt_art_1_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_1",
           "clause_number": "1",
-          "clause_text": "Phạm vi điều chỉnh Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
+          "clause_text": "Thông tư này quy định về tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh.",
           "chunks": null
         }
       ]
@@ -39,21 +41,21 @@
           "clause_id": "tt_34_2017_tt_byt_art_2_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_2",
           "clause_number": "1",
-          "clause_text": "1. Dị tật bào thai (còn gọi là dị tật bẩm sinh hay bất thường bẩm sinh) là những bất thường cấu trúc hoặc chức năng (bao gồm cả bất thường chuyển hóa) xảy ra từ thời kỳ bào thai và có thể được phát hiện trước, trong hoặc sau khi sinh.",
+          "clause_text": "1. Dị tật bẩm sinh (còn gọi là dị tật bẩm sinh hay bất thường bẩm sinh) là những bất thường cấu trúc hoặc chức năng (bao gồm cả bất thường chuyển hóa) xảy ra từ thời kỳ bào thai và có thể được phát hiện trước, trong hoặc sau khi sinh.",
           "chunks": null
         },
         {
           "clause_id": "tt_34_2017_tt_byt_art_2_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_2",
           "clause_number": "2",
-          "clause_text": "2. Sàng lọc trước sinh là việc sử dụng các kỹ thuật trong thời gian mang thai để phát hiện nguy cơ dị tật bào thai.",
+          "clause_text": "2. Sàng lọc trước sinh là việc sử dụng các kỹ thuật trong thời gian mang thai để phát hiện nguy cơ dị tật bẩm sinh.",
           "chunks": null
         },
         {
           "clause_id": "tt_34_2017_tt_byt_art_2_clause_3",
           "parent_article_id": "tt_34_2017_tt_byt_art_2",
           "clause_number": "3",
-          "clause_text": "3. Sàng lọc sơ sinh là việc sử dụng các kỹ thuật để phát hiện trẻ sơ sinh có nguy cơ mắc các bất thường bẩm sinh, các bệnh lý liên quan đến rối loạn nội tiết - chuyển hóa - di truyền nhưng chưa có biểu hiện trên lâm sàng ở giai đoạn sơ sinh. CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 67",
+          "clause_text": "3. Sàng lọc sơ sinh là việc sử dụng các kỹ thuật để phát hiện trẻ sơ sinh có nguy cơ mắc các bất thường bẩm sinh, các bệnh lý liên quan đến rối loạn nội tiết - chuyển hóa - di truyền nhưng chưa có biểu hiện trên lâm sàng ở giai đoạn sơ sinh.",
           "chunks": null
         },
         {
@@ -76,7 +78,7 @@
       "article_id": "tt_34_2017_tt_byt_art_3",
       "article_number": "3",
       "article_title": "Nguyên tắc tư vấn, sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
       "clauses": [
@@ -91,7 +93,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_3_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_3",
           "clause_number": "2",
-          "clause_text": "2. Việc sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh được thực hiện trên tinh thần tự nguyện. Riêng việc sàng lọc, chẩn đoán, điều trị trước sinh đối với người mang thai hộ vì mục đích nhân đạo quy định tại Khoản Điều 97 Luật Hôn nhân và gia đình phải bắt buộc thực hiện.",
+          "clause_text": "2. Việc sàng lọc, chẩn đoán, điều trị trước sinh và sơ sinh được thực hiện trên tinh thần tự nguyện. Riêng việc sàng lọc, chẩn đoán, điều trị trước sinh đối với người mang thai hộ vì mục đích nhân đạo quy định tại Khoản 2 Điều 97 Luật Hôn nhân và gia đình phải bắt buộc thực hiện.",
           "chunks": null
         },
         {
@@ -107,7 +109,7 @@
       "article_id": "tt_34_2017_tt_byt_art_4",
       "article_number": "4",
       "article_title": "Sàng lọc trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN",
       "section": null,
       "intro": null,
       "clauses": [
@@ -122,7 +124,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_4_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_4",
           "clause_number": "2",
-          "clause_text": "2. Sàng lọc: Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật sàng lọc theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế. 68 CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017",
+          "clause_text": "2. Sàng lọc: Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật sàng lọc theo chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế.",
           "chunks": null
         },
         {
@@ -145,7 +147,7 @@
       "article_id": "tt_34_2017_tt_byt_art_5",
       "article_number": "5",
       "article_title": "Chẩn đoán trước sinh và sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN",
       "section": null,
       "intro": null,
       "clauses": [
@@ -160,14 +162,14 @@
           "clause_id": "tt_34_2017_tt_byt_art_5_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_5",
           "clause_number": "2",
-          "clause_text": "2. Chẩn đoán: Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật chẩn đoán theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế.",
+          "clause_text": "2. Chẩn đoán: Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật chẩn đoán theo chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế.",
           "chunks": null
         },
         {
           "clause_id": "tt_34_2017_tt_byt_art_5_clause_3",
           "parent_article_id": "tt_34_2017_tt_byt_art_5",
           "clause_number": "3",
-          "clause_text": "3. Tư vấn sau chẩn đoán trước sinh: Nhân viên y tế tư vấn cho phụ nữ mang thai sau chẩn đoán trước sinh các nội dung sau đây: CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 69 a) Cung cấp thông tin về dị tật bào thai đã được chẩn đoán trước sinh; nguy cơ, hậu quả có thể xảy ra của việc giữ thai hoặc chấm dứt thai kỳ đối với từng trường hợp cụ thể; b) Tư vấn cho phụ nữ mang thai để lựa chọn giải pháp chăm sóc, xử trí phù hợp, bao gồm cả chấm dứt thai kỳ vì lý do dị tật bào thai nếu cần thiết.",
+          "clause_text": "3. Tư vấn sau chẩn đoán trước sinh: Nhân viên y tế tư vấn cho phụ nữ mang thai sau chẩn đoán trước sinh các nội dung sau đây: a) Cung cấp thông tin về dị tật bào thai đã được chẩn đoán trước sinh; nguy cơ, hậu quả có thể xảy ra của việc giữ thai hoặc chấm dứt thai kỳ đối với từng trường hợp cụ thể; b) Tư vấn cho phụ nữ mang thai để lựa chọn giải pháp chăm sóc, xử trí phù hợp, bao gồm cả chấm dứt thai kỳ vì lý do dị tật bào thai nếu cần thiết.",
           "chunks": null
         },
         {
@@ -183,7 +185,7 @@
       "article_id": "tt_34_2017_tt_byt_art_6",
       "article_number": "6",
       "article_title": "Điều trị trước sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN",
       "section": null,
       "intro": null,
       "clauses": [
@@ -205,7 +207,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_6_clause_3",
           "parent_article_id": "tt_34_2017_tt_byt_art_6",
           "clause_number": "3",
-          "clause_text": "3. Quy định về chấm dứt thai kỳ vì lý do dị tật bào thai: a) Việc chấm dứt thai kỳ chỉ được xem xét khi có bất thường nghiêm trọng về hình thái, cấu trúc của bào thai; có bất thường nhiễm sắc thể, bào thai có bệnh di 70 CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 truyền phân tử do đột biến gen mà chưa có phương pháp điều trị đặc hiệu dẫn đến sau khi sinh có nguy cơ tàn phế cao; b) Việc chấm dứt thai kỳ vì lý do dị tật bào thai được xem xét khi có sự đồng ý bằng văn bản của phụ nữ mang thai sau khi đã được nhân viên y tế tư vấn đầy đủ; c) Cơ sở khám bệnh, chữa bệnh có Giấy phép hoạt động và có phạm vi hoạt động chuyên môn kỹ thuật được cấp có thẩm quyền phê duyệt về thực hiện các kỹ thuật chấm dứt thai kỳ phải tổ chức hội chẩn các chuyên khoa liên quan để xem xét việc chấm dứt thai kỳ. Thành phần tham gia hội chẩn bao gồm bác sĩ chuyên khoa có ít nhất 5 năm kinh nghiệm thuộc các chuyên ngành: sản khoa, nhi khoa, tim mạch, chẩn đoán hình ảnh, xét nghiệm và giải phẫu bệnh lý. Các thành viên tham gia hội chẩn có thể thuộc các khoa, phòng của cơ sở khám bệnh, chữa bệnh hoặc được mời từ các cơ sở khám bệnh, chữa bệnh khác. d) Người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở khám bệnh, chữa bệnh xem xét, quyết định chấm dứt thai kỳ vì lý do dị tật của bào thai trên cơ sở kết luận sau hội chẩn.",
+          "clause_text": "3. Quy định về chấm dứt thai kỳ vì lý do dị tật bào thai: a) Việc chấm dứt thai kỳ chỉ được xem xét khi có bất thường nghiêm trọng về hình thái, cấu trúc của bào thai; có bất thường nhiễm sắc thể, bào thai có bệnh di truyền phân tử do đột biến gen mà chưa có phương pháp điều trị đặc hiệu dẫn đến sau khi sinh có nguy cơ tàn phế cao; b) Việc chấm dứt thai kỳ vì lý do dị tật bào thai được xem xét khi có sự đồng ý bằng văn bản của phụ nữ mang thai sau khi đã được nhân viên y tế tư vấn đầy đủ; c) Cơ sở khám bệnh, chữa bệnh có Giấy phép hoạt động và có phạm vi hoạt động chuyên môn kỹ thuật được cấp có thẩm quyền phê duyệt về thực hiện các kỹ thuật chấm dứt thai kỳ phải tổ chức hội chẩn các chuyên khoa liên quan để xem xét việc chấm dứt thai kỳ. Thành phần tham gia hội chẩn bao gồm bác sĩ chuyên khoa có ít nhất 5 năm kinh nghiệm thuộc các chuyên ngành: sản khoa, nhi khoa, tim mạch, chẩn đoán hình ảnh, xét nghiệm và giải phẫu bệnh lý. Các thành viên tham gia hội chẩn có thể thuộc các khoa, phòng của cơ sở khám bệnh, chữa bệnh hoặc được mời từ các cơ sở khám bệnh, chữa bệnh khác. d) Người chịu trách nhiệm chuyên môn kỹ thuật của cơ sở khám bệnh, chữa bệnh xem xét, quyết định chấm dứt thai kỳ vì lý do dị tật của bào thai trên cơ sở kết luận sau hội chẩn.",
           "chunks": null
         }
       ]
@@ -214,7 +216,7 @@
       "article_id": "tt_34_2017_tt_byt_art_7",
       "article_number": "7",
       "article_title": "Điều trị sơ sinh",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN",
       "section": null,
       "intro": null,
       "clauses": [
@@ -229,7 +231,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_7_clause_2",
           "parent_article_id": "tt_34_2017_tt_byt_art_7",
           "clause_number": "2",
-          "clause_text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể. Chương III ĐIỀU KHOẢN THI HÀNH",
+          "clause_text": "2. Điều trị Cơ sở khám bệnh, chữa bệnh thực hiện các biện pháp theo dõi, điều trị sơ sinh theo hướng dẫn chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế cho từng trường hợp cụ thể.",
           "chunks": null
         }
       ]
@@ -237,16 +239,16 @@
     {
       "article_id": "tt_34_2017_tt_byt_art_8",
       "article_number": "8",
-      "article_title": null,
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "article_title": "Hiệu lực thi hành",
+      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
       "section": null,
-      "intro": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "tt_34_2017_tt_byt_art_8_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_8",
           "clause_number": "1",
-          "clause_text": "Hiệu lực thi hành Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, CÔNG BÁO/Số 751 + 752/Ngày 04-10-2017 71 xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
+          "clause_text": "Thông tư này có hiệu lực thi hành từ ngày 02 tháng 10 năm 2017. Thông tư số 34/2016/TT-BYT ngày 21 tháng 9 năm 2016 của Bộ trưởng Bộ Y tế Thông tư quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị, xử trí các bất thường, dị tật của bào thai hết hiệu lực kể từ ngày Thông tư này có hiệu lực thi hành.",
           "chunks": null
         }
       ]
@@ -254,8 +256,8 @@
     {
       "article_id": "tt_34_2017_tt_byt_art_9",
       "article_number": "9",
-      "article_title": "Trách nhiệm thi hành Tổng cục trưởng Tổng cục Dân số;",
-      "chapter": "Chương II TƯ VẤN, SÀNG LỌC, CHẨN ĐOÁN,",
+      "article_title": "Trách nhiệm thi hành",
+      "chapter": "Chương III ĐIỀU KHOẢN THI HÀNH",
       "section": null,
       "intro": null,
       "clauses": [
@@ -263,7 +265,7 @@
           "clause_id": "tt_34_2017_tt_byt_art_9_clause_1",
           "parent_article_id": "tt_34_2017_tt_byt_art_9",
           "clause_number": "1",
-          "clause_text": "Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết./. KT. BỘ TRƯỞNG THỨ TRƯỞNG Nguyễn Viết Tiến",
+          "clause_text": "Tổng cục trưởng Tổng cục Dân số; Vụ trưởng Vụ Sức khỏe Bà mẹ - Trẻ em; Cục trưởng Cục Quản lý khám, chữa bệnh; Thủ trưởng các đơn vị thuộc và trực thuộc Bộ Y tế; Giám đốc Sở Y tế tỉnh, thành phố trực thuộc Trung ương chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, đề nghị các cơ quan, tổ chức, cá nhân phản ánh kịp thời về Bộ Y tế (Tổng cục Dân số) để xem xét, giải quyết",
           "chunks": null
         }
       ]

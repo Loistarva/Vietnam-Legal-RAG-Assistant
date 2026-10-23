@@ -1,0 +1,11 @@
+bm25:
+  backend: elasticsearch
+  text_field: content_segmented
+  index: legal-child-chunks-dev
+dense:
+  backend: qdrant
+  model: BAAI/bge-m3
+hybrid:
+  candidate_k: 50
+  top_k: 10
+  rrf_k: 60

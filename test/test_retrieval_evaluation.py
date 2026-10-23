@@ -1,0 +1,44 @@
+import json
+import math
+import tempfile
+import unittest
+from pathlib import Path
+
+from retrieval.retrieval_evaluation import evaluate
+
+
+class RetrievalEvaluationTest(unittest.TestCase):
+    def test_recall_mrr_ndcg_and_precision_are_computed_from_dev_labels(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            dev_path = root / "dev.json"
+            chunks_path = root / "chunks.json"
+            results_dir = root / "results"
+            output_dir = root / "output"
+            query = "question"
+            dev_path.write_text(json.dumps([{"query": query, "relevant_chunk_ids": ["A", "B"]}]), encoding="utf-8")
+            chunks_path.write_text(json.dumps([
+                {"chunk_id": "A", "text": "relevant A", "metadata": {"article_ref": "A"}},
+                {"chunk_id": "B", "text": "relevant B", "metadata": {"article_ref": "B"}},
+                {"chunk_id": "C", "text": "irrelevant", "metadata": {"article_ref": "C"}},
+            ]), encoding="utf-8")
+            results_dir.mkdir()
+            for method in ("bm25", "dense", "hybrid"):
+                rows = [
+                    {"query": query, "chunk_id": "C", "score": 1.0, "rank": 1},
+                    {"query": query, "chunk_id": "A", "score": 0.9, "rank": 2},
+                    {"query": query, "chunk_id": "B", "score": 0.8, "rank": 3},
+                ]
+                (results_dir / f"dev_{method}.json").write_text(json.dumps(rows), encoding="utf-8")
+
+            metrics = evaluate(dev_path, results_dir, output_dir, chunks_path)
+            row = metrics["hybrid"]
+            expected_ndcg = (1 / math.log2(3) + 1 / math.log2(4)) / (1 + 1 / math.log2(3))
+            self.assertEqual(row["recall_at_10"], 1.0)
+            self.assertEqual(row["mrr_at_10"], 0.5)
+            self.assertAlmostEqual(row["ndcg_at_10"], expected_ndcg)
+            self.assertEqual(row["precision_at_10"], 0.2)
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,21 @@
+﻿# Project dependencies (Python 3.12). Install: python -m pip install -r requirements.txt
+
+# Dense retrieval, Elasticsearch BM25 client, Qdrant store and the cross-encoder
+# reranker (sentence-transformers) — pinned by Dev 3 in embedding/requirements.txt.
+-r embedding/requirements.txt
+
+# Config files (retrieval/config.yaml, reranking/config.yaml)
+PyYAML>=6,<7
+
+# Vietnamese word segmentation for queries and chunking
+underthesea>=8.3,<10
+
+# Schema validation (tests/schema_test.py) and contract tests
+pydantic>=2,<3
+jsonschema>=4.18,<5
+pytest>=8
+
+# Parser (pdfplumber), chunking experiment report (pandas), Zero-shot LLM baseline (ollama)
+pdfplumber>=0.11
+pandas>=2
+ollama>=0.3

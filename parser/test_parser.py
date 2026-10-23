@@ -1,3 +1,10 @@
+import sys
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 """
 Entry point của pipeline: PDF -> cleaned_texts/*.txt -> parsed_jsons/*.json
 (parser kiến trúc 4 tầng: Văn bản -> Điều -> Khoản -> Chunk)
@@ -10,7 +17,7 @@ Entry point của pipeline: PDF -> cleaned_texts/*.txt -> parsed_jsons/*.json
 Sau khi parse, mỗi file JSON được kiểm tra cấu trúc (check_doc_structure).
 File nào vi phạm sẽ bị tính là THẤT BẠI và không được ghi ra parsed_jsons.
 
-Unit test từng hàm của parser nằm ở test_parser_unit.py (chạy bằng pytest).
+Unit tests từng hàm của parser nằm ở test_parser_unit.py (chạy bằng pytest).
 """
 
 import argparse
@@ -41,8 +48,18 @@ def run_cleaner() -> None:
 
     import cleaner
 
-    total = cleaner.process_all_pdfs()
-    print(f"Đã xử lý {total} file PDF.")
+    # cleaner.py cung cấp run_cleaner(), trả về thống kê dạng dict.
+    result = cleaner.run_cleaner()
+    print(
+        "Kết quả cleaner: "
+        f"{result.get('succeeded', 0)} thành công, "
+        f"{result.get('skipped', 0)} bỏ qua, "
+        f"{result.get('failed', 0)} cần kiểm tra "
+        f"(tổng {result.get('total', 0)} file PDF)."
+    )
+
+    if result.get("failed", 0) > 0:
+        print("[cảnh báo] Có PDF chưa xử lý thành công; xem log cleaner để biết chi tiết.")
 
 
 def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
@@ -125,9 +142,7 @@ def parse_one_file(txt_path: Path, show_report: bool = True) -> Path:
     metadata = legal_parser.extract_metadata(raw_text, str(txt_path))
     metadata_warnings = list(legal_parser.WARNINGS)
 
-    doc_id = legal_parser.build_document_id(
-        metadata["document_type"], metadata["document_number"]
-    )
+    doc_id = legal_parser.resolve_document_id(metadata)
 
     doc = legal_parser.parse_raw_text_to_legal_doc(raw_text, doc_id, metadata)
 
@@ -221,7 +236,7 @@ if __name__ == "__main__":
     sys.exit(main())
 
 def test_all_parsed_json_structures():
-    """Pytest test case kiem tra toan bo output json cua parser."""
+    """Pytest tests case kiem tra toan bo output json cua parser."""
     json_files = list(PARSED_DIR.glob("*.json"))
     assert len(json_files) > 0, "Khong tim thay file JSON nao trong parsed_jsons"
     for jf in json_files:

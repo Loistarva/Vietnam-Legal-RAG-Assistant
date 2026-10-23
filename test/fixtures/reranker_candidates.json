@@ -1,0 +1,183 @@
+{
+  "note": "Fixture mock-first của Dev 5: danh sách candidate theo dạng output Hybrid RRF và mock reranker scores. chunk_text/metadata lấy nguyên từ data/chunking_output/chunks.jsonl. article_id/clause_id/parent_clause_id là giá trị minh họa theo quy ước ID trong docs/data_contract.md (chunk_id dạng cũ, không có _clause_); mọi candidate đều có đủ các ID mà schemas/retrieval_schema.json bắt buộc. Candidate thứ 3 mô phỏng hit chỉ đến từ BM25 (có cả text lẫn chunk_text như ElasticsearchBM25Retriever.search); candidate thứ 6 là bản trùng chunk_id để kiểm thử khử trùng lặp.",
+  "query": "Điều kiện kết hôn theo quy định pháp luật là gì?",
+  "candidates": [
+    {
+      "chunk_id": "l_52_2014_qh13_art_9_chunk_1",
+      "text": "1. Việc kết hôn phải được đăng ký và do cơ quan nhà nước có thẩm quyền thực hiện theo quy định của Luật này và pháp luật về hộ tịch. Việc kết hôn không được đăng ký theo quy định tại khoản này thì không có giá trị pháp lý.",
+      "chunk_text": "1. Việc kết hôn phải được đăng ký và do cơ quan nhà nước có thẩm quyền thực hiện theo quy định của Luật này và pháp luật về hộ tịch. Việc kết hôn không được đăng ký theo quy định tại khoản này thì không có giá trị pháp lý.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2025-07-01",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Không xác định",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "9"
+      },
+      "rrf_score": 0.032522,
+      "source_ranks": {
+        "bm25": 1,
+        "dense": 2
+      },
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "rank": 1,
+      "parent_id": "l_52_2014_qh13_art_9",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_9",
+      "parent_clause_id": "l_52_2014_qh13_art_9_clause_1",
+      "clause_id": "l_52_2014_qh13_art_9_clause_1"
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_9_chunk_1",
+      "text": "1. Nam từ hai mươi tuổi trở lên, nữ từ mười tám tuổi trở lên;\n2. Việc kết hôn do nam và nữ tự nguyện quyết định, không bên nào được ép buộc, lừa dối bên nào; không ai được cưỡng ép hoặc cản trở;",
+      "chunk_text": "1. Nam từ hai mươi tuổi trở lên, nữ từ mười tám tuổi trở lên;\n2. Việc kết hôn do nam và nữ tự nguyện quyết định, không bên nào được ép buộc, lừa dối bên nào; không ai được cưỡng ép hoặc cản trở;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "LUẬT NGÀY 09/06/2000 CỦA QUỐC HỘI",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Không xác định",
+        "chapter": null,
+        "section": null,
+        "article_number": "9"
+      },
+      "rrf_score": 0.032018,
+      "source_ranks": {
+        "bm25": 3,
+        "dense": 1
+      },
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "rank": 2,
+      "parent_id": "l_22_2000_qh10_art_9",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_9",
+      "parent_clause_id": "l_22_2000_qh10_art_9_clause_1",
+      "clause_id": "l_22_2000_qh10_art_9_clause_1"
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_8_chunk_2",
+      "text": "2. Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.",
+      "chunk_text": "2. Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2025-07-01",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Không xác định",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "8"
+      },
+      "rrf_score": 0.016129,
+      "source_ranks": {
+        "bm25": 2
+      },
+      "retrieval_sources": [
+        "bm25"
+      ],
+      "rank": 3,
+      "parent_id": "l_52_2014_qh13_art_8",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_2",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_2"
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_8_chunk_1",
+      "text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.",
+      "chunk_text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2025-07-01",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Không xác định",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "8"
+      },
+      "rrf_score": 0.015873,
+      "source_ranks": {
+        "dense": 3
+      },
+      "retrieval_sources": [
+        "dense"
+      ],
+      "rank": 4,
+      "parent_id": "l_52_2014_qh13_art_8",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_8",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
+      "clause_id": "l_52_2014_qh13_art_8_clause_1"
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_10_chunk_1",
+      "text": "1. Người bị cưỡng ép kết hôn, bị lừa dối kết hôn, theo quy định của pháp luật về tố tụng dân sự, có quyền tự mình yêu cầu hoặc đề nghị cá nhân, tổ chức quy định tại khoản 2 Điều này yêu cầu Tòa án hủy việc kết hôn trái pháp luật do việc kết hôn vi phạm quy định tại điểm b khoản 1 Điều 8 của Luật này.",
+      "chunk_text": "1. Người bị cưỡng ép kết hôn, bị lừa dối kết hôn, theo quy định của pháp luật về tố tụng dân sự, có quyền tự mình yêu cầu hoặc đề nghị cá nhân, tổ chức quy định tại khoản 2 Điều này yêu cầu Tòa án hủy việc kết hôn trái pháp luật do việc kết hôn vi phạm quy định tại điểm b khoản 1 Điều 8 của Luật này.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2025-07-01",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Không xác định",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "10"
+      },
+      "rrf_score": 0.015625,
+      "source_ranks": {
+        "bm25": 4
+      },
+      "retrieval_sources": [
+        "bm25"
+      ],
+      "rank": 5,
+      "parent_id": "l_52_2014_qh13_art_10",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_10",
+      "parent_clause_id": "l_52_2014_qh13_art_10_clause_1",
+      "clause_id": "l_52_2014_qh13_art_10_clause_1"
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_8_chunk_2",
+      "chunk_text": "2. Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.",
+      "document_id": "l_52_2014_qh13",
+      "metadata": {},
+      "rrf_score": 0.0151,
+      "rank": 6,
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_2",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_2"
+    }
+  ],
+  "mock_scores": {
+    "l_52_2014_qh13_art_8_chunk_1": 0.97,
+    "l_22_2000_qh10_art_9_chunk_1": 0.81,
+    "l_52_2014_qh13_art_8_chunk_2": 0.55,
+    "l_52_2014_qh13_art_9_chunk_1": 0.42,
+    "l_52_2014_qh13_art_10_chunk_1": 0.12
+  }
+}

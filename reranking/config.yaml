@@ -1,0 +1,18 @@
+# Cấu hình Reranker (Owner: Dev 5). Đọc bởi reranking/reranker.py::load_reranker_config.
+# Đây là giá trị khởi đầu (Sprint 6 mục 14.3), chưa phải cấu hình tối ưu.
+# Chỉ tuning trên Dev set; không dùng Test set để chọn tham số.
+reranker:
+  enabled: true
+  # mock: scorer tất định, không cần model (mock-first, CLI/test chạy offline).
+  # cross_encoder: sentence-transformers CrossEncoder với `model` bên dưới.
+  backend: mock
+  model: BAAI/bge-reranker-v2-m3
+  # Số chunk giữ lại sau reranking để đưa sang bước sinh câu trả lời.
+  rerank_top_k: 5
+  # Trần số candidate đưa vào Cross-Encoder (mục 13.2); phần dư bị cắt theo thứ hạng retrieval.
+  # Số candidate thô lấy từ Hybrid là `retrieval_top_k` trong retrieval/config.yaml (Dev 4).
+  max_candidates: 50
+  batch_size: 16
+  max_length: 512
+  # null: để sentence-transformers tự chọn (cuda nếu có, ngược lại cpu).
+  device: null

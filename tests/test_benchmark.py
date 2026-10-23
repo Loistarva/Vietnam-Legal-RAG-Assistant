@@ -24,22 +24,28 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_unique_context_registry(self):self.assertEqual(len({c['chunk_id'] for c in self.chunks}),len(self.chunks))
     def test_all_mapped_chunks_in_registry(self):
         seen={c['chunk_id'] for c in self.chunks}
+        production=ROOT/'data'/'reference'/'production_chunk_index.json'
+        self.assertTrue(production.exists())
+        seen |= {c['chunk_id'] for c in json.loads(production.read_text(encoding='utf-8'))}
         self.assertTrue(all(set(g['gold_context_ids']+g['candidate_context_ids'])<=seen for g in self.gold))
     def test_unmapped_explicit_not_faked(self):
         pending=[g for g in self.gold if g['mapping_status']=='not_mapped']
-        self.assertEqual(len(pending),264)
+        self.assertEqual(len(pending),24)
         self.assertTrue(all(not g['gold_context_ids'] and not g['candidate_context_ids'] for g in pending))
     def test_mapping_counts(self):
         from collections import Counter
-        self.assertEqual(Counter(g['mapping_status'] for g in self.gold),
-                         {'smoke_candidate':34,'partial_evidence_only':2,'not_mapped':264})
-        self.assertEqual(sum(bool(g['candidate_context_ids']) for g in self.gold),36)
-        self.assertEqual(sum(bool(g['gold_context_ids']) for g in self.gold),0)
+        counts = Counter(g['mapping_status'] for g in self.gold)
+        self.assertEqual(sum(counts.values()), 300)
+        self.assertEqual(counts['not_mapped'], 24)
+        self.assertEqual(counts['production_candidate_unverified'] + counts['production_verified'], 276)
+        self.assertEqual(sum(bool(g['candidate_context_ids'] or g['gold_context_ids']) for g in self.gold), 276)
+        self.assertTrue(all(bool(g['gold_context_ids']) == bool(g['gold_context_ids_confirmed']) for g in self.gold))
+
     def test_expansion_is_unverified_and_unmapped(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
         self.assertEqual(len(added),240)
-        self.assertTrue(all(g['review_status']=='draft' and g['mapping_status']=='not_mapped'
-                            and not g['gold_context_ids'] and bool(g['gold_article_ids'])
+        self.assertTrue(all(g['review_status']=='draft' and g['mapping_status']=='production_candidate_unverified'
+                            and not g['gold_context_ids'] and bool(g['candidate_context_ids']) and bool(g['gold_article_ids'])
                             and not g['gold_context_ids_confirmed'] for g in added))
     def test_all_new_answers_are_pdf_based_drafts(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
@@ -51,8 +57,29 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_original_test_split_unchanged(self):
         self.assertEqual(len(self.test),15)
         self.assertEqual([x['id'] for x in self.test],manifest()['test_ids'])
-    def test_no_false_legal_approval(self):self.assertTrue(all(g['review_status']=='draft' for g in self.gold))
-    def test_no_false_production_approval(self):self.assertTrue(all(not g['gold_context_ids_confirmed'] and not g['gold_context_ids'] for g in self.gold))
+    def test_no_false_legal_approval(self):
+        for g in self.gold:
+            if g['review_status'] == 'draft':
+                self.assertNotEqual(g['answer_kind'], 'reviewed_answer', g['id'])
+            else:
+                self.assertIn(g['review_status'], ('source_checked', 'peer_reviewed', 'lawyer_verified'), g['id'])
+                self.assertEqual(g['answer_kind'], 'reviewed_answer', g['id'])
+                self.assertTrue(g['verified_by'] and g['verified_at'], g['id'])
+
+    def test_no_false_production_approval(self):
+        production = ROOT/'data'/'reference'/'production_chunk_index.json'
+        index = {c['chunk_id']:c for c in json.loads(production.read_text(encoding='utf-8'))}
+        for g in self.gold:
+            if g['gold_context_ids_confirmed']:
+                self.assertTrue(g['gold_context_ids'], g['id'])
+                self.assertEqual(g['mapping_status'], 'production_verified', g['id'])
+                self.assertEqual(g['context_id_provenance'], 'production_index', g['id'])
+                self.assertTrue(set(g['gold_context_ids']) <= set(index), g['id'])
+                self.assertTrue(all(index[c]['article_id'] in g['gold_article_ids'] for c in g['gold_context_ids']), g['id'])
+            else:
+                self.assertFalse(g['gold_context_ids'], g['id'])
+                self.assertNotEqual(g['mapping_status'], 'production_verified', g['id'])
+
     def test_duplicate_query_id_is_detected(self):
         q=copy.deepcopy(self.test);q[0]['id']=self.dev[0]['id']
         self.assertTrue(any('Trùng question ID' in e for e in self.validate(test=q)))
@@ -88,11 +115,18 @@ class BenchmarkContractTests(unittest.TestCase):
         g=copy.deepcopy(self.gold);g[0]['mapping_status']='not_mapped'
         self.assertTrue(any('not_mapped nhưng có context ID' in e for e in self.validate(gt=g)))
     def test_false_verified_flag_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids_confirmed']=True
-        self.assertTrue(any('production nhưng nhãn' in e for e in self.validate(gt=g)))
+        g = copy.deepcopy(self.gold)
+        candidate = next(item for item in g if item['review_status'] == 'draft' and item['candidate_context_ids'])
+        candidate['gold_context_ids_confirmed'] = True
+        self.assertTrue(any('production nhưng nhãn' in e or 'không có gold_context_ids' in e
+                            for e in self.validate(gt=g)))
+
     def test_review_signature_needed(self):
-        g=copy.deepcopy(self.gold);g[0]['review_status']='source_checked'
+        g = copy.deepcopy(self.gold)
+        draft = next(item for item in g if item['review_status'] == 'draft' and item['candidate_context_ids'])
+        draft['review_status'] = 'source_checked'
         self.assertTrue(any('thiếu verified_at' in e for e in self.validate(gt=g)))
+
     def test_temporal_source_check(self):
         q=copy.deepcopy(self.dev);q[0]['as_of_date']='2012-10-15'
         self.assertTrue(any('trước ngày có hiệu lực' in e for e in self.validate(dev=q)))
@@ -119,18 +153,25 @@ class BenchmarkContractTests(unittest.TestCase):
         manifestfile=json.loads((ROOT/'docs'/'test_questions_freeze.json').read_text(encoding='utf8'))
         self.assertEqual(manifestfile,manifest())
     def test_reject_smoke_id_in_gold_field(self):
-        g=copy.deepcopy(self.gold)
-        g[0]['gold_context_ids']=[g[0]['candidate_context_ids'][0]]
-        g[0]['candidate_context_ids']=[]
+        g = copy.deepcopy(self.gold)
+        draft = next(item for item in g if item['review_status'] == 'draft' and item['candidate_context_ids'])
+        draft['gold_context_ids'] = [draft['candidate_context_ids'][0]]
+        draft['candidate_context_ids'] = draft['candidate_context_ids'][1:]
         self.assertTrue(any('chưa được xác nhận production' in e for e in self.validate(gt=g)))
+
     def test_answer_kind_required(self):
         g=copy.deepcopy(self.gold);del g[0]['answer_kind']
         self.assertTrue(any('answer_kind' in e for e in self.validate(gt=g)))
     def test_final_rejects_extracted_pdf_as_answer(self):
         self.assertTrue(any('answer chưa được biên soạn' in e for e in check(final=True)[0]))
     def test_review_must_use_reviewed_answer_kind(self):
-        g=copy.deepcopy(self.gold);g[0]['review_status']='source_checked';g[0]['verified_at']='2026-10-16';g[0]['verified_by']='reviewer'
+        g = copy.deepcopy(self.gold)
+        draft = next(item for item in g if item['review_status'] == 'draft' and item['candidate_context_ids'])
+        draft['review_status'] = 'source_checked'
+        draft['verified_at'] = '2026-10-18'
+        draft['verified_by'] = 'test_reviewer'
         self.assertTrue(any('answer_kind chưa phải reviewed_answer' in e for e in self.validate(gt=g)))
+
     def test_fix_historical_citation(self):
         g=next(i for i in self.gold if i['id']=='HN_053')
         self.assertEqual(g['citations'][0]['document_id'],'52/2014/QH13')

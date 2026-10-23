@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Retrieval Response Schema",
+  "$ref": "#/$defs/RetrievalEnvelope",
+  "$defs": {
+    "RetrievalEnvelope": {
+      "type": "object",
+      "required": [
+        "query_id",
+        "retriever",
+        "results"
+      ],
+      "properties": {
+        "query_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retriever": {
+          "type": "string",
+          "minLength": 1
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RetrievalResultItem"
+          }
+        },
+        "latency_ms": {
+          "type": [
+            "number",
+            "object"
+          ]
+        },
+        "top_k": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RetrievalResultItem": {
+      "type": "object",
+      "required": [
+        "chunk_id",
+        "document_id",
+        "article_id",
+        "clause_id",
+        "parent_clause_id",
+        "rank",
+        "score",
+        "chunk_text",
+        "metadata"
+      ],
+      "properties": {
+        "chunk_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "article_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "clause_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_clause_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "score": {
+          "type": "number"
+        },
+        "chunk_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metadata": {
+          "type": "object",
+          "required": [
+            "validity_status",
+            "article_number"
+          ],
+          "properties": {
+            "validity_status": {
+              "type": "string",
+              "enum": [
+                "Còn hiệu lực",
+                "Hết hiệu lực",
+                "Sắp có hiệu lực",
+                "Sửa đổi bổ sung",
+                "Không xác định"
+              ]
+            },
+            "article_number": {
+              "type": "string",
+              "minLength": 1
+            },
+            "clause_number": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "document_number": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "document_title": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "breadcrumb": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "effective_from": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "effective_to": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "effective_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "article_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "clause_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "document_type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "issuing_body": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "bm25_rank": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "dense_rank": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "bm25_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "dense_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rrf_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reranker_score": {
+          "type": "number"
+        },
+        "source_ranks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "source_scores": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "retrieval_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "parent_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "point_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "embed_text": {
+          "type": "string"
+        },
+        "embed_text_raw": {
+          "type": "string"
+        },
+        "effective_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effective_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validity_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
