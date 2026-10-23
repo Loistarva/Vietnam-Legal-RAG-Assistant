@@ -29,8 +29,11 @@ DEFAULT_RRF_K = 60
 UNKNOWN_VALIDITY_STATUS = "Không xác định"
 
 # Optional trace fields kept next to the section 4.3 fields when the upstream provides them.
-TRACE_FIELDS = ("parent_id", "rrf_score", "retrieval_sources", "source_ranks",
-                "retrieval_rank", "retrieval_score")
+# Only fields declared in schemas/retrieval_schema.json (RetrievalResultItem) are emitted.
+TRACE_FIELDS = ("parent_id", "rrf_score", "reranker_score", "retrieval_sources",
+                "source_ranks", "source_scores")
+# Key under source_ranks/source_scores holding the pre-rerank rank/score.
+RETRIEVAL_SOURCE = "retrieval"
 
 
 class CandidateRetriever(Protocol):
@@ -103,6 +106,13 @@ def to_contract_result(hit: Mapping[str, Any]) -> dict[str, Any]:
     for field in TRACE_FIELDS:
         if hit.get(field) is not None:
             row[field] = hit[field]
+    # The reranker keeps the pre-rerank values as retrieval_rank/retrieval_score; the schema
+    # has no such fields, so they move to source_ranks/source_scores["retrieval"].
+    if hit.get("retrieval_rank") is not None:
+        row["source_ranks"] = {**row.get("source_ranks", {}), RETRIEVAL_SOURCE: hit["retrieval_rank"]}
+        row["reranker_score"] = float(score)
+    if hit.get("retrieval_score") is not None:
+        row["source_scores"] = {**row.get("source_scores", {}), RETRIEVAL_SOURCE: float(hit["retrieval_score"])}
     return row
 
 

@@ -1,5 +1,5 @@
 {
-  "note": "Fixture mock-first của Dev 5: danh sách candidate theo dạng output Hybrid RRF và mock reranker scores. chunk_text/metadata lấy nguyên từ data/chunking_output/chunks.jsonl. parent_clause_id/clause_id là giá trị minh họa theo quy ước ID trong docs/data_contract.md vì corpus hiện tại chưa có trường này. Candidate thứ 3 mô phỏng hit chỉ đến từ BM25 (chỉ có metadata.doc_id, không có parent_clause_id); candidate thứ 6 là bản trùng chunk_id để kiểm thử khử trùng lặp.",
+  "note": "Fixture mock-first của Dev 5: danh sách candidate theo dạng output Hybrid RRF và mock reranker scores. chunk_text/metadata lấy nguyên từ data/chunking_output/chunks.jsonl. article_id/clause_id/parent_clause_id là giá trị minh họa theo quy ước ID trong docs/data_contract.md (chunk_id dạng cũ, không có _clause_); mọi candidate đều có đủ các ID mà schemas/retrieval_schema.json bắt buộc. Candidate thứ 3 mô phỏng hit chỉ đến từ BM25 (có cả text lẫn chunk_text như ElasticsearchBM25Retriever.search); candidate thứ 6 là bản trùng chunk_id để kiểm thử khử trùng lặp.",
   "query": "Điều kiện kết hôn theo quy định pháp luật là gì?",
   "candidates": [
     {
@@ -93,7 +93,11 @@
         "bm25"
       ],
       "rank": 3,
-      "parent_id": "l_52_2014_qh13_art_8"
+      "parent_id": "l_52_2014_qh13_art_8",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_2",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_2"
     },
     {
       "chunk_id": "l_52_2014_qh13_art_8_chunk_1",
@@ -163,7 +167,10 @@
       "document_id": "l_52_2014_qh13",
       "metadata": {},
       "rrf_score": 0.0151,
-      "rank": 6
+      "rank": 6,
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_2",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_2"
     }
   ],
   "mock_scores": {

@@ -32,7 +32,10 @@ from scripts import run_retrieval  # noqa: E402
 
 FIXTURE_PATH = ROOT / "test" / "fixtures" / "reranker_candidates.json"
 FIXTURE = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
-RESULT_SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
+RETRIEVAL_SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
+# The schema root is the envelope; each result is validated against RetrievalResultItem.
+RESULT_SCHEMA = {"$ref": "#/$defs/RetrievalResultItem", "$defs": RETRIEVAL_SCHEMA["$defs"]}
+ENVELOPE_FIELDS = ("query_id", "retriever", "results")
 CONTRACT_FIELDS = {"chunk_id", "document_id", "article_id", "clause_id", "parent_clause_id",
                    "rank", "score", "chunk_text", "metadata"}
 QUERY = FIXTURE["query"]
@@ -40,7 +43,11 @@ QUERY = FIXTURE["query"]
 
 def bm25_hit(chunk_id, rank, *, doc_id="l_52_2014_qh13", validity="Không xác định"):
     """Shape of ElasticsearchBM25Retriever.search rows."""
-    return {"chunk_id": chunk_id, "text": f"BM25 text {chunk_id}", "parent_id": chunk_id.rsplit("_chunk", 1)[0],
+    article_id = chunk_id.rsplit("_chunk", 1)[0]
+    clause_id = f"{article_id}_clause_1"
+    return {"chunk_id": chunk_id, "document_id": doc_id, "article_id": article_id, "clause_id": clause_id,
+            "parent_clause_id": clause_id, "chunk_text": f"BM25 text {chunk_id}", "text": f"BM25 text {chunk_id}",
+            "parent_id": article_id,
             "metadata": {"doc_id": doc_id, "article_number": "8", "validity_status": validity},
             "score": 12.0 - rank, "rank": rank}
 
@@ -81,7 +88,10 @@ SCORES = {"l_52_2014_qh13_art_10_chunk_1": 0.9, "l_52_2014_qh13_art_8_chunk_2": 
 
 
 def assert_contract(test, output):
-    test.assertTrue({"query_id", "retriever", "results"} <= set(output))
+    test.assertTrue(set(ENVELOPE_FIELDS) <= set(output))
+    # query/config/stats are not declared in RetrievalEnvelope yet (issue C7), so only the
+    # declared envelope fields are validated against the schema root.
+    jsonschema.validate({field: output[field] for field in ENVELOPE_FIELDS}, RETRIEVAL_SCHEMA)
     test.assertEqual([row["rank"] for row in output["results"]], list(range(1, len(output["results"]) + 1)))
     for row in output["results"]:
         jsonschema.validate(row, RESULT_SCHEMA)
@@ -118,13 +128,15 @@ class HybridRerankerPipelineTest(unittest.TestCase):
         self.assertEqual(both["parent_clause_id"], "l_52_2014_qh13_art_8_clause_1")
         self.assertEqual(both["retrieval_sources"], ["bm25", "dense"])
         bm25_only = by_id["l_52_2014_qh13_art_8_chunk_2"]
-        self.assertEqual(bm25_only["document_id"], "l_52_2014_qh13", "doc_id alias resolved")
-        self.assertIsNone(bm25_only["parent_clause_id"], "parent_id must not be promoted to parent_clause_id")
-        self.assertEqual(bm25_only["parent_id"], "l_52_2014_qh13_art_8")
+        self.assertEqual(bm25_only["document_id"], "l_52_2014_qh13")
+        self.assertEqual(bm25_only["parent_clause_id"], "l_52_2014_qh13_art_8_clause_1")
+        self.assertEqual(bm25_only["parent_id"], "l_52_2014_qh13_art_8", "parent_id is not parent_clause_id")
         self.assertEqual(bm25_only["chunk_text"], "BM25 text l_52_2014_qh13_art_8_chunk_2")
         for row in output["results"]:
             self.assertEqual(row["metadata"]["validity_status"], "Không xác định")
-            self.assertIsInstance(row["retrieval_rank"], int)
+            self.assertIsInstance(row["source_ranks"]["retrieval"], int)
+            self.assertIsInstance(row["source_scores"]["retrieval"], float)
+            self.assertEqual(row["reranker_score"], row["score"])
             self.assertIn("rrf_score", row)
 
     def test_both_branches_empty_returns_empty_results(self):
@@ -237,6 +249,16 @@ class ContractMappingTest(unittest.TestCase):
                                   "article_number": "8", "metadata": {}})
         self.assertEqual(row["metadata"], {"validity_status": "Còn hiệu lực", "article_number": "8"})
 
+    def test_pre_rerank_rank_and_score_move_to_source_fields(self):
+        row = to_contract_result({"chunk_id": "A", "chunk_text": "x", "metadata": {}, "rank": 1, "score": 0.9,
+                                  "source_ranks": {"bm25": 2}, "retrieval_rank": 4, "retrieval_score": 0.015})
+        self.assertNotIn("retrieval_rank", row)
+        self.assertNotIn("retrieval_score", row)
+        self.assertEqual(row["source_ranks"], {"bm25": 2, "retrieval": 4})
+        self.assertEqual(row["source_scores"], {"retrieval": 0.015})
+        self.assertEqual(row["reranker_score"], 0.9)
+        self.assertEqual(to_contract_result(row), row)
+
     def test_mapping_is_idempotent(self):
         row = to_contract_result(FIXTURE["candidates"][0])
         self.assertEqual(to_contract_result(row), row)
@@ -331,9 +353,10 @@ class CliTest(unittest.TestCase):
         self.assertIn("elasticsearch", err.lower())
 
     def test_mock_dense_retriever_runs_end_to_end_on_a_chunk_file(self):
-        corpus = [json.loads(line) for line in
-                  (ROOT / "data" / "chunking_output" / "chunks.jsonl").read_text(encoding="utf-8-sig").splitlines()
-                  if line.strip()][:40]
+        # Expired documents are filtered out by the retrievers (issue E1), so take in-force chunks only.
+        corpus = [row for row in map(json.loads, filter(str.strip,
+                  (ROOT / "data" / "chunking_output" / "chunks.jsonl").read_text(encoding="utf-8-sig").splitlines()))
+                  if row["metadata"]["validity_status"] != "Hết hiệu lực"][:40]
         with tempfile.TemporaryDirectory() as tmp:
             chunks = Path(tmp) / "chunks.jsonl"
             chunks.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in corpus), encoding="utf-8")

@@ -41,11 +41,11 @@ Reranking do pipeline đảm nhận. `build_hybrid_retriever` tạo `HybridRetri
 | `reranking.pipeline.RetrievalPipeline` | `run(query, top_k=None, *, query_id) -> dict` | Retriever là bất kỳ đối tượng nào có `search(query, top_k)`. |
 | `scripts/run_retrieval.py` | CLI | Xem mục 6. |
 
-Reranker chỉ đổi thứ tự. Mọi trường đầu vào được giữ nguyên, gồm `chunk_id`, `chunk_text`, `parent_clause_id`, `document_id` và `metadata.validity_status`. Chỉ `rank` và `score` được thay bằng kết quả rerank. Thứ hạng và điểm trước rerank được lưu ở `retrieval_rank` và `retrieval_score` để đo tác động của reranking. Khi hai candidate bằng điểm, candidate có thứ hạng retrieval cao hơn đứng trước.
+Reranker chỉ đổi thứ tự. Mọi trường đầu vào được giữ nguyên, gồm `chunk_id`, `chunk_text`, `parent_clause_id`, `document_id` và `metadata.validity_status`. Chỉ `rank` và `score` được thay bằng kết quả rerank. Reranker lưu thứ hạng và điểm trước rerank ở `retrieval_rank` và `retrieval_score`; khi đóng gói kết quả, pipeline chuyển chúng sang `source_ranks.retrieval` và `source_scores.retrieval` (hai trường schema có khai báo) và ghi điểm rerank vào `reranker_score`, để đo tác động của reranking. Khi hai candidate bằng điểm, candidate có thứ hạng retrieval cao hơn đứng trước.
 
 ## 4. Contract đầu ra
 
-Mỗi phần tử trong `results` có đủ các trường của mục 4.3 và qua được `schemas/retrieval_schema.json`. Ví dụ dưới đây chỉ minh họa cấu trúc; giá trị score và latency không phải số đo thật:
+Mỗi phần tử trong `results` có đủ các trường của mục 4.3 và qua được `#/$defs/RetrievalResultItem` của `schemas/retrieval_schema.json`. Phần bao ngoài có thêm `query`, `config`, `stats` mà `RetrievalEnvelope` chưa khai báo (C7 trong `docs/sprint6_issue_recheck_after_merge.docx`), nên integration test chỉ validate `query_id`, `retriever`, `results` theo envelope. Ví dụ dưới đây chỉ minh họa cấu trúc; giá trị score và latency không phải số đo thật:
 
 ```json
 {
@@ -53,19 +53,21 @@ Mỗi phần tử trong `results` có đủ các trường của mục 4.3 và q
   "query": "Điều kiện kết hôn theo quy định pháp luật là gì?",
   "retriever": "hybrid_reranker",
   "results": [{
-    "chunk_id": "l_52_2014_qh13_art_8_chunk_1",
+    "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
     "document_id": "l_52_2014_qh13",
     "article_id": "l_52_2014_qh13_art_8",
-    "clause_id": null,
-    "parent_clause_id": null,
+    "clause_id": "l_52_2014_qh13_art_8_clause_1",
+    "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
     "rank": 1,
     "score": 0.97,
     "chunk_text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: ...",
-    "metadata": {"article_number": "8", "validity_status": "Không xác định", "doc_id": "l_52_2014_qh13"},
+    "metadata": {"article_number": "8", "validity_status": "Còn hiệu lực", "doc_id": "l_52_2014_qh13"},
+    "parent_id": "l_52_2014_qh13_art_8",
     "rrf_score": 0.015873,
+    "reranker_score": 0.97,
     "retrieval_sources": ["dense"],
-    "retrieval_rank": 4,
-    "retrieval_score": 0.015873
+    "source_ranks": {"dense": 2, "retrieval": 4},
+    "source_scores": {"retrieval": 0.015873}
   }],
   "config": {
     "retriever": {"backend": "hybrid", "retrieval_top_k": 50, "rrf_k": 60},
@@ -198,7 +200,7 @@ Các bài test bao phủ: đọc và validate config, giới hạn `max_candidat
 1. **Corpus chưa có `parent_clause_id`/`clause_id`/`article_id` (Dev 1, Dev 3).** `data/chunking_output/chunks.jsonl` chỉ có `parent_id` ở cấp Điều, ví dụ `l_52_2014_qh13_art_8`. `scripts/build_index.py::_adapt_chunk_for_vector_store` điền `parent_clause_id` bằng `parent_id` hoặc `{article_id}_clause_1`, nghĩa là giá trị trong Qdrant là giá trị suy đoán, trái với mục 13.4. Pipeline Dev 5 giữ nguyên giá trị upstream trả về, nên ở chế độ `mock`/`hybrid`, hit từ nhánh Dense mang giá trị suy đoán này, còn hit chỉ có từ BM25 nhận `null`. Cần bổ sung `parent_clause_id` thật ở bước chunking trước khi báo cáo Parent Match.
 2. **Output của `ElasticsearchBM25Retriever` (Dev 4)** dùng `text`/`parent_id` và không có `chunk_text`/`document_id`/`parent_clause_id` ở cấp gốc. Pipeline đang ánh xạ alias. Nên chuẩn hóa ngay tại adapter.
 3. **`retrieval/config.yaml` (Dev 4)** chưa có khóa `retrieval.retrieval_top_k` theo mục 14.3. Pipeline hiện đọc `hybrid.candidate_k` làm fallback.
-4. **`schemas/retrieval_schema.json` (Dev 1)** vẫn khai báo `text` và chưa yêu cầu `chunk_text`, `document_id`, `parent_clause_id`. Integration test đang kiểm tra cả schema hiện tại lẫn các trường của mục 4.3. Đề nghị Dev 1 cập nhật schema.
+4. **`schemas/retrieval_schema.json` (CTM)** đã cập nhật ở `ee755a5`: bắt buộc đủ 9 trường của mục 4.3, bỏ `text`, gốc schema chuyển sang `RetrievalEnvelope` và kết quả nằm ở `$defs/RetrievalResultItem`. Còn lại: envelope đặt `additionalProperties: false` nhưng chưa khai báo `query`, `config`, `stats` mà pipeline trả về (C7). Đề nghị CTM khai báo ba trường này là tùy chọn.
 5. **`retrieval.hybrid_retriever.CrossEncoderReranker` (Dev 4)** trùng chức năng với `reranking/reranker.py`, chấm `text` thay vì `chunk_text`, không giới hạn candidate và không cập nhật `rank`/`score`. Đề nghị Dev 4 bỏ class này hoặc trỏ về `reranking.reranker`.
 6. **Test đang lỗi không thuộc phạm vi Dev 5** (tình trạng khi bàn giao):
    - `test/test_bm25_retrieval.py` cần package `elasticsearch`, và cùng `test/test_retrieval_evaluation.py` import `embedding.vector_store.load_chunks`, hàm không còn tồn tại.
