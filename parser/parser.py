@@ -10,6 +10,9 @@ from typing import Dict, List, Literal, Optional, Tuple
 from pydantic import BaseModel, Field, field_validator
 
 
+MAX_TITLE_WORDS = 80
+MAX_TITLE_CHARS = 450
+
 UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
 
 
@@ -242,6 +245,7 @@ ARTICLE_BODY_STARTS = (
     "Ủy ban", "Đối với", "Khi", "Nếu", "Nội dung", "Quyền và nghĩa vụ",
     "Việc xác định", "Các cá nhân", "Cá nhân", "Bên mang thai hộ",
     "Yêu cầu", "Hội Liên hiệp", "Bộ Tư pháp", "Bộ Ngoại giao", "Bộ Công an",
+    "Vợ hoặc chồng", "Vợ, chồng", "Vợ", "Chồng",
     "Các Bộ", "Trong vụ án", "Trong trường hợp", "Ủy ban nhân dân",
 )
 
@@ -316,9 +320,13 @@ def split_title_by_capital(head: str) -> Optional[Tuple[str, str]]:
             continue
         title = head[:offsets[i]].strip(" ,;:")
         body = head[offsets[i]:].strip()
-        if len(title.split()) > 40 or len(body) < 25:
+        if len(title.split()) > MAX_TITLE_WORDS or len(body) < 25:
             continue
         if re.search(r"[.!?]$", title):
+            continue
+        # Không cắt tại danh từ riêng nằm trong tiêu đề (ví dụ "Việt Nam").
+        # Điểm cắt chỉ đáng tin khi phần sau mở đầu bằng cụm quy phạm thường gặp.
+        if not any(body.startswith(phrase) for phrase in ARTICLE_BODY_STARTS):
             continue
         return title, body
     return None
@@ -359,6 +367,21 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
         candidate = sentences[0]
         remainder = " ".join(sentences[1:]).strip()
         if looks_like_title(candidate):
+            # TXT có thể làm rơi dấu xuống dòng giữa tiêu đề và phần bổ nghĩa.
+            # Nếu phần sau bắt đầu bằng chữ thường, thường đó là phần tiếp của
+            # tiêu đề bị tách nhầm (ví dụ: "... gia đình" + "có yếu tố nước ngoài.").
+            # Không ghép nếu phần sau có dấu hiệu rõ của câu dẫn/nội dung.
+            remainder_first = remainder[:1]
+            title_continuation = bool(
+                remainder_first and remainder_first.islower()
+                and len(remainder.split()) <= 18
+                and not re.match(
+                    r"(?i)^(theo quy định|trong trường hợp|việc|người|các bên|cơ quan|nếu|khi)\b",
+                    remainder,
+                )
+            )
+            if title_continuation and not candidate.endswith((":", ";")):
+                return normalize_spaces(candidate + " " + remainder).rstrip("."), None
             return candidate, remainder or None
 
     if looks_like_title(head):
@@ -369,52 +392,164 @@ def detect_title_and_intro(head: str) -> Tuple[Optional[str], Optional[str]]:
 
 
 def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
-    """Tách tiêu đề theo xuống dòng còn nguyên từ cleaner, không dựa vào chữ hoa.
+    """Tách tiêu đề khỏi nội dung dựa trên cấu trúc xuống dòng của TXT.
 
-    Tiêu đề dài có thể tự xuống nhiều dòng trong TXT/PDF. Các dòng tiếp nối
-    tiêu đề thường ngắn hơn rõ rệt dòng đầu; phần nội dung thường bắt đầu ở
-    dòng mới với một câu quy phạm dài hơn. Trả về (title, remainder).
+    Nguyên tắc bảo thủ:
+    - Dừng trước dòng có dấu hiệu rõ ràng là câu/nội dung quy phạm.
+    - Chỉ nối dòng tiếp theo khi có dấu hiệu hợp lý rằng tiêu đề bị wrap.
+    - Không mặc định nối mọi dòng không kết thúc bằng dấu câu vào tiêu đề.
     """
     if "\n" not in head:
         return None
 
-    lines = [line.strip() for line in head.splitlines() if line.strip()]
+    lines = [normalize_spaces(line).strip() for line in head.splitlines() if line.strip()]
     if len(lines) < 2:
         return None
 
-    first_line = normalize_spaces(lines[0]).strip(" :;")
-    if not first_line or len(first_line) > 220:
+    first_line = lines[0].strip(" :;")
+    if not first_line or len(first_line) > MAX_TITLE_CHARS:
         return None
 
+    # Ưu tiên dòng mở đầu nội dung rõ ràng xuất hiện sau phần tiêu đề.
+    # Các dòng trước đó có thể là tiêu đề bị wrap và phải được ghép lại,
+    # kể cả khi dòng cuối của tiêu đề bắt đầu bằng chữ thường (vd. "sản khác").
+    for body_idx in range(1, len(lines)):
+        candidate_body = lines[body_idx].strip(" :;")
+        if any(candidate_body.startswith(phrase) for phrase in ARTICLE_BODY_STARTS):
+            candidate_title = normalize_spaces(" ".join(lines[:body_idx])).rstrip(".")
+            remainder = normalize_spaces(" ".join(lines[body_idx:]))
+            if candidate_title and remainder and len(candidate_title.split()) <= MAX_TITLE_WORDS:
+                return candidate_title, remainder
+
     title_lines = [first_line]
-    # Dòng ngắn ngay sau dòng đầu có thể là phần tiếp nối của tiêu đề bị wrap.
-    # Giới hạn theo độ dài dòng đầu để tránh nuốt câu mở đầu của nội dung.
-    continuation_limit = max(24, int(len(first_line) * 0.72))
     idx = 1
+
+    # Các từ/cụm cuối dòng thường cho thấy tiêu đề còn thiếu phần bổ nghĩa.
+    title_incomplete_endings = {
+        "của", "và", "về", "với", "theo", "trong", "cho", "hoặc", "tại",
+        "từ", "đến", "do", "bởi", "như", "đối", "để", "nhằm", "bằng",
+        "là", "có", "được", "bị", "trên", "dưới", "ở", "qua", "sau",
+        "trước", "mà", "bao", "gồm", "giữa",
+    }
+
     while idx < len(lines):
-        line = normalize_spaces(lines[idx]).strip(" :;")
+        line = lines[idx].strip(" :;")
         if not line:
             idx += 1
             continue
-        # Các cụm này thường mở đầu phần nội dung quy phạm; không gộp vào title.
-        if line.lower().startswith(tuple(p.lower() for p in ARTICLE_BODY_STARTS)):
+
+        previous = title_lines[-1].rstrip()
+        previous_tokens = re.findall(r"[A-Za-zÀ-ỹĐđ0-9]+", previous)
+        previous_word = previous_tokens[-1].lower() if previous_tokens else ""
+        previous_tail = " ".join(w.lower() for w in previous_tokens[-2:])
+
+        # Nội dung thường mở đầu bằng các cụm quy phạm này. So khớp có phân biệt
+        # hoa/thường để không chặn nhầm phần tiêu đề như "Trung tâm", "Thông tin...".
+        starts_body = any(line.startswith(phrase) for phrase in ARTICLE_BODY_STARTS)
+        if starts_body:
             break
-        # Một dòng kết thúc bằng dấu câu câu hoàn chỉnh không phải phần title.
+
+        # Phần bổ nghĩa viết thường ở đầu dòng có thể là phần tiếp của tiêu đề,
+        # kể cả khi dòng kết thúc bằng dấu chấm (vd. "có yếu tố nước ngoài.").
+        first_char = next((ch for ch in line if ch.isalpha()), "")
+        starts_lowercase = bool(first_char and first_char.islower())
+        if starts_lowercase:
+            prev_tokens = re.findall(r"[A-Za-zÀ-ỹĐđ0-9]+", previous)
+            prev_word = prev_tokens[-1].lower() if prev_tokens else ""
+            prev_tail = " ".join(w.lower() for w in prev_tokens[-2:])
+
+            # Dòng bắt đầu bằng chữ thường thường là phần tiêu đề bị wrap,
+            # ví dụ "... tài khoản chứng khoán, động" + "sản khác ...".
+            # Chỉ nối khi dòng trước chưa kết thúc một câu hoàn chỉnh; không
+            # dùng giới hạn độ dài cứng vì dòng wrap có thể dài.
+            previous_is_sentence_end = bool(re.search(r"[.!?]$", previous))
+            if (
+                not previous_is_sentence_end
+                and not line.endswith((":", ";"))
+            ):
+                title_lines.append(line.rstrip("."))
+                idx += 1
+                continue
+
+        # Dòng kết thúc bằng dấu câu hoàn chỉnh thường là nội dung, không phải title.
         if re.search(r"[.!?]$", line):
             break
-        title_lines.append(line)
-        idx += 1
+
+        # Chỉ nối dòng viết hoa khi dòng trước có dấu hiệu tiêu đề còn dang dở,
+        # hoặc dòng trước kết thúc bằng danh từ riêng viết hoa bị ngắt dòng.
+        # Dòng viết thường có thể là phần tiếp nối của tiêu đề bị wrap.
+        first_char = next((ch for ch in line if ch.isalpha()), "")
+        starts_lowercase = bool(first_char and first_char.islower())
+        previous_ends_punctuation = previous.endswith((",", ";", ":", "-", "–", "—"))
+        previous_incomplete = (
+            previous_ends_punctuation
+            or previous_word in title_incomplete_endings
+            or previous_tail in title_incomplete_endings
+        )
+        # Chỉ coi là tên riêng bị ngắt dòng nếu từ cuối của dòng trước viết hoa
+        # nhưng không phải từ đầu dòng (ví dụ "... Việt" / "Nam").
+        previous_words = previous.split()
+        last_token = previous_words[-1].strip(".,;:()[]{}") if previous_words else ""
+        previous_ends_capitalized_word = bool(
+            len(previous_words) >= 2
+            and last_token
+            and last_token[0].isupper()
+            and last_token[1:].islower()
+        )
+
+        # Dòng dài giống câu nội dung không được nối, trừ khi tiêu đề có dấu hiệu
+        # ngữ pháp mạnh cho thấy nó đang tiếp diễn.
+        continuation_limit = max(24, int(len(first_line) * 0.72))
+        if len(line) > continuation_limit and not previous_incomplete:
+            break
+
+        if starts_lowercase or previous_incomplete or previous_ends_capitalized_word:
+            title_lines.append(line)
+            idx += 1
+            continue
+
+        # Không có bằng chứng đủ mạnh: xem dòng này là phần nội dung.
+        break
 
     if idx >= len(lines):
+        # Toàn bộ các dòng còn lại là phần tiếp của tiêu đề; không có remainder.
+        title = normalize_spaces(" ".join(title_lines))
+        if title and len(title.split()) <= MAX_TITLE_WORDS:
+            return title.rstrip("."), ""
         return None
 
     title = normalize_spaces(" ".join(title_lines))
     remainder = normalize_spaces(" ".join(lines[idx:]))
-    # Tiêu đề pháp luật có thể dài hơn 30 từ; chỉ loại trường hợp rỗng hoặc
-    # kết thúc như một câu hoàn chỉnh, không áp dụng giới hạn của heuristic cũ.
+
     if not title or not remainder or re.search(r"[.!?]$", title):
         return None
+
+    # Chặn tiêu đề bất thường dài, dấu hiệu phổ biến khi nội dung bị nuốt vào title.
+    if len(title.split()) > MAX_TITLE_WORDS:
+        warn(f"Tiêu đề dài bất thường ({len(title.split())} từ); kiểm tra tách title/body: {title[:120]!r}")
+        return None
+
     return title, remainder
+
+
+def merge_title_continuation(title: Optional[str], intro: Optional[str]) -> Tuple[Optional[str], Optional[str]]:
+    """Ghép lại phần bổ nghĩa ngắn bị tách nhầm khỏi tiêu đề."""
+    if not title or not intro:
+        return title, intro
+    intro_norm = normalize_spaces(intro)
+    words = intro_norm.split()
+    if (
+        words
+        and words[0][:1].islower()
+        and len(words) <= 20
+        and not re.match(
+            r"(?i)^(theo quy định|trong trường hợp|việc|người|các bên|cơ quan|nếu|khi|được thực hiện|phải)\b",
+            intro_norm,
+        )
+        and not title.rstrip().endswith((":", ";", ".", "!", "?"))
+    ):
+        return normalize_spaces(title + " " + intro_norm).rstrip("."), None
+    return title, intro
 
 
 def split_head(num: str, raw: str):
@@ -433,11 +568,17 @@ def split_head(num: str, raw: str):
         title, remainder = line_split
         if first:
             return title, remainder or None, body, True
-        return title, None, remainder, False
+        return title, None, remainder or "", False
 
-    # Khi có Khoản 1, ranh giới tiêu đề/khoản đã rõ: không dò body-start.
+    # Khi có Khoản 1, vẫn dò điểm bắt đầu nội dung nếu phần head có câu quy phạm
+    # bị dính ngay sau tiêu đề; nếu không có điểm cắt đáng tin cậy thì dùng detector cũ.
     if first:
+        flat_split = split_title_by_capital(head) or split_title_from_unlabelled_body(head)
+        if flat_split:
+            title, intro = flat_split
+            return title, intro or None, body, True
         title, intro = detect_title_and_intro(head)
+        title, intro = merge_title_continuation(title, intro)
         if title is None and intro and not re.search(r"[.!?:]$", intro) and len(intro.split()) <= 40:
             title, intro = intro, None
         return title, intro, body, True
@@ -449,6 +590,7 @@ def split_head(num: str, raw: str):
         return title, None, body, False
 
     title, intro = detect_title_and_intro(head)
+    title, intro = merge_title_continuation(title, intro)
     if title and intro:
         body = intro
         intro = None
@@ -509,6 +651,10 @@ ARTICLE_MARKER_ANY_RE = re.compile(
 # hoặc biểu mẫu. Không phụ thuộc vào tiêu đề "PHỤ LỤC"/"Mẫu số".
 TERMINAL_MARKER_PATTERNS = (
     ("./.", re.compile(r"\./\.")),
+    # Văn bản hợp nhất thường có dòng xác nhận của Văn phòng Quốc hội sau Điều cuối.
+    ("VĂN PHÒNG QUỐC HỘI / số hiệu văn bản hợp nhất", re.compile(
+        r"(?im)^\s*VĂN\s+PHÒNG\s+QUỐC\s+HỘI(?:\s*Số\s*:\s*\d+\s*/\s*VBHN-VPQH)?\b"
+    )),
     ("Nơi nhận:", re.compile(r"(?i)(?<!\S)Nơi\s+nhận\s*:")),
     (
         "chức danh ký",
@@ -521,6 +667,7 @@ TERMINAL_MARKER_PATTERNS = (
     ),
     ("CHỦ TỊCH QUỐC HỘI", re.compile(r"(?i)(?<!\S)CHỦ\s+TỊCH\s+QUỐC\s+HỘI")),
     ("(Đã ký)", re.compile(r"(?i)\(\s*Đã\s+ký\s*\)")),
+    ("người ký Nông Đức Mạnh", re.compile(r"(?im)^\s*Nông\s+Đức\s+Mạnh\s*$")),
 )
 
 

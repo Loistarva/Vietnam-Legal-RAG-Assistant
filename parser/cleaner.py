@@ -80,7 +80,54 @@ SINGLE_PAGE_LABEL_RE = re.compile(r"^(?:trang|page)\s+\d{1,4}$", flags=re.IGNORE
 # Công báo footer/marking found in official-gazette PDF exports. Match the marker
 # and its publication number/date through the end of the same line.
 GAZETTE_MARKER_RE = re.compile(r"CÔNG\s+BÁO\s*/\s*SỐ\b", flags=re.IGNORECASE)
+# Repeated document-header markings that may be injected into extracted legal text.
+REPEATED_DOCUMENT_MARKING_PATTERNS = [
+    re.compile(
+        r"Nghị\s+định\s+70/2001/NĐ-CP\s+ban\s+hành\s+ngày\s+03/10/2001",
+        flags=re.IGNORECASE,
+    ),
+    re.compile(
+        r"Nghị\s+định\s+10/2015/NĐ-CP\s+sinh\s+con\s+bằng\s+kỹ\s+thuật\s+"
+        r"thụ\s+tinh\s+trong\s+ống\s+nghiệm",
+        flags=re.IGNORECASE,
+    ),
+    re.compile(
+        r"(?<!\w)Hướng\s+dẫn(?=\r?\n|$)",
+        flags=re.IGNORECASE,
+    ),
+]
 STANDALONE_NUMBER_RE = re.compile(r"^\d{1,4}$")
+
+# Remove known amendment footnotes that have been appended to extracted legal text.
+# These are intentionally narrow: only notes referencing Law 81/2025/QH15 and
+# the specific replacement-wording note are targeted, not arbitrary numbered clauses.
+AMENDMENT_FOOTNOTE_PATTERNS = [
+    # Numbered amendment notes beginning with Law 81/2025/QH15; remove the whole
+    # note, including quoted inserted/replacement text, until the next note/article.
+    re.compile(
+        r"(?ms)^\s*\d+\s+Luật\s+số\s+81/2025/QH15\b.*?"
+        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
+        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
+    ),
+    # Notes like: "2 Cụm từ ... được thay thế ...", including the entire explanation.
+    re.compile(
+        r"(?ms)^\s*\d+\s+Cụm\s+từ\b.*?"
+        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
+        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
+    ),
+    # Notes like: "3 Điều 3 của Luật số 81/2025/QH15 ...", removing the quoted
+    # amendment and the following "Việc thi hành..." sentence as one complete block.
+    re.compile(
+        r"(?ms)^\s*\d+\s+Điều\s+\d+\s+của\s+Luật\s+số\s+81/2025/QH15\b.*?"
+        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
+        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
+    ),
+    # Standalone follow-up note sentence, if extracted separately.
+    re.compile(
+        r"(?m)^\s*Việc\s+thi\s+hành\s+Luật\s+số\s+81/2025/QH15\b[^\n]*(?:\n|$)"
+    ),
+]
+
 
 
 def normalize_extracted_text(text: str) -> str:
@@ -208,6 +255,13 @@ def remove_gazette_markings(text: str) -> tuple[str, dict[str, int]]:
 def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
     """Remove Công báo markings, URLs, export timestamps, and page counters."""
     text, gazette_counts = remove_gazette_markings(text)
+    # Remove known amendment footnotes before line-based cleanup, as their text may wrap
+    # across several extracted lines.
+    amendment_footnotes_removed = 0
+    for footnote_pattern in AMENDMENT_FOOTNOTE_PATTERNS:
+        text, n_footnotes = footnote_pattern.subn("\\n", text)
+        amendment_footnotes_removed += n_footnotes
+
     # NFC first, then normalize old Vietnamese tone placement without changing punctuation.
     text = unicodedata.normalize("NFC", text)
     text, tone_changes = normalize_vietnamese_tone_placement(text)
@@ -216,11 +270,18 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
         "timestamps": 0,
         "page_counters": gazette_counts["page_counters"],
         "gazette_markings": gazette_counts["gazette_markings"],
+        "repeated_document_markings": 0,
+        "amendment_footnotes": amendment_footnotes_removed,
         "tone_placement_changes": tone_changes,
     }
     cleaned_lines: list[str] = []
 
     for line in text.splitlines():
+        # Remove only the two explicitly identified repeated document markings.
+        for marking_pattern in REPEATED_DOCUMENT_MARKING_PATTERNS:
+            line, n_markings = marking_pattern.subn(" ", line)
+            counts["repeated_document_markings"] += n_markings
+
         line, n_urls = URL_RE.subn(" ", line)
         counts["urls"] += n_urls
 
@@ -485,10 +546,11 @@ def clean_existing_texts() -> dict[str, int]:
                 totals[key] += removed.get(key, 0)
             logger.info(
                 "Clean lại %s | số trang bỏ=%d | marking Công báo bỏ=%d | "
-                "dấu thanh chuẩn hóa=%d | URL bỏ=%d | timestamp bỏ=%d",
+                "marking văn bản lặp bỏ=%d | dấu thanh chuẩn hóa=%d | URL bỏ=%d | timestamp bỏ=%d",
                 raw_path.name,
                 removed.get("page_counters", 0),
                 removed.get("gazette_markings", 0),
+                removed.get("repeated_document_markings", 0),
                 removed.get("tone_placement_changes", 0),
                 removed.get("urls", 0),
                 removed.get("timestamps", 0),
