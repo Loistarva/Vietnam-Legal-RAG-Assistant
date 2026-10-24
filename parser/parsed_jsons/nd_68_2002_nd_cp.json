@@ -32,16 +32,23 @@
     {
       "article_id": "nd_68_2002_nd_cp_art_2",
       "article_number": "2",
-      "article_title": null,
+      "article_title": "Bảo vệ quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
       "chapter": "Chương 1 NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
-      "intro": "Bảo vệ quan hệ hôn nhân và gia đình có yếu tố nước ngoài 1. ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quyền và lợi ích hợp pháp của các bên trong quan hệ hôn nhân, quan hệ giữa cha mẹ và con, quan hệ nuôi con nuôi có yếu tố nước ngoài, được xác lập hoặc công nhận theo quy định của Luật Hôn nhân và gia đình và Nghị định này, được tôn trọng và bảo vệ phù hợp với pháp luật Việt Nam và điều ước quốc tế mà Việt Nam ký kết hoặc gia nhập. 2. Nghiêm cấm lợi dụng việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích mua bán, bóc lột sức lao động, xâm phạm tình dục đối với phụ nữ và trẻ em hoặc vì mục đích trục lợi khác. Nghiêm cấm hoạt động kinh doanh môi giới kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích kiếm lời dưới mọi hình thức.",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "nd_68_2002_nd_cp_art_2_clause_1",
           "parent_article_id": "nd_68_2002_nd_cp_art_2",
           "clause_number": "1",
-          "clause_text": "Bảo vệ quan hệ hôn nhân và gia đình có yếu tố nước ngoài 1. ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quyền và lợi ích hợp pháp của các bên trong quan hệ hôn nhân, quan hệ giữa cha mẹ và con, quan hệ nuôi con nuôi có yếu tố nước ngoài, được xác lập hoặc công nhận theo quy định của Luật Hôn nhân và gia đình và Nghị định này, được tôn trọng và bảo vệ phù hợp với pháp luật Việt Nam và điều ước quốc tế mà Việt Nam ký kết hoặc gia nhập. 2. Nghiêm cấm lợi dụng việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích mua bán, bóc lột sức lao động, xâm phạm tình dục đối với phụ nữ và trẻ em hoặc vì mục đích trục lợi khác. Nghiêm cấm hoạt động kinh doanh môi giới kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích kiếm lời dưới mọi hình thức.",
+          "clause_text": "1. Ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quyền và lợi ích hợp pháp của các bên trong quan hệ hôn nhân, quan hệ giữa cha mẹ và con, quan hệ nuôi con nuôi có yếu tố nước ngoài, được xác lập hoặc công nhận theo quy định của Luật Hôn nhân và gia đình và Nghị định này, được tôn trọng và bảo vệ phù hợp với pháp luật Việt Nam và điều ước quốc tế mà Việt Nam ký kết hoặc gia nhập.",
+          "chunks": null
+        },
+        {
+          "clause_id": "nd_68_2002_nd_cp_art_2_clause_2",
+          "parent_article_id": "nd_68_2002_nd_cp_art_2",
+          "clause_number": "2",
+          "clause_text": "2. Nghiêm cấm lợi dụng việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích mua bán, bóc lột sức lao động, xâm phạm tình dục đối với phụ nữ và trẻ em hoặc vì mục đích trục lợi khác. Nghiêm cấm hoạt động kinh doanh môi giới kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm mục đích kiếm lời dưới mọi hình thức.",
           "chunks": null
         }
       ]
@@ -49,7 +56,7 @@
     {
       "article_id": "nd_68_2002_nd_cp_art_3",
       "article_number": "3",
-      "article_title": "Thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con, nuôi con nuôi 1. ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là ủy ban nhân dân cấp tỉnh) thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam với người nước ngoài; giữa người nước ngoài thường trú tại Việt Nam với nhau",
+      "article_title": "Thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con, nuôi con nuôi",
       "chapter": "Chương 1 NHỮNG QUY ĐỊNH CHUNG",
       "section": null,
       "intro": null,
@@ -58,7 +65,21 @@
           "clause_id": "nd_68_2002_nd_cp_art_3_clause_1",
           "parent_article_id": "nd_68_2002_nd_cp_art_3",
           "clause_number": "1",
-          "clause_text": "2. Ủy ban nhân dân xã, phường, thị trấn (sau đây gọi là ủy ban nhân dân cấp xã) ở khu vực biên giới thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam thường trú ở khu vực biên giới với công dân của nước láng giềng thường trú ở khu vực biên giới với Việt Nam theo quy định tại Chương V của Nghị định này. 3. Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài (sau đây gọi là Cơ quan Ngoại giao, Lãnh sự Việt Nam) thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam cư trú ở nước ngoài với người nước ngoài theo quy định của Nghị định này, nếu việc đăng ký đó không trái với pháp luật của nước tiếp nhận.",
+          "clause_text": "1. Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là ủy ban nhân dân cấp tỉnh) thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam với người nước ngoài; giữa người nước ngoài thường trú tại Việt Nam với nhau.",
+          "chunks": null
+        },
+        {
+          "clause_id": "nd_68_2002_nd_cp_art_3_clause_2",
+          "parent_article_id": "nd_68_2002_nd_cp_art_3",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân xã, phường, thị trấn (sau đây gọi là ủy ban nhân dân cấp xã) ở khu vực biên giới thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam thường trú ở khu vực biên giới với công dân của nước láng giềng thường trú ở khu vực biên giới với Việt Nam theo quy định tại Chương V của Nghị định này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "nd_68_2002_nd_cp_art_3_clause_3",
+          "parent_article_id": "nd_68_2002_nd_cp_art_3",
+          "clause_number": "3",
+          "clause_text": "3. Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài (sau đây gọi là Cơ quan Ngoại giao, Lãnh sự Việt Nam) thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam cư trú ở nước ngoài với người nước ngoài theo quy định của Nghị định này, nếu việc đăng ký đó không trái với pháp luật của nước tiếp nhận.",
           "chunks": null
         }
       ]
@@ -494,7 +515,7 @@
       "article_number": "20",
       "article_title": "Công nhận việc kết hôn, ly hôn đã được tiến hành ở nước ngoài",
       "chapter": "Chương 2 KẾT HÔN",
-      "section": "MỤC 2 CÔNG NHẬN VIỆC KẾT HÔN, LY HÔN ĐÃ ĐƯỢC TIẾN HÀNH Ở NƯỚC",
+      "section": "MỤC 2 CÔNG NHẬN VIỆC KẾT HÔN, LY HÔN ĐÃ ĐƯỢC TIẾN HÀNH Ở NƯỚC NGOÀI",
       "intro": null,
       "clauses": [
         {
@@ -990,16 +1011,23 @@
     {
       "article_id": "nd_68_2002_nd_cp_art_39",
       "article_number": "39",
-      "article_title": null,
+      "article_title": "Thẩm quyền đăng ký việc nuôi con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
-      "intro": "Thẩm quyền đăng ký việc nuôi con nuôi 1. ủy ban nhân dân cấp tỉnh nơi có cơ sở nuôi dưỡng trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống ở cơ sở nuôi dưỡng đó làm con nuôi. ư2. ủy ban nhân dân cấp tỉnh nơi thường trú của cha mẹ đẻ của trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống tại gia đình làm con nuôi. Nếu cha mẹ đẻ của trẻ em có nơi thường trú khác nhau thì ủy ban nhân dân cấp tỉnh nơi thường trú của người cha hoặc người mẹ đẻ đang nuôi dưỡng trẻ em đó thực hiện việc đăng ký nuôi con nuôi. Trong trường hợp trẻ em đang sống với người giám hộ thì ủy ban nhân dân cấp tỉnh nơi thường trú của người giám hộ của trẻ em đó thực hiện đăng ký việc nuôi con nuôi. ưTrong trường hợp cha mẹ đẻ hoặc người giám hộ của trẻ em không có hoặc chưa có hộ khẩu thường trú nhưng đã đăng ký tạm trú có thời hạn theo quy định của pháp luật về hộ khẩu thì ủy ban nhân dân cấp tỉnh nơi đăng ký tạm trú có thời hạn của cha mẹ đẻ hoặc người giám hộ đang nuôi dưỡng trẻ em đó thực hiện đăng ký việc nuôi con nuôi.",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
+      "intro": null,
       "clauses": [
         {
           "clause_id": "nd_68_2002_nd_cp_art_39_clause_1",
           "parent_article_id": "nd_68_2002_nd_cp_art_39",
           "clause_number": "1",
-          "clause_text": "Thẩm quyền đăng ký việc nuôi con nuôi 1. ủy ban nhân dân cấp tỉnh nơi có cơ sở nuôi dưỡng trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống ở cơ sở nuôi dưỡng đó làm con nuôi. ư2. ủy ban nhân dân cấp tỉnh nơi thường trú của cha mẹ đẻ của trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống tại gia đình làm con nuôi. Nếu cha mẹ đẻ của trẻ em có nơi thường trú khác nhau thì ủy ban nhân dân cấp tỉnh nơi thường trú của người cha hoặc người mẹ đẻ đang nuôi dưỡng trẻ em đó thực hiện việc đăng ký nuôi con nuôi. Trong trường hợp trẻ em đang sống với người giám hộ thì ủy ban nhân dân cấp tỉnh nơi thường trú của người giám hộ của trẻ em đó thực hiện đăng ký việc nuôi con nuôi. ưTrong trường hợp cha mẹ đẻ hoặc người giám hộ của trẻ em không có hoặc chưa có hộ khẩu thường trú nhưng đã đăng ký tạm trú có thời hạn theo quy định của pháp luật về hộ khẩu thì ủy ban nhân dân cấp tỉnh nơi đăng ký tạm trú có thời hạn của cha mẹ đẻ hoặc người giám hộ đang nuôi dưỡng trẻ em đó thực hiện đăng ký việc nuôi con nuôi.",
+          "clause_text": "1. Ủy ban nhân dân cấp tỉnh nơi có cơ sở nuôi dưỡng trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống ở cơ sở nuôi dưỡng đó làm con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "nd_68_2002_nd_cp_art_39_clause_2",
+          "parent_article_id": "nd_68_2002_nd_cp_art_39",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân cấp tỉnh nơi thường trú của cha mẹ đẻ của trẻ em thực hiện đăng ký việc người nước ngoài xin nhận trẻ em Việt Nam đang sống tại gia đình làm con nuôi. Nếu cha mẹ đẻ của trẻ em có nơi thường trú khác nhau thì ủy ban nhân dân cấp tỉnh nơi thường trú của người cha hoặc người mẹ đẻ đang nuôi dưỡng trẻ em đó thực hiện việc đăng ký nuôi con nuôi. Trong trường hợp trẻ em đang sống với người giám hộ thì ủy ban nhân dân cấp tỉnh nơi thường trú của người giám hộ của trẻ em đó thực hiện đăng ký việc nuôi con nuôi. Trong trường hợp cha mẹ đẻ hoặc người giám hộ của trẻ em không có hoặc chưa có hộ khẩu thường trú nhưng đã đăng ký tạm trú có thời hạn theo quy định của pháp luật về hộ khẩu thì ủy ban nhân dân cấp tỉnh nơi đăng ký tạm trú có thời hạn của cha mẹ đẻ hoặc người giám hộ đang nuôi dưỡng trẻ em đó thực hiện đăng ký việc nuôi con nuôi.",
           "chunks": null
         }
       ]
@@ -1009,7 +1037,7 @@
       "article_number": "40",
       "article_title": "Thời hạn giải quyết việc xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1033,7 +1061,7 @@
       "article_number": "41",
       "article_title": "Hồ sơ của người xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1057,7 +1085,7 @@
       "article_number": "42",
       "article_title": "Tiếp nhận và xử lý hồ sơ của người xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1081,7 +1109,7 @@
       "article_number": "43",
       "article_title": "Trình tự chuẩn bị hồ sơ của trẻ em được xin đích danh",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1105,7 +1133,7 @@
       "article_number": "44",
       "article_title": "Hồ sơ của trẻ em được cho làm con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1136,7 +1164,7 @@
       "article_number": "45",
       "article_title": "Thủ tục thẩm tra hồ sơ của trẻ em tại địa phương",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1160,7 +1188,7 @@
       "article_number": "46",
       "article_title": "Thủ tục kiểm tra hồ sơ của trẻ em tại Cơ quan con nuôi quốc tế",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": "Trong thời hạn 07 ngày, kể từ ngày nhận được văn bản báo cáo của Sở Tư pháp và hồ sơ của trẻ em, Cơ quan con nuôi quốc tế có trách nhiệm :",
       "clauses": [
         {
@@ -1191,7 +1219,7 @@
       "article_number": "47",
       "article_title": "Hoàn tất thủ tục xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1222,7 +1250,7 @@
       "article_number": "48",
       "article_title": "Quyết định cho nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1246,7 +1274,7 @@
       "article_number": "49",
       "article_title": "Giao nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1288,7 +1316,7 @@
           "clause_id": "nd_68_2002_nd_cp_art_49_clause_6",
           "parent_article_id": "nd_68_2002_nd_cp_art_49",
           "clause_number": "6",
-          "clause_text": "6. Trong thời hạn 07 ngày, kể từ ngày giao nhận con nuôi, Sở Tư pháp có trách nhiệm gửi cho Cơ quan con nuôi quốc tế các giấy tờ sau đây để theo dõi chung: a) Một bản chính Quyết định cho nhận trẻ em Việt Nam làm con nuôi; b) Một bản chính Biên bản giao nhận con nuôi; c) Một bản chính giấy cam kết thông báo về tình hình phát triển của con nuôi; d) Các giấy tờ liên quan khác, nếu có, trừ các giấy tờ đã có trong hồ sơ của trẻ em và của người xin nhận con nuôi.",
+          "clause_text": "6. Trong thời hạn 07 ngày, kể từ ngày giao nhận con nuôi, Sở Tư pháp có trách nhiệm gửi cho cơ quan con nuôi quốc tế các giấy tờ sau đây để theo dõi chung: a) Một bản chính Quyết định cho nhận trẻ em Việt Nam làm con nuôi; b) Một bản chính Biên bản giao nhận con nuôi; c) Một bản chính giấy cam kết thông báo về tình hình phát triển của con nuôi; d) Các giấy tờ liên quan khác, nếu có, trừ các giấy tờ đã có trong hồ sơ của trẻ em và của người xin nhận con nuôi.",
           "chunks": null
         }
       ]
@@ -1298,7 +1326,7 @@
       "article_number": "50",
       "article_title": "Từ chối đăng ký việc xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": "Việc xin nhận trẻ em Việt Nam làm con nuôi bị từ chối trong các trường hợp sau đây:",
       "clauses": [
         {
@@ -1329,7 +1357,7 @@
       "article_number": "51",
       "article_title": "Trình tự giới thiệu và giải quyết cho trẻ em làm con nuôi trong trường hợp xin không đích danh",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON",
+      "section": "MỤC 1 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG KÝ NUÔI CON NUÔI TẠI VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1374,7 +1402,7 @@
       "article_number": "52",
       "article_title": "Thẩm quyền đăng ký việc nuôi con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI",
+      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI CƠ QUAN NGOẠI GIAO, LÃNH SỰ VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1391,7 +1419,7 @@
       "article_number": "53",
       "article_title": "Thời hạn giải quyết việc xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI",
+      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI CƠ QUAN NGOẠI GIAO, LÃNH SỰ VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1408,7 +1436,7 @@
       "article_number": "54",
       "article_title": "Hồ sơ xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI",
+      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI CƠ QUAN NGOẠI GIAO, LÃNH SỰ VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1439,7 +1467,7 @@
       "article_number": "55",
       "article_title": "Thủ tục thẩm tra hồ sơ xin nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI",
+      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI CƠ QUAN NGOẠI GIAO, LÃNH SỰ VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1463,7 +1491,7 @@
       "article_number": "56",
       "article_title": "Quyết định cho nhận con nuôi và giao nhận con nuôi",
       "chapter": "Chương 4 NUÔI CON NUÔI",
-      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI",
+      "section": "MỤC 2 THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI TẠI CƠ QUAN NGOẠI GIAO, LÃNH SỰ VIỆT NAM",
       "intro": null,
       "clauses": [
         {
@@ -1748,7 +1776,7 @@
       "article_id": "nd_68_2002_nd_cp_art_65",
       "article_number": "65",
       "article_title": "Phạm vi áp dụng",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1772,7 +1800,7 @@
       "article_id": "nd_68_2002_nd_cp_art_66",
       "article_number": "66",
       "article_title": "Thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con, nuôi con nuôi",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1789,7 +1817,7 @@
       "article_id": "nd_68_2002_nd_cp_art_67",
       "article_number": "67",
       "article_title": "Miễn thủ tục hợp pháp hóa lãnh sự, thủ tục công chứng",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1813,7 +1841,7 @@
       "article_id": "nd_68_2002_nd_cp_art_68",
       "article_number": "68",
       "article_title": "Lệ phí",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1830,7 +1858,7 @@
       "article_id": "nd_68_2002_nd_cp_art_69",
       "article_number": "69",
       "article_title": "Kết hôn",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1882,7 +1910,7 @@
       "article_id": "nd_68_2002_nd_cp_art_70",
       "article_number": "70",
       "article_title": "Nhận cha, mẹ, con",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [
@@ -1927,7 +1955,7 @@
       "article_id": "nd_68_2002_nd_cp_art_71",
       "article_number": "71",
       "article_title": "Nuôi con nuôi",
-      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC",
+      "chapter": "Chương 5 ĐĂNG KÝ KẾT HÔN, NHẬN CHA, MẸ, CON, NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI Ở KHU VỰC BIÊN GIỚI",
       "section": null,
       "intro": null,
       "clauses": [

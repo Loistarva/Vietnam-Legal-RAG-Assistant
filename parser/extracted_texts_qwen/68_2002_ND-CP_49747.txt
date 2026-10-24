@@ -23,7 +23,7 @@ với nhau; công nhận việc kết hôn, ly hôn, nhận cha, mẹ, con, nuô
 Nam với nhau hoặc với người nước ngoài đã được tiến hành tại cơ quan có thẩm quyền của nước
 ngoài.
 Điều 2. Bảo vệ quan hệ hôn nhân và gia đình có yếu tố nước ngoài
-1. ở nước Cộng hoà xã hội chủ nghĩa Việt Nam, quyền và lợi ích hợp pháp của các bên trong
+1. Ở nước Cộng hoà xã hội chủ nghĩa Việt Nam, quyền và lợi ích hợp pháp của các bên trong
 quan hệ hôn nhân, quan hệ giữa cha mẹ và con, quan hệ nuôi con nuôi có yếu tố nước ngoài,
 được xác lập hoặc công nhận theo quy định của Luật Hôn nhân và gia đình và Nghị định này,
 được tôn trọng và bảo vệ phù hợp với pháp luật Việt Nam và điều ước quốc tế mà Việt Nam ký
@@ -34,7 +34,7 @@ khác.
 Nghiêm cấm hoạt động kinh doanh môi giới kết hôn, nhận cha, mẹ, con, nuôi con nuôi nhằm
 mục đích kiếm lời dưới mọi hình thức.
 Điều 3. Thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con, nuôi con nuôi
-1. ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là ủy ban nhân dân cấp
+1. Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là ủy ban nhân dân cấp
 tỉnh) thực hiện đăng ký việc kết hôn, nhận cha, mẹ, con, nuôi con nuôi giữa công dân Việt Nam
 với người nước ngoài; giữa người nước ngoài thường trú tại Việt Nam với nhau.
 
@@ -558,15 +558,15 @@ MỤC 1: THẨM QUYỀN, TRÌNH TỰ, THỦ TỤC GIẢI QUYẾT VIỆC ĐĂNG K
 NUÔI TẠI VIỆT NAM
 Điều 39. Thẩm quyền đăng ký việc nuôi con nuôi
 
-1. ủy ban nhân dân cấp tỉnh nơi có cơ sở nuôi dưỡng trẻ em thực hiện đăng ký việc người nước
+1. Ủy ban nhân dân cấp tỉnh nơi có cơ sở nuôi dưỡng trẻ em thực hiện đăng ký việc người nước
 ngoài xin nhận trẻ em Việt Nam đang sống ở cơ sở nuôi dưỡng đó làm con nuôi.
-ư2. ủy ban nhân dân cấp tỉnh nơi thường trú của cha mẹ đẻ của trẻ em thực hiện đăng ký việc
+2. Ủy ban nhân dân cấp tỉnh nơi thường trú của cha mẹ đẻ của trẻ em thực hiện đăng ký việc
 người nước ngoài xin nhận trẻ em Việt Nam đang sống tại gia đình làm con nuôi. Nếu cha mẹ đẻ
 của trẻ em có nơi thường trú khác nhau thì ủy ban nhân dân cấp tỉnh nơi thường trú của người
 cha hoặc người mẹ đẻ đang nuôi dưỡng trẻ em đó thực hiện việc đăng ký nuôi con nuôi.
 Trong trường hợp trẻ em đang sống với người giám hộ thì ủy ban nhân dân cấp tỉnh nơi thường
 trú của người giám hộ của trẻ em đó thực hiện đăng ký việc nuôi con nuôi.
-ưTrong trường hợp cha mẹ đẻ hoặc người giám hộ của trẻ em không có hoặc chưa có hộ khẩu
+Trong trường hợp cha mẹ đẻ hoặc người giám hộ của trẻ em không có hoặc chưa có hộ khẩu
 thường trú nhưng đã đăng ký tạm trú có thời hạn theo quy định của pháp luật về hộ khẩu thì ủy
 ban nhân dân cấp tỉnh nơi đăng ký tạm trú có thời hạn của cha mẹ đẻ hoặc người giám hộ đang
 nuôi dưỡng trẻ em đó thực hiện đăng ký việc nuôi con nuôi.
@@ -728,8 +728,8 @@ pháp và 01 bản gửi cho Cơ quan con nuôi quốc tế.
 con nuôi và ghi vào sổ đăng ký nuôi con nuôi. Việc cấp bản sao Quyết định từ sổ gốc do Sở Tư
 pháp thực hiện theo yêu cầu của đương sự.
 5. Sở Tư pháp trao cho cha, mẹ nuôi 01 bộ hồ sơ của trẻ em được cho làm con nuôi.
-6. Trong thời hạn 07 ngày, kể từ ngày giao nhận con nuôi, Sở Tư pháp có trách nhiệm gửi cho
-Cơ quan con nuôi quốc tế các giấy tờ sau đây để theo dõi chung:
+6. Trong thời hạn 07 ngày, kể từ ngày giao nhận con nuôi, Sở Tư pháp có trách nhiệm gửi cho cơ
+quan con nuôi quốc tế các giấy tờ sau đây để theo dõi chung:
 a) Một bản chính Quyết định cho nhận trẻ em Việt Nam làm con nuôi;
 b) Một bản chính Biên bản giao nhận con nuôi;
 c) Một bản chính giấy cam kết thông báo về tình hình phát triển của con nuôi;
