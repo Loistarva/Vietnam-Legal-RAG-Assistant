@@ -63,7 +63,7 @@ a) Mục đích, ý nghĩa, lợi ích và rủi ro có thể xảy ra khi tiế
 b) Trình tự các bước thực hiện các kỹ thuật áp dụng trong sàng lọc đối với
 từng trường hợp cụ thể.
 2. Sàng lọc:
-Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật sàng lọc theo
+Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật sàng lọc theo hướng dẫn
 chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế.
 3. Tư vấn sau sàng lọc trước sinh:
 Nhân viên y tế tư vấn cho phụ nữ mang thai sau sàng lọc trước sinh các nội
@@ -90,7 +90,7 @@ trong chẩn đoán;
 b) Trình tự các bước thực hiện các kỹ thuật trong chẩn đoán đối với từng
 trường hợp cụ thể.
 2. Chẩn đoán:
-Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật chẩn đoán theo
+Cơ sở khám bệnh, chữa bệnh áp dụng các kỹ thuật chẩn đoán theo hướng dẫn
 chuyên môn kỹ thuật của Bộ trưởng Bộ Y tế.
 3. Tư vấn sau chẩn đoán trước sinh:
 Nhân viên y tế tư vấn cho phụ nữ mang thai sau chẩn đoán trước sinh các nội
