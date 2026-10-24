@@ -768,18 +768,10 @@ def _chunk_structured_document(
         raw_title = (art.get("article_title") or "").strip()
         raw_intro = (art.get("intro") or "").strip()
 
-        if raw_title:
-            art_title = raw_title if len(raw_title) <= 120 else raw_title[:120].rsplit(" ", 1)[0] + "..."
-            art_intro = raw_intro
-        elif raw_intro:
-            title_candidate = raw_intro.split("\n")[0].split(".")[0].strip()
-            if len(title_candidate) > 100:
-                title_candidate = title_candidate[:100].rsplit(" ", 1)[0] + "..."
-            art_title = title_candidate
-            art_intro = raw_intro
-        else:
-            art_title = ""
-            art_intro = ""
+        # Điều không có tiêu đề chỉ ghi "Điều N": không lấy câu đầu của intro làm tiêu đề,
+        # vì câu đó là nội dung luật (vd Luật HNGĐ 1986), không phải tên Điều.
+        art_title = raw_title if len(raw_title) <= 120 else raw_title[:120].rsplit(" ", 1)[0] + "..."
+        art_intro = raw_intro
 
         chapter = art.get("chapter")
         section = art.get("section")

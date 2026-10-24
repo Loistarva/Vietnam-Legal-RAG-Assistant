@@ -217,6 +217,14 @@ class TestChunkingRules(unittest.TestCase):
         self.assertGreaterEqual(min(len(c.text.split()) for c in merged), 20)
         self.assertEqual(Counter(" ".join(c.text for c in merged).split()), Counter(clause.split()))
 
+    def test_untitled_article_has_no_fabricated_title(self):
+        intro = "Nam từ 20 tuổi trở lên, nữ từ 18 tuổi trở lên mới được kết hôn."
+        res = chunk_legal_document(_doc([_article(6, ["1. " + _sentence(30)], intro=intro, title="")]))
+        self.assertTrue(res.parents[0].text.startswith("[Điều 6]\n" + intro))
+        for c in res.children:
+            self.assertTrue(c.breadcrumb.endswith("Điều 6 > Khoản 1"), c.breadcrumb)
+            self.assertIn(intro, c.embed_text_raw)
+
     def test_short_clauses_are_not_merged_across_clauses(self):
         doc = _doc([_article(5, ["1. Ngắn một.", "2. Ngắn hai.", "3. Ngắn ba."])])
         res = chunk_legal_document(doc)

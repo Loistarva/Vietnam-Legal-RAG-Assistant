@@ -64,6 +64,7 @@ Toàn bộ nội dung của Điều (gồm tiêu đề, intro, các khoản, đi
 * **Semantic ID:** `{doc_id}_art_{article_number}` (VD: `l_22_2000_qh10_art_10`).
 * **Breadcrumb:** `Chương 2 KẾT HÔN > Điều 10. Những trường hợp cấm kết hôn`
 * **clause_refs:** dải Khoản thật của Điều (`Khoản 1-5`), rỗng với Điều không chia Khoản.
+* **Điều không có tiêu đề:** header và breadcrumb chỉ ghi `Điều N`; câu đầu của intro không được dùng làm tiêu đề vì đó là nội dung luật (vd Luật HNGĐ 1986).
 * **Nội dung:** 
   ```text
   [Điều 10. Những trường hợp cấm kết hôn]
@@ -218,10 +219,10 @@ Dựa trên script thử nghiệm `run_experiment.py --export-reports` thực th
 
 | Cấu hình | Ngưỡng Parent (chars) | Ngưỡng Child (tokens / từ) | Min Child (từ) | Tổng Parent | Tổng Child | Tỷ lệ Child/Parent | Parent TB (chars) | Child TB (từ) | Mảnh < 20 từ | Chunk có point_ref | Đánh giá & Khuyến nghị |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Config A (Baseline)** | **1500** | **256 / 200** | **20** | **923** | **2003** | **2.17** | **743.4** | **70.0** | **0** | **153** | **KHUYẾN NGHỊ**: Đủ ngữ cảnh cho Parent, Child vừa giới hạn 256 token của BKAI/BGE-M3. |
-| **Config B (Small)** | 800 | 128 / 100 | 15 | 1353 | 2647 | 1.96 | 529.0 | 53.1 | 68 | 489 | Phù hợp khi dùng Embedding context hẹp (128 tokens); Parent tăng 47%, nhiều Khoản bị cắt vụn. |
-| **Config C (Large)** | 2500 | 512 / 350 | 30 | 806 | 1900 | 2.36 | 842.5 | 73.8 | 0 | 26 | Giữ ngữ cảnh rộng nhưng Child vượt 256 token của BKAI; rủi ro loãng vector. |
-| **Config D (Strict)** | 1500 | 256 / 200 | 1 | 923 | 2003 | 2.17 | 743.4 | 70.0 | 3 | 153 | Không áp quy tắc gộp mảnh: còn 3 mảnh vụn của Khoản bị tách. |
+| **Config A (Baseline)** | **1500** | **256 / 200** | **20** | **923** | **2003** | **2.17** | **742.4** | **70.0** | **0** | **153** | **KHUYẾN NGHỊ**: Đủ ngữ cảnh cho Parent, Child vừa giới hạn 256 token của BKAI/BGE-M3. |
+| **Config B (Small)** | 800 | 128 / 100 | 15 | 1352 | 2647 | 1.96 | 528.6 | 53.1 | 68 | 489 | Phù hợp khi dùng Embedding context hẹp (128 tokens); Parent tăng 47%, nhiều Khoản bị cắt vụn. |
+| **Config C (Large)** | 2500 | 512 / 350 | 30 | 806 | 1900 | 2.36 | 841.3 | 73.8 | 0 | 26 | Giữ ngữ cảnh rộng nhưng Child vượt 256 token của BKAI; rủi ro loãng vector. |
+| **Config D (Strict)** | 1500 | 256 / 200 | 1 | 923 | 2003 | 2.17 | 742.4 | 70.0 | 3 | 153 | Không áp quy tắc gộp mảnh: còn 3 mảnh vụn của Khoản bị tách. |
 
 Các trường hợp mẫu minh họa (Điều bình thường, Điều dài tách Parent, Khoản có danh sách Điểm, Điều có intro và Định dạng DB Payload) được lưu trữ đầy đủ trong [`chunking_examples.json`](chunking_examples.json).
 
