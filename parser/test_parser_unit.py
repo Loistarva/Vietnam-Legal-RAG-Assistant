@@ -311,9 +311,12 @@ KNOWN_UNPARSEABLE_TXT = {
 }
 
 # Tiêu đề Điều dài hơn ngưỡng này gần như chắc chắn là nội dung bị nuốt vào tiêu đề.
-MAX_TITLE_WORDS_IN_CORPUS = 80
+MAX_TITLE_WORDS_IN_CORPUS = 40
 # Ngoại lệ có chủ đích: {(tên_file_txt_không_đuôi, "số Điều")}. Thêm kèm lý do khi cần.
-TITLE_LENGTH_ALLOWLIST: set = set()
+TITLE_LENGTH_ALLOWLIST: set = {
+    ("ND01", "8"),  # NĐ 126/2014 Điều 8: tiêu đề thật 44 từ
+    ("TT02", "4"),  # TT 02a/2015 Điều 4: tiêu đề thật 41 từ
+}
 # Ngoại lệ đối chiếu số Khoản: {(tên_file_txt_không_đuôi, "số Điều"): "lý do"}.
 CLAUSE_COUNT_EXEMPT: Dict[Tuple[str, str], str] = {}
 
@@ -599,3 +602,105 @@ def test_tt02a_wrapped_chapter_title_is_complete(
 ):
     """Tiêu đề Chương bị PDF xuống dòng phải được ghép đủ, không cụt ở dòng đầu."""
     assert tt02a_articles[number]["chapter"].endswith(expected_chapter_end)
+
+
+def test_tt02a_wrapped_article_title_keeps_line_end_punctuation(tt02a_articles):
+    """Dấu ";" cuối dòng của tiêu đề Điều bị xuống dòng phải giữ lại (A28)."""
+    assert tt02a_articles["4"]["article_title"].startswith(
+        "Đình chỉ giải quyết hồ sơ đăng ký kết hôn, nhận cha, mẹ, con có yếu tố nước ngoài; "
+        "cấp Giấy xác nhận tình trạng hôn nhân;"
+    )
+
+
+# ---------------------------------------------------------------------------
+# A28: ghép dòng không làm mất dấu câu, cụt tiêu đề hay tách số hiệu
+# ---------------------------------------------------------------------------
+HEADING_VALUE_RE = re.compile(r"^((?:Chương|CHƯƠNG|Mục|MỤC)\s+(?:[IVXLCDM]+|\d+))\s+(.*)$")
+STRUCTURAL_WORD_RE = re.compile(r"(?:Điều|Chương|CHƯƠNG|Mục|MỤC)$")
+SPLIT_HYPHEN_RE = re.compile(r"[0-9A-Za-zÀ-ỹĐđ]-\s+[0-9A-ZĐ]")
+
+
+def flatten_txt(text: str) -> str:
+    """TXT bỏ xuống dòng như parser: "NĐ-" + "CP" ghép liền, xuống dòng khác thành dấu cách."""
+    text = re.sub(r"(?<=\w)-[ \t]*\n[ \t]*(?=[0-9A-ZĐ])", "-", text)
+    return re.sub(r"\s+", " ", text)
+
+
+@every_txt
+def test_heading_titles_match_txt_and_are_complete(txt_path):
+    """Tiêu đề Chương/Mục khớp nguyên văn TXT (cả dấu câu) và kéo tới mốc cấu trúc kế tiếp."""
+    text, articles = parse_or_skip(txt_path)
+    flat = flatten_txt(text)
+    values = {a.get(key) for a in articles for key in ("chapter", "section")} - {None}
+    bad = []
+    for value in sorted(values):
+        m = HEADING_VALUE_RE.match(value)
+        if not m:
+            bad.append((value[:60], "nhãn không đúng dạng"))
+            continue
+        label, title = m.groups()
+        heading_re = re.compile(rf"(?i:{re.escape(label)})\s*[.:]?\s*{re.escape(title)}\s*(\S+)")
+        next_words = [h.group(1) for h in heading_re.finditer(flat)]
+        if not next_words:
+            bad.append((value[-60:], "không khớp TXT"))
+        elif not any(STRUCTURAL_WORD_RE.match(w) for w in next_words):
+            bad.append((value[-60:], f"cụt, TXT còn {next_words[0]!r}"))
+    assert not bad, f"Tiêu đề Chương/Mục sai: {bad[:5]}"
+
+
+@every_txt
+def test_article_titles_match_txt(txt_path):
+    """Tiêu đề Điều khớp nguyên văn TXT ngay sau "Điều N." (không mất dấu câu khi ghép dòng)."""
+    text, articles = parse_or_skip(txt_path)
+    flat = flatten_txt(text)
+    bad = [
+        (a["article_number"], a["article_title"][:60])
+        for a in articles
+        if a.get("article_title")
+        and not re.search(
+            rf"Điều\s+{a['article_number']}\s*[.:]?\s*{re.escape(a['article_title'])}", flat
+        )
+    ]
+    assert not bad, f"Tiêu đề Điều không khớp TXT: {bad[:5]}"
+
+
+@every_txt
+def test_no_number_split_after_hyphen(txt_path):
+    """Số hiệu, ngày bị PDF xuống dòng sau "-" phải ghép liền ("126/2014/NĐ-CP", không "NĐ- CP")."""
+    _text, articles = parse_or_skip(txt_path)
+    bad = []
+    for a in articles:
+        fields = [a.get("article_title"), a.get("intro")] + [c["clause_text"] for c in a["clauses"]]
+        for field in filter(None, fields):
+            bad += [field[max(0, m.start() - 15):m.end() + 5] for m in SPLIT_HYPHEN_RE.finditer(field)]
+    assert not bad, f"Số hiệu bị tách sau dấu gạch: {bad[:5]}"
+
+
+# ---------------------------------------------------------------------------
+# A27: cấp Mục của TT 04/2020/TT-BTP; A23: tiêu đề TTLT 01/2016 Điều 9
+# ---------------------------------------------------------------------------
+def parse_located_txt(marker: str, doc_id: str) -> Dict[str, dict]:
+    path = locate_corpus_txt(marker)
+    if path is None:
+        pytest.fail(f"Không tìm thấy TXT của {marker} trong {CORPUS_TXT_DIR}")
+    articles, _ = parse_text_to_articles(path.read_text(encoding="utf-8"), doc_id)
+    return {str(a["article_number"]): a for a in articles}
+
+
+def test_tt04_2020_sections_are_detected():
+    articles = parse_located_txt("04/2020/TT-BTP", "tt_04_2020_tt_btp")
+    sections = {a["section"] for a in articles.values() if a.get("section")}
+    assert len(sections) == 8, sorted(sections)
+    leaked = [
+        c["clause_id"]
+        for a in articles.values()
+        for c in a["clauses"]
+        if re.search(r"\bMục\s+\d+\.?\s+[A-ZĐ]{2,}", c["clause_text"])
+    ]
+    assert not leaked, f"Tên Mục lọt vào Khoản: {leaked[:5]}"
+
+
+def test_ttlt_01_2016_article_9_title_and_body():
+    article = parse_located_txt("01/2016/TTLT", "ttlt_01_2016_ttlt_tandtc")["9"]
+    assert article["article_title"] == "Giải thích, sửa đổi, bổ sung Thông tư liên tịch"
+    assert article["clauses"][0]["clause_text"].startswith("Trong quá trình thực hiện, nếu có vướng mắc")

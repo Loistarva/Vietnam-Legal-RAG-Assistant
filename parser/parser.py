@@ -109,7 +109,9 @@ def uppercase_ratio(text: str) -> float:
 
 
 # Số dòng tối đa được ghép thêm vào tiêu đề Chương/Mục khi tiêu đề bị xuống dòng.
-MAX_HEADING_CONTINUATION_LINES = 2
+# Tiêu đề dài nhất hiện có chiếm 5 dòng (TT 38/2025 Chương II, TT 04/2020 Mục 5);
+# việc ghép vẫn dừng ở mốc cấu trúc kế tiếp hoặc dòng không viết hoa.
+MAX_HEADING_CONTINUATION_LINES = 8
 # Dòng bắt đầu một cấu trúc mới (Điều 52, CHƯƠNG 3, Mục 2, Phần I...), không phải phần tiếp của tiêu đề.
 _STRUCTURAL_LINE_RE = re.compile(r"(?i)^(?:điều|chương|mục|phần)\s+(?:\d+|[ivxlcdm]+)\b")
 
@@ -132,7 +134,9 @@ def _heading_title_candidate(fragment: str, label_match: re.Match, next_boundary
             candidate = line.strip(strip_chars)
             if not parts:
                 if candidate:
-                    parts.append(candidate)
+                    # Dấu câu cuối dòng ("...KẾT HÔN," / "...PHÔI;") là của tiêu đề:
+                    # chỉ bỏ dấu ở đầu dòng (sau nhãn), dấu cuối bỏ khi ghép xong.
+                    parts.append(line.strip().lstrip(strip_chars))
                 continue
             # Dòng sau chỉ được ghép khi là phần xuống dòng của tiêu đề: không rỗng,
             # viết hoa rõ ràng, không phải nhãn cấu trúc (Điều/Chương/Mục/Phần N).
@@ -143,9 +147,9 @@ def _heading_title_candidate(fragment: str, label_match: re.Match, next_boundary
                 or len(parts) > MAX_HEADING_CONTINUATION_LINES
             ):
                 break
-            parts.append(candidate)
+            parts.append(line.strip().lstrip(strip_chars))
         if parts:
-            return re.sub(r"\s+", " ", " ".join(parts)).strip()
+            return re.sub(r"\s+", " ", " ".join(parts)).strip(strip_chars)
     return re.sub(r"\s+", " ", segment).strip(" \t\r\n:–—-;,. ")
 
 
@@ -488,7 +492,10 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
     if not first_line or len(first_line) > MAX_TITLE_CHARS:
         return None
 
+    # title_lines (đã bỏ " :;" hai đầu) dùng để quyết định có ghép dòng hay không;
+    # title_parts giữ dấu câu cuối dòng ("...nước ngoài;" + "cấp Giấy...") cho tiêu đề xuất ra.
     title_lines = [first_line]
+    title_parts = [lines[0].lstrip(" :;")]
     idx = 1
 
     # Các từ/cụm cuối dòng thường cho thấy tiêu đề còn thiếu phần bổ nghĩa.
@@ -519,6 +526,7 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
         )
         if previous_proper_prefix:
             title_lines.append(line.rstrip("."))
+            title_parts.append(lines[idx].lstrip(" :;").rstrip("."))
             idx += 1
             continue
 
@@ -549,6 +557,7 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
                 and not line.endswith((":", ";"))
             ):
                 title_lines.append(line.rstrip("."))
+                title_parts.append(lines[idx].lstrip(" :;").rstrip("."))
                 idx += 1
                 continue
 
@@ -586,6 +595,7 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
 
         if starts_lowercase or previous_incomplete or previous_ends_capitalized_word:
             title_lines.append(line)
+            title_parts.append(lines[idx].lstrip(" :;"))
             idx += 1
             continue
 
@@ -594,12 +604,12 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
 
     if idx >= len(lines):
         # Toàn bộ các dòng còn lại là phần tiếp của tiêu đề; không có remainder.
-        title = normalize_spaces(" ".join(title_lines))
+        title = normalize_spaces(" ".join(title_parts)).rstrip(" :;,")
         if title and len(title.split()) <= MAX_TITLE_WORDS:
             return title.rstrip("."), ""
         return None
 
-    title = normalize_spaces(" ".join(title_lines))
+    title = normalize_spaces(" ".join(title_parts)).rstrip(" :;,")
     remainder = normalize_spaces(" ".join(lines[idx:]))
 
     if not title or not remainder or re.search(r"[.!?]$", title):
@@ -888,6 +898,14 @@ def strip_terminal_material(text: str) -> str:
     return kept
 
 
+# "-" dính chữ/số phía trước ở cuối dòng, dòng sau mở đầu bằng chữ hoa hoặc chữ số
+# nhưng không phải Khoản ("2. ") hay mốc cấu trúc (Điều/Chương/Mục/Phần).
+HYPHEN_LINE_BREAK_RE = re.compile(
+    r"(?<=[0-9A-Za-zÀ-ỹĐđ])- ?\n ?"
+    r"(?=[0-9A-ZĐ])(?!\d+\.\s)(?!(?:Điều|Chương|CHƯƠNG|Mục|MỤC|Phần|PHẦN)\s)"
+)
+
+
 def parse_text_to_articles(raw_text: str, doc_id: str):
     WARNINGS.clear()
     # Chuẩn hóa Unicode về NFC: TXT trích từ PDF hay chứa ký tự tiếng Việt dạng
@@ -899,6 +917,9 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
     # khi xác định Chương/Mục. Các hàm tách Điều/Khoản vẫn chấp nhận whitespace.
     text = re.sub(r"[ \t\f\v]+", " ", raw_text)
     text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    # PDF xuống dòng ngay sau "-" của số hiệu, ngày ("126/2014/NĐ-" + "CP", "10-5-" + "2012"):
+    # ghép liền, không để bước làm phẳng chèn dấu cách ("NĐ- CP").
+    text = HYPHEN_LINE_BREAK_RE.sub("-", text)
 
     # Mốc mở đầu hỗ trợ CHƯƠNG I / Chương I / Chương 1 và dấu hai chấm.
     # Chỉ cắt từ mốc nếu phần tiêu đề theo sau đủ giống heading viết hoa.
@@ -1157,11 +1178,11 @@ def find_document_versions_file() -> Path:
         if candidate.is_file():
             return candidate.resolve()
 
-    searched = "\\n".join(f" - {p}" for p in unique_candidates)
+    searched = "\n".join(f" - {p}" for p in unique_candidates)
     raise FileNotFoundError(
         "Không tìm thấy document_versions.json. Đặt registry tại "
         "<repo>/data/reference/document_versions.json hoặc cấu hình "
-        "DOCUMENT_VERSIONS_PATH.\\nĐã tìm:\\n" + searched
+        "DOCUMENT_VERSIONS_PATH.\nĐã tìm:\n" + searched
     )
 
 
