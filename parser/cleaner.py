@@ -112,15 +112,15 @@ AMENDMENT_FOOTNOTE_PATTERNS = [
     # Luật Tổ chức Tòa án nhân dân số 34/2024/QH15. Dùng \s+ để chịu được
     # việc OCR ngắt dòng/đổi khoảng trắng, không mở rộng sang khoản kế tiếp.
     re.compile(
-        r'(?ims)^\\s*1\\s+Luật\\s+số\\s+81/2025/QH15\\s+sửa\\s+đổi,?\\s+'
-        r'bổ\\s+sung\\s+một\\s+số\\s+điều\\s+của\\s+Luật\\s+Tổ\\s+chức\\s+'
-        r'Tòa\\s+án\\s+nhân\\s+dân\\s+có\\s+căn\\s+cứ\\s+ban\\s+hành\\s+như\\s+sau:'
-        r'\\s*[“"]?\\s*Căn\\s+cứ\\s+Hiến\\s+pháp\\s+nước\\s+Cộng\\s+hòa\\s+xã\\s+hội\\s+'
-        r'chủ\\s+nghĩa\\s+Việt\\s+Nam\\s+đã\\s+được\\s+sửa\\s+đổi,?\\s+bổ\\s+sung\\s+'
-        r'một\\s+số\\s+điều\\s+theo\\s+Nghị\\s+quyết\\s+số\\s+203/2025/QH15;'
-        r'\\s*Quốc\\s+hội\\s+ban\\s+hành\\s+Luật\\s+sửa\\s+đổi,?\\s+bổ\\s+sung\\s+'
-        r'một\\s+số\\s+điều\\s+của\\s+Luật\\s+Tổ\\s+chức\\s+Tòa\\s+án\\s+nhân\\s+dân\\s+'
-        r'số\\s+34/2024/QH15\\s*[.”"]?\\s*',
+        r'(?ims)^\s*1\s+Luật\s+số\s+81/2025/QH15\s+sửa\s+đổi,?\s+'
+        r'bổ\s+sung\s+một\s+số\s+điều\s+của\s+Luật\s+Tổ\s+chức\s+'
+        r'Tòa\s+án\s+nhân\s+dân\s+có\s+căn\s+cứ\s+ban\s+hành\s+như\s+sau:'
+        r'\s*[“"]?\s*Căn\s+cứ\s+Hiến\s+pháp\s+nước\s+Cộng\s+hòa\s+xã\s+hội\s+'
+        r'chủ\s+nghĩa\s+Việt\s+Nam\s+đã\s+được\s+sửa\s+đổi,?\s+bổ\s+sung\s+'
+        r'một\s+số\s+điều\s+theo\s+Nghị\s+quyết\s+số\s+203/2025/QH15;'
+        r'\s*Quốc\s+hội\s+ban\s+hành\s+Luật\s+sửa\s+đổi,?\s+bổ\s+sung\s+'
+        r'một\s+số\s+điều\s+của\s+Luật\s+Tổ\s+chức\s+Tòa\s+án\s+nhân\s+dân\s+'
+        r'số\s+34/2024/QH15\s*[.”"]?\s*',
     ),
     # Notes like: "2 Cụm từ ... được thay thế ...", including the entire explanation.
     re.compile(
