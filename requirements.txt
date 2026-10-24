@@ -7,8 +7,9 @@
 # Config files (retrieval/config.yaml, reranking/config.yaml)
 PyYAML>=6,<7
 
-# Vietnamese word segmentation for queries and chunking
-underthesea>=8.3,<10
+# Vietnamese word segmentation for queries and chunking. Pinned: corpus and queries
+# must be segmented by the same version (chunking_report.json records it).
+underthesea==9.5.0
 
 # Schema validation (tests/schema_test.py) and contract tests
 pydantic>=2,<3
