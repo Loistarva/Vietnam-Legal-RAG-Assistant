@@ -90,7 +90,7 @@ def warn(msg: str):
 
 # Chỉ nhận Chương/Mục nếu phần tiêu đề thực sự giống heading.
 # Hỗ trợ CHƯƠNG/Chương, số La Mã hoặc Ả Rập, và dấu hai chấm.
-_HEADING_LABEL = r"(?:Chương\s+(?:[IVXLCDM]+|\d+)|Mục\s+\d+)\s*:?"
+_HEADING_LABEL = r"(?:Chương\s+(?:[IVXLCDM]+|\d+)|Mục\s+\d+)\s*[.:]?"
 HEAD_LABEL_RE = re.compile(rf"(?<!\S)({_HEADING_LABEL})(?=\s)", re.IGNORECASE)
 HEAD_RE = HEAD_LABEL_RE  # Giữ tên cũ cho quality_report
 
@@ -163,7 +163,7 @@ def iter_headings(fragment: str):
         # Chặn câu dẫn chiếu như "... các tội quy định tại Chương XIV Bộ luật Hình sự ...".
         if uppercase_ratio(title) < 0.80:
             continue
-        label = re.sub(r"\s+", " ", m.group(1)).strip().rstrip(":")
+        label = re.sub(r"\s+", " ", m.group(1)).strip().rstrip(":. ")
         yield m.start(), label, title
 
 
@@ -796,6 +796,8 @@ TERMINAL_MARKER_PATTERNS = (
     # Phân biệt hoa/thường để không cắt nhầm "Thủ tướng Chính phủ" trong nội dung.
     ("TM./KT. CHÍNH PHỦ", re.compile(r"(?<!\S)(?:TM|KT|Q|TL)\.\s+CHÍNH\s+PHỦ\b")),
     ("dòng chức danh THỦ TƯỚNG", re.compile(r"(?m)^\s*(?:KT\.\s+)?(?:PHÓ\s+)?THỦ\s+TƯỚNG\b(?:[ \t]*$|[ \t]+[A-ZĐ][a-zà-ỹ])")),
+    ("TM. HỘI ĐỒNG THẨM PHÁN", re.compile(
+    r"(?i)(?<!\S)(?:TM|KT|Q|TL)\.\s+HỘI\s+ĐỒNG\s+THẨM\s+PHÁN\b")),
 )
 
 # Các dấu hiệu mà tên người ký thường đứng NGAY TRƯỚC (tên ký rồi mới tới chức danh /
@@ -901,7 +903,7 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
     # Mốc mở đầu hỗ trợ CHƯƠNG I / Chương I / Chương 1 và dấu hai chấm.
     # Chỉ cắt từ mốc nếu phần tiêu đề theo sau đủ giống heading viết hoa.
     chapter_start_re = re.compile(
-        rf"(?<!\S)Chương\s+(?:I|1)\s*:?(?=\s)",
+        rf"(?<!\S)Chương\s+(?:I|1)\s*[.:]?(?=\s)",
         re.IGNORECASE
     )
     m0 = None
