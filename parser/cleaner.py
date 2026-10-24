@@ -92,10 +92,12 @@ REPEATED_DOCUMENT_MARKING_PATTERNS = [
         r"thụ\s+tinh\s+trong\s+ống\s+nghiệm",
         flags=re.IGNORECASE,
     ),
-    re.compile(
-        r"(?<!\w)Hướng\s+dẫn(?=\r?\n|$)",
-        flags=re.IGNORECASE,
-    ),
+    # Marking chỉ là dòng độc lập đúng chính tả/hoa thường "Hướng dẫn".
+    # Không xóa cụm này nếu nó nằm trong câu pháp lý.
+    re.compile(r"^Hướng dẫn$"),
+    # Số chú thích OCR dính ngay sau cụm "khu vực" (vd. "khu vực2").
+    # Chỉ xóa chữ số 2 trong đúng cụm này, giữ nguyên "khu vực".
+    re.compile(r"(?<=khu vực)2\b"),
 ]
 STANDALONE_NUMBER_RE = re.compile(r"^\d{1,4}$")
 
@@ -105,10 +107,20 @@ STANDALONE_NUMBER_RE = re.compile(r"^\d{1,4}$")
 AMENDMENT_FOOTNOTE_PATTERNS = [
     # Numbered amendment notes beginning with Law 81/2025/QH15; remove the whole
     # note, including quoted inserted/replacement text, until the next note/article.
+    # Marking cố định đã xác minh: chỉ xóa đúng đoạn mở đầu bằng
+    # "1 Luật số 81/2025/QH15 sửa đổi..." và kết thúc bằng câu dẫn chiếu
+    # Luật Tổ chức Tòa án nhân dân số 34/2024/QH15. Dùng \s+ để chịu được
+    # việc OCR ngắt dòng/đổi khoảng trắng, không mở rộng sang khoản kế tiếp.
     re.compile(
-        r"(?ms)^\s*\d+\s+Luật\s+số\s+81/2025/QH15\b.*?"
-        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
-        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
+        r'(?ims)^\\s*1\\s+Luật\\s+số\\s+81/2025/QH15\\s+sửa\\s+đổi,?\\s+'
+        r'bổ\\s+sung\\s+một\\s+số\\s+điều\\s+của\\s+Luật\\s+Tổ\\s+chức\\s+'
+        r'Tòa\\s+án\\s+nhân\\s+dân\\s+có\\s+căn\\s+cứ\\s+ban\\s+hành\\s+như\\s+sau:'
+        r'\\s*[“"]?\\s*Căn\\s+cứ\\s+Hiến\\s+pháp\\s+nước\\s+Cộng\\s+hòa\\s+xã\\s+hội\\s+'
+        r'chủ\\s+nghĩa\\s+Việt\\s+Nam\\s+đã\\s+được\\s+sửa\\s+đổi,?\\s+bổ\\s+sung\\s+'
+        r'một\\s+số\\s+điều\\s+theo\\s+Nghị\\s+quyết\\s+số\\s+203/2025/QH15;'
+        r'\\s*Quốc\\s+hội\\s+ban\\s+hành\\s+Luật\\s+sửa\\s+đổi,?\\s+bổ\\s+sung\\s+'
+        r'một\\s+số\\s+điều\\s+của\\s+Luật\\s+Tổ\\s+chức\\s+Tòa\\s+án\\s+nhân\\s+dân\\s+'
+        r'số\\s+34/2024/QH15\\s*[.”"]?\\s*',
     ),
     # Notes like: "2 Cụm từ ... được thay thế ...", including the entire explanation.
     re.compile(

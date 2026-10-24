@@ -108,6 +108,12 @@ def uppercase_ratio(text: str) -> float:
     return sum(ch.isupper() for ch in letters) / len(letters)
 
 
+# Số dòng tối đa được ghép thêm vào tiêu đề Chương/Mục khi tiêu đề bị xuống dòng.
+MAX_HEADING_CONTINUATION_LINES = 2
+# Dòng bắt đầu một cấu trúc mới (Điều 52, CHƯƠNG 3, Mục 2, Phần I...), không phải phần tiếp của tiêu đề.
+_STRUCTURAL_LINE_RE = re.compile(r"(?i)^(?:điều|chương|mục|phần)\s+(?:\d+|[ivxlcdm]+)\b")
+
+
 def _heading_title_candidate(fragment: str, label_match: re.Match, next_boundary: Optional[re.Match]) -> str:
     """Lấy phần tiêu đề gần nhãn nhất, tránh gộp header/trang sau vào tiêu đề."""
     title_start = label_match.end()
@@ -115,16 +121,31 @@ def _heading_title_candidate(fragment: str, label_match: re.Match, next_boundary
     segment = fragment[title_start:title_end]
 
     # Nếu còn xuống dòng, ưu tiên phần cùng dòng với nhãn; nếu nhãn đứng riêng
-    # thì lấy dòng không rỗng kế tiếp. Nếu text đã bị làm phẳng, dùng cả segment.
+    # thì lấy dòng không rỗng kế tiếp. Tiêu đề dài bị PDF xuống dòng thì ghép thêm
+    # các dòng liền sau nếu chúng viết hoa rõ ràng (vd. "...VỚI NGƯỜI" + "NƯỚC NGOÀI").
+    # Nếu text đã bị làm phẳng, dùng cả segment.
     lines = segment.splitlines()
     if len(lines) > 1:
-        first = lines[0].strip(" \t\r\n:–—-;,. ")
-        if first:
-            return first
-        for line in lines[1:]:
-            candidate = line.strip(" \t\r\n:–—-;,. ")
-            if candidate:
-                return candidate
+        strip_chars = " \t\r\n:–—-;,. "
+        parts: List[str] = []
+        for line in lines:
+            candidate = line.strip(strip_chars)
+            if not parts:
+                if candidate:
+                    parts.append(candidate)
+                continue
+            # Dòng sau chỉ được ghép khi là phần xuống dòng của tiêu đề: không rỗng,
+            # viết hoa rõ ràng, không phải nhãn cấu trúc (Điều/Chương/Mục/Phần N).
+            if (
+                not candidate
+                or uppercase_ratio(candidate) < 0.80
+                or _STRUCTURAL_LINE_RE.match(candidate)
+                or len(parts) > MAX_HEADING_CONTINUATION_LINES
+            ):
+                break
+            parts.append(candidate)
+        if parts:
+            return re.sub(r"\s+", " ", " ".join(parts)).strip()
     return re.sub(r"\s+", " ", segment).strip(" \t\r\n:–—-;,. ")
 
 
@@ -680,6 +701,31 @@ def split_head(num: str, raw: str):
     return title, intro, body, False
 
 
+def marker_has_no_title_on_line(marker_text: str) -> bool:
+    """True nếu dòng "Điều N." không có chữ nào phía sau (xuống dòng ngay sau dấu chấm).
+
+    `marker_text` là đoạn khớp của find_articles, gồm cả khoảng trắng sau "Điều N.".
+    Ví dụ Luật HNGĐ 1986: TXT chỉ có dòng "Điều 1." rồi nội dung ở dòng kế tiếp; văn bản
+    này không có tiêu đề Điều, nên không được lấy câu đầu của nội dung làm tiêu đề.
+    """
+    after_dot = marker_text[marker_text.rfind(".") + 1:]
+    return "\n" in after_dot
+
+
+def split_head_without_title(raw: str):
+    """Tách phần đầu Điều khi Điều không có tiêu đề: title = None, không gọi hàm tách tiêu đề.
+
+    Toàn bộ nội dung được giữ nguyên: nếu có Khoản 1 thì phần trước Khoản 1 là intro,
+    nếu không thì cả đoạn là body của một Khoản duy nhất.
+    """
+    first = clause_regex(1).search(raw)
+    if first:
+        head = normalize_spaces(raw[:first.start()])
+        body = raw[first.start():].strip()
+        return None, (head or None), body, True
+    return None, None, raw.strip(), False
+
+
 def clean_clause_text(text: str) -> str:
     """Làm phẳng xuống dòng thật và chuỗi escape literal \n thành một dấu cách.
 
@@ -750,10 +796,53 @@ TERMINAL_MARKER_PATTERNS = (
     # Phân biệt hoa/thường để không cắt nhầm "Thủ tướng Chính phủ" trong nội dung.
     ("TM./KT. CHÍNH PHỦ", re.compile(r"(?<!\S)(?:TM|KT|Q|TL)\.\s+CHÍNH\s+PHỦ\b")),
     ("dòng chức danh THỦ TƯỚNG", re.compile(r"(?m)^\s*(?:KT\.\s+)?(?:PHÓ\s+)?THỦ\s+TƯỚNG\b(?:[ \t]*$|[ \t]+[A-ZĐ][a-zà-ỹ])")),
-    ("người ký Nông Đức Mạnh", re.compile(r"(?im)^\s*Nông\s+Đức\s+Mạnh\s*$")),
-    ("người ký Phan Văn Khải", re.compile(r"(?im)^\s*Phan\s+Văn\s+Khải\s*$")),
-    ("người ký Nguyễn Tấn Dũng", re.compile(r"(?im)^\s*Nguyễn\s+Tấn\s+Dũng\s*$")),
 )
+
+# Các dấu hiệu mà tên người ký thường đứng NGAY TRƯỚC (tên ký rồi mới tới chức danh /
+# "(Đã ký)" / khối xác thực VBHN). Khi cắt tại các dấu hiệu này, bỏ luôn dòng tên người ký
+# để không phải liệt kê từng tên viết cứng.
+SIGNER_PRECEDES_LABELS = frozenset({
+    "VĂN PHÒNG QUỐC HỘI / số hiệu văn bản hợp nhất",
+    "chức danh ký",
+    "CHỦ TỊCH QUỐC HỘI",
+    "(Đã ký)",
+    "TM./KT. CHÍNH PHỦ",
+    "dòng chức danh THỦ TƯỚNG",
+})
+
+_SIGNER_WORD = rf"[{UP}][^\W\d_]*"
+# Tên người ký: 2–4 từ, mỗi từ bắt đầu bằng chữ hoa (Title Case hoặc IN HOA),
+# không có chữ số / dấu câu.
+SIGNER_NAME_RE = re.compile(rf"^{_SIGNER_WORD}(?:\s+{_SIGNER_WORD}){{1,3}}$")
+_SIGNER_NOT_NAME_FIRST_WORDS = frozenset({"chương", "mục", "phần", "điều", "khoản", "điểm", "phụ"})
+_SENTENCE_END_RE = re.compile(r"[.;:!?]\s+")
+
+
+def strip_trailing_signer_name(text: str, min_pos: int = 0) -> str:
+    """Bỏ tên người ký (dòng ngắn 2–4 từ viết hoa) nằm ở cuối `text`.
+
+    Chỉ nhìn đoạn cuối: ưu tiên dòng cuối cùng; nếu tên dính cùng dòng với nội dung
+    thì lấy phần sau dấu kết câu cuối cùng. Không bao giờ cắt lùi quá `min_pos`.
+    """
+    body = text.rstrip()
+    line_start = body.rfind("\n") + 1
+    tail = body[line_start:]
+
+    candidates = [line_start]
+    ends = list(_SENTENCE_END_RE.finditer(tail))
+    if ends:
+        candidates.append(line_start + ends[-1].end())
+
+    for start in candidates:
+        if start <= min_pos:
+            continue
+        segment = body[start:].strip()
+        if not SIGNER_NAME_RE.match(segment):
+            continue
+        if segment.split()[0].lower() in _SIGNER_NOT_NAME_FIRST_WORDS:
+            continue
+        return body[:start].rstrip()
+    return body
 
 
 def strip_terminal_material(text: str) -> str:
@@ -782,12 +871,19 @@ def strip_terminal_material(text: str) -> str:
     if cut_pos <= first_article.end():
         return text
 
-    removed_chars = len(text) - cut_pos
+    kept = text[:cut_pos].rstrip()
+    if label in SIGNER_PRECEDES_LABELS:
+        stripped = strip_trailing_signer_name(kept, min_pos=first_article.end())
+        if len(stripped) < len(kept):
+            print(f"[clean] đã bỏ tên người ký: {kept[len(stripped):].strip()!r}")
+            kept = stripped
+
+    removed_chars = len(text) - len(kept)
     print(
         f"[clean] đã bỏ phần cuối văn bản từ dấu hiệu {label!r} "
         f"tại vị trí {cut_pos} ({removed_chars} ký tự)"
     )
-    return text[:cut_pos].rstrip()
+    return kept
 
 
 def parse_text_to_articles(raw_text: str, doc_id: str):
@@ -863,7 +959,10 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
                 update_headings(heading_suffix, state)
                 raw = raw[:mh[0]].strip()
 
-        title, intro, body, has_clauses = split_head(num, raw)
+        if marker_has_no_title_on_line(text[_s:e]):
+            title, intro, body, has_clauses = split_head_without_title(raw)
+        else:
+            title, intro, body, has_clauses = split_head(num, raw)
         art_id = f"{doc_id}_art_{num}"
 
         try:
