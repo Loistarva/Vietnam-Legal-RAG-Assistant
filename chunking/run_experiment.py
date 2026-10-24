@@ -6,8 +6,8 @@ Tạo ra 2 sản phẩm đầu ra bắt buộc theo yêu cầu:
   2. chunking/chunking_examples.json: Tệp JSON chứa các trường hợp chunking mẫu minh họa:
      - Điều bình thường
      - Điều dài được tách thành nhiều Parent (lặp lại tiêu đề, breadcrumb Khoản)
-     - Khoản dài có nhiều Điểm
-     - Gom các Khoản ngắn
+     - Khoản dài có danh sách Điểm (cắt tại ranh giới Điểm, câu dẫn trong embed_text)
+     - Điều không chia Khoản và Điều có intro
      - Định dạng payload cho Qdrant, Elasticsearch, Parent Store.
 """
 from __future__ import annotations
@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -24,13 +25,7 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from chunking_rules import (  # noqa: E402
-    PARENT_MAX_CHARS,
-    CHILD_MAX_TOKENS,
-    CHILD_MAX_UNITS,
-    CHILD_MIN_WORDS,
-    ChunkResult,
     chunk_legal_document,
-    chunk_parsed_file,
 )
 
 
@@ -60,22 +55,23 @@ CONFIGS: dict[str, dict[str, Any]] = {
         "child_min_words": 30,
         "mo_ta": "Ngữ cảnh rộng: Parent <=2500 ký tự; Child <=350 từ giúp giữ nguyên vẹn các điều khoản phức tạp, nhưng rủi ro loãng vector",
     },
+    "Config D (Strict - Không gộp mảnh)": {
+        "parent_max_chars": 1500,
+        "child_max_tokens": 256,
+        "child_max_units": 200,
+        "child_min_words": 1,
+        "mo_ta": "Như Config A nhưng không gộp mảnh ngắn của Khoản bị tách: đo số mảnh vụn mà quy tắc child_min_words loại bỏ",
+    },
 }
 
 
 def load_test_documents() -> dict[str, dict[str, Any]]:
-    """Nạp tất cả các file JSON từ data/parser_validated/, parser/parsed_jsons/ và các file mẫu."""
+    """Nạp mọi văn bản trong parser/parsed_jsons/ (cùng nguồn với export_legal_chunks.py)."""
     docs: dict[str, dict[str, Any]] = {}
 
-    candidates = [
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "l_52_2014_qh13.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "nd_126_2014_nd_cp.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "ttlt_01_2016_ttlt_tandtc.json",
-        BASE_DIR.parent / "data" / "sample_documents.json",
-        BASE_DIR.parent / "parsed_output_test.json",
-    ]
+    candidates = sorted((BASE_DIR.parent / "parser" / "parsed_jsons").glob("*.json"))
 
-    for p in extra_candidates:
+    for p in candidates:
         if p.exists():
             try:
                 with open(p, "r", encoding="utf-8") as f:
@@ -101,18 +97,29 @@ def evaluate_config(
     total_children = 0
     parent_lengths: list[int] = []
     child_words: list[int] = []
+    oversized_parents = 0
+    short_fragments = 0
+    point_ref_chunks = 0
+    failed_docs: list[str] = []
 
     for doc_name, doc_content in docs.items():
         try:
             res = chunk_legal_document(doc_content, cfg_params)
-            total_parents += len(res.parents)
-            total_children += len(res.children)
-            for p in res.parents:
-                parent_lengths.append(len(p.text))
-            for c in res.children:
-                child_words.append(len(c.text.split()))
-        except Exception as e:
+        except ValueError as e:
+            # Ghi văn bản lỗi vào bảng thay vì bỏ qua im lặng.
             print(f"  [Lỗi] Không thể chunk {doc_name} với {cfg_name}: {e}")
+            failed_docs.append(doc_name)
+            continue
+        total_parents += len(res.parents)
+        total_children += len(res.children)
+        per_clause = Counter(c.clause_id for c in res.children)
+        for p in res.parents:
+            parent_lengths.append(len(p.text))
+            oversized_parents += len(p.text) > cfg_params["parent_max_chars"]
+        for c in res.children:
+            child_words.append(len(c.text.split()))
+            short_fragments += per_clause[c.clause_id] > 1 and len(c.text.split()) < 20
+            point_ref_chunks += c.point_ref is not None
 
     avg_parent_len = round(sum(parent_lengths) / len(parent_lengths), 1) if parent_lengths else 0
     max_parent_len = max(parent_lengths) if parent_lengths else 0
@@ -139,6 +146,10 @@ def evaluate_config(
         "avg_child_words": avg_child_w,
         "min_child_words": min_child_w,
         "max_child_words": max_child_w,
+        "oversized_parents": oversized_parents,
+        "short_fragments": short_fragments,
+        "point_ref_chunks": point_ref_chunks,
+        "failed_docs": failed_docs,
         "description": cfg_params.get("mo_ta", ""),
     }
 
@@ -167,6 +178,10 @@ def generate_evaluation_excel(results: list[dict[str, Any]], out_path: Path):
             "Độ dài TB Child (từ)": r["avg_child_words"],
             "Child dài nhất (từ)": r["max_child_words"],
             "Child ngắn nhất (từ)": r["min_child_words"],
+            "Parent vượt ngưỡng": r["oversized_parents"],
+            "Mảnh < 20 từ của Khoản bị tách": r["short_fragments"],
+            "Chunk có point_ref": r["point_ref_chunks"],
+            "Văn bản lỗi": ", ".join(r["failed_docs"]),
         }
         for r in results
     ])
@@ -222,7 +237,10 @@ def generate_evaluation_excel(results: list[dict[str, Any]], out_path: Path):
         },
         {
             "Hạng mục": "Ngưỡng giới hạn Child Chunk",
-            "Chi tiết": "Tối thiểu 20 từ (gom cụm khoản ngắn), tối đa 200 từ (~256 tokens BGE-M3).",
+            "Chi tiết": (
+                "Tối đa 200 từ (~256 tokens). Mỗi chunk thuộc đúng 1 Khoản; mảnh dưới 20 từ chỉ được gộp "
+                "với mảnh liền kề của cùng Khoản, Khoản ngắn trọn vẹn giữ thành chunk riêng."
+            ),
         },
         {
             "Hạng mục": "Ngưỡng giới hạn Parent Chunk",
@@ -242,13 +260,12 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
     Trích xuất các trường hợp chunking tiêu biểu ra file chunking_examples.json:
       - Case 1: Điều bình thường (vừa vặn 1 Parent, 1-N Child)
       - Case 2: Điều DÀI (vượt ngưỡng 1500 ký tự, tách thành _p1, _p2 với tiêu đề lặp lại)
-      - Case 3: Khoản DÀI có nhiều Điểm (tách theo từng Điểm a, b, c)
-      - Case 4: Gom các Khoản ngắn (< 20 từ)
+      - Case 3: Khoản DÀI có danh sách Điểm (cắt tại ranh giới Điểm, point_ref theo dải Điểm)
+      - Case 4: Điều có intro (intro trong embed_text của mọi Child)
       - Case 5: Định dạng đầy đủ payload cho Qdrant, Elasticsearch, Parent Store.
     """
-    # Chạy config A trên l_52_2014_qh13 và sample_documents
+    # Chạy config A trên l_52_2014_qh13
     l01_doc = docs.get("l_52_2014_qh13") or docs.get("L01")
-    sample_doc = docs.get("sample_documents_0") or docs.get("sample_documents")
 
     examples: dict[str, Any] = {
         "metadata": {
@@ -291,19 +308,31 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
                 ][:3],
             })
 
-    # Case 3: Khoản có nhiều Điểm (từ sample_documents nếu có)
-    if sample_doc:
-        res_sample = chunk_legal_document(sample_doc, CONFIGS["Config A (Baseline - Khuyến nghị)"])
-        p_pts = res_sample.parents[0] if res_sample.parents else None
-        if p_pts:
+        # Case 3: Khoản dài có danh sách Điểm (Luật 52/2014 Điều 5 khoản 2 "Cấm các hành vi sau đây:")
+        point_children = [c for c in res.children if c.clause_id.endswith("_art_5_clause_2")]
+        if len(point_children) > 1:
             examples["examples"].append({
-                "case_name": "Case 3: Khoản chi tiết có nhiều Điểm (Points in Clause)",
-                "description": "Mỗi điểm a, b, c được gán Semantic ID chi tiết và gắn phần lời dẫn của khoản.",
-                "parent_chunk": p_pts.to_store_dict(),
-                "child_chunks": [c.to_qdrant_payload() for c in res_sample.children],
+                "case_name": "Case 3: Khoản dài có danh sách Điểm (Points in Clause)",
+                "description": (
+                    "Khoản vượt giới hạn Child được cắt tại ranh giới Điểm; point_ref ghi dải Điểm của từng phần. "
+                    "Phần thứ 2 trở đi mang câu dẫn của Khoản trong embed_text, chunk_text giữ nguyên văn."
+                ),
+                "child_chunks": [c.to_qdrant_payload() for c in point_children],
             })
 
-    # Case 4: Minh họa Payload Database nạp vào 3 thành phần trong Kiến trúc
+        # Case 4: Điều có intro (Điều 3 "Trong Luật này, các từ ngữ dưới đây được hiểu như sau:")
+        intro_children = [c for c in res.children if c.article_id.endswith("_art_3")][:2]
+        if intro_children:
+            examples["examples"].append({
+                "case_name": "Case 4: Điều có intro trước các Khoản (Article Intro)",
+                "description": (
+                    "Intro chỉ có trong Parent và trong embed_text của mọi Child của Điều; "
+                    "Điều không chia Khoản (Case 1) không ghi 'Khoản 1' vào clause_ref và breadcrumb."
+                ),
+                "child_chunks": [c.to_qdrant_payload() for c in intro_children],
+            })
+
+    # Case 5: Minh họa Payload Database nạp vào 3 thành phần trong Kiến trúc
     if examples["examples"]:
         first_child = None
         for ex in examples["examples"]:
@@ -313,7 +342,7 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
 
         if first_child:
             examples["examples"].append({
-                "case_name": "Case 4: Định dạng Payload nạp vào Cơ sở dữ liệu (Database Payloads)",
+                "case_name": "Case 5: Định dạng Payload nạp vào Cơ sở dữ liệu (Database Payloads)",
                 "description": "Minh họa cấu trúc JSON sẵn sàng nạp vào Vector DB (Qdrant), Sparse Index (Elasticsearch) và Parent Store.",
                 "qdrant_payload": first_child,
                 "elasticsearch_doc": {
