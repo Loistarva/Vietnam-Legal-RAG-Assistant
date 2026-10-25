@@ -159,11 +159,11 @@ def build_audit():
         'review_flags':dict(sorted(flags.items())),
         'errors':errors,
         'can_claim_final_gold_pass':not errors and all(x['evidence_status']=='GOLD_VERIFIED' and not x['flags'] for x in registry),
-        'notes':[\
-            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',\
-            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',\
-            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',\
-            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',\
+        'notes':[
+            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',
+            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',
+            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',
+            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',
         ],
     }
     dump_json(DATA/'production_evidence_audit.json',report)

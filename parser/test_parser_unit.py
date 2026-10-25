@@ -754,8 +754,11 @@ def test_registry_and_mapping_tables_integrity():
     contract_rows = parse_section_table(data_contract_path, "## 6. Bảng Ánh xạ Định danh Văn bản")
     readme_rows = parse_section_table(readme_path, "Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức")
 
-    assert len(contract_rows) >= 21, f"Bảng ở data_contract.md thiếu văn bản: {len(contract_rows)}"
-    assert len(readme_rows) >= 21, f"Bảng ở README.md thiếu văn bản: {len(readme_rows)}"
+    assert contract_rows, "Không đọc được bảng Mục 6 của data_contract.md"
+    assert readme_rows, "Không đọc được bảng ánh xạ của data/raw_data/README.md"
+    contract_ids = {r["document_id"] for r in contract_rows}
+    readme_ids = {r["document_id"] for r in readme_rows}
+    assert readme_ids == contract_ids, f"Hai bảng ID lệch nhau: {sorted(readme_ids ^ contract_ids)}"
 
     for row in contract_rows:
         did = row["document_id"]
@@ -783,7 +786,13 @@ def test_registry_and_mapping_tables_integrity():
                 cdid = c.get("document_id") or c.get("metadata", {}).get("doc_id") or c.get("chunk_id").split("_art_")[0]
                 chunk_doc_ids.add(cdid)
 
-    assert len(chunk_doc_ids) == 21, f"Số lượng document_id trong chunks.jsonl: {len(chunk_doc_ids)}"
+    parsed_doc_ids = {
+        json.loads(path.read_text(encoding="utf-8"))["document_id"]
+        for path in (repo_root / "parser" / "parsed_jsons").glob("*.json")
+    }
+    assert chunk_doc_ids == parsed_doc_ids, (
+        f"document_id của chunks.jsonl lệch parsed_jsons: {sorted(chunk_doc_ids ^ parsed_doc_ids)}"
+    )
     for did in chunk_doc_ids:
         assert did in registry_by_id, f"document_id '{did}' trong chunks.jsonl không có trong registry"
         assert did in contract_doc_ids, f"document_id '{did}' trong chunks.jsonl không có trong bảng Mục 6 data_contract.md"
