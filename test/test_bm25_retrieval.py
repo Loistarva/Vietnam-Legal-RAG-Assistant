@@ -38,9 +38,10 @@ class FakeIndices:
 
 
 class FakeBuildClient:
-    def __init__(self):
+    def __init__(self, expected_count=336):
         self.indices = FakeIndices()
         self.closed = False
+        self.expected_count = expected_count
 
     def ping(self):
         return True
@@ -49,7 +50,7 @@ class FakeBuildClient:
         return self
 
     def count(self, index):
-        return {"count": 321}
+        return {"count": self.expected_count}
 
     def close(self):
         self.closed = True
@@ -68,12 +69,14 @@ class BM25RetrievalTest(unittest.TestCase):
 
     def test_build_function_loads_chunks_creates_index_and_returns_stats(self):
         fixture = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
-        client = FakeBuildClient()
+        expected_count = len(load_chunks(fixture))
+        client = FakeBuildClient(expected_count=expected_count)
 
         def fake_bulk(es_client, actions, **kwargs):
             self.assertIs(es_client, client)
-            self.assertEqual(len(list(actions)), 321)
-            return 321, []
+            action_list = list(actions)
+            self.assertEqual(len(action_list), expected_count)
+            return len(action_list), []
 
         with patch("retrieval.build_bm25_index.helpers.bulk", side_effect=fake_bulk):
             stats = build_bm25_index(
@@ -82,9 +85,9 @@ class BM25RetrievalTest(unittest.TestCase):
                 client=client,
             )
 
-        self.assertEqual(stats["input_chunks"], 321)
-        self.assertEqual(stats["indexed"], 321)
-        self.assertEqual(stats["index_count"], 321)
+        self.assertEqual(stats["input_chunks"], expected_count)
+        self.assertEqual(stats["indexed"], expected_count)
+        self.assertEqual(stats["index_count"], expected_count)
         self.assertEqual(stats["index_name"], "test-legal-chunks")
         self.assertEqual(client.indices.refreshed, "test-legal-chunks")
         self.assertFalse(client.closed)  # Injected client stays owned by caller.
