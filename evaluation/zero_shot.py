@@ -165,7 +165,7 @@ def run_benchmark(
             )
 
             results.append({
-                "question_id": question_id,
+                "query_id": question_id,
                 "question": question,
                 "answer": answer,
                 "method": "zero_shot",
@@ -180,7 +180,7 @@ def run_benchmark(
 
         except Exception as exc:
             results.append({
-                "question_id": question_id,
+                "query_id": question_id,
                 "question": question,
                 "answer": None,
                 "method": "zero_shot",

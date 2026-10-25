@@ -10,11 +10,14 @@ Outputs:
   evaluation/results/zero_shot_dev_metrics.json
   evaluation/results/zero_shot_dev_scored.json
 
-Ground-truth JSON formats supported:
-1) [{"id": "HN_001", "answer": "..."}]
+Each record is identified by one of ID_KEYS (``query_id`` or the benchmark ``id``)
+and the reference answer by one of ANSWER_KEYS (``answer`` or ``expected_answer``):
+1) [{"id": "HN_001", "answer": "..."}]                   (ground_truth.json)
 2) {"HN_001": "...", "HN_002": "..."}
-3) [{"question_id": "HN_001", "answers": ["...", "..."]}]
-4) {"data": [{"id": "HN_001", "ground_truth": "..."}]}
+3) [{"query_id": "HN_001", "answer": "..."}]             (zero_shot.py output)
+4) {"data": [{"id": "HN_001", "expected_answer": "..."}]}
+
+Scored output carries only query_id (docs/sprint6_benchmark.md mục 10).
 """
 
 from __future__ import annotations
@@ -179,11 +182,27 @@ def get_references(record: Any) -> list[str]:
     return as_text_list(record)
 
 
+def load_categories(queries_paths: list[Path] | tuple[Path, ...]) -> dict[str, str]:
+    """Read category by id from the given question files; a file that cannot be read is an error."""
+    categories: dict[str, str] = {}
+    for path in queries_paths:
+        rows = load_json(path)
+        if not isinstance(rows, list):
+            raise ValueError(f"{path} phải chứa một JSON array.")
+        for position, row in enumerate(rows, start=1):
+            if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+                raise ValueError(f"{path}: phần tử thứ {position} thiếu id hợp lệ.")
+            if row.get("category"):
+                categories[row["id"]] = row["category"]
+    return categories
+
+
 def evaluate(
     predictions_path: Path,
     ground_truth_path: Path,
     metrics_output_path: Path,
     scored_output_path: Path,
+    queries_paths: list[Path] | tuple[Path, ...] = (),
 ) -> dict[str, Any]:
     predictions_data = load_json(predictions_path)
     ground_truth_data = load_json(ground_truth_path)
@@ -198,15 +217,7 @@ def evaluate(
     em_values: list[float] = []
     f1_values: list[float] = []
 
-    categories_by_id: dict[str, str] = {}
-    for qpath in (ROOT_DIR / "data" / "benchmark" / "queries_dev.json", ROOT_DIR / "data" / "benchmark" / "queries_test.json"):
-        if qpath.is_file():
-            try:
-                for qrow in json.loads(qpath.read_text(encoding="utf-8")):
-                    if isinstance(qrow, dict) and "id" in qrow and "category" in qrow:
-                        categories_by_id[qrow["id"]] = qrow["category"]
-            except Exception:
-                pass
+    categories_by_id = load_categories(queries_paths)
 
     # Evaluate every prediction with a matching ground-truth ID.
     for question_id, prediction_record in predictions.items():
@@ -237,7 +248,6 @@ def evaluate(
 
         scored.append({
             "query_id": question_id,
-            "question_id": question_id,
             "category": cat,
             "prediction": prediction,
             "references": references,
@@ -355,6 +365,13 @@ def main() -> None:
         default=SCORED_OUTPUT_PATH,
         help="Per-question score JSON output.",
     )
+    parser.add_argument(
+        "--queries",
+        type=Path,
+        nargs="*",
+        default=[ROOT_DIR / "data" / "benchmark" / "queries_dev.json"],
+        help="Question files giving each id its category (by_category).",
+    )
     args = parser.parse_args()
 
     evaluate(
@@ -362,6 +379,7 @@ def main() -> None:
         ground_truth_path=args.ground_truth,
         metrics_output_path=args.metrics_output,
         scored_output_path=args.scored_output,
+        queries_paths=args.queries,
     )
 
 

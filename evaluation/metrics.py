@@ -102,27 +102,33 @@ def load_gold(ground_truth_path: str | Path) -> dict[str, set[str]]:
 # ----------------------------------------------------------------------
 # Metric cho CẢ TẬP
 # ----------------------------------------------------------------------
+def load_categories(queries_paths: Sequence[str | Path]) -> dict[str, str]:
+    """Đọc category theo id từ các file câu hỏi được truyền vào; lỗi đọc file thì báo lỗi."""
+    categories: dict[str, str] = {}
+    for path in queries_paths:
+        for position, row in enumerate(_read_json_array(path), start=1):
+            if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+                raise ValueError(f"{path}: phần tử thứ {position} thiếu id hợp lệ.")
+            if row.get("category"):
+                categories[row["id"]] = row["category"]
+    return categories
+
+
 def evaluate(
     results_path: str | Path,
     ground_truth_path: str | Path,
     output_path: str | Path | None = None,
     ks: Sequence[int] = DEFAULT_KS,
+    queries_paths: Sequence[str | Path] = (),
 ) -> dict[str, Any]:
     """Chấm điểm file kết quả retrieval so với ground_truth.json.
 
     Chỉ chấm những câu có trong file kết quả. Câu có gold rỗng (chưa map)
-    được bỏ qua và ghi lại trong 'skipped'.
+    được bỏ qua và ghi lại trong 'skipped'. Mỗi kết quả phải có ``query_id``
+    (docs/sprint6_benchmark.md mục 10). Số đo theo category lấy category từ
+    kết quả hoặc từ ``queries_paths``.
     """
-    ROOT_DIR = Path(__file__).resolve().parents[1]
-    categories_by_id: dict[str, str] = {}
-    for qpath in (ROOT_DIR / "data" / "benchmark" / "queries_dev.json", ROOT_DIR / "data" / "benchmark" / "queries_test.json"):
-        if qpath.is_file():
-            try:
-                for qrow in json.loads(qpath.read_text(encoding="utf-8")):
-                    if isinstance(qrow, dict) and "id" in qrow and "category" in qrow:
-                        categories_by_id[qrow["id"]] = qrow["category"]
-            except Exception:
-                pass
+    categories_by_id = load_categories(queries_paths)
 
     gold_by_id = load_gold(ground_truth_path)
     results = _read_json_array(results_path)
@@ -131,9 +137,11 @@ def evaluate(
     skipped: list[str] = []
 
     for item in results:
-        question_id = item.get("query_id") or item.get("question_id")
+        question_id = item.get("query_id")
         if not question_id:
-            raise ValueError(f"Mỗi kết quả phải có query_id hoặc question_id: {item}")
+            if "question_id" in item:
+                raise ValueError(f"Kết quả dùng question_id; đầu ra phải dùng query_id: {item.get('question_id')}")
+            raise ValueError(f"Mỗi kết quả phải có query_id: {item}")
         if question_id not in gold_by_id:
             raise ValueError(
                 f"Câu hỏi {question_id!r} có trong kết quả nhưng không có trong "
@@ -145,7 +153,7 @@ def evaluate(
             continue
 
         scores = score_question(item["retrieved_chunk_ids"], gold, ks)
-        entry = {"query_id": question_id, "question_id": question_id, **scores}
+        entry = {"query_id": question_id, **scores}
         cat = item.get("category") or categories_by_id.get(question_id)
         if cat:
             entry["category"] = cat
@@ -154,7 +162,7 @@ def evaluate(
     if not per_question:
         raise ValueError("Không có câu hỏi nào có gold để chấm điểm.")
 
-    metric_names = [key for key in per_question[0] if key not in ("question_id", "query_id", "category")]
+    metric_names = [key for key in per_question[0] if key not in ("query_id", "category")]
     average = {
         name: sum(row[name] for row in per_question) / len(per_question)
         for name in metric_names

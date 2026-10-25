@@ -203,7 +203,16 @@ def build_bm25_index(
 
 
 def main() -> None:
-    build_bm25_index()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Dựng index BM25 Elasticsearch từ corpus chunk.")
+    parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS_FILE)
+    parser.add_argument("--es-url", default=None, help="Mặc định lấy từ ELASTICSEARCH_URL")
+    parser.add_argument("--index", default=None, help="Mặc định lấy từ ELASTICSEARCH_INDEX")
+    parser.add_argument("--recreate", action="store_true",
+                        help="Xóa index cũ trước khi nạp, để không còn chunk của corpus trước")
+    args = parser.parse_args()
+    build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate)
 
 
 if __name__ == "__main__":

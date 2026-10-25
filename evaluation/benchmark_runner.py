@@ -25,5 +25,5 @@ def run_benchmark_bm25(
     metrics_path.parent.mkdir(parents=True, exist_ok=True)
 
     run_bm25(queries_path, results_path, top_k=top_k)
-    evaluate(results_path, ground_truth_path, metrics_path)
+    evaluate(results_path, ground_truth_path, metrics_path, queries_paths=[queries_path])
 

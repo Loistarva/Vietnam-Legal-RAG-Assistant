@@ -73,7 +73,7 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--dense-model", default=None, help="Ghi đè dense.model của retrieval/config.yaml")
     parser.add_argument("--output", type=Path, default=None, help="Ghi JSON ra file thay vì stdout")
     parser.add_argument("--eval-output", type=Path, default=None,
-                        help="Ghi thêm [{question_id, retrieved_chunk_ids}] cho evaluation.metrics.evaluate (Dev 2)")
+                        help="Ghi thêm [{query_id, retrieved_chunk_ids}] cho evaluation.metrics.evaluate (Dev 2)")
     parser.add_argument("--allow-test-split", action="store_true",
                         help="Cho phép chạy trên Test set (chỉ dùng cho lần đánh giá chính thức đã khóa cấu hình)")
     parser.add_argument("--log-level", default="INFO", choices=("DEBUG", "INFO", "WARNING", "ERROR"))

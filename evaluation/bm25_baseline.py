@@ -13,9 +13,6 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-# Sửa "retrieval" cho đúng tên thư mục thật chứa build_bm25_index.py
-from retrieval.build_bm25_index import build_bm25_index  # noqa: E402
-
 
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 DEFAULT_INDEX = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
@@ -183,9 +180,12 @@ def run_bm25(
     index_name: str = DEFAULT_INDEX,
     top_k: int = 5,
 ) -> list[dict[str, Any]]:
-    """Build index -> đọc tập câu hỏi -> chạy BM25 cho toàn bộ -> lưu kết quả."""
-    build_bm25_index()
+    """Đọc tập câu hỏi -> chạy BM25 trên index có sẵn -> lưu kết quả.
 
+    Không dựng index ở đây: dựng một lần bằng
+    ``python -m retrieval.build_bm25_index`` (recreate=True khi corpus đổi), để
+    es_url/index_name truyền vào luôn trỏ đúng index đã dựng và chunk cũ không tích tụ.
+    """
     questions = load_questions(questions_path)
     retriever = BM25Retriever(es_url=es_url, index_name=index_name)
     try:
