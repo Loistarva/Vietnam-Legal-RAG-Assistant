@@ -31,8 +31,7 @@ class HybridRetrieverTest(unittest.TestCase):
         self.assertEqual(client.kwargs["size"], 4)
         multi_match = client.kwargs["query"]["bool"]["must"][0]["multi_match"]
         self.assertEqual(multi_match["query"], "Điều 5")
-        self.assertIn("content_segmented", multi_match["fields"])
-        self.assertIn("article_ref^4", multi_match["fields"])
+        self.assertEqual(multi_match["fields"], ["content_segmented", "breadcrumb^1.5"])
         self.assertEqual(results, [{
             "chunk_id": "chunk-a",
             "document_id": "",
@@ -229,6 +228,32 @@ class HybridRetrieverTest(unittest.TestCase):
 
         with self.assertRaisesRegex(RuntimeError, "Embedding service unavailable"):
             hybrid_search("query", BM25(), Embedder(), Dense())
+
+    def test_cache_key_separates_metadata_filters_and_fusion_settings(self):
+        class Static:
+            def search(self, query, top_k):
+                return [hit("a"), hit("b")]
+
+        class DictCache(dict):
+            def set(self, key, value):
+                self[key] = value
+
+        class KeepOnly:
+            def __init__(self, chunk_id):
+                self.cache_key = f"keep:{chunk_id}"
+                self.chunk_id = chunk_id
+
+            def __call__(self, hits):
+                return [h for h in hits if h["chunk_id"] == self.chunk_id]
+
+        cache = DictCache()
+        only_a = HybridRetriever(Static(), Static(), metadata_filter=KeepOnly("a"), cache=cache)
+        only_b = HybridRetriever(Static(), Static(), metadata_filter=KeepOnly("b"), cache=cache)
+        other_rrf = HybridRetriever(Static(), Static(), HybridSearchConfig(rrf_k=10), cache=cache)
+        self.assertEqual([h["chunk_id"] for h in only_a.search("q", top_k=2)], ["a"])
+        self.assertEqual([h["chunk_id"] for h in only_b.search("q", top_k=2)], ["b"])
+        other_rrf.search("q", top_k=2)
+        self.assertEqual(len(cache), 3)
 
 
 if __name__ == "__main__":

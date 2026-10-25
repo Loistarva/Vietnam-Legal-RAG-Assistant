@@ -5,6 +5,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -14,6 +15,7 @@ if str(ROOT) not in sys.path:
 
 from embedding.dense_retriever import DEFAULT_MODEL_NAME, MODEL_DIMENSIONS, DenseRetriever
 from embedding.vector_store import LegalVectorStore
+from reranking.pipeline import to_contract_result
 from retrieval.hybrid_retriever import (
     ElasticsearchBM25Retriever,
     HybridRetriever,
@@ -21,7 +23,8 @@ from retrieval.hybrid_retriever import (
 )
 
 
-def read_queries(path: Path) -> list[str]:
+def read_queries(path: Path) -> list[tuple[str, str]]:
+    """Return (query_id, query) pairs; query_id is the benchmark ``id`` (or ``query_id``)."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -30,11 +33,17 @@ def read_queries(path: Path) -> list[str]:
         raise ValueError("Dev set phải là JSON list không rỗng")
     queries = []
     for index, row in enumerate(data, 1):
-        query = (row if isinstance(row, str) else
-                 (row.get("query") or row.get("question")) if isinstance(row, dict) else None)
+        if not isinstance(row, dict):
+            raise ValueError(f"Dev query #{index} phải là object có id và question")
+        query_id = row.get("id") or row.get("query_id")
+        query = row.get("query") or row.get("question")
+        if not isinstance(query_id, str) or not query_id.strip():
+            raise ValueError(f"Dev query #{index} thiếu id")
         if not isinstance(query, str) or not query.strip():
-            raise ValueError(f"Dev query #{index} phải là chuỗi hoặc object có query không rỗng")
-        queries.append(query.strip())
+            raise ValueError(f"Dev query {query_id} thiếu question không rỗng")
+        queries.append((query_id.strip(), query.strip()))
+    if len({query_id for query_id, _ in queries}) != len(queries):
+        raise ValueError("Dev query file có id trùng lặp")
     return queries
 
 
@@ -60,16 +69,29 @@ def count_chunks(path: Path) -> int:
     return len(chunks)
 
 
-def compact(method: str, query: str, hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    score_key = "rrf_score" if method == "hybrid" else "score"
-    return [{"query": query, "chunk_id": hit["chunk_id"], "score": hit[score_key], "rank": rank}
-            for rank, hit in enumerate(hits, 1)]
+def to_envelope(method: str, query_id: str, query: str, hits: list[dict[str, Any]],
+                config: dict[str, Any], latency_ms: float) -> dict[str, Any]:
+    """One RetrievalEnvelope per query and method (data_contract.md mục 5.4)."""
+    results = []
+    for rank, hit in enumerate(hits, 1):
+        row = to_contract_result(hit)
+        row["rank"] = rank
+        results.append(row)
+    return {
+        "query_id": query_id,
+        "query": query,
+        "retriever": method,
+        "results": results,
+        "latency_ms": latency_ms,
+        "top_k": config["top_k"],
+        "config": config,
+    }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", type=Path, default=ROOT / "data" / "benchmark" / "queries_dev.json",
-                        help='JSON list of query strings or objects: [{"query":"..."}]')
+                        help='Benchmark query file: JSON list of objects with id and question')
     parser.add_argument("--chunks", type=Path,
                         default=ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json")
     parser.add_argument("--model", default=DEFAULT_MODEL_NAME,
@@ -117,18 +139,25 @@ def main() -> int:
         config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
         hybrid_retriever = HybridRetriever(sparse, dense, config)
 
+        run_config = {
+            "top_k": args.top_k, "candidate_k": args.candidate_k, "rrf_k": args.rrf_k,
+            "dense_model": args.model, "collection": collection,
+            "elasticsearch_index": args.elasticsearch_index, "chunks": str(args.chunks),
+        }
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
-        for query in queries:
+        for query_id, query in queries:
+            started = time.perf_counter()
             ranked = hybrid_retriever.retrieve(query)
-            saved["bm25"].extend(compact("bm25", query, ranked["bm25"]))
-            saved["dense"].extend(compact("dense", query, ranked["dense"]))
-            saved["hybrid"].extend(compact("hybrid", query, ranked["hybrid"]))
+            latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
+            for method in saved:
+                saved[method].append(to_envelope(method, query_id, query, ranked[method], run_config, latency_ms))
 
         args.output_dir.mkdir(parents=True, exist_ok=True)
-        for method, rows in saved.items():
+        for method, envelopes in saved.items():
             destination = args.output_dir / f"dev_{method}.json"
-            destination.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
-            print(f"{method}: {len(rows)} hits / {len(queries)} queries -> {destination}")
+            destination.write_text(json.dumps(envelopes, ensure_ascii=False, indent=2), encoding="utf-8")
+            hits = sum(len(envelope["results"]) for envelope in envelopes)
+            print(f"{method}: {hits} hits / {len(envelopes)} queries -> {destination}")
         return 0
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

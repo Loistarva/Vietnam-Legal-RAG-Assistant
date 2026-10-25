@@ -42,8 +42,9 @@ class ElasticsearchBM25Retriever:
             "bool": {
                 "must": [{"multi_match": {
                     "query": query,
-                    "fields": [self.text_field, "breadcrumb^1.5", "article_ref^4",
-                               "metadata.article_number^4", "metadata.clause_ref^2"],
+                    # article_ref, metadata.article_number (keyword "8") và metadata.clause_ref
+                    # (không có giá trị trong index) không khớp câu hỏi nào, nên không đưa vào.
+                    "fields": [self.text_field, "breadcrumb^1.5"],
                     "type": "most_fields",
                     "operator": "or",
                 }}],
@@ -88,34 +89,6 @@ class ElasticsearchBM25Retriever:
                 "metadata": meta,
             })
         return rows
-
-
-class CrossEncoderReranker:
-    """Lazy bge-reranker-v2-m3 adapter; scores the RRF candidate pool."""
-
-    def __init__(self, model_name: str = "BAAI/bge-reranker-v2-m3", model: Any = None):
-        self.model_name, self._model = model_name, model
-
-    @property
-    def model(self) -> Any:
-        if self._model is None:
-            try:
-                from sentence_transformers import CrossEncoder
-            except ImportError as exc:
-                raise RuntimeError("Cần cài sentence-transformers để dùng cross-encoder reranker") from exc
-            self._model = CrossEncoder(self.model_name)
-        return self._model
-
-    def rerank(self, query: str, hits: Sequence[dict[str, Any]], top_k: int) -> list[dict[str, Any]]:
-        if not hits:
-            return []
-        scores = self.model.predict([(query, hit.get("chunk_text") or hit.get("text", "")) for hit in hits])
-        ranked = []
-        for hit, score in zip(hits, scores):
-            row = dict(hit)
-            row["reranker_score"] = float(score)
-            ranked.append(row)
-        return sorted(ranked, key=lambda row: (-row["reranker_score"], row["chunk_id"]))[:top_k]
 
 
 def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None = None,
@@ -244,7 +217,20 @@ class HybridRetriever:
         if self.cache is not None:
             import hashlib
             normalized = " ".join(query.casefold().split())
-            cache_key = hashlib.sha256(f"{normalized}|top_k={requested_top_k}".encode("utf-8")).hexdigest()
+            # Kết quả phụ thuộc cả cấu hình fusion, bộ lọc metadata và reranker, nên khóa cache gồm
+            # cả ba; bộ lọc/reranker nên khai báo cache_key ổn định, nếu không thì dùng tên lớp.
+            def component_key(component: Any) -> str:
+                if component is None:
+                    return "none"
+                return str(getattr(component, "cache_key", None) or getattr(component, "__qualname__", None)
+                           or type(component).__qualname__)
+
+            key_text = "|".join([
+                normalized, f"top_k={requested_top_k}", f"candidate_k={self.config.candidate_k}",
+                f"rrf_k={self.config.rrf_k}", f"filter={component_key(self.metadata_filter)}",
+                f"reranker={component_key(self.reranker)}",
+            ])
+            cache_key = hashlib.sha256(key_text.encode("utf-8")).hexdigest()
             cached = self.cache.get(cache_key)
             if cached is not None:
                 return cached
