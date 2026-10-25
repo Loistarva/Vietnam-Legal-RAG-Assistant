@@ -32,8 +32,10 @@ from reranking.pipeline import (  # noqa: E402
     build_mock_dense_retriever,
     load_retrieval_settings,
 )
+from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
 
+logger = logging.getLogger("run_retrieval")
 RETRIEVERS = ("mock", "fixture", "hybrid")
 DEFAULT_CANDIDATES = ROOT / "test" / "fixtures" / "reranker_candidates.json"
 DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
@@ -50,6 +52,11 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     source.add_argument("--queries", type=Path,
                         help="JSON list câu hỏi (chuỗi hoặc object có id/query_id và question/query)")
     parser.add_argument("--query-id", default="Q_CLI_001", help="query_id cho chế độ --query")
+    parser.add_argument("--as-of-date", default=None,
+                        help="Thời điểm áp dụng luật (YYYY-MM-DD) cho --query, và cho các câu của --queries "
+                             "không có as_of_date")
+    parser.add_argument("--no-parent-context", action="store_true",
+                        help="Tắt Parent-Context Resolver (mặc định theo parent_context.enabled)")
     parser.add_argument("--top-k", type=int, default=None,
                         help="Số kết quả trả về (mặc định: rerank_top_k trong reranking/config.yaml)")
     parser.add_argument("--retriever", choices=RETRIEVERS, default="mock",
@@ -80,8 +87,12 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str]]:
-    """Return (query_id, question) pairs; refuse the frozen Test set unless explicitly allowed."""
+def read_queries(path: Path, *, allow_test_split: bool,
+                 default_as_of_date: str | None = None) -> list[tuple[str, str, str | None]]:
+    """Return (query_id, question, as_of_date) triples; refuse the frozen Test set unless explicitly allowed.
+
+    ``as_of_date`` comes from the question row (benchmark field), else ``default_as_of_date``.
+    """
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -94,11 +105,13 @@ def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str]]
         raise InputError("Test set đang đóng băng; chỉ tuning trên Dev set (thêm --allow-test-split cho lần chạy chính thức)")
     queries, seen = [], set()
     for index, row in enumerate(data, 1):
+        as_of_date = default_as_of_date
         if isinstance(row, str):
             query_id, question = f"Q_{index:03d}", row
         elif isinstance(row, dict):
             query_id = row.get("query_id") or row.get("id") or f"Q_{index:03d}"
             question = row.get("question") or row.get("query")
+            as_of_date = row.get("as_of_date") or default_as_of_date
         else:
             query_id, question = None, None
         if not isinstance(question, str) or not question.strip():
@@ -106,7 +119,7 @@ def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str]]
         if query_id in seen:
             raise InputError(f"query_id bị trùng: {query_id}")
         seen.add(query_id)
-        queries.append((str(query_id), question))
+        queries.append((str(query_id), question, as_of_date))
     return queries
 
 
@@ -122,6 +135,13 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         max_candidates=args.max_candidates,
     )
     reranker = build_reranker(reranker_config)
+    parent_config = load_parent_context_config(args.config, enabled=False if args.no_parent_context else None)
+    parent_resolver = ParentContextResolver.from_config(parent_config) if parent_config.enabled else None
+    if args.retriever in ("mock", "fixture"):
+        logger.warning("--retriever %s: candidate không đến từ truy xuất thật, thứ hạng không mang nghĩa", args.retriever)
+    if reranker is not None and reranker.backend == "mock":
+        logger.warning("Reranker backend mock: điểm là tỉ lệ token trùng, không phải mô hình liên quan "
+                       "(dùng --reranker cross_encoder cho số đo thật)")
 
     retriever_settings: dict[str, Any] = {}
     if args.retriever == "fixture":
@@ -138,7 +158,8 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=args.collection)
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
-                             retriever_name=args.retriever, retriever_settings=retriever_settings)
+                             retriever_name=args.retriever, retriever_settings=retriever_settings,
+                             parent_resolver=parent_resolver)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -149,11 +170,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.query is not None:
             if not args.query.strip():
                 raise InputError("--query không được rỗng")
-            queries = [(args.query_id, args.query)]
+            queries = [(args.query_id, args.query, args.as_of_date)]
         else:
-            queries = read_queries(args.queries, allow_test_split=args.allow_test_split)
+            queries = read_queries(args.queries, allow_test_split=args.allow_test_split,
+                                   default_as_of_date=args.as_of_date)
         pipeline = build_pipeline(args)
-        outputs = [pipeline.run(question, args.top_k, query_id=query_id) for query_id, question in queries]
+        outputs = [pipeline.run(question, args.top_k, query_id=query_id, as_of_date=as_of_date)
+                   for query_id, question, as_of_date in queries]
     except PipelineError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

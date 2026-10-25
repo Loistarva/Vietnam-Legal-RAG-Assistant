@@ -3,21 +3,27 @@
 ``RetrievalPipeline.run`` fetches ``retrieval_top_k`` candidates from any
 retriever exposing ``search(query, top_k)`` (HybridRetriever, DenseRetriever, a
 stub), maps them to the shared retrieval result (Sprint 6 section 4.3), reranks
-them and returns ``{"query_id", "retriever", "results", ...}``.
+them, attaches parent context (``reranking.parent_context``) and returns
+``{"query_id", "retriever", "results", ...}``. ``as_of_date`` is passed to the
+retriever when its ``search`` accepts that keyword; the envelope config records
+whether the results were filtered by date.
 
 Retriever and reranker errors propagate as ``PipelineError``; they are never
 turned into empty results, so ``results: []`` always means "nothing found".
 """
 from __future__ import annotations
 
+import inspect
 import json
 import logging
 import os
 import time
 from collections.abc import Mapping
+from datetime import date
 from pathlib import Path
 from typing import Any, Protocol, Sequence
 
+from reranking.parent_context import ParentContextResolver
 from reranking.reranker import Reranker, deduplicate_candidates
 
 logger = logging.getLogger(__name__)
@@ -116,17 +122,39 @@ def to_contract_result(hit: Mapping[str, Any]) -> dict[str, Any]:
     return row
 
 
+def _parse_as_of_date(value: str | None) -> str | None:
+    if value is None:
+        return None
+    try:
+        return date.fromisoformat(str(value)).isoformat()
+    except ValueError as exc:
+        raise ValueError(f"as_of_date phải có dạng YYYY-MM-DD, nhận được {value!r}") from exc
+
+
+def _accepts_keyword(function: Any, name: str) -> bool:
+    try:
+        parameters = inspect.signature(function).parameters.values()
+    except (TypeError, ValueError):
+        return False
+    return any(p.name == name or p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters)
+
+
 class RetrievalPipeline:
-    """Retriever -> contract mapping -> optional Reranker -> ranked top-k envelope."""
+    """Retriever -> contract mapping -> optional Reranker -> optional Parent-Context Resolver -> envelope."""
 
     def __init__(self, retriever: CandidateRetriever, reranker: Reranker | None = None, *,
                  retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K, retriever_name: str = "hybrid",
-                 retriever_settings: Mapping[str, Any] | None = None):
+                 retriever_settings: Mapping[str, Any] | None = None,
+                 parent_resolver: ParentContextResolver | None = None):
         self.retriever = retriever
         self.reranker = reranker
         self.retrieval_top_k = _require_positive_int("retrieval_top_k", retrieval_top_k)
         self.retriever_name = retriever_name
         self.retriever_settings = dict(retriever_settings or {})
+        self.parent_resolver = parent_resolver
+        # The temporal pre-filter belongs to the retriever (E1); it receives as_of_date only
+        # when its search() declares that keyword.
+        self.retriever_takes_as_of_date = _accepts_keyword(retriever.search, "as_of_date")
 
     @property
     def name(self) -> str:
@@ -136,18 +164,30 @@ class RetrievalPipeline:
     def default_top_k(self) -> int:
         return self.reranker.rerank_top_k if self.reranker else min(5, self.retrieval_top_k)
 
-    def run(self, query: str, top_k: int | None = None, *, query_id: str = "Q_CLI_001") -> dict[str, Any]:
+    def run(self, query: str, top_k: int | None = None, *, query_id: str = "Q_CLI_001",
+            as_of_date: str | None = None) -> dict[str, Any]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
+        as_of_date = _parse_as_of_date(as_of_date)
         top_k = self.default_top_k if top_k is None else _require_positive_int("top_k", top_k)
         limit = min(self.retrieval_top_k, self.reranker.max_candidates) if self.reranker else self.retrieval_top_k
         if top_k > limit:
             raise ValueError(f"top_k ({top_k}) không được lớn hơn số candidate được xếp hạng ({limit})")
         query = query.strip()
 
+        if as_of_date is None or self.retriever_takes_as_of_date:
+            temporal_filter = "retriever" if as_of_date else None
+        else:
+            temporal_filter = "not_supported_by_retriever"
+            logger.warning("Retriever %s không nhận as_of_date; kết quả chưa lọc theo thời điểm %s",
+                           self.retriever_name, as_of_date)
+
         started = time.perf_counter()
         try:
-            hits = self.retriever.search(query, self.retrieval_top_k)
+            if as_of_date is not None and self.retriever_takes_as_of_date:
+                hits = self.retriever.search(query, self.retrieval_top_k, as_of_date=as_of_date)
+            else:
+                hits = self.retriever.search(query, self.retrieval_top_k)
             if not isinstance(hits, list):
                 raise TypeError(f"retriever phải trả list, nhận được {type(hits).__name__}")
             candidates = [to_contract_result(hit) for hit in hits]
@@ -170,11 +210,16 @@ class RetrievalPipeline:
             rerank_stats = {"duplicates_removed": duplicates}
         for rank, row in enumerate(final, 1):
             row["rank"] = rank
+        parent_stats: dict[str, Any] = {}
+        if self.parent_resolver is not None:
+            final = self.parent_resolver.resolve(final)
+            parent_stats = {"parent_context": dict(self.parent_resolver.last_stats)}
         finished = time.perf_counter()
 
         stats = {
             "retrieved_candidates": len(candidates),
             **rerank_stats,
+            **parent_stats,
             "returned": len(final),
             "retrieval_latency_ms": round((retrieved_at - started) * 1000.0, 3),
             "total_latency_ms": round((finished - started) * 1000.0, 3),
@@ -192,6 +237,9 @@ class RetrievalPipeline:
                 "retriever": {"backend": self.retriever_name, "retrieval_top_k": self.retrieval_top_k,
                               **self.retriever_settings},
                 "reranker": self.reranker.describe() if self.reranker else None,
+                "parent_context": self.parent_resolver.describe() if self.parent_resolver else None,
+                "as_of_date": as_of_date,
+                "temporal_filter": temporal_filter,
                 "top_k": top_k,
             },
             "stats": stats,

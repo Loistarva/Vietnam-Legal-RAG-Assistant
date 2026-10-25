@@ -240,7 +240,8 @@ class BuildRerankerTest(unittest.TestCase):
         reranker = build_reranker(RerankerConfig(rerank_top_k=3, max_candidates=10))
         self.assertIsInstance(reranker.scorer, MockScorer)
         self.assertEqual(reranker.describe(), {"backend": "mock", "model": None,
-                                               "rerank_top_k": 3, "max_candidates": 10})
+                                               "rerank_top_k": 3, "max_candidates": 10,
+                                               "candidate_text": "chunk_text"})
 
     def test_cross_encoder_backend_does_not_load_model_eagerly(self):
         reranker = build_reranker(RerankerConfig(backend="cross_encoder", batch_size=8, max_length=256))

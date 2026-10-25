@@ -221,7 +221,8 @@ class HybridRerankerPipelineTest(unittest.TestCase):
     def test_run_records_config_and_latency(self):
         output, _, _ = self.run_pipeline()
         self.assertEqual(output["config"]["reranker"], {"backend": "mock", "model": None,
-                                                        "rerank_top_k": 5, "max_candidates": 10})
+                                                        "rerank_top_k": 5, "max_candidates": 10,
+                                                        "candidate_text": "chunk_text"})
         self.assertEqual(output["config"]["retriever"]["retrieval_top_k"], 20)
         self.assertEqual(output["config"]["top_k"], 3)
         for key in ("retrieval_latency_ms", "rerank_latency_ms", "total_latency_ms"):

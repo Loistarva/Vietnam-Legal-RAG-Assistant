@@ -246,6 +246,12 @@
             "null"
           ]
         },
+        "parent_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "point_ref": {
           "type": [
             "string",

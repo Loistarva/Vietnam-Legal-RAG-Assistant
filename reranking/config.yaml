@@ -16,3 +16,14 @@ reranker:
   max_length: 512
   # null: để sentence-transformers tự chọn (cuda nếu có, ngược lại cpu).
   device: null
+  # Văn bản đưa vào scorer: chunk_text, hoặc breadcrumb_chunk_text (breadcrumb Chương > Điều > Khoản
+  # rồi chunk_text). Giữ chunk_text cho tới khi đo hai cách trên gold đã duyệt của Dev set (G5).
+  candidate_text: chunk_text
+
+# Parent-Context Resolver: chạy sau reranker, gắn parent_id và parent_text cho từng kết quả.
+# Con cùng parent chỉ kết quả hạng cao nhất mang parent_text; dừng gắn khi tổng ngữ cảnh vượt
+# max_context_chars (top-5 Hybrid trên Dev: trung vị khoảng 2.850, p90 khoảng 4.200 ký tự).
+parent_context:
+  enabled: true
+  parents_file: data/chunking_output/parents.json
+  max_context_chars: 6000
