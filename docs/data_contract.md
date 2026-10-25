@@ -46,6 +46,20 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 | `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ").                                                                                  |
 | `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]`. |
 
+**Ánh xạ trạng thái từ registry (`data/reference/document_versions.json`):**
+
+Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `status` và giá trị đã ánh xạ ở `validity_status`. Parser chỉ đọc `validity_status`. Mọi bản ghi phải theo bảng dưới (kiểm bởi `tests/schema_test.py::test_registry_validity_status_mapping`):
+
+| `status` (registry) | `validity_status` | Ghi chú |
+| :--- | :--- | :--- |
+| Còn hiệu lực | Còn hiệu lực | |
+| Hết hiệu lực toàn bộ | Hết hiệu lực | Bắt buộc có `expiry_date`. |
+| Hết hiệu lực một phần | Sửa đổi bổ sung | Phần lớn văn bản còn áp dụng; chưa ghi Điều/Khoản nào hết hiệu lực (`provision_status = requires_review`). |
+| Có điều khoản bị sửa đổi / bãi bỏ | Sửa đổi bổ sung | |
+| Cần kiểm tra trạng thái mới nhất | Không xác định | Exporter cảnh báo khi gặp giá trị này. |
+
+`Sắp có hiệu lực` dành cho văn bản có `effective_date` sau ngày xuất corpus; hiện chưa bản ghi nào dùng. `validity_status` dùng để hiển thị và trích dẫn, không dùng để lọc: retrieval lọc theo khoảng `effective_from`/`effective_to` của chunk (mục 5.3) so với thời điểm của câu hỏi, vì văn bản hết hiệu lực vẫn là đáp án đúng cho câu hỏi về thời điểm trước `expiry_date`.
+
 ### 3.2. Cấp độ Article (Điều luật)
 *Nhóm logic cung cấp ngữ cảnh cha cho các Khoản bên trong.*
 

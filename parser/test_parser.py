@@ -48,8 +48,18 @@ def run_cleaner() -> None:
 
     import cleaner
 
-    total = cleaner.process_all_pdfs()
-    print(f"Đã xử lý {total} file PDF.")
+    # cleaner.py cung cấp run_cleaner(), trả về thống kê dạng dict.
+    result = cleaner.run_cleaner()
+    print(
+        "Kết quả cleaner: "
+        f"{result.get('succeeded', 0)} thành công, "
+        f"{result.get('skipped', 0)} bỏ qua, "
+        f"{result.get('failed', 0)} cần kiểm tra "
+        f"(tổng {result.get('total', 0)} file PDF)."
+    )
+
+    if result.get("failed", 0) > 0:
+        print("[cảnh báo] Có PDF chưa xử lý thành công; xem log cleaner để biết chi tiết.")
 
 
 def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
@@ -132,9 +142,7 @@ def parse_one_file(txt_path: Path, show_report: bool = True) -> Path:
     metadata = legal_parser.extract_metadata(raw_text, str(txt_path))
     metadata_warnings = list(legal_parser.WARNINGS)
 
-    doc_id = legal_parser.build_document_id(
-        metadata["document_type"], metadata["document_number"]
-    )
+    doc_id = legal_parser.resolve_document_id(metadata)
 
     doc = legal_parser.parse_raw_text_to_legal_doc(raw_text, doc_id, metadata)
 

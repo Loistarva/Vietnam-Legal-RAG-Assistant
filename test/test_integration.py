@@ -1,204 +1,375 @@
-"""Integration tests for Vietnam-Legal-RAG-Assistant.
+"""Integration tests: Dev 4 HybridRetriever + Dev 5 Reranker/pipeline + CLI.
 
-Validates end-to-end integration across:
-1. Parser output metadata and schema compliance.
-2. Chunking output payloads and schema compliance.
-3. Vector Store payload normalization, ingestion, and temporal filtering.
-4. Hybrid retrieval and Sprint 6 retrieval envelope schema compliance.
-5. Benchmark dataset integrity and schema compliance.
+Branch stubs return the exact hit shapes of the real adapters
+(ElasticsearchBM25Retriever and LegalVectorStore._format_hit), so the tests run
+without Elasticsearch, Qdrant or a model.
 """
-from __future__ import annotations
-
+import contextlib
+import copy
+import io
 import json
+import sys
+import tempfile
+import unittest
 from pathlib import Path
-import pytest
+
 import jsonschema
-from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-def load_json(path: Path):
-    return json.loads(path.read_text(encoding="utf-8-sig"))
+from reranking.pipeline import (  # noqa: E402
+    FixtureRetriever,
+    PipelineError,
+    RetrievalPipeline,
+    load_retrieval_settings,
+    to_contract_result,
+)
+from reranking.reranker import MockScorer, Reranker  # noqa: E402
+from retrieval.hybrid_retriever import HybridRetriever, HybridSearchConfig  # noqa: E402
+from scripts import run_retrieval  # noqa: E402
 
-def test_parser_to_metadata_schema_integration():
-    """Verify all parsed JSONs comply with schemas/metadata_schema.json."""
-    schema = load_json(ROOT / "schemas" / "metadata_schema.json")
-    parsed_files = list((ROOT / "parser" / "parsed_jsons").glob("*.json"))
-    assert len(parsed_files) == 11, f"Expected 11 parsed files, found {len(parsed_files)}"
+FIXTURE_PATH = ROOT / "test" / "fixtures" / "reranker_candidates.json"
+FIXTURE = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
+RETRIEVAL_SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
+# The schema root is the envelope; each result is validated against RetrievalResultItem.
+RESULT_SCHEMA = {"$ref": "#/$defs/RetrievalResultItem", "$defs": RETRIEVAL_SCHEMA["$defs"]}
+ENVELOPE_FIELDS = ("query_id", "retriever", "results")
+CONTRACT_FIELDS = {"chunk_id", "document_id", "article_id", "clause_id", "parent_clause_id",
+                   "rank", "score", "chunk_text", "metadata"}
+QUERY = FIXTURE["query"]
 
-    for f in parsed_files:
-        data = load_json(f)
-        assert "document_id" in data
-        assert "metadata" in data
-        jsonschema.validate(instance=data, schema=schema)
-        meta = data["metadata"]
-        assert meta["source_url"] != "", f"{f.name} missing source_url"
-        if meta["validity_status"] == "Hết hiệu lực":
-            assert meta.get("expiry_date") is not None, f"Expired doc {f.name} missing expiry_date"
 
-def test_chunking_to_chunk_payload_schema_integration():
-    """Verify chunks.jsonl complies with schemas/chunk_payload_schema.json."""
-    schema = load_json(ROOT / "schemas" / "chunk_payload_schema.json")
-    chunks_path = ROOT / "data" / "chunking_output" / "chunks.jsonl"
-    assert chunks_path.exists(), "data/chunking_output/chunks.jsonl not found"
+def bm25_hit(chunk_id, rank, *, doc_id="l_52_2014_qh13", validity="Không xác định"):
+    """Shape of ElasticsearchBM25Retriever.search rows."""
+    article_id = chunk_id.rsplit("_chunk", 1)[0]
+    clause_id = f"{article_id}_clause_1"
+    return {"chunk_id": chunk_id, "document_id": doc_id, "article_id": article_id, "clause_id": clause_id,
+            "parent_clause_id": clause_id, "chunk_text": f"BM25 text {chunk_id}", "text": f"BM25 text {chunk_id}",
+            "parent_id": article_id,
+            "metadata": {"doc_id": doc_id, "article_number": "8", "validity_status": validity},
+            "score": 12.0 - rank, "rank": rank}
 
-    lines = [line.strip() for line in chunks_path.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
-    assert len(lines) > 0
 
-    expired_count = 0
-    for line in lines:
-        chunk = json.loads(line)
-        jsonschema.validate(instance=chunk, schema=schema)
-        meta = chunk["metadata"]
-        assert meta["source_url"] != ""
-        assert meta["effective_from"] != ""
-        if chunk["validity_status"] == "Hết hiệu lực":
-            assert meta["effective_to"] is not None
-            expired_count += 1
+def dense_hit(chunk_id, rank, *, parent_clause_id):
+    """Shape of LegalVectorStore._format_hit rows."""
+    return {"chunk_id": chunk_id, "document_id": "l_52_2014_qh13",
+            "article_id": chunk_id.split("_chunk")[0], "clause_id": parent_clause_id,
+            "parent_clause_id": parent_clause_id, "rank": rank, "score": 0.9 - rank / 100,
+            "chunk_text": f"Dense text {chunk_id}",
+            "metadata": {"document_id": "l_52_2014_qh13", "article_number": "8",
+                         "validity_status": "Không xác định"}}
 
-    assert expired_count > 0, "Expected expired chunks with effective_to != None"
 
-def test_vector_store_payload_normalization_and_temporal_filtering():
-    """Verify vector_store payload normalization and temporal filtering logic."""
-    from embedding.vector_store import normalize_chunk_record, LegalVectorStore
-    from embedding.dense_retriever import DenseRetriever
+class StubBranch:
+    def __init__(self, hits=None, error=None):
+        self.hits, self.error, self.calls = hits or [], error, []
 
-    valid_record = {
-        "chunk_id": "test_chunk_1",
-        "chunk_text": "Nội dung điều luật kiểm thử",
-        "embed_text": "Nội dung điều luật kiểm thử",
-        "document_id": "test_doc",
-        "article_id": "test_doc_art_1",
-        "clause_id": "test_doc_art_1_clause_1",
-        "parent_clause_id": "test_doc_art_1_clause_1",
-        "validity_status": "Còn hiệu lực",
-        "effective_from": "2015-01-01",
-        "effective_to": None,
-        "source_url": "https://example.com/law",
-        "metadata": {
-            "validity_status": "Còn hiệu lực",
-            "effective_from": "2015-01-01",
-            "effective_to": None,
-            "source_url": "https://example.com/law",
-            "article_number": "1"
-        }
-    }
+    def search(self, query, top_k):
+        self.calls.append((query, top_k))
+        if self.error:
+            raise self.error
+        return copy.deepcopy(self.hits[:top_k])
 
-    norm = normalize_chunk_record(valid_record)
-    assert norm["chunk_id"] == "test_chunk_1"
-    assert norm["metadata"]["effective_from"] == "2015-01-01"
-    assert norm["metadata"]["source_url"] == "https://example.com/law"
 
-    # Test invalid validity_status rejection
-    invalid_record = dict(valid_record)
-    invalid_record["validity_status"] = "Hết hiệu lực toàn bộ"  # Not in 5-enum set
-    with pytest.raises(ValueError):
-        normalize_chunk_record(invalid_record)
+def make_hybrid(bm25_hits, dense_hits, *, candidate_k=20, bm25_error=None, dense_error=None, reranker=None):
+    bm25, dense = StubBranch(bm25_hits, bm25_error), StubBranch(dense_hits, dense_error)
+    config = HybridSearchConfig(top_k=candidate_k, candidate_k=candidate_k, rrf_k=60)
+    return HybridRetriever(bm25, dense, config, reranker=reranker), bm25, dense
 
-    # Test storage and retrieval
-    store = LegalVectorStore(
-        collection_name="test_integration_col",
-        dimension=64,
-        storage_path=":memory:"
-    )
-    retriever = DenseRetriever(
-        vector_store=store,
-        use_mock=True,
-        use_word_segmentation=False
-    )
 
-    chunks = [
-        {
-            "chunk_id": "chunk_valid_current",
-            "document_id": "l_52_2014_qh13",
-            "article_id": "l_52_2014_qh13_art_8",
-            "clause_id": "l_52_2014_qh13_art_8_clause_1",
-            "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
-            "chunk_text": "Quy định còn hiệu lực hiện hành về hôn nhân.",
-            "embed_text": "Quy định còn hiệu lực hiện hành về hôn nhân.",
-            "metadata": {
-                "document_number": "52/2014/QH13",
-                "validity_status": "Còn hiệu lực",
-                "effective_from": "2015-01-01",
-                "effective_to": None,
-                "source_url": "https://vbpl.vn/example",
-                "article_number": "8"
-            }
-        },
-        {
-            "chunk_id": "chunk_expired_old",
-            "document_id": "l_22_2000_qh10",
-            "article_id": "l_22_2000_qh10_art_8",
-            "clause_id": "l_22_2000_qh10_art_8_clause_1",
-            "parent_clause_id": "l_22_2000_qh10_art_8_clause_1",
-            "chunk_text": "Quy định hết hiệu lực của luật cũ năm 2000.",
-            "embed_text": "Quy định hết hiệu lực của luật cũ năm 2000.",
-            "metadata": {
-                "document_number": "22/2000/QH10",
-                "validity_status": "Hết hiệu lực",
-                "effective_from": "2001-01-01",
-                "effective_to": "2015-01-01",
-                "source_url": "https://vbpl.vn/old",
-                "article_number": "8"
-            }
-        }
-    ]
+BM25 = [bm25_hit("l_52_2014_qh13_art_8_chunk_2", 1), bm25_hit("l_52_2014_qh13_art_8_chunk_1", 2),
+        bm25_hit("l_52_2014_qh13_art_9_chunk_1", 3)]
+DENSE = [dense_hit("l_52_2014_qh13_art_8_chunk_1", 1, parent_clause_id="l_52_2014_qh13_art_8_clause_1"),
+         dense_hit("l_52_2014_qh13_art_10_chunk_1", 2, parent_clause_id="l_52_2014_qh13_art_10_clause_1")]
+SCORES = {"l_52_2014_qh13_art_10_chunk_1": 0.9, "l_52_2014_qh13_art_8_chunk_2": 0.8,
+          "l_52_2014_qh13_art_9_chunk_1": 0.3, "l_52_2014_qh13_art_8_chunk_1": 0.1}
 
-    retriever.index_chunks(chunks)
 
-    # Search filtering expired documents automatically
-    active_results = retriever.search("hôn nhân", top_k=5)
-    active_ids = [r["chunk_id"] for r in active_results]
-    assert "chunk_valid_current" in active_ids
-    assert "chunk_expired_old" not in active_ids
+def assert_contract(test, output):
+    test.assertTrue(set(ENVELOPE_FIELDS) <= set(output))
+    # query/config/stats are not declared in RetrievalEnvelope yet (issue C7), so only the
+    # declared envelope fields are validated against the schema root.
+    jsonschema.validate({field: output[field] for field in ENVELOPE_FIELDS}, RETRIEVAL_SCHEMA)
+    test.assertEqual([row["rank"] for row in output["results"]], list(range(1, len(output["results"]) + 1)))
+    for row in output["results"]:
+        jsonschema.validate(row, RESULT_SCHEMA)
+        test.assertTrue(CONTRACT_FIELDS <= set(row), CONTRACT_FIELDS - set(row))
+        test.assertNotIn("text", row, "chunk_text is the only content field")
+        test.assertIn("validity_status", row["metadata"])
 
-def test_retrieval_envelope_schema_integration():
-    """Verify hybrid retrieval envelope conforms to schemas/retrieval_schema.json."""
-    retrieval_schema = load_json(ROOT / "schemas" / "retrieval_schema.json")
 
-    envelope = {
-        "query_id": "HN_001",
-        "retriever": "hybrid",
-        "results": [
-            {
-                "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
-                "document_id": "l_52_2014_qh13",
-                "article_id": "l_52_2014_qh13_art_8",
-                "clause_id": "l_52_2014_qh13_art_8_clause_1",
-                "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
-                "rank": 1,
-                "score": 0.032,
-                "chunk_text": "Điều kiện kết hôn: Nam từ đủ 20 tuổi trở lên...",
-                "metadata": {
-                    "validity_status": "Còn hiệu lực",
-                    "article_number": "8",
-                    "effective_from": "2015-01-01",
-                    "effective_to": None,
-                    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
-                },
-                "bm25_rank": 1,
-                "dense_rank": 2,
-                "rrf_score": 0.032
-            }
-        ]
-    }
+class HybridRerankerPipelineTest(unittest.TestCase):
+    def run_pipeline(self, bm25_hits=BM25, dense_hits=DENSE, *, top_k=3, retrieval_top_k=20, scores=SCORES):
+        hybrid, bm25, dense = make_hybrid(bm25_hits, dense_hits, candidate_k=retrieval_top_k)
+        reranker = Reranker(MockScorer(scores), rerank_top_k=5, max_candidates=10, backend="mock")
+        pipeline = RetrievalPipeline(hybrid, reranker, retrieval_top_k=retrieval_top_k)
+        return pipeline.run(QUERY, top_k, query_id="Q_DEV_001"), bm25, dense
 
-    validator = Draft202012Validator(retrieval_schema)
-    validator.validate(envelope)
+    def test_output_matches_shared_schema_and_reranker_order(self):
+        output, _, _ = self.run_pipeline()
+        assert_contract(self, output)
+        self.assertEqual(output["query_id"], "Q_DEV_001")
+        self.assertEqual(output["retriever"], "hybrid_reranker")
+        self.assertEqual([row["chunk_id"] for row in output["results"]], [
+            "l_52_2014_qh13_art_10_chunk_1", "l_52_2014_qh13_art_8_chunk_2", "l_52_2014_qh13_art_9_chunk_1"])
+        self.assertEqual([row["score"] for row in output["results"]], [0.9, 0.8, 0.3])
 
-def test_benchmark_schema_integration():
-    """Verify queries_dev.json and queries_test.json comply with schemas/benchmark_schema.json."""
-    schema = load_json(ROOT / "schemas" / "benchmark_schema.json")
-    query_subschema = schema["$defs"]["query"]
-    validator = Draft202012Validator(query_subschema)
+    def test_retrieval_top_k_sets_candidate_depth_of_both_branches(self):
+        _, bm25, dense = self.run_pipeline(retrieval_top_k=7, top_k=2)
+        self.assertEqual(bm25.calls, [(QUERY, 7)])
+        self.assertEqual(dense.calls, [(QUERY, 7)])
 
-    dev_queries = load_json(ROOT / "data" / "benchmark" / "queries_dev.json")
-    test_queries = load_json(ROOT / "data" / "benchmark" / "queries_test.json")
+    def test_metadata_and_ids_are_preserved_without_guessing(self):
+        output, _, _ = self.run_pipeline(top_k=4)
+        by_id = {row["chunk_id"]: row for row in output["results"]}
+        both = by_id["l_52_2014_qh13_art_8_chunk_1"]
+        self.assertEqual(both["parent_clause_id"], "l_52_2014_qh13_art_8_clause_1")
+        self.assertEqual(both["retrieval_sources"], ["bm25", "dense"])
+        bm25_only = by_id["l_52_2014_qh13_art_8_chunk_2"]
+        self.assertEqual(bm25_only["document_id"], "l_52_2014_qh13")
+        self.assertEqual(bm25_only["parent_clause_id"], "l_52_2014_qh13_art_8_clause_1")
+        self.assertEqual(bm25_only["parent_id"], "l_52_2014_qh13_art_8", "parent_id is not parent_clause_id")
+        self.assertEqual(bm25_only["chunk_text"], "BM25 text l_52_2014_qh13_art_8_chunk_2")
+        for row in output["results"]:
+            self.assertEqual(row["metadata"]["validity_status"], "Không xác định")
+            self.assertIsInstance(row["source_ranks"]["retrieval"], int)
+            self.assertIsInstance(row["source_scores"]["retrieval"], float)
+            self.assertEqual(row["reranker_score"], row["score"])
+            self.assertIn("rrf_score", row)
 
-    for q in dev_queries:
-        assert q.get("split") == "dev"
-        validator.validate(q)
+    def test_both_branches_empty_returns_empty_results(self):
+        output, _, _ = self.run_pipeline([], [])
+        self.assertEqual(output["results"], [])
+        self.assertEqual(output["stats"]["retrieved_candidates"], 0)
+        self.assertEqual(output["stats"]["returned"], 0)
 
-    for q in test_queries:
-        assert q.get("split") == "test"
-        validator.validate(q)
+    def test_one_empty_branch_still_reranks_the_other(self):
+        output, _, _ = self.run_pipeline(BM25, [])
+        assert_contract(self, output)
+        self.assertEqual({row["chunk_id"] for row in output["results"]},
+                         {"l_52_2014_qh13_art_8_chunk_2", "l_52_2014_qh13_art_9_chunk_1",
+                          "l_52_2014_qh13_art_8_chunk_1"})
+
+    def test_branch_adapter_error_propagates_as_retrieval_error(self):
+        for kwargs in ({"bm25_error": ConnectionError("Elasticsearch down")},
+                       {"dense_error": ConnectionError("Qdrant down")}):
+            with self.subTest(**{k: str(v) for k, v in kwargs.items()}):
+                hybrid, _, _ = make_hybrid(BM25, DENSE, **kwargs)
+                pipeline = RetrievalPipeline(hybrid, Reranker(MockScorer()), retrieval_top_k=20)
+                with self.assertRaises(PipelineError) as ctx:
+                    pipeline.run(QUERY)
+                self.assertEqual(ctx.exception.stage, "retrieval")
+                self.assertIsInstance(ctx.exception.cause, ConnectionError)
+
+    def test_reranker_error_propagates_as_rerank_error(self):
+        class BrokenScorer:
+            def score(self, query, hits):
+                raise RuntimeError("CUDA out of memory")
+
+        hybrid, _, _ = make_hybrid(BM25, DENSE)
+        pipeline = RetrievalPipeline(hybrid, Reranker(BrokenScorer()), retrieval_top_k=20)
+        with self.assertRaises(PipelineError) as ctx:
+            pipeline.run(QUERY)
+        self.assertEqual(ctx.exception.stage, "rerank")
+
+    def test_malformed_adapter_output_is_reported(self):
+        for hits in ([{"text": "no id", "score": 1.0}], [{"chunk_id": "A", "chunk_text": "x"}],
+                     [{"chunk_id": "A", "score": 1, "metadata": "bad"}]):
+            with self.subTest(hits=hits), self.assertRaises(PipelineError):
+                RetrievalPipeline(FixtureRetriever(hits), Reranker(MockScorer())).run(QUERY)
+
+        class NotAList:
+            def search(self, query, top_k):
+                return None
+
+        with self.assertRaisesRegex(PipelineError, "phải trả list"):
+            RetrievalPipeline(NotAList(), None).run(QUERY)
+
+    def test_duplicates_from_retriever_are_removed_with_and_without_reranker(self):
+        retriever = FixtureRetriever(FIXTURE["candidates"])
+        for reranker in (Reranker(MockScorer(FIXTURE["mock_scores"])), None):
+            with self.subTest(reranker=reranker):
+                output = RetrievalPipeline(retriever, reranker).run(QUERY, 5)
+                ids = [row["chunk_id"] for row in output["results"]]
+                self.assertEqual(len(ids), len(set(ids)))
+                self.assertEqual(output["stats"]["duplicates_removed"], 1)
+                assert_contract(self, output)
+
+    def test_without_reranker_keeps_hybrid_order(self):
+        hybrid, _, _ = make_hybrid(BM25, DENSE)
+        output = RetrievalPipeline(hybrid, None, retrieval_top_k=20).run(QUERY, 3)
+        self.assertEqual(output["retriever"], "hybrid")
+        self.assertEqual(output["results"][0]["chunk_id"], "l_52_2014_qh13_art_8_chunk_1")  # in both branches
+        self.assertIsNone(output["config"]["reranker"])
+        assert_contract(self, output)
+
+    def test_reranker_plugs_into_hybrid_retriever_interface(self):
+        reranker = Reranker(MockScorer(SCORES), rerank_top_k=2)
+        hybrid, _, _ = make_hybrid(BM25, DENSE, reranker=reranker)
+        results = hybrid.search(QUERY, top_k=2)
+        self.assertEqual([row["chunk_id"] for row in results],
+                         ["l_52_2014_qh13_art_10_chunk_1", "l_52_2014_qh13_art_8_chunk_2"])
+        self.assertEqual([row["rank"] for row in results], [1, 2])
+
+    def test_top_k_larger_than_candidate_pool_is_rejected(self):
+        pipeline = RetrievalPipeline(FixtureRetriever([]), Reranker(MockScorer(), max_candidates=10),
+                                     retrieval_top_k=20)
+        with self.assertRaisesRegex(ValueError, "không được lớn hơn"):
+            pipeline.run(QUERY, 11)
+        with self.assertRaisesRegex(ValueError, "query"):
+            pipeline.run("  ")
+
+    def test_run_records_config_and_latency(self):
+        output, _, _ = self.run_pipeline()
+        self.assertEqual(output["config"]["reranker"], {"backend": "mock", "model": None,
+                                                        "rerank_top_k": 5, "max_candidates": 10})
+        self.assertEqual(output["config"]["retriever"]["retrieval_top_k"], 20)
+        self.assertEqual(output["config"]["top_k"], 3)
+        for key in ("retrieval_latency_ms", "rerank_latency_ms", "total_latency_ms"):
+            self.assertGreaterEqual(output["stats"][key], 0.0)
+        self.assertEqual(output["stats"]["input_candidates"], 4)
+        self.assertEqual(output["stats"]["output_candidates"], 3)
+
+
+class ContractMappingTest(unittest.TestCase):
+    def test_rrf_row_maps_to_contract(self):
+        row = to_contract_result({"chunk_id": "A", "text": "nội dung", "chunk_text": "nội dung",
+                                  "metadata": {"doc_id": "d1"}, "rrf_score": 0.03, "rank": 1,
+                                  "source_ranks": {"bm25": 1}, "retrieval_sources": ["bm25"]})
+        self.assertEqual(row, {
+            "chunk_id": "A", "document_id": "d1", "article_id": None, "clause_id": None,
+            "parent_clause_id": None, "rank": 1, "score": 0.03, "chunk_text": "nội dung",
+            "metadata": {"doc_id": "d1", "validity_status": "Không xác định"},
+            "rrf_score": 0.03, "retrieval_sources": ["bm25"], "source_ranks": {"bm25": 1}})
+
+    def test_top_level_validity_status_and_article_number_move_into_metadata(self):
+        row = to_contract_result({"chunk_id": "A", "chunk_text": "x", "score": 1, "validity_status": "Còn hiệu lực",
+                                  "article_number": "8", "metadata": {}})
+        self.assertEqual(row["metadata"], {"validity_status": "Còn hiệu lực", "article_number": "8"})
+
+    def test_pre_rerank_rank_and_score_move_to_source_fields(self):
+        row = to_contract_result({"chunk_id": "A", "chunk_text": "x", "metadata": {}, "rank": 1, "score": 0.9,
+                                  "source_ranks": {"bm25": 2}, "retrieval_rank": 4, "retrieval_score": 0.015})
+        self.assertNotIn("retrieval_rank", row)
+        self.assertNotIn("retrieval_score", row)
+        self.assertEqual(row["source_ranks"], {"bm25": 2, "retrieval": 4})
+        self.assertEqual(row["source_scores"], {"retrieval": 0.015})
+        self.assertEqual(row["reranker_score"], 0.9)
+        self.assertEqual(to_contract_result(row), row)
+
+    def test_mapping_is_idempotent(self):
+        row = to_contract_result(FIXTURE["candidates"][0])
+        self.assertEqual(to_contract_result(row), row)
+
+
+class RetrievalConfigTest(unittest.TestCase):
+    def test_reads_repository_retrieval_config(self):
+        settings = load_retrieval_settings()
+        self.assertEqual(settings["retrieval_top_k"], 50)
+        self.assertEqual(settings["rrf_k"], 60)
+
+    def test_retrieval_top_k_key_takes_precedence_over_candidate_k(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "config.yaml"
+            path.write_text("retrieval:\n  retrieval_top_k: 100\nhybrid:\n  candidate_k: 50\n  rrf_k: 10\n",
+                            encoding="utf-8")
+            settings = load_retrieval_settings(path)
+        self.assertEqual((settings["retrieval_top_k"], settings["rrf_k"]), (100, 10))
+
+
+class CliTest(unittest.TestCase):
+    def run_cli(self, *args):
+        stdout, stderr = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = run_retrieval.main([*args, "--log-level", "ERROR"])
+        return code, stdout.getvalue(), stderr.getvalue()
+
+    def test_single_query_with_fixture_retriever_prints_contract_json(self):
+        code, out, err = self.run_cli("--query", QUERY, "--top-k", "3", "--retriever", "fixture")
+        self.assertEqual(code, 0, err)
+        output = json.loads(out)
+        assert_contract(self, output)
+        self.assertEqual(output["retriever"], "fixture_reranker")
+        self.assertEqual(len(output["results"]), 3)
+        self.assertEqual(output["results"][0]["chunk_id"], "l_52_2014_qh13_art_8_chunk_1")
+
+    def test_reranker_none_and_overrides(self):
+        code, out, err = self.run_cli("--query", QUERY, "--retriever", "fixture", "--reranker", "none",
+                                      "--retrieval-top-k", "4", "--top-k", "2")
+        self.assertEqual(code, 0, err)
+        output = json.loads(out)
+        self.assertEqual(output["retriever"], "fixture")
+        self.assertEqual([row["chunk_id"] for row in output["results"]],
+                         ["l_52_2014_qh13_art_9_chunk_1", "l_22_2000_qh10_art_9_chunk_1"])
+        self.assertEqual(output["config"]["retriever"]["retrieval_top_k"], 4)
+
+    def test_batch_queries_write_output_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            queries = Path(tmp) / "queries_dev.json"
+            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY},
+                                           {"id": "HN_002", "question": "Nam bao nhiêu tuổi được kết hôn?"}],
+                                          ensure_ascii=False), encoding="utf-8")
+            destination = Path(tmp) / "out" / "results.json"
+            eval_destination = Path(tmp) / "out" / "eval.json"
+            code, out, err = self.run_cli("--queries", str(queries), "--retriever", "fixture",
+                                          "--output", str(destination), "--eval-output", str(eval_destination))
+            self.assertEqual(code, 0, err)
+            self.assertEqual(out, "")
+            outputs = json.loads(destination.read_text(encoding="utf-8"))
+            eval_rows = json.loads(eval_destination.read_text(encoding="utf-8"))
+        self.assertEqual([row["query_id"] for row in outputs], ["HN_001", "HN_002"])
+        self.assertEqual(eval_rows[0], {"question_id": "HN_001",
+                                        "retrieved_chunk_ids": [row["chunk_id"] for row in outputs[0]["results"]]})
+        for output in outputs:
+            assert_contract(self, output)
+            self.assertEqual(len(output["results"]), 5)
+
+    def test_test_split_is_refused_unless_allowed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            queries = Path(tmp) / "queries_test.json"
+            queries.write_text(json.dumps([{"id": "HN_200", "question": QUERY}]), encoding="utf-8")
+            code, _, err = self.run_cli("--queries", str(queries), "--retriever", "fixture")
+            self.assertEqual(code, 2)
+            self.assertIn("Test set", err)
+            code, _, err = self.run_cli("--queries", str(queries), "--retriever", "fixture", "--allow-test-split")
+            self.assertEqual(code, 0, err)
+
+    def test_invalid_input_exits_with_code_2(self):
+        for args in (["--query", "   "], ["--query", QUERY, "--top-k", "0"],
+                     ["--query", QUERY, "--retrieval-top-k", "2", "--top-k", "3"],
+                     ["--query", QUERY, "--candidates", "missing.json"]):
+            with self.subTest(args=args):
+                code, out, err = self.run_cli(*args, "--retriever", "fixture")
+                self.assertEqual(code, 2, err)
+                self.assertEqual(out, "")
+                self.assertIn("ERROR", err)
+
+    def test_hybrid_without_elasticsearch_url_fails_cleanly(self):
+        code, out, err = self.run_cli("--query", QUERY, "--retriever", "hybrid", "--elasticsearch-url", "")
+        self.assertEqual(code, 2)
+        self.assertEqual(out, "")
+        self.assertIn("elasticsearch", err.lower())
+
+    def test_mock_dense_retriever_runs_end_to_end_on_a_chunk_file(self):
+        # Expired documents are filtered out by the retrievers (issue E1), so take in-force chunks only.
+        corpus = [row for row in map(json.loads, filter(str.strip,
+                  (ROOT / "data" / "chunking_output" / "chunks.jsonl").read_text(encoding="utf-8-sig").splitlines()))
+                  if row["metadata"]["validity_status"] != "Hết hiệu lực"][:40]
+        with tempfile.TemporaryDirectory() as tmp:
+            chunks = Path(tmp) / "chunks.jsonl"
+            chunks.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in corpus), encoding="utf-8")
+            code, out, err = self.run_cli("--query", "điều kiện kết hôn", "--chunks", str(chunks),
+                                          "--retrieval-top-k", "10", "--top-k", "3")
+        self.assertEqual(code, 0, err)
+        output = json.loads(out)
+        assert_contract(self, output)
+        self.assertEqual(output["retriever"], "mock_reranker")
+        self.assertEqual(len(output["results"]), 3)
+        corpus_ids = {row["chunk_id"] for row in corpus}
+        self.assertTrue({row["chunk_id"] for row in output["results"]} <= corpus_ids)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

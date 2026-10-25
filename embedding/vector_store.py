@@ -167,6 +167,10 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "effective_from": effective_from,
         "effective_to": effective_to,
     }
+    if "effective_from" in raw_meta or "effective_from" in raw:
+        metadata["effective_from"] = raw_meta.get("effective_from") or raw.get("effective_from")
+    if "effective_to" in raw_meta or "effective_to" in raw:
+        metadata["effective_to"] = raw_meta.get("effective_to") or raw.get("effective_to")
 
     result: Dict[str, Any] = {
         "chunk_id": chunk_id,

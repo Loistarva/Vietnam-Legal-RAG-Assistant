@@ -249,7 +249,9 @@ def test_corpus_chunks_jsonl():
     base_dir = Path(__file__).resolve().parent.parent
     chunks_file = base_dir / "data" / "chunking_output" / "chunks.jsonl"
     schema_file = base_dir / "schemas" / "chunk_payload_schema.json"
-    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json"))
+    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json")) + list(
+        base_dir.glob("data/parser_validated/*.json")
+    )
 
     assert chunks_file.exists(), f"Không tìm thấy file corpus: {chunks_file}"
     assert schema_file.exists(), f"Không tìm thấy file schema: {schema_file}"
@@ -315,3 +317,33 @@ def test_corpus_chunks_jsonl():
             assert eff_to is not None and isinstance(eff_to, str) and eff_to.strip(), (
                 f"Dòng {line_idx} ({record.get('chunk_id')}): văn bản Hết hiệu lực bắt buộc phải có effective_to khác null"
             )
+
+
+# Bảng ánh xạ status -> validity_status của registry (data_contract.md, mục 3.1).
+REGISTRY_STATUS_MAPPING = {
+    "Còn hiệu lực": "Còn hiệu lực",
+    "Hết hiệu lực toàn bộ": "Hết hiệu lực",
+    "Hết hiệu lực một phần": "Sửa đổi bổ sung",
+    "Có điều khoản bị sửa đổi / bãi bỏ": "Sửa đổi bổ sung",
+    "Cần kiểm tra trạng thái mới nhất": "Không xác định",
+}
+
+
+def test_registry_validity_status_mapping():
+    registry_file = Path(__file__).resolve().parent.parent / "data" / "reference" / "document_versions.json"
+    records = json.loads(registry_file.read_text(encoding="utf-8"))
+    assert len(records) > 0, f"Registry rỗng: {registry_file}"
+
+    for record in records:
+        number = record.get("document_number")
+        status = record.get("status")
+        validity_status = record.get("validity_status")
+        assert status in REGISTRY_STATUS_MAPPING, (
+            f"{number}: status '{status}' chưa có trong bảng ánh xạ của data_contract.md"
+        )
+        assert validity_status == REGISTRY_STATUS_MAPPING[status], (
+            f"{number}: status '{status}' phải ánh xạ thành '{REGISTRY_STATUS_MAPPING[status]}', "
+            f"registry ghi '{validity_status}'"
+        )
+        if validity_status == "Hết hiệu lực":
+            assert record.get("expiry_date"), f"{number}: văn bản Hết hiệu lực bắt buộc có expiry_date"
