@@ -7947,6 +7947,7 @@
       "nd_207_2025_nd_cp_art_9_clause_3_chunk_1",
       "nd_207_2025_nd_cp_art_9_clause_1_chunk_1",
       "nd_207_2025_nd_cp_art_9_clause_4_chunk_1",
+      "nd_207_2025_nd_cp_art_9_clause_2_chunk_3",
       "nd_207_2025_nd_cp_art_9_clause_2_chunk_2"
     ],
     "mapping_status": "production_candidate_unverified",
@@ -8263,8 +8264,11 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nq_01_2024_nq_hdtp_art_2_clause_1_chunk_1",
-      "nq_01_2024_nq_hdtp_art_2_clause_1_chunk_2",
-      "nq_01_2024_nq_hdtp_art_2_clause_1_chunk_3"
+      "nq_01_2024_nq_hdtp_art_2_clause_2_chunk_1",
+      "nq_01_2024_nq_hdtp_art_2_clause_3_chunk_1",
+      "nq_01_2024_nq_hdtp_art_2_clause_4_chunk_1",
+      "nq_01_2024_nq_hdtp_art_2_clause_5_chunk_1",
+      "nq_01_2024_nq_hdtp_art_2_clause_6_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8295,7 +8299,9 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_1",
-      "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_2"
+      "nq_01_2024_nq_hdtp_art_3_clause_2_chunk_1",
+      "nq_01_2024_nq_hdtp_art_3_clause_3_chunk_1",
+      "nq_01_2024_nq_hdtp_art_3_clause_4_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8326,7 +8332,8 @@
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "nq_01_2024_nq_hdtp_art_4_clause_1_chunk_1",
-      "nq_01_2024_nq_hdtp_art_4_clause_1_chunk_2"
+      "nq_01_2024_nq_hdtp_art_4_clause_2_chunk_1",
+      "nq_01_2024_nq_hdtp_art_4_clause_3_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
@@ -8390,7 +8397,8 @@
     "candidate_context_ids": [
       "nq_01_2024_nq_hdtp_art_6_clause_1_chunk_1",
       "nq_01_2024_nq_hdtp_art_6_clause_2_chunk_1",
-      "nq_01_2024_nq_hdtp_art_6_clause_2_chunk_2"
+      "nq_01_2024_nq_hdtp_art_6_clause_4_chunk_1",
+      "nq_01_2024_nq_hdtp_art_6_clause_3_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,
