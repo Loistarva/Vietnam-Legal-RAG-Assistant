@@ -23,8 +23,8 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
-import ollama
-import pymupdf
+# ollama và pymupdf chỉ được import khi trích xuất PDF, để các hàm làm sạch text
+# import được (và test được) trên máy không cài hai thư viện này.
 
 # Project paths: keep the existing cleaned output path for downstream compatibility.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,67 +81,7 @@ SINGLE_PAGE_LABEL_RE = re.compile(r"^(?:trang|page)\s+\d{1,4}$", flags=re.IGNORE
 # Công báo footer/marking found in official-gazette PDF exports. Match the marker
 # and its publication number/date through the end of the same line.
 GAZETTE_MARKER_RE = re.compile(r"CÔNG\s+BÁO\s*/\s*SỐ\b", flags=re.IGNORECASE)
-# Repeated document-header markings that may be injected into extracted legal text.
-REPEATED_DOCUMENT_MARKING_PATTERNS = [
-    re.compile(
-        r"Nghị\s+định\s+70/2001/NĐ-CP\s+ban\s+hành\s+ngày\s+03/10/2001",
-        flags=re.IGNORECASE,
-    ),
-    re.compile(
-        r"Nghị\s+định\s+10/2015/NĐ-CP\s+sinh\s+con\s+bằng\s+kỹ\s+thuật\s+"
-        r"thụ\s+tinh\s+trong\s+ống\s+nghiệm",
-        flags=re.IGNORECASE,
-    ),
-    # Marking chỉ là dòng độc lập đúng chính tả/hoa thường "Hướng dẫn".
-    # Không xóa cụm này nếu nó nằm trong câu pháp lý.
-    re.compile(r"^Hướng dẫn$"),
-    # Số chú thích OCR dính ngay sau cụm "khu vực" (vd. "khu vực2").
-    # Chỉ xóa chữ số 2 trong đúng cụm này, giữ nguyên "khu vực".
-    re.compile(r"(?<=khu vực)2\b"),
-]
 STANDALONE_NUMBER_RE = re.compile(r"^\d{1,4}$")
-
-# Remove known amendment footnotes that have been appended to extracted legal text.
-# These are intentionally narrow: only notes referencing Law 81/2025/QH15 and
-# the specific replacement-wording note are targeted, not arbitrary numbered clauses.
-AMENDMENT_FOOTNOTE_PATTERNS = [
-    # Numbered amendment notes beginning with Law 81/2025/QH15; remove the whole
-    # note, including quoted inserted/replacement text, until the next note/article.
-    # Marking cố định đã xác minh: chỉ xóa đúng đoạn mở đầu bằng
-    # "1 Luật số 81/2025/QH15 sửa đổi..." và kết thúc bằng câu dẫn chiếu
-    # Luật Tổ chức Tòa án nhân dân số 34/2024/QH15. Dùng \s+ để chịu được
-    # việc OCR ngắt dòng/đổi khoảng trắng, không mở rộng sang khoản kế tiếp.
-    re.compile(
-        r'(?ims)^\s*1\s+Luật\s+số\s+81/2025/QH15\s+sửa\s+đổi,?\s+'
-        r'bổ\s+sung\s+một\s+số\s+điều\s+của\s+Luật\s+Tổ\s+chức\s+'
-        r'Tòa\s+án\s+nhân\s+dân\s+có\s+căn\s+cứ\s+ban\s+hành\s+như\s+sau:'
-        r'\s*[“"]?\s*Căn\s+cứ\s+Hiến\s+pháp\s+nước\s+Cộng\s+hòa\s+xã\s+hội\s+'
-        r'chủ\s+nghĩa\s+Việt\s+Nam\s+đã\s+được\s+sửa\s+đổi,?\s+bổ\s+sung\s+'
-        r'một\s+số\s+điều\s+theo\s+Nghị\s+quyết\s+số\s+203/2025/QH15;'
-        r'\s*Quốc\s+hội\s+ban\s+hành\s+Luật\s+sửa\s+đổi,?\s+bổ\s+sung\s+'
-        r'một\s+số\s+điều\s+của\s+Luật\s+Tổ\s+chức\s+Tòa\s+án\s+nhân\s+dân\s+'
-        r'số\s+34/2024/QH15\s*[.”"]?\s*',
-    ),
-    # Notes like: "2 Cụm từ ... được thay thế ...", including the entire explanation.
-    re.compile(
-        r"(?ms)^\s*\d+\s+Cụm\s+từ\b.*?"
-        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
-        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
-    ),
-    # Notes like: "3 Điều 3 của Luật số 81/2025/QH15 ...", removing the quoted
-    # amendment and the following "Việc thi hành..." sentence as one complete block.
-    re.compile(
-        r"(?ms)^\s*\d+\s+Điều\s+\d+\s+của\s+Luật\s+số\s+81/2025/QH15\b.*?"
-        r"(?=^\s*(?:\d+\s+(?:Luật\s+số\b|Cụm\s+từ\b|Điều\s+\d+\s+của\s+Luật\s+số\b)|"
-        r"Điều\s+\d+\.\s|CHƯƠNG\s+[IVXLCDM]+\b)|\Z)"
-    ),
-    # Standalone follow-up note sentence, if extracted separately.
-    re.compile(
-        r"(?m)^\s*Việc\s+thi\s+hành\s+Luật\s+số\s+81/2025/QH15\b[^\n]*(?:\n|$)"
-    ),
-]
-
-
 
 def normalize_extracted_text(text: str) -> str:
     """Basic normalization only; preserve wording for the raw extraction file."""
@@ -268,12 +208,6 @@ def remove_gazette_markings(text: str) -> tuple[str, dict[str, int]]:
 def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
     """Remove Công báo markings, URLs, export timestamps, and page counters."""
     text, gazette_counts = remove_gazette_markings(text)
-    # Remove known amendment footnotes before line-based cleanup, as their text may wrap
-    # across several extracted lines.
-    amendment_footnotes_removed = 0
-    for footnote_pattern in AMENDMENT_FOOTNOTE_PATTERNS:
-        text, n_footnotes = footnote_pattern.subn("\\n", text)
-        amendment_footnotes_removed += n_footnotes
 
     # NFC first, then normalize old Vietnamese tone placement without changing punctuation.
     text = unicodedata.normalize("NFC", text)
@@ -283,18 +217,11 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
         "timestamps": 0,
         "page_counters": gazette_counts["page_counters"],
         "gazette_markings": gazette_counts["gazette_markings"],
-        "repeated_document_markings": 0,
-        "amendment_footnotes": amendment_footnotes_removed,
         "tone_placement_changes": tone_changes,
     }
     cleaned_lines: list[str] = []
 
     for line in text.splitlines():
-        # Remove only the two explicitly identified repeated document markings.
-        for marking_pattern in REPEATED_DOCUMENT_MARKING_PATTERNS:
-            line, n_markings = marking_pattern.subn(" ", line)
-            counts["repeated_document_markings"] += n_markings
-
         line, n_urls = URL_RE.subn(" ", line)
         counts["urls"] += n_urls
 
@@ -321,6 +248,9 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
 
 def qwen_transcribe_page(page: pymupdf.Page, page_number: int, pdf_stem: str) -> str:
     """Render a page and transcribe it with Qwen3-VL; save failed page images."""
+    import ollama
+    import pymupdf
+
     scale = RENDER_DPI / 72
     pix = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
 
@@ -444,6 +374,7 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
     """Extract PDF, save raw TXT, then clean and save the parser-ready TXT in parser/cleaned_texts."""
     started = time.perf_counter()
     logger.info("Đang xử lý: %s", pdf_path)
+    import pymupdf
 
     try:
         doc = pymupdf.open(pdf_path)
@@ -559,11 +490,10 @@ def clean_existing_texts() -> dict[str, int]:
                 totals[key] += removed.get(key, 0)
             logger.info(
                 "Clean lại %s | số trang bỏ=%d | marking Công báo bỏ=%d | "
-                "marking văn bản lặp bỏ=%d | dấu thanh chuẩn hóa=%d | URL bỏ=%d | timestamp bỏ=%d",
+                "dấu thanh chuẩn hóa=%d | URL bỏ=%d | timestamp bỏ=%d",
                 raw_path.name,
                 removed.get("page_counters", 0),
                 removed.get("gazette_markings", 0),
-                removed.get("repeated_document_markings", 0),
                 removed.get("tone_placement_changes", 0),
                 removed.get("urls", 0),
                 removed.get("timestamps", 0),

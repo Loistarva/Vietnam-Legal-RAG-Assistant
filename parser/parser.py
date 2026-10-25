@@ -1031,7 +1031,7 @@ DOCUMENT_NUMBER_CODE = (
 
 # Ưu tiên số hiệu có nhãn "Số:" để tránh bắt nhầm số hiệu được nhắc trong nội dung.
 DOCUMENT_NUMBER_RE = re.compile(
-    rf"(?<!\\w)Số\\s*:\\s*({DOCUMENT_NUMBER_CODE})",
+    rf"(?<!\w)Số\s*:\s*({DOCUMENT_NUMBER_CODE})",
     re.IGNORECASE
 )
 def normalize_document_id(file_path: str) -> str:

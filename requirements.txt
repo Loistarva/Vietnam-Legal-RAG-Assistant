@@ -16,7 +16,8 @@ pydantic>=2,<3
 jsonschema>=4.18,<5
 pytest>=8
 
-# Parser (pdfplumber), chunking experiment report (pandas), Zero-shot LLM baseline (ollama)
-pdfplumber>=0.11
+# PDF extraction in parser/cleaner.py (pymupdf), chunking experiment report (pandas),
+# Qwen3-VL OCR in the cleaner and the Zero-shot LLM baseline (ollama)
+pymupdf>=1.24
 pandas>=2
 ollama>=0.3

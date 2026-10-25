@@ -30,7 +30,7 @@ from typing import Dict, List, Optional, Tuple
 
 import pytest
 
-from parser import parse_text_to_articles
+from parser import extract_document_number, parse_text_to_articles
 
 
 # This test file lives inside <repo>/parser, so parents[1] is the repository root.
@@ -796,3 +796,14 @@ def test_registry_and_mapping_tables_integrity():
     for did in chunk_doc_ids:
         assert did in registry_by_id, f"document_id '{did}' trong chunks.jsonl không có trong registry"
         assert did in contract_doc_ids, f"document_id '{did}' trong chunks.jsonl không có trong bảng Mục 6 data_contract.md"
+
+
+def test_document_number_comes_from_so_label():
+    # Số hiệu của văn bản được hướng dẫn đứng trước nhãn "Số:" không được lấy làm số hiệu.
+    text = (
+        "Hướng dẫn thi hành Nghị định 126/2014/NĐ-CP\n"
+        "CHÍNH PHỦ\n"
+        "Số: 207/2025/NĐ-CP\n"
+        "NGHỊ ĐỊNH\n"
+    )
+    assert extract_document_number(text) == "207/2025/NĐ-CP"
