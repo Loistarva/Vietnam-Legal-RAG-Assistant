@@ -35,7 +35,6 @@ FIXTURE = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
 RETRIEVAL_SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
 # The schema root is the envelope; each result is validated against RetrievalResultItem.
 RESULT_SCHEMA = {"$ref": "#/$defs/RetrievalResultItem", "$defs": RETRIEVAL_SCHEMA["$defs"]}
-ENVELOPE_FIELDS = ("query_id", "retriever", "results")
 CONTRACT_FIELDS = {"chunk_id", "document_id", "article_id", "clause_id", "parent_clause_id",
                    "rank", "score", "chunk_text", "metadata"}
 QUERY = FIXTURE["query"]
