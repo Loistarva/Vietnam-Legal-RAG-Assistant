@@ -122,7 +122,7 @@ class DocumentMetadataSchema(BaseSchema):
 
 
 class LegalDocumentSchema(BaseSchema):
-    document_id: str = Field(..., pattern=r"^[a-zA-Z0-9_]+$")
+    document_id: str = Field(..., pattern=r"^[a-z0-9_]+$")
     metadata: DocumentMetadataSchema
     articles: List[ArticleSchema] = Field(..., min_length=1)
     footnotes: List[str] = Field(default_factory=list)

@@ -230,8 +230,8 @@ def main() -> None:
                 raise ValueError(f"doc_id metadata không khớp: {child.chunk_id}")
             if payload["article_number"] != payload["metadata"].get("article_number"):
                 raise ValueError(f"article_number metadata không khớp: {child.chunk_id}")
-            if not re.fullmatch(r"[A-Za-z0-9_]+", child.chunk_id):
-                raise ValueError(f"chunk_id không theo data contract ASCII: {child.chunk_id}")
+            if not re.fullmatch(r"[a-z0-9_]+", child.chunk_id):
+                raise ValueError(f"chunk_id không theo data contract (chữ thường, số, gạch dưới): {child.chunk_id}")
             children.append(payload)
 
         file_summary.append({

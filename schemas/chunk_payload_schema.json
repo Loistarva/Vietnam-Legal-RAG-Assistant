@@ -35,35 +35,35 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "chunk_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "parent_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "doc_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "document_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "article_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "clause_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "parent_clause_id": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9_]+$"
+      "pattern": "^[a-z0-9_]+$"
     },
     "title": {
       "type": "string",
@@ -218,7 +218,7 @@
       "properties": {
         "doc_id": {
           "type": "string",
-          "pattern": "^[A-Za-z0-9_]+$"
+          "pattern": "^[a-z0-9_]+$"
         },
         "title": {
           "type": "string",

@@ -143,7 +143,7 @@
           "items": {
             "type": "string",
             "minLength": 4,
-            "pattern": "^([A-Z0-9]+_D[0-9]+[a-z]?|[a-z0-9_]+_art_[0-9a-z]+)$"
+            "pattern": "^[A-Z0-9]+_D[0-9]+[a-z]?$"
           }
         },
         "candidate_context_ids": {

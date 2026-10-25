@@ -11,7 +11,7 @@ Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt bu�
 ---
 
 ## 2. Quy ước Định danh (Semantic ID Convention)
-Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường, không dấu, không khoảng trắng, chỉ dùng ký tự `[a-zA-Z0-9_]`.
+Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường, không dấu, không khoảng trắng, chỉ dùng ký tự `[a-z0-9_]`.
 
 
 *   **Document ID:** Trường `document_id` được lấy trực tiếp từ `data/reference/document_versions.json`; bảng ở Mục 6 trích các văn bản đang có trong corpus. Quy tắc `[loại_văn_bản]_[số_hiệu đầy đủ]` chỉ dùng để đặt ID khi thêm văn bản mới vào registry; ID đã có trong registry không đổi (ghi nhận ngoại lệ rút gọn `ttlt_01_2016_ttlt_tandtc`).
@@ -27,7 +27,7 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 | Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation) |
 | :--- | :--- | :---: | :--- |
-| `document_id` | String | **Có** | ID duy nhất của văn bản. Regex: `^[a-zA-Z0-9_]+$` |
+| `document_id` | String | **Có** | ID duy nhất của văn bản. Regex: `^[a-z0-9_]+$` |
 | `metadata` | Object | **Có** | Xem chi tiết cấu trúc `Metadata` bên dưới. |
 | `articles` | Array | **Có** | Danh sách các Điều luật. Ràng buộc: Tối thiểu 1 phần tử (`minItems: 1`). |
 | `footnotes` | Array[String] | Không | Danh sách các chú thích, giải nghĩa từ ngữ gắn ở cuối văn bản. Mặc định là mảng rỗng `[]`. |
