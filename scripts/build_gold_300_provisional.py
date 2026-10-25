@@ -41,7 +41,7 @@ def build(root, out):
         cited_docs={x['document_id'] for x in g.get('citations',[])}
         gold_articles=g.get('gold_article_ids') or []
         if g.get('gold_context_ids'):
-            for cid in g['gold_context_ids']:\
+            for cid in g['gold_context_ids']:
                 if cid not in idx: raise ValueError(f'Existing gold {cid} missing from index: {qid}')
                 if idx[cid]['document_number'] not in cited_docs: raise ValueError(f'Existing gold wrong document: {qid}')
                 evidence.append(cid); evidence_tier.append('EXISTING_REVIEWED_ID')
