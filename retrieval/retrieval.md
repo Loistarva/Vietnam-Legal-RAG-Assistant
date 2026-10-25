@@ -12,7 +12,7 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 | Dense | BGE-M3, Sentence Transformers, Qdrant; `embedding/vector_store.py` | Tạo embedding câu hỏi và tìm các chunk gần nhau theo vector/ngữ nghĩa. |
 | Hợp nhất | RRF; `retrieval/rrf.py`, `retrieval/hybrid_retriever.py` | Kết hợp thứ hạng BM25 và Dense, không cộng trực tiếp điểm BM25 với cosine similarity. |
 | Build index | `retrieval/build_bm25_index.py` | Đọc file chunk Hôn nhân và Gia đình, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
-| Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả. |
+| Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả; mỗi tệp là mảng `RetrievalEnvelope` (một envelope mỗi câu, `query_id` lấy từ `id` của benchmark), theo mục 5.4 của `docs/data_contract.md`. |
 | Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
 
 Cấu hình mặc định nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3`, candidate depth 50, Top-10 và RRF k=60. Đây là cấu hình chạy Dev; reranker không được bật trong phép so sánh BM25/Dense/Hybrid.

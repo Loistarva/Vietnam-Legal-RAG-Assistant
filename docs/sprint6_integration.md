@@ -26,8 +26,13 @@ query
                     ├─ cắt còn max_candidates theo thứ hạng retrieval
                     ├─ Scorer.score(query, pool)         # mock | cross_encoder
                     └─ sắp theo score giảm dần → rank 1..top_k
-                          └─► {query_id, query, retriever, results, latency_ms, top_k, config, stats}
+                          └─► ParentContextResolver.resolve(results)   # gắn parent_id, parent_text
+                                └─► {query_id, query, retriever, results, latency_ms, top_k, config, stats}
 ```
+
+`as_of_date` (CLI `--as-of-date`, hoặc trường `as_of_date` của từng câu trong `--queries`) được truyền vào `Retriever.search(..., as_of_date=...)` khi retriever khai báo tham số này; bộ lọc theo thời điểm thuộc retriever (Dev 4, E1). `HybridRetriever` hiện chưa nhận `as_of_date`, nên pipeline ghi `config.temporal_filter = "not_supported_by_retriever"` và log cảnh báo, để không ai hiểu nhầm là kết quả đã được lọc.
+
+Parent-Context Resolver chạy trong pipeline, sau reranker, đúng thứ tự của sơ đồ kiến trúc (Reranker → Parent-Context Resolver): reranker chấm chunk con, không chấm văn bản parent. Mỗi kết quả giữ nguyên `chunk_id`, `rank`, `score` của chunk con (Strict Match và trích dẫn vẫn dùng được) và có thêm `parent_id`, `parent_text` lấy từ `data/chunking_output/parents.json`. Các chunk con cùng parent chỉ kết quả xếp hạng cao nhất mang `parent_text`, các kết quả sau có `parent_text = null`. Khi tổng `parent_text` vượt `parent_context.max_context_chars`, các parent còn lại cũng nhận `null`. `stats.parent_context` đếm số parent được gắn, số dùng chung, số không tìm thấy và số vượt ngân sách. Hai tham số `parent_resolver`, `confidence_filter` của `HybridRetriever` không được dùng khi đi qua pipeline.
 
 Reranking do pipeline đảm nhận. `build_hybrid_retriever` tạo `HybridRetriever` không gắn reranker; khi đó Hybrid trả nguyên top `retrieval_top_k` candidate sau RRF. `Reranker` cũng tuân theo protocol `Reranker` trong `retrieval/hybrid_retriever.py`, nên có thể truyền trực tiếp `HybridRetriever(..., reranker=Reranker(...))`. Integration test kiểm tra cả hai cách nối.
 
@@ -102,6 +107,12 @@ Quy tắc ánh xạ trong `to_contract_result`:
 | `reranker.backend` | `reranking/config.yaml` | `mock` | `mock` hoặc `cross_encoder`. CLI: `--reranker` (`none` để tắt). |
 | `reranker.model` | `reranking/config.yaml` | `BAAI/bge-reranker-v2-m3` | Model Cross-Encoder. CLI: `--model`. |
 | `reranker.batch_size` / `max_length` / `device` | `reranking/config.yaml` | 16 / 512 / null | Tham số suy luận của Cross-Encoder. |
+| `reranker.candidate_text` | `reranking/config.yaml` | `chunk_text` | Văn bản đưa vào scorer: `chunk_text`, hoặc `breadcrumb_chunk_text` (breadcrumb rồi `chunk_text`). Chọn bằng số đo trên gold đã duyệt (G5). |
+| `parent_context.enabled` | `reranking/config.yaml` | `true` | Bật Parent-Context Resolver. CLI: `--no-parent-context` để tắt. |
+| `parent_context.parents_file` | `reranking/config.yaml` | `data/chunking_output/parents.json` | Nguồn `parent_text`. |
+| `parent_context.max_context_chars` | `reranking/config.yaml` | 6000 | Trần tổng số ký tự `parent_text` của một câu trả về. |
+
+`rerank_top_k = 5` là lệch có chủ đích so với sơ đồ kiến trúc (Reranker trả Top-10): kế hoạch Sprint 6 mục 14.3 chốt `rerank_top_k: 5` cho sprint này. Khi chạy Hybrid + Reranker trên Dev set, chấm ở cả K = 5 và K = 10 (`--top-k 10`) để so với sơ đồ; chỉ đổi giá trị mặc định khi số đo trên gold đã duyệt cho thấy cần (G1).
 
 Các giá trị trên chỉ là giá trị khởi đầu. Khóa lạ trong `reranker` bị từ chối để bắt lỗi gõ sai tên khóa. Điều kiện ràng buộc: `top_k ≤ min(retrieval_top_k, max_candidates)`, nếu vi phạm CLI trả exit code 2. Mỗi lần rerank ghi log số candidate vào, số candidate được chấm, số trùng, số bị cắt, số trả ra và latency, ví dụ:
 
@@ -203,8 +214,6 @@ Các bài test bao phủ: đọc và validate config, giới hạn `max_candidat
 2. **Output của `ElasticsearchBM25Retriever` (Dev 4)** dùng `text`/`parent_id` và không có `chunk_text`/`document_id`/`parent_clause_id` ở cấp gốc. Pipeline đang ánh xạ alias. Nên chuẩn hóa ngay tại adapter.
 3. **`retrieval/config.yaml` (Dev 4)** chưa có khóa `retrieval.retrieval_top_k` theo mục 14.3. Pipeline hiện đọc `hybrid.candidate_k` làm fallback.
 4. **`schemas/retrieval_schema.json` (CTM)** đã cập nhật ở `ee755a5`: bắt buộc đủ 9 trường của mục 4.3, bỏ `text`, gốc schema chuyển sang `RetrievalEnvelope` và kết quả nằm ở `$defs/RetrievalResultItem`. Từ `3d646da`, envelope khai báo thêm `query`, `config`, `stats` (tùy chọn) và pipeline điền `latency_ms`, `top_k` ở gốc, nên toàn bộ output qua được schema (C7).
-5. **`retrieval.hybrid_retriever.CrossEncoderReranker` (Dev 4)** trùng chức năng với `reranking/reranker.py`, chấm `text` thay vì `chunk_text`, không giới hạn candidate và không cập nhật `rank`/`score`. Đề nghị Dev 4 bỏ class này hoặc trỏ về `reranking.reranker`.
-6. **Test đang lỗi không thuộc phạm vi Dev 5** (tình trạng khi bàn giao):
-   - `test/test_bm25_retrieval.py` cần package `elasticsearch`, và cùng `test/test_retrieval_evaluation.py` import `embedding.vector_store.load_chunks`, hàm không còn tồn tại.
-   - `tests/test_benchmark.py` có 7 test lỗi (manifest đóng băng Test set, số lượng mapping).
+5. **`retrieval.hybrid_retriever.CrossEncoderReranker`** đã bị xóa (25/10): class này trùng chức năng với `reranking/reranker.py` và không còn nơi nào dùng. Reranker duy nhất là `reranking.reranker.Reranker`, truyền vào `HybridRetriever` qua protocol `Reranker`.
+6. **Test:** tất cả test trong `parser/`, `tests/` và `test/` pass khi chạy chung (`python -m pytest parser tests test`). `test/test_benchmark.py` đã đổi tên thành `test/test_benchmark_draft.py` để không trùng tên module với `tests/test_benchmark.py`.
 7. **Benchmark dùng `id` (`HN_001`)** thay cho `query_id`. CLI chấp nhận cả hai tên trường, và `query_id` của đầu ra lấy theo giá trị đó.

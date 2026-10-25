@@ -19,8 +19,8 @@
 - **300 câu**: 285 Dev / 15 Test, giữ nguyên 60 câu ban đầu và 15 Test.
 - **240 câu mới**: trích PDF làm bản trả lời đối chiếu, thêm mã Điều (không phải mã chunk).
 - **300 bản Ground Truth** hiện là nháp, 0 câu có `review_status` được người duyệt xác nhận và 0 câu có `gold_context_ids_confirmed=true`.
-- **34 câu** có `candidate_context_ids` từ bộ chunk *smoke*, **2 câu** có candidate ID chỉ hỗ trợ một phần, **264 câu** chưa ánh xạ chunk. **Cả 300 câu đều có `gold_context_ids=[]`**, không phải độ phủ Gold production.
-- L01.pdf trong pipeline mới nhận được **131/133 điều**; hai điều 132–133 có trong bản Luật gốc khác. Không tự điền bằng chứng từ văn bản khác phiên bản.
+- **276 câu** có `candidate_context_ids` là chunk_id của corpus hiện tại (`mapping_status = production_candidate_unverified`, 759 ID, 100% có trong `data/chunking_output/chunks.jsonl`), **24 câu** chưa ánh xạ chunk (`not_mapped`). **Cả 300 câu đều có `gold_context_ids=[]`**: candidate chưa phải Gold đã xác minh.
+- L01.pdf (bản gốc Luật 52/2014/QH13) nay parse đủ **133/133 điều**.
 
 ### Cấu trúc câu hỏi
 
@@ -50,7 +50,7 @@ Python 3.13, JSON Schema Draft-07, `unittest`. Toàn bộ dữ liệu nằm tron
    ```
 3. Chạy test suite:
    ```bash
-   python -m pytest test/test_benchmark.py
+   python -m pytest tests/test_benchmark.py test/test_benchmark_draft.py
    ```
 
 ## 5. Quy trình xác minh pháp lý và rà soát chất lượng
@@ -107,3 +107,13 @@ Bảng ánh xạ chuẩn tắc giữa các tên trường:
 | **Đáp án chuẩn** | `answer` | `expected_answer` | Nội dung câu trả lời chuẩn tham chiếu hoặc trích xuất từ văn bản pháp luật. |
 | **Tập phân chia** | `split` | `split` | Thuộc tập phát triển (`"dev"`, 285 câu) hoặc tập kiểm thử (`"test"`, 15 câu). Enum: `["dev", "test"]`. |
 | **Thời điểm câu hỏi** | `as_of_date` | `as_of_date` | Mốc thời gian áp dụng luật (VD: `"2026-10-15"`). Định dạng chuẩn `YYYY-MM-DD`. |
+
+## 11. Nhật ký đóng băng Test và cập nhật ID
+
+Mọi thay đổi `data/benchmark/queries_test.json` phải qua review và được ghi vào bảng này (ngày, commit, lý do, SHA-256 cũ và mới của `docs/test_questions_freeze.json`). Thay đổi chunk_id của candidate hoặc proposal cũng ghi ở đây.
+
+| Ngày | Commit | Thay đổi | SHA-256 Test |
+| --- | --- | --- | --- |
+| 16/10/2026 | b230265 | Đóng băng 15 câu Test lần đầu. | `0b4b3a2f75a0…cdbdf` |
+| 22/10/2026 | ee755a5 | Thêm trường `split` vào 15/15 câu Test; nội dung câu hỏi và danh sách ID không đổi, `freeze_test.py --verify` PASS. Lần đóng băng lại này không có review riêng; ghi bổ sung ngày 25/10. | `0b4b3a2f75a0…cdbdf` → `6942c3353a62…fb889` |
+| 25/10/2026 | 146a6c9 | Sinh lại `production_chunk_index.json` từ corpus 664634e (2.011 chunk). Map lại theo nội dung chunk: candidate của HN_255, HN_265, HN_266, HN_267, HN_269 (các Khoản NQ 01/2024 và một phần Khoản NĐ 207/2025 Điều 9 đổi ranh giới); toàn bộ chunk_id của `gold_id_proposals_300.json` (sang `{clause_id}_chunk_{n}`, giữ nguyên ID `version_*`). Test không đổi. | `6942c3353a62…fb889` (không đổi) |
