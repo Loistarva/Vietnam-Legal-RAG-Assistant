@@ -57,10 +57,27 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
     output_dir.mkdir(parents=True, exist_ok=True)
     aggregate_rows: list[dict[str, Any]] = []
     metrics: dict[str, dict[str, float]] = {}
+    def _normalize_dev_rows(raw_list: list[Any]) -> list[dict[str, Any]]:
+        flat = []
+        for item in raw_list:
+            if isinstance(item, dict) and "results" in item and isinstance(item["results"], list):
+                q_text = item.get("query") or item.get("query_id") or ""
+                for res in item["results"]:
+                    flat.append({
+                        "query": q_text,
+                        "chunk_id": res.get("chunk_id"),
+                        "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
+                        "rank": res.get("rank"),
+                    })
+            else:
+                flat.append(item)
+        return flat
+
     for method in METHODS:
-        rows = read_json(results_dir / f"dev_{method}.json")
-        if not isinstance(rows, list):
+        raw_rows = read_json(results_dir / f"dev_{method}.json")
+        if not isinstance(raw_rows, list):
             raise ValueError(f"Kết quả {method} phải là JSON list")
+        rows = _normalize_dev_rows(raw_rows)
         by_query: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for row in rows:
             if (not isinstance(row, dict) or set(row) != {"query", "chunk_id", "score", "rank"}

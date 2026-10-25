@@ -9,7 +9,9 @@
     "issuing_body": "Bộ Tư pháp",
     "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
-    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805",
+    "source_status": "Hết hiệu lực một phần",
+    "provision_status": "requires_review"
   },
   "articles": [
     {

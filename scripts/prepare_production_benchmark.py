@@ -103,7 +103,7 @@ def validate_inputs():
                     'document_number':number,
                     'effective_date':d.get('effective_date',''),
                     'expiry_date':d.get('expiry_date',''),
-                    'registry_status':d.get('status',''),
+                    'registry_status':d.get('source_status') or d.get('status',''),
                     'source_url':r.get('source_url') or d.get('source_url',''),
                     'status':'CANDIDATE_NEEDS_LEGAL_DATE_REVIEW',
                 })
@@ -159,11 +159,11 @@ def build_audit():
         'review_flags':dict(sorted(flags.items())),
         'errors':errors,
         'can_claim_final_gold_pass':not errors and all(x['evidence_status']=='GOLD_VERIFIED' and not x['flags'] for x in registry),
-        'notes':[
-            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',
-            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',
-            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',
-            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',
+        'notes':[\
+            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',\
+            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',\
+            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',\
+            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',\
         ],
     }
     dump_json(DATA/'production_evidence_audit.json',report)

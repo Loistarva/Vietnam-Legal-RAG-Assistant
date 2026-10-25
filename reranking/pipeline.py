@@ -186,6 +186,8 @@ class RetrievalPipeline:
             "query": query,
             "retriever": self.name,
             "results": final,
+            "latency_ms": stats.get("total_latency_ms", 0.0),
+            "top_k": top_k,
             "config": {
                 "retriever": {"backend": self.retriever_name, "retrieval_top_k": self.retrieval_top_k,
                               **self.retriever_settings},

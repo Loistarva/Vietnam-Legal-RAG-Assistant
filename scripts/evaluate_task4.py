@@ -27,6 +27,23 @@ def write_csv(rows: list[dict], path: Path) -> None:
         writer.writerows(rows)
 
 
+def normalize_results(data: list[dict]) -> list[dict]:
+    flat = []
+    for item in data:
+        if isinstance(item, dict) and "results" in item and isinstance(item["results"], list):
+            q_text = item.get("query") or item.get("query_id") or ""
+            for res in item["results"]:
+                flat.append({
+                    "query": q_text,
+                    "chunk_id": res.get("chunk_id"),
+                    "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
+                    "rank": res.get("rank"),
+                })
+        else:
+            flat.append(item)
+    return flat
+
+
 def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
              results_dir: Path, output_path: Path,
              article_index_path: Path, article_output_path: Path) -> list[dict[str, float | int | str]]:
@@ -74,7 +91,7 @@ def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
 
     output_rows = []
     for method in ("bm25", "dense", "hybrid"):
-        results = read_json(results_dir / f"dev_{method}.json")
+        results = normalize_results(read_json(results_dir / f"dev_{method}.json"))
         by_query: dict[str, list[dict]] = defaultdict(list)
         for row in results:
             by_query[row["query"]].append(row)
@@ -124,7 +141,7 @@ def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
             article_excluded += 1
     article_rows = []
     for method in ("bm25", "dense", "hybrid"):
-        results = read_json(results_dir / f"dev_{method}.json")
+        results = normalize_results(read_json(results_dir / f"dev_{method}.json"))
         by_query: dict[str, list[dict]] = defaultdict(list)
         for row in results:
             by_query[row["query"]].append(row)

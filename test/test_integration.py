@@ -88,10 +88,8 @@ SCORES = {"l_52_2014_qh13_art_10_chunk_1": 0.9, "l_52_2014_qh13_art_8_chunk_2": 
 
 
 def assert_contract(test, output):
-    test.assertTrue(set(ENVELOPE_FIELDS) <= set(output))
-    # query/config/stats are not declared in RetrievalEnvelope yet (issue C7), so only the
-    # declared envelope fields are validated against the schema root.
-    jsonschema.validate({field: output[field] for field in ENVELOPE_FIELDS}, RETRIEVAL_SCHEMA)
+    # Validate entire pipeline output against RetrievalEnvelope schema (issue C7 resolved)
+    jsonschema.validate(output, RETRIEVAL_SCHEMA)
     test.assertEqual([row["rank"] for row in output["results"]], list(range(1, len(output["results"]) + 1)))
     for row in output["results"]:
         jsonschema.validate(row, RESULT_SCHEMA)
@@ -320,7 +318,7 @@ class CliTest(unittest.TestCase):
             outputs = json.loads(destination.read_text(encoding="utf-8"))
             eval_rows = json.loads(eval_destination.read_text(encoding="utf-8"))
         self.assertEqual([row["query_id"] for row in outputs], ["HN_001", "HN_002"])
-        self.assertEqual(eval_rows[0], {"question_id": "HN_001",
+        self.assertEqual(eval_rows[0], {"query_id": "HN_001",
                                         "retrieved_chunk_ids": [row["chunk_id"] for row in outputs[0]["results"]]})
         for output in outputs:
             assert_contract(self, output)

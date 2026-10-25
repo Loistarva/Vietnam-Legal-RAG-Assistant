@@ -185,6 +185,18 @@
         "null"
       ]
     },
+    "source_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provision_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "metadata": {
       "type": "object",
       "required": [
@@ -285,6 +297,18 @@
           "minLength": 1
         },
         "effective_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provision_status": {
           "type": [
             "string",
             "null"

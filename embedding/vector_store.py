@@ -172,6 +172,13 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     if "effective_to" in raw_meta or "effective_to" in raw:
         metadata["effective_to"] = raw_meta.get("effective_to") or raw.get("effective_to")
 
+    source_status = raw.get("source_status") or raw_meta.get("source_status")
+    provision_status = raw.get("provision_status") or raw_meta.get("provision_status")
+    if source_status is not None:
+        metadata["source_status"] = source_status
+    if provision_status is not None:
+        metadata["provision_status"] = provision_status
+
     result: Dict[str, Any] = {
         "chunk_id": chunk_id,
         "document_id": document_id,
@@ -186,6 +193,10 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "source_url": source_url,
         "metadata": metadata,
     }
+    if source_status is not None:
+        result["source_status"] = source_status
+    if provision_status is not None:
+        result["provision_status"] = provision_status
     if "embed_text_raw" in raw:
         result["embed_text_raw"] = raw["embed_text_raw"]
     if "point_ref" in raw and raw["point_ref"] is not None:

@@ -145,6 +145,8 @@ class ChildChunk:
             "chapter": self.metadata.get("chapter"),
             "section": self.metadata.get("section"),
             "article_number": self.metadata.get("article_number"),
+            "source_status": self.metadata.get("source_status"),
+            "provision_status": self.metadata.get("provision_status"),
             "metadata": self.metadata.copy(),
         }
         return payload
@@ -674,6 +676,8 @@ def _create_child_chunks_from_units(
         child_meta["effective_from"] = parent.metadata.get("effective_from") or parent.metadata.get("effective_date") or ""
         child_meta["effective_to"] = parent.metadata.get("effective_to") or parent.metadata.get("expiry_date")
         child_meta["validity_status"] = parent.metadata.get("validity_status")
+        child_meta["source_status"] = parent.metadata.get("source_status")
+        child_meta["provision_status"] = parent.metadata.get("provision_status")
 
         child = ChildChunk(
             chunk_id=cid,
@@ -743,6 +747,8 @@ def _chunk_structured_document(
         "source_url": source_url,
         "issuing_body": meta.get("issuing_body") or doc.get("co_quan_ban_hanh"),
         "validity_status": validity_status,
+        "source_status": meta.get("source_status"),
+        "provision_status": meta.get("provision_status"),
     }
 
     articles = doc.get("articles", [])

@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Retrieval Response Schema",
+  "description": "Output của một truy vấn đơn lẻ tuân thủ RetrievalEnvelope (object); file dump kết quả chạy đánh giá hàng loạt (batch evaluation dump) là một mảng JSON các RetrievalEnvelope (hoặc JSONL mà mỗi dòng là một RetrievalEnvelope).",
   "$ref": "#/$defs/RetrievalEnvelope",
   "$defs": {
     "RetrievalEnvelope": {
@@ -14,6 +15,12 @@
         "query_id": {
           "type": "string",
           "minLength": 1
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "retriever": {
           "type": "string",
@@ -33,6 +40,12 @@
         },
         "top_k": {
           "type": "integer"
+        },
+        "config": {
+          "type": "object"
+        },
+        "stats": {
+          "type": "object"
         }
       },
       "additionalProperties": false

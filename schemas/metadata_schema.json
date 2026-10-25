@@ -74,6 +74,18 @@
         },
         "source_url": {
           "type": "string"
+        },
+        "source_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provision_status": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },

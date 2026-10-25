@@ -113,7 +113,7 @@ class BM25Retriever:
 
             chunks = self.search(question, top_k=top_k)
             results.append({
-                "question_id": question_id,
+                "query_id": question_id,
                 "question": question,
                 "retrieved_chunk_ids": [chunk["chunk_id"] for chunk in chunks],
                 "retrieved_chunks": [

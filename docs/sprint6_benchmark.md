@@ -94,12 +94,16 @@ Người phụ trách cần kiểm tra nội dung chunk có thực sự trả l�
 
 ## 10. Bảng Ánh xạ Tên trường (Field Name Mapping Contract)
 
-Nhằm đảm bảo tính tương thích giữa quy chuẩn Benchmark Sprint 6, các tài liệu kỹ thuật và mã nguồn kiểm thử / retrieval, bảng ánh xạ chuẩn tắc giữa các tên trường được quy định như sau:
+Nhằm đảm bảo tính tương thích và nhất quán giữa quy chuẩn Benchmark Sprint 6, các tài liệu kỹ thuật và mã nguồn kiểm thử / retrieval:
+- **Đầu vào Benchmark:** Bắt buộc sử dụng khóa `id` (VD: `HN_001` .. `HN_300`).
+- **Đầu ra Retrieval & Evaluation:** Tất cả các module pipeline, retriever và đánh giá bắt buộc sử dụng chuẩn duy nhất `query_id` (loại bỏ alias `question_id` khỏi mọi đầu ra chính thức).
 
-| Khái niệm nghiệp vụ | Tên trường chính thức (`schemas/benchmark_schema.json`) | Tên trường thay thế / Alias trong pipeline & code | Mô tả & Ràng buộc |
+Bảng ánh xạ chuẩn tắc giữa các tên trường:
+
+| Khái niệm nghiệp vụ | Tên trường chính thức (`schemas/benchmark_schema.json`) | Tên trường trong đầu ra Retrieval / Evaluation | Mô tả & Ràng buộc |
 | :--- | :--- | :--- | :--- |
-| **Mã câu hỏi** | `id` | `query_id`, `question_id` | Định danh duy nhất của câu hỏi (VD: `HN_001` .. `HN_300`). Bắt buộc. |
-| **Phân loại chủ đề** | `category` | `topic` | Nhóm chủ đề câu hỏi (VD: `ket_hon`, `ly_hon`, `tai_san`, `con_chung`, v.v.). |
+| **Mã câu hỏi** | `id` | `query_id` | Định danh duy nhất của câu hỏi (VD: `HN_001` .. `HN_300`). Bắt buộc. |
+| **Phân loại chủ đề** | `category` | `category` (alias `topic`) | Nhóm chủ đề câu hỏi (VD: `ket_hon`, `ly_hon`, `tai_san`, `con_chung`, v.v.). |
 | **Đáp án chuẩn** | `answer` | `expected_answer` | Nội dung câu trả lời chuẩn tham chiếu hoặc trích xuất từ văn bản pháp luật. |
 | **Tập phân chia** | `split` | `split` | Thuộc tập phát triển (`"dev"`, 285 câu) hoặc tập kiểm thử (`"test"`, 15 câu). Enum: `["dev", "test"]`. |
-| **Thời điểm câu hỏi** | `as_of_date` | `as_of_date`, `query_date` | Mốc thời gian áp dụng luật (VD: `"2026-10-15"`). Định dạng chuẩn `YYYY-MM-DD`. |
+| **Thời điểm câu hỏi** | `as_of_date` | `as_of_date` | Mốc thời gian áp dụng luật (VD: `"2026-10-15"`). Định dạng chuẩn `YYYY-MM-DD`. |

@@ -42,17 +42,8 @@ SCORED_OUTPUT_PATH = (
     ROOT_DIR / "evaluation" / "results" / "zero_shot_dev_scored.json"
 )
 
-ID_KEYS = ("id", "question_id", "query_id")
-ANSWER_KEYS = (
-    "answer",
-    "ground_truth",
-    "reference_answer",
-    "expected_answer",
-    "gold_answer",
-    "target",
-    "answers",
-    "references",
-)
+ID_KEYS = ("query_id", "id")
+ANSWER_KEYS = ("answer", "expected_answer")
 
 
 def load_json(path: Path) -> Any:
@@ -161,7 +152,7 @@ def records_by_id(data: Any, *, is_ground_truth: bool) -> dict[str, Any]:
         item_id = extract_id(item)
         if item_id is None:
             raise ValueError(
-                f"Phần tử thứ {index + 1} thiếu id/question_id/query_id."
+                f"Phần tử thứ {index + 1} thiếu query_id hoặc id hợp lệ."
             )
         if item_id in output:
             raise ValueError(f"ID bị trùng trong file: {item_id}")
@@ -207,6 +198,16 @@ def evaluate(
     em_values: list[float] = []
     f1_values: list[float] = []
 
+    categories_by_id: dict[str, str] = {}
+    for qpath in (ROOT_DIR / "data" / "benchmark" / "queries_dev.json", ROOT_DIR / "data" / "benchmark" / "queries_test.json"):
+        if qpath.is_file():
+            try:
+                for qrow in json.loads(qpath.read_text(encoding="utf-8")):
+                    if isinstance(qrow, dict) and "id" in qrow and "category" in qrow:
+                        categories_by_id[qrow["id"]] = qrow["category"]
+            except Exception:
+                pass
+
     # Evaluate every prediction with a matching ground-truth ID.
     for question_id, prediction_record in predictions.items():
         if question_id not in ground_truth:
@@ -226,8 +227,18 @@ def evaluate(
 
         em_values.append(em)
         f1_values.append(f1)
+        cat = None
+        if isinstance(prediction_record, dict):
+            cat = prediction_record.get("category")
+        if not cat and isinstance(ground_truth.get(question_id), dict):
+            cat = ground_truth[question_id].get("category")
+        if not cat:
+            cat = categories_by_id.get(question_id)
+
         scored.append({
+            "query_id": question_id,
             "question_id": question_id,
+            "category": cat,
             "prediction": prediction,
             "references": references,
             "exact_match": em,
@@ -239,6 +250,21 @@ def evaluate(
             missing_prediction_ids.append(question_id)
 
     evaluated_count = len(scored)
+    category_scores: dict[str, list[dict[str, Any]]] = {}
+    for row in scored:
+        c = row.get("category")
+        if c:
+            category_scores.setdefault(c, []).append(row)
+
+    by_category: dict[str, dict[str, Any]] = {}
+    if category_scores:
+        for c, rows in category_scores.items():
+            by_category[c] = {
+                "exact_match": sum(r["exact_match"] for r in rows) / len(rows),
+                "token_f1": sum(r["token_f1"] for r in rows) / len(rows),
+                "count": len(rows),
+            }
+
     summary = {
         "method": (
             predictions_data[0].get("method", "unknown")
@@ -265,6 +291,8 @@ def evaluate(
             "answers that use different wording."
         ),
     }
+    if by_category:
+        summary["by_category"] = by_category
 
     metrics_output_path.parent.mkdir(parents=True, exist_ok=True)
     scored_output_path.parent.mkdir(parents=True, exist_ok=True)

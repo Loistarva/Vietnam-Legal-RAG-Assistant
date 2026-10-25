@@ -72,6 +72,8 @@ class DocumentMetadataSchema(BaseSchema):
     validity_status: str
     expiry_date: Optional[str] = None
     source_url: str = ""
+    source_status: Optional[str] = None
+    provision_status: Optional[str] = None
 
 
 class LegalDocumentSchema(BaseModel):
@@ -1072,11 +1074,27 @@ DOCUMENT_TYPE_PREFIX = {
 }
 
 
+VALID_DOCUMENT_TYPES = {
+    "Luật",
+    "Nghị định",
+    "Nghị quyết",
+    "Thông tư",
+    "Thông tư liên tịch",
+    "Quyết định",
+    "Chỉ thị",
+}
+
+
 def build_document_id(document_type: str, document_number: str) -> str:
     """
     Semantic ID: [loại_văn_bản]_[số_hiệu_đã_slug]
     VD: ('Nghị định', '100/2019/NĐ-CP') -> 'nd_100_2019_nd_cp'
     """
+    if document_type not in VALID_DOCUMENT_TYPES:
+        raise ValueError(
+            f"document_type '{document_type}' không hợp lệ theo metadata_schema.json. "
+            f"Cho phép: {sorted(list(VALID_DOCUMENT_TYPES))}"
+        )
     number_slug = slugify_ascii(document_number or "")
     if not number_slug:
         raise ValueError("Không tạo được document_id: document_number rỗng hoặc không nhận diện được.")
@@ -1244,7 +1262,14 @@ def metadata_from_document_version(record: dict, extracted_number: str) -> dict:
     """Chỉ lấy metadata chuẩn từ registry; không tự suy luận để lấp trường thiếu."""
     # Hỗ trợ cả file gốc (type/status) lẫn file đã chuẩn hóa (document_type/validity_status).
     document_type = record.get("document_type") or record.get("type") or "Không xác định"
+    if document_type not in VALID_DOCUMENT_TYPES:
+        raise ValueError(
+            f"document_type '{document_type}' trong registry không hợp lệ theo metadata_schema.json. "
+            f"Cho phép: {sorted(list(VALID_DOCUMENT_TYPES))}"
+        )
     validity_status = record.get("validity_status") or record.get("status") or "Không xác định"
+    source_status = record.get("source_status") or record.get("status")
+    provision_status = record.get("provision_status")
 
     issue_date = record.get("issue_date")
     effective_date = record.get("effective_date")
@@ -1280,6 +1305,8 @@ def metadata_from_document_version(record: dict, extracted_number: str) -> dict:
         # Không suy diễn ngày hết hiệu lực hoặc URL nếu registry không có dữ liệu.
         "expiry_date": record.get("expiry_date") or None,
         "source_url": str(record.get("source_url") or "").strip(),
+        "source_status": source_status,
+        "provision_status": provision_status,
     }
 
 

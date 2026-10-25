@@ -21,7 +21,7 @@ SAMPLE_PATH = Path(__file__).parent.parent / "data" / "sample_documents.json"
 
 # =============================================================================
 # Quy ước chung
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------─
 # 1. Mọi class đều có hậu tố `Schema`.
 # 2. Mọi id đều theo dạng `<cấp>_id`; khóa ngoại theo dạng `parent_<cấp cha>_id`.
 # 3. Mọi số thứ tự theo dạng `<cấp>_number`; mọi nội dung theo dạng `<cấp>_text`.
@@ -67,6 +67,12 @@ class ChunkSchema(BaseSchema):
 
     _clean_chunk_text = field_validator("chunk_text", mode="before")(clean_text)
 
+    @model_validator(mode="after")
+    def compute_char_count(self):
+        if self.char_count is None:
+            self.char_count = len(self.chunk_text)
+        return self
+
 
 class ClauseSchema(BaseSchema):
     clause_id: str
@@ -111,6 +117,8 @@ class DocumentMetadataSchema(BaseSchema):
     issuing_body: str
     validity_status: ValidityStatus
     source_url: Optional[str] = ""
+    source_status: Optional[str] = None
+    provision_status: Optional[str] = None
 
 
 class LegalDocumentSchema(BaseSchema):
@@ -336,7 +344,7 @@ def test_registry_validity_status_mapping():
 
     for record in records:
         number = record.get("document_number")
-        status = record.get("status")
+        status = record.get("source_status") or record.get("status")
         validity_status = record.get("validity_status")
         assert status in REGISTRY_STATUS_MAPPING, (
             f"{number}: status '{status}' chưa có trong bảng ánh xạ của data_contract.md"

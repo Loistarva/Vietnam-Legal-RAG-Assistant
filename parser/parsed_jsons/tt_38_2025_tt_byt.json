@@ -9,7 +9,9 @@
     "issuing_body": "Bộ Y tế",
     "validity_status": "Còn hiệu lực",
     "expiry_date": null,
-    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=181195"
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=181195",
+    "source_status": "Còn hiệu lực",
+    "provision_status": "document_level_only"
   },
   "articles": [
     {

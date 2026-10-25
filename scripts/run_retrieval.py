@@ -172,7 +172,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     else:
         sys.stdout.write(text + "\n")
     if args.eval_output:
-        rows = [{"question_id": output["query_id"],
+        rows = [{"query_id": output["query_id"],
                  "retrieved_chunk_ids": [row["chunk_id"] for row in output["results"]]} for output in outputs]
         write_json(args.eval_output, json.dumps(rows, ensure_ascii=False, indent=2))
         print(f"Đã ghi file cho evaluation -> {args.eval_output}", file=sys.stderr)

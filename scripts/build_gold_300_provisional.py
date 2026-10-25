@@ -41,7 +41,7 @@ def build(root, out):
         cited_docs={x['document_id'] for x in g.get('citations',[])}
         gold_articles=g.get('gold_article_ids') or []
         if g.get('gold_context_ids'):
-            for cid in g['gold_context_ids']:
+            for cid in g['gold_context_ids']:\
                 if cid not in idx: raise ValueError(f'Existing gold {cid} missing from index: {qid}')
                 if idx[cid]['document_number'] not in cited_docs: raise ValueError(f'Existing gold wrong document: {qid}')
                 evidence.append(cid); evidence_tier.append('EXISTING_REVIEWED_ID')
@@ -83,7 +83,7 @@ def build(root, out):
                 if stable not in version_chunks:
                     effective=doc.get('effective_date','')
                     expiry=doc.get('expiry_date','')
-                    status=doc.get('status','')
+                    status=doc.get('source_status') or doc.get('status','')
                     version_chunks[stable]={
                         'chunk_id':stable,
                         'evidence_type':'DOCUMENT_VERSION_METADATA',

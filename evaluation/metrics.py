@@ -113,6 +113,17 @@ def evaluate(
     Chỉ chấm những câu có trong file kết quả. Câu có gold rỗng (chưa map)
     được bỏ qua và ghi lại trong 'skipped'.
     """
+    ROOT_DIR = Path(__file__).resolve().parents[1]
+    categories_by_id: dict[str, str] = {}
+    for qpath in (ROOT_DIR / "data" / "benchmark" / "queries_dev.json", ROOT_DIR / "data" / "benchmark" / "queries_test.json"):
+        if qpath.is_file():
+            try:
+                for qrow in json.loads(qpath.read_text(encoding="utf-8")):
+                    if isinstance(qrow, dict) and "id" in qrow and "category" in qrow:
+                        categories_by_id[qrow["id"]] = qrow["category"]
+            except Exception:
+                pass
+
     gold_by_id = load_gold(ground_truth_path)
     results = _read_json_array(results_path)
 
@@ -120,7 +131,9 @@ def evaluate(
     skipped: list[str] = []
 
     for item in results:
-        question_id = item["question_id"]
+        question_id = item.get("query_id") or item.get("question_id")
+        if not question_id:
+            raise ValueError(f"Mỗi kết quả phải có query_id hoặc question_id: {item}")
         if question_id not in gold_by_id:
             raise ValueError(
                 f"Câu hỏi {question_id!r} có trong kết quả nhưng không có trong "
@@ -132,16 +145,34 @@ def evaluate(
             continue
 
         scores = score_question(item["retrieved_chunk_ids"], gold, ks)
-        per_question.append({"question_id": question_id, **scores})
+        entry = {"query_id": question_id, "question_id": question_id, **scores}
+        cat = item.get("category") or categories_by_id.get(question_id)
+        if cat:
+            entry["category"] = cat
+        per_question.append(entry)
 
     if not per_question:
         raise ValueError("Không có câu hỏi nào có gold để chấm điểm.")
 
-    metric_names = [key for key in per_question[0] if key != "question_id"]
+    metric_names = [key for key in per_question[0] if key not in ("question_id", "query_id", "category")]
     average = {
         name: sum(row[name] for row in per_question) / len(per_question)
         for name in metric_names
     }
+
+    category_scores: dict[str, list[dict[str, Any]]] = {}
+    for row in per_question:
+        cat = row.get("category")
+        if cat:
+            category_scores.setdefault(cat, []).append(row)
+
+    by_category: dict[str, dict[str, float]] = {}
+    if category_scores:
+        for cat, rows in category_scores.items():
+            by_category[cat] = {
+                name: sum(r[name] for r in rows) / len(rows)
+                for name in metric_names
+            }
 
     report = {
         "num_questions": len(per_question),
@@ -150,6 +181,8 @@ def evaluate(
         "average": average,
         "per_question": per_question,
     }
+    if by_category:
+        report["by_category"] = by_category
 
     print(f"Đã chấm {len(per_question)} câu (bỏ qua {len(skipped)} câu chưa có gold)")
     for name, value in average.items():

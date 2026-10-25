@@ -78,7 +78,8 @@
       "properties": {
         "document_id": {
           "type": "string",
-          "minLength": 3
+          "minLength": 3,
+          "pattern": "^[0-9a-zA-Z\\.\\-_/Đđ]+$"
         },
         "article": {
           "type": "string",
@@ -132,7 +133,8 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "minLength": 4
+            "minLength": 4,
+            "pattern": "^([a-z0-9_]+_(art|p)[a-z0-9_]*_chunk_[0-9a-z_]+|version_[a-z0-9_]+|[A-Z0-9]+_D[0-9]+_C[0-9]+)$"
           }
         },
         "gold_article_ids": {
@@ -140,7 +142,8 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "minLength": 4
+            "minLength": 4,
+            "pattern": "^([A-Z0-9]+_D[0-9]+[a-z]?|[a-z0-9_]+_art_[0-9a-z]+)$"
           }
         },
         "candidate_context_ids": {
@@ -148,7 +151,8 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "minLength": 4
+            "minLength": 4,
+            "pattern": "^([a-z0-9_]+_(art|p)[a-z0-9_]*_chunk_[0-9a-z_]+|version_[a-z0-9_]+|[A-Z0-9]+_D[0-9]+_C[0-9]+)$"
           }
         },
         "outdated_context_ids": {
@@ -234,6 +238,14 @@
             "reviewed_answer"
           ],
           "description": "Extracted excerpts must be rewritten into question-specific answers and independently verified before marked reviewed_answer."
+        },
+        "gold_clause_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 4
+          }
         }
       },
       "allOf": [
@@ -250,8 +262,27 @@
           "then": {
             "properties": {
               "verified_by": {
+                "type": "string",
                 "not": {
-                  "const": "HO_TEN_THUC_TE"
+                  "pattern": "^(HO_TEN_.*|\\s*)$"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "evidence_level": {
+                "const": "full_text_checked"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "review_status": {
+                "not": {
+                  "const": "draft"
                 }
               }
             }

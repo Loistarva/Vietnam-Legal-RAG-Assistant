@@ -9,7 +9,9 @@
     "issuing_body": "Chính phủ",
     "validity_status": "Hết hiệu lực",
     "expiry_date": "2016-01-01",
-    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950"
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "document_level_only"
   },
   "articles": [
     {

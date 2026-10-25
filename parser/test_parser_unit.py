@@ -704,3 +704,86 @@ def test_ttlt_01_2016_article_9_title_and_body():
     article = parse_located_txt("01/2016/TTLT", "ttlt_01_2016_ttlt_tandtc")["9"]
     assert article["article_title"] == "Giải thích, sửa đổi, bổ sung Thông tư liên tịch"
     assert article["clauses"][0]["clause_text"].startswith("Trong quá trình thực hiện, nếu có vướng mắc")
+
+
+# ---------------------------------------------------------------------------
+# C6: Kiểm tra tính toàn vẹn của Registry và đối chiếu với hai bảng và chunks.jsonl
+# ---------------------------------------------------------------------------
+def test_registry_and_mapping_tables_integrity():
+    repo_root = Path(__file__).resolve().parent.parent
+    registry_path = repo_root / "data" / "reference" / "document_versions.json"
+    data_contract_path = repo_root / "docs" / "data_contract.md"
+    readme_path = repo_root / "data" / "raw_data" / "README.md"
+    chunks_path = repo_root / "data" / "chunking_output" / "chunks.jsonl"
+
+    # (a) Mọi document_id trong data/reference/document_versions.json là duy nhất và khớp regex ^[a-z0-9_]+$
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    doc_ids = [d["document_id"] for d in registry]
+    assert len(doc_ids) == len(set(doc_ids)), f"Trùng document_id trong registry: {len(doc_ids)} vs {len(set(doc_ids))}"
+    for did in doc_ids:
+        assert re.fullmatch(r"^[a-z0-9_]+$", did), f"document_id '{did}' không khớp ^[a-z0-9_]+$"
+
+    registry_by_id = {d["document_id"]: d for d in registry}
+
+    # Helper parse markdown table rows from a specific section
+    def parse_section_table(file_path: Path, header_marker: str):
+        text = file_path.read_text(encoding="utf-8")
+        if header_marker in text:
+            text = text.split(header_marker, 1)[1]
+        rows = []
+        for line in text.splitlines():
+            line = line.strip()
+            if line.startswith("#"):
+                break
+            if line.startswith("|") and line.endswith("|"):
+                parts = [p.strip() for p in line.split("|")[1:-1]]
+                if len(parts) >= 4 and not parts[0].startswith(":") and not parts[0].startswith("-") and "file_code" not in parts[0] and "Kiểu dữ liệu" not in parts[1]:
+                    file_code = parts[0].replace("*", "").strip()
+                    doc_id = parts[1].replace("`", "").strip()
+                    doc_number = parts[2].strip()
+                    validity_status = parts[3].strip()
+                    rows.append({
+                        "file_code": file_code,
+                        "document_id": doc_id,
+                        "document_number": doc_number,
+                        "validity_status": validity_status,
+                    })
+        return rows
+
+    # (b) Mọi dòng trong bảng ánh xạ ở Mục 6 docs/data_contract.md và data/raw_data/README.md đều khớp 100% với document_versions.json
+    contract_rows = parse_section_table(data_contract_path, "## 6. Bảng Ánh xạ Định danh Văn bản")
+    readme_rows = parse_section_table(readme_path, "Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức")
+
+    assert len(contract_rows) >= 21, f"Bảng ở data_contract.md thiếu văn bản: {len(contract_rows)}"
+    assert len(readme_rows) >= 21, f"Bảng ở README.md thiếu văn bản: {len(readme_rows)}"
+
+    for row in contract_rows:
+        did = row["document_id"]
+        assert did in registry_by_id, f"document_id '{did}' trong data_contract.md không có trong registry"
+        reg = registry_by_id[did]
+        assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
+        assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
+        assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
+
+    for row in readme_rows:
+        did = row["document_id"]
+        assert did in registry_by_id, f"document_id '{did}' trong README.md không có trong registry"
+        reg = registry_by_id[did]
+        assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
+        assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
+        assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
+
+    # (c) Mọi document_id xuất hiện trong data/chunking_output/chunks.jsonl đều tồn tại trong document_versions.json và trong bảng Mục 6 docs/data_contract.md
+    contract_doc_ids = {r["document_id"] for r in contract_rows}
+    chunk_doc_ids = set()
+    with chunks_path.open("r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                c = json.loads(line)
+                cdid = c.get("document_id") or c.get("metadata", {}).get("doc_id") or c.get("chunk_id").split("_art_")[0]
+                chunk_doc_ids.add(cdid)
+
+    assert len(chunk_doc_ids) == 21, f"Số lượng document_id trong chunks.jsonl: {len(chunk_doc_ids)}"
+    for did in chunk_doc_ids:
+        assert did in registry_by_id, f"document_id '{did}' trong chunks.jsonl không có trong registry"
+        assert did in contract_doc_ids, f"document_id '{did}' trong chunks.jsonl không có trong bảng Mục 6 data_contract.md"
