@@ -5,6 +5,7 @@ Quản lý lưu trữ vector và truy vấn kèm Metadata Pre-filter theo Data C
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import uuid
@@ -33,6 +34,11 @@ VALID_STATUSES = {
     "Sửa đổi bổ sung",
     "Không xác định",
 }
+
+
+def chunk_file_sha256(path: str | Path) -> str:
+    """Tính hash SHA-256 của file chunk."""
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def load_chunks(chunks_file: str | Path) -> List[Dict[str, Any]]:

@@ -42,6 +42,7 @@ class FakeBuildClient:
         self.indices = FakeIndices()
         self.document_count = document_count
         self.closed = False
+        self.expected_count = expected_count
 
     def ping(self):
         return True
