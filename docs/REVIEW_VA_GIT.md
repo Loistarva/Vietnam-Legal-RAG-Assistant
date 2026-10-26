@@ -9,7 +9,7 @@
 ```powershell
 python -m pip install -r requirements.txt
 python scripts/validate_benchmark.py
-python -m unittest discover -s tests -v
+python -m pytest test/test_benchmark.py -v
 python scripts/freeze_test.py --verify
 python scripts/audit_quality.py
 ```
@@ -28,13 +28,13 @@ git worktree add -b feature/sprint6-benchmark ..\Vietnam-Legal-RAG-Assistant-ben
 
 Tại thư mục mới `D:\GitHubProjects\Vietnam-Legal-RAG-Assistant-benchmark`, chép lần lượt **các file của ZIP vào đúng đường dẫn tương ứng**, rà soát xung đột tên file. Không ghi đè mã chunking, parser hay `requirements.txt` hiện hữu của nhóm khi chưa xem diff.
 
-**6 đầu ra tối thiểu phải có**: `schemas/benchmark_schema.json`, `data/benchmark/queries_dev.json`, `data/benchmark/queries_test.json`, `data/benchmark/ground_truth.json`, `tests/test_benchmark.py`, `docs/sprint6_benchmark.md`. Đồng thời cần giữ các dependency thực sự được script dùng (`data/reference/*`, `scripts/validate_benchmark.py`, `scripts/freeze_test.py`, `scripts/freeze_gold.py`, v.v.), manifest đóng băng Test, và `jsonschema>=4.21,<5` trong môi trường cài đặt.
+**6 đầu ra tối thiểu phải có**: `schemas/benchmark_schema.json`, `data/benchmark/queries_dev.json`, `data/benchmark/queries_test.json`, `data/benchmark/ground_truth.json`, `test/test_benchmark.py`, `docs/sprint6_benchmark.md`. Đồng thời cần giữ các dependency thực sự được script dùng (`data/reference/*`, `scripts/validate_benchmark.py`, `scripts/freeze_test.py`, `scripts/freeze_gold.py`, v.v.), manifest đóng băng Test, và `jsonschema>=4.21,<5` trong môi trường cài đặt.
 
 Không dùng `git add .` khi chưa kiểm tra. Với bản ZIP này, nếu những đường dẫn không đè lên file của nhóm, có thể stage rõ ràng:
 
 ```powershell
 git status --short
-git add schemas/benchmark_schema.json data/benchmark/ data/reference/ tests/test_benchmark.py
+git add schemas/benchmark_schema.json data/benchmark/ data/reference/ test/test_benchmark.py
 git add scripts/validate_benchmark.py scripts/freeze_test.py scripts/freeze_gold.py scripts/check_review_coverage.py scripts/import_chunk_index.py scripts/suggest_chunk_mapping.py scripts/audit_quality.py
 git add docs/sprint6_benchmark.md docs/test_questions_freeze.json docs/quality_audit.json docs/quality_review_priorities_dev.csv docs/review_dev_285.csv docs/qa_summary.json docs/handoff_manifest.json
 git diff --cached --stat

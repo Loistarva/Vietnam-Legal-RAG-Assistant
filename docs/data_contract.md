@@ -50,7 +50,7 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 **Ánh xạ trạng thái từ registry (`data/reference/document_versions.json`):**
 
-Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `source_status` (trước đây là `status`) và giá trị đã ánh xạ ở `validity_status`. Parser chỉ đọc `validity_status`. Mọi bản ghi phải theo bảng dưới (kiểm bởi `tests/schema_test.py::test_registry_validity_status_mapping`):
+Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `source_status` (trước đây là `status`) và giá trị đã ánh xạ ở `validity_status`. Parser chỉ đọc `validity_status`. Mọi bản ghi phải theo bảng dưới (kiểm bởi `test/schema_test.py::test_registry_validity_status_mapping`):
 
 | `status` (registry) | `validity_status` | Ghi chú |
 | :--- | :--- | :--- |

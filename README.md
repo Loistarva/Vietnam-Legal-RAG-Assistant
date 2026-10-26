@@ -12,7 +12,7 @@ Dự án RAG hỗ trợ truy xuất và hỏi đáp trên văn bản pháp luậ
 | `embedding/`, `scripts/build_index.py` | Dense retriever, vector store Qdrant, tạo index | Dev 3 |
 | `retrieval/` | BM25 Elasticsearch, RRF, `HybridRetriever` | Dev 4 |
 | `reranking/`, `scripts/run_retrieval.py` | Reranker, pipeline Hybrid + Reranker, CLI | Dev 5 |
-| `test/`, `tests/` | Unit test và integration test | Từng owner |
+| `test/` | Unit test và integration test | Từng owner |
 | `docs/` | Báo cáo và hướng dẫn | Từng owner |
 
 ## Cài đặt

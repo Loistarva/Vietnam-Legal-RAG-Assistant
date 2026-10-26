@@ -11,7 +11,7 @@
 | `data/benchmark/queries_dev.json` | Đã tạo | 285 câu phát triển |
 | `data/benchmark/queries_test.json` | Đã tạo, **frozen** | 15 câu Test từ bản người dùng đưa; SHA-256 manifest |
 | `data/benchmark/ground_truth.json` | 300 hàng **DRAFT** | Có `answer_kind`, đáp án nháp và dẫn chiếu; chưa phải Gold đã duyệt |
-| `tests/test_benchmark.py` | Đã tạo và chạy | Bao gồm lỗi schema, ID, nhãn giả, hiệu lực và Test freeze |
+| `test/test_benchmark.py` | Đã tạo và chạy | Bao gồm lỗi schema, ID, nhãn giả, hiệu lực và Test freeze |
 | `docs/sprint6_benchmark.md` | Tài liệu này | Tiến độ, kỹ thuật, giới hạn và nghiệm thu |
 
 ## 2. Số liệu thực tế
@@ -50,7 +50,7 @@ Python 3.13, JSON Schema Draft-07, `unittest`. Toàn bộ dữ liệu nằm tron
    ```
 3. Chạy test suite:
    ```bash
-   python -m pytest tests/test_benchmark.py test/test_benchmark_draft.py
+   python -m pytest test/test_benchmark.py
    ```
 
 ## 5. Quy trình xác minh pháp lý và rà soát chất lượng

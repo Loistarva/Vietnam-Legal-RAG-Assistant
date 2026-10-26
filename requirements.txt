@@ -11,7 +11,7 @@ PyYAML>=6,<7
 # must be segmented by the same version (chunking_report.json records it).
 underthesea==9.5.0
 
-# Schema validation (tests/schema_test.py) and contract tests
+# Schema validation (test/schema_test.py) and contract tests
 pydantic>=2,<3
 jsonschema>=4.18,<5
 pytest>=8
