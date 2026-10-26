@@ -1,0 +1,45 @@
+# Runs on every push and pull request. A red check means the commit breaks
+# the parser, the contract tests or a script; fix it before merging.
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Tests use fixtures and mocks only; never download models in CI.
+      HF_HUB_OFFLINE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # CPU build of torch: the default Linux wheel pulls about 2 GB of CUDA libraries.
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements.txt
+
+      - name: No tracked bytecode
+        run: |
+          if git ls-files | grep -E '\.py[co]$'; then
+            echo "Tracked .pyc files found; remove them with git rm --cached."
+            exit 1
+          fi
+
+      - name: Syntax check of scripts without tests
+        run: python -m compileall -q scripts evaluation retrieval reranking embedding chunking parser
+
+      - name: pytest (testpaths in pytest.ini)
+        run: python -m pytest
+
+      - name: pytest retrieval/test (outside testpaths, see H2)
+        run: python -m pytest retrieval/test
