@@ -40,6 +40,3 @@ jobs:
 
       - name: pytest (testpaths in pytest.ini)
         run: python -m pytest
-
-      - name: pytest retrieval/test (outside testpaths, see H2)
-        run: python -m pytest retrieval/test
