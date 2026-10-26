@@ -1,0 +1,13 @@
+{
+  "model_name": "bkai-foundation-models/vietnamese-bi-encoder",
+  "dimension": 768,
+  "collection_name": "vietnam_legal_dev_cfgc",
+  "indexed_chunks": 1906,
+  "cache_source_collection": "vietnam_legal_chunks_current",
+  "cache_source_index_dir": "data\\indexes",
+  "cache_key": "embed_text exact string; model giữ nguyên",
+  "reused_vectors": 1791,
+  "new_embeddings": 115,
+  "elapsed_seconds": 71.2,
+  "storage_path": "retrieval\\results\\dev_tuning\\chunking_variants\\C\\vector_index\\qdrant_storage"
+}

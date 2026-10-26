@@ -1,6 +1,7 @@
 """Hybrid BM25 + dense retrieval with Reciprocal Rank Fusion (RRF)."""
 from __future__ import annotations
 
+import math
 import logging
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor
@@ -150,11 +151,13 @@ class RedisJSONCache:
 
 @dataclass(frozen=True)
 class HybridSearchConfig:
-    """Candidate depth, final result count, and RRF smoothing constant."""
+    """Candidate depth, RRF smoothing constant, and per-source contributions."""
 
     top_k: int = 10
     candidate_k: int = 50
     rrf_k: int = 60
+    bm25_weight: float = 1.0
+    dense_weight: float = 1.0
 
     def __post_init__(self) -> None:
         if not isinstance(self.top_k, int) or isinstance(self.top_k, bool) or self.top_k < 1:
@@ -165,6 +168,11 @@ class HybridSearchConfig:
             raise ValueError("candidate_k phải >= top_k")
         if not isinstance(self.rrf_k, int) or isinstance(self.rrf_k, bool) or self.rrf_k < 0:
             raise ValueError("rrf_k phải là số nguyên không âm")
+        for name, weight in (("bm25_weight", self.bm25_weight), ("dense_weight", self.dense_weight)):
+            if not isinstance(weight, (int, float)) or isinstance(weight, bool) or not math.isfinite(weight) or weight < 0:
+                raise ValueError(f"{name} phải là số hữu hạn không âm")
+        if self.bm25_weight == 0 and self.dense_weight == 0:
+            raise ValueError("Ít nhất một trọng số RRF phải lớn hơn 0")
 
 
 class EmbeddingQdrantAdapter:
@@ -227,7 +235,8 @@ class HybridRetriever:
 
             key_text = "|".join([
                 normalized, f"top_k={requested_top_k}", f"candidate_k={self.config.candidate_k}",
-                f"rrf_k={self.config.rrf_k}", f"filter={component_key(self.metadata_filter)}",
+                f"rrf_k={self.config.rrf_k}", f"bm25_weight={self.config.bm25_weight}",
+                f"dense_weight={self.config.dense_weight}", f"filter={component_key(self.metadata_filter)}",
                 f"reranker={component_key(self.reranker)}",
             ])
             cache_key = hashlib.sha256(key_text.encode("utf-8")).hexdigest()
@@ -250,7 +259,8 @@ class HybridRetriever:
                 logger.exception("Dense retrieval failed; propagating error (no implicit sparse fallback)")
                 raise
         fused = reciprocal_rank_fusion(
-            [lexical_hits, dense_hits], top_k=self.config.candidate_k, rrf_k=self.config.rrf_k
+            [lexical_hits, dense_hits], top_k=self.config.candidate_k, rrf_k=self.config.rrf_k,
+            weights=[self.config.bm25_weight, self.config.dense_weight],
         )
         if self.metadata_filter is not None:
             fused = self.metadata_filter(fused)
@@ -283,8 +293,11 @@ def hybrid_search(
     top_k: int = 10,
     candidate_k: int = 50,
     rrf_k: int = 60,
+    bm25_weight: float = 1.0,
+    dense_weight: float = 1.0,
 ) -> list[dict[str, Any]]:
     """Compatibility helper around HybridRetriever and the Qdrant adapter."""
-    config = HybridSearchConfig(top_k=top_k, candidate_k=candidate_k, rrf_k=rrf_k)
+    config = HybridSearchConfig(top_k=top_k, candidate_k=candidate_k, rrf_k=rrf_k,
+                                bm25_weight=bm25_weight, dense_weight=dense_weight)
     dense = EmbeddingQdrantAdapter(embedding_service, vector_store)
     return HybridRetriever(bm25_index, dense, config).search(query)

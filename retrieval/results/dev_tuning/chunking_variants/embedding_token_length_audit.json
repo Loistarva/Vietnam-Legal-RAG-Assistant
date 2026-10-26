@@ -1,0 +1,876 @@
+{
+  "model": "bkai-foundation-models/vietnamese-bi-encoder",
+  "sequence_limit": 256,
+  "tokenizer": "PhobertTokenizer",
+  "variants": {
+    "A": {
+      "chunks": 2011,
+      "mean_tokens": 122.33,
+      "median_tokens": 111,
+      "p95_tokens": 227,
+      "max_tokens": 368,
+      "sequence_limit": 256,
+      "over_limit_chunks": 40,
+      "over_limit_fraction": 0.019890601690701143,
+      "over_limit_chunk_ids": [
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_1",
+          "token_count": 287
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_2",
+          "token_count": 314
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_36_clause_1_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_37_clause_1_chunk_1",
+          "token_count": 257
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_38_clause_1_chunk_1",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+          "token_count": 271
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_55_clause_1_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_1_chunk_2",
+          "token_count": 314
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_9_clause_2_chunk_2",
+          "token_count": 257
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_4_chunk_2",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_5_chunk_1",
+          "token_count": 264
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_17_clause_2_chunk_1",
+          "token_count": 285
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_12_clause_3_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_2_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_6_chunk_1",
+          "token_count": 287
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_7_chunk_1",
+          "token_count": 271
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_31_clause_3_chunk_1",
+          "token_count": 280
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_32_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_33_clause_1_chunk_1",
+          "token_count": 328
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_33_clause_1_chunk_2",
+          "token_count": 290
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_35_clause_1_chunk_1",
+          "token_count": 274
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_36_clause_1_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_7_clause_2_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_9_clause_3_chunk_2",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_10_clause_2_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_6_chunk_1",
+          "token_count": 276
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_7_chunk_1",
+          "token_count": 262
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_3_chunk_1",
+          "token_count": 270
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_6_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_3_chunk_1",
+          "token_count": 300
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_4_chunk_1",
+          "token_count": 258
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_5_chunk_1",
+          "token_count": 269
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_1",
+          "token_count": 309
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_2",
+          "token_count": 368
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_3",
+          "token_count": 357
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_1",
+          "token_count": 351
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_2",
+          "token_count": 332
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_14_clause_2_chunk_1",
+          "token_count": 260
+        }
+      ]
+    },
+    "B": {
+      "chunks": 2655,
+      "mean_tokens": 110.99,
+      "median_tokens": 107,
+      "p95_tokens": 182,
+      "max_tokens": 266,
+      "sequence_limit": 256,
+      "over_limit_chunks": 5,
+      "over_limit_fraction": 0.0018832391713747645,
+      "over_limit_chunk_ids": [
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_3",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_4",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_5",
+          "token_count": 258
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_1",
+          "token_count": 262
+        }
+      ]
+    },
+    "C": {
+      "chunks": 1906,
+      "mean_tokens": 124.09,
+      "median_tokens": 109.0,
+      "p95_tokens": 248,
+      "max_tokens": 486,
+      "sequence_limit": 256,
+      "over_limit_chunks": 86,
+      "over_limit_fraction": 0.04512067156348373,
+      "over_limit_chunk_ids": [
+        {
+          "chunk_id": "nd_10_2015_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 338
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_4_clause_1_chunk_1",
+          "token_count": 315
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_4_clause_2_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 275
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_14_clause_3_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_39_clause_2_chunk_1",
+          "token_count": 344
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_20_clause_1_chunk_1",
+          "token_count": 302
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_23_clause_1_chunk_1",
+          "token_count": 320
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_25_clause_1_chunk_1",
+          "token_count": 262
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_1",
+          "token_count": 287
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_2",
+          "token_count": 369
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_36_clause_1_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_37_clause_1_chunk_1",
+          "token_count": 257
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_38_clause_1_chunk_1",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+          "token_count": 323
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_55_clause_1_chunk_1",
+          "token_count": 339
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_55_clause_2_chunk_1",
+          "token_count": 318
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_60_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_63_clause_1_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_1_chunk_1",
+          "token_count": 332
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_9_clause_2_chunk_1",
+          "token_count": 398
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_4_chunk_1",
+          "token_count": 334
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_5_chunk_1",
+          "token_count": 264
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "nd_32_2002_nd_cp_art_16_clause_1_chunk_1",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_13_clause_1_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_16_clause_1_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_32_clause_1_chunk_1",
+          "token_count": 278
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_41_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_44_clause_2_chunk_1",
+          "token_count": 306
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_44_clause_3_chunk_1",
+          "token_count": 275
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_54_clause_1_chunk_1",
+          "token_count": 310
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_59_clause_1_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_61_clause_2_chunk_1",
+          "token_count": 278
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_72_clause_1_chunk_1",
+          "token_count": 280
+        },
+        {
+          "chunk_id": "nd_70_2001_nd_cp_art_24_clause_1_chunk_1",
+          "token_count": 311
+        },
+        {
+          "chunk_id": "nd_70_2001_nd_cp_art_28_clause_1_chunk_1",
+          "token_count": 265
+        },
+        {
+          "chunk_id": "nq_01_2024_nq_hdtp_art_5_clause_1_chunk_1",
+          "token_count": 338
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_11_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_15_clause_3_chunk_1",
+          "token_count": 291
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_17_clause_2_chunk_1",
+          "token_count": 356
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_12_clause_3_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_18_clause_3_chunk_1",
+          "token_count": 290
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_2_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_23_clause_3_chunk_1",
+          "token_count": 328
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_6_chunk_1",
+          "token_count": 345
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_7_chunk_1",
+          "token_count": 367
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_31_clause_3_chunk_1",
+          "token_count": 318
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_32_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_33_clause_1_chunk_1",
+          "token_count": 486
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_35_clause_1_chunk_1",
+          "token_count": 297
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_36_clause_1_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_7_clause_2_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_9_clause_3_chunk_1",
+          "token_count": 353
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_10_clause_1_chunk_1",
+          "token_count": 339
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_10_clause_2_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_6_chunk_1",
+          "token_count": 324
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_7_chunk_1",
+          "token_count": 326
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_3_chunk_1",
+          "token_count": 337
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_6_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_3_chunk_1",
+          "token_count": 341
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_4_chunk_1",
+          "token_count": 258
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_5_chunk_1",
+          "token_count": 303
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_26_clause_1_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_30_clause_1_chunk_1",
+          "token_count": 333
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_31_clause_2_chunk_1",
+          "token_count": 376
+        },
+        {
+          "chunk_id": "tt_32_2016_tt_byt_art_3_clause_1_chunk_1",
+          "token_count": 299
+        },
+        {
+          "chunk_id": "tt_34_2017_tt_byt_art_6_clause_3_chunk_1",
+          "token_count": 279
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_1",
+          "token_count": 433
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_2",
+          "token_count": 418
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_1",
+          "token_count": 485
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_6_clause_3_chunk_1",
+          "token_count": 262
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_11_clause_2_chunk_1",
+          "token_count": 269
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_14_clause_2_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_27_clause_2_chunk_1",
+          "token_count": 280
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_1",
+          "token_count": 320
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1",
+          "token_count": 269
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5_chunk_1",
+          "token_count": 354
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_1",
+          "token_count": 369
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_2",
+          "token_count": 292
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_5_clause_3_chunk_1",
+          "token_count": 294
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_6_clause_2_chunk_1",
+          "token_count": 311
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_2",
+          "token_count": 277
+        }
+      ]
+    },
+    "E": {
+      "chunks": 1923,
+      "mean_tokens": 123.73,
+      "median_tokens": 109,
+      "p95_tokens": 247,
+      "max_tokens": 410,
+      "sequence_limit": 256,
+      "over_limit_chunks": 74,
+      "over_limit_fraction": 0.03848153926157046,
+      "over_limit_chunk_ids": [
+        {
+          "chunk_id": "nd_10_2015_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 287
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_4_clause_2_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 275
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_14_clause_3_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "nd_123_2015_nd_cp_art_39_clause_2_chunk_1",
+          "token_count": 276
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_25_clause_1_chunk_1",
+          "token_count": 262
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_1",
+          "token_count": 287
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_28_clause_4_chunk_2",
+          "token_count": 349
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_36_clause_1_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_37_clause_1_chunk_1",
+          "token_count": 257
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_38_clause_1_chunk_1",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+          "token_count": 323
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_55_clause_1_chunk_1",
+          "token_count": 303
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_55_clause_2_chunk_1",
+          "token_count": 318
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_60_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "nd_126_2014_nd_cp_art_63_clause_1_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_1_chunk_1",
+          "token_count": 332
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_7_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_9_clause_2_chunk_1",
+          "token_count": 304
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_4_chunk_1",
+          "token_count": 334
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_10_clause_5_chunk_1",
+          "token_count": 264
+        },
+        {
+          "chunk_id": "nd_207_2025_nd_cp_art_14_clause_1_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "nd_32_2002_nd_cp_art_16_clause_1_chunk_1",
+          "token_count": 266
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_16_clause_1_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_32_clause_1_chunk_1",
+          "token_count": 278
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_41_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_44_clause_2_chunk_1",
+          "token_count": 306
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_44_clause_3_chunk_1",
+          "token_count": 275
+        },
+        {
+          "chunk_id": "nd_68_2002_nd_cp_art_54_clause_1_chunk_1",
+          "token_count": 310
+        },
+        {
+          "chunk_id": "nd_70_2001_nd_cp_art_24_clause_1_chunk_1",
+          "token_count": 292
+        },
+        {
+          "chunk_id": "nd_70_2001_nd_cp_art_28_clause_1_chunk_1",
+          "token_count": 265
+        },
+        {
+          "chunk_id": "nq_01_2024_nq_hdtp_art_5_clause_1_chunk_1",
+          "token_count": 281
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_11_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_15_clause_3_chunk_1",
+          "token_count": 291
+        },
+        {
+          "chunk_id": "tt_02a_2015_tt_btp_art_17_clause_2_chunk_1",
+          "token_count": 322
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_12_clause_3_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_18_clause_3_chunk_1",
+          "token_count": 290
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_1_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_21_clause_2_chunk_1",
+          "token_count": 296
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_23_clause_3_chunk_1",
+          "token_count": 328
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_6_chunk_1",
+          "token_count": 345
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_29_clause_7_chunk_1",
+          "token_count": 303
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_31_clause_3_chunk_1",
+          "token_count": 318
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_32_clause_2_chunk_1",
+          "token_count": 267
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_33_clause_1_chunk_1",
+          "token_count": 408
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_35_clause_1_chunk_1",
+          "token_count": 297
+        },
+        {
+          "chunk_id": "tt_04_2020_tt_btp_art_36_clause_1_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_7_clause_2_chunk_1",
+          "token_count": 261
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_9_clause_3_chunk_2",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_10_clause_2_chunk_1",
+          "token_count": 263
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_6_chunk_1",
+          "token_count": 324
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_19_clause_7_chunk_1",
+          "token_count": 326
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_3_chunk_1",
+          "token_count": 337
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_21_clause_6_chunk_1",
+          "token_count": 259
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_3_chunk_1",
+          "token_count": 341
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_4_chunk_1",
+          "token_count": 258
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_25_clause_5_chunk_1",
+          "token_count": 303
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_26_clause_1_chunk_1",
+          "token_count": 272
+        },
+        {
+          "chunk_id": "tt_15_2015_tt_btp_art_31_clause_2_chunk_1",
+          "token_count": 282
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_1",
+          "token_count": 410
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_1_chunk_2",
+          "token_count": 405
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_1",
+          "token_count": 351
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_3_clause_2_chunk_2",
+          "token_count": 360
+        },
+        {
+          "chunk_id": "tt_38_2025_tt_byt_art_6_clause_3_chunk_1",
+          "token_count": 262
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_11_clause_2_chunk_1",
+          "token_count": 269
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_14_clause_2_chunk_1",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "tt_57_2015_tt_byt_art_27_clause_2_chunk_1",
+          "token_count": 280
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_1",
+          "token_count": 290
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1",
+          "token_count": 268
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5_chunk_1",
+          "token_count": 291
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_1",
+          "token_count": 288
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_2",
+          "token_count": 260
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_6_clause_2_chunk_2",
+          "token_count": 279
+        },
+        {
+          "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_3",
+          "token_count": 258
+        }
+      ]
+    }
+  },
+  "note": "Đếm token bằng tokenizer thật của model, có tính special tokens; model cắt đầu vào dài hơn sequence_limit."
+}

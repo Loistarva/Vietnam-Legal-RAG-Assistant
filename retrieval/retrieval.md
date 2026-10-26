@@ -8,14 +8,14 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 
 | Thành phần | Công nghệ / tệp | Vai trò |
 | --- | --- | --- |
-| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py` | Tìm theo từ khóa. Dùng `multi_match` trên `content_segmented`, breadcrumb và metadata Điều/Khoản. Elasticsearch tự chấm điểm BM25. |
-| Dense | BGE-M3, Sentence Transformers, Qdrant; `embedding/vector_store.py` | Tạo embedding câu hỏi và tìm các chunk gần nhau theo vector/ngữ nghĩa. |
+| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py` | Tìm bằng `multi_match` trên `content_segmented` và `breadcrumb^1.5`; loại tài liệu có `metadata.validity_status = "Hết hiệu lực"`. Elasticsearch tự chấm điểm BM25. |
+| Dense | Sentence Transformers, Qdrant; `embedding/dense_retriever.py`, `embedding/vector_store.py` | Tạo embedding câu hỏi và tìm chunk gần nhau theo vector; mặc định loại tài liệu hết hiệu lực. |
 | Hợp nhất | RRF; `retrieval/rrf.py`, `retrieval/hybrid_retriever.py` | Kết hợp thứ hạng BM25 và Dense, không cộng trực tiếp điểm BM25 với cosine similarity. |
-| Build index | `retrieval/build_bm25_index.py` | Đọc file chunk Hôn nhân và Gia đình, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
+| Build index | `retrieval/build_bm25_index.py` | Đọc corpus chunk JSON/JSONL, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
 | Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả; mỗi tệp là mảng `RetrievalEnvelope` (một envelope mỗi câu, `query_id` lấy từ `id` của benchmark), theo mục 5.4 của `docs/data_contract.md`. |
-| Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
+| Đánh giá | `scripts/evaluate_task4.py` | So sánh các JSON đầu ra với candidate/gold labels; ghi `metrics.csv` và `article_metrics.csv`. |
 
-Cấu hình mặc định nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3`, candidate depth 50, Top-10 và RRF k=60. Đây là cấu hình chạy Dev; reranker không được bật trong phép so sánh BM25/Dense/Hybrid.
+`retrieval/config.yaml` mô tả một bộ cấu hình mặc định khác; `retrieval.run_dev_retrieval` hiện lấy thiết lập từ đối số CLI, không đọc file YAML đó. Lần chạy mới nhất dùng Elasticsearch index `legal-child-chunks-current`, Dense model `bkai-foundation-models/vietnamese-bi-encoder`, collection `vietnam_legal_chunks_current`, candidate depth 50, Top-10 và RRF k=60. Reranker không được bật trong phép so sánh này.
 
 ## Cách RRF và khử trùng lặp hoạt động
 
@@ -40,7 +40,7 @@ Danh sách rỗng hợp lệ được phân biệt với lỗi kết nối hoặ
 
 ## Chuẩn bị môi trường và chạy
 
-Các lệnh dưới đây dành cho Windows PowerShell, chạy từ thư mục gốc repo. Cần Docker Desktop đang chạy, Python 3.12, Elasticsearch và Qdrant collection chứa cùng corpus/model.
+Các lệnh dưới đây dành cho Windows PowerShell, chạy từ thư mục gốc repo. Cần Docker Desktop, Python 3.12, Elasticsearch và Qdrant collection chứa đúng corpus/model. Trong các lệnh bên dưới, `.venv312` là môi trường đã tạo ở bước đầu.
 
 ### Máy thành viên mới: tạo môi trường Python
 
@@ -66,8 +66,8 @@ Thay `<user>` và `<ip-máy-chủ>` bằng tài khoản và địa chỉ do ngư
 
 ```powershell
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
-python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
+$env:ELASTICSEARCH_INDEX = "legal-child-chunks-current"
+.\.venv312\Scripts\python.exe -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\data\chunking_output\chunks.jsonl', index_name='legal-child-chunks-current'))"
 ```
 
 File chunk phải tồn tại trên máy thành viên và phải là corpus nhóm muốn nạp. Nếu index đã có, hàm upsert theo `chunk_id`; truyền `recreate=True` khi muốn thay toàn bộ index và xóa các chunk không còn trong file. Thành viên không có SSH access cần được cấp kết nối qua VPN riêng của nhóm hoặc endpoint Elasticsearch có xác thực; chỉ gửi URL `localhost` sẽ không tạo kết nối tới máy người khác.
@@ -76,9 +76,8 @@ File chunk phải tồn tại trên máy thành viên và phải là corpus nhó
 
 ```powershell
 py -3.12 -m venv .venv312
-.\.venv312\Scripts\Activate.ps1
-python -m pip install -r .\requirements.txt
-docker compose up -d
+.\.venv312\Scripts\python.exe -m pip install -r .\requirements.txt
+docker compose up -d elasticsearch
 ```
 
 Kiểm tra Elasticsearch:
@@ -86,66 +85,61 @@ Kiểm tra Elasticsearch:
 ```powershell
 Invoke-RestMethod http://localhost:9200
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
+$env:ELASTICSEARCH_INDEX = "legal-child-chunks-current"
 ```
 
-### 2. Build index từ file child chunks
+### 2. Build index từ corpus hiện tại
 
 ```powershell
-$env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "task4-legal-proposal300-current"
-.\.venv\Scripts\python.exe -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\data\chunking_output\chunks.jsonl', index_name='task4-legal-proposal300-current', recreate=True))"
+.\.venv312\Scripts\python.exe -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\data\chunking_output\chunks.jsonl', index_name='legal-child-chunks-current', recreate=True))"
 ```
 
-Lệnh trên lập index từ corpus hiện tại (1.159 chunks). Dùng tên index mới để không nhầm với snapshot benchmark 1.175 chunks.
+Lệnh trên **xóa rồi thay** BM25 index `legal-child-chunks-current` bằng toàn bộ `data/chunking_output/chunks.jsonl`; không dùng `recreate=True` nếu index đó cần giữ lại.
 
-### 3. Lập Dense index và chạy ba nhánh trên cùng bộ Dev
+Dense collection của lần chạy mới nhất là `vietnam_legal_chunks_current`, được lưu tại `data/indexes/qdrant_storage`. Việc build Dense dùng upsert và không xóa point cũ không còn trong corpus. Với đúng corpus hiện tại, dùng lại tên collection này; khi corpus hoặc model thay đổi, hãy dùng tên collection mới và dùng đúng tên đó ở bước chạy benchmark, tránh point cũ bị giữ lại.
 
 ```powershell
-$env:QDRANT_PATH = (Resolve-Path .\qdrant_data\task4_proposal_300_current\qdrant_storage).Path
-.\.venv\Scripts\python.exe scripts\build_index.py `
+.\.venv312\Scripts\python.exe scripts\build_index.py `
   --input .\data\chunking_output\chunks.jsonl `
-  --index-dir .\qdrant_data\task4_proposal_300_current `
-  --collection task4-bkai-proposal300-current `
+  --index-dir .\data\indexes `
+  --collection vietnam_legal_chunks_current `
   --model bkai-foundation-models/vietnamese-bi-encoder
+```
 
-.\.venv\Scripts\python.exe -m retrieval.run_dev_retrieval `
+### 3. Chạy BM25-only, Dense-only và Hybrid trên Dev
+
+```powershell
+.\.venv312\Scripts\python.exe -m retrieval.run_dev_retrieval `
   --queries .\data\benchmark\queries_dev.json `
   --chunks .\data\chunking_output\chunks.jsonl `
   --model bkai-foundation-models/vietnamese-bi-encoder `
-  --collection task4-bkai-proposal300-current `
+  --collection vietnam_legal_chunks_current `
   --elasticsearch-url http://localhost:9200 `
-  --elasticsearch-index task4-legal-proposal300-current `
-  --output-dir .\retrieval\results\task4_proposal_300_current `
+  --elasticsearch-index legal-child-chunks-current `
+  --output-dir .\retrieval\results `
   --top-k 10 `
   --candidate-k 50 `
   --rrf-k 60
 ```
 
-Runner yêu cầu Elasticsearch index và Qdrant collection khớp cùng corpus. Kết quả được lưu tại:
-
-- `retrieval/results/task4_proposal_300_current/dev_bm25.json`
-- `retrieval/results/task4_proposal_300_current/dev_dense.json`
-- `retrieval/results/task4_proposal_300_current/dev_hybrid.json`
-
-### 4. Tính metric với snapshot nhãn tạm proposal
+Runner ghi đè ba tệp JSON trong `retrieval/results/` để thư mục luôn phản ánh lần chạy gần nhất. Lệnh đánh giá sau đây ghi hai CSV metric; nó **không tự tạo/cập nhật** file Markdown:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\evaluate_task4.py `
+.\.venv312\Scripts\python.exe scripts\evaluate_task4.py `
   --dev .\data\benchmark\queries_dev.json `
-  --ground-truth .\retrieval\results\task4_proposal_300_current\ground_truth_proposal_300_chunks_only.json `
+  --ground-truth .\data\benchmark\ground_truth.json `
   --chunks .\data\chunking_output\chunks.jsonl `
-  --results .\retrieval\results\task4_proposal_300_current `
-  --output .\retrieval\results\task4_proposal_300_current\metrics.csv `
-  --article-index .\data\reference\article_index.json `
-  --article-output .\retrieval\results\task4_proposal_300_current\article_metrics.csv
+  --results .\retrieval\results `
+  --output .\retrieval\results\metrics.csv `
+  --article-index .\data\reference\production_chunk_index.json `
+  --article-output .\retrieval\results\article_metrics.csv
 ```
 
-Snapshot nhãn trong thư mục kết quả giữ nguyên đầu vào của lần chạy; ID `version_*` bị loại khỏi nhãn chunk vì không thuộc corpus truy xuất. Evaluator ánh xạ chunk sang Điều bằng `document_number` và `article_number`, không phụ thuộc ID chunk của snapshot cũ.
+`retrieval/results/retrieval_report.md` và `docs/retrieval_report.md` là báo cáo Markdown được cập nhật riêng sau lần chạy; cần cập nhật số liệu trong đó nếu benchmark được chạy lại.
 
 ## Kết quả Task 4 hiện tại
 
-Task 4 đã chạy lại trên 285 câu Dev với corpus `data/chunking_output/chunks.jsonl` hiện tại (1.159 chunks), dùng `gold_id_proposals_300.json` làm nhãn tạm. Kết quả lần chạy mới được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; Hybrid dẫn đầu ở chunk-level, Dense dẫn đầu ở article-level. Có 268 câu được chấm chunk-level (9 nhãn gold đã xác nhận, 259 nhãn proposal chưa xác minh) và 17 câu chưa có nhãn chunk; các metric chỉ mang tính thử nghiệm. Báo cáo snapshot 1.175 chunk trước đây vẫn được lưu trong [báo cáo retrieval](../docs/retrieval_report.md).
+Kết quả thực tế mới nhất dùng 285 câu Dev và corpus 2.011 chunks. Hybrid RRF đạt Recall@10 0.8209 ở chunk-level và 0.9120 ở article-level, cao nhất trong lần chạy này. Có 267 câu dùng nhãn candidate chưa xác minh và 18 câu không có nhãn, nên các metric chỉ mang tính thử nghiệm. Bảng metric và các JSON đầu ra nằm trong `retrieval/results/`; báo cáo tại [docs/retrieval_report.md](../docs/retrieval_report.md).
 
 ## Kiểm thử
 
@@ -156,7 +150,7 @@ python -m unittest discover -s test -v
 python -m unittest discover -s retrieval/test -v
 ```
 
-Ở lần kiểm tra gần nhất, 22 kiểm thử trong `test/` và 8 kiểm thử trong `retrieval/test/` đều đạt.
+Lần kiểm tra tài liệu này: 7 kiểm thử trong `retrieval/test/` đạt. Bộ `test/` chạy 138 test nhưng có 9 lỗi: một lỗi `NameError` trong test BM25 và các lỗi do thiếu dependency `underthesea`; cần xử lý các vấn đề đó trước khi mô tả toàn bộ test suite là đạt.
 
 ## Giới hạn và việc cần tiếp tục
 
@@ -165,5 +159,3 @@ python -m unittest discover -s retrieval/test -v
 - Chưa có Test set độc lập; không dùng Dev để khẳng định chất lượng tổng quát.
 - Metadata/time filter trong sơ đồ kiến trúc cần được đặt đúng vị trí pre-filter trước hai nhánh nếu đó là yêu cầu bắt buộc của pipeline production.
 - Reranker có adapter nhưng không bật trong benchmark này, để so sánh riêng BM25, Dense và RRF.
-
-

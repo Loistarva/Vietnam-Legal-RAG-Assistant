@@ -1,0 +1,19 @@
+{
+  "variant": "E",
+  "config_name": "Config E (350 words - 256 token cap)",
+  "chunking_config": {
+    "parent_max_chars": 1500,
+    "child_max_tokens": 256,
+    "child_max_units": 350,
+    "child_min_words": 30
+  },
+  "num_source_documents": 21,
+  "num_children": 1923,
+  "num_parents": 922,
+  "num_duplicate_chunk_ids": 0,
+  "base_corpus_chunks": 2011,
+  "base_chunk_ids_retained": 1922,
+  "base_id_and_text_exact_match_count": 1790,
+  "chunks_file": "retrieval\\results\\dev_tuning\\chunking_variants\\E\\chunks.jsonl",
+  "parents_file": "retrieval\\results\\dev_tuning\\chunking_variants\\E\\parents.json"
+}

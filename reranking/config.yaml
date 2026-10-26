@@ -1,29 +1,16 @@
-# Cấu hình Reranker (Owner: Dev 5). Đọc bởi reranking/reranker.py::load_reranker_config.
-# Đây là giá trị khởi đầu (Sprint 6 mục 14.3), chưa phải cấu hình tối ưu.
-# Chỉ tuning trên Dev set; không dùng Test set để chọn tham số.
+# Cấu hình pipeline Retrieval hoàn chỉnh; benchmark Tuần 7 có thể ghi đè đầu ra bằng --top-k 5.
 reranker:
   enabled: true
-  # mock: scorer tất định, không cần model (mock-first, CLI/test chạy offline).
-  # cross_encoder: sentence-transformers CrossEncoder với `model` bên dưới.
-  backend: mock
+  backend: cross_encoder
   model: BAAI/bge-reranker-v2-m3
-  # Số chunk giữ lại sau reranking để đưa sang bước sinh câu trả lời.
-  rerank_top_k: 5
-  # Trần số candidate đưa vào Cross-Encoder (mục 13.2); phần dư bị cắt theo thứ hạng retrieval.
-  # Số candidate thô lấy từ Hybrid là `retrieval_top_k` trong retrieval/config.yaml (Dev 4).
+  rerank_top_k: 10
   max_candidates: 50
   batch_size: 16
   max_length: 512
-  # null: để sentence-transformers tự chọn (cuda nếu có, ngược lại cpu).
-  device: null
-  # Văn bản đưa vào scorer: chunk_text, hoặc breadcrumb_chunk_text (breadcrumb Chương > Điều > Khoản
-  # rồi chunk_text). Giữ chunk_text cho tới khi đo hai cách trên gold đã duyệt của Dev set (G5).
+  device: cpu
   candidate_text: chunk_text
 
-# Parent-Context Resolver: chạy sau reranker, gắn parent_id và parent_text cho từng kết quả.
-# Con cùng parent chỉ kết quả hạng cao nhất mang parent_text; dừng gắn khi tổng ngữ cảnh vượt
-# max_context_chars (top-5 Hybrid trên Dev: trung vị khoảng 2.850, p90 khoảng 4.200 ký tự).
 parent_context:
   enabled: true
-  parents_file: data/chunking_output/parents.json
+  parents_file: retrieval/results/dev_tuning/chunking_variants/E/parents.json
   max_context_chars: 6000

@@ -19,7 +19,8 @@
 - **300 câu**: 285 Dev / 15 Test, giữ nguyên 60 câu ban đầu và 15 Test.
 - **240 câu mới**: trích PDF làm bản trả lời đối chiếu, thêm mã Điều (không phải mã chunk).
 - **300 bản Ground Truth** hiện là nháp, 0 câu có `review_status` được người duyệt xác nhận và 0 câu có `gold_context_ids_confirmed=true`.
-- **276 câu** có `candidate_context_ids` là chunk_id của corpus hiện tại (`mapping_status = production_candidate_unverified`, 759 ID, 100% có trong `data/chunking_output/chunks.jsonl`), **24 câu** chưa ánh xạ chunk (`not_mapped`). **Cả 300 câu đều có `gold_context_ids=[]`**: candidate chưa phải Gold đã xác minh.
+- **281 câu** có `candidate_context_ids` là chunk_id của corpus hiện tại (`mapping_status = production_candidate_unverified`, 1.255 ID, 100% có trong `data/chunking_output/chunks.jsonl`), **19 câu** chưa ánh xạ chunk (`not_mapped`). **Cả 300 câu đều có `gold_context_ids=[]`**: candidate chưa phải Gold đã xác minh.
+- Ngày 26/10/2026, thêm candidate theo cấp văn bản cho 5 câu Test hỏi trạng thái hiệu lực: gán tất cả chunk của văn bản được dẫn chiếu (HN_040: 49, HN_044: 20, HN_052: 235, HN_056: 49, HN_060: 143). Đây là nhãn metadata cấp văn bản, chưa được chuyên gia xác minh và không tương đương relevance ở cấp nội dung chunk. HN_048 vẫn `not_mapped` vì Thông tư 07/2002/TT-BTP không có trong corpus hiện tại. Test vẫn có 14/15 câu với candidate IDs; câu hỏi Test không bị thay đổi.
 - L01.pdf (bản gốc Luật 52/2014/QH13) nay parse đủ **133/133 điều**.
 
 ### Cấu trúc câu hỏi

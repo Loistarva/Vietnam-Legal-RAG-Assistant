@@ -1,0 +1,962 @@
+{
+  "run_config": {
+    "top_k": 10,
+    "candidate_k": 50,
+    "rrf_k": 60,
+    "dense_model": "bkai-foundation-models/vietnamese-bi-encoder",
+    "collection": "vietnam_legal_chunks_current",
+    "elasticsearch_index": "legal-child-chunks-current",
+    "chunks": "data\\chunking_output\\chunks.jsonl"
+  },
+  "label_file": "data/benchmark/gold_id_proposals_300.json",
+  "label_level_note": "Raw scores use proposal IDs as supplied; chunk-eligible scores exclude non-chunk version_* IDs and score only queries with at least one chunk proposal. Latency is combined BM25+dense+RRF retrieval latency recorded by runner, not per-method latency. Reranker method used backend mock, not the BAAI cross-encoder.",
+  "methods": {
+    "bm25": {
+      "overall_including_nonchunk_ids": {
+        "queries": 15,
+        "recall_at5": 0.2,
+        "mrr_at5": 0.06333333333333334
+      },
+      "chunk_eligible_only": {
+        "queries": 9,
+        "recall_at5": 0.3333333333333333,
+        "mrr_at5": 0.10555555555555556
+      },
+      "latency_ms_combined_retrieval": {
+        "mean": 5964.934333333334,
+        "median": 172.329,
+        "p95": 86565.88
+      },
+      "per_query": [
+        {
+          "query_id": "HN_004",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_77_clause_3_chunk_1",
+            "l_52_2014_qh13_art_77_clause_2_chunk_1",
+            "l_52_2014_qh13_art_77_clause_1_chunk_1",
+            "l_52_2014_qh13_art_10_clause_1_chunk_1",
+            "l_52_2014_qh13_art_10_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 86565.88
+        },
+        {
+          "query_id": "HN_008",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_83_clause_2_chunk_1",
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_82_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_27_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 711.035
+        },
+        {
+          "query_id": "HN_012",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_2_chunk_1",
+            "l_52_2014_qh13_art_16_clause_2_chunk_1",
+            "l_52_2014_qh13_art_15_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 0.5,
+          "latency_ms_combined_retrieval": 201.562
+        },
+        {
+          "query_id": "HN_016",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nd_126_2014_nd_cp_art_9_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_3_chunk_1",
+            "l_52_2014_qh13_art_46_clause_1_chunk_1",
+            "l_52_2014_qh13_art_40_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 194.612
+        },
+        {
+          "query_id": "HN_020",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_38_clause_3_chunk_1",
+            "l_52_2014_qh13_art_40_clause_1_chunk_1",
+            "l_52_2014_qh13_art_39_clause_4_chunk_1",
+            "nd_126_2014_nd_cp_art_14_clause_2_chunk_1",
+            "l_52_2014_qh13_art_39_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 172.329
+        },
+        {
+          "query_id": "HN_024",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nq_01_2024_nq_hdtp_art_10_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_10_clause_2_chunk_1",
+            "l_52_2014_qh13_art_13_clause_1_chunk_1",
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 0.25,
+          "latency_ms_combined_retrieval": 166.279
+        },
+        {
+          "query_id": "HN_028",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_84_clause_3_chunk_1",
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_83_clause_2_chunk_1",
+            "l_52_2014_qh13_art_84_clause_4_chunk_1",
+            "l_52_2014_qh13_art_82_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 177.973
+        },
+        {
+          "query_id": "HN_032",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "l_52_2014_qh13_art_116_clause_2_chunk_1",
+            "l_52_2014_qh13_art_109_clause_1_chunk_1",
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 0.2,
+          "latency_ms_combined_retrieval": 173.866
+        },
+        {
+          "query_id": "HN_036",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1",
+            "version_5f35ed0c1e367f5b"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_122_clause_2_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_3_chunk_1",
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 178.3
+        },
+        {
+          "query_id": "HN_040",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 164.619
+        },
+        {
+          "query_id": "HN_044",
+          "proposal_ids": [
+            "version_82ca7b0469a399bf",
+            "version_98ddd758757b0e66"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 158.332
+        },
+        {
+          "query_id": "HN_048",
+          "proposal_ids": [
+            "version_94e28756b06f4e91"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_59_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 162.658
+        },
+        {
+          "query_id": "HN_052",
+          "proposal_ids": [
+            "version_5ac5fd94439bda6d"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_46_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_46_clause_1_chunk_2",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 144.368
+        },
+        {
+          "query_id": "HN_056",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 146.259
+        },
+        {
+          "query_id": "HN_060",
+          "proposal_ids": [
+            "version_de62287a5e3848c8"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_4_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_8_clause_3_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_2"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 155.943
+        }
+      ]
+    },
+    "hybrid": {
+      "overall_including_nonchunk_ids": {
+        "queries": 15,
+        "recall_at5": 0.2,
+        "mrr_at5": 0.16666666666666666
+      },
+      "chunk_eligible_only": {
+        "queries": 9,
+        "recall_at5": 0.3333333333333333,
+        "mrr_at5": 0.2777777777777778
+      },
+      "latency_ms_combined_retrieval": {
+        "mean": 5964.934333333334,
+        "median": 172.329,
+        "p95": 86565.88
+      },
+      "per_query": [
+        {
+          "query_id": "HN_004",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_10_clause_1_chunk_1",
+            "l_52_2014_qh13_art_10_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_3",
+            "l_52_2014_qh13_art_10_clause_3_chunk_1",
+            "l_52_2014_qh13_art_14_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 86565.88
+        },
+        {
+          "query_id": "HN_008",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nd_126_2014_nd_cp_art_27_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_28_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_28_clause_3_chunk_1",
+            "l_52_2014_qh13_art_126_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_28_clause_5_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 711.035
+        },
+        {
+          "query_id": "HN_012",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_2_chunk_1",
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_61_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms_combined_retrieval": 201.562
+        },
+        {
+          "query_id": "HN_016",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_46_clause_1_chunk_1",
+            "l_52_2014_qh13_art_46_clause_2_chunk_1",
+            "l_52_2014_qh13_art_46_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_10_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 194.612
+        },
+        {
+          "query_id": "HN_020",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_39_clause_1_chunk_1",
+            "l_52_2014_qh13_art_38_clause_1_chunk_1",
+            "l_52_2014_qh13_art_39_clause_2_chunk_1",
+            "l_52_2014_qh13_art_39_clause_3_chunk_1",
+            "l_52_2014_qh13_art_61_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 0.5,
+          "latency_ms_combined_retrieval": 172.329
+        },
+        {
+          "query_id": "HN_024",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_3",
+            "l_52_2014_qh13_art_3_clause_9_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms_combined_retrieval": 166.279
+        },
+        {
+          "query_id": "HN_028",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nq_01_2024_nq_hdtp_art_6_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_6_clause_3_chunk_1",
+            "nq_01_2024_nq_hdtp_art_6_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "l_52_2014_qh13_art_81_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 177.973
+        },
+        {
+          "query_id": "HN_032",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_110_clause_1_chunk_1",
+            "l_52_2014_qh13_art_3_clause_24_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "l_52_2014_qh13_art_98_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 173.866
+        },
+        {
+          "query_id": "HN_036",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1",
+            "version_5f35ed0c1e367f5b"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_122_clause_2_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_3_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 178.3
+        },
+        {
+          "query_id": "HN_040",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 164.619
+        },
+        {
+          "query_id": "HN_044",
+          "proposal_ids": [
+            "version_82ca7b0469a399bf",
+            "version_98ddd758757b0e66"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_2_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+            "tt_34_2017_tt_byt_art_8_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 158.332
+        },
+        {
+          "query_id": "HN_048",
+          "proposal_ids": [
+            "version_94e28756b06f4e91"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_51_clause_1_chunk_1",
+            "l_52_2014_qh13_art_127_clause_2_chunk_1",
+            "l_52_2014_qh13_art_127_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 162.658
+        },
+        {
+          "query_id": "HN_052",
+          "proposal_ids": [
+            "version_5ac5fd94439bda6d"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_2_chunk_1",
+            "l_52_2014_qh13_art_131_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 144.368
+        },
+        {
+          "query_id": "HN_056",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_34_2017_tt_byt_art_8_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 146.259
+        },
+        {
+          "query_id": "HN_060",
+          "proposal_ids": [
+            "version_de62287a5e3848c8"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_123_2015_nd_cp_art_45_clause_2_chunk_2",
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_8_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms_combined_retrieval": 155.943
+        }
+      ]
+    },
+    "hybrid_reranker_mock": {
+      "overall_including_nonchunk_ids": {
+        "queries": 15,
+        "recall_at5": 0.4,
+        "mrr_at5": 0.35555555555555557
+      },
+      "chunk_eligible_only": {
+        "queries": 9,
+        "recall_at5": 0.6666666666666666,
+        "mrr_at5": 0.5925925925925926
+      },
+      "latency_ms_end_to_end": {
+        "mean": 1124.763,
+        "median": 179.942,
+        "p95": 14105.212
+      },
+      "rerank_latency_ms": {
+        "mean": 3.6499333333333333,
+        "median": 3.705,
+        "p95": 4.391
+      },
+      "per_query": [
+        {
+          "query_id": "HN_004",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_3",
+            "ttlt_01_2016_ttlt_tandtc_art_6_clause_2_chunk_3",
+            "l_52_2014_qh13_art_8_clause_1_chunk_1",
+            "nd_123_2015_nd_cp_art_34_clause_1_chunk_1",
+            "l_52_2014_qh13_art_102_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 0.3333333333333333,
+          "latency_ms": 14105.212,
+          "rerank_latency_ms": 4.03
+        },
+        {
+          "query_id": "HN_008",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1",
+            "nd_126_2014_nd_cp_art_20_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_27_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_19_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 250.351,
+          "rerank_latency_ms": 4.232
+        },
+        {
+          "query_id": "HN_012",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_12_clause_3_chunk_1",
+            "l_52_2014_qh13_art_61_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms": 168.204,
+          "rerank_latency_ms": 4.173
+        },
+        {
+          "query_id": "HN_016",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_14_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_15_clause_1_chunk_1",
+            "l_52_2014_qh13_art_67_clause_2_chunk_1",
+            "l_52_2014_qh13_art_43_clause_2_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms": 179.942,
+          "rerank_latency_ms": 3.043
+        },
+        {
+          "query_id": "HN_020",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_15_clause_1_chunk_1",
+            "l_52_2014_qh13_art_41_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_12_clause_3_chunk_1",
+            "l_52_2014_qh13_art_39_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms": 177.876,
+          "rerank_latency_ms": 3.403
+        },
+        {
+          "query_id": "HN_024",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_3",
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_2",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_2"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms": 175.97,
+          "rerank_latency_ms": 3.705
+        },
+        {
+          "query_id": "HN_028",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_7_clause_6_chunk_1",
+            "l_52_2014_qh13_art_77_clause_1_chunk_1",
+            "l_52_2014_qh13_art_84_clause_3_chunk_1",
+            "nq_01_2024_nq_hdtp_art_6_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 1,
+          "recall_at5_all_proposal_ids": 1.0,
+          "mrr_at5_all_proposal_ids": 1.0,
+          "latency_ms": 178.92,
+          "rerank_latency_ms": 3.535
+        },
+        {
+          "query_id": "HN_032",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "l_52_2014_qh13_art_3_clause_24_chunk_1",
+            "nq_01_2024_nq_hdtp_art_5_clause_1_chunk_2",
+            "nq_01_2024_nq_hdtp_art_5_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 167.994,
+          "rerank_latency_ms": 2.879
+        },
+        {
+          "query_id": "HN_036",
+          "proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1",
+            "version_5f35ed0c1e367f5b"
+          ],
+          "chunk_proposal_ids": [
+            "l_52_2014_qh13_art_131_clause_3_chunk_1"
+          ],
+          "top5_chunk_ids": [
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_2",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "l_52_2014_qh13_art_6_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_131_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 190.493,
+          "rerank_latency_ms": 3.852
+        },
+        {
+          "query_id": "HN_040",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_2_chunk_1",
+            "tt_34_2017_tt_byt_art_8_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 184.936,
+          "rerank_latency_ms": 3.533
+        },
+        {
+          "query_id": "HN_044",
+          "proposal_ids": [
+            "version_82ca7b0469a399bf",
+            "version_98ddd758757b0e66"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_8_clause_3_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_2"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 150.784,
+          "rerank_latency_ms": 2.212
+        },
+        {
+          "query_id": "HN_048",
+          "proposal_ids": [
+            "version_94e28756b06f4e91"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "nd_126_2014_nd_cp_art_55_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_58_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_60_clause_1_chunk_1",
+            "l_52_2014_qh13_art_123_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 223.519,
+          "rerank_latency_ms": 4.391
+        },
+        {
+          "query_id": "HN_052",
+          "proposal_ids": [
+            "version_5ac5fd94439bda6d"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_2",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_2",
+            "l_52_2014_qh13_art_131_clause_2_chunk_1",
+            "l_52_2014_qh13_art_131_clause_3_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 278.778,
+          "rerank_latency_ms": 4.352
+        },
+        {
+          "query_id": "HN_056",
+          "proposal_ids": [
+            "version_5b2ff884b1bcafdd"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_34_2017_tt_byt_art_8_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 160.079,
+          "rerank_latency_ms": 3.392
+        },
+        {
+          "query_id": "HN_060",
+          "proposal_ids": [
+            "version_de62287a5e3848c8"
+          ],
+          "chunk_proposal_ids": [],
+          "top5_chunk_ids": [
+            "tt_04_2020_tt_btp_art_7_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_11_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_4_clause_1_chunk_1"
+          ],
+          "proposal_hits_at5": 0,
+          "recall_at5_all_proposal_ids": 0.0,
+          "mrr_at5_all_proposal_ids": 0.0,
+          "latency_ms": 278.387,
+          "rerank_latency_ms": 4.017
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "model_name": "bkai-foundation-models/vietnamese-bi-encoder",
+  "dimension": 768,
+  "collection_name": "vietnam_legal_chunks_current",
+  "indexed_chunks": 2011,
+  "elapsed_seconds": 506.796,
+  "throughput_chunks_per_sec": 3.97,
+  "mock_mode": false,
+  "storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage"
+}

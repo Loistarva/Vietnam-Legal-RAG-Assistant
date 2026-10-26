@@ -1,0 +1,82 @@
+{
+  "generated_date": "2026-10-26",
+  "labels_source_dev": "data/benchmark/gold_id_proposals_300.json",
+  "labels_source_test": "data/benchmark/gold_id_proposals_300_test_revised.json",
+  "dev": {
+    "queries": "data/benchmark/queries_dev.json",
+    "total_queries": 285,
+    "queries_scored": 267,
+    "queries_excluded_version_ids": 18
+  },
+  "selected_dev_configuration": {
+    "chunking_variant": "E",
+    "chunks": "retrieval/results/dev_tuning/chunking_variants/E/chunks.jsonl",
+    "parents": "retrieval/results/dev_tuning/chunking_variants/E/parents.json",
+    "num_chunks": 1923,
+    "elasticsearch_index": "legal-child-chunks-dev-cfge",
+    "qdrant_collection": "vietnam_legal_dev_cfge",
+    "qdrant_storage": "retrieval/results/dev_tuning/chunking_variants/E/vector_index/qdrant_storage",
+    "embedding_model": "bkai-foundation-models/vietnamese-bi-encoder",
+    "embedding_dimension": 768,
+    "rrf": {
+      "k": 60,
+      "bm25_weight": 0.35,
+      "dense_weight": 0.65,
+      "candidates": 50
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "candidates": 50,
+      "production_output_top_k": 10,
+      "benchmark_output_top_k": 5
+    },
+    "chunking": {
+      "parent_max_chars": 1500,
+      "child_max_tokens": 256,
+      "child_max_units": 350,
+      "child_min_words": 30,
+      "fallback_overlap_words": 40
+    }
+  },
+  "single_test_run": {
+    "queries": "data/benchmark/queries_test_revised.json",
+    "total_queries": 15,
+    "configuration": "Config A; RRF 1:1; executed before Dev final selection; not rerun"
+  },
+  "sha256": {
+    "data/benchmark/queries_dev.json": "b79729c6687a04323ae77fc6372498f649af8ddba7f9d4562d6fae4d1caff69e",
+    "data/benchmark/gold_id_proposals_300.json": "5e3fe98c71101cc7ccb1207f7494cafdbfaa88d0f20011bdea11f3b1eb6f6968",
+    "data/benchmark/queries_test_revised.json": "51a24af6e28686e54271d4fae43fb2dda2763a237dbafe48d9efd8d27d03856c",
+    "data/benchmark/gold_id_proposals_300_test_revised.json": "ebd3fe9669bf3069b461180e5eaae4b01b8cfc767f96d25cc03578008a9dd0ae",
+    "retrieval/results/dev_tuning/chunking_variants/E/chunks.jsonl": "66eaebc9dc2ca7ad45a33134b2b580406961a6d6668f4951e62d8228362defbc",
+    "retrieval/results/dev_tuning/chunking_variants/E/parents.json": "5c9bd8c95212669c7244c91561b232c179926ecd235860a541a1c7aeecea142f",
+    "retrieval/results/dev_tuning/chunking_variants/E/vector_index/index_metadata.json": "2cb93fdbdb76a24a581c8abc57dece3bc677dd7b3714162f036a464e0b2b4d41",
+    "retrieval/config.yaml": "2a95a047396ef88c1b6d995eaabce88819239ecda8960814e909bdfc1e22c563",
+    "reranking/config.yaml": "8dc061f42e31f43eeee16de228ee61f5fd5a48284ba157f7f4830cda17c1445e",
+    "retrieval/results/dev_tuning/chunking_variants/label_mapping.json": "98b6d117e24edb23ff6b7ce8e163d00e3b2110ba4a4d47f23ef67743b1493150",
+    "retrieval/results/dev_tuning/chunking_variants/dev_chunking_evaluation.json": "df9973034d1b7fb21ea304940804d31614dc4d4faf2dd12d07eeae39588fa932",
+    "retrieval/results/dev_tuning/chunking_variants/E/rrf_weight_sweep.json": "8a0c843e37a2c0d0f4a33850fa7abc880d65059efdfe9757a30792b6700ddff4",
+    "retrieval/results/dev_tuning/chunking_variants/E/results/dev_bm25.json": "c72c3adfe8c5dcea791b5e0c698eb8dc37543c590ace63db24d24b7851829777",
+    "retrieval/results/dev_tuning/chunking_variants/E/results/dev_dense.json": "f331ff10f002845194ab5941a67af09f86f5d6bdfa4b9b472389e0664e7b7515",
+    "retrieval/results/test_run/test_proposal_metrics_top5_revised.json": "a62c4f908df95dd689047be26be42149b99d7edc26dc65d148de87c5cd4c31cc",
+    "retrieval/results/test_run/hybrid_reranker_cross_encoder_metrics.json": "5738a1ea7c2968fd0f7e04dce83d80affe4d0ab775ad5219831b85d310f53c71",
+    "retrieval/results/dev_tuning/chunking_variants/E/dev_latency.json": "44285c628ee0bbd995976b5cb418628ec191c7cad80acc336d1db496c20e46aa",
+    "scripts/measure_dev_retrieval_latency.py": "ce1efc65b15ac3fd79874a791afd862e7c68413f6be3111dba949a7de3b74b6c",
+    "scripts/evaluate_dev_chunking_variants.py": "24b37a19b4906a730df8ae9b806ca5833a2ad989d4cf0443c892e86dd5f64d0d",
+    "scripts/evaluate_dev_rrf_weights.py": "77a4a49c7845ad704af8efcc29694b34bd53fe927be9f374cdd818aa6a627214",
+    "scripts/evaluate_dev_cross_encoder.py": "35721c7752b6cf89a6389ff21745de0e7ea090d78bc0b19ef5f43f02aa669f4e",
+    "retrieval/run_dev_retrieval.py": "818903c073fb7a5b2b995cce23d508ee02a643ab405f4c69baa3ace62529bec0",
+    "scripts/run_retrieval.py": "beab57c0618bc1aeff9e5cd1bb789653464eed4a19509ececbb9d0dcfc762b6b",
+    "retrieval/results/dev_tuning/chunking_variants/dev_chunking_evaluation.md": "15408b0a6a215bc29ceea8c2d0f238184f9fdaa5d166e81989fd3be778f278ae",
+    "retrieval/results/retrieval_report.md": "16f0c40cbfaae76cfaf9bfcd8ae651ada7a44eeec919b2280910d4c3cfc50ab3",
+    "retrieval/results/test_run/test_report.md": "346d91706728ac374ebb740b8507b323f48dd972a9de26fd4712286d85625d01",
+    "docs/week7_retrieval_reproduction.md": "5e8da3574dfd7fcdb7a8011ddfe6c8b2fbced5f8e9a2abd680b5bbfc2e988afe",
+    "docs/week7_retrieval_test_report.md": "fc9002a53bd617fe9fd8eb9905c5227363cf143eb4023cec38c8f28237e2ae3b"
+  },
+  "notes": [
+    "Dev metrics use only gold_id_proposals_300.json; never ground_truth.json.",
+    "All proposal labels are provisional; 18 version-only Dev rows excluded from chunk-level metrics.",
+    "Test run reflects old Config A and does not validate selected Dev Config E."
+  ]
+}

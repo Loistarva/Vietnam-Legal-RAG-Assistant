@@ -1,0 +1,1221 @@
+{
+  "run_date": "2026-10-26",
+  "split": "test",
+  "repeated_test_notice": "Tập Test đã được xem trong lượt Config A trước đó; đây là lần đánh giá lại Config E, không phải Test độc lập mới.",
+  "queries_file": "data\\benchmark\\queries_test.json",
+  "labels_file": "data\\benchmark\\gold_id_proposals_300_test_revised.json",
+  "labels_status": "gold_id_proposals; proposal IDs được ánh xạ sang chunk E theo cùng chunk_id hoặc cùng clause_id + text span liên tiếp; file gốc không bị sửa.",
+  "corpus": {
+    "variant": "E",
+    "chunks_file": "retrieval\\results\\dev_tuning\\chunking_variants\\E\\chunks.jsonl",
+    "chunks": 1923,
+    "elasticsearch_index": "legal-child-chunks-dev-cfge",
+    "elasticsearch_documents": 1923,
+    "qdrant_collection": "vietnam_legal_dev_cfge",
+    "qdrant_points": 1923
+  },
+  "config": {
+    "chunking": {
+      "variant": "E",
+      "parent_max_chars": 1500,
+      "child_max_tokens": 256,
+      "child_max_units": 350,
+      "child_min_words": 30,
+      "fallback_overlap_words": 40,
+      "chunks_file": "retrieval/results/dev_tuning/chunking_variants/E/chunks.jsonl",
+      "parents_file": "retrieval/results/dev_tuning/chunking_variants/E/parents.json"
+    },
+    "dense_model": "bkai-foundation-models/vietnamese-bi-encoder",
+    "candidate_k": 50,
+    "rrf_k": 60,
+    "bm25_weight": 0.35,
+    "dense_weight": 0.65,
+    "benchmark_top_k": 5,
+    "cross_encoder": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "backend": "cross_encoder",
+      "device": "cpu",
+      "batch_size": 16,
+      "max_length": 512,
+      "max_candidates": 50,
+      "pipeline_top_k": 10
+    }
+  },
+  "metrics": {
+    "bm25_only": {
+      "queries_scored": 15,
+      "recall_at_5": 0.3111111111111111,
+      "mrr_at_5": 0.14333333333333334,
+      "latency_ms": {
+        "mean": 511.37634000003044,
+        "median": 392.45270000037635,
+        "p95": 1006.9412000000284
+      }
+    },
+    "hybrid": {
+      "queries_scored": 15,
+      "recall_at_5": 0.4222222222222222,
+      "mrr_at_5": 0.33,
+      "latency_ms": {
+        "mean": 1677.7316733333464,
+        "median": 891.3301000000047,
+        "p95": 8497.2858000001
+      }
+    },
+    "hybrid_cross_encoder": {
+      "queries_scored": 15,
+      "recall_at_5": 0.6444444444444444,
+      "mrr_at_5": 0.5222222222222223,
+      "latency_ms": {
+        "mean": 52903.96676000007,
+        "median": 48686.77469999966,
+        "p95": 83839.518
+      }
+    }
+  },
+  "latency_ms": {
+    "bm25": {
+      "mean": 511.37634000003044,
+      "median": 392.45270000037635,
+      "p95": 1006.9412000000284
+    },
+    "hybrid": {
+      "mean": 1677.7316733333464,
+      "median": 891.3301000000047,
+      "p95": 8497.2858000001
+    },
+    "hybrid_cross_encoder": {
+      "mean": 52903.96676000007,
+      "median": 48686.77469999966,
+      "p95": 83839.518
+    }
+  },
+  "cross_encoder_model_load_total_ms": 17945.487,
+  "label_mapping": [
+    {
+      "query_id": "HN_004",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_8_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_008",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_5_clause_2_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_5_clause_2_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_012",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_16_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_16_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_016",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_33_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_33_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_020",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_38_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_38_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_024",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_55_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_55_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_028",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_81_clause_2_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_81_clause_2_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_032",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_116_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_116_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_036",
+      "source_gold_chunk_id": "l_52_2014_qh13_art_132_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_52_2014_qh13_art_132_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_040",
+      "source_gold_chunk_id": "tt_15_2015_tt_btp_art_31_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_040",
+      "source_gold_chunk_id": "tt_15_2015_tt_btp_art_31_clause_2_chunk_3",
+      "config_e_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_2_chunk_2"
+      ],
+      "method": "same_clause_text_span"
+    },
+    {
+      "query_id": "HN_044",
+      "source_gold_chunk_id": "tt_38_2025_tt_byt_art_1_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "tt_38_2025_tt_byt_art_1_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_044",
+      "source_gold_chunk_id": "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "tt_38_2025_tt_byt_art_7_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_044",
+      "source_gold_chunk_id": "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "nd_207_2025_nd_cp_art_15_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_048",
+      "source_gold_chunk_id": "nd_126_2014_nd_cp_art_1_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "nd_126_2014_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_052",
+      "source_gold_chunk_id": "l_22_2000_qh10_art_109_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "l_22_2000_qh10_art_109_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_056",
+      "source_gold_chunk_id": "tt_15_2015_tt_btp_art_31_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    },
+    {
+      "query_id": "HN_056",
+      "source_gold_chunk_id": "tt_15_2015_tt_btp_art_31_clause_2_chunk_3",
+      "config_e_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_2_chunk_2"
+      ],
+      "method": "same_clause_text_span"
+    },
+    {
+      "query_id": "HN_060",
+      "source_gold_chunk_id": "nd_123_2015_nd_cp_art_1_clause_1_chunk_1",
+      "config_e_chunk_ids": [
+        "nd_123_2015_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "method": "same_chunk_id"
+    }
+  ],
+  "per_query": [
+    {
+      "query_id": "HN_004",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_8_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_77_clause_3_chunk_1",
+            "l_52_2014_qh13_art_77_clause_2_chunk_1",
+            "l_52_2014_qh13_art_77_clause_1_chunk_1",
+            "l_52_2014_qh13_art_10_clause_1_chunk_1",
+            "l_52_2014_qh13_art_10_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1",
+            "nd_123_2015_nd_cp_art_40_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_2",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_5_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_2",
+            "l_52_2014_qh13_art_8_clause_1_chunk_1",
+            "l_52_2014_qh13_art_24_clause_3_chunk_1",
+            "nd_123_2015_nd_cp_art_34_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_20_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_8_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.5
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 676.646,
+        "hybrid": 8497.286,
+        "reranker_only": 64406.355,
+        "hybrid_cross_encoder_end_to_end": 72903.641,
+        "cross_encoder_model_load": 17944.75
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 46456.04,
+        "model_load_ms": 17944.75
+      }
+    },
+    {
+      "query_id": "HN_008",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_5_clause_2_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_83_clause_2_chunk_1",
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_27_clause_1_chunk_1",
+            "l_52_2014_qh13_art_82_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nd_126_2014_nd_cp_art_27_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_19_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_19_clause_2_chunk_1",
+            "l_52_2014_qh13_art_126_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_20_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1",
+            "l_52_2014_qh13_art_3_clause_19_chunk_1",
+            "l_52_2014_qh13_art_3_clause_17_chunk_1",
+            "l_52_2014_qh13_art_8_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_5_clause_2_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 1006.941,
+        "hybrid": 1207.974,
+        "reranker_only": 43881.927,
+        "hybrid_cross_encoder_end_to_end": 45089.901,
+        "cross_encoder_model_load": 0.027
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 43878.203,
+        "model_load_ms": 0.027
+      }
+    },
+    {
+      "query_id": "HN_012",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_16_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_2_chunk_1",
+            "l_52_2014_qh13_art_16_clause_2_chunk_1",
+            "l_52_2014_qh13_art_15_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.5
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_16_clause_2_chunk_1",
+            "l_52_2014_qh13_art_14_clause_2_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1",
+            "l_52_2014_qh13_art_14_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_3_clause_4_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_5_clause_3_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_16_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 423.05,
+        "hybrid": 891.33,
+        "reranker_only": 47889.969,
+        "hybrid_cross_encoder_end_to_end": 48781.299,
+        "cross_encoder_model_load": 0.026
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 47886.615,
+        "model_load_ms": 0.026
+      }
+    },
+    {
+      "query_id": "HN_016",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_33_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "nd_126_2014_nd_cp_art_9_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_3_chunk_1",
+            "l_52_2014_qh13_art_46_clause_1_chunk_1",
+            "l_52_2014_qh13_art_40_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nd_126_2014_nd_cp_art_9_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_1_chunk_1",
+            "l_52_2014_qh13_art_46_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_9_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_10_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_14_clause_3_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_2",
+            "l_52_2014_qh13_art_43_clause_2_chunk_1",
+            "l_52_2014_qh13_art_59_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 306.357,
+        "hybrid": 855.259,
+        "reranker_only": 38901.497,
+        "hybrid_cross_encoder_end_to_end": 39756.756,
+        "cross_encoder_model_load": 0.023
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 38898.229,
+        "model_load_ms": 0.023
+      }
+    },
+    {
+      "query_id": "HN_020",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_38_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_38_clause_3_chunk_1",
+            "l_52_2014_qh13_art_40_clause_1_chunk_1",
+            "l_52_2014_qh13_art_39_clause_4_chunk_1",
+            "nd_126_2014_nd_cp_art_14_clause_2_chunk_1",
+            "l_52_2014_qh13_art_39_clause_3_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_39_clause_1_chunk_1",
+            "l_52_2014_qh13_art_38_clause_1_chunk_1",
+            "l_52_2014_qh13_art_39_clause_3_chunk_1",
+            "l_52_2014_qh13_art_39_clause_2_chunk_1",
+            "l_52_2014_qh13_art_40_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.5
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1",
+            "l_52_2014_qh13_art_41_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_15_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_14_clause_1_chunk_1",
+            "l_52_2014_qh13_art_33_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_38_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 350.844,
+        "hybrid": 687.912,
+        "reranker_only": 41992.79,
+        "hybrid_cross_encoder_end_to_end": 42680.701,
+        "cross_encoder_model_load": 0.04
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 41989.449,
+        "model_load_ms": 0.04
+      }
+    },
+    {
+      "query_id": "HN_024",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_55_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "nq_01_2024_nq_hdtp_art_10_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_10_clause_2_chunk_1",
+            "l_52_2014_qh13_art_13_clause_1_chunk_1",
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_11_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.25
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_11_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_3_chunk_1",
+            "nq_01_2024_nq_hdtp_art_11_clause_3_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_3_clause_1_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_4",
+            "l_52_2014_qh13_art_11_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_11_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_55_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 390.209,
+        "hybrid": 751.816,
+        "reranker_only": 83087.702,
+        "hybrid_cross_encoder_end_to_end": 83839.518,
+        "cross_encoder_model_load": 0.03
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 83071.381,
+        "model_load_ms": 0.03
+      }
+    },
+    {
+      "query_id": "HN_028",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_81_clause_2_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_84_clause_3_chunk_1",
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_83_clause_2_chunk_1",
+            "l_52_2014_qh13_art_84_clause_4_chunk_1",
+            "l_52_2014_qh13_art_82_clause_3_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nq_01_2024_nq_hdtp_art_6_clause_3_chunk_1",
+            "nq_01_2024_nq_hdtp_art_6_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_6_clause_2_chunk_1",
+            "l_52_2014_qh13_art_84_clause_2_chunk_1",
+            "l_52_2014_qh13_art_81_clause_3_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_84_clause_3_chunk_1",
+            "l_52_2014_qh13_art_81_clause_2_chunk_1",
+            "l_52_2014_qh13_art_84_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "l_52_2014_qh13_art_77_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_81_clause_2_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.5
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 775.786,
+        "hybrid": 1269.346,
+        "reranker_only": 64568.259,
+        "hybrid_cross_encoder_end_to_end": 65837.605,
+        "cross_encoder_model_load": 0.033
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 64542.448,
+        "model_load_ms": 0.033
+      }
+    },
+    {
+      "query_id": "HN_032",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_116_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "l_52_2014_qh13_art_116_clause_2_chunk_1",
+            "l_52_2014_qh13_art_109_clause_1_chunk_1",
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.2
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_4_chunk_1",
+            "l_52_2014_qh13_art_110_clause_1_chunk_1",
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.2
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "nq_01_2024_nq_hdtp_art_7_clause_2_chunk_1",
+            "l_52_2014_qh13_art_116_clause_1_chunk_1",
+            "nq_01_2024_nq_hdtp_art_7_clause_1_chunk_1",
+            "l_52_2014_qh13_art_117_clause_1_chunk_1",
+            "l_52_2014_qh13_art_108_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_116_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.5
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 924.08,
+        "hybrid": 3425.226,
+        "reranker_only": 45190.631,
+        "hybrid_cross_encoder_end_to_end": 48615.857,
+        "cross_encoder_model_load": 0.276
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 45185.199,
+        "model_load_ms": 0.276
+      }
+    },
+    {
+      "query_id": "HN_036",
+      "relevant_chunk_ids": [
+        "l_52_2014_qh13_art_132_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_122_clause_2_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_3_chunk_1",
+            "l_52_2014_qh13_art_83_clause_1_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.2
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_122_clause_2_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_3_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.25
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_131_clause_1_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "l_52_2014_qh13_art_130_clause_1_chunk_1",
+            "nd_123_2015_nd_cp_art_27_clause_4_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "recall_at_5": 1.0,
+          "mrr_at_5": 0.3333333333333333
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 810.442,
+        "hybrid": 1867.03,
+        "reranker_only": 47690.13,
+        "hybrid_cross_encoder_end_to_end": 49557.16,
+        "cross_encoder_model_load": 0.026
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 47685.688,
+        "model_load_ms": 0.026
+      }
+    },
+    {
+      "query_id": "HN_040",
+      "relevant_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_1_chunk_1",
+        "tt_15_2015_tt_btp_art_31_clause_2_chunk_2"
+      ],
+      "relevant_chunk_count": 2,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 392.453,
+        "hybrid": 857.403,
+        "reranker_only": 45997.07,
+        "hybrid_cross_encoder_end_to_end": 46854.473,
+        "cross_encoder_model_load": 0.028
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 45994.181,
+        "model_load_ms": 0.028
+      }
+    },
+    {
+      "query_id": "HN_044",
+      "relevant_chunk_ids": [
+        "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+        "tt_38_2025_tt_byt_art_1_clause_1_chunk_1",
+        "tt_38_2025_tt_byt_art_7_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 3,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "mrr_at_5": 1.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "mrr_at_5": 1.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_3_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_1_chunk_1"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "mrr_at_5": 1.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 479.614,
+        "hybrid": 1480.787,
+        "reranker_only": 43102.304,
+        "hybrid_cross_encoder_end_to_end": 44583.092,
+        "cross_encoder_model_load": 0.093
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 43100.124,
+        "model_load_ms": 0.093
+      }
+    },
+    {
+      "query_id": "HN_048",
+      "relevant_chunk_ids": [
+        "nd_126_2014_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_59_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_51_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_3_chunk_1",
+            "l_52_2014_qh13_art_122_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_122_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_2_chunk_1",
+            "nd_126_2014_nd_cp_art_52_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_62_clause_1_chunk_1",
+            "l_52_2014_qh13_art_126_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 253.2,
+        "hybrid": 563.143,
+        "reranker_only": 48123.632,
+        "hybrid_cross_encoder_end_to_end": 48686.775,
+        "cross_encoder_model_load": 0.027
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 48120.512,
+        "model_load_ms": 0.027
+      }
+    },
+    {
+      "query_id": "HN_052",
+      "relevant_chunk_ids": [
+        "l_22_2000_qh10_art_109_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_46_clause_2_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_42_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
+            "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+            "nq_01_2024_nq_hdtp_art_12_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_1",
+            "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+            "l_52_2014_qh13_art_131_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 323.8,
+        "hybrid": 522.583,
+        "reranker_only": 41252.385,
+        "hybrid_cross_encoder_end_to_end": 41774.968,
+        "cross_encoder_model_load": 0.039
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 41248.585,
+        "model_load_ms": 0.039
+      }
+    },
+    {
+      "query_id": "HN_056",
+      "relevant_chunk_ids": [
+        "tt_15_2015_tt_btp_art_31_clause_1_chunk_1",
+        "tt_15_2015_tt_btp_art_31_clause_2_chunk_2"
+      ],
+      "relevant_chunk_count": 2,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "tt_30_2019_tt_byt_art_1_clause_2_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_1_clause_3_chunk_1",
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_30_2019_tt_byt_art_2_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_57_2015_tt_byt_art_32_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
+            "tt_32_2016_tt_byt_art_5_clause_1_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "tt_04_2020_tt_btp_art_39_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_34_2017_tt_byt_art_8_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 286.533,
+        "hybrid": 793.155,
+        "reranker_only": 57515.27,
+        "hybrid_cross_encoder_end_to_end": 58308.425,
+        "cross_encoder_model_load": 0.027
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 57512.29,
+        "model_load_ms": 0.027
+      }
+    },
+    {
+      "query_id": "HN_060",
+      "relevant_chunk_ids": [
+        "nd_123_2015_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "relevant_chunk_count": 1,
+      "methods": {
+        "bm25_only": {
+          "retrieved_chunk_ids_top5": [
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_4_clause_1_chunk_1",
+            "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+            "tt_04_2020_tt_btp_art_8_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid": {
+          "retrieved_chunk_ids_top5": [
+            "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+            "l_52_2014_qh13_art_132_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "ttlt_01_2016_ttlt_tandtc_art_8_clause_3_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_2_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        },
+        "hybrid_cross_encoder": {
+          "retrieved_chunk_ids_top5": [
+            "tt_04_2020_tt_btp_art_38_clause_1_chunk_1",
+            "tt_04_2020_tt_btp_art_1_clause_1_chunk_1",
+            "nd_126_2014_nd_cp_art_65_clause_1_chunk_1",
+            "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+            "nd_123_2015_nd_cp_art_45_clause_1_chunk_1"
+          ],
+          "hit_chunk_ids": [],
+          "recall_at_5": 0.0,
+          "mrr_at_5": 0.0
+        }
+      },
+      "latency_ms": {
+        "bm25_only": 270.689,
+        "hybrid": 1495.725,
+        "reranker_only": 54793.606,
+        "hybrid_cross_encoder_end_to_end": 56289.331,
+        "cross_encoder_model_load": 0.042
+      },
+      "cross_encoder": {
+        "input_candidates": 50,
+        "duplicates_removed": 0,
+        "truncated_candidates": 0,
+        "scored_candidates": 50,
+        "output_candidates": 10,
+        "rerank_latency_ms": 54786.632,
+        "model_load_ms": 0.042
+      }
+    }
+  ],
+  "notes": [
+    "Không có tham số nào được tune trên kết quả Test.",
+    "Recall@5/MRR@5 tính trên đúng 5 kết quả đầu; Cross-Encoder rerank Top-50 và giữ Top-10 theo runtime config trước khi chấm Top-5.",
+    "Các retriever đang loại validity_status='Hết hiệu lực'; Hybrid hiện chưa truyền as_of_date theo từng query, nên metric chưa phản ánh temporal pre-filter đầy đủ.",
+    "Nhãn đến từ gold_id_proposals_300_test_revised.json; nhãn proposal chưa được xác minh pháp lý độc lập."
+  ]
+}

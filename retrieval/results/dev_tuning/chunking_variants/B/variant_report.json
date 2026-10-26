@@ -1,0 +1,19 @@
+{
+  "variant": "B",
+  "config_name": "Config B (Small - Fine-grained)",
+  "chunking_config": {
+    "parent_max_chars": 800,
+    "child_max_tokens": 128,
+    "child_max_units": 100,
+    "child_min_words": 15
+  },
+  "num_source_documents": 21,
+  "num_children": 2655,
+  "num_parents": 1352,
+  "num_duplicate_chunk_ids": 0,
+  "base_corpus_chunks": 2011,
+  "base_chunk_ids_retained": 2011,
+  "base_id_and_text_exact_match_count": 1414,
+  "chunks_file": "retrieval\\results\\dev_tuning\\chunking_variants\\B\\chunks.jsonl",
+  "parents_file": "retrieval\\results\\dev_tuning\\chunking_variants\\B\\parents.json"
+}

@@ -1,0 +1,152 @@
+﻿[
+    {
+        "question":  "Người bị mất năng lực hành vi dân sự có đáp ứng điều kiện kết hôn theo Luật 2014 không?",
+        "category":  "ket_hon",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_004",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Có thể kết hôn với người có quan hệ huyết thống trực hệ không?",
+        "category":  "ket_hon",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_008",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Tài sản của hai người chung sống như vợ chồng không đăng ký kết hôn được giải quyết trên cơ sở nào?",
+        "category":  "tai_san",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_012",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Thu nhập do lao động trong thời kỳ hôn nhân thường là tài sản chung hay riêng?",
+        "category":  "tai_san",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_016",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Vợ chồng có thể thỏa thuận chia tài sản chung ngay trong thời kỳ hôn nhân không?",
+        "category":  "tai_san",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_020",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Thuận tình ly hôn chỉ cần cả hai đồng ý là Tòa án bắt buộc công nhận đúng không?",
+        "category":  "ly_hon",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_024",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Con từ đủ 7 tuổi trở lên thì Tòa án có phải xem xét nguyện vọng của con khi quyết định người trực tiếp nuôi không?",
+        "category":  "con_cai",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_028",
+        "question_type":  "situation",
+        "difficulty":  "medium",
+        "split":  "test"
+    },
+    {
+        "question":  "Mức cấp dưỡng cho con có bắt buộc là một số tiền cố định do luật ấn định không?",
+        "category":  "cap_duong",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "current_law",
+        "id":  "HN_032",
+        "question_type":  "fact",
+        "difficulty":  "easy",
+        "split":  "test"
+    },
+    {
+        "question":  "Năm 2026 có thể áp dụng trực tiếp Luật Hôn nhân và gia đình số 22/2000/QH10 cho quan hệ mới phát sinh không?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "outdated_law_trap",
+        "id":  "HN_036",
+        "question_type":  "situation",
+        "difficulty":  "hard",
+        "split":  "test"
+    },
+    {
+        "question":  "Thông tư 02a/2015/TT-BTP có còn hiệu lực toàn bộ vào tháng 10/2026 không?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "outdated_law_trap",
+        "id":  "HN_040",
+        "question_type":  "situation",
+        "difficulty":  "hard",
+        "split":  "test"
+    },
+    {
+        "question":  "Thông tư 38/2025/TT-BYT có hiệu lực trước năm 2025 và áp dụng thay Nghị định 207/2025 không?",
+        "category":  "mang_thai_ho",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "outdated_law_trap",
+        "id":  "HN_044",
+        "question_type":  "situation",
+        "difficulty":  "hard",
+        "split":  "test"
+    },
+    {
+        "question":  "Có được trích Thông tư 07/2002/TT-BTP làm căn cứ hướng dẫn hiện hành về hôn nhân có yếu tố nước ngoài năm 2026 không?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "outdated_law_trap",
+        "id":  "HN_048",
+        "question_type":  "situation",
+        "difficulty":  "hard",
+        "split":  "test"
+    },
+    {
+        "question":  "Vào năm 2012, Luật Hôn nhân và gia đình 2000 đã hết hiệu lực chưa?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2012-03-01",
+        "test_type":  "historical_law",
+        "id":  "HN_052",
+        "question_type":  "situation",
+        "difficulty":  "medium",
+        "split":  "test"
+    },
+    {
+        "question":  "Ngày 01/03/2017, Thông tư 02a/2015/TT-BTP đã hết hiệu lực chưa?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2017-03-01",
+        "test_type":  "historical_law",
+        "id":  "HN_056",
+        "question_type":  "situation",
+        "difficulty":  "medium",
+        "split":  "test"
+    },
+    {
+        "question":  "Nghị định 123/2015/NĐ-CP hiện có thể coi mọi điều khoản đều còn hiệu lực không?",
+        "category":  "hieu_luc",
+        "as_of_date":  "2026-10-15",
+        "test_type":  "partially_expired",
+        "id":  "HN_060",
+        "question_type":  "fact",
+        "difficulty":  "hard",
+        "split":  "test"
+    }
+]

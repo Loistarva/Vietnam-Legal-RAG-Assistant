@@ -16,6 +16,7 @@ from __future__ import annotations
 import inspect
 import json
 import logging
+import math
 import os
 import time
 from collections.abc import Mapping
@@ -297,13 +298,26 @@ def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) ->
     settings = {
         "retrieval_top_k": retrieval.get("retrieval_top_k", hybrid.get("candidate_k", DEFAULT_RETRIEVAL_TOP_K)),
         "rrf_k": hybrid.get("rrf_k", DEFAULT_RRF_K),
+        "bm25_weight": hybrid.get("bm25_weight", 1.0),
+        "dense_weight": hybrid.get("dense_weight", 1.0),
         "bm25_index": bm25.get("index", "legal-child-chunks-dev"),
         "bm25_text_field": bm25.get("text_field", "content_segmented"),
         "dense_model": dense.get("model"),
+        "dense_collection": dense.get("collection", "vietnam_legal_chunks"),
+        "qdrant_path": dense.get("storage_path"),
     }
+    if settings["qdrant_path"]:
+        storage_path = Path(settings["qdrant_path"])
+        settings["qdrant_path"] = str(storage_path if storage_path.is_absolute() else ROOT / storage_path)
     _require_positive_int("retrieval_top_k", settings["retrieval_top_k"])
     if not isinstance(settings["rrf_k"], int) or isinstance(settings["rrf_k"], bool) or settings["rrf_k"] < 0:
         raise ValueError("rrf_k phải là số nguyên không âm")
+    for name in ("bm25_weight", "dense_weight"):
+        value = settings[name]
+        if not isinstance(value, (int, float)) or isinstance(value, bool) or not math.isfinite(value) or value < 0:
+            raise ValueError(f"{name} phải là số hữu hạn không âm")
+    if settings["bm25_weight"] == 0 and settings["dense_weight"] == 0:
+        raise ValueError("Ít nhất một trọng số RRF phải lớn hơn 0")
     return settings
 
 
@@ -367,7 +381,9 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
     dense = DenseRetriever(vector_store=store, model_name=model)
 
     top_k = settings["retrieval_top_k"]
-    config = HybridSearchConfig(top_k=top_k, candidate_k=top_k, rrf_k=settings["rrf_k"])
+    config = HybridSearchConfig(top_k=top_k, candidate_k=top_k, rrf_k=settings["rrf_k"],
+                                bm25_weight=settings["bm25_weight"],
+                                dense_weight=settings["dense_weight"])
     return HybridRetriever(sparse, dense, config)
 
 

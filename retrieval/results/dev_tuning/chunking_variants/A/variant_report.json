@@ -1,0 +1,19 @@
+{
+  "variant": "A",
+  "config_name": "Config A (Baseline - Khuyến nghị)",
+  "chunking_config": {
+    "parent_max_chars": 1500,
+    "child_max_tokens": 256,
+    "child_max_units": 200,
+    "child_min_words": 20
+  },
+  "num_source_documents": 21,
+  "num_children": 2011,
+  "num_parents": 923,
+  "num_duplicate_chunk_ids": 0,
+  "base_corpus_chunks": 2011,
+  "base_chunk_ids_retained": 2011,
+  "base_id_and_text_exact_match_count": 2011,
+  "chunks_file": "retrieval\\results\\dev_tuning\\chunking_variants\\A\\chunks.jsonl",
+  "parents_file": "retrieval\\results\\dev_tuning\\chunking_variants\\A\\parents.json"
+}

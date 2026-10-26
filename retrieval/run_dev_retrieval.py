@@ -25,6 +25,8 @@ from retrieval.hybrid_retriever import (
 
 def read_queries(path: Path) -> list[tuple[str, str]]:
     """Return (query_id, query) pairs; query_id is the benchmark ``id`` (or ``query_id``)."""
+    if "test" in path.stem.casefold():
+        raise ValueError("Từ chối chạy retrieval Dev trên file Test")
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -35,6 +37,8 @@ def read_queries(path: Path) -> list[tuple[str, str]]:
     for index, row in enumerate(data, 1):
         if not isinstance(row, dict):
             raise ValueError(f"Dev query #{index} phải là object có id và question")
+        if str(row.get("split", "dev")).casefold() != "dev":
+            raise ValueError(f"Dev query #{index} có split khác Dev")
         query_id = row.get("id") or row.get("query_id")
         query = row.get("query") or row.get("question")
         if not isinstance(query_id, str) or not query_id.strip():
@@ -106,6 +110,10 @@ def main() -> int:
     parser.add_argument("--top-k", type=int, default=10)
     parser.add_argument("--candidate-k", type=int, default=50)
     parser.add_argument("--rrf-k", type=int, default=60)
+    parser.add_argument("--bm25-weight", type=float, default=1.0,
+                        help="Trọng số đóng góp BM25 trong RRF (mặc định 1.0)")
+    parser.add_argument("--dense-weight", type=float, default=1.0,
+                        help="Trọng số đóng góp Dense trong RRF (mặc định 1.0)")
     args = parser.parse_args()
     try:
         if args.top_k < 1 or args.candidate_k < args.top_k:
@@ -136,11 +144,13 @@ def main() -> int:
         if count != chunk_count:
             raise ValueError(f"Collection {collection} có {count} points, fixture có {chunk_count} chunks")
         dense = DenseRetriever(vector_store=store, model_name=args.model)
-        config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
+        config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k,
+                                    bm25_weight=args.bm25_weight, dense_weight=args.dense_weight)
         hybrid_retriever = HybridRetriever(sparse, dense, config)
 
         run_config = {
             "top_k": args.top_k, "candidate_k": args.candidate_k, "rrf_k": args.rrf_k,
+            "bm25_weight": args.bm25_weight, "dense_weight": args.dense_weight,
             "dense_model": args.model, "collection": collection,
             "elasticsearch_index": args.elasticsearch_index, "chunks": str(args.chunks),
         }

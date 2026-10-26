@@ -12,10 +12,10 @@ if str(ROOT_DIR) not in sys.path:
 from evaluation.benchmark_runner import run_benchmark_bm25
 
 
-# Đường dẫn dữ liệu Dev Set
+# Test benchmark dùng proposal IDs làm nhãn đầu vào cho lần đánh giá này.
 QUERIES_TEST_PATH = ROOT_DIR / "data" / "benchmark" / "queries_test.json"
 RESULTS_PATH = ROOT_DIR / "evaluation" /"results"/ "bm25_test_results.json"
-GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
+GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "gold_id_proposals_300.json"
 METRICS_TEST_PATH = ROOT_DIR / "evaluation" /"results" /"bm25_test_metrics.json"
 
 TOP_K = 5

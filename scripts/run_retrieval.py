@@ -76,7 +76,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"))
     parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX"))
     parser.add_argument("--qdrant-path", default=os.getenv("QDRANT_PATH"))
-    parser.add_argument("--collection", default="vietnam_legal_chunks")
+    parser.add_argument("--collection", default=None,
+                        help="Ghi đè dense.collection trong retrieval/config.yaml")
     parser.add_argument("--dense-model", default=None, help="Ghi đè dense.model của retrieval/config.yaml")
     parser.add_argument("--output", type=Path, default=None, help="Ghi JSON ra file thay vì stdout")
     parser.add_argument("--eval-output", type=Path, default=None,
@@ -151,12 +152,15 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         retriever = build_mock_dense_retriever(args.chunks)
         retriever_settings.update(chunks=str(args.chunks), embedding="deterministic_mock")
     else:
+        collection = args.collection or settings["dense_collection"]
+        qdrant_path = args.qdrant_path or settings["qdrant_path"]
         retriever = build_hybrid_retriever(
             settings, elasticsearch_url=args.elasticsearch_url, elasticsearch_index=args.elasticsearch_index,
-            qdrant_path=args.qdrant_path, collection=args.collection, dense_model=args.dense_model)
+            qdrant_path=qdrant_path, collection=collection, dense_model=args.dense_model)
         retriever_settings.update(rrf_k=settings["rrf_k"], dense_model=args.dense_model or settings["dense_model"],
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
-                                  collection=args.collection)
+                                  collection=collection, bm25_weight=settings["bm25_weight"],
+                                  dense_weight=settings["dense_weight"], qdrant_path=qdrant_path)
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
                              retriever_name=args.retriever, retriever_settings=retriever_settings,
                              parent_resolver=parent_resolver)

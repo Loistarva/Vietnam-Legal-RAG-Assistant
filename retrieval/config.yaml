@@ -1,11 +1,27 @@
+# Cấu hình được chọn sau khi so sánh A/B/C/E trên Dev bằng gold_id_proposals_300.
+# Chỉ dùng làm ứng viên cấu hình; chưa được đánh giá trên một Test độc lập sau khi khóa.
 bm25:
   backend: elasticsearch
   text_field: content_segmented
-  index: legal-child-chunks-dev
+  index: legal-child-chunks-dev-cfge
 dense:
   backend: qdrant
-  model: BAAI/bge-m3
+  model: bkai-foundation-models/vietnamese-bi-encoder
+  collection: vietnam_legal_dev_cfge
+  storage_path: retrieval/results/dev_tuning/chunking_variants/E/vector_index/qdrant_storage
+  sequence_limit: 256
 hybrid:
   candidate_k: 50
   top_k: 10
   rrf_k: 60
+  bm25_weight: 0.35
+  dense_weight: 0.65
+chunking:
+  variant: E
+  parent_max_chars: 1500
+  child_max_tokens: 256
+  child_max_units: 350
+  child_min_words: 30
+  fallback_overlap_words: 40
+  chunks_file: retrieval/results/dev_tuning/chunking_variants/E/chunks.jsonl
+  parents_file: retrieval/results/dev_tuning/chunking_variants/E/parents.json
