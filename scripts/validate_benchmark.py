@@ -22,7 +22,7 @@ def load(p):
 def inputs():
     return (load(DATA/'queries_dev.json'),load(DATA/'queries_test.json'),
             load(DATA/'ground_truth.json'),load(REF/'article_index.json'),
-            load(REF/'context_registry.json'),load(REF/'document_versions.json'),
+            load(REF/'production_chunk_index.json'),load(REF/'document_versions.json'),
             load(ROOT/'schemas'/'benchmark_schema.json'))
 
 def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
@@ -75,18 +75,12 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     chunk_index={c['chunk_id']:c for c in chunks}
     document_index={d['document_number']:d for d in docs}
     if len(article_index)!=len(articles):issues.append('Trùng article_id')
-    if len(chunk_index)!=len(chunks):issues.append('Trùng chunk_id trong context registry')
-    # Production được cấp bởi người làm Chunking; ID từ smoke không được coi là index chính thức.
+    if len(chunk_index)!=len(chunks):issues.append('Trùng chunk_id trong production chunk index')
+    if not chunk_index:issues.append('Production chunk index rỗng')
+    # Production được cấp bởi người làm Chunking; context_registry cũ chỉ dùng truy nguyên lịch sử
     prod_file=REF/'production_chunk_index.json'
-    prod_index={}
-    if final or prod_file.exists():
-        if not prod_file.exists():
-            issues.append('Chưa nhập production_chunk_index.json từ output Chunking của nhóm')
-        else:
-            prod_rows=load(prod_file)
-            prod_index={r['chunk_id']:r for r in prod_rows}
-            if len(prod_index)!=len(prod_rows):issues.append('Production index có chunk_id trùng')
-            if not prod_index:issues.append('Production index rỗng')
+    if not prod_file.exists():
+        issues.append('Chưa nhập production_chunk_index.json từ output Chunking của nhóm')
     if len(document_index)!=len(docs):issues.append('Trùng số hiệu văn bản trong document_versions')
     lookup={g.get('id'):g for g in gt}
     for q in queries:
@@ -101,7 +95,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                 # Status queries are evaluated against official metadata; provision-level queries need article evidence.
                 if c.get('article')!='Trạng thái hiệu lực' and not (q.get('test_type')=='historical_law' and c.get('article')=='132' and 'hiệu lực' in q.get('question','')):
                     date=q.get('as_of_date','')
-                    if doc.get('effective_date') and date<doc['effective_date']:
+                    if doc.get('effective_date') and date<doc['effective_date']:\
                         issues.append(f'{qid}: dùng quy định trước ngày có hiệu lực')
                     if doc.get('expiry_date') and date>=doc['expiry_date']:
                         issues.append(f'{qid}: dùng quy định sau khi văn bản hết hiệu lực toàn bộ')
@@ -120,21 +114,17 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if cid in article_index:issues.append(f'{qid}: article_id không được dùng làm chunk_id: {cid}')
             if cid.startswith(('DEMO_','FAKE_','PLACEHOLDER_')):
                 issues.append(f'{qid}: chunk ID giả: {cid}')
-            # Production IDs are valid as unverified candidates and reviewed Gold.
-            # Smoke IDs must still resolve exclusively in the smoke registry.
-            is_production_gold = final and cid in g.get('gold_context_ids',[])
-            info = (prod_index.get(cid) if cid in prod_index or is_production_gold
-                    else chunk_index.get(cid))
-            if not info:issues.append(f'{qid}: chunk ID không nằm trong registry: {cid}')
+            info = chunk_index.get(cid)
+            if not info:issues.append(f'{qid}: chunk ID không nằm trong production index: {cid}')
             else:
                 if info['document_number'] not in docnos:issues.append(f'{qid}: chunk {cid} sai văn bản so với citation')
                 if g.get('gold_article_ids') and info['article_id'] not in g['gold_article_ids']:
                     issues.append(f'{qid}: chunk {cid} không thuộc gold_article_ids')
                 if not info['chunk_text'].strip():issues.append(f'{qid}: chunk {cid} rỗng')
         status=g.get('mapping_status')
-        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
+        if status=='smoke_candidate' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
             issues.append(f'{qid}: smoke_candidate chỉ được có candidate_context_ids, không có Gold')
-        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):\
+        if status=='partial_evidence_only' and (g.get('gold_context_ids') or not g.get('candidate_context_ids')):
             issues.append(f'{qid}: partial_evidence_only phải có candidate, không có gold')
         if status=='not_mapped' and all_ids:
             issues.append(f'{qid}: not_mapped nhưng có context ID')
@@ -177,7 +167,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
             if g.get('evidence_level') not in ('full_text_checked',):
                 issues.append(f'{qid}: chứng cứ pháp lý chưa được đối chiếu toàn văn')
             for cid in g.get('gold_context_ids',[]):
-                pr=prod_index.get(cid)
+                pr=chunk_index.get(cid)
                 if not pr:
                     issues.append(f'{qid}: gold ID không tồn tại trong production index: {cid}')
                 elif g.get('gold_article_ids') and pr.get('article_id') not in g['gold_article_ids']:

@@ -1,6 +1,6 @@
 [
   {
-    "question_id": "HN_001",
+    "query_id": "HN_001",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_3_clause_1_chunk_1",
@@ -38,7 +38,7 @@
     ]
   },
   {
-    "question_id": "HN_002",
+    "query_id": "HN_002",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nữ phải đủ bao nhiêu tuổi để kết hôn?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_3_clause_1_chunk_1",
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "question_id": "HN_003",
+    "query_id": "HN_003",
     "question": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_9_chunk_1",
@@ -114,7 +114,7 @@
     ]
   },
   {
-    "question_id": "HN_005",
+    "query_id": "HN_005",
     "question": "Kết hôn nhưng không đăng ký theo pháp luật hộ tịch có giá trị pháp lý không?",
     "retrieved_chunk_ids": [
       "l01_art_9_chunk_1",
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "question_id": "HN_006",
+    "query_id": "HN_006",
     "question": "Hai người đã ly hôn muốn trở lại quan hệ vợ chồng có cần đăng ký kết hôn lại không?",
     "retrieved_chunk_ids": [
       "l01_art_9_chunk_2",
@@ -190,7 +190,7 @@
     ]
   },
   {
-    "question_id": "HN_007",
+    "query_id": "HN_007",
     "question": "Pháp luật hôn nhân và gia đình có cho phép người đang có vợ hoặc chồng kết hôn với người khác không?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_2_clause_4_chunk_1",
@@ -228,7 +228,7 @@
     ]
   },
   {
-    "question_id": "HN_009",
+    "query_id": "HN_009",
     "question": "Nam nữ đủ điều kiện nhưng chung sống như vợ chồng mà không đăng ký kết hôn thì có phát sinh quyền nghĩa vụ giữa vợ chồng không?",
     "retrieved_chunk_ids": [
       "l01_art_14_chunk_1",
@@ -266,7 +266,7 @@
     ]
   },
   {
-    "question_id": "HN_010",
+    "query_id": "HN_010",
     "question": "Nếu cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân được xác lập từ thời điểm nào?",
     "retrieved_chunk_ids": [
       "l01_art_14_chunk_2",
@@ -304,7 +304,7 @@
     ]
   },
   {
-    "question_id": "HN_011",
+    "query_id": "HN_011",
     "question": "Quyền và nghĩa vụ với con khi bố mẹ chung sống như vợ chồng nhưng không đăng ký kết hôn được xử lý ra sao?",
     "retrieved_chunk_ids": [
       "l01_art_15_chunk_1",
@@ -342,7 +342,7 @@
     ]
   },
   {
-    "question_id": "HN_013",
+    "query_id": "HN_013",
     "question": "Vợ chồng có bình đẳng về quyền và nghĩa vụ trong gia đình không?",
     "retrieved_chunk_ids": [
       "l01_art_17_chunk_1",
@@ -380,7 +380,7 @@
     ]
   },
   {
-    "question_id": "HN_014",
+    "query_id": "HN_014",
     "question": "Vợ chồng có buộc luôn phải sống chung tại một địa chỉ không?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_20_chunk_1",
@@ -418,7 +418,7 @@
     ]
   },
   {
-    "question_id": "HN_015",
+    "query_id": "HN_015",
     "question": "Việc lựa chọn nơi cư trú của vợ chồng do ai quyết định?",
     "retrieved_chunk_ids": [
       "l01_art_20_chunk_1",
@@ -456,7 +456,7 @@
     ]
   },
   {
-    "question_id": "HN_017",
+    "query_id": "HN_017",
     "question": "Tài sản vợ chồng được tặng cho chung trong thời kỳ hôn nhân là loại tài sản gì?",
     "retrieved_chunk_ids": [
       "l01_art_33_chunk_1",
@@ -494,7 +494,7 @@
     ]
   },
   {
-    "question_id": "HN_018",
+    "query_id": "HN_018",
     "question": "Tài sản có trước khi kết hôn mặc nhiên là tài sản chung không?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_5_clause_3_chunk_2",
@@ -532,7 +532,7 @@
     ]
   },
   {
-    "question_id": "HN_019",
+    "query_id": "HN_019",
     "question": "Tài sản được thừa kế riêng trong thời kỳ hôn nhân là tài sản chung hay riêng?",
     "retrieved_chunk_ids": [
       "l01_art_33_chunk_1",
@@ -570,7 +570,7 @@
     ]
   },
   {
-    "question_id": "HN_021",
+    "query_id": "HN_021",
     "question": "Chồng có quyền tự yêu cầu ly hôn khi vợ đang mang thai không?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_2_p2_chunk_1_phan_2",
@@ -608,7 +608,7 @@
     ]
   },
   {
-    "question_id": "HN_022",
+    "query_id": "HN_022",
     "question": "Chồng có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi không?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_2_p2_chunk_1_phan_2",
@@ -646,7 +646,7 @@
     ]
   },
   {
-    "question_id": "HN_023",
+    "query_id": "HN_023",
     "question": "Hai vợ chồng có thể cùng yêu cầu Tòa án giải quyết ly hôn không?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_51_clause_1_chunk_1",
@@ -684,7 +684,7 @@
     ]
   },
   {
-    "question_id": "HN_025",
+    "query_id": "HN_025",
     "question": "Một bên có thể được Tòa án giải quyết cho ly hôn khi có bạo lực gia đình nghiêm trọng không?",
     "retrieved_chunk_ids": [
       "l01_art_56_chunk_1",
@@ -722,7 +722,7 @@
     ]
   },
   {
-    "question_id": "HN_026",
+    "query_id": "HN_026",
     "question": "Hôn nhân chấm dứt do ly hôn kể từ thời điểm nào?",
     "retrieved_chunk_ids": [
       "l01_art_65_chunk_1",
@@ -760,7 +760,7 @@
     ]
   },
   {
-    "question_id": "HN_027",
+    "query_id": "HN_027",
     "question": "Khi ly hôn, tài sản chung lúc nào cũng chia đúng 50/50 bất kể hoàn cảnh hay công sức không?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_p3_chunk_4_phan_1_1",
@@ -798,7 +798,7 @@
     ]
   },
   {
-    "question_id": "HN_029",
+    "query_id": "HN_029",
     "question": "Sau ly hôn, con dưới 36 tháng tuổi có đương nhiên luôn phải giao mẹ nuôi không?",
     "retrieved_chunk_ids": [
       "l01_art_81_chunk_3",
@@ -836,7 +836,7 @@
     ]
   },
   {
-    "question_id": "HN_030",
+    "query_id": "HN_030",
     "question": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ cấp dưỡng không?",
     "retrieved_chunk_ids": [
       "l01_art_82_chunk_2",
@@ -874,7 +874,7 @@
     ]
   },
   {
-    "question_id": "HN_031",
+    "query_id": "HN_031",
     "question": "Cha mẹ không trực tiếp nuôi con có quyền thăm nom con sau ly hôn không?",
     "retrieved_chunk_ids": [
       "l01_art_82_chunk_2",
@@ -912,7 +912,7 @@
     ]
   },
   {
-    "question_id": "HN_033",
+    "query_id": "HN_033",
     "question": "Cấp dưỡng có thể thực hiện một lần thay vì hằng tháng không?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_117_chunk_1",
@@ -950,7 +950,7 @@
     ]
   },
   {
-    "question_id": "HN_034",
+    "query_id": "HN_034",
     "question": "Nghĩa vụ cấp dưỡng có thể chuyển giao tùy ý cho người khác không?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_50_chunk_1",
@@ -988,7 +988,7 @@
     ]
   },
   {
-    "question_id": "HN_035",
+    "query_id": "HN_035",
     "question": "Theo quy định HNGĐ hiện hành năm 2026, kết hôn cùng giới vẫn là hành vi bị cấm theo Luật 2000 đúng không?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_107_chunk_1",
@@ -1026,7 +1026,7 @@
     ]
   },
   {
-    "question_id": "HN_037",
+    "query_id": "HN_037",
     "question": "Năm 2026, Nghị định 70/2001/NĐ-CP còn là nghị định hướng dẫn luật hôn nhân và gia đình đang có hiệu lực không?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
@@ -1064,7 +1064,7 @@
     ]
   },
   {
-    "question_id": "HN_038",
+    "query_id": "HN_038",
     "question": "Nghị định 77/2001/NĐ-CP còn có thể dùng làm quy định đăng ký kết hôn hiện hành năm 2026 không?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
@@ -1102,7 +1102,7 @@
     ]
   },
   {
-    "question_id": "HN_039",
+    "query_id": "HN_039",
     "question": "Năm 2026, Nghị định 68/2002/NĐ-CP còn hiệu lực về hôn nhân có yếu tố nước ngoài không?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_65_chunk_2_1",
@@ -1140,7 +1140,7 @@
     ]
   },
   {
-    "question_id": "HN_041",
+    "query_id": "HN_041",
     "question": "Năm 2026 có thể dùng Thông tư 15/2015/TT-BTP như thông tư hộ tịch còn hiệu lực không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_16_chunk_1",
@@ -1178,7 +1178,7 @@
     ]
   },
   {
-    "question_id": "HN_042",
+    "query_id": "HN_042",
     "question": "Năm 2026 có thể dùng Nghị định 10/2015/NĐ-CP như nghị định đang hiệu lực điều chỉnh hỗ trợ sinh sản không?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
@@ -1216,7 +1216,7 @@
     ]
   },
   {
-    "question_id": "HN_043",
+    "query_id": "HN_043",
     "question": "Vào tháng 10/2026, Nghị định 207/2025/NĐ-CP có phải văn bản thay thế khung nghị định 10/2015 về hỗ trợ sinh sản không?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_15_chunk_2_1",
@@ -1254,7 +1254,7 @@
     ]
   },
   {
-    "question_id": "HN_045",
+    "query_id": "HN_045",
     "question": "Nghị định 126/2014/NĐ-CP có còn nguyên vẹn hiệu lực của tất cả điều khoản vào năm 2026 không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -1292,7 +1292,7 @@
     ]
   },
   {
-    "question_id": "HN_046",
+    "query_id": "HN_046",
     "question": "Thông tư 04/2020/TT-BTP trong năm 2026 còn hiệu lực toàn bộ như bản gốc không?",
     "retrieved_chunk_ids": [
       "tt_34_2017_tt_byt_art_8_chunk_1",
@@ -1330,7 +1330,7 @@
     ]
   },
   {
-    "question_id": "HN_047",
+    "query_id": "HN_047",
     "question": "Thông tư 57/2015/TT-BYT còn toàn bộ các quy định ban đầu không bị tác động sửa đổi vào năm 2026?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_16_chunk_1",
@@ -1368,7 +1368,7 @@
     ]
   },
   {
-    "question_id": "HN_049",
+    "query_id": "HN_049",
     "question": "Nếu chatbot nói chỉ cần kiểm tra trạng thái văn bản cấp tổng thể để biết một khoản của NĐ 126/2014 còn hiệu lực thì có chính xác không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -1406,7 +1406,7 @@
     ]
   },
   {
-    "question_id": "HN_050",
+    "query_id": "HN_050",
     "question": "Tháng 10/2026 có được kết luận mọi quy định Thông tư 04/2020/TT-BTP còn nguyên như khi ban hành không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_16_chunk_1",
@@ -1444,7 +1444,7 @@
     ]
   },
   {
-    "question_id": "HN_051",
+    "query_id": "HN_051",
     "question": "Năm 2010, Luật Hôn nhân và gia đình 2000 có cấm kết hôn giữa những người cùng giới tính không?",
     "retrieved_chunk_ids": [
       "l01_art_8_chunk_2",
@@ -1482,7 +1482,7 @@
     ]
   },
   {
-    "question_id": "HN_053",
+    "query_id": "HN_053",
     "question": "Tháng 7/2014, Luật Hôn nhân và gia đình 52/2014/QH13 đã có hiệu lực chưa?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_125_chunk_2",
@@ -1520,7 +1520,7 @@
     ]
   },
   {
-    "question_id": "HN_054",
+    "query_id": "HN_054",
     "question": "Trong tháng 6/2024, Nghị định 10/2015/NĐ-CP còn hiệu lực điều chỉnh hỗ trợ sinh sản không?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
@@ -1558,7 +1558,7 @@
     ]
   },
   {
-    "question_id": "HN_055",
+    "query_id": "HN_055",
     "question": "Ngày 01/12/2015, Thông tư 02a/2015/TT-BTP còn hiệu lực không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_17_p5_chunk_5_phan_3",
@@ -1596,7 +1596,7 @@
     ]
   },
   {
-    "question_id": "HN_057",
+    "query_id": "HN_057",
     "question": "Nghị định 126/2014/NĐ-CP hiện được ghi nhận hết hiệu lực toàn bộ hay một phần?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -1634,7 +1634,7 @@
     ]
   },
   {
-    "question_id": "HN_058",
+    "query_id": "HN_058",
     "question": "Đối với Thông tư 04/2020/TT-BTP, chỉ dựa vào ngày ban hành có đủ để xác định một điều còn hiệu lực không?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_16_chunk_1",
@@ -1672,7 +1672,7 @@
     ]
   },
   {
-    "question_id": "HN_059",
+    "query_id": "HN_059",
     "question": "Văn bản 57/2015/TT-BYT được CSDL quốc gia ghi nhận trạng thái hiệu lực nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_17_p3_chunk_5_phan_1_2",
@@ -1710,7 +1710,7 @@
     ]
   },
   {
-    "question_id": "HN_061",
+    "query_id": "HN_061",
     "question": "Phạm vi điều chỉnh của Luật Hôn nhân và gia đình 2014 bao gồm những nhóm quan hệ và vấn đề nào?",
     "retrieved_chunk_ids": [
       "l01_art_3_p1_chunk_3",
@@ -1748,7 +1748,7 @@
     ]
   },
   {
-    "question_id": "HN_062",
+    "query_id": "HN_062",
     "question": "Luật Hôn nhân và gia đình 2014 đặt ra những nguyên tắc nào đối với vấn đề chế độ hôn nhân và gia đình?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_5_chunk_2",
@@ -1786,7 +1786,7 @@
     ]
   },
   {
-    "question_id": "HN_063",
+    "query_id": "HN_063",
     "question": "Các thuật ngữ chuyên ngành được giải thích thế nào trong Luật Hôn nhân và gia đình 2014, và những khái niệm nào cần phân biệt?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_5_chunk_1",
@@ -1824,7 +1824,7 @@
     ]
   },
   {
-    "question_id": "HN_064",
+    "query_id": "HN_064",
     "question": "Đối với trách nhiệm của Nhà nước và xã hội đối với hôn nhân và gia đình, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_1_chunk_1",
@@ -1862,7 +1862,7 @@
     ]
   },
   {
-    "question_id": "HN_065",
+    "query_id": "HN_065",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về bảo vệ chế độ hôn nhân và gia đình?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_1_chunk_1",
@@ -1900,7 +1900,7 @@
     ]
   },
   {
-    "question_id": "HN_066",
+    "query_id": "HN_066",
     "question": "Khi gặp tình huống liên quan đến quy định của Bộ luật dân sự và các luật khác có liên quan, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_6_chunk_1",
@@ -1938,7 +1938,7 @@
     ]
   },
   {
-    "question_id": "HN_067",
+    "query_id": "HN_067",
     "question": "Khi gặp tình huống liên quan đến tập quán về hôn nhân và gia đình, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_5_chunk_1",
@@ -1976,7 +1976,7 @@
     ]
   },
   {
-    "question_id": "HN_068",
+    "query_id": "HN_068",
     "question": "Theo Luật Hôn nhân và gia đình 2014, cần đáp ứng những yêu cầu cụ thể nào về điều kiện kết hôn?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_36_chunk_1",
@@ -2014,7 +2014,7 @@
     ]
   },
   {
-    "question_id": "HN_069",
+    "query_id": "HN_069",
     "question": "Một trường hợp liên quan đến đăng ký kết hôn sẽ được xử lý thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_3_p2_chunk_2",
@@ -2052,7 +2052,7 @@
     ]
   },
   {
-    "question_id": "HN_070",
+    "query_id": "HN_070",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ người có quyền yêu cầu hủy việc kết hôn trái pháp luật như thế nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p4_chunk_3",
@@ -2090,7 +2090,7 @@
     ]
   },
   {
-    "question_id": "HN_071",
+    "query_id": "HN_071",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến xử lý việc kết hôn trái pháp luật được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p5_chunk_4",
@@ -2128,7 +2128,7 @@
     ]
   },
   {
-    "question_id": "HN_072",
+    "query_id": "HN_072",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến hậu quả pháp lý của việc hủy kết hôn trái pháp luật được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p4_chunk_3",
@@ -2166,7 +2166,7 @@
     ]
   },
   {
-    "question_id": "HN_073",
+    "query_id": "HN_073",
     "question": "Cơ quan nào có thẩm quyền đối với xử lý việc đăng ký kết hôn không đúng thẩm quyền và căn cứ xác định theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l01_art_13_chunk_1",
@@ -2204,7 +2204,7 @@
     ]
   },
   {
-    "question_id": "HN_074",
+    "query_id": "HN_074",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_130_chunk_1",
@@ -2242,7 +2242,7 @@
     ]
   },
   {
-    "question_id": "HN_075",
+    "query_id": "HN_075",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_15_chunk_1",
@@ -2280,7 +2280,7 @@
     ]
   },
   {
-    "question_id": "HN_076",
+    "query_id": "HN_076",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_130_chunk_1",
@@ -2318,7 +2318,7 @@
     ]
   },
   {
-    "question_id": "HN_077",
+    "query_id": "HN_077",
     "question": "Theo Luật Hôn nhân và gia đình 2014, bình đẳng về quyền, nghĩa vụ giữa vợ, chồng được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_17_chunk_1",
@@ -2356,7 +2356,7 @@
     ]
   },
   {
-    "question_id": "HN_078",
+    "query_id": "HN_078",
     "question": "Theo Luật Hôn nhân và gia đình 2014, bảo vệ quyền, nghĩa vụ về nhân thân của vợ, chồn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_18_chunk_1",
@@ -2394,7 +2394,7 @@
     ]
   },
   {
-    "question_id": "HN_079",
+    "query_id": "HN_079",
     "question": "Điều khoản về tình nghĩa vợ chồng của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_3_clause_3_chunk_1",
@@ -2432,7 +2432,7 @@
     ]
   },
   {
-    "question_id": "HN_080",
+    "query_id": "HN_080",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về lựa chọn nơi cư trú của vợ chồng theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_20_chunk_1",
@@ -2470,7 +2470,7 @@
     ]
   },
   {
-    "question_id": "HN_081",
+    "query_id": "HN_081",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng?",
     "retrieved_chunk_ids": [
       "l01_art_21_chunk_1",
@@ -2508,7 +2508,7 @@
     ]
   },
   {
-    "question_id": "HN_082",
+    "query_id": "HN_082",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_22_chunk_1",
@@ -2546,7 +2546,7 @@
     ]
   },
   {
-    "question_id": "HN_083",
+    "query_id": "HN_083",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ về học tập, làm việc, tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_23_chunk_1",
@@ -2584,7 +2584,7 @@
     ]
   },
   {
-    "question_id": "HN_084",
+    "query_id": "HN_084",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về căn cứ xác lập đại diện giữa vợ và chồng theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_17_p14_chunk_5_phan_12",
@@ -2622,7 +2622,7 @@
     ]
   },
   {
-    "question_id": "HN_085",
+    "query_id": "HN_085",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về đại diện giữa vợ và chồng trong quan hệ kinh doanh?",
     "retrieved_chunk_ids": [
       "l01_art_25_chunk_1",
@@ -2660,7 +2660,7 @@
     ]
   },
   {
-    "question_id": "HN_086",
+    "query_id": "HN_086",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ đại diện giữa vợ và chồng trong trường hợp giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng đối với tài sản chung nhưng chỉ ghi tên vợ hoặc chồng như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_26_chunk_1",
@@ -2698,7 +2698,7 @@
     ]
   },
   {
-    "question_id": "HN_087",
+    "query_id": "HN_087",
     "question": "Đối với trách nhiệm liên đới của vợ, chồng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_25_chunk_1",
@@ -2736,7 +2736,7 @@
     ]
   },
   {
-    "question_id": "HN_088",
+    "query_id": "HN_088",
     "question": "Khi gặp tình huống liên quan đến chế độ tài sản của vợ chồng, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_1",
@@ -2774,7 +2774,7 @@
     ]
   },
   {
-    "question_id": "HN_089",
+    "query_id": "HN_089",
     "question": "Luật Hôn nhân và gia đình 2014 đặt ra những nguyên tắc nào đối với vấn đề chung về chế độ tài sản của vợ chồng?",
     "retrieved_chunk_ids": [
       "l01_art_48_chunk_1",
@@ -2812,7 +2812,7 @@
     ]
   },
   {
-    "question_id": "HN_090",
+    "query_id": "HN_090",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của vợ, chồng trong việc đáp ứng nhu cầu thiết yếu của gia đình được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_37_chunk_2",
@@ -2850,7 +2850,7 @@
     ]
   },
   {
-    "question_id": "HN_091",
+    "query_id": "HN_091",
     "question": "Điều khoản về giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "l01_art_31_chunk_1",
@@ -2888,7 +2888,7 @@
     ]
   },
   {
-    "question_id": "HN_092",
+    "query_id": "HN_092",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ giao dịch với người thứ ba ngay tình liên quan đến tài khoản ngân hàng, tài khoản chứng khoán và động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu, quyền sử dụng như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_32_chunk_2",
@@ -2926,7 +2926,7 @@
     ]
   },
   {
-    "question_id": "HN_093",
+    "query_id": "HN_093",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý tài sản chung của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -2964,7 +2964,7 @@
     ]
   },
   {
-    "question_id": "HN_094",
+    "query_id": "HN_094",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ đăng ký quyền sở hữu, quyền sử dụng đối với tài sản chung như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_12_chunk_1",
@@ -3002,7 +3002,7 @@
     ]
   },
   {
-    "question_id": "HN_095",
+    "query_id": "HN_095",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản chung dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_37_chunk_3",
@@ -3040,7 +3040,7 @@
     ]
   },
   {
-    "question_id": "HN_096",
+    "query_id": "HN_096",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý tài sản chung được đưa vào kinh doanh dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_36_chunk_1",
@@ -3078,7 +3078,7 @@
     ]
   },
   {
-    "question_id": "HN_097",
+    "query_id": "HN_097",
     "question": "Đối với nghĩa vụ chung về tài sản của vợ chồng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l01_art_37_chunk_2",
@@ -3116,7 +3116,7 @@
     ]
   },
   {
-    "question_id": "HN_098",
+    "query_id": "HN_098",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chia tài sản chung trong thời kỳ hôn nhân dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -3154,7 +3154,7 @@
     ]
   },
   {
-    "question_id": "HN_099",
+    "query_id": "HN_099",
     "question": "Khi xác định thời điểm có hiệu lực của việc chia tài sản chung trong thời kỳ hôn nhân, mốc thời gian pháp lý cần dựa vào quy định nào của Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_6_chunk_1",
@@ -3192,7 +3192,7 @@
     ]
   },
   {
-    "question_id": "HN_100",
+    "query_id": "HN_100",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến hậu quả của việc chia tài sản chung trong thời kỳ hôn nhân được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_13_chunk_2",
@@ -3230,7 +3230,7 @@
     ]
   },
   {
-    "question_id": "HN_101",
+    "query_id": "HN_101",
     "question": "Trong trường hợp liên quan đến chấm dứt hiệu lực của việc chia tài sản chung trong thời kỳ hôn nhân, hệ quả pháp lý và thời điểm áp dụng theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l01_art_41_chunk_4",
@@ -3268,7 +3268,7 @@
     ]
   },
   {
-    "question_id": "HN_102",
+    "query_id": "HN_102",
     "question": "Trong trường hợp liên quan đến chia tài sản chung trong thời kỳ hôn nhân bị vô hiệu, hệ quả pháp lý và thời điểm áp dụng theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_131_chunk_1",
@@ -3306,7 +3306,7 @@
     ]
   },
   {
-    "question_id": "HN_103",
+    "query_id": "HN_103",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý tài sản riêng của vợ, chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -3344,7 +3344,7 @@
     ]
   },
   {
-    "question_id": "HN_104",
+    "query_id": "HN_104",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản riêng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_37_chunk_3",
@@ -3382,7 +3382,7 @@
     ]
   },
   {
-    "question_id": "HN_105",
+    "query_id": "HN_105",
     "question": "Đối với nghĩa vụ riêng về tài sản của vợ, chồng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l01_art_37_chunk_2",
@@ -3420,7 +3420,7 @@
     ]
   },
   {
-    "question_id": "HN_106",
+    "query_id": "HN_106",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý nhập tài sản riêng của vợ, chồng vào tài sản chung dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -3458,7 +3458,7 @@
     ]
   },
   {
-    "question_id": "HN_107",
+    "query_id": "HN_107",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý thỏa thuận xác lập chế độ tài sản của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -3496,7 +3496,7 @@
     ]
   },
   {
-    "question_id": "HN_108",
+    "query_id": "HN_108",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý nội dung cơ bản của thỏa thuận về chế độ tài sản của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_48_chunk_1",
@@ -3534,7 +3534,7 @@
     ]
   },
   {
-    "question_id": "HN_109",
+    "query_id": "HN_109",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý sửa đổi, bổ sung nội dung của thỏa thuận về chế độ tài sản của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_49_chunk_1",
@@ -3572,7 +3572,7 @@
     ]
   },
   {
-    "question_id": "HN_110",
+    "query_id": "HN_110",
     "question": "Trong trường hợp liên quan đến thỏa thuận về chế độ tài sản của vợ chồng bị vô hiệu, hệ quả pháp lý và thời điểm áp dụng theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_7_chunk_1",
@@ -3610,7 +3610,7 @@
     ]
   },
   {
-    "question_id": "HN_111",
+    "query_id": "HN_111",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến quyền yêu cầu giải quyết ly hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p1_chunk_1",
@@ -3648,7 +3648,7 @@
     ]
   },
   {
-    "question_id": "HN_112",
+    "query_id": "HN_112",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về khuyến khích hòa giải ở cơ sở theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_52_chunk_1",
@@ -3686,7 +3686,7 @@
     ]
   },
   {
-    "question_id": "HN_113",
+    "query_id": "HN_113",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về thụ lý đơn yêu cầu ly hôn?",
     "retrieved_chunk_ids": [
       "l01_art_53_chunk_1",
@@ -3724,7 +3724,7 @@
     ]
   },
   {
-    "question_id": "HN_114",
+    "query_id": "HN_114",
     "question": "Khi gặp vấn đề hòa giải tại Tòa án, cần xác định căn cứ nào trong Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_56_chunk_1",
@@ -3762,7 +3762,7 @@
     ]
   },
   {
-    "question_id": "HN_115",
+    "query_id": "HN_115",
     "question": "Điều khoản về thuận tình ly hôn của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_3_clause_3_chunk_1",
@@ -3800,7 +3800,7 @@
     ]
   },
   {
-    "question_id": "HN_116",
+    "query_id": "HN_116",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về ly hôn theo yêu cầu của một bên theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_4",
@@ -3838,7 +3838,7 @@
     ]
   },
   {
-    "question_id": "HN_117",
+    "query_id": "HN_117",
     "question": "Khi xác định thời điểm chấm dứt hôn nhân và trách nhiệm gửi bản án, quyết định ly hôn, mốc thời gian pháp lý cần dựa vào quy định nào của Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_3_chunk_1_1",
@@ -3876,7 +3876,7 @@
     ]
   },
   {
-    "question_id": "HN_118",
+    "query_id": "HN_118",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cha mẹ và con sau khi ly hôn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -3914,7 +3914,7 @@
     ]
   },
   {
-    "question_id": "HN_119",
+    "query_id": "HN_119",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -3952,7 +3952,7 @@
     ]
   },
   {
-    "question_id": "HN_120",
+    "query_id": "HN_120",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết quyền, nghĩa vụ tài sản của vợ chồng đối với người thứ ba khi ly hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_p2_chunk_3",
@@ -3990,7 +3990,7 @@
     ]
   },
   {
-    "question_id": "HN_121",
+    "query_id": "HN_121",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chia tài sản trong trường hợp vợ chồng sống chung với gia đình dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_1",
@@ -4028,7 +4028,7 @@
     ]
   },
   {
-    "question_id": "HN_122",
+    "query_id": "HN_122",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ chia quyền sử dụng đất của vợ chồng khi ly hôn như thế nào?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_26_chunk_2",
@@ -4066,7 +4066,7 @@
     ]
   },
   {
-    "question_id": "HN_123",
+    "query_id": "HN_123",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ quyền lưu cư của vợ hoặc chồng khi ly hôn như thế nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_clause_4_chunk_1",
@@ -4104,7 +4104,7 @@
     ]
   },
   {
-    "question_id": "HN_124",
+    "query_id": "HN_124",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chia tài sản chung của vợ chồng đưa vào kinh doanh dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_64_chunk_1",
@@ -4142,7 +4142,7 @@
     ]
   },
   {
-    "question_id": "HN_125",
+    "query_id": "HN_125",
     "question": "Khi xác định thời điểm chấm dứt hôn nhân, mốc thời gian pháp lý cần dựa vào quy định nào của Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_65_chunk_1",
@@ -4180,7 +4180,7 @@
     ]
   },
   {
-    "question_id": "HN_126",
+    "query_id": "HN_126",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết tài sản của vợ chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_67_chunk_2",
@@ -4218,7 +4218,7 @@
     ]
   },
   {
-    "question_id": "HN_127",
+    "query_id": "HN_127",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý quan hệ nhân thân, tài sản khi vợ, chồng bị tuyên bố là đã chết mà trở về dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_67_chunk_2",
@@ -4256,7 +4256,7 @@
     ]
   },
   {
-    "question_id": "HN_128",
+    "query_id": "HN_128",
     "question": "Theo Luật Hôn nhân và gia đình 2014, bảo vệ quyền và nghĩa vụ của cha mẹ và con được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4294,7 +4294,7 @@
     ]
   },
   {
-    "question_id": "HN_129",
+    "query_id": "HN_129",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nghĩa vụ và quyền của cha mẹ được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4332,7 +4332,7 @@
     ]
   },
   {
-    "question_id": "HN_130",
+    "query_id": "HN_130",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền và nghĩa vụ của con được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4370,7 +4370,7 @@
     ]
   },
   {
-    "question_id": "HN_131",
+    "query_id": "HN_131",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nghĩa vụ và quyền chăm sóc, nuôi dưỡng được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4408,7 +4408,7 @@
     ]
   },
   {
-    "question_id": "HN_132",
+    "query_id": "HN_132",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nghĩa vụ và quyền giáo dục con được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4446,7 +4446,7 @@
     ]
   },
   {
-    "question_id": "HN_133",
+    "query_id": "HN_133",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về đại diện cho con?",
     "retrieved_chunk_ids": [
       "l01_art_85_chunk_2",
@@ -4484,7 +4484,7 @@
     ]
   },
   {
-    "question_id": "HN_134",
+    "query_id": "HN_134",
     "question": "Khi gặp vấn đề bồi thường thiệt hại do con gây ra, cần xác định căn cứ nào trong Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_74_chunk_1",
@@ -4522,7 +4522,7 @@
     ]
   },
   {
-    "question_id": "HN_135",
+    "query_id": "HN_135",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ quyền có tài sản riêng của con như thế nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_108_chunk_1",
@@ -4560,7 +4560,7 @@
     ]
   },
   {
-    "question_id": "HN_136",
+    "query_id": "HN_136",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý quản lý tài sản riêng của con dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_1_chunk_1",
@@ -4598,7 +4598,7 @@
     ]
   },
   {
-    "question_id": "HN_137",
+    "query_id": "HN_137",
     "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý định đoạt tài sản riêng của con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_77_chunk_3",
@@ -4636,7 +4636,7 @@
     ]
   },
   {
-    "question_id": "HN_138",
+    "query_id": "HN_138",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cha nuôi, mẹ nuôi và con nuôi được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4674,7 +4674,7 @@
     ]
   },
   {
-    "question_id": "HN_139",
+    "query_id": "HN_139",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cha dượng, mẹ kế và con riêng của vợ hoặc của chồng được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -4712,7 +4712,7 @@
     ]
   },
   {
-    "question_id": "HN_140",
+    "query_id": "HN_140",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_80_chunk_1",
@@ -4750,7 +4750,7 @@
     ]
   },
   {
-    "question_id": "HN_141",
+    "query_id": "HN_141",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_6_clause_3_chunk_1",
@@ -4788,7 +4788,7 @@
     ]
   },
   {
-    "question_id": "HN_142",
+    "query_id": "HN_142",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nghĩa vụ, quyền của cha, mẹ không trực tiếp nuôi con sau khi ly hôn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_82_chunk_2",
@@ -4826,7 +4826,7 @@
     ]
   },
   {
-    "question_id": "HN_143",
+    "query_id": "HN_143",
     "question": "Theo Luật Hôn nhân và gia đình 2014, nghĩa vụ, quyền của cha, mẹ trực tiếp nuôi con đối với người không trực tiếp nuôi con sau khi ly hôn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_82_chunk_2",
@@ -4864,7 +4864,7 @@
     ]
   },
   {
-    "question_id": "HN_144",
+    "query_id": "HN_144",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về thay đổi người trực tiếp nuôi con sau khi ly hôn theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_93_chunk_1",
@@ -4902,7 +4902,7 @@
     ]
   },
   {
-    "question_id": "HN_145",
+    "query_id": "HN_145",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ hạn chế quyền của cha, mẹ đối với con chưa thành niên như thế nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_87_chunk_2",
@@ -4940,7 +4940,7 @@
     ]
   },
   {
-    "question_id": "HN_146",
+    "query_id": "HN_146",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ người có quyền yêu cầu Tòa án hạn chế quyền của cha, mẹ đối với con chưa thành niên như thế nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_87_chunk_2",
@@ -4978,7 +4978,7 @@
     ]
   },
   {
-    "question_id": "HN_147",
+    "query_id": "HN_147",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến hậu quả pháp lý của việc cha, mẹ bị hạn chế quyền đối với con chưa thành niên được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_87_chunk_2",
@@ -5016,7 +5016,7 @@
     ]
   },
   {
-    "question_id": "HN_148",
+    "query_id": "HN_148",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về xác định cha, mẹ theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_3_p1_chunk_3",
@@ -5054,7 +5054,7 @@
     ]
   },
   {
-    "question_id": "HN_149",
+    "query_id": "HN_149",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về xác định con?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_6_clause_2_chunk_2",
@@ -5092,7 +5092,7 @@
     ]
   },
   {
-    "question_id": "HN_150",
+    "query_id": "HN_150",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ quyền nhận cha, mẹ như thế nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_108_chunk_1",
@@ -5130,7 +5130,7 @@
     ]
   },
   {
-    "question_id": "HN_151",
+    "query_id": "HN_151",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ quyền nhận con như thế nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_108_chunk_1",
@@ -5168,7 +5168,7 @@
     ]
   },
   {
-    "question_id": "HN_152",
+    "query_id": "HN_152",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về xác định cha, mẹ, con trong trường hợp người có yêu cầu chết theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_101_chunk_2",
@@ -5206,7 +5206,7 @@
     ]
   },
   {
-    "question_id": "HN_153",
+    "query_id": "HN_153",
     "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về xác định cha, mẹ trong trường hợp sinh con bằng kỹ thuật hỗ trợ sinh sản?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_93_chunk_1",
@@ -5244,7 +5244,7 @@
     ]
   },
   {
-    "question_id": "HN_154",
+    "query_id": "HN_154",
     "question": "Đối với xác định cha, mẹ trong trường hợp mang thai hộ vì mục đích nhân đạo, Luật Hôn nhân và gia đình 2014 quy định các điều kiện, giới hạn và trách nhiệm nào?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_16_chunk_1",
@@ -5282,7 +5282,7 @@
     ]
   },
   {
-    "question_id": "HN_155",
+    "query_id": "HN_155",
     "question": "Theo Luật Hôn nhân và gia đình 2014, cần đáp ứng những yêu cầu cụ thể nào về điều kiện mang thai hộ vì mục đích nhân đạo?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_14_p2_chunk_3",
@@ -5320,7 +5320,7 @@
     ]
   },
   {
-    "question_id": "HN_156",
+    "query_id": "HN_156",
     "question": "Đối với thỏa thuận về mang thai hộ vì mục đích nhân đạo, Luật Hôn nhân và gia đình 2014 quy định các điều kiện, giới hạn và trách nhiệm nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_14_p1_chunk_1_2",
@@ -5358,7 +5358,7 @@
     ]
   },
   {
-    "question_id": "HN_157",
+    "query_id": "HN_157",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của bên mang thai hộ vì mục đích nhân đạo được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_16_chunk_3",
@@ -5396,7 +5396,7 @@
     ]
   },
   {
-    "question_id": "HN_158",
+    "query_id": "HN_158",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của bên nhờ mang thai hộ vì mục đích nhân đạo được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_16_chunk_3",
@@ -5434,7 +5434,7 @@
     ]
   },
   {
-    "question_id": "HN_159",
+    "query_id": "HN_159",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết tranh chấp liên quan đến việc sinh con bằng kỹ thuật hỗ trợ sinh sản, mang thai hộ vì mục đích nhân đạo được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_99_chunk_1",
@@ -5472,7 +5472,7 @@
     ]
   },
   {
-    "question_id": "HN_160",
+    "query_id": "HN_160",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến xử lý hành vi vi phạm về sinh con bằng kỹ thuật hỗ trợ sinh sản và mang thai hộ được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_100_chunk_1",
@@ -5510,7 +5510,7 @@
     ]
   },
   {
-    "question_id": "HN_161",
+    "query_id": "HN_161",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền giải quyết việc xác định cha, mẹ, con và căn cứ xác định theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -5548,7 +5548,7 @@
     ]
   },
   {
-    "question_id": "HN_162",
+    "query_id": "HN_162",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ người có quyền yêu cầu xác định cha, mẹ, con như thế nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_108_chunk_1",
@@ -5586,7 +5586,7 @@
     ]
   },
   {
-    "question_id": "HN_163",
+    "query_id": "HN_163",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ giữa các thành viên khác của gia đình được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_98_chunk_4",
@@ -5624,7 +5624,7 @@
     ]
   },
   {
-    "question_id": "HN_164",
+    "query_id": "HN_164",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của ông bà nội, ông bà ngoại và cháu được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_50_chunk_1",
@@ -5662,7 +5662,7 @@
     ]
   },
   {
-    "question_id": "HN_165",
+    "query_id": "HN_165",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của anh, chị, em được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_50_chunk_1",
@@ -5700,7 +5700,7 @@
     ]
   },
   {
-    "question_id": "HN_166",
+    "query_id": "HN_166",
     "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cô, dì, chú, cậu, bác ruột và cháu ruột được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "l01_art_106_chunk_1",
@@ -5738,7 +5738,7 @@
     ]
   },
   {
-    "question_id": "HN_167",
+    "query_id": "HN_167",
     "question": "Đối với nghĩa vụ cấp dưỡng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_20_p1_chunk_1",
@@ -5776,7 +5776,7 @@
     ]
   },
   {
-    "question_id": "HN_168",
+    "query_id": "HN_168",
     "question": "Khi có tranh chấp về một người cấp dưỡng cho nhiều người, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_18_p1_chunk_2",
@@ -5814,7 +5814,7 @@
     ]
   },
   {
-    "question_id": "HN_169",
+    "query_id": "HN_169",
     "question": "Khi có tranh chấp về nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l01_art_109_chunk_1",
@@ -5852,7 +5852,7 @@
     ]
   },
   {
-    "question_id": "HN_170",
+    "query_id": "HN_170",
     "question": "Đối với nghĩa vụ cấp dưỡng của cha, mẹ đối với con, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_87_chunk_3",
@@ -5890,7 +5890,7 @@
     ]
   },
   {
-    "question_id": "HN_171",
+    "query_id": "HN_171",
     "question": "Đối với nghĩa vụ cấp dưỡng của con đối với cha, mẹ, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_87_chunk_3",
@@ -5928,7 +5928,7 @@
     ]
   },
   {
-    "question_id": "HN_172",
+    "query_id": "HN_172",
     "question": "Đối với nghĩa vụ cấp dưỡng giữa anh, chị, em, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_50_chunk_1",
@@ -5966,7 +5966,7 @@
     ]
   },
   {
-    "question_id": "HN_173",
+    "query_id": "HN_173",
     "question": "Đối với nghĩa vụ cấp dưỡng giữa ông bà nội, ông bà ngoại và cháu, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_50_chunk_1",
@@ -6004,7 +6004,7 @@
     ]
   },
   {
-    "question_id": "HN_174",
+    "query_id": "HN_174",
     "question": "Đối với nghĩa vụ cấp dưỡng giữa cô, dì, chú, cậu, bác ruột và cháu ruột, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l01_art_106_chunk_1",
@@ -6042,7 +6042,7 @@
     ]
   },
   {
-    "question_id": "HN_175",
+    "query_id": "HN_175",
     "question": "Đối với nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p1_chunk_1",
@@ -6080,7 +6080,7 @@
     ]
   },
   {
-    "question_id": "HN_176",
+    "query_id": "HN_176",
     "question": "Khi có tranh chấp về mức cấp dưỡng, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_17_chunk_1",
@@ -6118,7 +6118,7 @@
     ]
   },
   {
-    "question_id": "HN_177",
+    "query_id": "HN_177",
     "question": "Khi có tranh chấp về phương thức cấp dưỡng, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_18_clause_1_chunk_1",
@@ -6156,7 +6156,7 @@
     ]
   },
   {
-    "question_id": "HN_178",
+    "query_id": "HN_178",
     "question": "Trong trường hợp liên quan đến chấm dứt nghĩa vụ cấp dưỡng, hệ quả pháp lý và thời điểm áp dụng theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_5_chunk_1",
@@ -6194,7 +6194,7 @@
     ]
   },
   {
-    "question_id": "HN_179",
+    "query_id": "HN_179",
     "question": "Theo Luật Hôn nhân và gia đình 2014, người có quyền yêu cầu thực hiện nghĩa vụ cấp dưỡng được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_20_p1_chunk_1",
@@ -6232,7 +6232,7 @@
     ]
   },
   {
-    "question_id": "HN_180",
+    "query_id": "HN_180",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về khuyến khích việc trợ giúp của tổ chức, cá nhân theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_120_chunk_1",
@@ -6270,7 +6270,7 @@
     ]
   },
   {
-    "question_id": "HN_181",
+    "query_id": "HN_181",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ bảo vệ quyền, lợi ích hợp pháp của các bên trong quan hệ hôn nhân và gia đình có yếu tố nước ngoài như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_59_p1_chunk_1",
@@ -6308,7 +6308,7 @@
     ]
   },
   {
-    "question_id": "HN_182",
+    "query_id": "HN_182",
     "question": "Khi gặp tình huống liên quan đến pháp luật đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p4_chunk_25",
@@ -6346,7 +6346,7 @@
     ]
   },
   {
-    "question_id": "HN_183",
+    "query_id": "HN_183",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài và căn cứ xác định theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_123_chunk_2",
@@ -6384,7 +6384,7 @@
     ]
   },
   {
-    "question_id": "HN_184",
+    "query_id": "HN_184",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về hợp pháp hóa lãnh sự giấy tờ, tài liệu về hôn nhân và gia đình theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l01_art_124_chunk_1",
@@ -6422,7 +6422,7 @@
     ]
   },
   {
-    "question_id": "HN_185",
+    "query_id": "HN_185",
     "question": "Cơ quan nào có thẩm quyền đối với công nhận, ghi chú bản án, quyết định của Tòa án, cơ quan có thẩm quyền của nước ngoài về hôn nhân và gia đình và căn cứ xác định theo Luật Hôn nhân và gia đình 2014 là gì?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_125_chunk_2",
@@ -6460,7 +6460,7 @@
     ]
   },
   {
-    "question_id": "HN_186",
+    "query_id": "HN_186",
     "question": "Một trường hợp liên quan đến kết hôn có yếu tố nước ngoài sẽ được xử lý thế nào theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_3_p4_chunk_25",
@@ -6498,7 +6498,7 @@
     ]
   },
   {
-    "question_id": "HN_187",
+    "query_id": "HN_187",
     "question": "Điều khoản về ly hôn có yếu tố nước ngoài của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_63_p1_chunk_1_2",
@@ -6536,7 +6536,7 @@
     ]
   },
   {
-    "question_id": "HN_188",
+    "query_id": "HN_188",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về xác định cha, mẹ, con có yếu tố nước ngoài theo Luật Hôn nhân và gia đình 2014?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_63_clause_1_chunk_1",
@@ -6574,7 +6574,7 @@
     ]
   },
   {
-    "question_id": "HN_189",
+    "query_id": "HN_189",
     "question": "Đối với nghĩa vụ cấp dưỡng có yếu tố nước ngoài, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_63_p1_chunk_1_2",
@@ -6612,7 +6612,7 @@
     ]
   },
   {
-    "question_id": "HN_190",
+    "query_id": "HN_190",
     "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_130_chunk_1",
@@ -6650,7 +6650,7 @@
     ]
   },
   {
-    "question_id": "HN_191",
+    "query_id": "HN_191",
     "question": "Điều khoản về điều khoản chuyển tiếp của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_3_clause_3_chunk_1",
@@ -6688,7 +6688,7 @@
     ]
   },
   {
-    "question_id": "HN_192",
+    "query_id": "HN_192",
     "question": "Nghị định 126/2014/NĐ-CP đặt ra những nguyên tắc nào đối với vấn đề áp dụng tập quán?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -6726,7 +6726,7 @@
     ]
   },
   {
-    "question_id": "HN_193",
+    "query_id": "HN_193",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến giải quyết vụ, việc hôn nhân và gia đình có áp dụng tập quán được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_4_chunk_2",
@@ -6764,7 +6764,7 @@
     ]
   },
   {
-    "question_id": "HN_194",
+    "query_id": "HN_194",
     "question": "Khi gặp tình huống liên quan đến tuyên truyền, vận động nhân dân về áp dụng tập quán, phải chọn căn cứ pháp luật như thế nào theo Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_5_chunk_1",
@@ -6802,7 +6802,7 @@
     ]
   },
   {
-    "question_id": "HN_195",
+    "query_id": "HN_195",
     "question": "Đối với trách nhiệm về xây dựng danh mục tập quán được áp dụng, Nghị định 126/2014/NĐ-CP quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_6_chunk_1",
@@ -6840,7 +6840,7 @@
     ]
   },
   {
-    "question_id": "HN_196",
+    "query_id": "HN_196",
     "question": "Khi gặp tình huống liên quan đến chế độ tài sản của vợ chồng theo luật định, phải chọn căn cứ pháp luật như thế nào theo Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_28_chunk_1",
@@ -6878,7 +6878,7 @@
     ]
   },
   {
-    "question_id": "HN_197",
+    "query_id": "HN_197",
     "question": "Theo Nghị định 126/2014/NĐ-CP, các chủ thể phải thực hiện và bảo vệ người thứ ba không ngay tình khi xác lập, thực hiện giao dịch với vợ, chồng liên quan đến tài khoản ngân hàng, tài khoản chứng khoán, động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_32_chunk_1",
@@ -6916,7 +6916,7 @@
     ]
   },
   {
-    "question_id": "HN_198",
+    "query_id": "HN_198",
     "question": "Khi gặp vấn đề thu nhập hợp pháp khác của vợ, chồng trong thời kỳ hôn nhân, cần xác định căn cứ nào trong Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_17_p25_chunk_5_phan_23",
@@ -6954,7 +6954,7 @@
     ]
   },
   {
-    "question_id": "HN_199",
+    "query_id": "HN_199",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý hoa lợi, lợi tức phát sinh từ tài sản riêng của vợ, chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_14_clause_2_chunk_1",
@@ -6992,7 +6992,7 @@
     ]
   },
   {
-    "question_id": "HN_200",
+    "query_id": "HN_200",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý tài sản riêng khác của vợ, chồng theo quy định của pháp luật dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -7030,7 +7030,7 @@
     ]
   },
   {
-    "question_id": "HN_201",
+    "query_id": "HN_201",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý đăng ký tài sản chung của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_2",
@@ -7068,7 +7068,7 @@
     ]
   },
   {
-    "question_id": "HN_202",
+    "query_id": "HN_202",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản chung của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_35_clause_1_chunk_1",
@@ -7106,7 +7106,7 @@
     ]
   },
   {
-    "question_id": "HN_203",
+    "query_id": "HN_203",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến hậu quả của việc chia tài sản chung của vợ chồng trong thời kỳ hôn nhân được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_130_chunk_1",
@@ -7144,7 +7144,7 @@
     ]
   },
   {
-    "question_id": "HN_204",
+    "query_id": "HN_204",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý xác định tài sản của vợ chồng theo thỏa thuận dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -7182,7 +7182,7 @@
     ]
   },
   {
-    "question_id": "HN_205",
+    "query_id": "HN_205",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý cung cấp thông tin về chế độ tài sản của vợ chồng theo thỏa thuận trong giao dịch với người thứ ba dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_16_chunk_1",
@@ -7220,7 +7220,7 @@
     ]
   },
   {
-    "question_id": "HN_206",
+    "query_id": "HN_206",
     "question": "Theo Nghị định 126/2014/NĐ-CP, việc xác định hoặc xử lý sửa đổi, bổ sung nội dung của chế độ tài sản của vợ chồng dựa trên nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_49_chunk_1",
@@ -7258,7 +7258,7 @@
     ]
   },
   {
-    "question_id": "HN_207",
+    "query_id": "HN_207",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến hậu quả của việc sửa đổi, bổ sung nội dung của chế độ tài sản của vợ chồn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_49_chunk_1",
@@ -7296,7 +7296,7 @@
     ]
   },
   {
-    "question_id": "HN_208",
+    "query_id": "HN_208",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền đăng ký kết hôn và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7334,7 +7334,7 @@
     ]
   },
   {
-    "question_id": "HN_209",
+    "query_id": "HN_209",
     "question": "Theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ đăng ký kết hôn cần chuẩn bị giấy tờ nào và nộp đến đâu?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -7372,7 +7372,7 @@
     ]
   },
   {
-    "question_id": "HN_210",
+    "query_id": "HN_210",
     "question": "Nếu thực hiện thủ tục nộp, tiếp nhận hồ sơ, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_16_chunk_2",
@@ -7410,7 +7410,7 @@
     ]
   },
   {
-    "question_id": "HN_211",
+    "query_id": "HN_211",
     "question": "Khi xác định thời hạn giải quyết việc đăng ký kết hôn, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -7448,7 +7448,7 @@
     ]
   },
   {
-    "question_id": "HN_212",
+    "query_id": "HN_212",
     "question": "Nếu thực hiện trình tự giải quyết việc đăng ký kết hôn tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -7486,7 +7486,7 @@
     ]
   },
   {
-    "question_id": "HN_213",
+    "query_id": "HN_213",
     "question": "Một trường hợp liên quan đến lễ đăng ký kết hôn tại Việt Nam sẽ được xử lý thế nào theo Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_2",
@@ -7524,7 +7524,7 @@
     ]
   },
   {
-    "question_id": "HN_214",
+    "query_id": "HN_214",
     "question": "Nếu thực hiện trình tự đăng ký kết hôn tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_25_clause_1_chunk_1",
@@ -7562,7 +7562,7 @@
     ]
   },
   {
-    "question_id": "HN_215",
+    "query_id": "HN_215",
     "question": "Theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối đăng ký kết hôn và người yêu cầu được thông báo thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -7600,7 +7600,7 @@
     ]
   },
   {
-    "question_id": "HN_216",
+    "query_id": "HN_216",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền cấp giấy xác nhận tình trạng hôn nhân và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7638,7 +7638,7 @@
     ]
   },
   {
-    "question_id": "HN_217",
+    "query_id": "HN_217",
     "question": "Nếu thực hiện thủ tục cấp giấy xác nhận tình trạng hôn nhân, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_10_p2_chunk_2",
@@ -7676,7 +7676,7 @@
     ]
   },
   {
-    "question_id": "HN_218",
+    "query_id": "HN_218",
     "question": "Cơ quan nào có thẩm quyền đối với từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7714,7 +7714,7 @@
     ]
   },
   {
-    "question_id": "HN_219",
+    "query_id": "HN_219",
     "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện nhận cha, mẹ, con?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_2",
@@ -7752,7 +7752,7 @@
     ]
   },
   {
-    "question_id": "HN_220",
+    "query_id": "HN_220",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền đăng ký việc nhận cha, mẹ, con và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7790,7 +7790,7 @@
     ]
   },
   {
-    "question_id": "HN_221",
+    "query_id": "HN_221",
     "question": "Theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ nhận cha, mẹ, con cần chuẩn bị giấy tờ nào và nộp đến đâu?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_2",
@@ -7828,7 +7828,7 @@
     ]
   },
   {
-    "question_id": "HN_222",
+    "query_id": "HN_222",
     "question": "Khi xác định thời hạn giải quyết việc nhận cha, mẹ, con, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7866,7 +7866,7 @@
     ]
   },
   {
-    "question_id": "HN_223",
+    "query_id": "HN_223",
     "question": "Nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_2",
@@ -7904,7 +7904,7 @@
     ]
   },
   {
-    "question_id": "HN_224",
+    "query_id": "HN_224",
     "question": "Nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_17_p14_chunk_5_phan_12",
@@ -7942,7 +7942,7 @@
     ]
   },
   {
-    "question_id": "HN_225",
+    "query_id": "HN_225",
     "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện, hình thức công nhận việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -7980,7 +7980,7 @@
     ]
   },
   {
-    "question_id": "HN_226",
+    "query_id": "HN_226",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ đăng ký kết hôn việc kết hôn, ghi vào sổ hộ tịch việc nhận cha, mẹ, con của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8018,7 +8018,7 @@
     ]
   },
   {
-    "question_id": "HN_227",
+    "query_id": "HN_227",
     "question": "Nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_11_p1_chunk_1",
@@ -8056,7 +8056,7 @@
     ]
   },
   {
-    "question_id": "HN_228",
+    "query_id": "HN_228",
     "question": "Theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối ghi vào sổ việc kết hôn và người yêu cầu được thông báo thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_5_p1_chunk_2",
@@ -8094,7 +8094,7 @@
     ]
   },
   {
-    "question_id": "HN_229",
+    "query_id": "HN_229",
     "question": "Nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_21_chunk_3",
@@ -8132,7 +8132,7 @@
     ]
   },
   {
-    "question_id": "HN_230",
+    "query_id": "HN_230",
     "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8170,7 +8170,7 @@
     ]
   },
   {
-    "question_id": "HN_231",
+    "query_id": "HN_231",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8208,7 +8208,7 @@
     ]
   },
   {
-    "question_id": "HN_232",
+    "query_id": "HN_232",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8246,7 +8246,7 @@
     ]
   },
   {
-    "question_id": "HN_233",
+    "query_id": "HN_233",
     "question": "Theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài cần chuẩn bị giấy tờ nào và nộp đến đâu?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8284,7 +8284,7 @@
     ]
   },
   {
-    "question_id": "HN_234",
+    "query_id": "HN_234",
     "question": "Nếu thực hiện trình tự, thủ tục ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8322,7 +8322,7 @@
     ]
   },
   {
-    "question_id": "HN_235",
+    "query_id": "HN_235",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến cách ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8360,7 +8360,7 @@
     ]
   },
   {
-    "question_id": "HN_236",
+    "query_id": "HN_236",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến ghi vào sổ hộ tịch việc hủy kết hôn trái pháp luật đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_1_1",
@@ -8398,7 +8398,7 @@
     ]
   },
   {
-    "question_id": "HN_237",
+    "query_id": "HN_237",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_clause_1_chunk_1",
@@ -8436,7 +8436,7 @@
     ]
   },
   {
-    "question_id": "HN_238",
+    "query_id": "HN_238",
     "question": "Nếu thực hiện trình tự, thủ tục đăng ký kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_11_p1_chunk_1",
@@ -8474,7 +8474,7 @@
     ]
   },
   {
-    "question_id": "HN_239",
+    "query_id": "HN_239",
     "question": "Nếu thực hiện trình tự, thủ tục đăng ký nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_1_p1_chunk_2",
@@ -8512,7 +8512,7 @@
     ]
   },
   {
-    "question_id": "HN_240",
+    "query_id": "HN_240",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài theo Nghị định 126/2014/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_1",
@@ -8550,7 +8550,7 @@
     ]
   },
   {
-    "question_id": "HN_241",
+    "query_id": "HN_241",
     "question": "Nghị định 126/2014/NĐ-CP đặt ra những nguyên tắc nào đối với vấn đề hoạt động tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_1",
@@ -8588,7 +8588,7 @@
     ]
   },
   {
-    "question_id": "HN_242",
+    "query_id": "HN_242",
     "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện thành lập Trung tâm?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_clause_3_chunk_2",
@@ -8626,7 +8626,7 @@
     ]
   },
   {
-    "question_id": "HN_243",
+    "query_id": "HN_243",
     "question": "Nếu thực hiện thủ tục đăng ký hoạt động của Trung tâm, cấp lại giấy đăng ký hoạt động của Trung tâm, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_54_clause_2_chunk_1",
@@ -8664,7 +8664,7 @@
     ]
   },
   {
-    "question_id": "HN_244",
+    "query_id": "HN_244",
     "question": "Theo Nghị định 126/2014/NĐ-CP, quyền hạn, nghĩa vụ của Trung tâm được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_clause_3_chunk_2",
@@ -8702,7 +8702,7 @@
     ]
   },
   {
-    "question_id": "HN_245",
+    "query_id": "HN_245",
     "question": "Nghị định 126/2014/NĐ-CP quy định những nội dung pháp lý cụ thể nào về thay đổi nội dung giấy đăng ký hoạt động của Trung tâm?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_56_chunk_2",
@@ -8740,7 +8740,7 @@
     ]
   },
   {
-    "question_id": "HN_246",
+    "query_id": "HN_246",
     "question": "Trong trường hợp liên quan đến chấm dứt hoạt động của Trung tâm, hệ quả pháp lý và thời điểm áp dụng theo Nghị định 126/2014/NĐ-CP là gì?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_clause_3_chunk_2",
@@ -8778,7 +8778,7 @@
     ]
   },
   {
-    "question_id": "HN_247",
+    "query_id": "HN_247",
     "question": "Phạm vi điều chỉnh của Nghị định 207/2025/NĐ-CP bao gồm những nhóm quan hệ và vấn đề nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_17_p5_chunk_3_phan_2",
@@ -8816,7 +8816,7 @@
     ]
   },
   {
-    "question_id": "HN_248",
+    "query_id": "HN_248",
     "question": "Các thuật ngữ chuyên ngành được giải thích thế nào trong Nghị định 207/2025/NĐ-CP, và những khái niệm nào cần phân biệt?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_8_chunk_2",
@@ -8854,7 +8854,7 @@
     ]
   },
   {
-    "question_id": "HN_249",
+    "query_id": "HN_249",
     "question": "Nghị định 207/2025/NĐ-CP đặt ra những nguyên tắc nào đối với vấn đề áp dụng kỹ thuật hỗ trợ sinh sản và mang thai hộ vì mục đích nhân đạo?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_17_p5_chunk_3_phan_2",
@@ -8892,7 +8892,7 @@
     ]
   },
   {
-    "question_id": "HN_250",
+    "query_id": "HN_250",
     "question": "Khi gặp vấn đề quy định về việc hiến tinh trùng, hiến noãn, hiến phôi, cần xác định căn cứ nào trong Nghị định 207/2025/NĐ-CP?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_21_p1_chunk_1",
@@ -8930,7 +8930,7 @@
     ]
   },
   {
-    "question_id": "HN_251",
+    "query_id": "HN_251",
     "question": "Theo Nghị định 207/2025/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện của người nhận tinh trùng, nhận noãn, nhận phôi để sinh con bằng kỹ thuật hỗ trợ sinh sản?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_1_chunk_1",
@@ -8968,7 +8968,7 @@
     ]
   },
   {
-    "question_id": "HN_252",
+    "query_id": "HN_252",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về quy định về việc sử dụng tinh trùng của người hiến trong thực hiện kỹ thuật thụ tinh nhân tạo theo Nghị định 207/2025/NĐ-CP?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_6_chunk_1",
@@ -9006,7 +9006,7 @@
     ]
   },
   {
-    "question_id": "HN_253",
+    "query_id": "HN_253",
     "question": "Theo Nghị định 207/2025/NĐ-CP, trường hợp liên quan đến quy định về việc xử lý tinh trùng, noãn, phôi dư được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_4_chunk_3",
@@ -9044,7 +9044,7 @@
     ]
   },
   {
-    "question_id": "HN_254",
+    "query_id": "HN_254",
     "question": "Khi gặp vấn đề lưu giữ tinh trùng, lưu giữ noãn, lưu giữ phôi, cần xác định căn cứ nào trong Nghị định 207/2025/NĐ-CP?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_8_chunk_2",
@@ -9082,7 +9082,7 @@
     ]
   },
   {
-    "question_id": "HN_255",
+    "query_id": "HN_255",
     "question": "Điều khoản về gửi tinh trùng, gửi noãn, gửi phôi của Nghị định 207/2025/NĐ-CP có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_8_chunk_3",
@@ -9120,7 +9120,7 @@
     ]
   },
   {
-    "question_id": "HN_256",
+    "query_id": "HN_256",
     "question": "Theo Nghị định 207/2025/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện của cơ sở được phép thực hiện kỹ thuật thụ tinh trong ống nghiệm?",
     "retrieved_chunk_ids": [
       "nd_10_2015_nd_cp_art_8_chunk_2",
@@ -9158,7 +9158,7 @@
     ]
   },
   {
-    "question_id": "HN_257",
+    "query_id": "HN_257",
     "question": "Nếu thực hiện hồ sơ, thủ tục, thẩm quyền cho phép thực hiện thụ tinh trong ống nghiệm, hồ sơ và các bước xử lý theo Nghị định 207/2025/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_11_chunk_1",
@@ -9196,7 +9196,7 @@
     ]
   },
   {
-    "question_id": "HN_258",
+    "query_id": "HN_258",
     "question": "Theo Nghị định 207/2025/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện của cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_13_chunk_1",
@@ -9234,7 +9234,7 @@
     ]
   },
   {
-    "question_id": "HN_259",
+    "query_id": "HN_259",
     "question": "Nếu thực hiện hồ sơ, thủ tục, thẩm quyền cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo, hồ sơ và các bước xử lý theo Nghị định 207/2025/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_13_chunk_1",
@@ -9272,7 +9272,7 @@
     ]
   },
   {
-    "question_id": "HN_260",
+    "query_id": "HN_260",
     "question": "Nếu thực hiện hồ sơ, thủ tục đề nghị mang thai hộ vì mục đích nhân đạo, hồ sơ và các bước xử lý theo Nghị định 207/2025/NĐ-CP được xác định như thế nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_13_chunk_1",
@@ -9310,7 +9310,7 @@
     ]
   },
   {
-    "question_id": "HN_261",
+    "query_id": "HN_261",
     "question": "Các quy định về hiệu lực thi hành trong Nghị định 207/2025/NĐ-CP xác định mốc áp dụng ra sao?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_65_clause_2_chunk_2",
@@ -9348,7 +9348,7 @@
     ]
   },
   {
-    "question_id": "HN_262",
+    "query_id": "HN_262",
     "question": "Khi gặp vấn đề quy định chuyển tiếp, cần xác định căn cứ nào trong Nghị định 207/2025/NĐ-CP?",
     "retrieved_chunk_ids": [
       "tt_02a_2015_tt_btp_art_15_p2_chunk_3_1",
@@ -9386,7 +9386,7 @@
     ]
   },
   {
-    "question_id": "HN_263",
+    "query_id": "HN_263",
     "question": "Đối với trách nhiệm thi hành, Nghị định 207/2025/NĐ-CP quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_17_p2_chunk_2_phan_1",
@@ -9424,7 +9424,7 @@
     ]
   },
   {
-    "question_id": "HN_264",
+    "query_id": "HN_264",
     "question": "Phạm vi điều chỉnh của Nghị quyết 01/2024/NQ-HĐTP bao gồm những nhóm quan hệ và vấn đề nào?",
     "retrieved_chunk_ids": [
       "nd_207_2025_nd_cp_art_13_chunk_1",
@@ -9462,7 +9462,7 @@
     ]
   },
   {
-    "question_id": "HN_265",
+    "query_id": "HN_265",
     "question": "Theo Nghị quyết 01/2024/NQ-HĐTP, trường hợp liên quan đến quyền yêu cầu giải quyết ly hôn quy định tại khoản 3 Điều 51 của Luật Hôn nhân và gia đình được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "l01_art_56_chunk_3",
@@ -9500,7 +9500,7 @@
     ]
   },
   {
-    "question_id": "HN_266",
+    "query_id": "HN_266",
     "question": "Khi gặp vấn đề thuận tình ly hôn quy định tại Điều 55 của Luật Hôn nhân và gia đình, cần xác định căn cứ nào trong Nghị quyết 01/2024/NQ-HĐTP?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_3_chunk_1_1",
@@ -9538,7 +9538,7 @@
     ]
   },
   {
-    "question_id": "HN_267",
+    "query_id": "HN_267",
     "question": "Điều khoản về ly hôn theo yêu cầu của một bên quy định tại khoản 1 Điều 56 của Luật Hôn nhân và gia đình của Nghị quyết 01/2024/NQ-HĐTP có ý nghĩa gì đối với việc xử lý vụ việc?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_2_p2_chunk_1_phan_2_1",
@@ -9576,7 +9576,7 @@
     ]
   },
   {
-    "question_id": "HN_268",
+    "query_id": "HN_268",
     "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về hạn chế phân chia di sản của vợ, chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết quy định tại khoản 3 Điều 66 của Luật Hôn nhân và gia đình theo Nghị quyết 01/2024/NQ-HĐTP?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_2_p3_chunk_1_phan_3_1",
@@ -9614,7 +9614,7 @@
     ]
   },
   {
-    "question_id": "HN_269",
+    "query_id": "HN_269",
     "question": "Theo Nghị quyết 01/2024/NQ-HĐTP, trường hợp liên quan đến giải quyết việc nuôi con khi ly hôn quy định tại Điều 81 của Luật Hôn nhân và gia đình được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p1_chunk_1",
@@ -9652,7 +9652,7 @@
     ]
   },
   {
-    "question_id": "HN_270",
+    "query_id": "HN_270",
     "question": "Đối với nghĩa vụ cấp dưỡng cho con quy định tại khoản 2 Điều 82 của Luật Hôn nhân và gia đình, Nghị quyết 01/2024/NQ-HĐTP quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_16_chunk_3",
@@ -9690,7 +9690,7 @@
     ]
   },
   {
-    "question_id": "HN_271",
+    "query_id": "HN_271",
     "question": "Theo Nghị quyết 01/2024/NQ-HĐTP, các chủ thể phải thực hiện và bảo vệ hạn chế quyền của cha, mẹ đối với con chưa thành niên quy định tại Điều 85 của Luật Hôn nhân và gia đình như thế nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_86_chunk_3",
@@ -9728,7 +9728,7 @@
     ]
   },
   {
-    "question_id": "HN_272",
+    "query_id": "HN_272",
     "question": "Cơ quan nào có thẩm quyền đối với xác định thẩm quyền giải quyết vụ án về hôn nhân và gia đình trong một số trường hợp và căn cứ xác định theo Nghị quyết 01/2024/NQ-HĐTP là gì?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_66_chunk_1",
@@ -9766,7 +9766,7 @@
     ]
   },
   {
-    "question_id": "HN_273",
+    "query_id": "HN_273",
     "question": "Theo Nghị quyết 01/2024/NQ-HĐTP, trường hợp liên quan đến giải quyết vụ án ly hôn có bị đơn là người Việt Nam ở nước ngoài nhưng không rõ địa chỉ được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_10_chunk_1",
@@ -9804,7 +9804,7 @@
     ]
   },
   {
-    "question_id": "HN_274",
+    "query_id": "HN_274",
     "question": "Theo Nghị quyết 01/2024/NQ-HĐTP, trường hợp liên quan đến án phí trong giải quyết vụ án hôn nhân và gia đình được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p1_chunk_1",
@@ -9842,7 +9842,7 @@
     ]
   },
   {
-    "question_id": "HN_275",
+    "query_id": "HN_275",
     "question": "Các quy định về hiệu lực thi hành trong Nghị quyết 01/2024/NQ-HĐTP xác định mốc áp dụng ra sao?",
     "retrieved_chunk_ids": [
       "nq_01_2024_nq_hdtp_art_12_chunk_1",
@@ -9880,7 +9880,7 @@
     ]
   },
   {
-    "question_id": "HN_276",
+    "query_id": "HN_276",
     "question": "Người muốn kết hôn có yếu tố nước ngoài cần đối chiếu điều kiện kết hôn với hồ sơ đăng ký như thế nào?",
     "retrieved_chunk_ids": [
       "nd_126_2014_nd_cp_art_25_p1_chunk_1_1",
@@ -9918,7 +9918,7 @@
     ]
   },
   {
-    "question_id": "HN_277",
+    "query_id": "HN_277",
     "question": "Nếu hồ sơ đăng ký kết hôn bị từ chối, cần phân biệt điều kiện kết hôn và căn cứ từ chối theo hai văn bản nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_13_chunk_2",
@@ -9956,7 +9956,7 @@
     ]
   },
   {
-    "question_id": "HN_278",
+    "query_id": "HN_278",
     "question": "Khi kết hôn trái pháp luật, ai có quyền yêu cầu hủy và cách xử lý yêu cầu được quy định ra sao?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p5_chunk_4",
@@ -9994,7 +9994,7 @@
     ]
   },
   {
-    "question_id": "HN_279",
+    "query_id": "HN_279",
     "question": "Sau khi kết hôn trái pháp luật bị hủy, quyền lợi liên quan đến con và tài sản được xem xét theo những căn cứ nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_p1_chunk_1",
@@ -10032,7 +10032,7 @@
     ]
   },
   {
-    "question_id": "HN_280",
+    "query_id": "HN_280",
     "question": "Hai người chung sống như vợ chồng không đăng ký kết hôn rồi phát sinh tranh chấp tài sản thì áp dụng những nguyên tắc nào?",
     "retrieved_chunk_ids": [
       "l01_art_130_chunk_1",
@@ -10070,7 +10070,7 @@
     ]
   },
   {
-    "question_id": "HN_281",
+    "query_id": "HN_281",
     "question": "Nếu hai vợ chồng chọn nơi ở riêng, cần đối chiếu quyền chọn nơi cư trú với nghĩa vụ về tình nghĩa vợ chồng thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_20_chunk_1",
@@ -10108,7 +10108,7 @@
     ]
   },
   {
-    "question_id": "HN_282",
+    "query_id": "HN_282",
     "question": "Khi một người đại diện vợ hoặc chồng thực hiện giao dịch kinh doanh, căn cứ đại diện và trách nhiệm phát sinh được xem xét thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_27_chunk_1",
@@ -10146,7 +10146,7 @@
     ]
   },
   {
-    "question_id": "HN_283",
+    "query_id": "HN_283",
     "question": "Vợ chồng giao dịch nhà ở duy nhất đồng thời liên quan đến tài sản chung thì cần đánh giá quy định nào?",
     "retrieved_chunk_ids": [
       "l01_art_31_chunk_1",
@@ -10184,7 +10184,7 @@
     ]
   },
   {
-    "question_id": "HN_284",
+    "query_id": "HN_284",
     "question": "Khi phát sinh tranh chấp tài khoản ngân hàng đứng tên một bên, quy định về người thứ ba ngay tình và trách nhiệm liên đới được áp dụng thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_32_chunk_1",
@@ -10222,7 +10222,7 @@
     ]
   },
   {
-    "question_id": "HN_285",
+    "query_id": "HN_285",
     "question": "Đối với tài sản đưa vào kinh doanh, cần phân biệt nguyên tắc sử dụng tài sản chung và nghĩa vụ chung ra sao?",
     "retrieved_chunk_ids": [
       "l01_art_36_chunk_1",
@@ -10260,7 +10260,7 @@
     ]
   },
   {
-    "question_id": "HN_286",
+    "query_id": "HN_286",
     "question": "Khi chia tài sản chung trong thời kỳ hôn nhân, thời điểm có hiệu lực và hậu quả pháp lý được xác định ra sao?",
     "retrieved_chunk_ids": [
       "l01_art_39_chunk_1",
@@ -10298,7 +10298,7 @@
     ]
   },
   {
-    "question_id": "HN_287",
+    "query_id": "HN_287",
     "question": "Một thỏa thuận chia tài sản chung có thể chấm dứt hiệu lực hoặc bị vô hiệu trong trường hợp nào?",
     "retrieved_chunk_ids": [
       "l01_art_41_chunk_4",
@@ -10336,7 +10336,7 @@
     ]
   },
   {
-    "question_id": "HN_288",
+    "query_id": "HN_288",
     "question": "Vợ chồng muốn nhập tài sản riêng vào tài sản chung thì cần xét quyền định đoạt và cách nhập tài sản ra sao?",
     "retrieved_chunk_ids": [
       "l01_art_44_chunk_1",
@@ -10374,7 +10374,7 @@
     ]
   },
   {
-    "question_id": "HN_289",
+    "query_id": "HN_289",
     "question": "Khi vợ chồng lập thỏa thuận về chế độ tài sản, nội dung bắt buộc và căn cứ khiến thỏa thuận vô hiệu là gì?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_5_p2_chunk_3_phan_1_1",
@@ -10412,7 +10412,7 @@
     ]
   },
   {
-    "question_id": "HN_290",
+    "query_id": "HN_290",
     "question": "Một bên yêu cầu ly hôn cần phân biệt quyền nộp yêu cầu và điều kiện để Tòa án giải quyết ra sao?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_4_clause_2_chunk_4",
@@ -10450,7 +10450,7 @@
     ]
   },
   {
-    "question_id": "HN_291",
+    "query_id": "HN_291",
     "question": "Thuận tình ly hôn và ly hôn theo yêu cầu một bên khác nhau về căn cứ xét xử như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_55_chunk_1",
@@ -10488,7 +10488,7 @@
     ]
   },
   {
-    "question_id": "HN_292",
+    "query_id": "HN_292",
     "question": "Khi ly hôn, nghĩa vụ đối với người thứ ba và việc chia tài sản chung được đánh giá kết hợp thế nào?",
     "retrieved_chunk_ids": [
       "ttlt_01_2016_ttlt_tandtc_art_7_p2_chunk_3",
@@ -10526,7 +10526,7 @@
     ]
   },
   {
-    "question_id": "HN_293",
+    "query_id": "HN_293",
     "question": "Nếu vợ chồng ly hôn và tài sản là quyền sử dụng đất, cần kết hợp nguyên tắc chia tài sản với quy định riêng nào?",
     "retrieved_chunk_ids": [
       "l01_art_62_chunk_1",
@@ -10564,7 +10564,7 @@
     ]
   },
   {
-    "question_id": "HN_294",
+    "query_id": "HN_294",
     "question": "Khi ly hôn, Tòa án xem xét người trực tiếp nuôi con và nghĩa vụ của người không trực tiếp nuôi như thế nào?",
     "retrieved_chunk_ids": [
       "l_22_2000_qh10_art_92_clause_2_chunk_1",
@@ -10602,7 +10602,7 @@
     ]
   },
   {
-    "question_id": "HN_295",
+    "query_id": "HN_295",
     "question": "Cha mẹ muốn thay đổi người trực tiếp nuôi con sau ly hôn, cần kết hợp quy định nuôi con và căn cứ thay đổi nào?",
     "retrieved_chunk_ids": [
       "l01_art_84_chunk_2",
@@ -10640,7 +10640,7 @@
     ]
   },
   {
-    "question_id": "HN_296",
+    "query_id": "HN_296",
     "question": "Nếu cha mẹ bị hạn chế quyền đối với con chưa thành niên, hậu quả pháp lý và người được quyền yêu cầu là gì?",
     "retrieved_chunk_ids": [
       "l01_art_87_chunk_2",
@@ -10678,7 +10678,7 @@
     ]
   },
   {
-    "question_id": "HN_297",
+    "query_id": "HN_297",
     "question": "Khi sinh con bằng kỹ thuật hỗ trợ sinh sản, việc xác định cha mẹ có khác trường hợp mang thai hộ như thế nào?",
     "retrieved_chunk_ids": [
       "l01_art_97_chunk_4",
@@ -10716,7 +10716,7 @@
     ]
   },
   {
-    "question_id": "HN_298",
+    "query_id": "HN_298",
     "question": "Nếu xảy ra tranh chấp mang thai hộ, cần xem xét điều kiện mang thai hộ và cơ chế giải quyết tranh chấp nào?",
     "retrieved_chunk_ids": [
       "l_52_2014_qh13_art_99_chunk_1",
@@ -10754,7 +10754,7 @@
     ]
   },
   {
-    "question_id": "HN_299",
+    "query_id": "HN_299",
     "question": "Nghĩa vụ cấp dưỡng cho con khi cha mẹ ly hôn được xác định về chủ thể và mức cấp dưỡng như thế nào?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_20_p2_chunk_3",
@@ -10792,7 +10792,7 @@
     ]
   },
   {
-    "question_id": "HN_300",
+    "query_id": "HN_300",
     "question": "Việc cấp dưỡng cho con được xác định theo mức cấp dưỡng và phương thức thực hiện ra sao?",
     "retrieved_chunk_ids": [
       "nd_70_2001_nd_cp_art_20_p2_chunk_3",

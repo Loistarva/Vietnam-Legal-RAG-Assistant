@@ -30,17 +30,16 @@ def write_csv(rows: list[dict], path: Path) -> None:
 def normalize_results(data: list[dict]) -> list[dict]:
     flat = []
     for item in data:
-        if isinstance(item, dict) and "results" in item and isinstance(item["results"], list):
-            q_text = item.get("query") or item.get("query_id") or ""
-            for res in item["results"]:
-                flat.append({
-                    "query": q_text,
-                    "chunk_id": res.get("chunk_id"),
-                    "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
-                    "rank": res.get("rank"),
-                })
-        else:
-            flat.append(item)
+        if not (isinstance(item, dict) and "results" in item and isinstance(item["results"], list)):
+            raise ValueError("Kết quả truy xuất phải tuân thủ RetrievalEnvelope schema (chứa 'results')")
+        q_text = item.get("query") or item.get("query_id") or ""
+        for res in item["results"]:
+            flat.append({
+                "query": q_text,
+                "chunk_id": res.get("chunk_id"),
+                "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
+                "rank": res.get("rank"),
+            })
     return flat
 
 

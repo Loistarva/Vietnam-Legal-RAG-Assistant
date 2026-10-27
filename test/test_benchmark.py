@@ -1,5 +1,5 @@
 """Automated structural and temporal QA. Does not assert that legal answers are verified."""
-import sys,unittest,copy,hashlib,json
+import sys,unittest,copy,hashlib,json,collections,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -28,6 +28,81 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(production.exists())
         seen |= {c['chunk_id'] for c in json.loads(production.read_text(encoding='utf-8'))}
         self.assertTrue(all(set(g['gold_context_ids']+g['candidate_context_ids'])<=seen for g in self.gold))
+
+    def test_article_index_matches_parsed_json_articles(self):
+        parsed_dir = ROOT / 'parser' / 'parsed_jsons'
+        parsed_files = list(parsed_dir.glob('*.json'))
+        self.assertEqual(len(parsed_files), 21)
+
+        parsed_articles = set()
+        for f in parsed_files:
+            doc = json.loads(f.read_text(encoding='utf-8'))
+            doc_number = doc['metadata']['document_number']
+            for a in doc.get('articles', []):
+                parsed_articles.add((doc_number, str(a['article_number'])))
+
+        self.assertEqual(len(parsed_articles), 776)
+        self.assertEqual(len(self.articles), 776)
+
+        doc_registry = {d['document_number']: d for d in self.docs}
+        index_articles = set()
+        for r in self.articles:
+            doc_no = r['document_number']
+            art_no = str(r['article_number'])
+            index_articles.add((doc_no, art_no))
+            self.assertIn(doc_no, doc_registry)
+            expected_prefix = doc_registry[doc_no]['file_code'] + '_D'
+            self.assertTrue(r['article_id'].startswith(expected_prefix), f"ID format mismatch for {r['article_id']}")
+
+        self.assertEqual(parsed_articles, index_articles)
+        self.assertEqual(len({r['article_id'] for r in self.articles}), 776)
+
+    def test_gold_clause_ids_map_to_chunks_in_corpus(self):
+        chunks_path = ROOT / 'data' / 'chunking_output' / 'chunks.jsonl'
+        self.assertTrue(chunks_path.exists())
+        chunks = [
+            json.loads(line)
+            for line in chunks_path.read_text(encoding='utf-8-sig').splitlines()
+            if line.strip()
+        ]
+        chunk_to_clause = {c['chunk_id']: c.get('parent_clause_id') for c in chunks}
+        clause_to_chunks = collections.defaultdict(list)
+        for c in chunks:
+            if c.get('parent_clause_id'):
+                clause_to_chunks[c['parent_clause_id']].append(c['chunk_id'])
+
+        # 1. Verify all items with non-empty gold_clause_ids
+        for g in self.gold:
+            clause_ids = g.get('gold_clause_ids', [])
+            if clause_ids:
+                for clid in clause_ids:
+                    self.assertIn(clid, clause_to_chunks, f"{g['id']}: clause {clid} not in corpus chunks")
+                for cid in g.get('gold_context_ids', []):
+                    parent_clause = chunk_to_clause.get(cid)
+                    self.assertIn(parent_clause, clause_ids, f"{g['id']}: chunk {cid} parent {parent_clause} not in gold_clause_ids")
+
+        # 2. Test bidirectional mapping function sync_gold_context_ids_from_clauses
+        from scripts.prepare_production_benchmark import sync_gold_context_ids_from_clauses
+        sample_chunk = chunks[0]
+        sample_cid = sample_chunk['chunk_id']
+        sample_clause = sample_chunk['parent_clause_id']
+
+        mock_gt = [{'id': 'HN_001', 'gold_context_ids': [sample_cid], 'gold_clause_ids': []}]
+        with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False, suffix='.json') as tmp:
+            json.dump(mock_gt, tmp)
+            tmp_path = Path(tmp.name)
+        try:
+            res = sync_gold_context_ids_from_clauses(chunks_path=chunks_path, ground_truth_path=tmp_path, save=False)
+            self.assertEqual(res[0]['gold_clause_ids'], [sample_clause])
+
+            mock_gt_rev = [{'id': 'HN_001', 'gold_context_ids': [], 'gold_clause_ids': [sample_clause]}]
+            tmp_path.write_text(json.dumps(mock_gt_rev), encoding='utf-8')
+            res2 = sync_gold_context_ids_from_clauses(chunks_path=chunks_path, ground_truth_path=tmp_path, save=False)
+            self.assertIn(sample_cid, res2[0]['gold_context_ids'])
+        finally:
+            if tmp_path.exists():
+                tmp_path.unlink()
+
     def test_unmapped_explicit_not_faked(self):
         pending=[g for g in self.gold if g['mapping_status']=='not_mapped']
         self.assertEqual(len(pending),24)
@@ -83,6 +158,7 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_duplicate_query_id_is_detected(self):
         q=copy.deepcopy(self.test);q[0]['id']=self.dev[0]['id']
         self.assertTrue(any('Trùng question ID' in e for e in self.validate(test=q)))
+
     def test_missing_question_text_fails_schema(self):
         q=copy.deepcopy(self.dev);del q[0]['question']
         self.assertTrue(any('required property' in e for e in self.validate(dev=q)))
@@ -109,7 +185,7 @@ class BenchmarkContractTests(unittest.TestCase):
         c=copy.deepcopy(self.chunks);c.append({'chunk_id':'DIFF_DOC','document_number':'22/2000/QH10','article_id':'XXX', 'chunk_text':'text'})
         self.assertTrue(any('sai văn bản' in e for e in self.validate(gt=g,chunks=c)))
     def test_wrong_article_chunk_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['l01_art_9_chunk_1']
+        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['l_52_2014_qh13_art_9_clause_1_chunk_1']
         self.assertTrue(any('không thuộc gold_article_ids' in e for e in self.validate(gt=g)))
     def test_wrong_mapping_status_rejected(self):
         g=copy.deepcopy(self.gold);g[0]['mapping_status']='not_mapped'

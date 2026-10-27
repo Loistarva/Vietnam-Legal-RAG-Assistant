@@ -7,6 +7,7 @@ Modes:
     promote: applies ONLY manually approved+signed reviews to actual ground_truth.json,
              using atomic replacement and backup; leaves unreviewed items as candidates.
     final-check: fails until *all* benchmark evidence and answers are reviewed properly.
+    sync-clauses: bidirectionally maps gold_clause_ids and gold_context_ids via chunks.jsonl.
 
 Run from repository root, Python 3.10+; no third-party dependencies.
 """
@@ -43,6 +44,59 @@ def read_csv(path):
 def dump_json(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+
+def sync_gold_context_ids_from_clauses(chunks_path: Path | None = None,
+                                      ground_truth_path: Path | None = None,
+                                      save: bool = False) -> list[dict]:
+    """Bidirectionally map between gold_clause_ids (Khoản) and gold_context_ids (chunks).
+
+    Uses chunks.jsonl parent_clause_id (and clause_id) mapping.
+    If gold_context_ids is present, updates gold_clause_ids with parent_clause_ids.
+    If gold_clause_ids is present but gold_context_ids is empty, infers gold_context_ids from clauses.
+    """
+    if chunks_path is None:
+        chunks_path = ROOT / 'data' / 'chunking_output' / 'chunks.jsonl'
+    if ground_truth_path is None:
+        ground_truth_path = DATA / 'ground_truth.json'
+
+    chunk_rows = [
+        json.loads(line)
+        for line in Path(chunks_path).read_text(encoding='utf-8-sig').splitlines()
+        if line.strip()
+    ]
+    clause_to_chunks = collections.defaultdict(list)
+    chunk_to_clause = {}
+    for c in chunk_rows:
+        cid = c.get('chunk_id') or c.get('id')
+        parent_clause = c.get('parent_clause_id') or c.get('clause_id')
+        if cid and parent_clause:
+            clause_to_chunks[parent_clause].append(cid)
+            chunk_to_clause[cid] = parent_clause
+
+    gt = json.loads(Path(ground_truth_path).read_text(encoding='utf-8-sig'))
+    for item in gt:
+        gold_cids = item.get('gold_context_ids') or []
+        gold_clauses = item.get('gold_clause_ids') or []
+
+        if gold_cids:
+            derived_clauses = list(dict.fromkeys(
+                chunk_to_clause[cid] for cid in gold_cids if cid in chunk_to_clause
+            ))
+            item['gold_clause_ids'] = derived_clauses
+        elif gold_clauses:
+            derived_chunks = list(dict.fromkeys(
+                cid for cl in gold_clauses for cid in clause_to_chunks.get(cl, [])
+            ))
+            if derived_chunks:
+                item['gold_context_ids'] = derived_chunks
+
+    if save:
+        Path(ground_truth_path).write_text(
+            json.dumps(gt, ensure_ascii=False, indent=2) + '\n',
+            encoding='utf-8'
+        )
+    return gt
 
 
 def validate_inputs():
@@ -84,13 +138,13 @@ def validate_inputs():
         qid,number=r.get('question_id'),r.get('document_number')
         if qid not in qmap:issues.append(f'Unknown question in document versions: {qid}');continue
         if number not in docmap:issues.append(f'{qid}: version document number not in registry: {number}');continue
-        versionq[qid].append({
-            'document_number': number,
-            'effective_date': r.get('effective_date',''),
-            'expiry_date': r.get('expiry_date',''),
-            'registry_status': r.get('registry_status',''),
-            'source_url': r.get('source_url',''),
-            'status': 'CANDIDATE_NEEDS_LEGAL_DATE_REVIEW',
+        versionq[qid].append({\
+            'document_number': number,\
+            'effective_date': r.get('effective_date',''),\
+            'expiry_date': r.get('expiry_date',''),\
+            'registry_status': r.get('registry_status',''),\
+            'source_url': r.get('source_url',''),\
+            'status': 'CANDIDATE_NEEDS_LEGAL_DATE_REVIEW',\
         })
     # Fall back to version-review entries, without inventing missing document numbers.
     if not versions and REVIEW.is_file():
@@ -99,13 +153,13 @@ def validate_inputs():
             qid,number = r['question_id'],r.get('document_number','')
             if qid in qmap and number in docmap:
                 d = docmap[number]
-                versionq[qid].append({
-                    'document_number':number,
-                    'effective_date':d.get('effective_date',''),
-                    'expiry_date':d.get('expiry_date',''),
-                    'registry_status':d.get('source_status') or d.get('status',''),
-                    'source_url':r.get('source_url') or d.get('source_url',''),
-                    'status':'CANDIDATE_NEEDS_LEGAL_DATE_REVIEW',
+                versionq[qid].append({\
+                    'document_number':number,\
+                    'effective_date':d.get('effective_date',''),\
+                    'expiry_date':d.get('expiry_date',''),\
+                    'registry_status':d.get('source_status') or d.get('status',''),\
+                    'source_url':r.get('source_url') or d.get('source_url',''),\
+                    'status':'CANDIDATE_NEEDS_LEGAL_DATE_REVIEW',\
                 })
     coverage = {qid for qid in qmap if byq[qid] or versionq[qid]}
     if len(coverage) != 300:
@@ -129,46 +183,47 @@ def build_audit():
         flags=[]
         if not candidates:flags.append('NO_CHILD_CHUNK_CANDIDATE')
         if versionq[qid]:flags.append('NEEDS_DOCUMENT_VERSION_REVIEW')
-        if missing_articles:flags.append('MISSING_ARTICLE:'+','.join(missing_articles))
+        if missing_articles:flags.append('MISSING_ARTICLE:'+','.join(missing_articles))\
+
         if g.get('answer_kind') != 'reviewed_answer':flags.append('ANSWER_NOT_REVIEWED')
         if g.get('gold_context_ids') and not g.get('gold_context_ids_confirmed'):
             flags.append('UNCONFIRMED_GOLD_ID')
-        registry.append({
-            'question_id':qid, 'question':q['question'],
-            'as_of_date':q.get('as_of_date',''),
-            'candidate_chunk_ids':candidates,
-            'document_version_candidates':versionq[qid],
-            'expected_article_ids':sorted(article_ids),
-            'missing_article_ids':missing_articles,
-            'confirmed_gold_chunk_ids':g.get('gold_context_ids', []) if g.get('gold_context_ids_confirmed') else [],
-            'answer_status':g.get('answer_kind', 'unreviewed'),
-            'flags':flags,
-            'evidence_status':'GOLD_VERIFIED' if g.get('gold_context_ids_confirmed') and g.get('review_status') != 'draft' else 'CANDIDATE_NOT_GOLD'
+        registry.append({\
+            'question_id':qid, 'question':q['question'],\
+            'as_of_date':q.get('as_of_date',''),\
+            'candidate_chunk_ids':candidates,\
+            'document_version_candidates':versionq[qid],\
+            'expected_article_ids':sorted(article_ids),\
+            'missing_article_ids':missing_articles,\
+            'confirmed_gold_chunk_ids':g.get('gold_context_ids', []) if g.get('gold_context_ids_confirmed') else [],\
+            'answer_status':g.get('answer_kind', 'unreviewed'),\
+            'flags':flags,\
+            'evidence_status':'GOLD_VERIFIED' if g.get('gold_context_ids_confirmed') and g.get('review_status') != 'draft' else 'CANDIDATE_NOT_GOLD'\
         })
     out = DATA / 'production_evidence_registry.json'
     dump_json(out,registry)
     flags=collections.Counter(f for x in registry for f in x['flags'])
-    report={
-        'question_count':len(qs),'production_chunk_count':len(cmap),
-        'chunk_candidate_rows':sum(len(v) for v in byq.values()),
-        'questions_with_chunk_candidates':sum(bool(v) for v in byq.values()),
-        'version_candidate_rows':sum(len(v) for v in versionq.values()),
-        'questions_with_version_candidates':sum(bool(v) for v in versionq.values()),
-        'questions_with_any_candidate':sum(bool(x['candidate_chunk_ids'] or x['document_version_candidates']) for x in registry),
-        'confirmed_gold_questions':sum(x['evidence_status']=='GOLD_VERIFIED' for x in registry),
-        'review_flags':dict(sorted(flags.items())),
-        'errors':errors,
-        'can_claim_final_gold_pass':not errors and all(x['evidence_status']=='GOLD_VERIFIED' and not x['flags'] for x in registry),
-        'notes':[
-            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',
-            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',
-            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',
-            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',
-        ],
+    report={\
+        'question_count':len(qs),'production_chunk_count':len(cmap),\
+        'chunk_candidate_rows':sum(len(v) for v in byq.values()),\
+        'questions_with_chunk_candidates':sum(bool(v) for v in byq.values()),\
+        'version_candidate_rows':sum(len(v) for v in versionq.values()),\
+        'questions_with_version_candidates':sum(bool(v) for v in versionq.values()),\
+        'questions_with_any_candidate':sum(bool(x['candidate_chunk_ids'] or x['document_version_candidates']) for x in registry),\
+        'confirmed_gold_questions':sum(x['evidence_status']=='GOLD_VERIFIED' for x in registry),\
+        'review_flags':dict(sorted(flags.items())),\
+        'errors':errors,\
+        'can_claim_final_gold_pass':not errors and all(x['evidence_status']=='GOLD_VERIFIED' and not x['flags'] for x in registry),\
+        'notes':[\
+            'Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.',\
+            'Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.',\
+            'Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.',\
+            'Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON.',\
+        ],\
     }
     dump_json(DATA/'production_evidence_audit.json',report)
     print('=== PRODUCTION EVIDENCE AUDIT ===')
-    for k in ('question_count','production_chunk_count','chunk_candidate_rows','questions_with_chunk_candidates','version_candidate_rows','questions_with_version_candidates','questions_with_any_candidate','confirmed_gold_questions','can_claim_final_gold_pass'):
+    for k in ('question_count','production_chunk_count','chunk_candidate_rows','questions_with_chunk_candidates','version_candidate_rows','questions_with_version_candidates','questions_with_any_candidate','confirmed_gold_questions','can_claim_final_gold_pass'):\
         print(k,':',report[k])
     print('Review flags:',report['review_flags'])
     if errors: print('ERRORS:\n'+'\n'.join(errors[:15]))
@@ -230,6 +285,10 @@ def promote(name,date,yes_to_backup=False):
         approved_ids=list(dict.fromkeys(r['chunk_id'] for r in rs))
         g['answer']=answers.pop();g['explanation']=explanations.pop()
         g['gold_context_ids']=approved_ids
+        g['gold_clause_ids']=list(dict.fromkeys(
+            cmap[r['chunk_id']].get('parent_clause_id') or cmap[r['chunk_id']].get('clause_id', '')
+            for r in rs if cmap[r['chunk_id']].get('parent_clause_id') or cmap[r['chunk_id']].get('clause_id')
+        ))
         g['candidate_context_ids']=[cid for cid in byq[qid] if cid not in approved_ids]
         g['mapping_status']='production_verified'
         g['gold_context_ids_confirmed']=True
@@ -258,7 +317,7 @@ def promote(name,date,yes_to_backup=False):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument('mode',choices=['audit','promote-reviewed','final-check'])
+    ap.add_argument('mode',choices=['audit','promote-reviewed','final-check','sync-clauses'])
     ap.add_argument('--reviewer')
     ap.add_argument('--review-date')
     args=ap.parse_args()
@@ -277,6 +336,10 @@ def main():
             print('BLOCKED: Cannot claim official 300/300 Gold PASS while review/source gaps remain.')
             sys.exit(2)
         print('Ready for external repo final validation (still run scripts/validate_benchmark.py --final).')
+    if args.mode=='sync-clauses':
+        sync_gold_context_ids_from_clauses(save=True)
+        print("Đã đồng bộ gold_clause_ids và gold_context_ids trong ground_truth.json.")
+        sys.exit(0)
 
 if __name__=='__main__':
     main()

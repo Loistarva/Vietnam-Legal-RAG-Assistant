@@ -24,12 +24,17 @@ class RetrievalEvaluationTest(unittest.TestCase):
             ]), encoding="utf-8")
             results_dir.mkdir()
             for method in ("bm25", "dense", "hybrid"):
-                rows = [
-                    {"query": query, "chunk_id": "C", "score": 1.0, "rank": 1},
-                    {"query": query, "chunk_id": "A", "score": 0.9, "rank": 2},
-                    {"query": query, "chunk_id": "B", "score": 0.8, "rank": 3},
-                ]
-                (results_dir / f"dev_{method}.json").write_text(json.dumps(rows), encoding="utf-8")
+                envelope = [{
+                    "query_id": "Q1",
+                    "query": query,
+                    "retriever": method,
+                    "results": [
+                        {"chunk_id": "C", "score": 1.0, "rank": 1},
+                        {"chunk_id": "A", "score": 0.9, "rank": 2},
+                        {"chunk_id": "B", "score": 0.8, "rank": 3},
+                    ],
+                }]
+                (results_dir / f"dev_{method}.json").write_text(json.dumps(envelope), encoding="utf-8")
 
             metrics = evaluate(dev_path, results_dir, output_dir, chunks_path)
             row = metrics["hybrid"]
@@ -38,6 +43,27 @@ class RetrievalEvaluationTest(unittest.TestCase):
             self.assertEqual(row["mrr_at_10"], 0.5)
             self.assertAlmostEqual(row["ndcg_at_10"], expected_ndcg)
             self.assertEqual(row["precision_at_10"], 0.2)
+
+    def test_flat_format_rejected_raises_value_error(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            dev_path = root / "dev.json"
+            chunks_path = root / "chunks.json"
+            results_dir = root / "results"
+            output_dir = root / "output"
+            query = "question"
+            dev_path.write_text(json.dumps([{"query": query, "relevant_chunk_ids": ["A"]}]), encoding="utf-8")
+            chunks_path.write_text(json.dumps([
+                {"chunk_id": "A", "text": "relevant A", "metadata": {"article_ref": "A"}},
+            ]), encoding="utf-8")
+            results_dir.mkdir()
+            for method in ("bm25", "dense", "hybrid"):
+                flat_rows = [{"query": query, "chunk_id": "A", "score": 1.0, "rank": 1}]
+                (results_dir / f"dev_{method}.json").write_text(json.dumps(flat_rows), encoding="utf-8")
+
+            with self.assertRaises(ValueError) as ctx:
+                evaluate(dev_path, results_dir, output_dir, chunks_path)
+            self.assertIn("RetrievalEnvelope", str(ctx.exception))
 
 
 if __name__ == "__main__":
