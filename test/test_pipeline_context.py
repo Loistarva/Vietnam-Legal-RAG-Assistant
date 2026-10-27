@@ -115,7 +115,7 @@ class AsOfDateTest(unittest.TestCase):
             destination = Path(tmp) / "out.json"
             stdout, stderr = io.StringIO(), io.StringIO()
             with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
-                code = run_retrieval.main(["--queries", str(queries), "--retriever", "fixture",
+                code = run_retrieval.main(["--queries", str(queries), "--retriever", "fixture", "--reranker", "mock",
                                            "--as-of-date", "2026-10-25", "--no-parent-context",
                                            "--output", str(destination), "--log-level", "ERROR"])
             self.assertEqual(code, 0, stderr.getvalue())
@@ -136,7 +136,8 @@ class RerankerTextModeAndMockWarningTest(unittest.TestCase):
     def test_cli_warns_when_running_on_mock_components(self):
         with self.assertLogs("run_retrieval", "WARNING") as logs:
             with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-                code = run_retrieval.main(["--query", QUERY, "--retriever", "fixture", "--log-level", "ERROR"])
+                code = run_retrieval.main(["--query", QUERY, "--retriever", "fixture", "--reranker", "mock",
+                                           "--log-level", "ERROR"])
         self.assertEqual(code, 0)
         self.assertTrue(any("fixture" in line for line in logs.output))
         self.assertTrue(any("mock" in line for line in logs.output))

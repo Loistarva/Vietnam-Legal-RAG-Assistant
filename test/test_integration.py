@@ -108,10 +108,18 @@ class HybridRerankerPipelineTest(unittest.TestCase):
         output, _, _ = self.run_pipeline()
         assert_contract(self, output)
         self.assertEqual(output["query_id"], "Q_DEV_001")
-        self.assertEqual(output["retriever"], "hybrid_reranker")
+        self.assertEqual(output["retriever"], "hybrid_mock_reranker")
         self.assertEqual([row["chunk_id"] for row in output["results"]], [
             "l_52_2014_qh13_art_10_chunk_1", "l_52_2014_qh13_art_8_chunk_2", "l_52_2014_qh13_art_9_chunk_1"])
         self.assertEqual([row["score"] for row in output["results"]], [0.9, 0.8, 0.3])
+
+    def test_retriever_label_names_mock_scorer(self):
+        hybrid, _, _ = make_hybrid(BM25, DENSE)
+        for backend, label in (("mock", "hybrid_mock_reranker"), ("cross_encoder", "hybrid_reranker")):
+            with self.subTest(backend=backend):
+                reranker = Reranker(MockScorer(SCORES), backend=backend)
+                self.assertEqual(RetrievalPipeline(hybrid, reranker).name, label)
+        self.assertEqual(RetrievalPipeline(hybrid).name, "hybrid")
 
     def test_retrieval_top_k_sets_candidate_depth_of_both_branches(self):
         _, bm25, dense = self.run_pipeline(retrieval_top_k=7, top_k=2)
@@ -279,6 +287,9 @@ class RetrievalConfigTest(unittest.TestCase):
 
 class CliTest(unittest.TestCase):
     def run_cli(self, *args):
+        # Offline runs pick the mock scorer explicitly; the configured default is the cross-encoder.
+        if "--reranker" not in args:
+            args = (*args, "--reranker", "mock")
         stdout, stderr = io.StringIO(), io.StringIO()
         with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
             code = run_retrieval.main([*args, "--log-level", "ERROR"])
@@ -289,7 +300,7 @@ class CliTest(unittest.TestCase):
         self.assertEqual(code, 0, err)
         output = json.loads(out)
         assert_contract(self, output)
-        self.assertEqual(output["retriever"], "fixture_reranker")
+        self.assertEqual(output["retriever"], "fixture_mock_reranker")
         self.assertEqual(len(output["results"]), 3)
         self.assertEqual(output["results"][0]["chunk_id"], "l_52_2014_qh13_art_8_chunk_1")
 
@@ -344,6 +355,62 @@ class CliTest(unittest.TestCase):
                 self.assertEqual(out, "")
                 self.assertIn("ERROR", err)
 
+    def test_defaults_are_hybrid_and_cross_encoder(self):
+        args = run_retrieval.parse_args(["--query", QUERY])
+        self.assertEqual(args.retriever, "hybrid")
+        self.assertIsNone(args.reranker)
+        self.assertEqual(run_retrieval.load_reranker_config(args.config).backend, "cross_encoder")
+
+    def test_two_stage_run_matches_single_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            queries = Path(tmp) / "queries_dev.json"
+            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY}], ensure_ascii=False),
+                               encoding="utf-8")
+            stage1, stage2, single = (Path(tmp) / name for name in ("candidates.json", "reranked.json", "single.json"))
+            common = ("--queries", str(queries), "--no-parent-context", "--top-k", "3")
+            code, _, err = self.run_cli("--queries", str(queries), "--retriever", "fixture", "--reranker", "none",
+                                        "--no-parent-context", "--retrieval-top-k", "6", "--top-k", "5",
+                                        "--output", str(stage1))
+            self.assertEqual(code, 0, err)
+            code, _, err = self.run_cli(*common, "--retriever", "precomputed", "--candidates", str(stage1),
+                                        "--retrieval-top-k", "5", "--output", str(stage2))
+            self.assertEqual(code, 0, err)
+            code, _, err = self.run_cli(*common, "--retriever", "fixture", "--retrieval-top-k", "6",
+                                        "--output", str(single))
+            self.assertEqual(code, 0, err)
+            reranked = json.loads(stage2.read_text(encoding="utf-8"))[0]
+            expected = json.loads(single.read_text(encoding="utf-8"))[0]
+        assert_contract(self, reranked)
+        self.assertEqual(reranked["retriever"], "fixture_mock_reranker")
+        self.assertEqual(reranked["config"]["retriever"]["candidates"], str(stage1))
+        self.assertEqual([(row["chunk_id"], row["score"]) for row in reranked["results"]],
+                         [(row["chunk_id"], row["score"]) for row in expected["results"]])
+
+    def test_precomputed_candidates_are_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            stage1 = Path(tmp) / "candidates.json"
+            code, _, err = self.run_cli("--query", QUERY, "--query-id", "HN_001", "--retriever", "fixture",
+                                        "--no-parent-context", "--top-k", "3", "--output", str(stage1))
+            self.assertEqual(code, 0, err)
+            # Already reranked: rejected before any query runs.
+            code, _, err = self.run_cli("--query", QUERY, "--retriever", "precomputed", "--candidates", str(stage1))
+            self.assertEqual(code, 2)
+            self.assertIn("--reranker none", err)
+            code, _, err = self.run_cli("--query", QUERY, "--query-id", "HN_001", "--retriever", "fixture",
+                                        "--reranker", "none", "--no-parent-context", "--top-k", "3",
+                                        "--output", str(stage1))
+            self.assertEqual(code, 0, err)
+            for args, message in ((["--query-id", "HN_999"], "HN_999"),
+                                  (["--query-id", "HN_001", "--retrieval-top-k", "5"], "--top-k 5")):
+                with self.subTest(args=args):
+                    code, _, err = self.run_cli("--query", QUERY, "--retriever", "precomputed",
+                                                "--candidates", str(stage1), "--top-k", "2", *args)
+                    self.assertEqual(code, 1)
+                    self.assertIn(message, err)
+            code, _, err = self.run_cli("--query", QUERY, "--retriever", "precomputed")
+            self.assertEqual(code, 2)
+            self.assertIn("--candidates", err)
+
     def test_hybrid_without_elasticsearch_url_fails_cleanly(self):
         code, out, err = self.run_cli("--query", QUERY, "--retriever", "hybrid", "--elasticsearch-url", "")
         self.assertEqual(code, 2)
@@ -358,12 +425,12 @@ class CliTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             chunks = Path(tmp) / "chunks.jsonl"
             chunks.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in corpus), encoding="utf-8")
-            code, out, err = self.run_cli("--query", "điều kiện kết hôn", "--chunks", str(chunks),
+            code, out, err = self.run_cli("--query", "điều kiện kết hôn", "--retriever", "mock", "--chunks", str(chunks),
                                           "--retrieval-top-k", "10", "--top-k", "3")
         self.assertEqual(code, 0, err)
         output = json.loads(out)
         assert_contract(self, output)
-        self.assertEqual(output["retriever"], "mock_reranker")
+        self.assertEqual(output["retriever"], "mock_mock_reranker")
         self.assertEqual(len(output["results"]), 3)
         corpus_ids = {row["chunk_id"] for row in corpus}
         self.assertTrue({row["chunk_id"] for row in output["results"]} <= corpus_ids)

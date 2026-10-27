@@ -1,11 +1,19 @@
 """Run Hybrid Retrieval + Reranker standalone and print the result JSON.
 
+The defaults follow the architecture: Hybrid (Elasticsearch BM25 + Qdrant + RRF) and the
+bge-reranker-v2-m3 cross-encoder. The mock retriever and the mock scorer are opt-in.
+
 Examples:
-    python scripts/run_retrieval.py --query "Điều kiện kết hôn là gì?" --top-k 5
-    python scripts/run_retrieval.py --query "..." --retriever fixture
-    python scripts/run_retrieval.py --query "..." --retriever hybrid --reranker cross_encoder \
+    python scripts/run_retrieval.py --query "Điều kiện kết hôn là gì?" --top-k 5 \
         --elasticsearch-url http://localhost:9200
+    python scripts/run_retrieval.py --query "..." --retriever fixture --reranker mock   # offline
     python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json --output out.json
+
+Two processes, when the dense model and the reranker do not fit in memory together:
+    python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json --reranker none \
+        --no-parent-context --top-k 50 --output candidates.json
+    python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json --retriever precomputed \
+        --candidates candidates.json --output reranked.json
 
 Exit codes: 0 success, 1 retriever/reranker/service error, 2 invalid input or config.
 The Dev 4 batch runner for BM25/Dense/Hybrid comparison is ``python -m retrieval.run_dev_retrieval``.
@@ -27,6 +35,7 @@ if str(ROOT) not in sys.path:
 from reranking.pipeline import (  # noqa: E402
     FixtureRetriever,
     PipelineError,
+    PrecomputedRetriever,
     RetrievalPipeline,
     build_hybrid_retriever,
     build_mock_dense_retriever,
@@ -36,7 +45,7 @@ from reranking.parent_context import ParentContextResolver, load_parent_context_
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
 
 logger = logging.getLogger("run_retrieval")
-RETRIEVERS = ("mock", "fixture", "hybrid")
+RETRIEVERS = ("hybrid", "precomputed", "mock", "fixture")
 DEFAULT_CANDIDATES = ROOT / "test" / "fixtures" / "reranker_candidates.json"
 DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 
@@ -59,11 +68,13 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
                         help="Tắt Parent-Context Resolver (mặc định theo parent_context.enabled)")
     parser.add_argument("--top-k", type=int, default=None,
                         help="Số kết quả trả về (mặc định: rerank_top_k trong reranking/config.yaml)")
-    parser.add_argument("--retriever", choices=RETRIEVERS, default="mock",
-                        help="mock: Dense mock offline trên corpus; fixture: candidate list cố định; "
-                             "hybrid: Elasticsearch BM25 + Qdrant + RRF thật")
+    parser.add_argument("--retriever", choices=RETRIEVERS, default="hybrid",
+                        help="hybrid: Elasticsearch BM25 + Qdrant + RRF thật (mặc định); precomputed: candidate "
+                             "của lần chạy --reranker none trước đó (--candidates); mock: Dense mock offline trên "
+                             "corpus; fixture: candidate list cố định")
     parser.add_argument("--reranker", choices=(*BACKENDS, "none"), default=None,
-                        help="Ghi đè reranker.backend; 'none' tắt reranking")
+                        help="Ghi đè reranker.backend (mặc định cross_encoder); mock: tỉ lệ token trùng, "
+                             "chỉ để chạy offline; 'none' tắt reranking")
     parser.add_argument("--model", default=None, help="Ghi đè reranker.model (backend cross_encoder)")
     parser.add_argument("--retrieval-top-k", type=int, default=None,
                         help="Ghi đè retrieval_top_k (số candidate thô trước reranking)")
@@ -71,7 +82,9 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
                         help="Ghi đè reranker.max_candidates (trần candidate vào Cross-Encoder)")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH, help="reranking/config.yaml")
     parser.add_argument("--retrieval-config", type=Path, default=ROOT / "retrieval" / "config.yaml")
-    parser.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES, help="Fixture cho --retriever fixture")
+    parser.add_argument("--candidates", type=Path, default=None,
+                        help="--retriever precomputed: file --output của lần chạy --reranker none (bắt buộc); "
+                             "--retriever fixture: candidate list (mặc định test/fixtures/reranker_candidates.json)")
     parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS, help="Corpus cho --retriever mock")
     parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"))
     parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX"))
@@ -144,8 +157,20 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                        "(dùng --reranker cross_encoder cho số đo thật)")
 
     retriever_settings: dict[str, Any] = {}
+    retriever_name = args.retriever
     if args.retriever == "fixture":
-        retriever = FixtureRetriever.from_file(args.candidates)
+        candidates = args.candidates or DEFAULT_CANDIDATES
+        retriever = FixtureRetriever.from_file(candidates)
+        retriever_settings["candidates"] = str(candidates)
+    elif args.retriever == "precomputed":
+        if args.candidates is None:
+            raise ValueError("--retriever precomputed cần --candidates (file --output của lần chạy --reranker none)")
+        retriever = PrecomputedRetriever.from_file(args.candidates)
+        # Results keep the label of the retriever that produced the candidates (e.g. hybrid_reranker).
+        source = retriever.source_settings
+        retriever_name = str(source.get("backend") or "precomputed")
+        retriever_settings.update({key: value for key, value in source.items()
+                                   if key not in ("backend", "retrieval_top_k")})
         retriever_settings["candidates"] = str(args.candidates)
     elif args.retriever == "mock":
         retriever = build_mock_dense_retriever(args.chunks)
@@ -158,7 +183,7 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=args.collection)
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
-                             retriever_name=args.retriever, retriever_settings=retriever_settings,
+                             retriever_name=retriever_name, retriever_settings=retriever_settings,
                              parent_resolver=parent_resolver)
 
 

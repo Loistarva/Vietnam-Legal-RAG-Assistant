@@ -153,12 +153,19 @@ class RetrievalPipeline:
         self.retriever_settings = dict(retriever_settings or {})
         self.parent_resolver = parent_resolver
         # The temporal pre-filter belongs to the retriever (E1); it receives as_of_date only
-        # when its search() declares that keyword.
+        # when its search() declares that keyword. query_id goes only to retrievers that ask
+        # for it (PrecomputedRetriever looks its candidates up by query_id).
         self.retriever_takes_as_of_date = _accepts_keyword(retriever.search, "as_of_date")
+        self.retriever_takes_query_id = _accepts_keyword(retriever.search, "query_id")
 
     @property
     def name(self) -> str:
-        return f"{self.retriever_name}_reranker" if self.reranker else self.retriever_name
+        # The mock scorer is token overlap, not the architecture's cross-encoder; keep its runs
+        # apart from real "<retriever>_reranker" results.
+        if self.reranker is None:
+            return self.retriever_name
+        suffix = "mock_reranker" if self.reranker.backend == "mock" else "reranker"
+        return f"{self.retriever_name}_{suffix}"
 
     @property
     def default_top_k(self) -> int:
@@ -182,12 +189,14 @@ class RetrievalPipeline:
             logger.warning("Retriever %s không nhận as_of_date; kết quả chưa lọc theo thời điểm %s",
                            self.retriever_name, as_of_date)
 
+        search_kwargs: dict[str, Any] = {}
+        if as_of_date is not None and self.retriever_takes_as_of_date:
+            search_kwargs["as_of_date"] = as_of_date
+        if self.retriever_takes_query_id:
+            search_kwargs["query_id"] = query_id
         started = time.perf_counter()
         try:
-            if as_of_date is not None and self.retriever_takes_as_of_date:
-                hits = self.retriever.search(query, self.retrieval_top_k, as_of_date=as_of_date)
-            else:
-                hits = self.retriever.search(query, self.retrieval_top_k)
+            hits = self.retriever.search(query, self.retrieval_top_k, **search_kwargs)
             if not isinstance(hits, list):
                 raise TypeError(f"retriever phải trả list, nhận được {type(hits).__name__}")
             candidates = [to_contract_result(hit) for hit in hits]
@@ -273,6 +282,61 @@ class FixtureRetriever:
             raise ValueError("query phải là chuỗi không rỗng")
         _require_positive_int("top_k", top_k)
         return [dict(candidate) for candidate in self.candidates[:top_k]]
+
+
+class PrecomputedRetriever:
+    """Candidates saved by an earlier run without reranking, looked up by query_id.
+
+    Lets Hybrid retrieval and the cross-encoder run in separate processes, so the
+    dense model and the reranker never share one GPU: run 1 with ``--reranker none
+    --no-parent-context --top-k <retrieval_top_k>`` writes the envelopes, run 2 with
+    ``--retriever precomputed --candidates <file>`` reranks them. Run 1 already
+    applied any temporal filter, so ``search`` takes no ``as_of_date``.
+    """
+
+    def __init__(self, envelopes: Sequence[Mapping[str, Any]]):
+        if not envelopes:
+            raise ValueError("File candidate không có câu hỏi nào")
+        self.envelopes: dict[str, Mapping[str, Any]] = {}
+        for envelope in envelopes:
+            if not isinstance(envelope, Mapping) or not isinstance(envelope.get("results"), list):
+                raise ValueError("Mỗi phần tử của file candidate phải là envelope có 'results'")
+            query_id = envelope.get("query_id")
+            if not isinstance(query_id, str) or not query_id:
+                raise ValueError("Envelope trong file candidate thiếu query_id")
+            if query_id in self.envelopes:
+                raise ValueError(f"query_id bị trùng trong file candidate: {query_id}")
+            config = envelope.get("config") or {}
+            if config.get("reranker") is not None:
+                raise ValueError(f"{query_id} đã được rerank; lần chạy 1 phải dùng --reranker none")
+            if config.get("parent_context") is not None:
+                raise ValueError(f"{query_id} đã gắn parent_text; lần chạy 1 phải dùng --no-parent-context")
+            self.envelopes[query_id] = envelope
+        first = next(iter(self.envelopes.values()))
+        # Settings of the run that produced the candidates, recorded with every reranked output.
+        self.source_settings = dict((first.get("config") or {}).get("retriever") or {})
+
+    @classmethod
+    def from_file(cls, path: str | Path) -> "PrecomputedRetriever":
+        """Read the ``--output`` of run 1: one envelope (``--query``) or a list (``--queries``)."""
+        try:
+            data = json.loads(Path(path).read_text(encoding="utf-8-sig"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ValueError(f"Không đọc được file candidate {path}: {exc}") from exc
+        return cls([data] if isinstance(data, dict) else data if isinstance(data, list) else [])
+
+    def search(self, query: str, top_k: int, *, query_id: str) -> list[dict[str, Any]]:
+        _require_positive_int("top_k", top_k)
+        envelope = self.envelopes.get(query_id)
+        if envelope is None:
+            raise ValueError(f"File candidate không có query_id {query_id}")
+        if str(envelope.get("query", "")).strip() != query.strip():
+            raise ValueError(f"Câu hỏi của {query_id} khác câu hỏi trong file candidate")
+        saved = envelope.get("top_k")
+        if isinstance(saved, int) and saved < top_k:
+            raise ValueError(f"File candidate chỉ lưu top {saved} của {query_id}, cần {top_k} "
+                             f"(chạy lần 1 với --top-k {top_k})")
+        return [dict(hit) for hit in envelope["results"][:top_k]]
 
 
 def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) -> dict[str, Any]:
@@ -372,6 +436,7 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
 
 
 __all__ = [
-    "CandidateRetriever", "FixtureRetriever", "PipelineError", "RetrievalPipeline", "TRACE_FIELDS",
+    "CandidateRetriever", "FixtureRetriever", "PipelineError", "PrecomputedRetriever", "RetrievalPipeline",
+    "TRACE_FIELDS",
     "build_hybrid_retriever", "build_mock_dense_retriever", "load_retrieval_settings", "to_contract_result",
 ]

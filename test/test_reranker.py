@@ -56,12 +56,12 @@ class RerankerConfigTest(unittest.TestCase):
     def test_repository_config_has_documented_defaults(self):
         config = load_reranker_config()
         self.assertEqual(config, RerankerConfig(
-            enabled=True, backend="mock", model="BAAI/bge-reranker-v2-m3",
-            rerank_top_k=5, max_candidates=50, batch_size=16, max_length=512, device=None))
+            enabled=True, backend="cross_encoder", model="BAAI/bge-reranker-v2-m3",
+            rerank_top_k=5, max_candidates=50, batch_size=16, max_length=512, device=None, dtype="auto"))
 
     def test_overrides_win_and_none_overrides_are_ignored(self):
         config = load_reranker_config(rerank_top_k=3, max_candidates=20, backend=None)
-        self.assertEqual((config.rerank_top_k, config.max_candidates, config.backend), (3, 20, "mock"))
+        self.assertEqual((config.rerank_top_k, config.max_candidates, config.backend), (3, 20, "cross_encoder"))
 
     def test_unknown_keys_are_rejected_to_catch_typos(self):
         path = self.write_config("reranker:\n  rerank_topk: 5\n")
@@ -249,6 +249,38 @@ class BuildRerankerTest(unittest.TestCase):
         self.assertIsNone(reranker.scorer._model)
         self.assertEqual((reranker.scorer.batch_size, reranker.scorer.max_length), (8, 256))
         self.assertEqual(reranker.describe()["model"], "BAAI/bge-reranker-v2-m3")
+        self.assertEqual(reranker.describe()["dtype"], "auto")
+
+
+class CrossEncoderDtypeTest(unittest.TestCase):
+    def test_auto_dtype_is_float16_on_cuda_and_float32_on_cpu(self):
+        scorer = CrossEncoderScorer()
+        self.assertEqual(scorer.resolve_dtype(None, True), "float16")
+        self.assertEqual(scorer.resolve_dtype(None, False), "float32")
+        self.assertEqual(scorer.resolve_dtype("cuda:0", False), "float16")
+        self.assertEqual(scorer.resolve_dtype("cpu", True), "float32")
+        self.assertEqual(CrossEncoderScorer(dtype="bfloat16").resolve_dtype("cpu", False), "bfloat16")
+
+    def test_invalid_dtype_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "dtype"):
+            RerankerConfig(dtype="int8")
+        with self.assertRaisesRegex(ValueError, "dtype"):
+            CrossEncoderScorer(dtype="half")
+
+    def test_model_is_loaded_with_the_resolved_dtype(self):
+        loaded = {}
+
+        class FakeCrossEncoder:
+            def __init__(self, name, **kwargs):
+                loaded.update(name=name, **kwargs)
+
+        fake_torch = mock.Mock(float16="torch.float16", float32="torch.float32")
+        fake_torch.cuda.is_available.return_value = True
+        fake_st = mock.Mock(CrossEncoder=FakeCrossEncoder)
+        with mock.patch.dict(sys.modules, {"torch": fake_torch, "sentence_transformers": fake_st}):
+            CrossEncoderScorer(max_length=256).load()
+        self.assertEqual(loaded, {"name": "BAAI/bge-reranker-v2-m3", "max_length": 256, "device": None,
+                                  "model_kwargs": {"torch_dtype": "torch.float16"}})
 
 
 if __name__ == "__main__":

@@ -26,13 +26,18 @@ py -3.12 -m venv .venv312
 
 Tất cả dependency được gom vào `requirements.txt`. Các lệnh bên dưới dùng `python`, giả định môi trường ảo đã được kích hoạt bằng `.\.venv312\Scripts\Activate.ps1`.
 
-## Chạy nhanh Hybrid + Reranker (không cần dịch vụ)
+## Chạy nhanh Hybrid + Reranker
 
 ```powershell
-python scripts/run_retrieval.py --query "Điều kiện kết hôn theo quy định pháp luật là gì?" --top-k 5
+# Mặc định theo sơ đồ kiến trúc: Elasticsearch BM25 + Qdrant + RRF, rồi Cross-Encoder bge-reranker-v2-m3
+python scripts/run_retrieval.py --query "Điều kiện kết hôn theo quy định pháp luật là gì?" --top-k 5 `
+  --elasticsearch-url http://localhost:9200
+# Offline, không cần dịch vụ hay model (thứ hạng không có ý nghĩa ngữ nghĩa)
+python scripts/run_retrieval.py --query "Điều kiện kết hôn theo quy định pháp luật là gì?" --top-k 5 `
+  --retriever mock --reranker mock
 ```
 
-Lệnh này in JSON theo contract Retrieval result (`query_id`, `retriever`, `results` có `chunk_id`, `rank`, `score`, `chunk_text`, `parent_clause_id`, `document_id`, `metadata.validity_status`, …). Chế độ mặc định chạy offline: dense retriever dùng vector giả lập, reranker dùng mock scorer. Thứ hạng ở chế độ này chưa có ý nghĩa ngữ nghĩa; muốn chạy với Elasticsearch, Qdrant và `BAAI/bge-reranker-v2-m3` thật, xem [docs/sprint6_integration.md](docs/sprint6_integration.md).
+Lệnh in JSON theo contract Retrieval result (`query_id`, `retriever`, `results` có `chunk_id`, `rank`, `score`, `chunk_text`, `parent_clause_id`, `document_id`, `metadata.validity_status`, …). Lần chạy dùng mock scorer mang nhãn `<retriever>_mock_reranker`. Cách chạy hai bước khi máy không đủ bộ nhớ cho cả model dense và reranker: xem [docs/sprint6_integration.md](docs/sprint6_integration.md).
 
 ## Quy trình đầy đủ
 
@@ -43,7 +48,7 @@ Lệnh này in JSON theo contract Retrieval result (`query_id`, `retriever`, `re
 | 3. Tạo vector index | `python scripts/build_index.py --input data/chunking_output/chunks.jsonl` | [docs/embedding_experiment.md](docs/embedding_experiment.md) |
 | 4. Baseline trên Dev | `python scripts/run_baselines.py` | `evaluation/` |
 | 5. So sánh BM25 / Dense / Hybrid trên Dev | `python -m retrieval.run_dev_retrieval --elasticsearch-url http://localhost:9200 ...` | [docs/retrieval_report.md](docs/retrieval_report.md) |
-| 6. Hybrid + Reranker | `python scripts/run_retrieval.py --query "..." --retriever hybrid --reranker cross_encoder` | [docs/sprint6_integration.md](docs/sprint6_integration.md) |
+| 6. Hybrid + Reranker | `python scripts/run_retrieval.py --query "..." --elasticsearch-url http://localhost:9200` | [docs/sprint6_integration.md](docs/sprint6_integration.md) |
 | 7. Kiểm thử | `python -m pytest test/` (chạy từ thư mục gốc repo) | — |
 | 8. Test chính thức (sau khi khóa dữ liệu, model, tham số và commit) | `python scripts/run_final_test.py` | — |
 
@@ -52,7 +57,7 @@ Tham số chỉ được tuning trên Dev set. Test set đã đóng băng và ch
 ## Cấu hình
 
 - `retrieval/config.yaml` (Dev 4): `retrieval_top_k`/`candidate_k` (mặc định 50), `rrf_k` (60), index và dense model.
-- `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`mock` | `cross_encoder`), `model` (`BAAI/bge-reranker-v2-m3`).
+- `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`cross_encoder` mặc định | `mock` cho test), `model` (`BAAI/bge-reranker-v2-m3`), `dtype` (`auto`: float16 trên GPU).
 
 Đây là giá trị khởi đầu, chưa phải cấu hình tối ưu.
 

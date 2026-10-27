@@ -29,6 +29,9 @@ BACKENDS = ("mock", "cross_encoder")
 # Text given to the scorer: the cited chunk alone, or prefixed with its breadcrumb
 # (Chương > Điều > Khoản), since many child chunks start with "2. ..." and lack the article name.
 CANDIDATE_TEXT_MODES = ("chunk_text", "breadcrumb_chunk_text")
+# Weights of the cross-encoder. auto: float16 on CUDA (bge-reranker-v2-m3 needs about 1.1 GB
+# instead of 2.2 GB, so it fits a 4 GB GPU next to the dense model), float32 on CPU.
+DTYPES = ("auto", "float32", "float16", "bfloat16")
 
 _TOKEN_PATTERN = re.compile(r"\w+")
 
@@ -51,6 +54,7 @@ class RerankerConfig:
     batch_size: int = 16
     max_length: int = 512
     device: str | None = None
+    dtype: str = "auto"
     candidate_text: str = "chunk_text"
 
     def __post_init__(self) -> None:
@@ -60,6 +64,8 @@ class RerankerConfig:
             raise ValueError(f"backend phải thuộc {BACKENDS}, nhận được {self.backend!r}")
         if self.candidate_text not in CANDIDATE_TEXT_MODES:
             raise ValueError(f"candidate_text phải thuộc {CANDIDATE_TEXT_MODES}, nhận được {self.candidate_text!r}")
+        if self.dtype not in DTYPES:
+            raise ValueError(f"dtype phải thuộc {DTYPES}, nhận được {self.dtype!r}")
         if not isinstance(self.model, str) or not self.model.strip():
             raise ValueError("model phải là chuỗi không rỗng")
         for name in ("rerank_top_k", "max_candidates", "batch_size", "max_length"):
@@ -168,13 +174,16 @@ class CrossEncoderScorer:
     """Lazy sentence-transformers CrossEncoder scorer (default ``BAAI/bge-reranker-v2-m3``)."""
 
     def __init__(self, model_name: str = DEFAULT_MODEL_NAME, *, batch_size: int = 16,
-                 max_length: int = 512, device: str | None = None, model: Any = None,
+                 max_length: int = 512, device: str | None = None, dtype: str = "auto", model: Any = None,
                  text_mode: str = "chunk_text"):
+        if dtype not in DTYPES:
+            raise ValueError(f"dtype phải thuộc {DTYPES}, nhận được {dtype!r}")
         self.model_name = model_name
         self.text_mode = text_mode
         self.batch_size = _require_positive_int("batch_size", batch_size)
         self.max_length = _require_positive_int("max_length", max_length)
         self.device = device
+        self.dtype = dtype
         self._model = model
 
     def load(self) -> None:
@@ -191,9 +200,20 @@ class CrossEncoderScorer:
                     "Cần cài sentence-transformers để dùng backend cross_encoder "
                     "(pip install -r requirements.txt) hoặc chọn backend mock"
                 ) from exc
-            logger.info("Loading cross-encoder %s", self.model_name)
-            self._model = CrossEncoder(self.model_name, max_length=self.max_length, device=self.device)
+            import torch
+
+            dtype = self.resolve_dtype(self.device, torch.cuda.is_available())
+            logger.info("Loading cross-encoder %s (%s)", self.model_name, dtype)
+            self._model = CrossEncoder(self.model_name, max_length=self.max_length, device=self.device,
+                                       model_kwargs={"torch_dtype": getattr(torch, dtype)})
         return self._model
+
+    def resolve_dtype(self, device: str | None, cuda_available: bool) -> str:
+        """``auto`` becomes float16 when the model runs on CUDA (``device`` null picks CUDA if present)."""
+        if self.dtype != "auto":
+            return self.dtype
+        on_cuda = device.startswith("cuda") if device else cuda_available
+        return "float16" if on_cuda else "float32"
 
     def score(self, query: str, candidates: Sequence[Mapping[str, Any]]) -> list[float]:
         pairs = [(query, candidate_text(hit, self.text_mode)) for hit in candidates]
@@ -222,9 +242,12 @@ class Reranker:
 
     def describe(self) -> dict[str, Any]:
         """Settings recorded with each run (benchmark rule: model, candidate pool, top_k)."""
-        return {"backend": self.backend, "model": self.model,
-                "rerank_top_k": self.rerank_top_k, "max_candidates": self.max_candidates,
-                "candidate_text": getattr(self.scorer, "text_mode", "chunk_text")}
+        settings = {"backend": self.backend, "model": self.model,
+                    "rerank_top_k": self.rerank_top_k, "max_candidates": self.max_candidates,
+                    "candidate_text": getattr(self.scorer, "text_mode", "chunk_text")}
+        if isinstance(self.scorer, CrossEncoderScorer):
+            settings["dtype"] = self.scorer.dtype
+        return settings
 
     def rerank(self, query: str, hits: Sequence[Mapping[str, Any]] | None,
                top_k: int | None = None) -> list[dict[str, Any]]:
@@ -287,14 +310,14 @@ def build_reranker(config: RerankerConfig, *, scorer: Scorer | None = None) -> R
         else:
             scorer = CrossEncoderScorer(config.model, batch_size=config.batch_size,
                                         max_length=config.max_length, device=config.device,
-                                        text_mode=config.candidate_text)
+                                        dtype=config.dtype, text_mode=config.candidate_text)
     model = config.model if config.backend == "cross_encoder" else None
     return Reranker(scorer, rerank_top_k=config.rerank_top_k, max_candidates=config.max_candidates,
                     backend=config.backend, model=model)
 
 
 __all__ = [
-    "BACKENDS", "CANDIDATE_TEXT_MODES", "CrossEncoderScorer", "DEFAULT_CONFIG_PATH", "DEFAULT_MODEL_NAME", "MockScorer",
+    "BACKENDS", "CANDIDATE_TEXT_MODES", "CrossEncoderScorer", "DEFAULT_CONFIG_PATH", "DTYPES", "DEFAULT_MODEL_NAME", "MockScorer",
     "Reranker", "RerankerConfig", "Scorer", "build_reranker", "candidate_text",
     "deduplicate_candidates", "load_reranker_config",
 ]

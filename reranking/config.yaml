@@ -3,9 +3,11 @@
 # Chỉ tuning trên Dev set; không dùng Test set để chọn tham số.
 reranker:
   enabled: true
-  # mock: scorer tất định, không cần model (mock-first, CLI/test chạy offline).
-  # cross_encoder: sentence-transformers CrossEncoder với `model` bên dưới.
-  backend: mock
+  # cross_encoder: sentence-transformers CrossEncoder với `model` bên dưới (Cross-Encoder Neural
+  # Reranker của sơ đồ kiến trúc).
+  # mock: tỉ lệ token trùng, không phải mô hình liên quan; chỉ dùng cho test và chạy offline
+  # (--reranker mock), output mang nhãn <retriever>_mock_reranker.
+  backend: cross_encoder
   model: BAAI/bge-reranker-v2-m3
   # Số chunk giữ lại sau reranking để đưa sang bước sinh câu trả lời.
   rerank_top_k: 5
@@ -16,6 +18,9 @@ reranker:
   max_length: 512
   # null: để sentence-transformers tự chọn (cuda nếu có, ngược lại cpu).
   device: null
+  # auto: float16 khi chạy CUDA (model khoảng 1,1 GB thay vì 2,2 GB, vừa GPU 4 GB cùng model dense),
+  # float32 khi chạy CPU. Giá trị khác: float32, float16, bfloat16.
+  dtype: auto
   # Văn bản đưa vào scorer: chunk_text, hoặc breadcrumb_chunk_text (breadcrumb Chương > Điều > Khoản
   # rồi chunk_text). Giữ chunk_text cho tới khi đo hai cách trên gold đã duyệt của Dev set (G5).
   candidate_text: chunk_text
