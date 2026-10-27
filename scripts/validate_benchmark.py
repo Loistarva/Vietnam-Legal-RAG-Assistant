@@ -95,7 +95,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                 # Status queries are evaluated against official metadata; provision-level queries need article evidence.
                 if c.get('article')!='Trạng thái hiệu lực' and not (q.get('test_type')=='historical_law' and c.get('article')=='132' and 'hiệu lực' in q.get('question','')):
                     date=q.get('as_of_date','')
-                    if doc.get('effective_date') and date<doc['effective_date']:\
+                    if doc.get('effective_date') and date<doc['effective_date']:
                         issues.append(f'{qid}: dùng quy định trước ngày có hiệu lực')
                     if doc.get('expiry_date') and date>=doc['expiry_date']:
                         issues.append(f'{qid}: dùng quy định sau khi văn bản hết hiệu lực toàn bộ')
