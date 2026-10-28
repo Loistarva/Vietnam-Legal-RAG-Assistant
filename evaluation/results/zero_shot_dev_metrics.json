@@ -1,9 +1,13 @@
 {
   "method": "zero_shot",
-  "metric_type": "traditional_text_overlap",
+  "metric_type": "lexical_overlap_and_rubric_evaluation",
   "normalization": "Unicode NFKC, case-insensitive, punctuation removed, whitespace tokenization",
   "exact_match": 0.0,
-  "token_f1": 0.17458424625848493,
+  "token_f1": 0.1746,
+  "mean_answer_relevance": 0.9889,
+  "mean_faithfulness": 0.4056,
+  "mean_answer_relevance_score": 4.96,
+  "mean_faithfulness_score": 2.62,
   "evaluated_questions": 45,
   "prediction_records": 45,
   "ground_truth_records": 300,
@@ -265,46 +269,78 @@
     "HN_299",
     "HN_300"
   ],
-  "note": "Exact Match and token F1 are lexical-overlap metrics. They do not call an LLM and may penalize semantically correct answers that use different wording.",
+  "note": "Kết quả đánh giá gồm Lexical Overlap (Exact Match, Token F1) và Rubric Scoring (Answer Relevance & Faithfulness theo thang 1-5 và chuẩn hóa 0.0-1.0).",
   "by_category": {
     "ket_hon": {
       "exact_match": 0.0,
-      "token_f1": 0.19850159248841454,
+      "token_f1": 0.1985,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.45,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 2.8,
       "count": 10
     },
     "con_cai": {
       "exact_match": 0.0,
-      "token_f1": 0.14249465379984547,
+      "token_f1": 0.1425,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.3333,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 2.33,
       "count": 3
     },
     "vo_chong": {
       "exact_match": 0.0,
-      "token_f1": 0.12000066435014865,
+      "token_f1": 0.12,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.3333,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 2.33,
       "count": 3
     },
     "tai_san": {
       "exact_match": 0.0,
-      "token_f1": 0.1579120341544632,
+      "token_f1": 0.1579,
+      "mean_answer_relevance": 0.9375,
+      "mean_faithfulness": 0.375,
+      "mean_answer_relevance_score": 4.75,
+      "mean_faithfulness_score": 2.5,
       "count": 4
     },
     "ly_hon": {
       "exact_match": 0.0,
-      "token_f1": 0.22461842825815817,
+      "token_f1": 0.2246,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.5,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 3.0,
       "count": 5
     },
     "cap_duong": {
       "exact_match": 0.0,
-      "token_f1": 0.22602054180494258,
+      "token_f1": 0.226,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.5,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 3.0,
       "count": 3
     },
     "hieu_luc": {
       "exact_match": 0.0,
-      "token_f1": 0.1470008152548445,
+      "token_f1": 0.147,
+      "mean_answer_relevance": 0.9821,
+      "mean_faithfulness": 0.3393,
+      "mean_answer_relevance_score": 4.93,
+      "mean_faithfulness_score": 2.36,
       "count": 14
     },
     "mang_thai_ho": {
       "exact_match": 0.0,
-      "token_f1": 0.19765862846879997,
+      "token_f1": 0.1977,
+      "mean_answer_relevance": 1.0,
+      "mean_faithfulness": 0.5,
+      "mean_answer_relevance_score": 5.0,
+      "mean_faithfulness_score": 3.0,
       "count": 3
     }
   }
