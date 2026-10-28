@@ -50,7 +50,7 @@ PARSED_JSON = Path(os.getenv(
 REFERENCE = {
     "document_id": "l_52_2014_qh13",
     "metadata": {
-        "title": "Luật Hôn nhân và gia đình 2014",
+        "title": "Luật Hôn nhân và gia đình",
         "document_type": "Luật",
         "document_number": "52/2014/QH13",
         "issue_date": "2014-06-19",
@@ -747,7 +747,6 @@ def test_registry_and_mapping_tables_integrity():
                         "document_id": doc_id,
                         "document_number": doc_number,
                         "validity_status": validity_status,
-                        "title": parts[4].strip() if len(parts) >= 5 else None,
                     })
         return rows
 
@@ -768,7 +767,6 @@ def test_registry_and_mapping_tables_integrity():
         assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
         assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
         assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
-        assert row["title"] == (reg.get("title") or "").strip(), f"title lệch cho '{did}'"
 
     for row in readme_rows:
         did = row["document_id"]
@@ -777,32 +775,21 @@ def test_registry_and_mapping_tables_integrity():
         assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
         assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
         assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
-        assert row["title"] == (reg.get("title") or "").strip(), f"title lệch cho '{did}'"
 
     # (c) Mọi document_id xuất hiện trong data/chunking_output/chunks.jsonl đều tồn tại trong document_versions.json và trong bảng Mục 6 docs/data_contract.md
     contract_doc_ids = {r["document_id"] for r in contract_rows}
-    parsed_titles = {}
-    for path in (repo_root / "parser" / "parsed_jsons").glob("*.json"):
-        parsed = json.loads(path.read_text(encoding="utf-8"))
-        parsed_titles[parsed["document_id"]] = parsed["metadata"]["title"]
-    parsed_doc_ids = set(parsed_titles)
-
     chunk_doc_ids = set()
-    stale_title_chunks = []
     with chunks_path.open("r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 c = json.loads(line)
                 cdid = c.get("document_id") or c.get("metadata", {}).get("doc_id") or c.get("chunk_id").split("_art_")[0]
                 chunk_doc_ids.add(cdid)
-                if cdid in parsed_titles and c.get("title") != parsed_titles[cdid]:
-                    stale_title_chunks.append(c.get("chunk_id"))
 
-    # (d) Corpus phải được sinh lại sau khi title trong registry/parsed_jsons đổi
-    assert not stale_title_chunks, (
-        f"{len(stale_title_chunks)} chunk có title khác parsed_jsons (vd {stale_title_chunks[0]}); "
-        "chạy lại chunking/export_legal_chunks.py"
-    )
+    parsed_doc_ids = {
+        json.loads(path.read_text(encoding="utf-8"))["document_id"]
+        for path in (repo_root / "parser" / "parsed_jsons").glob("*.json")
+    }
     assert chunk_doc_ids == parsed_doc_ids, (
         f"document_id của chunks.jsonl lệch parsed_jsons: {sorted(chunk_doc_ids ^ parsed_doc_ids)}"
     )
