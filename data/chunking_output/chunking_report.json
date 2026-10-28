@@ -1,7 +1,7 @@
 {
-  "num_documents": 21,
-  "num_parents": 923,
-  "num_children": 2011,
+  "num_documents": 23,
+  "num_parents": 965,
+  "num_children": 2070,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -30,6 +30,8 @@
     "parser/parsed_jsons/nq_01_2024_nq_hdtp.json",
     "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
     "parser/parsed_jsons/tt_04_2020_tt_btp.json",
+    "parser/parsed_jsons/tt_07_2001_tt_btp.json",
+    "parser/parsed_jsons/tt_07_2002_tt_btp.json",
     "parser/parsed_jsons/tt_15_2015_tt_btp.json",
     "parser/parsed_jsons/tt_30_2019_tt_byt.json",
     "parser/parsed_jsons/tt_32_2016_tt_byt.json",
@@ -167,6 +169,24 @@
       "num_children": 130
     },
     {
+      "source": "parser/parsed_jsons/tt_07_2001_tt_btp.json",
+      "document_id": "tt_07_2001_tt_btp",
+      "document_number": "07/2001/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "num_articles": 7,
+      "num_parents": 7,
+      "num_children": 9
+    },
+    {
+      "source": "parser/parsed_jsons/tt_07_2002_tt_btp.json",
+      "document_id": "tt_07_2002_tt_btp",
+      "document_number": "07/2002/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "num_articles": 15,
+      "num_parents": 35,
+      "num_children": 50
+    },
+    {
       "source": "parser/parsed_jsons/tt_15_2015_tt_btp.json",
       "document_id": "tt_15_2015_tt_btp",
       "document_number": "15/2015/TT-BTP",
@@ -233,6 +253,6 @@
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
     "validity_status 'Không xác định' ở 1 văn bản: ['tt_30_2019_tt_byt.json']",
-    "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 4 Điều: ['nd_123_2015_nd_cp.json Điều 10', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_15_2015_tt_btp.json Điều 6']"
+    "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 5 Điều: ['nd_123_2015_nd_cp.json Điều 10', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_07_2002_tt_btp.json Điều 2', 'tt_15_2015_tt_btp.json Điều 6']"
   ]
 }
