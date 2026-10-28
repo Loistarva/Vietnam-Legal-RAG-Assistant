@@ -9,8 +9,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CHUNKING_DIR = ROOT / "chunking"
 SOURCE_DIR = ROOT / "parser" / "parsed_jsons"
-CORRECTED_TT02A = ROOT / "data" / "parser_validated" / "tt_02a_2015_tt_btp.json"
-MISLABELED_TT02A_SOURCE = "nd_158_2005_nd_cp.json"
 OUTPUT = ROOT / "embedding" / "data" / "all_legal_chunks.json"
 CONFIG = {
     "parent_max_chars": 1500,
@@ -37,7 +35,7 @@ def main() -> None:
     seen_ids = set()
     source_id_counts: dict[str, int] = {}
     for source in files:
-        chunk_source = CORRECTED_TT02A if source.name == MISLABELED_TT02A_SOURCE else source
+        chunk_source = source
         document = json.loads(chunk_source.read_text(encoding="utf-8-sig"))
         result = chunk_legal_document(document, CONFIG)
         chunks = result.get_qdrant_payloads()
