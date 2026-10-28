@@ -28,7 +28,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_002",
@@ -59,7 +60,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_003",
@@ -90,7 +92,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_004",
@@ -121,7 +124,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_005",
@@ -152,7 +156,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_006",
@@ -183,7 +188,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_007",
@@ -217,7 +223,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_008",
@@ -251,7 +258,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_009",
@@ -282,7 +290,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_010",
@@ -313,7 +322,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_011",
@@ -343,7 +353,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_012",
@@ -374,7 +385,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_013",
@@ -404,7 +416,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_014",
@@ -435,7 +448,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_015",
@@ -465,7 +479,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_016",
@@ -497,7 +512,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_017",
@@ -529,7 +545,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_018",
@@ -569,7 +586,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_019",
@@ -609,7 +627,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_020",
@@ -641,7 +660,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_021",
@@ -673,7 +693,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_022",
@@ -705,7 +726,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_023",
@@ -737,7 +759,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_024",
@@ -767,7 +790,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_025",
@@ -799,7 +823,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_026",
@@ -830,7 +855,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_027",
@@ -864,7 +890,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_028",
@@ -896,7 +923,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_029",
@@ -928,7 +956,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_030",
@@ -960,7 +989,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_031",
@@ -992,7 +1022,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_032",
@@ -1023,7 +1054,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_033",
@@ -1053,7 +1085,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_034",
@@ -1084,7 +1117,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_035",
@@ -1117,7 +1151,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_036",
@@ -1153,7 +1188,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_037",
@@ -1181,7 +1217,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_038",
@@ -1209,7 +1246,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_039",
@@ -1237,7 +1275,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_040",
@@ -1265,7 +1304,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_041",
@@ -1293,7 +1333,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_042",
@@ -1321,7 +1362,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_043",
@@ -1349,7 +1391,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_044",
@@ -1377,7 +1420,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_045",
@@ -1405,7 +1449,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_046",
@@ -1433,7 +1478,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_047",
@@ -1461,7 +1507,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_048",
@@ -1489,7 +1536,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_049",
@@ -1517,7 +1565,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_050",
@@ -1545,7 +1594,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_051",
@@ -1571,7 +1621,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_052",
@@ -1597,7 +1648,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_053",
@@ -1623,7 +1675,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_054",
@@ -1649,7 +1702,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_055",
@@ -1675,7 +1729,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_056",
@@ -1701,7 +1756,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_057",
@@ -1727,7 +1783,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_058",
@@ -1753,7 +1810,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_059",
@@ -1779,7 +1837,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_060",
@@ -1805,7 +1864,8 @@
     "verified_at": null,
     "context_id_provenance": "pending_chunking",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "draft_answer_unreviewed"
+    "answer_kind": "draft_answer_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_061",
@@ -1835,7 +1895,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_062",
@@ -1869,7 +1930,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_063",
@@ -1903,7 +1965,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_064",
@@ -1935,7 +1998,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_065",
@@ -1969,7 +2033,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_066",
@@ -1999,7 +2064,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_067",
@@ -2030,7 +2096,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_068",
@@ -2061,7 +2128,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_069",
@@ -2092,7 +2160,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_070",
@@ -2124,7 +2193,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_071",
@@ -2157,7 +2227,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_072",
@@ -2189,7 +2260,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_073",
@@ -2219,7 +2291,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_074",
@@ -2250,7 +2323,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_075",
@@ -2280,7 +2354,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_076",
@@ -2311,7 +2386,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_077",
@@ -2341,7 +2417,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_078",
@@ -2371,7 +2448,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_079",
@@ -2402,7 +2480,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_080",
@@ -2432,7 +2511,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_081",
@@ -2462,7 +2542,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_082",
@@ -2492,7 +2573,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_083",
@@ -2522,7 +2604,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_084",
@@ -2554,7 +2637,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_085",
@@ -2585,7 +2669,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_086",
@@ -2616,7 +2701,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_087",
@@ -2647,7 +2733,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_088",
@@ -2679,7 +2766,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_089",
@@ -2711,7 +2799,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_090",
@@ -2742,7 +2831,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_091",
@@ -2772,7 +2862,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_092",
@@ -2803,7 +2894,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_093",
@@ -2835,7 +2927,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_094",
@@ -2866,7 +2959,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_095",
@@ -2897,7 +2991,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_096",
@@ -2927,7 +3022,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_097",
@@ -2961,7 +3057,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_098",
@@ -2993,7 +3090,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_099",
@@ -3026,7 +3124,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_100",
@@ -3057,7 +3156,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_101",
@@ -3090,7 +3190,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_102",
@@ -3121,7 +3222,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_103",
@@ -3152,7 +3254,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_104",
@@ -3185,7 +3288,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_105",
@@ -3218,7 +3322,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_106",
@@ -3250,7 +3355,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_107",
@@ -3280,7 +3386,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_108",
@@ -3311,7 +3418,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_109",
@@ -3342,7 +3450,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_110",
@@ -3373,7 +3482,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_111",
@@ -3405,7 +3515,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_112",
@@ -3435,7 +3546,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_113",
@@ -3466,7 +3578,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_114",
@@ -3496,7 +3609,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_115",
@@ -3526,7 +3640,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_116",
@@ -3558,7 +3673,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_117",
@@ -3589,7 +3705,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_118",
@@ -3619,7 +3736,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_119",
@@ -3653,7 +3771,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_120",
@@ -3684,7 +3803,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_121",
@@ -3715,7 +3835,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_122",
@@ -3748,7 +3869,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_123",
@@ -3778,7 +3900,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_124",
@@ -3808,7 +3931,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_125",
@@ -3838,7 +3962,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_126",
@@ -3871,7 +3996,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_127",
@@ -3902,7 +4028,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_128",
@@ -3935,7 +4062,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_129",
@@ -3968,7 +4096,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_130",
@@ -4002,7 +4131,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_131",
@@ -4033,7 +4163,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_132",
@@ -4065,7 +4196,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_133",
@@ -4098,7 +4230,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_134",
@@ -4128,7 +4261,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_135",
@@ -4160,7 +4294,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_136",
@@ -4193,7 +4328,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_137",
@@ -4225,7 +4361,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_138",
@@ -4257,7 +4394,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_139",
@@ -4288,7 +4426,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_140",
@@ -4318,7 +4457,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_141",
@@ -4350,7 +4490,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_142",
@@ -4382,7 +4523,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_143",
@@ -4413,7 +4555,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_144",
@@ -4447,7 +4590,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_145",
@@ -4478,7 +4622,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_146",
@@ -4510,7 +4655,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_147",
@@ -4542,7 +4688,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_148",
@@ -4573,7 +4720,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_149",
@@ -4604,7 +4752,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_150",
@@ -4635,7 +4784,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_151",
@@ -4666,7 +4816,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_152",
@@ -4696,7 +4847,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_153",
@@ -4729,7 +4881,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_154",
@@ -4759,7 +4912,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_155",
@@ -4793,7 +4947,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_156",
@@ -4825,7 +4980,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_157",
@@ -4859,7 +5015,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_158",
@@ -4893,7 +5050,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_159",
@@ -4924,7 +5082,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_160",
@@ -4954,7 +5113,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_161",
@@ -4985,7 +5145,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_162",
@@ -5017,7 +5178,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_163",
@@ -5049,7 +5211,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_164",
@@ -5080,7 +5243,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_165",
@@ -5110,7 +5274,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_166",
@@ -5140,7 +5305,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_167",
@@ -5171,7 +5337,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_168",
@@ -5201,7 +5368,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_169",
@@ -5231,7 +5399,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_170",
@@ -5261,7 +5430,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_171",
@@ -5291,7 +5461,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_172",
@@ -5321,7 +5492,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_173",
@@ -5352,7 +5524,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_174",
@@ -5383,7 +5556,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_175",
@@ -5413,7 +5587,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_176",
@@ -5444,7 +5619,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_177",
@@ -5474,7 +5650,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_178",
@@ -5508,7 +5685,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_179",
@@ -5540,7 +5718,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_180",
@@ -5570,7 +5749,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_181",
@@ -5603,7 +5783,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_182",
@@ -5635,7 +5816,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_183",
@@ -5667,7 +5849,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_184",
@@ -5697,7 +5880,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_185",
@@ -5728,7 +5912,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_186",
@@ -5759,7 +5944,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_187",
@@ -5791,7 +5977,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_188",
@@ -5822,7 +6009,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_189",
@@ -5853,7 +6041,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_190",
@@ -5883,7 +6072,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_191",
@@ -5915,7 +6105,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_192",
@@ -5947,7 +6138,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_193",
@@ -5978,7 +6170,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_194",
@@ -6009,7 +6202,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_195",
@@ -6040,7 +6234,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_196",
@@ -6070,7 +6265,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_197",
@@ -6101,7 +6297,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_198",
@@ -6133,7 +6330,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_199",
@@ -6164,7 +6362,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_200",
@@ -6196,7 +6395,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_201",
@@ -6228,7 +6428,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_202",
@@ -6259,7 +6460,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_203",
@@ -6291,7 +6493,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_204",
@@ -6322,7 +6525,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_205",
@@ -6352,7 +6556,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_206",
@@ -6383,7 +6588,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_207",
@@ -6414,7 +6620,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_208",
@@ -6446,7 +6653,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_209",
@@ -6479,7 +6687,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_210",
@@ -6511,7 +6720,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_211",
@@ -6542,7 +6752,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_212",
@@ -6576,7 +6787,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_213",
@@ -6609,7 +6821,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_214",
@@ -6643,7 +6856,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_215",
@@ -6674,7 +6888,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_216",
@@ -6704,7 +6919,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_217",
@@ -6738,7 +6954,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_218",
@@ -6771,7 +6988,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_219",
@@ -6804,7 +7022,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_220",
@@ -6835,7 +7054,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_221",
@@ -6866,7 +7086,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_222",
@@ -6896,7 +7117,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_223",
@@ -6930,7 +7152,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_224",
@@ -6961,7 +7184,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_225",
@@ -6992,7 +7216,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_226",
@@ -7023,7 +7248,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_227",
@@ -7056,7 +7282,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_228",
@@ -7088,7 +7315,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_229",
@@ -7120,7 +7348,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_230",
@@ -7150,7 +7379,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_231",
@@ -7182,7 +7412,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_232",
@@ -7214,7 +7445,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_233",
@@ -7245,7 +7477,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_234",
@@ -7277,7 +7510,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_235",
@@ -7309,7 +7543,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_236",
@@ -7339,7 +7574,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_237",
@@ -7369,7 +7605,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_238",
@@ -7403,7 +7640,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_239",
@@ -7437,7 +7675,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_240",
@@ -7467,7 +7706,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_241",
@@ -7499,7 +7739,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_242",
@@ -7531,7 +7772,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_243",
@@ -7564,7 +7806,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_244",
@@ -7597,7 +7840,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_245",
@@ -7628,7 +7872,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_246",
@@ -7661,7 +7906,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_247",
@@ -7691,7 +7937,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_248",
@@ -7725,7 +7972,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_249",
@@ -7759,7 +8007,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_250",
@@ -7791,7 +8040,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_251",
@@ -7824,7 +8074,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_252",
@@ -7855,7 +8106,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_253",
@@ -7888,7 +8140,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_254",
@@ -7920,7 +8173,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_255",
@@ -7955,7 +8209,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_256",
@@ -7989,7 +8244,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_257",
@@ -8019,7 +8275,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_258",
@@ -8050,7 +8307,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_259",
@@ -8081,7 +8339,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_260",
@@ -8115,7 +8374,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_261",
@@ -8147,7 +8407,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_262",
@@ -8178,7 +8439,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_263",
@@ -8210,7 +8472,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_264",
@@ -8240,7 +8503,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_265",
@@ -8275,7 +8539,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_266",
@@ -8308,7 +8573,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_267",
@@ -8340,7 +8606,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_268",
@@ -8372,7 +8639,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_269",
@@ -8405,7 +8673,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_270",
@@ -8438,7 +8707,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_271",
@@ -8468,7 +8738,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_272",
@@ -8499,7 +8770,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_273",
@@ -8530,7 +8802,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_274",
@@ -8562,7 +8835,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_275",
@@ -8593,7 +8867,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_276",
@@ -8633,7 +8908,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_277",
@@ -8672,7 +8948,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_278",
@@ -8712,7 +8989,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_279",
@@ -8751,7 +9029,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_280",
@@ -8790,7 +9069,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_281",
@@ -8828,7 +9108,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_282",
@@ -8868,7 +9149,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_283",
@@ -8906,7 +9188,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_284",
@@ -8945,7 +9228,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_285",
@@ -8985,7 +9269,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_286",
@@ -9025,7 +9310,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_287",
@@ -9065,7 +9351,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_288",
@@ -9105,7 +9392,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_289",
@@ -9144,7 +9432,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_290",
@@ -9184,7 +9473,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_291",
@@ -9223,7 +9513,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_292",
@@ -9263,7 +9554,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_293",
@@ -9303,7 +9595,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_294",
@@ -9343,7 +9636,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_295",
@@ -9383,7 +9677,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_296",
@@ -9423,7 +9718,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_297",
@@ -9463,7 +9759,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_298",
@@ -9503,7 +9800,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_299",
@@ -9541,7 +9839,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   },
   {
     "id": "HN_300",
@@ -9579,6 +9878,7 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": false,
-    "answer_kind": "extracted_article_text_unreviewed"
+    "answer_kind": "extracted_article_text_unreviewed",
+    "gold_clause_ids": []
   }
 ]
