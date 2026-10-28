@@ -10,7 +10,7 @@ from pathlib import Path
 from vector_store import EmbeddingService, VectorStore, load_chunks, chunk_file_sha256
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CHUNKS = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_QUERY = "Điều kiện về độ tuổi kết hôn được quy định như thế nào?"
 
 

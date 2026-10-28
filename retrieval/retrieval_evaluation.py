@@ -13,7 +13,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DEV = ROOT / "data" / "benchmark" / "queries_dev.json"
-DEFAULT_CHUNKS = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_RESULTS = ROOT / "retrieval" / "results"
 METHODS = ("bm25", "dense", "hybrid")
 

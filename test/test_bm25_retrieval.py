@@ -58,7 +58,7 @@ class FakeBuildClient:
 
 class BM25RetrievalTest(unittest.TestCase):
     def test_chunk_loader_and_elasticsearch_document_use_segmented_content_field(self):
-        fixture = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+        fixture = ROOT / "data" / "chunking_output" / "chunks.jsonl"
         source_chunk = load_chunks(fixture)[0]
         document = load_es_chunks(fixture)[0]
         self.assertTrue(source_chunk["seg_text"])
@@ -68,7 +68,7 @@ class BM25RetrievalTest(unittest.TestCase):
         self.assertEqual(document["metadata"], source_chunk["metadata"])
 
     def test_build_function_loads_chunks_creates_index_and_returns_stats(self):
-        fixture = ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json"
+        fixture = ROOT / "data" / "chunking_output" / "chunks.jsonl"
         expected = len(load_chunks(fixture))
         client = FakeBuildClient(expected)
 

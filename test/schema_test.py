@@ -257,9 +257,7 @@ def test_corpus_chunks_jsonl():
     base_dir = Path(__file__).resolve().parent.parent
     chunks_file = base_dir / "data" / "chunking_output" / "chunks.jsonl"
     schema_file = base_dir / "schemas" / "chunk_payload_schema.json"
-    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json")) + list(
-        base_dir.glob("data/parser_validated/*.json")
-    )
+    parsed_files = list(base_dir.glob("parser/parsed_jsons/*.json"))
 
     assert chunks_file.exists(), f"Không tìm thấy file corpus: {chunks_file}"
     assert schema_file.exists(), f"Không tìm thấy file schema: {schema_file}"

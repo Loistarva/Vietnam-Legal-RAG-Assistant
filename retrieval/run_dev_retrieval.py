@@ -93,7 +93,7 @@ def main() -> int:
     parser.add_argument("--queries", type=Path, default=ROOT / "data" / "benchmark" / "queries_dev.json",
                         help='Benchmark query file: JSON list of objects with id and question')
     parser.add_argument("--chunks", type=Path,
-                        default=ROOT / "embedding" / "data" / "han_gia_dinh_smoke_chunks.json")
+                        default=ROOT / "data" / "chunking_output" / "chunks.jsonl")
     parser.add_argument("--model", default=DEFAULT_MODEL_NAME,
                         choices=["AITeamVN/Vietnamese_Embedding", "bkai-foundation-models/vietnamese-bi-encoder", "BAAI/bge-m3"])
     parser.add_argument("--collection", default=None,
