@@ -58,4 +58,4 @@ Tham số chỉ được tuning trên Dev set. Test set đã đóng băng và ch
 
 ## Kết quả hiện tại
 
-Task 4 đã chạy lại trên 285 câu Dev với corpus 1.159 chunk, dùng `gold_id_proposals_300.json` làm nhãn tạm. Ở cấp chunk, Hybrid dẫn đầu (Recall@10 0.7407); ở cấp Điều, Dense dẫn đầu (Recall@10 0.7846). Phần lớn nhãn proposal chưa được xác minh, nên các số này chỉ mang tính thử nghiệm. Xem [báo cáo Task 4](docs/retrieval_report.md). Hybrid + Reranker chưa có số đo trên Dev set với model thật.
+Task 4 đã chạy lại trên 285 câu Dev với corpus 1.159 chunk, dùng nhãn candidate trong `data/benchmark/ground_truth.json` làm nhãn tạm. Ở cấp chunk, Hybrid dẫn đầu (Recall@10 0.7407); ở cấp Điều, Dense dẫn đầu (Recall@10 0.7846). Phần lớn nhãn proposal chưa được xác minh, nên các số này chỉ mang tính thử nghiệm. Xem [báo cáo Task 4](docs/retrieval_report.md). Hybrid + Reranker chưa có số đo trên Dev set với model thật.

@@ -2,7 +2,7 @@
 
 ## Lần chạy mới: corpus hiện tại và proposal 300
 
-Ngày 2026-10-18, Task 4 được chạy lại trên 285 câu Dev với `data/chunking_output/chunks.jsonl` (1.159 chunk) và `data/benchmark/gold_id_proposals_300.json` làm nhãn tạm. Kết quả được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; lần chạy này không ghi đè các kết quả snapshot cũ bên dưới.
+Ngày 2026-10-18, Task 4 được chạy lại trên 285 câu Dev với `data/chunking_output/chunks.jsonl` (1.159 chunk) và nhãn candidate trong `data/benchmark/ground_truth.json` làm nhãn tạm. Kết quả được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; lần chạy này không ghi đè các kết quả snapshot cũ bên dưới.
 
 | Cấp nhãn | Phương pháp tốt nhất | Recall@10 | MRR@10 | nDCG@10 | Precision@10 |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -42,8 +42,7 @@ Các metric trong cả hai bảng là trung bình macro trên **267 câu có nh�
 - Dev: `data/benchmark/queries_dev.json` (285 câu, trường truy vấn `question`).
 - Corpus dùng khi chạy benchmark: snapshot 1.175 chunk ID duy nhất (không còn là corpus hiện tại); corpus hiện tại có 1.159 chunk ID duy nhất.
 - BM25: Elasticsearch 9.5.3, index riêng `task4-legal-dev-1175`.
-- Dense: `bkai-foundation-models/vietnamese-bi-encoder` (768 chiều), Qdrant local, collection riêng `task4-bkai-legal-1175`.
-- Hybrid: Reciprocal Rank Fusion, candidate depth 50, RRF k=60, Top-10.
+- Dense: `bkai-foundation-models/vietnamese-bi-encoder` (768 chiều), Qdrant local, collection riêng `task4-bkai-legal-1175`.\n- Hybrid: Reciprocal Rank Fusion, candidate depth 50, RRF k=60, Top-10.
 - Mỗi phương pháp tạo 2.850 kết quả (10 kết quả × 285 câu hỏi); JSON nằm trong `retrieval/results/`.
 - Nhãn Điều lấy từ `gold_article_ids`; nhãn chunk dùng `gold_context_ids` đã xác nhận nếu có, còn lại tạm đối chiếu theo `candidate_context_ids` trong `data/benchmark/ground_truth.json`.
 
