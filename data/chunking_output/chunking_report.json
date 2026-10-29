@@ -1,7 +1,7 @@
 {
-  "num_documents": 23,
-  "num_parents": 965,
-  "num_children": 2070,
+  "num_documents": 24,
+  "num_parents": 1017,
+  "num_children": 2164,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -19,6 +19,7 @@
     "parser/parsed_jsons/l_21_lct_hdnn7.json",
     "parser/parsed_jsons/l_22_2000_qh10.json",
     "parser/parsed_jsons/l_52_2014_qh13.json",
+    "parser/parsed_jsons/l_81_2025_qh15.json",
     "parser/parsed_jsons/nd_10_2015_nd_cp.json",
     "parser/parsed_jsons/nd_123_2015_nd_cp.json",
     "parser/parsed_jsons/nd_126_2014_nd_cp.json",
@@ -68,6 +69,15 @@
       "num_articles": 133,
       "num_parents": 139,
       "num_children": 336
+    },
+    {
+      "source": "parser/parsed_jsons/l_81_2025_qh15.json",
+      "document_id": "l_81_2025_qh15",
+      "document_number": "81/2025/QH15",
+      "validity_status": "Còn hiệu lực",
+      "num_articles": 3,
+      "num_parents": 54,
+      "num_children": 94
     },
     {
       "source": "parser/parsed_jsons/nd_10_2015_nd_cp.json",
@@ -173,8 +183,8 @@
       "document_id": "tt_07_2001_tt_btp",
       "document_number": "07/2001/TT-BTP",
       "validity_status": "Hết hiệu lực",
-      "num_articles": 7,
-      "num_parents": 7,
+      "num_articles": 5,
+      "num_parents": 5,
       "num_children": 9
     },
     {
@@ -253,6 +263,7 @@
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
     "validity_status 'Không xác định' ở 1 văn bản: ['tt_30_2019_tt_byt.json']",
+    "1 mảnh dưới 20 từ của Khoản bị tách, không gộp được trong giới hạn: ['l_81_2025_qh15_art_2_clause_11_chunk_20']",
     "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 5 Điều: ['nd_123_2015_nd_cp.json Điều 10', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_07_2002_tt_btp.json Điều 2', 'tt_15_2015_tt_btp.json Điều 6']"
   ]
 }
