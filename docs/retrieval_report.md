@@ -2,7 +2,7 @@
 
 ## Lần chạy mới: corpus hiện tại và proposal 300
 
-Ngày 2026-10-18, Task 4 được chạy lại trên 285 câu Dev với `data/chunking_output/chunks.jsonl` (1.159 chunk) và `data/benchmark/gold_id_proposals_300.json` làm nhãn tạm. Kết quả được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; lần chạy này không ghi đè các kết quả snapshot cũ bên dưới.
+Ngày 2026-10-18, Task 4 được chạy lại trên 285 câu Dev với `data/chunking_output/chunks.jsonl` (1.159 chunk) và `gold_id_proposals_300.json` làm nhãn tạm (file này đã xóa ở 074eb94, proposal được gộp vào `candidate_context_ids` của `data/benchmark/ground_truth.json`). Kết quả được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; lần chạy này không ghi đè các kết quả snapshot cũ bên dưới.
 
 | Cấp nhãn | Phương pháp tốt nhất | Recall@10 | MRR@10 | nDCG@10 | Precision@10 |
 | --- | --- | ---: | ---: | ---: | ---: |

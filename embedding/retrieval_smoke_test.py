@@ -1,15 +1,35 @@
-"""Run chunk JSON -> SentenceTransformer -> Qdrant -> Top-K retrieval."""
+"""Run chunk JSON/JSONL -> DenseRetriever -> LegalVectorStore -> Top-K retrieval."""
 from __future__ import annotations
 
 import argparse
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
-from vector_store import EmbeddingService, VectorStore, load_chunks, chunk_file_sha256
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from embedding.dense_retriever import (
+    DEFAULT_MODEL_NAME,
+    DenseRetriever,
+    get_model_spec,
+)
+from embedding.vector_store import (
+    LegalVectorStore,
+    chunk_file_sha256,
+    load_chunks,
+)
+
 DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_QUERY = "Điều kiện về độ tuổi kết hôn được quy định như thế nào?"
 
@@ -27,116 +47,142 @@ def recall_at_k(ranked_ids: list[str], relevant_ids: set[str], k: int) -> float:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS)
-    parser.add_argument("--model", default="bkai-foundation-models/vietnamese-bi-encoder",
-                        choices=["AITeamVN/Vietnamese_Embedding", "bkai-foundation-models/vietnamese-bi-encoder", "BAAI/bge-m3"])
-    parser.add_argument("--query", default=DEFAULT_QUERY)
-    parser.add_argument("--top-k", type=int, default=5)
-    parser.add_argument("--batch-size", type=int, default=32)
-    parser.add_argument("--device", default=None)
-    parser.add_argument("--collection", default=None)
-    parser.add_argument("--ground-truth", type=Path, default=None,
-                        help='JSON list: [{"query":"...", "relevant_chunk_ids":["..."]}]')
-    parser.add_argument("--results", type=Path, default=None,
-                        help="Optional path to save machine-readable run measurements")
+    parser.add_argument(
+        "--chunks",
+        type=Path,
+        default=DEFAULT_CHUNKS,
+        help="Đường dẫn file chunks JSON/JSONL (mặc định: data/chunking_output/chunks.jsonl)",
+    )
+    parser.add_argument(
+        "--model",
+        default=DEFAULT_MODEL_NAME,
+        choices=[
+            "AITeamVN/Vietnamese_Embedding",
+            "bkai-foundation-models/vietnamese-bi-encoder",
+            "BAAI/bge-m3",
+        ],
+        help="Model Dense Embedding",
+    )
+    parser.add_argument("--query", default=DEFAULT_QUERY, help="Câu hỏi truy vấn mẫu")
+    parser.add_argument("--top-k", type=int, default=5, help="Số lượng kết quả Top-K")
+    parser.add_argument("--batch-size", type=int, default=32, help="Batch size khi tạo embedding")
+    parser.add_argument("--device", default=None, help="Device (cpu/cuda)")
+    parser.add_argument("--collection", default=None, help="Tên Qdrant collection")
+    parser.add_argument(
+        "--mock",
+        action="store_true",
+        help="Chạy ở chế độ Mock không tải model thật và dùng in-memory Qdrant",
+    )
+    parser.add_argument(
+        "--ground-truth",
+        type=Path,
+        default=None,
+        help='JSON list: [{"query":"...", "relevant_chunk_ids":["..."]}]',
+    )
+    parser.add_argument(
+        "--results",
+        type=Path,
+        default=None,
+        help="Optional path to save machine-readable run measurements",
+    )
     args = parser.parse_args()
+
     try:
         chunks = load_chunks(args.chunks)
         source_hash = chunk_file_sha256(args.chunks)
         print(f"Chunks: {len(chunks)} | SHA-256: {source_hash}")
-        service = EmbeddingService(args.model, device=args.device, batch_size=args.batch_size)
-        print(f"Model load: {service.load_seconds:.3f}s | dimension: {service.dimension} | max tokens: {service.model.max_seq_length}")
-        texts = [chunk["embed_text"] for chunk in chunks]
-        vectors = service.embed_documents(texts)
-        embed_seconds = service.last_embedding_seconds
-        print(f"Embedding: {embed_seconds:.3f}s | {len(chunks) / max(embed_seconds, 1e-12):.2f} chunks/s")
+
+        spec = get_model_spec(args.model)
+        dim = spec["dimension"]
+        use_word_seg = spec["use_word_segmentation"]
+
         collection = args.collection or collection_name_for(args.model, source_hash)
-        store = VectorStore(collection, service.dimension)
-        store.add_chunks(chunks, vectors)
-        point_count = store.count()
-        if point_count != len(chunks):
-            raise RuntimeError(
-                f"Collection {collection} có {point_count} points sau khi nạp, "
-                f"nhưng dataset hiện tại có {len(chunks)} chunks. "
-                "Dùng collection riêng cho dataset này; không tự động xóa dữ liệu cũ."
-            )
-        print(f"Qdrant collection: {collection} | points: {point_count}")
-        query_vector = service.embed_query(args.query)
-        query_embedding_seconds = service.last_query_embedding_seconds
-        hits = store.search(query_vector, args.top_k)
-        query_latency = query_embedding_seconds + store.last_search_seconds
-        print(f"Query embedding: {query_embedding_seconds * 1000:.2f} ms | Qdrant search: {store.last_search_seconds * 1000:.2f} ms | query latency (embedding + search): {query_latency * 1000:.2f} ms")
-        if not hits:
-            raise RuntimeError("Qdrant không trả về kết quả; kiểm tra collection và dữ liệu đã nạp")
+        qdrant_path = None if args.mock else str(ROOT / "data" / "indexes" / "qdrant_storage")
+
+        store = LegalVectorStore(
+            collection_name=collection,
+            dimension=dim,
+            storage_path=qdrant_path,
+            use_qdrant=not args.mock,
+            create_if_missing=True,
+        )
+
+        retriever = DenseRetriever(
+            vector_store=store,
+            model_name=args.model,
+            use_mock=args.mock,
+            use_word_segmentation=use_word_seg,
+            batch_size=args.batch_size,
+        )
+
+        t0 = time.perf_counter()
+        indexed_count = retriever.index_chunks(chunks)
+        embed_seconds = time.perf_counter() - t0
+        print(f"Index created: {indexed_count} chunks in {embed_seconds:.3f}s ({indexed_count / max(embed_seconds, 1e-12):.2f} chunks/s)")
+
+        t_search_0 = time.perf_counter()
+        hits = retriever.search(args.query, top_k=args.top_k)
+        total_latency_ms = (time.perf_counter() - t_search_0) * 1000.0
+
+        latency = retriever.last_latency_ms
+        print(
+            f"Query latency: encode={latency['query_encode_ms']:.2f}ms | "
+            f"search={latency['vector_search_ms']:.2f}ms | "
+            f"total={total_latency_ms:.2f}ms"
+        )
+
+        if not hits and len(chunks) > 0:
+            raise RuntimeError("Retriever không trả về kết quả; kiểm tra collection và dữ liệu đã nạp")
+
         for rank, hit in enumerate(hits, 1):
-            if not hit["text"] or not isinstance(hit["metadata"], dict):
-                raise RuntimeError(f"Payload Top-K thiếu text/metadata: {hit['chunk_id']}")
+            chunk_txt = hit.get("chunk_text") or ""
             print(f"\n#{rank} {hit['chunk_id']} | score={hit['score']:.5f}")
-            print(f"Metadata: {json.dumps(hit['metadata'], ensure_ascii=False)}")
-            print(f"Text: {hit['text']}")
+            print(f"Metadata: {json.dumps(hit.get('metadata', {}), ensure_ascii=False)}")
+            print(f"Chunk text: {chunk_txt[:120]}...")
+
         run_result = {
             "model": args.model,
             "collection": collection,
             "chunk_count": len(chunks),
             "chunk_file_sha256": source_hash,
-            "dimension": service.dimension,
-            "load_seconds": service.load_seconds,
-            "embedding_seconds": embed_seconds,
-            "chunks_per_second": len(chunks) / max(embed_seconds, 1e-12),
-            "vector_bytes_float32_estimate": len(chunks) * service.dimension * 4,
-            "query_embedding_seconds": query_embedding_seconds,
-            "qdrant_search_seconds": store.last_search_seconds,
-            "query_embedding_plus_search_seconds": query_latency,
-            "query_latency_scope": "query embedding + Qdrant vector search; excludes model loading, document embedding, reranking, and LLM",
+            "dimension": dim,
+            "mock_mode": args.mock,
+            "embedding_seconds": round(embed_seconds, 3),
+            "throughput_chunks_per_sec": round(indexed_count / max(embed_seconds, 1e-12), 2),
+            "query_latency_ms": latency,
             "top_k": hits,
         }
+
         if args.ground_truth:
-            try:
-                judgments = json.loads(args.ground_truth.read_text(encoding="utf-8-sig"))
-            except (OSError, json.JSONDecodeError) as exc:
-                raise ValueError(f"Không đọc được ground truth {args.ground_truth}: {exc}") from exc
+            judgments = json.loads(args.ground_truth.read_text(encoding="utf-8-sig"))
             if not isinstance(judgments, list) or not judgments:
                 raise ValueError("Ground truth phải là list không rỗng")
-            dataset_chunk_ids = {chunk["chunk_id"] for chunk in chunks}
+            dataset_chunk_ids = {c["chunk_id"] for c in chunks}
             recall_scores = []
             reciprocal_ranks = []
-            query_encode_total = 0.0
-            qdrant_search_total = 0.0
-            for index, judgment in enumerate(judgments, 1):
-                if not isinstance(judgment, dict):
-                    raise ValueError(f"Ground truth record #{index} phải là object")
-                q = judgment.get("query")
-                relevant = judgment.get("relevant_chunk_ids")
-                if (not isinstance(q, str) or not q.strip() or not isinstance(relevant, list)
-                        or not relevant or not all(isinstance(cid, str) and cid for cid in relevant)):
-                    raise ValueError(f"Ground truth record #{index} cần query và relevant_chunk_ids không rỗng")
-                relevant_ids = set(relevant)
-                unknown_ids = relevant_ids - dataset_chunk_ids
-                if unknown_ids:
-                    raise ValueError(
-                        f"Ground truth record #{index} tham chiếu chunk không có trong dataset: "
-                        f"{', '.join(sorted(unknown_ids))}"
-                    )
-                q_vector = service.embed_query(q)
-                query_encode_total += service.last_query_embedding_seconds
-                ranked = store.search(q_vector, 10)
-                qdrant_search_total += store.last_search_seconds
-                ranked_ids = [item["chunk_id"] for item in ranked]
-                recall_scores.append(recall_at_k(ranked_ids, relevant_ids, 5))
-                reciprocal_ranks.append(next((1 / rank for rank, chunk_id in enumerate(ranked_ids, 1)
-                                              if rank <= 10 and chunk_id in relevant_ids), 0.0))
-            metrics = {"query_count": len(judgments),
-                       "recall_at_5": sum(recall_scores) / len(recall_scores),
-                       "mrr_at_10": sum(reciprocal_ranks) / len(reciprocal_ranks),
-                       "mean_query_embedding_seconds": query_encode_total / len(judgments),
-                       "mean_qdrant_search_seconds": qdrant_search_total / len(judgments),
-                       "mean_query_embedding_plus_search_seconds": (query_encode_total + qdrant_search_total) / len(judgments)}
-            run_result["ground_truth_metrics"] = metrics
-            print(f"\nGround truth: {metrics['query_count']} queries | Recall@5={metrics['recall_at_5']:.4f} | MRR@10={metrics['mrr_at_10']:.4f} | mean query latency (embedding + search)={metrics['mean_query_embedding_plus_search_seconds'] * 1000:.2f} ms")
+            for item in judgments:
+                q = item.get("query") or item.get("question")
+                relevant = item.get("relevant_chunk_ids") or item.get("gold_context_ids") or []
+                if not q or not relevant:
+                    continue
+                relevant_set = set(relevant)
+                ranked = retriever.search(q, top_k=10)
+                ranked_ids = [h["chunk_id"] for h in ranked]
+                recall_scores.append(recall_at_k(ranked_ids, relevant_set, 5))
+                reciprocal_ranks.append(
+                    next((1.0 / rank for rank, cid in enumerate(ranked_ids, 1) if rank <= 10 and cid in relevant_set), 0.0)
+                )
+            if recall_scores:
+                r5 = sum(recall_scores) / len(recall_scores)
+                mrr10 = sum(reciprocal_ranks) / len(reciprocal_ranks)
+                print(f"\nGround truth evaluation: Recall@5={r5:.4f} | MRR@10={mrr10:.4f}")
+                run_result["evaluation"] = {"recall_at_5": r5, "mrr_at_10": mrr10}
+
         if args.results:
             args.results.parent.mkdir(parents=True, exist_ok=True)
             args.results.write_text(json.dumps(run_result, ensure_ascii=False, indent=2), encoding="utf-8")
-            print(f"Saved measurements: {args.results}")
+            print(f"\nSaved measurements: {args.results}")
+
         return 0
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

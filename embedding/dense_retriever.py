@@ -8,9 +8,10 @@ from __future__ import annotations
 import hashlib
 import math
 import time
+from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
-from embedding.vector_store import LegalVectorStore
+from embedding.vector_store import LegalVectorStore, read_index_metadata
 
 try:
     from underthesea import word_tokenize
@@ -20,16 +21,103 @@ except ImportError:
     HAS_UNDERTHESEA = False
 
 
-DEFAULT_MODEL_NAME = "bkai-foundation-models/vietnamese-bi-encoder"
-
-MODEL_DIMENSIONS = {
-    "bkai-foundation-models/vietnamese-bi-encoder": 768,
-    "AITeamVN/Vietnamese_Embedding": 1024,
-    "BAAI/bge-m3": 1024,
-}
+SPEC_KEYS = ("dimension", "use_word_segmentation", "text_field")
 
 
-def deterministic_mock_embed(text: str, dimension: int = 768) -> List[float]:
+def load_dense_retrieval_config(config_path: str | Path | None = None) -> Dict[str, Any]:
+    """Đọc mục dense của retrieval/config.yaml; file có mà đọc lỗi thì báo lỗi."""
+    if config_path is None:
+        p = Path(__file__).resolve().parent.parent / "retrieval" / "config.yaml"
+    else:
+        p = Path(config_path)
+    if not p.is_file():
+        return {}
+    import yaml
+
+    try:
+        data = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError) as exc:
+        raise ValueError(f"Không đọc được cấu hình dense {p}: {exc}") from exc
+    dense_cfg = data.get("dense") if isinstance(data, dict) else None
+    if dense_cfg is None:
+        return {}
+    if not isinstance(dense_cfg, dict):
+        raise ValueError(f"Mục dense của {p} phải là YAML mapping")
+    return dense_cfg
+
+
+def load_model_specs(dense_cfg: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """Bảng model lấy từ dense.supported_models của config, nguồn duy nhất (E2)."""
+    specs: Dict[str, Dict[str, Any]] = {}
+    for name, spec in (dense_cfg.get("supported_models") or {}).items():
+        missing = [k for k in SPEC_KEYS if not isinstance(spec, dict) or k not in spec]
+        if missing:
+            raise ValueError(f"dense.supported_models.{name} thiếu khoá {missing}")
+        specs[name] = {k: spec[k] for k in SPEC_KEYS}
+    return specs
+
+
+_DENSE_CONFIG = load_dense_retrieval_config()
+MODEL_SPECS: Dict[str, Dict[str, Any]] = load_model_specs(_DENSE_CONFIG)
+MODEL_DIMENSIONS: Dict[str, int] = {k: v["dimension"] for k, v in MODEL_SPECS.items()}
+DEFAULT_MODEL_NAME = _DENSE_CONFIG.get("model", "BAAI/bge-m3")
+
+
+def get_model_spec(model_name: str) -> Dict[str, Any]:
+    """Lấy thông số (dimension, use_word_segmentation, text_field) của model trong config."""
+    if model_name not in MODEL_SPECS:
+        raise ValueError(
+            f"Dense model {model_name!r} không có trong dense.supported_models của retrieval/config.yaml; "
+            f"chọn một trong {sorted(MODEL_SPECS)}"
+        )
+    return dict(MODEL_SPECS[model_name])
+
+
+def preprocess_text(
+    text: str,
+    is_already_segmented: bool = False,
+    use_word_segmentation: bool = False,
+    use_mock: bool = False,
+) -> str:
+    """
+    Tiền xử lý văn bản dùng chung cho Query và Corpus:
+    - Nếu use_word_segmentation=True: phân tách từ bằng underthesea (báo lỗi dừng ngay nếu thiếu thư viện).
+      Chuỗi có sẵn dấu "_" vẫn được tách từ; chỉ bỏ qua khi is_already_segmented=True.
+    - Nếu use_word_segmentation=False: chuẩn hóa khoảng trắng, giữ nguyên văn bản thô.
+    """
+    cleaned = " ".join(str(text or "").strip().split())
+    if not cleaned:
+        return ""
+
+    if not use_word_segmentation:
+        return cleaned
+
+    if is_already_segmented:
+        return cleaned
+
+    if not HAS_UNDERTHESEA:
+        if not use_mock:
+            raise RuntimeError(
+                "Model yêu cầu tách từ tiếng Việt (use_word_segmentation=True) nhưng thiếu thư viện 'underthesea'."
+            )
+        return cleaned
+
+    return word_tokenize(cleaned, format="text")
+
+
+def underthesea_version() -> Optional[str]:
+    """Phiên bản underthesea đang cài, ghi vào metadata index của model cần tách từ."""
+    if not HAS_UNDERTHESEA:
+        return None
+    from importlib.metadata import PackageNotFoundError, version
+
+    try:
+        return version("underthesea")
+    except PackageNotFoundError:
+        return None
+
+
+def deterministic_mock_embed(text: str, dimension: int = 1024) -> List[float]:
     """
     Hàm tạo vector giả lập tất định (deterministic mock embedding) phục vụ
     phát triển độc lập (Mock-first) và kiểm thử tự động không phụ thuộc GPU/Model thật.
@@ -56,8 +144,8 @@ def deterministic_mock_embed(text: str, dimension: int = 768) -> List[float]:
 class DenseRetriever:
     """
     Dense Retriever chuẩn hóa theo interface chung của Sprint 6:
-    - Dùng `embed_text` khi tạo vector cho corpus chunks.
-    - Trả `chunk_text`, `chunk_id`, `parent_clause_id`, `document_id`, `rank`, `score`, `metadata`.
+    - Đồng bộ lựa chọn text field (embed_text vs embed_text_raw) và word segmentation theo model.
+    - Trả chunk_text, chunk_id, parent_clause_id, document_id, rank, score, metadata.
     - Hỗ trợ đo latency và chạy độc lập với Mock Embedder hoặc SentenceTransformer.
     """
 
@@ -68,6 +156,7 @@ class DenseRetriever:
         embed_fn: Optional[Callable[[Sequence[str]], List[List[float]]]] = None,
         use_mock: bool = False,
         use_word_segmentation: Optional[bool] = None,
+        text_field: Optional[str] = None,
         batch_size: int = 32,
     ) -> None:
         self.vector_store = vector_store
@@ -77,16 +166,59 @@ class DenseRetriever:
         self._custom_embed_fn = embed_fn
         self._st_model: Optional[Any] = None
 
+        spec = get_model_spec(model_name)
         if use_word_segmentation is None:
-            self.use_word_segmentation = "vietnamese-bi-encoder" in model_name.lower()
+            self.use_word_segmentation = spec["use_word_segmentation"]
         else:
             self.use_word_segmentation = use_word_segmentation
+
+        self.text_field = text_field or spec["text_field"]
+
+        # Fail-fast: nếu model yêu cầu tách từ mà không có underthesea ở chế độ thật (Lỗi E4 & H8)
+        if self.use_word_segmentation and not self.use_mock:
+            if not HAS_UNDERTHESEA:
+                raise RuntimeError(
+                    "Model yêu cầu tách từ tiếng Việt (use_word_segmentation=True) nhưng thiếu thư viện 'underthesea'."
+                )
 
         self.last_latency_ms: Dict[str, float] = {
             "query_encode_ms": 0.0,
             "vector_search_ms": 0.0,
             "total_ms": 0.0,
         }
+
+        # Mở collection có sẵn để truy vấn: kiểm metadata do build_index.py ghi (E2)
+        if getattr(vector_store, "persistent", False) and not vector_store.create_if_missing:
+            self.verify_index()
+
+    def verify_index(self, corpus_sha256: Optional[str] = None) -> Dict[str, Any]:
+        """
+        So metadata của collection (build_index.py ghi) với model đang dùng; lệch thì raise ValueError.
+        Truyền corpus_sha256 để so luôn hash của file chunk đã index.
+        """
+        store = self.vector_store
+        meta = read_index_metadata(store.storage_path, store.collection_name)
+        if meta is None:
+            raise ValueError(
+                f"Collection '{store.collection_name}' không có file metadata; dựng lại bằng scripts/build_index.py."
+            )
+        expected: Dict[str, Any] = {
+            "model_name": self.model_name,
+            "dimension": store.dimension,
+            "use_word_segmentation": self.use_word_segmentation,
+        }
+        if self.use_word_segmentation:
+            expected["underthesea_version"] = underthesea_version()
+        if corpus_sha256 is not None:
+            expected["corpus_sha256"] = corpus_sha256
+        mismatched = {k: (meta.get(k), v) for k, v in expected.items() if meta.get(k) != v}
+        if mismatched:
+            details = "; ".join(f"{k}: index {a!r}, hiện tại {b!r}" for k, (a, b) in mismatched.items())
+            raise ValueError(
+                f"Collection '{store.collection_name}' không khớp cấu hình ({details}); "
+                "dựng lại bằng scripts/build_index.py."
+            )
+        return meta
 
     def _load_st_model(self) -> Any:
         if self._st_model is None:
@@ -96,12 +228,12 @@ class DenseRetriever:
         return self._st_model
 
     def _preprocess_query(self, query: str) -> str:
-        cleaned = " ".join(query.strip().split())
-        if not cleaned:
-            return ""
-        if self.use_word_segmentation and HAS_UNDERTHESEA:
-            return word_tokenize(cleaned, format="text")
-        return cleaned
+        return preprocess_text(
+            query,
+            is_already_segmented=False,
+            use_word_segmentation=self.use_word_segmentation,
+            use_mock=self.use_mock,
+        )
 
     def encode_texts(self, texts: Sequence[str], is_query: bool = False) -> List[List[float]]:
         processed = [
@@ -127,23 +259,46 @@ class DenseRetriever:
         )
         return [list(map(float, vec)) for vec in embeddings]
 
+    def corpus_text(self, chunk: Dict[str, Any]) -> str:
+        """
+        Văn bản đưa vào encode ở phía corpus: self.text_field (embed_text_raw ở mọi model trong
+        config), thiếu thì lấy embed_text bỏ dấu "_". Model cần tách từ thì tách chuỗi này bằng
+        cùng preprocess_text với câu hỏi (E4), không dùng embed_text do chunker tách theo từng phần.
+        """
+        text = str(chunk.get(self.text_field) or "").strip()
+        if not text:
+            text = str(chunk.get("embed_text_raw") or "").strip()
+        if not text:
+            text = str(chunk.get("embed_text") or "").strip().replace("_", " ")
+        if self.use_word_segmentation:
+            return preprocess_text(text, use_word_segmentation=True, use_mock=self.use_mock)
+        return text
+
     def index_chunks(self, chunks: Sequence[Dict[str, Any]]) -> int:
         """
-        Nhận danh sách chunk records, lấy đúng trường `embed_text` để tạo vector
-        và lưu vào Vector Store kèm toàn bộ metadata và `chunk_text`.
+        Nhận danh sách chunk records, tạo vector từ corpus_text và lưu vào Vector Store
+        kèm toàn bộ metadata và chunk_text.
         """
         if not chunks:
             return 0
 
         embed_texts: List[str] = []
         for idx, ch in enumerate(chunks):
-            etext = str(ch.get("embed_text") or "").strip()
-            if not etext:
-                cid = ch.get("chunk_id") or f"index_{idx}"
+            # Kiểm tra chunk_text hợp lệ
+            chunk_text = str(ch.get("chunk_text") or "").strip()
+            if not chunk_text:
+                cid = ch.get("chunk_id") or ch.get("id") or f"index_{idx}"
+                raise ValueError(
+                    f"Chunk '{cid}' thiếu 'chunk_text' (không được dùng 'text' thay cho 'chunk_text')."
+                )
+
+            if not str(ch.get("embed_text_raw") or "").strip() and not str(ch.get("embed_text") or "").strip():
+                cid = ch.get("chunk_id") or ch.get("id") or f"index_{idx}"
                 raise ValueError(
                     f"Chunk '{cid}' thiếu trường 'embed_text'. Không được dùng 'chunk_text' hoặc 'text' thay thế."
                 )
-            embed_texts.append(etext)
+
+            embed_texts.append(self.corpus_text(ch))
 
         vectors = self.encode_texts(embed_texts, is_query=False)
         return self.vector_store.upsert_chunks(chunks, vectors)
@@ -153,22 +308,19 @@ class DenseRetriever:
         query: str,
         top_k: int = 5,
         exclude_expired: bool = True,
+        as_of_date: Optional[str] = None,
+        filters: Optional[Dict[str, Any]] = None,
     ) -> List[Dict[str, Any]]:
         """
         Thực hiện Dense Vector Search theo interface chung Sprint 6.
-        - Trả về danh sách kết quả đã xếp hạng (rank 1..K).
-        - Xử lý top_k không hợp lệ (raise ValueError) và câu hỏi rỗng (trả về []).
+        - Trả về danh sách kết quả đã xếp hạng (rank 1..K); store rỗng thì trả [].
+        - top_k không hợp lệ hoặc câu hỏi rỗng thì raise ValueError như BM25 và Hybrid (E14).
         """
         if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k <= 0:
             raise ValueError(f"top_k phải là số nguyên dương lớn hơn 0 (nhận được: {top_k!r}).")
 
         if query is None or not str(query).strip():
-            self.last_latency_ms = {
-                "query_encode_ms": 0.0,
-                "vector_search_ms": 0.0,
-                "total_ms": 0.0,
-            }
-            return []
+            raise ValueError("Câu hỏi không được rỗng.")
 
         if self.vector_store.count() == 0:
             self.last_latency_ms = {
@@ -186,6 +338,8 @@ class DenseRetriever:
             query_vector=query_vec,
             top_k=top_k,
             exclude_expired=exclude_expired,
+            as_of_date=as_of_date,
+            filters=filters,
         )
         t2 = time.perf_counter()
 
@@ -202,11 +356,19 @@ class DenseRetriever:
         top_k: int = 5,
         query_id: str = "Q_DEV_001",
         exclude_expired: bool = True,
+        as_of_date: Optional[str] = None,
+        filters: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
         Trả về kết quả đóng gói đầy đủ theo Retrieval Result Schema (Mục 4.3 Sprint 6).
         """
-        results = self.search(query=query, top_k=top_k, exclude_expired=exclude_expired)
+        results = self.search(
+            query=query,
+            top_k=top_k,
+            exclude_expired=exclude_expired,
+            as_of_date=as_of_date,
+            filters=filters,
+        )
         return {
             "query_id": query_id,
             "retriever": "dense",

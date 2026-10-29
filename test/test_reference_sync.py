@@ -26,7 +26,7 @@ class ReferenceSyncTest(unittest.TestCase):
 
     def test_benchmark_chunk_ids_exist_in_corpus(self):
         corpus = corpus_ids()
-        for name in ("ground_truth.json", "gold_id_proposals_300.json"):
+        for name in ("ground_truth.json",):
             rows = json.loads((ROOT / "data" / "benchmark" / name).read_text(encoding="utf-8"))
             missing = sorted({cid for row in rows
                               for field in ("gold_context_ids", "candidate_context_ids")

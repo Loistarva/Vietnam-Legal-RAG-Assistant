@@ -25,6 +25,13 @@ import sys
 import tempfile
 from pathlib import Path
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data' / 'benchmark'
 REF = ROOT / 'data' / 'reference'

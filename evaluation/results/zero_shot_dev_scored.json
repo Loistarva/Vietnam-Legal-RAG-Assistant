@@ -1,407 +1,812 @@
 [
   {
     "query_id": "HN_001",
+    "category": "ket_hon",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?",
     "prediction": "Theo quy định tại Điều 6 của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), nam giới phải đủ 20 tuổi mới có thể kết hôn.",
+    "expected_answer": "Nam từ đủ 20 tuổi trở lên.",
     "references": [
       "Nam từ đủ 20 tuổi trở lên."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.20512820512820512
+    "token_f1": 0.20512820512820512,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_002",
+    "category": "ket_hon",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, nữ phải đủ bao nhiêu tuổi để kết hôn?",
     "prediction": "Theo quy định tại Điều 9 của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), nữ phải đủ 18 tuổi mới có thể kết hôn.",
+    "expected_answer": "Nữ từ đủ 18 tuổi trở lên.",
     "references": [
       "Nữ từ đủ 18 tuổi trở lên."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.2105263157894737
+    "token_f1": 0.2105263157894737,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_003",
+    "category": "ket_hon",
+    "question": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
     "prediction": "Có, việc kết hôn ở Việt Nam phải dựa trên sự tự nguyện của cả hai bên. Theo Luật Hôn nhân và Gia đình năm 2014, điều 6 quy định về nguyên tắc tự nguyện trong hôn nhân:\n\n\"Điều 6: Nguyên tắc tự nguyện trong hôn nhân\n1. Việc kết hôn là quyền và nghĩa vụ của người có đủ tuổi và sức khỏe để kết hôn.\n2. Hôn nhân chỉ được thành lập khi hai bên đồng ý tự nguyện.\"\n\nDo đó, việc kết hôn ở Việt Nam không thể xảy ra nếu một hoặc cả hai bên không đồng ý tự nguyện.",
+    "expected_answer": "Có. Việc kết hôn phải do nam và nữ tự nguyện quyết định.",
     "references": [
       "Có. Việc kết hôn phải do nam và nữ tự nguyện quyết định."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.18803418803418803
+    "token_f1": 0.18803418803418803,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_005",
+    "category": "ket_hon",
+    "question": "Kết hôn nhưng không đăng ký theo pháp luật hộ tịch có giá trị pháp lý không?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), việc kết hôn phải được đăng ký tại cơ quan nhà nước có thẩm quyền theo quy định của pháp luật về hộ tịch. Nếu hai người kết hôn nhưng không đăng ký theo quy định này thì hợp đồng hôn nhân sẽ bị coi là chưa phát sinh hiệu lực pháp lý.\n\nCụ thể, Điều 12 Luật Hôn nhân và Gia đình năm 2014 quy định:\n\n\"1. Việc kết hôn phải được đăng ký tại cơ quan nhà nước có thẩm quyền theo quy định của pháp luật về hộ tịch.\"\n\nDo đó, nếu hai người đã tổ chức lễ cưới nhưng chưa đăng ký kết hôn theo quy định trên thì hợp đồng hôn nhân không có giá trị pháp lý.\n\nTuy nhiên, mặc dù không đăng ký kết hôn theo đúng quy định, các mối quan hệ giữa họ như tình cảm vợ chồng, quyền và nghĩa vụ của cha mẹ con cái vẫn được bảo vệ trong một phạm vi nhất định dựa vào đạo đức xã hội và thực tế cuộc sống.",
+    "expected_answer": "Không. Việc kết hôn không đăng ký theo quy định thì không có giá trị pháp lý.",
     "references": [
       "Không. Việc kết hôn không đăng ký theo quy định thì không có giá trị pháp lý."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.16037735849056603
+    "token_f1": 0.16037735849056603,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_006",
+    "category": "ket_hon",
+    "question": "Hai người đã ly hôn muốn trở lại quan hệ vợ chồng có cần đăng ký kết hôn lại không?",
     "prediction": "Sau khi đã hoàn thành thủ tục ly hôn và được cấp giấy chứng nhận divorce (trong trường hợp là nước ngoài) hoặc quyết định ly hôn của Tòa án (trong trường hợp ở Việt Nam), hai người muốn trở lại quan hệ vợ chồng cần đăng ký kết hôn lại.\n\nTheo quy định tại Điều 12 Luật Hôn nhân và Gia đình năm 2014, việc tái lập quan hệ vợ chồng sau khi đã ly hôn được thực hiện thông qua thủ tục đăng ký kết hôn.",
+    "expected_answer": "Có. Vợ chồng đã ly hôn muốn xác lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
     "references": [
       "Có. Vợ chồng đã ly hôn muốn xác lập lại quan hệ vợ chồng thì phải đăng ký kết hôn."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.2962962962962963
+    "token_f1": 0.2962962962962963,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_007",
+    "category": "ket_hon",
+    "question": "Pháp luật hôn nhân và gia đình có cho phép người đang có vợ hoặc chồng kết hôn với người khác không?",
     "prediction": "Theo quy định của Luật Hôn Nhân và Gia Đình năm 2014 của Việt Nam, việc một người đã có vợ hoặc chồng lại kết hôn với người khác là vi phạm nghiêm trọng pháp luật. Cụ thể:\n\n- Điều 57 quy định về tội gian dối trong đăng ký kết hôn: \"Ai gian dối để được đăng ký kết hôn khi biết mình không đủ điều kiện, hoặc ai lập ra hồ sơ giả mạo để được đăng ký kết hôn thì bị phạt tiền từ ba triệu đồng đến năm mươi triệu đồng; nếu gây hậu quả nghiêm trọng thì bị phạt tù từ sáu tháng đến hai năm.\"\n\n- Điều 58 quy định về tội gian dối trong việc xác nhận tình trạng hôn nhân: \"Ai gian dối để được xác nhận tình trạng hôn nhân khi biết mình không đủ điều kiện, hoặc ai lập ra hồ sơ giả mạo để được xác nhận tình trạng hôn nhân thì bị phạt tiền từ ba triệu đồng đến năm mươi triệu đồng; nếu gây hậu quả nghiêm trọng thì bị phạt tù từ sáu tháng đến hai năm.\"\n\n- Điều 59 quy định về tội gian dối trong việc xác nhận tình trạng ly hôn: \"Ai gian dối để được xác nhận tình trạng ly hôn khi biết mình không đủ điều kiện, hoặc ai lập ra hồ sơ giả mạo để được xác nhận tình trạng ly hôn thì bị phạt tiền từ ba triệu đồng đến năm mươi triệu đồng; nếu gây hậu quả nghiêm trọng thì bị phạt tù từ sáu tháng đến hai năm.\"\n\nNhư vậy, pháp luật Việt Nam cấm việc một người đã có vợ hoặc chồng lại kết hôn với người khác. Việc này không chỉ vi phạm quyền của đối tác hiện tại mà còn là hành vi gian dối trong đăng ký và xác nhận tình trạng hôn nhân, sẽ bị xử lý theo quy định trên.\n\nNếu bạn cần thêm thông tin chi tiết về các vấn đề pháp lý liên quan, vui lòng cung cấp thêm thông tin.",
+    "expected_answer": "Không. Hành vi kết hôn hoặc chung sống như vợ chồng với người khác khi đang có vợ hoặc chồng thuộc trường hợp bị cấm.",
     "references": [
       "Không. Hành vi kết hôn hoặc chung sống như vợ chồng với người khác khi đang có vợ hoặc chồng thuộc trường hợp bị cấm."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.10160427807486631
+    "token_f1": 0.10160427807486631,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_009",
+    "category": "ket_hon",
+    "question": "Nam nữ đủ điều kiện nhưng chung sống như vợ chồng mà không đăng ký kết hôn thì có phát sinh quyền nghĩa vụ giữa vợ chồng không?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014, nếu nam nữ đủ tuổi thành niên (từ 18 tuổi trở lên) nhưng chưa đăng ký kết hôn mà chung sống với nhau như vợ chồng thì phát sinh một số quyền nghĩa vụ nhất định:\n\n1. Về tài sản: Tài sản được tạo lập trong thời gian chung sống sẽ thuộc sở hữu của cả hai người, trừ trường hợp có thỏa thuận khác.\n\n2. Về trách nhiệm nuôi dưỡng con chung: Nếu có con chung, mỗi bên đều có nghĩa vụ chăm sóc, giáo dục và hỗ trợ kinh phí cho con.\n\n3. Về quyền thừa kế: Con chung được coi là con ruột của cả hai người, có quyền thừa kế theo pháp luật.\n\n4. Về trách nhiệm bồi thường thiệt hại: Nếu một trong hai bên gây ra tổn thất cho bên kia hoặc tài sản chung thì phải chịu trách nhiệm bồi thường.\n\nTuy nhiên, cần lưu ý rằng việc chung sống như vợ chồng không được coi là hôn nhân hợp pháp theo quy định của pháp luật Việt Nam. Do đó, các quyền và nghĩa vụ giữa hai người này sẽ bị hạn chế so với những cặp đôi đã đăng ký kết hôn.",
+    "expected_answer": "Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo Luật Hôn nhân và gia đình; quyền con cái, tài sản được giải quyết theo quy định riêng.",
     "references": [
       "Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo Luật Hôn nhân và gia đình; quyền con cái, tài sản được giải quyết theo quy định riêng."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.205761316872428
+    "token_f1": 0.205761316872428,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_010",
+    "category": "ket_hon",
+    "question": "Nếu cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân được xác lập từ thời điểm nào?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014, hôn nhân được xác lập kể từ thời điểm đăng ký kết hôn. Do vậy, trong trường hợp cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân sẽ được xác lập kể từ thời điểm họ tiến hành đăng ký kết hôn.\n\nTheo Điều 5 Luật Hôn nhân và Gia đình năm 2014:\n\n\"Điều 5. Kế hoạch hóa gia đình\n\n1. Việc kết hôn không phụ thuộc vào kế hoạch hóa gia đình.\"\n\nTuy nhiên, cần lưu ý rằng thời điểm xác lập hôn nhân chỉ được tính từ khi đăng ký kết hôn theo quy định trên.\n\nNếu có thêm thông tin cụ thể hoặc vấn đề phức tạp hơn, bạn nên tham khảo ý kiến của luật sư để đảm bảo chính xác.",
+    "expected_answer": "Từ thời điểm đăng ký kết hôn theo quy định pháp luật.",
     "references": [
       "Từ thời điểm đăng ký kết hôn theo quy định pháp luật."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.14012738853503184
+    "token_f1": 0.14012738853503184,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_011",
+    "category": "con_cai",
+    "question": "Quyền và nghĩa vụ với con khi bố mẹ chung sống như vợ chồng nhưng không đăng ký kết hôn được xử lý ra sao?",
     "prediction": "Trong trường hợp bố mẹ chung sống như vợ chồng mà chưa đăng ký kết hôn, quyền và nghĩa vụ với con vẫn sẽ được quy định dựa trên các nguyên tắc của pháp luật Việt Nam. Cụ thể:\n\n1. Quyền nuôi dưỡng:\n- Cha mẹ có trách nhiệm chăm sóc, giáo dục con cái.\n- Nếu xảy ra tranh chấp về việc nuôi dưỡng con, Tòa án sẽ xem xét và quyết định theo lợi ích tối đa cho trẻ em.\n\n2. Nghĩa vụ cấp dưỡng:\n- Cha mẹ phải đảm bảo đủ điều kiện sống cơ bản cho con (ăn, mặc, ở).\n- Trong trường hợp ly thân hoặc không chung sống cùng nhau, cha mẹ vẫn có nghĩa vụ cấp dưỡng nuôi con.\n\n3. Quyền thăm nom:\n- Cha mẹ đều có quyền được gặp gỡ, trò chuyện và chăm sóc con.\n- Tòa án sẽ xem xét quyết định về thời gian thăm nom nếu cần thiết.\n\n4. Quyền thừa kế:\n- Con cái của cha mẹ chung sống như vợ chồng nhưng chưa đăng ký kết hôn vẫn được hưởng quyền thừa kế theo quy định của pháp luật Việt Nam.\n\n5. Tranh chấp về con:\n- Nếu có tranh chấp, Tòa án sẽ xem xét và giải quyết dựa trên lợi ích tối đa cho trẻ em.\n- Quyền nuôi dưỡng thường do mẹ đảm nhận (nếu không có lý do chính đáng khác).\n\n6. Nghĩa vụ cấp dưỡng khi ly thân:\n- Cha hoặc mẹ phải cung cấp đủ chi phí sinh hoạt hàng ngày, học hành và y tế của con.\n\n7. Trách nhiệm về tài sản chung:\n- Nếu có tài sản chung được tạo ra trong thời gian chung sống như vợ chồng nhưng chưa đăng ký kết hôn, sẽ được phân chia theo quy định pháp luật.\n\nTuy nhiên, cần lưu ý rằng các quyền và nghĩa vụ trên chỉ áp dụng khi không có thỏa thuận khác giữa cha mẹ. Nếu có thỏa thuận về việc nuôi dưỡng con hoặc cấp dưỡng, Tòa án sẽ xem xét và tôn trọng nếu phù hợp với lợi ích của trẻ em.\n\nNếu bạn gặp phải vấn đề cụ thể liên quan đến quyền và nghĩa vụ với con trong trường hợp này, nên tham khảo ý kiến của luật sư để có hướng giải quyết phù hợp.",
+    "expected_answer": "Theo quy định của Luật Hôn nhân và gia đình về quyền, nghĩa vụ của cha mẹ và con.",
     "references": [
       "Theo quy định của Luật Hôn nhân và gia đình về quyền, nghĩa vụ của cha mẹ và con."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.07901234567901234
+    "token_f1": 0.07901234567901234,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_013",
+    "category": "vo_chong",
+    "question": "Vợ chồng có bình đẳng về quyền và nghĩa vụ trong gia đình không?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, vợ chồng được coi là có sự bình đẳng về quyền và nghĩa vụ. Cụ thể:\n\n1. Về quyền:\n- Vợ chồng đều có quyền tự do trong việc tham gia các hoạt động kinh tế, xã hội.\n- Có quyền tự do lựa chọn nghề nghiệp, công việc phù hợp với khả năng của mình.\n- Được bảo vệ bình đẳng về mặt tước đoạt tài sản.\n\n2. Về nghĩa vụ:\n- Vợ chồng đều có trách nhiệm chăm sóc, nuôi dưỡng con cái; hỗ trợ nhau trong cuộc sống hàng ngày và khi gặp khó khăn.\n- Có nghĩa vụ chung đụng trong việc quản lý gia đình, phân chia công việc nội bộ nhà cửa.\n- Đều phải tuân thủ pháp luật về hôn nhân và gia đình.\n\nTuy nhiên, bình đẳng này không đồng nghĩa với sự đồng nhất hoàn toàn giữa vợ chồng. Mỗi người vẫn có quyền tự do cá nhân của mình mà không bị can thiệp trái phép từ phía đối tác.\n\nNgoài ra, trong một số trường hợp cụ thể như việc phân chia tài sản khi ly hôn, pháp luật cũng quy định các nguyên tắc để đảm bảo sự công bằng giữa vợ chồng.",
+    "expected_answer": "Có. Vợ chồng bình đẳng và có quyền, nghĩa vụ ngang nhau trong gia đình.",
     "references": [
       "Có. Vợ chồng bình đẳng và có quyền, nghĩa vụ ngang nhau trong gia đình."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.12227074235807858
+    "token_f1": 0.12227074235807858,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_014",
+    "category": "vo_chong",
+    "question": "Vợ chồng có buộc luôn phải sống chung tại một địa chỉ không?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, vợ chồng không bắt buộc phải sống chung ở cùng một địa chỉ. Họ có thể lựa chọn cách sống riêng biệt hoặc chung nếu muốn.\n\nTuy nhiên, việc sống riêng hay chung phụ thuộc vào thỏa thuận giữa hai bên cũng như các quy định cụ thể trong hợp đồng hôn nhân (nếu có). Nếu xảy ra tranh chấp về vấn đề này, tòa án sẽ xem xét và đưa ra phán quyết dựa trên lợi ích của cả hai vợ chồng và con cái.\n\nNgoài ra, việc sống chung hay riêng cũng không ảnh hưởng đến quyền và nghĩa vụ của mỗi bên trong hôn nhân.",
+    "expected_answer": "Không tuyệt đối. Hai bên có nghĩa vụ sống chung, trừ trường hợp thỏa thuận khác hoặc vì nghề nghiệp, công tác, học tập và lý do chính đáng khác.",
     "references": [
       "Không tuyệt đối. Hai bên có nghĩa vụ sống chung, trừ trường hợp thỏa thuận khác hoặc vì nghề nghiệp, công tác, học tập và lý do chính đáng khác."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.16993464052287582
+    "token_f1": 0.16993464052287582,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_015",
+    "category": "vo_chong",
+    "question": "Việc lựa chọn nơi cư trú của vợ chồng do ai quyết định?",
     "prediction": "Theo quy định tại Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), việc lựa chọn nơi cư trú của vợ chồng là quyền tự chủ của mỗi bên. Cụ thể:\n\n- Theo Điều 359 Luật Hôn nhân và Gia đình quy định: \"Vợ có quyền quyết định về nơi cư trú; chồng cũng vậy\".\n\nTuy nhiên, trong quá trình thực hiện quyền này, cả hai bên cần tôn trọng lợi ích chung của gia đình, nhất là đối với con cái.\n\nNếu xảy ra tranh chấp về việc lựa chọn nơi cư trú, các bên có thể thỏa thuận với nhau. Nếu không đạt được thống nhất, thì tòa án sẽ giải quyết theo quy định pháp luật.\n\nNhư vậy, mặc dù vợ và chồng đều có quyền quyết định về nơi cư trú của mình nhưng cần đảm bảo sự tôn trọng lẫn nhau và lợi ích chung của gia đình.",
+    "expected_answer": "Do vợ chồng thỏa thuận và không bị ràng buộc bởi phong tục, tập quán hay địa giới hành chính.",
     "references": [
       "Do vợ chồng thỏa thuận và không bị ràng buộc bởi phong tục, tập quán hay địa giới hành chính."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.06779661016949153
+    "token_f1": 0.06779661016949153,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_017",
+    "category": "tai_san",
+    "question": "Tài sản vợ chồng được tặng cho chung trong thời kỳ hôn nhân là loại tài sản gì?",
     "prediction": "Trong thời kỳ hôn nhân, nếu một bên nhận được món quà từ người thứ ba và quyết định tặng cho cả hai vợ chồng thì món quà đó sẽ trở thành tài sản chung của vợ chồng. Món quà này được coi là tài sản chung ngay khi nó chuyển đổi sang quyền sở hữu của cả hai vợ chồng.\n\nTuy nhiên, cần lưu ý rằng để xác định một tài sản cụ thể có phải là tài sản chung hay không, cần xem xét các yếu tố như thời điểm nhận tặng cho, mục đích tặng cho và cách thức sử dụng sau đó. Nếu món quà được tặng chỉ riêng cho một bên vợ chồng mà không có sự đồng ý của cả hai thì mặc dù đã chuyển đổi quyền sở hữu nhưng vẫn chưa trở thành tài sản chung.\n\nNgoài ra, theo quy định tại Điều 873 Bộ luật Dân事法，婚姻期间一方收到的赠与财产如果决定共同拥有，则该财产被视为夫妻共同财产。这意味着在婚姻存续期间，如果一方接受他人赠送的财物，并且双方同意将其作为共同财产处理的话，那么这笔财物就属于夫妻共同财产。\n\n需要注意的是，在具体判断某一特定财产是否为夫妻共同财产时，还需要考虑赠与的时间、目的以及使用方式等因素。如果赠与物仅赠予给一方而未得到另一方的认可，则即便已经变更了所有权也未必会成为共同财产。\n \n请注意，上述解释基于中国法律体系中的类似规定进行类比说明，在具体案件中应以《中华人民共和国民法典》及相关司法解释为准。\n\n由于您提到的是越南的法律问题，请确认是否需要根据越南的具体法律规定来解答。如果确实为越南法律，则需查阅相关越南民法或家庭法的规定，因为不同国家在处理此类情况时可能有不同的规定和细节要求。\n \n因此，在没有具体引用越南法律的情况下，我只能提供一般性的说明。如果您希望获得准确的法律意见，请咨询专业的法律顾问或律师以获取针对您具体情况的专业建议。",
+    "expected_answer": "Là tài sản chung của vợ chồng.",
     "references": [
       "Là tài sản chung của vợ chồng."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.07692307692307693
+    "token_f1": 0.07692307692307693,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_018",
+    "category": "tai_san",
+    "question": "Tài sản có trước khi kết hôn mặc nhiên là tài sản chung không?",
     "prediction": "Không, tài sản có trước khi kết hôn vẫn được coi là tài sản riêng của mỗi bên trừ khi có thỏa thuận khác giữa các bên hoặc pháp luật quy định khác.\n\nTheo Luật Hôn nhân và Gia đình năm 2014, tài sản thuộc sở hữu cá nhân của vợ chồng bao gồm:\n\n- Tài sản có trước ngày kết hôn;\n- Tài sản thừa kế riêng; \n- Quà tặng từ bố mẹ hoặc người thân chỉ cho một bên (trừ khi quà tặng được chung);\n- Thu nhập và lợi ích khác mà mỗi bên thu được từ tài sản sở hữu cá nhân.\n\nNếu bạn cần tư vấn cụ thể hơn về trường hợp của mình, vui lòng cung cấp thêm thông tin.",
+    "expected_answer": "Không. Tài sản mỗi người có trước khi kết hôn về nguyên tắc là tài sản riêng, trừ khi nhập vào tài sản chung.",
     "references": [
       "Không. Tài sản mỗi người có trước khi kết hôn về nguyên tắc là tài sản riêng, trừ khi nhập vào tài sản chung."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.28767123287671226
+    "token_f1": 0.28767123287671226,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_019",
+    "category": "tai_san",
+    "question": "Tài sản được thừa kế riêng trong thời kỳ hôn nhân là tài sản chung hay riêng?",
     "prediction": "Trong thời kỳ hôn nhân ở Việt Nam, tài sản được thừa kế riêng vẫn thuộc sở hữu cá nhân của người thừa kế mà không phải là tài sản chung của vợ chồng. Điều này có nghĩa là dù thừa kế vào thời kỳ hôn nhân, tài sản đó vẫn giữ nguyên tính chất là tài sản riêng của người thừa kế.\n\nTheo quy định tại Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), cụ thể:\n\n- Theo Điều 83: \"Tài sản do một trong hai vợ chồng nhận được từ thừa kế hoặc warwick riêng của mình là tài sản riêng\".\n\nVì vậy, nếu không có quy định khác trong di chúc hay thỏa thuận giữa các bên, tài sản thừa kế sẽ thuộc sở hữu cá nhân và không trở thành tài sản chung của vợ chồng.",
+    "expected_answer": "Về nguyên tắc là tài sản riêng của người được thừa kế, trừ khi có việc nhập vào tài sản chung.",
     "references": [
       "Về nguyên tắc là tài sản riêng của người được thừa kế, trừ khi có việc nhập vào tài sản chung."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1807228915662651
+    "token_f1": 0.1807228915662651,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_021",
+    "category": "ly_hon",
+    "question": "Chồng có quyền tự yêu cầu ly hôn khi vợ đang mang thai không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, trong trường hợp vợ đang mang thai từ ba tháng cuối trở lên hoặc sau khi sinh con dưới sáu tháng thì chồng không được yêu cầu ly hôn mà phải thông qua tòa án. Tuy nhiên, nếu có tình huống khẩn cấp ảnh hưởng đến sức khỏe và tính mạng của vợ hoặc con chưa đủ tuổi nuôi dưỡng thì chồng vẫn có quyền yêu cầu ly hôn nhưng cũng cần sự đồng ý của toà án.\n\nTrong trường hợp khác, cả hai bên đều có quyền tự nguyện thỏa thuận về việc chấm dứt hôn nhân.",
+    "expected_answer": "Không. Khoản 3 Điều 51 hạn chế quyền yêu cầu ly hôn của chồng khi vợ đang mang thai.",
     "references": [
       "Không. Khoản 3 Điều 51 hạn chế quyền yêu cầu ly hôn của chồng khi vợ đang mang thai."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.20155038759689922
+    "token_f1": 0.20155038759689922,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_022",
+    "category": "ly_hon",
+    "question": "Chồng có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, chồng không được yêu cầu ly hôn trong thời gian vợ đang nuôi con nhỏ dưới 12 tháng tuổi. Điều này nhằm bảo vệ quyền lợi của trẻ em sơ sinh.\n\nCụ thể, theo khoản 3 Điều 57 Luật Hôn nhân và Gia đình năm 2014:\n\n\"Trong trường hợp một bên yêu cầu ly hôn khi vợ đang nuôi con nhỏ dưới 12 tháng tuổi thì Tòa án không chấp nhận yêu cầu đó trừ trường hợp có căn cứ chứng minh việc ly hôn là cần thiết để bảo vệ quyền, lợi ích hợp pháp của trẻ em.\"\n\nTuy nhiên, nếu có lý do đặc biệt và được tòa án xem xét cho phép, chồng vẫn có thể yêu cầu ly hôn.",
+    "expected_answer": "Không. Chồng không có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi.",
     "references": [
       "Không. Chồng không có quyền yêu cầu ly hôn khi vợ đang nuôi con dưới 12 tháng tuổi."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.23529411764705882
+    "token_f1": 0.23529411764705882,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_023",
+    "category": "ly_hon",
+    "question": "Hai vợ chồng có thể cùng yêu cầu Tòa án giải quyết ly hôn không?",
     "prediction": "Có, hai vợ chồng đều có quyền và tự do đề nghị tòa án giải quyết thủ tục ly hôn mà không cần sự đồng ý của nhau. Trong quá trình tố tụng, cả hai bên đều được xem là đương sự và có thể đưa ra các yêu cầu của mình về vấn đề ly hôn như việc chia tài sản, nuôi dưỡng con cái...",
+    "expected_answer": "Có. Vợ, chồng hoặc cả hai đều có quyền yêu cầu Tòa án giải quyết ly hôn.",
     "references": [
       "Có. Vợ, chồng hoặc cả hai đều có quyền yêu cầu Tòa án giải quyết ly hôn."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.3855421686746988
+    "token_f1": 0.3855421686746988,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 4,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.75,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác."
   },
   {
     "query_id": "HN_025",
+    "category": "ly_hon",
+    "question": "Một bên có thể được Tòa án giải quyết cho ly hôn khi có bạo lực gia đình nghiêm trọng không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, một trong những nguyên tắc để tòa án xem xét việc ly hôn là tình trạng bất hòa giữa vợ chồng do mâu thuẫn về tình cảm hoặc do vi phạm nghĩa vụ gia đình kéo dài không thể hóa giải. Bạo lực gia đình nghiêm trọng có thể được coi là một yếu tố quan trọng để xem xét.\n\nCụ thể, Điều 47 Luật Hôn nhân và Gia đình quy định rằng:\n\n\"Trong trường hợp vợ hoặc chồng bị bạo lực gia đình nghiêm trọng kéo dài không thể hóa giải mà hòa thuận ly hôn không thành thì Tòa án có quyền giải quyết việc ly hôn.\"\n\nTuy nhiên, để được tòa án xem xét cho ly hôn dựa trên tình trạng bạo lực gia đình nghiêm trọng, cần phải chứng minh rằng:\n\n1. Bạo lực đã xảy ra và gây hậu quả nghiêm trọng.\n2. Tình trạng này kéo dài không thể hóa giải bằng hòa thuận.\n\nNgoài ra, Tòa án cũng sẽ xem xét các biện pháp bảo vệ người bị bạo lực gia đình trước khi đưa ra quyết định ly hôn.\n\nNhư vậy, một bên có thể được tòa án giải quyết cho ly hôn nếu có chứng cứ về tình trạng bạo lực gia đình nghiêm trọng kéo dài không thể hóa giải.",
+    "expected_answer": "Có thể, nếu đáp ứng căn cứ tại khoản 1 Điều 56 và hòa giải tại Tòa án không thành.",
     "references": [
       "Có thể, nếu đáp ứng căn cứ tại khoản 1 Điều 56 và hòa giải tại Tòa án không thành."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.10317460317460318
+    "token_f1": 0.10317460317460318,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_026",
+    "category": "ly_hon",
+    "question": "Hôn nhân chấm dứt do ly hôn kể từ thời điểm nào?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), hôn nhân được coi là đã chấm dứt do ly hôn kể từ thời điểm có bản án ly hôn có hiệu lực pháp luật.\n\nCụ thể:\n\n- Thời điểm chấm dứt hôn nhân do ly hôn là thời điểm bản án ly hôn của Tòa án có hiệu lực pháp luật.\n- Bản án ly hôn phải được tuyên trong phiên tòa sơ thẩm hoặc phúc thẩm (nếu có).\n- Nếu không có kháng cáo, kháng nghị thì bản án sẽ có hiệu lực sau 15 ngày kể từ khi hết hạn nộp đơn kháng cáo.\n\nVì vậy, để xác định chính xác thời điểm chấm dứt hôn nhân do ly hôn, cần dựa vào thời điểm bản án ly hôn của Tòa án có hiệu lực pháp luật.",
+    "expected_answer": "Kể từ ngày bản án, quyết định ly hôn của Tòa án có hiệu lực pháp luật.",
     "references": [
       "Kể từ ngày bản án, quyết định ly hôn của Tòa án có hiệu lực pháp luật."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.19753086419753085
+    "token_f1": 0.19753086419753085,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_027",
+    "category": "tai_san",
+    "question": "Khi ly hôn, tài sản chung lúc nào cũng chia đúng 50/50 bất kể hoàn cảnh hay công sức không?",
     "prediction": "Không phải tất cả các trường hợp tài sản chung khi ly hôn đều được phân chia theo tỷ lệ 50/50. Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, việc phân chia tài sản chung giữa vợ chồng sau khi ly hôn dựa trên nguyên tắc công bằng, nhưng không nhất thiết phải là 50/50.\n\nCụ thể:\n\n1. Tài sản chung được xác định theo quy định tại Điều 97 Luật Hôn nhân và Gia đình.\n2. Việc phân chia tài sản chung sau ly hôn dựa trên nguyên tắc công bằng, cụ thể như Điều 134 của Luật này nêu rõ.\n\nTài sản chung có thể được phân chia theo tỷ lệ khác nhau tùy thuộc vào:\n\n- Công sức đóng góp của mỗi bên trong quá trình tích lũy tài sản.\n- Tình hình kinh tế hiện tại và khả năng sinh sống sau ly hôn của các bên.\n- Các tình huống cụ thể như việc một bên có công lao, công sức to lớn hơn trong việc tạo lập tài sản.\n\nVì vậy, việc phân chia 50/50 chỉ là trường hợp đặc biệt khi không có yếu tố nào khác ảnh hưởng. Trong nhiều trường hợp, tòa án hoặc các bên có thể thỏa thuận để phân chia theo tỷ lệ phù hợp với thực tế cụ thể của từng vụ kiện.\n\nNếu bạn cần tư vấn chi tiết hơn về một tình huống cụ thể, hãy tham khảo ý kiến luật sư chuyên môn.",
+    "expected_answer": "Không. Nguyên tắc chia đôi có xét đến hoàn cảnh, công sức, lợi ích nghề nghiệp và lỗi vi phạm nghĩa vụ của mỗi bên.",
     "references": [
       "Không. Nguyên tắc chia đôi có xét đến hoàn cảnh, công sức, lợi ích nghề nghiệp và lỗi vi phạm nghĩa vụ của mỗi bên."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.08633093525179857
+    "token_f1": 0.08633093525179857,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 4,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 0.75,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đúng trọng tâm câu hỏi, đề cập các khía cạnh chính. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_029",
+    "category": "con_cai",
+    "question": "Sau ly hôn, con dưới 36 tháng tuổi có đương nhiên luôn phải giao mẹ nuôi không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, sau khi ly hôn, việc quyết định người trực tiếp nuôi dưỡng con cái là một vấn đề cần được xem xét cụ thể. Con dưới 36 tháng tuổi thường sẽ ở với mẹ do lý do sức khỏe và sự phát triển tâm sinh lý của trẻ nhỏ.\n\nTuy nhiên, điều này không phải là \"đương nhiên\" mà phụ thuộc vào nhiều yếu tố như:\n\n1. Sức khỏe của cả cha và mẹ.\n2. Điều kiện sống, môi trường nuôi dạy phù hợp cho con.\n3. Quan hệ giữa cha và mẹ với con.\n4. Ý kiến của trẻ (nếu đã đủ tuổi hiểu biết).\n\nNgoài ra, Tòa án có quyền xem xét toàn diện các tình huống cụ thể để đưa ra quyết định tốt nhất cho lợi ích của trẻ em.\n\nVì vậy, mặc dù thường thì con dưới 36 tháng sẽ ở với mẹ, nhưng không phải là quy định \"đương nhiên\" mà cần được xác định dựa trên nhiều yếu tố khác nhau.",
+    "expected_answer": "Không tuyệt đối. Nguyên tắc giao mẹ trực tiếp nuôi, trừ khi mẹ không đủ điều kiện hoặc cha mẹ có thỏa thuận khác phù hợp lợi ích của con.",
     "references": [
       "Không tuyệt đối. Nguyên tắc giao mẹ trực tiếp nuôi, trừ khi mẹ không đủ điều kiện hoặc cha mẹ có thỏa thuận khác phù hợp lợi ích của con."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.2
+    "token_f1": 0.2,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_030",
+    "category": "cap_duong",
+    "question": "Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ cấp dưỡng không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, cha hoặc mẹ không trực tiếp nuôi con vẫn phải thực hiện nghĩa vụ cấp dưỡng cho con. Cụ thể:\n\n- Điều 93 quy định về quyền và nghĩa vụ của cha, mẹ đối với con:\n\"Cha, mẹ có trách nhiệm chăm sóc, giáo dục con; hỗ trợ kinh phí nuôi dưỡng, học hành, y tế cho con.\"\n\n- Theo đó, dù không trực tiếp nuôi con nhưng vẫn phải cấp dưỡng.\n\n- Mức độ cụ thể về việc cấp dưỡng sẽ được xác định dựa trên khả năng tài chính của người có nghĩa vụ cấp dưỡng và nhu cầu thực tế của con.\n\nVì vậy, cha hoặc mẹ không trực tiếp nuôi con sau ly hôn vẫn có nghĩa vụ cấp dưỡng cho con.",
+    "expected_answer": "Có. Cha hoặc mẹ không trực tiếp nuôi con có nghĩa vụ cấp dưỡng cho con.",
     "references": [
       "Có. Cha hoặc mẹ không trực tiếp nuôi con có nghĩa vụ cấp dưỡng cho con."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.21192052980132453
+    "token_f1": 0.21192052980132453,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_031",
+    "category": "con_cai",
+    "question": "Cha mẹ không trực tiếp nuôi con có quyền thăm nom con sau ly hôn không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, cha hoặc mẹ đều có quyền được chăm sóc, giáo dục và trông nom con chưa thành niên. Điều này bao gồm cả quyền thăm nom con.\n\nCụ thể:\n\n- Theo Điều 87 Luật Hôn nhân và Gia đình: \"Cha, mẹ cùng là người trực tiếp nuôi dưỡng, giáo dục con; nếu không trực tiếp nuôi dưỡng thì có trách nhiệm cấp dưỡng cho con.\"\n\n- Theo Điều 102: \"Trong trường hợp cha hoặc mẹ không trực tiếp nuôi con, phải được quyền thăm nom con theo thỏa thuận của các bên hoặc quyết định của Tòa án. Việc thăm nom con là nghĩa vụ và quyền lợi của cha, mẹ đối với con.\"\n\nDo đó, dù không trực tiếp nuôi dưỡng, cha hoặc mẹ vẫn có quyền thăm nom con sau ly hôn. Quyền này cần được quy định cụ thể trong thỏa thuận ly hôn hoặc quyết định của tòa án.\n\nTuy nhiên, nội dung về thời gian, hình thức và địa điểm thăm nom thường phải do các bên thỏa thuận hoặc Tòa án quyết định để phù hợp với lợi ích tối đa cho con cái.",
+    "expected_answer": "Có quyền và nghĩa vụ thăm nom con, không ai được cản trở; việc thăm nom bị hạn chế nếu lạm dụng gây ảnh hưởng xấu theo quy định.",
     "references": [
       "Có quyền và nghĩa vụ thăm nom con, không ai được cản trở; việc thăm nom bị hạn chế nếu lạm dụng gây ảnh hưởng xấu theo quy định."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.14847161572052403
+    "token_f1": 0.14847161572052403,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_033",
+    "category": "cap_duong",
+    "question": "Cấp dưỡng có thể thực hiện một lần thay vì hằng tháng không?",
     "prediction": "Trong nhiều trường hợp, cấp dưỡng có thể được thỏa thuận giữa các bên để thực hiện một lần trong năm hoặc theo thời gian nhất định khác thay vì hằng tháng. Tuy nhiên, điều này phụ thuộc vào thỏa thuận của cả hai bên và quy định cụ thể trong hợp đồng cấp dưỡng.\n\nNếu không có thỏa thuận nào được đề ra, theo Luật Hôn nhân và Gia đình 2014 (sửa đổi năm 2022), cấp dưỡng thường là một khoản tiền phải trả hằng tháng. Tuy nhiên, nếu hai bên thống nhất thực hiện một lần trong năm hoặc theo thời gian khác, điều này vẫn được chấp nhận.\n\nBạn nên tham khảo ý kiến của luật sư để có sự tư vấn cụ thể và phù hợp với tình huống cụ thể của mình.",
+    "expected_answer": "Có. Phương thức cấp dưỡng có thể theo tháng, quý, nửa năm, năm hoặc một lần.",
     "references": [
       "Có. Phương thức cấp dưỡng có thể theo tháng, quý, nửa năm, năm hoặc một lần."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1568627450980392
+    "token_f1": 0.1568627450980392,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_034",
+    "category": "cap_duong",
+    "question": "Nghĩa vụ cấp dưỡng có thể chuyển giao tùy ý cho người khác không?",
     "prediction": "Theo quy định của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), nghĩa vụ cấp dưỡng không được chuyển giao. Điều 93 của Luật này nêu rõ:\n\n\"Người có nghĩa vụ cấp dưỡng không được trao quyền cho người khác để thực hiện nghĩa vụ đó.\"\n\nDo vậy, nghĩa vụ cấp dưỡng không thể chuyển giao tùy ý cho một người khác mà phải do chính người có nghĩa vụ thực hiện.",
+    "expected_answer": "Không. Nghĩa vụ cấp dưỡng không thể thay thế bằng nghĩa vụ khác hoặc chuyển giao cho người khác.",
     "references": [
       "Không. Nghĩa vụ cấp dưỡng không thể thay thế bằng nghĩa vụ khác hoặc chuyển giao cho người khác."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.30927835051546393
+    "token_f1": 0.30927835051546393,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_035",
+    "category": "ket_hon",
+    "question": "Theo quy định HNGĐ hiện hành năm 2026, kết hôn cùng giới vẫn là hành vi bị cấm theo Luật 2000 đúng không?",
     "prediction": "Dựa trên thông tin pháp luật Việt Nam đến thời điểm hiện tại (năm 2023), việc kết hôn giữa người cùng giới chưa được công nhận và quy định trong Bộ Luật Hôn nhân và Gia đình năm 2014. Tuy nhiên, tôi không có thông tin chính xác về dự thảo Luật Hôn nhân và Gia đình năm 2026.\n\nNếu bạn đang tham khảo các thông tin từ nguồn khác nhau hoặc dự thảo luật mới, vui lòng cung cấp thêm chi tiết để tôi có thể hỗ trợ tốt hơn. Hiện tại, theo quy định của pháp luật Việt Nam hiện hành (năm 2014), kết hôn giữa người cùng giới vẫn chưa được công nhận và là vi phạm pháp luật.\n\nNếu bạn cần thông tin chính xác từ dự thảo mới hoặc thay đổi trong tương lai, tôi khuyên bạn nên kiểm tra các nguồn thông tin đáng tin cậy hoặc liên hệ với cơ quan có thẩm quyền.",
+    "expected_answer": "Không. Luật 2000 đã hết hiệu lực; Luật 2014 quy định Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính, không liệt kê đây là một trường hợp cấm kết hôn như Luật 2000.",
     "references": [
       "Không. Luật 2000 đã hết hiệu lực; Luật 2014 quy định Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính, không liệt kê đây là một trường hợp cấm kết hôn như Luật 2000."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.17085427135678394
+    "token_f1": 0.17085427135678394,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_037",
+    "category": "hieu_luc",
+    "question": "Năm 2026, Nghị định 70/2001/NĐ-CP còn là nghị định hướng dẫn luật hôn nhân và gia đình đang có hiệu lực không?",
     "prediction": "Nghị định số 70/2001/NĐ-CP đã được ban hành vào năm 2001 để hướng dẫn một số điều của Luật Hôn nhân và Gia đình. Tuy nhiên, Nghị định này đã bị bãi bỏ theo Quyết định số 34/2015/QĐ-TTg ngày 28 tháng 7 năm 2015 của Thủ tướng Chính phủ.\n\nDo đó, từ năm 2026 trở đi, Nghị định 70/2001/NĐ-CP không còn là văn bản pháp luật đang có hiệu lực để hướng dẫn Luật Hôn nhân và Gia đình. Hiện nay, các quy định về hôn nhân gia đình được hướng dẫn bởi các nghị định mới hơn hoặc do Bộ Tư pháp ban hành dựa trên Luật Hôn nhân và Gia đình hiện hành.\n\nNếu bạn cần thông tin cụ thể về văn bản pháp luật đang có hiệu lực vào năm 2026, vui lòng cung cấp thêm thông tin để tôi có thể hỗ trợ chính xác hơn.",
+    "expected_answer": "Không. Nghị định 70/2001/NĐ-CP đã hết hiệu lực toàn bộ từ 15/02/2015.",
     "references": [
       "Không. Nghị định 70/2001/NĐ-CP đã hết hiệu lực toàn bộ từ 15/02/2015."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1477272727272727
+    "token_f1": 0.1477272727272727,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 1,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.0,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Vi phạm nghiêm trọng tính trung thực: viện dẫn văn bản/luật đã hết hiệu lực cho câu hỏi hiện hành."
   },
   {
     "query_id": "HN_038",
+    "category": "hieu_luc",
+    "question": "Nghị định 77/2001/NĐ-CP còn có thể dùng làm quy định đăng ký kết hôn hiện hành năm 2026 không?",
     "prediction": "Theo pháp luật Việt Nam hiện nay, Nghị định số 77/2001/NĐ-CP đã bị bãi bỏ từ ngày 31 tháng 5 năm 2014. Do đó, nghị định này không còn có giá trị áp dụng trong thực tiễn kể từ thời điểm trên.\n\nNếu bạn muốn biết quy định về đăng ký kết hôn hiện hành vào năm 2026, theo Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung một số điều bởi Luật số 38/2017/QH14), có thể tham khảo các quy định sau:\n\n- Điều kiện để đăng ký kết hôn bao gồm tuổi đủ 18 tuổi hoặc đã được cha mẹ đồng ý.\n- Quy trình và thủ tục đăng ký kết hôn thực hiện tại cơ quan đăng ký dân sự cấp xã nơi cư trú của một trong hai bên.\n\nNếu cần thông tin chi tiết về quy định cụ thể, bạn nên tham khảo Luật Hôn nhân và Gia đình năm 2014 hoặc liên hệ với cơ quan chức năng.",
+    "expected_answer": "Không. Nghị định 77/2001/NĐ-CP hết hiệu lực toàn bộ từ 01/01/2016.",
     "references": [
       "Không. Nghị định 77/2001/NĐ-CP hết hiệu lực toàn bộ từ 01/01/2016."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.08602150537634408
+    "token_f1": 0.08602150537634408,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_039",
+    "category": "hieu_luc",
+    "question": "Năm 2026, Nghị định 68/2002/NĐ-CP còn hiệu lực về hôn nhân có yếu tố nước ngoài không?",
     "prediction": "Theo quy định của pháp luật Việt Nam hiện hành, Nghị định số 68/2002/NĐ-CP đã bị bãi bỏ từ năm 2015. Do đó, kể từ năm 2016 đến nay, các quy định về hôn nhân có yếu tố nước ngoài được điều chỉnh bởi Luật Hôn nhân và Gia đình 2014 và các văn bản pháp luật khác có liên quan.\n\nNếu bạn cần thông tin cụ thể về các quy định hiện hành về hôn nhân có yếu tố nước ngoài sau năm 2015, tôi rất sẵn lòng hỗ trợ.",
+    "expected_answer": "Không. Nghị định 68/2002/NĐ-CP hết hiệu lực toàn bộ từ 15/05/2013.",
     "references": [
       "Không. Nghị định 68/2002/NĐ-CP hết hiệu lực toàn bộ từ 15/05/2013."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.12727272727272723
+    "token_f1": 0.12727272727272723,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_041",
+    "category": "hieu_luc",
+    "question": "Năm 2026 có thể dùng Thông tư 15/2015/TT-BTP như thông tư hộ tịch còn hiệu lực không?",
     "prediction": "Thông tư số 15/2015/TT-BTP do Bộ Tư pháp ban hành đã hết hạn hiệu lực từ ngày 31 tháng 12 năm 2020 theo quy định tại Điều 46 Thông tư này. Do đó, kể từ năm 2021, thông tư này không còn được sử dụng như một văn bản hướng dẫn thực hiện Luật Hộ tịch.\n\nNếu bạn cần các hướng dẫn về hộ tịch sau năm 2020, nên tham khảo các quy định mới nhất của pháp luật Việt Nam hoặc các Thông tư, Nghị định có hiệu lực từ năm 2021 trở đi.",
+    "expected_answer": "Không. Thông tư 15/2015/TT-BTP hết hiệu lực toàn bộ từ 16/07/2020.",
     "references": [
       "Không. Thông tư 15/2015/TT-BTP hết hiệu lực toàn bộ từ 16/07/2020."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.22807017543859648
+    "token_f1": 0.22807017543859648,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_042",
+    "category": "mang_thai_ho",
+    "question": "Năm 2026 có thể dùng Nghị định 10/2015/NĐ-CP như nghị định đang hiệu lực điều chỉnh hỗ trợ sinh sản không?",
     "prediction": "Theo quy định của pháp luật Việt Nam, các văn bản hành chính như Nghị định chỉ có hiệu lực trong khoảng thời gian cụ thể được xác định. Nghị định 10/2015/NĐ-CP đã hết hạn hiệu lực từ ngày 31 tháng 12 năm 2020.\n\nDo đó, kể từ năm 2021 đến nay và dự kiến cho tới năm 2026, Nghị định 10/2015/NĐ-CP không còn là văn bản pháp luật đang có hiệu lực để sử dụng điều chỉnh các hoạt động liên quan đến hỗ trợ sinh sản.\n\nNếu cần áp dụng quy định về hỗ trợ sinh sản trong thời gian từ năm 2021 trở đi, bạn nên tham khảo các Nghị định mới được ban hành sau đó.",
+    "expected_answer": "Không. Nghị định 10/2015/NĐ-CP đã hết hiệu lực toàn bộ từ 01/10/2025; cần đối chiếu Nghị định 207/2025/NĐ-CP.",
     "references": [
       "Không. Nghị định 10/2015/NĐ-CP đã hết hiệu lực toàn bộ từ 01/10/2025; cần đối chiếu Nghị định 207/2025/NĐ-CP."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.2368421052631579
+    "token_f1": 0.2368421052631579,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_043",
+    "category": "mang_thai_ho",
+    "question": "Vào tháng 10/2026, Nghị định 207/2025/NĐ-CP có phải văn bản thay thế khung nghị định 10/2015 về hỗ trợ sinh sản không?",
     "prediction": "Theo thông tin hiện tại của tôi, đến thời điểm tháng 10/2026, chưa có Nghị định 207/2025/NĐ-CP được ban hành. Do đó, không thể xác nhận rằng nó là văn bản thay thế khung nghị định 10/2015 về hỗ trợ sinh sản.\n\nNghị định số 10/2015/NĐ-CP do Chính phủ ban hành ngày 30 tháng 1 năm 2015, quy định chi tiết một số điều và biện pháp thi hành Luật Hỗ trợ sinh sản. Nếu Nghị định mới được ban hành sau này để thay thế hoặc sửa đổi Nghị định 10/2015/NĐ-CP, nó sẽ có tên và số khác.\n\nTôi khuyên bạn nên kiểm tra thông tin chính thức từ cơ quan nhà nước có thẩm quyền như Bộ Tư pháp hay Chính phủ Việt Nam để cập nhật tình hình mới nhất.",
+    "expected_answer": "Có. Nghị định 207/2025/NĐ-CP có hiệu lực từ 01/10/2025 và Nghị định 10/2015/NĐ-CP hết hiệu lực từ cùng mốc.",
     "references": [
       "Có. Nghị định 207/2025/NĐ-CP có hiệu lực từ 01/10/2025 và Nghị định 10/2015/NĐ-CP hết hiệu lực từ cùng mốc."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.19883040935672514
+    "token_f1": 0.19883040935672514,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_045",
+    "category": "hieu_luc",
+    "question": "Nghị định 126/2014/NĐ-CP có còn nguyên vẹn hiệu lực của tất cả điều khoản vào năm 2026 không?",
     "prediction": "Nghị định số 126/2014/NĐ-CP về quản lý, sử dụng tài sản công đã hết hạn hiệu lực từ ngày 31 tháng 7 năm 2021. Do đó, kể từ thời điểm này, Nghị định không còn có giá trị pháp lý và các quy định trong Nghị định cũng không áp dụng.\n\nNếu bạn cần thông tin về quản lý, sử dụng tài sản công vào năm 2026 hoặc bất kỳ năm nào sau đây, sẽ phải dựa trên các văn bản pháp luật mới được ban hành thay thế cho Nghị định này.",
+    "expected_answer": "Không. CSDL quốc gia ghi nhận nghị định này hết hiệu lực một phần; phải đối chiếu từng điều khoản và thời điểm áp dụng.",
     "references": [
       "Không. CSDL quốc gia ghi nhận nghị định này hết hiệu lực một phần; phải đối chiếu từng điều khoản và thời điểm áp dụng."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.21487603305785125
+    "token_f1": 0.21487603305785125,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_046",
+    "category": "hieu_luc",
+    "question": "Thông tư 04/2020/TT-BTP trong năm 2026 còn hiệu lực toàn bộ như bản gốc không?",
     "prediction": "Theo quy định của Luật Ban hành văn bản行政法规，请您提供更多的信息，以便我能更准确地回答您的问题。根据我所了解的情况，《通则》的有效期通常不会自动延续到未来年份，除非有特别的法律或文件明确延长其有效期。《2020年第4号司法部令》（04/2020/TT-BTP）如果在2026年仍然有效，需要满足以下条件之一：\n\n1. 该通则已被相关机关正式宣布继续有效。\n2. 在2026年前，《通则》被修订或废止，并且没有新的规定替代它。\n\n如果没有上述情况发生，则《2020年第4号司法部令》（04/2020/TT-BTP）在2026年将不再有效。为了确认其有效性，建议查阅最新的法律法规汇编或者咨询相关的法律专家或机构以获取准确信息。",
+    "expected_answer": "Không. Thông tư 04/2020/TT-BTP được ghi nhận hết hiệu lực một phần, cần tra lịch sử sửa đổi ở cấp điều khoản.",
     "references": [
       "Không. Thông tư 04/2020/TT-BTP được ghi nhận hết hiệu lực một phần, cần tra lịch sử sửa đổi ở cấp điều khoản."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1379310344827586
+    "token_f1": 0.1379310344827586,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 4,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 0.75,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đúng trọng tâm câu hỏi, đề cập các khía cạnh chính. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_047",
+    "category": "hieu_luc",
+    "question": "Thông tư 57/2015/TT-BYT còn toàn bộ các quy định ban đầu không bị tác động sửa đổi vào năm 2026?",
     "prediction": "Theo thông tin hiện có, Thông tư số 57/2015/TT-BYT của Bộ Y tế được ban hành từ năm 2015 và đã hết hiệu lực kể từ ngày 31 tháng 8 năm 2026. Do đó, các quy định trong Thông tư này sẽ không còn có giá trị pháp lý sau thời điểm trên.\n\nNếu cần thông tin chính xác về tình trạng của Thông tư số 57/2015/TT-BYT vào năm 2026, bạn nên tham khảo trực tiếp từ Bộ Y tế hoặc cơ quan có thẩm quyền để đảm bảo tính chính xác.",
+    "expected_answer": "Không thể coi toàn bộ bản gốc còn nguyên hiệu lực: CSDL quốc gia ghi nhận thông tư này hết hiệu lực một phần.",
     "references": [
       "Không thể coi toàn bộ bản gốc còn nguyên hiệu lực: CSDL quốc gia ghi nhận thông tư này hết hiệu lực một phần."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1475409836065574
+    "token_f1": 0.1475409836065574,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_049",
+    "category": "hieu_luc",
+    "question": "Nếu chatbot nói chỉ cần kiểm tra trạng thái văn bản cấp tổng thể để biết một khoản của NĐ 126/2014 còn hiệu lực thì có chính xác không?",
     "prediction": "Trạng thái văn bản cấp tổng thể (như thông tư, quy định) thường được cập nhật và công bố bởi cơ quan ban hành. Tuy nhiên, việc chỉ dựa vào trạng thái này để kết luận một điều khoản cụ thể của Nghị định 126/2014-CN còn hiệu lực hay không có thể chưa đầy đủ.\n\nĐể xác định chính xác một điều khoản cụ thể trong Nghị định 126/2014-CN vẫn đang được áp dụng, cần xem xét các yếu tố sau:\n\n1. **Trạng thái văn bản**: Xác nhận trạng thái của toàn bộ nghị định.\n   \n2. **Sửa đổi, bổ sung**: Kiểm tra lịch sử sửa đổi và bổ sung để xác định điều khoản cụ thể có bị thay đổi hay không.\n\n3. **Hiệu lực thi hành**: Đảm bảo rằng cả Nghị định gốc lẫn các văn bản sửa đổi, bổ sung (nếu có) đều đang trong thời gian hiệu lực.\n\n4. **Luật liên quan**: Kiểm tra xem điều khoản này có bị ảnh hưởng bởi bất kỳ quy định của luật khác không.\n\nVì vậy, chỉ dựa vào trạng thái văn bản cấp tổng thể là chưa đủ để kết luận một điều cụ thể còn hiệu lực hay không. Cần kiểm tra kỹ lưỡng các yếu tố trên.",
+    "expected_answer": "Không. Vì Nghị định 126/2014/NĐ-CP hết hiệu lực một phần nên phải kiểm tra hiệu lực cấp điều, khoản và thời điểm.",
     "references": [
       "Không. Vì Nghị định 126/2014/NĐ-CP hết hiệu lực một phần nên phải kiểm tra hiệu lực cấp điều, khoản và thời điểm."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.1506276150627615
+    "token_f1": 0.1506276150627615,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_050",
+    "category": "hieu_luc",
+    "question": "Tháng 10/2026 có được kết luận mọi quy định Thông tư 04/2020/TT-BTP còn nguyên như khi ban hành không?",
     "prediction": "Thông tư số 04/2020/TT-BTP do Bộ Tư pháp ban hành vẫn sẽ có hiệu lực cho đến khi bị thay thế, sửa đổi hoặc bãi bỏ theo quy định của pháp luật. Tuy nhiên, việc kết luận rằng mọi quy định trong Thông tư này còn nguyên vẹn như khi ban hành vào tháng 10/2026 phụ thuộc vào nhiều yếu tố:\n\n1. **Hiệu lực hiện tại**: Nếu không có văn bản pháp luật mới sửa đổi hoặc bãi bỏ thông tư này, các quy định vẫn được áp dụng.\n\n2. **Thay đổi của pháp luật chung**: Các quy định trong Thông tư 04/2020/TT-BTP phải tuân theo những thay đổi của Luật và các văn bản pháp luật khác có liên quan.\n\n3. **Quyết định sửa đổi, bổ sung**: Bộ Tư pháp hoặc cơ quan có thẩm quyền có thể ban hành thông tư mới để điều chỉnh một số quy định cụ thể trong Thông tư 04/2020/TT-BTP.\n\n4. **Tình hình thực tế**: Một số quy định có thể không còn phù hợp với tình hình thực tế và cần được điều chỉnh.\n\nDo đó, vào tháng 10/2026, các quy định của Thông tư 04/2020/TT-BTP vẫn sẽ còn nguyên vẹn như khi ban hành nếu không có văn bản pháp luật mới sửa đổi hoặc bãi bỏ. Tuy nhiên, cần theo dõi thông tin từ cơ quan nhà nước để nắm bắt những thay đổi kịp thời.\n\nNếu bạn muốn biết chính xác tình hình vào tháng 10/2026, nên liên hệ với Bộ Tư pháp hoặc các cơ quan có thẩm quyền để được tư vấn cụ thể.",
+    "expected_answer": "Không. Văn bản đã được sửa đổi, bãi bỏ một phần; cần đối chiếu các văn bản sửa đổi và điều khoản cụ thể.",
     "references": [
       "Không. Văn bản đã được sửa đổi, bãi bỏ một phần; cần đối chiếu các văn bản sửa đổi và điều khoản cụ thể."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.12418300653594772
+    "token_f1": 0.12418300653594772,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_051",
+    "category": "ket_hon",
+    "question": "Năm 2010, Luật Hôn nhân và gia đình 2000 có cấm kết hôn giữa những người cùng giới tính không?",
     "prediction": "Theo Luật Hôn nhân và Gia đình năm 2000 của Việt Nam, chưa có quy định cấm hoặc cho phép kết hôn giữa những người cùng giới tính. Tại thời điểm đó, luật pháp Việt Nam chỉ công nhận hôn nhân giữa nam và nữ.\n\nĐến năm 2015, Quốc hội Việt Nam đã thông qua Luật Hôn nhân và Gia đình (sửa đổi) với các quy định mới về quyền bình đẳng trong hôn nhân gia đình, nhưng vẫn không đề cập đến việc cho phép kết hôn đồng giới.",
+    "expected_answer": "Có. Khoản 5 Điều 10 Luật Hôn nhân và gia đình 2000 cấm kết hôn giữa những người cùng giới tính.",
     "references": [
       "Có. Khoản 5 Điều 10 Luật Hôn nhân và gia đình 2000 cấm kết hôn giữa những người cùng giới tính."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.3063063063063063
+    "token_f1": 0.3063063063063063,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_053",
+    "category": "hieu_luc",
+    "question": "Tháng 7/2014, Luật Hôn nhân và gia đình 52/2014/QH13 đã có hiệu lực chưa?",
     "prediction": "Luật Hôn nhân và Gia đình số 52/2014/QH13 có hiệu lực từ ngày 01 tháng 7 năm 2015, không phải là tháng 7 năm 2014. Luật này được Quốc hội Việt Nam ban hành vào ngày 29 tháng 6 năm 2014 và có thời gian chuyển tiếp để thực hiện các quy định mới của luật trong vòng một năm kể từ ngày có hiệu lực.",
+    "expected_answer": "Chưa. Luật 52/2014/QH13 có hiệu lực từ 01/01/2015.",
     "references": [
       "Chưa. Luật 52/2014/QH13 có hiệu lực từ 01/01/2015."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.25
+    "token_f1": 0.25,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_054",
+    "category": "mang_thai_ho",
+    "question": "Trong tháng 6/2024, Nghị định 10/2015/NĐ-CP còn hiệu lực điều chỉnh hỗ trợ sinh sản không?",
     "prediction": "Nghị định số 10/2015/NĐ-CP do Chính phủ ban hành có quy định về chính sách hỗ trợ sinh sản. Tuy nhiên, để xác định liệu Nghị định này có còn hiệu lực vào tháng 6/2024 hay không, cần xem xét một số điểm sau:\n\n1. **Thời hạn hiệu lực**: Cần kiểm tra thời gian hết hiệu lực của Nghị định theo quy định tại Điều 35 hoặc các điều tương tự.\n\n2. **Luật mới thay thế**: Nếu có Luật mới được ban hành và sửa đổi, bãi bỏ Nghị định này, thì Nghị định sẽ không còn hiệu lực.\n\n3. **Quyết định thi hành**: Cần xem xét Quyết định số 16/2015/QĐ-TTg của Thủ tướng Chính phủ về việc phê duyệt chương trình hỗ trợ sinh sản theo Nghị định 10/2015/NĐ-CP, nếu có.\n\nTheo thông tin hiện tại và giới hạn kiến thức của tôi, không có thông báo chính thức rằng Nghị định số 10/2015/NĐ-CP đã bị bãi bỏ hoặc thay thế. Tuy nhiên, để đảm bảo độ chính xác, bạn nên kiểm tra các văn bản pháp luật mới nhất từ Bộ Tư pháp hay trang web của Chính phủ Việt Nam.\n\nNếu không có thông báo gì khác, Nghị định 10/2015/NĐ-CP vẫn sẽ tiếp tục hiệu lực cho đến khi bị bãi bỏ hoặc thay thế.",
+    "expected_answer": "Có, về trạng thái toàn văn nghị định này vẫn chưa hết hiệu lực; mốc hết hiệu lực toàn bộ là 01/10/2025 (cần xem từng điều khoản nếu có sửa đổi).",
     "references": [
       "Có, về trạng thái toàn văn nghị định này vẫn chưa hết hiệu lực; mốc hết hiệu lực toàn bộ là 01/10/2025 (cần xem từng điều khoản nếu có sửa đổi)."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.15730337078651685
+    "token_f1": 0.15730337078651685,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_055",
+    "category": "hieu_luc",
+    "question": "Ngày 01/12/2015, Thông tư 02a/2015/TT-BTP còn hiệu lực không?",
     "prediction": "Thông tư số 02a/2015/TT-BTP của Bộ Tư pháp đã hết hạn hiệu lực từ ngày 31 tháng 12 năm 2019 theo quy định tại Điều 4 Thông tư số 13/2019/TT-BKHĐT. Do đó, kể từ ngày 01/01/2020, thông tư này không còn có hiệu lực pháp luật và không được áp dụng trong hoạt động quản lý nhà nước.\n\nNếu bạn cần thông tin về các quy định mới nhất liên quan đến nội dung của Thông tư số 02a/2015/TT-BTP, tôi khuyên bạn nên tham khảo những văn bản pháp luật hiện hành hoặc liên hệ với cơ quan có thẩm quyền để được hỗ trợ chính xác.",
+    "expected_answer": "Có. Thông tư có hiệu lực từ 10/04/2015 đến trước ngày 02/01/2016.",
     "references": [
       "Có. Thông tư có hiệu lực từ 10/04/2015 đến trước ngày 02/01/2016."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.16417910447761194
+    "token_f1": 0.16417910447761194,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_057",
+    "category": "hieu_luc",
+    "question": "Nghị định 126/2014/NĐ-CP hiện được ghi nhận hết hiệu lực toàn bộ hay một phần?",
     "prediction": "Theo thông tin tôi có, Nghị định 126/2014/NĐ-CP về quản lý thuế đối với doanh nghiệp đã bị bãi bỏ theo Quyết định số 35/2020/QĐ-TTg ngày 28 tháng 7 năm 2020 của Thủ tướng Chính phủ. Do đó, Nghị định này hiện không còn hiệu lực pháp luật.\n\nNếu bạn cần thông tin cụ thể về thời điểm bãi bỏ hoặc có bất kỳ thắc mắc nào khác liên quan đến vấn đề quản lý thuế đối với doanh nghiệp, tôi rất sẵn lòng hỗ trợ thêm.",
+    "expected_answer": "Hết hiệu lực một phần. Cần kiểm tra hiệu lực từng điều, khoản trước khi sử dụng.",
     "references": [
       "Hết hiệu lực một phần. Cần kiểm tra hiệu lực từng điều, khoản trước khi sử dụng."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.05454545454545454
+    "token_f1": 0.05454545454545454,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
     "query_id": "HN_058",
+    "category": "hieu_luc",
+    "question": "Đối với Thông tư 04/2020/TT-BTP, chỉ dựa vào ngày ban hành có đủ để xác định một điều còn hiệu lực không?",
     "prediction": "Theo Thông tư số 04/2020/TT-BTP của Bộ Tư pháp, việc xác định một quy định cụ thể trong thông tư có còn hiệu lực hay không cần xem xét nhiều yếu tố hơn là chỉ dựa vào ngày ban hành. Cụ thể:\n\n1. Cần kiểm tra nội dung Thông tư để xác định các điều khoản nào đã hết hạn hoặc bị bãi bỏ.\n\n2. Cần xem xét tình hình thực tế và quy định của pháp luật chung có thay đổi không, ảnh hưởng đến hiệu lực của thông tư.\n\n3. Nếu cần thiết, phải tham khảo ý kiến của cơ quan ban hành (Bộ Tư pháp) để xác định chính xác.\n\nVì vậy, chỉ dựa vào ngày ban hành là chưa đủ để khẳng định một điều trong Thông tư 04/2020/TT-BTP vẫn còn hiệu lực. Cần xem xét kỹ nội dung và hoàn cảnh cụ thể.",
+    "expected_answer": "Không. Văn bản có lịch sử sửa đổi và hết hiệu lực một phần; phải xem lịch sử và điều khoản bị thay đổi.",
     "references": [
       "Không. Văn bản có lịch sử sửa đổi và hết hiệu lực một phần; phải xem lịch sử và điều khoản bị thay đổi."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.16853932584269662
+    "token_f1": 0.16853932584269662,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 3,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.5,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
     "query_id": "HN_059",
+    "category": "hieu_luc",
+    "question": "Văn bản 57/2015/TT-BYT được CSDL quốc gia ghi nhận trạng thái hiệu lực nào?",
     "prediction": "Theo thông tin tôi có thể cung cấp, văn bản 57/2015/TT-BYT là Thông tư của Bộ Y tế ban hành vào năm 2015. Tuy nhiên, về trạng thái hiện tại của văn bản này trên CSDL quốc gia, tôi không có thông tin cụ thể và chính xác.\n\nĐể biết được tình hình hiệu lực hiện tại của văn bản pháp luật này, bạn nên tham khảo trực tiếp từ CSDL Quốc gia hoặc liên hệ với Bộ Y tế Việt Nam để nhận được thông tin chính thức. Trạng thái hiệu lực của các văn bản pháp luật có thể thay đổi do việc ban hành các văn bản mới hoặc sửa đổi, bãi bỏ các văn bản cũ.\n\nNếu bạn cần xác định tình trạng hiện tại của văn bản này, tôi khuyên bạn nên liên hệ trực tiếp với Bộ Y tế Việt Nam hoặc truy cập CSDL Quốc gia để được hỗ trợ chính xác.",
+    "expected_answer": "Hết hiệu lực một phần; không suy ra mọi điều khoản đều bị bãi bỏ.",
     "references": [
       "Hết hiệu lực một phần; không suy ra mọi điều khoản đều bị bãi bỏ."
     ],
     "exact_match": 0.0,
-    "token_f1": 0.05649717514124294
+    "token_f1": 0.05649717514124294,
+    "rubric_source": "lexical",
+    "lexical_relevance_score": 5,
+    "lexical_faithfulness_score": 2,
+    "lexical_relevance": 1.0,
+    "lexical_faithfulness": 0.25,
+    "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   }
 ]

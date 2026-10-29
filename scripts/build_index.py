@@ -2,14 +2,15 @@
 """
 scripts/build_index.py
 Script tạo và cập nhật Vector Index cho Dense Retriever (Sprint 6).
+Mặc định đọc corpus chunks từ `data/chunking_output/chunks.jsonl`.
 Cách chạy:
     python scripts/build_index.py
+    python scripts/build_index.py --model BAAI/bge-m3
     python scripts/build_index.py --model bkai-foundation-models/vietnamese-bi-encoder --mock
 """
 from __future__ import annotations
 
 import argparse
-import glob
 import json
 import sys
 import time
@@ -29,53 +30,53 @@ if str(BASE_DIR) not in sys.path:
 
 from embedding.dense_retriever import (  # noqa: E402
     DEFAULT_MODEL_NAME,
-    MODEL_DIMENSIONS,
     DenseRetriever,
+    get_model_spec,
+    underthesea_version,
 )
-from embedding.vector_store import LegalVectorStore  # noqa: E402
+from embedding.vector_store import (  # noqa: E402
+    LegalVectorStore,
+    chunk_file_sha256,
+    index_metadata_path,
+    normalize_chunk_record,
+)
+
+DEFAULT_CHUNKS_FILE = BASE_DIR / "data" / "chunking_output" / "chunks.jsonl"
 
 
-def load_chunks_from_repo(input_path: Path | None = None) -> List[Dict[str, Any]]:
+def load_chunks_from_repo(input_path: Path | str | None = None) -> List[Dict[str, Any]]:
     """
-    Ưu tiên đọc file JSON/JSONL chứa danh sách chunks đã xử lý.
-    Nếu chưa có file phẳng, tự động đọc từ parser/parsed_jsons/*.json và chạy chunking_rules.
+    Đọc danh sách chunks từ file JSON hoặc JSONL chuẩn.
+    Báo lỗi dừng ngay nếu file không tồn tại; loại bỏ toàn bộ cơ chế tự động chunking lại
+    hoặc fallback sang thư mục processed/parser cũ (Lỗi E12).
     """
-    if input_path and input_path.exists():
-        raw_text = input_path.read_text(encoding="utf-8-sig")
-        if input_path.suffix.lower() == ".jsonl":
-            raw_data = [json.loads(line) for line in raw_text.splitlines() if line.strip()]
-        else:
-            raw_data = json.loads(raw_text)
-        if isinstance(raw_data, list):
-            return raw_data
-        if isinstance(raw_data, dict) and "chunks" in raw_data:
-            return raw_data["chunks"]
+    if input_path is None:
+        target_path = DEFAULT_CHUNKS_FILE
+    else:
+        target_path = Path(input_path)
 
-    processed_candidates = sorted(glob.glob(str(BASE_DIR / "data" / "processed" / "*.json")))
-    if processed_candidates:
-        chunks: List[Dict[str, Any]] = []
-        for fpath in processed_candidates:
-            data = json.loads(Path(fpath).read_text(encoding="utf-8"))
-            if isinstance(data, list):
-                chunks.extend(data)
-        if chunks:
-            return chunks
+    if not target_path.is_file():
+        raise FileNotFoundError(f"Không tìm thấy file chunks đầu vào tại: {target_path}")
 
-    parsed_files = sorted(glob.glob(str(BASE_DIR / "parser" / "parsed_jsons" / "*.json")))
-    if parsed_files:
-        from chunking.chunking_rules import chunk_legal_document
+    raw_text = target_path.read_text(encoding="utf-8-sig")
+    if target_path.suffix.lower() == ".jsonl":
+        raw_data = [json.loads(line) for line in raw_text.splitlines() if line.strip()]
+    else:
+        raw_data = json.loads(raw_text)
 
-        all_payloads: List[Dict[str, Any]] = []
-        for fpath in parsed_files:
-            doc_json = json.loads(Path(fpath).read_text(encoding="utf-8"))
-            res = chunk_legal_document(doc_json)
-            for payload in res.get_qdrant_payloads():
-                all_payloads.append(payload)
-        return all_payloads
+    if isinstance(raw_data, list):
+        chunks = raw_data
+    elif isinstance(raw_data, dict) and "chunks" in raw_data and isinstance(raw_data["chunks"], list):
+        chunks = raw_data["chunks"]
+    else:
+        raise ValueError(
+            f"Dữ liệu chunks trong {target_path} không đúng định dạng list hoặc object có trường 'chunks'."
+        )
 
-    raise FileNotFoundError(
-        "Không tìm thấy dữ liệu chunks trong data/chunking_output/, data/processed/ hoặc parser/parsed_jsons/."
-    )
+    if not chunks:
+        raise ValueError(f"File chunks {target_path} rỗng.")
+
+    return chunks
 
 
 def main() -> int:
@@ -83,8 +84,8 @@ def main() -> int:
     parser.add_argument(
         "--input",
         type=str,
-        default=str(BASE_DIR / "data" / "chunking_output" / "chunks.jsonl"),
-        help="Đường dẫn file JSON/JSONL chứa danh sách chunks đầu vào",
+        default=str(DEFAULT_CHUNKS_FILE),
+        help="Đường dẫn file JSON/JSONL chứa danh sách chunks đầu vào (mặc định data/chunking_output/chunks.jsonl)",
     )
     parser.add_argument(
         "--index-dir",
@@ -102,13 +103,7 @@ def main() -> int:
         "--model",
         type=str,
         default=DEFAULT_MODEL_NAME,
-        help="Model ID dùng để tạo embedding",
-    )
-    parser.add_argument(
-        "--dimension",
-        type=int,
-        default=None,
-        help="Số chiều vector (mặc định tự suy từ model)",
+        help="Model ID dùng để tạo embedding (mặc định đọc từ retrieval/config.yaml)",
     )
     parser.add_argument(
         "--mock",
@@ -117,7 +112,14 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    dim = args.dimension or MODEL_DIMENSIONS.get(args.model, 768)
+    try:
+        spec = get_model_spec(args.model)
+    except ValueError as exc:
+        print(f"LỖI: {exc}", file=sys.stderr)
+        return 1
+    dim = spec["dimension"]
+    use_word_seg = spec["use_word_segmentation"]
+
     index_dir = Path(args.index_dir)
     index_dir.mkdir(parents=True, exist_ok=True)
     qdrant_path = index_dir / "qdrant_storage"
@@ -126,25 +128,57 @@ def main() -> int:
     print("BẮT ĐẦU XÂY DỰNG VECTOR INDEX (SPRINT 6 - DENSE RETRIEVAL)")
     print("=" * 65)
 
-    input_path = Path(args.input) if args.input else None
-    chunks = load_chunks_from_repo(input_path)
-    print(f"[1/3] Đã nạp {len(chunks)} chunks hợp lệ.")
+    input_path = Path(args.input) if args.input else DEFAULT_CHUNKS_FILE
+    if not input_path.is_file():
+        print(f"LỖI: File input không tồn tại: {input_path}", file=sys.stderr)
+        return 1
 
-    store = LegalVectorStore(
-        collection_name=args.collection,
-        dimension=dim,
-        storage_path=str(qdrant_path),
-        use_qdrant=not args.mock,
-    )
-    retriever = DenseRetriever(
-        vector_store=store,
-        model_name=args.model,
-        use_mock=args.mock,
-    )
+    try:
+        chunks = load_chunks_from_repo(input_path)
+    except Exception as exc:
+        print(f"LỖI: Không thể nạp chunks từ {input_path}: {exc}", file=sys.stderr)
+        return 1
 
-    print(f"[2/3] Đang tạo embedding với model '{args.model}' (dim={dim}, mock={args.mock})...")
+    # [1/3] Xác thực 100% chunks trước khi khởi tạo model
+    for i, chunk in enumerate(chunks):
+        try:
+            normalize_chunk_record(chunk)
+        except Exception as exc:
+            cid = chunk.get("chunk_id") or chunk.get("id") or f"index_{i}"
+            print(f"LỖI: Chunk '{cid}' không hợp lệ: {exc}", file=sys.stderr)
+            return 1
+
+    corpus_sha = chunk_file_sha256(input_path)
+    print(f"[1/3] Đã nạp và xác thực {len(chunks)} chunks hợp lệ (SHA256={corpus_sha[:12]}...).")
+
+    try:
+        # Dựng lại toàn bộ collection: xoá point của corpus cũ và collection khác số chiều
+        store = LegalVectorStore(
+            collection_name=args.collection,
+            dimension=dim,
+            storage_path=str(qdrant_path),
+            use_qdrant=not args.mock,
+            create_if_missing=True,
+            recreate=True,
+        )
+        retriever = DenseRetriever(
+            vector_store=store,
+            model_name=args.model,
+            use_mock=args.mock,
+            use_word_segmentation=use_word_seg,
+        )
+    except Exception as exc:
+        print(f"LỖI: Khởi tạo VectorStore/Retriever thất bại: {exc}", file=sys.stderr)
+        return 1
+
+    print(f"[2/3] Đang tạo embedding với model '{args.model}' (dim={dim}, word_seg={use_word_seg}, mock={args.mock})...")
     t0 = time.perf_counter()
-    indexed_count = retriever.index_chunks(chunks)
+    try:
+        indexed_count = retriever.index_chunks(chunks)
+    except Exception as exc:
+        print(f"LỖI: Lập chỉ mục chunks thất bại: {exc}", file=sys.stderr)
+        return 1
+
     elapsed = time.perf_counter() - t0
     throughput = indexed_count / elapsed if elapsed > 0 else 0.0
 
@@ -152,21 +186,31 @@ def main() -> int:
     if not store.use_qdrant:
         store.save_snapshot_json(snapshot_file)
 
-    meta_file = index_dir / "index_metadata.json"
     meta_info = {
+        "collection_name": args.collection,
         "model_name": args.model,
         "dimension": dim,
-        "collection_name": args.collection,
+        "use_word_segmentation": use_word_seg,
+        "text_field": retriever.text_field,
+        "underthesea_version": underthesea_version() if use_word_seg else None,
+        "corpus_sha256": corpus_sha,
+        "chunk_count": indexed_count,
         "indexed_chunks": indexed_count,
         "elapsed_seconds": round(elapsed, 3),
         "throughput_chunks_per_sec": round(throughput, 2),
         "mock_mode": args.mock,
         "storage_path": str(qdrant_path if store.use_qdrant else snapshot_file),
     }
-    meta_file.write_text(json.dumps(meta_info, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Một file metadata cho mỗi collection; DenseRetriever đọc lại khi mở collection để truy vấn
+    if store.use_qdrant:
+        coll_meta_file = index_metadata_path(qdrant_path, args.collection)
+    else:
+        coll_meta_file = snapshot_file.with_name("index_snapshot_metadata.json")
+    coll_meta_file.write_text(json.dumps(meta_info, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"[3/3] Hoàn tất lập chỉ mục {indexed_count} chunks trong {elapsed:.2f}s ({throughput:.2f} chunks/s).")
-    print(f"      Đã lưu metadata cấu hình tại: {meta_file}")
+    print(f"      Đã lưu metadata cấu hình tại: {coll_meta_file}")
     print("=" * 65)
     return 0
 
