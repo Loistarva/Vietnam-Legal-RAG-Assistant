@@ -38,10 +38,16 @@ def main() -> None:
     parser.add_argument(
         "--use-candidates",
         action="store_true",
-        default=True,
-        help="Sử dụng candidate_context_ids nếu gold_context_ids chưa được duyệt (mặc định: True)",
+        help=(
+            "Chấm câu chưa có gold bằng candidate_context_ids (chưa duyệt, chỉ là số tham khảo); "
+            "mặc định chỉ chấm câu có gold_context_ids"
+        ),
     )
     args = parser.parse_args()
+
+    # Số đo trên candidate không được ghi đè file metric chấm trên gold
+    if args.use_candidates and args.metrics == METRICS_PATH:
+        args.metrics = METRICS_PATH.with_name(f"{METRICS_PATH.stem}_candidates{METRICS_PATH.suffix}")
 
     print("🎯 Bắt đầu chạy baseline benchmark cho BM25 trên Dev Set...\n")
 

@@ -11,7 +11,7 @@ def run_benchmark_bm25(
     metrics_path: str | Path,
     *,
     top_k: int = 5,
-    use_candidates: bool = True,
+    use_candidates: bool = False,
 ) -> None:
     """Chạy BM25 retrieval và đánh giá kết quả trên Dev Set."""
 

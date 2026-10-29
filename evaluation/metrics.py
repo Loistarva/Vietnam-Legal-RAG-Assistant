@@ -131,10 +131,15 @@ def evaluate(
     được bỏ qua và ghi lại trong 'skipped'. Mỗi kết quả phải có ``query_id``
     (docs/sprint6_benchmark.md mục 10). Số đo theo category lấy category từ
     kết quả hoặc từ ``queries_paths``.
+
+    ``use_candidates=True`` chấm câu chưa có gold bằng ``candidate_context_ids``
+    (chưa duyệt, chỉ là số tham khảo); mỗi câu và báo cáo ghi ``label_source``
+    để không trộn lẫn hai loại nhãn.
     """
     categories_by_id = load_categories(queries_paths)
 
     gold_by_id = load_gold(ground_truth_path, use_candidates=use_candidates)
+    verified_by_id = load_gold(ground_truth_path) if use_candidates else gold_by_id
     results = _read_json_array(results_path)
 
     per_question: list[dict[str, Any]] = []
@@ -161,12 +166,14 @@ def evaluate(
         cat = item.get("category") or categories_by_id.get(question_id)
         if cat:
             entry["category"] = cat
+        entry["label_source"] = "gold" if verified_by_id[question_id] else "candidate"
         per_question.append(entry)
 
     if not per_question:
         raise ValueError("Không có câu hỏi nào có gold để chấm điểm.")
 
-    metric_names = [key for key in per_question[0] if key not in ("query_id", "category")]
+    metric_names = [key for key in per_question[0] if key not in ("query_id", "category", "label_source")]
+    num_candidate = sum(row["label_source"] == "candidate" for row in per_question)
     average = {
         name: sum(row[name] for row in per_question) / len(per_question)
         for name in metric_names
@@ -187,7 +194,10 @@ def evaluate(
             }
 
     report = {
+        "label_source": "gold_and_candidate" if num_candidate else "gold",
         "num_questions": len(per_question),
+        "num_scored_on_gold": len(per_question) - num_candidate,
+        "num_scored_on_candidate": num_candidate,
         "num_skipped": len(skipped),
         "skipped": skipped,
         "average": average,
@@ -196,7 +206,10 @@ def evaluate(
     if by_category:
         report["by_category"] = by_category
 
-    print(f"Đã chấm {len(per_question)} câu (bỏ qua {len(skipped)} câu chưa có gold)")
+    print(
+        f"Đã chấm {len(per_question)} câu ({num_candidate} câu trên candidate chưa duyệt; "
+        f"bỏ qua {len(skipped)} câu chưa có nhãn)"
+    )
     for name, value in average.items():
         print(f"  {name}: {value:.4f}")
 

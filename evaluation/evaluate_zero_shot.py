@@ -51,6 +51,23 @@ RUBRIC_CSV_PATH = (
 
 ID_KEYS = ("query_id", "id")
 ANSWER_KEYS = ("answer", "expected_answer")
+# Tên khoá (relevance, faithfulness) theo nguồn điểm rubric
+RUBRIC_KEYS = {
+    "manual": ("answer_relevance", "faithfulness"),
+    "lexical": ("lexical_relevance", "lexical_faithfulness"),
+}
+
+
+def rubric_means(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Trung bình điểm rubric tách theo nguồn: chấm tay và lexical; nguồn không có câu nào thì None."""
+    output: dict[str, Any] = {}
+    for source, (rel_key, faith_key) in RUBRIC_KEYS.items():
+        subset = [r for r in rows if r.get("rubric_source") == source]
+        prefix = "mean_" if source == "manual" else ""
+        for key, digits in ((rel_key, 4), (faith_key, 4), (f"{rel_key}_score", 2), (f"{faith_key}_score", 2)):
+            output[prefix + key] = round(sum(r[key] for r in subset) / len(subset), digits) if subset else None
+        output["rubric_scored_questions" if source == "manual" else "lexical_scored_questions"] = len(subset)
+    return output
 
 
 def load_json(path: Path) -> Any:
@@ -354,10 +371,6 @@ def evaluate(
 
     em_values: list[float] = []
     f1_values: list[float] = []
-    rel_scores: list[float] = []
-    faith_scores: list[float] = []
-    rel_scores_1_5: list[int] = []
-    faith_scores_1_5: list[int] = []
 
     categories_by_id = load_categories(queries_paths)
 
@@ -394,7 +407,9 @@ def evaluate(
         if not q_text and isinstance(gt_item, dict):
             q_text = gt_item.get("question") or gt_item.get("query") or ""
 
-        # Rubric scoring
+        # Rubric scoring: điểm chấm tay (rubric_input_path) ghi dưới tên answer_relevance,
+        # faithfulness; điểm compute_rubric_scores suy từ từ vựng chỉ là số tham khảo,
+        # ghi dưới tên lexical_* để không bị lấy nhầm vào báo cáo (F6)
         if question_id in manual_rubric:
             m_row = manual_rubric[question_id]
             rel_1_5 = int(m_row.get("answer_relevance_score", 3))
@@ -402,6 +417,7 @@ def evaluate(
             rel_norm = float(m_row.get("answer_relevance", (rel_1_5 - 1.0) / 4.0))
             faith_norm = float(m_row.get("faithfulness", (faith_1_5 - 1.0) / 4.0))
             rationale = str(m_row.get("rubric_rationale", "Chấm điểm thủ công từ bảng ngoài."))
+            source = "manual"
         else:
             rub_result = compute_rubric_scores(
                 question=q_text,
@@ -415,12 +431,9 @@ def evaluate(
             rel_norm = rub_result["answer_relevance"]
             faith_norm = rub_result["faithfulness"]
             rationale = rub_result["rubric_rationale"]
+            source = "lexical"
 
-        rel_scores.append(rel_norm)
-        faith_scores.append(faith_norm)
-        rel_scores_1_5.append(rel_1_5)
-        faith_scores_1_5.append(faith_1_5)
-
+        rel_key, faith_key = RUBRIC_KEYS[source]
         scored.append({
             "query_id": question_id,
             "category": cat,
@@ -430,10 +443,11 @@ def evaluate(
             "references": references,
             "exact_match": em,
             "token_f1": f1,
-            "answer_relevance_score": rel_1_5,
-            "faithfulness_score": faith_1_5,
-            "answer_relevance": rel_norm,
-            "faithfulness": faith_norm,
+            "rubric_source": source,
+            f"{rel_key}_score": rel_1_5,
+            f"{faith_key}_score": faith_1_5,
+            rel_key: rel_norm,
+            faith_key: faith_norm,
             "rubric_rationale": rationale,
         })
 
@@ -454,10 +468,7 @@ def evaluate(
             by_category[c] = {
                 "exact_match": round(sum(r["exact_match"] for r in rows) / len(rows), 4),
                 "token_f1": round(sum(r["token_f1"] for r in rows) / len(rows), 4),
-                "mean_answer_relevance": round(sum(r["answer_relevance"] for r in rows) / len(rows), 4),
-                "mean_faithfulness": round(sum(r["faithfulness"] for r in rows) / len(rows), 4),
-                "mean_answer_relevance_score": round(sum(r["answer_relevance_score"] for r in rows) / len(rows), 2),
-                "mean_faithfulness_score": round(sum(r["faithfulness_score"] for r in rows) / len(rows), 2),
+                **rubric_means(rows),
                 "count": len(rows),
             }
 
@@ -476,10 +487,7 @@ def evaluate(
         ),
         "exact_match": round(sum(em_values) / evaluated_count, 4) if evaluated_count else 0.0,
         "token_f1": round(sum(f1_values) / evaluated_count, 4) if evaluated_count else 0.0,
-        "mean_answer_relevance": round(sum(rel_scores) / evaluated_count, 4) if evaluated_count else 0.0,
-        "mean_faithfulness": round(sum(faith_scores) / evaluated_count, 4) if evaluated_count else 0.0,
-        "mean_answer_relevance_score": round(sum(rel_scores_1_5) / evaluated_count, 2) if evaluated_count else 0.0,
-        "mean_faithfulness_score": round(sum(faith_scores_1_5) / evaluated_count, 2) if evaluated_count else 0.0,
+        **rubric_means(scored),
         "evaluated_questions": evaluated_count,
         "prediction_records": len(predictions),
         "ground_truth_records": len(ground_truth),
@@ -487,7 +495,8 @@ def evaluate(
         "ground_truth_ids_without_prediction": missing_prediction_ids,
         "note": (
             "Kết quả đánh giá gồm Lexical Overlap (Exact Match, Token F1) và Rubric Scoring "
-            "(Answer Relevance & Faithfulness theo thang 1-5 và chuẩn hóa 0.0-1.0)."
+            "(thang 1-5 và chuẩn hóa 0.0-1.0). mean_answer_relevance*, mean_faithfulness* chỉ tính trên "
+            "các câu chấm tay (rubric_scored_questions); lexical_* là điểm suy từ từ vựng, chỉ để tham khảo."
         ),
     }
     if by_category:
@@ -505,36 +514,46 @@ def evaluate(
         encoding="utf-8",
     )
 
-    # Xuất bảng CSV Rubric chi tiết
-    target_csv = rubric_csv_path or RUBRIC_CSV_PATH
-    target_csv.parent.mkdir(parents=True, exist_ok=True)
-    csv_columns = [
-        "query_id",
-        "category",
-        "question",
-        "prediction",
-        "expected_answer",
-        "exact_match",
-        "token_f1",
-        "answer_relevance_score",
-        "faithfulness_score",
-        "rubric_rationale",
-    ]
-    with target_csv.open("w", encoding="utf-8-sig", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=csv_columns, extrasaction="ignore")
-        writer.writeheader()
-        for row in scored:
-            writer.writerow(row)
+    # Xuất bảng CSV Rubric chi tiết, chỉ khi được truyền đường dẫn (main truyền RUBRIC_CSV_PATH)
+    if rubric_csv_path is not None:
+        rubric_csv_path.parent.mkdir(parents=True, exist_ok=True)
+        csv_columns = [
+            "query_id",
+            "category",
+            "question",
+            "prediction",
+            "expected_answer",
+            "exact_match",
+            "token_f1",
+            "rubric_source",
+            "answer_relevance_score",
+            "faithfulness_score",
+            "lexical_relevance_score",
+            "lexical_faithfulness_score",
+            "rubric_rationale",
+        ]
+        with rubric_csv_path.open("w", encoding="utf-8-sig", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=csv_columns, extrasaction="ignore")
+            writer.writeheader()
+            for row in scored:
+                writer.writerow(row)
+
+    def fmt(key: str, digits: int) -> str:
+        value = summary.get(key)
+        return "n/a" if value is None else f"{value:.{digits}f}"
 
     print("=== Answer Evaluation ===")
     print(f"Evaluated questions: {evaluated_count}")
     print(f"Exact Match:             {summary['exact_match']:.4f}")
     print(f"Token F1:                {summary['token_f1']:.4f}")
-    print(f"Mean Answer Relevance:   {summary['mean_answer_relevance']:.4f} (Score: {summary['mean_answer_relevance_score']:.2f}/5)")
-    print(f"Mean Faithfulness:       {summary['mean_faithfulness']:.4f} (Score: {summary['mean_faithfulness_score']:.2f}/5)")
+    print(f"Rubric (chấm tay):       {summary['rubric_scored_questions']} câu")
+    print(f"Mean Answer Relevance:   {fmt('mean_answer_relevance', 4)} (Score: {fmt('mean_answer_relevance_score', 2)}/5)")
+    print(f"Mean Faithfulness:       {fmt('mean_faithfulness', 4)} (Score: {fmt('mean_faithfulness_score', 2)}/5)")
+    print(f"Lexical (tham khảo):     relevance {fmt('lexical_relevance', 4)}, faithfulness {fmt('lexical_faithfulness', 4)}")
     print(f"Metrics:                 {metrics_output_path.resolve()}")
     print(f"Per-question scores:     {scored_output_path.resolve()}")
-    print(f"Rubric CSV table:        {target_csv.resolve()}")
+    if rubric_csv_path is not None:
+        print(f"Rubric CSV table:        {rubric_csv_path.resolve()}")
 
     return summary
 
