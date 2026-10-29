@@ -5825,7 +5825,7 @@
   },
   {
     "id": "HN_183",
-    "answer": "Điều 123 (52/2014/QH13): yếu tố nước ngoài 1. Thẩm quyền đăng ký hộ tịch liên quan đến các quan hệ hôn nhân và gia đình có yếu tố nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch. 2. Thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài tại Tòa án được thực hiện theo quy định của Bộ luật Tố tụng dân sự. 3. Tòa án nhân dân khu vực2 nơi cư trú của công dân Việt Nam hủy việc kết hôn trái pháp luật, giải quyết việc ly hôn, các tranh chấp về quyền và nghĩa vụ của vợ chồng, cha mẹ và con, về nhận cha, mẹ, con, nuôi con nuôi và giám hộ giữa công dân Việt Nam cư trú ở khu vực biên giới với công dân của nước láng giềng cùng cư trú ở khu vực biên giới với Việt Nam theo quy định của Luật này và các quy định khác của pháp luật Việt Nam.",
+    "answer": "Điều 123 (52/2014/QH13), khoản 3 đã được sửa bởi khoản 13 Điều 2 Luật 81/2025/QH15 (hiệu lực từ 2025-07-01): 1. Thẩm quyền đăng ký hộ tịch liên quan đến các quan hệ hôn nhân và gia đình có yếu tố nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch. 2. Thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài tại Tòa án được thực hiện theo quy định của Bộ luật tố tụng dân sự. 3. Tòa án nhân dân khu vực nơi cư trú của công dân Việt Nam hủy việc kết hôn trái pháp luật, giải quyết việc ly hôn, các tranh chấp về quyền và nghĩa vụ của vợ chồng, cha mẹ và con, về nhận cha, mẹ, con, nuôi con nuôi và giám hộ giữa công dân Việt Nam cư trú ở khu vực biên giới với công dân của nước láng giềng cùng cư trú ở khu vực biên giới với Việt Nam theo quy định của Luật này và các quy định khác của pháp luật Việt Nam.",
     "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
     "gold_context_ids": [],
     "citations": [
@@ -5833,20 +5833,27 @@
         "document_id": "52/2014/QH13",
         "article": "123",
         "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+      },
+      {
+        "document_id": "81/2025/QH15",
+        "article": "2",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-81-2025-qh15-45513.htm"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "As-of 2026-10-15: khoản 3 Điều 123 áp dụng theo khoản 13 Điều 2 Luật 81/2025/QH15 (“Tòa án nhân dân khu vực” thay “Tòa án nhân dân cấp huyện” từ 2025-07-01). Corpus có Luật 52/2014 bản gốc và Luật 81/2025/QH15 (L04).",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D123"
+      "L01_D123",
+      "L04_D02"
     ],
     "evidence_level": "pdf_text_extracted_unverified",
     "candidate_context_ids": [
       "l_52_2014_qh13_art_123_clause_2_chunk_1",
       "l_52_2014_qh13_art_123_clause_1_chunk_1",
-      "l_52_2014_qh13_art_123_clause_3_chunk_1"
+      "l_52_2014_qh13_art_123_clause_3_chunk_1",
+      "l_81_2025_qh15_art_2_clause_13_chunk_1"
     ],
     "mapping_status": "production_candidate_unverified",
     "verified_by": null,

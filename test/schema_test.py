@@ -353,3 +353,17 @@ def test_registry_validity_status_mapping():
         )
         if validity_status == "Hết hiệu lực":
             assert record.get("expiry_date"), f"{number}: văn bản Hết hiệu lực bắt buộc có expiry_date"
+
+
+def test_registry_titles_are_trich_yeu_only():
+    """A16: title chỉ ghi trích yếu, không chép lại loại văn bản, số hiệu, ngày ở dòng đầu văn bản."""
+    registry_file = Path(__file__).resolve().parent.parent / "data" / "reference" / "document_versions.json"
+    for record in json.loads(registry_file.read_text(encoding="utf-8")):
+        title = record["title"]
+        assert title == title.strip(), f"{record['document_number']}: title có khoảng trắng thừa ở đầu/cuối"
+        assert not re.match(r"(Nghị định|Thông tư|Nghị quyết|Quyết định) của ", title), (
+            f"{record['document_number']}: title chép cả dòng đầu văn bản: {title[:60]!r}"
+        )
+        assert record["document_number"] not in title, (
+            f"{record['document_number']}: title lặp lại số hiệu của chính văn bản"
+        )

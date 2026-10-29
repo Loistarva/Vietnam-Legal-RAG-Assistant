@@ -82,6 +82,11 @@ SINGLE_PAGE_LABEL_RE = re.compile(r"^(?:trang|page)\s+\d{1,4}$", flags=re.IGNORE
 # and its publication number/date through the end of the same line.
 GAZETTE_MARKER_RE = re.compile(r"CÔNG\s+BÁO\s*/\s*SỐ\b", flags=re.IGNORECASE)
 STANDALONE_NUMBER_RE = re.compile(r"^\d{1,4}$")
+# Nhãn gõ sai kiểu ở đầu dòng: "a, Giấy tờ" -> "a) Giấy tờ", "2.Giấy tờ" -> "2. Giấy tờ".
+# Chỉ sửa khi chữ ngay sau nhãn viết hoa, nên dẫn chiếu bị xuống dòng như
+# "b, c và d khoản 2 Điều 5" giữ nguyên.
+POINT_LABEL_COMMA_RE = re.compile(r"^([a-zđ]), (?=\w)")
+CLAUSE_LABEL_NO_SPACE_RE = re.compile(r"^(\d{1,3})\.(?=\w)")
 
 def normalize_extracted_text(text: str) -> str:
     """Basic normalization only; preserve wording for the raw extraction file."""
@@ -153,6 +158,15 @@ def normalize_vietnamese_tone_placement(text: str) -> tuple[str, int]:
     return normalized_text, changed
 
 
+def normalize_label_punctuation(line: str) -> tuple[str, int]:
+    """Đổi nhãn Điểm "a," thành "a)" và thêm dấu cách sau nhãn Khoản "2."; trả về số nhãn đã sửa."""
+    for pattern, replacement in ((POINT_LABEL_COMMA_RE, r"\1) "), (CLAUSE_LABEL_NO_SPACE_RE, r"\1. ")):
+        match = pattern.match(line)
+        if match and line[match.end()].isupper():
+            return pattern.sub(replacement, line, count=1), 1
+    return line, 0
+
+
 def remove_gazette_markings(text: str) -> tuple[str, dict[str, int]]:
     """Remove Công báo headers/footers and page numbers directly attached to them.
 
@@ -218,6 +232,7 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
         "page_counters": gazette_counts["page_counters"],
         "gazette_markings": gazette_counts["gazette_markings"],
         "tone_placement_changes": tone_changes,
+        "label_fixes": 0,
     }
     cleaned_lines: list[str] = []
 
@@ -240,6 +255,8 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
             counts["page_counters"] += 1
             continue
 
+        line, n_labels = normalize_label_punctuation(line)
+        counts["label_fixes"] += n_labels
         cleaned_lines.append(line)
 
     cleaned = normalize_extracted_text("\n".join(cleaned_lines))
@@ -468,6 +485,7 @@ def clean_existing_texts() -> dict[str, int]:
         "page_counters": 0,
         "gazette_markings": 0,
         "tone_placement_changes": 0,
+        "label_fixes": 0,
     }
 
     if not raw_files:
@@ -490,11 +508,12 @@ def clean_existing_texts() -> dict[str, int]:
                 totals[key] += removed.get(key, 0)
             logger.info(
                 "Clean lại %s | số trang bỏ=%d | marking Công báo bỏ=%d | "
-                "dấu thanh chuẩn hóa=%d | URL bỏ=%d | timestamp bỏ=%d",
+                "dấu thanh chuẩn hóa=%d | nhãn sửa=%d | URL bỏ=%d | timestamp bỏ=%d",
                 raw_path.name,
                 removed.get("page_counters", 0),
                 removed.get("gazette_markings", 0),
                 removed.get("tone_placement_changes", 0),
+                removed.get("label_fixes", 0),
                 removed.get("urls", 0),
                 removed.get("timestamps", 0),
             )

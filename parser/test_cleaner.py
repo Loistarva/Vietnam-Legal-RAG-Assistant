@@ -60,3 +60,28 @@ def test_cleaner_only_removes_noise_words(raw_path: Path):
     allowed = Counter(WORD_RE.findall("\n".join(noise_lines)))
     unexpected = removed - allowed
     assert not unexpected, f"Cleaner xóa từ ngoài dòng nhiễu: {list(unexpected.items())[:10]}"
+
+
+@pytest.mark.parametrize(
+    ("line", "expected"),
+    [
+        ("a, Giấy tờ của cơ quan nước ngoài", "a) Giấy tờ của cơ quan nước ngoài"),
+        ("đ, Đối với trường hợp khác", "đ) Đối với trường hợp khác"),
+        ("2.Giấy tờ bằng tiếng nước ngoài", "2. Giấy tờ bằng tiếng nước ngoài"),
+        # Dẫn chiếu xuống dòng, không phải nhãn Điểm: giữ nguyên.
+        ("b, c và d khoản 2 Điều 5 của Luật này.", "b, c và d khoản 2 Điều 5 của Luật này."),
+        ("a, b, c, d và đ khoản 2 Điều 44 của Nghị định này.", "a, b, c, d và đ khoản 2 Điều 44 của Nghị định này."),
+        ("1.1- Theo quy định tại Điều 1", "1.1- Theo quy định tại Điều 1"),
+        ("a) Giấy tờ đúng nhãn", "a) Giấy tờ đúng nhãn"),
+    ],
+)
+def test_label_punctuation_is_normalized_only_before_uppercase(line: str, expected: str):
+    assert cleaner.normalize_label_punctuation(line)[0] == expected
+
+
+@pytest.mark.parametrize("raw_path", RAW_FILES, ids=lambda p: p.name)
+def test_cleaned_text_has_no_malformed_labels(raw_path: Path):
+    """Nhãn "a," hay "2.Giấy" làm chunker không nhận ra Điểm/Khoản và cắt theo cửa sổ giữa câu."""
+    committed = (PARSER_DIR / "cleaned_texts" / raw_path.name).read_text(encoding="utf-8")
+    bad = [line for line in committed.splitlines() if cleaner.normalize_label_punctuation(line)[1]]
+    assert not bad, f"{raw_path.name}: nhãn Điểm/Khoản sai kiểu: {bad[:5]}"
