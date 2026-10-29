@@ -17,8 +17,8 @@
     {
       "article_id": "tt_07_2001_tt_btp_art_1",
       "article_number": "1",
-      "article_title": null,
-      "chapter": "Chương I LẬP TỜ KHAI ĐĂNG KÝ KẾT HÔN",
+      "article_title": "LẬP TỜ KHAI ĐĂNG KÝ KẾT HÔN",
+      "chapter": null,
       "section": null,
       "intro": null,
       "clauses": [
@@ -34,8 +34,8 @@
     {
       "article_id": "tt_07_2001_tt_btp_art_2",
       "article_number": "2",
-      "article_title": null,
-      "chapter": "Chương II GHI NGÀY HÔN NHÂN CÓ HIỆU LỰC",
+      "article_title": "GHI NGÀY HÔN NHÂN CÓ HIỆU LỰC",
+      "chapter": null,
       "section": null,
       "intro": null,
       "clauses": [
@@ -51,8 +51,8 @@
     {
       "article_id": "tt_07_2001_tt_btp_art_3",
       "article_number": "3",
-      "article_title": null,
-      "chapter": "Chương III KHAI SINH CHO CON CHUNG CỦA VỢ CHỒNG",
+      "article_title": "KHAI SINH CHO CON CHUNG CỦA VỢ CHỒNG",
+      "chapter": null,
       "section": null,
       "intro": "Việc khai sinh cho con chung của vợ chồng đã đăng ký kết hôn theo Nghị định số 77/2001/NĐ-CP được giải quyết như sau:",
       "clauses": [
@@ -82,8 +82,8 @@
     {
       "article_id": "tt_07_2001_tt_btp_art_4",
       "article_number": "4",
-      "article_title": null,
-      "chapter": "Chương IV ÁP DỤNG ĐỐI VỚI CÁC TRƯỜNG HỢP ĐĂNG KÝ KẾT HÔN TRƯỚC NGÀY NGHỊ ĐỊNH SỐ 77/2001/NĐ-CP CÓ HIỆU LỰC",
+      "article_title": "ÁP DỤNG ĐỐI VỚI CÁC TRƯỜNG HỢP ĐĂNG KÝ KẾT HÔN TRƯỚC NGÀY NGHỊ ĐỊNH SỐ 77/2001/NĐ-CP CÓ HIỆU LỰC",
+      "chapter": null,
       "section": null,
       "intro": null,
       "clauses": [
@@ -99,8 +99,8 @@
     {
       "article_id": "tt_07_2001_tt_btp_art_5",
       "article_number": "5",
-      "article_title": null,
-      "chapter": "Chương V TỔ CHỨC THỰC HIỆN",
+      "article_title": "TỔ CHỨC THỰC HIỆN",
+      "chapter": null,
       "section": null,
       "intro": null,
       "clauses": [
@@ -108,41 +108,21 @@
           "clause_id": "tt_07_2001_tt_btp_art_5_clause_1",
           "parent_article_id": "tt_07_2001_tt_btp_art_5",
           "clause_number": "1",
-          "clause_text": "Thông tư này có hiệu lực thi hành sau 15 ngày kể từ ngày ký.",
+          "clause_text": "1. Thông tư này có hiệu lực thi hành sau 15 ngày kể từ ngày ký.",
           "chunks": null
-        }
-      ]
-    },
-    {
-      "article_id": "tt_07_2001_tt_btp_art_6",
-      "article_number": "6",
-      "article_title": null,
-      "chapter": "Chương V TỔ CHỨC THỰC HIỆN",
-      "section": null,
-      "intro": null,
-      "clauses": [
+        },
         {
-          "clause_id": "tt_07_2001_tt_btp_art_6_clause_1",
-          "parent_article_id": "tt_07_2001_tt_btp_art_6",
-          "clause_number": "1",
-          "clause_text": "Sở Tư pháp có trách nhiệm giúp Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương hướng dẫn, chỉ đạo, kiểm tra việc thi hành Nghị định số 77/2001/NĐ-CP và Thông tư này trong phạm vi địa phương mình, lưu ý những trường hợp nam và nữ chung sống với nhau như vợ chồng từ ngày 03 tháng 01 năm 1987 đến trước ngày 01 tháng 01 năm 2001 chỉ được đăng ký kết hôn theo Nghị định số 77/2001/NĐ-CP đến hết ngày 01 tháng 01 năm 2003.",
+          "clause_id": "tt_07_2001_tt_btp_art_5_clause_2",
+          "parent_article_id": "tt_07_2001_tt_btp_art_5",
+          "clause_number": "2",
+          "clause_text": "2. Sở Tư pháp có trách nhiệm giúp Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương hướng dẫn, chỉ đạo, kiểm tra việc thi hành Nghị định số 77/2001/NĐ-CP và Thông tư này trong phạm vi địa phương mình, lưu ý những trường hợp nam và nữ chung sống với nhau như vợ chồng từ ngày 03 tháng 01 năm 1987 đến trước ngày 01 tháng 01 năm 2001 chỉ được đăng ký kết hôn theo Nghị định số 77/2001/NĐ-CP đến hết ngày 01 tháng 01 năm 2003.",
           "chunks": null
-        }
-      ]
-    },
-    {
-      "article_id": "tt_07_2001_tt_btp_art_7",
-      "article_number": "7",
-      "article_title": null,
-      "chapter": "Chương V TỔ CHỨC THỰC HIỆN",
-      "section": null,
-      "intro": null,
-      "clauses": [
+        },
         {
-          "clause_id": "tt_07_2001_tt_btp_art_7_clause_1",
-          "parent_article_id": "tt_07_2001_tt_btp_art_7",
-          "clause_number": "1",
-          "clause_text": "Trong quá trình thực hiện, nếu có vướng mắc hoặc phát sinh những vấn đề mới, Ủy ban nhân dân cấp tỉnh, Sở Tư pháp và các cơ quan liên quan có công văn gửi Bộ Tư pháp để có văn bản hướng dẫn.",
+          "clause_id": "tt_07_2001_tt_btp_art_5_clause_3",
+          "parent_article_id": "tt_07_2001_tt_btp_art_5",
+          "clause_number": "3",
+          "clause_text": "3. Trong quá trình thực hiện, nếu có vướng mắc hoặc phát sinh những vấn đề mới, Ủy ban nhân dân cấp tỉnh, Sở Tư pháp và các cơ quan liên quan có công văn gửi Bộ Tư pháp để có văn bản hướng dẫn.",
           "chunks": null
         }
       ]

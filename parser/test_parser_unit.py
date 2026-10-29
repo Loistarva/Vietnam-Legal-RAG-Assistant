@@ -387,7 +387,7 @@ def count_numbered_lines(span: str) -> int:
     k = 0
     pos = 0
     while True:
-        m = re.compile(rf"(?m)^[ \t]*{k + 1}\.[ \t]*\S").search(span, pos)
+        m = re.compile(rf"(?m)^[ \t]*{k + 1}\.[ \t]+\S").search(span, pos)
         if not m:
             return k
         k += 1
