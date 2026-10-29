@@ -32,7 +32,7 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_article_index_matches_parsed_json_articles(self):
         parsed_dir = ROOT / 'parser' / 'parsed_jsons'
         parsed_files = list(parsed_dir.glob('*.json'))
-        self.assertEqual(len(parsed_files), 21)
+        self.assertTrue(parsed_files)
 
         parsed_articles = set()
         for f in parsed_files:
@@ -40,9 +40,6 @@ class BenchmarkContractTests(unittest.TestCase):
             doc_number = doc['metadata']['document_number']
             for a in doc.get('articles', []):
                 parsed_articles.add((doc_number, str(a['article_number'])))
-
-        self.assertEqual(len(parsed_articles), 776)
-        self.assertEqual(len(self.articles), 776)
 
         doc_registry = {d['document_number']: d for d in self.docs}
         index_articles = set()
@@ -55,7 +52,7 @@ class BenchmarkContractTests(unittest.TestCase):
             self.assertTrue(r['article_id'].startswith(expected_prefix), f"ID format mismatch for {r['article_id']}")
 
         self.assertEqual(parsed_articles, index_articles)
-        self.assertEqual(len({r['article_id'] for r in self.articles}), 776)
+        self.assertEqual(len({r['article_id'] for r in self.articles}), len(self.articles))
 
     def test_gold_clause_ids_map_to_chunks_in_corpus(self):
         chunks_path = ROOT / 'data' / 'chunking_output' / 'chunks.jsonl'

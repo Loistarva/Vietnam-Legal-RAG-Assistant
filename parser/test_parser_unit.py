@@ -30,7 +30,7 @@ from typing import Dict, List, Optional, Tuple
 
 import pytest
 
-from parser import extract_document_number, parse_text_to_articles
+from parser.parser import extract_document_number, parse_text_to_articles
 
 
 # This test file lives inside <repo>/parser, so parents[1] is the repository root.
@@ -306,8 +306,6 @@ PARSED_JSON_DIR = Path(os.getenv("LEGAL_PARSED_JSON_DIR") or PARSED_JSON.parent)
 # TXT mà parser CHƯA hỗ trợ (chia theo mục La Mã, không có "Điều"). Khi parser hỗ trợ
 # được, test `test_known_unparseable_txt_still_fail_loudly` sẽ fail để nhắc xóa dòng ở đây.
 KNOWN_UNPARSEABLE_TXT = {
-    "07_2001_TT-BTP_48707.txt": "TT 07/2001/TT-BTP chia theo mục La Mã, chưa có parser (lỗi 3)",
-    "07_2002_TT-BTP_50377.txt": "TT 07/2002/TT-BTP chia theo mục La Mã, chưa có parser (lỗi 3)",
 }
 
 # Tiêu đề Điều dài hơn ngưỡng này gần như chắc chắn là nội dung bị nuốt vào tiêu đề.
@@ -389,7 +387,7 @@ def count_numbered_lines(span: str) -> int:
     k = 0
     pos = 0
     while True:
-        m = re.compile(rf"(?m)^[ \t]*{k + 1}\.[ \t]+\S").search(span, pos)
+        m = re.compile(rf"(?m)^[ \t]*{k + 1}\.[ \t]*\S").search(span, pos)
         if not m:
             return k
         k += 1
