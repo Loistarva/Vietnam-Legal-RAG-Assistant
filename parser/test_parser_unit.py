@@ -766,7 +766,7 @@ def test_registry_and_mapping_tables_integrity():
         assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
         assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
         assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
-        assert row["title"] == (reg.get("title") or "").strip(), f"title lệch cho '{did}'"
+        assert row["title"] == reg.get("title"), f"title lệch cho '{did}'"
 
     for row in readme_rows:
         did = row["document_id"]
@@ -775,7 +775,7 @@ def test_registry_and_mapping_tables_integrity():
         assert row["file_code"] == reg.get("file_code"), f"file_code lệch cho '{did}'"
         assert row["document_number"] == reg.get("document_number"), f"document_number lệch cho '{did}'"
         assert row["validity_status"] == reg.get("validity_status"), f"validity_status lệch cho '{did}'"
-        assert row["title"] == (reg.get("title") or "").strip(), f"title lệch cho '{did}'"
+        assert row["title"] == reg.get("title"), f"title lệch cho '{did}'"
 
     # (c) Mọi document_id xuất hiện trong data/chunking_output/chunks.jsonl đều tồn tại trong document_versions.json và trong bảng Mục 6 docs/data_contract.md
     contract_doc_ids = {r["document_id"] for r in contract_rows}
