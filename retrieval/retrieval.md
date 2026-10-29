@@ -145,7 +145,7 @@ Snapshot nhãn trong thư mục kết quả giữ nguyên đầu vào của lầ
 
 ## Kết quả Task 4 hiện tại
 
-Task 4 đã chạy lại trên 285 câu Dev với corpus `data/chunking_output/chunks.jsonl` hiện tại (1.159 chunks), dùng nhãn candidate trong `data/benchmark/ground_truth.json` làm nhãn tạm. Kết quả lần chạy mới được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; Hybrid dẫn đầu ở chunk-level, Dense dẫn đầu ở article-level. Có 268 câu được chấm chunk-level (9 nhãn gold đã xác nhận, 259 nhãn proposal chưa xác minh) và 17 câu chưa có nhãn chunk; các metric chỉ mang tính thử nghiệm. Báo cáo snapshot 1.175 chunk trước đây vẫn được lưu trong [báo cáo retrieval](../docs/retrieval_report.md).
+Task 4 đã chạy lại trên 285 câu Dev với corpus `data/chunking_output/chunks.jsonl` hiện tại (1.159 chunks), dùng `gold_id_proposals_300.json` làm nhãn tạm (file này đã xóa ở 074eb94, proposal được gộp vào `candidate_context_ids` của `data/benchmark/ground_truth.json`). Kết quả lần chạy mới được lưu riêng tại `retrieval/results/task4_proposal_300_current/`; Hybrid dẫn đầu ở chunk-level, Dense dẫn đầu ở article-level. Có 268 câu được chấm chunk-level (9 nhãn gold đã xác nhận, 259 nhãn proposal chưa xác minh) và 17 câu chưa có nhãn chunk; các metric chỉ mang tính thử nghiệm. Báo cáo snapshot 1.175 chunk trước đây vẫn được lưu trong [báo cáo retrieval](../docs/retrieval_report.md).
 
 ## Kiểm thử
 
