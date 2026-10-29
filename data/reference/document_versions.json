@@ -481,5 +481,26 @@
     "document_id": "nd_123_2015_nd_cp",
     "file_code": "ND09",
     "source_status": "Hết hiệu lực một phần"
+  },
+  {
+    "document_number": "81/2025/QH15",
+    "origin": "Bổ sung - A6, văn bản sửa đổi Luật 52/2014/QH13",
+    "document_type": "Luật",
+    "issue_date": "2025-06-24",
+    "effective_date": "2025-07-01",
+    "expiry_date": "",
+    "validity_status": "Còn hiệu lực",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-81-2025-qh15-45513.htm",
+    "priority": "P0",
+    "reason": "Khoản 13 Điều 2 thay “Tòa án nhân dân cấp huyện” bằng “Tòa án nhân dân khu vực” tại khoản 3 Điều 123 Luật 52/2014/QH13 từ 2025-07-01; corpus giữ Luật 52/2014 bản gốc và có thêm văn bản sửa đổi này (A6 hướng b).",
+    "download_status": "Tải ngày 2026-10-29 từ Công báo Số 951 + 952 ngày 21-7-2025: https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45513/57584-1-2025951-95281-2025-qh15.pdf (sha256 7ddf7ea9738451d48f2ab3328251b96f5db13f08e1e2a5419a10b465bf7a13a2)",
+    "verified_at": "2026-10-29",
+    "verification_scope": "Toàn văn bản Công báo; đối chiếu khoản 13 Điều 2 và Điều 3 (hiệu lực thi hành)",
+    "title": "Luật sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân",
+    "provision_status": "document_level_only",
+    "issuing_body": "Quốc hội",
+    "document_id": "l_81_2025_qh15",
+    "file_code": "L04",
+    "source_status": "Còn hiệu lực"
   }
 ]

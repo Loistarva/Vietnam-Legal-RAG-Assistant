@@ -70,6 +70,7 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **TT07** | `tt_07_2002_tt_btp` | 07/2002/TT-BTP | Hết hiệu lực | Hướng dẫn thi hành một số điều của Nghị định số 68/2002/NĐ-CP ngày 10 tháng 7 năm 2002 của Chính phủ quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài |
 | **L02** | `l_22_2000_qh10` | 22/2000/QH10 | Hết hiệu lực | Luật Hôn nhân và gia đình 2000 |
 | **L03** | `l_21_lct_hdnn7` | 21-LCT/HĐNN7 | Hết hiệu lực | Luật Hôn nhân và gia đình 1986 |
+| **L04** | `l_81_2025_qh15` | 81/2025/QH15 | Còn hiệu lực | Luật sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân |
 | **ND05** | `nd_70_2001_nd_cp` | 70/2001/NĐ-CP | Hết hiệu lực | Quy định chi tiết thi hành Luật Hôn nhân và gia đình |
 | **ND06** | `nd_32_2002_nd_cp` | 32/2002/NĐ-CP | Hết hiệu lực | Quy định việc áp dụng Luật Hôn nhân và gia đình đối với các dân tộc thiểu số |
 | **ND07** | `nd_68_2002_nd_cp` | 68/2002/NĐ-CP | Hết hiệu lực | Quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài |
