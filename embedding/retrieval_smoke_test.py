@@ -21,7 +21,6 @@ if str(ROOT) not in sys.path:
 
 from embedding.dense_retriever import (
     DEFAULT_MODEL_NAME,
-    MODEL_DIMENSIONS,
     DenseRetriever,
     get_model_spec,
 )
@@ -94,8 +93,8 @@ def main() -> int:
         print(f"Chunks: {len(chunks)} | SHA-256: {source_hash}")
 
         spec = get_model_spec(args.model)
-        dim = spec.get("dimension") or MODEL_DIMENSIONS.get(args.model, 1024)
-        use_word_seg = spec.get("use_word_segmentation", False)
+        dim = spec["dimension"]
+        use_word_seg = spec["use_word_segmentation"]
 
         collection = args.collection or collection_name_for(args.model, source_hash)
         qdrant_path = None if args.mock else str(ROOT / "data" / "indexes" / "qdrant_storage")
@@ -105,6 +104,7 @@ def main() -> int:
             dimension=dim,
             storage_path=qdrant_path,
             use_qdrant=not args.mock,
+            create_if_missing=True,
         )
 
         retriever = DenseRetriever(

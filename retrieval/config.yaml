@@ -5,9 +5,6 @@ bm25:
 dense:
   backend: qdrant
   model: BAAI/bge-m3
-  dimension: 1024
-  use_word_segmentation: false
-  text_field: embed_text_raw
   supported_models:
     BAAI/bge-m3:
       dimension: 1024
@@ -16,7 +13,7 @@ dense:
     bkai-foundation-models/vietnamese-bi-encoder:
       dimension: 768
       use_word_segmentation: true
-      text_field: embed_text
+      text_field: embed_text_raw
     AITeamVN/Vietnamese_Embedding:
       dimension: 1024
       use_word_segmentation: false

@@ -30,13 +30,14 @@ if str(BASE_DIR) not in sys.path:
 
 from embedding.dense_retriever import (  # noqa: E402
     DEFAULT_MODEL_NAME,
-    MODEL_DIMENSIONS,
     DenseRetriever,
     get_model_spec,
+    underthesea_version,
 )
 from embedding.vector_store import (  # noqa: E402
     LegalVectorStore,
     chunk_file_sha256,
+    index_metadata_path,
     normalize_chunk_record,
 )
 
@@ -105,21 +106,19 @@ def main() -> int:
         help="Model ID dùng để tạo embedding (mặc định đọc từ retrieval/config.yaml)",
     )
     parser.add_argument(
-        "--dimension",
-        type=int,
-        default=None,
-        help="Số chiều vector (mặc định tự suy từ model)",
-    )
-    parser.add_argument(
         "--mock",
         action="store_true",
         help="Sử dụng vector giả lập tất định (Mock mode) để kiểm thử nhanh",
     )
     args = parser.parse_args()
 
-    spec = get_model_spec(args.model)
-    dim = args.dimension or spec.get("dimension") or MODEL_DIMENSIONS.get(args.model, 1024)
-    use_word_seg = spec.get("use_word_segmentation", False)
+    try:
+        spec = get_model_spec(args.model)
+    except ValueError as exc:
+        print(f"LỖI: {exc}", file=sys.stderr)
+        return 1
+    dim = spec["dimension"]
+    use_word_seg = spec["use_word_segmentation"]
 
     index_dir = Path(args.index_dir)
     index_dir.mkdir(parents=True, exist_ok=True)
@@ -153,11 +152,14 @@ def main() -> int:
     print(f"[1/3] Đã nạp và xác thực {len(chunks)} chunks hợp lệ (SHA256={corpus_sha[:12]}...).")
 
     try:
+        # Dựng lại toàn bộ collection: xoá point của corpus cũ và collection khác số chiều
         store = LegalVectorStore(
             collection_name=args.collection,
             dimension=dim,
             storage_path=str(qdrant_path),
             use_qdrant=not args.mock,
+            create_if_missing=True,
+            recreate=True,
         )
         retriever = DenseRetriever(
             vector_store=store,
@@ -189,6 +191,8 @@ def main() -> int:
         "model_name": args.model,
         "dimension": dim,
         "use_word_segmentation": use_word_seg,
+        "text_field": retriever.text_field,
+        "underthesea_version": underthesea_version() if use_word_seg else None,
         "corpus_sha256": corpus_sha,
         "chunk_count": indexed_count,
         "indexed_chunks": indexed_count,
@@ -198,14 +202,15 @@ def main() -> int:
         "storage_path": str(qdrant_path if store.use_qdrant else snapshot_file),
     }
 
-    meta_file = index_dir / "index_metadata.json"
-    meta_file.write_text(json.dumps(meta_info, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    coll_meta_file = index_dir / f"{args.collection}_metadata.json"
+    # Một file metadata cho mỗi collection; DenseRetriever đọc lại khi mở collection để truy vấn
+    if store.use_qdrant:
+        coll_meta_file = index_metadata_path(qdrant_path, args.collection)
+    else:
+        coll_meta_file = snapshot_file.with_name("index_snapshot_metadata.json")
     coll_meta_file.write_text(json.dumps(meta_info, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"[3/3] Hoàn tất lập chỉ mục {indexed_count} chunks trong {elapsed:.2f}s ({throughput:.2f} chunks/s).")
-    print(f"      Đã lưu metadata cấu hình tại: {meta_file} và {coll_meta_file}")
+    print(f"      Đã lưu metadata cấu hình tại: {coll_meta_file}")
     print("=" * 65)
     return 0
 

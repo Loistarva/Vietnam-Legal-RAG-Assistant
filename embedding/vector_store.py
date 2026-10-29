@@ -15,10 +15,14 @@ from typing import Any, Dict, List, Optional, Sequence
 try:
     from qdrant_client import QdrantClient
     from qdrant_client.models import (
+        DatetimeRange,
         Distance,
         FieldCondition,
         Filter,
+        IsEmptyCondition,
+        IsNullCondition,
         MatchValue,
+        PayloadField,
         PointStruct,
         VectorParams,
     )
@@ -39,6 +43,21 @@ VALID_STATUSES = {
 def chunk_file_sha256(path: str | Path) -> str:
     """Tính hash SHA-256 của file chunk."""
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def index_metadata_path(storage_path: str | Path, collection_name: str) -> Path:
+    """File metadata của một collection: cạnh thư mục Qdrant storage (build_index.py ghi)."""
+    return Path(storage_path).parent / f"{collection_name}_metadata.json"
+
+
+def read_index_metadata(storage_path: Optional[str | Path], collection_name: str) -> Optional[Dict[str, Any]]:
+    """Đọc metadata của collection; trả None khi store không có đường dẫn hoặc chưa có file."""
+    if not storage_path or str(storage_path) == ":memory:":
+        return None
+    path = index_metadata_path(storage_path, collection_name)
+    if not path.is_file():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_chunks(chunks_file: str | Path) -> List[Dict[str, Any]]:
@@ -243,6 +262,8 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         or ""
     ).strip()
 
+    parent_id = raw.get("parent_id") or raw_meta.get("parent_id")
+
     source_status = raw.get("source_status") or raw_meta.get("source_status")
     provision_status = raw.get("provision_status") or raw_meta.get("provision_status")
 
@@ -278,6 +299,8 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         "source_url": source_url,
         "metadata": metadata,
     }
+    if parent_id:
+        result["parent_id"] = str(parent_id).strip()
     if source_status is not None:
         result["source_status"] = source_status
     if provision_status is not None:
@@ -300,8 +323,11 @@ def _cosine_similarity(vec_a: Sequence[float], vec_b: Sequence[float]) -> float:
 
 class LegalVectorStore:
     """
-    Vector Store hỗ trợ Qdrant (local disk / memory) và fallback bộ nhớ trong (In-Memory)
+    Vector Store hỗ trợ Qdrant (local disk / memory) và bộ nhớ trong (use_qdrant=False)
     phục vụ phát triển độc lập bằng mock/stub và chạy production.
+    - Qdrant trên đĩa: mặc định chỉ mở collection đã có (create_if_missing=False), tên sai thì
+      báo lỗi thay vì tạo collection rỗng; build_index.py truyền create_if_missing=True, recreate=True.
+    - Qdrant ":memory:" luôn bắt đầu rỗng nên luôn tạo collection.
     """
 
     def __init__(
@@ -310,31 +336,46 @@ class LegalVectorStore:
         dimension: int = 1024,
         storage_path: Optional[str] = None,
         use_qdrant: bool = True,
-        create_if_missing: bool = True,
+        create_if_missing: bool = False,
+        recreate: bool = False,
     ) -> None:
+        if use_qdrant and not HAS_QDRANT:
+            raise ImportError(
+                "use_qdrant=True nhưng thiếu qdrant-client (pip install -r embedding/requirements.txt); "
+                "truyền use_qdrant=False nếu muốn dùng bộ nhớ trong."
+            )
         self.collection_name = collection_name
         self.dimension = dimension
         self.storage_path = storage_path
-        self.use_qdrant = bool(use_qdrant and HAS_QDRANT)
-        self.create_if_missing = create_if_missing
+        self.use_qdrant = bool(use_qdrant)
+        self.persistent = bool(self.use_qdrant and storage_path and storage_path != ":memory:")
+        self.create_if_missing = create_if_missing or recreate or not self.persistent
         self._memory_records: List[Dict[str, Any]] = []
         self.client: Optional[Any] = None
 
         if self.use_qdrant:
-            if storage_path and storage_path != ":memory:":
+            if self.persistent:
                 Path(storage_path).mkdir(parents=True, exist_ok=True)
                 self.client = QdrantClient(path=storage_path)
             else:
                 self.client = QdrantClient(":memory:")
+            if recreate and self.collection_name in self._collection_names():
+                self.client.delete_collection(self.collection_name)
             self._ensure_collection()
+
+    def _collection_names(self) -> List[str]:
+        return [c.name for c in self.client.get_collections().collections]
 
     def _ensure_collection(self) -> None:
         if not self.client:
             return
-        existing = [c.name for c in self.client.get_collections().collections]
+        existing = self._collection_names()
         if self.collection_name not in existing:
             if not self.create_if_missing:
-                raise ValueError(f"Collection '{self.collection_name}' không tồn tại.")
+                raise ValueError(
+                    f"Collection '{self.collection_name}' không tồn tại tại {self.storage_path}; "
+                    "kiểm tra tên collection hoặc dựng bằng scripts/build_index.py."
+                )
             self.client.create_collection(
                 collection_name=self.collection_name,
                 vectors_config=VectorParams(
@@ -365,10 +406,29 @@ class LegalVectorStore:
         """
         Tạo bộ lọc trước giai đoạn tính toán khoảng cách vector.
         - Nếu as_of_date is None: lọc loại trừ validity_status == 'Hết hiệu lực'.
-        - Nếu as_of_date có giá trị: không lọc cứng validity_status để hỗ trợ historical_law.
+        - Nếu as_of_date có giá trị: giữ chunk có effective_from <= as_of_date < effective_to
+          (ngày rỗng là không giới hạn), cùng ngữ nghĩa với is_effective_at, để hỗ trợ historical_law.
         """
         if not HAS_QDRANT:
             return None
+        if as_of_date:
+            as_of = str(as_of_date).strip()[:10]
+
+            def unbounded(key: str) -> List[Any]:
+                return [
+                    IsEmptyCondition(is_empty=PayloadField(key=key)),
+                    IsNullCondition(is_null=PayloadField(key=key)),
+                    FieldCondition(key=key, match=MatchValue(value="")),
+                ]
+
+            return Filter(
+                must=[
+                    Filter(should=[FieldCondition(key="effective_from", range=DatetimeRange(lte=as_of)),
+                                   *unbounded("effective_from")]),
+                    Filter(should=[FieldCondition(key="effective_to", range=DatetimeRange(gt=as_of)),
+                                   *unbounded("effective_to")]),
+                ]
+            )
         if as_of_date is None:
             return Filter(
                 must_not=[
@@ -455,8 +515,12 @@ class LegalVectorStore:
             as_of_str = None
 
         if self.use_qdrant and self.client is not None:
-            query_filter = self.build_active_legal_filter(as_of_date=as_of_date) if exclude_expired else None
-            fetch_k = max(top_k * 5, 50) if (exclude_expired or as_of_str) else top_k
+            # Lọc trước trong Qdrant (E1) nên lấy đúng top_k; vòng lặp dưới chỉ kiểm lại
+            query_filter = (
+                self.build_active_legal_filter(as_of_date=as_of_str)
+                if (exclude_expired or as_of_str) else None
+            )
+            fetch_k = top_k
             if hasattr(self.client, "query_points"):
                 response = self.client.query_points(
                     collection_name=self.collection_name,
@@ -516,7 +580,7 @@ class LegalVectorStore:
 
     @staticmethod
     def _format_hit(payload: Dict[str, Any], rank: int, score: float) -> Dict[str, Any]:
-        return {
+        hit = {
             "chunk_id": payload["chunk_id"],
             "document_id": payload["document_id"],
             "article_id": payload["article_id"],
@@ -527,6 +591,9 @@ class LegalVectorStore:
             "chunk_text": payload["chunk_text"],
             "metadata": payload.get("metadata", {}),
         }
+        if payload.get("parent_id"):
+            hit["parent_id"] = payload["parent_id"]
+        return hit
 
     def count(self) -> int:
         if self.use_qdrant and self.client is not None:

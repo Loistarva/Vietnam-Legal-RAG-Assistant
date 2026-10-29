@@ -6,17 +6,25 @@ Chạy kiểm thử: pytest test/test_dense_retriever.py -q
 """
 from __future__ import annotations
 
+import json
 from unittest.mock import patch
 
 import pytest
 
 from embedding.dense_retriever import (
+    HAS_UNDERTHESEA,
     MODEL_SPECS,
     DenseRetriever,
     get_model_spec,
+    load_dense_retrieval_config,
     preprocess_text,
 )
-from embedding.vector_store import LegalVectorStore, is_effective_at
+from embedding.vector_store import (
+    LegalVectorStore,
+    index_metadata_path,
+    is_effective_at,
+    normalize_chunk_record,
+)
 from evaluation.evaluate_zero_shot import compute_rubric_scores, evaluate
 from scripts.build_index import load_chunks_from_repo
 
@@ -150,13 +158,16 @@ def test_expired_documents_are_filtered_out(retriever_with_data):
 
 
 def test_empty_query_and_empty_store():
-    """Kiểm tra xử lý kết quả rỗng (trả về results: [])."""
+    """Store rỗng trả results: []; câu hỏi rỗng raise ValueError như BM25 và Hybrid (E14)."""
     empty_store = LegalVectorStore(collection_name="empty_col", dimension=64, storage_path=":memory:")
     retriever = DenseRetriever(vector_store=empty_store, use_mock=True)
 
     assert retriever.search("Câu hỏi bất kỳ", top_k=5) == []
-    envelope = retriever.retrieve("   ", top_k=5, query_id="Q_EMPTY")
+    envelope = retriever.retrieve("Câu hỏi bất kỳ", top_k=5, query_id="Q_EMPTY")
     assert envelope == {"query_id": "Q_EMPTY", "retriever": "dense", "results": []}
+    for query in ("", "   ", None):
+        with pytest.raises(ValueError, match="rỗng"):
+            retriever.search(query, top_k=5)  # type: ignore[arg-type]
 
 
 @pytest.mark.parametrize("invalid_k", [0, -1, -10, "5", None, True])
@@ -240,7 +251,12 @@ def test_model_specs_and_text_fields():
     bkai_spec = get_model_spec("bkai-foundation-models/vietnamese-bi-encoder")
     assert bkai_spec["dimension"] == 768
     assert bkai_spec["use_word_segmentation"] is True
-    assert bkai_spec["text_field"] == "embed_text"
+    assert bkai_spec["text_field"] == "embed_text_raw"
+
+    # Bảng model chỉ lấy từ dense.supported_models của config; model lạ không được đoán theo tên
+    assert set(MODEL_SPECS) == set(load_dense_retrieval_config()["supported_models"])
+    with pytest.raises(ValueError, match="supported_models"):
+        get_model_spec("some-org/bkai-unknown")
 
     # Kiểm tra tiền xử lý query
     store = LegalVectorStore(collection_name="test_specs_col", dimension=64, storage_path=":memory:")
@@ -273,6 +289,102 @@ def test_temporal_filtering_as_of_date(sample_chunks):
     ids_2026 = [h["chunk_id"] for h in hits_2026]
     assert "l_52_2014_qh13_art_8_clause_1_chunk_1" in ids_2026
     assert "l_22_2000_qh10_art_9_clause_1_chunk_1" not in ids_2026
+
+
+def _dated_chunk(i: int, effective_from: str, effective_to):
+    return {
+        "chunk_id": f"doc_{i}_art_1_clause_1_chunk_1",
+        "parent_clause_id": f"doc_{i}_art_1_clause_1",
+        "parent_id": f"doc_{i}_art_1_clause_1_parent_1",
+        "chunk_text": f"Nội dung kết hôn số {i}",
+        "embed_text": f"Điều 1 kết_hôn số {i}",
+        "embed_text_raw": f"Điều 1 kết hôn số {i}",
+        "validity_status": "Hết hiệu lực" if effective_to else "Còn hiệu lực",
+        "effective_from": effective_from,
+        "effective_to": effective_to,
+    }
+
+
+def test_qdrant_prefilters_as_of_date_and_returns_full_top_k():
+    """Khi số chunk ngoài khoảng hiệu lực nhiều hơn top_k, Qdrant vẫn trả đủ top_k chunk hợp lệ (E1)."""
+    chunks = [_dated_chunk(i, "2015-01-01", None) for i in range(80)]
+    chunks += [_dated_chunk(100 + i, "2001-01-01", "2015-01-01") for i in range(5)]
+    chunks.append(_dated_chunk(200, "", ""))
+    store = LegalVectorStore(collection_name="test_prefilter_col", dimension=64, storage_path=":memory:")
+    retriever = DenseRetriever(vector_store=store, use_mock=True)
+    retriever.index_chunks(chunks)
+
+    hits = retriever.search("kết hôn", top_k=6, as_of_date="2010-06-01")
+    ids = {h["chunk_id"] for h in hits}
+    assert len(hits) == 6
+    assert ids == {f"doc_{i}_art_1_clause_1_chunk_1" for i in (100, 101, 102, 103, 104, 200)}
+
+    hits_now = retriever.search("kết hôn", top_k=50, as_of_date="2026-10-29")
+    assert len(hits_now) == 50
+    assert all(is_effective_at(h["metadata"], "2026-10-29") for h in hits_now)
+
+
+def test_parent_id_is_kept_in_record_and_hit():
+    """normalize_chunk_record và kết quả Dense giữ parent_id của corpus (E6)."""
+    chunk = _dated_chunk(1, "2015-01-01", None)
+    assert normalize_chunk_record(chunk)["parent_id"] == "doc_1_art_1_clause_1_parent_1"
+    store = LegalVectorStore(collection_name="test_parent_col", dimension=64, storage_path=":memory:")
+    retriever = DenseRetriever(vector_store=store, use_mock=True)
+    retriever.index_chunks([chunk])
+    assert retriever.search("kết hôn", top_k=1)[0]["parent_id"] == "doc_1_art_1_clause_1_parent_1"
+
+
+def test_store_raises_without_qdrant_client():
+    """use_qdrant=True mà thiếu qdrant-client thì báo lỗi, không lặng lẽ dùng bộ nhớ trong (H8)."""
+    with patch("embedding.vector_store.HAS_QDRANT", False):
+        with pytest.raises(ImportError, match="qdrant-client"):
+            LegalVectorStore(collection_name="x", dimension=64, storage_path=":memory:")
+        store = LegalVectorStore(collection_name="x", dimension=64, use_qdrant=False)
+        assert store.client is None
+
+
+def test_persistent_store_checks_collection_and_metadata(tmp_path, sample_chunks):
+    """Mở collection để truy vấn: tên sai báo lỗi, metadata lệch model báo lỗi; recreate dựng lại (E2)."""
+    storage = str(tmp_path / "qdrant_storage")
+    with pytest.raises(ValueError, match="không tồn tại"):
+        LegalVectorStore(collection_name="missing", dimension=64, storage_path=storage)
+
+    built = LegalVectorStore(collection_name="col", dimension=768, storage_path=storage, create_if_missing=True)
+    built.client.close()
+    # recreate xoá collection 768 chiều cũ thay vì báo lệch số chiều
+    store = LegalVectorStore(collection_name="col", dimension=1024, storage_path=storage, recreate=True)
+    DenseRetriever(vector_store=store, model_name="BAAI/bge-m3", use_mock=True).index_chunks(sample_chunks)
+    store.client.close()
+
+    meta_path = index_metadata_path(storage, "col")
+    meta = {"model_name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "corpus_sha256": "abc"}
+    meta_path.write_text(json.dumps(meta), encoding="utf-8")
+    reopened = LegalVectorStore(collection_name="col", dimension=1024, storage_path=storage)
+    retriever = DenseRetriever(vector_store=reopened, model_name="BAAI/bge-m3", use_mock=True)
+    assert retriever.verify_index(corpus_sha256="abc")["corpus_sha256"] == "abc"
+    with pytest.raises(ValueError, match="corpus_sha256"):
+        retriever.verify_index(corpus_sha256="other")
+    with pytest.raises(ValueError, match="model_name"):
+        DenseRetriever(vector_store=reopened, model_name="AITeamVN/Vietnamese_Embedding", use_mock=True)
+    reopened.client.close()
+
+    meta_path.unlink()
+    no_meta = LegalVectorStore(collection_name="col", dimension=1024, storage_path=storage)
+    with pytest.raises(ValueError, match="metadata"):
+        DenseRetriever(vector_store=no_meta, model_name="BAAI/bge-m3", use_mock=True)
+    no_meta.client.close()
+
+
+@pytest.mark.skipif(not HAS_UNDERTHESEA, reason="cần underthesea")
+def test_segmented_model_encodes_corpus_and_query_the_same_way(sample_chunks):
+    """Model cần tách từ: cùng một chuỗi thì văn bản encode ở phía corpus và câu hỏi bằng nhau (E4)."""
+    store = LegalVectorStore(collection_name="test_seg_col", dimension=64, storage_path=":memory:")
+    retriever = DenseRetriever(
+        vector_store=store, model_name="bkai-foundation-models/vietnamese-bi-encoder", use_mock=True
+    )
+    for chunk in sample_chunks:
+        assert retriever.corpus_text(chunk) == retriever._preprocess_query(chunk["embed_text_raw"])
+        assert "_" in retriever.corpus_text(chunk)
 
 
 def test_is_effective_at_helper():
