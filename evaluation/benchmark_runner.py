@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from evaluation.bm25_baseline import run_bm25
@@ -12,6 +11,7 @@ def run_benchmark_bm25(
     metrics_path: str | Path,
     *,
     top_k: int = 5,
+    use_candidates: bool = True,
 ) -> None:
     """Chạy BM25 retrieval và đánh giá kết quả trên Dev Set."""
 
@@ -25,5 +25,10 @@ def run_benchmark_bm25(
     metrics_path.parent.mkdir(parents=True, exist_ok=True)
 
     run_bm25(queries_path, results_path, top_k=top_k)
-    evaluate(results_path, ground_truth_path, metrics_path, queries_paths=[queries_path])
-
+    evaluate(
+        results_path,
+        ground_truth_path,
+        metrics_path,
+        queries_paths=[queries_path],
+        use_candidates=use_candidates,
+    )

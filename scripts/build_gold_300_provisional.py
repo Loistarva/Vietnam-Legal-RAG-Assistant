@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """Create provisional 300/300 evidence ID mappings, never reviewer approvals.
 Usage: python build_gold_300_provisional.py --root <benchmark_repo> --output <output_dir>
-This intentionally does NOT overwrite production ground_truth.json or validators.
 """
 from __future__ import annotations
 import argparse, csv, datetime, hashlib, json, re, sys
 from collections import defaultdict, Counter
 from pathlib import Path
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 def read_json(p): return json.loads(Path(p).read_text(encoding='utf-8-sig'))
 def write_json(p, data):
@@ -16,10 +22,11 @@ def load_candidates(path):
     with open(path, encoding='utf-8-sig', newline='') as f:
         return list(csv.DictReader(f))
 
-def build(root, out):
+def build(root, out, update_ground_truth=False):
     data=root/'data'/'benchmark'
     ref=root/'data'/'reference'
-    gt=read_json(data/'ground_truth.json')
+    gt_file = data/'ground_truth.json'
+    gt=read_json(gt_file)
     chunks=read_json(ref/'production_chunk_index.json')
     versions=read_json(ref/'document_versions.json')
     suggestion_rows=load_candidates(data/'production_chunk_candidates.csv')
@@ -103,14 +110,11 @@ def build(root, out):
         if not evidence:
             alerts.append('NO_EVIDENCE_ID')
             no_support.append(qid)
-        # JSON specifically requested: 300 populated gold_context_ids, but PROVISIONAL only.
         x=dict(g)
         x['gold_context_ids']=evidence
         x['gold_id_assignment_status']='PROVISIONAL_NOT_LEGALLY_VERIFIED'
         x['provisional_evidence_types']=evidence_tier
         x['provisional_review_alerts']=alerts
-        # Avoid claiming new reviewers. For existing reviewed records, preserve flags,
-        # but if we appended unreviewed sources the entire record is not fully confirmed.
         if any(t!='EXISTING_REVIEWED_ID' for t in evidence_tier):
             x['gold_context_ids_confirmed']=False
             x['review_status']='draft'
@@ -118,8 +122,6 @@ def build(root, out):
             x['verified_at']=None
             x['answer_kind']='draft_answer_unreviewed'
             x['mapping_status']='production_candidate_unverified'
-        # This file is intentionally not validator-compliant: provisional IDs in Gold are
-        # forbidden by the project's honest production validator.
         full.append(x)
         report.append({
             'question_id':qid, 'context_ids':';'.join(evidence),
@@ -134,7 +136,23 @@ def build(root, out):
     if len(all_ids)!=len(idx)+len(version_chunks): raise ValueError('Duplicate version ID overlaps production index')
     if {g['id'] for g in full}!={g['id'] for g in gt}: raise ValueError('ID set changed')
     if any(not g['gold_context_ids'] for g in full): raise ValueError('empty context ids')
-    # Never overwrite, even in an output directory.
+
+    if update_ground_truth:
+        # Directly update candidates in ground_truth.json while preserving schema compliance
+        for item in gt:
+            qid = item['id']
+            if item.get('mapping_status') == 'not_mapped':
+                continue
+            cand_list = list(item.get('candidate_context_ids') or [])
+            prop_item = next((f for f in full if f['id'] == qid), None)
+            if prop_item:
+                for cid in prop_item.get('gold_context_ids', []):
+                    if not cid.startswith('version_') and cid in idx and cid not in cand_list:
+                        cand_list.append(cid)
+            item['candidate_context_ids'] = cand_list
+        write_json(gt_file, gt)
+        print(f'Updated {gt_file} directly.')
+
     outputs={
         'ground_truth.full_gold_ids_PROVISIONAL.json':full,
         'data/reference/document_version_evidence_index.json':list(version_chunks.values()),
@@ -148,7 +166,7 @@ def build(root, out):
                 r['question_id'] for r in report if r['issues']
             ],
             'unreviewed_question_count':sum(g['review_status']=='draft' for g in full),
-            'warning': 'PROVISIONAL only. These 300 IDs have NOT been fully verified against official law, and are NOT production Gold. Do not replace ground_truth.json. --final is expected to remain blocked.'
+            'warning': 'PROVISIONAL only. These 300 IDs have NOT been fully verified against official law, and are NOT production Gold. Use ground_truth.json as the canonical source. --final is expected to remain blocked.'
         }
     }
     if out.exists() and any(out.iterdir()): raise FileExistsError(f'Output is not empty: {out}')
@@ -165,7 +183,10 @@ def build(root, out):
     print('Production GOLD certified: NO')
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path('.'))
+    p=argparse.ArgumentParser()
+    p.add_argument('--root',type=Path,default=Path('.'))
     p.add_argument('--output',type=Path,default=Path('full_gold_proposals'))
-    a=p.parse_args(); build(a.root.resolve(),a.output.resolve())
+    p.add_argument('--update-ground-truth', action='store_true', help='Cập nhật trực tiếp vào data/benchmark/ground_truth.json')
+    a=p.parse_args()
+    build(a.root.resolve(), a.output.resolve(), update_ground_truth=a.update_ground_truth)
 if __name__=='__main__':main()

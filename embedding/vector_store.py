@@ -81,6 +81,47 @@ def load_chunks(chunks_file: str | Path) -> List[Dict[str, Any]]:
     return records
 
 
+def is_effective_at(record_or_metadata: Dict[str, Any], as_of_date: str) -> bool:
+    """
+    Kiểm tra một bản ghi chunk hoặc metadata có hiệu lực tại thời điểm as_of_date (YYYY-MM-DD).
+    - effective_from <= as_of_date < effective_to (nếu có effective_to).
+    - Nếu bản ghi có effective_from > as_of_date -> False (chưa có hiệu lực).
+    - Nếu bản ghi có effective_to <= as_of_date -> False (đã hết hiệu lực).
+    - Ngược lại -> True.
+    """
+    if not as_of_date:
+        return True
+    as_of = str(as_of_date).strip()[:10]
+
+    meta = record_or_metadata.get("metadata") if isinstance(record_or_metadata.get("metadata"), dict) else record_or_metadata
+
+    eff_from = (
+        record_or_metadata.get("effective_from")
+        or meta.get("effective_from")
+        or record_or_metadata.get("effective_date")
+        or meta.get("effective_date")
+    )
+    eff_to = (
+        record_or_metadata.get("effective_to")
+        if "effective_to" in record_or_metadata
+        else meta.get("effective_to")
+    )
+    if eff_to is None:
+        eff_to = record_or_metadata.get("expiry_date") or meta.get("expiry_date")
+
+    if eff_from:
+        eff_from_str = str(eff_from).strip()[:10]
+        if eff_from_str and eff_from_str > as_of:
+            return False
+
+    if eff_to is not None and str(eff_to).strip():
+        eff_to_str = str(eff_to).strip()[:10]
+        if eff_to_str and eff_to_str <= as_of:
+            return False
+
+    return True
+
+
 def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     """
     Chuẩn hóa bản ghi chunk từ output của Chunking (Sprint 5) hoặc fixture (Sprint 6)
@@ -147,11 +188,14 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     effective_from = str(
         raw.get("effective_from")
         or raw_meta.get("effective_from")
+        or raw.get("effective_date")
         or raw_meta.get("effective_date")
         or ""
     ).strip()
 
     effective_to = raw.get("effective_to") if "effective_to" in raw else raw_meta.get("effective_to")
+    if effective_to is None:
+        effective_to = raw.get("expiry_date") or raw_meta.get("expiry_date")
     if effective_to is not None:
         effective_to = str(effective_to).strip()
 
@@ -161,29 +205,64 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         or ""
     ).strip()
 
-    metadata: Dict[str, Any] = {
-        "document_id": document_id,
-        "document_number": raw.get("document_number") or raw_meta.get("document_number") or "",
-        "document_title": raw.get("document_title") or raw_meta.get("document_title") or raw.get("title") or "",
-        "article_number": raw.get("article_number") or raw_meta.get("article_number") or "",
-        "clause_number": raw.get("clause_number") or raw_meta.get("clause_number") or "",
-        "validity_status": validity_status,
-        "source_url": source_url,
-        "breadcrumb": raw.get("breadcrumb") or raw_meta.get("breadcrumb") or "",
-        "effective_from": effective_from,
-        "effective_to": effective_to,
-    }
-    if "effective_from" in raw_meta or "effective_from" in raw:
-        metadata["effective_from"] = raw_meta.get("effective_from") or raw.get("effective_from")
-    if "effective_to" in raw_meta or "effective_to" in raw:
-        metadata["effective_to"] = raw_meta.get("effective_to") or raw.get("effective_to")
+    document_type = str(
+        raw.get("document_type")
+        or raw_meta.get("document_type")
+        or ""
+    ).strip()
+
+    document_title = str(
+        raw.get("document_title")
+        or raw_meta.get("document_title")
+        or raw.get("title")
+        or raw_meta.get("title")
+        or ""
+    ).strip()
+
+    document_number = str(
+        raw.get("document_number")
+        or raw_meta.get("document_number")
+        or ""
+    ).strip()
+
+    article_number = str(
+        raw.get("article_number")
+        or raw_meta.get("article_number")
+        or ""
+    ).strip()
+
+    clause_number = str(
+        raw.get("clause_number")
+        or raw_meta.get("clause_number")
+        or ""
+    ).strip()
+
+    breadcrumb = str(
+        raw.get("breadcrumb")
+        or raw_meta.get("breadcrumb")
+        or ""
+    ).strip()
 
     source_status = raw.get("source_status") or raw_meta.get("source_status")
     provision_status = raw.get("provision_status") or raw_meta.get("provision_status")
-    if source_status is not None:
-        metadata["source_status"] = source_status
-    if provision_status is not None:
-        metadata["provision_status"] = provision_status
+
+    metadata: Dict[str, Any] = {
+        **raw_meta,
+        "document_id": document_id,
+        "document_number": document_number,
+        "document_type": document_type,
+        "document_title": document_title,
+        "article_number": article_number,
+        "clause_number": clause_number,
+        "validity_status": validity_status,
+        "source_status": source_status if source_status is not None else "",
+        "provision_status": provision_status if provision_status is not None else "",
+        "effective_date": effective_from,
+        "effective_from": effective_from,
+        "effective_to": effective_to,
+        "source_url": source_url,
+        "breadcrumb": breadcrumb,
+    }
 
     result: Dict[str, Any] = {
         "chunk_id": chunk_id,
@@ -228,14 +307,16 @@ class LegalVectorStore:
     def __init__(
         self,
         collection_name: str = "vietnam_legal_chunks",
-        dimension: int = 768,
+        dimension: int = 1024,
         storage_path: Optional[str] = None,
         use_qdrant: bool = True,
+        create_if_missing: bool = True,
     ) -> None:
         self.collection_name = collection_name
         self.dimension = dimension
         self.storage_path = storage_path
         self.use_qdrant = bool(use_qdrant and HAS_QDRANT)
+        self.create_if_missing = create_if_missing
         self._memory_records: List[Dict[str, Any]] = []
         self.client: Optional[Any] = None
 
@@ -252,6 +333,8 @@ class LegalVectorStore:
             return
         existing = [c.name for c in self.client.get_collections().collections]
         if self.collection_name not in existing:
+            if not self.create_if_missing:
+                raise ValueError(f"Collection '{self.collection_name}' không tồn tại.")
             self.client.create_collection(
                 collection_name=self.collection_name,
                 vectors_config=VectorParams(
@@ -259,27 +342,47 @@ class LegalVectorStore:
                     distance=Distance.COSINE,
                 ),
             )
+        else:
+            # Collection đã tồn tại: kiểm tra số chiều (Lỗi E2)
+            col_info = self.client.get_collection(self.collection_name)
+            params = getattr(col_info.config, "params", None)
+            existing_dim = None
+            if params and hasattr(params, "vectors"):
+                vec_params = params.vectors
+                if hasattr(vec_params, "size"):
+                    existing_dim = vec_params.size
+                elif isinstance(vec_params, dict):
+                    existing_dim = getattr(next(iter(vec_params.values()), None), "size", None)
+
+            if existing_dim is not None and existing_dim != self.dimension:
+                raise ValueError(
+                    f"Collection '{self.collection_name}' có số chiều {existing_dim}, "
+                    f"không khớp với cấu hình hiện tại ({self.dimension} chiều)."
+                )
 
     @staticmethod
     def build_active_legal_filter(as_of_date: Optional[str] = None) -> Optional[Any]:
         """
-        Tạo bộ lọc loại trừ văn bản có validity_status == 'Hết hiệu lực'
-        trước giai đoạn tính toán khoảng cách vector (Ràng buộc kỹ thuật Task 5).
+        Tạo bộ lọc trước giai đoạn tính toán khoảng cách vector.
+        - Nếu as_of_date is None: lọc loại trừ validity_status == 'Hết hiệu lực'.
+        - Nếu as_of_date có giá trị: không lọc cứng validity_status để hỗ trợ historical_law.
         """
         if not HAS_QDRANT:
             return None
-        return Filter(
-            must_not=[
-                FieldCondition(
-                    key="metadata.validity_status",
-                    match=MatchValue(value="Hết hiệu lực"),
-                ),
-                FieldCondition(
-                    key="validity_status",
-                    match=MatchValue(value="Hết hiệu lực"),
-                ),
-            ]
-        )
+        if as_of_date is None:
+            return Filter(
+                must_not=[
+                    FieldCondition(
+                        key="metadata.validity_status",
+                        match=MatchValue(value="Hết hiệu lực"),
+                    ),
+                    FieldCondition(
+                        key="validity_status",
+                        match=MatchValue(value="Hết hiệu lực"),
+                    ),
+                ]
+            )
+        return None
 
     def upsert_chunks(
         self,
@@ -334,6 +437,7 @@ class LegalVectorStore:
         top_k: int = 5,
         exclude_expired: bool = True,
         as_of_date: Optional[str] = None,
+        filters: Optional[Dict[str, Any]] = None,
     ) -> List[Dict[str, Any]]:
         if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k <= 0:
             raise ValueError(f"Tham số top_k phải là số nguyên dương (nhận được: {top_k!r}).")
@@ -343,11 +447,16 @@ class LegalVectorStore:
                 f"Query vector dimension ({len(query_vector)}) khác cấu hình ({self.dimension})."
             )
 
-        as_of_str = str(as_of_date)[:10] if as_of_date else None
+        if as_of_date:
+            as_of_str = str(as_of_date).strip()[:10]
+            # Khi có as_of_date, lọc theo thời điểm hiệu lực thay vì lọc tĩnh
+            exclude_expired = False
+        else:
+            as_of_str = None
 
         if self.use_qdrant and self.client is not None:
             query_filter = self.build_active_legal_filter(as_of_date=as_of_date) if exclude_expired else None
-            fetch_k = top_k * 3 if (exclude_expired or as_of_str) else top_k
+            fetch_k = max(top_k * 5, 50) if (exclude_expired or as_of_str) else top_k
             if hasattr(self.client, "query_points"):
                 response = self.client.query_points(
                     collection_name=self.collection_name,
@@ -369,17 +478,14 @@ class LegalVectorStore:
             filtered_hits = []
             for hit in hits:
                 payload = hit.payload or {}
-                status = payload.get("validity_status") or payload.get("metadata", {}).get("validity_status")
-                if exclude_expired and status == "Hết hiệu lực":
-                    continue
                 if as_of_str:
-                    meta = payload.get("metadata", {})
-                    eff_from = payload.get("effective_from") or meta.get("effective_from")
-                    eff_to = payload.get("effective_to") if "effective_to" in payload else meta.get("effective_to")
-                    if eff_from and as_of_str < str(eff_from)[:10]:
+                    if not is_effective_at(payload, as_of_str):
                         continue
-                    if eff_to and as_of_str >= str(eff_to)[:10]:
+                elif exclude_expired:
+                    status = payload.get("validity_status") or payload.get("metadata", {}).get("validity_status")
+                    if status == "Hết hiệu lực":
                         continue
+
                 filtered_hits.append(self._format_hit(payload, rank=len(filtered_hits) + 1, score=float(hit.score)))
                 if len(filtered_hits) >= top_k:
                     break
@@ -389,17 +495,14 @@ class LegalVectorStore:
         candidates = []
         for item in self._memory_records:
             rec = item["record"]
-            meta = rec.get("metadata", {})
-            status = rec.get("validity_status") or meta.get("validity_status")
-            if exclude_expired and status == "Hết hiệu lực":
-                continue
             if as_of_str:
-                eff_from = rec.get("effective_from") or meta.get("effective_from")
-                eff_to = rec.get("effective_to") if "effective_to" in rec else meta.get("effective_to")
-                if eff_from and as_of_str < str(eff_from)[:10]:
+                if not is_effective_at(rec, as_of_str):
                     continue
-                if eff_to and as_of_str >= str(eff_to)[:10]:
+            elif exclude_expired:
+                status = rec.get("validity_status") or rec.get("metadata", {}).get("validity_status")
+                if status == "Hết hiệu lực":
                     continue
+
             score = _cosine_similarity(query_vector, item["vector"])
             candidates.append((score, rec))
 
@@ -442,11 +545,19 @@ class LegalVectorStore:
         out.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     @classmethod
-    def load_snapshot_json(cls, snapshot_path: str | Path) -> "LegalVectorStore":
+    def load_snapshot_json(
+        cls, snapshot_path: str | Path, expected_dimension: Optional[int] = None
+    ) -> "LegalVectorStore":
         data = json.loads(Path(snapshot_path).read_text(encoding="utf-8"))
+        snapshot_dim = int(data["dimension"])
+        if expected_dimension is not None and snapshot_dim != expected_dimension:
+            raise ValueError(
+                f"Collection '{data.get('collection_name')}' có số chiều {snapshot_dim}, "
+                f"không khớp với cấu hình hiện tại ({expected_dimension} chiều)."
+            )
         store = cls(
             collection_name=data["collection_name"],
-            dimension=int(data["dimension"]),
+            dimension=snapshot_dim,
             use_qdrant=False,
         )
         store._memory_records = data.get("records", [])

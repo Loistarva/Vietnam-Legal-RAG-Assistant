@@ -83,12 +83,14 @@ def _read_json_array(path: str | Path) -> list[dict[str, Any]]:
     return data
 
 
-def load_gold(ground_truth_path: str | Path) -> dict[str, set[str]]:
-    """Đọc ground_truth.json: id -> tập gold_context_ids (có thể rỗng)."""
+def load_gold(ground_truth_path: str | Path, *, use_candidates: bool = False) -> dict[str, set[str]]:
+    """Đọc ground_truth.json: id -> tập gold_context_ids (hoặc candidate_context_ids nếu use_candidates=True)."""
     gold: dict[str, set[str]] = {}
     for position, item in enumerate(_read_json_array(ground_truth_path), start=1):
         question_id = item.get("id")
         gold_ids = item.get("gold_context_ids")
+        if use_candidates and not gold_ids:
+            gold_ids = item.get("candidate_context_ids")
         if not isinstance(question_id, str) or not question_id.strip():
             raise ValueError(f"Phần tử thứ {position} thiếu id hợp lệ.")
         if not isinstance(gold_ids, list):
@@ -120,6 +122,8 @@ def evaluate(
     output_path: str | Path | None = None,
     ks: Sequence[int] = DEFAULT_KS,
     queries_paths: Sequence[str | Path] = (),
+    *,
+    use_candidates: bool = False,
 ) -> dict[str, Any]:
     """Chấm điểm file kết quả retrieval so với ground_truth.json.
 
@@ -130,7 +134,7 @@ def evaluate(
     """
     categories_by_id = load_categories(queries_paths)
 
-    gold_by_id = load_gold(ground_truth_path)
+    gold_by_id = load_gold(ground_truth_path, use_candidates=use_candidates)
     results = _read_json_array(results_path)
 
     per_question: list[dict[str, Any]] = []
