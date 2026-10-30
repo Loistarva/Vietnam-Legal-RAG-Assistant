@@ -14,8 +14,8 @@ class StubRetriever:
         self.error = error
         self.calls = []
 
-    def search(self, query, top_k):
-        self.calls.append((query, top_k))
+    def search(self, query, top_k, *, as_of_date):
+        self.calls.append((query, top_k, as_of_date))
         if self.error:
             raise self.error
         return self.results[:top_k]

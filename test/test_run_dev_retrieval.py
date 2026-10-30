@@ -25,7 +25,7 @@ class StaticRetriever:
     def __init__(self, hits):
         self.hits = hits
 
-    def search(self, query, top_k):
+    def search(self, query, top_k, *, as_of_date):
         return [dict(hit) for hit in self.hits[:top_k]]
 
 
@@ -33,8 +33,9 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
     def test_read_queries_keeps_benchmark_ids(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "queries.json"
-            path.write_text(json.dumps([{"id": "HN_001", "question": " Tuổi kết hôn? "}]), encoding="utf-8")
-            self.assertEqual(read_queries(path), [("HN_001", "Tuổi kết hôn?")])
+            path.write_text(json.dumps([{"id": "HN_001", "question": " Tuổi kết hôn? ",
+                                         "as_of_date": "1995-06-01"}]), encoding="utf-8")
+            self.assertEqual(read_queries(path), [("HN_001", "Tuổi kết hôn?", "1995-06-01")])
             path.write_text(json.dumps(["Tuổi kết hôn?"]), encoding="utf-8")
             with self.assertRaises(ValueError):
                 read_queries(path)

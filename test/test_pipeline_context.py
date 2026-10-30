@@ -1,5 +1,6 @@
 """Parent-Context Resolver, as_of_date plumbing, reranker text mode and mock warnings (Dev 5)."""
 import contextlib
+from datetime import date
 import io
 import json
 import sys
@@ -97,12 +98,17 @@ class AsOfDateTest(unittest.TestCase):
         self.assertEqual(output["config"]["as_of_date"], "2016-01-01")
         self.assertEqual(output["config"]["temporal_filter"], "retriever")
 
-    def test_retriever_without_temporal_filter_is_reported(self):
-        pipeline = RetrievalPipeline(FixtureRetriever([candidate("c1", 1)]), retrieval_top_k=5)
-        with self.assertLogs("reranking.pipeline", "WARNING"):
-            output = pipeline.run(QUERY, 1, as_of_date="2016-01-01")
-        self.assertEqual(output["config"]["temporal_filter"], "not_supported_by_retriever")
-        self.assertIsNone(pipeline.run(QUERY, 1)["config"]["temporal_filter"])
+    def test_retriever_without_temporal_filter_fails_closed(self):
+        class LegacyRetriever:
+            def search(self, query, top_k):
+                return [candidate("c1", 1)]
+
+        pipeline = RetrievalPipeline(LegacyRetriever(), retrieval_top_k=5)
+        with self.assertRaisesRegex(ValueError, "không hỗ trợ lọc theo as_of_date"):
+            pipeline.run(QUERY, 1, as_of_date="2016-01-01")
+        output = RetrievalPipeline(FixtureRetriever([candidate("c1", 1)]), retrieval_top_k=5).run(QUERY, 1)
+        self.assertEqual(output["config"]["as_of_date"], date.today().isoformat())
+        self.assertEqual(output["config"]["temporal_filter"], "retriever")
         with self.assertRaisesRegex(ValueError, "YYYY-MM-DD"):
             pipeline.run(QUERY, 1, as_of_date="01/01/2016")
 
