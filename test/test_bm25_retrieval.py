@@ -8,7 +8,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
-from retrieval.build_bm25_index import build_bm25_index, load_chunks as load_es_chunks
+from retrieval.build_bm25_index import (
+    BM25_TOKENIZER, BM25_TOKENIZER_VERSION, build_bm25_index,
+    load_chunks as load_es_chunks,
+)
 from embedding.vector_store import load_chunks
 
 
@@ -16,6 +19,7 @@ class FakeElasticsearchClient:
     def __init__(self, hits):
         self.hits = hits
         self.request = None
+        self.indices = FakeSearchIndices()
 
     def search(self, **kwargs):
         self.request = kwargs
@@ -26,15 +30,36 @@ class FakeIndices:
     def __init__(self):
         self.created = None
         self.refreshed = None
+        self.mappings = {}
 
     def exists(self, index):
         return False
 
     def create(self, **kwargs):
         self.created = kwargs
+        self.mappings[kwargs["index"]] = kwargs["mappings"]
+
+    def put_mapping(self, index, **kwargs):
+        self.mappings.setdefault(index, {"properties": {}})
+        if "properties" in kwargs:
+            self.mappings[index].setdefault("properties", {}).update(kwargs["properties"])
+        if "_meta" in kwargs:
+            self.mappings[index]["_meta"] = kwargs["_meta"]
+
+    def get_mapping(self, index):
+        return {index: {"mappings": self.mappings[index]}}
 
     def refresh(self, index):
         self.refreshed = index
+
+
+class FakeSearchIndices:
+    def get_mapping(self, index):
+        return {index: {"mappings": {"_meta": {
+            "bm25_tokenizer": BM25_TOKENIZER,
+            "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
+            "bm25_text_field": "content_segmented",
+        }}}}
 
 
 class FakeBuildClient:
@@ -101,6 +126,7 @@ class BM25RetrievalTest(unittest.TestCase):
                 self.assertEqual(properties[field]["type"], "keyword")
         self.assertEqual(properties["effective_from"]["type"], "date")
         self.assertEqual(properties["effective_to"]["type"], "date")
+        self.assertEqual(client.indices.mappings["test-legal-chunks"]["_meta"]["bm25_tokenizer_version"], "9.5.0")
         self.assertFalse(client.closed)  # Injected client stays owned by caller.
 
     def test_build_fails_when_bulk_index_reports_errors_or_missing_documents(self):

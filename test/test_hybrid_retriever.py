@@ -18,6 +18,17 @@ def hit(chunk_id, text=None, score=1.0):
 class HybridRetrieverTest(unittest.TestCase):
     def test_elasticsearch_bm25_adapter_uses_match_and_returns_shared_chunk_shape(self):
         class ElasticsearchStub:
+            class Indices:
+                def get_mapping(self, index):
+                    return {index: {"mappings": {"_meta": {
+                        "bm25_tokenizer": "underthesea",
+                        "bm25_tokenizer_version": "9.5.0",
+                        "bm25_text_field": "content_segmented",
+                    }}}}
+
+            def __init__(self):
+                self.indices = self.Indices()
+
             def search(self, **kwargs):
                 self.kwargs = kwargs
                 return {"hits": {"hits": [
