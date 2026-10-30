@@ -1,0 +1,24 @@
+{
+  "total_questions": 300,
+  "dev": 285,
+  "test": 15,
+  "all_ground_truth_still_draft": true,
+  "confirmed_gold_context_ids": 0,
+  "smoke_candidates_relocated_to_candidate_context_ids": 34,
+  "extracted_pdf_draft_answers": 240,
+  "review_flags": {
+    "ARTICLE_REFERENCE_NOT_HUMAN_VERIFIED": 276,
+    "DOCUMENT_STATUS_ONLY": 236,
+    "DRAFT_ANSWER_NOT_LEGAL_REVIEWED": 60,
+    "MISSING_LEGAL_REVIEW": 300,
+    "NO_CHUNK_ID": 264,
+    "PARTIAL_CONTEXT_EVIDENCE": 2,
+    "PDF_EXCERPT_NOT_DIRECT_ANSWER": 240,
+    "POSSIBLE_PDF_CHAPTER_HEADING_LEAK": 4,
+    "QUESTION_MAY_BE_TOO_GENERIC": 50,
+    "SMOKE_IDS_NOT_PRODUCTION": 34,
+    "TEMPORAL_LAW_STATUS_NEEDS_REVIEW": 81,
+    "VERY_LONG_DRAFT_ANSWER": 98
+  },
+  "note": "Cảnh báo để người kiểm duyệt ưu tiên, không phải kết luận pháp luật đúng/sai hoặc thống kê gold verified."
+}

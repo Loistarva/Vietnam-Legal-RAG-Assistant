@@ -1,0 +1,24 @@
+{
+  "question_count": 300,
+  "production_chunk_count": 1175,
+  "chunk_candidate_rows": 740,
+  "questions_with_chunk_candidates": 276,
+  "version_candidate_rows": 26,
+  "questions_with_version_candidates": 24,
+  "questions_with_any_candidate": 300,
+  "confirmed_gold_questions": 11,
+  "review_flags": {
+    "ANSWER_NOT_REVIEWED": 289,
+    "MISSING_ARTICLE:L01_D132": 1,
+    "NEEDS_DOCUMENT_VERSION_REVIEW": 24,
+    "NO_CHILD_CHUNK_CANDIDATE": 24
+  },
+  "errors": [],
+  "can_claim_final_gold_pass": false,
+  "notes": [
+    "Candidate IDs are real production chunk IDs, NOT legally approved Gold IDs.",
+    "Version evidence is NOT a Child Chunk and cannot be inserted as fake chunk IDs.",
+    "Luật 52/2014/QH13 source PDF in prior audit stops at Điều 131; Điều 132–133 must be supplied from complete authoritative source.",
+    "Use parser on PDF independently; parser does NOT need gold_context_ids to produce JSON."
+  ]
+}
