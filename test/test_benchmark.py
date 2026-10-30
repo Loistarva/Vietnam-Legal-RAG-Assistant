@@ -1,10 +1,11 @@
-"""Automated structural and temporal QA. Does not assert that legal answers are verified."""
+"""Automated structural, clause-level, and temporal QA for the 300-question benchmark."""
 import sys,unittest,copy,hashlib,json,collections,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from scripts.validate_benchmark import inputs,validate_dataset,check
 from scripts.freeze_test import manifest
+from scripts.freeze_gold import current as current_gold_freeze
 
 class BenchmarkContractTests(unittest.TestCase):
     @classmethod
@@ -17,7 +18,7 @@ class BenchmarkContractTests(unittest.TestCase):
         data.update(kwargs);return validate_dataset(**data)
     def test_schema_and_data_pass_handoff(self):self.assertEqual(check()[0],[])
     def test_total_between_50_and_300(self):self.assertTrue(50<=len(self.dev+self.test)<=300)
-    def test_split(self):self.assertEqual((len(self.dev),len(self.test)),(285,15))
+    def test_split(self):self.assertEqual((len(self.dev),len(self.test)),(270,30))
     def test_split_disjoint(self):self.assertFalse({q['id'] for q in self.dev}&{q['id'] for q in self.test})
     def test_all_questions_have_gold(self):self.assertEqual({q['id'] for q in self.dev+self.test},{g['id'] for g in self.gold})
     def test_no_duplicate_question(self):self.assertEqual(len({q['question'] for q in self.dev+self.test}),300)
@@ -34,25 +35,50 @@ class BenchmarkContractTests(unittest.TestCase):
         parsed_files = list(parsed_dir.glob('*.json'))
         self.assertTrue(parsed_files)
 
-        parsed_articles = set()
+        parsed_articles = {}
         for f in parsed_files:
             doc = json.loads(f.read_text(encoding='utf-8'))
             doc_number = doc['metadata']['document_number']
             for a in doc.get('articles', []):
-                parsed_articles.add((doc_number, str(a['article_number'])))
+                art_no = str(a['article_number'])
+                raw_title = (a.get('title') or '').strip()
+                expected_title = f"Điều {art_no}. {raw_title}" if raw_title else f"Điều {art_no}"
+                parsed_articles[(doc_number, art_no)] = expected_title
 
         doc_registry = {d['document_number']: d for d in self.docs}
-        index_articles = set()
+        index_articles = {}
+        article_by_id = {}
         for r in self.articles:
             doc_no = r['document_number']
             art_no = str(r['article_number'])
-            index_articles.add((doc_no, art_no))
+            index_articles[(doc_no, art_no)] = (r.get('article_title') or '').strip()
+            article_by_id[r['article_id']] = r
             self.assertIn(doc_no, doc_registry)
             expected_prefix = doc_registry[doc_no]['file_code'] + '_D'
             self.assertTrue(r['article_id'].startswith(expected_prefix), f"ID format mismatch for {r['article_id']}")
+            self.assertEqual(
+                (r.get('article_title') or '').strip(),
+                parsed_articles.get((doc_no, art_no)),
+                f"Article title mismatch for {r['article_id']}",
+            )
 
+        self.assertEqual(set(parsed_articles.keys()), set(index_articles.keys()))
         self.assertEqual(parsed_articles, index_articles)
         self.assertEqual(len({r['article_id'] for r in self.articles}), len(self.articles))
+
+        # C5: Every article_id in gold_article_ids of reviewed questions must have verified verification_status
+        reviewed_gold = [g for g in self.gold if g.get('review_status') != 'draft']
+        self.assertEqual(len(reviewed_gold), 100)
+        for g in reviewed_gold:
+            for aid in g.get('gold_article_ids', []):
+                self.assertIn(aid, article_by_id, f"{g['id']}: missing {aid} in article_index")
+                vstatus = article_by_id[aid].get('verification_status')
+                self.assertNotIn(
+                    vstatus,
+                    ('metadata_only_unverified', 'not_checked', None, ''),
+                    f"{g['id']}: article {aid} has unverified status {vstatus!r}",
+                )
+                self.assertEqual(vstatus, 'source_checked')
 
     def test_gold_clause_ids_map_to_chunks_in_corpus(self):
         chunks_path = ROOT / 'data' / 'chunking_output' / 'chunks.jsonl'
@@ -78,27 +104,59 @@ class BenchmarkContractTests(unittest.TestCase):
                     parent_clause = chunk_to_clause.get(cid)
                     self.assertIn(parent_clause, clause_ids, f"{g['id']}: chunk {cid} parent {parent_clause} not in gold_clause_ids")
 
-        # 2. Test bidirectional mapping function sync_gold_context_ids_from_clauses
+        # 2. Test all 3 cases of bidirectional mapping function sync_gold_context_ids_from_clauses + backup
         from scripts.prepare_production_benchmark import sync_gold_context_ids_from_clauses
         sample_chunk = chunks[0]
         sample_cid = sample_chunk['chunk_id']
         sample_clause = sample_chunk['parent_clause_id']
+        other_chunk = next(c for c in chunks if c['parent_clause_id'] != sample_clause)
+        other_clause = other_chunk['parent_clause_id']
 
-        mock_gt = [{'id': 'HN_001', 'gold_context_ids': [sample_cid], 'gold_clause_ids': []}]
-        with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False, suffix='.json') as tmp:
-            json.dump(mock_gt, tmp)
-            tmp_path = Path(tmp.name)
-        try:
-            res = sync_gold_context_ids_from_clauses(chunks_path=chunks_path, ground_truth_path=tmp_path, save=False)
-            self.assertEqual(res[0]['gold_clause_ids'], [sample_clause])
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir) / 'ground_truth.json'
+            backup_dir = Path(tmpdir) / 'backups'
 
-            mock_gt_rev = [{'id': 'HN_001', 'gold_context_ids': [], 'gold_clause_ids': [sample_clause]}]
-            tmp_path.write_text(json.dumps(mock_gt_rev), encoding='utf-8')
-            res2 = sync_gold_context_ids_from_clauses(chunks_path=chunks_path, ground_truth_path=tmp_path, save=False)
-            self.assertIn(sample_cid, res2[0]['gold_context_ids'])
-        finally:
-            if tmp_path.exists():
-                tmp_path.unlink()
+            # Case 2: chunk -> clause (gold_context_ids populated, gold_clause_ids empty)
+            mock_gt_c2 = [{'id': 'HN_001', 'gold_context_ids': [sample_cid], 'gold_clause_ids': []}]
+            tmp_path.write_text(json.dumps(mock_gt_c2), encoding='utf-8')
+            res_c2 = sync_gold_context_ids_from_clauses(
+                chunks_path=chunks_path, ground_truth_path=tmp_path, save=True, backup_dir=backup_dir
+            )
+            self.assertEqual(res_c2[0]['gold_clause_ids'], [sample_clause])
+            self.assertTrue(list(backup_dir.glob('*.bak')), "Expected automatic backup file before write")
+
+            # Case 1: clause -> chunk (gold_clause_ids populated, gold_context_ids empty)
+            mock_gt_c1 = [{'id': 'HN_001', 'gold_context_ids': [], 'gold_clause_ids': [sample_clause]}]
+            tmp_path.write_text(json.dumps(mock_gt_c1), encoding='utf-8')
+            res_c1 = sync_gold_context_ids_from_clauses(
+                chunks_path=chunks_path, ground_truth_path=tmp_path, save=False
+            )
+            self.assertEqual(res_c1[0]['gold_context_ids'], clause_to_chunks[sample_clause])
+
+            # Case 3a: both populated and consistent -> succeeds without error
+            mock_gt_c3_ok = [{
+                'id': 'HN_001',
+                'gold_context_ids': list(clause_to_chunks[sample_clause]),
+                'gold_clause_ids': [sample_clause],
+            }]
+            tmp_path.write_text(json.dumps(mock_gt_c3_ok), encoding='utf-8')
+            res_c3_ok = sync_gold_context_ids_from_clauses(
+                chunks_path=chunks_path, ground_truth_path=tmp_path, save=False
+            )
+            self.assertEqual(res_c3_ok[0]['gold_clause_ids'], [sample_clause])
+
+            # Case 3b: both populated and mismatch -> MUST raise ValueError with question ID
+            mock_gt_c3_err = [{
+                'id': 'HN_001',
+                'gold_context_ids': [sample_cid],
+                'gold_clause_ids': [other_clause],
+            }]
+            tmp_path.write_text(json.dumps(mock_gt_c3_err), encoding='utf-8')
+            with self.assertRaises(ValueError) as ctx:
+                sync_gold_context_ids_from_clauses(
+                    chunks_path=chunks_path, ground_truth_path=tmp_path, save=False
+                )
+            self.assertIn('HN_001', str(ctx.exception))
 
     def test_unmapped_explicit_not_faked(self):
         pending=[g for g in self.gold if g['mapping_status']=='not_mapped']
@@ -109,6 +167,8 @@ class BenchmarkContractTests(unittest.TestCase):
         counts = Counter(g['mapping_status'] for g in self.gold)
         self.assertEqual(sum(counts.values()), 300)
         self.assertEqual(counts['not_mapped'], 24)
+        self.assertEqual(counts['production_verified'], 100)
+        self.assertEqual(counts['production_candidate_unverified'], 176)
         self.assertEqual(counts['production_candidate_unverified'] + counts['production_verified'], 276)
         self.assertEqual(sum(bool(g['candidate_context_ids'] or g['gold_context_ids']) for g in self.gold), 276)
         self.assertTrue(all(bool(g['gold_context_ids']) == bool(g['gold_context_ids_confirmed']) for g in self.gold))
@@ -116,19 +176,59 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_expansion_is_unverified_and_unmapped(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
         self.assertEqual(len(added),240)
-        self.assertTrue(all(g['review_status']=='draft' and g['mapping_status']=='production_candidate_unverified'
+        verified_added=[g for g in added if g['review_status']!='draft']
+        draft_added=[g for g in added if g['review_status']=='draft']
+        self.assertEqual(len(verified_added),64)
+        self.assertEqual(len(draft_added),176)
+        self.assertTrue(all(g['mapping_status']=='production_candidate_unverified'
                             and not g['gold_context_ids'] and bool(g['candidate_context_ids']) and bool(g['gold_article_ids'])
-                            and not g['gold_context_ids_confirmed'] for g in added))
+                            and not g['gold_context_ids_confirmed'] for g in draft_added))
+        self.assertTrue(all(g['mapping_status']=='production_verified'
+                            and bool(g['gold_context_ids']) and bool(g['gold_clause_ids']) and bool(g['gold_article_ids'])
+                            and g['gold_context_ids_confirmed'] for g in verified_added))
     def test_all_new_answers_are_pdf_based_drafts(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
         self.assertEqual(len(added),240)
+        draft_added=[g for g in added if g['review_status']=='draft']
+        verified_added=[g for g in added if g['review_status']!='draft']
+        self.assertEqual(len(draft_added),176)
+        self.assertEqual(len(verified_added),64)
         self.assertTrue(all(g['evidence_level']=='pdf_text_extracted_unverified'
                             and len(g['answer'])>80 and 'CHUA_XAC_MINH' not in g['answer']
                             and not g['gold_context_ids_confirmed']
-                            for g in added))
+                            for g in draft_added))
+        self.assertTrue(all(g['evidence_level']=='full_text_checked'
+                            and g['answer_kind']=='reviewed_answer'
+                            and len(g['answer'])>80 and 'CHUA_XAC_MINH' not in g['answer']
+                            and g['gold_context_ids_confirmed']
+                            for g in verified_added))
     def test_original_test_split_unchanged(self):
-        self.assertEqual(len(self.test),15)
+        self.assertEqual(len(self.test),30)
         self.assertEqual([x['id'] for x in self.test],manifest()['test_ids'])
+    def test_no_clause_leakage_between_dev_and_test(self):
+        by_id = {g['id']: g for g in self.gold}
+        test_ids = {q['id'] for q in self.test}
+        dev_ids = {q['id'] for q in self.dev}
+        self.assertEqual(len(test_ids), 30)
+        self.assertEqual(len(dev_ids), 270)
+        test_clauses = set()
+        for qid in test_ids:
+            g = by_id[qid]
+            self.assertEqual(g['review_status'], 'source_checked', f"Test question {qid} must be source_checked")
+            self.assertTrue(g.get('gold_clause_ids'), f"Test question {qid} must have gold_clause_ids")
+            self.assertTrue(g.get('gold_context_ids'), f"Test question {qid} must have gold_context_ids")
+            test_clauses.update(g['gold_clause_ids'])
+        dev_clauses = {
+            cl
+            for qid in dev_ids
+            for cl in by_id[qid].get('gold_clause_ids', [])
+        }
+        self.assertFalse(test_clauses & dev_clauses, f"Leakage of gold_clause_ids between Dev and Test: {test_clauses & dev_clauses}")
+    def test_test_gold_frozen(self):
+        gold_manifest_path = ROOT / 'docs' / 'test_gold_freeze.json'
+        self.assertTrue(gold_manifest_path.exists())
+        gold_manifest = json.loads(gold_manifest_path.read_text(encoding='utf-8'))
+        self.assertEqual(gold_manifest, current_gold_freeze())
     def test_no_false_legal_approval(self):
         for g in self.gold:
             if g['review_status'] == 'draft':
@@ -137,6 +237,7 @@ class BenchmarkContractTests(unittest.TestCase):
                 self.assertIn(g['review_status'], ('source_checked', 'peer_reviewed', 'lawyer_verified'), g['id'])
                 self.assertEqual(g['answer_kind'], 'reviewed_answer', g['id'])
                 self.assertTrue(g['verified_by'] and g['verified_at'], g['id'])
+                self.assertNotIn('HO_TEN_', g['verified_by'], g['id'])
 
     def test_no_false_production_approval(self):
         production = ROOT/'data'/'reference'/'production_chunk_index.json'
@@ -221,7 +322,9 @@ class BenchmarkContractTests(unittest.TestCase):
     def test_unique_gold_and_article_mapping_for_expansion(self):
         added=[g for g in self.gold if int(g['id'][3:])>60]
         self.assertEqual(len(added),240)
-        self.assertTrue(all(g['gold_article_ids'] and not g['gold_context_ids_confirmed'] for g in added))
+        self.assertTrue(all(bool(g['gold_article_ids']) for g in added))
+        self.assertEqual(sum(1 for g in added if g['gold_context_ids_confirmed']), 64)
+        self.assertEqual(sum(1 for g in added if not g['gold_context_ids_confirmed']), 176)
     def test_test_questions_frozen(self):
         manifestfile=json.loads((ROOT/'docs'/'test_questions_freeze.json').read_text(encoding='utf8'))
         self.assertEqual(manifestfile,manifest())

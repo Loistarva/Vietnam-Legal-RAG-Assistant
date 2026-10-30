@@ -1,22 +1,32 @@
 [
   {
-    "question": "Người bị mất năng lực hành vi dân sự có đáp ứng điều kiện kết hôn theo Luật 2014 không?",
+    "question": "Kết hôn nhưng không đăng ký theo pháp luật hộ tịch có giá trị pháp lý không?",
     "category": "ket_hon",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_004",
+    "id": "HN_005",
     "question_type": "fact",
     "difficulty": "easy",
     "split": "test"
   },
   {
-    "question": "Có thể kết hôn với người có quan hệ huyết thống trực hệ không?",
+    "question": "Hai người đã ly hôn muốn trở lại quan hệ vợ chồng có cần đăng ký kết hôn lại không?",
     "category": "ket_hon",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_008",
+    "id": "HN_006",
     "question_type": "fact",
     "difficulty": "easy",
+    "split": "test"
+  },
+  {
+    "question": "Quyền và nghĩa vụ với con khi bố mẹ chung sống như vợ chồng nhưng không đăng ký kết hôn được xử lý ra sao?",
+    "category": "con_cai",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "id": "HN_011",
+    "question_type": "situation",
+    "difficulty": "medium",
     "split": "test"
   },
   {
@@ -30,21 +40,21 @@
     "split": "test"
   },
   {
-    "question": "Thu nhập do lao động trong thời kỳ hôn nhân thường là tài sản chung hay riêng?",
-    "category": "tai_san",
+    "question": "Vợ chồng có buộc luôn phải sống chung tại một địa chỉ không?",
+    "category": "vo_chong",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_016",
+    "id": "HN_014",
     "question_type": "fact",
     "difficulty": "easy",
     "split": "test"
   },
   {
-    "question": "Vợ chồng có thể thỏa thuận chia tài sản chung ngay trong thời kỳ hôn nhân không?",
-    "category": "tai_san",
+    "question": "Việc lựa chọn nơi cư trú của vợ chồng do ai quyết định?",
+    "category": "vo_chong",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_020",
+    "id": "HN_015",
     "question_type": "fact",
     "difficulty": "easy",
     "split": "test"
@@ -60,21 +70,31 @@
     "split": "test"
   },
   {
-    "question": "Con từ đủ 7 tuổi trở lên thì Tòa án có phải xem xét nguyện vọng của con khi quyết định người trực tiếp nuôi không?",
-    "category": "con_cai",
+    "question": "Hôn nhân chấm dứt do ly hôn kể từ thời điểm nào?",
+    "category": "ly_hon",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_028",
+    "id": "HN_026",
+    "question_type": "fact",
+    "difficulty": "easy",
+    "split": "test"
+  },
+  {
+    "question": "Khi ly hôn, tài sản chung lúc nào cũng chia đúng 50/50 bất kể hoàn cảnh hay công sức không?",
+    "category": "tai_san",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "id": "HN_027",
     "question_type": "situation",
     "difficulty": "medium",
     "split": "test"
   },
   {
-    "question": "Mức cấp dưỡng cho con có bắt buộc là một số tiền cố định do luật ấn định không?",
+    "question": "Nghĩa vụ cấp dưỡng có thể chuyển giao tùy ý cho người khác không?",
     "category": "cap_duong",
     "as_of_date": "2026-10-15",
     "test_type": "current_law",
-    "id": "HN_032",
+    "id": "HN_034",
     "question_type": "fact",
     "difficulty": "easy",
     "split": "test"
@@ -90,63 +110,193 @@
     "split": "test"
   },
   {
-    "question": "Thông tư 02a/2015/TT-BTP có còn hiệu lực toàn bộ vào tháng 10/2026 không?",
-    "category": "hieu_luc",
-    "as_of_date": "2026-10-15",
-    "test_type": "outdated_law_trap",
-    "id": "HN_040",
+    "id": "HN_066",
+    "question": "Khi gặp tình huống liên quan đến quy định của Bộ luật dân sự và các luật khác có liên quan, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?",
+    "category": "nguyen_tac_quy_dinh",
     "question_type": "situation",
     "difficulty": "hard",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
     "split": "test"
   },
   {
-    "question": "Thông tư 38/2025/TT-BYT có hiệu lực trước năm 2025 và áp dụng thay Nghị định 207/2025 không?",
+    "id": "HN_112",
+    "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về khuyến khích hòa giải ở cơ sở theo Luật Hôn nhân và gia đình 2014?",
+    "category": "nguyen_tac_quy_dinh",
+    "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_128",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, bảo vệ quyền và nghĩa vụ của cha mẹ và con được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
+    "category": "con_cai",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_156",
+    "question": "Đối với thỏa thuận về mang thai hộ vì mục đích nhân đạo, Luật Hôn nhân và gia đình 2014 quy định các điều kiện, giới hạn và trách nhiệm nào?",
     "category": "mang_thai_ho",
-    "as_of_date": "2026-10-15",
-    "test_type": "outdated_law_trap",
-    "id": "HN_044",
     "question_type": "situation",
     "difficulty": "hard",
-    "split": "test"
-  },
-  {
-    "question": "Có được trích Thông tư 07/2002/TT-BTP làm căn cứ hướng dẫn hiện hành về hôn nhân có yếu tố nước ngoài năm 2026 không?",
-    "category": "hieu_luc",
     "as_of_date": "2026-10-15",
-    "test_type": "outdated_law_trap",
-    "id": "HN_048",
-    "question_type": "situation",
-    "difficulty": "hard",
+    "test_type": "current_law",
     "split": "test"
   },
   {
-    "question": "Vào năm 2012, Luật Hôn nhân và gia đình 2000 đã hết hiệu lực chưa?",
-    "category": "hieu_luc",
-    "as_of_date": "2012-03-01",
-    "test_type": "historical_law",
-    "id": "HN_052",
+    "id": "HN_169",
+    "question": "Khi có tranh chấp về nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
+    "category": "cap_duong",
     "question_type": "situation",
     "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
     "split": "test"
   },
   {
-    "question": "Ngày 01/03/2017, Thông tư 02a/2015/TT-BTP đã hết hiệu lực chưa?",
-    "category": "hieu_luc",
-    "as_of_date": "2017-03-01",
-    "test_type": "historical_law",
-    "id": "HN_056",
+    "id": "HN_173",
+    "question": "Đối với nghĩa vụ cấp dưỡng giữa ông bà nội, ông bà ngoại và cháu, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
+    "category": "cap_duong",
     "question_type": "situation",
     "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
     "split": "test"
   },
   {
-    "question": "Nghị định 123/2015/NĐ-CP hiện có thể coi mọi điều khoản đều còn hiệu lực không?",
-    "category": "hieu_luc",
+    "id": "HN_181",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ bảo vệ quyền, lợi ích hợp pháp của các bên trong quan hệ hôn nhân và gia đình có yếu tố nước ngoài như thế nào?",
+    "category": "yeu_to_nuoc_ngoai",
+    "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_193",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến giải quyết vụ, việc hôn nhân và gia đình có áp dụng tập quán được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+    "category": "nguyen_tac_quy_dinh",
+    "question_type": "situation",
+    "difficulty": "medium",
     "as_of_date": "2026-10-15",
     "test_type": "partially_expired",
-    "id": "HN_060",
+    "split": "test"
+  },
+  {
+    "id": "HN_215",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối đăng ký kết hôn và người yêu cầu được thông báo thế nào?",
+    "category": "ket_hon",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "test"
+  },
+  {
+    "id": "HN_219",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện nhận cha, mẹ, con?",
+    "category": "con_cai",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "test"
+  },
+  {
+    "id": "HN_230",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài?",
+    "category": "ly_hon",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "test"
+  },
+  {
+    "id": "HN_231",
+    "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+    "category": "ly_hon",
     "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "test"
+  },
+  {
+    "id": "HN_251",
+    "question": "Theo Nghị định 207/2025/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện của người nhận tinh trùng, nhận noãn, nhận phôi để sinh con bằng kỹ thuật hỗ trợ sinh sản?",
+    "category": "mang_thai_ho",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_252",
+    "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về quy định về việc sử dụng tinh trùng của người hiến trong thực hiện kỹ thuật thụ tinh nhân tạo theo Nghị định 207/2025/NĐ-CP?",
+    "category": "mang_thai_ho",
+    "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_268",
+    "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về hạn chế phân chia di sản của vợ, chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết quy định tại khoản 3 Điều 66 của Luật Hôn nhân và gia đình theo Nghị quyết 01/2024/NQ-HĐTP?",
+    "category": "thu_tuc",
+    "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_278",
+    "question": "Khi kết hôn trái pháp luật, ai có quyền yêu cầu hủy và cách xử lý yêu cầu được quy định ra sao?",
+    "category": "ket_hon",
+    "question_type": "multi_hop",
     "difficulty": "hard",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_281",
+    "question": "Nếu hai vợ chồng chọn nơi ở riêng, cần đối chiếu quyền chọn nơi cư trú với nghĩa vụ về tình nghĩa vợ chồng thế nào?",
+    "category": "vo_chong",
+    "question_type": "multi_hop",
+    "difficulty": "hard",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_283",
+    "question": "Vợ chồng giao dịch nhà ở duy nhất đồng thời liên quan đến tài sản chung thì cần đánh giá quy định nào?",
+    "category": "tai_san",
+    "question_type": "multi_hop",
+    "difficulty": "hard",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "test"
+  },
+  {
+    "id": "HN_292",
+    "question": "Khi ly hôn, nghĩa vụ đối với người thứ ba và việc chia tài sản chung được đánh giá kết hợp thế nào?",
+    "category": "ly_hon",
+    "question_type": "multi_hop",
+    "difficulty": "hard",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
     "split": "test"
   }
 ]
