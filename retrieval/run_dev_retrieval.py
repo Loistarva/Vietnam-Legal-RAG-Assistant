@@ -23,6 +23,7 @@ from retrieval.hybrid_retriever import (
     HybridSearchConfig,
 )
 from retrieval.settings import DEFAULT_CONFIG_PATH, ROOT as SETTINGS_ROOT, load_settings
+from retrieval.temporal import normalize_as_of_date
 
 
 def resolve_run_config(settings: dict[str, Any], *, top_k: int | None = None,
@@ -41,6 +42,7 @@ def resolve_run_config(settings: dict[str, Any], *, top_k: int | None = None,
         "dense_model": selected_model,
         "dimension": model_spec["dimension"],
         "collection": collection or settings["dense"]["collection"],
+        "qdrant_storage_path": str(resolve_qdrant_storage_path(settings)),
         "elasticsearch_index": elasticsearch_index or settings["bm25"]["index"],
         "chunks": str(chunks) if chunks is not None else settings["retrieval"]["corpus_path"],
         "fusion": settings["hybrid"]["fusion"],
@@ -52,8 +54,26 @@ def resolve_run_config(settings: dict[str, Any], *, top_k: int | None = None,
     return resolved
 
 
-def read_queries(path: Path) -> list[tuple[str, str]]:
-    """Return (query_id, query) pairs; query_id is the benchmark ``id`` (or ``query_id``)."""
+def resolve_qdrant_storage_path(settings: dict[str, Any], *,
+                                env_path: str | Path | None = None) -> Path:
+    """Resolve Qdrant storage from QDRANT_PATH or shared dense.index_dir."""
+    if env_path is not None:
+        path = Path(env_path)
+    elif os.getenv("QDRANT_PATH"):
+        # Backward-compatible override: QDRANT_PATH points directly at Qdrant storage.
+        path = Path(os.environ["QDRANT_PATH"])
+    else:
+        index_dir = Path(settings["dense"]["index_dir"])
+        if not index_dir.is_absolute():
+            index_dir = SETTINGS_ROOT / index_dir
+        path = index_dir / "qdrant_storage"
+    if not path.is_absolute():
+        path = SETTINGS_ROOT / path
+    return path
+
+
+def read_queries(path: Path) -> list[tuple[str, str, str]]:
+    """Return (query_id, query, as_of_date) rows; missing dates use today's date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -66,12 +86,16 @@ def read_queries(path: Path) -> list[tuple[str, str]]:
             raise ValueError(f"Dev query #{index} phải là object có id và question")
         query_id = row.get("id") or row.get("query_id")
         query = row.get("query") or row.get("question")
+        try:
+            as_of_date = normalize_as_of_date(row.get("as_of_date"))
+        except ValueError as exc:
+            raise ValueError(f"Dev query #{index} ({query_id or 'chưa có id'}) có as_of_date sai: {exc}") from exc
         if not isinstance(query_id, str) or not query_id.strip():
             raise ValueError(f"Dev query #{index} thiếu id")
         if not isinstance(query, str) or not query.strip():
             raise ValueError(f"Dev query {query_id} thiếu question không rỗng")
-        queries.append((query_id.strip(), query.strip()))
-    if len({query_id for query_id, _ in queries}) != len(queries):
+        queries.append((query_id.strip(), query.strip(), as_of_date))
+    if len({query_id for query_id, _, _ in queries}) != len(queries):
         raise ValueError("Dev query file có id trùng lặp")
     return queries
 
@@ -124,10 +148,10 @@ class TimedRetriever:
         self.retriever = retriever
         self.last_latency_ms = 0.0
 
-    def search(self, query: str, top_k: int) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
         started = time.perf_counter()
         try:
-            return self.retriever.search(query, top_k)
+            return self.retriever.search(query, top_k, as_of_date=as_of_date)
         finally:
             self.last_latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
 
@@ -192,11 +216,18 @@ def main() -> int:
         if not es_client.indices.exists(index=run_config["elasticsearch_index"]):
             raise ValueError(f"Elasticsearch index không tồn tại: {run_config['elasticsearch_index']}; nạp child chunks trước")
         sparse = TimedRetriever(ElasticsearchBM25Retriever(
-            es_client, run_config["elasticsearch_index"], text_field=settings["bm25"]["text_field"]
+            es_client, run_config["elasticsearch_index"],
+            text_field=settings["bm25"]["text_field"], settings=settings,
         ))
+        bm25_metadata = sparse.retriever._verify_index_tokenizer()
+        if bm25_metadata.get("corpus_sha256") != run_config["corpus_sha256"]:
+            raise ValueError(
+                "Elasticsearch BM25 index được dựng từ corpus khác với corpus benchmark "
+                "(corpus_sha256 không khớp)."
+            )
         dimension = run_config["dimension"]
         collection = run_config["collection"]
-        qdrant_path = os.getenv("QDRANT_PATH", str(ROOT / "data" / "indexes" / "qdrant_storage"))
+        qdrant_path = Path(run_config["qdrant_storage_path"])
         store = LegalVectorStore(
             collection_name=collection,
             dimension=dimension,
@@ -217,14 +248,15 @@ def main() -> int:
         )
 
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
-        for query_id, query in queries:
+        for query_id, query, query_as_of_date in queries:
             started = time.perf_counter()
-            ranked = hybrid_retriever.retrieve(query)
+            ranked = hybrid_retriever.retrieve(query, as_of_date=query_as_of_date)
             hybrid_latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
             per_method_latency = latency_by_method(sparse, dense, hybrid_latency_ms)
             for method in saved:
+                query_config = {**run_config, "as_of_date": query_as_of_date}
                 saved[method].append(to_envelope(
-                    method, query_id, query, ranked[method], run_config, per_method_latency[method]
+                    method, query_id, query, ranked[method], query_config, per_method_latency[method]
                 ))
 
         args.output_dir.mkdir(parents=True, exist_ok=True)

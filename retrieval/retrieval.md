@@ -8,7 +8,7 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 
 | Thành phần | Công nghệ / tệp | Vai trò |
 | --- | --- | --- |
-| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py` | Tìm theo từ khóa. Dùng `multi_match` trên `content_segmented`, breadcrumb và metadata Điều/Khoản. Elasticsearch tự chấm điểm BM25. |
+| Sparse/BM25 | Elasticsearch BM25; `retrieval/hybrid_retriever.py` | Tìm theo từ khóa bằng hai nhánh `multi_match`: câu hỏi gốc trên `content` và `breadcrumb`, câu hỏi tách từ trên `content_segmented`. Elasticsearch tự chấm điểm BM25. |
 | Dense | BGE-M3, Sentence Transformers, Qdrant; `embedding/vector_store.py` | Tạo embedding câu hỏi và tìm các chunk gần nhau theo vector/ngữ nghĩa. |
 | Hợp nhất | RRF; `retrieval/rrf.py`, `retrieval/hybrid_retriever.py` | Kết hợp thứ hạng BM25 và Dense, không cộng trực tiếp điểm BM25 với cosine similarity. |
 | Build index | `retrieval/build_bm25_index.py` | Đọc file chunk Hôn nhân và Gia đình, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
@@ -16,6 +16,16 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 | Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
 
 Cấu hình mặc định nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3`, candidate depth 50, Top-10 và RRF k=60. Đây là cấu hình chạy Dev; reranker không được bật trong phép so sánh BM25/Dense/Hybrid.
+
+## Đồng bộ tách từ BM25
+
+`chunking/export_legal_chunks.py` ghi `content_segmented` từ `seg_text`; `chunking/chunking_rules.py` tạo `seg_text` bằng `underthesea.word_tokenize(..., format="text")`. Phiên bản corpus hiện tại được ghi trong `data/chunking_output/chunking_report.json` là `underthesea==9.5.0`, trùng với pin trong `requirements.txt`. Khi truy vấn, BM25 tách câu hỏi bằng cùng phiên bản và gửi cả câu hỏi gốc lẫn câu hỏi đã tách từ trong hai nhánh `should` của Elasticsearch. Nếu thiếu tokenizer hoặc phiên bản không khớp, truy xuất dừng với lỗi rõ ràng thay vì âm thầm dùng câu hỏi thô cho trường đã tách từ.
+
+## Kiểm tra contract, corpus và thời điểm
+
+Trước khi build BM25 hoặc Dense, mỗi ChildChunk phải có `document_id`, `article_id`, `clause_id`, `parent_clause_id` và `parent_id`. `parent_id` phải khớp một ParentChunk trong `parents.json`, và `child_ids` của ParentChunk phải chứa đúng `chunk_id`. BM25 khai báo ID root-level và metadata ID ở kiểu `keyword`; Dense chuẩn hóa cùng contract trước khi ghi payload, và đầu ra Dense giữ riêng `parent_id` (không thay bằng `parent_clause_id`).
+
+Runner kiểm tra SHA-256 corpus với metadata của cả Elasticsearch và Qdrant trước khi benchmark. Kết quả lưu `as_of_date` từng query, kể cả khi dùng ngày hiện tại mặc định. Evaluator báo riêng Temporal Violation Rate và số chunk thiếu cả hai trường thời hiệu. RRF bảo toàn `effective_from`/`effective_to` qua bước hợp nhất.
 
 ## Cách RRF và khử trùng lặp hoạt động
 
@@ -70,7 +80,7 @@ $env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
 ```
 
-File chunk phải tồn tại trên máy thành viên và phải là corpus nhóm muốn nạp. Nếu index đã có, hàm upsert theo `chunk_id`; truyền `recreate=True` khi muốn thay toàn bộ index và xóa các chunk không còn trong file. Thành viên không có SSH access cần được cấp kết nối qua VPN riêng của nhóm hoặc endpoint Elasticsearch có xác thực; chỉ gửi URL `localhost` sẽ không tạo kết nối tới máy người khác.
+Không dùng lệnh smoke corpus cũ ở trên để dựng index production. Build BM25 hiện yêu cầu `chunks.jsonl`, `chunking_report.json` và `parents.json` cùng thư mục; báo cáo phải xác nhận `underthesea==9.5.0`, mọi ChildChunk phải có đủ ID theo contract và parent-child links phải khớp. Nếu index đã có, hàm upsert theo `chunk_id`; truyền `recreate=True` khi muốn thay toàn bộ index. Thành viên không có SSH access cần được cấp kết nối qua VPN riêng của nhóm hoặc endpoint Elasticsearch có xác thực.
 
 ### 1. Cài dependencies và khởi chạy Elasticsearch
 
@@ -97,7 +107,7 @@ $env:ELASTICSEARCH_INDEX = "task4-legal-proposal300-current"
 .\.venv\Scripts\python.exe -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\data\chunking_output\chunks.jsonl', index_name='task4-legal-proposal300-current', recreate=True))"
 ```
 
-Lệnh trên lập index từ corpus hiện tại (1.159 chunks). Dùng tên index mới để không nhầm với snapshot benchmark 1.175 chunks.
+Lệnh trên lập index từ corpus hiện tại. Sau khi nạp, index metadata ghi tokenizer và SHA-256 của corpus; retriever từ chối index thiếu metadata này.
 
 ### 3. Lập Dense index và chạy ba nhánh trên cùng bộ Dev
 
@@ -122,7 +132,7 @@ $env:QDRANT_PATH = (Resolve-Path .\qdrant_data\task4_proposal_300_current\qdrant
   --rrf-k 60
 ```
 
-Runner yêu cầu Elasticsearch index và Qdrant collection khớp cùng corpus. Kết quả được lưu tại:
+Runner so SHA-256 của file corpus với metadata Elasticsearch và Qdrant, ngoài việc kiểm tra số lượng điểm; hai index phải được build từ cùng một file. Mỗi envelope lưu model, dimension, index, collection, các tham số ranking, SHA-256 corpus và `as_of_date` riêng của query. Các tham số truyền trực tiếp trên command line là cấu hình thực tế của lượt chạy; chúng có thể ghi đè giá trị mặc định trong `retrieval/config.yaml`. Kết quả được lưu tại:
 
 - `retrieval/results/task4_proposal_300_current/dev_bm25.json`
 - `retrieval/results/task4_proposal_300_current/dev_dense.json`

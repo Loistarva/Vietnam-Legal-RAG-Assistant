@@ -9,6 +9,7 @@ if str(ROOT) not in sys.path:
 
 from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
 from retrieval.build_bm25_index import (
+    BM25_TOKENIZER, BM25_TOKENIZER_VERSION,
     build_bm25_index,
     load_chunks as load_es_chunks,
     resolve_bm25_build_config,
@@ -21,6 +22,7 @@ class FakeElasticsearchClient:
     def __init__(self, hits):
         self.hits = hits
         self.request = None
+        self.indices = FakeSearchIndices()
 
     def search(self, **kwargs):
         self.request = kwargs
@@ -31,15 +33,36 @@ class FakeIndices:
     def __init__(self):
         self.created = None
         self.refreshed = None
+        self.mappings = {}
 
     def exists(self, index):
         return False
 
     def create(self, **kwargs):
         self.created = kwargs
+        self.mappings[kwargs["index"]] = kwargs["mappings"]
+
+    def put_mapping(self, index, **kwargs):
+        self.mappings.setdefault(index, {"properties": {}})
+        if "properties" in kwargs:
+            self.mappings[index].setdefault("properties", {}).update(kwargs["properties"])
+        if "_meta" in kwargs:
+            self.mappings[index]["_meta"] = kwargs["_meta"]
+
+    def get_mapping(self, index):
+        return {index: {"mappings": self.mappings[index]}}
 
     def refresh(self, index):
         self.refreshed = index
+
+
+class FakeSearchIndices:
+    def get_mapping(self, index):
+        return {index: {"mappings": {"_meta": {
+            "bm25_tokenizer": BM25_TOKENIZER,
+            "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
+            "bm25_text_field": "content_segmented",
+        }}}}
 
 
 class FakeBuildClient:
@@ -67,6 +90,9 @@ class BM25RetrievalTest(unittest.TestCase):
         defaults = resolve_bm25_build_config(settings)
         self.assertEqual(defaults["index_name"], settings["bm25"]["index"])
         self.assertEqual(defaults["chunks_file"].name, "chunks.jsonl")
+        self.assertEqual(defaults["tokenizer"], settings["bm25"]["tokenizer"])
+        self.assertEqual(defaults["tokenizer_version"], str(settings["bm25"]["tokenizer_version"]))
+        self.assertEqual(defaults["text_field"], settings["bm25"]["text_field"])
         overridden = resolve_bm25_build_config(
             settings, chunks_override="custom/corpus.jsonl", index_override="bm25-test"
         )
@@ -79,6 +105,12 @@ class BM25RetrievalTest(unittest.TestCase):
         document = load_es_chunks(fixture)[0]
         self.assertTrue(source_chunk["seg_text"])
         self.assertEqual(document["chunk_id"], source_chunk["chunk_id"])
+        self.assertEqual(document["parent_id"], source_chunk["parent_id"])
+        self.assertEqual(document["document_id"], source_chunk["document_id"])
+        self.assertEqual(document["doc_id"], source_chunk["doc_id"])
+        self.assertEqual(document["article_id"], source_chunk["article_id"])
+        self.assertEqual(document["clause_id"], source_chunk["clause_id"])
+        self.assertEqual(document["parent_clause_id"], source_chunk["parent_clause_id"])
         self.assertEqual(document["content"], source_chunk["text"])
         self.assertEqual(document["content_segmented"], source_chunk["seg_text"])
         self.assertEqual(document["metadata"], source_chunk["metadata"])
@@ -105,12 +137,39 @@ class BM25RetrievalTest(unittest.TestCase):
         self.assertEqual(stats["index_count"], expected)
         self.assertEqual(stats["index_name"], "test-legal-chunks")
         self.assertEqual(client.indices.refreshed, "test-legal-chunks")
+        properties = client.indices.created["mappings"]["properties"]
+        for field in ("parent_id", "doc_id", "document_id", "article_id", "clause_id", "parent_clause_id"):
+            with self.subTest(field=field):
+                self.assertEqual(properties[field]["type"], "keyword")
+        self.assertEqual(properties["effective_from"]["type"], "date")
+        self.assertEqual(properties["effective_to"]["type"], "date")
+        self.assertEqual(client.indices.mappings["test-legal-chunks"]["_meta"]["bm25_tokenizer_version"], "9.5.0")
         self.assertFalse(client.closed)  # Injected client stays owned by caller.
+
+    def test_build_fails_when_bulk_index_reports_errors_or_missing_documents(self):
+        fixture = ROOT / "data" / "chunking_output" / "chunks.jsonl"
+        expected = len(load_chunks(fixture))
+        client = FakeBuildClient(expected)
+
+        def failed_bulk(es_client, actions, **kwargs):
+            self.assertIs(es_client, client)
+            list(actions)
+            return expected - 1, [{"index": {"error": "simulated bulk failure"}}]
+
+        with patch("retrieval.build_bm25_index.helpers.bulk", side_effect=failed_bulk):
+            with self.assertRaisesRegex(RuntimeError, "errors=1"):
+                build_bm25_index(
+                    chunks_file=fixture,
+                    index_name="test-legal-chunks",
+                    client=client,
+                )
 
     def test_search_uses_elasticsearch_bm25_and_returns_ranked_shared_chunk_shape(self):
         client = FakeElasticsearchClient([
             {"_id": "chunk-1", "_score": 3.2, "_source": {
-                "chunk_id": "chunk-1", "content": "Nội dung luật", "parent_id": "parent-1",
+                "chunk_id": "chunk-1", "content": "Nội dung luật",
+                "parent_id": "article-1", "doc_id": "doc-1", "document_id": "doc-1",
+                "article_id": "article-1", "clause_id": "clause-1", "parent_clause_id": "clause-1",
                 "metadata": {"article_ref": "Điều 56"},
             }},
         ])
@@ -118,18 +177,22 @@ class BM25RetrievalTest(unittest.TestCase):
 
         self.assertEqual(client.request["index"], "legal-child-chunks-dev")
         self.assertEqual(client.request["size"], 5)
-        self.assertEqual(client.request["query"]["bool"]["must"][0]["multi_match"]["query"], "Điều 56")
+        bool_query = client.request["query"]["bool"]
+        self.assertEqual(bool_query["minimum_should_match"], 1)
+        self.assertEqual(bool_query["should"][0]["multi_match"]["query"], "Điều 56")
+        self.assertEqual(bool_query["should"][1]["multi_match"]["fields"], ["content_segmented"])
         self.assertEqual(hits, [{
             "chunk_id": "chunk-1",
-            "document_id": "",
-            "article_id": "",
-            "clause_id": "parent-1",
-            "parent_clause_id": "parent-1",
+            "document_id": "doc-1",
+            "article_id": "article-1",
+            "clause_id": "clause-1",
+            "parent_clause_id": "clause-1",
             "rank": 1,
             "score": 3.2,
             "chunk_text": "Nội dung luật",
-            "text": "Nội dung luật",
-            "parent_id": "parent-1",
+            "parent_id": "article-1",
+            "effective_from": None,
+            "effective_to": None,
             "metadata": {"article_ref": "Điều 56"},
         }])
 

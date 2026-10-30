@@ -11,6 +11,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DEV = ROOT / "data" / "benchmark" / "queries_dev.json"
 DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
@@ -73,6 +75,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
     relevant: dict[str, set[str]] = {}
     query_text_by_id: dict[str, str] = {}
     legacy_query_ids: dict[str, str] = {}
+    query_dates: dict[str, str] = {}
     for index, item in enumerate(dev, 1):
         if not isinstance(item, dict):
             raise ValueError(f"Dev record #{index} phải là object")
@@ -99,7 +102,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
             raise ValueError(f"Dev set có id/query_id trùng: {query_id}")
         relevant[query_id] = set(ids)
         query_text_by_id[query_id] = query_text
-
+        query_dates[query_id] = normalize_as_of_date(item.get("as_of_date"))
     # Use the shared loader to support the same flat/hierarchical formats as retrieval.
     from embedding.vector_store import load_chunks
     try:
@@ -152,6 +155,10 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
                     for key, (actual, expected) in mismatched.items()
                 )
                 raise ValueError(f"Cấu hình kết quả {item.get('retriever')} không khớp shared config: {details}")
+            config = item.get("config")
+            as_of_date = normalize_as_of_date(
+                config.get("as_of_date") or query_dates.get(query_id)
+            )
             for res in item["results"]:
                 flat.append({
                     "query_id": query_id,
@@ -159,6 +166,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
                     "chunk_id": res.get("chunk_id"),
                     "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
                     "rank": res.get("rank"),
+                    "as_of_date": as_of_date,
                 })
         return flat
 
@@ -169,8 +177,9 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         rows = _normalize_dev_rows(raw_rows)
         by_query: dict[str, list[dict[str, Any]]] = defaultdict(list)
         for row in rows:
-            if (not isinstance(row, dict) or set(row) != {"query_id", "query", "chunk_id", "score", "rank"}
-                    or row["query_id"] not in relevant or not isinstance(row["chunk_id"], str)
+            if (not isinstance(row, dict) or set(row) != {
+                    "query_id", "query", "chunk_id", "score", "rank", "as_of_date"
+            } or row["query_id"] not in relevant or not isinstance(row["chunk_id"], str)
                     or not isinstance(row["score"], (int, float)) or not isinstance(row["rank"], int)):
                 raise ValueError(f"Kết quả có schema/giá trị không hợp lệ trong dev_{method}.json: {row}")
             if row["chunk_id"] not in chunks_by_id:
@@ -196,6 +205,16 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
             })
 
         recalls, reciprocal_ranks, ndcgs, precisions = [], [], [], []
+        temporal_checks = temporal_violations = temporal_metadata_missing = 0
+        for row in rows:
+            chunk = chunks_by_id[row["chunk_id"]]
+            effective_from, effective_to = effective_period(chunk)
+            if effective_from is None and effective_to is None:
+                temporal_metadata_missing += 1
+                continue
+            temporal_checks += 1
+            if not is_effective_at(chunk, row["as_of_date"]):
+                temporal_violations += 1
         for query_id, relevant_ids in relevant.items():
             ranked = sorted(by_query.get(query_id, []), key=lambda row: row["rank"])
             ranks = [row["rank"] for row in ranked]
@@ -221,6 +240,11 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
             f"mrr_at_{suffix}": sum(reciprocal_ranks) / len(reciprocal_ranks),
             f"ndcg_at_{suffix}": sum(ndcgs) / len(ndcgs),
             f"precision_at_{suffix}": sum(precisions) / len(precisions),
+            "temporal_violation_rate": (temporal_violations / temporal_checks
+                                         if temporal_checks else 0.0),
+            "temporal_violation_count": float(temporal_violations),
+            "temporal_checked_count": float(temporal_checks),
+            "temporal_metadata_missing_count": float(temporal_metadata_missing),
         }
 
     csv_path = output_dir / "retrieval_results.csv"
@@ -270,9 +294,22 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         report.append(f"| {method.upper()} | {int(metric['result_count'])} | {metric[f'recall_at_{metric_k}']:.4f} | {metric[f'mrr_at_{metric_k}']:.4f} | {metric[f'ndcg_at_{metric_k}']:.4f} | {metric[f'precision_at_{metric_k}']:.4f} |")
     report.extend([
         "",
+        "| Phương pháp | Temporal Violation Rate | Số vi phạm / đã kiểm tra | Chunk thiếu metadata ngày |",
+        "| --- | ---: | ---: | ---: |",
+    ])
+    for method in METHODS:
+        metric = metrics[method]
+        report.append(
+            f"| {method.upper()} | {metric['temporal_violation_rate']:.4f} | "
+            f"{int(metric['temporal_violation_count'])} / {int(metric['temporal_checked_count'])} | "
+            f"{int(metric['temporal_metadata_missing_count'])} |"
+        )
+    report.extend([
+        "",
         "## Cách đọc và giới hạn",
         "",
         f"Các chỉ số là trung bình macro trên các câu hỏi Dev. Recall@{metric_k} đo tỷ lệ chunk liên quan được lấy về trong Top-{metric_k}; MRR@{metric_k} là nghịch đảo thứ hạng của chunk liên quan đầu tiên; nDCG@{metric_k} dùng nhãn liên quan nhị phân; Precision@{metric_k} chia số chunk liên quan trong Top-{metric_k} cho {metric_k}.",
+        "Temporal Violation Rate chỉ tính trên kết quả có ít nhất một mốc hiệu lực; chunk thiếu cả effective_from và effective_to được đếm riêng, không mặc định xem là hợp lệ.",
         "",
         "Bộ Dev nhỏ này chỉ gồm một văn bản và nhãn chưa được chuyên gia thẩm định. Kết quả xác nhận quy trình và hỗ trợ phát triển; không đại diện cho chất lượng trên các lĩnh vực hoặc văn bản pháp luật khác.",
         "",
@@ -284,7 +321,8 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
     print(f"Đã tạo báo cáo: {output_dir / 'retrieval_report.md'}")
     for method, metric in metrics.items():
         print(f"{method}: Recall@{metric_k}={metric[f'recall_at_{metric_k}']:.4f}, MRR@{metric_k}={metric[f'mrr_at_{metric_k}']:.4f}, "
-              f"nDCG@{metric_k}={metric[f'ndcg_at_{metric_k}']:.4f}, Precision@{metric_k}={metric[f'precision_at_{metric_k}']:.4f}")
+              f"nDCG@{metric_k}={metric[f'ndcg_at_{metric_k}']:.4f}, Precision@{metric_k}={metric[f'precision_at_{metric_k}']:.4f}, "
+              f"TemporalViolationRate={metric['temporal_violation_rate']:.4f}")
     return metrics
 
 

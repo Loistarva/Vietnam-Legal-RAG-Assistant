@@ -38,6 +38,7 @@ def sample_chunks():
             "article_id": "l_52_2014_qh13_art_8",
             "clause_id": "l_52_2014_qh13_art_8_clause_1",
             "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+            "parent_id": "l_52_2014_qh13_art_8",
             "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
             "chunk_text": "Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên mới đủ điều kiện kết hôn.",
             "embed_text": "Chương II > Điều 8. Điều kiện kết hôn > Khoản 1: Nam từ đủ 20 tuổi trở_lên nữ từ đủ 18 tuổi trở_lên điều_kiện kết_hôn",
@@ -58,6 +59,7 @@ def sample_chunks():
             "article_id": "l_52_2014_qh13_art_81",
             "clause_id": "l_52_2014_qh13_art_81_clause_2",
             "chunk_id": "l_52_2014_qh13_art_81_clause_2_chunk_1",
+            "parent_id": "l_52_2014_qh13_art_81",
             "parent_clause_id": "l_52_2014_qh13_art_81_clause_2",
             "chunk_text": "Vợ, chồng thỏa thuận về người trực tiếp nuôi con, nghĩa vụ, quyền của mỗi bên sau khi ly hôn đối với con.",
             "embed_text": "Chương V > Điều 81. Việc trông nom, chăm sóc, nuôi dưỡng, giáo dục con sau khi ly hôn > Khoản 2: Vợ chồng thỏa_thuận người trực_tiếp nuôi con sau khi ly_hôn",
@@ -78,6 +80,7 @@ def sample_chunks():
             "article_id": "l_22_2000_qh10_art_9",
             "clause_id": "l_22_2000_qh10_art_9_clause_1",
             "chunk_id": "l_22_2000_qh10_art_9_clause_1_chunk_1",
+            "parent_id": "l_22_2000_qh10_art_9",
             "parent_clause_id": "l_22_2000_qh10_art_9_clause_1",
             "chunk_text": "Nam từ hai mươi tuổi trở lên, nữ từ mười tám tuổi trở lên mới được kết hôn (Luật cũ năm 2000).",
             "embed_text": "Điều 9. Điều kiện kết hôn: Nam từ 20 tuổi trở_lên nữ từ 18 tuổi trở_lên điều_kiện kết_hôn",
@@ -307,9 +310,12 @@ def test_temporal_filtering_as_of_date(sample_chunks):
 
 def _dated_chunk(i: int, effective_from: str, effective_to):
     return {
+        "document_id": f"doc_{i}",
+        "article_id": f"doc_{i}_art_1",
+        "clause_id": f"doc_{i}_art_1_clause_1",
         "chunk_id": f"doc_{i}_art_1_clause_1_chunk_1",
         "parent_clause_id": f"doc_{i}_art_1_clause_1",
-        "parent_id": f"doc_{i}_art_1_clause_1_parent_1",
+        "parent_id": f"doc_{i}_art_1",
         "chunk_text": f"Nội dung kết hôn số {i}",
         "embed_text": f"Điều 1 kết_hôn số {i}",
         "embed_text_raw": f"Điều 1 kết hôn số {i}",
@@ -341,11 +347,11 @@ def test_qdrant_prefilters_as_of_date_and_returns_full_top_k():
 def test_parent_id_is_kept_in_record_and_hit():
     """normalize_chunk_record và kết quả Dense giữ parent_id của corpus (E6)."""
     chunk = _dated_chunk(1, "2015-01-01", None)
-    assert normalize_chunk_record(chunk)["parent_id"] == "doc_1_art_1_clause_1_parent_1"
+    assert normalize_chunk_record(chunk)["parent_id"] == "doc_1_art_1"
     store = LegalVectorStore(collection_name="test_parent_col", dimension=64, storage_path=":memory:")
     retriever = DenseRetriever(vector_store=store, use_mock=True)
     retriever.index_chunks([chunk])
-    assert retriever.search("kết hôn", top_k=1)[0]["parent_id"] == "doc_1_art_1_clause_1_parent_1"
+    assert retriever.search("kết hôn", top_k=1)[0]["parent_id"] == "doc_1_art_1"
 
 
 def test_store_raises_without_qdrant_client():

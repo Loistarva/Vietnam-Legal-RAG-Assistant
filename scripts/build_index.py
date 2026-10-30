@@ -39,10 +39,12 @@ from embedding.vector_store import (  # noqa: E402
     normalize_chunk_record,
 )
 from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings  # noqa: E402
+from retrieval.build_bm25_index import _validate_parent_links  # noqa: E402
 
 def resolve_build_config(settings: dict[str, Any], *, input_override: str | None = None,
                          model_override: str | None = None,
-                         collection_override: str | None = None) -> dict[str, Any]:
+                         collection_override: str | None = None,
+                         index_dir_override: str | None = None) -> dict[str, Any]:
     """Resolve build inputs from shared settings, allowing explicit CLI overrides."""
     dense = settings["dense"]
     model = model_override or dense["model"]
@@ -52,12 +54,16 @@ def resolve_build_config(settings: dict[str, Any], *, input_override: str | None
     input_path = Path(input_override or settings["retrieval"]["corpus_path"])
     if not input_path.is_absolute():
         input_path = BASE_DIR / input_path
+    index_dir = Path(index_dir_override or dense["index_dir"])
+    if not index_dir.is_absolute():
+        index_dir = BASE_DIR / index_dir
     return {
         "input": input_path,
         "model": model,
         "dimension": spec["dimension"],
         "use_word_segmentation": spec["use_word_segmentation"],
         "collection": collection_override or dense["collection"],
+        "index_dir": index_dir,
     }
 
 
@@ -115,8 +121,8 @@ def main() -> int:
     parser.add_argument(
         "--index-dir",
         type=str,
-        default=str(BASE_DIR / "data" / "indexes"),
-        help="Thư mục lưu trữ Vector Index",
+        default=None,
+        help="Thư mục lưu Vector Index (mặc định dense.index_dir trong shared config)",
     )
     parser.add_argument(
         "--collection",
@@ -135,13 +141,18 @@ def main() -> int:
         action="store_true",
         help="Sử dụng vector giả lập tất định (Mock mode) để kiểm thử nhanh",
     )
+    parser.add_argument(
+        "--recreate",
+        action="store_true",
+        help="XÓA collection Qdrant hiện tại trước khi dựng lại toàn bộ index",
+    )
     args = parser.parse_args()
 
     try:
         settings = load_settings(args.config)
         resolved = resolve_build_config(
             settings, input_override=args.input, model_override=args.model,
-            collection_override=args.collection,
+            collection_override=args.collection, index_dir_override=args.index_dir,
         )
         input_path = resolved["input"]
         model_name = resolved["model"]
@@ -152,7 +163,7 @@ def main() -> int:
     dim = resolved["dimension"]
     use_word_seg = resolved["use_word_segmentation"]
 
-    index_dir = Path(args.index_dir)
+    index_dir = Path(resolved["index_dir"])
     index_dir.mkdir(parents=True, exist_ok=True)
     qdrant_path = index_dir / "qdrant_storage"
 
@@ -166,6 +177,7 @@ def main() -> int:
 
     try:
         chunks = load_chunks_from_repo(input_path)
+        _validate_parent_links(Path(input_path), [normalize_chunk_record(chunk) for chunk in chunks])
     except Exception as exc:
         print(f"LỖI: Không thể nạp chunks từ {input_path}: {exc}", file=sys.stderr)
         return 1
@@ -183,14 +195,14 @@ def main() -> int:
     print(f"[1/3] Đã nạp và xác thực {len(chunks)} chunks hợp lệ (SHA256={corpus_sha[:12]}...).")
 
     try:
-        # Dựng lại toàn bộ collection: xoá point của corpus cũ và collection khác số chiều
+        # Recreate chỉ xảy ra khi người chạy chủ động truyền --recreate.
         store = LegalVectorStore(
             collection_name=collection,
             dimension=dim,
             storage_path=str(qdrant_path),
             use_qdrant=not args.mock,
             create_if_missing=True,
-            recreate=True,
+            recreate=args.recreate,
         )
         retriever = DenseRetriever(
             vector_store=store,
