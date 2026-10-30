@@ -22,29 +22,52 @@ class HybridRetrieverTest(unittest.TestCase):
                 self.kwargs = kwargs
                 return {"hits": {"hits": [
                     {"_id": "chunk-a", "_score": 3.7, "_source": {
-                        "chunk_id": "chunk-a", "text": "kết quả", "metadata": {"article_ref": "Điều 5"}}},
+                        "chunk_id": "chunk-a", "content": "kết quả", "parent_id": "parent-a",
+                        "document_id": "doc-a", "doc_id": "doc-a", "article_id": "article-a",
+                        "clause_id": "clause-a", "parent_clause_id": "clause-a",
+                        "metadata": {"article_ref": "Điều 5"}}},
                 ]}}
 
         client = ElasticsearchStub()
-        results = ElasticsearchBM25Retriever(client, "legal-chunks").search("Điều 5", top_k=4)
+        results = ElasticsearchBM25Retriever(client, "legal-chunks").search(
+            "Điều 5", top_k=4, as_of_date="1995-06-01"
+        )
         self.assertEqual(client.kwargs["index"], "legal-chunks")
         self.assertEqual(client.kwargs["size"], 4)
-        multi_match = client.kwargs["query"]["bool"]["must"][0]["multi_match"]
-        self.assertEqual(multi_match["query"], "Điều 5")
-        self.assertEqual(multi_match["fields"], ["content_segmented", "breadcrumb^1.5"])
+        bool_query = client.kwargs["query"]["bool"]
+        self.assertEqual(bool_query["minimum_should_match"], 1)
+        self.assertEqual(bool_query["should"][0]["multi_match"]["query"], "Điều 5")
+        self.assertEqual(bool_query["should"][0]["multi_match"]["fields"], ["content", "breadcrumb^1.5"])
+        self.assertEqual(bool_query["should"][1]["multi_match"]["fields"], ["content_segmented"])
+        self.assertNotIn("must_not", bool_query)
+        self.assertEqual(bool_query["filter"][0]["bool"]["should"][0],
+                         {"range": {"effective_from": {"lte": "1995-06-01"}}})
+        self.assertEqual(bool_query["filter"][1]["bool"]["should"][0],
+                         {"range": {"effective_to": {"gt": "1995-06-01"}}})
         self.assertEqual(results, [{
             "chunk_id": "chunk-a",
-            "document_id": "",
-            "article_id": "",
-            "clause_id": "",
-            "parent_clause_id": "",
+            "document_id": "doc-a",
+            "article_id": "article-a",
+            "clause_id": "clause-a",
+            "parent_clause_id": "clause-a",
             "rank": 1,
             "score": 3.7,
             "chunk_text": "kết quả",
-            "text": "kết quả",
-            "parent_id": None,
+            "parent_id": "parent-a",
+            "effective_from": None,
+            "effective_to": None,
             "metadata": {"article_ref": "Điều 5"},
         }])
+
+    def test_rrf_preserves_root_temporal_fields_and_merges_temporal_metadata(self):
+        bm25 = [{"chunk_id": "old", "chunk_text": "historical provision", "score": 1,
+                 "effective_from": "1987-01-03", "effective_to": None, "metadata": {}}]
+        dense = [{"chunk_id": "old", "chunk_text": "historical provision", "score": 0.9,
+                  "metadata": {"effective_to": "2001-01-01", "validity_status": "Hết hiệu lực"}}]
+        fused = reciprocal_rank_fusion([bm25, dense], top_k=5)
+        self.assertEqual(fused[0]["effective_from"], "1987-01-03")
+        self.assertEqual(fused[0]["effective_to"], "2001-01-01")
+        self.assertEqual(fused[0]["metadata"]["validity_status"], "Hết hiệu lực")
 
     def test_rrf_combines_overlap_and_preserves_single_branch_results(self):
         bm25 = [hit("A", score=9), hit("C", score=7)]
@@ -104,8 +127,8 @@ class HybridRetrieverTest(unittest.TestCase):
 
     def test_hybrid_calls_both_retrievers_and_limits_candidates_and_results(self):
         class BM25:
-            def search(self, query, top_k):
-                self.args = (query, top_k)
+            def search(self, query, top_k, *, as_of_date):
+                self.args = (query, top_k, as_of_date)
                 return [hit("both"), hit("lexical")]
 
         class Embedder:
@@ -114,28 +137,28 @@ class HybridRetrieverTest(unittest.TestCase):
                 return [0.1, 0.2]
 
         class Dense:
-            def search(self, vector, top_k):
-                self.args = (vector, top_k)
+            def search(self, vector, top_k, *, as_of_date):
+                self.args = (vector, top_k, as_of_date)
                 return [hit("both"), hit("semantic")]
 
         bm25, embedder, dense = BM25(), Embedder(), Dense()
         results = hybrid_search("query text", bm25, embedder, dense,
-                                top_k=2, candidate_k=7, rrf_k=60)
-        self.assertEqual(bm25.args, ("query text", 7))
+                                top_k=2, candidate_k=7, rrf_k=60, as_of_date="2026-10-30")
+        self.assertEqual(bm25.args, ("query text", 7, "2026-10-30"))
         self.assertEqual(embedder.query, "query text")
-        self.assertEqual(dense.args, ([0.1, 0.2], 7))
+        self.assertEqual(dense.args, ([0.1, 0.2], 7, "2026-10-30"))
         self.assertEqual(len(results), 2)
         self.assertEqual(results[0]["chunk_id"], "both")
 
     def test_hybrid_retriever_search_uses_dense_retriever_interface(self):
         class BM25:
-            def search(self, query, top_k):
-                self.call = (query, top_k)
+            def search(self, query, top_k, *, as_of_date):
+                self.call = (query, top_k, as_of_date)
                 return [hit("A"), hit("B")]
 
         class DenseRetrieverStub:
-            def search(self, query, top_k):
-                self.call = (query, top_k)
+            def search(self, query, top_k, *, as_of_date):
+                self.call = (query, top_k, as_of_date)
                 return [hit("B"), hit("C")]
 
         lexical, dense = BM25(), DenseRetrieverStub()
@@ -144,9 +167,9 @@ class HybridRetrieverTest(unittest.TestCase):
             dense,
             HybridSearchConfig(top_k=2, candidate_k=5, rrf_k=60),
         )
-        results = retriever.search("question", top_k=2)
-        self.assertEqual(lexical.call, ("question", 5))
-        self.assertEqual(dense.call, ("question", 5))
+        results = retriever.search("question", top_k=2, as_of_date="1995-06-01")
+        self.assertEqual(lexical.call, ("question", 5, "1995-06-01"))
+        self.assertEqual(dense.call, ("question", 5, "1995-06-01"))
         self.assertEqual(results[0]["chunk_id"], "B")
         self.assertEqual(results[0]["source_ranks"], {"bm25": 2, "dense": 1})
 
@@ -157,14 +180,14 @@ class HybridRetrieverTest(unittest.TestCase):
                 return [0.3, 0.4]
 
         class Store:
-            def search(self, vector, top_k):
-                self.args = (vector, top_k)
+            def search(self, vector, top_k, *, as_of_date):
+                self.args = (vector, top_k, as_of_date)
                 return [hit("D", score=0.8)]
 
         embedder, store = Embedder(), Store()
-        result = EmbeddingQdrantAdapter(embedder, store).search("query", top_k=7)
+        result = EmbeddingQdrantAdapter(embedder, store).search("query", top_k=7, as_of_date="2026-10-30")
         self.assertEqual(embedder.query, "query")
-        self.assertEqual(store.args, ([0.3, 0.4], 7))
+        self.assertEqual(store.args, ([0.3, 0.4], 7, "2026-10-30"))
         self.assertEqual(result[0]["chunk_id"], "D")
 
     def test_hybrid_config_requires_candidate_depth_at_least_top_k(self):
@@ -173,7 +196,7 @@ class HybridRetrieverTest(unittest.TestCase):
 
     def test_hybrid_rejects_invalid_query_and_candidate_k_before_retrieval(self):
         class Retriever:
-            def search(self, query, top_k):
+            def search(self, query, top_k, *, as_of_date):
                 raise AssertionError("Retriever should not be called for invalid input")
 
         class Embedder:
@@ -199,7 +222,7 @@ class HybridRetrieverTest(unittest.TestCase):
 
     def test_dense_error_is_propagated_instead_of_silently_falling_back(self):
         class BM25:
-            def search(self, query, top_k):
+            def search(self, query, top_k, *, as_of_date):
                 return [hit("lexical")]
 
         class Embedder:
@@ -207,7 +230,7 @@ class HybridRetrieverTest(unittest.TestCase):
                 return [0.1]
 
         class Dense:
-            def search(self, vector, top_k):
+            def search(self, vector, top_k, *, as_of_date):
                 raise ConnectionError("Qdrant unavailable")
 
         with self.assertRaisesRegex(ConnectionError, "Qdrant unavailable"):
@@ -215,7 +238,7 @@ class HybridRetrieverTest(unittest.TestCase):
 
     def test_embedding_error_is_propagated_instead_of_returning_bm25_only(self):
         class BM25:
-            def search(self, query, top_k):
+            def search(self, query, top_k, *, as_of_date):
                 return [hit("lexical")]
 
         class Embedder:
@@ -223,7 +246,7 @@ class HybridRetrieverTest(unittest.TestCase):
                 raise RuntimeError("Embedding service unavailable")
 
         class Dense:
-            def search(self, vector, top_k):
+            def search(self, vector, top_k, *, as_of_date):
                 raise AssertionError("Dense search must not run after embedding fails")
 
         with self.assertRaisesRegex(RuntimeError, "Embedding service unavailable"):
@@ -231,7 +254,7 @@ class HybridRetrieverTest(unittest.TestCase):
 
     def test_cache_key_separates_metadata_filters_and_fusion_settings(self):
         class Static:
-            def search(self, query, top_k):
+            def search(self, query, top_k, *, as_of_date):
                 return [hit("a"), hit("b")]
 
         class DictCache(dict):

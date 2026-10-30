@@ -40,6 +40,7 @@ from embedding.vector_store import (  # noqa: E402
     index_metadata_path,
     normalize_chunk_record,
 )
+from retrieval.build_bm25_index import _validate_parent_links  # noqa: E402
 
 DEFAULT_CHUNKS_FILE = BASE_DIR / "data" / "chunking_output" / "chunks.jsonl"
 
@@ -135,6 +136,7 @@ def main() -> int:
 
     try:
         chunks = load_chunks_from_repo(input_path)
+        _validate_parent_links(Path(input_path), [normalize_chunk_record(chunk) for chunk in chunks])
     except Exception as exc:
         print(f"LỖI: Không thể nạp chunks từ {input_path}: {exc}", file=sys.stderr)
         return 1

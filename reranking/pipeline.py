@@ -19,12 +19,12 @@ import logging
 import os
 import time
 from collections.abc import Mapping
-from datetime import date
 from pathlib import Path
 from typing import Any, Protocol, Sequence
 
 from reranking.parent_context import ParentContextResolver
 from reranking.reranker import Reranker, deduplicate_candidates
+from retrieval.temporal import is_effective_at, normalize_as_of_date
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +43,7 @@ RETRIEVAL_SOURCE = "retrieval"
 
 
 class CandidateRetriever(Protocol):
-    def search(self, query: str, top_k: int) -> list[dict[str, Any]]: ...
+    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
 
 
 class PipelineError(RuntimeError):
@@ -122,11 +122,9 @@ def to_contract_result(hit: Mapping[str, Any]) -> dict[str, Any]:
     return row
 
 
-def _parse_as_of_date(value: str | None) -> str | None:
-    if value is None:
-        return None
+def _parse_as_of_date(value: str | None) -> str:
     try:
-        return date.fromisoformat(str(value)).isoformat()
+        return normalize_as_of_date(value)
     except ValueError as exc:
         raise ValueError(f"as_of_date phải có dạng YYYY-MM-DD, nhận được {value!r}") from exc
 
@@ -182,16 +180,15 @@ class RetrievalPipeline:
             raise ValueError(f"top_k ({top_k}) không được lớn hơn số candidate được xếp hạng ({limit})")
         query = query.strip()
 
-        if as_of_date is None or self.retriever_takes_as_of_date:
-            temporal_filter = "retriever" if as_of_date else None
-        else:
-            temporal_filter = "not_supported_by_retriever"
-            logger.warning("Retriever %s không nhận as_of_date; kết quả chưa lọc theo thời điểm %s",
-                           self.retriever_name, as_of_date)
+        if not self.retriever_takes_as_of_date:
+            raise ValueError(
+                f"Retriever {self.retriever_name} không hỗ trợ lọc theo as_of_date; "
+                "từ chối trả kết quả chưa lọc theo thời điểm."
+            )
+        temporal_filter = "retriever"
 
         search_kwargs: dict[str, Any] = {}
-        if as_of_date is not None and self.retriever_takes_as_of_date:
-            search_kwargs["as_of_date"] = as_of_date
+        search_kwargs["as_of_date"] = as_of_date
         if self.retriever_takes_query_id:
             search_kwargs["query_id"] = query_id
         started = time.perf_counter()
@@ -277,11 +274,11 @@ class FixtureRetriever:
             raise ValueError("Candidate fixture phải là list hoặc object có 'candidates'/'results'")
         return cls(data)
 
-    def search(self, query: str, top_k: int) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         _require_positive_int("top_k", top_k)
-        return [dict(candidate) for candidate in self.candidates[:top_k]]
+        return [dict(candidate) for candidate in self.candidates if is_effective_at(candidate, as_of_date)][:top_k]
 
 
 class PrecomputedRetriever:
@@ -291,7 +288,7 @@ class PrecomputedRetriever:
     dense model and the reranker never share one GPU: run 1 with ``--reranker none
     --no-parent-context --top-k <retrieval_top_k>`` writes the envelopes, run 2 with
     ``--retriever precomputed --candidates <file>`` reranks them. Run 1 already
-    applied any temporal filter, so ``search`` takes no ``as_of_date``.
+    applied the temporal filter; its date must match the second-stage run.
     """
 
     def __init__(self, envelopes: Sequence[Mapping[str, Any]]):
@@ -325,13 +322,19 @@ class PrecomputedRetriever:
             raise ValueError(f"Không đọc được file candidate {path}: {exc}") from exc
         return cls([data] if isinstance(data, dict) else data if isinstance(data, list) else [])
 
-    def search(self, query: str, top_k: int, *, query_id: str) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str) -> list[dict[str, Any]]:
         _require_positive_int("top_k", top_k)
         envelope = self.envelopes.get(query_id)
         if envelope is None:
             raise ValueError(f"File candidate không có query_id {query_id}")
         if str(envelope.get("query", "")).strip() != query.strip():
             raise ValueError(f"Câu hỏi của {query_id} khác câu hỏi trong file candidate")
+        saved_as_of_date = (envelope.get("config") or {}).get("as_of_date")
+        if saved_as_of_date != as_of_date:
+            raise ValueError(
+                f"Ngày as_of_date của candidate {query_id} ({saved_as_of_date!r}) "
+                f"không khớp lần chạy hiện tại ({as_of_date!r}); hãy tạo lại candidate cùng ngày."
+            )
         saved = envelope.get("top_k")
         if isinstance(saved, int) and saved < top_k:
             raise ValueError(f"File candidate chỉ lưu top {saved} của {query_id}, cần {top_k} "

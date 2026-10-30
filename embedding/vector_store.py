@@ -12,6 +12,9 @@ import uuid
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
+from retrieval.temporal import is_effective_at as _is_effective_at
+from retrieval.temporal import normalize_as_of_date, normalize_date
+
 try:
     from qdrant_client import QdrantClient
     from qdrant_client.models import (
@@ -108,37 +111,7 @@ def is_effective_at(record_or_metadata: Dict[str, Any], as_of_date: str) -> bool
     - Nếu bản ghi có effective_to <= as_of_date -> False (đã hết hiệu lực).
     - Ngược lại -> True.
     """
-    if not as_of_date:
-        return True
-    as_of = str(as_of_date).strip()[:10]
-
-    meta = record_or_metadata.get("metadata") if isinstance(record_or_metadata.get("metadata"), dict) else record_or_metadata
-
-    eff_from = (
-        record_or_metadata.get("effective_from")
-        or meta.get("effective_from")
-        or record_or_metadata.get("effective_date")
-        or meta.get("effective_date")
-    )
-    eff_to = (
-        record_or_metadata.get("effective_to")
-        if "effective_to" in record_or_metadata
-        else meta.get("effective_to")
-    )
-    if eff_to is None:
-        eff_to = record_or_metadata.get("expiry_date") or meta.get("expiry_date")
-
-    if eff_from:
-        eff_from_str = str(eff_from).strip()[:10]
-        if eff_from_str and eff_from_str > as_of:
-            return False
-
-    if eff_to is not None and str(eff_to).strip():
-        eff_to_str = str(eff_to).strip()[:10]
-        if eff_to_str and eff_to_str <= as_of:
-            return False
-
-    return True
+    return _is_effective_at(record_or_metadata, as_of_date)
 
 
 def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -165,32 +138,36 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
     raw_meta = raw.get("metadata") if isinstance(raw.get("metadata"), dict) else {}
 
     # Đọc trực tiếp các trường ID từ root-level của bản ghi
-    parent_clause_id = str(
-        raw.get("parent_clause_id")
-        or raw_meta.get("parent_clause_id")
-        or raw.get("clause_id")
-        or ""
-    ).strip()
-    if not parent_clause_id:
-        raise ValueError(f"Chunk '{chunk_id}' thiếu 'parent_clause_id'.")
+    parent_clause_id = str(raw.get("parent_clause_id") or raw_meta.get("parent_clause_id") or "").strip()
 
     document_id = str(
         raw.get("document_id")
         or raw_meta.get("document_id")
-        or chunk_id.split("_art_")[0]
+        or ""
     ).strip()
 
     article_id = str(
         raw.get("article_id")
         or raw_meta.get("article_id")
-        or (parent_clause_id.split("_clause_")[0] if "_clause_" in parent_clause_id else "")
+        or ""
     ).strip()
 
     clause_id = str(
         raw.get("clause_id")
         or raw_meta.get("clause_id")
-        or parent_clause_id
+        or ""
     ).strip()
+    parent_id = str(raw.get("parent_id") or raw_meta.get("parent_id") or "").strip()
+    required_ids = {
+        "document_id": document_id,
+        "article_id": article_id,
+        "clause_id": clause_id,
+        "parent_clause_id": parent_clause_id,
+        "parent_id": parent_id,
+    }
+    missing_ids = [name for name, value in required_ids.items() if not value]
+    if missing_ids:
+        raise ValueError(f"Chunk '{chunk_id}' thiếu trường contract bắt buộc: {missing_ids}")
 
     validity_status = str(
         raw.get("validity_status")
@@ -204,19 +181,23 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
             f"Chỉ chấp nhận các giá trị: {sorted(list(VALID_STATUSES))}"
         )
 
-    effective_from = str(
+    effective_from = normalize_date(
         raw.get("effective_from")
         or raw_meta.get("effective_from")
         or raw.get("effective_date")
-        or raw_meta.get("effective_date")
-        or ""
-    ).strip()
+        or raw_meta.get("effective_date"),
+        field_name="effective_from", chunk_id=chunk_id,
+    )
 
-    effective_to = raw.get("effective_to") if "effective_to" in raw else raw_meta.get("effective_to")
+    effective_to = raw.get("effective_to") or raw_meta.get("effective_to")
     if effective_to is None:
         effective_to = raw.get("expiry_date") or raw_meta.get("expiry_date")
-    if effective_to is not None:
-        effective_to = str(effective_to).strip()
+    effective_to = normalize_date(effective_to, field_name="effective_to", chunk_id=chunk_id)
+    if validity_status == "Hết hiệu lực" and effective_to is None:
+        raise ValueError(
+            f"Chunk '{chunk_id}' có validity_status='Hết hiệu lực' nhưng thiếu effective_to; "
+            "không thể xác định thời điểm áp dụng cho truy vấn lịch sử."
+        )
 
     source_url = str(
         raw.get("source_url")
@@ -261,8 +242,6 @@ def normalize_chunk_record(raw: Dict[str, Any]) -> Dict[str, Any]:
         or raw_meta.get("breadcrumb")
         or ""
     ).strip()
-
-    parent_id = raw.get("parent_id") or raw_meta.get("parent_id")
 
     source_status = raw.get("source_status") or raw_meta.get("source_status")
     provision_status = raw.get("provision_status") or raw_meta.get("provision_status")
@@ -405,44 +384,28 @@ class LegalVectorStore:
     def build_active_legal_filter(as_of_date: Optional[str] = None) -> Optional[Any]:
         """
         Tạo bộ lọc trước giai đoạn tính toán khoảng cách vector.
-        - Nếu as_of_date is None: lọc loại trừ validity_status == 'Hết hiệu lực'.
-        - Nếu as_of_date có giá trị: giữ chunk có effective_from <= as_of_date < effective_to
-          (ngày rỗng là không giới hạn), cùng ngữ nghĩa với is_effective_at, để hỗ trợ historical_law.
+        Dùng khoảng ngày hiệu lực cho mọi truy vấn; trạng thái hiện tại không loại cứng
+        văn bản khi truy vấn một ngày lịch sử.
         """
         if not HAS_QDRANT:
             return None
-        if as_of_date:
-            as_of = str(as_of_date).strip()[:10]
+        as_of = normalize_as_of_date(as_of_date)
 
-            def unbounded(key: str) -> List[Any]:
-                return [
-                    IsEmptyCondition(is_empty=PayloadField(key=key)),
-                    IsNullCondition(is_null=PayloadField(key=key)),
-                    FieldCondition(key=key, match=MatchValue(value="")),
-                ]
+        def unbounded(key: str) -> List[Any]:
+            return [
+                IsEmptyCondition(is_empty=PayloadField(key=key)),
+                IsNullCondition(is_null=PayloadField(key=key)),
+                FieldCondition(key=key, match=MatchValue(value="")),
+            ]
 
-            return Filter(
-                must=[
-                    Filter(should=[FieldCondition(key="effective_from", range=DatetimeRange(lte=as_of)),
-                                   *unbounded("effective_from")]),
-                    Filter(should=[FieldCondition(key="effective_to", range=DatetimeRange(gt=as_of)),
-                                   *unbounded("effective_to")]),
-                ]
-            )
-        if as_of_date is None:
-            return Filter(
-                must_not=[
-                    FieldCondition(
-                        key="metadata.validity_status",
-                        match=MatchValue(value="Hết hiệu lực"),
-                    ),
-                    FieldCondition(
-                        key="validity_status",
-                        match=MatchValue(value="Hết hiệu lực"),
-                    ),
-                ]
-            )
-        return None
+        return Filter(
+            must=[
+                Filter(should=[FieldCondition(key="effective_from", range=DatetimeRange(lte=as_of)),
+                               *unbounded("effective_from")]),
+                Filter(should=[FieldCondition(key="effective_to", range=DatetimeRange(gt=as_of)),
+                               *unbounded("effective_to")]),
+            ]
+        )
 
     def upsert_chunks(
         self,
@@ -507,18 +470,15 @@ class LegalVectorStore:
                 f"Query vector dimension ({len(query_vector)}) khác cấu hình ({self.dimension})."
             )
 
-        if as_of_date:
-            as_of_str = str(as_of_date).strip()[:10]
-            # Khi có as_of_date, lọc theo thời điểm hiệu lực thay vì lọc tĩnh
-            exclude_expired = False
-        else:
-            as_of_str = None
+        # No explicit date means today's date; `exclude_expired` remains accepted for
+        # backwards compatibility but is no longer the legal validity rule.
+        as_of_str = normalize_as_of_date(as_of_date)
 
         if self.use_qdrant and self.client is not None:
             # Lọc trước trong Qdrant (E1) nên lấy đúng top_k; vòng lặp dưới chỉ kiểm lại
             query_filter = (
                 self.build_active_legal_filter(as_of_date=as_of_str)
-                if (exclude_expired or as_of_str) else None
+                if as_of_str else None
             )
             fetch_k = top_k
             if hasattr(self.client, "query_points"):
@@ -542,13 +502,8 @@ class LegalVectorStore:
             filtered_hits = []
             for hit in hits:
                 payload = hit.payload or {}
-                if as_of_str:
-                    if not is_effective_at(payload, as_of_str):
-                        continue
-                elif exclude_expired:
-                    status = payload.get("validity_status") or payload.get("metadata", {}).get("validity_status")
-                    if status == "Hết hiệu lực":
-                        continue
+                if not is_effective_at(payload, as_of_str):
+                    continue
 
                 filtered_hits.append(self._format_hit(payload, rank=len(filtered_hits) + 1, score=float(hit.score)))
                 if len(filtered_hits) >= top_k:
@@ -559,13 +514,8 @@ class LegalVectorStore:
         candidates = []
         for item in self._memory_records:
             rec = item["record"]
-            if as_of_str:
-                if not is_effective_at(rec, as_of_str):
-                    continue
-            elif exclude_expired:
-                status = rec.get("validity_status") or rec.get("metadata", {}).get("validity_status")
-                if status == "Hết hiệu lực":
-                    continue
+            if not is_effective_at(rec, as_of_str):
+                continue
 
             score = _cosine_similarity(query_vector, item["vector"])
             candidates.append((score, rec))
@@ -586,13 +536,14 @@ class LegalVectorStore:
             "article_id": payload["article_id"],
             "clause_id": payload["clause_id"],
             "parent_clause_id": payload["parent_clause_id"],
+            "parent_id": payload["parent_id"],
+            "effective_from": payload.get("effective_from"),
+            "effective_to": payload.get("effective_to"),
             "rank": rank,
             "score": round(score, 6),
             "chunk_text": payload["chunk_text"],
             "metadata": payload.get("metadata", {}),
         }
-        if payload.get("parent_id"):
-            hit["parent_id"] = payload["parent_id"]
         return hit
 
     def count(self) -> int:

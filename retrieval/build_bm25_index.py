@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 from pathlib import Path
 from typing import Any
+
+from retrieval.temporal import normalize_date
 
 try:
     from elasticsearch import Elasticsearch, helpers
@@ -22,18 +25,37 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
+BM25_TOKENIZER = "underthesea"
+BM25_TOKENIZER_VERSION = "9.5.0"
 
 INDEX_MAPPINGS: dict[str, Any] = {
+    "_meta": {
+        "bm25_tokenizer": BM25_TOKENIZER,
+        "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
+        "bm25_text_field": "content_segmented",
+    },
     "properties": {
         "chunk_id": {"type": "keyword"},
         "parent_id": {"type": "keyword"},
         "doc_id": {"type": "keyword"},
+        "document_id": {"type": "keyword"},
+        "article_id": {"type": "keyword"},
+        "clause_id": {"type": "keyword"},
+        "parent_clause_id": {"type": "keyword"},
+        "effective_from": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time"},
+        "effective_to": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time"},
         "title": {"type": "text"},
         "content": {"type": "text"},
         "content_segmented": {"type": "text"},
         "breadcrumb": {"type": "text"},
         "article_ref": {"type": "keyword"},
         "metadata": {"properties": {
+            "document_id": {"type": "keyword"},
+            "doc_id": {"type": "keyword"},
+            "article_id": {"type": "keyword"},
+            "clause_id": {"type": "keyword"},
+            "parent_clause_id": {"type": "keyword"},
+            "parent_id": {"type": "keyword"},
             "article_number": {"type": "keyword"},
             "clause_ref": {"type": "keyword"},
             "validity_status": {"type": "keyword"},
@@ -44,6 +66,64 @@ INDEX_MAPPINGS: dict[str, Any] = {
         }},
     }
 }
+
+
+def _verify_chunking_provenance(chunks_path: Path) -> dict[str, str]:
+    """Require the adjacent chunking report to prove the BM25 tokenizer version."""
+    report_path = chunks_path.with_name("chunking_report.json")
+    if not report_path.is_file():
+        raise FileNotFoundError(
+            f"Thiếu báo cáo provenance tokenizer: {report_path}. "
+            "Không thể xác nhận content_segmented được tạo bằng underthesea==9.5.0."
+        )
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Không đọc được báo cáo chunking {report_path}: {exc}") from exc
+    backend = report.get("tokenization_backend")
+    version = str(report.get("tokenization_version", ""))
+    if backend != BM25_TOKENIZER or version != BM25_TOKENIZER_VERSION:
+        raise ValueError(
+            "Tokenizer corpus không khớp cấu hình BM25: "
+            f"báo cáo ghi {backend!r} phiên bản {version!r}, yêu cầu "
+            f"{BM25_TOKENIZER}=={BM25_TOKENIZER_VERSION}. Hãy tái tạo corpus bằng đúng tokenizer."
+        )
+    return {"bm25_tokenizer": backend, "bm25_tokenizer_version": version}
+
+
+def _validate_parent_links(chunks_path: Path, chunks: list[dict[str, Any]]) -> None:
+    """Check each ChildChunk parent_id against the adjacent ParentChunk registry."""
+    parents_path = chunks_path.with_name("parents.json")
+    if not parents_path.is_file():
+        raise FileNotFoundError(
+            f"Thiếu {parents_path}; không thể xác minh parent_id trỏ tới ParentChunk thật."
+        )
+    try:
+        parents = json.loads(parents_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Không đọc được ParentChunk file {parents_path}: {exc}") from exc
+    if not isinstance(parents, list):
+        raise ValueError(f"{parents_path} phải là danh sách ParentChunk")
+    parent_children: dict[str, set[str]] = {}
+    for row in parents:
+        if not isinstance(row, dict) or not row.get("parent_id"):
+            raise ValueError(f"ParentChunk trong {parents_path} thiếu parent_id")
+        parent_id = str(row["parent_id"]).strip()
+        child_ids = row.get("child_ids")
+        if not isinstance(child_ids, list):
+            raise ValueError(f"ParentChunk {parent_id!r} thiếu danh sách child_ids")
+        if parent_id in parent_children:
+            raise ValueError(f"parent_id bị trùng trong {parents_path}: {parent_id}")
+        parent_children[parent_id] = {str(child_id) for child_id in child_ids}
+
+    for chunk in chunks:
+        parent_id = chunk["parent_id"]
+        if parent_id not in parent_children:
+            raise ValueError(f"Chunk {chunk['chunk_id']!r} trỏ tới ParentChunk không tồn tại: {parent_id!r}")
+        if chunk["chunk_id"] not in parent_children[parent_id]:
+            raise ValueError(
+                f"Chunk {chunk['chunk_id']!r} không nằm trong child_ids của ParentChunk {parent_id!r}"
+            )
 
 
 def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
@@ -92,7 +172,8 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
         metadata = item.get("metadata")
         if metadata is None:
             reserved = {
-                "id", "chunk_id", "text", "content", "chunk_text", "metadata",
+                "id", "chunk_id", "parent_id", "parent_clause_id", "doc_id", "document_id",
+                "article_id", "clause_id", "text", "content", "chunk_text", "metadata",
                 "content_segmented", "seg_text", "embed_text", "embed_text_raw",
             }
             metadata = {key: value for key, value in item.items() if key not in reserved}
@@ -109,19 +190,60 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
 
         article_ref = (metadata.get("article_ref") or metadata.get("article_number")
                        or item.get("article_ref") or item.get("article_number") or "")
-        parent_id = (item.get("parent_clause_id") or metadata.get("parent_clause_id")
-                     or item.get("parent_id") or metadata.get("parent_id") or "")
+        # Giữ các khóa ngoại riêng biệt: parent_id trỏ tới ParentChunk, còn
+        # parent_clause_id/clause_id trỏ tới Khoản chứa ChildChunk.
+        parent_id = item.get("parent_id") or metadata.get("parent_id") or ""
         doc_id = (item.get("document_id") or metadata.get("document_id")
                   or item.get("doc_id") or metadata.get("doc_id") or "")
+        article_id = item.get("article_id") or metadata.get("article_id") or ""
+        clause_id = item.get("clause_id") or metadata.get("clause_id") or ""
+        parent_clause_id = item.get("parent_clause_id") or metadata.get("parent_clause_id") or ""
+        required_ids = {
+            "document_id": doc_id,
+            "article_id": article_id,
+            "clause_id": clause_id,
+            "parent_clause_id": parent_clause_id,
+            "parent_id": parent_id,
+        }
+        missing_ids = [name for name, value in required_ids.items()
+                       if not isinstance(value, (str, int)) or not str(value).strip()]
+        if missing_ids:
+            raise ValueError(f"Chunk {chunk_id!r} thiếu trường contract bắt buộc: {missing_ids}")
+        effective_from = normalize_date(
+            item.get("effective_from") or metadata.get("effective_from")
+            or item.get("effective_date") or metadata.get("effective_date"),
+            field_name="effective_from", chunk_id=chunk_id,
+        )
+        effective_to = normalize_date(
+            item.get("effective_to") or metadata.get("effective_to")
+            or item.get("expiry_date") or metadata.get("expiry_date"),
+            field_name="effective_to", chunk_id=chunk_id,
+        )
+        validity_status = item.get("validity_status") or metadata.get("validity_status")
+        if validity_status == "Hết hiệu lực" and effective_to is None:
+            raise ValueError(
+                f"Chunk {chunk_id!r} có validity_status='Hết hiệu lực' nhưng thiếu effective_to; "
+                "không thể xác định thời điểm áp dụng cho truy vấn lịch sử."
+            )
         title = str(metadata.get("document_title") or metadata.get("title")
                     or item.get("document_title") or item.get("title") or "")
-        content_seg = (item.get("content_segmented") or item.get("seg_text")
-                       or item.get("embed_text") or text)
+        content_seg = item.get("content_segmented") or item.get("seg_text")
+        if not isinstance(content_seg, str) or not content_seg.strip():
+            raise ValueError(
+                f"Chunk {chunk_id!r} thiếu content_segmented/seg_text đã được tách từ; "
+                "BM25 không fallback sang embed_text hoặc văn bản gốc."
+            )
 
         chunks.append({
             "chunk_id": chunk_id,
             "parent_id": str(parent_id),
             "doc_id": str(doc_id),
+            "document_id": str(doc_id),
+            "article_id": str(article_id),
+            "clause_id": str(clause_id),
+            "parent_clause_id": str(parent_clause_id),
+            "effective_from": effective_from,
+            "effective_to": effective_to,
             "title": title,
             "content": text,
             "content_segmented": content_seg,
@@ -157,7 +279,10 @@ def build_bm25_index(
     if not resolved_index_name or not resolved_index_name.strip():
         raise ValueError("index_name không được rỗng")
     chunks_path = Path(chunks_file)
+    tokenizer_provenance = _verify_chunking_provenance(chunks_path)
     chunks = load_chunks(chunks_path)
+    _validate_parent_links(chunks_path, chunks)
+    tokenizer_provenance["corpus_sha256"] = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
     owns_client = client is None
     if client is None:
         client = Elasticsearch(resolved_es_url, request_timeout=60)
@@ -173,7 +298,21 @@ def build_bm25_index(
                 exists = False
 
         if not exists:
-            client.indices.create(index=resolved_index_name, mappings=INDEX_MAPPINGS)
+            client.indices.create(index=resolved_index_name, mappings={
+                "properties": INDEX_MAPPINGS["properties"],
+            })
+        else:
+            try:
+                client.indices.put_mapping(
+                    index=resolved_index_name,
+                    properties=INDEX_MAPPINGS["properties"],
+                )
+            except Exception as exc:
+                raise RuntimeError(
+                    f"Không thể đồng bộ mapping contract vào index {resolved_index_name!r}. "
+                    "Nếu các trường đã có mapping không tương thích, hãy build index mới hoặc "
+                    "chạy lại với --recreate để index lại corpus."
+                ) from exc
         actions = (
             {"_op_type": "index", "_index": resolved_index_name,
              "_id": chunk["chunk_id"], "_source": chunk}
@@ -195,11 +334,52 @@ def build_bm25_index(
             "chunks_file": str(chunks_path),
             "error_details": errors[:5] if errors else [],
         }
+        if errors or indexed != len(chunks) or count != len(chunks):
+            raise RuntimeError(
+                "BM25 index chưa khớp hoàn toàn với corpus: "
+                f"input_chunks={len(chunks)}, indexed={int(indexed)}, "
+                f"errors={len(errors)}, index_count={count}. "
+                "Kiểm tra error_details; nếu index có tài liệu cũ hoặc mapping ngày không tương thích, "
+                "hãy dùng một index mới cô lập hoặc chủ động chạy với --recreate. "
+                f"Chi tiết lỗi bulk: {stats['error_details']}"
+            )
+        client.indices.put_mapping(
+            index=resolved_index_name,
+            _meta={
+                **tokenizer_provenance,
+                "bm25_text_field": "content_segmented",
+            },
+        )
+        _verify_index_tokenizer(client, resolved_index_name)
         print(json.dumps(stats, ensure_ascii=False, indent=2))
         return stats
     finally:
         if owns_client:
             client.close()
+
+
+def _verify_index_tokenizer(client: Any, index_name: str) -> None:
+    """Fail closed unless Elasticsearch mapping metadata matches the expected corpus tokenizer."""
+    try:
+        mapping_response = client.indices.get_mapping(index=index_name)
+        mapping = mapping_response[index_name]["mappings"]
+        metadata = mapping.get("_meta", {})
+    except Exception as exc:
+        raise RuntimeError(
+            f"Không xác minh được tokenizer metadata của Elasticsearch index {index_name!r}."
+        ) from exc
+    expected = {
+        "bm25_tokenizer": BM25_TOKENIZER,
+        "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
+        "bm25_text_field": "content_segmented",
+    }
+    mismatches = {key: (metadata.get(key), value) for key, value in expected.items()
+                  if metadata.get(key) != value}
+    if mismatches:
+        raise RuntimeError(
+            f"Tokenizer metadata của index {index_name!r} không khớp: {mismatches}. "
+            "Hãy dựng lại index BM25 từ corpus đã xác minh provenance."
+        )
 
 
 def main() -> None:

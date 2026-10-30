@@ -6,6 +6,7 @@ without Elasticsearch, Qdrant or a model.
 """
 import contextlib
 import copy
+from datetime import date
 import io
 import json
 import sys
@@ -65,8 +66,8 @@ class StubBranch:
     def __init__(self, hits=None, error=None):
         self.hits, self.error, self.calls = hits or [], error, []
 
-    def search(self, query, top_k):
-        self.calls.append((query, top_k))
+    def search(self, query, top_k, *, as_of_date):
+        self.calls.append((query, top_k, as_of_date))
         if self.error:
             raise self.error
         return copy.deepcopy(self.hits[:top_k])
@@ -123,8 +124,8 @@ class HybridRerankerPipelineTest(unittest.TestCase):
 
     def test_retrieval_top_k_sets_candidate_depth_of_both_branches(self):
         _, bm25, dense = self.run_pipeline(retrieval_top_k=7, top_k=2)
-        self.assertEqual(bm25.calls, [(QUERY, 7)])
-        self.assertEqual(dense.calls, [(QUERY, 7)])
+        self.assertEqual(bm25.calls, [(QUERY, 7, date.today().isoformat())])
+        self.assertEqual(dense.calls, [(QUERY, 7, date.today().isoformat())])
 
     def test_metadata_and_ids_are_preserved_without_guessing(self):
         output, _, _ = self.run_pipeline(top_k=4)
@@ -186,7 +187,7 @@ class HybridRerankerPipelineTest(unittest.TestCase):
                 RetrievalPipeline(FixtureRetriever(hits), Reranker(MockScorer())).run(QUERY)
 
         class NotAList:
-            def search(self, query, top_k):
+            def search(self, query, top_k, *, as_of_date):
                 return None
 
         with self.assertRaisesRegex(PipelineError, "phải trả list"):

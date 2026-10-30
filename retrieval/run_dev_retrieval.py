@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -14,17 +15,18 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from embedding.dense_retriever import DEFAULT_MODEL_NAME, MODEL_DIMENSIONS, DenseRetriever
-from embedding.vector_store import LegalVectorStore
+from embedding.vector_store import LegalVectorStore, read_index_metadata
 from reranking.pipeline import to_contract_result
 from retrieval.hybrid_retriever import (
     ElasticsearchBM25Retriever,
     HybridRetriever,
     HybridSearchConfig,
 )
+from retrieval.temporal import normalize_as_of_date
 
 
-def read_queries(path: Path) -> list[tuple[str, str]]:
-    """Return (query_id, query) pairs; query_id is the benchmark ``id`` (or ``query_id``)."""
+def read_queries(path: Path) -> list[tuple[str, str, str]]:
+    """Return (query_id, query, as_of_date) rows; missing dates use today's date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -37,12 +39,16 @@ def read_queries(path: Path) -> list[tuple[str, str]]:
             raise ValueError(f"Dev query #{index} phải là object có id và question")
         query_id = row.get("id") or row.get("query_id")
         query = row.get("query") or row.get("question")
+        try:
+            as_of_date = normalize_as_of_date(row.get("as_of_date"))
+        except ValueError as exc:
+            raise ValueError(f"Dev query #{index} ({query_id or 'chưa có id'}) có as_of_date sai: {exc}") from exc
         if not isinstance(query_id, str) or not query_id.strip():
             raise ValueError(f"Dev query #{index} thiếu id")
         if not isinstance(query, str) or not query.strip():
             raise ValueError(f"Dev query {query_id} thiếu question không rỗng")
-        queries.append((query_id.strip(), query.strip()))
-    if len({query_id for query_id, _ in queries}) != len(queries):
+        queries.append((query_id.strip(), query.strip(), as_of_date))
+    if len({query_id for query_id, _, _ in queries}) != len(queries):
         raise ValueError("Dev query file có id trùng lặp")
     return queries
 
@@ -91,7 +97,7 @@ def to_envelope(method: str, query_id: str, query: str, hits: list[dict[str, Any
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", type=Path, default=ROOT / "data" / "benchmark" / "queries_dev.json",
-                        help='Benchmark query file: JSON list of objects with id and question')
+                        help='Benchmark query file: JSON objects with id, question, and optional as_of_date')
     parser.add_argument("--chunks", type=Path,
                         default=ROOT / "data" / "chunking_output" / "chunks.jsonl")
     parser.add_argument("--model", default=DEFAULT_MODEL_NAME,
@@ -135,6 +141,19 @@ def main() -> int:
         count = store.count()
         if count != chunk_count:
             raise ValueError(f"Collection {collection} có {count} points, fixture có {chunk_count} chunks")
+        corpus_sha256 = hashlib.sha256(args.chunks.read_bytes()).hexdigest()
+        bm25_meta = sparse._verify_index_tokenizer()
+        if bm25_meta.get("corpus_sha256") != corpus_sha256:
+            raise ValueError(
+                "Elasticsearch index không được dựng từ đúng file corpus của lần chạy này "
+                "(corpus_sha256 không khớp)."
+            )
+        dense_meta = read_index_metadata(qdrant_path, collection)
+        if not dense_meta or dense_meta.get("corpus_sha256") != corpus_sha256:
+            raise ValueError(
+                "Qdrant collection thiếu metadata corpus hoặc được dựng từ file khác "
+                "(corpus_sha256 không khớp)."
+            )
         dense = DenseRetriever(vector_store=store, model_name=args.model)
         config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
         hybrid_retriever = HybridRetriever(sparse, dense, config)
@@ -142,15 +161,20 @@ def main() -> int:
         run_config = {
             "top_k": args.top_k, "candidate_k": args.candidate_k, "rrf_k": args.rrf_k,
             "dense_model": args.model, "collection": collection,
+            "embedding_dimension": dimension,
             "elasticsearch_index": args.elasticsearch_index, "chunks": str(args.chunks),
+            "corpus_sha256": corpus_sha256,
         }
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
-        for query_id, query in queries:
+        for query_id, query, query_as_of_date in queries:
             started = time.perf_counter()
-            ranked = hybrid_retriever.retrieve(query)
+            ranked = hybrid_retriever.retrieve(query, as_of_date=query_as_of_date)
             latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
             for method in saved:
-                saved[method].append(to_envelope(method, query_id, query, ranked[method], run_config, latency_ms))
+                query_config = {**run_config, "as_of_date": query_as_of_date}
+                saved[method].append(
+                    to_envelope(method, query_id, query, ranked[method], query_config, latency_ms)
+                )
 
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for method, envelopes in saved.items():
