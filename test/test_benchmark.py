@@ -1,5 +1,5 @@
 """Automated structural, clause-level, and temporal QA for the 300-question benchmark."""
-import sys,unittest,copy,hashlib,json,collections,tempfile
+import sys,unittest,copy,hashlib,json,collections,tempfile,csv
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -229,6 +229,14 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(gold_manifest_path.exists())
         gold_manifest = json.loads(gold_manifest_path.read_text(encoding='utf-8'))
         self.assertEqual(gold_manifest, current_gold_freeze())
+    def test_gold_review_log_csv_exists_and_matches(self):
+        csv_path = ROOT / 'data' / 'benchmark' / 'reviews' / 'gold_review_100_verified.csv'
+        self.assertTrue(csv_path.exists())
+        with csv_path.open('r', encoding='utf-8-sig', newline='') as f:
+            rows = list(csv.DictReader(f))
+        self.assertEqual(len(rows), 100)
+        verified_ids = {g['id'] for g in self.gold if g['review_status'] == 'source_checked'}
+        self.assertEqual({r['question_id'] for r in rows}, verified_ids)
     def test_no_false_legal_approval(self):
         for g in self.gold:
             if g['review_status'] == 'draft':
