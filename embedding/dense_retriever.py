@@ -11,7 +11,9 @@ import time
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
-from embedding.vector_store import LegalVectorStore, read_index_metadata
+from embedding.vector_store import LegalVectorStore, chunk_file_sha256, read_index_metadata
+from embedding.model_registry import ModelRegistry
+from retrieval.settings import load_settings
 
 try:
     from underthesea import word_tokenize
@@ -25,25 +27,8 @@ SPEC_KEYS = ("dimension", "use_word_segmentation", "text_field")
 
 
 def load_dense_retrieval_config(config_path: str | Path | None = None) -> Dict[str, Any]:
-    """Đọc mục dense của retrieval/config.yaml; file có mà đọc lỗi thì báo lỗi."""
-    if config_path is None:
-        p = Path(__file__).resolve().parent.parent / "retrieval" / "config.yaml"
-    else:
-        p = Path(config_path)
-    if not p.is_file():
-        return {}
-    import yaml
-
-    try:
-        data = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
-    except (OSError, yaml.YAMLError) as exc:
-        raise ValueError(f"Không đọc được cấu hình dense {p}: {exc}") from exc
-    dense_cfg = data.get("dense") if isinstance(data, dict) else None
-    if dense_cfg is None:
-        return {}
-    if not isinstance(dense_cfg, dict):
-        raise ValueError(f"Mục dense của {p} phải là YAML mapping")
-    return dense_cfg
+    """Compatibility wrapper over the shared validated Retrieval settings loader."""
+    return load_settings(config_path)["dense"]
 
 
 def load_model_specs(dense_cfg: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
@@ -58,19 +43,16 @@ def load_model_specs(dense_cfg: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 
 _DENSE_CONFIG = load_dense_retrieval_config()
+MODEL_REGISTRY = ModelRegistry()
 MODEL_SPECS: Dict[str, Dict[str, Any]] = load_model_specs(_DENSE_CONFIG)
 MODEL_DIMENSIONS: Dict[str, int] = {k: v["dimension"] for k, v in MODEL_SPECS.items()}
-DEFAULT_MODEL_NAME = _DENSE_CONFIG.get("model", "BAAI/bge-m3")
+DEFAULT_MODEL_NAME = MODEL_REGISTRY.get_default_model()["name"]
 
 
 def get_model_spec(model_name: str) -> Dict[str, Any]:
     """Lấy thông số (dimension, use_word_segmentation, text_field) của model trong config."""
-    if model_name not in MODEL_SPECS:
-        raise ValueError(
-            f"Dense model {model_name!r} không có trong dense.supported_models của retrieval/config.yaml; "
-            f"chọn một trong {sorted(MODEL_SPECS)}"
-        )
-    return dict(MODEL_SPECS[model_name])
+    model = MODEL_REGISTRY.get_model(model_name)
+    return {key: model[key] for key in SPEC_KEYS}
 
 
 def preprocess_text(
@@ -152,21 +134,31 @@ class DenseRetriever:
     def __init__(
         self,
         vector_store: LegalVectorStore,
-        model_name: str = DEFAULT_MODEL_NAME,
+        model_name: str | None = None,
         embed_fn: Optional[Callable[[Sequence[str]], List[List[float]]]] = None,
         use_mock: bool = False,
         use_word_segmentation: Optional[bool] = None,
         text_field: Optional[str] = None,
         batch_size: int = 32,
+        corpus_path: str | Path | None = None,
+        settings: Dict[str, Any] | None = None,
     ) -> None:
         self.vector_store = vector_store
-        self.model_name = model_name
         self.batch_size = batch_size
+        self.settings = settings if settings is not None else load_settings()
+        self.model_registry = ModelRegistry(self.settings)
+        self.model_name = model_name or self.settings["dense"]["model"]
+        configured_corpus = self.settings["retrieval"]["corpus_path"]
+        self.corpus_path = (
+            Path(corpus_path) if corpus_path is not None
+            else Path(__file__).resolve().parents[1] / configured_corpus
+        )
         self.use_mock = use_mock or (embed_fn is not None)
         self._custom_embed_fn = embed_fn
         self._st_model: Optional[Any] = None
 
-        spec = get_model_spec(model_name)
+        model_spec = self.model_registry.get_model(self.model_name)
+        spec = {key: model_spec[key] for key in SPEC_KEYS}
         if use_word_segmentation is None:
             self.use_word_segmentation = spec["use_word_segmentation"]
         else:
@@ -180,6 +172,14 @@ class DenseRetriever:
                 raise RuntimeError(
                     "Model yêu cầu tách từ tiếng Việt (use_word_segmentation=True) nhưng thiếu thư viện 'underthesea'."
                 )
+
+        # In real embedding mode the collection dimension must be the model's true output
+        # dimension. Mock/custom embedders intentionally remain free to use test dimensions.
+        if not self.use_mock and vector_store.dimension != spec["dimension"]:
+            raise ValueError(
+                f"Dimension VectorStore ({vector_store.dimension}) không khớp model "
+                f"{self.model_name!r} ({spec['dimension']})"
+            )
 
         self.last_latency_ms: Dict[str, float] = {
             "query_encode_ms": 0.0,
@@ -206,11 +206,27 @@ class DenseRetriever:
             "model_name": self.model_name,
             "dimension": store.dimension,
             "use_word_segmentation": self.use_word_segmentation,
+            "text_field": self.text_field,
+            "collection_name": store.collection_name,
+            "chunk_count": store.count(),
         }
+        stored_hash = meta.get("corpus_sha256")
+        if not isinstance(stored_hash, str) or len(stored_hash) != 64:
+            raise ValueError(
+                f"Collection '{store.collection_name}' thiếu corpus_sha256 hợp lệ trong metadata; "
+                "dựng lại bằng scripts/build_index.py."
+            )
         if self.use_word_segmentation:
             expected["underthesea_version"] = underthesea_version()
         if corpus_sha256 is not None:
             expected["corpus_sha256"] = corpus_sha256
+        else:
+            if not self.corpus_path.is_file():
+                raise ValueError(
+                    f"Không tìm thấy corpus để xác minh metadata Dense: {self.corpus_path}. "
+                    "Truyền corpus_sha256 đã xác minh hoặc cập nhật retrieval.corpus_path."
+                )
+            expected["corpus_sha256"] = chunk_file_sha256(self.corpus_path)
         mismatched = {k: (meta.get(k), v) for k, v in expected.items() if meta.get(k) != v}
         if mismatched:
             details = "; ".join(f"{k}: index {a!r}, hiện tại {b!r}" for k, (a, b) in mismatched.items())

@@ -29,9 +29,7 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from embedding.dense_retriever import (  # noqa: E402
-    DEFAULT_MODEL_NAME,
     DenseRetriever,
-    get_model_spec,
     underthesea_version,
 )
 from embedding.vector_store import (  # noqa: E402
@@ -40,20 +38,45 @@ from embedding.vector_store import (  # noqa: E402
     index_metadata_path,
     normalize_chunk_record,
 )
+from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings  # noqa: E402
 
-DEFAULT_CHUNKS_FILE = BASE_DIR / "data" / "chunking_output" / "chunks.jsonl"
+def resolve_build_config(settings: dict[str, Any], *, input_override: str | None = None,
+                         model_override: str | None = None,
+                         collection_override: str | None = None) -> dict[str, Any]:
+    """Resolve build inputs from shared settings, allowing explicit CLI overrides."""
+    dense = settings["dense"]
+    model = model_override or dense["model"]
+    spec = dense["supported_models"].get(model)
+    if spec is None:
+        raise ValueError(f"Model Dense chưa được đăng ký trong config: {model}")
+    input_path = Path(input_override or settings["retrieval"]["corpus_path"])
+    if not input_path.is_absolute():
+        input_path = BASE_DIR / input_path
+    return {
+        "input": input_path,
+        "model": model,
+        "dimension": spec["dimension"],
+        "use_word_segmentation": spec["use_word_segmentation"],
+        "collection": collection_override or dense["collection"],
+    }
 
 
-def load_chunks_from_repo(input_path: Path | str | None = None) -> List[Dict[str, Any]]:
+def load_chunks_from_repo(input_path: Path | str | None = None, *,
+                          config_path: str | Path | None = None) -> List[Dict[str, Any]]:
     """
     Đọc danh sách chunks từ file JSON hoặc JSONL chuẩn.
     Báo lỗi dừng ngay nếu file không tồn tại; loại bỏ toàn bộ cơ chế tự động chunking lại
     hoặc fallback sang thư mục processed/parser cũ (Lỗi E12).
     """
     if input_path is None:
-        target_path = DEFAULT_CHUNKS_FILE
+        settings = load_settings(config_path)
+        target_path = Path(settings["retrieval"]["corpus_path"])
+        if not target_path.is_absolute():
+            target_path = BASE_DIR / target_path
     else:
         target_path = Path(input_path)
+        if not target_path.is_absolute():
+            target_path = BASE_DIR / target_path
 
     if not target_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file chunks đầu vào tại: {target_path}")
@@ -81,11 +104,13 @@ def load_chunks_from_repo(input_path: Path | str | None = None) -> List[Dict[str
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Xây dựng Vector Index cho Dense Retriever")
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH,
+                        help="Shared Retrieval YAML config")
     parser.add_argument(
         "--input",
         type=str,
-        default=str(DEFAULT_CHUNKS_FILE),
-        help="Đường dẫn file JSON/JSONL chứa danh sách chunks đầu vào (mặc định data/chunking_output/chunks.jsonl)",
+        default=None,
+        help="Corpus override; mặc định lấy retrieval.corpus_path từ shared config",
     )
     parser.add_argument(
         "--index-dir",
@@ -96,13 +121,13 @@ def main() -> int:
     parser.add_argument(
         "--collection",
         type=str,
-        default="vietnam_legal_chunks",
+        default=None,
         help="Tên collection trong Qdrant",
     )
     parser.add_argument(
         "--model",
         type=str,
-        default=DEFAULT_MODEL_NAME,
+        default=None,
         help="Model ID dùng để tạo embedding (mặc định đọc từ retrieval/config.yaml)",
     )
     parser.add_argument(
@@ -113,12 +138,19 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        spec = get_model_spec(args.model)
+        settings = load_settings(args.config)
+        resolved = resolve_build_config(
+            settings, input_override=args.input, model_override=args.model,
+            collection_override=args.collection,
+        )
+        input_path = resolved["input"]
+        model_name = resolved["model"]
+        collection = resolved["collection"]
     except ValueError as exc:
         print(f"LỖI: {exc}", file=sys.stderr)
         return 1
-    dim = spec["dimension"]
-    use_word_seg = spec["use_word_segmentation"]
+    dim = resolved["dimension"]
+    use_word_seg = resolved["use_word_segmentation"]
 
     index_dir = Path(args.index_dir)
     index_dir.mkdir(parents=True, exist_ok=True)
@@ -128,7 +160,6 @@ def main() -> int:
     print("BẮT ĐẦU XÂY DỰNG VECTOR INDEX (SPRINT 6 - DENSE RETRIEVAL)")
     print("=" * 65)
 
-    input_path = Path(args.input) if args.input else DEFAULT_CHUNKS_FILE
     if not input_path.is_file():
         print(f"LỖI: File input không tồn tại: {input_path}", file=sys.stderr)
         return 1
@@ -154,7 +185,7 @@ def main() -> int:
     try:
         # Dựng lại toàn bộ collection: xoá point của corpus cũ và collection khác số chiều
         store = LegalVectorStore(
-            collection_name=args.collection,
+            collection_name=collection,
             dimension=dim,
             storage_path=str(qdrant_path),
             use_qdrant=not args.mock,
@@ -163,15 +194,17 @@ def main() -> int:
         )
         retriever = DenseRetriever(
             vector_store=store,
-            model_name=args.model,
+            model_name=model_name,
             use_mock=args.mock,
             use_word_segmentation=use_word_seg,
+            corpus_path=input_path,
+            settings=settings,
         )
     except Exception as exc:
         print(f"LỖI: Khởi tạo VectorStore/Retriever thất bại: {exc}", file=sys.stderr)
         return 1
 
-    print(f"[2/3] Đang tạo embedding với model '{args.model}' (dim={dim}, word_seg={use_word_seg}, mock={args.mock})...")
+    print(f"[2/3] Đang tạo embedding với model '{model_name}' (dim={dim}, word_seg={use_word_seg}, mock={args.mock})...")
     t0 = time.perf_counter()
     try:
         indexed_count = retriever.index_chunks(chunks)
@@ -187,8 +220,8 @@ def main() -> int:
         store.save_snapshot_json(snapshot_file)
 
     meta_info = {
-        "collection_name": args.collection,
-        "model_name": args.model,
+        "collection_name": collection,
+        "model_name": model_name,
         "dimension": dim,
         "use_word_segmentation": use_word_seg,
         "text_field": retriever.text_field,
@@ -204,7 +237,7 @@ def main() -> int:
 
     # Một file metadata cho mỗi collection; DenseRetriever đọc lại khi mở collection để truy vấn
     if store.use_qdrant:
-        coll_meta_file = index_metadata_path(qdrant_path, args.collection)
+        coll_meta_file = index_metadata_path(qdrant_path, collection)
     else:
         coll_meta_file = snapshot_file.with_name("index_snapshot_metadata.json")
     coll_meta_file.write_text(json.dumps(meta_info, ensure_ascii=False, indent=2), encoding="utf-8")

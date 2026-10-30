@@ -19,9 +19,17 @@ except ImportError:
     helpers = _DummyHelpers()
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
-DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
+from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings
+
+
+def resolve_bm25_build_config(settings: dict[str, Any], *, chunks_override: str | Path | None = None,
+                              index_override: str | None = None) -> dict[str, Any]:
+    """Resolve BM25 corpus/index from the shared config, applying explicit overrides."""
+    chunks_path = Path(chunks_override or settings["retrieval"]["corpus_path"])
+    if not chunks_path.is_absolute():
+        chunks_path = ROOT_DIR / chunks_path
+    return {"chunks_file": chunks_path, "index_name": index_override or settings["bm25"]["index"]}
 
 INDEX_MAPPINGS: dict[str, Any] = {
     "properties": {
@@ -46,9 +54,12 @@ INDEX_MAPPINGS: dict[str, Any] = {
 }
 
 
-def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
+def load_chunks(path: str | Path | None = None, *, config_path: str | Path | None = None) -> list[dict[str, Any]]:
     """Read and validate prepared chunks, mapping fields for Elasticsearch."""
-    chunks_path = Path(path)
+    settings = load_settings(config_path)
+    chunks_path = Path(path) if path is not None else Path(settings["retrieval"]["corpus_path"])
+    if not chunks_path.is_absolute():
+        chunks_path = ROOT_DIR / chunks_path
     if not chunks_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file chunks: {chunks_path}")
 
@@ -136,12 +147,13 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
 
 
 def build_bm25_index(
-    chunks_file: str | Path = DEFAULT_CHUNKS_FILE,
+    chunks_file: str | Path | None = None,
     es_url: str | None = None,
     index_name: str | None = None,
     *,
     recreate: bool = False,
     client: Any | None = None,
+    config_path: str | Path | None = None,
 ) -> dict[str, Any]:
     """Load chunks and index them in Elasticsearch; return indexing statistics.
 
@@ -152,11 +164,15 @@ def build_bm25_index(
     """
     if not HAS_ELASTICSEARCH and client is None:
         raise RuntimeError("Cần cài elasticsearch để dùng build_bm25_index khi không truyền client")
+    settings = load_settings(config_path)
+    resolved = resolve_bm25_build_config(
+        settings, chunks_override=chunks_file, index_override=index_name,
+    )
     resolved_es_url = es_url or os.getenv("ELASTICSEARCH_URL", DEFAULT_ES_URL)
-    resolved_index_name = index_name or os.getenv("ELASTICSEARCH_INDEX", DEFAULT_INDEX_NAME)
+    resolved_index_name = resolved["index_name"]
     if not resolved_index_name or not resolved_index_name.strip():
         raise ValueError("index_name không được rỗng")
-    chunks_path = Path(chunks_file)
+    chunks_path = resolved["chunks_file"]
     chunks = load_chunks(chunks_path)
     owns_client = client is None
     if client is None:
@@ -206,13 +222,17 @@ def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser(description="Dựng index BM25 Elasticsearch từ corpus chunk.")
-    parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS_FILE)
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH,
+                        help="Shared Retrieval YAML config")
+    parser.add_argument("--chunks", type=Path, default=None,
+                        help="Corpus override; mặc định lấy retrieval.corpus_path")
     parser.add_argument("--es-url", default=None, help="Mặc định lấy từ ELASTICSEARCH_URL")
-    parser.add_argument("--index", default=None, help="Mặc định lấy từ ELASTICSEARCH_INDEX")
+    parser.add_argument("--index", default=None, help="Index override; mặc định lấy bm25.index")
     parser.add_argument("--recreate", action="store_true",
                         help="Xóa index cũ trước khi nạp, để không còn chunk của corpus trước")
     args = parser.parse_args()
-    build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate)
+    build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate,
+                     config_path=args.config)
 
 
 if __name__ == "__main__":
