@@ -103,7 +103,7 @@ Quy tắc ánh xạ trong `to_contract_result`:
 
 | Tham số | File | Mặc định | Ý nghĩa |
 | --- | --- | ---: | --- |
-| `retrieval_top_k` | `retrieval/config.yaml` (Dev 4) | 50 | Số candidate thô lấy từ Hybrid trước rerank. Đọc từ `retrieval.retrieval_top_k`; nếu thiếu thì dùng `hybrid.candidate_k`. CLI: `--retrieval-top-k`. |
+| `retrieval_top_k` | `retrieval/config.yaml` (Dev 4) | 50 | Số candidate thô lấy từ Hybrid trước rerank. Chỉ đọc từ `retrieval.retrieval_top_k`; thiếu khóa này thì pipeline báo lỗi, không dùng `hybrid.candidate_k`. CLI: `--retrieval-top-k`. |
 | `rrf_k` | `retrieval/config.yaml` (Dev 4) | 60 | Hằng số RRF. |
 | `reranker.rerank_top_k` | `reranking/config.yaml` | 5 | Số chunk giữ lại sau rerank, cũng là giá trị mặc định của `--top-k`. |
 | `reranker.max_candidates` | `reranking/config.yaml` | 50 | Số candidate tối đa đưa vào Cross-Encoder (mục 13.2). CLI: `--max-candidates`. |
@@ -240,7 +240,7 @@ Các bài test bao phủ: đọc và validate config (mặc định `hybrid` + `
 
 1. **Corpus chưa có `parent_clause_id`/`clause_id`/`article_id` (Dev 1, Dev 3).** `data/chunking_output/chunks.jsonl` chỉ có `parent_id` ở cấp Điều, ví dụ `l_52_2014_qh13_art_8`. `scripts/build_index.py::_adapt_chunk_for_vector_store` điền `parent_clause_id` bằng `parent_id` hoặc `{article_id}_clause_1`, nghĩa là giá trị trong Qdrant là giá trị suy đoán, trái với mục 13.4. Pipeline Dev 5 giữ nguyên giá trị upstream trả về, nên ở chế độ `mock`/`hybrid`, hit từ nhánh Dense mang giá trị suy đoán này, còn hit chỉ có từ BM25 nhận `null`. Cần bổ sung `parent_clause_id` thật ở bước chunking trước khi báo cáo Parent Match.
 2. **Output của `ElasticsearchBM25Retriever` (Dev 4)** dùng `text`/`parent_id` và không có `chunk_text`/`document_id`/`parent_clause_id` ở cấp gốc. Pipeline đang ánh xạ alias. Nên chuẩn hóa ngay tại adapter.
-3. **`retrieval/config.yaml` (Dev 4)** chưa có khóa `retrieval.retrieval_top_k` theo mục 14.3. Pipeline hiện đọc `hybrid.candidate_k` làm fallback.
+3. **`retrieval/config.yaml` (Dev 4)** đã có khóa `retrieval.retrieval_top_k` theo mục 14.3 (5452be6); pipeline bỏ fallback `hybrid.candidate_k` (E8).
 4. **`schemas/retrieval_schema.json` (CTM)** đã cập nhật ở `ee755a5`: bắt buộc đủ 9 trường của mục 4.3, bỏ `text`, gốc schema chuyển sang `RetrievalEnvelope` và kết quả nằm ở `$defs/RetrievalResultItem`. Từ `3d646da`, envelope khai báo thêm `query`, `config`, `stats` (tùy chọn) và pipeline điền `latency_ms`, `top_k` ở gốc, nên toàn bộ output qua được schema (C7).
 5. **`retrieval.hybrid_retriever.CrossEncoderReranker`** đã bị xóa (25/10): class này trùng chức năng với `reranking/reranker.py` và không còn nơi nào dùng. Reranker duy nhất là `reranking.reranker.Reranker`, truyền vào `HybridRetriever` qua protocol `Reranker`.
 6. **Test:** tất cả test trong `parser/`, `test/` và `retrieval/test/` pass khi chạy chung (`python -m pytest`, `pytest.ini` đặt `testpaths = parser test retrieval/test`); CI (`.github/workflows/tests.yml`) chạy đúng lệnh này trên mọi push và PR. Thư mục `tests/` đã gộp vào `test/`; bản draft trùng lặp của test benchmark đã bỏ, chỉ còn `test/test_benchmark.py`.

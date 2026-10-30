@@ -345,8 +345,8 @@ class PrecomputedRetriever:
 def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) -> dict[str, Any]:
     """Read Dev 4's retrieval/config.yaml.
 
-    ``retrieval_top_k`` comes from ``retrieval.retrieval_top_k`` (section 14.3)
-    and falls back to the older ``hybrid.candidate_k`` key.
+    ``retrieval_top_k`` comes only from ``retrieval.retrieval_top_k`` (section 14.3);
+    the old ``hybrid.candidate_k`` key is not read, so a config without it fails.
     """
     import yaml
 
@@ -361,8 +361,10 @@ def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) ->
     hybrid = data.get("hybrid") or {}
     bm25 = data.get("bm25") or {}
     dense = data.get("dense") or {}
+    if "retrieval_top_k" not in retrieval:
+        raise ValueError(f"{config_path} thiếu retrieval.retrieval_top_k")
     settings = {
-        "retrieval_top_k": retrieval.get("retrieval_top_k", hybrid.get("candidate_k", DEFAULT_RETRIEVAL_TOP_K)),
+        "retrieval_top_k": retrieval.get("retrieval_top_k"),
         "rrf_k": hybrid.get("rrf_k", DEFAULT_RRF_K),
         "bm25_index": bm25.get("index", "legal-child-chunks-dev"),
         "bm25_text_field": bm25.get("text_field", "content_segmented"),

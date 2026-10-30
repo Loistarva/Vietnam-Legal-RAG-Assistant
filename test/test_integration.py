@@ -285,6 +285,13 @@ class RetrievalConfigTest(unittest.TestCase):
             settings = load_retrieval_settings(path)
         self.assertEqual((settings["retrieval_top_k"], settings["rrf_k"]), (100, 10))
 
+    def test_candidate_k_is_not_a_fallback_for_retrieval_top_k(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "config.yaml"
+            path.write_text("hybrid:\n  candidate_k: 50\n  rrf_k: 10\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "thiếu retrieval.retrieval_top_k"):
+                load_retrieval_settings(path)
+
 
 class CliTest(unittest.TestCase):
     def run_cli(self, *args):
