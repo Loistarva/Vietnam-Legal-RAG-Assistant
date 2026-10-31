@@ -78,9 +78,12 @@ def current():
 
 def run(mode, force=False):
     if mode=='create':
+        if MANIFEST.exists() and not force:
+            raise RuntimeError('Manifest đáp án Test đã tồn tại; chỉ đóng băng lại với --force và ghi lý do vào docs/sprint6_benchmark.md mục 6')
         test_issues = verify_test_split_ready()
         if test_issues:
             raise RuntimeError(f'Chưa thể khóa đáp án Test: {len(test_issues)} lỗi nghiệm thu trên tập Test, ví dụ {test_issues[:3]}')
+
         problems, *_ = check(final=False)
         candidate = current()
         existing = load(MANIFEST) if MANIFEST.exists() else None
@@ -98,7 +101,11 @@ def run(mode, force=False):
         if manifest_changed and not force:
             raise RuntimeError('Manifest Test Gold đã tồn tại và khác nội dung; dùng --force nếu chủ đích thay freeze')
         MANIFEST.write_text(json.dumps(candidate,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-        print(f'FROZEN: cả câu hỏi và đáp án Test ({len(payload()["questions"])} câu)')
+        print(
+            f'FROZEN: cả câu hỏi và đáp án Test '
+            f'({candidate["test_question_count"]} câu)'
+        )
+
     else:
         if not MANIFEST.exists():raise RuntimeError('Chưa có manifest Test Gold vì chưa đủ chunks/review')
         test_issues = verify_test_split_ready()
