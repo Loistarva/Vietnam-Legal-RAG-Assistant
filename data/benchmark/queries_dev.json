@@ -680,16 +680,6 @@
     "split": "dev"
   },
   {
-    "id": "HN_081",
-    "question": "Luật Hôn nhân và gia đình 2014 quy định những nội dung pháp lý cụ thể nào về tôn trọng danh dự, nhân phẩm, uy tín của vợ, chồng?",
-    "category": "vo_chong",
-    "question_type": "situation",
-    "difficulty": "medium",
-    "as_of_date": "2026-10-15",
-    "test_type": "current_law",
-    "split": "dev"
-  },
-  {
     "id": "HN_082",
     "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng như thế nào?",
     "category": "vo_chong",
@@ -1530,6 +1520,16 @@
     "split": "dev"
   },
   {
+    "id": "HN_169",
+    "question": "Khi có tranh chấp về nhiều người cùng cấp dưỡng cho một người hoặc cho nhiều người, căn cứ xác định nghĩa vụ và phương thức thực hiện theo Luật Hôn nhân và gia đình 2014 là gì?",
+    "category": "cap_duong",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "current_law",
+    "split": "dev"
+  },
+  {
     "id": "HN_170",
     "question": "Đối với nghĩa vụ cấp dưỡng của cha, mẹ đối với con, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "category": "cap_duong",
@@ -1740,16 +1740,6 @@
     "split": "dev"
   },
   {
-    "id": "HN_194",
-    "question": "Khi gặp tình huống liên quan đến tuyên truyền, vận động nhân dân về áp dụng tập quán, phải chọn căn cứ pháp luật như thế nào theo Nghị định 126/2014/NĐ-CP?",
-    "category": "nguyen_tac_quy_dinh",
-    "question_type": "situation",
-    "difficulty": "hard",
-    "as_of_date": "2026-10-15",
-    "test_type": "partially_expired",
-    "split": "dev"
-  },
-  {
     "id": "HN_195",
     "question": "Đối với trách nhiệm về xây dựng danh mục tập quán được áp dụng, Nghị định 126/2014/NĐ-CP quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
     "category": "nguyen_tac_quy_dinh",
@@ -1773,16 +1763,6 @@
     "id": "HN_197",
     "question": "Theo Nghị định 126/2014/NĐ-CP, các chủ thể phải thực hiện và bảo vệ người thứ ba không ngay tình khi xác lập, thực hiện giao dịch với vợ, chồng liên quan đến tài khoản ngân hàng, tài khoản chứng khoán, động sản khác mà theo quy định của pháp luật không phải đăng ký quyền sở hữu như thế nào?",
     "category": "tai_san",
-    "question_type": "fact",
-    "difficulty": "medium",
-    "as_of_date": "2026-10-15",
-    "test_type": "partially_expired",
-    "split": "dev"
-  },
-  {
-    "id": "HN_198",
-    "question": "Khi gặp vấn đề thu nhập hợp pháp khác của vợ, chồng trong thời kỳ hôn nhân, cần xác định căn cứ nào trong Nghị định 126/2014/NĐ-CP?",
-    "category": "vo_chong",
     "question_type": "fact",
     "difficulty": "medium",
     "as_of_date": "2026-10-15",
@@ -1950,6 +1930,16 @@
     "split": "dev"
   },
   {
+    "id": "HN_215",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối đăng ký kết hôn và người yêu cầu được thông báo thế nào?",
+    "category": "ket_hon",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "dev"
+  },
+  {
     "id": "HN_216",
     "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền cấp giấy xác nhận tình trạng hôn nhân và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "category": "ket_hon",
@@ -1974,6 +1964,16 @@
     "question": "Cơ quan nào có thẩm quyền đối với từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
     "category": "ket_hon",
     "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "dev"
+  },
+  {
+    "id": "HN_219",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện nhận cha, mẹ, con?",
+    "category": "con_cai",
+    "question_type": "situation",
     "difficulty": "medium",
     "as_of_date": "2026-10-15",
     "test_type": "partially_expired",
@@ -2080,6 +2080,26 @@
     "split": "dev"
   },
   {
+    "id": "HN_230",
+    "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài?",
+    "category": "ly_hon",
+    "question_type": "situation",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "dev"
+  },
+  {
+    "id": "HN_231",
+    "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+    "category": "ly_hon",
+    "question_type": "fact",
+    "difficulty": "medium",
+    "as_of_date": "2026-10-15",
+    "test_type": "partially_expired",
+    "split": "dev"
+  },
+  {
     "id": "HN_232",
     "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
     "category": "ly_hon",
@@ -2160,16 +2180,6 @@
     "split": "dev"
   },
   {
-    "id": "HN_240",
-    "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài theo Nghị định 126/2014/NĐ-CP?",
-    "category": "yeu_to_nuoc_ngoai",
-    "question_type": "fact",
-    "difficulty": "medium",
-    "as_of_date": "2026-10-15",
-    "test_type": "partially_expired",
-    "split": "dev"
-  },
-  {
     "id": "HN_241",
     "question": "Nghị định 126/2014/NĐ-CP đặt ra những nguyên tắc nào đối với vấn đề hoạt động tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài?",
     "category": "yeu_to_nuoc_ngoai",
@@ -2215,16 +2225,6 @@
     "category": "nguyen_tac_quy_dinh",
     "question_type": "situation",
     "difficulty": "medium",
-    "as_of_date": "2026-10-15",
-    "test_type": "partially_expired",
-    "split": "dev"
-  },
-  {
-    "id": "HN_246",
-    "question": "Trong trường hợp liên quan đến chấm dứt hoạt động của Trung tâm, hệ quả pháp lý và thời điểm áp dụng theo Nghị định 126/2014/NĐ-CP là gì?",
-    "category": "nguyen_tac_quy_dinh",
-    "question_type": "situation",
-    "difficulty": "hard",
     "as_of_date": "2026-10-15",
     "test_type": "partially_expired",
     "split": "dev"

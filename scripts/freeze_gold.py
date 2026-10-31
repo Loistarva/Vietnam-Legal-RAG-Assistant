@@ -76,16 +76,19 @@ def current():
         'note': 'Freeze sau khi kiểm định đầy đủ (full_text_checked / source_checked) trên tập Test; không sửa đáp án Test trong quá trình thử hệ thống.'
     }
 
-def run(mode):
+def run(mode, force=False):
     if mode=='create':
+        if MANIFEST.exists() and not force:
+            raise RuntimeError('Manifest đáp án Test đã tồn tại; chỉ đóng băng lại với --force và ghi lý do vào docs/sprint6_benchmark.md mục 6')
         test_issues = verify_test_split_ready()
         if test_issues:
             raise RuntimeError(f'Chưa thể khóa đáp án Test: {len(test_issues)} lỗi nghiệm thu trên tập Test, ví dụ {test_issues[:3]}')
-        MANIFEST.write_text(json.dumps(current(),ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-        # Sau khi ghi manifest, kiểm tra toàn bộ cấu trúc handoff
+        # Kiểm cấu trúc handoff trước khi ghi; bỏ qua lỗi lệch với chính manifest gold sắp được thay.
         problems, *_ = check(final=False)
+        problems = [x for x in problems if x != 'Gold Test đã thay đổi so với manifest khóa SHA-256']
         if problems:
-            raise RuntimeError(f'Lỗi cấu trúc benchmark sau khi tạo manifest: {problems[:3]}')
+            raise RuntimeError(f'Lỗi cấu trúc benchmark, chưa ghi manifest: {problems[:3]}')
+        MANIFEST.write_text(json.dumps(current(),ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print(f'FROZEN: cả câu hỏi và đáp án Test ({len(payload()["questions"])} câu)')
     else:
         if not MANIFEST.exists():raise RuntimeError('Chưa có manifest Test Gold vì chưa đủ chunks/review')
@@ -98,6 +101,7 @@ def run(mode):
 if __name__=='__main__':
     p=argparse.ArgumentParser();gr=p.add_mutually_exclusive_group(required=True)
     gr.add_argument('--create',action='store_true');gr.add_argument('--verify',action='store_true')
+    p.add_argument('--force',action='store_true')
     a=p.parse_args()
-    try:run('create' if a.create else 'verify')
+    try:run('create' if a.create else 'verify', force=a.force)
     except RuntimeError as exc:print('FAIL:',exc);sys.exit(1)
