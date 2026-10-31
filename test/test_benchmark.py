@@ -41,7 +41,7 @@ class BenchmarkContractTests(unittest.TestCase):
             doc_number = doc['metadata']['document_number']
             for a in doc.get('articles', []):
                 art_no = str(a['article_number'])
-                raw_title = (a.get('title') or '').strip()
+                raw_title = (a.get('article_title') or '').strip()
                 expected_title = f"Điều {art_no}. {raw_title}" if raw_title else f"Điều {art_no}"
                 parsed_articles[(doc_number, art_no)] = expected_title
 
@@ -68,7 +68,7 @@ class BenchmarkContractTests(unittest.TestCase):
 
         # C5: Every article_id in gold_article_ids of reviewed questions must have verified verification_status
         reviewed_gold = [g for g in self.gold if g.get('review_status') != 'draft']
-        self.assertEqual(len(reviewed_gold), 100)
+        self.assertEqual(len(reviewed_gold), 105)
         for g in reviewed_gold:
             for aid in g.get('gold_article_ids', []):
                 self.assertIn(aid, article_by_id, f"{g['id']}: missing {aid} in article_index")
@@ -160,17 +160,17 @@ class BenchmarkContractTests(unittest.TestCase):
 
     def test_unmapped_explicit_not_faked(self):
         pending=[g for g in self.gold if g['mapping_status']=='not_mapped']
-        self.assertEqual(len(pending),24)
+        self.assertEqual(len(pending),19)
         self.assertTrue(all(not g['gold_context_ids'] and not g['candidate_context_ids'] for g in pending))
     def test_mapping_counts(self):
         from collections import Counter
         counts = Counter(g['mapping_status'] for g in self.gold)
         self.assertEqual(sum(counts.values()), 300)
-        self.assertEqual(counts['not_mapped'], 24)
-        self.assertEqual(counts['production_verified'], 100)
+        self.assertEqual(counts['not_mapped'], 19)
+        self.assertEqual(counts['production_verified'], 105)
         self.assertEqual(counts['production_candidate_unverified'], 176)
-        self.assertEqual(counts['production_candidate_unverified'] + counts['production_verified'], 276)
-        self.assertEqual(sum(bool(g['candidate_context_ids'] or g['gold_context_ids']) for g in self.gold), 276)
+        self.assertEqual(counts['production_candidate_unverified'] + counts['production_verified'], 281)
+        self.assertEqual(sum(bool(g['candidate_context_ids'] or g['gold_context_ids']) for g in self.gold), 281)
         self.assertTrue(all(bool(g['gold_context_ids']) == bool(g['gold_context_ids_confirmed']) for g in self.gold))
 
     def test_expansion_is_unverified_and_unmapped(self):
@@ -229,12 +229,39 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(gold_manifest_path.exists())
         gold_manifest = json.loads(gold_manifest_path.read_text(encoding='utf-8'))
         self.assertEqual(gold_manifest, current_gold_freeze())
+    def test_freeze_create_refuses_existing_manifest(self):
+        from scripts import freeze_gold, freeze_test
+        with self.assertRaises(RuntimeError):
+            freeze_test.run('create')
+        with self.assertRaises(RuntimeError):
+            freeze_gold.run('create')
+    def test_verified_gold_in_force_at_as_of_date(self):
+        chunks = {}
+        for line in (ROOT / 'data' / 'chunking_output' / 'chunks.jsonl').read_text(encoding='utf-8').splitlines():
+            if line.strip():
+                c = json.loads(line)
+                chunks[c['chunk_id']] = c
+        dates = {q['id']: q['as_of_date'] for q in self.dev + self.test}
+        for g in self.gold:
+            if g['review_status'] == 'draft':
+                continue
+            day = dates[g['id']]
+            for cid in g['gold_context_ids']:
+                meta = chunks[cid]['metadata']
+                self.assertLessEqual(meta['effective_from'], day, f"{g['id']}: {cid} not yet in force")
+                self.assertTrue(not meta['effective_to'] or day < meta['effective_to'], f"{g['id']}: {cid} expired")
+                # NĐ 126/2014 Điều 19–50 were repealed from 2016-01-01 (Điều 45.2.đ NĐ 123/2015) but carry no effective_to.
+                if chunks[cid]['document_id'] == 'nd_126_2014_nd_cp':
+                    self.assertFalse(19 <= int(chunks[cid]['article_number']) <= 50, f"{g['id']}: {cid} is a repealed provision")
+        historical = [g for g in self.gold if g['review_status'] != 'draft'
+                      and next(q for q in self.dev + self.test if q['id'] == g['id'])['test_type'] == 'historical_law']
+        self.assertTrue(historical)
     def test_gold_review_log_csv_exists_and_matches(self):
-        csv_path = ROOT / 'data' / 'benchmark' / 'reviews' / 'gold_review_100_verified.csv'
+        csv_path = ROOT / 'data' / 'benchmark' / 'reviews' / 'gold_review_verified.csv'
         self.assertTrue(csv_path.exists())
         with csv_path.open('r', encoding='utf-8-sig', newline='') as f:
             rows = list(csv.DictReader(f))
-        self.assertEqual(len(rows), 100)
+        self.assertEqual(len(rows), 105)
         verified_ids = {g['id'] for g in self.gold if g['review_status'] == 'source_checked'}
         self.assertEqual({r['question_id'] for r in rows}, verified_ids)
     def test_no_false_legal_approval(self):
