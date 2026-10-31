@@ -417,6 +417,19 @@ def test_known_unparseable_txt_still_fail_loudly(name):
         parse_text_to_articles(path.read_text(encoding="utf-8"), "doc")
 
 
+def test_clause_build_error_raises_instead_of_dropping_article(monkeypatch):
+    """H8: một Điều dựng clause lỗi phải dừng parser, không bị bỏ khỏi corpus."""
+    from parser import parser as legal_parser
+
+    def broken_build_clauses(art_id, body, has_clauses):
+        raise ValueError("clause_text rỗng")
+
+    monkeypatch.setattr(legal_parser, "build_clauses", broken_build_clauses)
+    text = "Điều 1. Phạm vi điều chỉnh\nLuật này quy định về hôn nhân.\n"
+    with pytest.raises(ValueError, match=r"doc: Điều 1 lỗi khi dựng clause: clause_text rỗng"):
+        parse_text_to_articles(text, "doc")
+
+
 every_txt = pytest.mark.parametrize(
     "txt_path", CORPUS_TXT, ids=[p.name for p in CORPUS_TXT]
 )
