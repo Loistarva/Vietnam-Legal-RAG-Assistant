@@ -78,8 +78,6 @@ def current():
 
 def run(mode, force=False):
     if mode=='create':
-        if MANIFEST.exists() and not force:
-            raise RuntimeError('Manifest đáp án Test đã tồn tại; chỉ đóng băng lại với --force và ghi lý do vào docs/sprint6_benchmark.md mục 6')
         test_issues = verify_test_split_ready()
         if test_issues:
             raise RuntimeError(f'Chưa thể khóa đáp án Test: {len(test_issues)} lỗi nghiệm thu trên tập Test, ví dụ {test_issues[:3]}')

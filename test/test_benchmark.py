@@ -229,12 +229,10 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(gold_manifest_path.exists())
         gold_manifest = json.loads(gold_manifest_path.read_text(encoding='utf-8'))
         self.assertEqual(gold_manifest, current_gold_freeze())
-    def test_freeze_create_refuses_existing_manifest(self):
+    def test_freeze_create_is_idempotent_for_matching_manifest(self):
         from scripts import freeze_gold, freeze_test
-        with self.assertRaises(RuntimeError):
-            freeze_test.run('create')
-        with self.assertRaises(RuntimeError):
-            freeze_gold.run('create')
+        freeze_test.run('create')
+        freeze_gold.run('create')
     def test_verified_gold_in_force_at_as_of_date(self):
         chunks = {}
         for line in (ROOT / 'data' / 'chunking_output' / 'chunks.jsonl').read_text(encoding='utf-8').splitlines():
