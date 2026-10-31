@@ -10,7 +10,6 @@ PyYAML>=6,<7
 # Vietnamese word segmentation for queries and chunking. Pinned: corpus and queries
 # must be segmented by the same version (chunking_report.json records it).
 underthesea==9.5.0
-redis>=5,<7
 
 # Schema validation (test/schema_test.py) and contract tests
 pydantic>=2,<3

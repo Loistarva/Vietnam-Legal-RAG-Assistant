@@ -15,7 +15,7 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 | Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả; mỗi tệp là mảng `RetrievalEnvelope` (một envelope mỗi câu, `query_id` lấy từ `id` của benchmark), theo mục 5.4 của `docs/data_contract.md`. |
 | Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
 
-Cấu hình dùng chung nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3` (1024 chiều), candidate depth 50, Top-10 và `rrf_k=60`. Runner Hybrid + Reranker đọc shared config qua `retrieval.settings.load_settings()`; collection, storage path, corpus, model và dimension phải khớp metadata index đã build. BM25/Dense/Hybrid benchmark không bật reranker hoặc cache để latency benchmark không bị cache hit làm sai lệch.
+Cấu hình dùng chung nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3` (1024 chiều), candidate depth 50, Top-10 và RRF k=60. Runner Hybrid + Reranker đọc shared config qua `retrieval.settings.load_settings()`; collection, storage path, corpus, model và dimension phải khớp metadata index đã build. BM25/Dense/Hybrid benchmark không bật reranker.
 
 ## Đồng bộ tách từ BM25
 
@@ -35,21 +35,7 @@ Mỗi nhánh trả về danh sách chunk có thứ hạng riêng. Với mỗi `c
 RRF(d) = Σ 1 / (k + rank_r(d))
 ```
 
-`rank_r(d)` là thứ hạng bắt đầu từ 1 trong nhánh `r`; `k` lấy từ `hybrid.rrf_k` trong shared config trừ khi CLI override tường minh. Các kết quả được gom theo `chunk_id`, nên một chunk chỉ xuất hiện một lần trong đầu ra. Nếu chunk xuất hiện trong cả BM25 và Dense, điểm RRF của hai nhánh được cộng lại. Kết quả cuối được sắp theo điểm RRF giảm dần.
-
-## Redis cache cho luồng truy xuất tương tác
-
-`scripts/run_retrieval.py` bật Redis cache khi có `REDIS_URL` hoặc `--redis-url`; để trống thì cache tắt. Redis được khai báo trong `docker-compose.yml`, bind vào localhost và dùng volume riêng. Chạy `docker compose up -d redis` để khởi động riêng Redis.
-
-Cache kết quả Hybrid trước bước Parent Context, có TTL mặc định 3600 giây. Cache key gồm query chuẩn hóa, `as_of_date`, Top-K, candidate depth, `rrf_k`, filter, reranker và context của model/dimension, corpus SHA-256, Elasticsearch index, Qdrant collection. Vì vậy đổi ngày, filter, cấu hình rerank, model hoặc corpus sẽ tạo key mới thay vì lấy kết quả cũ. Nếu Redis mất kết nối, truy xuất tiếp tục không cache và ghi cảnh báo; lỗi này không biến thành kết quả rỗng. JSON hỏng được bỏ qua và xóa best-effort.
-
-Ví dụ PowerShell:
-
-```powershell
-docker compose up -d redis
-$env:REDIS_URL = "redis://localhost:6379/0"
-python .\scripts\run_retrieval.py --query "Điều kiện kết hôn là gì?" --reranker none
-```
+`rank_r(d)` là thứ hạng bắt đầu từ 1 trong nhánh `r`; mặc định `k = 60`. Các kết quả được gom theo `chunk_id`, nên một chunk chỉ xuất hiện một lần trong đầu ra. Nếu chunk xuất hiện trong cả BM25 và Dense, điểm RRF của hai nhánh được cộng lại. Kết quả cuối được sắp theo điểm RRF giảm dần.
 
 ## Xử lý kết quả rỗng và lỗi
 
