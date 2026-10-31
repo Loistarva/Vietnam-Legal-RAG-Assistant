@@ -134,6 +134,51 @@ class RetrievalEvaluationTest(unittest.TestCase):
             self.assertAlmostEqual(row["ndcg_at_10"], expected_ndcg)
             self.assertEqual(row["precision_at_10"], 0.2)
 
+    def test_ground_truth_mode_scores_only_reviewed_dev_gold(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            queries_path = root / "queries_dev.json"
+            truth_path = root / "ground_truth.json"
+            chunks_path = root / "chunks.json"
+            results_dir = root / "results"
+            queries_path.write_text(json.dumps([
+                {"id": "Q1", "question": "reviewed", "as_of_date": "2026-10-15"},
+                {"id": "Q2", "question": "draft", "as_of_date": "2026-10-15"},
+            ]), encoding="utf-8")
+            truth_path.write_text(json.dumps([
+                {"id": "Q1", "split": "dev", "gold_context_ids": ["A"], "gold_context_ids_confirmed": True,
+                 "candidate_context_ids": ["B"]},
+                {"id": "Q2", "split": "dev", "gold_context_ids": [], "gold_context_ids_confirmed": False,
+                 "candidate_context_ids": ["B"]},
+            ]), encoding="utf-8")
+            chunks_path.write_text(json.dumps([
+                {"chunk_id": "A", "chunk_text": "A", "metadata": {}},
+                {"chunk_id": "B", "chunk_text": "B", "metadata": {}},
+            ]), encoding="utf-8")
+            results_dir.mkdir()
+            run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
+            for method in ("bm25", "dense", "hybrid"):
+                envelopes = [{
+                    "query_id": query_id, "query": text, "retriever": method,
+                    "config": run_config, "top_k": 10,
+                    "results": [{"chunk_id": "B", "score": 1.0, "rank": 1},
+                                {"chunk_id": "A", "score": 0.5, "rank": 2}],
+                } for query_id, text in (("Q1", "reviewed"), ("Q2", "draft"))]
+                (results_dir / f"dev_{method}.json").write_text(json.dumps(envelopes), encoding="utf-8")
+
+            metrics = evaluate(queries_path, results_dir, root / "output", chunks_path,
+                               ground_truth_path=truth_path)
+            self.assertEqual(metrics["hybrid"]["query_count"], 1.0)
+            self.assertEqual(metrics["hybrid"]["mrr_at_10"], 0.5)
+            report = (root / "output" / "retrieval_report.md").read_text(encoding="utf-8")
+            self.assertIn("bỏ qua 1 câu Dev chưa duyệt", report)
+
+            truth = json.loads(truth_path.read_text(encoding="utf-8"))
+            truth[1]["split"] = "test"
+            truth_path.write_text(json.dumps(truth), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "không thuộc split dev"):
+                evaluate(queries_path, results_dir, root / "output", chunks_path, ground_truth_path=truth_path)
+
     def test_metrics_cutoff_and_report_follow_shared_config(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
