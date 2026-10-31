@@ -209,6 +209,7 @@ class DenseRetriever:
             "text_field": self.text_field,
             "collection_name": store.collection_name,
             "chunk_count": store.count(),
+            "mock_mode": self.use_mock,
         }
         stored_hash = meta.get("corpus_sha256")
         if not isinstance(stored_hash, str) or len(stored_hash) != 64:

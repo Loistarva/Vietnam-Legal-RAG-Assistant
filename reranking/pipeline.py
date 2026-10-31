@@ -18,6 +18,7 @@ import json
 import logging
 import os
 import time
+import copy
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, Protocol, Sequence
@@ -31,7 +32,6 @@ logger = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RETRIEVAL_CONFIG_PATH = ROOT / "retrieval" / "config.yaml"
 DEFAULT_RETRIEVAL_TOP_K = 50
-DEFAULT_RRF_K = 60
 UNKNOWN_VALIDITY_STATUS = "Không xác định"
 
 # Optional trace fields kept next to the section 4.3 fields when the upstream provides them.
@@ -343,35 +343,33 @@ class PrecomputedRetriever:
 
 
 def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) -> dict[str, Any]:
-    """Read Dev 4's retrieval/config.yaml.
+    """Load the shared validated config and expose legacy flat keys to this CLI."""
+    from retrieval.settings import ROOT as REPOSITORY_ROOT, load_settings
 
-    ``retrieval_top_k`` comes from ``retrieval.retrieval_top_k`` (section 14.3)
-    and falls back to the older ``hybrid.candidate_k`` key.
-    """
-    import yaml
-
-    config_path = Path(path)
-    try:
-        data = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
-    except (OSError, yaml.YAMLError) as exc:
-        raise ValueError(f"Không đọc được cấu hình retrieval {config_path}: {exc}") from exc
-    if not isinstance(data, dict):
-        raise ValueError(f"{config_path} phải là YAML mapping")
-    retrieval = data.get("retrieval") or {}
-    hybrid = data.get("hybrid") or {}
-    bm25 = data.get("bm25") or {}
-    dense = data.get("dense") or {}
-    settings = {
-        "retrieval_top_k": retrieval.get("retrieval_top_k", hybrid.get("candidate_k", DEFAULT_RETRIEVAL_TOP_K)),
-        "rrf_k": hybrid.get("rrf_k", DEFAULT_RRF_K),
-        "bm25_index": bm25.get("index", "legal-child-chunks-dev"),
-        "bm25_text_field": bm25.get("text_field", "content_segmented"),
-        "dense_model": dense.get("model"),
+    shared = load_settings(path)
+    corpus_path = Path(shared["retrieval"]["corpus_path"])
+    if not corpus_path.is_absolute():
+        corpus_path = REPOSITORY_ROOT / corpus_path
+    index_dir = Path(shared["dense"]["index_dir"])
+    if not index_dir.is_absolute():
+        index_dir = REPOSITORY_ROOT / index_dir
+    return {
+        "shared_config": shared,
+        "retrieval_top_k": shared["retrieval"]["retrieval_top_k"],
+        "result_top_k": shared["retrieval"]["result_top_k"],
+        "rrf_k": shared["hybrid"]["rrf_k"],
+        "fusion": shared["hybrid"]["fusion"],
+        "bm25_index": shared["bm25"]["index"],
+        "bm25_text_field": shared["bm25"]["text_field"],
+        "bm25_tokenizer": shared["bm25"]["tokenizer"],
+        "bm25_tokenizer_version": str(shared["bm25"]["tokenizer_version"]),
+        "dense_model": shared["dense"]["model"],
+        "dimension": shared["dense"]["dimension"],
+        "collection": shared["dense"]["collection"],
+        "index_dir": index_dir,
+        "qdrant_storage_path": index_dir / "qdrant_storage",
+        "corpus_path": corpus_path,
     }
-    _require_positive_int("retrieval_top_k", settings["retrieval_top_k"])
-    if not isinstance(settings["rrf_k"], int) or isinstance(settings["rrf_k"], bool) or settings["rrf_k"] < 0:
-        raise ValueError("rrf_k phải là số nguyên không âm")
-    return settings
 
 
 def build_mock_dense_retriever(chunks_path: str | Path) -> CandidateRetriever:
@@ -398,22 +396,29 @@ def build_mock_dense_retriever(chunks_path: str | Path) -> CandidateRetriever:
 
 def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: str | None,
                            elasticsearch_index: str | None = None, qdrant_path: str | None = None,
-                           collection: str = "vietnam_legal_chunks",
+                           collection: str | None = None,
                            dense_model: str | None = None) -> CandidateRetriever:
     """Real Hybrid retriever (Dev 4): Elasticsearch BM25 + Qdrant dense + RRF, no internal reranker.
 
     The pipeline owns reranking, so HybridRetriever returns its fused top
     ``retrieval_top_k`` candidates unchanged.
     """
-    from embedding.dense_retriever import MODEL_DIMENSIONS, DenseRetriever
+    from embedding.dense_retriever import DenseRetriever
+    from embedding.model_registry import ModelRegistry
     from embedding.vector_store import LegalVectorStore
     from retrieval.hybrid_retriever import ElasticsearchBM25Retriever, HybridRetriever, HybridSearchConfig
 
     if not elasticsearch_url:
         raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL cho retriever hybrid")
-    model = dense_model or settings.get("dense_model")
-    if model not in MODEL_DIMENSIONS:
-        raise ValueError(f"Dense model không được hỗ trợ: {model!r}; chọn một trong {sorted(MODEL_DIMENSIONS)}")
+    shared = settings.get("shared_config")
+    if not isinstance(shared, dict):
+        raise ValueError("Thiếu shared_config đã validate; hãy dùng load_retrieval_settings()")
+    model = dense_model or settings["dense_model"]
+    registry = ModelRegistry(shared)
+    model_spec = registry.get_model(model)
+    dense_settings = copy.deepcopy(shared)
+    dense_settings["dense"]["model"] = model
+    dense_settings["dense"]["dimension"] = model_spec["dimension"]
     try:
         from elasticsearch import Elasticsearch
     except ImportError as exc:
@@ -425,13 +430,24 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
         raise ConnectionError(f"Không kết nối được Elasticsearch tại {elasticsearch_url}")
     if not client.indices.exists(index=index):
         raise ValueError(f"Elasticsearch index không tồn tại: {index}")
-    sparse = ElasticsearchBM25Retriever(client, index, text_field=settings["bm25_text_field"])
+    from embedding.vector_store import chunk_file_sha256
+    corpus_path = Path(settings["corpus_path"])
+    if not corpus_path.is_file():
+        raise FileNotFoundError(f"Không tìm thấy corpus cấu hình: {corpus_path}")
+    sparse = ElasticsearchBM25Retriever(
+        client, index, text_field=settings["bm25_text_field"], settings=shared,
+        expected_corpus_sha256=chunk_file_sha256(corpus_path),
+    )
 
-    storage = qdrant_path or os.getenv("QDRANT_PATH") or str(ROOT / "data" / "indexes" / "qdrant_storage")
-    store = LegalVectorStore(collection_name=collection, dimension=MODEL_DIMENSIONS[model], storage_path=storage)
+    actual_collection = collection or settings["collection"]
+    storage = Path(qdrant_path or os.getenv("QDRANT_PATH") or settings["qdrant_storage_path"])
+    if not storage.is_absolute():
+        storage = ROOT / storage
+    store = LegalVectorStore(collection_name=actual_collection, dimension=model_spec["dimension"], storage_path=storage)
     if store.count() == 0:
-        raise ValueError(f"Qdrant collection {collection} tại {storage} rỗng; chạy scripts/build_index.py trước")
-    dense = DenseRetriever(vector_store=store, model_name=model)
+        raise ValueError(f"Qdrant collection {actual_collection} tại {storage} rỗng; chạy scripts/build_index.py trước")
+    dense = DenseRetriever(vector_store=store, model_name=model, settings=dense_settings,
+                           corpus_path=settings["corpus_path"])
 
     top_k = settings["retrieval_top_k"]
     config = HybridSearchConfig(top_k=top_k, candidate_k=top_k, rrf_k=settings["rrf_k"])

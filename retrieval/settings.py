@@ -65,7 +65,7 @@ def validate_settings(config: Any) -> dict[str, Any]:
             f"dense.dimension={dimension} không khớp model {model_name!r} "
             f"(dimension={models[model_name]['dimension']})"
         )
-    for key in ("backend", "collection"):
+    for key in ("backend", "collection", "index_dir"):
         if not isinstance(dense.get(key), str) or not dense[key].strip():
             raise ValueError(f"dense.{key} phải có giá trị không rỗng")
 
@@ -91,3 +91,14 @@ def load_settings(config_path: str | Path | None = None) -> dict[str, Any]:
     except (OSError, yaml.YAMLError) as exc:
         raise ValueError(f"Không đọc được config YAML {path}: {exc}") from exc
     return validate_settings(config)
+
+
+def resolve_rrf_k(value: int | None = None, *, settings: dict[str, Any] | None = None) -> int:
+    """Resolve RRF smoothing from an explicit override or the shared YAML config."""
+    resolved = value
+    if resolved is None:
+        effective_settings = settings if settings is not None else load_settings()
+        resolved = effective_settings["hybrid"]["rrf_k"]
+    if not isinstance(resolved, int) or isinstance(resolved, bool) or resolved < 0:
+        raise ValueError("rrf_k phải là số nguyên không âm")
+    return resolved

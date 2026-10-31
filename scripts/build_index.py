@@ -37,6 +37,7 @@ from embedding.vector_store import (  # noqa: E402
     chunk_file_sha256,
     index_metadata_path,
     normalize_chunk_record,
+    read_index_metadata,
 )
 from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings  # noqa: E402
 from retrieval.build_bm25_index import _validate_parent_links  # noqa: E402
@@ -65,6 +66,35 @@ def resolve_build_config(settings: dict[str, Any], *, input_override: str | None
         "collection": collection_override or dense["collection"],
         "index_dir": index_dir,
     }
+
+
+def validate_existing_index_for_build(
+    *,
+    point_count: int,
+    metadata: Dict[str, Any] | None,
+    expected: Dict[str, Any],
+    recreate: bool,
+) -> None:
+    """Refuse to mix a new model/corpus into an existing collection without explicit recreate."""
+    if recreate or point_count == 0:
+        return
+    if metadata is None:
+        raise ValueError(
+            "Collection Qdrant hiện có point nhưng thiếu metadata kiểm chứng; "
+            "dùng --recreate để thay toàn bộ collection sau khi xác nhận đúng đích."
+        )
+    mismatches = {
+        key: (metadata.get(key), expected_value)
+        for key, expected_value in expected.items()
+        if metadata.get(key) != expected_value
+    }
+    if point_count != expected["chunk_count"]:
+        mismatches["collection_point_count"] = (point_count, expected["chunk_count"])
+    if mismatches:
+        raise ValueError(
+            f"Collection Qdrant hiện có không khớp cấu hình/corpus ({mismatches}); "
+            "dùng --recreate để thay toàn bộ collection sau khi xác nhận đúng đích."
+        )
 
 
 def load_chunks_from_repo(input_path: Path | str | None = None, *,
@@ -211,6 +241,22 @@ def main() -> int:
             use_word_segmentation=use_word_seg,
             corpus_path=input_path,
             settings=settings,
+        )
+        validate_existing_index_for_build(
+            point_count=store.count(),
+            metadata=read_index_metadata(qdrant_path, collection) if store.persistent else None,
+            expected={
+                "collection_name": collection,
+                "model_name": model_name,
+                "dimension": dim,
+                "use_word_segmentation": use_word_seg,
+                "text_field": retriever.text_field,
+                "underthesea_version": underthesea_version() if use_word_seg else None,
+                "corpus_sha256": corpus_sha,
+                "chunk_count": len(chunks),
+                "mock_mode": args.mock,
+            },
+            recreate=args.recreate,
         )
     except Exception as exc:
         print(f"LỖI: Khởi tạo VectorStore/Retriever thất bại: {exc}", file=sys.stderr)

@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from retrieval.hybrid_retriever import (
     EmbeddingQdrantAdapter,
@@ -16,6 +17,13 @@ def hit(chunk_id, text=None, score=1.0):
 
 
 class HybridRetrieverTest(unittest.TestCase):
+    def test_rrf_defaults_come_from_shared_yaml(self):
+        with patch("retrieval.settings.load_settings", return_value={"hybrid": {"rrf_k": 23}}):
+            config = HybridSearchConfig(top_k=1, candidate_k=1)
+            fused = reciprocal_rank_fusion([[hit("from-yaml")]], top_k=1)
+        self.assertEqual(config.rrf_k, 23)
+        self.assertAlmostEqual(fused[0]["rrf_score"], 1 / 24)
+
     def test_elasticsearch_bm25_adapter_uses_match_and_returns_shared_chunk_shape(self):
         class ElasticsearchStub:
             class Indices:

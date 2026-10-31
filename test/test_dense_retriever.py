@@ -384,6 +384,7 @@ def test_persistent_store_checks_collection_and_metadata(tmp_path, sample_chunks
         "model_name": "BAAI/bge-m3", "dimension": 1024,
         "use_word_segmentation": False, "text_field": "embed_text_raw",
         "collection_name": "col", "chunk_count": 3, "corpus_sha256": corpus_sha256,
+        "mock_mode": True,
     }
     meta_path.write_text(json.dumps(meta), encoding="utf-8")
     reopened = LegalVectorStore(collection_name="col", dimension=1024, storage_path=storage)
@@ -392,6 +393,11 @@ def test_persistent_store_checks_collection_and_metadata(tmp_path, sample_chunks
         corpus_path=corpus_path,
     )
     assert retriever.verify_index()["corpus_sha256"] == corpus_sha256
+    with pytest.raises(ValueError, match="mock_mode"):
+        DenseRetriever(
+            vector_store=reopened, model_name="BAAI/bge-m3", use_mock=False,
+            corpus_path=corpus_path,
+        )
     with pytest.raises(ValueError, match="corpus_sha256"):
         retriever.verify_index(corpus_sha256="b" * 64)
     with pytest.raises(ValueError, match="model_name"):

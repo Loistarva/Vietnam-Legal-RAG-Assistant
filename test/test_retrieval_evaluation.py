@@ -21,6 +21,23 @@ RUN_CONFIG = {
 
 
 class RetrievalEvaluationTest(unittest.TestCase):
+    def test_duplicate_question_without_id_and_duplicate_query_id_are_rejected(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            dev_path = root / "dev.json"
+            rows = [
+                {"question": "same", "relevant_chunk_ids": ["A"]},
+                {"query": "same", "relevant_chunk_ids": ["B"]},
+            ]
+            dev_path.write_text(json.dumps(rows), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "thiếu id"):
+                evaluate(dev_path, root / "missing-results", root / "output")
+            rows[0]["id"] = "Q1"
+            rows[1]["query_id"] = "Q1"
+            dev_path.write_text(json.dumps(rows), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "id/query_id trùng"):
+                evaluate(dev_path, root / "missing-results", root / "output")
+
     def test_temporal_violation_rate_checks_effective_dates_and_counts_missing_metadata(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
@@ -31,7 +48,8 @@ class RetrievalEvaluationTest(unittest.TestCase):
             query = "historical question"
             as_of_date = "2024-06-01"
             dev_path.write_text(json.dumps([{
-                "query": query,
+                "id": "Q-HIST",
+                "question": query,
                 "as_of_date": as_of_date,
                 "relevant_chunk_ids": ["valid"],
             }]), encoding="utf-8")
@@ -45,12 +63,18 @@ class RetrievalEvaluationTest(unittest.TestCase):
                 {"chunk_id": "unknown", "text": "unknown", "metadata": {}},
             ]), encoding="utf-8")
             results_dir.mkdir()
+            temporal_config = {
+                **RUN_CONFIG,
+                "as_of_date": as_of_date,
+                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+            }
             for method in ("bm25", "dense", "hybrid"):
                 envelope = [{
                     "query_id": "Q-HIST",
                     "query": query,
                     "retriever": method,
-                    "config": {"as_of_date": as_of_date},
+                    "top_k": 10,
+                    "config": temporal_config,
                     "results": [
                         {"chunk_id": "valid", "score": 1.0, "rank": 1},
                         {"chunk_id": "future", "score": 0.9, "rank": 2},
