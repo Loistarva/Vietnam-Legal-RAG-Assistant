@@ -305,7 +305,7 @@ class LegalVectorStore:
     Vector Store hỗ trợ Qdrant (local disk / memory) và bộ nhớ trong (use_qdrant=False)
     phục vụ phát triển độc lập bằng mock/stub và chạy production.
     - Qdrant trên đĩa: mặc định chỉ mở collection đã có (create_if_missing=False), tên sai thì
-      báo lỗi thay vì tạo collection rỗng; build_index.py truyền create_if_missing=True, recreate=True.
+      báo lỗi thay vì tạo collection rỗng; build_index.py cho phép tạo mới và chỉ xóa khi có --recreate.
     - Qdrant ":memory:" luôn bắt đầu rỗng nên luôn tạo collection.
     """
 

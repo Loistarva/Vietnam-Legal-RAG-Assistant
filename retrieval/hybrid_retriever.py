@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 import inspect
+import json
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -10,6 +11,7 @@ from importlib.metadata import PackageNotFoundError, version as package_version
 from typing import Any, Protocol, Sequence
 
 from retrieval.rrf import reciprocal_rank_fusion
+from retrieval.settings import load_settings, resolve_rrf_k
 from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
 
 
@@ -19,27 +21,30 @@ BM25_TOKENIZER_VERSION = "9.5.0"
 BM25_TOKENIZER_NAME = "underthesea"
 
 
-def _segment_bm25_query(query: str) -> str:
+def _segment_bm25_query(query: str, *, tokenizer: str = BM25_TOKENIZER_NAME,
+                        tokenizer_version: str = BM25_TOKENIZER_VERSION) -> str:
     """Tách từ truy vấn bằng đúng phiên bản dùng để tạo corpus BM25."""
+    if tokenizer != BM25_TOKENIZER_NAME:
+        raise RuntimeError(f"BM25 chưa hỗ trợ tokenizer {tokenizer!r}.")
     try:
-        installed_version = package_version("underthesea")
+        installed_version = package_version(tokenizer)
     except PackageNotFoundError as exc:
         raise RuntimeError(
-            "BM25 cần underthesea==9.5.0 để tách từ truy vấn; "
+            f"BM25 cần {tokenizer}=={tokenizer_version} để tách từ truy vấn; "
             "hãy cài các gói trong requirements.txt."
         ) from exc
 
-    if installed_version != BM25_TOKENIZER_VERSION:
+    if installed_version != tokenizer_version:
         raise RuntimeError(
             "Phiên bản underthesea không khớp corpus BM25: "
-            f"yêu cầu {BM25_TOKENIZER_VERSION}, môi trường đang có {installed_version}."
+            f"yêu cầu {tokenizer_version}, môi trường đang có {installed_version}."
         )
 
     try:
         from underthesea import word_tokenize
     except ImportError as exc:
         raise RuntimeError(
-            "Không thể nạp underthesea==9.5.0 để tách từ truy vấn BM25."
+            f"Không thể nạp {tokenizer}=={tokenizer_version} để tách từ truy vấn BM25."
         ) from exc
 
     segmented_query = word_tokenize(query, format="text")
@@ -65,8 +70,16 @@ class Reranker(Protocol):
 class ElasticsearchBM25Retriever:
     """Sparse search adapter for an Elasticsearch child-chunk index."""
 
-    def __init__(self, client: Any, index: str, *, text_field: str = "content_segmented"):
-        self.client, self.index, self.text_field = client, index, text_field
+    def __init__(self, client: Any, index: str, *, text_field: str | None = None,
+                 settings: dict[str, Any] | None = None,
+                 expected_corpus_sha256: str | None = None):
+        settings = settings or load_settings()
+        bm25 = settings["bm25"]
+        self.client, self.index = client, index
+        self.text_field = text_field or bm25["text_field"]
+        self.tokenizer = bm25["tokenizer"]
+        self.tokenizer_version = str(bm25["tokenizer_version"])
+        self.expected_corpus_sha256 = expected_corpus_sha256
         self._tokenizer_metadata_verified = False
         self._index_metadata: dict[str, Any] = {}
 
@@ -84,10 +97,12 @@ class ElasticsearchBM25Retriever:
                 "Hãy dựng index bằng retrieval/build_bm25_index.py."
             ) from exc
         expected = {
-            "bm25_tokenizer": BM25_TOKENIZER_NAME,
-            "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
+            "bm25_tokenizer": self.tokenizer,
+            "bm25_tokenizer_version": self.tokenizer_version,
             "bm25_text_field": self.text_field,
         }
+        if self.expected_corpus_sha256 is not None:
+            expected["corpus_sha256"] = self.expected_corpus_sha256
         mismatches = {key: (metadata.get(key), value) for key, value in expected.items()
                       if metadata.get(key) != value}
         if mismatches:
@@ -121,7 +136,9 @@ class ElasticsearchBM25Retriever:
         raw_query = query.strip()
         as_of = normalize_as_of_date(as_of_date)
         self._verify_index_tokenizer()
-        segmented_query = _segment_bm25_query(raw_query)
+        segmented_query = _segment_bm25_query(
+            raw_query, tokenizer=self.tokenizer, tokenizer_version=self.tokenizer_version,
+        )
         response = self.client.search(index=self.index, size=top_k, query={
             "bool": {
                 "should": [
@@ -189,20 +206,68 @@ def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None 
 
 
 class RedisJSONCache:
-    """Small JSON cache adapter usable for query and reranker cache namespaces."""
+    """Fail-open Redis JSON cache; retrieval remains correct if the cache is down."""
 
     def __init__(self, client: Any, *, prefix: str, ttl_seconds: int = 3600):
+        if not isinstance(prefix, str) or not prefix.strip():
+            raise ValueError("Redis cache prefix phải là chuỗi không rỗng")
+        if not isinstance(ttl_seconds, int) or isinstance(ttl_seconds, bool) or ttl_seconds < 1:
+            raise ValueError("Redis cache TTL phải là số nguyên dương")
         self.client, self.prefix, self.ttl_seconds = client, prefix.rstrip(":"), ttl_seconds
 
     def get(self, key: str) -> Any:
-        import json
-        value = self.client.get(f"{self.prefix}:{key}")
-        return json.loads(value) if value is not None else None
+        cache_key = f"{self.prefix}:{key}"
+        try:
+            value = self.client.get(cache_key)
+        except Exception as exc:
+            logger.warning("Redis cache GET failed; treating as cache miss: %s", exc)
+            return None
+        if value is None:
+            return None
+        try:
+            if isinstance(value, bytes):
+                value = value.decode("utf-8")
+            return json.loads(value)
+        except (UnicodeDecodeError, json.JSONDecodeError, TypeError) as exc:
+            logger.warning("Invalid Redis cache entry %s; discarding it: %s", cache_key, exc)
+            try:
+                self.client.delete(cache_key)
+            except Exception:
+                logger.debug("Could not delete invalid Redis cache entry %s", cache_key, exc_info=True)
+            return None
 
     def set(self, key: str, value: Any) -> None:
-        import json
-        self.client.setex(f"{self.prefix}:{key}", self.ttl_seconds,
-                          json.dumps(value, ensure_ascii=False))
+        try:
+            payload = json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+            self.client.setex(f"{self.prefix}:{key}", self.ttl_seconds, payload)
+        except Exception as exc:
+            logger.warning("Redis cache SET failed; continuing without cache: %s", exc)
+
+
+def build_redis_json_cache(redis_url: str | None, *, prefix: str = "legal-rag:retrieval",
+                           ttl_seconds: int = 3600, timeout_seconds: float = 1.5) -> RedisJSONCache | None:
+    """Connect and ping Redis; if unavailable, log and run retrieval uncached."""
+    if not isinstance(prefix, str) or not prefix.strip():
+        raise ValueError("Redis cache prefix phải là chuỗi không rỗng")
+    if not isinstance(ttl_seconds, int) or isinstance(ttl_seconds, bool) or ttl_seconds < 1:
+        raise ValueError("Redis cache TTL phải là số nguyên dương")
+    if not isinstance(timeout_seconds, (int, float)) or isinstance(timeout_seconds, bool) or timeout_seconds <= 0:
+        raise ValueError("Redis timeout phải là số dương")
+    if not redis_url:
+        return None
+    try:
+        import redis
+
+        client = redis.Redis.from_url(
+            redis_url, decode_responses=True,
+            socket_connect_timeout=timeout_seconds, socket_timeout=timeout_seconds,
+        )
+        client.ping()
+        logger.info("Redis retrieval cache connected (%s)", prefix)
+        return RedisJSONCache(client, prefix=prefix, ttl_seconds=ttl_seconds)
+    except Exception as exc:
+        logger.warning("Redis unavailable; retrieval cache disabled (fail-open): %s", exc)
+        return None
 
 
 @dataclass(frozen=True)
@@ -211,7 +276,7 @@ class HybridSearchConfig:
 
     top_k: int = 10
     candidate_k: int = 50
-    rrf_k: int = 60
+    rrf_k: int | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.top_k, int) or isinstance(self.top_k, bool) or self.top_k < 1:
@@ -220,8 +285,7 @@ class HybridSearchConfig:
             raise ValueError("candidate_k phải là số nguyên lớn hơn 0")
         if self.candidate_k < self.top_k:
             raise ValueError("candidate_k phải >= top_k")
-        if not isinstance(self.rrf_k, int) or isinstance(self.rrf_k, bool) or self.rrf_k < 0:
-            raise ValueError("rrf_k phải là số nguyên không âm")
+        object.__setattr__(self, "rrf_k", resolve_rrf_k(self.rrf_k))
 
 
 class EmbeddingQdrantAdapter:
@@ -259,16 +323,15 @@ class HybridRetriever:
 
     def __init__(self, bm25_index: SparseRetriever, dense_retriever: DenseRetriever,
                  config: HybridSearchConfig | None = None, *, reranker: Reranker | None = None,
-                 parent_resolver: Any = None, confidence_filter: Any = None,
-                 metadata_filter: Any = None, cache: Any = None):
+                 metadata_filter: Any = None, cache: Any = None,
+                 cache_context: Mapping[str, Any] | None = None):
         self.bm25_index = bm25_index
         self.dense_retriever = dense_retriever
         self.config = config or HybridSearchConfig()
         self.reranker = reranker
-        self.parent_resolver = parent_resolver
-        self.confidence_filter = confidence_filter
         self.metadata_filter = metadata_filter
         self.cache = cache
+        self.cache_context = dict(cache_context or {})
 
     def retrieve(self, query: str, top_k: int | None = None, *,
                  as_of_date: str | None = None) -> dict[str, list[dict[str, Any]]]:
@@ -288,22 +351,64 @@ class HybridRetriever:
             normalized = " ".join(query.casefold().split())
             # Kết quả phụ thuộc cả cấu hình fusion, bộ lọc metadata và reranker, nên khóa cache gồm
             # cả ba; bộ lọc/reranker nên khai báo cache_key ổn định, nếu không thì dùng tên lớp.
+            def stable_value(value: Any) -> Any:
+                if value is None or isinstance(value, (str, int, float, bool)):
+                    return value
+                if isinstance(value, Mapping):
+                    return {str(key): stable_value(item) for key, item in sorted(value.items(), key=lambda pair: str(pair[0]))}
+                if isinstance(value, (list, tuple, set, frozenset)):
+                    values = [stable_value(item) for item in value]
+                    return sorted(values, key=lambda item: json.dumps(item, ensure_ascii=False, sort_keys=True)) \
+                        if isinstance(value, (set, frozenset)) else values
+                describe = getattr(value, "describe", None)
+                if callable(describe):
+                    return stable_value(describe())
+                if callable(value):
+                    code = getattr(value, "__code__", None)
+                    closure = getattr(value, "__closure__", None) or ()
+                    return {
+                        "module": getattr(value, "__module__", ""),
+                        "qualname": getattr(value, "__qualname__", type(value).__qualname__),
+                        "defaults": stable_value(getattr(value, "__defaults__", None)),
+                        "kwdefaults": stable_value(getattr(value, "__kwdefaults__", None)),
+                        "closure": [stable_value(cell.cell_contents) for cell in closure],
+                        "code": code.co_code.hex() if code else None,
+                        "constants": stable_value(code.co_consts) if code else None,
+                    }
+                state = getattr(value, "__dict__", None)
+                if isinstance(state, dict):
+                    return {key: stable_value(item) for key, item in sorted(state.items())
+                            if not key.startswith("_") and key != "client"}
+                return str(value)
+
             def component_key(component: Any) -> str:
                 if component is None:
                     return "none"
-                return str(getattr(component, "cache_key", None) or getattr(component, "__qualname__", None)
-                           or type(component).__qualname__)
+                declared_key = getattr(component, "cache_key", None)
+                if declared_key is not None:
+                    return str(declared_key)
+                return json.dumps({
+                    "type": f"{type(component).__module__}.{type(component).__qualname__}",
+                    "state": stable_value(component),
+                }, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
 
             key_text = "|".join([
-                normalized, f"as_of_date={as_of}", f"top_k={requested_top_k}",
+                "cache_schema=2", normalized, f"as_of_date={as_of}", f"top_k={requested_top_k}",
                 f"candidate_k={self.config.candidate_k}",
                 f"rrf_k={self.config.rrf_k}", f"filter={component_key(self.metadata_filter)}",
                 f"reranker={component_key(self.reranker)}",
+                "context=" + json.dumps(self.cache_context, ensure_ascii=False, sort_keys=True,
+                                         separators=(",", ":"), default=str),
             ])
             cache_key = hashlib.sha256(key_text.encode("utf-8")).hexdigest()
             cached = self.cache.get(cache_key)
             if cached is not None:
-                return cached
+                expected_sections = ("bm25", "dense", "fused", "hybrid")
+                if isinstance(cached, dict) and all(
+                    isinstance(cached.get(section), list) for section in expected_sections
+                ):
+                    return cached
+                logger.warning("Ignoring Redis retrieval cache entry with an incompatible schema")
 
         # Sparse and dense branches are independent in the system architecture.
         def search_branch(retriever: Any) -> list[dict[str, Any]]:
@@ -351,10 +456,6 @@ class HybridRetriever:
             else:
                 fused = self.metadata_filter(fused)
         final = self.reranker.rerank(query, fused, requested_top_k) if self.reranker else fused[:requested_top_k]
-        if self.confidence_filter is not None:
-            final = self.confidence_filter(query, final)
-        if self.parent_resolver is not None:
-            final = self.parent_resolver.resolve(final)
         result = {
             "bm25": lexical_hits[:requested_top_k],
             "dense": dense_hits[:requested_top_k],
@@ -379,7 +480,7 @@ def hybrid_search(
     *,
     top_k: int = 10,
     candidate_k: int = 50,
-    rrf_k: int = 60,
+    rrf_k: int | None = None,
     as_of_date: str | None = None,
 ) -> list[dict[str, Any]]:
     """Compatibility helper around HybridRetriever and the Qdrant adapter."""

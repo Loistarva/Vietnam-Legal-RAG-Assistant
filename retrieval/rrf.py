@@ -3,15 +3,16 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 
+from retrieval.settings import resolve_rrf_k
+
 
 def reciprocal_rank_fusion(
-    rankings: Sequence[Sequence[dict[str, Any]]], *, top_k: int = 10, rrf_k: int = 60
+    rankings: Sequence[Sequence[dict[str, Any]]], *, top_k: int = 10, rrf_k: int | None = None
 ) -> list[dict[str, Any]]:
     """Fuse ranked result lists by chunk_id, summing 1 / (rrf_k + rank)."""
     if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k < 1:
         raise ValueError("top_k phải là số nguyên lớn hơn 0")
-    if not isinstance(rrf_k, int) or isinstance(rrf_k, bool) or rrf_k < 0:
-        raise ValueError("rrf_k phải là số nguyên không âm")
+    rrf_k = resolve_rrf_k(rrf_k)
     fused: dict[str, dict[str, Any]] = {}
     for source_index, hits in enumerate(rankings):
         source_name = ("bm25", "dense")[source_index] if source_index < 2 else f"source_{source_index + 1}"
