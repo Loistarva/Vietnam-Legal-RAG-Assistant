@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 import yaml
 
-from retrieval.settings import load_settings, validate_settings
+from retrieval.settings import load_settings, resolve_rrf_k, validate_settings
 from scripts.build_index import resolve_build_config, validate_existing_index_for_build
 from retrieval.retrieval_evaluation import evaluate
 
@@ -48,6 +48,14 @@ class RetrievalSettingsTest(unittest.TestCase):
         config["hybrid"]["fusion"] = "weighted"
         with self.assertRaisesRegex(ValueError, "chỉ hỗ trợ 'rrf'"):
             validate_settings(config)
+
+    def test_rrf_k_must_be_positive_in_yaml_and_overrides(self):
+        config = copy.deepcopy(load_settings())
+        config["hybrid"]["rrf_k"] = 0
+        with self.assertRaisesRegex(ValueError, "số nguyên dương"):
+            validate_settings(config)
+        with self.assertRaisesRegex(ValueError, "số nguyên dương"):
+            resolve_rrf_k(0)
 
     def test_invalid_yaml_file_fails_clearly(self):
         with tempfile.TemporaryDirectory() as directory:

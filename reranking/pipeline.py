@@ -397,7 +397,8 @@ def build_mock_dense_retriever(chunks_path: str | Path) -> CandidateRetriever:
 def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: str | None,
                            elasticsearch_index: str | None = None, qdrant_path: str | None = None,
                            collection: str | None = None,
-                           dense_model: str | None = None) -> CandidateRetriever:
+                           dense_model: str | None = None, cache: Any = None,
+                           cache_context: Mapping[str, Any] | None = None) -> CandidateRetriever:
     """Real Hybrid retriever (Dev 4): Elasticsearch BM25 + Qdrant dense + RRF, no internal reranker.
 
     The pipeline owns reranking, so HybridRetriever returns its fused top
@@ -405,7 +406,7 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
     """
     from embedding.dense_retriever import DenseRetriever
     from embedding.model_registry import ModelRegistry
-    from embedding.vector_store import LegalVectorStore
+    from embedding.vector_store import LegalVectorStore, chunk_file_sha256
     from retrieval.hybrid_retriever import ElasticsearchBM25Retriever, HybridRetriever, HybridSearchConfig
 
     if not elasticsearch_url:
@@ -430,7 +431,6 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
         raise ConnectionError(f"Không kết nối được Elasticsearch tại {elasticsearch_url}")
     if not client.indices.exists(index=index):
         raise ValueError(f"Elasticsearch index không tồn tại: {index}")
-    from embedding.vector_store import chunk_file_sha256
     corpus_path = Path(settings["corpus_path"])
     if not corpus_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy corpus cấu hình: {corpus_path}")
@@ -451,7 +451,23 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
 
     top_k = settings["retrieval_top_k"]
     config = HybridSearchConfig(top_k=top_k, candidate_k=top_k, rrf_k=settings["rrf_k"])
-    return HybridRetriever(sparse, dense, config)
+    effective_cache_context = {
+        "dense_model": model,
+        "dense_dimension": model_spec["dimension"],
+        "dense_use_word_segmentation": model_spec["use_word_segmentation"],
+        "dense_text_field": model_spec["text_field"],
+        "qdrant_collection": actual_collection,
+        "elasticsearch_index": index,
+        "bm25_text_field": settings["bm25_text_field"],
+        "bm25_tokenizer": settings["bm25_tokenizer"],
+        "bm25_tokenizer_version": settings["bm25_tokenizer_version"],
+        "corpus_sha256": chunk_file_sha256(corpus_path),
+        "fusion": settings["fusion"],
+        "candidate_k": top_k,
+        "rrf_k": settings["rrf_k"],
+    }
+    effective_cache_context.update(dict(cache_context or {}))
+    return HybridRetriever(sparse, dense, config, cache=cache, cache_context=effective_cache_context)
 
 
 __all__ = [

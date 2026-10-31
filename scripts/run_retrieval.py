@@ -43,6 +43,7 @@ from reranking.pipeline import (  # noqa: E402
 )
 from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
+from retrieval.hybrid_retriever import build_redis_json_cache  # noqa: E402
 
 logger = logging.getLogger("run_retrieval")
 RETRIEVERS = ("hybrid", "precomputed", "mock", "fixture")
@@ -92,6 +93,10 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--collection", default=None,
                         help="Ghi đè dense.collection; mặc định dùng retrieval/config.yaml")
     parser.add_argument("--dense-model", default=None, help="Ghi đè dense.model của retrieval/config.yaml")
+    parser.add_argument("--redis-url", default=os.getenv("REDIS_URL"),
+                        help="Bật Redis retrieval cache; mặc định lấy REDIS_URL, bỏ trống thì không dùng cache")
+    parser.add_argument("--cache-prefix", default="legal-rag:retrieval")
+    parser.add_argument("--cache-ttl", type=int, default=3600, help="TTL Redis cache tính bằng giây")
     parser.add_argument("--output", type=Path, default=None, help="Ghi JSON ra file thay vì stdout")
     parser.add_argument("--eval-output", type=Path, default=None,
                         help="Ghi thêm [{query_id, retrieved_chunk_ids}] cho evaluation.metrics.evaluate (Dev 2)")
@@ -185,15 +190,23 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
             actual_qdrant_path = ROOT / actual_qdrant_path
         from embedding.model_registry import ModelRegistry
         model_dimension = ModelRegistry(settings["shared_config"]).get_model(actual_model)["dimension"]
+        cache = build_redis_json_cache(
+            args.redis_url, prefix=args.cache_prefix, ttl_seconds=args.cache_ttl,
+        )
+        cache_context = {
+            "reranker": reranker.describe() if reranker is not None else {"enabled": False},
+        }
         retriever = build_hybrid_retriever(
             settings, elasticsearch_url=args.elasticsearch_url, elasticsearch_index=args.elasticsearch_index,
-            qdrant_path=str(actual_qdrant_path), collection=actual_collection, dense_model=actual_model)
+            qdrant_path=str(actual_qdrant_path), collection=actual_collection, dense_model=actual_model,
+            cache=cache, cache_context=cache_context)
         retriever_settings.update(rrf_k=settings["rrf_k"], dense_model=actual_model,
                                   dimension=model_dimension,
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
                                   qdrant_storage_path=str(actual_qdrant_path),
-                                  corpus_path=settings["corpus_path"], fusion=settings["fusion"])
+                                  corpus_path=settings["corpus_path"], fusion=settings["fusion"],
+                                  retrieval_cache="redis" if cache is not None else "disabled")
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
                              retriever_name=retriever_name, retriever_settings=retriever_settings,
                              parent_resolver=parent_resolver)

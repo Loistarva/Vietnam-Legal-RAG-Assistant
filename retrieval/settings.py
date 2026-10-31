@@ -99,6 +99,6 @@ def resolve_rrf_k(value: int | None = None, *, settings: dict[str, Any] | None =
     if resolved is None:
         effective_settings = settings if settings is not None else load_settings()
         resolved = effective_settings["hybrid"]["rrf_k"]
-    if not isinstance(resolved, int) or isinstance(resolved, bool) or resolved < 0:
-        raise ValueError("rrf_k phải là số nguyên không âm")
+    if not isinstance(resolved, int) or isinstance(resolved, bool) or resolved < 1:
+        raise ValueError("rrf_k phải là số nguyên dương")
     return resolved
