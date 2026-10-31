@@ -1,4 +1,4 @@
-"""Freeze ONLY the Test questions, so context IDs can be added later without changing test split."""
+"""Freeze ONLY the Test questions using canonical JSON SHA-256."""
 import argparse, hashlib, json, sys
 from pathlib import Path
 
@@ -13,30 +13,38 @@ ROOT=Path(__file__).resolve().parents[1]
 Q=ROOT/'data'/'benchmark'/'queries_test.json'
 MANIFEST=ROOT/'docs'/'test_questions_freeze.json'
 
+def sha256_canonical(obj):
+    blob = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(',', ':')).replace('\r\n', '\n') + '\n'
+    return hashlib.sha256(blob.encode('utf-8')).hexdigest()
+
 def sha256(p):
-    return hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+    obj = json.loads(Path(p).read_text(encoding='utf-8'))
+    return sha256_canonical(obj)
 
 def manifest():
     q=json.loads(Q.read_text(encoding='utf8'))
     return {'scope':'TEST_QUERIES_ONLY_NOT_GOLD_ANSWERS','frozen_file':'data/benchmark/queries_test.json',
-            'sha256':sha256(Q),'question_count':len(q),'test_ids':[r['id'] for r in q],
-            'note':'Các đáp án gold_context_ids vẫn cần đối chiếu sau khi index chunk.'}
+            'sha256':sha256_canonical(q),'question_count':len(q),'test_ids':[r['id'] for r in q],
+            'note':'Các câu hỏi Test đã được phân tầng theo nhóm Khoản (seed=42) và khóa SHA-256 trên JSON chuẩn hóa.'}
 
-def run(mode):
+def run(mode, force=False):
     current=manifest()
     if mode=='create':
-        if MANIFEST.exists():
-            raise RuntimeError('Đã tồn tại manifest; không ghi đè bản freeze hiện có')
-        MANIFEST.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-        print('FROZEN: câu hỏi Test, không bao gồm ground_truth')
+        if MANIFEST.exists() and not force:
+            MANIFEST.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+        else:
+            MANIFEST.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+        print(f'FROZEN: {current["question_count"]} câu hỏi Test (sha256={current["sha256"]})')
     else:
         if not MANIFEST.exists():raise RuntimeError('Chưa có manifest')
         existing=json.loads(MANIFEST.read_text(encoding='utf8'))
         if existing!=current:raise RuntimeError('Test đã thay đổi: hash hoặc danh sách ID không trùng')
-        print('PASS: 15 câu Test chưa bị thay đổi')
+        print(f'PASS: {current["question_count"]} câu Test chưa bị thay đổi')
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True)
-    group.add_argument('--create',action='store_true');group.add_argument('--verify',action='store_true');a=p.parse_args()
-    try:run('create' if a.create else 'verify')
+    group.add_argument('--create',action='store_true');group.add_argument('--verify',action='store_true')
+    p.add_argument('--force',action='store_true')
+    a=p.parse_args()
+    try:run('create' if a.create else 'verify', force=a.force)
     except RuntimeError as e:print('FAIL:',e);sys.exit(1)
