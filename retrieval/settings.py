@@ -59,11 +59,9 @@ def validate_settings(config: Any) -> dict[str, Any]:
     model_name = dense.get("model")
     if model_name not in models:
         raise ValueError(f"Model Dense chưa được đăng ký: {model_name!r}")
-    dimension = _positive_int(dense.get("dimension"), "dense.dimension")
-    if dimension != models[model_name]["dimension"]:
+    if "dimension" in dense:
         raise ValueError(
-            f"dense.dimension={dimension} không khớp model {model_name!r} "
-            f"(dimension={models[model_name]['dimension']})"
+            "Không khai báo dense.dimension; số chiều lấy từ dense.supported_models.<model>.dimension"
         )
     for key in ("backend", "collection", "index_dir"):
         if not isinstance(dense.get(key), str) or not dense[key].strip():

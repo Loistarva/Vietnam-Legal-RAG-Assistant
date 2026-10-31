@@ -37,10 +37,10 @@ class RetrievalSettingsTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "chưa được đăng ký"):
             validate_settings(config)
 
-    def test_dimension_must_match_default_model(self):
+    def test_dense_dimension_key_is_rejected(self):
         config = copy.deepcopy(load_settings())
-        config["dense"]["dimension"] = 768
-        with self.assertRaisesRegex(ValueError, "không khớp model"):
+        config["dense"]["dimension"] = 1024
+        with self.assertRaisesRegex(ValueError, "Không khai báo dense.dimension"):
             validate_settings(config)
 
     def test_only_rrf_fusion_is_supported(self):

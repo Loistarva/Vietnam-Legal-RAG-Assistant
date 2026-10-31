@@ -364,7 +364,7 @@ def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) ->
         "bm25_tokenizer": shared["bm25"]["tokenizer"],
         "bm25_tokenizer_version": str(shared["bm25"]["tokenizer_version"]),
         "dense_model": shared["dense"]["model"],
-        "dimension": shared["dense"]["dimension"],
+        "dimension": shared["dense"]["supported_models"][shared["dense"]["model"]]["dimension"],
         "collection": shared["dense"]["collection"],
         "index_dir": index_dir,
         "qdrant_storage_path": index_dir / "qdrant_storage",
@@ -418,7 +418,6 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
     model_spec = registry.get_model(model)
     dense_settings = copy.deepcopy(shared)
     dense_settings["dense"]["model"] = model
-    dense_settings["dense"]["dimension"] = model_spec["dimension"]
     try:
         from elasticsearch import Elasticsearch
     except ImportError as exc:
