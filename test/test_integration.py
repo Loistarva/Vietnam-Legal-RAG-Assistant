@@ -277,13 +277,22 @@ class RetrievalConfigTest(unittest.TestCase):
         self.assertEqual(settings["retrieval_top_k"], 50)
         self.assertEqual(settings["rrf_k"], 60)
 
-    def test_retrieval_top_k_key_takes_precedence_over_candidate_k(self):
+    def test_shared_config_rejects_legacy_candidate_k(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "config.yaml"
-            path.write_text("retrieval:\n  retrieval_top_k: 100\nhybrid:\n  candidate_k: 50\n  rrf_k: 10\n",
-                            encoding="utf-8")
-            settings = load_retrieval_settings(path)
-        self.assertEqual((settings["retrieval_top_k"], settings["rrf_k"]), (100, 10))
+            import yaml
+            from retrieval.settings import DEFAULT_CONFIG_PATH
+            config = yaml.safe_load(DEFAULT_CONFIG_PATH.read_text(encoding="utf-8"))
+            config["hybrid"]["candidate_k"] = 50
+            path.write_text(yaml.safe_dump(config), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "candidate_k/top_k"):
+                load_retrieval_settings(path)
+
+    def test_loads_collection_and_storage_from_shared_config(self):
+        settings = load_retrieval_settings()
+        self.assertEqual(settings["collection"], settings["shared_config"]["dense"]["collection"])
+        self.assertEqual(settings["dimension"], 1024)
+        self.assertEqual(settings["qdrant_storage_path"].name, "qdrant_storage")
 
 
 class CliTest(unittest.TestCase):

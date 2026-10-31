@@ -1,10 +1,24 @@
+retrieval:
+  # Số ứng viên đầu vào mỗi nhánh retrieval.
+  retrieval_top_k: 50
+  # Số kết quả cuối cùng sau fusion/reranking.
+  result_top_k: 10
+  # Đường dẫn tương đối trong config luôn tính từ thư mục gốc repository.
+  corpus_path: data/chunking_output/chunks.jsonl
+
 bm25:
   backend: elasticsearch
-  text_field: content_segmented
   index: legal-child-chunks-dev
+  text_field: content_segmented
+  tokenizer: underthesea
+  tokenizer_version: 9.5.0
+
 dense:
   backend: qdrant
   model: BAAI/bge-m3
+  collection: vietnam_legal_chunks
+  dimension: 1024
+  index_dir: data/indexes
   supported_models:
     BAAI/bge-m3:
       dimension: 1024
@@ -18,9 +32,7 @@ dense:
       dimension: 1024
       use_word_segmentation: false
       text_field: embed_text_raw
+
 hybrid:
-  candidate_k: 50
-  top_k: 10
+  fusion: rrf
   rrf_k: 60
-retrieval:
-  retrieval_top_k: 50

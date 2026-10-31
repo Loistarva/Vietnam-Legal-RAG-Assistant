@@ -30,8 +30,13 @@ def manifest():
 def run(mode, force=False):
     current=manifest()
     if mode=='create':
-        if MANIFEST.exists() and not force:
-            raise RuntimeError('Đã tồn tại manifest; chỉ đóng băng lại với --force và ghi lý do vào docs/sprint6_benchmark.md mục 6')
+        if MANIFEST.exists():
+            existing=json.loads(MANIFEST.read_text(encoding='utf8'))
+            if existing==current:
+                print(f'PASS: manifest đã khớp ({current["question_count"]} câu Test)')
+                return
+            if not force:
+                raise RuntimeError('Manifest Test đã tồn tại và khác nội dung; dùng --force nếu chủ đích thay freeze')
         MANIFEST.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print(f'FROZEN: {current["question_count"]} câu hỏi Test (sha256={current["sha256"]})')
     else:
