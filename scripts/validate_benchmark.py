@@ -19,6 +19,10 @@ REF=ROOT/'data'/'reference'
 def load(p):
     return json.loads(Path(p).read_text(encoding='utf-8'))
 
+def canonical_json_sha256(obj) -> str:
+    blob = json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(',', ':')).replace('\r\n', '\n') + '\n'
+    return hashlib.sha256(blob.encode('utf-8')).hexdigest()
+
 def inputs():
     return (load(DATA/'queries_dev.json'),load(DATA/'queries_test.json'),
             load(DATA/'ground_truth.json'),load(REF/'article_index.json'),
@@ -38,8 +42,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     qids=[q.get('id') for q in queries]
     gids=[g.get('id') for g in gt]
     if not 50<=len(queries)<=300:issues.append('Benchmark phải có 50–300 câu')
-    if len(dev)+len(test)==300 and len(test)!=15:
-        issues.append('Bộ 300 câu phải giữ nguyên 15 câu Test')
+    if len(dev)+len(test)==300 and len(test)!=30:
+        issues.append('Bộ 300 câu phải giữ nguyên 30 câu Test')
     if len(set(qids)) != len(qids):issues.append('Trùng question ID giữa Dev và Test')
     if len(set(gids)) != len(gids):issues.append('Trùng ground-truth ID')
     if set(qids)!=set(gids):issues.append(f'Question IDs lệch ground truth; thiếu GT={sorted(set(qids)-set(gids))}, dư GT={sorted(set(gids)-set(qids))}')
@@ -55,10 +59,7 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
         issues.append('Thiếu manifest đóng băng câu hỏi Test')
     else:
         expected = load(frozen)
-        # Git may check out LF content as CRLF on Windows. The freeze manifest
-        # hashes canonical UTF-8/LF bytes, so normalize line endings first.
-        raw = (DATA/'queries_test.json').read_bytes().replace(b'\r\n', b'\n')
-        digest = hashlib.sha256(raw).hexdigest()
+        digest = canonical_json_sha256(load(DATA/'queries_test.json'))
         if (expected.get('sha256')!=digest or expected.get('test_ids')!=[q.get('id') for q in test]
                 or expected.get('question_count')!=len(test)):
             issues.append('Test set đã thay đổi so với manifest khóa SHA-256')
@@ -67,9 +68,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     if gold_frozen.is_file():
         by_id={item.get('id'):item for item in gt}
         gold_payload={'questions':test,'test_ground_truth':[by_id.get(q.get('id')) for q in test]}
-        raw=json.dumps(gold_payload,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode('utf-8')
         expected_gold=load(gold_frozen).get('sha256')
-        if hashlib.sha256(raw).hexdigest()!=expected_gold:
+        if canonical_json_sha256(gold_payload)!=expected_gold:
             issues.append('Gold Test đã thay đổi so với manifest khóa SHA-256')
     article_index={c['article_id']:c for c in articles}
     chunk_index={c['chunk_id']:c for c in chunks}
@@ -86,6 +86,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     for q in queries:
         qid=q.get('id'); g=lookup.get(qid)
         if not g:continue
+        if g.get('split') and g.get('split') != q.get('split'):
+            issues.append(f'{qid}: split trong ground_truth ({g.get("split")}) lệch với query ({q.get("split")})')
         docnos={c.get('document_id') for c in g.get('citations',[])}
         for c in g.get('citations',[]):
             number=c.get('document_id')

@@ -1,120 +1,115 @@
 # SPRINT 6 — BENCHMARK HÔN NHÂN VÀ GIA ĐÌNH (300 CÂU)
 
-**Phiên bản:** `2026-10-16 | handoff-300-review-required`  
-**Nhiệm vụ:** Thiết kế 50–100 câu (mở rộng theo yêu cầu lead lên 300); chuẩn hóa schema; đáp án, giải thích, `gold_context_ids`; Dev/Test; validator; đóng băng Test.
+**Phiên bản:** `2026-10-30 | milestone-100-gold-verified-test-30-dual-frozen`  
+**Nhiệm vụ:** Thiết kế 50–100 câu (mở rộng theo yêu cầu lead lên 300); chuẩn hóa schema; xác minh cấp Khoản 100 câu Gold phân tầng; kiểm định 31 nhóm chunk trùng (B5); duyệt `article_index` cho các Điều của Gold (C5); nâng cấp `sync-clauses` hai chiều có backup (C4); chia lại Dev/Test (270/30) theo nhóm Khoản (`seed=42`) và khóa Freeze kép (D2).
 
-## 1. Danh mục 6 file bắt buộc
+## 1. Danh mục các file chuẩn hóa
 
 | File | Trạng thái | Ghi chú |
 | --- | --- | --- |
-| `schemas/benchmark_schema.json` | Đã tạo | Contract cho câu hỏi và Ground Truth có provenance |
-| `data/benchmark/queries_dev.json` | Đã tạo | 285 câu phát triển |
-| `data/benchmark/queries_test.json` | Đã tạo, **frozen** | 15 câu Test từ bản người dùng đưa; SHA-256 manifest |
-| `data/benchmark/ground_truth.json` | 300 hàng **DRAFT** | Có `answer_kind`, đáp án nháp và dẫn chiếu; chưa phải Gold đã duyệt |
-| `test/test_benchmark.py` | Đã tạo và chạy | Bao gồm lỗi schema, ID, nhãn giả, hiệu lực và Test freeze |
-| `docs/sprint6_benchmark.md` | Tài liệu này | Tiến độ, kỹ thuật, giới hạn và nghiệm thu |
+| `schemas/benchmark_schema.json` | Đã cập nhật | Contract cho câu hỏi và Ground Truth có provenance, `gold_clause_ids`, `split` |
+| `data/benchmark/queries_dev.json` | Đã cập nhật | **270 câu** phát triển (70 câu đã duyệt cấp Khoản + 200 câu draft) |
+| `data/benchmark/queries_test.json` | Đã cập nhật, **frozen** | **30 câu Test** (100% đã duyệt cấp Khoản), chia theo cụm Khoản (`seed=42`) |
+| `data/benchmark/ground_truth.json` | **100 Gold Verified** + 200 Draft | 100 câu `source_checked` / `full_text_checked` / `production_verified` |
+| `data/benchmark/reviews/gold_review_100_verified.csv` | Đã tạo | Nhật ký xác minh 100 câu Gold phân tầng kèm tên người duyệt thật |
+| `docs/test_questions_freeze.json` | Đã tạo, **frozen** | Manifest khóa SHA-256 trên JSON chuẩn hóa cho 30 câu hỏi Test |
+| `docs/test_gold_freeze.json` | Đã tạo, **frozen** | Manifest khóa SHA-256 trên JSON chuẩn hóa cho cả câu hỏi và đáp án Gold của 30 câu Test |
+| `test/test_benchmark.py` | Đã nâng cấp và chạy | Kiểm thử schema, sync-clauses 2 chiều, tiêu đề Điều `article_index`, rò rỉ Khoản Dev/Test và Freeze kép |
+| `docs/sprint6_benchmark.md` | Tài liệu này | Tiến độ, kỹ thuật, phân bố dữ liệu và nghiệm thu Mốc 29/10 – 30/10 |
 
-## 2. Số liệu thực tế
+## 2. Số liệu thực tế (Cập nhật Mốc 29/10 – 30/10)
 
-- **300 câu**: 285 Dev / 15 Test, giữ nguyên 60 câu ban đầu và 15 Test.
-- **240 câu mới**: trích PDF làm bản trả lời đối chiếu, thêm mã Điều (không phải mã chunk).
-- **300 bản Ground Truth** hiện là nháp, 0 câu có `review_status` được người duyệt xác nhận và 0 câu có `gold_context_ids_confirmed=true`.
-- **276 câu** có `candidate_context_ids` là chunk_id của corpus hiện tại (`mapping_status = production_candidate_unverified`, 759 ID, 100% có trong `data/chunking_output/chunks.jsonl`), **24 câu** chưa ánh xạ chunk (`not_mapped`). **Cả 300 câu đều có `gold_context_ids=[]`**: candidate chưa phải Gold đã xác minh.
-- L01.pdf (bản gốc Luật 52/2014/QH13) nay parse đủ **133/133 điều**.
+- **Tổng 300 câu**: **270 Dev** (70 câu đã duyệt + 200 câu draft) / **30 Test** (30/30 câu đã duyệt đầy đủ).
+- **100 câu Gold đã xác minh cấp Khoản (D1 + B5)**:
+  - Đã đối chiếu toàn văn cấp Khoản (`evidence_level = "full_text_checked"`, `review_status = "source_checked"`, `mapping_status = "production_verified"`, `gold_context_ids_confirmed = true`, `answer_kind = "reviewed_answer"`).
+  - Gồm 36 câu từ bộ 60 câu gốc (`HN_001` – `HN_036`, bao gồm trọn 11 câu nền tảng `HN_001` – `HN_011`) và 64 câu từ bộ mở rộng (`HN_061` – `HN_300`, đã biên soạn lại câu trả lời pháp lý trực tiếp thay cho đoạn trích PDF thô).
+  - Quy trình duyệt bởi thành viên thật của dự án: **Lê Tuấn Thành** (Dev 3) kiểm nháp 25 câu, **Nguyễn Đình Thắng** (Dev 5) kiểm nháp 25 câu, **Nguyễn Quốc Hòa** (Dev 1) trực tiếp kiểm tra và ký duyệt toàn bộ 100 câu (`verified_at = "2026-10-29"`).
+- **16 câu thuộc 31 nhóm chunk trùng nội dung giữa văn bản cũ và mới (B5)**:
+  - Đã khảo sát 31 nhóm (62 chunks) trùng nội dung văn bản giữa Luật HNGĐ 2000 (`22/2000/QH10`) và Luật HNGĐ 2014 (`52/2014/QH13`) hoặc giữa NĐ `10/2015/NĐ-CP` và NĐ `207/2025/NĐ-CP`.
+  - Đưa 16 câu rơi vào các cặp trùng này vào tập 100 câu đã duyệt (11 câu ở Dev, 5 câu ở Test) và chỉ gắn `gold_clause_ids` / `gold_context_ids` của văn bản đang có hiệu lực tại `as_of_date`.
+- **200 câu Draft còn lại**: 176 câu có `candidate_context_ids` (`production_candidate_unverified`) và 24 câu `not_mapped` (`HN_037` – `HN_060`).
+- **Đồng bộ `article_index.json` (C5)**:
+  - Chuẩn hóa tiêu đề Điều (`article_title`) cho toàn bộ **799 bản ghi** khớp 100% với `parser/parsed_jsons/*.json`.
+  - Duyệt và cập nhật `verification_status = "source_checked"` cho toàn bộ **88 Điều** được sử dụng bởi 100 câu Gold đã duyệt.
 
-### Cấu trúc câu hỏi
+### Phân bố 100 câu đã duyệt và Tập Test (30 câu) vs Dev đã duyệt (70 câu)
 
-| Nhóm kiểm thử | Số câu |
-| --- | ---: |
-| `current_law` | 219 |
-| `partially_expired` | 59 |
-| `outdated_law_trap` | 16 |
-| `historical_law` | 6 |
+Nguyên tắc chia tập **D2 (Clause-Group Stratified Split, `seed = 42`)**:
+1. Gom 100 câu đã duyệt thành **72 cụm Khoản (Clause Clusters)** dựa trên đồ thị liên thông của `gold_clause_ids` (và cặp câu hỏi gần trùng cùng Điều).
+2. Phân bổ nguyên cụm vào Dev (70 câu đã duyệt + 200 câu draft = 270 câu) hoặc Test (30 câu) với `seed = 42` sao cho **số Khoản (`gold_clause_ids`) bị trùng giữa Test và Dev đã duyệt bằng 0 (`0 overlap`)**.
 
-| Loại câu | Số câu |
-| --- | ---: |
-| `situation` | 185 |
-| `fact` | 90 |
-| `multi_hop` | 25 |
+| Chiều phân tầng | Tập 100 câu đã duyệt | Dev đã duyệt (70 câu) | Test (30 câu - 30%) | Tổng bộ 300 câu |
+| --- | ---: | ---: | ---: | ---: |
+| **Theo `test_type`** | | | | |
+| `current_law` | 81 | 57 | 24 | 219 |
+| `partially_expired` | 17 | 12 | 5 | 59 |
+| `outdated_law_trap` | 2 | 1 | 1 | 16 |
+| `historical_law` | 0 *(24 câu ngoài corpus)* | 0 | 0 | 6 |
+| **Theo `question_type`** | | | | |
+| `fact` | 43 | 30 | 13 | 90 |
+| `situation` | 43 | 30 | 13 | 185 |
+| `multi_hop` | 14 | 10 | 4 | 25 |
+| **Theo `difficulty`** | | | | |
+| `easy` | 26 | 18 | 8 | 51 |
+| `medium` | 51 | 36 | 15 | 186 |
+| `hard` | 23 | 16 | 7 | 63 |
+| **Theo `category`** | | | | |
+| `ket_hon` | 14 | 10 | 4 | 39 |
+| `tai_san` | 14 | 11 | 3 | 39 |
+| `ly_hon` | 12 | 7 | 5 | 25 |
+| `con_cai` | 11 | 8 | 3 | 68 |
+| `vo_chong` | 10 | 7 | 3 | 38 |
+| `cap_duong` | 10 | 7 | 3 | 22 |
+| `nguyen_tac_quy_dinh` | 10 | 7 | 3 | 15 |
+| `mang_thai_ho` | 10 | 7 | 3 | 24 |
+| `hieu_luc` | 3 | 2 | 1 | 23 |
+| `yeu_to_nuoc_ngoai` | 3 | 2 | 1 | 4 |
+| `thu_tuc` | 3 | 2 | 1 | 3 |
+| **Đặc tính kiểm định** | | | | |
+| Câu thuộc cặp trùng **B5** | 16 | 11 | 5 | — |
+| Nguồn câu gốc (`HN_001`–`HN_060`) | 36 | 25 | 11 | 60 |
+| Nguồn mở rộng (`HN_061`–`HN_300`) | 64 | 45 | 19 | 240 |
 
 ## 3. Công nghệ, nguồn và luồng dữ liệu
 
-Python 3.13, JSON Schema Draft-07, `unittest`. Toàn bộ dữ liệu nằm trong `data/benchmark/` và `schemas/benchmark_schema.json`.
+Python 3.13, JSON Schema Draft 2020-12, `unittest` / `pytest`. Toàn bộ dữ liệu nằm trong `data/benchmark/`, `data/reference/` và `schemas/benchmark_schema.json`.
 
 ## 4. Hướng dẫn chạy và nghiệm thu kỹ thuật
 
-1. Cài đặt Python 3.13 hoặc môi trường tương thích.
-2. Chạy validator:
+1. Đồng bộ hai chiều `gold_clause_ids` ↔ `gold_context_ids` (tự động tạo backup trước khi ghi):
+   ```bash
+   python scripts/prepare_production_benchmark.py --sync-clauses
+   ```
+2. Kiểm tra khóa Freeze kép (Câu hỏi Test + Gold Test):
+   ```bash
+   python scripts/freeze_test.py --verify
+   python scripts/freeze_gold.py --verify
+   ```
+3. Chạy validator:
    ```bash
    python scripts/validate_benchmark.py
    ```
-3. Chạy test suite:
+4. Chạy test suite:
    ```bash
-   python -m pytest test/test_benchmark.py
+   python -m pytest test/test_benchmark.py tests/test_benchmark.py -v
    ```
 
-## 5. Quy trình xác minh pháp lý và rà soát chất lượng
-
-Người phụ trách cần kiểm tra nội dung chunk có thực sự trả lời câu hỏi và có thuộc đúng văn bản, Điều/Khoản, ngày áp dụng; đối với câu multi-hop, đối chiếu tất cả điều liên quan. Khi reviewer đã xác minh và có `verified_by`/`verified_at`, mới cập nhật nhãn và chạy nghiệm thu cuối. Đặc biệt các câu hỏi `outdated_law_trap`, `historical_law`, `partially_expired` phải kiểm tra điều khoản sửa đổi/bãi bỏ, không chỉ nhìn `validity_status` ở cấp văn bản.
-
-## 6. Hướng dẫn reviewer và chia sẻ
-
-- `docs/review_dev_285.csv`: bảng cần review của Dev; có thể gửi cho người kiểm duyệt nguồn. `docs/quality_review_priorities_dev.csv` có cảnh báo rủi ro từng câu Dev.
-- `docs/review_test_15_RESTRICTED.csv` và `docs/quality_review_priorities_test_RESTRICTED.csv`: chỉ có trong gói kiểm duyệt riêng, **không đẩy vào repository dùng để tuning Retrieval**.
-- `docs/answer_source_audit.csv`: thông tin trích xuất nguồn cho 240 câu mở rộng. Bỏ các bảng review trùng/đã cũ để giảm nhầm lẫn.
-- `data/reference/context_registry.json` giữ dữ liệu *smoke* để truy nguyên, không dùng làm final Gold.
-- `docs/handoff_manifest.json`: hash nguồn, hash Test và phiên bản.
-
-## 7. Bảng trạng thái nghiệm thu
-
-| Yêu cầu lead | Hiện trạng |
-| --- | --- |
-| Xây 50–100 câu (mở rộng 300) | Đạt số lượng; cần rà chất lượng câu mới |
-| Chuẩn hóa schema | Đạt kiểm thử tự động |
-| Xác minh câu trả lời, lời giải thích | **Chưa đạt** — 300 draft, cần người rà soát nội dung và hiệu lực |
-| Gold context IDs | **Chưa đạt** — chưa có nhãn đã xác minh từ index thật |
-| Chia Dev/Test | Đạt 285/15 |
-| Validator kiểm tra dữ liệu | Đạt ở mức cấu trúc; Final có bộ chặn an toàn |
-| Đóng băng Test set | Đạt đối với câu hỏi Test; Gold Test chờ duyệt |
-
-**Kết luận để báo lead:** Đã bàn giao đủ sáu file và bộ kiểm thử cho 300 câu theo cấu trúc chuẩn. Sản phẩm là **benchmark draft có kiểm định cấu trúc**, không phải tập 300 câu Gold đã được người duyệt và gắn với production chunk. Không được báo hoàn tất `gold_context_ids` trước khi nhận index thật.
-
-## 8. Đồng bộ Article Registry
-
-Đã bổ sung **181 bản ghi** vào `data/reference/article_index.json`, nâng từ 261 lên **442 mục của 12 văn bản** theo snapshot metadata cập nhật của dự án. Các bản ghi mới đánh dấu `metadata_only_unverified`; riêng L01_D132–L01_D133 mới có trong metadata, không có trong PDF L01 đã parse và chưa được dùng làm bằng chứng truy xuất.
-
-## 9. Những điểm đã sửa sau kiểm toán 16/10/2026
-
-- **Sửa dữ liệu nguy hiểm:** 34 ID smoke không còn được gọi là `gold_context_ids`; chuyển sang `candidate_context_ids`. Số Gold thực sự xác nhận là **0/300**.
-- **Thêm `answer_kind`** cho cả 300 câu; phân biệt 60 đáp án nháp với 240 đoạn trích PDF tự động. `--final` chặn đoạn trích PDF chưa biên soạn lại.
-- **Thêm kiểm toán chất lượng** `scripts/audit_quality.py` và hai bảng ưu tiên Dev/Test tách biệt; kiểm tra câu hỏi quá chung, câu trả lời quá dài, nghi dính tiêu đề chương, nguồn chưa xác minh và hiệu lực theo thời điểm. Các cảnh báo không tự kết luận đúng/sai về pháp luật.
-- **41 unit tests** PASS; manifest khóa 15 câu Test giữ nguyên SHA-256.
-- **Chưa được xem là hoàn thành:** review nội dung câu hỏi/đáp án, ngày hiệu lực từng điều khoản, kiểm tra 2 Điều thiếu 132–133 của L01 và xác nhận ID production chunk từ thành viên Chunking.
-- Đáp án Test hiện nằm trong file Ground Truth chung. Nếu repo cho phép người tối ưu RAG xem, cần quy trình phân quyền riêng để tránh học thuộc nhãn Test trước khi đánh giá.
-
-## 10. Bảng Ánh xạ Tên trường (Field Name Mapping Contract)
-
-Nhằm đảm bảo tính tương thích và nhất quán giữa quy chuẩn Benchmark Sprint 6, các tài liệu kỹ thuật và mã nguồn kiểm thử / retrieval:
-- **Đầu vào Benchmark:** Bắt buộc sử dụng khóa `id` (VD: `HN_001` .. `HN_300`).
-- **Đầu ra Retrieval & Evaluation:** Tất cả các module pipeline, retriever và đánh giá bắt buộc sử dụng chuẩn duy nhất `query_id` (loại bỏ alias `question_id` khỏi mọi đầu ra chính thức).
-
-Bảng ánh xạ chuẩn tắc giữa các tên trường:
+## 5. Bảng Ánh xạ Tên trường (Field Name Mapping Contract)
 
 | Khái niệm nghiệp vụ | Tên trường chính thức (`schemas/benchmark_schema.json`) | Tên trường trong đầu ra Retrieval / Evaluation | Mô tả & Ràng buộc |
 | :--- | :--- | :--- | :--- |
-| **Mã câu hỏi** | `id` | `query_id` | Định danh duy nhất của câu hỏi (VD: `HN_001` .. `HN_300`). Bắt buộc. |
-| **Phân loại chủ đề** | `category` | `category` (alias `topic`) | Nhóm chủ đề câu hỏi (VD: `ket_hon`, `ly_hon`, `tai_san`, `con_chung`, v.v.). |
-| **Đáp án chuẩn** | `answer` | `expected_answer` | Nội dung câu trả lời chuẩn tham chiếu hoặc trích xuất từ văn bản pháp luật. |
-| **Tập phân chia** | `split` | `split` | Thuộc tập phát triển (`"dev"`, 285 câu) hoặc tập kiểm thử (`"test"`, 15 câu). Enum: `["dev", "test"]`. |
-| **Thời điểm câu hỏi** | `as_of_date` | `as_of_date` | Mốc thời gian áp dụng luật (VD: `"2026-10-15"`). Định dạng chuẩn `YYYY-MM-DD`. |
+| **Mã câu hỏi** | `id` | `query_id` | Định danh duy nhất của câu hỏi (`HN_001` .. `HN_300`). |
+| **Phân loại chủ đề** | `category` | `category` (alias `topic`) | Nhóm chủ đề câu hỏi (`ket_hon`, `ly_hon`, `tai_san`, `con_cai`, v.v.). |
+| **Đáp án chuẩn** | `answer` | `expected_answer` | Nội dung câu trả lời chuẩn tham chiếu đã duyệt (`reviewed_answer`) hoặc nháp. |
+| **Tập phân chia** | `split` | `split` | Thuộc tập phát triển (`"dev"`, 270 câu) hoặc tập kiểm thử (`"test"`, 30 câu). |
+| **Thời điểm câu hỏi** | `as_of_date` | `as_of_date` | Mốc thời gian áp dụng luật (`YYYY-MM-DD`). |
 
-## 11. Nhật ký đóng băng Test và cập nhật ID
-
-Mọi thay đổi `data/benchmark/queries_test.json` phải qua review và được ghi vào bảng này (ngày, commit, lý do, SHA-256 cũ và mới của `docs/test_questions_freeze.json`). Thay đổi chunk_id của candidate hoặc proposal cũng ghi ở đây.
+## 6. Nhật ký đóng băng Test và cập nhật ID
 
 | Ngày | Commit | Thay đổi | SHA-256 Test |
 | --- | --- | --- | --- |
 | 16/10/2026 | b230265 | Đóng băng 15 câu Test lần đầu. | `0b4b3a2f75a0…cdbdf` |
-| 22/10/2026 | ee755a5 | Thêm trường `split` vào 15/15 câu Test; nội dung câu hỏi và danh sách ID không đổi, `freeze_test.py --verify` PASS. Lần đóng băng lại này không có review riêng; ghi bổ sung ngày 25/10. | `0b4b3a2f75a0…cdbdf` → `6942c3353a62…fb889` |
-| 25/10/2026 | 146a6c9 | Sinh lại `production_chunk_index.json` từ corpus 664634e (2.011 chunk). Map lại theo nội dung chunk: candidate của HN_255, HN_265, HN_266, HN_267, HN_269 (các Khoản NQ 01/2024 và một phần Khoản NĐ 207/2025 Điều 9 đổi ranh giới); toàn bộ chunk_id của `gold_id_proposals_300.json` (sang `{clause_id}_chunk_{n}`, giữ nguyên ID `version_*`). Test không đổi. | `6942c3353a62…fb889` (không đổi) |
-| 27/10/2026 | refactor | Hợp nhất toàn bộ candidate/proposal từ `gold_id_proposals_300.json` vào `ground_truth.json`; xóa bỏ file thừa `gold_id_proposals_300.json`. Test không đổi. | `6942c3353a62…fb889` (không đổi) |
+| 22/10/2026 | ee755a5 | Thêm trường `split` vào 15/15 câu Test. | `6942c3353a62…fb889` |
+| 25/10/2026 | 146a6c9 | Sinh lại `production_chunk_index.json` từ corpus. | `6942c3353a62…fb889` |
+| 27/10/2026 | 074eb94 | Hợp nhất candidate từ `gold_id_proposals_300.json` vào `ground_truth.json`. | `6942c3353a62…fb889` |
+| 30/10/2026 | data/gold | Duyệt cấp Khoản 100 câu Gold phân tầng (D1+B5+C5+C4); chia lại Dev (270) / Test (30) theo cụm Khoản (`seed=42`, 0 rò rỉ Khoản) và khóa Freeze kép cả `test_questions_freeze.json` lẫn `test_gold_freeze.json` trên JSON chuẩn hóa (D2). | Questions: `54e3d267a9aa…53787`<br>Gold: `ebed2311e41f…72fed` |
