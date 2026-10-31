@@ -29,6 +29,37 @@ def read_json(path: Path) -> Any:
         raise ValueError(f"Không đọc được {path}: {exc}") from exc
 
 
+def gold_dev_records(queries_path: Path, ground_truth_path: Path) -> tuple[list[dict[str, Any]], set[str]]:
+    """Build evaluator records from reviewed Dev gold in ground_truth.json.
+
+    Only Dev questions with ``gold_context_ids_confirmed = true`` are scored;
+    the ids of the remaining (draft) Dev questions are returned so their
+    envelopes can be skipped instead of rejected.
+    """
+    queries = read_json(queries_path)
+    truth = read_json(ground_truth_path)
+    if not isinstance(queries, list) or not isinstance(truth, list):
+        raise ValueError("queries và ground_truth phải là JSON list")
+    truth_by_id = {item.get("id"): item for item in truth if isinstance(item, dict)}
+    records, unscored = [], set()
+    for query in queries:
+        query_id = query.get("id") if isinstance(query, dict) else None
+        if not isinstance(query_id, str) or query_id not in truth_by_id:
+            raise ValueError(f"Query Dev không có trong ground_truth: {query_id!r}")
+        label = truth_by_id[query_id]
+        if label.get("split") != "dev":
+            raise ValueError(f"{query_id} không thuộc split dev trong ground_truth; không chấm Test ở đây")
+        gold = label.get("gold_context_ids") or []
+        if label.get("gold_context_ids_confirmed") is True and gold:
+            records.append({"id": query_id, "question": query.get("question"),
+                            "as_of_date": query.get("as_of_date"), "relevant_chunk_ids": gold})
+        else:
+            unscored.add(query_id)
+    if not records:
+        raise ValueError("Không có câu Dev nào có Gold đã xác nhận")
+    return records, unscored
+
+
 def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
              chunks_path: Path | None = None, *,
              config_path: Path = DEFAULT_CONFIG_PATH,
@@ -37,7 +68,8 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
              collection: str | None = None,
              top_k: int | None = None,
              candidate_k: int | None = None,
-             rrf_k: int | None = None) -> dict[str, dict[str, float]]:
+             rrf_k: int | None = None,
+             ground_truth_path: Path | None = None) -> dict[str, dict[str, float]]:
     settings = load_settings(config_path)
     if settings["hybrid"].get("fusion") != "rrf":
         raise ValueError("Evaluator hiện chỉ hỗ trợ kết quả được tạo với fusion=rrf")
@@ -69,7 +101,11 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         "elasticsearch_index": selected_index,
         "fusion": settings["hybrid"]["fusion"],
     }
-    dev = read_json(dev_path)
+    unscored_ids: set[str] = set()
+    if ground_truth_path is not None:
+        dev, unscored_ids = gold_dev_records(dev_path, ground_truth_path)
+    else:
+        dev = read_json(dev_path)
     if not isinstance(dev, list) or not dev:
         raise ValueError("Dev set phải là JSON list không rỗng")
     relevant: dict[str, set[str]] = {}
@@ -133,6 +169,8 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
                 raise ValueError("Kết quả truy xuất phải tuân thủ RetrievalEnvelope schema (chứa 'results')")
             query_id = item.get("query_id") or item.get("id")
             q_text = item.get("query") or item.get("question") or ""
+            if query_id in unscored_ids:
+                continue
             if not isinstance(query_id, str) or query_id not in relevant:
                 raise ValueError(f"Kết quả {item.get('retriever')} thiếu query_id hợp lệ: {query_id!r}")
             if not isinstance(q_text, str) or q_text.strip() != query_text_by_id[query_id]:
@@ -281,7 +319,9 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         f"- Elasticsearch index: `{selected_index}`.",
         f"- Dense model: `{selected_model}` (dimension={model_spec['dimension']}); Qdrant collection: `{selected_collection}`.",
         f"- Cấu hình thực tế: Top-{metric_k}; candidate depth={candidate_depth}; fusion={settings['hybrid']['fusion'].upper()}; RRF k={fusion_k}.",
-        "- Nhãn liên quan chưa được chuyên gia pháp lý thẩm định.",
+        (f"- Nhãn: Gold đã duyệt (`gold_context_ids_confirmed`) từ `ground_truth.json`; "
+         f"bỏ qua {len(unscored_ids)} câu Dev chưa duyệt." if ground_truth_path is not None
+         else "- Nhãn: `relevant_chunk_ids` trong file Dev truyền vào; không phải Gold đã duyệt."),
         "- Đây là một lượt chạy cố định, chưa phải khảo sát tinh chỉnh tham số. Chỉ tinh chỉnh trên Dev set; repo chưa có Test set độc lập.",
         "",
         "## Kết quả định lượng",
@@ -340,12 +380,15 @@ def main() -> int:
     parser.add_argument("--top-k", type=int, default=None)
     parser.add_argument("--candidate-k", type=int, default=None)
     parser.add_argument("--rrf-k", type=int, default=None)
+    parser.add_argument("--ground-truth", type=Path, default=None,
+                        help="Chấm theo Gold đã duyệt trong ground_truth.json; --dev-set khi đó là queries_dev.json")
     args = parser.parse_args()
     try:
         evaluate(args.dev_set, args.results_dir, args.output_dir, args.chunks,
                  config_path=args.config, dense_model=args.dense_model,
                  elasticsearch_index=args.elasticsearch_index, collection=args.collection,
-                 top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
+                 top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k,
+                 ground_truth_path=args.ground_truth)
         return 0
     except (OSError, ValueError) as exc:
         parser.error(str(exc))

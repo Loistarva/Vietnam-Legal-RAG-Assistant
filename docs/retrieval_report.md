@@ -1,6 +1,6 @@
 # Task 4 – Kiểm thử và đánh giá trên Dev set
 
-> **Lưu ý về phiên bản:** Các kết quả trong báo cáo này là snapshot lịch sử, không phải kết quả trên trạng thái workspace hiện tại. Corpus hiện tại có 2.164 chunk và shared config chọn BGE-M3 1024 chiều; bảng dưới đây được tạo trên corpus 1.159/1.175 chunk và cấu hình BKAI 768 chiều. Nhãn proposal chưa được thẩm định. Xem [nguồn và trạng thái nhãn benchmark](benchmark_label_provenance.md) để biết SHA-256, số lượng và giới hạn sử dụng. Không dùng các metric lịch sử này làm kết quả G3 cho cấu hình hiện tại.
+> **Lưu ý về phiên bản:** Các kết quả trong báo cáo này là snapshot lịch sử, không phải kết quả trên trạng thái workspace hiện tại. Corpus hiện tại có 2.164 chunk và shared config chọn BGE-M3 1024 chiều; bảng dưới đây được tạo trên corpus 1.159/1.175 chunk và cấu hình BKAI 768 chiều. Bảng dùng nhãn proposal chưa thẩm định. Xem [nguồn và trạng thái nhãn benchmark](benchmark_label_provenance.md) để biết trạng thái nhãn hiện tại và giới hạn sử dụng. Không dùng các metric lịch sử này làm kết quả G3 cho cấu hình hiện tại.
 
 ## Lần chạy được báo cáo ngày 2026-10-18
 
@@ -11,7 +11,7 @@ Ngày 2026-10-18, Task 4 được báo cáo trên 285 câu Dev với snapshot co
 | Chunk | Hybrid RRF | 0.7407 | 0.4544 | 0.5145 | 0.0802 |
 | Điều | Dense | 0.7846 | 0.5322 | 0.5843 | 0.0839 |
 
-Theo snapshot báo cáo năm 2026-10-18, chunk-level chấm 268 câu và article-level chấm 267 câu; các nhãn phần lớn là proposal chưa xác minh. Trạng thái dataset hiện tại đã thay đổi: 300 nhãn đều draft, không có gold chunk nào được xác nhận. Kết quả trên chỉ là thử nghiệm theo proposal, không phải đánh giá pháp lý chính thức.
+Theo snapshot báo cáo năm 2026-10-18, chunk-level chấm 268 câu và article-level chấm 267 câu; các nhãn phần lớn là proposal chưa xác minh. Bộ nhãn hiện tại đã khác: 105 câu có Gold đã duyệt (75 Dev, 30 Test), 195 câu Dev còn draft. Kết quả trên chỉ là thử nghiệm theo proposal, không phải đánh giá pháp lý chính thức.
 
 Provenance và tình trạng dataset hiện tại được ghi trong [benchmark label provenance](benchmark_label_provenance.md).
 

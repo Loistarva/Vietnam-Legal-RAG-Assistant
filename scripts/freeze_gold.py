@@ -97,7 +97,7 @@ def run(mode, force=False):
             print(f'PASS: manifest Test Gold đã khớp sau khi kiểm tra lại ({candidate["test_question_count"]} câu)')
             return
         if manifest_changed and not force:
-            raise RuntimeError('Manifest Test Gold đã tồn tại và khác nội dung; dùng --force nếu chủ đích thay freeze')
+            raise RuntimeError('Manifest Test Gold đã tồn tại và khác nội dung; chỉ đóng băng lại với --force và ghi lý do vào docs/sprint6_benchmark.md mục 6')
         MANIFEST.write_text(json.dumps(candidate,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print(
             f'FROZEN: cả câu hỏi và đáp án Test '

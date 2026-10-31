@@ -22,8 +22,8 @@ class ModelRegistryTest(unittest.TestCase):
 
     def test_custom_config_is_validated(self):
         config = copy.deepcopy(load_settings())
-        config["dense"]["dimension"] = 768
-        with self.assertRaisesRegex(ValueError, "không khớp model"):
+        config["dense"]["model"] = "missing/model"
+        with self.assertRaisesRegex(ValueError, "chưa được đăng ký"):
             ModelRegistry(config)
 
 

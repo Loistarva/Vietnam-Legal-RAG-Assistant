@@ -18,7 +18,7 @@ class FreezeManifestSafetyTest(unittest.TestCase):
             with patch.object(freeze_test, "MANIFEST", path), patch.object(
                 freeze_test, "manifest", return_value={"sha256": "new-test-freeze"}
             ):
-                with self.assertRaisesRegex(RuntimeError, "dùng --force"):
+                with self.assertRaisesRegex(RuntimeError, "--force và ghi lý do"):
                     freeze_test.run("create")
             self.assertEqual(json.loads(path.read_text(encoding="utf-8")), original)
 
@@ -30,7 +30,7 @@ class FreezeManifestSafetyTest(unittest.TestCase):
             with patch.object(freeze_gold, "MANIFEST", path), patch.object(
                 freeze_gold, "current", return_value={"sha256": "new-gold-freeze"}
             ):
-                with self.assertRaisesRegex(RuntimeError, "dùng --force"):
+                with self.assertRaisesRegex(RuntimeError, "--force và ghi lý do"):
                     freeze_gold.run("create")
             self.assertEqual(json.loads(path.read_text(encoding="utf-8")), original)
 

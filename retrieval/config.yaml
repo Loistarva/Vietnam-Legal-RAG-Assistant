@@ -17,7 +17,6 @@ dense:
   backend: qdrant
   model: BAAI/bge-m3
   collection: vietnam_legal_chunks
-  dimension: 1024
   index_dir: data/indexes
   supported_models:
     BAAI/bge-m3:

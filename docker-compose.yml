@@ -1,17 +1,4 @@
 services:
-  redis:
-    image: redis:7.4-alpine
-    container_name: vietnam-legal-rag-redis
-    command: ["redis-server", "--appendonly", "yes"]
-    ports:
-      - "127.0.0.1:6379:6379"
-    volumes:
-      - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:9.5.3
     container_name: vietnam-legal-rag-elasticsearch
@@ -26,5 +13,4 @@ services:
     mem_limit: 2g
 
 volumes:
-  redis_data:
   elasticsearch_data:
