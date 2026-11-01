@@ -33,6 +33,6 @@
     "HN_283",
     "HN_292"
   ],
-  "sha256": "5a6bd4117f22719af0f150169e5db26d6489c443f01232eab6e561d2b5eb5d01",
+  "sha256": "09941456ee39df695ba860532ad91336ebea4608c173d0263a03efc32bbc519f",
   "note": "Freeze sau khi kiểm định đầy đủ (full_text_checked / source_checked) trên tập Test; không sửa đáp án Test trong quá trình thử hệ thống."
 }
