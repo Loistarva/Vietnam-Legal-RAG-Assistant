@@ -20,7 +20,7 @@
   "split_strategy": "clause_group_stratified_split; adjusted 2026-10-31 (docs/sprint6_benchmark.md mục 2, 6)",
   "dev_test_shared_gold_clauses": 0,
   "test_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876",
-  "test_gold_sha256": "09941456ee39df695ba860532ad91336ebea4608c173d0263a03efc32bbc519f",
+  "test_gold_sha256": "1fa2e53d13899210452c0c02a352760181bbd5766b9612163b05cc5d9b94f986",
   "required_files": [
     "schemas/benchmark_schema.json",
     "data/benchmark/queries_dev.json",
