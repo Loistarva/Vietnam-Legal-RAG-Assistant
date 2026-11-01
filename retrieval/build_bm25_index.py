@@ -40,7 +40,6 @@ def resolve_bm25_build_config(settings: dict[str, Any], *, chunks_override: str 
         "tokenizer_version": str(bm25["tokenizer_version"]),
         "text_field": bm25["text_field"],
     }
-DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
 BM25_TOKENIZER = "underthesea"
 BM25_TOKENIZER_VERSION = "9.5.0"
 

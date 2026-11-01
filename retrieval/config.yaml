@@ -8,7 +8,7 @@ retrieval:
 
 bm25:
   backend: elasticsearch
-  index:  bm25-e6-verified-20261101
+  index: bm25-e6-verified-20261101
   text_field: content_segmented
   tokenizer: underthesea
   tokenizer_version: 9.5.0
@@ -34,5 +34,5 @@ dense:
 
 hybrid:
   fusion: rrf
-  # Giá trị tạm thời theo so sánh trên 75 câu Dev Gold; đánh giá lại khi đủ 270 câu.
-  rrf_k: 10
+  # Chọn trên 75 câu Dev đã duyệt (retrieval/evaluation/rrf_k_comparison_dev_75.md): Top-50 vào reranker giống hệt với k = 10.
+  rrf_k: 60

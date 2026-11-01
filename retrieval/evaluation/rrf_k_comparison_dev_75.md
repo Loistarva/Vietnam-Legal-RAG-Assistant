@@ -1,27 +1,36 @@
-# So sánh cấu hình RRF trên Dev
+# So sánh rrf_k = 10 và rrf_k = 60 trên Dev
 
-- Ngày: 2026-11-01
-- Tập Dev có 270 câu đã chạy retrieval; phép so sánh metric chỉ dùng 75 câu có Gold label được xác nhận. 195 câu còn lại chưa tham gia tính metric vì chưa có Gold label được xác nhận.
-- Corpus: `data/chunking_output/chunks.jsonl`, 2.164 chunks, SHA-256 bắt đầu `9a72a35e532f`.
-- Hai lượt chạy dùng cùng Elasticsearch index `bm25-e6-verified-20261101`, BGE-M3 1024 chiều, Qdrant collection `vietnam_legal_chunks`, candidate depth 50 và Top-10. Khác biệt cấu hình được đánh giá là `rrf_k`.
-- Kết quả chi tiết: [`rrf_k10`](rrf_k10/retrieval_report.md) và [`rrf_k60`](rrf_k60/retrieval_report.md).
+- Ngày: 2026-11-02. Chọn: **`hybrid.rrf_k: 60`** (giữ giá trị khởi đầu).
+- Dev: `data/benchmark/queries_dev.json`, 270 câu đã chạy retrieval; chỉ chấm 75 câu có Gold đã duyệt (`gold_context_ids_confirmed`) trong `ground_truth.json`.
+- Corpus: `data/chunking_output/chunks.jsonl`, 2.164 chunk, SHA-256 bắt đầu `9a72a35e532f`.
+- Cùng Elasticsearch index `bm25-e6-verified-20261101`, BGE-M3 1024 chiều, Qdrant collection `vietnam_legal_chunks`, mỗi nhánh 50 candidate, `as_of_date` của từng câu. Hai lượt chỉ khác `rrf_k`; nhánh BM25 và Dense cho cùng thứ hạng ở 270/270 câu.
+- Kết quả chính (rrf_k = 60): [`retrieval_report.md`](retrieval_report.md), [`../results/`](../results/).
 
-## Kết quả Hybrid
+## Quy tắc chọn
 
-| Metric | RRF K=10 | RRF K=60 | Chênh lệch K10 − K60 | Tốt hơn |
-| --- | ---: | ---: | ---: | :--- |
-| Recall@10 | 0.7617 | 0.7395 | +0.0222 | K=10 |
-| MRR@10 | 0.7033 | 0.6973 | +0.0060 | K=10 |
-| nDCG@10 | 0.6671 | 0.6600 | +0.0071 | K=10 |
-| Precision@10 | 0.1667 | 0.1640 | +0.0027 | K=10 |
-| Temporal Violation Rate | 0.0000 | 0.0000 | 0.0000 | Hòa |
+Trong pipeline, RRF đưa Top-50 (`retrieval.retrieval_top_k`) vào Cross-Encoder Reranker, nên `rrf_k` được chọn theo các candidate vào reranker (Recall@50), có xem thêm Top-5/10/20. So ghép cặp trên 75 câu (bootstrap 10.000 lần, sign test). Nếu không phân biệt được hai giá trị thì giữ 60.
 
-## Nhận xét và quyết định
+## Kết quả Hybrid (75 câu Dev đã duyệt)
 
-Trong phép đánh giá hiện tại trên 75 câu có Gold label được xác nhận, K=10 cho kết quả tốt hơn K=60 ở cả bốn metric xếp hạng; temporal violation bằng 0 ở cả hai lượt.
+| Metric | rrf_k = 10 | rrf_k = 60 | Chênh lệch 10 − 60 | CI95 | Câu 10 hơn / 60 hơn |
+| --- | ---: | ---: | ---: | --- | ---: |
+| Recall@5 | 0.6725 | 0.6769 | −0.0044 | −0.017 đến +0.005 | 1 / 2 |
+| Recall@10 | 0.7617 | 0.7395 | +0.0222 | −0.002 đến +0.058 | 3 / 1 |
+| MRR@10 | 0.7033 | 0.6973 | +0.0059 | −0.005 đến +0.018 | 6 / 2 |
+| Recall@20 | 0.8432 | 0.8263 | +0.0169 | −0.005 đến +0.044 | 3 / 2 |
+| **Recall@50** | **0.8753** | **0.8753** | **0** | 0 đến 0 | **0 / 0** |
 
-RRF cho điểm mỗi tài liệu theo `sum(1 / (k + rank))`. Khi K nhỏ, chênh lệch đóng góp giữa thứ hạng cao và thấp lớn hơn tương đối; điều này làm các vị trí đầu của từng danh sách ảnh hưởng mạnh hơn đến thứ hạng hợp nhất.
+Không chênh lệch nào có ý nghĩa thống kê (sign test p ≥ 0,11). Top-50 của hai giá trị là **cùng một tập chunk ở 270/270 câu Dev**; chỉ thứ tự bên trong khác. Reranker chấm từng candidate độc lập, nên với Hybrid + Reranker hai giá trị cho cùng kết quả. Chênh lệch R@10 gần như chỉ do HN_035: Dense xếp gold ở hạng 1, BM25 không có; gold đứng hạng 7 với rrf_k = 10 và hạng 15 với rrf_k = 60, vẫn trong Top-50 ở cả hai.
 
-`retrieval/config.yaml` hiện đặt `hybrid.rrf_k: 10` làm giá trị tạm thời, dựa trên phép so sánh này. Khi cả 270 câu Dev có Gold label được xác nhận, có thể đánh giá lại trên kết quả retrieval đã lưu nếu corpus, index và cấu hình retrieval không thay đổi. Không dùng kết quả Dev này để tuyên bố hiệu năng trên Test.
+Latency Hybrid (trung vị trên 270 câu, CPU) phụ thuộc chủ yếu vào bước mã hoá câu hỏi của BGE-M3; RRF trên tối đa 100 phần tử không đáng kể, nên không dùng latency để chọn `rrf_k`.
 
-Giới hạn: hai báo cáo lượt chạy mô tả tập này là smoke test phát triển trên một văn bản và lưu ý nhãn chưa được chuyên gia pháp lý thẩm định. Vì vậy, kết quả hỗ trợ chọn cấu hình phát triển, chưa chứng minh chất lượng tổng quát trên nhiều lĩnh vực pháp luật.
+## Tái lập
+
+```powershell
+python -m retrieval.run_dev_retrieval --elasticsearch-url http://localhost:9200 --rrf-k 10 --top-k 50 --output-dir <thư mục k10>
+python -m retrieval.run_dev_retrieval --elasticsearch-url http://localhost:9200 --rrf-k 60 --top-k 50 --output-dir <thư mục k60>
+```
+
+Hai lượt Top-10 ban đầu (7653709) chạy lại trên máy khác, với index dựng mới từ `retrieval/config.yaml`, cho cùng thứ hạng ở 270/270 câu cho cả ba phương pháp. File Top-50 không commit (khoảng 33 MB mỗi lượt); chạy lại bằng lệnh trên khi cần làm candidate cho reranker hai bước.
+
+Giới hạn: chỉ 75 câu Dev có Gold đã duyệt; nhãn chưa được chuyên gia pháp lý thẩm định. Đánh giá lại khi duyệt thêm câu Dev. Không dùng kết quả Dev để tuyên bố hiệu năng trên Test.
