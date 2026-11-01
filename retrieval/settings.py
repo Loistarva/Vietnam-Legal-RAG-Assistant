@@ -59,9 +59,11 @@ def validate_settings(config: Any) -> dict[str, Any]:
     model_name = dense.get("model")
     if model_name not in models:
         raise ValueError(f"Model Dense chưa được đăng ký: {model_name!r}")
-    if "dimension" in dense:
+    dimension = _positive_int(dense.get("dimension"), "dense.dimension")
+    if dimension != models[model_name]["dimension"]:
         raise ValueError(
-            "Không khai báo dense.dimension; số chiều lấy từ dense.supported_models.<model>.dimension"
+            f"dense.dimension={dimension} không khớp model {model_name!r} "
+            f"(dimension={models[model_name]['dimension']})"
         )
     for key in ("backend", "collection", "index_dir"):
         if not isinstance(dense.get(key), str) or not dense[key].strip():
@@ -97,6 +99,6 @@ def resolve_rrf_k(value: int | None = None, *, settings: dict[str, Any] | None =
     if resolved is None:
         effective_settings = settings if settings is not None else load_settings()
         resolved = effective_settings["hybrid"]["rrf_k"]
-    if not isinstance(resolved, int) or isinstance(resolved, bool) or resolved < 0:
-        raise ValueError("rrf_k phải là số nguyên không âm")
+    if not isinstance(resolved, int) or isinstance(resolved, bool) or resolved < 1:
+        raise ValueError("rrf_k phải là số nguyên dương")
     return resolved
