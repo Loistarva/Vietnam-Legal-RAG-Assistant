@@ -58,7 +58,8 @@ class RerankerConfigTest(unittest.TestCase):
         config = load_reranker_config()
         self.assertEqual(config, RerankerConfig(
             enabled=True, backend="cross_encoder", model="BAAI/bge-reranker-v2-m3",
-            rerank_top_k=5, max_candidates=50, batch_size=16, max_length=512, device=None, dtype="auto"))
+            rerank_top_k=5, max_candidates=50, batch_size=16, max_length=512, device=None, dtype="auto",
+            candidate_text="document_breadcrumb_chunk_text"))
 
     def test_overrides_win_and_none_overrides_are_ignored(self):
         config = load_reranker_config(rerank_top_k=3, max_candidates=20, backend=None)
