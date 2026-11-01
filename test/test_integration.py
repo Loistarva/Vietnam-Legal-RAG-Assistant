@@ -275,7 +275,7 @@ class RetrievalConfigTest(unittest.TestCase):
     def test_reads_repository_retrieval_config(self):
         settings = load_retrieval_settings()
         self.assertEqual(settings["retrieval_top_k"], 50)
-        self.assertEqual(settings["rrf_k"], 60)
+        self.assertEqual(settings["rrf_k"], 10)
 
     def test_shared_config_rejects_legacy_candidate_k(self):
         with tempfile.TemporaryDirectory() as tmp:

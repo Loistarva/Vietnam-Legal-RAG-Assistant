@@ -13,9 +13,9 @@ from retrieval.settings import load_settings
 
 
 RUN_CONFIG = {
-    "top_k": 10, "candidate_k": 50, "rrf_k": 60,
+    "top_k": 10, "candidate_k": 50, "rrf_k": 10,
     "dense_model": "BAAI/bge-m3", "dimension": 1024,
-    "collection": "vietnam_legal_chunks", "elasticsearch_index": "legal-child-chunks-dev",
+    "collection": "vietnam_legal_chunks", "elasticsearch_index": "bm25-e6-verified-20261101",
     "fusion": "rrf",
 }
 
