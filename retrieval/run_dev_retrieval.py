@@ -25,7 +25,19 @@ from retrieval.hybrid_retriever import (
 from retrieval.temporal import normalize_as_of_date
 
 
-def read_queries(path: Path) -> list[tuple[str, str, str]]:
+class QueryItem(tuple):
+    """3-tuple (query_id, query, as_of_date) with an optional exclude_expired attribute."""
+
+    def __new__(cls, query_id: str, query: str, as_of_date: str, exclude_expired: bool = True):
+        instance = super().__new__(cls, (query_id, query, as_of_date))
+        instance.query_id = query_id
+        instance.query = query
+        instance.as_of_date = as_of_date
+        instance.exclude_expired = exclude_expired
+        return instance
+
+
+def read_queries(path: Path, *, default_exclude_expired: bool = True) -> list[tuple[str, str, str]]:
     """Return (query_id, query, as_of_date) rows; missing dates use today's date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
@@ -47,7 +59,8 @@ def read_queries(path: Path) -> list[tuple[str, str, str]]:
             raise ValueError(f"Dev query #{index} thiếu id")
         if not isinstance(query, str) or not query.strip():
             raise ValueError(f"Dev query {query_id} thiếu question không rỗng")
-        queries.append((query_id.strip(), query.strip(), as_of_date))
+        exclude_expired = row.get("exclude_expired", default_exclude_expired)
+        queries.append(QueryItem(query_id.strip(), query.strip(), as_of_date, exclude_expired))
     if len({query_id for query_id, _, _ in queries}) != len(queries):
         raise ValueError("Dev query file có id trùng lặp")
     return queries
@@ -108,6 +121,8 @@ def main() -> int:
                         help="URL Elasticsearch (hoặc đặt biến ELASTICSEARCH_URL)")
     parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev"),
                         help="Index Elasticsearch đã chứa cùng corpus chunks")
+    parser.add_argument("--exclude-expired", action=argparse.BooleanOptionalAction, default=True,
+                        help="Lọc bỏ quy định hết hiệu lực (mặc định: True; dùng --no-exclude-expired để tắt)")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "retrieval" / "results")
     parser.add_argument("--top-k", type=int, default=10)
     parser.add_argument("--candidate-k", type=int, default=50)
@@ -116,7 +131,7 @@ def main() -> int:
     try:
         if args.top_k < 1 or args.candidate_k < args.top_k:
             raise ValueError("Cần top_k >= 1 và candidate_k >= top_k")
-        queries = read_queries(args.queries)
+        queries = read_queries(args.queries, default_exclude_expired=args.exclude_expired)
         chunk_count = count_chunks(args.chunks)
         if not args.elasticsearch_url:
             raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL; sparse/BM25 được Elasticsearch xử lý")
@@ -166,12 +181,14 @@ def main() -> int:
             "corpus_sha256": corpus_sha256,
         }
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
-        for query_id, query, query_as_of_date in queries:
+        for query_item in queries:
+            query_id, query, query_as_of_date = query_item[0], query_item[1], query_item[2]
+            exclude_expired = getattr(query_item, "exclude_expired", args.exclude_expired)
             started = time.perf_counter()
-            ranked = hybrid_retriever.retrieve(query, as_of_date=query_as_of_date)
+            ranked = hybrid_retriever.retrieve(query, as_of_date=query_as_of_date, exclude_expired=exclude_expired)
             latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
             for method in saved:
-                query_config = {**run_config, "as_of_date": query_as_of_date}
+                query_config = {**run_config, "as_of_date": query_as_of_date, "exclude_expired": exclude_expired}
                 saved[method].append(
                     to_envelope(method, query_id, query, ranked[method], query_config, latency_ms)
                 )

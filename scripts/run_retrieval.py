@@ -54,6 +54,18 @@ class InputError(ValueError):
     """Invalid user input (exit code 2)."""
 
 
+class QueryItem(tuple):
+    """3-tuple (query_id, question, as_of_date) with an optional exclude_expired attribute."""
+
+    def __new__(cls, query_id: str, question: str, as_of_date: str | None, exclude_expired: bool = True):
+        instance = super().__new__(cls, (query_id, question, as_of_date))
+        instance.query_id = query_id
+        instance.question = question
+        instance.as_of_date = as_of_date
+        instance.exclude_expired = exclude_expired
+        return instance
+
+
 def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hybrid Retrieval + Reranker (Sprint 6, Dev 5)")
     source = parser.add_mutually_exclusive_group(required=True)
@@ -64,6 +76,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--as-of-date", default=None,
                         help="Thời điểm áp dụng luật (YYYY-MM-DD) cho --query, và cho các câu của --queries "
                              "không có as_of_date")
+    parser.add_argument("--exclude-expired", action=argparse.BooleanOptionalAction, default=True,
+                        help="Lọc bỏ văn bản/quy định hết hiệu lực theo as_of_date (mặc định: True; dùng --no-exclude-expired để tắt)")
     parser.add_argument("--no-parent-context", action="store_true",
                         help="Tắt Parent-Context Resolver (mặc định theo parent_context.enabled)")
     parser.add_argument("--top-k", type=int, default=None,
@@ -101,7 +115,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
 
 
 def read_queries(path: Path, *, allow_test_split: bool,
-                 default_as_of_date: str | None = None) -> list[tuple[str, str, str | None]]:
+                 default_as_of_date: str | None = None,
+                 default_exclude_expired: bool = True) -> list[tuple[str, str, str | None]]:
     """Return (query_id, question, as_of_date) triples; refuse the frozen Test set unless explicitly allowed.
 
     ``as_of_date`` comes from the question row (benchmark field), else ``default_as_of_date``.
@@ -116,15 +131,18 @@ def read_queries(path: Path, *, allow_test_split: bool,
         isinstance(row, dict) and str(row.get("split", "")).casefold() == "test" for row in data)
     if is_test and not allow_test_split:
         raise InputError("Test set đang đóng băng; chỉ tuning trên Dev set (thêm --allow-test-split cho lần chạy chính thức)")
-    queries, seen = [], set()
+    queries: list[tuple[str, str, str | None]] = []
+    seen = set()
     for index, row in enumerate(data, 1):
         as_of_date = default_as_of_date
+        exclude_expired = default_exclude_expired
         if isinstance(row, str):
             query_id, question = f"Q_{index:03d}", row
         elif isinstance(row, dict):
             query_id = row.get("query_id") or row.get("id") or f"Q_{index:03d}"
             question = row.get("question") or row.get("query")
             as_of_date = row.get("as_of_date") or default_as_of_date
+            exclude_expired = row.get("exclude_expired", default_exclude_expired)
         else:
             query_id, question = None, None
         if not isinstance(question, str) or not question.strip():
@@ -132,7 +150,7 @@ def read_queries(path: Path, *, allow_test_split: bool,
         if query_id in seen:
             raise InputError(f"query_id bị trùng: {query_id}")
         seen.add(query_id)
-        queries.append((str(query_id), question, as_of_date))
+        queries.append(QueryItem(str(query_id), question, as_of_date, exclude_expired))
     return queries
 
 
@@ -195,13 +213,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.query is not None:
             if not args.query.strip():
                 raise InputError("--query không được rỗng")
-            queries = [(args.query_id, args.query, args.as_of_date)]
+            queries = [QueryItem(args.query_id, args.query, args.as_of_date, args.exclude_expired)]
         else:
             queries = read_queries(args.queries, allow_test_split=args.allow_test_split,
-                                   default_as_of_date=args.as_of_date)
+                                   default_as_of_date=args.as_of_date,
+                                   default_exclude_expired=args.exclude_expired)
         pipeline = build_pipeline(args)
-        outputs = [pipeline.run(question, args.top_k, query_id=query_id, as_of_date=as_of_date)
-                   for query_id, question, as_of_date in queries]
+        outputs = [
+            pipeline.run(
+                item[1],
+                args.top_k,
+                query_id=item[0],
+                as_of_date=item[2],
+                exclude_expired=getattr(item, "exclude_expired", args.exclude_expired),
+            )
+            for item in queries
+        ]
     except PipelineError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

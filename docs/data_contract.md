@@ -160,6 +160,69 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
 
 ---
 
+### 5.5. Hợp đồng Giao diện Truy xuất & Bộ lọc Hiệu lực Thời điểm (Temporal Retrieval Contract - Issue E1)
+
+Để đảm bảo kết quả truy xuất pháp luật chính xác theo dòng thời gian lịch sử và loại trừ các văn bản/điều khoản đã hết hiệu lực tại thời điểm tra cứu, mọi module truy xuất (Dense, Sparse/BM25, Hybrid, Pipeline) thống nhất hợp đồng giao tiếp sau:
+
+#### 1. Chữ ký hàm chuẩn mực (Function Signatures)
+* **Retriever (BM25Retriever, ElasticsearchBM25Retriever, DenseRetriever, HybridRetriever):**
+  ```python
+  def search(
+      self,
+      query: str,
+      top_k: int = 10,
+      *,
+      as_of_date: str | None = None,
+      exclude_expired: bool = True,
+      metadata_filter: dict[str, Any] | None = None,
+      **kwargs: Any,
+  ) -> list[dict[str, Any]]: ...
+  ```
+* **HybridRetriever.retrieve:**
+  ```python
+  def retrieve(
+      self,
+      query: str,
+      top_k: int | None = None,
+      as_of_date: str | None = None,
+      *,
+      exclude_expired: bool = True,
+      metadata_filter: dict[str, Any] | None = None,
+  ) -> dict[str, list[dict[str, Any]]]: ...
+  ```
+* **RetrievalPipeline.run:**
+  ```python
+  def run(
+      self,
+      query: str,
+      top_k: int | None = None,
+      *,
+      query_id: str = "Q_CLI_001",
+      as_of_date: str | None = None,
+      exclude_expired: bool = True,
+  ) -> dict[str, Any]: ...
+  ```
+
+#### 2. Quy tắc kiểm tra khoảng thời gian hiệu lực (Temporal Interval Rule)
+Một chunk/văn bản được xác định là **có hiệu lực tại thời điểm `as_of_date`** khi và chỉ khi thỏa mãn đồng thời cả hai điều kiện:
+$$\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$$
+
+* **`effective_from`**: Ngày bắt đầu có hiệu lực (định dạng chuẩn `YYYY-MM-DD`). Nếu trường này bị khuyết (`None`/rỗng), coi như không có giới hạn chặn dưới (luôn thỏa mãn `effective_from <= as_of_date`).
+* **`effective_to`**: Ngày hết hiệu lực (định dạng chuẩn `YYYY-MM-DD`). Nếu trường này bị khuyết (`None`/rỗng), văn bản đang còn hiệu lực vô thời hạn (luôn thỏa mãn `as_of_date < effective_to`).
+* Logic này được chuẩn hóa nhất quán tại hàm `retrieval.temporal.is_effective_at` và được hiện thực đồng bộ 100% trong:
+  - Bộ lọc Qdrant Filter DSL (`embedding/vector_store.py`).
+  - Bộ lọc Elasticsearch Query DSL (`retrieval/hybrid_retriever.py`, `retrieval/build_bm25_index.py`, `evaluation/bm25_baseline.py`).
+  - Bộ lọc bộ nhớ đệm / fallback in-memory (`filter_legal_metadata`, `FixtureRetriever`).
+
+#### 3. Quy ước mặc định khi không truyền ngày (`as_of_date=None`) & Cờ `exclude_expired`
+* **Mặc định khi `as_of_date is None`:**
+  - Nếu `exclude_expired=True` (mặc định), hệ thống áp dụng bộ lọc loại trừ các văn bản có `validity_status == "Hết hiệu lực"` (hoặc chuẩn hóa `as_of_date` về ngày hiện tại của hệ thống qua `retrieval.temporal.normalize_as_of_date(None)` tương đương `date.today().isoformat()`).
+* **Xử lý ngoại lệ câu hỏi lịch sử / bẫy luật cũ (`exclude_expired=False`):**
+  - Đối với các câu hỏi kiểm tra hiệu lực (`category="hieu_luc"`, `question_type="outdated_law_trap"`) hoặc câu hỏi về luật lịch sử (`test_type="historical_law"`), cờ `exclude_expired` được đặt là `False` (hoặc thông qua tham số CLI `--no-exclude-expired`).
+  - Khi `exclude_expired=False`, toàn bộ bộ lọc thời điểm được vô hiệu hóa, cho phép hệ thống trả về các quy định đã hết hiệu lực để mô hình RAG có căn cứ giải thích vì sao văn bản không còn được áp dụng.
+
+---
+
 ## 6. Bảng Ánh xạ Định danh Văn bản (Document ID Mapping Registry)
 
 Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_code`), định danh hệ thống slug (`document_id`), số hiệu văn bản pháp luật, tên văn bản và trạng thái hiệu lực:

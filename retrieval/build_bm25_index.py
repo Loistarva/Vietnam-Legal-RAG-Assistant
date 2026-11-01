@@ -42,8 +42,8 @@ INDEX_MAPPINGS: dict[str, Any] = {
         "article_id": {"type": "keyword"},
         "clause_id": {"type": "keyword"},
         "parent_clause_id": {"type": "keyword"},
-        "effective_from": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time"},
-        "effective_to": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time"},
+        "effective_from": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time||epoch_millis", "null_value": None},
+        "effective_to": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time||epoch_millis", "null_value": None},
         "title": {"type": "text"},
         "content": {"type": "text"},
         "content_segmented": {"type": "text"},
@@ -57,9 +57,16 @@ INDEX_MAPPINGS: dict[str, Any] = {
             "parent_clause_id": {"type": "keyword"},
             "parent_id": {"type": "keyword"},
             "article_number": {"type": "keyword"},
+            "clause_number": {"type": "keyword"},
             "clause_ref": {"type": "keyword"},
             "validity_status": {"type": "keyword"},
+            "source_status": {"type": "keyword"},
+            "provision_status": {"type": "keyword"},
+            "document_title": {"type": "text"},
+            "source_url": {"type": "keyword"},
             "effective_date": {"type": "keyword"},
+            "effective_from": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time||epoch_millis", "null_value": None},
+            "effective_to": {"type": "date", "format": "yyyy-MM-dd||strict_date_optional_time||epoch_millis", "null_value": None},
             "document_type": {"type": "keyword"},
             "document_number": {"type": "keyword"},
             "issuing_body": {"type": "keyword"},
@@ -234,6 +241,21 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
                 "BM25 không fallback sang embed_text hoặc văn bản gốc."
             )
 
+        metadata_dict = dict(metadata)
+        # Đồng bộ đầy đủ các trường chuẩn metadata theo Data Contract E6 & E1
+        metadata_dict["effective_from"] = effective_from
+        metadata_dict["effective_to"] = effective_to
+        if "source_status" not in metadata_dict and "source_status" in item:
+            metadata_dict["source_status"] = item["source_status"]
+        if "provision_status" not in metadata_dict and "provision_status" in item:
+            metadata_dict["provision_status"] = item["provision_status"]
+        if "document_title" not in metadata_dict and title:
+            metadata_dict["document_title"] = title
+        if "clause_number" not in metadata_dict and "clause_number" in item:
+            metadata_dict["clause_number"] = item["clause_number"]
+        if "source_url" not in metadata_dict and "source_url" in item:
+            metadata_dict["source_url"] = item["source_url"]
+
         chunks.append({
             "chunk_id": chunk_id,
             "parent_id": str(parent_id),
@@ -249,7 +271,7 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
             "content_segmented": content_seg,
             "breadcrumb": str(metadata.get("breadcrumb") or item.get("breadcrumb") or ""),
             "article_ref": str(article_ref),
-            "metadata": metadata,
+            "metadata": metadata_dict,
         })
 
     if not chunks:

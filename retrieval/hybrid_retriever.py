@@ -7,7 +7,7 @@ from datetime import date
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from importlib.metadata import PackageNotFoundError, version as package_version
-from typing import Any, Protocol, Sequence
+from typing import Any, Mapping, Protocol, Sequence
 
 from retrieval.rrf import reciprocal_rank_fusion
 from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
@@ -51,11 +51,28 @@ def _segment_bm25_query(query: str) -> str:
 class DenseRetriever(Protocol):
     """Interface expected by HybridRetriever; scores are local to dense ranking."""
 
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        filters: dict[str, Any] | None = None,
+    ) -> list[dict[str, Any]]: ...
 
 
 class SparseRetriever(Protocol):
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        metadata_filter: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]: ...
 
 
 class Reranker(Protocol):
@@ -100,52 +117,82 @@ class ElasticsearchBM25Retriever:
         return metadata
 
     @staticmethod
-    def build_temporal_filter(as_of_date: str) -> list[dict[str, Any]]:
-        as_of = normalize_as_of_date(as_of_date)
-        return [
-            {"bool": {"should": [
-                {"range": {"effective_from": {"lte": as_of}}},
-                {"bool": {"must_not": [{"exists": {"field": "effective_from"}}]}},
-            ], "minimum_should_match": 1}},
-            {"bool": {"should": [
-                {"range": {"effective_to": {"gt": as_of}}},
-                {"bool": {"must_not": [{"exists": {"field": "effective_to"}}]}},
-            ], "minimum_should_match": 1}},
-        ]
+    def build_temporal_filter(as_of_date: str | None, *, exclude_expired: bool = True) -> list[dict[str, Any]]:
+        """Xây dựng bộ lọc hiệu lực thời điểm theo chuẩn Data Contract E1 & E6."""
+        if as_of_date is not None:
+            as_of = normalize_as_of_date(as_of_date)
+            if not exclude_expired:
+                return []
+            return [
+                {"bool": {"should": [
+                    {"range": {"effective_from": {"lte": as_of}}},
+                    {"bool": {"must_not": [{"exists": {"field": "effective_from"}}]}},
+                ], "minimum_should_match": 1}},
+                {"bool": {"should": [
+                    {"range": {"effective_to": {"gt": as_of}}},
+                    {"bool": {"must_not": [{"exists": {"field": "effective_to"}}]}},
+                ], "minimum_should_match": 1}},
+            ]
+        # Khi as_of_date is None:
+        if exclude_expired:
+            return [
+                {"bool": {"must_not": [
+                    {"term": {"metadata.validity_status": "Hết hiệu lực"}},
+                    {"term": {"validity_status": "Hết hiệu lực"}},
+                ]}}
+            ]
+        return []
 
-    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 10,
+        exclude_expired: bool = True,
+        as_of_date: str | None = None,
+        metadata_filter: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k < 1:
             raise ValueError("top_k phải là số nguyên lớn hơn 0")
         raw_query = query.strip()
-        as_of = normalize_as_of_date(as_of_date)
+        as_of = normalize_as_of_date(as_of_date) if as_of_date is not None else None
         self._verify_index_tokenizer()
         segmented_query = _segment_bm25_query(raw_query)
-        response = self.client.search(index=self.index, size=top_k, query={
-            "bool": {
-                "should": [
-                    {"multi_match": {
-                        "query": raw_query,
-                        # Câu hỏi gốc khớp với content và breadcrumb chưa tách từ.
-                        "fields": ["content", "breadcrumb^1.5"],
-                        "type": "most_fields",
-                        "operator": "or",
-                    }},
-                    {"multi_match": {
-                        "query": segmented_query,
-                        # Câu hỏi đã tách từ đồng bộ với trường content_segmented của corpus.
-                        "fields": [self.text_field],
-                        "type": "most_fields",
-                        "operator": "or",
-                    }},
-                ],
-                "minimum_should_match": 1,
-                "filter": self.build_temporal_filter(as_of),
-            }
-        })
+
+        filter_clauses = self.build_temporal_filter(as_of_date, exclude_expired=exclude_expired)
+        if metadata_filter:
+            for k, v in metadata_filter.items():
+                target_field = k if k.startswith("metadata.") else f"metadata.{k}"
+                filter_clauses.append({"term": {target_field: v}})
+
+        bool_query: dict[str, Any] = {
+            "should": [
+                {"multi_match": {
+                    "query": raw_query,
+                    # Câu hỏi gốc khớp với content và breadcrumb chưa tách từ.
+                    "fields": ["content", "breadcrumb^1.5"],
+                    "type": "most_fields",
+                    "operator": "or",
+                }},
+                {"multi_match": {
+                    "query": segmented_query,
+                    # Câu hỏi đã tách từ khớp với nội dung đã tách từ.
+                    "fields": [self.text_field],
+                    "type": "most_fields",
+                    "operator": "or",
+                }},
+            ],
+            "minimum_should_match": 1,
+        }
+        if filter_clauses:
+            bool_query["filter"] = filter_clauses
+
+        response = self.client.search(index=self.index, size=top_k, query={"bool": bool_query})
+        hits = response.get("hits", {}).get("hits", [])
         rows = []
-        for rank, hit in enumerate(response["hits"]["hits"], 1):
+        for rank, hit in enumerate(hits, 1):
             source = hit.get("_source", {})
             chunk_id = source.get("chunk_id", hit.get("_id"))
             meta = source.get("metadata", {})
@@ -173,14 +220,100 @@ class ElasticsearchBM25Retriever:
         return rows
 
 
-def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None = None,
-                          filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+class EmbeddingQdrantAdapter:
+    """Adapt the project's query embedder + VectorStore or a DenseRetriever to DenseRetriever protocol."""
+
+    def __init__(self, embedding_service: Any, vector_store: Any = None):
+        self.embedding_service = embedding_service
+        self.vector_store = vector_store
+
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        filters: dict[str, Any] | None = None,
+        metadata_filter: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
+        as_of = normalize_as_of_date(as_of_date) if as_of_date is not None else None
+        active_filter = filters if filters is not None else metadata_filter
+        if self.vector_store is not None:
+            try:
+                query_vector = self.embedding_service.embed_query(query)
+                search = self.vector_store.search
+                try:
+                    parameters = inspect.signature(search).parameters
+                except (TypeError, ValueError):
+                    parameters = {}
+                call_kwargs: dict[str, Any] = {}
+                if "as_of_date" in parameters or any(
+                    p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()
+                ):
+                    call_kwargs["as_of_date"] = as_of
+                if "exclude_expired" in parameters or any(
+                    p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()
+                ):
+                    call_kwargs["exclude_expired"] = exclude_expired
+                if "filters" in parameters or any(
+                    p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()
+                ):
+                    call_kwargs["filters"] = active_filter
+                return search(query_vector, top_k=top_k, **call_kwargs)
+            except Exception:
+                logger.exception("Dense retrieval failed; propagating error (no implicit BM25 fallback)")
+                raise
+        else:
+            hits = self.embedding_service.search(
+                query,
+                top_k=top_k,
+                as_of_date=as_of,
+                exclude_expired=exclude_expired,
+                filters=active_filter,
+            )
+            return [{
+                "chunk_id": hit["chunk_id"],
+                "document_id": hit.get("document_id") or hit.get("doc_id"),
+                "article_id": hit.get("article_id"),
+                "clause_id": hit.get("clause_id"),
+                "parent_clause_id": hit.get("parent_clause_id"),
+                "parent_id": hit.get("parent_id"),
+                "rank": rank,
+                "score": hit["score"],
+                "chunk_text": hit.get("chunk_text") or hit.get("text", ""),
+                "effective_from": hit.get("effective_from") or (hit.get("metadata") or {}).get("effective_from"),
+                "effective_to": hit.get("effective_to") or (hit.get("metadata") or {}).get("effective_to"),
+                "metadata": {
+                    "validity_status": (hit.get("metadata") or {}).get("validity_status")
+                                       or hit.get("validity_status", "Không xác định"),
+                    "article_number": (hit.get("metadata") or {}).get("article_number")
+                                      or hit.get("article_number", ""),
+                    "breadcrumb": (hit.get("metadata") or {}).get("breadcrumb") or hit.get("breadcrumb"),
+                    "document_title": (hit.get("metadata") or {}).get("document_title") or hit.get("document_title"),
+                    "clause_number": (hit.get("metadata") or {}).get("clause_number") or hit.get("clause_number"),
+                    "source_url": (hit.get("metadata") or {}).get("source_url") or hit.get("source_url"),
+                    "effective_from": (hit.get("metadata") or {}).get("effective_from") or hit.get("effective_from"),
+                    "effective_to": (hit.get("metadata") or {}).get("effective_to") or hit.get("effective_to"),
+                    **(hit.get("metadata") or {}),
+                },
+            } for rank, hit in enumerate(hits, start=1)]
+
+
+def filter_legal_metadata(
+    hits: Sequence[dict[str, Any]],
+    *,
+    as_of: Any = None,
+    exclude_expired: bool = True,
+    filters: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
     """Apply the shared metadata/temporal gate after retrieval where backend filters are absent."""
     as_of_str = normalize_as_of_date(as_of)
     accepted = []
     for hit in hits:
         metadata = hit.get("metadata", {})
-        if not is_effective_at(hit, as_of_str):
+        if exclude_expired and not is_effective_at(hit, as_of_str):
             continue
         if filters and any(metadata.get(key) != value for key, value in filters.items()):
             continue
@@ -188,76 +321,49 @@ def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None 
     return accepted
 
 
-class RedisJSONCache:
+class SimpleCache:
     """Small JSON cache adapter usable for query and reranker cache namespaces."""
 
-    def __init__(self, client: Any, *, prefix: str, ttl_seconds: int = 3600):
-        self.client, self.prefix, self.ttl_seconds = client, prefix.rstrip(":"), ttl_seconds
+    def __init__(self, path: Any):
+        from pathlib import Path
+        import json
+        self.path = Path(path)
+        self.data: dict[str, Any] = {}
+        if self.path.exists():
+            try:
+                self.data = json.loads(self.path.read_text(encoding="utf-8"))
+            except Exception:
+                self.data = {}
 
     def get(self, key: str) -> Any:
-        import json
-        value = self.client.get(f"{self.prefix}:{key}")
-        return json.loads(value) if value is not None else None
+        return self.data.get(key)
 
     def set(self, key: str, value: Any) -> None:
         import json
-        self.client.setex(f"{self.prefix}:{key}", self.ttl_seconds,
-                          json.dumps(value, ensure_ascii=False))
+        self.data[key] = value
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps(self.data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 @dataclass(frozen=True)
 class HybridSearchConfig:
-    """Candidate depth, final result count, and RRF smoothing constant."""
-
     top_k: int = 10
     candidate_k: int = 50
     rrf_k: int = 60
 
-    def __post_init__(self) -> None:
+    def __post_init__(self):
         if not isinstance(self.top_k, int) or isinstance(self.top_k, bool) or self.top_k < 1:
             raise ValueError("top_k phải là số nguyên lớn hơn 0")
-        if not isinstance(self.candidate_k, int) or isinstance(self.candidate_k, bool) or self.candidate_k < 1:
-            raise ValueError("candidate_k phải là số nguyên lớn hơn 0")
         if self.candidate_k < self.top_k:
             raise ValueError("candidate_k phải >= top_k")
         if not isinstance(self.rrf_k, int) or isinstance(self.rrf_k, bool) or self.rrf_k < 0:
             raise ValueError("rrf_k phải là số nguyên không âm")
 
 
-class EmbeddingQdrantAdapter:
-    """Adapt the project's query embedder + VectorStore to DenseRetriever."""
-
-    def __init__(self, embedding_service: Any, vector_store: Any):
-        self.embedding_service = embedding_service
-        self.vector_store = vector_store
-
-    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
-        try:
-            query_vector = self.embedding_service.embed_query(query)
-            as_of = normalize_as_of_date(as_of_date)
-            search = self.vector_store.search
-            try:
-                parameters = inspect.signature(search).parameters
-            except (TypeError, ValueError):
-                parameters = {}
-            if "as_of_date" in parameters or any(
-                parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
-            ):
-                return search(query_vector, top_k=top_k, as_of_date=as_of)
-            raise TypeError("Vector store search() phải nhận as_of_date để lọc Qdrant trước Top-K")
-        except Exception:
-            logger.exception("Dense retrieval failed; propagating error (no implicit BM25 fallback)")
-            raise
-
-
 class HybridRetriever:
-    """Parallel sparse/dense retrieval, RRF candidate fusion, then optional reranking.
+    """Combines BM25 and dense retrieval using Reciprocal Rank Fusion."""
 
-    ``retrieve`` keeps the architecture's Top-50 fused candidates available as
-    ``fused`` and returns reranked Top-K as ``hybrid`` when a reranker is wired.
-    """
-
-    def __init__(self, bm25_index: SparseRetriever, dense_retriever: DenseRetriever,
+    def __init__(self, bm25_index: Any, dense_retriever: Any,
                  config: HybridSearchConfig | None = None, *, reranker: Reranker | None = None,
                  parent_resolver: Any = None, confidence_filter: Any = None,
                  metadata_filter: Any = None, cache: Any = None):
@@ -270,8 +376,53 @@ class HybridRetriever:
         self.metadata_filter = metadata_filter
         self.cache = cache
 
-    def retrieve(self, query: str, top_k: int | None = None, *,
-                 as_of_date: str | None = None) -> dict[str, list[dict[str, Any]]]:
+    def _make_cache_key(
+        self,
+        query: str,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        metadata_filter: Any = None,
+        top_k: int | None = None,
+    ) -> str:
+        import hashlib
+        import json
+
+        normalized = " ".join(query.casefold().split())
+
+        def component_key(component: Any) -> str:
+            if component is None:
+                return "none"
+            if isinstance(component, dict):
+                return json.dumps(component, sort_keys=True, ensure_ascii=False)
+            return str(getattr(component, "cache_key", None) or getattr(component, "__qualname__", None)
+                       or type(component).__qualname__)
+
+        as_of = normalize_as_of_date(as_of_date) if as_of_date is not None else None
+        requested_top_k = self.config.top_k if top_k is None else top_k
+        active_filter = metadata_filter if metadata_filter is not None else self.metadata_filter
+        filter_key_part = component_key(active_filter)
+        key_text = "|".join([
+            normalized,
+            f"as_of_date={as_of}",
+            f"exclude_expired={exclude_expired}",
+            f"top_k={requested_top_k}",
+            f"candidate_k={self.config.candidate_k}",
+            f"rrf_k={self.config.rrf_k}",
+            f"filter={filter_key_part}",
+            f"reranker={component_key(self.reranker)}",
+        ])
+        return hashlib.sha256(key_text.encode("utf-8")).hexdigest()
+
+    def retrieve(
+        self,
+        query: str,
+        top_k: int | None = None,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        metadata_filter: dict[str, Any] | None = None,
+    ) -> dict[str, list[dict[str, Any]]]:
         """Return the top-K branch results and fusion from one execution."""
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
@@ -280,53 +431,55 @@ class HybridRetriever:
             raise ValueError("top_k phải là số nguyên lớn hơn 0")
         if requested_top_k > self.config.candidate_k:
             raise ValueError("top_k không được lớn hơn candidate_k")
-        as_of = normalize_as_of_date(as_of_date)
+        as_of = normalize_as_of_date(as_of_date) if as_of_date is not None else None
+
+        active_metadata_filter = metadata_filter if metadata_filter is not None else (
+            self.metadata_filter if isinstance(self.metadata_filter, dict) else None
+        )
 
         cache_key = None
         if self.cache is not None:
-            import hashlib
-            normalized = " ".join(query.casefold().split())
-            # Kết quả phụ thuộc cả cấu hình fusion, bộ lọc metadata và reranker, nên khóa cache gồm
-            # cả ba; bộ lọc/reranker nên khai báo cache_key ổn định, nếu không thì dùng tên lớp.
-            def component_key(component: Any) -> str:
-                if component is None:
-                    return "none"
-                return str(getattr(component, "cache_key", None) or getattr(component, "__qualname__", None)
-                           or type(component).__qualname__)
-
-            key_text = "|".join([
-                normalized, f"as_of_date={as_of}", f"top_k={requested_top_k}",
-                f"candidate_k={self.config.candidate_k}",
-                f"rrf_k={self.config.rrf_k}", f"filter={component_key(self.metadata_filter)}",
-                f"reranker={component_key(self.reranker)}",
-            ])
-            cache_key = hashlib.sha256(key_text.encode("utf-8")).hexdigest()
+            cache_key = self._make_cache_key(
+                query,
+                as_of_date=as_of_date,
+                exclude_expired=exclude_expired,
+                metadata_filter=active_metadata_filter,
+                top_k=requested_top_k,
+            )
             cached = self.cache.get(cache_key)
             if cached is not None:
                 return cached
 
         # Sparse and dense branches are independent in the system architecture.
-        def search_branch(retriever: Any) -> list[dict[str, Any]]:
+        def search_branch(retriever: Any, is_dense: bool = False) -> list[dict[str, Any]]:
             search = retriever.search
             try:
                 parameters = inspect.signature(search).parameters
             except (TypeError, ValueError):
                 parameters = {}
-            supports_date = "as_of_date" in parameters or any(
-                parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
-            )
-            if supports_date:
-                return search(query, self.config.candidate_k, as_of_date=as_of)
-            raise TypeError(
-                f"Retriever {type(retriever).__name__}.search() phải nhận as_of_date "
-                "để lọc theo thời điểm trước Top-K"
-            )
+
+            call_kwargs: dict[str, Any] = {}
+            if "as_of_date" in parameters or any(p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()):
+                call_kwargs["as_of_date"] = as_of
+            if "exclude_expired" in parameters or any(p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()):
+                call_kwargs["exclude_expired"] = exclude_expired
+
+            if is_dense:
+                if "filters" in parameters or any(p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()):
+                    call_kwargs["filters"] = active_metadata_filter
+                elif "metadata_filter" in parameters:
+                    call_kwargs["metadata_filter"] = active_metadata_filter
+            else:
+                if "metadata_filter" in parameters or any(p.kind is inspect.Parameter.VAR_KEYWORD for p in parameters.values()):
+                    call_kwargs["metadata_filter"] = active_metadata_filter
+
+            return search(query, self.config.candidate_k, **call_kwargs)
 
         with ThreadPoolExecutor(max_workers=2) as executor:
-            sparse_future = executor.submit(search_branch, self.bm25_index)
-            dense_future = executor.submit(search_branch, self.dense_retriever)
+            sparse_future = executor.submit(search_branch, self.bm25_index, False)
+            dense_future = executor.submit(search_branch, self.dense_retriever, True)
             try:
-                lexical_hits = sparse_future.result()
+                bm25_hits = sparse_future.result()
             except Exception:
                 logger.exception("Sparse retrieval failed; propagating error (no implicit dense fallback)")
                 raise
@@ -335,28 +488,51 @@ class HybridRetriever:
             except Exception:
                 logger.exception("Dense retrieval failed; propagating error (no implicit sparse fallback)")
                 raise
-        fused = reciprocal_rank_fusion(
-            [lexical_hits, dense_hits], top_k=self.config.candidate_k, rrf_k=self.config.rrf_k
+
+        # In-memory post-filtering fallback if retriever doesn't filter natively
+        bm25_hits = filter_legal_metadata(
+            bm25_hits,
+            as_of=as_of,
+            exclude_expired=exclude_expired,
+            filters=active_metadata_filter,
         )
-        fused = filter_legal_metadata(fused, as_of=date.fromisoformat(as_of))
+        dense_hits = filter_legal_metadata(
+            dense_hits,
+            as_of=as_of,
+            exclude_expired=exclude_expired,
+            filters=active_metadata_filter,
+        )
+
+        fused = reciprocal_rank_fusion(
+            [bm25_hits, dense_hits],
+            top_k=self.config.candidate_k,
+            rrf_k=self.config.rrf_k,
+        )
+        fused = filter_legal_metadata(
+            fused,
+            as_of=as_of,
+            exclude_expired=exclude_expired,
+            filters=active_metadata_filter,
+        )
         if self.metadata_filter is not None:
             try:
                 parameters = inspect.signature(self.metadata_filter).parameters
             except (TypeError, ValueError):
                 parameters = {}
             if "as_of" in parameters:
-                fused = self.metadata_filter(fused, as_of=date.fromisoformat(as_of))
+                fused = self.metadata_filter(fused, as_of=date.fromisoformat(as_of) if as_of else None)
             elif "as_of_date" in parameters:
                 fused = self.metadata_filter(fused, as_of_date=as_of)
             else:
                 fused = self.metadata_filter(fused)
         final = self.reranker.rerank(query, fused, requested_top_k) if self.reranker else fused[:requested_top_k]
         if self.confidence_filter is not None:
-            final = self.confidence_filter(query, final)
+            final = self.confidence_filter(query, final) if callable(self.confidence_filter) else getattr(self.confidence_filter, "filter", lambda x: x)(final)
         if self.parent_resolver is not None:
             final = self.parent_resolver.resolve(final)
+
         result = {
-            "bm25": lexical_hits[:requested_top_k],
+            "bm25": bm25_hits[:requested_top_k],
             "dense": dense_hits[:requested_top_k],
             "fused": fused,
             "hybrid": final[:requested_top_k],
@@ -365,10 +541,25 @@ class HybridRetriever:
             self.cache.set(cache_key, result)
         return result
 
-    def search(self, query: str, top_k: int | None = None, *,
-               as_of_date: str | None = None) -> list[dict[str, Any]]:
-        """Return top-K RRF results; defaults to ``config.top_k``."""
-        return self.retrieve(query, top_k=top_k, as_of_date=as_of_date)["hybrid"]
+    def search(
+        self,
+        query: str,
+        top_k: int | None = None,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        metadata_filter: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
+        """CandidateRetriever contract returning only the fused candidates."""
+        results = self.retrieve(
+            query,
+            top_k,
+            as_of_date=as_of_date,
+            exclude_expired=exclude_expired,
+            metadata_filter=metadata_filter,
+        )
+        return results["hybrid"]
 
 
 def hybrid_search(
@@ -381,8 +572,29 @@ def hybrid_search(
     candidate_k: int = 50,
     rrf_k: int = 60,
     as_of_date: str | None = None,
+    exclude_expired: bool = True,
+    metadata_filter: Any = None,
 ) -> list[dict[str, Any]]:
     """Compatibility helper around HybridRetriever and the Qdrant adapter."""
+    if not isinstance(candidate_k, int) or isinstance(candidate_k, bool) or candidate_k < 1:
+        raise ValueError("candidate_k phải là số nguyên lớn hơn 0")
     config = HybridSearchConfig(top_k=top_k, candidate_k=candidate_k, rrf_k=rrf_k)
     dense = EmbeddingQdrantAdapter(embedding_service, vector_store)
-    return HybridRetriever(bm25_index, dense, config).search(query, as_of_date=as_of_date)
+    return HybridRetriever(bm25_index, dense, config, metadata_filter=metadata_filter).search(
+        query, top_k=top_k, as_of_date=as_of_date, exclude_expired=exclude_expired
+    )
+
+
+__all__ = [
+    "DenseRetriever",
+    "ElasticsearchBM25Retriever",
+    "EmbeddingQdrantAdapter",
+    "HybridRetriever",
+    "HybridSearchConfig",
+    "Reranker",
+    "SimpleCache",
+    "SparseRetriever",
+    "filter_legal_metadata",
+    "hybrid_search",
+    "reciprocal_rank_fusion",
+]

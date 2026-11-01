@@ -7,12 +7,16 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-from elasticsearch import Elasticsearch
+try:
+    from elasticsearch import Elasticsearch
+except ImportError:
+    Elasticsearch = None  # type: ignore[assignment, misc]
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
+from retrieval.temporal import normalize_as_of_date
 
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 DEFAULT_INDEX = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
@@ -32,6 +36,10 @@ class BM25Retriever:
         fields: Sequence[str] = DEFAULT_FIELDS,
         request_timeout: int = 30,
     ) -> None:
+        if Elasticsearch is None:
+            raise RuntimeError(
+                "Cần cài đặt elasticsearch (pip install -r requirements.txt) để dùng BM25Retriever."
+            )
         if not fields:
             raise ValueError("fields không được rỗng")
         self.index_name = index_name
@@ -51,23 +59,70 @@ class BM25Retriever:
     # ------------------------------------------------------------------
     # Kịch bản 1: xử lý MỘT query
     # ------------------------------------------------------------------
-    def search(self, query: str, top_k: int = 5) -> list[dict[str, Any]]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+        exclude_expired: bool = True,
+        as_of_date: str | None = None,
+        metadata_filter: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
         """Return ranked chunks with chunk_id, text, metadata, score and rank."""
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         if isinstance(top_k, bool) or not isinstance(top_k, int) or top_k < 1:
             raise ValueError("top_k phải là số nguyên lớn hơn 0")
 
+        filter_clauses: list[dict[str, Any]] = []
+        if as_of_date is not None:
+            as_of = normalize_as_of_date(as_of_date)
+            if exclude_expired:
+                filter_clauses.extend([
+                    {"bool": {"should": [
+                        {"range": {"effective_from": {"lte": as_of}}},
+                        {"bool": {"must_not": [{"exists": {"field": "effective_from"}}]}},
+                    ], "minimum_should_match": 1}},
+                    {"bool": {"should": [
+                        {"range": {"effective_to": {"gt": as_of}}},
+                        {"bool": {"must_not": [{"exists": {"field": "effective_to"}}]}},
+                    ], "minimum_should_match": 1}},
+                ])
+        elif exclude_expired:
+            filter_clauses.append(
+                {"bool": {"must_not": [
+                    {"term": {"metadata.validity_status": "Hết hiệu lực"}},
+                    {"term": {"validity_status": "Hết hiệu lực"}},
+                ]}}
+            )
+
+        if metadata_filter:
+            for k, v in metadata_filter.items():
+                target_field = k if k.startswith("metadata.") else f"metadata.{k}"
+                filter_clauses.append({"term": {target_field: v}})
+
+        multi_match_clause = {
+            "multi_match": {
+                "query": query,
+                "fields": self.fields,
+                "type": "best_fields",
+            }
+        }
+        es_query: dict[str, Any]
+        if filter_clauses:
+            es_query = {
+                "bool": {
+                    "must": [multi_match_clause],
+                    "filter": filter_clauses,
+                }
+            }
+        else:
+            es_query = multi_match_clause
+
         response = self.client.search(
             index=self.index_name,
             size=top_k,
-            query={
-                "multi_match": {
-                    "query": query,
-                    "fields": self.fields,
-                    "type": "best_fields",
-                }
-            },
+            query=es_query,
         )
 
         hits = response.get("hits", {}).get("hits", [])
@@ -76,13 +131,14 @@ class BM25Retriever:
             source = hit.get("_source", {})
             chunk_id = source.get("chunk_id") or hit.get("_id")
             content = source.get("content") or source.get("content_segmented") or ""
-            metadata = {
-                key: source[key]
-                for key in (
-                    "parent_id", "doc_id", "title", "breadcrumb", "article_ref"
-                )
-                if key in source
-            }
+            metadata = dict(source.get("metadata") or {})
+            for key in (
+                "parent_id", "doc_id", "document_id", "title", "breadcrumb", "article_ref",
+                "effective_from", "effective_to", "source_status", "provision_status",
+                "document_title", "clause_number", "source_url", "validity_status",
+            ):
+                if key in source and key not in metadata:
+                    metadata[key] = source[key]
             results.append({
                 "chunk_id": str(chunk_id),
                 "text": content,
@@ -100,6 +156,8 @@ class BM25Retriever:
         questions: list[dict[str, Any]],
         output_path: str | Path,
         top_k: int = 5,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
     ) -> list[dict[str, Any]]:
         """Chạy search cho từng câu hỏi rồi lưu toàn bộ kết quả ra file JSON."""
         results: list[dict[str, Any]] = []
@@ -107,8 +165,15 @@ class BM25Retriever:
         for number, item in enumerate(questions, start=1):
             question_id = item["id"]
             question = item["question"]
+            q_as_of = item.get("as_of_date", as_of_date)
+            q_exclude = item.get("exclude_expired", exclude_expired)
 
-            chunks = self.search(question, top_k=top_k)
+            chunks = self.search(
+                question,
+                top_k=top_k,
+                exclude_expired=q_exclude,
+                as_of_date=q_as_of,
+            )
             results.append({
                 "query_id": question_id,
                 "question": question,
@@ -122,10 +187,6 @@ class BM25Retriever:
                     for chunk in chunks
                 ],
             })
-            #  print(
-            #     f"[{number}/{len(questions)}] {question_id}: "
-            #     f"{len(chunks)} chunks retrieved"
-            # )
 
         output = Path(output_path)
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -136,7 +197,8 @@ class BM25Retriever:
         return results
 
     def close(self) -> None:
-        self.client.close()
+        if hasattr(self, "client") and self.client is not None:
+            self.client.close()
 
 
 def load_questions(path: str | Path) -> list[dict[str, Any]]:
@@ -179,6 +241,8 @@ def run_bm25(
     es_url: str = DEFAULT_ES_URL,
     index_name: str = DEFAULT_INDEX,
     top_k: int = 5,
+    as_of_date: str | None = None,
+    exclude_expired: bool = True,
 ) -> list[dict[str, Any]]:
     """Đọc tập câu hỏi -> chạy BM25 trên index có sẵn -> lưu kết quả.
 
@@ -189,6 +253,12 @@ def run_bm25(
     questions = load_questions(questions_path)
     retriever = BM25Retriever(es_url=es_url, index_name=index_name)
     try:
-        return retriever.run_batch(questions, output_path, top_k=top_k)
+        return retriever.run_batch(
+            questions,
+            output_path,
+            top_k=top_k,
+            as_of_date=as_of_date,
+            exclude_expired=exclude_expired,
+        )
     finally:
         retriever.close()

@@ -2,12 +2,20 @@ import unittest
 from datetime import date
 import json
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 from embedding.dense_retriever import DenseRetriever
 from embedding.vector_store import LegalVectorStore, load_chunks, normalize_chunk_record
+from evaluation.bm25_baseline import BM25Retriever
 from retrieval.build_bm25_index import _validate_parent_links
 from reranking.pipeline import RetrievalPipeline
-from retrieval.hybrid_retriever import HybridRetriever, HybridSearchConfig, filter_legal_metadata
+from retrieval.hybrid_retriever import (
+    ElasticsearchBM25Retriever,
+    HybridRetriever,
+    HybridSearchConfig,
+    filter_legal_metadata,
+)
+from scripts.run_retrieval import parse_args
 
 
 class TemporalBM25Stub:
@@ -17,8 +25,10 @@ class TemporalBM25Stub:
         self.hits = hits
         self.as_of_dates = []
 
-    def search(self, query, top_k, *, as_of_date):
+    def search(self, query, top_k, *, as_of_date, exclude_expired=True):
         self.as_of_dates.append(as_of_date)
+        if not exclude_expired:
+            return [dict(hit) for hit in self.hits[:top_k]]
         return filter_legal_metadata(self.hits, as_of=date.fromisoformat(as_of_date))[:top_k]
 
 
@@ -187,6 +197,100 @@ class E1TemporalRetrievalEndToEndTest(unittest.TestCase):
         self.assertEqual(historical["config"]["as_of_date"], "1995-06-01")
         self.assertEqual(historical["config"]["temporal_filter"], "retriever")
         self.assertEqual(sparse.as_of_dates, ["1995-06-01", "2026-10-30"])
+
+    def test_elasticsearch_bm25_retriever_build_temporal_filter(self):
+        # 1. as_of_date given and exclude_expired=True
+        clauses = ElasticsearchBM25Retriever.build_temporal_filter("2024-05-01", exclude_expired=True)
+        self.assertEqual(len(clauses), 2)
+        # Check range for effective_from
+        from_should = clauses[0]["bool"]["should"]
+        self.assertEqual(from_should[0]["range"]["effective_from"]["lte"], "2024-05-01")
+        self.assertEqual(from_should[1]["bool"]["must_not"][0]["exists"]["field"], "effective_from")
+        # Check range for effective_to
+        to_should = clauses[1]["bool"]["should"]
+        self.assertEqual(to_should[0]["range"]["effective_to"]["gt"], "2024-05-01")
+        self.assertEqual(to_should[1]["bool"]["must_not"][0]["exists"]["field"], "effective_to")
+
+        # 2. as_of_date given and exclude_expired=False (e.g. historical questions)
+        no_filter = ElasticsearchBM25Retriever.build_temporal_filter("2024-05-01", exclude_expired=False)
+        self.assertEqual(no_filter, [])
+
+        # 3. as_of_date is None and exclude_expired=True
+        default_filter = ElasticsearchBM25Retriever.build_temporal_filter(None, exclude_expired=True)
+        self.assertEqual(len(default_filter), 1)
+        self.assertIn("must_not", default_filter[0]["bool"])
+
+        # 4. as_of_date is None and exclude_expired=False
+        all_included = ElasticsearchBM25Retriever.build_temporal_filter(None, exclude_expired=False)
+        self.assertEqual(all_included, [])
+
+    @patch("evaluation.bm25_baseline.Elasticsearch")
+    def test_bm25_retriever_search_with_temporal_filter(self, mock_es_cls):
+        mock_client = MagicMock()
+        mock_es_cls.return_value = mock_client
+        mock_client.ping.return_value = True
+        mock_client.indices.exists.return_value = True
+        mock_client.search.return_value = {
+            "hits": {
+                "hits": [
+                    {
+                        "_id": "test_chunk_1",
+                        "_score": 2.5,
+                        "_source": {
+                            "chunk_id": "test_chunk_1",
+                            "content": "Nội dung điều kiện kết hôn",
+                            "metadata": {
+                                "doc_id": "l_52_2014_qh13",
+                                "effective_from": "2015-01-01",
+                                "effective_to": None,
+                                "validity_status": "Còn hiệu lực",
+                            },
+                        },
+                    }
+                ]
+            }
+        }
+
+        retriever = BM25Retriever(es_url="http://localhost:9200", index_name="test_index")
+        results = retriever.search("kết hôn", top_k=3, as_of_date="2026-10-15", exclude_expired=True)
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["chunk_id"], "test_chunk_1")
+        self.assertEqual(results[0]["rank"], 1)
+
+        # Verify ES query structure
+        call_args = mock_client.search.call_args[1]
+        self.assertEqual(call_args["size"], 3)
+        query = call_args["query"]
+        self.assertIn("bool", query)
+        self.assertIn("filter", query["bool"])
+        filters = query["bool"]["filter"]
+        self.assertEqual(len(filters), 2)
+
+    def test_hybrid_retriever_cache_distinguishes_as_of_date_and_exclude_expired(self):
+        sparse = MagicMock()
+        sparse.search.return_value = []
+        dense = MagicMock()
+        dense.search.return_value = []
+
+        hybrid = HybridRetriever(sparse, dense, HybridSearchConfig(top_k=5, candidate_k=5))
+        key1 = hybrid._make_cache_key("kết hôn", as_of_date="2024-01-01", exclude_expired=True, metadata_filter=None)
+        key2 = hybrid._make_cache_key("kết hôn", as_of_date="2024-01-01", exclude_expired=False, metadata_filter=None)
+        key3 = hybrid._make_cache_key("kết hôn", as_of_date="2026-01-01", exclude_expired=True, metadata_filter=None)
+        key4 = hybrid._make_cache_key("kết hôn", as_of_date="2024-01-01", exclude_expired=True, metadata_filter={"doc_id": "doc1"})
+
+        self.assertNotEqual(key1, key2)
+        self.assertNotEqual(key1, key3)
+        self.assertNotEqual(key1, key4)
+
+    def test_cli_parse_args_exclude_expired(self):
+        args_default = parse_args(["--query", "Điều kiện kết hôn"])
+        self.assertTrue(args_default.exclude_expired)
+
+        args_disabled = parse_args(["--query", "Điều kiện kết hôn", "--no-exclude-expired"])
+        self.assertFalse(args_disabled.exclude_expired)
+
+        args_explicit = parse_args(["--query", "Điều kiện kết hôn", "--exclude-expired"])
+        self.assertTrue(args_explicit.exclude_expired)
 
 
 if __name__ == "__main__":

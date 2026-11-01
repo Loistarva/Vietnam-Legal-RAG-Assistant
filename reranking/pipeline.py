@@ -43,7 +43,15 @@ RETRIEVAL_SOURCE = "retrieval"
 
 
 class CandidateRetriever(Protocol):
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]: ...
 
 
 class PipelineError(RuntimeError):
@@ -154,6 +162,7 @@ class RetrievalPipeline:
         # when its search() declares that keyword. query_id goes only to retrievers that ask
         # for it (PrecomputedRetriever looks its candidates up by query_id).
         self.retriever_takes_as_of_date = _accepts_keyword(retriever.search, "as_of_date")
+        self.retriever_takes_exclude_expired = _accepts_keyword(retriever.search, "exclude_expired")
         self.retriever_takes_query_id = _accepts_keyword(retriever.search, "query_id")
 
     @property
@@ -170,7 +179,7 @@ class RetrievalPipeline:
         return self.reranker.rerank_top_k if self.reranker else min(5, self.retrieval_top_k)
 
     def run(self, query: str, top_k: int | None = None, *, query_id: str = "Q_CLI_001",
-            as_of_date: str | None = None) -> dict[str, Any]:
+            as_of_date: str | None = None, exclude_expired: bool = True) -> dict[str, Any]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         as_of_date = _parse_as_of_date(as_of_date)
@@ -189,6 +198,8 @@ class RetrievalPipeline:
 
         search_kwargs: dict[str, Any] = {}
         search_kwargs["as_of_date"] = as_of_date
+        if self.retriever_takes_exclude_expired:
+            search_kwargs["exclude_expired"] = exclude_expired
         if self.retriever_takes_query_id:
             search_kwargs["query_id"] = query_id
         started = time.perf_counter()
@@ -245,6 +256,7 @@ class RetrievalPipeline:
                 "reranker": self.reranker.describe() if self.reranker else None,
                 "parent_context": self.parent_resolver.describe() if self.parent_resolver else None,
                 "as_of_date": as_of_date,
+                "exclude_expired": exclude_expired,
                 "temporal_filter": temporal_filter,
                 "top_k": top_k,
             },
@@ -274,10 +286,20 @@ class FixtureRetriever:
             raise ValueError("Candidate fixture phải là list hoặc object có 'candidates'/'results'")
         return cls(data)
 
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]:
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         _require_positive_int("top_k", top_k)
+        if not exclude_expired:
+            return [dict(candidate) for candidate in self.candidates][:top_k]
         return [dict(candidate) for candidate in self.candidates if is_effective_at(candidate, as_of_date)][:top_k]
 
 
@@ -322,7 +344,16 @@ class PrecomputedRetriever:
             raise ValueError(f"Không đọc được file candidate {path}: {exc}") from exc
         return cls([data] if isinstance(data, dict) else data if isinstance(data, list) else [])
 
-    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str) -> list[dict[str, Any]]:
+    def search(
+        self,
+        query: str,
+        top_k: int,
+        *,
+        query_id: str,
+        as_of_date: str | None = None,
+        exclude_expired: bool = True,
+        **kwargs: Any,
+    ) -> list[dict[str, Any]]:
         _require_positive_int("top_k", top_k)
         envelope = self.envelopes.get(query_id)
         if envelope is None:
