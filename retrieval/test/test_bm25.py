@@ -6,16 +6,23 @@ from retrieval.hybrid_retriever import ElasticsearchBM25Retriever, _segment_bm25
 
 
 class FakeClient:
+    def __init__(self, extra_metadata=None):
+        self.extra_metadata = extra_metadata or {}
+
     class Indices:
+        def __init__(self, extra_metadata=None):
+            self.extra_metadata = extra_metadata or {}
+
         def get_mapping(self, index):
             return {index: {"mappings": {"_meta": {
                 "bm25_tokenizer": "underthesea",
                 "bm25_tokenizer_version": "9.5.0",
                 "bm25_text_field": "content_segmented",
+                **self.extra_metadata,
             }}}}
 
-    def __init__(self):
-        self.indices = self.Indices()
+    def __init__(self, extra_metadata=None):
+        self.indices = self.Indices(extra_metadata)
 
     def search(self, **kwargs):
         self.kwargs = kwargs
@@ -42,6 +49,14 @@ class FakeClient:
 
 
 class ElasticsearchBM25SearchTest(unittest.TestCase):
+    def test_search_rejects_index_built_from_different_corpus(self):
+        client = FakeClient({"corpus_sha256": "b" * 64})
+        retriever = ElasticsearchBM25Retriever(
+            client, "legal-child-chunks-dev", expected_corpus_sha256="a" * 64
+        )
+        with self.assertRaisesRegex(RuntimeError, "corpus_sha256"):
+            retriever.search("query", 5, as_of_date="2026-10-30")
+
     def test_search_preserves_elasticsearch_order_score_and_chunk_fields(self):
         client = FakeClient()
         with patch("retrieval.hybrid_retriever._segment_bm25_query", return_value="Điều_56") as tokenize:
@@ -49,7 +64,9 @@ class ElasticsearchBM25SearchTest(unittest.TestCase):
                 " Điều 56 ", 2, as_of_date="2026-10-30"
             )
 
-        tokenize.assert_called_once_with("Điều 56")
+        tokenize.assert_called_once_with(
+            "Điều 56", tokenizer="underthesea", tokenizer_version="9.5.0"
+        )
         self.assertEqual([hit["chunk_id"] for hit in hits], ["chunk-56", "chunk-8"])
         self.assertEqual([hit["rank"] for hit in hits], [1, 2])
         self.assertEqual([hit["score"] for hit in hits], [2.5, 0.8])

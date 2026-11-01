@@ -9,10 +9,13 @@ if str(ROOT) not in sys.path:
 
 from retrieval.hybrid_retriever import ElasticsearchBM25Retriever
 from retrieval.build_bm25_index import (
-    BM25_TOKENIZER, BM25_TOKENIZER_VERSION, build_bm25_index,
+    BM25_TOKENIZER, BM25_TOKENIZER_VERSION,
+    build_bm25_index,
     load_chunks as load_es_chunks,
+    resolve_bm25_build_config,
 )
 from embedding.vector_store import load_chunks
+from retrieval.settings import load_settings
 
 
 class FakeElasticsearchClient:
@@ -82,6 +85,20 @@ class FakeBuildClient:
 
 
 class BM25RetrievalTest(unittest.TestCase):
+    def test_bm25_index_builder_uses_shared_corpus_and_index_with_cli_overrides(self):
+        settings = load_settings()
+        defaults = resolve_bm25_build_config(settings)
+        self.assertEqual(defaults["index_name"], settings["bm25"]["index"])
+        self.assertEqual(defaults["chunks_file"].name, "chunks.jsonl")
+        self.assertEqual(defaults["tokenizer"], settings["bm25"]["tokenizer"])
+        self.assertEqual(defaults["tokenizer_version"], str(settings["bm25"]["tokenizer_version"]))
+        self.assertEqual(defaults["text_field"], settings["bm25"]["text_field"])
+        overridden = resolve_bm25_build_config(
+            settings, chunks_override="custom/corpus.jsonl", index_override="bm25-test"
+        )
+        self.assertEqual(overridden["chunks_file"].name, "corpus.jsonl")
+        self.assertEqual(overridden["index_name"], "bm25-test")
+
     def test_chunk_loader_and_elasticsearch_document_use_segmented_content_field(self):
         fixture = ROOT / "data" / "chunking_output" / "chunks.jsonl"
         source_chunk = load_chunks(fixture)[0]

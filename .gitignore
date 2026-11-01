@@ -16,5 +16,9 @@ __pycache__/
 /data/indexes/*
 !/data/indexes/README.md
 
+# Automatic benchmark backups
+/data/benchmark/backups/
+*.bak
+
 # Office lock files (created while a document is open)
 ~$*

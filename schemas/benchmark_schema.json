@@ -246,6 +246,13 @@
             "type": "string",
             "minLength": 4
           }
+        },
+        "split": {
+          "type": "string",
+          "enum": [
+            "dev",
+            "test"
+          ]
         }
       },
       "allOf": [

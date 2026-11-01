@@ -21,6 +21,7 @@ from embedding.dense_retriever import (
 )
 from embedding.vector_store import (
     LegalVectorStore,
+    chunk_file_sha256,
     index_metadata_path,
     is_effective_at,
     normalize_chunk_record,
@@ -244,6 +245,19 @@ def test_underthesea_missing_fail_fast_raises_runtime_error():
             )
 
 
+def test_real_embedder_rejects_vector_store_dimension_mismatch():
+    """Real model mode checks store dimension against the Model Registry before encoding."""
+    store = LegalVectorStore(collection_name="test_real_dimension", dimension=768, storage_path=":memory:")
+    with pytest.raises(ValueError, match="không khớp model.*1024"):
+        DenseRetriever(vector_store=store, model_name="BAAI/bge-m3", use_mock=False)
+
+
+def test_mock_embedder_keeps_support_for_test_dimensions():
+    store = LegalVectorStore(collection_name="test_mock_dimension", dimension=64, storage_path=":memory:")
+    retriever = DenseRetriever(vector_store=store, model_name="BAAI/bge-m3", use_mock=True)
+    assert retriever.vector_store.dimension == 64
+
+
 def test_model_specs_and_text_fields():
     """Kiểm tra cấu hình chuẩn của BGE-M3 (raw, no seg) và BKAI (segmented)."""
     bge_spec = get_model_spec("BAAI/bge-m3")
@@ -362,14 +376,30 @@ def test_persistent_store_checks_collection_and_metadata(tmp_path, sample_chunks
     DenseRetriever(vector_store=store, model_name="BAAI/bge-m3", use_mock=True).index_chunks(sample_chunks)
     store.client.close()
 
+    corpus_path = tmp_path / "chunks.json"
+    corpus_path.write_text(json.dumps(sample_chunks), encoding="utf-8")
+    corpus_sha256 = chunk_file_sha256(corpus_path)
     meta_path = index_metadata_path(storage, "col")
-    meta = {"model_name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "corpus_sha256": "abc"}
+    meta = {
+        "model_name": "BAAI/bge-m3", "dimension": 1024,
+        "use_word_segmentation": False, "text_field": "embed_text_raw",
+        "collection_name": "col", "chunk_count": 3, "corpus_sha256": corpus_sha256,
+        "mock_mode": True,
+    }
     meta_path.write_text(json.dumps(meta), encoding="utf-8")
     reopened = LegalVectorStore(collection_name="col", dimension=1024, storage_path=storage)
-    retriever = DenseRetriever(vector_store=reopened, model_name="BAAI/bge-m3", use_mock=True)
-    assert retriever.verify_index(corpus_sha256="abc")["corpus_sha256"] == "abc"
+    retriever = DenseRetriever(
+        vector_store=reopened, model_name="BAAI/bge-m3", use_mock=True,
+        corpus_path=corpus_path,
+    )
+    assert retriever.verify_index()["corpus_sha256"] == corpus_sha256
+    with pytest.raises(ValueError, match="mock_mode"):
+        DenseRetriever(
+            vector_store=reopened, model_name="BAAI/bge-m3", use_mock=False,
+            corpus_path=corpus_path,
+        )
     with pytest.raises(ValueError, match="corpus_sha256"):
-        retriever.verify_index(corpus_sha256="other")
+        retriever.verify_index(corpus_sha256="b" * 64)
     with pytest.raises(ValueError, match="model_name"):
         DenseRetriever(vector_store=reopened, model_name="AITeamVN/Vietnamese_Embedding", use_mock=True)
     reopened.client.close()

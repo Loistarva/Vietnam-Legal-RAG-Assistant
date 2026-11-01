@@ -1004,7 +1004,8 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
                 ).model_dump()
             )
         except Exception as ex:
-            warn(f"Điều {num} lỗi khi dựng clause: {ex}")
+            # Bỏ Điều lỗi sẽ làm mất nội dung khỏi corpus mà không ai biết (H8).
+            raise ValueError(f"{doc_id}: Điều {num} lỗi khi dựng clause: {ex}") from ex
 
     return articles, footnotes
 

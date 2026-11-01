@@ -22,8 +22,24 @@ except ImportError:
     helpers = _DummyHelpers()
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_CHUNKS_FILE = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
+from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings
+
+
+def resolve_bm25_build_config(settings: dict[str, Any], *, chunks_override: str | Path | None = None,
+                              index_override: str | None = None) -> dict[str, Any]:
+    """Resolve BM25 corpus/index from the shared config, applying explicit overrides."""
+    chunks_path = Path(chunks_override or settings["retrieval"]["corpus_path"])
+    if not chunks_path.is_absolute():
+        chunks_path = ROOT_DIR / chunks_path
+    bm25 = settings["bm25"]
+    return {
+        "chunks_file": chunks_path,
+        "index_name": index_override or bm25["index"],
+        "tokenizer": bm25["tokenizer"],
+        "tokenizer_version": str(bm25["tokenizer_version"]),
+        "text_field": bm25["text_field"],
+    }
 DEFAULT_INDEX_NAME = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
 BM25_TOKENIZER = "underthesea"
 BM25_TOKENIZER_VERSION = "9.5.0"
@@ -68,7 +84,8 @@ INDEX_MAPPINGS: dict[str, Any] = {
 }
 
 
-def _verify_chunking_provenance(chunks_path: Path) -> dict[str, str]:
+def _verify_chunking_provenance(chunks_path: Path, *, tokenizer: str = BM25_TOKENIZER,
+                                tokenizer_version: str = BM25_TOKENIZER_VERSION) -> dict[str, str]:
     """Require the adjacent chunking report to prove the BM25 tokenizer version."""
     report_path = chunks_path.with_name("chunking_report.json")
     if not report_path.is_file():
@@ -82,11 +99,11 @@ def _verify_chunking_provenance(chunks_path: Path) -> dict[str, str]:
         raise ValueError(f"Không đọc được báo cáo chunking {report_path}: {exc}") from exc
     backend = report.get("tokenization_backend")
     version = str(report.get("tokenization_version", ""))
-    if backend != BM25_TOKENIZER or version != BM25_TOKENIZER_VERSION:
+    if backend != tokenizer or version != tokenizer_version:
         raise ValueError(
             "Tokenizer corpus không khớp cấu hình BM25: "
             f"báo cáo ghi {backend!r} phiên bản {version!r}, yêu cầu "
-            f"{BM25_TOKENIZER}=={BM25_TOKENIZER_VERSION}. Hãy tái tạo corpus bằng đúng tokenizer."
+            f"{tokenizer}=={tokenizer_version}. Hãy tái tạo corpus bằng đúng tokenizer."
         )
     return {"bm25_tokenizer": backend, "bm25_tokenizer_version": version}
 
@@ -126,9 +143,13 @@ def _validate_parent_links(chunks_path: Path, chunks: list[dict[str, Any]]) -> N
             )
 
 
-def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
+def load_chunks(path: str | Path | None = None, *,
+                config_path: str | Path | None = None) -> list[dict[str, Any]]:
     """Read and validate prepared chunks, mapping fields for Elasticsearch."""
-    chunks_path = Path(path)
+    settings = load_settings(config_path)
+    chunks_path = Path(path) if path is not None else Path(settings["retrieval"]["corpus_path"])
+    if not chunks_path.is_absolute():
+        chunks_path = ROOT_DIR / chunks_path
     if not chunks_path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file chunks: {chunks_path}")
 
@@ -258,12 +279,13 @@ def load_chunks(path: str | Path = DEFAULT_CHUNKS_FILE) -> list[dict[str, Any]]:
 
 
 def build_bm25_index(
-    chunks_file: str | Path = DEFAULT_CHUNKS_FILE,
+    chunks_file: str | Path | None = None,
     es_url: str | None = None,
     index_name: str | None = None,
     *,
     recreate: bool = False,
     client: Any | None = None,
+    config_path: str | Path | None = None,
 ) -> dict[str, Any]:
     """Load chunks and index them in Elasticsearch; return indexing statistics.
 
@@ -274,15 +296,32 @@ def build_bm25_index(
     """
     if not HAS_ELASTICSEARCH and client is None:
         raise RuntimeError("Cần cài elasticsearch để dùng build_bm25_index khi không truyền client")
+    settings = load_settings(config_path)
+    resolved = resolve_bm25_build_config(
+        settings, chunks_override=chunks_file, index_override=index_name,
+    )
     resolved_es_url = es_url or os.getenv("ELASTICSEARCH_URL", DEFAULT_ES_URL)
-    resolved_index_name = index_name or os.getenv("ELASTICSEARCH_INDEX", DEFAULT_INDEX_NAME)
+    resolved_index_name = resolved["index_name"]
     if not resolved_index_name or not resolved_index_name.strip():
         raise ValueError("index_name không được rỗng")
-    chunks_path = Path(chunks_file)
-    tokenizer_provenance = _verify_chunking_provenance(chunks_path)
-    chunks = load_chunks(chunks_path)
+    
+    chunks_path = Path(resolved["chunks_file"])
+    if resolved["text_field"] != "content_segmented":
+        raise ValueError(
+            "BM25 builder hiện chỉ hỗ trợ bm25.text_field='content_segmented', "
+            "vì corpus đã chuẩn hóa trường này."
+        )
+
+    chunks = load_chunks(chunks_path, config_path=config_path)
     _validate_parent_links(chunks_path, chunks)
-    tokenizer_provenance["corpus_sha256"] = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
+
+    tokenizer_provenance = _verify_chunking_provenance(
+        chunks_path, tokenizer=resolved["tokenizer"],
+        tokenizer_version=resolved["tokenizer_version"],
+    )
+    tokenizer_provenance["corpus_sha256"] = hashlib.sha256(
+        chunks_path.read_bytes()
+    ).hexdigest()
     owns_client = client is None
     if client is None:
         client = Elasticsearch(resolved_es_url, request_timeout=60)
@@ -347,10 +386,14 @@ def build_bm25_index(
             index=resolved_index_name,
             _meta={
                 **tokenizer_provenance,
-                "bm25_text_field": "content_segmented",
+                "bm25_text_field": resolved["text_field"],
             },
         )
-        _verify_index_tokenizer(client, resolved_index_name)
+        _verify_index_tokenizer(
+            client, resolved_index_name, tokenizer=resolved["tokenizer"],
+            tokenizer_version=resolved["tokenizer_version"],
+            text_field=resolved["text_field"],
+        )
         print(json.dumps(stats, ensure_ascii=False, indent=2))
         return stats
     finally:
@@ -358,7 +401,10 @@ def build_bm25_index(
             client.close()
 
 
-def _verify_index_tokenizer(client: Any, index_name: str) -> None:
+def _verify_index_tokenizer(client: Any, index_name: str, *,
+                            tokenizer: str = BM25_TOKENIZER,
+                            tokenizer_version: str = BM25_TOKENIZER_VERSION,
+                            text_field: str = "content_segmented") -> None:
     """Fail closed unless Elasticsearch mapping metadata matches the expected corpus tokenizer."""
     try:
         mapping_response = client.indices.get_mapping(index=index_name)
@@ -369,9 +415,9 @@ def _verify_index_tokenizer(client: Any, index_name: str) -> None:
             f"Không xác minh được tokenizer metadata của Elasticsearch index {index_name!r}."
         ) from exc
     expected = {
-        "bm25_tokenizer": BM25_TOKENIZER,
-        "bm25_tokenizer_version": BM25_TOKENIZER_VERSION,
-        "bm25_text_field": "content_segmented",
+        "bm25_tokenizer": tokenizer,
+        "bm25_tokenizer_version": tokenizer_version,
+        "bm25_text_field": text_field,
     }
     mismatches = {key: (metadata.get(key), value) for key, value in expected.items()
                   if metadata.get(key) != value}
@@ -386,13 +432,17 @@ def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser(description="Dựng index BM25 Elasticsearch từ corpus chunk.")
-    parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS_FILE)
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH,
+                        help="Shared Retrieval YAML config")
+    parser.add_argument("--chunks", type=Path, default=None,
+                        help="Corpus override; mặc định lấy retrieval.corpus_path")
     parser.add_argument("--es-url", default=None, help="Mặc định lấy từ ELASTICSEARCH_URL")
-    parser.add_argument("--index", default=None, help="Mặc định lấy từ ELASTICSEARCH_INDEX")
+    parser.add_argument("--index", default=None, help="Index override; mặc định lấy bm25.index")
     parser.add_argument("--recreate", action="store_true",
                         help="Xóa index cũ trước khi nạp, để không còn chunk của corpus trước")
     args = parser.parse_args()
-    build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate)
+    build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate,
+                     config_path=args.config)
 
 
 if __name__ == "__main__":

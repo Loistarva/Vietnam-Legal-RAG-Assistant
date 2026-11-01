@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -14,15 +13,63 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from embedding.dense_retriever import DEFAULT_MODEL_NAME, MODEL_DIMENSIONS, DenseRetriever
-from embedding.vector_store import LegalVectorStore, read_index_metadata
+from embedding.dense_retriever import DenseRetriever
+from embedding.vector_store import LegalVectorStore, chunk_file_sha256
+from embedding.model_registry import ModelRegistry
 from reranking.pipeline import to_contract_result
 from retrieval.hybrid_retriever import (
     ElasticsearchBM25Retriever,
     HybridRetriever,
     HybridSearchConfig,
 )
+from retrieval.settings import DEFAULT_CONFIG_PATH, ROOT as SETTINGS_ROOT, load_settings
 from retrieval.temporal import normalize_as_of_date
+
+
+def resolve_run_config(settings: dict[str, Any], *, top_k: int | None = None,
+                       candidate_k: int | None = None, rrf_k: int | None = None,
+                       model: str | None = None, collection: str | None = None,
+                       elasticsearch_index: str | None = None,
+                       chunks: Path | None = None) -> dict[str, Any]:
+    """Resolve CLI overrides over the shared config and return the exact run contract."""
+    registry = ModelRegistry(settings)
+    selected_model = model or settings["dense"]["model"]
+    model_spec = registry.get_model(selected_model)
+    resolved = {
+        "top_k": top_k if top_k is not None else settings["retrieval"]["result_top_k"],
+        "candidate_k": candidate_k if candidate_k is not None else settings["retrieval"]["retrieval_top_k"],
+        "rrf_k": rrf_k if rrf_k is not None else settings["hybrid"]["rrf_k"],
+        "dense_model": selected_model,
+        "dimension": model_spec["dimension"],
+        "collection": collection or settings["dense"]["collection"],
+        "qdrant_storage_path": str(resolve_qdrant_storage_path(settings)),
+        "elasticsearch_index": elasticsearch_index or settings["bm25"]["index"],
+        "chunks": str(chunks) if chunks is not None else settings["retrieval"]["corpus_path"],
+        "fusion": settings["hybrid"]["fusion"],
+    }
+    if resolved["top_k"] < 1 or resolved["candidate_k"] < resolved["top_k"]:
+        raise ValueError("Cần top_k >= 1 và candidate_k >= top_k")
+    if resolved["rrf_k"] < 1:
+        raise ValueError("rrf_k phải là số nguyên dương")
+    return resolved
+
+
+def resolve_qdrant_storage_path(settings: dict[str, Any], *,
+                                env_path: str | Path | None = None) -> Path:
+    """Resolve Qdrant storage from QDRANT_PATH or shared dense.index_dir."""
+    if env_path is not None:
+        path = Path(env_path)
+    elif os.getenv("QDRANT_PATH"):
+        # Backward-compatible override: QDRANT_PATH points directly at Qdrant storage.
+        path = Path(os.environ["QDRANT_PATH"])
+    else:
+        index_dir = Path(settings["dense"]["index_dir"])
+        if not index_dir.is_absolute():
+            index_dir = SETTINGS_ROOT / index_dir
+        path = index_dir / "qdrant_storage"
+    if not path.is_absolute():
+        path = SETTINGS_ROOT / path
+    return path
 
 
 def read_queries(path: Path) -> list[tuple[str, str, str]]:
@@ -94,30 +141,69 @@ def to_envelope(method: str, query_id: str, query: str, hits: list[dict[str, Any
     }
 
 
+class TimedRetriever:
+    """Transparent search wrapper recording one branch's wall-clock time."""
+
+    def __init__(self, retriever: Any):
+        self.retriever = retriever
+        self.last_latency_ms = 0.0
+
+    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
+        started = time.perf_counter()
+        try:
+            return self.retriever.search(query, top_k, as_of_date=as_of_date)
+        finally:
+            self.last_latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
+
+
+def latency_by_method(sparse: TimedRetriever, dense: TimedRetriever,
+                      hybrid_latency_ms: float) -> dict[str, float]:
+    """Return branch-level timings and the end-to-end Hybrid timing separately."""
+    return {
+        "bm25": sparse.last_latency_ms,
+        "dense": dense.last_latency_ms,
+        "hybrid": hybrid_latency_ms,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH,
+                        help="Shared Retrieval YAML config")
     parser.add_argument("--queries", type=Path, default=ROOT / "data" / "benchmark" / "queries_dev.json",
-                        help='Benchmark query file: JSON objects with id, question, and optional as_of_date')
-    parser.add_argument("--chunks", type=Path,
-                        default=ROOT / "data" / "chunking_output" / "chunks.jsonl")
-    parser.add_argument("--model", default=DEFAULT_MODEL_NAME,
-                        choices=["AITeamVN/Vietnamese_Embedding", "bkai-foundation-models/vietnamese-bi-encoder", "BAAI/bge-m3"])
+                        help='Benchmark query file: JSON list of objects with id and question')
+    parser.add_argument("--chunks", type=Path, default=None,
+                        help="Corpus override; default retrieval.corpus_path from shared config")
+    parser.add_argument("--model", default=None,
+                        help="Dense model override; default dense.model from shared config")
     parser.add_argument("--collection", default=None,
                         help="Qdrant collection đã nạp đúng model và chunk fixture")
     parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"),
                         help="URL Elasticsearch (hoặc đặt biến ELASTICSEARCH_URL)")
-    parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev"),
-                        help="Index Elasticsearch đã chứa cùng corpus chunks")
+    parser.add_argument("--elasticsearch-index", default=None,
+                        help="Elasticsearch index override; default bm25.index from shared config")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "retrieval" / "results")
-    parser.add_argument("--top-k", type=int, default=10)
-    parser.add_argument("--candidate-k", type=int, default=50)
-    parser.add_argument("--rrf-k", type=int, default=60)
+    parser.add_argument("--top-k", type=int, default=None,
+                        help="Override retrieval.result_top_k")
+    parser.add_argument("--candidate-k", type=int, default=None,
+                        help="Override retrieval.retrieval_top_k")
+    parser.add_argument("--rrf-k", type=int, default=None,
+                        help="Override hybrid.rrf_k")
     args = parser.parse_args()
     try:
-        if args.top_k < 1 or args.candidate_k < args.top_k:
-            raise ValueError("Cần top_k >= 1 và candidate_k >= top_k")
+        settings = load_settings(args.config)
+        run_config = resolve_run_config(
+            settings, top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k,
+            model=args.model, collection=args.collection,
+            elasticsearch_index=args.elasticsearch_index, chunks=args.chunks,
+        )
+        chunks_path = args.chunks or Path(settings["retrieval"]["corpus_path"])
+        if not chunks_path.is_absolute():
+            chunks_path = SETTINGS_ROOT / chunks_path
+        run_config["chunks"] = str(chunks_path)
+        run_config["corpus_sha256"] = chunk_file_sha256(chunks_path)
         queries = read_queries(args.queries)
-        chunk_count = count_chunks(args.chunks)
+        chunk_count = count_chunks(chunks_path)
         if not args.elasticsearch_url:
             raise ValueError("Cần --elasticsearch-url hoặc biến ELASTICSEARCH_URL; sparse/BM25 được Elasticsearch xử lý")
         try:
@@ -127,12 +213,21 @@ def main() -> int:
         es_client = Elasticsearch(args.elasticsearch_url)
         if not es_client.ping():
             raise ConnectionError(f"Không kết nối được Elasticsearch tại {args.elasticsearch_url}")
-        if not es_client.indices.exists(index=args.elasticsearch_index):
-            raise ValueError(f"Elasticsearch index không tồn tại: {args.elasticsearch_index}; nạp child chunks trước")
-        sparse = ElasticsearchBM25Retriever(es_client, args.elasticsearch_index)
-        dimension = MODEL_DIMENSIONS[args.model]
-        collection = args.collection or "vietnam_legal_chunks"
-        qdrant_path = os.getenv("QDRANT_PATH", str(ROOT / "data" / "indexes" / "qdrant_storage"))
+        if not es_client.indices.exists(index=run_config["elasticsearch_index"]):
+            raise ValueError(f"Elasticsearch index không tồn tại: {run_config['elasticsearch_index']}; nạp child chunks trước")
+        sparse = TimedRetriever(ElasticsearchBM25Retriever(
+            es_client, run_config["elasticsearch_index"],
+            text_field=settings["bm25"]["text_field"], settings=settings,
+        ))
+        bm25_metadata = sparse.retriever._verify_index_tokenizer()
+        if bm25_metadata.get("corpus_sha256") != run_config["corpus_sha256"]:
+            raise ValueError(
+                "Elasticsearch BM25 index được dựng từ corpus khác với corpus benchmark "
+                "(corpus_sha256 không khớp)."
+            )
+        dimension = run_config["dimension"]
+        collection = run_config["collection"]
+        qdrant_path = Path(run_config["qdrant_storage_path"])
         store = LegalVectorStore(
             collection_name=collection,
             dimension=dimension,
@@ -141,40 +236,28 @@ def main() -> int:
         count = store.count()
         if count != chunk_count:
             raise ValueError(f"Collection {collection} có {count} points, fixture có {chunk_count} chunks")
-        corpus_sha256 = hashlib.sha256(args.chunks.read_bytes()).hexdigest()
-        bm25_meta = sparse._verify_index_tokenizer()
-        if bm25_meta.get("corpus_sha256") != corpus_sha256:
-            raise ValueError(
-                "Elasticsearch index không được dựng từ đúng file corpus của lần chạy này "
-                "(corpus_sha256 không khớp)."
-            )
-        dense_meta = read_index_metadata(qdrant_path, collection)
-        if not dense_meta or dense_meta.get("corpus_sha256") != corpus_sha256:
-            raise ValueError(
-                "Qdrant collection thiếu metadata corpus hoặc được dựng từ file khác "
-                "(corpus_sha256 không khớp)."
-            )
-        dense = DenseRetriever(vector_store=store, model_name=args.model)
-        config = HybridSearchConfig(top_k=args.top_k, candidate_k=args.candidate_k, rrf_k=args.rrf_k)
+        dense = TimedRetriever(DenseRetriever(
+            vector_store=store, model_name=run_config["dense_model"],
+            corpus_path=chunks_path, settings=settings,
+        ))
+        config = HybridSearchConfig(top_k=run_config["top_k"],
+                                    candidate_k=run_config["candidate_k"], rrf_k=run_config["rrf_k"])
         hybrid_retriever = HybridRetriever(sparse, dense, config)
+        run_config["latency_measurement"] = (
+            "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time"
+        )
 
-        run_config = {
-            "top_k": args.top_k, "candidate_k": args.candidate_k, "rrf_k": args.rrf_k,
-            "dense_model": args.model, "collection": collection,
-            "embedding_dimension": dimension,
-            "elasticsearch_index": args.elasticsearch_index, "chunks": str(args.chunks),
-            "corpus_sha256": corpus_sha256,
-        }
         saved: dict[str, list[dict[str, Any]]] = {"bm25": [], "dense": [], "hybrid": []}
         for query_id, query, query_as_of_date in queries:
             started = time.perf_counter()
             ranked = hybrid_retriever.retrieve(query, as_of_date=query_as_of_date)
-            latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
+            hybrid_latency_ms = round((time.perf_counter() - started) * 1000.0, 3)
+            per_method_latency = latency_by_method(sparse, dense, hybrid_latency_ms)
             for method in saved:
                 query_config = {**run_config, "as_of_date": query_as_of_date}
-                saved[method].append(
-                    to_envelope(method, query_id, query, ranked[method], query_config, latency_ms)
-                )
+                saved[method].append(to_envelope(
+                    method, query_id, query, ranked[method], query_config, per_method_latency[method]
+                ))
 
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for method, envelopes in saved.items():
