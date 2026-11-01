@@ -19,8 +19,8 @@
   "b5_verified_questions": 15,
   "split_strategy": "clause_group_stratified_split; adjusted 2026-10-31 (docs/sprint6_benchmark.md mục 2, 6)",
   "dev_test_shared_gold_clauses": 0,
-  "test_sha256": "d3eb903c5e65e18acd5f4ff9e07876a1cc84ad5755b03c0df2469dec73b2f517",
-  "test_gold_sha256": "f3b4e856a6fdab500d055c97a0329973edfc037a4065918e3c356eded31c1c87",
+  "test_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876",
+  "test_gold_sha256": "d3ea86d491d017f71c3c1435d8cac90ff2e61e013c2e74559148979fc0112f08",
   "required_files": [
     "schemas/benchmark_schema.json",
     "data/benchmark/queries_dev.json",
