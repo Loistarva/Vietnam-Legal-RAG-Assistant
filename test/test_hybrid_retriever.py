@@ -130,9 +130,8 @@ class HybridRetrieverTest(unittest.TestCase):
         invalid_options = [
             ({"top_k": 0}, "top_k phải là số nguyên lớn hơn 0"),
             ({"top_k": True}, "top_k phải là số nguyên lớn hơn 0"),
-            ({"rrf_k": -1}, "rrf_k phải là số nguyên dương"),
-            ({"rrf_k": 0}, "rrf_k phải là số nguyên dương"),
-            ({"rrf_k": 1.5}, "rrf_k phải là số nguyên dương"),
+            ({"rrf_k": -1}, "rrf_k phải là số nguyên không âm"),
+            ({"rrf_k": 1.5}, "rrf_k phải là số nguyên không âm"),
         ]
         for options, message in invalid_options:
             with self.subTest(options=options), self.assertRaisesRegex(ValueError, message):

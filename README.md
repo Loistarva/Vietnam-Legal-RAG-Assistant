@@ -56,11 +56,11 @@ Tham số chỉ được tuning trên Dev set. Test set đã đóng băng và ch
 
 ## Cấu hình
 
-- `retrieval/config.yaml` (Dev 4): shared source for retrieval candidate depth (50), result Top-K (10), RRF k (60), Elasticsearch index, Dense BGE-M3 model and Qdrant collection/storage.
+- `retrieval/config.yaml` (Dev 4): `retrieval_top_k`/`candidate_k` (mặc định 50), `rrf_k` (60), index và dense model.
 - `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`cross_encoder` mặc định | `mock` cho test), `model` (`BAAI/bge-reranker-v2-m3`), `dtype` (`auto`: float16 trên GPU).
 
 Đây là giá trị khởi đầu, chưa phải cấu hình tối ưu.
 
 ## Kết quả hiện tại
 
-Các metric Task 4 trong [báo cáo retrieval](docs/retrieval_report.md) là kết quả lịch sử trên corpus/index/cấu hình cũ; không đại diện cho corpus hiện tại. Snapshot được rà soát ngày 2026-10-30 có 2.164 ChildChunk, BGE-M3 1024 chiều trong shared config, và 300 nhãn đều ở trạng thái draft (0 gold chunk xác nhận). `candidate_context_ids` là proposal chưa thẩm định. Xem [nguồn và trạng thái nhãn benchmark](docs/benchmark_label_provenance.md) trước khi diễn giải metric. Chưa có kết quả G3 mới cho cấu hình hiện tại.
+Task 4 đã chạy lại trên 285 câu Dev với corpus 1.159 chunk, dùng `gold_id_proposals_300.json` làm nhãn tạm (file này đã xóa ở 074eb94, proposal được gộp vào `candidate_context_ids` của `data/benchmark/ground_truth.json`). Ở cấp chunk, Hybrid dẫn đầu (Recall@10 0.7407); ở cấp Điều, Dense dẫn đầu (Recall@10 0.7846). Phần lớn nhãn proposal chưa được xác minh, nên các số này chỉ mang tính thử nghiệm. Xem [báo cáo Task 4](docs/retrieval_report.md). Hybrid + Reranker chưa có số đo trên Dev set với model thật.
