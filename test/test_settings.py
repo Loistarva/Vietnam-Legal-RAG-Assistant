@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 import yaml
 
-from retrieval.settings import load_settings, resolve_rrf_k, validate_settings
+from retrieval.settings import load_settings, validate_settings
 from scripts.build_index import resolve_build_config, validate_existing_index_for_build
 from retrieval.retrieval_evaluation import evaluate
 
@@ -37,10 +37,10 @@ class RetrievalSettingsTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "chưa được đăng ký"):
             validate_settings(config)
 
-    def test_dimension_must_match_default_model(self):
+    def test_dense_dimension_key_is_rejected(self):
         config = copy.deepcopy(load_settings())
-        config["dense"]["dimension"] = 768
-        with self.assertRaisesRegex(ValueError, "không khớp model"):
+        config["dense"]["dimension"] = 1024
+        with self.assertRaisesRegex(ValueError, "Không khai báo dense.dimension"):
             validate_settings(config)
 
     def test_only_rrf_fusion_is_supported(self):
@@ -48,14 +48,6 @@ class RetrievalSettingsTest(unittest.TestCase):
         config["hybrid"]["fusion"] = "weighted"
         with self.assertRaisesRegex(ValueError, "chỉ hỗ trợ 'rrf'"):
             validate_settings(config)
-
-    def test_rrf_k_must_be_positive_in_yaml_and_overrides(self):
-        config = copy.deepcopy(load_settings())
-        config["hybrid"]["rrf_k"] = 0
-        with self.assertRaisesRegex(ValueError, "số nguyên dương"):
-            validate_settings(config)
-        with self.assertRaisesRegex(ValueError, "số nguyên dương"):
-            resolve_rrf_k(0)
 
     def test_invalid_yaml_file_fails_clearly(self):
         with tempfile.TemporaryDirectory() as directory:
