@@ -8,7 +8,7 @@ retrieval:
 
 bm25:
   backend: elasticsearch
-  index: legal-child-chunks-dev
+  index:  bm25-e6-verified-20261101
   text_field: content_segmented
   tokenizer: underthesea
   tokenizer_version: 9.5.0
@@ -34,4 +34,5 @@ dense:
 
 hybrid:
   fusion: rrf
-  rrf_k: 60
+  # Giá trị tạm thời theo so sánh trên 75 câu Dev Gold; đánh giá lại khi đủ 270 câu.
+  rrf_k: 10
