@@ -158,6 +158,83 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
 * **Chi tiết phần tử (`RetrievalResultItem`):**
   Mỗi phần tử trong `results` bắt buộc có: `chunk_id`, `document_id`, `article_id`, `clause_id`, `parent_clause_id`, `rank`, `score`, `chunk_text`, `metadata`. Các trường thứ hạng và điểm trung gian (`source_ranks`, `source_scores`, `rrf_score`, `reranker_score`) được lưu đúng vị trí quy định trong schema, không đặt ở root của item.
 
+### 5.5. Hợp đồng Giao diện Truy xuất, Lọc Hiệu lực Thời điểm & Xử lý Truy vấn Rỗng (Issues E1, E14)
+
+Để đảm bảo kết quả truy xuất chính xác theo dòng thời gian và xử lý lỗi đồng nhất toàn hệ thống, mọi module truy xuất (Dense, BM25, Hybrid, Pipeline) thống nhất tuân thủ các quy định sau:
+
+#### 1. Chữ ký hàm chuẩn mực (Function Signatures)
+- **BM25 (`ElasticsearchBM25Retriever`) và Hybrid (`HybridRetriever.search`):**
+  ```python
+  def search(
+      self,
+      query: str,
+      top_k: int = 10,
+      *,
+      as_of_date: str | None = None,
+  ) -> list[dict[str, Any]]: ...
+  ```
+- **Hybrid Envelope Retrieval (`HybridRetriever.retrieve`):**
+  ```python
+  def retrieve(
+      self,
+      query: str,
+      top_k: int | None = None,
+      *,
+      as_of_date: str | None = None,
+  ) -> dict[str, list[dict[str, Any]]]: ...
+  ```
+- **Toàn bộ Pipeline (`RetrievalPipeline.run`):**
+  ```python
+  def run(
+      self,
+      query: str,
+      top_k: int | None = None,
+      *,
+      query_id: str = "Q_CLI_001",
+      as_of_date: str | None = None,
+  ) -> dict[str, Any]: ...
+  ```
+- **Dense Retrieval (`DenseRetriever.search`):**
+  ```python
+  def search(
+      self,
+      query: str,
+      top_k: int = 5,
+      exclude_expired: bool = True,
+      as_of_date: str | None = None,
+      filters: dict[str, Any] | None = None,
+  ) -> list[dict[str, Any]]: ...
+  ```
+  *Lưu ý:* Tham số `exclude_expired` được giữ lại cho mục đích tương thích ngược; logic lọc thời điểm hoàn toàn do `as_of_date` quyết định.
+
+#### 2. Khoảng hiệu lực pháp lý (Validity Period)
+Một chunk pháp luật được xác định là có hiệu lực tại thời điểm `as_of_date` khi và chỉ khi thỏa mãn khoảng nửa mở:
+$$\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$$
+- **Quy ước biên mở (Unbounded dates):**
+  - Nếu `effective_from` là `null` (`None` hoặc rỗng): văn bản được coi là đã có hiệu lực từ trước thời điểm khảo sát ($-\infty < \text{as\_of\_date}$).
+  - Nếu `effective_to` là `null` (`None` hoặc rỗng): văn bản hiện vẫn đang duy trì hiệu lực và chưa có ngày hết hiệu lực ($\text{as\_of\_date} < +\infty$).
+- **Thống nhất hàm kiểm tra dùng chung:** Mọi tầng truy xuất (Elasticsearch DSL, bộ nhớ trong, VectorStore, Hybrid, Pipeline) dùng chung chuẩn logic từ `retrieval.temporal.is_effective_at` và trích xuất ngày qua `retrieval.temporal.effective_period`.
+
+#### 3. Quy ước khi không truyền ngày (`as_of_date=None`)
+- **Thời điểm mặc định duy nhất:** Khi người dùng hoặc API không truyền `as_of_date` (`as_of_date=None`), hệ thống chỉ có DUY NHẤT một cách xử lý là lấy ngày chạy hiện tại theo lịch địa phương thông qua hàm chuẩn hóa `retrieval.temporal.normalize_as_of_date(None)` (`date.today().isoformat()`).
+- **Không lọc tĩnh theo `validity_status`:** Tuyệt đối không áp dụng bộ lọc tĩnh cứng theo trường `validity_status` (ví dụ không lọc `validity_status == "Còn hiệu lực"`). Trường `validity_status` chỉ đóng vai trò hiển thị và trích dẫn thông tin cho người dùng (như đã quy định tại Mục 3.1), vì một văn bản dù hiện tại ghi `Hết hiệu lực` thì đối với một câu hỏi trong quá khứ trước ngày hết hiệu lực (`expiry_date`), văn bản đó vẫn có đầy đủ hiệu lực thi hành và là căn cứ pháp lý chính xác.
+
+#### 4. Quy tắc xử lý câu hỏi `historical_law` và `outdated_law_trap`
+- Đối với các câu hỏi thuộc nhóm `test_type` là `historical_law` (hỏi về luật cũ tại thời điểm quá khứ) hoặc `outdated_law_trap` (bẫy văn bản hết hiệu lực):
+  - Hệ thống **vẫn lọc theo `as_of_date` của chính câu hỏi**, tuyệt đối không được tắt bộ lọc thời điểm.
+  - Nhờ có bộ lọc $\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$, câu hỏi lịch sử với `as_of_date` rơi vào giai đoạn áp dụng của luật cũ sẽ truy xuất chính xác chunk của luật cũ tại thời điểm đó, đồng thời loại bỏ các luật mới chưa ra đời.
+
+#### 5. Ràng buộc Pipeline, Candidate hai bước & Benchmark
+- **Bắt buộc hỗ trợ `as_of_date`:** `HybridRetriever` và `RetrievalPipeline` bắt buộc kiểm tra chữ ký của retriever thành phần; nếu retriever không nhận `as_of_date`, hệ thống từ chối thực thi và raise lỗi (`TypeError` hoặc `ValueError`) để ngăn chặn việc trả kết quả chưa qua thẩm định thời điểm.
+- **Quy trình Candidate hai bước (`PrecomputedRetriever`):** Khi chạy tách rời 2 process (Lần 1 chạy retrieval lưu candidate vào file với `--reranker none`, Lần 2 nạp candidate qua `PrecomputedRetriever` để rerank): `PrecomputedRetriever` kiểm tra nghiêm ngặt `as_of_date` lưu trong `config` của lần 1; nếu lệch với `as_of_date` của lần 2, hệ thống lập tức báo lỗi `ValueError`.
+- **Khóa cố định trên Benchmark:** Toàn bộ câu hỏi trong bộ benchmark (`queries_dev.json`, `queries_test.json`) bắt buộc phải có giá trị `as_of_date` cụ thể, không được để trống, nhằm đảm bảo các chỉ số đánh giá (Hit@K, Recall@K, MRR, nDCG) có tính tất định và không bị sai lệch theo thời gian chạy kiểm thử thực tế.
+
+#### 6. Quy định xử lý câu hỏi rỗng và kết quả rỗng (Issue E14)
+- **Câu hỏi rỗng (Empty Query):**
+  - Nếu `query` là `None`, chuỗi rỗng `""`, hoặc chuỗi chỉ chứa ký tự khoảng trắng: mọi retriever (`ElasticsearchBM25Retriever`, `DenseRetriever`, `HybridRetriever`) và `RetrievalPipeline` đều bắt buộc fail-fast và raise `ValueError` (ví dụ: `"query phải là chuỗi không rỗng"` / `"Câu hỏi không được rỗng."`).
+- **Kết quả rỗng (Empty Results):**
+  - Khi kho dữ liệu rỗng (store rỗng) hoặc không có bất kỳ chunk nào thỏa mãn điều kiện truy vấn và bộ lọc thời điểm: hệ thống trả về danh sách kết quả rỗng `results: []` trong `RetrievalEnvelope` (hoặc mảng `[]` đối với các phương thức `search()`), tuyệt đối không làm gián đoạn hệ thống hay ném ngoại lệ không mong muốn.
+
 ---
 
 ## 6. Bảng Ánh xạ Định danh Văn bản (Document ID Mapping Registry)
