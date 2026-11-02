@@ -6,6 +6,7 @@ import csv
 import hashlib
 import json
 import math
+import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -311,9 +312,10 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         "# Báo cáo đánh giá truy xuất",
         "",
         f"- Ngày tạo: {date.today().isoformat()}",
-        f"- Bộ Dev: `{str(dev_path.relative_to(ROOT) if dev_path.is_relative_to(ROOT) else dev_path).replace(chr(92), '/')}` ({len(relevant)} câu hỏi)",
+        f"- Bộ Dev: `{str(dev_path.relative_to(ROOT) if dev_path.is_relative_to(ROOT) else dev_path).replace(chr(92), '/')}` ({len(relevant) + len(unscored_ids)} câu; chấm {len(relevant)} câu)",
         f"- Corpus: `{str(chunks_path.relative_to(ROOT) if chunks_path.is_relative_to(ROOT) else chunks_path).replace(chr(92), '/')}` ({len(normalized_chunks)} chunk; SHA-256 bắt đầu `{corpus_sha256[:12]}`).",
-        "- Phạm vi: bộ smoke test phát triển trên một văn bản; chưa phải đánh giá trên corpus lớn hoặc bộ kiểm thử độc lập.",
+        f"- Phạm vi: corpus {len({chunk.get('document_id') for chunk in normalized_chunks})} văn bản; "
+        "chỉ chấm trên Dev set, không phải đánh giá trên Test set.",
         "- CSV chứa nội dung chunk được truy xuất, cờ liên quan và nội dung/mã chunk chuẩn để đối chiếu.",
         "- Truy xuất thưa: Elasticsearch BM25 `multi_match` trên nội dung phân đoạn, đường dẫn ngữ cảnh và metadata Điều/Khoản.",
         f"- Elasticsearch index: `{selected_index}`.",
@@ -322,7 +324,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         (f"- Nhãn: Gold đã duyệt (`gold_context_ids_confirmed`) từ `ground_truth.json`; "
          f"bỏ qua {len(unscored_ids)} câu Dev chưa duyệt." if ground_truth_path is not None
          else "- Nhãn: `relevant_chunk_ids` trong file Dev truyền vào; không phải Gold đã duyệt."),
-        "- Đây là một lượt chạy cố định, chưa phải khảo sát tinh chỉnh tham số. Chỉ tinh chỉnh trên Dev set; repo chưa có Test set độc lập.",
+        "- Chỉ tinh chỉnh trên Dev set; Test set đã đóng băng và không dùng để tinh chỉnh.",
         "",
         "## Kết quả định lượng",
         "",
@@ -351,7 +353,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         f"Các chỉ số là trung bình macro trên các câu hỏi Dev. Recall@{metric_k} đo tỷ lệ chunk liên quan được lấy về trong Top-{metric_k}; MRR@{metric_k} là nghịch đảo thứ hạng của chunk liên quan đầu tiên; nDCG@{metric_k} dùng nhãn liên quan nhị phân; Precision@{metric_k} chia số chunk liên quan trong Top-{metric_k} cho {metric_k}.",
         "Temporal Violation Rate chỉ tính trên kết quả có ít nhất một mốc hiệu lực; chunk thiếu cả effective_from và effective_to được đếm riêng, không mặc định xem là hợp lệ.",
         "",
-        "Bộ Dev nhỏ này chỉ gồm một văn bản và nhãn chưa được chuyên gia thẩm định. Kết quả xác nhận quy trình và hỗ trợ phát triển; không đại diện cho chất lượng trên các lĩnh vực hoặc văn bản pháp luật khác.",
+        "Nhãn chưa được chuyên gia pháp lý thẩm định. Kết quả trên Dev dùng để phát triển và chọn cấu hình; không đại diện cho chất lượng trên Test set hoặc các lĩnh vực pháp luật khác.",
         "",
         "Chi tiết từng truy vấn và chunk nằm trong `retrieval_results.csv`. Tên cột CSV được viết bằng tiếng Việt.",
         "",
@@ -383,6 +385,8 @@ def main() -> int:
     parser.add_argument("--ground-truth", type=Path, default=None,
                         help="Chấm theo Gold đã duyệt trong ground_truth.json; --dev-set khi đó là queries_dev.json")
     args = parser.parse_args()
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     try:
         evaluate(args.dev_set, args.results_dir, args.output_dir, args.chunks,
                  config_path=args.config, dense_model=args.dense_model,
