@@ -172,7 +172,6 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       *,
       as_of_date: str | None = None,
   ) -> list[dict[str, Any]]: ...
-  ```
 - **Hybrid Envelope Retrieval (`HybridRetriever.retrieve`):**
   ```python
   def retrieve(
@@ -182,7 +181,7 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       *,
       as_of_date: str | None = None,
   ) -> dict[str, list[dict[str, Any]]]: ...
-  ```
+  
 - **Toàn bộ Pipeline (`RetrievalPipeline.run`):**
   ```python
   def run(
@@ -193,7 +192,7 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       query_id: str = "Q_CLI_001",
       as_of_date: str | None = None,
   ) -> dict[str, Any]: ...
-  ```
+
 - **Dense Retrieval (`DenseRetriever.search`):**
   ```python
   def search(
@@ -204,7 +203,7 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       as_of_date: str | None = None,
       filters: dict[str, Any] | None = None,
   ) -> list[dict[str, Any]]: ...
-  ```
+
   *Lưu ý:* Tham số `exclude_expired` được giữ lại cho mục đích tương thích ngược; logic lọc thời điểm hoàn toàn do `as_of_date` quyết định.
 
 #### 2. Khoảng hiệu lực pháp lý (Validity Period)
