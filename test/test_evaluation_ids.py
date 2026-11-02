@@ -18,7 +18,12 @@ class EvaluationIdTest(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.dir = Path(self.tmp.name)
         self.gt = write(self.dir / "gt.json", [
-            {"id": "HN_001", "gold_context_ids": ["c1"], "answer": "Nam từ đủ 20 tuổi trở lên."},
+            {
+                "id": "HN_001",
+                "gold_context_ids": ["c1"],
+                "gold_context_ids_confirmed": True,
+                "answer": "Nam từ đủ 20 tuổi trở lên.",
+            },
         ])
         self.queries = write(self.dir / "queries.json", [{"id": "HN_001", "category": "ket_hon"}])
 

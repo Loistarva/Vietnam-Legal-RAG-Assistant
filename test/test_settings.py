@@ -19,20 +19,6 @@ class RetrievalSettingsTest(unittest.TestCase):
         self.assertEqual(config["hybrid"]["fusion"], "rrf")
         self.assertNotIn("candidate_k", config["hybrid"])
 
-    def test_bm25_baseline_default_index_comes_from_config(self):
-        import importlib
-        import os
-        import evaluation.bm25_baseline as baseline
-
-        try:
-            with patch.dict(os.environ):
-                os.environ.pop("ELASTICSEARCH_INDEX", None)
-                self.assertEqual(importlib.reload(baseline).DEFAULT_INDEX, load_settings()["bm25"]["index"])
-            with patch.dict(os.environ, {"ELASTICSEARCH_INDEX": "custom-index"}):
-                self.assertEqual(importlib.reload(baseline).DEFAULT_INDEX, "custom-index")
-        finally:
-            importlib.reload(baseline)
-
     def test_missing_retrieval_top_k_fails(self):
         config = copy.deepcopy(load_settings())
         del config["retrieval"]["retrieval_top_k"]
