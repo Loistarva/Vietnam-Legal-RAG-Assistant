@@ -1,18 +1,18 @@
 {
   "base": "origin/testing edee794",
   "scope": "Context mapping only; no human/legal review asserted",
-  "added_questions": 189,
+  "added_questions": 195,
   "total": {
     "questions": 300,
-    "with_gold": 294,
-    "missing_gold": 6,
-    "gold_id_references": 793
+    "with_gold": 300,
+    "missing_gold": 0,
+    "gold_id_references": 806
   },
   "dev": {
     "questions": 270,
-    "with_gold": 264,
-    "missing_gold": 6,
-    "gold_id_references": 729
+    "with_gold": 270,
+    "missing_gold": 0,
+    "gold_id_references": 742
   },
   "test": {
     "questions": 30,
@@ -20,7 +20,7 @@
     "missing_gold": 0,
     "gold_id_references": 64
   },
-  "unique_gold_ids": 589,
+  "unique_gold_ids": 598,
   "test_gold_freeze_verified": true,
   "changed": [
     {
@@ -2467,80 +2467,85 @@
       ],
       "review_status": "draft",
       "basis": "Existing repeal/replacement/effective-date provisions in production corpus; original answer and review status retained."
-    }
-  ],
-  "pending": [
+    },
     {
       "id": "HN_039",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "68/2002/NĐ-CP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=22363"
-        }
+      "gold_article_ids": [
+        "ND10_D45"
       ],
-      "answer": "Không. Nghị định 68/2002/NĐ-CP hết hiệu lực toàn bộ từ 15/05/2013."
+      "gold_context_ids": [
+        "nd_24_2013_nd_cp_art_45_clause_1_chunk_1",
+        "nd_24_2013_nd_cp_art_45_clause_2_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     },
     {
       "id": "HN_046",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "04/2020/TT-BTP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
-        }
+      "gold_article_ids": [
+        "TT13_D02",
+        "TT13_D04"
       ],
-      "answer": "Không. Thông tư 04/2020/TT-BTP được ghi nhận hết hiệu lực một phần, cần tra lịch sử sửa đổi ở cấp điều khoản."
+      "gold_context_ids": [
+        "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+        "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     },
     {
       "id": "HN_048",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "07/2002/TT-BTP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=25124"
-        }
+      "gold_article_ids": [
+        "TT12_D01",
+        "TT12_D03"
       ],
-      "answer": "Không. Thông tư 07/2002/TT-BTP đã hết hiệu lực toàn bộ từ 20/03/2018."
+      "gold_context_ids": [
+        "tt_01_2018_tt_btp_art_1_clause_2_chunk_1",
+        "tt_01_2018_tt_btp_art_3_clause_1_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     },
     {
       "id": "HN_050",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "04/2020/TT-BTP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
-        }
+      "gold_article_ids": [
+        "TT13_D02",
+        "TT13_D04"
       ],
-      "answer": "Không. Văn bản đã được sửa đổi, bãi bỏ một phần; cần đối chiếu các văn bản sửa đổi và điều khoản cụ thể."
+      "gold_context_ids": [
+        "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+        "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     },
     {
       "id": "HN_058",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "04/2020/TT-BTP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
-        }
+      "gold_article_ids": [
+        "TT13_D02",
+        "TT13_D04"
       ],
-      "answer": "Không. Văn bản có lịch sử sửa đổi và hết hiệu lực một phần; phải xem lịch sử và điều khoản bị thay đổi."
+      "gold_context_ids": [
+        "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+        "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     },
     {
       "id": "HN_060",
-      "reason": "DOCUMENT_VERSION_METADATA_REQUIRES_REVIEW",
-      "citations": [
-        {
-          "document_id": "123/2015/NĐ-CP",
-          "article": "Trạng thái hiệu lực",
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897"
-        }
+      "gold_article_ids": [
+        "ND11_D02",
+        "ND11_D05"
       ],
-      "answer": "Không nên. Trạng thái được ghi nhận là hết hiệu lực một phần; cần đối chiếu điều khoản đã bị sửa đổi hoặc bãi bỏ."
+      "gold_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_07_2025_nd_cp_art_2_clause_1_chunk_2",
+        "nd_07_2025_nd_cp_art_5_clause_1_chunk_1"
+      ],
+      "review_status": "draft",
+      "basis": "Pinned official PDF provision excerpts; see data/reference/effectivity_evidence_sources.json. Answer remains draft."
     }
-  ]
+  ],
+  "pending": []
 }

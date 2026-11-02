@@ -2,13 +2,12 @@
 
 ## Bổ sung mapping context từ nhánh testing
 
-Sáu câu HN_039, HN_046, HN_048, HN_050, HN_058, HN_060 hiện được điền
-`FAKE_HN_..._PENDING_EVIDENCE` theo yêu cầu để thử nghiệm, với
-`gold_context_ids_confirmed=false`. Vì vậy 300 câu có mảng ID không rỗng,
-nhưng chỉ 294 câu dùng ID corpus thật. Sáu placeholder không thuộc corpus,
-không dùng cho metric Gold và sẽ bị validator benchmark từ chối. Fixture riêng
-ở `data/benchmark/synthetic_gold_context_ids.json`. Báo cáo audit bên dưới ghi
-nhận 294 mapping thật và vẫn liệt kê sáu câu này trong `pending`.
+Sáu câu HN_039, HN_046, HN_048, HN_050, HN_058, HN_060 đã thay ID giả
+bằng 9 chunk có nguồn PDF chính thức. Nguồn, số trang, SHA-256 và phạm vi
+trích tại `data/reference/effectivity_evidence_sources.json`. Các bản parser
+bổ sung là trích chọn, không phải toàn văn; đáp án vẫn giữ trạng thái draft.
+Fixture giả riêng không phải dữ liệu production. Hiện 300 câu đều có ID thật.
+Các số liệu bên dưới mô tả giai đoạn trước khi thay sáu placeholder.
 
 Đợt bổ sung này thêm `gold_context_ids` cho 177 câu Dev từ corpus hiện có:
 176 câu đã dẫn toàn Điều và HN_053 dẫn Điều 132 Luật 52/2014/QH13.

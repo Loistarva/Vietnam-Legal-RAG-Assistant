@@ -1428,31 +1428,42 @@
     "answer": "Không. Nghị định 68/2002/NĐ-CP hết hiệu lực toàn bộ từ 15/05/2013.",
     "explanation": "Nghị định 68/2002/NĐ-CP đã hết hiệu lực toàn bộ; phải chuyển sang chuỗi quy định mới về quan hệ hôn nhân có yếu tố nước ngoài.",
     "gold_context_ids": [
-      "FAKE_HN_039_PENDING_EVIDENCE"
+      "nd_24_2013_nd_cp_art_45_clause_1_chunk_1",
+      "nd_24_2013_nd_cp_art_45_clause_2_chunk_1"
     ],
     "citations": [
       {
         "document_id": "68/2002/NĐ-CP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=22363"
+      },
+      {
+        "document_id": "24/2013/NĐ-CP",
+        "article": "45",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=30386"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [
       "68/2002/NĐ-CP"
     ],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "ND10_D45"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "nd_24_2013_nd_cp_art_45_clause_1",
+      "nd_24_2013_nd_cp_art_45_clause_2"
+    ],
     "split": "dev"
   },
   {
@@ -1724,31 +1735,48 @@
     "answer": "Không. Thông tư 04/2020/TT-BTP được ghi nhận hết hiệu lực một phần, cần tra lịch sử sửa đổi ở cấp điều khoản.",
     "explanation": "Thông tư 04/2020/TT-BTP bị sửa đổi/bãi bỏ một phần, nên câu hỏi về điều khoản năm 2026 cần xét đúng phiên bản có hiệu lực.",
     "gold_context_ids": [
-      "FAKE_HN_046_PENDING_EVIDENCE"
+      "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+      "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "04/2020/TT-BTP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "2",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "4",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [
       "15/2015/TT-BTP"
     ],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "TT13_D02",
+      "TT13_D04"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "tt_04_2024_tt_btp_art_2_clause_3",
+      "tt_04_2024_tt_btp_art_4_clause_1"
+    ],
     "split": "dev"
   },
   {
@@ -1799,31 +1827,48 @@
     "answer": "Không. Thông tư 07/2002/TT-BTP đã hết hiệu lực toàn bộ từ 20/03/2018.",
     "explanation": "Thông tư 07/2002/TT-BTP đã hết hiệu lực toàn bộ năm 2018; văn bản cũ có thể dùng để trả lời câu hỏi lịch sử nhưng không làm căn cứ trực tiếp cho thủ tục mới.",
     "gold_context_ids": [
-      "FAKE_HN_048_PENDING_EVIDENCE"
+      "tt_01_2018_tt_btp_art_1_clause_2_chunk_1",
+      "tt_01_2018_tt_btp_art_3_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "07/2002/TT-BTP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=25124"
+      },
+      {
+        "document_id": "01/2018/TT-BTP",
+        "article": "1",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=127598"
+      },
+      {
+        "document_id": "01/2018/TT-BTP",
+        "article": "3",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=127598"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [
       "07/2002/TT-BTP"
     ],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "TT12_D01",
+      "TT12_D03"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "tt_01_2018_tt_btp_art_1_clause_2",
+      "tt_01_2018_tt_btp_art_3_clause_1"
+    ],
     "split": "dev"
   },
   {
@@ -1875,31 +1920,48 @@
     "answer": "Không. Văn bản đã được sửa đổi, bãi bỏ một phần; cần đối chiếu các văn bản sửa đổi và điều khoản cụ thể.",
     "explanation": "Thông tư 04/2020/TT-BTP không còn nguyên trạng toàn bộ như khi ban hành; phải đối chiếu lịch sử sửa đổi theo từng khoản.",
     "gold_context_ids": [
-      "FAKE_HN_050_PENDING_EVIDENCE"
+      "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+      "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "04/2020/TT-BTP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "2",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "4",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [
       "15/2015/TT-BTP"
     ],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "TT13_D02",
+      "TT13_D04"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "tt_04_2024_tt_btp_art_2_clause_3",
+      "tt_04_2024_tt_btp_art_4_clause_1"
+    ],
     "split": "dev"
   },
   {
@@ -2162,29 +2224,46 @@
     "answer": "Không. Văn bản có lịch sử sửa đổi và hết hiệu lực một phần; phải xem lịch sử và điều khoản bị thay đổi.",
     "explanation": "Ngày ban hành chỉ là một thuộc tính, không xác định đầy đủ trạng thái cấp điều của Thông tư 04/2020/TT-BTP khi đã có thay đổi hiệu lực.",
     "gold_context_ids": [
-      "FAKE_HN_058_PENDING_EVIDENCE"
+      "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+      "tt_04_2024_tt_btp_art_4_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "04/2020/TT-BTP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "2",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
+      },
+      {
+        "document_id": "04/2024/TT-BTP",
+        "article": "4",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "TT13_D02",
+      "TT13_D04"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "tt_04_2024_tt_btp_art_2_clause_3",
+      "tt_04_2024_tt_btp_art_4_clause_1"
+    ],
     "split": "dev"
   },
   {
@@ -2233,29 +2312,47 @@
     "answer": "Không nên. Trạng thái được ghi nhận là hết hiệu lực một phần; cần đối chiếu điều khoản đã bị sửa đổi hoặc bãi bỏ.",
     "explanation": "Đối với nghị định có hiệu lực một phần, phải tra điều khoản sửa đổi/bãi bỏ cụ thể thay vì kết luận từ trạng thái tổng quát.",
     "gold_context_ids": [
-      "FAKE_HN_060_PENDING_EVIDENCE"
+      "nd_07_2025_nd_cp_art_2_clause_1_chunk_1",
+      "nd_07_2025_nd_cp_art_2_clause_1_chunk_2",
+      "nd_07_2025_nd_cp_art_5_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "123/2015/NĐ-CP",
         "article": "Trạng thái hiệu lực",
         "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897"
+      },
+      {
+        "document_id": "07/2025/NĐ-CP",
+        "article": "2",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416"
+      },
+      {
+        "document_id": "07/2025/NĐ-CP",
+        "article": "5",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản. [SYNTHETIC PLACEHOLDER: gold_context_ids is fabricated for testing; no supporting corpus chunk. Replace before benchmark evaluation.]",
+    "temporal_note": "Mốc áp dụng 2026-10-15; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
-    "gold_article_ids": [],
-    "evidence_level": "not_mapped",
+    "gold_article_ids": [
+      "ND11_D02",
+      "ND11_D05"
+    ],
+    "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
-    "mapping_status": "not_mapped",
+    "mapping_status": "production_verified",
     "verified_by": null,
     "verified_at": null,
-    "context_id_provenance": "pending_chunking",
-    "gold_context_ids_confirmed": false,
+    "context_id_provenance": "production_index",
+    "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
-    "gold_clause_ids": [],
+    "gold_clause_ids": [
+      "nd_07_2025_nd_cp_art_2_clause_1",
+      "nd_07_2025_nd_cp_art_5_clause_1"
+    ],
     "split": "dev"
   },
   {

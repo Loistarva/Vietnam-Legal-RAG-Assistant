@@ -1,0 +1,55 @@
+{
+  "document_id": "nd_07_2025_nd_cp",
+  "metadata": {
+    "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+    "document_type": "Nghị định",
+    "document_number": "07/2025/NĐ-CP",
+    "issue_date": "2025-01-09",
+    "effective_date": "2025-01-09",
+    "issuing_body": "Chính phủ",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Hết hiệu lực một phần",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+    "expiry_date": null,
+    "provision_status": "selected_historical_effectivity_evidence"
+  },
+  "articles": [
+    {
+      "article_id": "nd_07_2025_nd_cp_art_2",
+      "article_number": "2",
+      "article_title": "Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "nd_07_2025_nd_cp_art_2_clause_1",
+          "parent_article_id": "nd_07_2025_nd_cp_art_2",
+          "clause_number": "1",
+          "clause_text": "1. Sửa đổi, bổ sung Điều 1 như sau: “Điều 1. Phạm vi điều chỉnh Nghị định này quy định chi tiết một số điều của Luật Hộ tịch về đăng ký khai sinh, kết hôn, quản lý và sử dụng Sổ hộ tịch trong giai đoạn Cơ sở dữ liệu hộ tịch điện tử và Cơ sở dữ liệu quốc gia về dân cư chưa được vận hành thống nhất trên cả nước (sau đây gọi là giai đoạn chuyển tiếp); đăng ký khai sinh cho trẻ em bị bỏ rơi, trẻ em chưa xác định được cha, mẹ, trẻ em sinh ra do mang thai hộ; khai sinh, kết hôn, nhận cha, mẹ, con, khai tử tại khu vực biên giới; cấp Giấy xác nhận tình trạng hôn nhân; đăng ký giám sát việc giám hộ, đăng ký chấm dứt giám sát việc giám hộ; đăng ký khai sinh cho trẻ em sinh ra ở nước ngoài chưa được đăng ký khai sinh về cư trú tại Việt Nam; đăng ký kết hôn có yếu tố nước ngoài tại Ủy ban nhân dân cấp huyện; ghi vào Sổ hộ tịch việc kết hôn, ly hôn, hủy việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài; đăng ký lại khai sinh, kết hôn, khai tử; việc bố trí công chức tư pháp - hộ tịch làm công tác hộ tịch chuyên trách và một số biện pháp thi hành Luật Hộ tịch.”",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "nd_07_2025_nd_cp_art_5",
+      "article_number": "5",
+      "article_title": "Điều khoản thi hành",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "nd_07_2025_nd_cp_art_5_clause_1",
+          "parent_article_id": "nd_07_2025_nd_cp_art_5",
+          "clause_number": "1",
+          "clause_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày ký ban hành.",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": [
+    "SELECTED EXCERPTS ONLY, not a full document parse. Source pages and checksum: data/reference/effectivity_evidence_sources.json"
+  ]
+}

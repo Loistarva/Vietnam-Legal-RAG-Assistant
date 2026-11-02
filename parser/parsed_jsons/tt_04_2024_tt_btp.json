@@ -1,0 +1,55 @@
+{
+  "document_id": "tt_04_2024_tt_btp",
+  "metadata": {
+    "title": "Sửa đổi, bổ sung một số điều của Thông tư số 02/2020/TT-BTP và Thông tư số 04/2020/TT-BTP",
+    "document_type": "Thông tư",
+    "document_number": "04/2024/TT-BTP",
+    "issue_date": "2024-06-06",
+    "effective_date": "2024-06-06",
+    "issuing_body": "Bộ Tư pháp",
+    "validity_status": "Không xác định",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403",
+    "expiry_date": null,
+    "provision_status": "selected_historical_effectivity_evidence"
+  },
+  "articles": [
+    {
+      "article_id": "tt_04_2024_tt_btp_art_2",
+      "article_number": "2",
+      "article_title": "Sửa đổi, bổ sung một số nội dung của Thông tư số 04/2020/TT-BTP ngày 28 tháng 5 năm 2020 của Bộ trưởng Bộ Tư pháp quy định chi tiết thi hành một số điều của Luật Hộ tịch và Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_04_2024_tt_btp_art_2_clause_3",
+          "parent_article_id": "tt_04_2024_tt_btp_art_2",
+          "clause_number": "3",
+          "clause_text": "3. Sửa đổi khoản 2 Điều 18 như sau: “2. Giấy tờ hộ tịch được cấp hợp lệ mà thông tin hộ tịch còn thiếu thì được bổ sung, nếu có giấy tờ, tài liệu do cơ quan, tổ chức có thẩm quyền cấp hợp lệ chứng minh. Yêu cầu ghi bổ sung quốc tịch Việt Nam chỉ thực hiện đối với giấy tờ hộ tịch được cấp kể từ ngày 01 tháng 01 năm 2016, sau khi xác định người yêu cầu đang có quốc tịch Việt Nam theo quy định của Luật quốc tịch Việt Nam”.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_04_2024_tt_btp_art_4",
+      "article_number": "4",
+      "article_title": "Trách nhiệm tổ chức thực hiện và hiệu lực thi hành",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_04_2024_tt_btp_art_4_clause_1",
+          "parent_article_id": "tt_04_2024_tt_btp_art_4",
+          "clause_number": "1",
+          "clause_text": "1. Thông tư này có hiệu lực thi hành kể từ ngày 06 tháng 6 năm 2024.",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": [
+    "SELECTED EXCERPTS ONLY, not a full document parse. Source pages and checksum: data/reference/effectivity_evidence_sources.json"
+  ]
+}

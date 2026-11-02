@@ -1,7 +1,7 @@
 {
-  "num_documents": 24,
-  "num_parents": 1017,
-  "num_children": 2164,
+  "num_documents": 28,
+  "num_parents": 1024,
+  "num_children": 2173,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -20,17 +20,21 @@
     "parser/parsed_jsons/l_22_2000_qh10.json",
     "parser/parsed_jsons/l_52_2014_qh13.json",
     "parser/parsed_jsons/l_81_2025_qh15.json",
+    "parser/parsed_jsons/nd_07_2025_nd_cp.json",
     "parser/parsed_jsons/nd_10_2015_nd_cp.json",
     "parser/parsed_jsons/nd_123_2015_nd_cp.json",
     "parser/parsed_jsons/nd_126_2014_nd_cp.json",
     "parser/parsed_jsons/nd_207_2025_nd_cp.json",
+    "parser/parsed_jsons/nd_24_2013_nd_cp.json",
     "parser/parsed_jsons/nd_32_2002_nd_cp.json",
     "parser/parsed_jsons/nd_68_2002_nd_cp.json",
     "parser/parsed_jsons/nd_70_2001_nd_cp.json",
     "parser/parsed_jsons/nd_77_2001_nd_cp.json",
     "parser/parsed_jsons/nq_01_2024_nq_hdtp.json",
+    "parser/parsed_jsons/tt_01_2018_tt_btp.json",
     "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
     "parser/parsed_jsons/tt_04_2020_tt_btp.json",
+    "parser/parsed_jsons/tt_04_2024_tt_btp.json",
     "parser/parsed_jsons/tt_07_2001_tt_btp.json",
     "parser/parsed_jsons/tt_07_2002_tt_btp.json",
     "parser/parsed_jsons/tt_15_2015_tt_btp.json",
@@ -258,12 +262,50 @@
       "num_articles": 9,
       "num_parents": 25,
       "num_children": 45
+    },
+    {
+      "source": "parser/parsed_jsons/nd_24_2013_nd_cp.json",
+      "document_id": "nd_24_2013_nd_cp",
+      "document_number": "24/2013/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "num_articles": 1,
+      "num_parents": 1,
+      "num_children": 2
+    },
+    {
+      "source": "parser/parsed_jsons/tt_01_2018_tt_btp.json",
+      "document_id": "tt_01_2018_tt_btp",
+      "document_number": "01/2018/TT-BTP",
+      "validity_status": "Còn hiệu lực",
+      "num_articles": 2,
+      "num_parents": 2,
+      "num_children": 2
+    },
+    {
+      "source": "parser/parsed_jsons/tt_04_2024_tt_btp.json",
+      "document_id": "tt_04_2024_tt_btp",
+      "document_number": "04/2024/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 2,
+      "num_parents": 2,
+      "num_children": 2
+    },
+    {
+      "source": "parser/parsed_jsons/nd_07_2025_nd_cp.json",
+      "document_id": "nd_07_2025_nd_cp",
+      "document_number": "07/2025/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "num_articles": 2,
+      "num_parents": 2,
+      "num_children": 3
     }
   ],
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
     "validity_status 'Không xác định' ở 1 văn bản: ['tt_30_2019_tt_byt.json']",
     "1 mảnh dưới 20 từ của Khoản bị tách, không gộp được trong giới hạn: ['l_81_2025_qh15_art_2_clause_11_chunk_20']",
-    "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 5 Điều: ['nd_123_2015_nd_cp.json Điều 10', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_07_2002_tt_btp.json Điều 2', 'tt_15_2015_tt_btp.json Điều 6']"
-  ]
+    "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 5 Điều: ['nd_123_2015_nd_cp.json Điều 10', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_07_2002_tt_btp.json Điều 2', 'tt_15_2015_tt_btp.json Điều 6']",
+    "Four supplemental documents contain selected effectivity provisions only; scope/pages/SHA-256: data/reference/effectivity_evidence_sources.json"
+  ],
+  "supplemental_evidence_tokenization_version": "9.5.0"
 }
