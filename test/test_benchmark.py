@@ -196,7 +196,7 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(all(g['mapping_status']=='production_verified'
                             and bool(g['gold_context_ids']) and bool(g['gold_clause_ids']) and bool(g['gold_article_ids'])
                             and g['gold_context_ids_confirmed'] for g in verified_added))
-    def test_all_new_answers_are_pdf_based_drafts(self):
+    def test_expansion_answers_keep_review_status_after_mapping_and_editing(self):
         added=[g for g in self.gold if int(g['id'].split('_')[1])>=61]
         self.assertEqual(len(added),240)
         draft_added=[g for g in added if g['review_status']=='draft']
@@ -205,7 +205,8 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertEqual(len(verified_added),64)
         self.assertTrue(all(g['evidence_level']=='chunk_text_matched_unverified'
                             and len(g['answer'])>80 and 'CHUA_XAC_MINH' not in g['answer']
-                            and g['gold_context_ids_confirmed'] and g['answer_kind']=='extracted_article_text_unreviewed'
+                            and g['gold_context_ids_confirmed']
+                            and g['answer_kind'] in ('extracted_article_text_unreviewed', 'draft_answer_unreviewed')
                             for g in draft_added))
         self.assertTrue(all(g['evidence_level']=='full_text_checked'
                             and g['answer_kind']=='reviewed_answer'
@@ -390,7 +391,12 @@ class BenchmarkContractTests(unittest.TestCase):
 
     def test_fix_historical_citation(self):
         g=next(i for i in self.gold if i['id']=='HN_053')
-        self.assertEqual(g['citations'][0]['document_id'],'52/2014/QH13')
+        self.assertEqual(g['citations'][0]['document_id'],'22/2000/QH10')
+        self.assertEqual(g['citations'][0]['article'],'109')
+        self.assertEqual(g['gold_context_ids'], ['l_22_2000_qh10_art_109_clause_1_chunk_1'])
+        question = next(q for q in self.dev if q['id'] == 'HN_053')
+        self.assertIn('22/2000/QH10', question['question'])
+        self.assertEqual(question['test_type'], 'historical_law')
 
     def test_expired_repeal_evidence_requires_matching_status_target_and_source_text(self):
         gold = copy.deepcopy(self.gold)

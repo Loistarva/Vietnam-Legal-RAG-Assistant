@@ -410,7 +410,7 @@
     "split": "dev"
   },
   {
-    "question": "Tháng 7/2014, Luật Hôn nhân và gia đình 52/2014/QH13 đã có hiệu lực chưa?",
+    "question": "Tại thời điểm tháng 7/2014, Luật Hôn nhân và gia đình số 22/2000/QH10 có hiệu lực thi hành từ ngày nào?",
     "category": "hieu_luc",
     "as_of_date": "2014-07-01",
     "test_type": "historical_law",
@@ -561,7 +561,7 @@
   },
   {
     "id": "HN_069",
-    "question": "Một trường hợp liên quan đến đăng ký kết hôn sẽ được xử lý thế nào theo Luật Hôn nhân và gia đình 2014?",
+    "question": "Hai người đăng ký kết hôn không đúng thẩm quyền và được yêu cầu đăng ký lại đúng thẩm quyền; theo Điều 13 Luật Hôn nhân và gia đình 2014, quan hệ hôn nhân được xác lập từ ngày nào?",
     "category": "ket_hon",
     "question_type": "situation",
     "difficulty": "medium",
@@ -571,7 +571,7 @@
   },
   {
     "id": "HN_070",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ người có quyền yêu cầu hủy việc kết hôn trái pháp luật như thế nào?",
+    "question": "Theo khoản 1 Điều 12 Luật Hôn nhân và gia đình 2014, khi việc kết hôn trái pháp luật bị hủy thì quan hệ giữa hai bên phải chấm dứt như thế nào?",
     "category": "ket_hon",
     "question_type": "fact",
     "difficulty": "medium",
@@ -581,7 +581,7 @@
   },
   {
     "id": "HN_071",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến xử lý việc kết hôn trái pháp luật được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+    "question": "Theo khoản 3 Điều 11 Luật Hôn nhân và gia đình 2014, quyết định hủy kết hôn trái pháp luật hoặc công nhận quan hệ hôn nhân phải được gửi cho những ai?",
     "category": "ket_hon",
     "question_type": "situation",
     "difficulty": "medium",
@@ -621,7 +621,7 @@
   },
   {
     "id": "HN_075",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, quyền, nghĩa vụ của cha mẹ và con trong trường hợp nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được phân định giữa các chủ thể ra sao và khi nào phát sinh trách nhiệm?",
+    "question": "Theo Luật Hôn nhân và gia đình 2014, cha mẹ có được phân biệt đối xử với con dựa trên giới tính hoặc tình trạng hôn nhân của cha mẹ không?",
     "category": "con_cai",
     "question_type": "situation",
     "difficulty": "medium",
@@ -631,7 +631,7 @@
   },
   {
     "id": "HN_076",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+    "question": "Khi giải quyết tài sản của nam, nữ chung sống như vợ chồng không đăng ký kết hôn, công việc nội trợ được tính thế nào và phải bảo đảm quyền lợi của ai?",
     "category": "tai_san",
     "question_type": "situation",
     "difficulty": "medium",
@@ -661,7 +661,7 @@
   },
   {
     "id": "HN_079",
-    "question": "Điều khoản về tình nghĩa vợ chồng của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
+    "question": "Theo Điều 22 Luật Hôn nhân và gia đình 2014, vợ chồng có nghĩa vụ gì đối với quyền tự do tín ngưỡng, tôn giáo của nhau?",
     "category": "vo_chong",
     "question_type": "situation",
     "difficulty": "medium",
@@ -671,7 +671,7 @@
   },
   {
     "id": "HN_080",
-    "question": "Chủ thể liên quan cần thực hiện hoặc lưu ý điều gì về lựa chọn nơi cư trú của vợ chồng theo Luật Hôn nhân và gia đình 2014?",
+    "question": "Theo Điều 23 Luật Hôn nhân và gia đình 2014, vợ chồng phải tạo điều kiện, giúp đỡ nhau về lựa chọn nghề nghiệp và học tập như thế nào?",
     "category": "vo_chong",
     "question_type": "fact",
     "difficulty": "medium",
@@ -771,7 +771,7 @@
   },
   {
     "id": "HN_091",
-    "question": "Điều khoản về giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
+    "question": "Khi ly hôn, một bên gặp khó khăn về chỗ ở trong căn nhà thuộc sở hữu riêng của bên kia đã dùng chung; nếu không có thỏa thuận khác thì quyền lưu cư kéo dài bao lâu?",
     "category": "tai_san",
     "question_type": "situation",
     "difficulty": "medium",
@@ -811,7 +811,7 @@
   },
   {
     "id": "HN_095",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản chung dựa trên nguyên tắc nào?",
+    "question": "Vợ chồng thỏa thuận để một bên đưa tài sản chung vào kinh doanh; thỏa thuận phải có hình thức nào và bên kinh doanh được tự thực hiện giao dịch ra sao?",
     "category": "tai_san",
     "question_type": "situation",
     "difficulty": "medium",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": "HN_115",
-    "question": "Điều khoản về thuận tình ly hôn của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
+    "question": "Theo Điều 54 Luật Hôn nhân và gia đình 2014, sau khi thụ lý đơn yêu cầu ly hôn, Tòa án tiến hành hòa giải theo quy định nào?",
     "category": "ly_hon",
     "question_type": "situation",
     "difficulty": "medium",
@@ -1021,7 +1021,7 @@
   },
   {
     "id": "HN_117",
-    "question": "Khi xác định thời điểm chấm dứt hôn nhân và trách nhiệm gửi bản án, quyết định ly hôn, mốc thời gian pháp lý cần dựa vào quy định nào của Luật Hôn nhân và gia đình 2014?",
+    "question": "Theo khoản 2 Điều 57 Luật Hôn nhân và gia đình 2014, Tòa án phải gửi bản án, quyết định ly hôn đã có hiệu lực cho những ai?",
     "category": "ly_hon",
     "question_type": "fact",
     "difficulty": "medium",
@@ -1041,7 +1041,7 @@
   },
   {
     "id": "HN_119",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+    "question": "Khi ly hôn, tài sản chung không chia được bằng hiện vật thì xử lý thế nào; bên nhận hiện vật vượt phần giá trị được hưởng phải làm gì?",
     "category": "ly_hon",
     "question_type": "situation",
     "difficulty": "medium",
@@ -1051,7 +1051,7 @@
   },
   {
     "id": "HN_120",
-    "question": "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết quyền, nghĩa vụ tài sản của vợ chồng đối với người thứ ba khi ly hôn được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+    "question": "Khi ly hôn, một bên đang kinh doanh liên quan đến tài sản chung có quyền nhận tài sản đó không và phải thanh toán cho bên kia như thế nào?",
     "category": "ly_hon",
     "question_type": "situation",
     "difficulty": "medium",
@@ -1501,7 +1501,7 @@
   },
   {
     "id": "HN_167",
-    "question": "Đối với nghĩa vụ cấp dưỡng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?",
+    "question": "Theo khoản 2 Điều 107 Luật Hôn nhân và gia đình 2014, khi người có nghĩa vụ nuôi dưỡng trốn tránh nghĩa vụ thì Tòa án có thể buộc họ thực hiện nghĩa vụ gì?",
     "category": "cap_duong",
     "question_type": "situation",
     "difficulty": "medium",
@@ -1721,7 +1721,7 @@
   },
   {
     "id": "HN_191",
-    "question": "Điều khoản về điều khoản chuyển tiếp của Luật Hôn nhân và gia đình 2014 có ý nghĩa gì đối với việc xử lý vụ việc?",
+    "question": "Vụ việc hôn nhân và gia đình được thụ lý trước khi Luật 2014 có hiệu lực nhưng chưa giải quyết áp dụng thủ tục nào; có dùng Luật 2014 để kháng nghị vụ việc đã giải quyết trước đó không?",
     "category": "hieu_luc",
     "question_type": "situation",
     "difficulty": "medium",
@@ -2511,7 +2511,7 @@
   },
   {
     "id": "HN_279",
-    "question": "Sau khi kết hôn trái pháp luật bị hủy, quyền lợi liên quan đến con và tài sản được xem xét theo những căn cứ nào?",
+    "question": "Khi việc kết hôn trái pháp luật bị hủy, quyền và nghĩa vụ cha mẹ, con được giải quyết theo nhóm quy định nào, và cha mẹ còn nghĩa vụ gì đối với con chưa thành niên?",
     "category": "ket_hon",
     "question_type": "multi_hop",
     "difficulty": "hard",
@@ -2521,7 +2521,7 @@
   },
   {
     "id": "HN_280",
-    "question": "Hai người chung sống như vợ chồng không đăng ký kết hôn rồi phát sinh tranh chấp tài sản thì áp dụng những nguyên tắc nào?",
+    "question": "Nam nữ đủ điều kiện kết hôn nhưng chung sống không đăng ký có phát sinh quyền, nghĩa vụ vợ chồng không; khi giải quyết tài sản thì công việc nội trợ được coi thế nào?",
     "category": "ket_hon",
     "question_type": "multi_hop",
     "difficulty": "hard",
@@ -2611,7 +2611,7 @@
   },
   {
     "id": "HN_291",
-    "question": "Thuận tình ly hôn và ly hôn theo yêu cầu một bên khác nhau về căn cứ xét xử như thế nào?",
+    "question": "Cha mẹ hoặc người thân thích có thể yêu cầu ly hôn cho người không thể nhận thức, làm chủ hành vi và bị vợ hoặc chồng bạo lực trong điều kiện nào; Tòa án dựa vào căn cứ gì để giải quyết?",
     "category": "ly_hon",
     "question_type": "multi_hop",
     "difficulty": "hard",
@@ -2621,7 +2621,7 @@
   },
   {
     "id": "HN_293",
-    "question": "Nếu vợ chồng ly hôn và tài sản là quyền sử dụng đất, cần kết hợp nguyên tắc chia tài sản với quy định riêng nào?",
+    "question": "Khi ly hôn, quyền sử dụng đất riêng thuộc về ai; nếu tài sản riêng đã sáp nhập, trộn lẫn với tài sản chung thì phần giá trị đóng góp được xử lý thế nào?",
     "category": "ly_hon",
     "question_type": "multi_hop",
     "difficulty": "hard",

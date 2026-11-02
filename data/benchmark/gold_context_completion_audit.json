@@ -1,18 +1,18 @@
 {
   "base": "origin/testing edee794",
-  "scope": "Context mapping only; no human/legal review asserted",
+  "scope": "Context mappings with 20 draft Dev questions revised to avoid frozen Test clauses; no human/legal review asserted",
   "added_questions": 195,
   "total": {
     "questions": 300,
     "with_gold": 300,
     "missing_gold": 0,
-    "gold_id_references": 806
+    "gold_id_references": 774
   },
   "dev": {
     "questions": 270,
     "with_gold": 270,
     "missing_gold": 0,
-    "gold_id_references": 742
+    "gold_id_references": 710
   },
   "test": {
     "questions": 30,
@@ -20,19 +20,19 @@
     "missing_gold": 0,
     "gold_id_references": 64
   },
-  "unique_gold_ids": 598,
+  "unique_gold_ids": 595,
   "test_gold_freeze_verified": true,
   "changed": [
     {
       "id": "HN_053",
       "gold_article_ids": [
-        "L01_D132"
+        "L02_D109"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_132_clause_1_chunk_1"
+        "l_22_2000_qh10_art_109_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_063",
@@ -112,27 +112,24 @@
     {
       "id": "HN_069",
       "gold_article_ids": [
-        "L01_D09"
+        "L01_D13"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_9_clause_1_chunk_1",
-        "l_52_2014_qh13_art_9_clause_2_chunk_1"
+        "l_52_2014_qh13_art_13_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_070",
       "gold_article_ids": [
-        "L01_D10"
+        "L01_D12"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_10_clause_1_chunk_1",
-        "l_52_2014_qh13_art_10_clause_2_chunk_1",
-        "l_52_2014_qh13_art_10_clause_3_chunk_1"
+        "l_52_2014_qh13_art_12_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_071",
@@ -140,13 +137,10 @@
         "L01_D11"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_11_clause_1_chunk_1",
-        "l_52_2014_qh13_art_11_clause_2_chunk_1",
-        "l_52_2014_qh13_art_11_clause_3_chunk_1",
-        "l_52_2014_qh13_art_11_clause_4_chunk_1"
+        "l_52_2014_qh13_art_11_clause_3_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_072",
@@ -187,13 +181,13 @@
     {
       "id": "HN_075",
       "gold_article_ids": [
-        "L01_D15"
+        "L01_D69"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_15_clause_1_chunk_1"
+        "l_52_2014_qh13_art_69_clause_4_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_076",
@@ -201,11 +195,10 @@
         "L01_D16"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_16_clause_1_chunk_1",
         "l_52_2014_qh13_art_16_clause_2_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_077",
@@ -221,25 +214,24 @@
     {
       "id": "HN_079",
       "gold_article_ids": [
-        "L01_D19"
+        "L01_D22"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_19_clause_1_chunk_1",
-        "l_52_2014_qh13_art_19_clause_2_chunk_1"
+        "l_52_2014_qh13_art_22_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_080",
       "gold_article_ids": [
-        "L01_D20"
+        "L01_D23"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_20_clause_1_chunk_1"
+        "l_52_2014_qh13_art_23_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_083",
@@ -317,13 +309,13 @@
     {
       "id": "HN_091",
       "gold_article_ids": [
-        "L01_D31"
+        "L01_D63"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_31_clause_1_chunk_1"
+        "l_52_2014_qh13_art_63_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_092",
@@ -365,14 +357,13 @@
     {
       "id": "HN_095",
       "gold_article_ids": [
-        "L01_D35"
+        "L01_D36"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_35_clause_1_chunk_1",
-        "l_52_2014_qh13_art_35_clause_2_chunk_1"
+        "l_52_2014_qh13_art_36_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_096",
@@ -580,13 +571,13 @@
     {
       "id": "HN_115",
       "gold_article_ids": [
-        "L01_D55"
+        "L01_D54"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_55_clause_1_chunk_1"
+        "l_52_2014_qh13_art_54_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_116",
@@ -607,11 +598,10 @@
         "L01_D57"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_57_clause_1_chunk_1",
         "l_52_2014_qh13_art_57_clause_2_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_118",
@@ -630,27 +620,21 @@
         "L01_D59"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_59_clause_1_chunk_1",
-        "l_52_2014_qh13_art_59_clause_2_chunk_1",
-        "l_52_2014_qh13_art_59_clause_3_chunk_1",
-        "l_52_2014_qh13_art_59_clause_4_chunk_1",
-        "l_52_2014_qh13_art_59_clause_5_chunk_1",
-        "l_52_2014_qh13_art_59_clause_6_chunk_1"
+        "l_52_2014_qh13_art_59_clause_3_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_120",
       "gold_article_ids": [
-        "L01_D60"
+        "L01_D64"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_60_clause_1_chunk_1",
-        "l_52_2014_qh13_art_60_clause_2_chunk_1"
+        "l_52_2014_qh13_art_64_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_121",
@@ -1183,11 +1167,10 @@
         "L01_D107"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_107_clause_1_chunk_1",
         "l_52_2014_qh13_art_107_clause_2_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_168",
@@ -1385,12 +1368,11 @@
         "L01_D131"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_131_clause_1_chunk_1",
         "l_52_2014_qh13_art_131_clause_2_chunk_1",
         "l_52_2014_qh13_art_131_clause_3_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_195",
@@ -2171,16 +2153,14 @@
       "id": "HN_279",
       "gold_article_ids": [
         "L01_D12",
-        "L01_D15"
+        "L01_D81"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_12_clause_1_chunk_1",
         "l_52_2014_qh13_art_12_clause_2_chunk_1",
-        "l_52_2014_qh13_art_12_clause_3_chunk_1",
-        "l_52_2014_qh13_art_15_clause_1_chunk_1"
+        "l_52_2014_qh13_art_81_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_280",
@@ -2190,12 +2170,10 @@
       ],
       "gold_context_ids": [
         "l_52_2014_qh13_art_14_clause_1_chunk_1",
-        "l_52_2014_qh13_art_14_clause_2_chunk_1",
-        "l_52_2014_qh13_art_16_clause_1_chunk_1",
         "l_52_2014_qh13_art_16_clause_2_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_285",
@@ -2268,17 +2246,15 @@
     {
       "id": "HN_291",
       "gold_article_ids": [
-        "L01_D55",
+        "L01_D51",
         "L01_D56"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_55_clause_1_chunk_1",
-        "l_52_2014_qh13_art_56_clause_1_chunk_1",
-        "l_52_2014_qh13_art_56_clause_2_chunk_1",
+        "l_52_2014_qh13_art_51_clause_2_chunk_1",
         "l_52_2014_qh13_art_56_clause_3_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_293",
@@ -2287,19 +2263,11 @@
         "L01_D62"
       ],
       "gold_context_ids": [
-        "l_52_2014_qh13_art_59_clause_1_chunk_1",
-        "l_52_2014_qh13_art_59_clause_2_chunk_1",
-        "l_52_2014_qh13_art_59_clause_3_chunk_1",
         "l_52_2014_qh13_art_59_clause_4_chunk_1",
-        "l_52_2014_qh13_art_59_clause_5_chunk_1",
-        "l_52_2014_qh13_art_59_clause_6_chunk_1",
-        "l_52_2014_qh13_art_62_clause_1_chunk_1",
-        "l_52_2014_qh13_art_62_clause_2_chunk_1",
-        "l_52_2014_qh13_art_62_clause_2_chunk_2",
-        "l_52_2014_qh13_art_62_clause_3_chunk_1"
+        "l_52_2014_qh13_art_62_clause_1_chunk_1"
       ],
       "review_status": "draft",
-      "basis": "Complete cited articles; every child chunk matched to production corpus. Legal applicability and answer remain unreviewed."
+      "basis": "Dev question and draft answer revised to use source clauses disjoint from frozen Test; no human/legal review asserted."
     },
     {
       "id": "HN_295",

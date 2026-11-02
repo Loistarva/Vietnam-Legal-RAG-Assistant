@@ -2034,24 +2034,24 @@
   },
   {
     "id": "HN_053",
-    "answer": "Chưa. Luật 52/2014/QH13 có hiệu lực từ 01/01/2015.",
-    "explanation": "Điều 132 Luật 52/2014/QH13 ghi hiệu lực từ 01/01/2015; được ban hành năm 2014 không có nghĩa đã có hiệu lực vào tháng 7/2014.",
+    "answer": "Luật Hôn nhân và gia đình số 22/2000/QH10 có hiệu lực thi hành kể từ ngày 01 tháng 01 năm 2001, theo Điều 109 của Luật này.",
+    "explanation": "Căn cứ Điều 109 của 22/2000/QH10. Điều 109 ghi trực tiếp ngày có hiệu lực của Luật 22/2000; văn bản này còn hiệu lực tại ngày hỏi 01/07/2014. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_132_clause_1_chunk_1"
+      "l_22_2000_qh10_art_109_clause_1_chunk_1"
     ],
     "citations": [
       {
-        "document_id": "52/2014/QH13",
-        "article": "132",
-        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+        "document_id": "22/2000/QH10",
+        "article": "109",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-toanvan.aspx?ItemID=6117"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "Mốc áp dụng 2014-07-01; cần xác nhận quy định sửa đổi, chuyển tiếp và hiệu lực cấp điều khoản.",
+    "temporal_note": "Mốc áp dụng 2014-07-01; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D132"
+      "L02_D109"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -2062,7 +2062,7 @@
     "gold_context_ids_confirmed": true,
     "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_132_clause_1"
+      "l_22_2000_qh10_art_109_clause_1"
     ],
     "split": "dev"
   },
@@ -2702,25 +2702,24 @@
   },
   {
     "id": "HN_069",
-    "answer": "Điều 9 (52/2014/QH13): 1. Việc kết hôn phải được đăng ký và do cơ quan nhà nước có thẩm quyền thực hiện theo quy định của Luật này và pháp luật về hộ tịch. Việc kết hôn không được đăng ký theo quy định tại khoản này thì không có giá trị pháp lý. 2. Vợ chồng đã ly hôn muốn xác lập lại quan hệ vợ chồng thì phải đăng ký kết hôn.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước. Điều 13 quy định thu hồi, hủy bỏ giấy chứng nhận kết hôn không đúng thẩm quyền và yêu cầu hai bên đăng ký lại tại cơ quan có thẩm quyền.",
+    "explanation": "Căn cứ Điều 13 của 52/2014/QH13. Câu hỏi giới hạn vào trường hợp đăng ký sai thẩm quyền và mốc xác lập quan hệ được quy định ngay tại Điều 13. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_9_clause_1_chunk_1",
-      "l_52_2014_qh13_art_9_clause_2_chunk_1"
+      "l_52_2014_qh13_art_13_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "9",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "13",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D09"
+      "L01_D13"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -2729,35 +2728,32 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_9_clause_1",
-      "l_52_2014_qh13_art_9_clause_2"
+      "l_52_2014_qh13_art_13_clause_1"
     ],
     "split": "dev"
   },
   {
     "id": "HN_070",
-    "answer": "Điều 10 (52/2014/QH13): 1. Người bị cưỡng ép kết hôn, bị lừa dối kết hôn, theo quy định của pháp luật về tố tụng dân sự, có quyền tự mình yêu cầu hoặc đề nghị cá nhân, tổ chức quy định tại khoản 2 Điều này yêu cầu Tòa án hủy việc kết hôn trái pháp luật do việc kết hôn vi phạm quy định tại điểm b khoản 1 Điều 8 của Luật này. 2. Cá nhân, cơ quan, tổ chức sau đây, theo quy định của pháp luật về tố tụng dân sự, có quyền yêu cầu Tòa án hủy việc kết hôn trái pháp luật do việc kết hôn vi phạm quy định tại các điểm a, c và d khoản 1 Điều 8 của Luật này: a) Vợ, chồng của người đang có vợ, có chồng mà kết hôn với người khác; cha, mẹ, con, người giám hộ hoặc người đại diện theo pháp luật khác của người kết hôn trái pháp luật; b) Cơ quan quản lý nhà nước về gia đình; c) Cơ quan quản lý nhà nước về trẻ em; d) Hội Liên hiệp Phụ nữ. 3.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Khi việc kết hôn trái pháp luật bị hủy thì hai bên phải chấm dứt quan hệ như vợ chồng, theo khoản 1 Điều 12 Luật Hôn nhân và gia đình 2014.",
+    "explanation": "Căn cứ khoản 1 Điều 12 của 52/2014/QH13. Khoản 1 Điều 12 trực tiếp quy định hậu quả đối với quan hệ giữa hai bên sau khi việc kết hôn bị hủy. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_10_clause_1_chunk_1",
-      "l_52_2014_qh13_art_10_clause_2_chunk_1",
-      "l_52_2014_qh13_art_10_clause_3_chunk_1"
+      "l_52_2014_qh13_art_12_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "10",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "12(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D10"
+      "L01_D12"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -2766,33 +2762,28 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_10_clause_1",
-      "l_52_2014_qh13_art_10_clause_2",
-      "l_52_2014_qh13_art_10_clause_3"
+      "l_52_2014_qh13_art_12_clause_1"
     ],
     "split": "dev"
   },
   {
     "id": "HN_071",
-    "answer": "Điều 11 (52/2014/QH13): 1. Xử lý việc kết hôn trái pháp luật được Tòa án thực hiện theo quy định tại Luật này và pháp luật về tố tụng dân sự. 2. Trong trường hợp tại thời điểm Tòa án giải quyết yêu cầu hủy việc kết hôn trái pháp luật mà cả hai bên kết hôn đã có đủ các điều kiện kết hôn theo quy định tại Điều 8 của Luật này và hai bên yêu cầu công nhận quan hệ hôn nhân thì Tòa án công nhận quan hệ hôn nhân đó. Trong trường hợp này, quan hệ hôn nhân được xác lập từ thời điểm các bên đủ điều kiện kết hôn theo quy định của Luật này. 3. Quyết định của Tòa án về việc hủy kết hôn trái pháp luật hoặc công nhận quan hệ hôn nhân phải được gửi cho cơ quan đã thực hiện việc đăng ký kết hôn để ghi vào sổ hộ tịch; hai bên kết hôn trái pháp luật; cá nhân, cơ quan, tổ chức liên quan theo quy định của pháp luật về tố tụng dân sự. 4. Tòa án nhân dân tối cao chủ trì phối hợp với Viện kiểm sát nhân dân tối cao và Bộ Tư pháp hướng dẫn Điều này.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Quyết định phải được gửi cho cơ quan đã thực hiện đăng ký kết hôn để ghi vào sổ hộ tịch; hai bên kết hôn trái pháp luật; cá nhân, cơ quan, tổ chức liên quan theo pháp luật về tố tụng dân sự.",
+    "explanation": "Căn cứ khoản 3 Điều 11 của 52/2014/QH13. Câu hỏi chỉ yêu cầu danh sách nơi nhận quyết định tại khoản 3 Điều 11. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_11_clause_1_chunk_1",
-      "l_52_2014_qh13_art_11_clause_2_chunk_1",
-      "l_52_2014_qh13_art_11_clause_3_chunk_1",
-      "l_52_2014_qh13_art_11_clause_4_chunk_1"
+      "l_52_2014_qh13_art_11_clause_3_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "11",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "11(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -2805,12 +2796,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_11_clause_1",
-      "l_52_2014_qh13_art_11_clause_2",
-      "l_52_2014_qh13_art_11_clause_3",
-      "l_52_2014_qh13_art_11_clause_4"
+      "l_52_2014_qh13_art_11_clause_3"
     ],
     "split": "dev"
   },
@@ -2924,24 +2912,24 @@
   },
   {
     "id": "HN_075",
-    "answer": "Điều 15 (52/2014/QH13): chung sống với nhau như vợ chồng mà không đăng ký kết hôn Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Không. Khoản 4 Điều 69 Luật Hôn nhân và gia đình 2014 cấm cha mẹ phân biệt đối xử với con trên cơ sở giới hoặc theo tình trạng hôn nhân của cha mẹ.",
+    "explanation": "Căn cứ khoản 4 Điều 69 của 52/2014/QH13. Khoản 4 Điều 69 trực tiếp nêu hai căn cứ phân biệt đối xử bị cấm mà câu hỏi đề cập. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_15_clause_1_chunk_1"
+      "l_52_2014_qh13_art_69_clause_4_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "15",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "69(4)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D15"
+      "L01_D69"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -2950,29 +2938,28 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_15_clause_1"
+      "l_52_2014_qh13_art_69_clause_4"
     ],
     "split": "dev"
   },
   {
     "id": "HN_076",
-    "answer": "Điều 16 (52/2014/QH13): chung sống với nhau như vợ chồng mà không đăng ký kết hôn 1. Quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo thỏa thuận giữa các bên; trong trường hợp không có thỏa thuận thì giải quyết theo quy định của Bộ luật dân sự và các quy định khác của pháp luật có liên quan. 2. Việc giải quyết quan hệ tài sản phải bảo đảm quyền, lợi ích hợp pháp của phụ nữ và con; công việc nội trợ và công việc khác có liên quan để duy trì đời sống chung được coi như lao động có thu nhập. QUAN HỆ GIỮA VỢ VÀ CHỒNG QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Phải bảo đảm quyền, lợi ích hợp pháp của phụ nữ và con. Công việc nội trợ và công việc khác có liên quan để duy trì đời sống chung được coi như lao động có thu nhập, theo khoản 2 Điều 16.",
+    "explanation": "Căn cứ khoản 2 Điều 16 của 52/2014/QH13. Câu hỏi tập trung vào bảo vệ quyền lợi và cách tính công việc nội trợ trong khoản 2 Điều 16. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_16_clause_1_chunk_1",
       "l_52_2014_qh13_art_16_clause_2_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "16",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "16(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -2985,9 +2972,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_16_clause_1",
       "l_52_2014_qh13_art_16_clause_2"
     ],
     "split": "dev"
@@ -3062,25 +3048,24 @@
   },
   {
     "id": "HN_079",
-    "answer": "Điều 19 (52/2014/QH13): 1. Vợ chồng có nghĩa vụ thương yêu, chung thủy, tôn trọng, quan tâm, chăm sóc, giúp đỡ nhau; cùng nhau chia sẻ, thực hiện các công việc trong gia đình. 2. Vợ chồng có nghĩa vụ sống chung với nhau, trừ trường hợp vợ chồng có thỏa thuận khác hoặc do yêu cầu của nghề nghiệp, công tác, học tập, tham gia các hoạt động chính trị, kinh tế, văn hóa, xã hội và lý do chính đáng khác.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau. Nghĩa vụ tôn trọng này được quy định tại Điều 22 Luật Hôn nhân và gia đình 2014.",
+    "explanation": "Căn cứ Điều 22 của 52/2014/QH13. Điều 22 trực tiếp quy định nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo giữa vợ và chồng. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_19_clause_1_chunk_1",
-      "l_52_2014_qh13_art_19_clause_2_chunk_1"
+      "l_52_2014_qh13_art_22_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "19",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "22",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D19"
+      "L01_D22"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -3089,33 +3074,32 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_19_clause_1",
-      "l_52_2014_qh13_art_19_clause_2"
+      "l_52_2014_qh13_art_22_clause_1"
     ],
     "split": "dev"
   },
   {
     "id": "HN_080",
-    "answer": "Điều 20 (52/2014/QH13): Việc lựa chọn nơi cư trú của vợ chồng do vợ chồng thỏa thuận, không bị ràng buộc bởi phong tục, tập quán, địa giới hành chính.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Vợ, chồng có quyền, nghĩa vụ tạo điều kiện, giúp đỡ nhau chọn nghề nghiệp; học tập, nâng cao trình độ văn hóa, chuyên môn, nghiệp vụ; tham gia hoạt động chính trị, kinh tế, văn hóa, xã hội.",
+    "explanation": "Căn cứ Điều 23 của 52/2014/QH13. Điều 23 liệt kê các lĩnh vực vợ chồng phải tạo điều kiện và giúp đỡ nhau, gồm nghề nghiệp và học tập. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_20_clause_1_chunk_1"
+      "l_52_2014_qh13_art_23_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "20",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "23",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D20"
+      "L01_D23"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -3124,9 +3108,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_20_clause_1"
+      "l_52_2014_qh13_art_23_clause_1"
     ],
     "split": "dev"
   },
@@ -3492,24 +3476,24 @@
   },
   {
     "id": "HN_091",
-    "answer": "Điều 31 (52/2014/QH13): Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Bên gặp khó khăn về chỗ ở được quyền lưu cư trong thời hạn 06 tháng kể từ ngày quan hệ hôn nhân chấm dứt, trừ khi các bên có thỏa thuận khác. Nhà ở vẫn thuộc sở hữu riêng của chủ sở hữu.",
+    "explanation": "Căn cứ Điều 63 của 52/2014/QH13. Điều 63 quy định đồng thời việc giữ quyền sở hữu riêng và thời hạn lưu cư, với ngoại lệ theo thỏa thuận. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_31_clause_1_chunk_1"
+      "l_52_2014_qh13_art_63_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "31",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "63",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D31"
+      "L01_D63"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -3518,9 +3502,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_31_clause_1"
+      "l_52_2014_qh13_art_63_clause_1"
     ],
     "split": "dev"
   },
@@ -3636,25 +3620,24 @@
   },
   {
     "id": "HN_095",
-    "answer": "Điều 35 (52/2014/QH13): 1. Việc chiếm hữu, sử dụng, định đoạt tài sản chung do vợ chồng thỏa thuận. 2. Việc định đoạt tài sản chung phải có sự thỏa thuận bằng văn bản của vợ chồng trong những trường hợp sau đây: a) Bất động sản; b) Động sản mà theo quy định của pháp luật phải đăng ký quyền sở hữu; c) Tài sản đang là nguồn tạo ra thu nhập chủ yếu của gia đình.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Thỏa thuận phải lập thành văn bản. Khi có thỏa thuận để một bên đưa tài sản chung vào kinh doanh, người đó có quyền tự mình thực hiện giao dịch liên quan đến tài sản chung ấy, theo Điều 36.",
+    "explanation": "Căn cứ Điều 36 của 52/2014/QH13. Điều 36 xác định hình thức thỏa thuận và quyền giao dịch của người được thỏa thuận đưa tài sản chung vào kinh doanh. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_35_clause_1_chunk_1",
-      "l_52_2014_qh13_art_35_clause_2_chunk_1"
+      "l_52_2014_qh13_art_36_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "35",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "36",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D35"
+      "L01_D36"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -3663,10 +3646,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_35_clause_1",
-      "l_52_2014_qh13_art_35_clause_2"
+      "l_52_2014_qh13_art_36_clause_1"
     ],
     "split": "dev"
   },
@@ -4384,24 +4366,24 @@
   },
   {
     "id": "HN_115",
-    "answer": "Điều 55 (52/2014/QH13): Trong trường hợp vợ chồng cùng yêu cầu ly hôn, nếu xét thấy hai bên thật sự tự nguyện ly hôn và đã thỏa thuận về việc chia tài sản, việc trông nom, nuôi dưỡng, chăm sóc, giáo dục con trên cơ sở bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án công nhận thuận tình ly hôn; nếu không thỏa thuận được hoặc có thỏa thuận nhưng không bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án giải quyết việc ly hôn.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Sau khi đã thụ lý đơn yêu cầu ly hôn, Tòa án tiến hành hòa giải theo quy định của pháp luật về tố tụng dân sự, theo Điều 54 Luật Hôn nhân và gia đình 2014.",
+    "explanation": "Căn cứ Điều 54 của 52/2014/QH13. Điều 54 là căn cứ trực tiếp cho bước hòa giải sau khi thụ lý; câu hỏi không còn yêu cầu căn cứ công nhận thuận tình ly hôn. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_55_clause_1_chunk_1"
+      "l_52_2014_qh13_art_54_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "55",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "54",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D55"
+      "L01_D54"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -4410,9 +4392,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_55_clause_1"
+      "l_52_2014_qh13_art_54_clause_1"
     ],
     "split": "dev"
   },
@@ -4456,21 +4438,20 @@
   },
   {
     "id": "HN_117",
-    "answer": "Điều 57 (52/2014/QH13): định ly hôn 1. Quan hệ hôn nhân chấm dứt kể từ ngày bản án, quyết định ly hôn của Tòa án có hiệu lực pháp luật. 2. Tòa án đã giải quyết ly hôn phải gửi bản án, quyết định ly hôn đã có hiệu lực pháp luật cho cơ quan đã thực hiện việc đăng ký kết hôn để ghi vào sổ hộ tịch; hai bên ly hôn; cá nhân, cơ quan, tổ chức khác theo quy định của Bộ luật Tố tụng dân sự và các luật khác có liên quan.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Tòa án phải gửi cho cơ quan đã thực hiện đăng ký kết hôn để ghi vào sổ hộ tịch; hai bên ly hôn; cá nhân, cơ quan, tổ chức khác theo quy định của Bộ luật tố tụng dân sự và các luật có liên quan.",
+    "explanation": "Căn cứ khoản 2 Điều 57 của 52/2014/QH13. Câu hỏi chỉ xét trách nhiệm gửi bản án, quyết định tại khoản 2 Điều 57. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_57_clause_1_chunk_1",
       "l_52_2014_qh13_art_57_clause_2_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "57",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "57(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -4483,9 +4464,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_57_clause_1",
       "l_52_2014_qh13_art_57_clause_2"
     ],
     "split": "dev"
@@ -4526,25 +4506,20 @@
   },
   {
     "id": "HN_119",
-    "answer": "Điều 59 (52/2014/QH13): 1. Trong trường hợp chế độ tài sản của vợ chồng theo luật định thì việc giải quyết tài sản do các bên thỏa thuận; nếu không thỏa thuận được thì theo yêu cầu của vợ, chồng hoặc của hai vợ chồng, Tòa án giải quyết theo quy định tại các khoản 2, 3, 4 và 5 Điều này và tại các điều 60, 61, 62, 63 và 64 của Luật này. Trong trường hợp chế độ tài sản của vợ chồng theo thỏa thuận thì việc giải quyết tài sản khi ly hôn được áp dụng theo thỏa thuận đó; nếu thỏa thuận không đầy đủ, rõ ràng thì áp dụng quy định tương ứng tại các khoản 2, 3, 4 và 5 Điều này và tại các điều 60, 61, 62, 63 và 64 của Luật này để giải quyết. 2. Tài sản chung của vợ chồng được chia đôi nhưng có tính đến các yếu tố sau đây: a) Hoàn cảnh của gia đình và của vợ, chồng; b) Công sức đóng góp của vợ, chồng vào việc tạo lập, duy trì và phát triển khối tài sản chung. Lao động của vợ, chồng trong gia đình được coi như lao động có thu nhập;",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Nếu không chia được bằng hiện vật thì chia theo giá trị. Bên nhận tài sản bằng hiện vật có giá trị lớn hơn phần mình được hưởng phải thanh toán cho bên kia phần chênh lệch, theo khoản 3 Điều 59.",
+    "explanation": "Căn cứ khoản 3 Điều 59 của 52/2014/QH13. Khoản 3 Điều 59 đủ chứng minh cách chia theo giá trị và nghĩa vụ thanh toán phần chênh lệch. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_59_clause_1_chunk_1",
-      "l_52_2014_qh13_art_59_clause_2_chunk_1",
-      "l_52_2014_qh13_art_59_clause_3_chunk_1",
-      "l_52_2014_qh13_art_59_clause_4_chunk_1",
-      "l_52_2014_qh13_art_59_clause_5_chunk_1",
-      "l_52_2014_qh13_art_59_clause_6_chunk_1"
+      "l_52_2014_qh13_art_59_clause_3_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "59",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "59(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -4557,38 +4532,32 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_59_clause_1",
-      "l_52_2014_qh13_art_59_clause_2",
-      "l_52_2014_qh13_art_59_clause_3",
-      "l_52_2014_qh13_art_59_clause_4",
-      "l_52_2014_qh13_art_59_clause_5",
-      "l_52_2014_qh13_art_59_clause_6"
+      "l_52_2014_qh13_art_59_clause_3"
     ],
     "split": "dev"
   },
   {
     "id": "HN_120",
-    "answer": "Điều 60 (52/2014/QH13): thứ ba khi ly hôn 1. Quyền, nghĩa vụ tài sản của vợ chồng đối với người thứ ba vẫn có hiệu lực sau khi ly hôn, trừ trường hợp vợ chồng và người thứ ba có thỏa thuận khác. 2. Trong trường hợp có tranh chấp về quyền, nghĩa vụ tài sản thì áp dụng quy định tại các điều 27, 37 và 45 của Luật này và quy định của Bộ luật Dân sự để giải quyết.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Bên đang thực hiện hoạt động kinh doanh liên quan đến tài sản chung có quyền nhận tài sản đó và phải thanh toán cho bên kia phần giá trị tài sản mà họ được hưởng, trừ khi pháp luật về kinh doanh quy định khác.",
+    "explanation": "Căn cứ Điều 64 của 52/2014/QH13. Điều 64 quy định riêng quyền nhận tài sản kinh doanh và nghĩa vụ thanh toán khi ly hôn. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_60_clause_1_chunk_1",
-      "l_52_2014_qh13_art_60_clause_2_chunk_1"
+      "l_52_2014_qh13_art_64_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "60",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "64",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D60"
+      "L01_D64"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -4597,10 +4566,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_60_clause_1",
-      "l_52_2014_qh13_art_60_clause_2"
+      "l_52_2014_qh13_art_64_clause_1"
     ],
     "split": "dev"
   },
@@ -6320,21 +6288,20 @@
   },
   {
     "id": "HN_167",
-    "answer": "Điều 107 (52/2014/QH13): 1. Nghĩa vụ cấp dưỡng được thực hiện giữa cha, mẹ và con; giữa anh, chị, em với nhau; giữa ông bà nội, ông bà ngoại và cháu; giữa cô, dì, chú, cậu, bác ruột và cháu ruột; giữa vợ và chồng theo quy định của Luật này. Nghĩa vụ cấp dưỡng không thể thay thế bằng nghĩa vụ khác và không thể chuyển giao cho người khác. 2. Trong trường hợp người có nghĩa vụ nuôi dưỡng trốn tránh nghĩa vụ thì theo yêu cầu của cá nhân, cơ quan, tổ chức được quy định tại Điều 119 của Luật này, Tòa án buộc người đó phải thực hiện nghĩa vụ cấp dưỡng theo quy định của Luật này.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Theo yêu cầu của cá nhân, cơ quan, tổ chức được quy định tại Điều 119, Tòa án buộc người trốn tránh nghĩa vụ nuôi dưỡng phải thực hiện nghĩa vụ cấp dưỡng theo Luật Hôn nhân và gia đình 2014.",
+    "explanation": "Căn cứ khoản 2 Điều 107 của 52/2014/QH13. Khoản 2 Điều 107 quy định biện pháp buộc thực hiện cấp dưỡng khi có hành vi trốn tránh nuôi dưỡng và có yêu cầu theo luật. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_107_clause_1_chunk_1",
       "l_52_2014_qh13_art_107_clause_2_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "107",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "107(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -6347,9 +6314,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_107_clause_1",
       "l_52_2014_qh13_art_107_clause_2"
     ],
     "split": "dev"
@@ -7205,22 +7171,26 @@
   },
   {
     "id": "HN_191",
-    "answer": "Điều 131 (52/2014/QH13): 1. Quan hệ hôn nhân và gia đình được xác lập trước ngày Luật này có hiệu lực thì áp dụng pháp luật về hôn nhân và gia đình tại thời điểm xác lập để giải quyết. 2. Đối với vụ việc về hôn nhân và gia đình do Tòa án thụ lý trước ngày Luật này có hiệu lực mà chưa giải quyết thì áp dụng thủ tục theo quy định của Luật này. 3. Không áp dụng Luật này để kháng nghị theo thủ tục giám đốc thẩm, tái thẩm đối với vụ việc mà Tòa án đã giải quyết theo quy định của pháp luật về hôn nhân và gia đình trước ngày Luật này có hiệu lực. 3 Điều 3 của Luật số 81/2025/QH15 sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân, có hiệu lực kể từ ngày 01 tháng 7 năm 2025 có quy định như sau: “Điều 3. Hiệu lực thi hành Luật này có hiệu lực thi hành kể từ ngày 01 tháng 7 năm 2025.”.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Vụ việc đã thụ lý trước ngày Luật 2014 có hiệu lực mà chưa giải quyết áp dụng thủ tục theo Luật này. Không áp dụng Luật này để kháng nghị giám đốc thẩm, tái thẩm vụ việc đã được giải quyết theo pháp luật trước ngày Luật có hiệu lực.",
+    "explanation": "Căn cứ khoản 2 Điều 131; khoản 3 Điều 131 của 52/2014/QH13. Khoản 2 và khoản 3 Điều 131 phân biệt vụ việc đang giải quyết với vụ việc đã được giải quyết trước mốc hiệu lực. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_131_clause_1_chunk_1",
       "l_52_2014_qh13_art_131_clause_2_chunk_1",
       "l_52_2014_qh13_art_131_clause_3_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "131",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "131(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
+      },
+      {
+        "document_id": "52/2014/QH13",
+        "article": "131(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -7233,9 +7203,8 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_131_clause_1",
       "l_52_2014_qh13_art_131_clause_2",
       "l_52_2014_qh13_art_131_clause_3"
     ],
@@ -10635,33 +10604,31 @@
   },
   {
     "id": "HN_279",
-    "answer": "Điều 12 (52/2014/QH13): 1. Khi việc kết hôn trái pháp luật bị hủy thì hai bên kết hôn phải chấm dứt quan hệ như vợ chồng. 2. Quyền, nghĩa vụ của cha, mẹ, con được giải quyết theo quy định về quyền, nghĩa vụ của cha, mẹ, con khi ly hôn. 3. Quan hệ tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 16 của Luật này.\n\nĐiều 15 (52/2014/QH13): chung sống với nhau như vợ chồng mà không đăng ký kết hôn Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Khoản 2 Điều 12 dẫn chiếu đến quy định về quyền, nghĩa vụ cha mẹ, con khi ly hôn. Theo khoản 1 Điều 81, cha mẹ vẫn có quyền, nghĩa vụ trông nom, chăm sóc, nuôi dưỡng, giáo dục con chưa thành niên.",
+    "explanation": "Căn cứ khoản 2 Điều 12; khoản 1 Điều 81 của 52/2014/QH13. Khoản 2 Điều 12 xác định quy định được dẫn chiếu; khoản 1 Điều 81 xác định quyền, nghĩa vụ đối với con chưa thành niên trong nhóm quy định ấy. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_12_clause_1_chunk_1",
       "l_52_2014_qh13_art_12_clause_2_chunk_1",
-      "l_52_2014_qh13_art_12_clause_3_chunk_1",
-      "l_52_2014_qh13_art_15_clause_1_chunk_1"
+      "l_52_2014_qh13_art_81_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "12",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "12(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       },
       {
         "document_id": "52/2014/QH13",
-        "article": "15",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "81(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
       "L01_D12",
-      "L01_D15"
+      "L01_D81"
     ],
     "evidence_level": "chunk_text_matched_unverified",
     "candidate_context_ids": [],
@@ -10670,39 +10637,35 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_12_clause_1",
       "l_52_2014_qh13_art_12_clause_2",
-      "l_52_2014_qh13_art_12_clause_3",
-      "l_52_2014_qh13_art_15_clause_1"
+      "l_52_2014_qh13_art_81_clause_1"
     ],
     "split": "dev"
   },
   {
     "id": "HN_280",
-    "answer": "Điều 14 (52/2014/QH13): vợ chồng mà không đăng ký kết hôn 1. Nam, nữ có đủ điều kiện kết hôn theo quy định của Luật này chung sống với nhau như vợ chồng mà không đăng ký kết hôn thì không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Quyền, nghĩa vụ đối với con, tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 15 và Điều 16 của Luật này. 2. Trong trường hợp nam, nữ chung sống với nhau như vợ chồng theo quy định tại khoản 1 Điều này nhưng sau đó thực hiện việc đăng ký kết hôn theo quy định của pháp luật thì quan hệ hôn nhân được xác lập từ thời điểm đăng ký kết hôn.\n\nĐiều 16 (52/2014/QH13): chung sống với nhau như vợ chồng mà không đăng ký kết hôn 1. Quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo thỏa thuận giữa các bên; trong trường hợp không có thỏa thuận thì giải quyết theo quy định của Bộ luật dân sự và các quy định khác của pháp luật có liên quan. 2. Việc giải quyết quan hệ tài sản phải bảo đảm quyền, lợi ích hợp pháp của phụ nữ và con; công việc nội trợ và công việc khác có liên quan để duy trì đời sống chung được coi như lao động có thu nhập. QUAN HỆ GIỮA VỢ VÀ CHỒNG QUYỀN VÀ NGHĨA VỤ VỀ NHÂN THÂN",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo khoản 1 Điều 14. Khi giải quyết tài sản, công việc nội trợ và công việc khác liên quan để duy trì đời sống chung được coi như lao động có thu nhập theo khoản 2 Điều 16.",
+    "explanation": "Căn cứ khoản 1 Điều 14; khoản 2 Điều 16 của 52/2014/QH13. Khoản 1 Điều 14 giải quyết tình trạng quan hệ; khoản 2 Điều 16 giải quyết cách ghi nhận công việc nội trợ, không cần dùng khoản 1 Điều 16. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
       "l_52_2014_qh13_art_14_clause_1_chunk_1",
-      "l_52_2014_qh13_art_14_clause_2_chunk_1",
-      "l_52_2014_qh13_art_16_clause_1_chunk_1",
       "l_52_2014_qh13_art_16_clause_2_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "14",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "14(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       },
       {
         "document_id": "52/2014/QH13",
-        "article": "16",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "16(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -10716,11 +10679,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
       "l_52_2014_qh13_art_14_clause_1",
-      "l_52_2014_qh13_art_14_clause_2",
-      "l_52_2014_qh13_art_16_clause_1",
       "l_52_2014_qh13_art_16_clause_2"
     ],
     "split": "dev"
@@ -11208,32 +11169,30 @@
   },
   {
     "id": "HN_291",
-    "answer": "Điều 55 (52/2014/QH13): Trong trường hợp vợ chồng cùng yêu cầu ly hôn, nếu xét thấy hai bên thật sự tự nguyện ly hôn và đã thỏa thuận về việc chia tài sản, việc trông nom, nuôi dưỡng, chăm sóc, giáo dục con trên cơ sở bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án công nhận thuận tình ly hôn; nếu không thỏa thuận được hoặc có thỏa thuận nhưng không bảo đảm quyền lợi chính đáng của vợ và con thì Tòa án giải quyết việc ly hôn.\n\nĐiều 56 (52/2014/QH13): 1. Khi vợ hoặc chồng yêu cầu ly hôn mà hòa giải tại Tòa án không thành thì Tòa án giải quyết cho ly hôn nếu có căn cứ về việc vợ, chồng có hành vi bạo lực gia đình hoặc vi phạm nghiêm trọng quyền, nghĩa vụ của vợ, chồng làm cho hôn nhân lâm vào tình trạng trầm trọng, đời sống chung không thể kéo dài, mục đích của hôn nhân không đạt được. 2. Trong trường hợp vợ hoặc chồng của người bị Tòa án tuyên bố mất tích yêu cầu ly hôn thì Tòa án giải quyết cho ly hôn. 3.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Theo khoản 2 Điều 51, người đó phải do bệnh tâm thần hoặc bệnh khác mà không thể nhận thức, làm chủ hành vi, đồng thời là nạn nhân của bạo lực gia đình do vợ hoặc chồng gây ra, ảnh hưởng nghiêm trọng đến tính mạng, sức khỏe, tinh thần. Khoản 3 Điều 56 yêu cầu có căn cứ về hành vi bạo lực gây ảnh hưởng nghiêm trọng như trên để giải quyết cho ly hôn.",
+    "explanation": "Căn cứ khoản 2 Điều 51; khoản 3 Điều 56 của 52/2014/QH13. Khoản 2 Điều 51 xác định quyền yêu cầu và điều kiện; khoản 3 Điều 56 xác định căn cứ giải quyết ly hôn theo yêu cầu đó. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_55_clause_1_chunk_1",
-      "l_52_2014_qh13_art_56_clause_1_chunk_1",
-      "l_52_2014_qh13_art_56_clause_2_chunk_1",
+      "l_52_2014_qh13_art_51_clause_2_chunk_1",
       "l_52_2014_qh13_art_56_clause_3_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "55",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "51(2)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       },
       {
         "document_id": "52/2014/QH13",
-        "article": "56",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "56(3)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
-      "L01_D55",
+      "L01_D51",
       "L01_D56"
     ],
     "evidence_level": "chunk_text_matched_unverified",
@@ -11243,11 +11202,9 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_55_clause_1",
-      "l_52_2014_qh13_art_56_clause_1",
-      "l_52_2014_qh13_art_56_clause_2",
+      "l_52_2014_qh13_art_51_clause_2",
       "l_52_2014_qh13_art_56_clause_3"
     ],
     "split": "dev"
@@ -11303,34 +11260,26 @@
   },
   {
     "id": "HN_293",
-    "answer": "Điều 59 (52/2014/QH13): 1. Trong trường hợp chế độ tài sản của vợ chồng theo luật định thì việc giải quyết tài sản do các bên thỏa thuận; nếu không thỏa thuận được thì theo yêu cầu của vợ, chồng hoặc của hai vợ chồng, Tòa án giải quyết theo quy định tại các khoản 2, 3, 4 và 5 Điều này và tại các điều 60, 61, 62, 63 và 64 của Luật này. Trong trường hợp chế độ tài sản của vợ chồng theo thỏa thuận thì việc giải quyết tài sản khi ly hôn được áp dụng theo thỏa thuận đó; nếu thỏa thuận không đầy đủ, rõ ràng thì áp dụng quy định tương ứng tại các khoản 2, 3, 4 và 5 Điều này và tại các điều 60, 61, 62, 63 và 64 của Luật này để giải quyết. 2.\n\nĐiều 62 (52/2014/QH13): 1. Quyền sử dụng đất là tài sản riêng của bên nào thì khi ly hôn vẫn thuộc về bên đó. 2. Việc chia quyền sử dụng đất là tài sản chung của vợ chồng khi ly hôn được thực hiện như sau: a) Đối với đất nông nghiệp trồng cây hàng năm, nuôi trồng thủy sản, nếu cả hai bên đều có nhu cầu và có điều kiện trực tiếp sử dụng đất thì được chia theo thỏa thuận của hai bên; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết theo quy định tại Điều 59 của Luật này.",
-    "explanation": "Bản trả lời trích xuất tự động từ các Điều được dẫn trong PDF nguồn của bộ dữ liệu. Đoạn trích làm căn cứ tham chiếu, chưa phải câu trả lời pháp lý đã được chuyên gia phê duyệt. Cần đối chiếu toàn văn điều/khoản, hiệu lực theo ngày hỏi và biên tập lại thành lời giải chính xác trước khi chốt Ground Truth.",
+    "answer": "Khoản 1 Điều 62 quy định quyền sử dụng đất riêng của bên nào thì khi ly hôn vẫn thuộc bên đó. Theo khoản 4 Điều 59, tài sản riêng thuộc chủ sở hữu trừ khi đã nhập vào tài sản chung; khi có sáp nhập, trộn lẫn và có yêu cầu chia, được thanh toán phần giá trị tài sản đã đóng góp, trừ khi vợ chồng có thỏa thuận khác.",
+    "explanation": "Căn cứ khoản 4 Điều 59; khoản 1 Điều 62 của 52/2014/QH13. Khoản 1 Điều 62 là quy định riêng về đất; khoản 4 Điều 59 giải quyết tài sản riêng và phần giá trị đóng góp khi sáp nhập, trộn lẫn. Đáp án còn chờ duyệt pháp lý.",
     "gold_context_ids": [
-      "l_52_2014_qh13_art_59_clause_1_chunk_1",
-      "l_52_2014_qh13_art_59_clause_2_chunk_1",
-      "l_52_2014_qh13_art_59_clause_3_chunk_1",
       "l_52_2014_qh13_art_59_clause_4_chunk_1",
-      "l_52_2014_qh13_art_59_clause_5_chunk_1",
-      "l_52_2014_qh13_art_59_clause_6_chunk_1",
-      "l_52_2014_qh13_art_62_clause_1_chunk_1",
-      "l_52_2014_qh13_art_62_clause_2_chunk_1",
-      "l_52_2014_qh13_art_62_clause_2_chunk_2",
-      "l_52_2014_qh13_art_62_clause_3_chunk_1"
+      "l_52_2014_qh13_art_62_clause_1_chunk_1"
     ],
     "citations": [
       {
         "document_id": "52/2014/QH13",
-        "article": "59",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "59(4)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       },
       {
         "document_id": "52/2014/QH13",
-        "article": "62",
-        "source_url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Luat-Hon-nhan-va-gia-dinh-2014-238640.aspx"
+        "article": "62(1)",
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=36870"
       }
     ],
     "review_status": "draft",
-    "temporal_note": "As-of 2026-10-15; chua doi chieu hieu luc tung dieu/khoan va quy dinh sua doi, thay the. Nội dung trích từ PDF nguồn lưu cùng phiên xử lý; trạng thái áp dụng ở cấp điều/khoản chưa được con người xác minh.",
+    "temporal_note": "Mốc áp dụng 2026-10-15; câu Dev được biên tập lại dựa trên khoản không dùng trong Test đã khóa. Mapping đã đối chiếu corpus; chưa có người duyệt pháp lý.",
     "outdated_document_ids": [],
     "outdated_context_ids": [],
     "gold_article_ids": [
@@ -11344,17 +11293,10 @@
     "verified_at": null,
     "context_id_provenance": "production_index",
     "gold_context_ids_confirmed": true,
-    "answer_kind": "extracted_article_text_unreviewed",
+    "answer_kind": "draft_answer_unreviewed",
     "gold_clause_ids": [
-      "l_52_2014_qh13_art_59_clause_1",
-      "l_52_2014_qh13_art_59_clause_2",
-      "l_52_2014_qh13_art_59_clause_3",
       "l_52_2014_qh13_art_59_clause_4",
-      "l_52_2014_qh13_art_59_clause_5",
-      "l_52_2014_qh13_art_59_clause_6",
-      "l_52_2014_qh13_art_62_clause_1",
-      "l_52_2014_qh13_art_62_clause_2",
-      "l_52_2014_qh13_art_62_clause_3"
+      "l_52_2014_qh13_art_62_clause_1"
     ],
     "split": "dev"
   },
