@@ -1,64 +1,81 @@
 import argparse
+import subprocess
 import sys
 from pathlib import Path
 
-if sys.platform == "win32":
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-        sys.stderr.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
-
-# Xác định thư mục gốc của project
 ROOT_DIR = Path(__file__).resolve().parent.parent
-
-# Thêm thư mục gốc vào Python path
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
-
-from evaluation.benchmark_runner import run_benchmark_bm25
-
-
-# Đường dẫn dữ liệu Dev Set
 QUERIES_DEV_PATH = ROOT_DIR / "data" / "benchmark" / "queries_dev.json"
-RESULTS_PATH = ROOT_DIR / "evaluation" / "results" / "bm25_dev_results.json"
 GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
-METRICS_PATH = ROOT_DIR / "evaluation" / "results" / "bm25_dev_metrics.json"
-
-TOP_K = 5
+CHUNKS_PATH = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
+RESULTS_DIR = ROOT_DIR / "retrieval" / "results"
+METRICS_DIR = ROOT_DIR / "evaluation" / "results"
+METHODS = ("bm25", "dense", "hybrid")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Chạy baseline benchmark cho BM25 trên Dev Set.")
-    parser.add_argument("--queries", type=Path, default=QUERIES_DEV_PATH, help="Đường dẫn queries Dev")
-    parser.add_argument("--results", type=Path, default=RESULTS_PATH, help="Đường dẫn file kết quả retrieval")
-    parser.add_argument("--ground-truth", type=Path, default=GROUND_TRUTH_PATH, help="Đường dẫn ground_truth.json")
-    parser.add_argument("--metrics", type=Path, default=METRICS_PATH, help="Đường dẫn lưu file metrics")
-    parser.add_argument("--top-k", type=int, default=TOP_K, help="Số lượng kết quả top K")
-    parser.add_argument(
-        "--use-candidates",
-        action="store_true",
-        help=(
-            "Chấm câu chưa có gold bằng candidate_context_ids (chưa duyệt, chỉ là số tham khảo); "
-            "mặc định chỉ chấm câu có gold_context_ids"
-        ),
+    parser = argparse.ArgumentParser(
+        description="Chạy BM25, Dense, Hybrid trên Dev rồi chấm metric."
     )
+    parser.add_argument("--queries", type=Path, default=QUERIES_DEV_PATH)
+    parser.add_argument("--ground-truth", type=Path, default=GROUND_TRUTH_PATH)
+    parser.add_argument("--chunks", type=Path, default=CHUNKS_PATH)
+    parser.add_argument("--results-dir", type=Path, default=RESULTS_DIR)
+    parser.add_argument("--metrics-dir", type=Path, default=METRICS_DIR)
+    parser.add_argument("--top-k", type=int, default=None)
+    parser.add_argument("--candidate-k", type=int, default=None)
+    parser.add_argument("--rrf-k", type=int, default=None)
+    parser.add_argument("--model")
+    parser.add_argument("--collection")
+    parser.add_argument("--elasticsearch-url")
+    parser.add_argument("--elasticsearch-index")
+    parser.add_argument("--config", type=Path)
     args = parser.parse_args()
 
-    # Số đo trên candidate không được ghi đè file metric chấm trên gold
-    if args.use_candidates and args.metrics == METRICS_PATH:
-        args.metrics = METRICS_PATH.with_name(f"{METRICS_PATH.stem}_candidates{METRICS_PATH.suffix}")
+    retrieval_command = [
+        sys.executable,
+        "-m",
+        "retrieval.run_dev_retrieval",
+        "--queries",
+        str(args.queries),
+        "--chunks",
+        str(args.chunks),
+        "--output-dir",
+        str(args.results_dir),
+    ]
+    for option, value in (
+        ("--top-k", args.top_k),
+        ("--candidate-k", args.candidate_k),
+        ("--rrf-k", args.rrf_k),
+        ("--model", args.model),
+        ("--collection", args.collection),
+        ("--elasticsearch-url", args.elasticsearch_url),
+        ("--elasticsearch-index", args.elasticsearch_index),
+        ("--config", args.config),
+    ):
+        if value is not None:
+            retrieval_command.extend((option, str(value)))
 
-    print("🎯 Bắt đầu chạy baseline benchmark cho BM25 trên Dev Set...\n")
+    subprocess.run(retrieval_command, cwd=ROOT_DIR, check=True)
 
-    run_benchmark_bm25(
-        queries_path=args.queries,
-        results_path=args.results,
-        ground_truth_path=args.ground_truth,
-        metrics_path=args.metrics,
-        top_k=args.top_k,
-        use_candidates=args.use_candidates,
-    )
+    metrics_command = [
+        sys.executable,
+        str(ROOT_DIR / "scripts" / "run_baselines_metrics.py"),
+        "--queries",
+        str(args.queries),
+        "--ground-truth",
+        str(args.ground_truth),
+        "--chunks",
+        str(args.chunks),
+        "--results-dir",
+        str(args.results_dir),
+        "--metrics-dir",
+        str(args.metrics_dir),
+        "--methods",
+        *METHODS,
+    ]
+    if args.top_k is not None:
+        metrics_command.extend(("--top-k", str(args.top_k)))
+    subprocess.run(metrics_command, cwd=ROOT_DIR, check=True)
 
 
 if __name__ == "__main__":

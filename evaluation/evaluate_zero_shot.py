@@ -5,12 +5,7 @@ No LLM/API is required (Deterministic Rubric Scorer with LLM-Judge hook).
 
 Default inputs:
   data/benchmark/ground_truth.json
-  evaluation/results/zero_shot_dev_results.json
-
-Outputs:
-  evaluation/results/zero_shot_dev_metrics.json
-  evaluation/results/zero_shot_dev_scored.json
-  evaluation/results/zero_shot_dev_rubric_table.csv
+  An explicitly selected prediction file and query set.
 """
 
 from __future__ import annotations
@@ -36,18 +31,7 @@ if sys.platform == "win32":
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
 GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
-PREDICTIONS_PATH = (
-    ROOT_DIR / "evaluation" / "results" / "zero_shot_dev_results.json"
-)
-METRICS_OUTPUT_PATH = (
-    ROOT_DIR / "evaluation" / "results" / "zero_shot_dev_metrics.json"
-)
-SCORED_OUTPUT_PATH = (
-    ROOT_DIR / "evaluation" / "results" / "zero_shot_dev_scored.json"
-)
-RUBRIC_CSV_PATH = (
-    ROOT_DIR / "evaluation" / "results" / "zero_shot_dev_rubric_table.csv"
-)
+RUBRIC_CSV_PATH = ROOT_DIR / "evaluation" / "results" / "zero_shot_rubric_table.csv"
 
 ID_KEYS = ("query_id", "id")
 ANSWER_KEYS = ("answer", "expected_answer")
@@ -336,6 +320,22 @@ def load_categories(queries_paths: list[Path] | tuple[Path, ...]) -> dict[str, s
     return categories
 
 
+def load_query_ids(queries_paths: list[Path] | tuple[Path, ...]) -> set[str]:
+    """Read the exact query domain selected for this evaluation."""
+    query_ids: set[str] = set()
+    for path in queries_paths:
+        rows = load_json(path)
+        if not isinstance(rows, list):
+            raise ValueError(f"{path} phải chứa một JSON array.")
+        for position, row in enumerate(rows, start=1):
+            if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+                raise ValueError(f"{path}: phần tử thứ {position} thiếu id hợp lệ.")
+            if row["id"] in query_ids:
+                raise ValueError(f"{path}: query id bị trùng: {row['id']}")
+            query_ids.add(row["id"])
+    return query_ids
+
+
 def evaluate(
     predictions_path: Path,
     ground_truth_path: Path,
@@ -350,6 +350,28 @@ def evaluate(
 
     predictions = records_by_id(predictions_data, is_ground_truth=False)
     ground_truth = records_by_id(ground_truth_data, is_ground_truth=True)
+
+    selected_query_ids = (
+        load_query_ids(queries_paths) if queries_paths else None
+    )
+    if selected_query_ids is not None:
+        missing_ground_truth_ids = selected_query_ids - ground_truth.keys()
+        if missing_ground_truth_ids:
+            raise ValueError(
+                "Query set chứa ID không có trong ground truth: "
+                + ", ".join(sorted(missing_ground_truth_ids))
+            )
+        unexpected_prediction_ids = predictions.keys() - selected_query_ids
+        if unexpected_prediction_ids:
+            raise ValueError(
+                "Predictions chứa ID ngoài query set: "
+                + ", ".join(sorted(unexpected_prediction_ids))
+            )
+        ground_truth = {
+            question_id: record
+            for question_id, record in ground_truth.items()
+            if question_id in selected_query_ids
+        }
 
     manual_rubric: dict[str, dict[str, Any]] = {}
     if rubric_input_path and Path(rubric_input_path).exists():
@@ -565,7 +587,7 @@ def main() -> None:
     parser.add_argument(
         "--predictions",
         type=Path,
-        default=PREDICTIONS_PATH,
+        required=True,
         help="JSON output from zero-shot/RAG generation.",
     )
     parser.add_argument(
@@ -577,20 +599,20 @@ def main() -> None:
     parser.add_argument(
         "--metrics-output",
         type=Path,
-        default=METRICS_OUTPUT_PATH,
+        required=True,
         help="Summary metrics JSON output.",
     )
     parser.add_argument(
         "--scored-output",
         type=Path,
-        default=SCORED_OUTPUT_PATH,
+        required=True,
         help="Per-question score JSON output.",
     )
     parser.add_argument(
         "--rubric-csv",
         type=Path,
-        default=RUBRIC_CSV_PATH,
-        help="Detailed Rubric CSV output path.",
+        default=None,
+        help="Optional detailed Rubric CSV output path.",
     )
     parser.add_argument(
         "--rubric-input",
@@ -601,9 +623,9 @@ def main() -> None:
     parser.add_argument(
         "--queries",
         type=Path,
-        nargs="*",
-        default=[ROOT_DIR / "data" / "benchmark" / "queries_dev.json"],
-        help="Question files giving each id its category (by_category).",
+        nargs="+",
+        required=True,
+        help="Selected query-set files; evaluation is restricted to their IDs.",
     )
     args = parser.parse_args()
 

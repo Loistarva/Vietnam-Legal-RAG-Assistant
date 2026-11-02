@@ -30,11 +30,12 @@ class EvaluationIdTest(unittest.TestCase):
         report = evaluate(results, self.gt, ks=(1,), queries_paths=[self.queries])
         self.assertEqual(report["per_question"][0]["query_id"], "HN_001")
         self.assertNotIn("question_id", report["per_question"][0])
-        self.assertEqual(report["by_category"]["ket_hon"]["recall@1"], 1.0)
+        self.assertEqual(report["by_category"]["ket_hon"]["strict_match_recall@1"], 1.0)
 
-    def test_metrics_use_gold_only_by_default_and_record_label_source(self):
+    def test_metrics_only_score_gold_and_skip_unlabeled_questions(self):
         gt = write(self.dir / "gt_mixed.json", [
-            {"id": "HN_001", "gold_context_ids": ["c1"], "candidate_context_ids": ["c9"]},
+            {"id": "HN_001", "gold_context_ids": ["c1"], "candidate_context_ids": ["c9"],
+             "gold_context_ids_confirmed": True},
             {"id": "HN_002", "gold_context_ids": [], "candidate_context_ids": ["c2"]},
         ])
         results = write(self.dir / "results.json", [
@@ -42,12 +43,14 @@ class EvaluationIdTest(unittest.TestCase):
             {"query_id": "HN_002", "retrieved_chunk_ids": ["c2"]},
         ])
         report = evaluate(results, gt, ks=(1,))
-        self.assertEqual(report["label_source"], "gold")
         self.assertEqual(report["skipped"], ["HN_002"])
-        mixed = evaluate(results, gt, ks=(1,), use_candidates=True)
-        self.assertEqual(mixed["label_source"], "gold_and_candidate")
-        self.assertEqual((mixed["num_scored_on_gold"], mixed["num_scored_on_candidate"]), (1, 1))
-        self.assertEqual([row["label_source"] for row in mixed["per_question"]], ["gold", "candidate"])
+        self.assertNotIn("label_source", report)
+        self.assertNotIn("label_source", report["per_question"][0])
+        self.assertEqual(report["num_scored_questions"], 1)
+
+        verified = evaluate(results, gt, ks=(1,), verified_only=True)
+        self.assertEqual(verified["skipped"], ["HN_002"])
+        self.assertEqual(verified["num_scored_questions"], 1)
 
     def test_metrics_reject_question_id_and_unreadable_question_file(self):
         legacy = write(self.dir / "legacy.json", [{"question_id": "HN_001", "retrieved_chunk_ids": ["c1"]}])
