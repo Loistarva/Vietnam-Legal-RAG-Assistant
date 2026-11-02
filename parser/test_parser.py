@@ -21,6 +21,7 @@ Unit tests từng hàm của parser nằm ở test_parser_unit.py (chạy bằng
 """
 
 import argparse
+import hashlib
 import json
 import sys
 import time
@@ -62,7 +63,7 @@ def run_cleaner() -> None:
         print("[cảnh báo] Có PDF chưa xử lý thành công; xem log cleaner để biết chi tiết.")
 
 
-def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
+def check_doc_structure(doc: dict, excerpt: Optional[dict] = None) -> Tuple[List[str], List[str]]:
     """
     Kiểm tra các ràng buộc cấu trúc của JSON đầu ra.
 
@@ -79,15 +80,27 @@ def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
         errors.append("Không có Điều nào trong kết quả.")
         return errors, notes
 
-    # 1. Chuỗi Điều phải liên tục 1..N (Điều lỗi khi dựng bị bỏ qua sẽ làm đứt chuỗi)
+    # Full parses must remain continuous. Explicit source excerpts must instead
+    # match the exact article/clause coverage and text in their pinned manifest.
     numbers = [int(a["article_number"]) for a in articles]
-    expected = list(range(1, numbers[-1] + 1))
+    excerpt_articles = {a["number"]: a for a in excerpt["articles"]} if excerpt else {}
+    if excerpt:
+        if doc_id != excerpt["document_id"] or doc.get("metadata", {}).get("provision_status") != "selected_historical_effectivity_evidence":
+            errors.append("Bản trích không khớp phạm vi nguồn đã khai báo")
+        for key in ("document_number", "issue_date", "effective_date", "source_url"):
+            if doc.get("metadata", {}).get(key) != excerpt[key]:
+                errors.append(f"Bản trích sai metadata.{key}")
+    expected = [int(n) for n in excerpt_articles] if excerpt else list(range(1, numbers[-1] + 1))
     if numbers != expected:
         missing = sorted(set(expected) - set(numbers))
         errors.append(f"Chuỗi Điều không liên tục, thiếu: {missing}")
 
     for a in articles:
         art_id = a["article_id"]
+        source_article = excerpt_articles.get(a["article_number"])
+        if excerpt and source_article:
+            if a.get("article_title") != source_article["title"] or a.get("intro") != source_article.get("intro"):
+                errors.append(f"{art_id}: tiêu đề/intro lệch nguồn trích")
 
         if art_id != f"{doc_id}_art_{a['article_number']}":
             errors.append(f"{art_id}: article_id không khớp article_number {a['article_number']}")
@@ -110,6 +123,11 @@ def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
 
             if not c["clause_text"].strip():
                 errors.append(f"{cid}: clause_text rỗng")
+            if source_article:
+                expected_text = next((cl["text"] for cl in source_article["clauses"]
+                                      if cl["number"] == c["clause_number"]), None)
+                if c["clause_text"] != expected_text:
+                    errors.append(f"{cid}: nội dung lệch nguồn trích")
 
             clause_numbers.append(int(c["clause_number"]))
 
@@ -120,7 +138,9 @@ def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:
                         f"{ch['chunk_id']}: parent_clause_id={ch['parent_clause_id']!r} khác {cid!r}"
                     )
 
-        if clause_numbers != list(range(1, len(clause_numbers) + 1)):
+        expected_clauses = ([int(cl["number"]) for cl in source_article["clauses"]]
+                            if source_article else list(range(1, len(clause_numbers) + 1)))
+        if clause_numbers != expected_clauses:
             errors.append(f"{art_id}: số thứ tự Khoản không liên tục: {clause_numbers}")
 
     # 4. Metadata: chỉ nhắc nhẹ
@@ -238,8 +258,25 @@ if __name__ == "__main__":
 def test_all_parsed_json_structures():
     """Pytest tests case kiem tra toan bo output json cua parser."""
     json_files = list(PARSED_DIR.glob("*.json"))
+    sources = json.loads((BASE_DIR.parent / "data/reference/effectivity_evidence_sources.json")
+                         .read_text(encoding="utf-8"))
+    excerpts = {s["document_id"]: s for s in sources["documents"]}
     assert len(json_files) > 0, "Khong tim thay file JSON nao trong parsed_jsons"
     for jf in json_files:
         doc = json.loads(jf.read_text(encoding="utf-8"))
-        errors, _ = check_doc_structure(doc)
+        excerpt = excerpts.get(doc["document_id"])
+        if excerpt:
+            assert jf.stem == excerpt["document_id"]
+            raw = (BASE_DIR.parent / excerpt["raw_file"]).read_bytes()
+            assert hashlib.sha256(raw).hexdigest() == excerpt["source_sha256"]
+        errors, _ = check_doc_structure(doc, excerpt=excerpt)
         assert not errors, f"Loi cau truc tai {jf.name}: {errors}"
+        if excerpt:
+            # An excerpt marker must not silently allow missing or changed text.
+            import copy
+            damaged = copy.deepcopy(doc)
+            damaged["articles"][0]["clauses"][0]["clause_text"] += " altered"
+            assert check_doc_structure(damaged, excerpt=excerpt)[0]
+            damaged = copy.deepcopy(doc)
+            damaged["articles"].pop()
+            assert check_doc_structure(damaged, excerpt=excerpt)[0]

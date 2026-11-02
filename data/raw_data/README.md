@@ -81,6 +81,10 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **TT10** | `tt_57_2015_tt_byt` | 57/2015/TT-BYT | Sửa đổi bổ sung | Quy định chi tiết một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo |
 | **TT11** | `tt_38_2025_tt_byt` | 38/2025/TT-BYT | Còn hiệu lực | Quy định chi tiết một số điều của Nghị định số 207/2025/NĐ-CP ngày 15 tháng 7 năm 2025 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo |
 | **ND09** | `nd_123_2015_nd_cp` | 123/2015/NĐ-CP | Sửa đổi bổ sung | Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch |
+| **ND10** | `nd_24_2013_nd_cp` | 24/2013/NĐ-CP | Sửa đổi bổ sung | Quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài |
+| **TT12** | `tt_01_2018_tt_btp` | 01/2018/TT-BTP | Còn hiệu lực | Bãi bỏ một số văn bản quy phạm pháp luật do Bộ trưởng Bộ Tư pháp ban hành, liên tịch ban hành |
+| **TT13** | `tt_04_2024_tt_btp` | 04/2024/TT-BTP | Không xác định | Sửa đổi, bổ sung một số điều của Thông tư số 02/2020/TT-BTP và Thông tư số 04/2020/TT-BTP |
+| **ND11** | `nd_07_2025_nd_cp` | 07/2025/NĐ-CP | Sửa đổi bổ sung | Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực |
 
 Quy tắc định danh cấu trúc phân cấp:
 - **Article ID**: `[document_id]_art_[số_điều]` (Ví dụ: `l_52_2014_qh13_art_8`). Mã quản lý tương ứng: `L01_D08`.

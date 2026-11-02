@@ -29,6 +29,38 @@ def inputs():
             load(REF/'production_chunk_index.json'),load(REF/'document_versions.json'),
             load(ROOT/'schemas'/'benchmark_schema.json'))
 
+def supports_historical_repeal(query, gold, citation, chunks, documents):
+    """A repealing provision remains evidence of a past repeal after its own expiry.
+
+    This does not allow expired substantive rules as current law: require a
+    status question, confirmed production evidence, an explicit repeal naming
+    the target, and matching target-expiry/source-effective dates.
+    """
+    if (query.get('category') != 'hieu_luc' or query.get('test_type') != 'outdated_law_trap'
+            or not gold.get('gold_context_ids_confirmed')):
+        return False
+    source = documents.get(citation.get('document_id'), {})
+    effective = source.get('effective_date')
+    if not effective or effective > query.get('as_of_date', ''):
+        return False
+    if source.get('expiry_date') and effective >= source['expiry_date']:
+        return False
+    evidence = [chunks[cid] for cid in gold.get('gold_context_ids', []) if cid in chunks
+                and chunks[cid].get('document_number') == citation.get('document_id')
+                and chunks[cid].get('article_number') == citation.get('article')
+                and chunks[cid].get('article_id') in gold.get('gold_article_ids', [])]
+    text = ' '.join(c.get('chunk_text', '') for c in evidence).casefold()
+    if 'bãi bỏ' not in text:
+        return False
+    for target in gold.get('citations', []):
+        number = target.get('document_id', '')
+        if (target.get('article') == 'Trạng thái hiệu lực' and number != citation.get('document_id')
+                and number in gold.get('outdated_document_ids', [])
+                and documents.get(number, {}).get('expiry_date') == effective
+                and number.casefold() in text):
+            return True
+    return False
+
 def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
     issues=[]
     try: Draft202012Validator.check_schema(schema)
@@ -99,7 +131,8 @@ def validate_dataset(dev,test,gt,articles,chunks,docs,schema,final=False):
                     date=q.get('as_of_date','')
                     if doc.get('effective_date') and date<doc['effective_date']:
                         issues.append(f'{qid}: dùng quy định trước ngày có hiệu lực')
-                    if doc.get('expiry_date') and date>=doc['expiry_date']:
+                    if (doc.get('expiry_date') and date>=doc['expiry_date']
+                            and not supports_historical_repeal(q, g, c, chunk_index, document_index)):
                         issues.append(f'{qid}: dùng quy định sau khi văn bản hết hiệu lực toàn bộ')
         if q.get('test_type')=='outdated_law_trap' and not g.get('outdated_document_ids'):
             issues.append(f'{qid}: câu bẫy luật cũ thiếu outdated_document_ids')
