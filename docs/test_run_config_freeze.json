@@ -1,0 +1,16 @@
+{
+  "scope": "FINAL_TEST_RUN_CONFIGURATION",
+  "methods": [
+    "bm25",
+    "dense",
+    "hybrid",
+    "hybrid_reranker"
+  ],
+  "top_k": 10,
+  "sha256": {
+    "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "retrieval_config": "a28d796903d8d60d80d3e1301dafece035be638ad91c41b264ebc07f776340e2",
+    "reranking_config": "08f41c7296b8b1de22a509c112772d0004dbeb093f1c0ca075b4997dc1a5d75f"
+  },
+  "note": "Không đổi cấu hình Test sau khi khóa; nếu cần thay đổi, cập nhật manifest và commit riêng trước khi chạy Test."
+}

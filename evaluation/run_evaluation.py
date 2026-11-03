@@ -1,7 +1,6 @@
-"""Score saved BM25, Dense, and Hybrid retrieval results with shared metrics."""
+"""Shared helpers for scoring saved retrieval results."""
 from __future__ import annotations
 
-import argparse
 import json
 import sys
 import tempfile
@@ -14,12 +13,6 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from evaluation.metrics import DEFAULT_KS, evaluate
-
-DEFAULT_RESULTS_DIR = ROOT / "retrieval" / "results"
-DEFAULT_METRICS_DIR = ROOT / "evaluation" / "results"
-DEFAULT_GROUND_TRUTH = ROOT / "data" / "benchmark" / "ground_truth.json"
-DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
-METHODS = ("bm25", "dense", "hybrid")
 
 
 def read_json_array(path: Path) -> list[dict[str, Any]]:
@@ -143,6 +136,7 @@ def run_evaluation(
     method: str | None = None,
     parent_by_chunk: Mapping[str, str] | None = None,
     ks: Sequence[int] | None = None,
+    report_metadata: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Evaluate one saved retrieval file against an explicitly supplied query set."""
     if top_k < 1:
@@ -194,6 +188,7 @@ def run_evaluation(
             ks=effective_ks,
             parent_by_chunk=parent_by_chunk,
             verified_only=True,
+            report_metadata=report_metadata,
         )
 
     missing_parent_rows = [
@@ -223,66 +218,8 @@ def run_evaluation(
     return report
 
 
-def run_dev_evaluation(
-    *,
-    results_dir: Path = DEFAULT_RESULTS_DIR,
-    output_dir: Path = DEFAULT_METRICS_DIR,
-    queries_path: Path,
-    ground_truth_path: Path = DEFAULT_GROUND_TRUTH,
-    chunks_path: Path = DEFAULT_CHUNKS,
-    ks: tuple[int, ...] = DEFAULT_KS,
-) -> dict[str, dict[str, Any]]:
-    queries = read_json_array(queries_path)
-    parent_by_chunk = load_parent_ids(chunks_path)
-    reports: dict[str, dict[str, Any]] = {}
-    for method in METHODS:
-        results_path = results_dir / f"dev_{method}.json"
-        metrics_path = output_dir / f"retrieval_{method}_metrics.json"
-        reports[method] = run_evaluation(
-            results_path,
-            queries,
-            ground_truth_path,
-            metrics_path,
-            expected_split="dev",
-            top_k=max(ks),
-            method=method,
-            parent_by_chunk=parent_by_chunk,
-            ks=ks,
-        )
-
-    print(f"Finished evaluating BM25, Dense, and Hybrid. Metrics saved to {output_dir}.")
-    return reports
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Score saved BM25, Dense, and Hybrid retrieval results."
-    )
-    parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS_DIR)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_METRICS_DIR)
-    parser.add_argument("--queries", type=Path, required=True)
-    parser.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH)
-    parser.add_argument("--chunks", type=Path, default=DEFAULT_CHUNKS)
-    parser.add_argument(
-        "--ks",
-        type=int,
-        nargs="+",
-        default=list(DEFAULT_KS),
-        help="Positive ranking cutoffs to score (default: 5 10).",
-    )
-    args = parser.parse_args()
-    if any(k < 1 for k in args.ks):
-        parser.error("--ks chỉ nhận số nguyên dương.")
-
-    run_dev_evaluation(
-        results_dir=args.results_dir,
-        output_dir=args.output_dir,
-        queries_path=args.queries,
-        ground_truth_path=args.ground_truth,
-        chunks_path=args.chunks,
-        ks=tuple(dict.fromkeys(args.ks)),
-    )
-
-
 if __name__ == "__main__":
-    main()
+    raise SystemExit(
+        "evaluation.run_evaluation is a shared helper module, not a CLI. "
+        "Run saved Dev metrics with: python scripts/run_baselines_metrics.py"
+    )

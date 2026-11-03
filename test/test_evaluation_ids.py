@@ -36,6 +36,7 @@ class EvaluationIdTest(unittest.TestCase):
         self.assertEqual(report["per_question"][0]["query_id"], "HN_001")
         self.assertNotIn("question_id", report["per_question"][0])
         self.assertEqual(report["by_category"]["ket_hon"]["strict_match_recall@1"], 1.0)
+        self.assertEqual(report["average"]["precision@1"], 1.0)
 
     def test_metrics_only_score_gold_and_skip_unlabeled_questions(self):
         gt = write(self.dir / "gt_mixed.json", [

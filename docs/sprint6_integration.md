@@ -230,6 +230,7 @@ Chưa model nào được đo trên Dev set của dự án. Lựa chọn mặc �
 
 ```powershell
 python -m pytest test/test_reranker.py test/test_integration.py -v
+python -m pytest test/test_metrics_parent_match.py -v  # Strict/Parent Match, nhiều gold và thiếu parent metadata (mục 13.4)
 python -m pytest test/                          # toàn bộ thư mục test; chạy từ thư mục gốc repo
 python -m unittest discover -s test -v          # tương đương, không cần pytest
 ```

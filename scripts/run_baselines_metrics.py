@@ -13,6 +13,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
+from evaluation.provenance import build_report_metadata, metric_cutoffs
 from evaluation.run_evaluation import load_parent_ids, read_json_array, run_evaluation
 
 QUERIES_DEV_PATH = ROOT_DIR / "data" / "benchmark" / "queries_dev.json"
@@ -42,6 +43,16 @@ def main() -> None:
         results_path = args.results_dir / f"dev_{method}.json"
         metrics_path = args.metrics_dir / f"{method}_dev_metrics.json"
         print(f"Đang chấm {method} từ {results_path}")
+        report_metadata = build_report_metadata(
+            results_path,
+            args.queries,
+            args.ground_truth,
+            args.chunks,
+            queries,
+            method,
+            "dev",
+            args.top_k,
+        )
         run_evaluation(
             results_path,
             queries,
@@ -49,7 +60,10 @@ def main() -> None:
             metrics_path,
             expected_split="dev",
             top_k=args.top_k,
+            method=method,
             parent_by_chunk=parent_by_chunk,
+            ks=metric_cutoffs(args.top_k),
+            report_metadata=report_metadata,
         )
 
 

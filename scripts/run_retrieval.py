@@ -21,6 +21,7 @@ The Dev 4 batch runner for BM25/Dense/Hybrid comparison is ``python -m retrieval
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -193,7 +194,11 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
                                   qdrant_storage_path=str(actual_qdrant_path),
-                                  corpus_path=settings["corpus_path"], fusion=settings["fusion"])
+                                  corpus_path=settings["corpus_path"],
+                                  corpus_sha256=hashlib.sha256(
+                                      Path(settings["corpus_path"]).read_bytes()
+                                  ).hexdigest(),
+                                  fusion=settings["fusion"])
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
                              retriever_name=retriever_name, retriever_settings=retriever_settings,
                              parent_resolver=parent_resolver)

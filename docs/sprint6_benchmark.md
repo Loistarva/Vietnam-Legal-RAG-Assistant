@@ -113,3 +113,17 @@ Python 3.13, JSON Schema Draft 2020-12, `unittest` / `pytest`. Toàn bộ dữ l
 | 30/10/2026 | 0890ac9 | Duyệt cấp Khoản 100 câu Gold; chia lại Dev (270) / Test (30) theo cụm Khoản; khóa cả `test_questions_freeze.json` và `test_gold_freeze.json` trên JSON chuẩn hóa. | Questions: `54e3d267a9aa…53787`<br>Gold: `ebed2311e41f…72fed` |
 | 31/10/2026 | fix/gold-followup | Test chưa chạy lần nào. Sửa gold 4 câu Test dùng Điều đã bãi bỏ của Nghị định 126/2014 và đưa cả 8 câu cùng gold Điều 45 Nghị định 123/2015 về Dev; HN_169 về Dev (gần trùng HN_168); thay bằng HN_081, HN_194, HN_198, HN_240, HN_246; ghi `temporal_note`, `outdated_context_ids` cho câu đã duyệt. Đóng băng lại bằng `--create --force`. | Questions: `d3eb903c5e65…2f517`<br>Gold: `d3d083e3372e…f80c5` |
 | 31/10/2026 | fix/gold-followup | Test chưa chạy lần nào. Sửa anchor `dieu_N` trong `source_url` của 56 citation Nghị định 126/2014 (lệch một Điều so với số Điều được dẫn), trong đó có 5 câu Test HN_193, HN_194, HN_198, HN_240, HN_246; câu hỏi Test không đổi. Đóng băng lại gold bằng `freeze_gold.py --create --force`. | Questions: `d3eb903c5e65…2f517`<br>Gold: `f3b4e856a6fd…c1c87` |
+
+## 7. Quyết định định nghĩa Recall
+
+Với mỗi câu hỏi có `gold_context_ids` đã xác nhận, Recall@K được tính:
+
+```text
+Recall@K = hits / len(gold)
+hits = số gold ID phân biệt xuất hiện trong top-K kết quả
+gold = tập gold_context_ids đã xác nhận của câu hỏi
+```
+
+Điểm Recall@K của benchmark là trung bình macro điểm từng câu hỏi đủ điều kiện. Cách này khác mục 14.4 của kế hoạch, vốn dùng **hit-based**: mỗi câu chỉ nhận 1 nếu top-K có ít nhất một gold ID, và 0 nếu không có. Hit-based đo tỷ lệ câu có tìm được ít nhất một kết quả phù hợp; Recall ở đây đo phần gold được truy hồi. Vì một câu có thể có nhiều gold context, Recall phân biệt truy hồi một phần với truy hồi đầy đủ, thay vì cho hai trường hợp cùng điểm như hit-based. Lý do chọn là cần phản ánh độ bao phủ các căn cứ gold của câu trả lời.
+
+Khi tạo `baseline_report`, phải ghi cùng định nghĩa và cách tổng hợp này; không gọi chỉ số hit-based là Recall. Có thể báo cáo hit rate riêng nếu cần đo tỷ lệ câu có ít nhất một kết quả phù hợp.

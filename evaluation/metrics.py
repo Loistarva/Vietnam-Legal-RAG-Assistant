@@ -99,12 +99,13 @@ def score_question(
     """Tính toàn bộ metric cho một câu hỏi."""
     scores: dict[str, float] = {}
     for k in ks:
+        top = _top_k_unique(retrieved, k)
         scores[f"strict_match_recall@{k}"] = strict_match_recall_at_k(
-            retrieved, gold, k
+            top, gold, k
         )
-    for k in ks:
-        scores[f"mrr@{k}"] = mrr_at_k(retrieved, gold, k)
-        scores[f"ndcg@{k}"] = ndcg_at_k(retrieved, gold, k)
+        scores[f"mrr@{k}"] = mrr_at_k(top, gold, k)
+        scores[f"ndcg@{k}"] = ndcg_at_k(top, gold, k)
+        scores[f"precision@{k}"] = sum(chunk_id in gold for chunk_id in top) / k
     return scores
 
 
@@ -166,6 +167,7 @@ def evaluate(
     *,
     parent_by_chunk: Mapping[str, str] | None = None,
     verified_only: bool = True,
+    report_metadata: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Chấm điểm file kết quả retrieval so với ground_truth.json.
 
@@ -327,6 +329,8 @@ def evaluate(
         "average": average,
         "per_question": per_question,
     }
+    if report_metadata is not None:
+        report.update(report_metadata)
     if by_category:
         report["by_category"] = by_category
 
