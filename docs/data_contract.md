@@ -1,11 +1,11 @@
 # HỢP ĐỒNG DỮ LIỆU (DATA CONTRACT) - HỆ THỐNG LEGAL AI RAG
-**Phiên bản:** 2.0 (Kiến trúc 4 tầng)
+**Phiên bản:** 2.0 (Kiến trúc 4 tầng)  
 **Mục đích:** Quy định cấu trúc JSON giao tiếp chuẩn mực giữa Module Parser (Trích xuất) và Module Chunking & Embedding (Phân mảnh và Nhúng).
 
 ---
 
 ## 1. Kiến trúc Phân cấp (4-Tier Hierarchy)
-Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt buộc tuân thủ cấu trúc cây 4 tầng:
+Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt buộc tuân thủ cấu trúc cây 4 tầng:  
 `Document` ➔ `Article` (Điều) ➔ `Clause` (Khoản) ➔ `Chunk` (Đoạn/Điểm).
 
 ---
@@ -13,11 +13,11 @@ Dữ liệu văn bản pháp luật truyền tải trong hệ thống bắt bu�
 ## 2. Quy ước Định danh (Semantic ID Convention)
 Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngoại để khôi phục ngữ cảnh (Parent-Child context). ID phải viết thường, không dấu, không khoảng trắng, chỉ dùng ký tự `[a-z0-9_]`.
 
+- **Document ID:** Trường `document_id` được lấy trực tiếp từ `data/reference/document_versions.json`; bảng ở Mục 6 trích các văn bản đang có trong corpus. Quy tắc `[loại_văn_bản]_[số_hiệu đầy đủ]` chỉ dùng để đặt ID khi thêm văn bản mới vào registry; ID đã có trong registry không đổi (ghi nhận ngoại lệ rút gọn `ttlt_01_2016_ttlt_tandtc`).
+- **Article ID:** `[document_id]_art_[số_điều]` (VD: Điều 6 `nd_100_2019_nd_cp_art_6`). Lưu ý: `data/reference/article_index.json` là bảng nối chính thức giữa mã Điều của benchmark (`gold_article_ids`) và `article_id` dạng slug của corpus.
+- **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: Khoản 2 `nd_100_2019_nd_cp_art_6_clause_2`).
+- **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_1`).
 
-*   **Document ID:** Trường `document_id` được lấy trực tiếp từ `data/reference/document_versions.json`; bảng ở Mục 6 trích các văn bản đang có trong corpus. Quy tắc `[loại_văn_bản]_[số_hiệu đầy đủ]` chỉ dùng để đặt ID khi thêm văn bản mới vào registry; ID đã có trong registry không đổi (ghi nhận ngoại lệ rút gọn `ttlt_01_2016_ttlt_tandtc`).
-*   **Article ID:** `[document_id]_art_[số_điều]` (VD: Điều 6 `nd_100_2019_nd_cp_art_6`). Lưu ý: `data/reference/article_index.json` là bảng nối chính thức giữa mã Điều của benchmark (`gold_article_ids`) và `article_id` dạng slug của corpus.
-*   **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: Khoản 2 `nd_100_2019_nd_cp_art_6_clause_2`)
-*   **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_1`)
 ---
 
 ## 3. Đặc tả Chi tiết Đối tượng (Entity Specifications)
@@ -34,16 +34,16 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 
 **Cấu trúc `metadata`:**
 
-| Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation)                                                                                       |
-| :--- | :--- | :---: |:---------------------------------------------------------------------------------------------------------------------|
-| `title` | String | **Có** | Tên văn bản. Ràng buộc: `minLength: 5`.                                                                              |
+| Trường dữ liệu | Kiểu dữ liệu | Bắt buộc | Mô tả & Ràng buộc (Validation) |
+| :--- | :--- | :---: | :--- |
+| `title` | String | **Có** | Tên văn bản. Ràng buộc: `minLength: 5`. |
 | `document_type` | String | **Có** | Enum: `["Luật", "Nghị định", "Thông tư", "Quyết định", "Chỉ thị", "Nghị quyết", "Thông tư liên tịch"]`. Khi có sự khác biệt giữa tài liệu mô tả và JSON Schema thì JSON Schema là nguồn chuẩn. |
-| `document_number` | String | **Có** | Số hiệu văn bản (VD: "100/2019/NĐ-CP").                                                                              |
-| `issue_date` | Date | **Có** | Ngày ban hành. Định dạng chuẩn: `YYYY-MM-DD`.                                                                        |
-| `effective_date` | Date | **Có** | Ngày có hiệu lực. Định dạng chuẩn: `YYYY-MM-DD`.                                                                     |
-| `expiry_date` | Date / Null | Không | Ngày hết hiệu lực (hoặc `null` nếu còn hiệu lực). Định dạng chuẩn: `YYYY-MM-DD`.                                      |
-| `source_url` | String | Không | Đường dẫn URL chính thức tra cứu văn bản pháp luật.                                                                 |
-| `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ").                                                                                  |
+| `document_number` | String | **Có** | Số hiệu văn bản (VD: "100/2019/NĐ-CP"). |
+| `issue_date` | Date | **Có** | Ngày ban hành. Định dạng chuẩn: `YYYY-MM-DD`. |
+| `effective_date` | Date | **Có** | Ngày có hiệu lực. Định dạng chuẩn: `YYYY-MM-DD`. |
+| `expiry_date` | Date / Null | Không | Ngày hết hiệu lực (hoặc `null` nếu còn hiệu lực). Định dạng chuẩn: `YYYY-MM-DD`. |
+| `source_url` | String | Không | Đường dẫn URL chính thức tra cứu văn bản pháp luật. |
+| `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ"). |
 | `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]`. |
 | `source_status` | String / Null | Không | Trạng thái gốc từ nguồn tra cứu văn bản (VD: "Hết hiệu lực một phần"). |
 | `provision_status` | String / Null | Không | Mức độ hiệu lực điều khoản (VD: "document_level_only", "requires_review"). |
@@ -104,38 +104,40 @@ Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `source_
 
 ## 4. Giao thức phối hợp (Workflow Protocol)
 
-1. **Giai đoạn 1: Parser (Trích xuất cấu trúc)**
-   * Module Parser đọc PDF/HTML và xuất ra JSON tuân thủ chuẩn này đến tầng `Clause`.
-   * **Bắt buộc:** Phải làm sạch ký tự rác, không chứa ký tự `\x00` trong chuỗi text.
-   * **Cho phép:** Trường `chunks` tại tầng `Clause` được phép để `null`.
-2. **Giai đoạn 2: Chunker (Chia nhỏ ngữ nghĩa)**
-   * Module Chunking đọc JSON từ Parser, lấy dữ liệu từ `clause_text`.
-   * Dựa vào chiến lược độ dài token (Token limit), chia `clause_text` thành nhiều đối tượng `Chunk` và nạp vào mảng `chunks`.
-   * Gắn đúng `parent_clause_id` để kết nối lại thành cây.
+1. **Giai đoạn 1: Parser (Trích xuất cấu trúc):**
+   - Module Parser đọc PDF/HTML và xuất ra JSON tuân thủ chuẩn này đến tầng `Clause`.
+   - **Bắt buộc:** Phải làm sạch ký tự rác, không chứa ký tự `\x00` trong chuỗi text.
+   - **Cho phép:** Trường `chunks` tại tầng `Clause` được phép để `null`.
+2. **Giai đoạn 2: Chunker (Chia nhỏ ngữ nghĩa):**
+   - Module Chunking đọc JSON từ Parser, lấy dữ liệu từ `clause_text`.
+   - Dựa vào chiến lược độ dài token (Token limit), chia `clause_text` thành nhiều đối tượng `Chunk` và nạp vào mảng `chunks`.
+   - Gắn đúng `parent_clause_id` để kết nối lại thành cây.
 3. **Quy tắc Ngoại lệ (Edge Cases):**
-   * Nếu một Điều luật không phân chia thành các Khoản (chỉ có một đoạn văn duy nhất), Parser vẫn phải khởi tạo một Clause (VD: `clause_number: "1"`) để bọc lấy đoạn văn đó, giữ vững tính toàn vẹn của cây 4 tầng.
-   * Chunker không tự loại văn bản theo `validity_status`; trạng thái được giữ trong metadata để hệ thống retrieval lọc theo thời điểm câu hỏi. Nếu nghiệp vụ chỉ chọn văn bản còn hiệu lực, bộ chọn corpus phải áp dụng điều kiện đó trước khi export.
+   - Nếu một Điều luật không phân chia thành các Khoản (chỉ có một đoạn văn duy nhất), Parser vẫn phải khởi tạo một Clause (VD: `clause_number: "1"`) để bọc lấy đoạn văn đó, giữ vững tính toàn vẹn của cây 4 tầng.
+   - Chunker không tự loại văn bản theo `validity_status`; trạng thái được giữ trong metadata để hệ thống retrieval lọc theo thời điểm câu hỏi. Nếu nghiệp vụ chỉ chọn văn bản còn hiệu lực, bộ chọn corpus phải áp dụng điều kiện đó trước khi export.
+
+---
 
 ## 5. Hợp đồng đầu ra Child Chunk JSONL
 
 Parser giữ nguyên JSON nguồn và không cần ghi chunks ngược vào `clauses[].chunks`. Exporter tạo một bản ghi Child Chunk độc lập trên mỗi dòng tại `data/chunking_output/chunks.jsonl`; cấu trúc bản ghi được mô tả trong [`schemas/chunk_payload_schema.json`](../schemas/chunk_payload_schema.json).
 
 ### 5.1. Định danh và Khóa ngoại bắt buộc ở cấp Root
-* **`chunk_id` / `id`**: ID duy nhất của Child Chunk theo định dạng chuẩn: `{clause_id}_chunk_{idx}` (trong đó `idx` đếm tuần tự từ 1 trong phạm vi từng Khoản).
-* **`parent_clause_id`**: Khóa ngoại bắt buộc, trỏ chính xác đến `clause_id` của Khoản chứa chunk (`parent_clause_id == clause_id`).
-* **`clause_id`**: Khóa định danh của Khoản cha chứa chunk.
-* **`article_id`**: Khóa định danh của Điều chứa Khoản.
-* **`parent_id`**: Khóa ngoại trỏ đến một ParentChunk trong `data/chunking_output/parents.json`, và danh sách `child_ids` của Parent phải khớp với các Child.
-* **`doc_id` / `document_id`**: Khóa định danh của Văn bản pháp luật.
+- **`chunk_id` / `id`:** ID duy nhất của Child Chunk theo định dạng chuẩn: `{clause_id}_chunk_{idx}` (trong đó `idx` đếm tuần tự từ 1 trong phạm vi từng Khoản).
+- **`parent_clause_id`:** Khóa ngoại bắt buộc, trỏ chính xác đến `clause_id` của Khoản chứa chunk (`parent_clause_id == clause_id`).
+- **`clause_id`:** Khóa định danh của Khoản cha chứa chunk.
+- **`article_id`:** Khóa định danh của Điều chứa Khoản.
+- **`parent_id`:** Khóa ngoại trỏ đến một ParentChunk trong `data/chunking_output/parents.json`, và danh sách `child_ids` của Parent phải khớp với các Child.
+- **`doc_id` / `document_id`:** Khóa định danh của Văn bản pháp luật.
 
 Các cặp trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_text` là các alias tương thích tích hợp và phải có giá trị bằng nhau.
 
 ### 5.2. Nội dung và Embedding
-* **`chunk_text`**: Nội dung văn bản của chunk. Ràng buộc: `minLength: 10`, tuyệt đối không chứa ký tự null byte (`\x00`). Nếu đoạn đuôi cắt cuối cùng trong một Khoản có độ dài dưới 10 ký tự, engine chunking tự động gộp vào chunk liền trước để tránh sinh chunk vụn.
-* **`seg_text`**: Nội dung đã tách từ tiếng Việt (Underthesea).
-* **`embed_text`**: Chuỗi kết hợp tiêu đề, breadcrumb và nội dung đã tách từ phục vụ sinh vector dense embedding.
-* **`embed_text_raw`** *(Tùy chọn)*: Chuỗi text kết hợp thô trước khi tách từ.
-* **`point_ref`**: Tùy chọn (`["string", "null"]`), chứa thông tin Điểm nếu có hoặc `null`.
+- **`chunk_text`:** Nội dung văn bản của chunk. Ràng buộc: `minLength: 10`, tuyệt đối không chứa ký tự null byte (`\x00`). Nếu đoạn đuôi cắt cuối cùng trong một Khoản có độ dài dưới 10 ký tự, engine chunking tự động gộp vào chunk liền trước để tránh sinh chunk vụn.
+- **`seg_text`:** Nội dung đã tách từ tiếng Việt (Underthesea).
+- **`embed_text`:** Chuỗi kết hợp tiêu đề, breadcrumb và nội dung đã tách từ phục vụ sinh vector dense embedding.
+- **`embed_text_raw`** *(Tùy chọn):* Chuỗi text kết hợp thô trước khi tách từ.
+- **`point_ref`:** Tùy chọn (`["string", "null"]`), chứa thông tin Điểm nếu có hoặc `null`.
 
 ### 5.3. Metadata mở rộng
 Trường `metadata` chứa metadata của văn bản cùng `chapter`, `section`, `article_number`, và các trường mở rộng phục vụ lọc downstream: `document_title`, `clause_number`, `source_url`, `effective_from`, `effective_to`.
@@ -144,10 +146,10 @@ Trường `metadata` chứa metadata của văn bản cùng `chapter`, `section`
 
 ### 5.4. Hợp đồng đầu ra Retrieval & Reranking (Retrieval Envelope)
 Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại được mô tả tại [`schemas/retrieval_schema.json`](../schemas/retrieval_schema.json):
-* **Phạm vi áp dụng:**
+- **Phạm vi áp dụng:**
   - **Truy vấn đơn lẻ (API/CLI):** Đầu ra bắt buộc là một object tuân thủ chặt chẽ `RetrievalEnvelope` (`query_id`, `query`, `retriever`, `results`, `latency_ms`, `top_k`, `config`, `stats`).
   - **Tập kết quả đánh giá hàng loạt (Batch evaluation dump):** Là một mảng JSON các `RetrievalEnvelope` (hoặc JSONL mà mỗi dòng là một `RetrievalEnvelope`). Để đảm bảo tương thích ngược với các file kết quả cũ, các script đánh giá (`scripts/evaluate_task4.py`, `retrieval/retrieval_evaluation.py`) áp dụng cơ chế Graceful Reader để hỗ trợ cả định dạng phẳng `[{"query": ..., "chunk_id": ..., "score": ..., "rank": ...}]`.
-* **Trường bao ngoài (Envelope fields):**
+- **Trường bao ngoài (Envelope fields):**
   - `query_id`: Định danh duy nhất của câu truy vấn (bắt buộc).
   - `retriever`: Tên của pipeline/retriever sử dụng (bắt buộc).
   - `results`: Danh sách các candidate chunks sau khi truy xuất hoặc rerank (bắt buộc).
@@ -155,23 +157,36 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
   - `top_k`: Số lượng kết quả trả về yêu cầu.
   - `config`: Cấu hình chi tiết của retriever và reranker.
   - `stats`: Thống kê số lượng candidates và độ trễ từng giai đoạn.
-* **Chi tiết phần tử (`RetrievalResultItem`):**
+- **Chi tiết phần tử (`RetrievalResultItem`):**
   Mỗi phần tử trong `results` bắt buộc có: `chunk_id`, `document_id`, `article_id`, `clause_id`, `parent_clause_id`, `rank`, `score`, `chunk_text`, `metadata`. Các trường thứ hạng và điểm trung gian (`source_ranks`, `source_scores`, `rrf_score`, `reranker_score`) được lưu đúng vị trí quy định trong schema, không đặt ở root của item.
+
+---
 
 ### 5.5. Hợp đồng Giao diện Truy xuất, Lọc Hiệu lực Thời điểm & Xử lý Truy vấn Rỗng (Issues E1, E14)
 
 Để đảm bảo kết quả truy xuất chính xác theo dòng thời gian và xử lý lỗi đồng nhất toàn hệ thống, mọi module truy xuất (Dense, BM25, Hybrid, Pipeline) thống nhất tuân thủ các quy định sau:
 
 #### 1. Chữ ký hàm chuẩn mực (Function Signatures)
-- **BM25 (`ElasticsearchBM25Retriever`) và Hybrid (`HybridRetriever.search`):**
+- **BM25 (`ElasticsearchBM25Retriever.search`):** `top_k` bắt buộc truyền, không có giá trị mặc định.
   ```python
   def search(
       self,
       query: str,
-      top_k: int = 10,
+      top_k: int,
       *,
       as_of_date: str | None = None,
   ) -> list[dict[str, Any]]: ...
+  ```
+- **Hybrid (`HybridRetriever.search`):** `top_k=None` thì lấy `HybridSearchConfig.top_k` (mặc định `10`; khi dựng qua `build_hybrid_retriever` lấy `retrieval.retrieval_top_k = 50` trong `retrieval/config.yaml`).
+  ```python
+  def search(
+      self,
+      query: str,
+      top_k: int | None = None,
+      *,
+      as_of_date: str | None = None,
+  ) -> list[dict[str, Any]]: ...
+  ```
 - **Hybrid Envelope Retrieval (`HybridRetriever.retrieve`):**
   ```python
   def retrieve(
@@ -181,7 +196,7 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       *,
       as_of_date: str | None = None,
   ) -> dict[str, list[dict[str, Any]]]: ...
-  
+  ```
 - **Toàn bộ Pipeline (`RetrievalPipeline.run`):**
   ```python
   def run(
@@ -192,7 +207,7 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       query_id: str = "Q_CLI_001",
       as_of_date: str | None = None,
   ) -> dict[str, Any]: ...
-
+  ```
 - **Dense Retrieval (`DenseRetriever.search`):**
   ```python
   def search(
@@ -203,16 +218,17 @@ Cấu trúc chuẩn của kết quả truy xuất và xếp hạng lại đượ
       as_of_date: str | None = None,
       filters: dict[str, Any] | None = None,
   ) -> list[dict[str, Any]]: ...
-
-  *Lưu ý:* Tham số `exclude_expired` được giữ lại cho mục đích tương thích ngược; logic lọc thời điểm hoàn toàn do `as_of_date` quyết định.
+  ```
+  *Lưu ý:* Tham số `exclude_expired` được giữ lại cho mục đích tương thích ngược. Tham số `filters` hiện chỉ được nhận để giữ tương thích, chưa được áp dụng: `LegalVectorStore.search` bỏ qua giá trị này. Lọc theo thời điểm chỉ do `as_of_date` quyết định.
 
 #### 2. Khoảng hiệu lực pháp lý (Validity Period)
 Một chunk pháp luật được xác định là có hiệu lực tại thời điểm `as_of_date` khi và chỉ khi thỏa mãn khoảng nửa mở:
 $$\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$$
+
 - **Quy ước biên mở (Unbounded dates):**
   - Nếu `effective_from` là `null` (`None` hoặc rỗng): văn bản được coi là đã có hiệu lực từ trước thời điểm khảo sát ($-\infty < \text{as\_of\_date}$).
   - Nếu `effective_to` là `null` (`None` hoặc rỗng): văn bản hiện vẫn đang duy trì hiệu lực và chưa có ngày hết hiệu lực ($\text{as\_of\_date} < +\infty$).
-- **Thống nhất hàm kiểm tra dùng chung:** Mọi tầng truy xuất (Elasticsearch DSL, bộ nhớ trong, VectorStore, Hybrid, Pipeline) dùng chung chuẩn logic từ `retrieval.temporal.is_effective_at` và trích xuất ngày qua `retrieval.temporal.effective_period`.
+- **Cùng ngữ nghĩa ở mọi tầng:** Mọi tầng áp dụng đúng ngữ nghĩa của `retrieval.temporal.is_effective_at` và đọc ngày qua `retrieval.temporal.effective_period`. Elasticsearch lọc bằng range query (`ElasticsearchBM25Retriever.build_temporal_filter`), Qdrant lọc trước Top-K bằng `LegalVectorStore.build_active_legal_filter`; `is_effective_at` dùng để kiểm lại sau truy xuất. Backend mới phải lọc trước Top-K với cùng ngữ nghĩa này.
 
 #### 3. Quy ước khi không truyền ngày (`as_of_date=None`)
 - **Thời điểm mặc định duy nhất:** Khi người dùng hoặc API không truyền `as_of_date` (`as_of_date=None`), hệ thống chỉ có DUY NHẤT một cách xử lý là lấy ngày chạy hiện tại theo lịch địa phương thông qua hàm chuẩn hóa `retrieval.temporal.normalize_as_of_date(None)` (`date.today().isoformat()`).
@@ -229,10 +245,8 @@ $$\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$$
 - **Khóa cố định trên Benchmark:** Toàn bộ câu hỏi trong bộ benchmark (`queries_dev.json`, `queries_test.json`) bắt buộc phải có giá trị `as_of_date` cụ thể, không được để trống, nhằm đảm bảo các chỉ số đánh giá (Hit@K, Recall@K, MRR, nDCG) có tính tất định và không bị sai lệch theo thời gian chạy kiểm thử thực tế.
 
 #### 6. Quy định xử lý câu hỏi rỗng và kết quả rỗng (Issue E14)
-- **Câu hỏi rỗng (Empty Query):**
-  - Nếu `query` là `None`, chuỗi rỗng `""`, hoặc chuỗi chỉ chứa ký tự khoảng trắng: mọi retriever (`ElasticsearchBM25Retriever`, `DenseRetriever`, `HybridRetriever`) và `RetrievalPipeline` đều bắt buộc fail-fast và raise `ValueError` (ví dụ: `"query phải là chuỗi không rỗng"` / `"Câu hỏi không được rỗng."`).
-- **Kết quả rỗng (Empty Results):**
-  - Khi kho dữ liệu rỗng (store rỗng) hoặc không có bất kỳ chunk nào thỏa mãn điều kiện truy vấn và bộ lọc thời điểm: hệ thống trả về danh sách kết quả rỗng `results: []` trong `RetrievalEnvelope` (hoặc mảng `[]` đối với các phương thức `search()`), tuyệt đối không làm gián đoạn hệ thống hay ném ngoại lệ không mong muốn.
+- **Câu hỏi rỗng (Empty Query):** Nếu `query` là `None`, chuỗi rỗng `""`, hoặc chuỗi chỉ chứa ký tự khoảng trắng: mọi retriever (`ElasticsearchBM25Retriever`, `DenseRetriever`, `HybridRetriever`) và `RetrievalPipeline` đều bắt buộc fail-fast và raise `ValueError` (ví dụ: `"query phải là chuỗi không rỗng"` hoặc `"Câu hỏi không được rỗng."`).
+- **Kết quả rỗng (Empty Results):** Khi kho dữ liệu rỗng (store rỗng) hoặc không có bất kỳ chunk nào thỏa mãn điều kiện truy vấn và bộ lọc thời điểm: hệ thống trả về danh sách kết quả rỗng `results: []` trong `RetrievalEnvelope` (hoặc mảng `[]` đối với các phương thức `search()`), tuyệt đối không làm gián đoạn hệ thống hay ném ngoại lệ không mong muốn.
 
 ---
 
