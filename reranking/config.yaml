@@ -21,9 +21,10 @@ reranker:
   # auto: float16 khi chạy CUDA (model khoảng 1,1 GB thay vì 2,2 GB, vừa GPU 4 GB cùng model dense),
   # float32 khi chạy CPU. Giá trị khác: float32, float16, bfloat16.
   dtype: auto
-  # Văn bản đưa vào scorer: chunk_text, hoặc breadcrumb_chunk_text (breadcrumb Chương > Điều > Khoản
-  # rồi chunk_text). Giữ chunk_text cho tới khi đo hai cách trên gold đã duyệt của Dev set (G5).
-  candidate_text: chunk_text
+  # Văn bản đưa vào scorer: chunk_text; breadcrumb_chunk_text (breadcrumb Chương > Điều > Khoản rồi
+  # chunk_text); document_breadcrumb_chunk_text (tên, số hiệu văn bản, breadcrumb rồi chunk_text).
+  # Chọn trên 75 câu Dev đã duyệt (G5): reranking/evaluation/candidate_text_comparison_dev_75.md.
+  candidate_text: document_breadcrumb_chunk_text
 
 # Parent-Context Resolver: chạy sau reranker, gắn parent_id và parent_text cho từng kết quả.
 # Con cùng parent chỉ kết quả hạng cao nhất mang parent_text; dừng gắn khi tổng ngữ cảnh vượt
