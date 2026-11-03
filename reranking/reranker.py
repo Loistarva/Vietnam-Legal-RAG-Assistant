@@ -26,13 +26,10 @@ logger = logging.getLogger(__name__)
 DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.yaml")
 DEFAULT_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
 BACKENDS = ("mock", "cross_encoder")
-# Text given to the scorer: the cited chunk alone, with its breadcrumb
-# (Chương > Điều > Khoản), or with its document name and number as well.
-CANDIDATE_TEXT_MODES = (
-    "chunk_text",
-    "breadcrumb_chunk_text",
-    "document_breadcrumb_chunk_text",
-)
+# Text given to the scorer: the cited chunk alone, prefixed with its breadcrumb
+# (Chương > Điều > Khoản), since many child chunks start with "2. ..." and lack the article name,
+# or also with the document name and number, which questions often cite.
+CANDIDATE_TEXT_MODES = ("chunk_text", "breadcrumb_chunk_text", "document_breadcrumb_chunk_text")
 # Weights of the cross-encoder. auto: float16 on CUDA (bge-reranker-v2-m3 needs about 1.1 GB
 # instead of 2.2 GB, so it fits a 4 GB GPU next to the dense model), float32 on CPU.
 DTYPES = ("auto", "float32", "float16", "bfloat16")
@@ -105,27 +102,22 @@ def candidate_text(hit: Mapping[str, Any], mode: str = "chunk_text") -> str:
 
     ``breadcrumb_chunk_text`` puts the chunk's breadcrumb (from ``metadata`` or the hit)
     on the line before it; chunks without a breadcrumb are scored on their text alone.
-    ``document_breadcrumb_chunk_text`` also includes the document name and number.
+    ``document_breadcrumb_chunk_text`` also starts with the document name and number,
+    e.g. "Luật Hôn nhân và gia đình 2014 (52/2014/QH13)".
     """
     text = str(hit.get("chunk_text") or hit.get("text") or "")
     if mode == "chunk_text":
         return text
-
     metadata = hit.get("metadata") if isinstance(hit.get("metadata"), Mapping) else {}
     lines = []
     if mode == "document_breadcrumb_chunk_text":
-        label = document_label(metadata)
-        if label:
-            lines.append(label)
-    breadcrumb = metadata.get("breadcrumb") or hit.get("breadcrumb")
-    if breadcrumb:
-        lines.append(str(breadcrumb))
-    lines.append(text)
-    return "\n".join(lines)
+        lines.append(document_label(metadata))
+    lines.append(str(metadata.get("breadcrumb") or hit.get("breadcrumb") or ""))
+    return "\n".join([line for line in lines if line] + [text])
 
 
 def document_label(metadata: Mapping[str, Any]) -> str:
-    """Format document metadata as a label suitable for reranker input."""
+    """Document name as questions cite it: "Luật ... 2014 (52/2014/QH13)", "Nghị định 126/2014/NĐ-CP: ..."."""
     title = str(metadata.get("title") or metadata.get("document_title") or "").strip()
     number = str(metadata.get("document_number") or "").strip()
     doc_type = str(metadata.get("document_type") or "").strip()
