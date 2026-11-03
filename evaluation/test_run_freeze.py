@@ -31,7 +31,8 @@ def _canonical_sha256(value: Any) -> str:
 
 def _file_sha256(path: Path) -> str:
     try:
-        return hashlib.sha256(path.read_bytes()).hexdigest()
+        content = path.read_bytes().replace(b"\r\n", b"\n")
+        return hashlib.sha256(content).hexdigest()
     except OSError as exc:
         raise ValueError(f"Không đọc được đầu vào Test {path}: {exc}") from exc
 

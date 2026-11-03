@@ -45,6 +45,18 @@ class RunFinalTestOrchestrationTest(unittest.TestCase):
 
 
 class TestRunFreezeTest(unittest.TestCase):
+    def test_file_hash_is_independent_of_windows_line_endings(self):
+        from evaluation.test_run_freeze import _file_sha256
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "config.txt"
+            path.write_bytes(b"first line\r\nsecond line\r\n")
+            windows_hash = _file_sha256(path)
+            path.write_bytes(b"first line\nsecond line\n")
+            linux_hash = _file_sha256(path)
+
+        self.assertEqual(windows_hash, linux_hash)
+
     def test_committed_freeze_manifests_match_current_test_inputs(self):
         from evaluation.test_run_freeze import verify_test_run
         with patch("evaluation.test_run_freeze._require_committed", return_value="locked-commit"):
