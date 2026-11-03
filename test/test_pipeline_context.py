@@ -139,6 +139,28 @@ class RerankerTextModeAndMockWarningTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "candidate_text"):
             RerankerConfig(candidate_text="title")
 
+    def test_document_breadcrumb_mode_prefixes_document_label_and_breadcrumb(self):
+        hit = candidate("c1", 1)
+        hit["metadata"].update({
+            "document_type": "Luật",
+            "title": "Luật Hôn nhân và gia đình 2014",
+            "document_number": "52/2014/QH13",
+        })
+        expected = (
+            "Luật Hôn nhân và gia đình 2014 (52/2014/QH13)\n"
+            "Chương II > Điều 8 > Khoản 1\n"
+            "Nội dung c1"
+        )
+        self.assertEqual(candidate_text(hit, "document_breadcrumb_chunk_text"), expected)
+        self.assertEqual(
+            MockScorer(text_mode="document_breadcrumb_chunk_text").score("52/2014/QH13", [hit]),
+            [1.0],
+        )
+        self.assertEqual(
+            candidate_text({"chunk_text": "text"}, "document_breadcrumb_chunk_text"),
+            "text",
+        )
+
     def test_cli_warns_when_running_on_mock_components(self):
         with self.assertLogs("run_retrieval", "WARNING") as logs:
             with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):

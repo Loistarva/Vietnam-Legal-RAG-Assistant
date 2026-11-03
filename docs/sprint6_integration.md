@@ -111,7 +111,7 @@ Quy tắc ánh xạ trong `to_contract_result`:
 | `reranker.model` | `reranking/config.yaml` | `BAAI/bge-reranker-v2-m3` | Model Cross-Encoder. CLI: `--model`. |
 | `reranker.batch_size` / `max_length` / `device` | `reranking/config.yaml` | 16 / 512 / null | Tham số suy luận của Cross-Encoder. |
 | `reranker.dtype` | `reranking/config.yaml` | `auto` | Kiểu trọng số của Cross-Encoder: `auto` là float16 khi chạy CUDA, float32 khi chạy CPU; hoặc `float32`, `float16`, `bfloat16`. Ghi trong `config.reranker.dtype`. |
-| `reranker.candidate_text` | `reranking/config.yaml` | `chunk_text` | Văn bản đưa vào scorer: `chunk_text`, hoặc `breadcrumb_chunk_text` (breadcrumb rồi `chunk_text`). Chọn bằng số đo trên gold đã duyệt (G5). |
+| `reranker.candidate_text` | `reranking/config.yaml` | `document_breadcrumb_chunk_text` | Văn bản đưa vào scorer: `chunk_text`, `breadcrumb_chunk_text` (breadcrumb rồi `chunk_text`), hoặc `document_breadcrumb_chunk_text` (tên/số hiệu văn bản, breadcrumb rồi `chunk_text`). Chọn bằng số đo trên gold đã duyệt (G5). |
 | `parent_context.enabled` | `reranking/config.yaml` | `true` | Bật Parent-Context Resolver. CLI: `--no-parent-context` để tắt. |
 | `parent_context.parents_file` | `reranking/config.yaml` | `data/chunking_output/parents.json` | Nguồn `parent_text`. |
 | `parent_context.max_context_chars` | `reranking/config.yaml` | 6000 | Trần tổng số ký tự `parent_text` của một câu trả về. |

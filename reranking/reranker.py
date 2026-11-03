@@ -26,9 +26,13 @@ logger = logging.getLogger(__name__)
 DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.yaml")
 DEFAULT_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
 BACKENDS = ("mock", "cross_encoder")
-# Text given to the scorer: the cited chunk alone, or prefixed with its breadcrumb
-# (Chương > Điều > Khoản), since many child chunks start with "2. ..." and lack the article name.
-CANDIDATE_TEXT_MODES = ("chunk_text", "breadcrumb_chunk_text")
+# Text given to the scorer: the cited chunk alone, with its breadcrumb
+# (Chương > Điều > Khoản), or with its document name and number as well.
+CANDIDATE_TEXT_MODES = (
+    "chunk_text",
+    "breadcrumb_chunk_text",
+    "document_breadcrumb_chunk_text",
+)
 # Weights of the cross-encoder. auto: float16 on CUDA (bge-reranker-v2-m3 needs about 1.1 GB
 # instead of 2.2 GB, so it fits a 4 GB GPU next to the dense model), float32 on CPU.
 DTYPES = ("auto", "float32", "float16", "bfloat16")
@@ -101,14 +105,36 @@ def candidate_text(hit: Mapping[str, Any], mode: str = "chunk_text") -> str:
 
     ``breadcrumb_chunk_text`` puts the chunk's breadcrumb (from ``metadata`` or the hit)
     on the line before it; chunks without a breadcrumb are scored on their text alone.
+    ``document_breadcrumb_chunk_text`` also includes the document name and number.
     """
     text = str(hit.get("chunk_text") or hit.get("text") or "")
-    if mode == "breadcrumb_chunk_text":
-        metadata = hit.get("metadata") if isinstance(hit.get("metadata"), Mapping) else {}
-        breadcrumb = metadata.get("breadcrumb") or hit.get("breadcrumb")
-        if breadcrumb:
-            return f"{breadcrumb}\n{text}"
-    return text
+    if mode == "chunk_text":
+        return text
+
+    metadata = hit.get("metadata") if isinstance(hit.get("metadata"), Mapping) else {}
+    lines = []
+    if mode == "document_breadcrumb_chunk_text":
+        label = document_label(metadata)
+        if label:
+            lines.append(label)
+    breadcrumb = metadata.get("breadcrumb") or hit.get("breadcrumb")
+    if breadcrumb:
+        lines.append(str(breadcrumb))
+    lines.append(text)
+    return "\n".join(lines)
+
+
+def document_label(metadata: Mapping[str, Any]) -> str:
+    """Format document metadata as a label suitable for reranker input."""
+    title = str(metadata.get("title") or metadata.get("document_title") or "").strip()
+    number = str(metadata.get("document_number") or "").strip()
+    doc_type = str(metadata.get("document_type") or "").strip()
+    if not number:
+        return title
+    if doc_type and title.startswith(doc_type):
+        return f"{title} ({number})"
+    head = f"{doc_type} {number}".strip()
+    return f"{head}: {title}" if title else head
 
 
 def deduplicate_candidates(hits: Sequence[Mapping[str, Any]] | None) -> tuple[list[dict[str, Any]], int]:
