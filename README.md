@@ -56,10 +56,10 @@ Tham số chỉ được tuning trên Dev set. Test set đã đóng băng và ch
 
 ## Cấu hình
 
-- `retrieval/config.yaml` (Dev 4): `retrieval_top_k`/`candidate_k` (mặc định 50), `rrf_k` (60), index và dense model.
-- `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`cross_encoder` mặc định | `mock` cho test), `model` (`BAAI/bge-reranker-v2-m3`), `dtype` (`auto`: float16 trên GPU).
+- `retrieval/config.yaml` (Dev 4): `retrieval.retrieval_top_k` (50), `rrf_k` (60), index và dense model.
+- `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`cross_encoder` mặc định | `mock` cho test), `model` (`BAAI/bge-reranker-v2-m3`), `dtype` (`auto`: float16 trên GPU), `candidate_text` (`document_breadcrumb_chunk_text`: tên, số hiệu văn bản và breadcrumb ghép trước `chunk_text`).
 
-Đây là giá trị khởi đầu, chưa phải cấu hình tối ưu.
+`rrf_k` và `candidate_text` đã chọn trên 75 câu Dev có Gold đã duyệt ([rrf_k](retrieval/evaluation/rrf_k_comparison_dev_75.md), [candidate_text](reranking/evaluation/candidate_text_comparison_dev_75.md)); các giá trị khác là giá trị khởi đầu, chưa tuning.
 
 ## Kết quả hiện tại
 
