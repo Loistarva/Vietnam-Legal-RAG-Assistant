@@ -18,6 +18,7 @@ from reranking.reranker import (  # noqa: E402
     Reranker,
     RerankerConfig,
     build_reranker,
+    candidate_text,
     deduplicate_candidates,
     load_reranker_config,
 )
@@ -197,6 +198,23 @@ class ScorerTest(unittest.TestCase):
         ]
         # Share of the 4 distinct query tokens found in each text; B only shares "hôn".
         self.assertEqual(MockScorer().score("điều kiện kết hôn", hits), [1.0, 0.25, 0.0])
+
+    def test_candidate_text_modes(self):
+        hit = {"chunk_id": "A", "chunk_text": "2. Chính phủ quy định chi tiết khoản 1 Điều này.",
+               "metadata": {"breadcrumb": "Chương I > Điều 7. Áp dụng tập quán > Khoản 2",
+                            "title": "Luật Hôn nhân và gia đình 2014", "document_number": "52/2014/QH13",
+                            "document_type": "Luật"}}
+        decree = {"chunk_text": "x", "metadata": {"title": "Quy định chi tiết", "document_type": "Nghị định",
+                                                  "document_number": "126/2014/NĐ-CP"}}
+        self.assertEqual(candidate_text(hit), hit["chunk_text"])
+        self.assertEqual(candidate_text(hit, "breadcrumb_chunk_text"),
+                         "Chương I > Điều 7. Áp dụng tập quán > Khoản 2\n" + hit["chunk_text"])
+        self.assertEqual(candidate_text(hit, "document_breadcrumb_chunk_text"),
+                         "Luật Hôn nhân và gia đình 2014 (52/2014/QH13)\n"
+                         "Chương I > Điều 7. Áp dụng tập quán > Khoản 2\n" + hit["chunk_text"])
+        self.assertEqual(candidate_text(decree, "document_breadcrumb_chunk_text"),
+                         "Nghị định 126/2014/NĐ-CP: Quy định chi tiết\nx")
+        self.assertEqual(candidate_text({"text": "y"}, "document_breadcrumb_chunk_text"), "y")
 
     def test_cross_encoder_scores_query_chunk_text_pairs(self):
         class FakeModel:
