@@ -260,6 +260,12 @@
       "num_children": 45
     }
   ],
+  "provision_periods": {
+    "nd_126_2014_art_19_50_repealed": 101,
+    "nd_126_2014_art_63_clause_2_amended": 1,
+    "tt_34_2017_art_2_clauses_2_3_repealed": 2,
+    "tt_57_2015_chapters_1_2_5_6_repealed": 27
+  },
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
     "validity_status 'Không xác định' ở 1 văn bản: ['tt_30_2019_tt_byt.json']",

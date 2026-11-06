@@ -1,0 +1,53 @@
+{
+  "description": "Khoảng hiệu lực cấp Điều/Khoản của văn bản hết hiệu lực một phần. chunking/export_legal_chunks.py ghi effective_to và provision_status của từng bản ghi vào mọi chunk thuộc phạm vi đó; chunk khác của văn bản giữ khoảng hiệu lực cấp văn bản. Chỉ ghi các thay đổi có văn bản gốc trong corpus: evidence_chunk_id là chunk chứa quy định bãi bỏ hoặc sửa đổi, effective_to là ngày văn bản đó có hiệu lực. Kiểm bởi test/test_provision_periods.py.",
+  "overrides": [
+    {
+      "id": "nd_126_2014_art_19_50_repealed",
+      "document_id": "nd_126_2014_nd_cp",
+      "articles": ["19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"],
+      "provision_status": "repealed",
+      "effective_to": "2016-01-01",
+      "changed_by": "nd_123_2015_nd_cp",
+      "provision": "điểm đ khoản 2 Điều 45 Nghị định 123/2015/NĐ-CP: bãi bỏ từ Mục 1 đến Mục 6 Chương III (Điều 19 đến Điều 50)",
+      "evidence_chunk_id": "nd_123_2015_nd_cp_art_45_clause_2_chunk_2"
+    },
+    {
+      "id": "nd_126_2014_art_63_clause_2_amended",
+      "document_id": "nd_126_2014_nd_cp",
+      "clauses": [{"article": "63", "clause": "2"}],
+      "provision_status": "amended",
+      "effective_to": "2016-01-01",
+      "changed_by": "nd_123_2015_nd_cp",
+      "provision": "khoản 3 Điều 45 Nghị định 123/2015/NĐ-CP: sửa đổi khoản 2 Điều 63; nội dung mới nằm ở chunk của Nghị định 123/2015",
+      "evidence_chunk_id": "nd_123_2015_nd_cp_art_45_clause_3_chunk_1"
+    },
+    {
+      "id": "tt_34_2017_art_2_clauses_2_3_repealed",
+      "document_id": "tt_34_2017_tt_byt",
+      "clauses": [{"article": "2", "clause": "2"}, {"article": "2", "clause": "3"}],
+      "provision_status": "repealed",
+      "effective_to": "2020-02-01",
+      "changed_by": "tt_30_2019_tt_byt",
+      "provision": "khoản 2 Điều 2 Thông tư 30/2019/TT-BYT: bãi bỏ khoản 2, khoản 3 Điều 2",
+      "evidence_chunk_id": "tt_30_2019_tt_byt_art_2_clause_2_chunk_1"
+    },
+    {
+      "id": "tt_57_2015_chapters_1_2_5_6_repealed",
+      "document_id": "tt_57_2015_tt_byt",
+      "chapters": ["I", "II", "V", "VI"],
+      "articles": ["1", "2", "3", "4", "5", "6", "30", "31", "32", "33"],
+      "provision_status": "repealed",
+      "effective_to": "2025-10-01",
+      "changed_by": "tt_38_2025_tt_byt",
+      "provision": "khoản 2 Điều 7 Thông tư 38/2025/TT-BYT: bãi bỏ Chương I, Chương II, Chương V và Chương VI",
+      "evidence_chunk_id": "tt_38_2025_tt_byt_art_7_clause_2_chunk_1"
+    }
+  ],
+  "not_applied": [
+    {
+      "document_id": "nd_126_2014_nd_cp",
+      "provision": "điểm a khoản 1 Điều 63 (bãi bỏ từ 2016-01-01 theo điểm đ khoản 2 Điều 45 Nghị định 123/2015/NĐ-CP)",
+      "reason": "Chunk nd_126_2014_nd_cp_art_63_clause_1_chunk_1 gộp điểm a đến d; điểm b đến d còn hiệu lực nên không ghi effective_to cho chunk này."
+    }
+  ]
+}

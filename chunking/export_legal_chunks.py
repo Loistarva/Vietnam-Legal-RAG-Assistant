@@ -27,6 +27,7 @@ from chunking_rules import (
     normalize_text,
     tokenizer_version,
 )  # noqa: E402
+from provision_periods import apply_to_chunk, load_overrides  # noqa: E402
 
 KHOAN_SEGMENT_RE = re.compile(r"Khoản \S+")
 
@@ -153,6 +154,10 @@ def main() -> None:
     truncated_intros: list[str] = []
     short_fragments: list[str] = []
     unknown_validity: list[str] = []
+    # Khoảng hiệu lực cấp Điều/Khoản (data/reference/provision_periods.json, D1).
+    overrides = load_overrides()
+    matched_scope: dict[str, set[tuple[str, ...]]] = defaultdict(set)
+    override_of_child: dict[str, str] = {}
 
     for source_path in parser_sources:
         with source_path.open(encoding="utf-8") as f:
@@ -232,6 +237,11 @@ def main() -> None:
                 raise ValueError(f"article_number metadata không khớp: {child.chunk_id}")
             if not re.fullmatch(r"[a-z0-9_]+", child.chunk_id):
                 raise ValueError(f"chunk_id không theo data contract (chữ thường, số, gạch dưới): {child.chunk_id}")
+            applied = apply_to_chunk(payload, overrides)
+            if applied is not None:
+                override, scope_item = applied
+                matched_scope[override.id].add(scope_item)
+                override_of_child[child.chunk_id] = override.id
             children.append(payload)
 
         file_summary.append({
@@ -244,6 +254,21 @@ def main() -> None:
             "num_children": len(result.children),
         })
         print(f"{source_path.name}: {len(result.parents)} Parent, {len(result.children)} Child")
+
+    for override in overrides:
+        unmatched = sorted(override.scope_items() - matched_scope[override.id])
+        if unmatched:
+            raise ValueError(f"provision_periods.json {override.id}: không có chunk cho {unmatched}")
+    # Parent chỉ nhận khoảng hiệu lực của Điều/Khoản khi mọi Child của nó cùng một bản ghi.
+    by_override = {o.id: o for o in overrides}
+    for parent in parents:
+        ids = {override_of_child.get(cid) for cid in parent.get("child_ids", [])}
+        if len(ids) == 1 and None not in ids:
+            override = by_override[ids.pop()]
+            current = parent["metadata"].get("effective_to")
+            if not current or override.effective_to < current:
+                parent["metadata"]["effective_to"] = override.effective_to
+            parent["metadata"]["provision_status"] = override.provision_status
 
     child_ids = [c["chunk_id"] for c in children]
     parent_ids = [p["parent_id"] for p in parents]
@@ -308,6 +333,9 @@ def main() -> None:
         "included_source_files": [str(p.relative_to(REPO)).replace("\\", "/") for p in parser_sources],
         "excluded_source_files": [],
         "documents": file_summary,
+        "provision_periods": {
+            o.id: sum(1 for oid in override_of_child.values() if oid == o.id) for o in overrides
+        },
         "warnings": warnings,
     }
 
