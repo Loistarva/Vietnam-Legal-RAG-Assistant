@@ -234,7 +234,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 1
 
     payload = outputs[0] if args.query is not None else outputs
-    text = json.dumps(payload, ensure_ascii=False, indent=2)
+    text = json.dumps(payload, ensure_ascii=False, indent=2, default=_json_default)
     if args.output:
         write_json(args.output, text)
         print(f"Đã ghi {len(outputs)} kết quả -> {args.output}", file=sys.stderr)
@@ -243,7 +243,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.eval_output:
         rows = [{"query_id": output["query_id"],
                  "retrieved_chunk_ids": [row["chunk_id"] for row in output["results"]]} for output in outputs]
-        write_json(args.eval_output, json.dumps(rows, ensure_ascii=False, indent=2))
+        write_json(args.eval_output, json.dumps(rows, ensure_ascii=False, indent=2, default=_json_default))
         print(f"Đã ghi file cho evaluation -> {args.eval_output}", file=sys.stderr)
     return 0
 
@@ -251,6 +251,12 @@ def main(argv: Sequence[str] | None = None) -> int:
 def write_json(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text + "\n", encoding="utf-8")
+
+
+def _json_default(value: Any) -> str:
+    if isinstance(value, Path):
+        return str(value)
+    raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
 
 
 if __name__ == "__main__":
