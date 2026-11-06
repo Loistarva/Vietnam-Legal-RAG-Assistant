@@ -2134,7 +2134,7 @@
   "input_sha256": {
     "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
     "queries": "f073554dacf05e3c0c8cfed58d9a448cbcbc2a615e858875a18282cb55d391d6",
-    "ground_truth": "7e6a9d486f28f10712e67fdedae1edea641e5ef53d3c4e5aa78f2470b05a7e3a",
+    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
     "retrieval_results": "1493d59b48480fd49bde3c822f4f7b5e65c9dc296530a79c41c7e5652ce3ea47"
   },
   "run_config": {
