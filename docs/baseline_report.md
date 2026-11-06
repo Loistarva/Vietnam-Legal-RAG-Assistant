@@ -11,7 +11,7 @@
 | Dense | 0.6441 | 0.6663 | 0.6489 | 0.6039 | **0.7574** | **0.7751** | 0.6563 | 0.6490 | 0.1587 |
 | Hybrid (BM25 + Dense, RRF) | **0.6769** | **0.6903** | **0.6938** | **0.6315** | 0.7395 | 0.7493 | **0.6973** | **0.6600** | **0.1640** |
 
-Recall@5/10 và Parent Match@5/10 là trung bình macro trên 75 câu Dev đủ điều kiện. Precision@10 là trung bình số chunk liên quan trong Top-10 chia cho 10. Các số Precision@10 được lấy từ báo cáo retrieval cùng snapshot; chúng không có trong các file JSON `*_dev_metrics.json`.
+Các metric trong bảng là trung bình macro trên 75 câu Dev đủ điều kiện. Precision@10 là số chunk gold trong Top-10 chia cho 10, lấy trực tiếp từ `average.precision@10` trong các file JSON `bm25_dev_metrics.json`, `dense_dev_metrics.json` và `hybrid_dev_metrics.json`.
 
 | Phương pháp | Temporal Violation Rate | Vi phạm / kết quả đã kiểm tra | Thiếu metadata ngày |
 | --- | ---: | ---: | ---: |
@@ -52,7 +52,7 @@ Recall@5/10 và Parent Match@5/10 là trung bình macro trên 75 câu Dev đủ 
 - Chỉ 75/270 câu Dev được chấm vì chỉ các câu này có Gold đã xác minh. Kết quả không bao phủ 195 câu draft.
 - Không có kiểm định ý nghĩa thống kê/độ bất định trong các file metric; chênh lệch giữa phương pháp là mô tả trên snapshot, không khẳng định có ý nghĩa thống kê.
 - Đây là retrieval baseline, không phải đánh giá end-to-end của RAG, answer quality, Zero-shot hay Hybrid + Reranker.
-- `Precision@10` và temporal metrics được trích từ `retrieval/evaluation/retrieval_report.md`; Recall, Parent Match, MRR, nDCG và provenance được đối chiếu với `evaluation/results/bm25_dev_metrics.json`, `dense_dev_metrics.json`, `hybrid_dev_metrics.json`. Các nguồn ghi cùng corpus hash, cấu hình Top-10/candidate depth 50/RRF k=60 và cùng 75 câu.
+- Precision@10, Recall, Parent Match, MRR, nDCG và provenance được lấy/đối chiếu từ `evaluation/results/bm25_dev_metrics.json`, `dense_dev_metrics.json`, `hybrid_dev_metrics.json`; temporal metrics được trích từ `retrieval/evaluation/retrieval_report.md`. Các metric JSON ghi cùng corpus hash, cấu hình Top-10/candidate depth 50/RRF k=60 và cùng 75 câu.
 
 ## Kết luận
 
