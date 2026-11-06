@@ -16,6 +16,27 @@ from scripts.run_final_test import (
 
 
 class RunFinalTestOrchestrationTest(unittest.TestCase):
+    def test_defaults_elasticsearch_url_for_retrieval_commands(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            with patch("sys.argv", [
+                "run_final_test.py",
+                "--results", str(root / "results" / "hybrid_reranker_test.json"),
+                "--metrics", str(root / "metrics" / "hybrid_reranker_test_metrics.json"),
+            ]), patch.dict("os.environ", {}, clear=True), patch(
+                "scripts.run_final_test.subprocess.run"
+            ) as run, patch(
+                "scripts.run_final_test.verify_test_run", return_value="locked-commit"
+            ):
+                main()
+
+        calls = [call.args[0] for call in run.call_args_list]
+        for command in calls[:2]:
+            self.assertEqual(
+                command[command.index("--elasticsearch-url") + 1],
+                "http://localhost:9200",
+            )
+
     def test_baseline_and_final_test_help_work_when_run_as_scripts(self):
         root = Path(__file__).resolve().parents[1]
         scripts = ("run_baselines.py", "run_final_test.py")

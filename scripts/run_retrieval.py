@@ -79,6 +79,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--model", default=None, help="Ghi đè reranker.model (backend cross_encoder)")
     parser.add_argument("--retrieval-top-k", type=int, default=None,
                         help="Ghi đè retrieval_top_k (số candidate thô trước reranking)")
+    parser.add_argument("--rrf-k", type=int, default=None,
+                        help="Ghi đè rrf_k của cấu hình retrieval")
     parser.add_argument("--max-candidates", type=int, default=None,
                         help="Ghi đè reranker.max_candidates (trần candidate vào Cross-Encoder)")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH, help="reranking/config.yaml")
@@ -142,6 +144,8 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
     settings = load_retrieval_settings(args.retrieval_config)
     if args.retrieval_top_k is not None:
         settings["retrieval_top_k"] = args.retrieval_top_k
+    if args.rrf_k is not None:
+        settings["rrf_k"] = args.rrf_k
     reranker_config = load_reranker_config(
         args.config,
         enabled=False if args.reranker == "none" else (True if args.reranker else None),

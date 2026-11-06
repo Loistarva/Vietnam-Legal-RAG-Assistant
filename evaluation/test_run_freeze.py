@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 QUESTIONS_MANIFEST = ROOT / "docs" / "test_questions_freeze.json"
 GOLD_MANIFEST = ROOT / "docs" / "test_gold_freeze.json"
 RUN_CONFIG_MANIFEST = ROOT / "docs" / "test_run_config_freeze.json"
+RESULTS_DIRS = ("evaluation/results", "retrieval/results")
 
 
 def _read_json(path: Path) -> Any:
@@ -35,6 +36,57 @@ def _file_sha256(path: Path) -> str:
         return hashlib.sha256(content).hexdigest()
     except OSError as exc:
         raise ValueError(f"Không đọc được đầu vào Test {path}: {exc}") from exc
+
+
+def _require_clean_worktree_except_results() -> None:
+    status = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(ROOT),
+            "status",
+            "--porcelain=v1",
+            "-z",
+            "--untracked-files=all",
+        ],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="surrogateescape",
+        check=False,
+    )
+    if status.returncode:
+        raise RuntimeError(f"Không xác minh được thay đổi trong worktree: {status.stderr}")
+
+    entries = status.stdout.split("\0")
+    changed_paths = []
+    index = 0
+    while index < len(entries):
+        entry = entries[index]
+        index += 1
+        if not entry:
+            continue
+        state, path = entry[:2], entry[3:]
+        changed_paths.append(path)
+        if "R" in state or "C" in state:
+            if index < len(entries) and entries[index]:
+                changed_paths.append(entries[index])
+                index += 1
+
+    outside_results = [
+        path
+        for path in changed_paths
+        if not any(
+            path == directory or path.startswith(f"{directory}/")
+            for directory in RESULTS_DIRS
+        )
+    ]
+    if outside_results:
+        raise ValueError(
+            "Có thay đổi chưa commit ngoài thư mục kết quả; hãy commit hoặc loại bỏ "
+            "các thay đổi trước khi chạy Test: "
+            + ", ".join(outside_results)
+        )
 
 
 def _require_committed(paths: Sequence[Path]) -> str:
@@ -66,6 +118,8 @@ def _require_committed(paths: Sequence[Path]) -> str:
         raise RuntimeError(
             f"Không xác minh được trạng thái commit của cấu hình Test: {changed.stderr}"
         )
+
+    _require_clean_worktree_except_results()
 
     head = subprocess.run(
         ["git", "-C", str(ROOT), "rev-parse", "HEAD"],

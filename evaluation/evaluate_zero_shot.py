@@ -99,6 +99,16 @@ def token_f1(prediction: str, reference: str) -> float:
     return 2 * precision * recall / (precision + recall)
 
 
+def _document_reference_pattern(document_id: Any) -> str | None:
+    """Build a citation pattern that tolerates punctuation/spacing differences."""
+    if not isinstance(document_id, str) or not document_id.strip():
+        return None
+    parts = re.findall(r"[^\W_]+", document_id.casefold())
+    if not parts:
+        return None
+    return r"(?<!\w)" + r"[\W_]*".join(map(re.escape, parts)) + r"(?!\w)"
+
+
 def compute_rubric_scores(
     question: str,
     prediction: str,
@@ -162,7 +172,7 @@ def compute_rubric_scores(
     # 2. Faithfulness (1-5)
     gt_item = ground_truth_item or {}
     outdated_docs = gt_item.get("outdated_document_ids") or []
-    is_historical = category == "historical_law" or "lịch sử" in q_str.lower() or "2000" in q_str
+    is_historical = category == "historical_law" or "lịch sử" in q_str.lower()
 
     if not pred_str:
         faith_score = 1
@@ -174,6 +184,11 @@ def compute_rubric_scores(
             r"luật hôn nhân và gia đình (năm )?2000",
             r"22/2000/qh10",
             r"nghị định 70/2001",
+            *(
+                pattern
+                for document_id in outdated_docs
+                if (pattern := _document_reference_pattern(document_id)) is not None
+            ),
         ]
         if not is_historical:
             for pat in expired_patterns:

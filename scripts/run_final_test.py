@@ -1,4 +1,5 @@
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -35,7 +36,10 @@ def main() -> None:
     parser.add_argument("--results-dir", type=Path, default=None)
     parser.add_argument("--metrics-dir", type=Path, default=None)
     parser.add_argument("--top-k", type=int, default=10)
-    parser.add_argument("--elasticsearch-url")
+    parser.add_argument(
+        "--elasticsearch-url",
+        default=os.getenv("ELASTICSEARCH_URL", "http://localhost:9200"),
+    )
     parser.add_argument("--retrieval-config", type=Path)
     parser.add_argument("--reranking-config", type=Path)
     args = parser.parse_args()

@@ -21,7 +21,7 @@ GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
 CHUNKS_PATH = ROOT_DIR / "data" / "chunking_output" / "chunks.jsonl"
 RESULTS_DIR = ROOT_DIR / "retrieval" / "results"
 METRICS_DIR = ROOT_DIR / "evaluation" / "results"
-METHODS = ("bm25", "dense", "hybrid")
+METHODS = ("bm25", "dense", "hybrid", "hybrid_reranker")
 
 
 def main() -> None:

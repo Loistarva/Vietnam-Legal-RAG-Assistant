@@ -3,10 +3,14 @@ from __future__ import annotations
 
 import json
 import math
+import random
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 DEFAULT_KS = (5, 10)
+BOOTSTRAP_CONFIDENCE_LEVEL = 0.95
+BOOTSTRAP_RESAMPLES = 10_000
+BOOTSTRAP_SEED = 42
 
 
 # ----------------------------------------------------------------------
@@ -109,6 +113,41 @@ def score_question(
     return scores
 
 
+def _percentile(sorted_values: Sequence[float], probability: float) -> float:
+    position = (len(sorted_values) - 1) * probability
+    lower_index = math.floor(position)
+    upper_index = math.ceil(position)
+    if lower_index == upper_index:
+        return sorted_values[lower_index]
+    fraction = position - lower_index
+    return (
+        sorted_values[lower_index] * (1 - fraction)
+        + sorted_values[upper_index] * fraction
+    )
+
+
+def _bootstrap_mean_confidence_interval(
+    values: Sequence[float | None], rng: random.Random
+) -> dict[str, float | int | None]:
+    """Percentile-bootstrap CI for a macro mean, resampling questions."""
+    observed = [value for value in values if value is not None]
+    count = len(observed)
+    if not count:
+        return {"lower": None, "upper": None, "num_questions": 0}
+
+    bootstrap_means = [
+        sum(rng.choices(observed, k=count)) / count
+        for _ in range(BOOTSTRAP_RESAMPLES)
+    ]
+    bootstrap_means.sort()
+    alpha = (1 - BOOTSTRAP_CONFIDENCE_LEVEL) / 2
+    return {
+        "lower": _percentile(bootstrap_means, alpha),
+        "upper": _percentile(bootstrap_means, 1 - alpha),
+        "num_questions": count,
+    }
+
+
 # ----------------------------------------------------------------------
 # Đọc dữ liệu
 # ----------------------------------------------------------------------
@@ -177,6 +216,8 @@ def evaluate(
     kết quả hoặc từ ``queries_paths``.
 
     Chỉ chấm trên ``gold_context_ids``; câu không có gold phù hợp bị bỏ qua.
+    Báo cáo khoảng tin cậy 95% percentile bootstrap cho trung bình macro,
+    resampling câu hỏi độc lập với seed cố định để tái lập kết quả.
     """
     if not ks or any(isinstance(k, bool) or not isinstance(k, int) or k < 1 for k in ks):
         raise ValueError("ks phải chứa các số nguyên dương.")
@@ -307,6 +348,28 @@ def evaluate(
                     sum(available) / len(available) if available else None
                 )
 
+    rng = random.Random(BOOTSTRAP_SEED)
+
+    def confidence_intervals_for(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+        return {
+            name: _bootstrap_mean_confidence_interval(
+                [row[name] for row in rows], rng
+            )
+            for name in metric_names
+        }
+
+    confidence_intervals = {
+        "method": "percentile_bootstrap",
+        "confidence_level": BOOTSTRAP_CONFIDENCE_LEVEL,
+        "resamples": BOOTSTRAP_RESAMPLES,
+        "seed": BOOTSTRAP_SEED,
+        "average": confidence_intervals_for(per_question),
+        "by_category": {
+            cat: confidence_intervals_for(rows)
+            for cat, rows in category_scores.items()
+        },
+    }
+
     parent_scored_by_k = {
         str(k): sum(row[f"parent_match_recall@{k}"] is not None for row in per_question)
         for k in ks
@@ -327,6 +390,7 @@ def evaluate(
         "num_parent_scored_questions_by_k": parent_scored_by_k,
         "num_parent_metadata_missing_questions_by_k": parent_metadata_missing_by_k,
         "average": average,
+        "confidence_intervals": confidence_intervals,
         "per_question": per_question,
     }
     if report_metadata is not None:

@@ -80,6 +80,30 @@ class EvaluationIdTest(unittest.TestCase):
         scored = json.loads((self.dir / "s.json").read_text(encoding="utf-8"))
         self.assertNotIn("question_id", scored[0])
 
+    def test_zero_shot_penalizes_outdated_document_ids_from_ground_truth(self):
+        result = evaluate_zero_shot.compute_rubric_scores(
+            question="Quy định hiện nay là gì?",
+            prediction="Căn cứ 99 - 1999 / QH10, quy định như sau.",
+            references=["Quy định hiện hành."],
+            ground_truth_item={"outdated_document_ids": ["99/1999/QH10"]},
+        )
+
+        self.assertEqual(result["faithfulness_score"], 1)
+
+    def test_outdated_law_trap_question_is_not_mistaken_for_historical(self):
+        result = evaluate_zero_shot.compute_rubric_scores(
+            question=(
+                "Theo quy định HNGĐ hiện hành năm 2026, kết hôn cùng giới "
+                "vẫn là hành vi bị cấm theo Luật 2000 đúng không?"
+            ),
+            prediction="Theo Luật Hôn nhân và gia đình năm 2000, hành vi này bị cấm.",
+            references=["Luật hiện hành không cấm kết hôn cùng giới."],
+            category="ket_hon",
+            ground_truth_item={"outdated_document_ids": ["22/2000/QH10"]},
+        )
+
+        self.assertEqual(result["faithfulness_score"], 1)
+
     def test_zero_shot_keeps_lexical_scores_apart_and_writes_csv_only_when_asked(self):
         predictions = write(self.dir / "pred.json", [
             {"query_id": "HN_001", "question": "?", "answer": "Nam từ đủ 20 tuổi trở lên.", "method": "zero_shot"},

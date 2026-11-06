@@ -9,14 +9,14 @@ if str(ROOT_DIR) not in sys.path:
 from evaluation.evaluate_zero_shot import evaluate
 from evaluation.zero_shot import run_benchmark
 
-DEFAULT_QUERIES = ROOT_DIR / "data" / "benchmark" / "queries_dev.json"
+DEFAULT_QUERIES = ROOT_DIR / "evaluation" / "datasets" / "dev_gold_30_queries_v1.json"
 DEFAULT_GROUND_TRUTH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
 DEFAULT_RESULTS_DIR = ROOT_DIR / "evaluation" / "results"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Run Zero-shot generation and evaluation on the Dev set."
+        description="Run Zero-shot generation and evaluation on the selected 30-question Dev set."
     )
     parser.add_argument("--queries", type=Path, default=DEFAULT_QUERIES)
     parser.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH)
@@ -25,7 +25,7 @@ def main() -> None:
     parser.add_argument("--rubric-input", type=Path)
     args = parser.parse_args()
 
-    prefix = "zero_shot_dev"
+    prefix = "zero_shot_dev30"
     predictions_path = args.results_dir / f"{prefix}_results.json"
     metrics_path = args.results_dir / f"{prefix}_metrics.json"
     scored_path = args.results_dir / f"{prefix}_scored.json"
