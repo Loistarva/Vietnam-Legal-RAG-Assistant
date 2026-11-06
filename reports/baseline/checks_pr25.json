@@ -1,0 +1,48 @@
+{
+  "observed_at": "2026-11-06T11:51:16.162033+00:00",
+  "checkout": "D:\\GitHubProjects\\week09-audit-pr25",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "sha": "54c0e37f5f913f179628d152297b126c1fda2189",
+  "tracked_status_before": "",
+  "offline": true,
+  "results": [
+    {
+      "args": [
+        "scripts/validate_benchmark.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Dev=270; Test=30; total=300; mode=handoff; issues=0\nPASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 11%]\n...........................................s............................ [ 22%]\n........................................................................ [ 33%]\n........................................................................ [ 44%]\n........................................................................ [ 55%]\n........................................................................ [ 66%]\n........................................................................ [ 78%]\n........................................................................ [ 89%]\n.....................................................................    [100%]\n644 passed, 1 skipped in 30.03s\n",
+      "stderr": ""
+    }
+  ],
+  "tracked_status_after": "",
+  "sha_after": "54c0e37f5f913f179628d152297b126c1fda2189"
+}
