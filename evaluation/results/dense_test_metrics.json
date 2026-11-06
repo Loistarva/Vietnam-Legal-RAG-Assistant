@@ -1172,9 +1172,9 @@
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
     "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
-    "queries": "3730e4cb0bb394ea70d20907f9ebec16cebb3699ed57123e9a701a006e0505ea",
-    "ground_truth": "7e6a9d486f28f10712e67fdedae1edea641e5ef53d3c4e5aa78f2470b05a7e3a",
-    "retrieval_results": "11de95a8c8ed894405e75eb84015affd4025cc0d0dd5d54143121862ab25dd4f"
+    "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
+    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
+    "retrieval_results": "c588f83ec6647d0aa4ed322d73f6df9ff0e3e339ef68a3ca450588320ba37014"
   },
   "run_config": {
     "top_k": 10,
@@ -1231,7 +1231,7 @@
       10
     ]
   },
-  "test_run_commit": "d76c6f882c84ee5ff2a72eca05e9f5e576f4a10b",
+  "test_run_commit": "25fadec4c37b6073694ebcf22c229286480fc6a7",
   "by_category": {
     "ket_hon": {
       "strict_match_recall@5": 0.8666666666666667,

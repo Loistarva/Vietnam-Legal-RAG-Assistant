@@ -315,7 +315,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_3_p1"
       }
     ],
-    "latency_ms": 494.79,
+    "latency_ms": 833.95,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -649,7 +649,7 @@
         "parent_id": "nd_123_2015_nd_cp_art_27_p1"
       }
     ],
-    "latency_ms": 77.081,
+    "latency_ms": 65.813,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -983,7 +983,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 69.863,
+    "latency_ms": 76.264,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1317,7 +1317,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 75.372,
+    "latency_ms": 63.115,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1651,7 +1651,7 @@
         "parent_id": "l_52_2014_qh13_art_66"
       }
     ],
-    "latency_ms": 63.375,
+    "latency_ms": 51.557,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1985,7 +1985,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_14"
       }
     ],
-    "latency_ms": 64.902,
+    "latency_ms": 95.849,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2319,7 +2319,7 @@
         "parent_id": "l_52_2014_qh13_art_66"
       }
     ],
-    "latency_ms": 152.212,
+    "latency_ms": 102.045,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2653,7 +2653,7 @@
         "parent_id": "tt_04_2020_tt_btp_art_12_p1"
       }
     ],
-    "latency_ms": 18.702,
+    "latency_ms": 50.002,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2987,7 +2987,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_7_p3"
       }
     ],
-    "latency_ms": 68.963,
+    "latency_ms": 110.141,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3321,7 +3321,7 @@
         "parent_id": "nq_01_2024_nq_hdtp_art_7"
       }
     ],
-    "latency_ms": 69.01,
+    "latency_ms": 43.192,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3655,7 +3655,7 @@
         "parent_id": "l_52_2014_qh13_art_83"
       }
     ],
-    "latency_ms": 69.621,
+    "latency_ms": 103.322,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3989,7 +3989,7 @@
         "parent_id": "l_52_2014_qh13_art_123"
       }
     ],
-    "latency_ms": 77.902,
+    "latency_ms": 67.329,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4323,7 +4323,7 @@
         "parent_id": "l_52_2014_qh13_art_2"
       }
     ],
-    "latency_ms": 79.932,
+    "latency_ms": 58.284,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4657,7 +4657,7 @@
         "parent_id": "tt_38_2025_tt_byt_art_3_p3"
       }
     ],
-    "latency_ms": 81.648,
+    "latency_ms": 82.112,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4991,7 +4991,7 @@
         "parent_id": "l_52_2014_qh13_art_70"
       }
     ],
-    "latency_ms": 79.707,
+    "latency_ms": 63.287,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5325,7 +5325,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_13"
       }
     ],
-    "latency_ms": 77.952,
+    "latency_ms": 74.785,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5659,7 +5659,7 @@
         "parent_id": "l_52_2014_qh13_art_119"
       }
     ],
-    "latency_ms": 90.487,
+    "latency_ms": 59.036,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5679,7 +5679,7 @@
   },
   {
     "query_id": "HN_181",
-    "query": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ bảo vệ quyền, lợi ích hợp pháp của các bên trong quan hệ hôn nhân và gia đình có yếu tố nước ngoài như thế nào?",
+    "query": "Theo Luật Hôn nhân và gia đình 2014, các chủ thể phải thực hiện và bảo vệ quyền, lợi ích hợp pháp của các bên trong quan hệ hôn nhân và gia đình có yếu tố nước ngoài như thế nào?",
     "retriever": "bm25",
     "results": [
       {
@@ -5689,7 +5689,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_4",
         "rank": 1,
-        "score": 211.1944,
+        "score": 197.09071,
         "chunk_text": "4. Chính phủ quy định chi tiết việc giải quyết quan hệ hôn nhân và gia đình có yếu tố nước ngoài nhằm bảo đảm quyền, lợi ích hợp pháp của các bên và bảo đảm thực hiện quy định tại khoản 2 Điều 5 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5720,7 +5720,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_1",
         "rank": 2,
-        "score": 198.81383,
+        "score": 177.49867,
         "chunk_text": "1. Ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quan hệ hôn nhân và gia đình có yếu tố nước ngoài được tôn trọng và bảo vệ phù hợp với các quy định của pháp luật Việt Nam và điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5751,7 +5751,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_3",
         "rank": 3,
-        "score": 188.3394,
+        "score": 175.22374,
         "chunk_text": "3. Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam bảo hộ quyền, lợi ích hợp pháp của công dân Việt Nam ở nước ngoài trong quan hệ hôn nhân và gia đình phù hợp với pháp luật Việt Nam, pháp luật của nước sở tại, pháp luật và tập quán quốc tế.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5782,7 +5782,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_2",
         "rank": 4,
-        "score": 172.49069,
+        "score": 162.14693,
         "chunk_text": "2. Trong quan hệ hôn nhân và gia đình với công dân Việt Nam, người nước ngoài tại Việt Nam có các quyền, nghĩa vụ như công dân Việt Nam, trừ trường hợp pháp luật Việt Nam có quy định khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5813,7 +5813,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "rank": 5,
-        "score": 157.21027,
+        "score": 147.74585,
         "chunk_text": "1. Chỉ đạo Cơ quan đại diện trong việc thi hành pháp luật về hôn nhân và gia đình có yếu tố nước ngoài, về nghiệp vụ đăng ký hộ tịch; thực hiện các biện pháp bảo vệ quyền và lợi ích hợp pháp của công dân Việt Nam ở nước ngoài trong quan hệ hôn nhân và gia đình phù hợp với pháp luật của nước tiếp nhận và điều ước quốc tế mà Việt Nam là thành viên;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -5869,43 +5869,12 @@
         "parent_id": "l_52_2014_qh13_art_123"
       },
       {
-        "chunk_id": "l_52_2014_qh13_art_5_clause_1_chunk_1",
-        "document_id": "l_52_2014_qh13",
-        "article_id": "l_52_2014_qh13_art_5",
-        "clause_id": "l_52_2014_qh13_art_5_clause_1",
-        "parent_clause_id": "l_52_2014_qh13_art_5_clause_1",
-        "rank": 7,
-        "score": 132.05832,
-        "chunk_text": "1. Quan hệ hôn nhân và gia đình được xác lập, thực hiện theo quy định của Luật này được tôn trọng và được pháp luật bảo vệ.",
-        "metadata": {
-          "doc_id": "l_52_2014_qh13",
-          "title": "Luật Hôn nhân và gia đình 2014",
-          "document_type": "Luật",
-          "document_number": "52/2014/QH13",
-          "issue_date": "2014-06-19",
-          "effective_date": "2015-01-01",
-          "effective_from": "2015-01-01",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
-          "issuing_body": "Quốc hội",
-          "validity_status": "Còn hiệu lực",
-          "source_status": "Còn hiệu lực",
-          "provision_status": "document_level_only",
-          "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
-          "section": null,
-          "article_number": "5",
-          "document_title": "Luật Hôn nhân và gia đình 2014",
-          "clause_number": "1"
-        },
-        "parent_id": "l_52_2014_qh13_art_5_p1"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_123_clause_2_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_123",
         "clause_id": "l_52_2014_qh13_art_123_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_2",
-        "rank": 8,
+        "rank": 7,
         "score": 127.51671,
         "chunk_text": "2. Thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài tại Tòa án được thực hiện theo quy định của Bộ luật tố tụng dân sự.",
         "metadata": {
@@ -5936,7 +5905,7 @@
         "article_id": "l_52_2014_qh13_art_122",
         "clause_id": "l_52_2014_qh13_art_122_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_1",
-        "rank": 9,
+        "rank": 8,
         "score": 125.99713,
         "chunk_text": "1. Các quy định của pháp luật về hôn nhân và gia đình của nước Cộng hòa xã hội chủ nghĩa Việt Nam được áp dụng đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, trừ trường hợp Luật này có quy định khác. Trong trường hợp điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác với quy định của Luật này thì áp dụng quy định của điều ước quốc tế đó.",
         "metadata": {
@@ -5962,38 +5931,69 @@
         "parent_id": "l_52_2014_qh13_art_122"
       },
       {
-        "chunk_id": "l_52_2014_qh13_art_5_clause_4_chunk_1",
-        "document_id": "l_52_2014_qh13",
-        "article_id": "l_52_2014_qh13_art_5",
-        "clause_id": "l_52_2014_qh13_art_5_clause_4",
-        "parent_clause_id": "l_52_2014_qh13_art_5_clause_4",
-        "rank": 10,
-        "score": 125.17552,
-        "chunk_text": "4. Danh dự, nhân phẩm, uy tín, bí mật đời tư và các quyền riêng tư khác của các bên được tôn trọng, bảo vệ trong quá trình giải quyết vụ việc về hôn nhân và gia đình.",
+        "chunk_id": "nd_126_2014_nd_cp_art_58_clause_2_chunk_1",
+        "document_id": "nd_126_2014_nd_cp",
+        "article_id": "nd_126_2014_nd_cp_art_58",
+        "clause_id": "nd_126_2014_nd_cp_art_58_clause_2",
+        "parent_clause_id": "nd_126_2014_nd_cp_art_58_clause_2",
+        "rank": 9,
+        "score": 123.29526,
+        "chunk_text": "2. Hướng dẫn Ủy ban nhân dân cấp tỉnh và phối hợp với Bộ Ngoại giao chỉ đạo, hướng dẫn Cơ quan đại diện trong việc thi hành pháp luật về hôn nhân và gia đình có yếu tố nước ngoài; phổ biến, giáo dục pháp luật và giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
         "metadata": {
-          "doc_id": "l_52_2014_qh13",
-          "title": "Luật Hôn nhân và gia đình 2014",
-          "document_type": "Luật",
-          "document_number": "52/2014/QH13",
-          "issue_date": "2014-06-19",
-          "effective_date": "2015-01-01",
-          "effective_from": "2015-01-01",
+          "doc_id": "nd_126_2014_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
+          "document_type": "Nghị định",
+          "document_number": "126/2014/NĐ-CP",
+          "issue_date": "2014-12-31",
+          "effective_date": "2015-02-15",
+          "effective_from": "2015-02-15",
           "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
-          "issuing_body": "Quốc hội",
-          "validity_status": "Còn hiệu lực",
-          "source_status": "Còn hiệu lực",
-          "provision_status": "document_level_only",
-          "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
-          "section": null,
-          "article_number": "5",
-          "document_title": "Luật Hôn nhân và gia đình 2014",
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+          "section": "Mục 8 QUẢN LÝ NHÀ NƯỚC VỀ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+          "article_number": "58",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
+          "clause_number": "2"
+        },
+        "parent_id": "nd_126_2014_nd_cp_art_58"
+      },
+      {
+        "chunk_id": "nd_126_2014_nd_cp_art_58_clause_4_chunk_1",
+        "document_id": "nd_126_2014_nd_cp",
+        "article_id": "nd_126_2014_nd_cp_art_58",
+        "clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
+        "parent_clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
+        "rank": 10,
+        "score": 121.98613,
+        "chunk_text": "4. Thanh tra, kiểm tra việc thực hiện pháp luật về hôn nhân và gia đình có yếu tố nước ngoài; giải quyết khiếu nại, tố cáo theo quy định của pháp luật; xử lý vi phạm hành chính về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
+        "metadata": {
+          "doc_id": "nd_126_2014_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
+          "document_type": "Nghị định",
+          "document_number": "126/2014/NĐ-CP",
+          "issue_date": "2014-12-31",
+          "effective_date": "2015-02-15",
+          "effective_from": "2015-02-15",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+          "section": "Mục 8 QUẢN LÝ NHÀ NƯỚC VỀ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
+          "article_number": "58",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
           "clause_number": "4"
         },
-        "parent_id": "l_52_2014_qh13_art_5_p2"
+        "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 73.746,
+    "latency_ms": 71.918,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6327,7 +6327,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_5"
       }
     ],
-    "latency_ms": 78.661,
+    "latency_ms": 67.844,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6661,7 +6661,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_4"
       }
     ],
-    "latency_ms": 78.326,
+    "latency_ms": 85.301,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6995,7 +6995,7 @@
         "parent_id": "l_52_2014_qh13_art_38"
       }
     ],
-    "latency_ms": 98.348,
+    "latency_ms": 28.386,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7329,7 +7329,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_64"
       }
     ],
-    "latency_ms": 107.781,
+    "latency_ms": 80.637,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7663,7 +7663,7 @@
         "parent_id": "l_52_2014_qh13_art_31"
       }
     ],
-    "latency_ms": 63.775,
+    "latency_ms": 82.848,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7997,7 +7997,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_9_p1"
       }
     ],
-    "latency_ms": 33.075,
+    "latency_ms": 87.282,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8331,7 +8331,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_10_p1"
       }
     ],
-    "latency_ms": 122.148,
+    "latency_ms": 91.266,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8665,7 +8665,7 @@
         "parent_id": "l_52_2014_qh13_art_65"
       }
     ],
-    "latency_ms": 48.156,
+    "latency_ms": 95.722,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8999,7 +8999,7 @@
         "parent_id": "l_52_2014_qh13_art_10"
       }
     ],
-    "latency_ms": 77.22,
+    "latency_ms": 87.041,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9333,7 +9333,7 @@
         "parent_id": "l_52_2014_qh13_art_37"
       }
     ],
-    "latency_ms": 69.808,
+    "latency_ms": 71.744,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9667,7 +9667,7 @@
         "parent_id": "l_52_2014_qh13_art_46"
       }
     ],
-    "latency_ms": 73.223,
+    "latency_ms": 83.375,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10001,7 +10001,7 @@
         "parent_id": "l_52_2014_qh13_art_32"
       }
     ],
-    "latency_ms": 75.175,
+    "latency_ms": 88.822,
     "top_k": 10,
     "config": {
       "top_k": 10,
