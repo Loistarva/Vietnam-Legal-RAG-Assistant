@@ -20,11 +20,14 @@ import re
 import time
 import unicodedata
 import argparse
+import sys
 from pathlib import Path
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
 
 # ollama và pymupdf chỉ được import khi trích xuất PDF, để các hàm làm sạch text
 # import được (và test được) trên máy không cài hai thư viện này.
+if TYPE_CHECKING:
+    import pymupdf
 
 # Project paths: keep the existing cleaned output path for downstream compatibility.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -317,7 +320,7 @@ def qwen_transcribe_page(page: pymupdf.Page, page_number: int, pdf_stem: str) ->
                 pdf_stem, page_number, attempt + 1, OCR_RETRIES + 1,
                 list(response.model_dump().keys()), raw_content,
             )
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - lỗi gọi Ollama rất đa dạng; thử lại rồi báo trang lỗi
             last_error = exc
             logger.exception(
                 "Gọi Qwen3-VL lỗi: file=%s, trang=%d, lần=%d/%d: %s",
@@ -333,7 +336,7 @@ def qwen_transcribe_page(page: pymupdf.Page, page_number: int, pdf_stem: str) ->
             "OCR thất bại sau %d lần; đã lưu ảnh trang để kiểm tra: %s",
             OCR_RETRIES + 1, image_path,
         )
-    except Exception:
+    except OSError:
         logger.exception("Không lưu được ảnh trang lỗi: %s", image_path)
 
     if last_error is not None:
@@ -348,14 +351,18 @@ def page_has_images(page: pymupdf.Page) -> bool:
     """Detect image blocks actually shown on the page."""
     try:
         blocks = page.get_text("dict").get("blocks", [])
-        return any(block.get("type") == 1 for block in blocks)
-    except Exception:
+    except (RuntimeError, ValueError) as exc:
         # Conservative fallback: don't force OCR unless text is also sparse.
+        logger.warning("Không đọc được block ảnh của trang: %s", exc)
         return False
+    return any(block.get("type") == 1 for block in blocks)
 
 
 def process_page(page: pymupdf.Page, page_number: int, pdf_stem: str) -> tuple[str, str]:
     """Return extracted text and extraction method; cleaning happens after extraction.
+
+    Method "ocr_failed" means the page needed OCR but Qwen3-VL returned nothing, so
+    the sparse native text (possibly empty) is used; process_pdf reports the file as failed.
 
     Prefer native PDF text whenever it is substantial. A page may contain a logo,
     seal, or other image while still having selectable text; presence of any image
@@ -371,16 +378,14 @@ def process_page(page: pymupdf.Page, page_number: int, pdf_stem: str) -> tuple[s
 
     contains_images = page_has_images(page)
     if contains_images or native_text:
-        try:
-            ocr_text = qwen_transcribe_page(page, page_number, pdf_stem)
-            if ocr_text:
-                return ocr_text, "qwen3-vl"
-            logger.warning(
-                "Trang %d OCR trả về rỗng; dùng text trích xuất gốc (native_chars=%d).",
-                page_number, len(native_text)
-            )
-        except Exception as exc:
-            logger.exception("OCR lỗi ở trang %d: %s", page_number, exc)
+        ocr_text = qwen_transcribe_page(page, page_number, pdf_stem)
+        if ocr_text:
+            return ocr_text, "qwen3-vl"
+        logger.error(
+            "Trang %d cần OCR nhưng OCR thất bại; dùng text trích xuất gốc (native_chars=%d).",
+            page_number, len(native_text)
+        )
+        return native_text, "ocr_failed"
 
     if native_text:
         return native_text, "pymupdf"
@@ -395,12 +400,12 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
 
     try:
         doc = pymupdf.open(pdf_path)
-    except Exception:
+    except (RuntimeError, OSError):
         logger.exception("Không mở được PDF: %s", pdf_path)
         return False
 
     page_texts: list[str] = []
-    methods: dict[str, int] = {"pymupdf": 0, "qwen3-vl": 0, "empty": 0}
+    methods: dict[str, int] = {"pymupdf": 0, "qwen3-vl": 0, "ocr_failed": 0, "empty": 0}
 
     try:
         for index, page in enumerate(doc):
@@ -413,7 +418,11 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
             else:
                 marker = f"[TRANG {index + 1} KHÔNG TRÍCH XUẤT ĐƯỢC]"
                 page_texts.append(f"\n\n{marker}\n\n")
-                logger.warning("Trang %d không trích xuất được nội dung.", index + 1)
+                logger.error("Trang %d không trích xuất được nội dung.", index + 1)
+    except (RuntimeError, ValueError):
+        # PyMuPDF báo trang hỏng bằng RuntimeError (FileDataError); không ghi file dở dang.
+        logger.exception("Lỗi khi đọc trang của PDF: %s", pdf_path)
+        return False
     finally:
         doc.close()
 
@@ -428,7 +437,7 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
     try:
         # Save the extracted version first, before removing any suspected noise.
         raw_output_path.write_text(raw_text + "\n", encoding="utf-8")
-    except Exception:
+    except OSError:
         logger.exception("Không ghi được file trích xuất thô: %s", raw_output_path)
         return False
 
@@ -439,19 +448,20 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
 
     try:
         clean_output_path.write_text(clean_text + "\n", encoding="utf-8")
-    except Exception:
+    except OSError:
         logger.exception("Không ghi được file đã làm sạch: %s", clean_output_path)
         return False
 
     elapsed = time.perf_counter() - started
     logger.info(
-        "Hoàn tất: %s | trang=%d | PyMuPDF=%d | Qwen3-VL=%d | rỗng=%d "
+        "Hoàn tất: %s | trang=%d | PyMuPDF=%d | Qwen3-VL=%d | OCR lỗi=%d | rỗng=%d "
         "| URL bỏ=%d | timestamp bỏ=%d | số trang bỏ=%d | marking Công báo bỏ=%d "
         "| dấu thanh chuẩn hóa=%d | %.1fs",
         clean_output_path.name,
         sum(methods.values()),
         methods["pymupdf"],
         methods["qwen3-vl"],
+        methods["ocr_failed"],
         methods["empty"],
         removed["urls"],
         removed["timestamps"],
@@ -460,7 +470,13 @@ def process_pdf(pdf_path: Path, raw_output_path: Path, clean_output_path: Path) 
         removed["tone_placement_changes"],
         elapsed,
     )
-    return methods["empty"] == 0
+    if methods["empty"] or methods["ocr_failed"]:
+        logger.error(
+            "Cần kiểm tra %s: %d trang OCR lỗi, %d trang rỗng (ảnh trang lỗi ở %s).",
+            pdf_path.name, methods["ocr_failed"], methods["empty"], FAILED_OCR_DIR,
+        )
+        return False
+    return True
 
 
 
@@ -478,7 +494,7 @@ def clean_existing_texts() -> dict[str, int]:
     )
 
     succeeded = 0
-    failed = 0
+    failed_files: list[str] = []
     totals = {
         "urls": 0,
         "timestamps": 0,
@@ -490,7 +506,7 @@ def clean_existing_texts() -> dict[str, int]:
 
     if not raw_files:
         logger.warning("Không tìm thấy TXT thô trong %s", RAW_OUTPUT_DIR)
-        return {"succeeded": 0, "failed": 0, "total": 0, **totals}
+        return {"succeeded": 0, "failed": 0, "failed_files": [], "total": 0, **totals}
 
     logger.info("Tìm thấy %d TXT thô; chỉ chạy bước clean, không trích xuất PDF/OCR.", len(raw_files))
     for raw_path in raw_files:
@@ -500,7 +516,7 @@ def clean_existing_texts() -> dict[str, int]:
             cleaned_text, removed = clean_extracted_text(raw_text)
             if not cleaned_text.strip():
                 logger.error("Clean TXT rỗng; giữ nguyên file đích nếu có: %s", raw_path.name)
-                failed += 1
+                failed_files.append(raw_path.name)
                 continue
             clean_path.write_text(cleaned_text + "\n", encoding="utf-8")
             succeeded += 1
@@ -517,16 +533,22 @@ def clean_existing_texts() -> dict[str, int]:
                 removed.get("urls", 0),
                 removed.get("timestamps", 0),
             )
-        except Exception:
+        except (OSError, UnicodeDecodeError):
             logger.exception("Không clean được TXT: %s", raw_path)
-            failed += 1
+            failed_files.append(raw_path.name)
 
     logger.info(
         "Hoàn tất clean lại TXT: thành công=%d | lỗi=%d | tổng=%d | "
         "số trang bỏ=%d | dấu thanh chuẩn hóa=%d",
-        succeeded, failed, len(raw_files), totals["page_counters"], totals["tone_placement_changes"],
+        succeeded, len(failed_files), len(raw_files), totals["page_counters"], totals["tone_placement_changes"],
     )
-    return {"succeeded": succeeded, "failed": failed, "total": len(raw_files), **totals}
+    return {
+        "succeeded": succeeded,
+        "failed": len(failed_files),
+        "failed_files": failed_files,
+        "total": len(raw_files),
+        **totals,
+    }
 
 def discover_pdfs() -> list[Path]:
     """Find PDFs under data/raw_data/circulars and laws_and_decrees."""
@@ -549,12 +571,12 @@ def run_cleaner() -> dict[str, int]:
 
     if not pdf_files:
         logger.warning("Không tìm thấy PDF trong %s", RAW_DATA_DIR)
-        return {"succeeded": 0, "skipped": 0, "failed": 0, "total": 0}
+        return {"succeeded": 0, "skipped": 0, "failed": 0, "failed_files": [], "total": 0}
 
     logger.info("Tìm thấy %d file PDF.", len(pdf_files))
     succeeded = 0
     skipped = 0
-    failed = 0
+    failed_files: list[str] = []
 
     for pdf_path in pdf_files:
         # Keep existing output naming so the parser can read the final output from cleaned_texts.
@@ -575,31 +597,39 @@ def run_cleaner() -> dict[str, int]:
         if process_pdf(pdf_path, raw_output_path, clean_output_path):
             succeeded += 1
         else:
-            failed += 1
+            failed_files.append(pdf_path.name)
 
     logger.info(
-        "Kết quả: thành công=%d | bỏ qua=%d | cần kiểm tra=%d",
+        "Kết quả: thành công=%d | bỏ qua=%d | cần kiểm tra=%d %s",
         succeeded,
         skipped,
-        failed,
+        len(failed_files),
+        failed_files,
     )
     return {
         "succeeded": succeeded,
         "skipped": skipped,
-        "failed": failed,
+        "failed": len(failed_files),
+        "failed_files": failed_files,
         "total": len(pdf_files),
     }
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    """Chạy cleaner; trả 1 khi có file hoặc trang lỗi để script gọi và CI dừng lại."""
     cli = argparse.ArgumentParser(description="Trích xuất PDF và làm sạch văn bản pháp luật.")
     cli.add_argument(
         "--clean-existing",
         action="store_true",
         help="Chỉ làm sạch lại TXT đã có trong extracted_texts_qwen; không mở PDF hoặc chạy OCR.",
     )
-    args = cli.parse_args()
-    if args.clean_existing:
-        clean_existing_texts()
-    else:
-        run_cleaner()
+    args = cli.parse_args(argv)
+    summary = clean_existing_texts() if args.clean_existing else run_cleaner()
+    if summary["failed"]:
+        logger.error("Có %d file lỗi: %s", summary["failed"], summary["failed_files"])
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
