@@ -7,6 +7,7 @@ from typing import Any
 
 from evaluation.metrics import DEFAULT_KS
 from evaluation.run_evaluation import read_json_array
+from evaluation.test_run_freeze import _file_sha256
 
 
 def sha256_file(path: Path) -> str:
@@ -109,9 +110,9 @@ def build_report_metadata(
         "label_source": "ground_truth.gold_context_ids",
         "input_sha256": {
             "corpus": corpus_sha256,
-            "queries": sha256_file(queries_path),
-            "ground_truth": sha256_file(ground_truth_path),
-            "retrieval_results": sha256_file(results_path),
+            "queries": _file_sha256(queries_path),
+            "ground_truth": _file_sha256(ground_truth_path),
+            "retrieval_results": _file_sha256(results_path),
         },
         "run_config": {
             **common_config,

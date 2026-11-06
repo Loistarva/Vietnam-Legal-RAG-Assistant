@@ -1,4 +1,6 @@
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -14,6 +16,25 @@ from scripts.run_final_test import (
 
 
 class RunFinalTestOrchestrationTest(unittest.TestCase):
+    def test_baseline_and_final_test_help_work_when_run_as_scripts(self):
+        root = Path(__file__).resolve().parents[1]
+        scripts = ("run_baselines.py", "run_final_test.py")
+
+        with tempfile.TemporaryDirectory() as working_directory:
+            for script in scripts:
+                with self.subTest(script=script):
+                    result = subprocess.run(
+                        [sys.executable, str(root / "scripts" / script), "--help"],
+                        cwd=working_directory,
+                        capture_output=True,
+                        text=True,
+                        encoding="utf-8",
+                        check=False,
+                    )
+
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertIn("Chạy", result.stdout)
+
     def test_runs_three_retrieval_baselines_reranker_and_all_metrics(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

@@ -86,6 +86,8 @@ class RunFinalTestMetricsTest(unittest.TestCase):
             main()
 
     def test_test_metric_records_provenance_and_test_split(self):
+        from evaluation.test_run_freeze import _file_sha256
+
         self._run()
         report = json.loads(self.metrics_path.read_text(encoding="utf-8"))
         self.assertEqual(report["label_source"], "ground_truth.gold_context_ids")
@@ -97,9 +99,40 @@ class RunFinalTestMetricsTest(unittest.TestCase):
         )
         self.assertEqual(
             report["input_sha256"]["queries"],
-            hashlib.sha256(self.queries_path.read_bytes()).hexdigest(),
+            _file_sha256(self.queries_path),
+        )
+        self.assertEqual(
+            report["input_sha256"]["ground_truth"],
+            _file_sha256(self.ground_truth_path),
+        )
+        self.assertEqual(
+            report["input_sha256"]["retrieval_results"],
+            _file_sha256(self.results_path),
         )
         self.assertEqual(report["run_config"]["top_k"], 10)
+
+    def test_test_metric_input_hashes_are_independent_of_windows_line_endings(self):
+        from evaluation.test_run_freeze import _file_sha256
+
+        self._run()
+        original_hashes = json.loads(
+            self.metrics_path.read_text(encoding="utf-8")
+        )["input_sha256"]
+
+        for path in (self.queries_path, self.ground_truth_path, self.results_path):
+            path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+
+        self._run()
+        windows_hashes = json.loads(
+            self.metrics_path.read_text(encoding="utf-8")
+        )["input_sha256"]
+        for key, path in (
+            ("queries", self.queries_path),
+            ("ground_truth", self.ground_truth_path),
+            ("retrieval_results", self.results_path),
+        ):
+            self.assertEqual(original_hashes[key], windows_hashes[key])
+            self.assertEqual(windows_hashes[key], _file_sha256(path))
 
     def test_test_metric_rejects_changed_corpus(self):
         with self.chunks_path.open("a", encoding="utf-8") as file:
@@ -120,6 +153,22 @@ class RunFinalTestMetricsTest(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "gold_context_ids thiếu"):
             self._run()
+        self.assertFalse(self.metrics_path.exists())
+
+    def test_test_metric_rejects_gold_chunk_missing_from_corpus(self):
+        self.ground_truth_path.write_text(
+            json.dumps([{
+                "id": "Q1",
+                "split": "test",
+                "gold_context_ids": ["missing-chunk"],
+                "gold_context_ids_confirmed": True,
+            }]),
+            encoding="utf-8",
+        )
+
+        with self.assertRaisesRegex(ValueError, "không có trong corpus: missing-chunk"):
+            self._run()
+
         self.assertFalse(self.metrics_path.exists())
 
 

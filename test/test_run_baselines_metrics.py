@@ -82,6 +82,8 @@ class RunBaselinesMetricsTest(unittest.TestCase):
             main()
 
     def test_metric_records_gold_context_source_and_input_provenance(self):
+        from evaluation.test_run_freeze import _file_sha256
+
         self._run()
         report_path = self.metrics_dir / "hybrid_dev_metrics.json"
         report = json.loads(report_path.read_text(encoding="utf-8"))
@@ -92,7 +94,7 @@ class RunBaselinesMetricsTest(unittest.TestCase):
         )
         self.assertEqual(
             report["input_sha256"]["queries"],
-            hashlib.sha256(self.queries_path.read_bytes()).hexdigest(),
+            _file_sha256(self.queries_path),
         )
         self.assertEqual(report["run_config"]["top_k"], 10)
         self.assertNotIn("label_source", report["per_question"][0])
@@ -112,6 +114,33 @@ class RunBaselinesMetricsTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "query text không khớp"):
             self._run()
         self.assertFalse((self.metrics_dir / "hybrid_dev_metrics.json").exists())
+
+    def test_gold_chunk_missing_from_corpus_is_rejected_before_scoring(self):
+        self.ground_truth_path.write_text(
+            json.dumps([{
+                "id": "Q1",
+                "split": "dev",
+                "gold_context_ids": ["missing-chunk"],
+                "gold_context_ids_confirmed": True,
+            }]),
+            encoding="utf-8",
+        )
+
+        with self.assertRaisesRegex(ValueError, "không có trong corpus: missing-chunk"):
+            self._run()
+
+        self.assertFalse((self.metrics_dir / "hybrid_dev_metrics.json").exists())
+
+    def test_gold_chunk_without_parent_metadata_is_validated_against_corpus(self):
+        self.chunks_path.write_text(
+            json.dumps({"chunk_id": "c1"}) + "\n",
+            encoding="utf-8",
+        )
+        self._write_results()
+
+        self._run()
+
+        self.assertTrue((self.metrics_dir / "hybrid_dev_metrics.json").exists())
 
 
 if __name__ == "__main__":

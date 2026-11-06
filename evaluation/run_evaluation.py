@@ -49,10 +49,11 @@ def load_parent_ids(chunks_path: Path) -> dict[str, str]:
                     raise ValueError(
                         f"Chunk tại {chunks_path}:{line_number} thiếu chunk_id."
                     )
+                parent_by_chunk.setdefault(chunk_id, "")
                 parent_id = chunk.get("parent_clause_id")
                 if isinstance(parent_id, str) and parent_id.strip():
                     previous = parent_by_chunk.get(chunk_id)
-                    if previous is not None and previous != parent_id:
+                    if previous and previous != parent_id:
                         raise ValueError(
                             f"Chunk {chunk_id!r} có parent_clause_id mâu thuẫn."
                         )
@@ -169,6 +170,21 @@ def run_evaluation(
                 f"Query {query_id!r} không thuộc split {expected_split} "
                 "trong ground truth."
             )
+        if (
+            parent_by_chunk is not None
+            and label.get("gold_context_ids_confirmed") is True
+        ):
+            gold_ids = label.get("gold_context_ids")
+            if isinstance(gold_ids, list):
+                missing_gold_ids = {
+                    str(chunk_id) for chunk_id in gold_ids
+                } - parent_by_chunk.keys()
+                if missing_gold_ids:
+                    raise ValueError(
+                        f"{query_id}: gold_context_ids tham chiếu chunk "
+                        "không có trong corpus: "
+                        + ", ".join(sorted(missing_gold_ids))
+                    )
 
     normalized = normalize_results(results_path, method, query_ids)
     for item in normalized:
