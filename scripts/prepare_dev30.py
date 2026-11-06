@@ -53,6 +53,10 @@ def expand_ids(spec):
 def blob(sha, path):
     if not re.fullmatch(r"[a-f0-9]{40}", sha):
         raise ValueError("Pinned full Git SHA required")
+    available = subprocess.run(["git", "cat-file", "-e", f"{sha}^{{commit}}"], cwd=ROOT,
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if available.returncode:
+        raise ValueError(f"Missing pinned commit {sha}; run python scripts/fetch_dev30_sources.py before offline checks")
     return subprocess.check_output(["git", "show", f"{sha}:{path}"], cwd=ROOT)
 
 

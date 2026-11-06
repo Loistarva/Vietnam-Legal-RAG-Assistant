@@ -21,6 +21,11 @@ jobs:
           python-version: "3.14"
           cache: pip
 
+      # checkout is shallow; Dev30 provenance also reads pinned commits from
+      # the baseline, D1 and corpus proposal branches. Fetch exact versions.
+      - name: Fetch pinned Dev30 sources
+        run: python scripts/fetch_dev30_sources.py
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

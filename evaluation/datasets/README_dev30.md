@@ -32,11 +32,13 @@ Trang nguồn chính thức để người duyệt đối chiếu thêm: [Luật
 - `remaining_reviewed_dev_ids` trong manifest chỉ là phép trừ 30 ID khỏi 75 Dev source_checked. Không mặc định cả 45 câu còn lại đều đạt màn lọc nguồn/ổn định; Dev 2/5 phải rà các câu đang sửa trước calibration.
 
 ```powershell
+# Sau clone moi/shallow: tai dung cac Git commit nguon da pin
+python scripts/fetch_dev30_sources.py
 python scripts/prepare_dev30.py
 python -m pytest test/test_dev30_selection.py -q
 ```
 
-Lệnh mặc định chỉ kiểm tra; `--write` sinh các file proposal sau khi checks đạt. Nếu nội dung manifest v1 khác phiên bản đã sinh, script dừng yêu cầu review/v2 thay vì ghi đè. Không chỉnh canonical benchmark, corpus hoặc freeze manifest.
+Bước fetch chỉ tải commit còn thiếu, không checkout/merge nhánh hoặc đổi query; cần quyền đọc remote. Sau bước fetch, các kiểm tra chạy offline. CI cũng chạy bước này vì actions/checkout mặc định là shallow. Lệnh prepare mặc định chỉ kiểm tra; `--write` sinh các file proposal sau khi checks đạt. Nếu nội dung manifest v1 khác phiên bản đã sinh, script dừng yêu cầu review/v2 thay vì ghi đè. Không chỉnh canonical benchmark, corpus hoặc freeze manifest.
 
 Loader compatibility với code `evaluation/zero_shot.py` tại metrics SHA `aadb20420cecada28a5a03e0c31a11b88bd7cc84` đã kiểm: đọc đủ 30 ID, không gọi Ollama/model; log tại `evaluation/review/dev30_loader_compatibility_v1.json`. Bàn giao file JSON cho đối số `--queries` của runner phù hợp; không tự chạy official A/B ở bước chuẩn bị. Dev 2 phải xác nhận ID/manifest, rubric guide, prompt/date policy, generation params và Freeze trước khi dùng cùng file cho A/B.
 
