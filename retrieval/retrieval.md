@@ -15,7 +15,7 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 | Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả; mỗi tệp là mảng `RetrievalEnvelope` (một envelope mỗi câu, `query_id` lấy từ `id` của benchmark), theo mục 5.4 của `docs/data_contract.md`. |
 | Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
 
-Cấu hình dùng chung nằm trong `retrieval/config.yaml`: Elasticsearch index `legal-child-chunks-dev`, Dense model `BAAI/bge-m3` (1024 chiều), candidate depth 50, Top-10 và RRF k=60. Runner Hybrid + Reranker đọc shared config qua `retrieval.settings.load_settings()`; collection, storage path, corpus, model và dimension phải khớp metadata index đã build. BM25/Dense/Hybrid benchmark không bật reranker.
+Cấu hình dùng chung nằm trong `retrieval/config.yaml`: Elasticsearch index `bm25-e6-verified-20261101`, Dense model `BAAI/bge-m3` (1024 chiều), candidate depth 50, Top-10 và RRF k=60 (chọn trên Dev, xem [so sánh rrf_k](evaluation/rrf_k_comparison_dev_75.md)). Runner Hybrid + Reranker đọc shared config qua `retrieval.settings.load_settings()`; collection, storage path, corpus, model và dimension phải khớp metadata index đã build. BM25/Dense/Hybrid benchmark không bật reranker.
 
 ## Đồng bộ tách từ BM25
 
@@ -76,7 +76,7 @@ Thay `<user>` và `<ip-máy-chủ>` bằng tài khoản và địa chỉ do ngư
 
 ```powershell
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
+$env:ELASTICSEARCH_INDEX = "bm25-e6-verified-20261101"
 python -c "from retrieval.build_bm25_index import build_bm25_index; print(build_bm25_index(chunks_file=r'.\embedding\data\han_gia_dinh_smoke_chunks.json'))"
 ```
 
@@ -98,7 +98,6 @@ Kiểm tra Elasticsearch:
 ```powershell
 Invoke-RestMethod http://localhost:9200
 $env:ELASTICSEARCH_URL = "http://localhost:9200"
-$env:ELASTICSEARCH_INDEX = "legal-child-chunks-dev"
 ```
 
 ### 2. Build index theo shared config
@@ -119,24 +118,34 @@ Lệnh này đọc corpus, tokenizer, text field và tên index từ `retrieval/
   --elasticsearch-url http://localhost:9200
 ```
 
-Runner so SHA-256 corpus với metadata Elasticsearch và Qdrant; hai index phải được build từ cùng một file. Mỗi envelope lưu model, dimension, index, collection, tham số ranking, SHA-256 corpus và `as_of_date`. CLI override chỉ dùng khi cố ý chạy một cấu hình/index đã build tương ứng. Runner ghi `dev_bm25.json`, `dev_dense.json` và `dev_hybrid.json` vào `retrieval/results/` mặc định hoặc thư mục `--output-dir` được chọn. Các file kết quả lịch sử hiện không có trong checkout này.
+Runner so SHA-256 corpus với metadata Elasticsearch và Qdrant; hai index phải được build từ cùng một file. Mỗi envelope lưu model, dimension, index, collection, tham số ranking, SHA-256 corpus và `as_of_date`. CLI override chỉ dùng khi cố ý chạy một cấu hình/index đã build tương ứng. Runner ghi `dev_bm25.json`, `dev_dense.json` và `dev_hybrid.json` vào `retrieval/results/` mặc định hoặc thư mục `--output-dir` được chọn. Kết quả hiện tại (cấu hình trong `retrieval/config.yaml`) nằm trong `retrieval/results/`.
 
 ### 4. Đánh giá và trạng thái nhãn
 
 Chấm trên Gold đã duyệt bằng `--ground-truth`: evaluator đọc `queries_dev.json` và `ground_truth.json`, chỉ chấm 75 câu Dev có `gold_context_ids_confirmed = true`, bỏ qua envelope của 195 câu draft và từ chối câu thuộc split Test. Không có `--ground-truth` thì `--dev-set` phải có `relevant_chunk_ids`, và báo cáo ghi rõ nhãn đó không phải Gold đã duyệt.
 
 ```powershell
-python retrieval/retrieval_evaluation.py `
+python -m retrieval.retrieval_evaluation `
   --dev-set .\data\benchmark\queries_dev.json `
   --ground-truth .\data\benchmark\ground_truth.json `
-  --results-dir .\retrieval\results
+  --results-dir .\retrieval\results --output-dir .\retrieval\evaluation
 ```
 
 Trạng thái nhãn và quy tắc sử dụng nằm trong [benchmark label provenance](../docs/benchmark_label_provenance.md). Không dùng tệp kết quả cũ làm đầu vào đánh giá corpus mới.
 
-## Kết quả Task 4 lịch sử
+## Kết quả trên Dev
 
-Các metric ở [báo cáo retrieval](../docs/retrieval_report.md) được tạo trên corpus/index/model cũ (1.159/1.175 chunks, BKAI 768 chiều). Corpus hiện tại có 2.164 chunks và shared config chọn BGE-M3 1024 chiều. Chưa có G3 mới: cần kết nối Elasticsearch có BM25 metadata hợp lệ và dựng Qdrant index đúng shared config. Không dùng số liệu lịch sử để tuyên bố kết quả cấu hình hiện tại.
+Corpus 2.164 chunk (SHA-256 `9a72a35e532f…`), BGE-M3, index `bm25-e6-verified-20261101`, candidate depth 50, RRF k=60, Top-10; chấm 75 câu Dev có Gold đã duyệt, `as_of_date` của từng câu. Chi tiết: [báo cáo đánh giá](evaluation/retrieval_report.md).
+
+| Phương pháp | Recall@10 | MRR@10 | nDCG@10 | Precision@10 | Temporal Violation Rate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| BM25 | 0.6736 | 0.5778 | 0.5612 | 0.1480 | 0 |
+| Dense | 0.7574 | 0.6563 | 0.6490 | 0.1587 | 0 |
+| Hybrid | 0.7395 | 0.6973 | 0.6600 | 0.1640 | 0 |
+
+Hybrid có MRR@10 và nDCG@10 cao nhất; Recall@10 của Dense cao hơn Hybrid 0,018. Hybrid chưa có reranker; số Hybrid + Reranker nằm ở phần reranking. `rrf_k` = 10 và 60 cho cùng Top-50 vào reranker ở 270/270 câu ([so sánh rrf_k](evaluation/rrf_k_comparison_dev_75.md)).
+
+Các metric Task 4 ở [báo cáo retrieval](../docs/retrieval_report.md) đo trên corpus/model cũ (1.159/1.175 chunk, BKAI 768 chiều, nhãn proposal); chỉ là số liệu lịch sử.
 
 ## Kiểm thử
 

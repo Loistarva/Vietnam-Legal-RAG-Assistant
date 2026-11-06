@@ -13,9 +13,12 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
+from retrieval.settings import load_settings
+
 
 DEFAULT_ES_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
-DEFAULT_INDEX = os.getenv("ELASTICSEARCH_INDEX", "legal-child-chunks-dev")
+# Same index as run_dev_retrieval.py: bm25.index in retrieval/config.yaml; ELASTICSEARCH_INDEX only overrides.
+DEFAULT_INDEX = os.getenv("ELASTICSEARCH_INDEX") or load_settings()["bm25"]["index"]
 
 # These fields are defined by build_bm25_index.py.
 # Boost body text more than title/breadcrumb when ranking.

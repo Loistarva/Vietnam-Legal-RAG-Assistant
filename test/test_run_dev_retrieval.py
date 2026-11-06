@@ -66,7 +66,7 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
     def test_run_config_uses_shared_defaults_and_explicit_overrides(self):
         settings = load_settings()
         defaults = resolve_run_config(settings)
-        self.assertEqual((defaults["top_k"], defaults["candidate_k"], defaults["rrf_k"]), (10, 50, 10))
+        self.assertEqual((defaults["top_k"], defaults["candidate_k"], defaults["rrf_k"]), (10, 50, 60))
         self.assertEqual(defaults["collection"], settings["dense"]["collection"])
         self.assertEqual(
             Path(defaults["qdrant_storage_path"]),

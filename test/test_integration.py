@@ -275,7 +275,7 @@ class RetrievalConfigTest(unittest.TestCase):
     def test_reads_repository_retrieval_config(self):
         settings = load_retrieval_settings()
         self.assertEqual(settings["retrieval_top_k"], 50)
-        self.assertEqual(settings["rrf_k"], 10)
+        self.assertEqual(settings["rrf_k"], 60)
 
     def test_shared_config_rejects_legacy_candidate_k(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -293,6 +293,17 @@ class RetrievalConfigTest(unittest.TestCase):
         self.assertEqual(settings["collection"], settings["shared_config"]["dense"]["collection"])
         self.assertEqual(settings["dimension"], 1024)
         self.assertEqual(settings["qdrant_storage_path"].name, "qdrant_storage")
+
+    def test_candidate_k_is_not_a_fallback_for_retrieval_top_k(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "config.yaml"
+            import yaml
+            from retrieval.settings import DEFAULT_CONFIG_PATH
+            config = yaml.safe_load(DEFAULT_CONFIG_PATH.read_text(encoding="utf-8"))
+            del config["retrieval"]["retrieval_top_k"]
+            path.write_text(yaml.safe_dump(config), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "retrieval.retrieval_top_k"):
+                load_retrieval_settings(path)
 
 
 class CliTest(unittest.TestCase):
@@ -395,6 +406,29 @@ class CliTest(unittest.TestCase):
         self.assertEqual(reranked["config"]["retriever"]["candidates"], str(stage1))
         self.assertEqual([(row["chunk_id"], row["score"]) for row in reranked["results"]],
                          [(row["chunk_id"], row["score"]) for row in expected["results"]])
+
+    def test_precomputed_reads_run_dev_retrieval_envelopes(self):
+        candidates = [dict(row, rank=rank) for rank, row in enumerate(FIXTURE["candidates"], 1)]
+        config = {"top_k": len(candidates), "candidate_k": len(candidates), "rrf_k": 60,
+                  "dense_model": "BAAI/bge-m3", "elasticsearch_index": "bm25-test",
+                  "as_of_date": "2026-10-15", "latency_measurement": "wall_time"}
+        envelope = {"query_id": "HN_001", "query": QUERY, "retriever": "hybrid", "results": candidates,
+                    "latency_ms": 1.0, "top_k": len(candidates), "config": config}
+        with tempfile.TemporaryDirectory() as tmp:
+            stage1 = Path(tmp) / "dev_hybrid.json"
+            stage1.write_text(json.dumps([envelope], ensure_ascii=False), encoding="utf-8")
+            code, out, err = self.run_cli("--query", QUERY, "--query-id", "HN_001", "--as-of-date", "2026-10-15",
+                                          "--retriever", "precomputed", "--candidates", str(stage1),
+                                          "--retrieval-top-k", str(len(candidates)), "--no-parent-context",
+                                          "--top-k", "3")
+        self.assertEqual(code, 0, err)
+        output = json.loads(out)
+        assert_contract(self, output)
+        self.assertEqual(output["retriever"], "hybrid_mock_reranker")
+        source = output["config"]["retriever"]
+        self.assertEqual((source["rrf_k"], source["dense_model"], source["elasticsearch_index"]),
+                         (60, "BAAI/bge-m3", "bm25-test"))
+        self.assertNotIn("as_of_date", source)
 
     def test_precomputed_candidates_are_checked(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -311,7 +311,15 @@ class PrecomputedRetriever:
             self.envelopes[query_id] = envelope
         first = next(iter(self.envelopes.values()))
         # Settings of the run that produced the candidates, recorded with every reranked output.
-        self.source_settings = dict((first.get("config") or {}).get("retriever") or {})
+        first_config = first.get("config") or {}
+        if isinstance(first_config.get("retriever"), Mapping):
+            self.source_settings = dict(first_config["retriever"])
+        else:
+            # retrieval.run_dev_retrieval envelopes: method name at the top, flat config.
+            self.source_settings = {key: value for key, value in first_config.items()
+                                    if key not in ("top_k", "as_of_date", "latency_measurement")}
+            if first.get("retriever"):
+                self.source_settings["backend"] = first["retriever"]
 
     @classmethod
     def from_file(cls, path: str | Path) -> "PrecomputedRetriever":
