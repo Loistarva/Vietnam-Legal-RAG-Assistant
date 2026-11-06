@@ -1,0 +1,245 @@
+{
+  "description": "SHA-256 của PDF nguồn trong data/raw_data; sinh bởi scripts/source_pdf_manifest.py --write, kiểm bởi test/test_source_pdfs.py. added_in là commit gần nhất đổi file lúc ghi manifest. Nguồn tải và ngày tải ghi ở download_status của document_versions.json.",
+  "files": [
+    {
+      "path": "data/raw_data/additional_documents/07_2001_TT-BTP_48707.pdf",
+      "document_id": "tt_07_2001_tt_btp",
+      "sha256": "f24fa84d1877933df252aa2fb1adc879a06e1ab4714c2effdef53b59b1b087df",
+      "bytes": 699606,
+      "added_in": {
+        "commit": "e9e5a28",
+        "date": "2026-10-29"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/07_2002_TT-BTP_50377.pdf",
+      "document_id": "tt_07_2002_tt_btp",
+      "sha256": "1733cc0d86363aa152333874e63080563f65e2b4165adffb3006eb12285521b9",
+      "bytes": 887229,
+      "added_in": {
+        "commit": "e9e5a28",
+        "date": "2026-10-29"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/21-LCT_HDNN7_37246.pdf",
+      "document_id": "l_21_lct_hdnn7",
+      "sha256": "55454385af38da65b66007e594bbd04e685f8d9a863d5ed1975f9a0db21e3a52",
+      "bytes": 180314,
+      "added_in": {
+        "commit": "5a310c2",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/32_2002_ND-CP_49194.pdf",
+      "document_id": "nd_32_2002_nd_cp",
+      "sha256": "ee98dc8ca6b55b553357e4cbb3435540927408295d54499108241d796f93bf82",
+      "bytes": 207086,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/38_2025_TT-BYT_669119.pdf",
+      "document_id": "tt_38_2025_tt_byt",
+      "sha256": "b1e46cb699d0dad5c8e9bf66f9bf0089fe467eae8f1050da5f797f0bd9d97251",
+      "bytes": 346815,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/57.2015.TT.BYT.pdf",
+      "document_id": "tt_57_2015_tt_byt",
+      "sha256": "20a2abf192550ee5fb1b009548f7d8edb9ad2616fce12b6089d9bed0ccc94d5a",
+      "bytes": 505724,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/68_2002_ND-CP_49747.pdf",
+      "document_id": "nd_68_2002_nd_cp",
+      "sha256": "189ab932d4221d0168c74cbdb7cbcd7cb12cf85483e39ae5ff132f89c7b57303",
+      "bytes": 278991,
+      "added_in": {
+        "commit": "5a310c2",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/77_2001_ND-CP_48447.pdf",
+      "document_id": "nd_77_2001_nd_cp",
+      "sha256": "c8296b7f36a371ba5214f69c3caa0d90a52bee8384bcb2de5e69257ef4b4b568",
+      "bytes": 156681,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
+      "document_id": "nd_123_2015_nd_cp",
+      "sha256": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376",
+      "bytes": 467971,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_04_2020_BTP.pdf",
+      "document_id": "tt_04_2020_tt_btp",
+      "sha256": "e3f4d52e327c93a0a624c4b1128e18f0ef1c130067d0ec9ce5a50f29d4c516cc",
+      "bytes": 185243,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_15_2015_BTP.pdf",
+      "document_id": "tt_15_2015_tt_btp",
+      "sha256": "5c527d726436fd1779d986c911a57eeb2902189024822d5f24eabb34f1a5a65e",
+      "bytes": 339253,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_30_2019_BYT.pdf",
+      "document_id": "tt_30_2019_tt_byt",
+      "sha256": "30fbf0b68424527f695cca0361644785327bbb540350479c12fad2d8fb7bd808",
+      "bytes": 60799,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    {
+      "path": "data/raw_data/circulars/TT01.pdf",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "sha256": "90340a3c4e98556444484c950e73015e8cdb588998b2e593cca6ab2df2deeac7",
+      "bytes": 190184,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/circulars/TT02.pdf",
+      "document_id": "tt_02a_2015_tt_btp",
+      "sha256": "f9bc18beaa285ee80aaaa0c9461c1195e766091cc169bb993628f24fee5dd8a4",
+      "bytes": 189314,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/circulars/TT03.pdf",
+      "document_id": "tt_32_2016_tt_byt",
+      "sha256": "07cb22bcecf02fffe9beccbab1316ab708676d2ebb7851e74183d428a553e6cc",
+      "bytes": 158984,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/circulars/TT04.pdf",
+      "document_id": "tt_34_2017_tt_byt",
+      "sha256": "d897b3738e310ebfbe1469930a53273da1d2959fc6b48cf1efbb52d10c0a22ae",
+      "bytes": 166634,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L01.pdf",
+      "document_id": "l_52_2014_qh13",
+      "sha256": "d912966294e26b883e6fe55c6666d00afbcb30bea4e8e811d1e1c3b768b9fc07",
+      "bytes": 301172,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L02.pdf",
+      "document_id": "l_22_2000_qh10",
+      "sha256": "7fd8dddd9c5492a2df0b323c8ac810e60d6a8a369e12ccc21cdb635f9b7a86fc",
+      "bytes": 259733,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L04.pdf",
+      "document_id": "l_81_2025_qh15",
+      "sha256": "7ddf7ea9738451d48f2ab3328251b96f5db13f08e1e2a5419a10b465bf7a13a2",
+      "bytes": 410111,
+      "added_in": {
+        "commit": "ba14708",
+        "date": "2026-10-29"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND01.pdf",
+      "document_id": "nd_126_2014_nd_cp",
+      "sha256": "f33d8f49d96adb13dca0f4e1077b8893d290954d14017aa291e14d2c5ae91b82",
+      "bytes": 259978,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND02.pdf",
+      "document_id": "nd_207_2025_nd_cp",
+      "sha256": "8a5788d202b7691a721ea28f5d2ce9f8eef3dc0c05e6d60a0a7d1b22d5d0979c",
+      "bytes": 188424,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND03.pdf",
+      "document_id": "nq_01_2024_nq_hdtp",
+      "sha256": "36f2f1e322d01b1f6439f26e51b5fed7bc2d5d5b5dec44250a025e6303b0b8de",
+      "bytes": 199256,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND04.pdf",
+      "document_id": "nd_10_2015_nd_cp",
+      "sha256": "7909d1733d16a5a011a5d23511a038cf938b9769b4646ce081d3059113d70886",
+      "bytes": 197401,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND05.pdf",
+      "document_id": "nd_70_2001_nd_cp",
+      "sha256": "0e58fce21376b92966d6413748586fba55940ef47e48f31585450610c85db11b",
+      "bytes": 176935,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    }
+  ]
+}
