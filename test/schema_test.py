@@ -367,3 +367,192 @@ def test_registry_titles_are_trich_yeu_only():
         assert record["document_number"] not in title, (
             f"{record['document_number']}: title lặp lại số hiệu của chính văn bản"
         )
+
+
+
+# =============================================================================
+# Dev 3 Sprint 9 Pydantic & Canonical Schema Tests (DoD-06)
+# =============================================================================
+
+def test_candidate_chunk_validation():
+    from schemas.models import CandidateChunk
+
+    valid_payload = {
+        "query_id": "q_001",
+        "chunk_id": "nd_126_art_1_clause_1_chunk_1",
+        "chunk_text": "Nội dung quy định chi tiết về...",
+        "score": 0.89,
+        "rank": 1,
+        "retrieval_source": "RRF",
+        "validity_status": "Còn hiệu lực",
+        "effective_from": "2015-01-01",
+        "effective_to": None,
+        "as_of_date": "2024-01-01",
+        "document_id": "nd_126",
+        "article_id": "nd_126_art_1",
+        "clause_id": "nd_126_art_1_clause_1",
+        "evidence_index": 1,
+    }
+    candidate = CandidateChunk(**valid_payload)
+    assert candidate.query_id == "q_001"
+    assert candidate.evidence_index == 1
+
+    # Từ chối query_id rỗng
+    invalid_query = copy.deepcopy(valid_payload)
+    invalid_query["query_id"] = "   "
+    with pytest.raises(ValidationError):
+        CandidateChunk(**invalid_query)
+
+    # Từ chối evidence_index ngoài [1, 5]
+    invalid_index = copy.deepcopy(valid_payload)
+    invalid_index["evidence_index"] = 6
+    with pytest.raises(ValidationError):
+        CandidateChunk(**invalid_index)
+
+    # Từ chối trường lạ không nằm trong contract
+    extra_field = copy.deepcopy(valid_payload)
+    extra_field["unexpected_field"] = "malicious_payload"
+    with pytest.raises(ValidationError):
+        CandidateChunk(**extra_field)
+
+
+def test_evidence_item_and_context_payload_validation():
+    from schemas.models import ContextPayload, EvidenceItem
+
+    item1 = EvidenceItem(
+        evidence_index=1,
+        chunk_id="chunk_1",
+        parent_clause_id="parent_clause_1",
+        document_id="doc_1",
+        article_id="art_1",
+        clause_id="clause_1",
+        content="Quy định kết hôn giữa nam và nữ...",
+        validity_status="Còn hiệu lực",
+        effective_from="2015-01-01",
+    )
+
+    payload = ContextPayload(
+        query_id="q_001",
+        query="Điều kiện kết hôn năm 2024?",
+        as_of_date="2024-01-01",
+        evidence_items=[item1],
+    )
+    assert payload.total_chars == len(item1.content)
+    assert 1 in payload.source_map
+    assert payload.source_map[1]["chunk_id"] == "chunk_1"
+
+    # Kiểm tra chặn rỗng
+    with pytest.raises(ValidationError):
+        ContextPayload(query_id="", query="abc", as_of_date="2024-01-01")
+
+
+def test_structured_rag_output_and_indices_validation():
+    from schemas.models import StructuredRAGOutput
+
+    valid = StructuredRAGOutput(
+        answer="Theo quy định, điều kiện kết hôn là...",
+        evidence_indices=[1, 2],
+        abstained=False,
+    )
+    assert valid.evidence_indices == [1, 2]
+
+    # Chặn chuỗi chunk_id thay vì số nguyên
+    with pytest.raises(ValidationError):
+        StructuredRAGOutput(
+            answer="Answer",
+            evidence_indices=["chunk_123"],  # type: ignore
+        )
+
+    # Chặn index ngoài [1, 5]
+    with pytest.raises(ValidationError):
+        StructuredRAGOutput(
+            answer="Answer",
+            evidence_indices=[0],
+        )
+
+    with pytest.raises(ValidationError):
+        StructuredRAGOutput(
+            answer="Answer",
+            evidence_indices=[6],
+        )
+
+
+def test_llm_response_provenance_validation():
+    from schemas.models import LLMResponse, TokenUsage
+
+    resp = LLMResponse(
+        query_id="q_001",
+        run_mode="B_controlled_rag",
+        answer="Trả lời câu hỏi dựa trên bằng chứng...",
+        evidence_indices=[1],
+        prompt_version="v1.0_controlled_rag_m1",
+        num_ctx=8192,
+        num_predict=1024,
+        temperature=0.0,
+        repeat_penalty=1.15,
+        done_reason="stop",
+        truncated=False,
+        parse_status="ok",
+        latency_ms=125.5,
+        token_usage=TokenUsage(input=450, output=120),
+    )
+    assert resp.model == "Qwen2.5:7b"
+    assert resp.parse_status == "ok"
+    assert not resp.truncated
+
+
+def test_rag_output_record_appendix_b_schema():
+    from schemas.models import MappedCitation, RAGOutputRecord, TokenUsage
+
+    record = RAGOutputRecord(
+        query_id="q_001",
+        query="Điều kiện kết hôn?",
+        as_of_date="2024-01-01",
+        as_of_date_source="benchmark",
+        answer="Theo Điều 8 Luật Hôn nhân...",
+        evidence_indices=[1],
+        citations=[
+            MappedCitation(
+                evidence_index=1,
+                chunk_id="hn_gd_art_8_clause_1_chunk_1",
+                document_id="hn_gd",
+                article_id="hn_gd_art_8",
+                clause_id="hn_gd_art_8_clause_1",
+            )
+        ],
+        grounding_status="PASS",
+        retrieval_trace={"top_k": 5, "rerank_used": True},
+        model="Qwen2.5:7b",
+        prompt_version="v1.0_controlled_rag_m1",
+        num_ctx=8192,
+        num_predict=1024,
+        done_reason="stop",
+        truncated=False,
+        corpus_version="v1.0",
+        retrieval_config_version="v1.0",
+        threshold_config_version="v1.0",
+        latency_ms=150.0,
+        token_usage=TokenUsage(input=500, output=100),
+        fallback_status="none",
+    )
+    assert record.grounding_status == "PASS"
+    assert len(record.citations) == 1
+
+
+def test_exported_json_schemas_match_models():
+    base_dir = Path(__file__).resolve().parent.parent
+    schemas_dir = base_dir / "schemas"
+
+    candidate_file = schemas_dir / "candidate.schema.json"
+    context_file = schemas_dir / "context_payload.schema.json"
+    llm_resp_file = schemas_dir / "llm_response.schema.json"
+
+    assert candidate_file.exists()
+    assert context_file.exists()
+    assert llm_resp_file.exists()
+
+    from schemas.models import CandidateChunk, ContextPayload, StructuredRAGOutput
+
+    assert json.loads(candidate_file.read_text(encoding="utf-8")) == CandidateChunk.model_json_schema()
+    assert json.loads(context_file.read_text(encoding="utf-8")) == ContextPayload.model_json_schema()
+    assert json.loads(llm_resp_file.read_text(encoding="utf-8")) == StructuredRAGOutput.model_json_schema()

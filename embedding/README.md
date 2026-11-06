@@ -92,3 +92,41 @@ python embedding/retrieval_smoke_test.py --help
 # Chạy thử nghiệm khói ở chế độ Mock
 python embedding/retrieval_smoke_test.py --mock
 ```
+
+
+## Hợp đồng bàn giao Embedding Model (Dev 3 Ownership -> Dev 4 Consumer)
+
+Trong Sprint 9 (Kế hoạch V3), phân hệ **Dev 3** chịu trách nhiệm Model Ownership (đặc tả, tiền xử lý và kiểm định vector), bàn giao cho **Dev 4** (vận hành Qdrant Server & Indexing Pipeline).
+
+### 1. Đặc tả mô hình sản xuất (Production Model Specification)
+- **Mô hình chuẩn**: `BAAI/bge-m3`
+- **Số chiều vector (Dimension)**: `1024`
+- **Khoảng cách vector**: Cosine Similarity
+- **Trường văn bản đầu vào**: `embed_text_raw` (trích xuất từ `chunks.jsonl`)
+- **Tách từ tiếng Việt (`use_word_segmentation`)**: `False` (bge-m3 nhận chuỗi văn bản tự nhiên, không qua underthesea)
+- **Tên collection mặc định**: `legal_corpus_bge_m3` (hoặc `vietnam_legal_chunks` cấu hình trong `retrieval/config.yaml`)
+
+### 2. Giao diện lập trình (API Handoff Interface)
+Dev 4 gọi trực tiếp các tiện ích từ `embedding/model_registry.py`:
+
+```python
+from embedding.model_registry import (
+    get_embedding_spec,
+    validate_collection_dimension,
+    prepare_text_for_embedding,
+)
+
+# 1. Lấy thông số cấu hình model
+spec = get_embedding_spec("BAAI/bge-m3")
+# Output: {"name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "text_field": "embed_text_raw", "collection_name": "legal_corpus_bge_m3"}
+
+# 2. Kiểm tra tính tương thích trước khi nạp Qdrant
+validate_collection_dimension("BAAI/bge-m3", actual_dimension=1024)  # Trả về True; ném ValueError nếu sai lệch
+
+# 3. Tiền xử lý đối xứng trước khi embed (cho cả batch index và realtime query)
+clean_text = prepare_text_for_embedding("Điều kiện ly hôn theo Luật Hôn nhân 2014", "BAAI/bge-m3")
+```
+
+### 3. Nguyên tắc vận hành
+- **Fail-Fast**: Bất kỳ sự lệch pha nào giữa vector dimension lưu trong collection metadata và cấu hình model spec đều phải ném ngoại lệ dừng pipeline ngay lập tức.
+- **Tính đối xứng (Symmetry)**: Vector hóa tập chunk dữ liệu (precompute) và vector hóa câu hỏi người dùng (inference) phải sử dụng cùng hàm `prepare_text_for_embedding`.
