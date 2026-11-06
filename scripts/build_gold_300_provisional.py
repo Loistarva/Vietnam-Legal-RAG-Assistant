@@ -3,8 +3,12 @@
 Usage: python build_gold_300_provisional.py --root <benchmark_repo> --output <output_dir>
 """
 from __future__ import annotations
-import argparse, csv, datetime, hashlib, json, re, sys
-from collections import defaultdict, Counter
+import argparse
+import csv
+import hashlib
+import json
+import sys
+from collections import defaultdict
 from pathlib import Path
 
 if sys.platform == "win32":

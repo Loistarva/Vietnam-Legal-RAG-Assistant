@@ -1,6 +1,9 @@
 """Freeze evaluation labels in the Test split only when final checks pass on Test questions."""
 from __future__ import annotations
-import argparse, hashlib, json, sys
+import argparse
+import hashlib
+import json
+import sys
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -14,7 +17,7 @@ ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT/'scripts') not in sys.path:
     sys.path.insert(0, str(ROOT/'scripts'))
 
-from validate_benchmark import DATA, REF, canonical_json_sha256, check, inputs, load
+from validate_benchmark import DATA, canonical_json_sha256, check, inputs, load
 MANIFEST=ROOT/'docs'/'test_gold_freeze.json'
 
 def sha256(data):

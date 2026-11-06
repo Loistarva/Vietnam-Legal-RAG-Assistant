@@ -1,5 +1,8 @@
 """Freeze ONLY the Test questions using canonical JSON SHA-256."""
-import argparse, hashlib, json, sys
+import argparse
+import hashlib
+import json
+import sys
 from pathlib import Path
 
 if sys.platform == "win32":

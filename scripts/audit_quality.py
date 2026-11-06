@@ -4,7 +4,10 @@ Does not infer legal correctness from citations, excerpts or automatically extra
 Outputs human review queue; nothing is promoted to verified Gold.
 """
 from __future__ import annotations
-import argparse,csv,json,re
+import argparse
+import csv
+import json
+import re
 from collections import Counter
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
