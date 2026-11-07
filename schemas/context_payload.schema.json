@@ -1,0 +1,151 @@
+{
+  "$defs": {
+    "EvidenceItem": {
+      "additionalProperties": false,
+      "description": "Đại diện cho từng mảnh bằng chứng đưa vào prompt sau Parent Resolver (Top 1..5).",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "title": "Parent Clause Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string"
+        },
+        "validity_status": {
+          "title": "Validity Status",
+          "type": "string"
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective From"
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective To"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "parent_clause_id",
+        "document_id",
+        "article_id",
+        "clause_id",
+        "content",
+        "validity_status"
+      ],
+      "title": "EvidenceItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Đầu vào cho Prompt Builder & Citation Validator.",
+  "properties": {
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "query": {
+      "title": "Query",
+      "type": "string"
+    },
+    "as_of_date": {
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "as_of_date_source": {
+      "default": "benchmark",
+      "enum": [
+        "benchmark",
+        "query_text",
+        "user_input",
+        "system_today"
+      ],
+      "title": "As Of Date Source",
+      "type": "string"
+    },
+    "evidence_items": {
+      "items": {
+        "$ref": "#/$defs/EvidenceItem"
+      },
+      "title": "Evidence Items",
+      "type": "array"
+    },
+    "source_map": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Source Map",
+      "type": "object"
+    },
+    "max_context_chars": {
+      "default": 6000,
+      "title": "Max Context Chars",
+      "type": "integer"
+    },
+    "total_chars": {
+      "default": 0,
+      "title": "Total Chars",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "query_id",
+    "query",
+    "as_of_date"
+  ],
+  "title": "ContextPayload",
+  "type": "object"
+}

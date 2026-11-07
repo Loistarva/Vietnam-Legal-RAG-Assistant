@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "description": "Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG).",
+  "properties": {
+    "answer": {
+      "title": "Answer",
+      "type": "string"
+    },
+    "evidence_indices": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Evidence Indices",
+      "type": "array"
+    },
+    "abstained": {
+      "default": false,
+      "title": "Abstained",
+      "type": "boolean"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
+    "needs_clarification": {
+      "default": false,
+      "title": "Needs Clarification",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "answer"
+  ],
+  "title": "StructuredRAGOutput",
+  "type": "object"
+}
