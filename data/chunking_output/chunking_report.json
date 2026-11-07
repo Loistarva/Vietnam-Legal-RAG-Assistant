@@ -1,7 +1,7 @@
 {
   "num_documents": 28,
-  "num_parents": 1169,
-  "num_children": 2475,
+  "num_parents": 1078,
+  "num_children": 2322,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -88,9 +88,9 @@
       "document_id": "nd_07_2025_nd_cp",
       "document_number": "07/2025/NĐ-CP",
       "validity_status": "Sửa đổi bổ sung",
-      "num_articles": 5,
-      "num_parents": 22,
-      "num_children": 48
+      "num_articles": 3,
+      "num_parents": 11,
+      "num_children": 27
     },
     {
       "source": "parser/parsed_jsons/nd_10_2015_nd_cp.json",
@@ -124,9 +124,9 @@
       "document_id": "nd_18_2026_nd_cp",
       "document_number": "18/2026/NĐ-CP",
       "validity_status": "Còn hiệu lực",
-      "num_articles": 18,
-      "num_parents": 82,
-      "num_children": 135
+      "num_articles": 2,
+      "num_parents": 7,
+      "num_children": 12
     },
     {
       "source": "parser/parsed_jsons/nd_207_2025_nd_cp.json",
@@ -214,9 +214,9 @@
       "document_id": "tt_04_2024_tt_btp",
       "document_number": "04/2024/TT-BTP",
       "validity_status": "Còn hiệu lực",
-      "num_articles": 4,
-      "num_parents": 9,
-      "num_children": 17
+      "num_articles": 3,
+      "num_parents": 4,
+      "num_children": 8
     },
     {
       "source": "parser/parsed_jsons/tt_07_2001_tt_btp.json",
@@ -300,6 +300,53 @@
       "num_children": 45
     }
   ],
+  "corpus_scope": {
+    "nd_07_2025_nd_cp": {
+      "included": [
+        "2",
+        "3",
+        "5"
+      ],
+      "excluded": [
+        "1",
+        "4"
+      ]
+    },
+    "nd_18_2026_nd_cp": {
+      "included": [
+        "13",
+        "17"
+      ],
+      "excluded": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18"
+      ]
+    },
+    "tt_04_2024_tt_btp": {
+      "included": [
+        "2",
+        "3",
+        "4"
+      ],
+      "excluded": [
+        "1"
+      ]
+    }
+  },
   "provision_periods": {
     "nd_126_2014_art_19_50_repealed": 101,
     "nd_126_2014_art_63_clause_1_point_a_repealed": 1,
