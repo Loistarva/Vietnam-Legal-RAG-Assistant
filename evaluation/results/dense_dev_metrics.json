@@ -216,7 +216,7 @@
     "precision@5": 0.2693333333333333,
     "strict_match_recall@10": 0.7684761904761905,
     "mrr@10": 0.6607142857142857,
-    "ndcg@10": 0.6569616983945913,
+    "ndcg@10": 0.656818575555143,
     "precision@10": 0.16533333333333333,
     "parent_match_recall@5": 0.6716825396825397,
     "parent_match_recall@10": 0.7858095238095237
@@ -258,8 +258,8 @@
         "num_questions": 75
       },
       "ndcg@10": {
-        "lower": 0.5700740964299146,
-        "upper": 0.740109659228101,
+        "lower": 0.569789680181117,
+        "upper": 0.7400535156868793,
         "num_questions": 75
       },
       "precision@10": {
@@ -623,7 +623,7 @@
           "num_questions": 5
         },
         "ndcg@10": {
-          "lower": 0.5321647550115071,
+          "lower": 0.5278710698280603,
           "upper": 0.8885320713440146,
           "num_questions": 5
         },
@@ -1916,7 +1916,7 @@
       "precision@5": 0.2,
       "strict_match_recall@10": 0.6666666666666666,
       "mrr@10": 0.3333333333333333,
-      "ndcg@10": 0.40179981797758046,
+      "ndcg@10": 0.39106560501896365,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.5,
@@ -2132,10 +2132,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "queries": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
     "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "55c1c678349fe2a1e5e91d2d1d1775ad4c16a28596ffff2b6ba6d25dc2411ed4"
+    "retrieval_results": "86ca8daa84fd4914ff22c45c7fd8ee71ac4f0d0dd16bb3211d8b8825cbbacbf5"
   },
   "run_config": {
     "top_k": 10,
@@ -2148,7 +2148,7 @@
     "elasticsearch_index": "bm25-e6-verified-20261101",
     "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
     "fusion": "rrf",
-    "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+    "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
     "as_of_date_by_query": {
       "HN_001": "2026-10-15",
@@ -2512,7 +2512,7 @@
       "precision@5": 0.24000000000000005,
       "strict_match_recall@10": 0.8333333333333334,
       "mrr@10": 0.7666666666666667,
-      "ndcg@10": 0.7103484131777609,
+      "ndcg@10": 0.7082015705860375,
       "precision@10": 0.18,
       "parent_match_recall@5": 0.8,
       "parent_match_recall@10": 0.9

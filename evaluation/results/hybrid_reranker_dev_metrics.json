@@ -214,12 +214,12 @@
     "mrr@5": 0.7571111111111111,
     "ndcg@5": 0.7040453679293637,
     "precision@5": 0.31200000000000006,
-    "strict_match_recall@10": 0.7965396825396825,
-    "mrr@10": 0.7593333333333334,
-    "ndcg@10": 0.7321808631038916,
-    "precision@10": 0.18533333333333335,
+    "strict_match_recall@10": 0.7920952380952381,
+    "mrr@10": 0.7571111111111111,
+    "ndcg@10": 0.7299520570376755,
+    "precision@10": 0.184,
     "parent_match_recall@5": 0.7475238095238096,
-    "parent_match_recall@10": 0.8132063492063492
+    "parent_match_recall@10": 0.8065396825396824
   },
   "confidence_intervals": {
     "method": "percentile_bootstrap",
@@ -248,23 +248,23 @@
         "num_questions": 75
       },
       "strict_match_recall@10": {
-        "lower": 0.7197436507936509,
-        "upper": 0.8673015873015874,
+        "lower": 0.7135206349206349,
+        "upper": 0.8644444444444443,
         "num_questions": 75
       },
       "mrr@10": {
-        "lower": 0.676661111111111,
-        "upper": 0.8371111111111111,
+        "lower": 0.6735500000000001,
+        "upper": 0.8355555555555555,
         "num_questions": 75
       },
       "ndcg@10": {
-        "lower": 0.6558954850598241,
-        "upper": 0.8046724608439422,
+        "lower": 0.652807328705845,
+        "upper": 0.8031996070769326,
         "num_questions": 75
       },
       "precision@10": {
-        "lower": 0.15066666666666667,
-        "upper": 0.22266666666666665,
+        "lower": 0.14933333333333335,
+        "upper": 0.22133333333333335,
         "num_questions": 75
       },
       "parent_match_recall@5": {
@@ -273,8 +273,8 @@
         "num_questions": 75
       },
       "parent_match_recall@10": {
-        "lower": 0.7386634920634921,
-        "upper": 0.8814309523809524,
+        "lower": 0.728981746031746,
+        "upper": 0.8774007936507936,
         "num_questions": 75
       }
     },
@@ -769,22 +769,22 @@
           "num_questions": 2
         },
         "strict_match_recall@10": {
-          "lower": 0.3333333333333333,
+          "lower": 0.0,
           "upper": 1.0,
           "num_questions": 2
         },
         "mrr@10": {
-          "lower": 0.16666666666666666,
+          "lower": 0.0,
           "upper": 0.5,
           "num_questions": 2
         },
         "ndcg@10": {
-          "lower": 0.16716045496620227,
+          "lower": 0.0,
           "upper": 0.6309297535714575,
           "num_questions": 2
         },
         "precision@10": {
-          "lower": 0.1,
+          "lower": 0.0,
           "upper": 0.1,
           "num_questions": 2
         },
@@ -794,7 +794,7 @@
           "num_questions": 2
         },
         "parent_match_recall@10": {
-          "lower": 0.5,
+          "lower": 0.0,
           "upper": 1.0,
           "num_questions": 2
         }
@@ -1710,14 +1710,14 @@
       "mrr@5": 0.0,
       "ndcg@5": 0.0,
       "precision@5": 0.0,
-      "strict_match_recall@10": 0.3333333333333333,
-      "mrr@10": 0.16666666666666666,
-      "ndcg@10": 0.16716045496620227,
-      "precision@10": 0.1,
+      "strict_match_recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "precision@10": 0.0,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.0,
       "parent_match_metadata_missing@10": false,
-      "parent_match_recall@10": 0.5,
+      "parent_match_recall@10": 0.0,
       "parent_match_metadata_missing": false,
       "category": "thu_tuc"
     },
@@ -2132,10 +2132,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "queries": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
     "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "74ac1def6dfbfc8293e174929e77c6d1fd2094ab40c186665625da2a12ae4bf4"
+    "retrieval_results": "6aaf4583e65c3a64bb9357fc69f2de3d1448101fb0119052302ab8f5cd8b458f"
   },
   "run_config": {
     "retriever": {
@@ -2148,9 +2148,9 @@
       "collection": "vietnam_legal_chunks",
       "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "fusion": "rrf",
-      "candidates": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\ed5a65c211784539\\f70a92dc-3172-46e0-b690-2ca20555a2a3\\scratchpad\\cand_dev_top50.json"
+      "candidates": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\ed5a65c211784539\\f70a92dc-3172-46e0-b690-2ca20555a2a3\\scratchpad\\cand_dev_top50_v2.json"
     },
     "reranker": {
       "backend": "cross_encoder",
@@ -2562,12 +2562,12 @@
       "mrr@5": 0.25,
       "ndcg@5": 0.31546487678572877,
       "precision@5": 0.1,
-      "strict_match_recall@10": 0.6666666666666666,
-      "mrr@10": 0.3333333333333333,
-      "ndcg@10": 0.3990451042688299,
-      "precision@10": 0.1,
+      "strict_match_recall@10": 0.5,
+      "mrr@10": 0.25,
+      "ndcg@10": 0.31546487678572877,
+      "precision@10": 0.05,
       "parent_match_recall@5": 0.5,
-      "parent_match_recall@10": 0.75
+      "parent_match_recall@10": 0.5
     },
     "yeu_to_nuoc_ngoai": {
       "strict_match_recall@5": 0.5,
