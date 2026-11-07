@@ -2,7 +2,7 @@
 
 - Ngày: 2026-11-07. Chọn: **`dense.model: BAAI/bge-m3`** (giữ giá trị trong `retrieval/config.yaml`).
 - Dev: `data/benchmark/queries_dev.json`, 270 câu đã chạy retrieval; chỉ chấm 75 câu có Gold đã duyệt (`gold_context_ids_confirmed`) trong `ground_truth.json`.
-- Corpus: `data/chunking_output/chunks.jsonl`, 2.164 chunk, SHA-256 (CRLF → LF) bắt đầu `080f1607e5c9`, có `effective_to` cấp Điều/Khoản theo `data/reference/provision_periods.json` (D1).
+- Corpus: `data/chunking_output/chunks.jsonl`, 2.164 chunk, SHA-256 (CRLF → LF) bắt đầu `080f1607e5c9`, có `effective_to` cấp Điều/Khoản theo `data/reference/provision_periods.json` (D1). Sau đó corpus thêm các văn bản sửa đổi Nghị định 123/2015, Thông tư 04/2020 (2.322 chunk, `c18239351424`); Dense BGE-M3 trên corpus mới giữ Recall@10 0.7685, MRR@10 0.6607 nên không chọn lại.
 - Ba model trong `dense.supported_models`, mỗi model một collection Qdrant dựng bằng `scripts/build_index.py` từ cùng corpus, cùng `embed_text_raw`:
   - `BAAI/bge-m3` (1024 chiều, không tách từ), collection `vietnam_legal_chunks`;
   - `bkai-foundation-models/vietnamese-bi-encoder` (768 chiều, tách từ underthesea 9.5.0 cả câu hỏi và chunk), collection `e2_bkai`;
