@@ -1,5 +1,11 @@
 """Automated structural, clause-level, and temporal QA for the 300-question benchmark."""
-import sys,unittest,copy,hashlib,json,collections,tempfile,csv
+import sys
+import unittest
+import copy
+import json
+import collections
+import tempfile
+import csv
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -15,7 +21,8 @@ class BenchmarkContractTests(unittest.TestCase):
         data={'dev':copy.deepcopy(self.dev),'test':copy.deepcopy(self.test),'gt':copy.deepcopy(self.gold),
               'articles':copy.deepcopy(self.articles),'chunks':copy.deepcopy(self.chunks),
               'docs':copy.deepcopy(self.docs),'schema':copy.deepcopy(self.schema)}
-        data.update(kwargs);return validate_dataset(**data)
+        data.update(kwargs)
+        return validate_dataset(**data)
     def candidate_fixture(self):
         """Return a copy of the gold and one draft that still has unconfirmed candidates."""
         gold = copy.deepcopy(self.gold)
@@ -300,39 +307,51 @@ class BenchmarkContractTests(unittest.TestCase):
                 self.assertNotEqual(g['mapping_status'], 'production_verified', g['id'])
 
     def test_duplicate_query_id_is_detected(self):
-        q=copy.deepcopy(self.test);q[0]['id']=self.dev[0]['id']
+        q=copy.deepcopy(self.test)
+        q[0]['id']=self.dev[0]['id']
         self.assertTrue(any('Trùng question ID' in e for e in self.validate(test=q)))
 
     def test_missing_question_text_fails_schema(self):
-        q=copy.deepcopy(self.dev);del q[0]['question']
+        q=copy.deepcopy(self.dev)
+        del q[0]['question']
         self.assertTrue(any('required property' in e for e in self.validate(dev=q)))
     def test_invalid_date_fails_schema(self):
-        q=copy.deepcopy(self.test);q[0]['as_of_date']='2026-99-99'
+        q=copy.deepcopy(self.test)
+        q[0]['as_of_date']='2026-99-99'
         self.assertTrue(any('date' in e.lower() for e in self.validate(test=q)))
     def test_gold_missing_fails(self):
-        g=copy.deepcopy(self.gold);g.pop()
+        g=copy.deepcopy(self.gold)
+        g.pop()
         self.assertTrue(any('Question IDs lệch' in e for e in self.validate(gt=g)))
     def test_duplicated_gold_id_fails(self):
-        g=copy.deepcopy(self.gold);g[1]['id']=g[0]['id']
+        g=copy.deepcopy(self.gold)
+        g[1]['id']=g[0]['id']
         self.assertTrue(any('Trùng ground-truth ID' in e for e in self.validate(gt=g)))
     def test_wrong_article_id_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_article_ids']=['NOT_REAL']
+        g=copy.deepcopy(self.gold)
+        g[0]['gold_article_ids']=['NOT_REAL']
         self.assertTrue(any('article ID không tồn tại' in e for e in self.validate(gt=g)))
     def test_fabricated_gold_chunk_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['FAKE_CHUNK_1']
+        g=copy.deepcopy(self.gold)
+        g[0]['gold_context_ids']=['FAKE_CHUNK_1']
         self.assertTrue(any('chunk ID giả' in e for e in self.validate(gt=g)))
     def test_article_not_allowed_as_context_id(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['L01_D08']
+        g=copy.deepcopy(self.gold)
+        g[0]['gold_context_ids']=['L01_D08']
         self.assertTrue(any('article_id không được dùng' in e for e in self.validate(gt=g)))
     def test_cross_document_chunk_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['DIFF_DOC']
-        c=copy.deepcopy(self.chunks);c.append({'chunk_id':'DIFF_DOC','document_number':'22/2000/QH10','article_id':'XXX', 'chunk_text':'text'})
+        g=copy.deepcopy(self.gold)
+        g[0]['gold_context_ids']=['DIFF_DOC']
+        c=copy.deepcopy(self.chunks)
+        c.append({'chunk_id':'DIFF_DOC','document_number':'22/2000/QH10','article_id':'XXX', 'chunk_text':'text'})
         self.assertTrue(any('sai văn bản' in e for e in self.validate(gt=g,chunks=c)))
     def test_wrong_article_chunk_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['gold_context_ids']=['l_52_2014_qh13_art_9_clause_1_chunk_1']
+        g=copy.deepcopy(self.gold)
+        g[0]['gold_context_ids']=['l_52_2014_qh13_art_9_clause_1_chunk_1']
         self.assertTrue(any('không thuộc gold_article_ids' in e for e in self.validate(gt=g)))
     def test_wrong_mapping_status_rejected(self):
-        g=copy.deepcopy(self.gold);g[0]['mapping_status']='not_mapped'
+        g=copy.deepcopy(self.gold)
+        g[0]['mapping_status']='not_mapped'
         self.assertTrue(any('not_mapped nhưng có context ID' in e for e in self.validate(gt=g)))
     def test_false_verified_flag_rejected(self):
         g, candidate = self.candidate_fixture()
@@ -346,7 +365,8 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(any('thiếu verified_at' in e for e in self.validate(gt=g)))
 
     def test_temporal_source_check(self):
-        q=copy.deepcopy(self.dev);q[0]['as_of_date']='2012-10-15'
+        q=copy.deepcopy(self.dev)
+        q[0]['as_of_date']='2012-10-15'
         self.assertTrue(any('trước ngày có hiệu lực' in e for e in self.validate(dev=q)))
     def test_final_gating_not_false_success(self):
         self.assertTrue(any('chưa có xác minh pháp lý' in e for e in check(final=True)[0]))
@@ -381,7 +401,8 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertTrue(any('chưa được xác nhận production' in e for e in self.validate(gt=g)))
 
     def test_answer_kind_required(self):
-        g=copy.deepcopy(self.gold);del g[0]['answer_kind']
+        g=copy.deepcopy(self.gold)
+        del g[0]['answer_kind']
         self.assertTrue(any('answer_kind' in e for e in self.validate(gt=g)))
     def test_final_rejects_extracted_pdf_as_answer(self):
         self.assertTrue(any('answer chưa được biên soạn' in e for e in check(final=True)[0]))
@@ -422,4 +443,5 @@ class BenchmarkContractTests(unittest.TestCase):
         next(d for d in docs if d['document_number'] == '02a/2015/TT-BTP')['expiry_date'] = '2017-01-01'
         self.assertTrue(any('HN_040' in e and 'hết hiệu lực toàn bộ' in e for e in self.validate(docs=docs)))
 
-if __name__=='__main__':unittest.main()
+if __name__=='__main__':
+    unittest.main()
