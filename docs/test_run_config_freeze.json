@@ -8,7 +8,7 @@
   ],
   "top_k": 10,
   "sha256": {
-    "corpus": "93c6780bb1f14f051d342d17d92f30b56b34f5944d5c692ec6fdb729dc849d49",
+    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
     "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471"
   },

@@ -13,9 +13,9 @@
     "evaluation/datasets/dev_gold_30_queries_v1.json": "da08c76de467288c8b5faa2870ef741e92a62f301f59bdbb1dac0e6a15702f93",
     "data/benchmark/queries_dev.json": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
     "data/benchmark/ground_truth.json": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "data/chunking_output/chunks.jsonl": "93c6780bb1f14f051d342d17d92f30b56b34f5944d5c692ec6fdb729dc849d49"
+    "data/chunking_output/chunks.jsonl": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264"
   },
-  "input_update_note": "Cập nhật 2026-11-07 (fix/leftover-after-0211): queries_dev.json sửa lỗi gõ câu HN_078, HN_207 (không thuộc 30 câu); corpus có effective_to cấp Điều/Khoản/Điểm (D1) và thêm NĐ 87/2020, NĐ 07/2025, NĐ 18/2026, TT 04/2024 (2.475 chunk). Kiểm lại: 30 bản ghi vẫn giống queries_dev.json, 45/45 chunk gold còn trong corpus và có hiệu lực tại as_of_date.",
+  "input_update_note": "Cập nhật 2026-11-07 (fix/leftover-after-0211): queries_dev.json sửa lỗi gõ câu HN_078, HN_207 (không thuộc 30 câu); corpus có effective_to cấp Điều/Khoản/Điểm (D1) và thêm NĐ 87/2020, NĐ 07/2025, NĐ 18/2026, TT 04/2024 (2.322 chunk; chỉ các Điều thuộc phạm vi theo data/reference/corpus_scope.json). Kiểm lại: 30 bản ghi vẫn giống queries_dev.json, 45/45 chunk gold còn trong corpus và có hiệu lực tại as_of_date.",
   "checks": {
     "ids_unique_and_same_order_as_ids_file": true,
     "records_identical_to_queries_dev_json": true,
