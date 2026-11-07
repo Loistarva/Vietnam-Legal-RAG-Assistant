@@ -1,6 +1,45 @@
 # Nguồn và trạng thái nhãn benchmark Retrieval
 
-## Trạng thái nhãn hiện tại
+## Bổ sung mapping context từ nhánh testing
+
+Sáu câu HN_039, HN_046, HN_048, HN_050, HN_058, HN_060 đã thay ID giả
+bằng 9 chunk có nguồn PDF chính thức. Nguồn, số trang, SHA-256 và phạm vi
+trích tại `data/reference/effectivity_evidence_sources.json`. Các bản parser
+bổ sung là trích chọn, không phải toàn văn; đáp án vẫn giữ trạng thái draft.
+Fixture giả riêng không phải dữ liệu production. Hiện 300 câu đều có ID thật.
+Các số liệu bên dưới mô tả giai đoạn trước khi thay sáu placeholder.
+
+Đợt bổ sung này thêm `gold_context_ids` cho 177 câu Dev từ corpus hiện có:
+176 câu đã dẫn toàn Điều và HN_053 dẫn Điều 132 Luật 52/2014/QH13.
+Mapping lấy đủ các child chunk của Điều được dẫn, bao gồm chunk nối tiếp;
+không chuyển nguyên danh sách proposal được xếp hạng thành Gold.
+
+Sau khi rà lại raw data và corpus, thêm 12 câu hiệu lực bằng các điều khoản
+bãi bỏ/thay thế/ngày hiệu lực đã có trong production; bổ sung citation và
+`gold_article_ids` tương ứng, giữ nguyên đáp án và trạng thái duyệt.
+Hiện có 294/300 câu có context mapping: Dev 264/270, Test 30/30;
+tổng 793 lượt ID, 589 ID duy nhất. Sáu câu HN_039, HN_046, HN_048,
+HN_050, HN_058, HN_060 còn chờ xác định chunk chứng minh đáp án.
+
+`production_verified` và `gold_context_ids_confirmed=true` ở 189 câu mới chỉ
+xác nhận ID tồn tại và khớp Điều/corpus. Các câu này vẫn `review_status=draft`,
+giữ nguyên `answer_kind`, đáp án, tên/ngày người duyệt và ghi
+`evidence_level=chunk_text_matched_unverified`. Chưa xác nhận tính đầy đủ của
+đáp án, liên kết dẫn chiếu sang Điều khác hoặc hiệu lực pháp lý theo ngày hỏi.
+Không coi 294 câu có mapping là 294 câu Gold đã được con người duyệt.
+
+Metric dùng cho báo cáo Gold đã duyệt vẫn phải giới hạn vào 105 câu
+`source_checked` (Dev 75, Test 30). Evaluator đọc mọi `gold_context_ids` không
+tự bảo đảm điều kiện này; nếu dùng cả 294 câu, phải ghi rõ đây là kết quả trên
+mapping mở rộng gồm 189 câu chưa duyệt. Số lượng chunk liên quan của mapping
+toàn Điều có thể lớn hơn `top_k`; cần xét điều này khi diễn giải Recall@k.
+
+Kiểm tra bằng `node scripts/complete_gold_context_ids.cjs`; xem danh sách
+mapping mới và 6 câu chờ xác định chứng cứ trong
+`data/benchmark/gold_context_completion_audit.json`. Manifest Test được kiểm tra
+SHA-256 và không thay đổi. Script chỉ ghi dữ liệu khi có `--write`.
+
+## Trạng thái nhãn trước đợt bổ sung mapping
 
 | Thành phần | Tệp | Số bản ghi | Trạng thái |
 | --- | --- | ---: | --- |
