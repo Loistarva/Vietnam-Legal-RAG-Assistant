@@ -33,11 +33,17 @@ def supports_historical_repeal(query, gold, citation, chunks, documents):
     """A repealing provision remains evidence of a past repeal after its own expiry.
 
     This does not allow expired substantive rules as current law: require a
-    status question, confirmed production evidence, an explicit repeal naming
-    the target, and matching target-expiry/source-effective dates.
+    status question, production evidence (confirmed gold, or the candidates of
+    a draft that are not scored yet), an explicit repeal naming the target, and
+    matching target-expiry/source-effective dates.
     """
-    if (query.get('category') != 'hieu_luc' or query.get('test_type') != 'outdated_law_trap'
-            or not gold.get('gold_context_ids_confirmed')):
+    if query.get('category') != 'hieu_luc' or query.get('test_type') != 'outdated_law_trap':
+        return False
+    if gold.get('gold_context_ids_confirmed'):
+        evidence_ids = gold.get('gold_context_ids', [])
+    elif gold.get('review_status') == 'draft':
+        evidence_ids = gold.get('candidate_context_ids', [])
+    else:
         return False
     source = documents.get(citation.get('document_id'), {})
     effective = source.get('effective_date')
@@ -45,7 +51,7 @@ def supports_historical_repeal(query, gold, citation, chunks, documents):
         return False
     if source.get('expiry_date') and effective >= source['expiry_date']:
         return False
-    evidence = [chunks[cid] for cid in gold.get('gold_context_ids', []) if cid in chunks
+    evidence = [chunks[cid] for cid in evidence_ids if cid in chunks
                 and chunks[cid].get('document_number') == citation.get('document_id')
                 and chunks[cid].get('article_number') == citation.get('article')
                 and chunks[cid].get('article_id') in gold.get('gold_article_ids', [])]

@@ -17,12 +17,10 @@ class BenchmarkContractTests(unittest.TestCase):
               'docs':copy.deepcopy(self.docs),'schema':copy.deepcopy(self.schema)}
         data.update(kwargs);return validate_dataset(**data)
     def candidate_fixture(self):
-        """Create an unconfirmed candidate in memory, independent of live coverage."""
+        """Return a copy of the gold and one draft that still has unconfirmed candidates."""
         gold = copy.deepcopy(self.gold)
-        draft = next(item for item in gold if item['review_status'] == 'draft')
-        draft.update(candidate_context_ids=list(draft['gold_context_ids']), gold_context_ids=[],
-                     gold_context_ids_confirmed=False, mapping_status='production_candidate_unverified')
-        self.assertTrue(draft['candidate_context_ids'])
+        draft = next(item for item in gold if item['review_status'] == 'draft' and item['candidate_context_ids'])
+        self.assertFalse(draft['gold_context_ids'] or draft['gold_context_ids_confirmed'])
         return gold, draft
     def test_schema_and_data_pass_handoff(self):self.assertEqual(check()[0],[])
     def test_total_between_50_and_300(self):self.assertTrue(50<=len(self.dev+self.test)<=300)
@@ -175,11 +173,15 @@ class BenchmarkContractTests(unittest.TestCase):
         from collections import Counter
         counts = Counter(g['mapping_status'] for g in self.gold)
         self.assertEqual(sum(counts.values()), 300)
-        self.assertEqual(counts['not_mapped'], 0)
-        self.assertEqual(counts['production_verified'], 300)
-        self.assertEqual(counts['production_candidate_unverified'], 0)
-        self.assertEqual(sum(bool(g['gold_context_ids']) for g in self.gold), 300)
+        # Drafts carry their chunk mapping as unconfirmed candidates (D6); only reviewed
+        # questions have gold. HN_039 and HN_048 need documents outside the corpus.
+        self.assertEqual(counts['not_mapped'], 2)
+        self.assertEqual(counts['production_verified'], 105)
+        self.assertEqual(counts['production_candidate_unverified'], 193)
+        self.assertEqual(sum(bool(g['gold_context_ids']) for g in self.gold), 105)
         self.assertEqual(sum(g['review_status'] != 'draft' for g in self.gold), 105)
+        self.assertTrue(all(not g['gold_context_ids'] and bool(g['candidate_context_ids'])
+                            for g in self.gold if g['mapping_status'] == 'production_candidate_unverified'))
         self.assertTrue(all(bool(g['gold_context_ids']) == bool(g['gold_context_ids_confirmed']) for g in self.gold))
 
     def test_expansion_mapping_does_not_claim_legal_review(self):
@@ -189,9 +191,9 @@ class BenchmarkContractTests(unittest.TestCase):
         draft_added=[g for g in added if g['review_status']=='draft']
         self.assertEqual(len(verified_added),64)
         self.assertEqual(len(draft_added),176)
-        self.assertTrue(all(g['mapping_status']=='production_verified'
-                            and bool(g['gold_context_ids']) and bool(g['gold_article_ids'])
-                            and g['gold_context_ids_confirmed'] and not g['verified_by'] and not g['verified_at']
+        self.assertTrue(all(g['mapping_status']=='production_candidate_unverified'
+                            and not g['gold_context_ids'] and bool(g['candidate_context_ids']) and bool(g['gold_article_ids'])
+                            and not g['gold_context_ids_confirmed'] and not g['verified_by'] and not g['verified_at']
                             and g['answer_kind'] != 'reviewed_answer' for g in draft_added))
         self.assertTrue(all(g['mapping_status']=='production_verified'
                             and bool(g['gold_context_ids']) and bool(g['gold_clause_ids']) and bool(g['gold_article_ids'])
@@ -205,7 +207,7 @@ class BenchmarkContractTests(unittest.TestCase):
         self.assertEqual(len(verified_added),64)
         self.assertTrue(all(g['evidence_level']=='chunk_text_matched_unverified'
                             and len(g['answer'])>80 and 'CHUA_XAC_MINH' not in g['answer']
-                            and g['gold_context_ids_confirmed']
+                            and not g['gold_context_ids_confirmed']
                             and g['answer_kind'] in ('extracted_article_text_unreviewed', 'draft_answer_unreviewed')
                             for g in draft_added))
         self.assertTrue(all(g['evidence_level']=='full_text_checked'
@@ -365,7 +367,8 @@ class BenchmarkContractTests(unittest.TestCase):
         added=[g for g in self.gold if int(g['id'][3:])>60]
         self.assertEqual(len(added),240)
         self.assertTrue(all(bool(g['gold_article_ids']) for g in added))
-        self.assertEqual(sum(1 for g in added if g['gold_context_ids_confirmed']), 240)
+        self.assertEqual(sum(1 for g in added if g['gold_context_ids_confirmed']), 64)
+        self.assertEqual(sum(1 for g in added if not g['gold_context_ids_confirmed']), 176)
         self.assertEqual(sum(1 for g in added if g['review_status'] != 'draft'), 64)
         self.assertEqual(sum(1 for g in added if g['review_status'] == 'draft'), 176)
     def test_test_questions_frozen(self):
@@ -393,7 +396,9 @@ class BenchmarkContractTests(unittest.TestCase):
         g=next(i for i in self.gold if i['id']=='HN_053')
         self.assertEqual(g['citations'][0]['document_id'],'22/2000/QH10')
         self.assertEqual(g['citations'][0]['article'],'109')
-        self.assertEqual(g['gold_context_ids'], ['l_22_2000_qh10_art_109_clause_1_chunk_1'])
+        self.assertEqual(g['review_status'], 'draft')
+        self.assertEqual(g['gold_context_ids'], [])
+        self.assertEqual(g['candidate_context_ids'], ['l_22_2000_qh10_art_109_clause_1_chunk_1'])
         question = next(q for q in self.dev if q['id'] == 'HN_053')
         self.assertIn('22/2000/QH10', question['question'])
         self.assertEqual(question['test_type'], 'historical_law')
@@ -402,7 +407,13 @@ class BenchmarkContractTests(unittest.TestCase):
         gold = copy.deepcopy(self.gold)
         repeal = next(g for g in gold if g['id'] == 'HN_040')
         self.assertFalse(any('HN_040' in e for e in self.validate(gt=gold)))
-        repeal['gold_context_ids'] = [cid for cid in repeal['gold_context_ids'] if '_clause_1_' in cid]
+        # HN_040 is a draft, so the repeal evidence is read from its candidates.
+        self.assertEqual(repeal['review_status'], 'draft')
+        repeal['candidate_context_ids'] = [cid for cid in repeal['candidate_context_ids'] if '_clause_1_' in cid]
+        self.assertTrue(any('HN_040' in e and 'hết hiệu lực toàn bộ' in e for e in self.validate(gt=gold)))
+        gold = copy.deepcopy(self.gold)
+        # A reviewed question must cite confirmed gold; candidates alone are not evidence.
+        next(g for g in gold if g['id'] == 'HN_040')['review_status'] = 'source_checked'
         self.assertTrue(any('HN_040' in e and 'hết hiệu lực toàn bộ' in e for e in self.validate(gt=gold)))
         gold = copy.deepcopy(self.gold)
         next(g for g in gold if g['id'] == 'HN_040')['outdated_document_ids'] = []
