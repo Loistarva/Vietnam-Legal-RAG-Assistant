@@ -4,8 +4,12 @@ Does NOT alter ground_truth, smoke registry, or review_status. Does NOT claim pr
 Run from repo root:
   python scripts/import_chunk_index.py --input path/to/chunks.jsonl
 """
-import argparse, csv, hashlib, json, re
-from collections import Counter, defaultdict
+import argparse
+import csv
+import hashlib
+import json
+import re
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]

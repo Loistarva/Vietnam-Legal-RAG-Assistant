@@ -44,8 +44,12 @@ VALID_STATUSES = {
 
 
 def chunk_file_sha256(path: str | Path) -> str:
-    """Tính hash SHA-256 của file chunk."""
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    """SHA-256 của file chunk sau khi đổi CRLF thành LF.
+
+    Cùng một commit cho cùng hash trên Windows (core.autocrlf) và Linux, như manifest Test
+    (evaluation/test_run_freeze.py).
+    """
+    return hashlib.sha256(Path(path).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def index_metadata_path(storage_path: str | Path, collection_name: str) -> Path:

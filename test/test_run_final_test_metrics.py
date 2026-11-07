@@ -1,4 +1,3 @@
-import hashlib
 import json
 import tempfile
 import unittest
@@ -6,6 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts.run_final_test_metrics import main
+from embedding.vector_store import chunk_file_sha256
 
 
 class RunFinalTestMetricsTest(unittest.TestCase):
@@ -49,9 +49,7 @@ class RunFinalTestMetricsTest(unittest.TestCase):
             "top_k": 10,
             "retriever": {
                 "backend": "hybrid",
-                "corpus_sha256": hashlib.sha256(
-                    self.chunks_path.read_bytes()
-                ).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(self.chunks_path),
             },
             "reranker": {"backend": "cross_encoder"},
             "as_of_date": self.query["as_of_date"],
@@ -95,7 +93,7 @@ class RunFinalTestMetricsTest(unittest.TestCase):
         self.assertEqual(report["evaluation_config"]["method"], "hybrid_reranker")
         self.assertEqual(
             report["input_sha256"]["corpus"],
-            hashlib.sha256(self.chunks_path.read_bytes()).hexdigest(),
+            chunk_file_sha256(self.chunks_path),
         )
         self.assertEqual(
             report["input_sha256"]["queries"],

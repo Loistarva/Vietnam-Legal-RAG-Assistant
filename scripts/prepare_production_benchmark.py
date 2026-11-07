@@ -16,13 +16,10 @@ import argparse
 import collections
 import csv
 import datetime as dt
-import hashlib
 import json
-import os
 import re
 import shutil
 import sys
-import tempfile
 from pathlib import Path
 
 if sys.platform == "win32":
