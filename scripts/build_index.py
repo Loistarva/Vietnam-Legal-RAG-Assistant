@@ -75,6 +75,7 @@ def drop_local_collection(storage_path: Path | str, collection: str) -> None:
     chính client đó còn giữ file; tạo lại collection cùng tên sẽ nạp lại point cũ. Vì vậy xóa
     bằng một client riêng, đóng client, rồi mới xóa thư mục còn sót.
     """
+    import gc
     import shutil
 
     storage = Path(storage_path)
@@ -88,6 +89,9 @@ def drop_local_collection(storage_path: Path | str, collection: str) -> None:
             client.delete_collection(collection)
     finally:
         client.close()
+    # Local mode chỉ nhả storage.sqlite khi đối tượng client được thu hồi.
+    del client
+    gc.collect()
     leftover = storage / "collection" / collection
     if leftover.exists():
         shutil.rmtree(leftover)

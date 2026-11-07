@@ -1,3 +1,4 @@
+import gc
 import sys
 from pathlib import Path
 
@@ -17,6 +18,8 @@ def test_drop_local_collection_leaves_no_points_behind(tmp_path):
     client.create_collection("c", vectors_config=VectorParams(size=2, distance=Distance.COSINE))
     client.upsert("c", [PointStruct(id=i, vector=[1.0, float(i)], payload={}) for i in range(1, 4)])
     client.close()
+    del client
+    gc.collect()
 
     drop_local_collection(storage, "c")
 
