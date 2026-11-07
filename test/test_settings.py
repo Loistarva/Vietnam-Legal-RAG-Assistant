@@ -4,8 +4,6 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-import yaml
-
 from retrieval.settings import load_settings, validate_settings
 from scripts.build_index import resolve_build_config, validate_existing_index_for_build
 from retrieval.retrieval_evaluation import evaluate
