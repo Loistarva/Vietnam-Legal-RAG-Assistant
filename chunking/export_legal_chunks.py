@@ -27,7 +27,7 @@ from chunking_rules import (
     normalize_text,
     tokenizer_version,
 )  # noqa: E402
-from provision_periods import apply_to_chunk, load_overrides  # noqa: E402
+from provision_periods import apply_to_chunk, load_overrides, split_point_clause_ids  # noqa: E402
 
 KHOAN_SEGMENT_RE = re.compile(r"Khoản \S+")
 
@@ -156,6 +156,7 @@ def main() -> None:
     unknown_validity: list[str] = []
     # Khoảng hiệu lực cấp Điều/Khoản (data/reference/provision_periods.json, D1).
     overrides = load_overrides()
+    split_ids = split_point_clause_ids(overrides)
     matched_scope: dict[str, set[tuple[str, ...]]] = defaultdict(set)
     override_of_child: dict[str, str] = {}
 
@@ -181,7 +182,8 @@ def main() -> None:
             if is_implicit_clause(clauses):
                 implicit_clause_ids |= ids
 
-        result = chunk_parsed_file(source_path)
+        # Khoản có Điểm bị bãi bỏ/sửa đổi riêng được tách theo Điểm để ghi đúng khoảng hiệu lực.
+        result = chunk_parsed_file(source_path, {"split_point_clause_ids": split_ids & source_clause_ids})
         source_articles = {str(a.get("article_number")) for a in doc.get("articles", [])}
         covered_articles = {
             str(c.metadata.get("article_number"))
