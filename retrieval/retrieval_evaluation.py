@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import json
 import sys
 import tempfile
@@ -26,6 +25,7 @@ DEFAULT_OUTPUT = ROOT / "retrieval" / "evaluation"
 METHODS = ("bm25", "dense", "hybrid")
 from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings
 from embedding.model_registry import ModelRegistry
+from embedding.vector_store import chunk_file_sha256
 
 
 def read_json(path: Path) -> Any:
@@ -165,7 +165,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         if isinstance(chunk.get("parent_clause_id"), str)
         and chunk["parent_clause_id"].strip()
     }
-    corpus_sha256 = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
+    corpus_sha256 = chunk_file_sha256(chunks_path)
     expected_run_config["corpus_sha256"] = corpus_sha256
     missing_gold_ids = {cid for ids in relevant.values() for cid in ids} - chunks_by_id.keys()
     if missing_gold_ids:

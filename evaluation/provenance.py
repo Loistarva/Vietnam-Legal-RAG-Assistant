@@ -1,17 +1,13 @@
 """Input and run provenance for saved retrieval evaluation reports."""
 from __future__ import annotations
 
-import hashlib
 from pathlib import Path
 from typing import Any
 
 from evaluation.metrics import DEFAULT_KS
 from evaluation.run_evaluation import read_json_array
+from embedding.vector_store import chunk_file_sha256
 from evaluation.test_run_freeze import _file_sha256
-
-
-def sha256_file(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def metric_cutoffs(top_k: int) -> tuple[int, ...]:
@@ -31,7 +27,7 @@ def build_report_metadata(
     top_k: int,
 ) -> dict[str, Any]:
     """Validate saved retrieval provenance and describe the exact inputs scored."""
-    corpus_sha256 = sha256_file(chunks_path)
+    corpus_sha256 = chunk_file_sha256(chunks_path)
     queries_by_id = {query.get("id"): query for query in queries}
     envelopes = read_json_array(results_path)
     common_config: dict[str, Any] | None = None

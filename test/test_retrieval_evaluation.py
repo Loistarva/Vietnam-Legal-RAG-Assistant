@@ -1,5 +1,4 @@
 import json
-import hashlib
 import math
 import tempfile
 import unittest
@@ -10,6 +9,7 @@ import yaml
 
 from retrieval.retrieval_evaluation import DEFAULT_OUTPUT, ROOT, evaluate, main
 from retrieval.settings import load_settings
+from embedding.vector_store import chunk_file_sha256
 
 
 RUN_CONFIG = {
@@ -78,7 +78,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             temporal_config = {
                 **RUN_CONFIG,
                 "as_of_date": as_of_date,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 envelope = [{
@@ -125,7 +125,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
                  "chunk_text": "irrelevant", "metadata": {"article_ref": "C"}},
             ]), encoding="utf-8")
             results_dir.mkdir()
-            run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
+            run_config = {**RUN_CONFIG, "corpus_sha256": chunk_file_sha256(chunks_path)}
             for method in ("bm25", "dense", "hybrid"):
                 envelope = [{
                     "query_id": "Q1",
@@ -174,7 +174,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
                 {"chunk_id": "B", "chunk_text": "B", "metadata": {}},
             ]), encoding="utf-8")
             results_dir.mkdir()
-            run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
+            run_config = {**RUN_CONFIG, "corpus_sha256": chunk_file_sha256(chunks_path)}
             for method in ("bm25", "dense", "hybrid"):
                 envelopes = [{
                     "query_id": query_id, "query": text, "retriever": method,
@@ -218,7 +218,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             results_dir.mkdir()
             run_config = {
                 **RUN_CONFIG, "top_k": 2, "candidate_k": 5,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 (results_dir / f"dev_{method}.json").write_text(json.dumps([{
@@ -245,7 +245,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
                                              "relevant_chunk_ids": ["A"]}]), encoding="utf-8")
             chunks_path.write_text(json.dumps([{"chunk_id": "A", "text": "A", "metadata": {}}]), encoding="utf-8")
             results_dir.mkdir()
-            actual_hash = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
+            actual_hash = chunk_file_sha256(chunks_path)
             for changed, invalid_value in (("rrf_k", 20), ("dense_model", "unknown/model"),
                                            ("corpus_sha256", "f" * 64)):
                 bad_config = {**RUN_CONFIG, "corpus_sha256": actual_hash, changed: invalid_value}
@@ -300,7 +300,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             results_dir.mkdir()
             config = {
                 **RUN_CONFIG,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 (results_dir / f"dev_{method}.json").write_text(json.dumps([
