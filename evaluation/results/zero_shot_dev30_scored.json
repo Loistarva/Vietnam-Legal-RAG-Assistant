@@ -15,6 +15,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -33,6 +34,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -51,6 +53,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -69,6 +72,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -87,6 +91,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -105,6 +110,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -123,6 +129,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -141,6 +148,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -159,6 +167,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -177,6 +186,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -195,6 +205,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -213,6 +224,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -231,6 +243,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -249,6 +262,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -267,6 +281,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -285,6 +300,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -303,6 +319,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -321,6 +338,7 @@
     "lexical_faithfulness_score": 2,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.25,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Nội dung mâu thuẫn một phần hoặc sai lệch số liệu so với đáp án chuẩn."
   },
   {
@@ -339,6 +357,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -357,6 +376,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -375,6 +395,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -393,6 +414,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -411,6 +433,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -429,6 +452,7 @@
     "lexical_faithfulness_score": 4,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.75,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác."
   },
   {
@@ -447,6 +471,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -465,6 +490,7 @@
     "lexical_faithfulness_score": 4,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.75,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác."
   },
   {
@@ -483,6 +509,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   },
   {
@@ -501,6 +528,7 @@
     "lexical_faithfulness_score": 4,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.75,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác."
   },
   {
@@ -519,6 +547,7 @@
     "lexical_faithfulness_score": 4,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.75,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Khớp các ý chính của căn cứ pháp lý, kết luận chính xác."
   },
   {
@@ -537,6 +566,7 @@
     "lexical_faithfulness_score": 3,
     "lexical_relevance": 1.0,
     "lexical_faithfulness": 0.5,
+    "lexical_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác.",
     "rubric_rationale": "Relevance: Đi thẳng vào trọng tâm, bao quát đầy đủ chủ đề và thuật ngữ trong câu hỏi. | Faithfulness: Đúng một phần nội dung quy định nhưng còn thiếu sót hoặc chưa chuẩn xác."
   }
 ]

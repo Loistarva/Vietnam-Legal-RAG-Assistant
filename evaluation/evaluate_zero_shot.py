@@ -18,6 +18,7 @@ import string
 import sys
 import unicodedata
 from collections import Counter
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +32,7 @@ if sys.platform == "win32":
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
 GROUND_TRUTH_PATH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
+REGISTRY_PATH = ROOT_DIR / "data" / "reference" / "document_versions.json"
 RUBRIC_CSV_PATH = ROOT_DIR / "evaluation" / "results" / "zero_shot_rubric_table.csv"
 
 ID_KEYS = ("query_id", "id")
@@ -43,10 +45,11 @@ RUBRIC_KEYS = {
 
 
 def rubric_means(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    """Trung bình điểm rubric tách theo nguồn: chấm tay và lexical; nguồn không có câu nào thì None."""
+    """Trung bình điểm rubric tách theo nguồn: chấm tay (câu có điểm chấm tay) và lexical
+    (mọi câu); nguồn không có câu nào thì None."""
     output: dict[str, Any] = {}
     for source, (rel_key, faith_key) in RUBRIC_KEYS.items():
-        subset = [r for r in rows if r.get("rubric_source") == source]
+        subset = [r for r in rows if r.get(f"{rel_key}_score") is not None]
         prefix = "mean_" if source == "manual" else ""
         for key, digits in ((rel_key, 4), (faith_key, 4), (f"{rel_key}_score", 2), (f"{faith_key}_score", 2)):
             output[prefix + key] = round(sum(r[key] for r in subset) / len(subset), digits) if subset else None
@@ -109,12 +112,73 @@ def _document_reference_pattern(document_id: Any) -> str | None:
     return r"(?<!\w)" + r"[\W_]*".join(map(re.escape, parts)) + r"(?!\w)"
 
 
+_REGISTRY_CACHE: list[dict[str, Any]] | None = None
+
+
+def load_registry(path: Path = REGISTRY_PATH) -> list[dict[str, Any]]:
+    """Registry văn bản (document_versions.json); đọc một lần cho mỗi tiến trình."""
+    global _REGISTRY_CACHE
+    if path != REGISTRY_PATH:
+        return load_json(path)
+    if _REGISTRY_CACHE is None:
+        _REGISTRY_CACHE = load_json(path)
+    return _REGISTRY_CACHE
+
+
+def _is_in_force(document: dict[str, Any], as_of_date: str) -> bool:
+    effective = str(document.get("effective_date") or "")
+    expiry = str(document.get("expiry_date") or "")
+    if effective and effective > as_of_date:
+        return False
+    if expiry and expiry <= as_of_date:
+        return False
+    return True
+
+
+def expired_document_patterns(
+    as_of_date: str | None = None,
+    registry: list[dict[str, Any]] | None = None,
+) -> list[str]:
+    """Mẫu nhận diện văn bản không có hiệu lực tại as_of_date, lấy từ registry.
+
+    Văn bản chỉ hết hiệu lực một phần (không có expiry_date) không bị tính.
+    Mỗi văn bản cho tối đa ba mẫu: số hiệu đầy đủ (22/2000/QH10), loại văn bản
+    kèm số/năm (nghị định 70/2001), và tiêu đề kèm năm (luật hôn nhân và gia
+    đình 2000).
+    """
+    as_of = as_of_date or date.today().isoformat()
+    documents = load_registry() if registry is None else registry
+    patterns: list[str] = []
+    for document in documents:
+        if not isinstance(document, dict) or _is_in_force(document, as_of):
+            continue
+        number = str(document.get("document_number") or "")
+        full = _document_reference_pattern(number)
+        if full:
+            patterns.append(full)
+        short = re.match(r"(\d+[a-z]?)/(\d{4})/", number.casefold())
+        doc_type = str(document.get("document_type") or "").casefold().strip()
+        if short and doc_type:
+            patterns.append(
+                rf"(?<!\w){re.escape(doc_type)}\s+(?:số\s+)?{short.group(1)}\s*/\s*{short.group(2)}(?!\d)"
+            )
+        title = str(document.get("title") or "").casefold().strip()
+        titled = re.fullmatch(r"(.+?)\s+(\d{4})", title)
+        if titled:
+            patterns.append(
+                rf"(?<!\w){re.escape(titled.group(1))}\s+(?:năm\s+)?{titled.group(2)}(?!\d)"
+            )
+    return patterns
+
+
 def compute_rubric_scores(
     question: str,
     prediction: str,
     references: list[str],
     category: str = "",
     ground_truth_item: dict[str, Any] | None = None,
+    as_of_date: str | None = None,
+    registry: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """
     Chấm điểm theo Rubric cho câu trả lời Zero-shot:
@@ -181,9 +245,7 @@ def compute_rubric_scores(
         # Kiểm tra phạt trích dẫn luật cũ/hết hiệu lực khi hỏi luật hiện hành
         cites_expired = False
         expired_patterns = [
-            r"luật hôn nhân và gia đình (năm )?2000",
-            r"22/2000/qh10",
-            r"nghị định 70/2001",
+            *expired_document_patterns(as_of_date, registry),
             *(
                 pattern
                 for document_id in outdated_docs
@@ -335,6 +397,47 @@ def load_categories(queries_paths: list[Path] | tuple[Path, ...]) -> dict[str, s
     return categories
 
 
+def load_as_of_dates(queries_paths: list[Path] | tuple[Path, ...]) -> dict[str, str]:
+    """Read as_of_date by id from the given question files."""
+    dates: dict[str, str] = {}
+    for path in queries_paths:
+        for row in load_json(path):
+            if isinstance(row, dict) and isinstance(row.get("as_of_date"), str):
+                dates[row["id"]] = row["as_of_date"]
+    return dates
+
+
+def _manual_score(row: dict[str, Any], key: str, question_id: str) -> int:
+    value = str(row.get(key) or "").strip()
+    if value not in {"1", "2", "3", "4", "5"}:
+        raise ValueError(f"Bảng chấm tay: {question_id} có {key} = {value!r}, cần số nguyên 1-5.")
+    return int(value)
+
+
+def load_manual_rubric(path: Path) -> dict[str, dict[str, Any]]:
+    """Đọc bảng chấm tay (CSV hoặc JSON); dừng khi thiếu file, trùng ID hoặc điểm ngoài 1-5."""
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"Không tìm thấy bảng chấm tay: {path}")
+    if path.suffix.lower() == ".csv":
+        with path.open("r", encoding="utf-8-sig", newline="") as f:
+            rows = list(csv.DictReader(f))
+    else:
+        data = load_json(path)
+        rows = data if isinstance(data, list) else list(data.values())
+    manual: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        question_id = row.get("query_id") or row.get("id")
+        if not question_id:
+            raise ValueError(f"{path}: dòng thiếu query_id.")
+        if question_id in manual:
+            raise ValueError(f"{path}: query_id bị trùng: {question_id}")
+        _manual_score(row, "answer_relevance_score", question_id)
+        _manual_score(row, "faithfulness_score", question_id)
+        manual[question_id] = row
+    return manual
+
+
 def load_query_ids(queries_paths: list[Path] | tuple[Path, ...]) -> set[str]:
     """Read the exact query domain selected for this evaluation."""
     query_ids: set[str] = set()
@@ -389,18 +492,14 @@ def evaluate(
         }
 
     manual_rubric: dict[str, dict[str, Any]] = {}
-    if rubric_input_path and Path(rubric_input_path).exists():
-        p_rub = Path(rubric_input_path)
-        if p_rub.suffix.lower() == ".csv":
-            with p_rub.open("r", encoding="utf-8-sig") as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    qid = row.get("query_id") or row.get("id")
-                    if qid:
-                        manual_rubric[qid] = row
-        else:
-            rub_data = load_json(p_rub)
-            manual_rubric = records_by_id(rub_data, is_ground_truth=False)
+    if rubric_input_path:
+        manual_rubric = load_manual_rubric(Path(rubric_input_path))
+        unknown_ids = manual_rubric.keys() - ground_truth.keys()
+        if unknown_ids:
+            raise ValueError(
+                "Bảng chấm tay có ID ngoài tập được chấm: " + ", ".join(sorted(unknown_ids))
+            )
+    as_of_dates = load_as_of_dates(queries_paths)
 
     scored: list[dict[str, Any]] = []
     missing_reference_ids: list[str] = []
@@ -447,31 +546,16 @@ def evaluate(
         # Rubric scoring: điểm chấm tay (rubric_input_path) ghi dưới tên answer_relevance,
         # faithfulness; điểm compute_rubric_scores suy từ từ vựng chỉ là số tham khảo,
         # ghi dưới tên lexical_* để không bị lấy nhầm vào báo cáo (F6)
-        if question_id in manual_rubric:
-            m_row = manual_rubric[question_id]
-            rel_1_5 = int(m_row.get("answer_relevance_score", 3))
-            faith_1_5 = int(m_row.get("faithfulness_score", 3))
-            rel_norm = float(m_row.get("answer_relevance", (rel_1_5 - 1.0) / 4.0))
-            faith_norm = float(m_row.get("faithfulness", (faith_1_5 - 1.0) / 4.0))
-            rationale = str(m_row.get("rubric_rationale", "Chấm điểm thủ công từ bảng ngoài."))
-            source = "manual"
-        else:
-            rub_result = compute_rubric_scores(
-                question=q_text,
-                prediction=prediction,
-                references=references,
-                category=cat or "",
-                ground_truth_item=gt_item,
-            )
-            rel_1_5 = rub_result["answer_relevance_score"]
-            faith_1_5 = rub_result["faithfulness_score"]
-            rel_norm = rub_result["answer_relevance"]
-            faith_norm = rub_result["faithfulness"]
-            rationale = rub_result["rubric_rationale"]
-            source = "lexical"
-
-        rel_key, faith_key = RUBRIC_KEYS[source]
-        scored.append({
+        # Điểm lexical luôn được tính để làm số tham khảo, kể cả khi có điểm chấm tay
+        lexical = compute_rubric_scores(
+            question=q_text,
+            prediction=prediction,
+            references=references,
+            category=cat or "",
+            ground_truth_item=gt_item,
+            as_of_date=as_of_dates.get(question_id),
+        )
+        row = {
             "query_id": question_id,
             "category": cat,
             "question": q_text,
@@ -480,13 +564,28 @@ def evaluate(
             "references": references,
             "exact_match": em,
             "token_f1": f1,
-            "rubric_source": source,
-            f"{rel_key}_score": rel_1_5,
-            f"{faith_key}_score": faith_1_5,
-            rel_key: rel_norm,
-            faith_key: faith_norm,
-            "rubric_rationale": rationale,
-        })
+            "rubric_source": "lexical",
+            "lexical_relevance_score": lexical["answer_relevance_score"],
+            "lexical_faithfulness_score": lexical["faithfulness_score"],
+            "lexical_relevance": lexical["answer_relevance"],
+            "lexical_faithfulness": lexical["faithfulness"],
+            "lexical_rationale": lexical["rubric_rationale"],
+            "rubric_rationale": lexical["rubric_rationale"],
+        }
+        if question_id in manual_rubric:
+            m_row = manual_rubric[question_id]
+            rel_1_5 = _manual_score(m_row, "answer_relevance_score", question_id)
+            faith_1_5 = _manual_score(m_row, "faithfulness_score", question_id)
+            row.update({
+                "rubric_source": "manual",
+                "answer_relevance_score": rel_1_5,
+                "faithfulness_score": faith_1_5,
+                "answer_relevance": round((rel_1_5 - 1.0) / 4.0, 4),
+                "faithfulness": round((faith_1_5 - 1.0) / 4.0, 4),
+                "rubric_rationale": str(m_row.get("rubric_rationale") or "Chấm điểm thủ công từ bảng ngoài."),
+                "rubric_grader": str(m_row.get("grader") or ""),
+            })
+        scored.append(row)
 
     for question_id in ground_truth:
         if question_id not in predictions:
@@ -567,6 +666,7 @@ def evaluate(
             "faithfulness_score",
             "lexical_relevance_score",
             "lexical_faithfulness_score",
+            "rubric_grader",
             "rubric_rationale",
         ]
         with rubric_csv_path.open("w", encoding="utf-8-sig", newline="") as f:

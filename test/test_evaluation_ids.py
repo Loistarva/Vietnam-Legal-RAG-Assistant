@@ -127,8 +127,68 @@ class EvaluationIdTest(unittest.TestCase):
         self.assertEqual(summary["rubric_scored_questions"], 1)
         self.assertEqual(summary["mean_answer_relevance_score"], 4)
         self.assertEqual(summary["mean_faithfulness"], 1.0)
-        self.assertIsNone(summary["lexical_relevance"])
+        # Điểm lexical vẫn được báo song song để so với điểm chấm tay
+        self.assertEqual(summary["lexical_scored_questions"], 1)
+        self.assertIsNotNone(summary["lexical_relevance"])
+        scored = json.loads((self.dir / "s.json").read_text(encoding="utf-8"))
+        self.assertEqual(scored[0]["rubric_source"], "manual")
+        self.assertIn("lexical_faithfulness_score", scored[0])
         self.assertTrue(csv_out.is_file())
+
+    def test_manual_rubric_input_is_validated(self):
+        predictions = write(self.dir / "pred.json", [
+            {"query_id": "HN_001", "question": "?", "answer": "Nam từ đủ 20 tuổi trở lên.", "method": "zero_shot"},
+        ])
+        with self.assertRaises(FileNotFoundError):
+            evaluate_zero_shot.evaluate(predictions, self.gt, self.dir / "m.json", self.dir / "s.json",
+                                        rubric_input_path=self.dir / "missing.csv")
+        cases = {
+            "out_of_range": "query_id,answer_relevance_score,faithfulness_score\nHN_001,6,5\n",
+            "empty": "query_id,answer_relevance_score,faithfulness_score\nHN_001,,5\n",
+            "duplicate": "query_id,answer_relevance_score,faithfulness_score\nHN_001,4,5\nHN_001,4,5\n",
+            "unknown_id": "query_id,answer_relevance_score,faithfulness_score\nHN_999,4,5\n",
+        }
+        for name, content in cases.items():
+            with self.subTest(name):
+                manual = self.dir / f"{name}.csv"
+                manual.write_text(content, encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    evaluate_zero_shot.evaluate(predictions, self.gt, self.dir / "m.json", self.dir / "s.json",
+                                                rubric_input_path=manual)
+
+    def test_expired_documents_come_from_registry_and_as_of_date(self):
+        def cites_expired(prediction, as_of_date):
+            result = evaluate_zero_shot.compute_rubric_scores(
+                question="Quy định là gì?",
+                prediction=prediction,
+                references=[prediction],
+                category="ket_hon",
+                as_of_date=as_of_date,
+            )
+            return "hết hiệu lực" in result["rubric_rationale"]
+
+        # Luật 22/2000/QH10 hết hiệu lực từ 2015-01-01 theo registry
+        self.assertTrue(cites_expired("Theo Luật Hôn nhân và gia đình năm 2000 thì như vậy.", "2026-10-15"))
+        self.assertFalse(cites_expired("Theo Luật Hôn nhân và gia đình năm 2000 thì như vậy.", "2010-06-01"))
+        # Nghị định 10/2015/NĐ-CP hết hiệu lực từ 2025-10-01; không có trong danh sách regex cũ
+        self.assertTrue(cites_expired("Căn cứ Nghị định 10/2015 về thụ tinh trong ống nghiệm.", "2026-10-15"))
+        self.assertTrue(cites_expired("Căn cứ 10/2015/NĐ-CP.", "2026-10-15"))
+        self.assertFalse(cites_expired("Căn cứ Nghị định 10/2015 về thụ tinh trong ống nghiệm.", "2020-01-01"))
+        # Luật 52/2014/QH13 còn hiệu lực
+        self.assertFalse(cites_expired("Theo Luật Hôn nhân và gia đình 2014 (52/2014/QH13).", "2026-10-15"))
+
+    def test_evaluate_passes_question_as_of_date_to_lexical_scoring(self):
+        queries = write(self.dir / "q.json", [
+            {"id": "HN_001", "question": "Tuổi kết hôn của nam?", "category": "ket_hon", "as_of_date": "2010-06-01"},
+        ])
+        predictions = write(self.dir / "pred.json", [
+            {"query_id": "HN_001", "answer": "Theo Luật Hôn nhân và gia đình năm 2000, nam từ hai mươi tuổi.",
+             "method": "zero_shot"},
+        ])
+        evaluate_zero_shot.evaluate(predictions, self.gt, self.dir / "m.json", self.dir / "s.json",
+                                    queries_paths=[queries])
+        scored = json.loads((self.dir / "s.json").read_text(encoding="utf-8"))
+        self.assertNotIn("hết hiệu lực", scored[0]["lexical_rationale"])
 
 
 if __name__ == "__main__":
