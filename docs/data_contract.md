@@ -46,7 +46,7 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 | `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ"). |
 | `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]`. |
 | `source_status` | String / Null | Không | Trạng thái gốc từ nguồn tra cứu văn bản (VD: "Hết hiệu lực một phần"). |
-| `provision_status` | String / Null | Không | Mức độ hiệu lực điều khoản (VD: "document_level_only", "requires_review"). Ở chunk, giá trị `repealed` hoặc `amended` nghĩa là Điều/Khoản đó có khoảng hiệu lực riêng ghi trong `data/reference/provision_periods.json`. |
+| `provision_status` | String / Null | Không | Mức độ hiệu lực điều khoản (VD: "document_level_only", "requires_review"). Ở chunk, giá trị `repealed` hoặc `amended` nghĩa là Điều/Khoản/Điểm đó có khoảng hiệu lực riêng ghi trong `data/reference/provision_periods.json`. |
 
 **Ánh xạ trạng thái từ registry (`data/reference/document_versions.json`):**
 
@@ -56,7 +56,7 @@ Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `source_
 | :--- | :--- | :--- |
 | Còn hiệu lực | Còn hiệu lực | |
 | Hết hiệu lực toàn bộ | Hết hiệu lực | Bắt buộc có `expiry_date`. |
-| Hết hiệu lực một phần | Sửa đổi bổ sung | Phần lớn văn bản còn áp dụng (`provision_status = requires_review`). Điều/Khoản đã bị bãi bỏ hoặc sửa đổi bởi văn bản có trong corpus được ghi ở `data/reference/provision_periods.json`; exporter ghi `effective_to` và `provision_status` của bản ghi đó vào chunk (kiểm bởi `test/test_provision_periods.py`). |
+| Hết hiệu lực một phần | Sửa đổi bổ sung | Phần lớn văn bản còn áp dụng (`provision_status = requires_review`). Điều/Khoản/Điểm đã bị bãi bỏ hoặc sửa đổi bởi văn bản có trong corpus được ghi ở `data/reference/provision_periods.json`; exporter ghi `effective_to` và `provision_status` của bản ghi đó vào chunk (kiểm bởi `test/test_provision_periods.py`). Bản ghi cấp Điểm làm Khoản đó được tách mỗi Điểm một chunk (`point_ref` = "Điểm a"), câu dẫn thành chunk riêng. Với Khoản bị sửa đổi, `evidence_chunk_id` là chunk của văn bản sửa đổi chứa nội dung mới, nên tại `as_of_date` sau ngày sửa retriever trả nội dung mới thay cho bản cũ. |
 | Có điều khoản bị sửa đổi / bãi bỏ | Sửa đổi bổ sung | |
 | Cần kiểm tra trạng thái mới nhất | Không xác định | Exporter cảnh báo khi gặp giá trị này. |
 
