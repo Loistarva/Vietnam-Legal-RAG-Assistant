@@ -191,43 +191,12 @@
         "parent_id": "nd_123_2015_nd_cp_art_30_p1"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_46_clause_2_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_46",
-        "clause_id": "nd_126_2014_nd_cp_art_46_clause_2",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_46_clause_2",
-        "rank": 7,
-        "score": 52.76447,
-        "chunk_text": "2. Trường hợp người có yêu cầu ghi vào sổ hộ tịch việc ly hôn mà việc kết hôn trước đây thực hiện tại cơ quan có thẩm quyền nước ngoài và chưa làm thủ tục ghi vào sổ việc kết hôn thì Sở Tư pháp ghi đồng thời hai việc kết hôn và ly hôn vào Sổ đăng ký kết hôn sử dụng tại Sở Tư pháp. Trường hợp người yêu cầu đã đăng ký kết hôn tại cơ quan có thẩm quyền của Việt Nam, nhưng Sổ đăng ký kết hôn không còn lưu trữ được thì việc ghi vào sổ hộ tịch việc ly hôn cũng được thực hiện theo quy định tại Khoản này.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 5 GHI VÀO SỔ HỘ TỊCH VIỆC LY HÔN, HỦY VIỆC KẾT HÔN TRÁI PHÁP LUẬT ĐÃ ĐƯỢC GIẢI QUYẾT Ở NƯỚC NGOÀI",
-          "article_number": "46",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "2"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_46_p2"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_11_clause_3_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_11",
         "clause_id": "l_52_2014_qh13_art_11_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_11_clause_3",
-        "rank": 8,
+        "rank": 7,
         "score": 49.74914,
         "chunk_text": "3. Quyết định của Tòa án về việc hủy kết hôn trái pháp luật hoặc công nhận quan hệ hôn nhân phải được gửi cho cơ quan đã thực hiện việc đăng ký kết hôn để ghi vào sổ hộ tịch; hai bên kết hôn trái pháp luật; cá nhân, cơ quan, tổ chức liên quan theo quy định của pháp luật về tố tụng dân sự.",
         "metadata": {
@@ -258,7 +227,7 @@
         "article_id": "nd_123_2015_nd_cp_art_34",
         "clause_id": "nd_123_2015_nd_cp_art_34_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_34_clause_2",
-        "rank": 9,
+        "rank": 8,
         "score": 49.58269,
         "chunk_text": "2. Nếu vào thời điểm đăng ký tại cơ quan có thẩm quyền nước ngoài, việc kết hôn không đáp ứng điều kiện kết hôn, nhưng không vi phạm điều cấm theo quy định của Luật Hôn nhân và gia đình, nhưng vào thời điểm yêu cầu ghi vào Sổ hộ tịch việc kết hôn, hậu quả đã được khắc phục hoặc việc ghi chú kết hôn là nhằm bảo vệ quyền lợi của công dân Việt Nam và trẻ em, thì việc kết hôn cũng được ghi vào Sổ hộ tịch.",
         "metadata": {
@@ -289,7 +258,7 @@
         "article_id": "ttlt_01_2016_ttlt_tandtc_art_3",
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_1",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_1",
-        "rank": 10,
+        "rank": 9,
         "score": 49.020897,
         "chunk_text": "1. Cơ quan, tổ chức, cá nhân quy định tại Điều 10 của Luật hôn nhân và gia đình có quyền yêu cầu Tòa án hủy việc kết hôn trái pháp luật. Kèm theo đơn yêu cầu, người yêu cầu phải nộp Giấy chứng nhận kết hôn đối với cá nhân quy định tại khoản 1 Điều 10 của Luật hôn nhân và gia đình hoặc giấy tờ, tài liệu khác chứng minh đã đăng ký kết hôn; tài liệu, chứng cứ chứng minh việc kết hôn vi phạm điều kiện kết hôn quy định tại Điều 8 của Luật hôn nhân và gia đình. Trường hợp vợ chồng có đăng ký kết hôn nhưng không cung cấp được Giấy chứng nhận kết hôn do bị thất lạc thì phải có xác nhận của Ủy ban nhân dân đã cấp Giấy chứng nhận kết hôn.",
         "metadata": {
@@ -313,9 +282,40 @@
           "clause_number": "1"
         },
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_3_p1"
+      },
+      {
+        "chunk_id": "l_52_2014_qh13_art_14_clause_2_chunk_1",
+        "document_id": "l_52_2014_qh13",
+        "article_id": "l_52_2014_qh13_art_14",
+        "clause_id": "l_52_2014_qh13_art_14_clause_2",
+        "parent_clause_id": "l_52_2014_qh13_art_14_clause_2",
+        "rank": 10,
+        "score": 48.878254,
+        "chunk_text": "2. Trong trường hợp nam, nữ chung sống với nhau như vợ chồng theo quy định tại khoản 1 Điều này nhưng sau đó thực hiện việc đăng ký kết hôn theo quy định của pháp luật thì quan hệ hôn nhân được xác lập từ thời điểm đăng ký kết hôn.",
+        "metadata": {
+          "doc_id": "l_52_2014_qh13",
+          "title": "Luật Hôn nhân và gia đình 2014",
+          "document_type": "Luật",
+          "document_number": "52/2014/QH13",
+          "issue_date": "2014-06-19",
+          "effective_date": "2015-01-01",
+          "effective_from": "2015-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+          "issuing_body": "Quốc hội",
+          "validity_status": "Còn hiệu lực",
+          "source_status": "Còn hiệu lực",
+          "provision_status": "document_level_only",
+          "chapter": "Chương II KẾT HÔN",
+          "section": null,
+          "article_number": "14",
+          "document_title": "Luật Hôn nhân và gia đình 2014",
+          "clause_number": "2"
+        },
+        "parent_id": "l_52_2014_qh13_art_14"
       }
     ],
-    "latency_ms": 833.95,
+    "latency_ms": 345.757,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -324,11 +324,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -370,43 +370,12 @@
         "parent_id": "l_52_2014_qh13_art_9"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_25_clause_5_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_25",
-        "clause_id": "nd_126_2014_nd_cp_art_25_clause_5",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_25_clause_5",
-        "rank": 2,
-        "score": 62.078888,
-        "chunk_text": "5. Trường hợp có lý do chính đáng mà hai bên nam, nữ yêu cầu gia hạn thời gian tổ chức lễ đăng ký kết hôn quy định tại Khoản 3 Điều này thì được gia hạn ngày tổ chức lễ đăng ký kết hôn nhưng không quá 90 ngày, kể từ ngày người đứng đầu Cơ quan đại diện ký Giấy chứng nhận kết hôn. Hết thời hạn này mà hai bên nam, nữ không đến tổ chức lễ đăng ký kết hôn thì Giấy chứng nhận kết hôn không còn giá trị, Cơ quan đại diện lưu Giấy chứng nhận kết hôn trong hồ sơ. Trường hợp hai bên vẫn muốn kết hôn với nhau thì phải làm lại thủ tục đăng ký kết hôn từ đầu.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
-          "article_number": "25",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "5"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_25_p3"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_67_clause_1_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_67",
         "clause_id": "l_52_2014_qh13_art_67_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_67_clause_1",
-        "rank": 3,
+        "rank": 2,
         "score": 58.824684,
         "chunk_text": "1. Khi Tòa án ra quyết định hủy bỏ tuyên bố một người là đã chết mà vợ hoặc chồng của người đó chưa kết hôn với người khác thì quan hệ hôn nhân được khôi phục kể từ thời điểm kết hôn. Trong trường hợp có quyết định cho ly hôn của Tòa án theo quy định tại khoản 2 Điều 56 của Luật này thì quyết định cho ly hôn vẫn có hiệu lực pháp luật. Trong trường hợp vợ, chồng của người đó đã kết hôn với người khác thì quan hệ hôn nhân được xác lập sau có hiệu lực pháp luật.",
         "metadata": {
@@ -432,43 +401,12 @@
         "parent_id": "l_52_2014_qh13_art_67"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_24_clause_4_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_24",
-        "clause_id": "nd_126_2014_nd_cp_art_24_clause_4",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_24_clause_4",
-        "rank": 4,
-        "score": 58.26522,
-        "chunk_text": "4. Trường hợp có lý do chính đáng mà hai bên nam, nữ yêu cầu gia hạn thời gian tổ chức lễ đăng ký kết hôn quy định tại Khoản 1 Điều này thì được gia hạn ngày tổ chức lễ đăng ký kết hôn, nhưng không quá 90 ngày, kể từ ngày Chủ tịch Ủy ban nhân dân cấp tỉnh ký Giấy chứng nhận kết hôn. Hết thời hạn 90 ngày mà hai bên nam, nữ không đến tổ chức lễ đăng ký kết hôn, Sở Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp tỉnh về việc không tổ chức lễ đăng ký kết hôn; Giấy chứng nhận kết hôn được lưu trong hồ sơ. Trường hợp hai bên vẫn muốn kết hôn với nhau thì phải làm lại thủ tục đăng ký kết hôn từ đầu.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
-          "article_number": "24",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "4"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_24"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_67_clause_2_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_67",
         "clause_id": "l_52_2014_qh13_art_67_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_67_clause_2",
-        "rank": 5,
+        "rank": 3,
         "score": 57.66841,
         "chunk_text": "2. Quan hệ tài sản của người bị tuyên bố là đã chết trở về với người vợ hoặc chồng được giải quyết như sau: a) Trong trường hợp hôn nhân được khôi phục thì quan hệ tài sản được khôi phục kể từ thời điểm quyết định của Tòa án hủy bỏ tuyên bố chồng, vợ là đã chết có hiệu lực. Tài sản do vợ, chồng có được kể từ thời điểm quyết định của Tòa án về việc tuyên bố chồng, vợ là đã chết có hiệu lực đến khi quyết định hủy bỏ tuyên bố chồng, vợ đã chết có hiệu lực là tài sản riêng của người đó; b) Trong trường hợp hôn nhân không được khôi phục thì tài sản có được trước khi quyết định của Tòa án về việc tuyên bố vợ, chồng là đã chết có hiệu lực mà chưa chia được giải quyết như chia tài sản khi ly hôn.",
         "metadata": {
@@ -499,7 +437,7 @@
         "article_id": "l_52_2014_qh13_art_13",
         "clause_id": "l_52_2014_qh13_art_13_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_13_clause_1",
-        "rank": 6,
+        "rank": 4,
         "score": 54.748745,
         "chunk_text": "Trong trường hợp việc đăng ký kết hôn không đúng thẩm quyền thì khi có yêu cầu, cơ quan nhà nước có thẩm quyền thu hồi, hủy bỏ giấy chứng nhận kết hôn theo quy định của pháp luật về hộ tịch và yêu cầu hai bên thực hiện lại việc đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền. Trong trường hợp này, quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước.",
         "metadata": {
@@ -530,7 +468,7 @@
         "article_id": "nd_123_2015_nd_cp_art_24",
         "clause_id": "nd_123_2015_nd_cp_art_24_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_24_clause_2",
-        "rank": 7,
+        "rank": 5,
         "score": 53.99398,
         "chunk_text": "2. Người yêu cầu đăng ký lại khai sinh, kết hôn, khai tử có trách nhiệm nộp đầy đủ bản sao giấy tờ, tài liệu có nội dung liên quan đến việc đăng ký lại.",
         "metadata": {
@@ -561,7 +499,7 @@
         "article_id": "nd_123_2015_nd_cp_art_25",
         "clause_id": "nd_123_2015_nd_cp_art_25_clause_1",
         "parent_clause_id": "nd_123_2015_nd_cp_art_25_clause_1",
-        "rank": 8,
+        "rank": 6,
         "score": 53.030945,
         "chunk_text": "1. Ủy ban nhân dân cấp xã, nơi đã đăng ký khai sinh, kết hôn trước đây hoặc Ủy ban nhân dân cấp xã nơi người yêu cầu thường trú, thực hiện đăng ký lại khai sinh, kết hôn.",
         "metadata": {
@@ -592,7 +530,7 @@
         "article_id": "nd_123_2015_nd_cp_art_40",
         "clause_id": "nd_123_2015_nd_cp_art_40_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_40_clause_2",
-        "rank": 9,
+        "rank": 7,
         "score": 53.011528,
         "chunk_text": "2. Việc đăng ký lại khai sinh, kết hôn chỉ được thực hiện nếu người có yêu cầu còn sống tại thời điểm yêu cầu đăng ký lại.",
         "metadata": {
@@ -623,7 +561,7 @@
         "article_id": "nd_123_2015_nd_cp_art_27",
         "clause_id": "nd_123_2015_nd_cp_art_27_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_27_clause_2",
-        "rank": 10,
+        "rank": 8,
         "score": 52.948166,
         "chunk_text": "2. Trong thời hạn 05 ngày làm việc, kể từ ngày tiếp nhận hồ sơ, công chức tư pháp - hộ tịch kiểm tra, xác minh hồ sơ. Nếu thấy hồ sơ đăng ký lại kết hôn là đầy đủ, chính xác, đúng quy định pháp luật thì công chức tư pháp - hộ tịch thực hiện đăng ký lại kết hôn như trình tự quy định tại Khoản 2 Điều 18 của Luật Hộ tịch. Nếu việc đăng ký lại kết hôn thực hiện tại Ủy ban nhân dân cấp xã không phải là nơi đã đăng ký kết hôn trước đây thì công chức tư pháp - hộ tịch báo cáo Chủ tịch Ủy ban nhân dân có văn bản đề nghị Ủy ban nhân dân nơi đăng ký kết hôn trước đây kiểm tra, xác minh về việc lưu giữ sổ hộ tịch tại địa phương.",
         "metadata": {
@@ -647,9 +585,71 @@
           "clause_number": "2"
         },
         "parent_id": "nd_123_2015_nd_cp_art_27_p1"
+      },
+      {
+        "chunk_id": "nd_123_2015_nd_cp_art_41_clause_1_chunk_1",
+        "document_id": "nd_123_2015_nd_cp",
+        "article_id": "nd_123_2015_nd_cp_art_41",
+        "clause_id": "nd_123_2015_nd_cp_art_41_clause_1",
+        "parent_clause_id": "nd_123_2015_nd_cp_art_41_clause_1",
+        "rank": 9,
+        "score": 51.99566,
+        "chunk_text": "1. Ủy ban nhân dân cấp huyện, nơi đã đăng ký khai sinh, kết hôn, khai tử trước đây thực hiện đăng ký lại khai sinh, kết hôn, khai tử.",
+        "metadata": {
+          "doc_id": "nd_123_2015_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "document_type": "Nghị định",
+          "document_number": "123/2015/NĐ-CP",
+          "issue_date": "2015-11-15",
+          "effective_date": "2016-01-01",
+          "effective_from": "2016-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương IV ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+          "section": "Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ",
+          "article_number": "41",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "clause_number": "1"
+        },
+        "parent_id": "nd_123_2015_nd_cp_art_41"
+      },
+      {
+        "chunk_id": "nd_123_2015_nd_cp_art_27_clause_1_chunk_1",
+        "document_id": "nd_123_2015_nd_cp",
+        "article_id": "nd_123_2015_nd_cp_art_27",
+        "clause_id": "nd_123_2015_nd_cp_art_27_clause_1",
+        "parent_clause_id": "nd_123_2015_nd_cp_art_27_clause_1",
+        "rank": 10,
+        "score": 51.340073,
+        "chunk_text": "1. Hồ sơ đăng ký lại kết hôn gồm các giấy tờ sau: a) Tờ khai theo mẫu quy định; b) Bản sao Giấy chứng nhận kết hôn được cấp trước đây. Nếu không có bản sao Giấy chứng nhận kết hôn thì nộp bản sao hồ sơ, giấy tờ cá nhân có các thông tin liên quan đến nội dung đăng ký kết hôn.",
+        "metadata": {
+          "doc_id": "nd_123_2015_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "document_type": "Nghị định",
+          "document_number": "123/2015/NĐ-CP",
+          "issue_date": "2015-11-15",
+          "effective_date": "2016-01-01",
+          "effective_from": "2016-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+          "section": "Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ",
+          "article_number": "27",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "clause_number": "1"
+        },
+        "parent_id": "nd_123_2015_nd_cp_art_27_p1"
       }
     ],
-    "latency_ms": 65.813,
+    "latency_ms": 15.965,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -658,11 +658,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -983,7 +983,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 76.264,
+    "latency_ms": 23.013,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -992,11 +992,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1317,7 +1317,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 63.115,
+    "latency_ms": 18.895,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1326,11 +1326,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1651,7 +1651,7 @@
         "parent_id": "l_52_2014_qh13_art_66"
       }
     ],
-    "latency_ms": 51.557,
+    "latency_ms": 10.875,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1660,11 +1660,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1985,7 +1985,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_14"
       }
     ],
-    "latency_ms": 95.849,
+    "latency_ms": 12.767,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1994,11 +1994,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2226,43 +2226,12 @@
         "parent_id": "l_52_2014_qh13_art_51"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_45_clause_2_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_45",
-        "clause_id": "nd_126_2014_nd_cp_art_45_clause_2",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_45_clause_2",
-        "rank": 8,
-        "score": 39.380703,
-        "chunk_text": "2. Trong thời hạn 07 ngày làm việc, kể từ ngày nhận được văn bản xin ý kiến của Sở Tư pháp, Bộ Tư pháp xem xét, thẩm tra hồ sơ và điều kiện ghi vào sổ hộ tịch việc ly hôn. Nếu xét thấy bản án, quyết định ly hôn, bản thỏa thuận ly hôn đáp ứng điều kiện quy định tại Điều 41 của Nghị định này và việc ghi vào sổ hộ tịch việc ly hôn là đúng thẩm quyền thì Bộ Tư pháp gửi văn bản đồng ý cho Sở Tư pháp thực hiện ghi vào sổ hộ tịch việc ly hôn theo quy định của Nghị định này. Nếu yêu cầu ghi vào sổ hộ tịch việc ly hôn không đủ điều kiện hoặc không đúng thẩm quyền thì Bộ Tư pháp trả lại hồ sơ cho Sở Tư pháp, có văn bản thông báo, nêu rõ lý do.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 5 GHI VÀO SỔ HỘ TỊCH VIỆC LY HÔN, HỦY VIỆC KẾT HÔN TRÁI PHÁP LUẬT ĐÃ ĐƯỢC GIẢI QUYẾT Ở NƯỚC NGOÀI",
-          "article_number": "45",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "2"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_45"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_13_clause_1_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_13",
         "clause_id": "l_52_2014_qh13_art_13_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_13_clause_1",
-        "rank": 9,
+        "rank": 8,
         "score": 39.24388,
         "chunk_text": "Trong trường hợp việc đăng ký kết hôn không đúng thẩm quyền thì khi có yêu cầu, cơ quan nhà nước có thẩm quyền thu hồi, hủy bỏ giấy chứng nhận kết hôn theo quy định của pháp luật về hộ tịch và yêu cầu hai bên thực hiện lại việc đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền. Trong trường hợp này, quan hệ hôn nhân được xác lập từ ngày đăng ký kết hôn trước.",
         "metadata": {
@@ -2293,7 +2262,7 @@
         "article_id": "l_52_2014_qh13_art_66",
         "clause_id": "l_52_2014_qh13_art_66_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_66_clause_1",
-        "rank": 10,
+        "rank": 9,
         "score": 36.28772,
         "chunk_text": "1. Khi một bên vợ, chồng chết hoặc bị Tòa án tuyên bố là đã chết thì bên còn sống quản lý tài sản chung của vợ chồng, trừ trường hợp trong di chúc có chỉ định người khác quản lý di sản hoặc những người thừa kế thỏa thuận cử người khác quản lý di sản.",
         "metadata": {
@@ -2317,9 +2286,40 @@
           "clause_number": "1"
         },
         "parent_id": "l_52_2014_qh13_art_66"
+      },
+      {
+        "chunk_id": "l_52_2014_qh13_art_67_clause_2_chunk_1",
+        "document_id": "l_52_2014_qh13",
+        "article_id": "l_52_2014_qh13_art_67",
+        "clause_id": "l_52_2014_qh13_art_67_clause_2",
+        "parent_clause_id": "l_52_2014_qh13_art_67_clause_2",
+        "rank": 10,
+        "score": 36.126255,
+        "chunk_text": "2. Quan hệ tài sản của người bị tuyên bố là đã chết trở về với người vợ hoặc chồng được giải quyết như sau: a) Trong trường hợp hôn nhân được khôi phục thì quan hệ tài sản được khôi phục kể từ thời điểm quyết định của Tòa án hủy bỏ tuyên bố chồng, vợ là đã chết có hiệu lực. Tài sản do vợ, chồng có được kể từ thời điểm quyết định của Tòa án về việc tuyên bố chồng, vợ là đã chết có hiệu lực đến khi quyết định hủy bỏ tuyên bố chồng, vợ đã chết có hiệu lực là tài sản riêng của người đó; b) Trong trường hợp hôn nhân không được khôi phục thì tài sản có được trước khi quyết định của Tòa án về việc tuyên bố vợ, chồng là đã chết có hiệu lực mà chưa chia được giải quyết như chia tài sản khi ly hôn.",
+        "metadata": {
+          "doc_id": "l_52_2014_qh13",
+          "title": "Luật Hôn nhân và gia đình 2014",
+          "document_type": "Luật",
+          "document_number": "52/2014/QH13",
+          "issue_date": "2014-06-19",
+          "effective_date": "2015-01-01",
+          "effective_from": "2015-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+          "issuing_body": "Quốc hội",
+          "validity_status": "Còn hiệu lực",
+          "source_status": "Còn hiệu lực",
+          "provision_status": "document_level_only",
+          "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
+          "section": "Mục 2 HÔN NHÂN CHẤM DỨT DO VỢ, CHỒNG CHẾT HOẶC BỊ TÒA ÁN TUYÊN BỐ LÀ ĐÃ CHẾT",
+          "article_number": "67",
+          "document_title": "Luật Hôn nhân và gia đình 2014",
+          "clause_number": "2"
+        },
+        "parent_id": "l_52_2014_qh13_art_67"
       }
     ],
-    "latency_ms": 102.045,
+    "latency_ms": 15.186,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2328,11 +2328,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2653,7 +2653,7 @@
         "parent_id": "tt_04_2020_tt_btp_art_12_p1"
       }
     ],
-    "latency_ms": 50.002,
+    "latency_ms": 11.254,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2662,11 +2662,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2987,7 +2987,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_7_p3"
       }
     ],
-    "latency_ms": 110.141,
+    "latency_ms": 19.966,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2996,11 +2996,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3321,7 +3321,7 @@
         "parent_id": "nq_01_2024_nq_hdtp_art_7"
       }
     ],
-    "latency_ms": 43.192,
+    "latency_ms": 19.948,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3330,11 +3330,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3655,7 +3655,7 @@
         "parent_id": "l_52_2014_qh13_art_83"
       }
     ],
-    "latency_ms": 103.322,
+    "latency_ms": 22.242,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3664,11 +3664,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3989,7 +3989,7 @@
         "parent_id": "l_52_2014_qh13_art_123"
       }
     ],
-    "latency_ms": 67.329,
+    "latency_ms": 23.079,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3998,11 +3998,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4323,7 +4323,7 @@
         "parent_id": "l_52_2014_qh13_art_2"
       }
     ],
-    "latency_ms": 58.284,
+    "latency_ms": 22.662,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4332,11 +4332,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4657,7 +4657,7 @@
         "parent_id": "tt_38_2025_tt_byt_art_3_p3"
       }
     ],
-    "latency_ms": 82.112,
+    "latency_ms": 14.521,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4666,11 +4666,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4991,7 +4991,7 @@
         "parent_id": "l_52_2014_qh13_art_70"
       }
     ],
-    "latency_ms": 63.287,
+    "latency_ms": 22.754,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5000,11 +5000,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5325,7 +5325,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_13"
       }
     ],
-    "latency_ms": 74.785,
+    "latency_ms": 14.467,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5334,11 +5334,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5659,7 +5659,7 @@
         "parent_id": "l_52_2014_qh13_art_119"
       }
     ],
-    "latency_ms": 59.036,
+    "latency_ms": 11.352,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5668,11 +5668,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5993,7 +5993,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 71.918,
+    "latency_ms": 12.454,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6002,11 +6002,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6327,7 +6327,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_5"
       }
     ],
-    "latency_ms": 67.844,
+    "latency_ms": 13.709,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6336,11 +6336,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6661,7 +6661,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_4"
       }
     ],
-    "latency_ms": 85.301,
+    "latency_ms": 19.915,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6670,11 +6670,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6995,7 +6995,7 @@
         "parent_id": "l_52_2014_qh13_art_38"
       }
     ],
-    "latency_ms": 28.386,
+    "latency_ms": 12.023,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7004,11 +7004,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7329,7 +7329,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_64"
       }
     ],
-    "latency_ms": 80.637,
+    "latency_ms": 13.605,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7338,11 +7338,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7663,7 +7663,7 @@
         "parent_id": "l_52_2014_qh13_art_31"
       }
     ],
-    "latency_ms": 82.848,
+    "latency_ms": 14.556,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7672,11 +7672,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7997,7 +7997,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_9_p1"
       }
     ],
-    "latency_ms": 87.282,
+    "latency_ms": 25.038,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8006,11 +8006,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8331,7 +8331,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_10_p1"
       }
     ],
-    "latency_ms": 91.266,
+    "latency_ms": 27.875,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8340,11 +8340,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8665,7 +8665,7 @@
         "parent_id": "l_52_2014_qh13_art_65"
       }
     ],
-    "latency_ms": 95.722,
+    "latency_ms": 18.088,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8674,11 +8674,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8999,7 +8999,7 @@
         "parent_id": "l_52_2014_qh13_art_10"
       }
     ],
-    "latency_ms": 87.041,
+    "latency_ms": 15.98,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9008,11 +9008,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9333,7 +9333,7 @@
         "parent_id": "l_52_2014_qh13_art_37"
       }
     ],
-    "latency_ms": 71.744,
+    "latency_ms": 14.434,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9342,11 +9342,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9667,7 +9667,7 @@
         "parent_id": "l_52_2014_qh13_art_46"
       }
     ],
-    "latency_ms": 83.375,
+    "latency_ms": 11.834,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9676,11 +9676,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10001,7 +10001,7 @@
         "parent_id": "l_52_2014_qh13_art_32"
       }
     ],
-    "latency_ms": 88.822,
+    "latency_ms": 11.858,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10010,11 +10010,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }

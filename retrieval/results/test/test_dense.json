@@ -269,45 +269,12 @@
         "parent_id": "nd_123_2015_nd_cp_art_34"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_24_clause_3_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_24",
-        "clause_id": "nd_126_2014_nd_cp_art_24_clause_3",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_24_clause_3",
-        "rank": 9,
-        "score": 0.617468,
-        "chunk_text": "3. Giấy chứng nhận kết hôn có giá trị kể từ ngày tổ chức lễ đăng ký kết hôn theo nghi thức quy định tại Khoản 2 Điều này. Việc cấp bản sao Giấy chứng nhận kết hôn từ Sổ đăng ký kết hôn do Sở Tư pháp thực hiện theo yêu cầu.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
-          "article_number": "24",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "3",
-          "document_id": "nd_126_2014_nd_cp",
-          "breadcrumb": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI > Mục 1 ĐĂNG KÝ KẾT HÔN > Điều 24. Lễ đăng ký kết hôn tại Việt Nam > Khoản 3"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_24"
-      },
-      {
         "chunk_id": "nd_123_2015_nd_cp_art_40_clause_1_chunk_1",
         "document_id": "nd_123_2015_nd_cp",
         "article_id": "nd_123_2015_nd_cp_art_40",
         "clause_id": "nd_123_2015_nd_cp_art_40_clause_1",
         "parent_clause_id": "nd_123_2015_nd_cp_art_40_clause_1",
-        "rank": 10,
+        "rank": 9,
         "score": 0.609551,
         "chunk_text": "1. Việc khai sinh, kết hôn, khai tử của công dân Việt Nam định cư ở nước ngoài hoặc của người nước ngoài đã đăng ký tại cơ quan có thẩm quyền của Việt Nam trước ngày 01 tháng 01 năm 2016 nhưng Sổ hộ tịch và bản chính giấy tờ hộ tịch đều bị mất thì được đăng ký lại.",
         "metadata": {
@@ -333,9 +300,42 @@
           "breadcrumb": "Chương IV ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN > Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ > Điều 40. Điều kiện đăng ký lại khai sinh, kết hôn, khai tử > Khoản 1"
         },
         "parent_id": "nd_123_2015_nd_cp_art_40"
+      },
+      {
+        "chunk_id": "nd_123_2015_nd_cp_art_31_clause_2_chunk_1",
+        "document_id": "nd_123_2015_nd_cp",
+        "article_id": "nd_123_2015_nd_cp_art_31",
+        "clause_id": "nd_123_2015_nd_cp_art_31_clause_2",
+        "parent_clause_id": "nd_123_2015_nd_cp_art_31_clause_2",
+        "rank": 10,
+        "score": 0.608752,
+        "chunk_text": "2. Nếu hồ sơ hợp lệ, các bên có đủ điều kiện kết hôn theo quy định của Luật Hôn nhân và gia đình, không thuộc trường hợp từ chối kết hôn đăng ký kết hôn theo quy định tại Điều 33 của Nghị định này thì Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện ký 02 bản chính Giấy chứng nhận kết hôn.",
+        "metadata": {
+          "doc_id": "nd_123_2015_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "document_type": "Nghị định",
+          "document_number": "123/2015/NĐ-CP",
+          "issue_date": "2015-11-15",
+          "effective_date": "2016-01-01",
+          "effective_from": "2016-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương IV ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+          "section": "Mục 1 ĐĂNG KÝ KHAI SINH, KẾT HÔN",
+          "article_number": "31",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "clause_number": "2",
+          "document_id": "nd_123_2015_nd_cp",
+          "breadcrumb": "Chương IV ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN > Mục 1 ĐĂNG KÝ KHAI SINH, KẾT HÔN > Điều 31. Trình tự đăng ký kết hôn > Khoản 2"
+        },
+        "parent_id": "nd_123_2015_nd_cp_art_31"
       }
     ],
-    "latency_ms": 12504.952,
+    "latency_ms": 11472.053,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -344,11 +344,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -689,7 +689,7 @@
         "parent_id": "nd_123_2015_nd_cp_art_27_p1"
       }
     ],
-    "latency_ms": 1592.482,
+    "latency_ms": 624.014,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -698,11 +698,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1043,7 +1043,7 @@
         "parent_id": "l_52_2014_qh13_art_87"
       }
     ],
-    "latency_ms": 1642.522,
+    "latency_ms": 627.569,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1052,11 +1052,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1139,7 +1139,7 @@
         "clause_id": "l_52_2014_qh13_art_130_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_130_clause_1",
         "rank": 3,
-        "score": 0.685622,
+        "score": 0.685621,
         "chunk_text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1397,7 +1397,7 @@
         "parent_id": "l_52_2014_qh13_art_35"
       }
     ],
-    "latency_ms": 1604.087,
+    "latency_ms": 592.807,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1406,11 +1406,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1751,7 +1751,7 @@
         "parent_id": "l_52_2014_qh13_art_14"
       }
     ],
-    "latency_ms": 1603.13,
+    "latency_ms": 648.9,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1760,11 +1760,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1973,46 +1973,13 @@
         "parent_id": "nq_01_2024_nq_hdtp_art_9"
       },
       {
-        "chunk_id": "nd_126_2014_nd_cp_art_19_clause_1_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_19",
-        "clause_id": "nd_126_2014_nd_cp_art_19_clause_1",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_19_clause_1",
-        "rank": 7,
-        "score": 0.56113,
-        "chunk_text": "1. Ủy ban nhân dân cấp tỉnh, nơi đăng ký thường trú của công dân Việt Nam, thực hiện đăng ký kết hôn giữa công dân Việt Nam với người nước ngoài, giữa công dân Việt Nam với nhau mà ít nhất một bên định cư ở nước ngoài. Trường hợp công dân Việt Nam không có nơi đăng ký thường trú, nhưng có nơi đăng ký tạm trú theo quy định của pháp luật về cư trú thì Ủy ban nhân dân cấp tỉnh, nơi đăng ký tạm trú của công dân Việt Nam thực hiện đăng ký kết hôn.",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 1 ĐĂNG KÝ KẾT HÔN",
-          "article_number": "19",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "1",
-          "document_id": "nd_126_2014_nd_cp",
-          "breadcrumb": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI > Mục 1 ĐĂNG KÝ KẾT HÔN > Điều 19. Thẩm quyền đăng ký kết hôn > Khoản 1"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_19"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_130_clause_1_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_130",
         "clause_id": "l_52_2014_qh13_art_130_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_130_clause_1",
-        "rank": 8,
-        "score": 0.555757,
+        "rank": 7,
+        "score": 0.555758,
         "chunk_text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -2044,7 +2011,7 @@
         "article_id": "l_52_2014_qh13_art_47",
         "clause_id": "l_52_2014_qh13_art_47_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_47_clause_1",
-        "rank": 9,
+        "rank": 8,
         "score": 0.554239,
         "chunk_text": "Trong trường hợp hai bên kết hôn lựa chọn chế độ tài sản theo thỏa thuận thì thỏa thuận này phải được lập trước khi kết hôn, bằng hình thức văn bản có công chứng hoặc chứng thực. Chế độ tài sản của vợ chồng theo thỏa thuận được xác lập kể từ ngày đăng ký kết hôn.",
         "metadata": {
@@ -2077,7 +2044,7 @@
         "article_id": "l_52_2014_qh13_art_35",
         "clause_id": "l_52_2014_qh13_art_35_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_35_clause_2",
-        "rank": 10,
+        "rank": 9,
         "score": 0.552806,
         "chunk_text": "2. Việc định đoạt tài sản chung phải có sự thỏa thuận bằng văn bản của vợ chồng trong những trường hợp sau đây: a) Bất động sản; b) Động sản mà theo quy định của pháp luật phải đăng ký quyền sở hữu; c) Tài sản đang là nguồn tạo ra thu nhập chủ yếu của gia đình.",
         "metadata": {
@@ -2103,9 +2070,42 @@
           "breadcrumb": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG > Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG > Điều 35. Chiếm hữu, sử dụng, định đoạt tài sản chung > Khoản 2"
         },
         "parent_id": "l_52_2014_qh13_art_35"
+      },
+      {
+        "chunk_id": "l_52_2014_qh13_art_28_clause_2_chunk_1",
+        "document_id": "l_52_2014_qh13",
+        "article_id": "l_52_2014_qh13_art_28",
+        "clause_id": "l_52_2014_qh13_art_28_clause_2",
+        "parent_clause_id": "l_52_2014_qh13_art_28_clause_2",
+        "rank": 10,
+        "score": 0.548381,
+        "chunk_text": "2. Các quy định tại các điều 29, 30, 31 và 32 của Luật này được áp dụng không phụ thuộc vào chế độ tài sản mà vợ chồng đã lựa chọn.",
+        "metadata": {
+          "doc_id": "l_52_2014_qh13",
+          "title": "Luật Hôn nhân và gia đình 2014",
+          "document_type": "Luật",
+          "document_number": "52/2014/QH13",
+          "issue_date": "2014-06-19",
+          "effective_date": "2015-01-01",
+          "effective_from": "2015-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+          "issuing_body": "Quốc hội",
+          "validity_status": "Còn hiệu lực",
+          "source_status": "Còn hiệu lực",
+          "provision_status": "document_level_only",
+          "chapter": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG",
+          "section": "Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG",
+          "article_number": "28",
+          "document_title": "Luật Hôn nhân và gia đình 2014",
+          "clause_number": "2",
+          "document_id": "l_52_2014_qh13",
+          "breadcrumb": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG > Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG > Điều 28. Áp dụng chế độ tài sản của vợ chồng > Khoản 2"
+        },
+        "parent_id": "l_52_2014_qh13_art_28"
       }
     ],
-    "latency_ms": 1638.731,
+    "latency_ms": 723.445,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2114,11 +2114,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2459,7 +2459,7 @@
         "parent_id": "l_52_2014_qh13_art_56"
       }
     ],
-    "latency_ms": 1542.612,
+    "latency_ms": 602.906,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2468,11 +2468,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2813,7 +2813,7 @@
         "parent_id": "l_52_2014_qh13_art_60"
       }
     ],
-    "latency_ms": 1536.419,
+    "latency_ms": 812.651,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2822,11 +2822,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2843,7 +2843,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_4",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_4",
         "rank": 1,
-        "score": 0.695768,
+        "score": 0.695769,
         "chunk_text": "b) “Công sức đóng góp của vợ, chồng vào việc tạo lập, duy trì và phát triển khối tài sản chung” là sự đóng góp về tài sản riêng, thu nhập, công việc gia đình và lao động của vợ, chồng trong việc tạo lập, duy trì và phát triển khối tài sản chung. Người vợ hoặc chồng ở nhà chăm sóc con, gia đình mà không đi làm được tính là lao động có thu nhập tương đương với thu nhập của chồng hoặc vợ đi làm. Bên có công sức đóng góp nhiều hơn sẽ được chia nhiều hơn. c) “Bảo vệ lợi ích chính đáng của mỗi bên trong sản xuất, kinh doanh và nghề nghiệp để các bên có điều kiện tiếp tục lao động tạo thu nhập” là việc chia tài sản chung của vợ chồng phải bảo đảm cho vợ, chồng đang hoạt động nghề nghiệp được tiếp tục hành nghề;",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -3167,7 +3167,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_7_p1"
       }
     ],
-    "latency_ms": 1589.706,
+    "latency_ms": 637.189,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3176,11 +3176,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3230,7 +3230,7 @@
         "clause_id": "l_52_2014_qh13_art_108_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_108_clause_1",
         "rank": 2,
-        "score": 0.653091,
+        "score": 0.653092,
         "chunk_text": "Trong trường hợp một người có nghĩa vụ cấp dưỡng cho nhiều người thì người cấp dưỡng và những người được cấp dưỡng thỏa thuận với nhau về phương thức và mức cấp dưỡng phù hợp với thu nhập, khả năng thực tế của người có nghĩa vụ cấp dưỡng và nhu cầu thiết yếu của những người được cấp dưỡng; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3296,7 +3296,7 @@
         "clause_id": "l_52_2014_qh13_art_119_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_119_clause_1",
         "rank": 4,
-        "score": 0.648426,
+        "score": 0.648427,
         "chunk_text": "1. Người được cấp dưỡng, cha, mẹ hoặc người giám hộ của người đó, theo quy định của pháp luật về tố tụng dân sự, có quyền yêu cầu Tòa án buộc người không tự nguyện thực hiện nghĩa vụ cấp dưỡng phải thực hiện nghĩa vụ đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3521,7 +3521,7 @@
         "parent_id": "l_52_2014_qh13_art_109"
       }
     ],
-    "latency_ms": 1590.99,
+    "latency_ms": 897.383,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3530,11 +3530,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3584,7 +3584,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_65_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_65_clause_2",
         "rank": 2,
-        "score": 0.57601,
+        "score": 0.576011,
         "chunk_text": "2. Bãi bỏ Nghị định số 70/2001/NĐ-CP ngày 03 tháng 10 năm 2001 của Chính phủ quy định chi tiết thi hành Luật Hôn nhân và gia đình; Nghị định số 32/2002/NĐ-CP ngày 27 tháng 3 năm 2002 của Chính phủ quy định việc áp dụng Luật Hôn nhân và gia đình đối với các dân tộc thiểu số; Điều 2 Nghị định số 06/2012/NĐ-CP ngày 02 tháng 02 năm 2012 của Chính phủ sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -3815,7 +3815,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
         "rank": 9,
-        "score": 0.525234,
+        "score": 0.525235,
         "chunk_text": "b) Nếu xác định được năm sinh, tháng sinh nhưng không xác định được ngày sinh thì ngày sinh được xác định là ngày mùng một của tháng sinh. Ví dụ: Chị B sinh ngày 10-01-1997, đến ngày 08-01-2015 chị B đăng ký kết hôn với anh A tại Ủy ban nhân dân xã X. Tại thời điểm đăng ký kết hôn chị B chưa đủ 18 tuổi (ngày chị B đủ 18 tuổi là ngày 10-01-2015), như vậy, theo quy định tại khoản 1 Điều 9 của Luật hôn nhân và gia đình năm 2000 thì chị B đã đủ tuổi kết hôn, tuy nhiên vì ngày chị B đăng ký kết hôn Luật hôn nhân và gia đình đã có hiệu lực (ngày 01-01-2015) nên chị B đã vi phạm điều kiện về tuổi kết hôn quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -3848,7 +3848,7 @@
         "clause_id": "l_52_2014_qh13_art_6_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_6_clause_1",
         "rank": 10,
-        "score": 0.52431,
+        "score": 0.524311,
         "chunk_text": "Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3875,7 +3875,7 @@
         "parent_id": "l_52_2014_qh13_art_6"
       }
     ],
-    "latency_ms": 1657.489,
+    "latency_ms": 627.898,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3884,11 +3884,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4229,7 +4229,7 @@
         "parent_id": "l_52_2014_qh13_art_60"
       }
     ],
-    "latency_ms": 1619.9,
+    "latency_ms": 598.657,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4238,11 +4238,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4259,7 +4259,7 @@
         "clause_id": "l_52_2014_qh13_art_21_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_21_clause_1",
         "rank": 1,
-        "score": 0.776604,
+        "score": 0.776603,
         "chunk_text": "Vợ, chồng có nghĩa vụ tôn trọng, giữ gìn và bảo vệ danh dự, nhân phẩm, uy tín cho nhau.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4292,7 +4292,7 @@
         "clause_id": "l_52_2014_qh13_art_5_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_5_clause_4",
         "rank": 2,
-        "score": 0.726654,
+        "score": 0.726653,
         "chunk_text": "4. Danh dự, nhân phẩm, uy tín, bí mật đời tư và các quyền riêng tư khác của các bên được tôn trọng, bảo vệ trong quá trình giải quyết vụ việc về hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4325,7 +4325,7 @@
         "clause_id": "l_52_2014_qh13_art_18_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_18_clause_1",
         "rank": 3,
-        "score": 0.686968,
+        "score": 0.686969,
         "chunk_text": "Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4556,7 +4556,7 @@
         "clause_id": "l_52_2014_qh13_art_22_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_22_clause_1",
         "rank": 10,
-        "score": 0.615332,
+        "score": 0.615333,
         "chunk_text": "Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4583,7 +4583,7 @@
         "parent_id": "l_52_2014_qh13_art_22"
       }
     ],
-    "latency_ms": 1621.211,
+    "latency_ms": 604.813,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4592,11 +4592,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4811,7 +4811,7 @@
         "clause_id": "l_52_2014_qh13_art_4_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_4_clause_1",
         "rank": 7,
-        "score": 0.590242,
+        "score": 0.590241,
         "chunk_text": "1. Nhà nước có chính sách, biện pháp bảo hộ hôn nhân và gia đình, tạo điều kiện để nam, nữ xác lập hôn nhân tự nguyện, tiến bộ, một vợ một chồng, vợ chồng bình đẳng; xây dựng gia đình ấm no, tiến bộ, hạnh phúc và thực hiện đầy đủ chức năng của mình; tăng cường tuyên truyền, phổ biến, giáo dục pháp luật về hôn nhân và gia đình; vận động nhân dân xóa bỏ phong tục, tập quán lạc hậu về hôn nhân và gia đình, phát huy truyền thống, phong tục, tập quán tốt đẹp thể hiện bản sắc của mỗi dân tộc.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4877,7 +4877,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "rank": 9,
-        "score": 0.588202,
+        "score": 0.588203,
         "chunk_text": "2. Trường hợp hòa giải không thành hoặc vụ, việc hôn nhân và gia đình có áp dụng tập quán không thuộc phạm vi hòa giải ở cơ sở thì Tòa án giải quyết vụ, việc đó theo quy định của pháp luật tố tụng dân sự.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4937,7 +4937,7 @@
         "parent_id": "l_52_2014_qh13_art_2"
       }
     ],
-    "latency_ms": 1748.377,
+    "latency_ms": 606.751,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4946,11 +4946,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5000,7 +5000,7 @@
         "clause_id": "l_52_2014_qh13_art_87_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_87_clause_2",
         "rank": 2,
-        "score": 0.725343,
+        "score": 0.725342,
         "chunk_text": "2. Việc trông nom, chăm sóc, giáo dục con và quản lý tài sản riêng của con chưa thành niên được giao cho người giám hộ theo quy định của Bộ luật dân sự và Luật này trong các trường hợp sau đây: a) Cha và mẹ đều bị Tòa án hạn chế quyền đối với con chưa thành niên; b) Một bên cha, mẹ không bị hạn chế quyền đối với con chưa thành niên nhưng không đủ điều kiện để thực hiện quyền, nghĩa vụ đối với con; c) Một bên cha, mẹ bị hạn chế quyền đối với con chưa thành niên và chưa xác định được bên cha, mẹ còn lại của con chưa thành niên.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5264,7 +5264,7 @@
         "clause_id": "l_52_2014_qh13_art_78_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_78_clause_3",
         "rank": 10,
-        "score": 0.703743,
+        "score": 0.703742,
         "chunk_text": "3. Quyền, nghĩa vụ giữa cha đẻ, mẹ đẻ và con đẻ được khôi phục kể từ thời điểm quan hệ nuôi con nuôi chấm dứt. Trong trường hợp cha đẻ, mẹ đẻ không còn hoặc không có đủ điều kiện để nuôi con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự hoặc không có khả năng lao động và không có tài sản để tự nuôi mình thì Tòa án giải quyết việc chấm dứt nuôi con nuôi và chỉ định người giám hộ cho con theo quy định của Bộ luật dân sự.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5291,7 +5291,7 @@
         "parent_id": "l_52_2014_qh13_art_78"
       }
     ],
-    "latency_ms": 1553.086,
+    "latency_ms": 657.272,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5300,11 +5300,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5420,7 +5420,7 @@
         "clause_id": "l_52_2014_qh13_art_95_clause_5",
         "parent_clause_id": "l_52_2014_qh13_art_95_clause_5",
         "rank": 4,
-        "score": 0.759105,
+        "score": 0.759104,
         "chunk_text": "5. Chính phủ quy định chi tiết Điều này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5645,7 +5645,7 @@
         "parent_id": "l_52_2014_qh13_art_3_p4"
       }
     ],
-    "latency_ms": 1614.63,
+    "latency_ms": 626.995,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5654,11 +5654,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5999,7 +5999,7 @@
         "parent_id": "l_52_2014_qh13_art_112"
       }
     ],
-    "latency_ms": 1622.52,
+    "latency_ms": 624.041,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6008,11 +6008,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6353,7 +6353,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 1600.765,
+    "latency_ms": 814.876,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6362,11 +6362,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6449,7 +6449,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_3_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_3_clause_2",
         "rank": 3,
-        "score": 0.698566,
+        "score": 0.698565,
         "chunk_text": "2. Trường hợp các bên có thỏa thuận về tập quán được áp dụng thì giải quyết theo thỏa thuận đó; nếu các bên không có thỏa thuận thì giải quyết theo quy định tại Điều 4 của Nghị định này.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6482,7 +6482,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "rank": 4,
-        "score": 0.683153,
+        "score": 0.683152,
         "chunk_text": "1. Tập quán được áp dụng phải là quy tắc xử sự phù hợp với quy định tại Khoản 4 Điều 3 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6581,7 +6581,7 @@
         "clause_id": "l_52_2014_qh13_art_3_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_3_clause_4",
         "rank": 7,
-        "score": 0.646116,
+        "score": 0.646115,
         "chunk_text": "4. Tập quán về hôn nhân và gia đình là quy tắc xử sự có nội dung rõ ràng về quyền, nghĩa vụ của các bên trong quan hệ hôn nhân và gia đình, được lặp đi, lặp lại trong một thời gian dài và được thừa nhận rộng rãi trong một vùng, miền hoặc cộng đồng.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6707,7 +6707,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_3"
       }
     ],
-    "latency_ms": 1717.166,
+    "latency_ms": 578.734,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6716,11 +6716,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7061,7 +7061,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_6"
       }
     ],
-    "latency_ms": 1632.924,
+    "latency_ms": 573.078,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7070,11 +7070,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7415,7 +7415,7 @@
         "parent_id": "l_52_2014_qh13_art_59_p2"
       }
     ],
-    "latency_ms": 1596.904,
+    "latency_ms": 618.643,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7424,11 +7424,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7577,7 +7577,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "rank": 5,
-        "score": 0.715328,
+        "score": 0.715327,
         "chunk_text": "2. Trung tâm có các nghĩa vụ sau đây: a) Thực hiện hoạt động theo đúng nội dung ghi trong giấy đăng ký hoạt động; b) Tư vấn, hỗ trợ cho mọi đối tượng có yêu cầu, không phụ thuộc vào quốc tịch, nơi cư trú của người có yêu cầu; cấp giấy xác nhận của Trung tâm sau khi thực hiện tư vấn, hỗ trợ cho người có yêu cầu; c) Công bố công khai mức thù lao theo quy định; d) Giữ bí mật các thông tin, tư liệu về đời sống riêng tư, bí mật cá nhân, bí mật gia đình của các bên theo quy định của pháp luật;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7643,7 +7643,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_54_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_54_clause_1",
         "rank": 7,
-        "score": 0.689575,
+        "score": 0.689574,
         "chunk_text": "1. Sau khi có quyết định thành lập, Trung tâm phải đăng ký hoạt động tại Sở Tư pháp, nơi đặt trụ sở của Trung tâm.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7709,7 +7709,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_52_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_52_clause_3",
         "rank": 9,
-        "score": 0.683847,
+        "score": 0.683846,
         "chunk_text": "3. Nghiêm cấm lợi dụng việc tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài nhằm mua bán người, bóc lột sức lao động, xâm phạm tình dục hoặc vì mục đích trục lợi khác.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7769,7 +7769,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_57"
       }
     ],
-    "latency_ms": 1562.809,
+    "latency_ms": 680.773,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7778,11 +7778,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7997,7 +7997,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
         "rank": 7,
-        "score": 0.522131,
+        "score": 0.52213,
         "chunk_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8063,7 +8063,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
         "rank": 9,
-        "score": 0.517633,
+        "score": 0.517632,
         "chunk_text": "2. Các quy định và văn bản sau đây hết hiệu lực kể từ ngày Nghị định này có hiệu lực thi hành: a) Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; b) Nghị định số 98/2016/NĐ-CP ngày 01 tháng 7 năm 2016 của Chính phủ sửa đổi bổ sung một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; c) Khoản 2 Điều 19 Nghị định số 155/2018/NĐ-CP ngày 12 tháng 11 năm 2018 của Chính phủ sửa đổi bổ sung một số quy định liên quan đến điều kiện đầu tư kinh doanh thuộc phạm vi quản lý nhà nước của Bộ Y tế.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8096,7 +8096,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_53_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_53_clause_1",
         "rank": 10,
-        "score": 0.506554,
+        "score": 0.506553,
         "chunk_text": "1. Có quy chế hoạt động bảo đảm nguyên tắc quy định tại Điều 52 của Nghị định này được Hội Liên hiệp phụ nữ phê duyệt;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -8123,7 +8123,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_53"
       }
     ],
-    "latency_ms": 1587.783,
+    "latency_ms": 912.726,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8132,11 +8132,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8318,7 +8318,7 @@
         "clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "parent_clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "rank": 6,
-        "score": 0.8032,
+        "score": 0.803199,
         "chunk_text": "đ) Mẫu phải được bàn giao giữa hai cơ sở lưu giữ và kèm theo các giấy tờ: - Danh sách người gửi mẫu/người nhận mẫu hiến được bàn giao có đầy đủ thông tin: họ tên và số thẻ căn cước hoặc giấy tờ tùy thân hợp lệ có số định danh cá nhân của người gửi mẫu/người nhận mẫu hiến, hoặc hộ chiếu (nếu là người nước ngoài); - Toàn bộ hồ sơ bệnh án hoặc hồ sơ lưu giữ mẫu của các trường hợp được vận chuyển; - Biên bản bàn giao tinh trùng, noãn, phôi (02 bản chính) theo mẫu tại Phụ lục I ban hành kèm theo Thông tư này; e) Cơ sở nhận mẫu có trách nhiệm kiểm tra niêm phong và các giấy tờ kèm theo trước khi ký biên bản bàn giao mẫu và gửi lại cho bên giao 01 bản chính;",
         "metadata": {
           "doc_id": "tt_38_2025_tt_byt",
@@ -8351,7 +8351,7 @@
         "clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "parent_clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "rank": 7,
-        "score": 0.791845,
+        "score": 0.791844,
         "chunk_text": "g) Cơ sở giao mẫu có trách nhiệm thông báo việc vận chuyển mẫu bằng văn bản đến người gửi mẫu; cơ sở nhận mẫu có trách nhiệm tiếp tục lưu giữ, bảo quản mẫu đã nhận thông qua hợp đồng với người gửi mẫu theo quy định của pháp luật về dân sự.",
         "metadata": {
           "doc_id": "tt_38_2025_tt_byt",
@@ -8417,7 +8417,7 @@
         "clause_id": "tt_38_2025_tt_byt_art_3_clause_1",
         "parent_clause_id": "tt_38_2025_tt_byt_art_3_clause_1",
         "rank": 9,
-        "score": 0.780413,
+        "score": 0.780412,
         "chunk_text": "1. Trường hợp người gửi tinh trùng, noãn, phôi (sau đây được gọi tắt là mẫu) hoặc người nhận mẫu hiến có nguyện vọng chuyển mẫu từ cơ sở đang lưu giữ đến cơ sở lưu giữ khác: a) Cơ sở đang lưu giữ mẫu tư vấn cho người gửi mẫu/người nhận mẫu hiến về quy định vận chuyển mẫu, những rủi ro có thể gặp phải trong quá trình vận chuyển; có ý kiến bằng văn bản về việc đồng ý chuyển mẫu; b) Cơ sở tiếp nhận mẫu có trách nhiệm xem xét nguyện vọng của người gửi mẫu/người nhận mẫu hiến, quyết định tiếp nhận mẫu được chuyển đến từ cơ sở lưu giữ khác. Việc giao, nhận chỉ được thực hiện khi có sự đồng ý bằng văn bản của cơ sở nhận mẫu;",
         "metadata": {
           "doc_id": "tt_38_2025_tt_byt",
@@ -8477,7 +8477,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_5"
       }
     ],
-    "latency_ms": 1624.608,
+    "latency_ms": 787.328,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8486,11 +8486,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8639,7 +8639,7 @@
         "clause_id": "tt_38_2025_tt_byt_art_3_clause_1",
         "parent_clause_id": "tt_38_2025_tt_byt_art_3_clause_1",
         "rank": 5,
-        "score": 0.727639,
+        "score": 0.72764,
         "chunk_text": "họ tên và số thẻ căn cước hoặc số định danh cá nhân của người gửi mẫu/người nhận mẫu hiến, hoặc hộ chiếu (nếu là người nước ngoài); số lượng và chất lượng mẫu; phương pháp lưu giữ, ngày lưu giữ; tóm tắt quá trình điều trị; - Trường hợp mẫu bàn giao là mẫu hiến: hồ sơ lưu giữ mẫu không cần có thông tin nhân thân của người hiến nhưng phải có mã số của mẫu do cơ sở giao mẫu cấp; - Trường hợp mẫu được bàn giao là phôi: bản sao hợp lệ Giấy chứng nhận kết hôn ở thời điểm tạo phôi nếu là cặp vợ chồng hoặc Giấy xác nhận tình trạng hôn nhân nếu là phụ nữ độc thân; - Biên bản bàn giao tinh trùng, noãn, phôi (02 bản chính) theo mẫu tại Phụ lục I ban hành kèm theo Thông tư này; g) Cơ sở nhận mẫu có trách nhiệm kiểm tra niêm phong và các giấy tờ kèm theo trước khi ký biên bản bàn giao mẫu và gửi lại cho bên giao 01 bản chính.",
         "metadata": {
           "doc_id": "tt_38_2025_tt_byt",
@@ -8831,7 +8831,7 @@
         "parent_id": "tt_38_2025_tt_byt_art_2"
       }
     ],
-    "latency_ms": 1653.879,
+    "latency_ms": 712.454,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8840,11 +8840,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9059,7 +9059,7 @@
         "clause_id": "l_52_2014_qh13_art_67_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_67_clause_2",
         "rank": 7,
-        "score": 0.658407,
+        "score": 0.658406,
         "chunk_text": "2. Quan hệ tài sản của người bị tuyên bố là đã chết trở về với người vợ hoặc chồng được giải quyết như sau: a) Trong trường hợp hôn nhân được khôi phục thì quan hệ tài sản được khôi phục kể từ thời điểm quyết định của Tòa án hủy bỏ tuyên bố chồng, vợ là đã chết có hiệu lực. Tài sản do vợ, chồng có được kể từ thời điểm quyết định của Tòa án về việc tuyên bố chồng, vợ là đã chết có hiệu lực đến khi quyết định hủy bỏ tuyên bố chồng, vợ đã chết có hiệu lực là tài sản riêng của người đó; b) Trong trường hợp hôn nhân không được khôi phục thì tài sản có được trước khi quyết định của Tòa án về việc tuyên bố vợ, chồng là đã chết có hiệu lực mà chưa chia được giải quyết như chia tài sản khi ly hôn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -9185,7 +9185,7 @@
         "parent_id": "l_52_2014_qh13_art_40"
       }
     ],
-    "latency_ms": 1802.11,
+    "latency_ms": 732.09,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9194,11 +9194,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9347,7 +9347,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_4",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_4",
         "rank": 5,
-        "score": 0.746809,
+        "score": 0.746808,
         "chunk_text": "4. “Người đang có vợ hoặc có chồng” quy định tại điểm c khoản 2 Điều 5 của Luật hôn nhân và gia đình là người thuộc một trong các trường hợp sau đây: a) Người đã kết hôn với người khác theo đúng quy định của pháp luật về hôn nhân và gia đình nhưng chưa ly hôn hoặc không có sự kiện vợ (chồng) của họ chết hoặc vợ (chồng) của họ không bị tuyên bố là đã chết; b) Người xác lập quan hệ vợ chồng với người khác trước ngày 03-01-1987 mà chưa đăng ký kết hôn và chưa ly hôn hoặc không có sự kiện vợ (chồng) của họ chết hoặc vợ (chồng) của họ không bị tuyên bố là đã chết;",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -9380,7 +9380,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_4",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_4",
         "rank": 6,
-        "score": 0.746373,
+        "score": 0.746372,
         "chunk_text": "4. Khi xử lý yêu cầu hủy việc kết hôn trái pháp luật, Tòa án phải căn cứ vào quy định của pháp luật hôn nhân và gia đình có hiệu lực tại thời điểm xác lập quan hệ hôn nhân để xác định việc kết hôn có trái pháp luật hay không. Trình tự, thủ tục giải quyết yêu cầu xử lý việc kết hôn trái pháp luật được thực hiện theo quy định của Luật hôn nhân và gia đình và pháp luật tố tụng dân sự có hiệu lực tại thời điểm giải quyết. Đối với yêu cầu hủy việc kết hôn trái pháp luật thuộc trường hợp cán bộ và bộ đội miền Nam tập kết ra miền Bắc từ năm 1954, đã có vợ, có chồng ở miền Nam mà lấy vợ, lấy chồng ở miền Bắc thì vẫn xử lý theo Thông tư số 60/TATC ngày 22-02-1978 của Tòa án nhân dân tối cao “Hướng dẫn giải quyết các trường hợp cán bộ, bộ đội trong Nam tập kết ra Bắc mà lấy vợ, lấy chồng khác”.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -9539,7 +9539,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_2_p2"
       }
     ],
-    "latency_ms": 1678.872,
+    "latency_ms": 898.962,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9548,11 +9548,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9893,7 +9893,7 @@
         "parent_id": "l_52_2014_qh13_art_23"
       }
     ],
-    "latency_ms": 1573.812,
+    "latency_ms": 657.894,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9902,11 +9902,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10154,7 +10154,7 @@
         "clause_id": "l_52_2014_qh13_art_34_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_34_clause_2",
         "rank": 8,
-        "score": 0.633293,
+        "score": 0.633292,
         "chunk_text": "2. Trong trường hợp giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng tài sản chỉ ghi tên một bên vợ hoặc chồng thì giao dịch liên quan đến tài sản này được thực hiện theo quy định tại Điều 26 của Luật này; nếu có tranh chấp về tài sản đó thì được giải quyết theo quy định tại khoản 3 Điều 33 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -10247,7 +10247,7 @@
         "parent_id": "l_52_2014_qh13_art_59_p2"
       }
     ],
-    "latency_ms": 1559.073,
+    "latency_ms": 790.905,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10256,11 +10256,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10310,7 +10310,7 @@
         "clause_id": "l_52_2014_qh13_art_60_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_60_clause_1",
         "rank": 2,
-        "score": 0.704612,
+        "score": 0.704613,
         "chunk_text": "1. Quyền, nghĩa vụ tài sản của vợ chồng đối với người thứ ba vẫn có hiệu lực sau khi ly hôn, trừ trường hợp vợ chồng và người thứ ba có thỏa thuận khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -10343,7 +10343,7 @@
         "clause_id": "l_52_2014_qh13_art_59_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_59_clause_3",
         "rank": 3,
-        "score": 0.671749,
+        "score": 0.67175,
         "chunk_text": "3. Tài sản chung của vợ chồng được chia bằng hiện vật, nếu không chia được bằng hiện vật thì chia theo giá trị; bên nào nhận phần tài sản bằng hiện vật có giá trị lớn hơn phần mình được hưởng thì phải thanh toán cho bên kia phần chênh lệch.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -10601,7 +10601,7 @@
         "parent_id": "l_52_2014_qh13_art_37"
       }
     ],
-    "latency_ms": 1568.752,
+    "latency_ms": 625.167,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10610,11 +10610,11 @@
       "dense_model": "BAAI/bge-m3",
       "dimension": 1024,
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "elasticsearch_index": "bm25-e6-verified-20261101",
-      "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
