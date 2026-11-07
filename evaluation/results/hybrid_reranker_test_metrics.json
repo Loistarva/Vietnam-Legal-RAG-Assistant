@@ -19,8 +19,8 @@
     "ndcg@5": 0.8447316464740116,
     "precision@5": 0.36666666666666664,
     "strict_match_recall@10": 0.9561111111111111,
-    "mrr@10": 0.8742063492063491,
-    "ndcg@10": 0.8685002068730416,
+    "mrr@10": 0.875,
+    "ndcg@10": 0.8692626686655311,
     "precision@10": 0.19666666666666668,
     "parent_match_recall@5": 0.8977777777777778,
     "parent_match_recall@10": 0.9561111111111111
@@ -57,13 +57,13 @@
         "num_questions": 30
       },
       "mrr@10": {
-        "lower": 0.7742063492063491,
+        "lower": 0.7777083333333339,
         "upper": 0.9583333333333334,
         "num_questions": 30
       },
       "ndcg@10": {
-        "lower": 0.791228852105693,
-        "upper": 0.9383088411996842,
+        "lower": 0.7930000840639512,
+        "upper": 0.9385926131131456,
         "num_questions": 30
       },
       "precision@10": {
@@ -578,12 +578,12 @@
           "num_questions": 2
         },
         "mrr@10": {
-          "lower": 0.14285714285714285,
+          "lower": 0.16666666666666666,
           "upper": 1.0,
           "num_questions": 2
         },
         "ndcg@10": {
-          "lower": 0.3333333333333333,
+          "lower": 0.3562071871080222,
           "upper": 1.0,
           "num_questions": 2
         },
@@ -1022,8 +1022,8 @@
       "ndcg@5": 0.0,
       "precision@5": 0.0,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.14285714285714285,
-      "ndcg@10": 0.3333333333333333,
+      "mrr@10": 0.16666666666666666,
+      "ndcg@10": 0.3562071871080222,
       "precision@10": 0.1,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.0,
@@ -1171,10 +1171,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
     "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "b2f88a0b5358f4293821407265ea6d2153a75c8f6499a572d2c6339d340d1829"
+    "retrieval_results": "87ff98125ee4423e79f38d2a1fd8ac433d7e6e53db95f17b0cdd22fcba167a66"
   },
   "run_config": {
     "retriever": {
@@ -1187,7 +1187,7 @@
       "collection": "vietnam_legal_chunks",
       "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
       "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "fusion": "rrf"
     },
     "reranker": {
@@ -1246,7 +1246,7 @@
       10
     ]
   },
-  "test_run_commit": "b90d886b6a0debf291caa4b76461d1b93b88d8f8",
+  "test_run_commit": "b3776e6eb77221f16c7199dcc8292588eef2b6be",
   "by_category": {
     "ket_hon": {
       "strict_match_recall@5": 0.8666666666666667,
@@ -1362,8 +1362,8 @@
       "ndcg@5": 0.5,
       "precision@5": 0.4,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.5714285714285714,
-      "ndcg@10": 0.6666666666666666,
+      "mrr@10": 0.5833333333333334,
+      "ndcg@10": 0.6781035935540111,
       "precision@10": 0.25,
       "parent_match_recall@5": 0.5,
       "parent_match_recall@10": 1.0

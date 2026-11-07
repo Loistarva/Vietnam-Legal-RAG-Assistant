@@ -11,7 +11,7 @@
         "clause_id": "l_52_2014_qh13_art_9_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_9_clause_1",
         "rank": 1,
-        "score": 0.728177,
+        "score": 0.728176,
         "chunk_text": "1. Việc kết hôn phải được đăng ký và do cơ quan nhà nước có thẩm quyền thực hiện theo quy định của Luật này và pháp luật về hộ tịch. Việc kết hôn không được đăng ký theo quy định tại khoản này thì không có giá trị pháp lý.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -335,7 +335,7 @@
         "parent_id": "nd_123_2015_nd_cp_art_31"
       }
     ],
-    "latency_ms": 11472.053,
+    "latency_ms": 9735.154,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -348,7 +348,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -458,45 +458,12 @@
         "parent_id": "nd_123_2015_nd_cp_art_27_p1"
       },
       {
-        "chunk_id": "nd_123_2015_nd_cp_art_24_clause_2_chunk_1",
-        "document_id": "nd_123_2015_nd_cp",
-        "article_id": "nd_123_2015_nd_cp_art_24",
-        "clause_id": "nd_123_2015_nd_cp_art_24_clause_2",
-        "parent_clause_id": "nd_123_2015_nd_cp_art_24_clause_2",
-        "rank": 4,
-        "score": 0.637589,
-        "chunk_text": "2. Người yêu cầu đăng ký lại khai sinh, kết hôn, khai tử có trách nhiệm nộp đầy đủ bản sao giấy tờ, tài liệu có nội dung liên quan đến việc đăng ký lại.",
-        "metadata": {
-          "doc_id": "nd_123_2015_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
-          "document_type": "Nghị định",
-          "document_number": "123/2015/NĐ-CP",
-          "issue_date": "2015-11-15",
-          "effective_date": "2016-01-01",
-          "effective_from": "2016-01-01",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
-          "section": "Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ",
-          "article_number": "24",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
-          "clause_number": "2",
-          "document_id": "nd_123_2015_nd_cp",
-          "breadcrumb": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ > Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ > Điều 24. Điều kiện đăng ký lại khai sinh, kết hôn, khai tử > Khoản 2"
-        },
-        "parent_id": "nd_123_2015_nd_cp_art_24"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_9_clause_1_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_9",
         "clause_id": "l_52_2014_qh13_art_9_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_9_clause_1",
-        "rank": 5,
+        "rank": 4,
         "score": 0.632609,
         "chunk_text": "1. Việc kết hôn phải được đăng ký và do cơ quan nhà nước có thẩm quyền thực hiện theo quy định của Luật này và pháp luật về hộ tịch. Việc kết hôn không được đăng ký theo quy định tại khoản này thì không có giá trị pháp lý.",
         "metadata": {
@@ -529,7 +496,7 @@
         "article_id": "nd_123_2015_nd_cp_art_24",
         "clause_id": "nd_123_2015_nd_cp_art_24_clause_3",
         "parent_clause_id": "nd_123_2015_nd_cp_art_24_clause_3",
-        "rank": 6,
+        "rank": 5,
         "score": 0.62821,
         "chunk_text": "3. Việc đăng ký lại khai sinh, kết hôn chỉ được thực hiện nếu người yêu cầu đăng ký còn sống vào thời điểm tiếp nhận hồ sơ.",
         "metadata": {
@@ -562,7 +529,7 @@
         "article_id": "l_52_2014_qh13_art_14",
         "clause_id": "l_52_2014_qh13_art_14_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_14_clause_1",
-        "rank": 7,
+        "rank": 6,
         "score": 0.626163,
         "chunk_text": "1. Nam, nữ có đủ điều kiện kết hôn theo quy định của Luật này chung sống với nhau như vợ chồng mà không đăng ký kết hôn thì không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Quyền, nghĩa vụ đối với con, tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 15 và Điều 16 của Luật này.",
         "metadata": {
@@ -595,7 +562,7 @@
         "article_id": "l_52_2014_qh13_art_14",
         "clause_id": "l_52_2014_qh13_art_14_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_14_clause_2",
-        "rank": 8,
+        "rank": 7,
         "score": 0.615152,
         "chunk_text": "2. Trong trường hợp nam, nữ chung sống với nhau như vợ chồng theo quy định tại khoản 1 Điều này nhưng sau đó thực hiện việc đăng ký kết hôn theo quy định của pháp luật thì quan hệ hôn nhân được xác lập từ thời điểm đăng ký kết hôn.",
         "metadata": {
@@ -628,7 +595,7 @@
         "article_id": "nd_123_2015_nd_cp_art_40",
         "clause_id": "nd_123_2015_nd_cp_art_40_clause_1",
         "parent_clause_id": "nd_123_2015_nd_cp_art_40_clause_1",
-        "rank": 9,
+        "rank": 8,
         "score": 0.614147,
         "chunk_text": "1. Việc khai sinh, kết hôn, khai tử của công dân Việt Nam định cư ở nước ngoài hoặc của người nước ngoài đã đăng ký tại cơ quan có thẩm quyền của Việt Nam trước ngày 01 tháng 01 năm 2016 nhưng Sổ hộ tịch và bản chính giấy tờ hộ tịch đều bị mất thì được đăng ký lại.",
         "metadata": {
@@ -656,14 +623,14 @@
         "parent_id": "nd_123_2015_nd_cp_art_40"
       },
       {
-        "chunk_id": "nd_123_2015_nd_cp_art_27_clause_3_chunk_1",
+        "chunk_id": "nd_123_2015_nd_cp_art_25_clause_1_chunk_1",
         "document_id": "nd_123_2015_nd_cp",
-        "article_id": "nd_123_2015_nd_cp_art_27",
-        "clause_id": "nd_123_2015_nd_cp_art_27_clause_3",
-        "parent_clause_id": "nd_123_2015_nd_cp_art_27_clause_3",
-        "rank": 10,
-        "score": 0.612303,
-        "chunk_text": "3. Trong thời hạn 03 ngày làm việc, kể từ ngày nhận được kết quả xác minh về việc không còn lưu giữ được sổ hộ tịch tại nơi đã đăng ký kết hôn, nếu thấy hồ sơ đầy đủ, chính xác, đúng quy định pháp luật công chức tư pháp - hộ tịch thực hiện việc đăng ký lại kết hôn như quy định tại Khoản 2 Điều này.",
+        "article_id": "nd_123_2015_nd_cp_art_25",
+        "clause_id": "nd_123_2015_nd_cp_art_25_clause_1",
+        "parent_clause_id": "nd_123_2015_nd_cp_art_25_clause_1",
+        "rank": 9,
+        "score": 0.61188,
+        "chunk_text": "1. Ủy ban nhân dân cấp xã, nơi đã đăng ký khai sinh, kết hôn trước đây hoặc Ủy ban nhân dân cấp xã nơi người yêu cầu thường trú, thực hiện đăng ký lại khai sinh, kết hôn.",
         "metadata": {
           "doc_id": "nd_123_2015_nd_cp",
           "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
@@ -680,16 +647,49 @@
           "provision_status": "requires_review",
           "chapter": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
           "section": "Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ",
-          "article_number": "27",
+          "article_number": "25",
           "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
-          "clause_number": "3",
+          "clause_number": "1",
           "document_id": "nd_123_2015_nd_cp",
-          "breadcrumb": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ > Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ > Điều 27. Thủ tục đăng ký lại kết hôn > Khoản 3"
+          "breadcrumb": "Chương III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ > Mục 4 ĐĂNG KÝ LẠI KHAI SINH, KẾT HÔN, KHAI TỬ > Điều 25. Thẩm quyền đăng ký lại khai sinh, kết hôn, khai tử > Khoản 1"
         },
-        "parent_id": "nd_123_2015_nd_cp_art_27_p1"
+        "parent_id": "nd_123_2015_nd_cp_art_25"
+      },
+      {
+        "chunk_id": "nd_123_2015_nd_cp_art_44_clause_2_chunk_1",
+        "document_id": "nd_123_2015_nd_cp",
+        "article_id": "nd_123_2015_nd_cp_art_44",
+        "clause_id": "nd_123_2015_nd_cp_art_44_clause_2",
+        "parent_clause_id": "nd_123_2015_nd_cp_art_44_clause_2",
+        "rank": 10,
+        "score": 0.611822,
+        "chunk_text": "2. Đối với trường hợp nam, nữ chung sống với nhau như vợ chồng trước ngày 03 tháng 01 năm 1987 mà chưa đăng ký kết hôn thì được khuyến khích và tạo điều kiện để đăng ký kết hôn. Quan hệ hôn nhân được công nhận kể từ ngày các bên xác lập quan hệ chung sống với nhau như vợ chồng. Thẩm quyền, thủ tục đăng ký kết hôn được thực hiện theo quy định tại Điều 17 và Điều 18 của Luật Hộ tịch.",
+        "metadata": {
+          "doc_id": "nd_123_2015_nd_cp",
+          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "document_type": "Nghị định",
+          "document_number": "123/2015/NĐ-CP",
+          "issue_date": "2015-11-15",
+          "effective_date": "2016-01-01",
+          "effective_from": "2016-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "requires_review",
+          "chapter": "Chương V ĐIỀU KHOẢN THI HÀNH",
+          "section": null,
+          "article_number": "44",
+          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+          "clause_number": "2",
+          "document_id": "nd_123_2015_nd_cp",
+          "breadcrumb": "Chương V ĐIỀU KHOẢN THI HÀNH > Điều 44. Điều khoản chuyển tiếp > Khoản 2"
+        },
+        "parent_id": "nd_123_2015_nd_cp_art_44"
       }
     ],
-    "latency_ms": 624.014,
+    "latency_ms": 534.794,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -702,7 +702,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1043,7 +1043,7 @@
         "parent_id": "l_52_2014_qh13_art_87"
       }
     ],
-    "latency_ms": 627.569,
+    "latency_ms": 527.273,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1056,7 +1056,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1397,7 +1397,7 @@
         "parent_id": "l_52_2014_qh13_art_35"
       }
     ],
-    "latency_ms": 592.807,
+    "latency_ms": 525.092,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1410,7 +1410,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1751,7 +1751,7 @@
         "parent_id": "l_52_2014_qh13_art_14"
       }
     ],
-    "latency_ms": 648.9,
+    "latency_ms": 531.32,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1764,7 +1764,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2105,7 +2105,7 @@
         "parent_id": "l_52_2014_qh13_art_28"
       }
     ],
-    "latency_ms": 723.445,
+    "latency_ms": 574.645,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2118,7 +2118,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2459,7 +2459,7 @@
         "parent_id": "l_52_2014_qh13_art_56"
       }
     ],
-    "latency_ms": 602.906,
+    "latency_ms": 533.445,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2472,7 +2472,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2813,7 +2813,7 @@
         "parent_id": "l_52_2014_qh13_art_60"
       }
     ],
-    "latency_ms": 812.651,
+    "latency_ms": 546.62,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2826,7 +2826,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3167,7 +3167,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_7_p1"
       }
     ],
-    "latency_ms": 637.189,
+    "latency_ms": 541.358,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3180,7 +3180,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3521,7 +3521,7 @@
         "parent_id": "l_52_2014_qh13_art_109"
       }
     ],
-    "latency_ms": 897.383,
+    "latency_ms": 531.324,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3534,7 +3534,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3875,7 +3875,7 @@
         "parent_id": "l_52_2014_qh13_art_6"
       }
     ],
-    "latency_ms": 627.898,
+    "latency_ms": 555.006,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3888,7 +3888,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4004,7 +4004,7 @@
         "clause_id": "l_52_2014_qh13_art_1_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_1_clause_1",
         "rank": 4,
-        "score": 0.638168,
+        "score": 0.638169,
         "chunk_text": "Luật này quy định chế độ hôn nhân và gia đình; chuẩn mực pháp lý cho cách ứng xử giữa các thành viên gia đình; trách nhiệm của cá nhân, tổ chức, Nhà nước và xã hội trong việc xây dựng, củng cố chế độ hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4229,7 +4229,7 @@
         "parent_id": "l_52_2014_qh13_art_60"
       }
     ],
-    "latency_ms": 598.657,
+    "latency_ms": 537.663,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4242,7 +4242,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4583,7 +4583,7 @@
         "parent_id": "l_52_2014_qh13_art_22"
       }
     ],
-    "latency_ms": 604.813,
+    "latency_ms": 533.284,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4596,7 +4596,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4937,7 +4937,7 @@
         "parent_id": "l_52_2014_qh13_art_2"
       }
     ],
-    "latency_ms": 606.751,
+    "latency_ms": 534.903,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4950,7 +4950,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5291,7 +5291,7 @@
         "parent_id": "l_52_2014_qh13_art_78"
       }
     ],
-    "latency_ms": 657.272,
+    "latency_ms": 538.244,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5304,7 +5304,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5645,7 +5645,7 @@
         "parent_id": "l_52_2014_qh13_art_3_p4"
       }
     ],
-    "latency_ms": 626.995,
+    "latency_ms": 536.356,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5658,7 +5658,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5999,7 +5999,7 @@
         "parent_id": "l_52_2014_qh13_art_112"
       }
     ],
-    "latency_ms": 624.041,
+    "latency_ms": 620.769,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6012,7 +6012,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6353,7 +6353,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 814.876,
+    "latency_ms": 625.513,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6366,7 +6366,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6482,7 +6482,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "rank": 4,
-        "score": 0.683152,
+        "score": 0.683153,
         "chunk_text": "1. Tập quán được áp dụng phải là quy tắc xử sự phù hợp với quy định tại Khoản 4 Điều 3 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6707,7 +6707,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_3"
       }
     ],
-    "latency_ms": 578.734,
+    "latency_ms": 613.08,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6720,7 +6720,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7061,7 +7061,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_6"
       }
     ],
-    "latency_ms": 573.078,
+    "latency_ms": 618.006,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7074,7 +7074,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7283,12 +7283,45 @@
         "parent_id": "l_52_2014_qh13_art_44"
       },
       {
+        "chunk_id": "nd_07_2025_nd_cp_art_2_clause_6_chunk_1",
+        "document_id": "nd_07_2025_nd_cp",
+        "article_id": "nd_07_2025_nd_cp_art_2",
+        "clause_id": "nd_07_2025_nd_cp_art_2_clause_6",
+        "parent_clause_id": "nd_07_2025_nd_cp_art_2_clause_6",
+        "rank": 7,
+        "score": 0.599093,
+        "chunk_text": "6. Sửa đổi, bổ sung khoản 4 Điều 22 như sau: “4. Trường hợp người yêu cầu xác nhận tình trạng hôn nhân đã từng đăng ký thường trú tại nhiều nơi khác nhau, người yêu cầu cung cấp các giấy tờ chứng minh tình trạng hôn nhân tại nơi thường trú trước đây (nếu có). Trên cơ sở các thông tin được cung cấp, cơ quan đăng ký hộ tịch tra cứu thông tin về tình trạng hôn nhân của người yêu cầu xác nhận tình trạng hôn nhân trên Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh thông qua kết nối với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư. Trường hợp không tra cứu được do chưa có thông tin trong Cơ sở dữ liệu thì cơ quan đăng ký hộ tịch phối hợp với các cơ quan có liên quan thực hiện việc xác minh. Thời hạn, phương thức gửi yêu cầu xác minh thực hiện theo quy định tại khoản 5 Điều 3 của Nghị định này.”.",
+        "metadata": {
+          "doc_id": "nd_07_2025_nd_cp",
+          "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+          "document_type": "Nghị định",
+          "document_number": "07/2025/NĐ-CP",
+          "issue_date": "2025-01-09",
+          "effective_date": "2025-01-09",
+          "effective_from": "2025-01-09",
+          "effective_to": null,
+          "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Sửa đổi bổ sung",
+          "source_status": "Hết hiệu lực một phần",
+          "provision_status": "document_level_only",
+          "chapter": null,
+          "section": null,
+          "article_number": "2",
+          "document_title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+          "clause_number": "6",
+          "document_id": "nd_07_2025_nd_cp",
+          "breadcrumb": "Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi... > Khoản 6"
+        },
+        "parent_id": "nd_07_2025_nd_cp_art_2_p5"
+      },
+      {
         "chunk_id": "nd_126_2014_nd_cp_art_9_clause_2_chunk_1",
         "document_id": "nd_126_2014_nd_cp",
         "article_id": "nd_126_2014_nd_cp_art_9",
         "clause_id": "nd_126_2014_nd_cp_art_9_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_9_clause_2",
-        "rank": 7,
+        "rank": 8,
         "score": 0.595145,
         "chunk_text": "2. Tài sản mà vợ, chồng được xác lập quyền sở hữu theo quy định của Bộ luật Dân sự đối với vật vô chủ, vật bị chôn giấu, bị chìm đắm, vật bị đánh rơi, bị bỏ quên, gia súc, gia cầm bị thất lạc, vật nuôi dưới nước.",
         "metadata": {
@@ -7321,7 +7354,7 @@
         "article_id": "l_52_2014_qh13_art_60",
         "clause_id": "l_52_2014_qh13_art_60_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_60_clause_2",
-        "rank": 8,
+        "rank": 9,
         "score": 0.585977,
         "chunk_text": "2. Trong trường hợp có tranh chấp về quyền, nghĩa vụ tài sản thì áp dụng quy định tại các điều 27, 37 và 45 của Luật này và quy định của Bộ luật dân sự để giải quyết.",
         "metadata": {
@@ -7354,7 +7387,7 @@
         "article_id": "l_52_2014_qh13_art_43",
         "clause_id": "l_52_2014_qh13_art_43_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_43_clause_2",
-        "rank": 9,
+        "rank": 10,
         "score": 0.579829,
         "chunk_text": "2. Tài sản được hình thành từ tài sản riêng của vợ, chồng cũng là tài sản riêng của vợ, chồng. Hoa lợi, lợi tức phát sinh từ tài sản riêng trong thời kỳ hôn nhân được thực hiện theo quy định tại khoản 1 Điều 33 và khoản 1 Điều 40 của Luật này.",
         "metadata": {
@@ -7380,42 +7413,9 @@
           "breadcrumb": "Chương III QUAN HỆ GIỮA VỢ VÀ CHỒNG > Mục 3 CHẾ ĐỘ TÀI SẢN CỦA VỢ CHỒNG > Điều 43. Tài sản riêng của vợ, chồng > Khoản 2"
         },
         "parent_id": "l_52_2014_qh13_art_43"
-      },
-      {
-        "chunk_id": "l_52_2014_qh13_art_59_clause_5_chunk_1",
-        "document_id": "l_52_2014_qh13",
-        "article_id": "l_52_2014_qh13_art_59",
-        "clause_id": "l_52_2014_qh13_art_59_clause_5",
-        "parent_clause_id": "l_52_2014_qh13_art_59_clause_5",
-        "rank": 10,
-        "score": 0.578332,
-        "chunk_text": "5. Bảo vệ quyền, lợi ích hợp pháp của vợ, con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự hoặc không có khả năng lao động và không có tài sản để tự nuôi mình.",
-        "metadata": {
-          "doc_id": "l_52_2014_qh13",
-          "title": "Luật Hôn nhân và gia đình 2014",
-          "document_type": "Luật",
-          "document_number": "52/2014/QH13",
-          "issue_date": "2014-06-19",
-          "effective_date": "2015-01-01",
-          "effective_from": "2015-01-01",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
-          "issuing_body": "Quốc hội",
-          "validity_status": "Còn hiệu lực",
-          "source_status": "Còn hiệu lực",
-          "provision_status": "document_level_only",
-          "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
-          "section": "Mục 1 LY HÔN",
-          "article_number": "59",
-          "document_title": "Luật Hôn nhân và gia đình 2014",
-          "clause_number": "5",
-          "document_id": "l_52_2014_qh13",
-          "breadcrumb": "Chương IV CHẤM DỨT HÔN NHÂN > Mục 1 LY HÔN > Điều 59. Nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn > Khoản 5"
-        },
-        "parent_id": "l_52_2014_qh13_art_59_p2"
       }
     ],
-    "latency_ms": 618.643,
+    "latency_ms": 615.057,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7428,7 +7428,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7769,7 +7769,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_57"
       }
     ],
-    "latency_ms": 680.773,
+    "latency_ms": 609.398,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7782,7 +7782,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7958,12 +7958,45 @@
         "parent_id": "nd_207_2025_nd_cp_art_15"
       },
       {
+        "chunk_id": "nd_18_2026_nd_cp_art_17_clause_1_chunk_1",
+        "document_id": "nd_18_2026_nd_cp",
+        "article_id": "nd_18_2026_nd_cp_art_17",
+        "clause_id": "nd_18_2026_nd_cp_art_17_clause_1",
+        "parent_clause_id": "nd_18_2026_nd_cp_art_17_clause_1",
+        "rank": 6,
+        "score": 0.532434,
+        "chunk_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày 15 tháng 01 năm 2026.",
+        "metadata": {
+          "doc_id": "nd_18_2026_nd_cp",
+          "title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
+          "document_type": "Nghị định",
+          "document_number": "18/2026/NĐ-CP",
+          "issue_date": "2026-01-14",
+          "effective_date": "2026-01-15",
+          "effective_from": "2026-01-15",
+          "effective_to": null,
+          "source_url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+          "issuing_body": "Chính phủ",
+          "validity_status": "Còn hiệu lực",
+          "source_status": "Còn hiệu lực",
+          "provision_status": "document_level_only",
+          "chapter": "Chương VI TỔ CHỨC THI HÀNH",
+          "section": null,
+          "article_number": "17",
+          "document_title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
+          "clause_number": "1",
+          "document_id": "nd_18_2026_nd_cp",
+          "breadcrumb": "Chương VI TỔ CHỨC THI HÀNH > Điều 17. Điều khoản thi hành > Khoản 1"
+        },
+        "parent_id": "nd_18_2026_nd_cp_art_17"
+      },
+      {
         "chunk_id": "tt_38_2025_tt_byt_art_7_clause_1_chunk_1",
         "document_id": "tt_38_2025_tt_byt",
         "article_id": "tt_38_2025_tt_byt_art_7",
         "clause_id": "tt_38_2025_tt_byt_art_7_clause_1",
         "parent_clause_id": "tt_38_2025_tt_byt_art_7_clause_1",
-        "rank": 6,
+        "rank": 7,
         "score": 0.530781,
         "chunk_text": "1. Thông tư này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.",
         "metadata": {
@@ -7996,7 +8029,7 @@
         "article_id": "nd_207_2025_nd_cp_art_15",
         "clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
-        "rank": 7,
+        "rank": 8,
         "score": 0.52213,
         "chunk_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.",
         "metadata": {
@@ -8029,7 +8062,7 @@
         "article_id": "nd_126_2014_nd_cp_art_54",
         "clause_id": "nd_126_2014_nd_cp_art_54_clause_4",
         "parent_clause_id": "nd_126_2014_nd_cp_art_54_clause_4",
-        "rank": 8,
+        "rank": 9,
         "score": 0.519934,
         "chunk_text": "4. Trường hợp giấy đăng ký hoạt động của Trung tâm bị mất hoặc hư hỏng không sử dụng được thì được cấp lại giấy đăng ký hoạt động.",
         "metadata": {
@@ -8062,7 +8095,7 @@
         "article_id": "nd_207_2025_nd_cp_art_15",
         "clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
-        "rank": 9,
+        "rank": 10,
         "score": 0.517632,
         "chunk_text": "2. Các quy định và văn bản sau đây hết hiệu lực kể từ ngày Nghị định này có hiệu lực thi hành: a) Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; b) Nghị định số 98/2016/NĐ-CP ngày 01 tháng 7 năm 2016 của Chính phủ sửa đổi bổ sung một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; c) Khoản 2 Điều 19 Nghị định số 155/2018/NĐ-CP ngày 12 tháng 11 năm 2018 của Chính phủ sửa đổi bổ sung một số quy định liên quan đến điều kiện đầu tư kinh doanh thuộc phạm vi quản lý nhà nước của Bộ Y tế.",
         "metadata": {
@@ -8088,42 +8121,9 @@
           "breadcrumb": "Chương IV ĐIỀU KHOẢN THI HÀNH > Điều 15. Hiệu lực thi hành > Khoản 2 > Điểm a-c"
         },
         "parent_id": "nd_207_2025_nd_cp_art_15"
-      },
-      {
-        "chunk_id": "nd_126_2014_nd_cp_art_53_clause_1_chunk_1",
-        "document_id": "nd_126_2014_nd_cp",
-        "article_id": "nd_126_2014_nd_cp_art_53",
-        "clause_id": "nd_126_2014_nd_cp_art_53_clause_1",
-        "parent_clause_id": "nd_126_2014_nd_cp_art_53_clause_1",
-        "rank": 10,
-        "score": 0.506553,
-        "chunk_text": "1. Có quy chế hoạt động bảo đảm nguyên tắc quy định tại Điều 52 của Nghị định này được Hội Liên hiệp phụ nữ phê duyệt;",
-        "metadata": {
-          "doc_id": "nd_126_2014_nd_cp",
-          "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "document_type": "Nghị định",
-          "document_number": "126/2014/NĐ-CP",
-          "issue_date": "2014-12-31",
-          "effective_date": "2015-02-15",
-          "effective_from": "2015-02-15",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
-          "issuing_body": "Chính phủ",
-          "validity_status": "Sửa đổi bổ sung",
-          "source_status": "Hết hiệu lực một phần",
-          "provision_status": "requires_review",
-          "chapter": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "section": "Mục 7 TỔ CHỨC VÀ HOẠT ĐỘNG TƯ VẤN, HỖ TRỢ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI",
-          "article_number": "53",
-          "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
-          "clause_number": "1",
-          "document_id": "nd_126_2014_nd_cp",
-          "breadcrumb": "Chương III QUAN HỆ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI > Mục 7 TỔ CHỨC VÀ HOẠT ĐỘNG TƯ VẤN, HỖ TRỢ HÔN NHÂN VÀ GIA ĐÌNH CÓ YẾU TỐ NƯỚC NGOÀI > Điều 53. Điều kiện thành lập Trung tâm > Khoản 1"
-        },
-        "parent_id": "nd_126_2014_nd_cp_art_53"
       }
     ],
-    "latency_ms": 912.726,
+    "latency_ms": 608.582,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8136,7 +8136,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8477,7 +8477,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_5"
       }
     ],
-    "latency_ms": 787.328,
+    "latency_ms": 725.647,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8490,7 +8490,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8831,7 +8831,7 @@
         "parent_id": "tt_38_2025_tt_byt_art_2"
       }
     ],
-    "latency_ms": 712.454,
+    "latency_ms": 545.818,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8844,7 +8844,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9185,7 +9185,7 @@
         "parent_id": "l_52_2014_qh13_art_40"
       }
     ],
-    "latency_ms": 732.09,
+    "latency_ms": 557.264,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9198,7 +9198,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9539,7 +9539,7 @@
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_2_p2"
       }
     ],
-    "latency_ms": 898.962,
+    "latency_ms": 529.327,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9552,7 +9552,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9893,7 +9893,7 @@
         "parent_id": "l_52_2014_qh13_art_23"
       }
     ],
-    "latency_ms": 657.894,
+    "latency_ms": 605.574,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9906,7 +9906,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10247,7 +10247,7 @@
         "parent_id": "l_52_2014_qh13_art_59_p2"
       }
     ],
-    "latency_ms": 790.905,
+    "latency_ms": 603.783,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10260,7 +10260,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10601,7 +10601,7 @@
         "parent_id": "l_52_2014_qh13_art_37"
       }
     ],
-    "latency_ms": 625.167,
+    "latency_ms": 608.642,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10614,7 +10614,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
