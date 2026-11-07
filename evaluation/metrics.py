@@ -1,12 +1,16 @@
-"""Các metric truy xuất: Recall@K, MRR@K, NDCG@K."""
+"""Shared retrieval metrics: chunk/parent Recall, MRR, and NDCG."""
 from __future__ import annotations
 
 import json
 import math
+import random
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any, Mapping, Sequence
 
-DEFAULT_KS = (1, 3, 5)
+DEFAULT_KS = (5, 10)
+BOOTSTRAP_CONFIDENCE_LEVEL = 0.95
+BOOTSTRAP_RESAMPLES = 10_000
+BOOTSTRAP_SEED = 42
 
 
 # ----------------------------------------------------------------------
@@ -26,12 +30,46 @@ def _top_k_unique(retrieved: Sequence[str], k: int) -> list[str]:
     return top
 
 
-def recall_at_k(retrieved: Sequence[str], gold: set[str], k: int) -> float:
-    """Tỉ lệ chunk gold xuất hiện trong top-k."""
+def _top_k_unique_indices(retrieved: Sequence[str], k: int) -> list[int]:
+    """Vị trí (trong danh sách gốc) của top-k chunk sau khi bỏ id trùng.
+
+    Dùng chung cho Strict và Parent Match để hai metric nhìn cùng một tập K chunk.
+    """
+    seen: set[str] = set()
+    indices: list[int] = []
+    for index, chunk_id in enumerate(retrieved):
+        if chunk_id in seen:
+            continue
+        seen.add(chunk_id)
+        indices.append(index)
+        if len(indices) == k:
+            break
+    return indices
+
+
+def strict_match_recall_at_k(retrieved: Sequence[str], gold: set[str], k: int) -> float:
+    """Fraction of gold chunks retrieved in the unique top-k."""
     if not gold:
         raise ValueError("gold không được rỗng")
-    hits = sum(1 for chunk_id in _top_k_unique(retrieved, k) if chunk_id in gold)
+    hits = sum(chunk_id in gold for chunk_id in _top_k_unique(retrieved, k))
     return hits / len(gold)
+
+
+def parent_match_recall_at_k(
+    top_parent_ids: Sequence[str], gold_parent_ids: set[str]
+) -> float:
+    """Fraction of unique gold parent clauses retrieved in top-K chunks.
+
+    ``top_parent_ids`` là parent của top-K chunk đã bỏ trùng chunk ID
+    (xem ``_top_k_unique_indices``). Các parent ID trùng nhau chỉ được
+    tính một lần.
+    """
+    if not gold_parent_ids:
+        raise ValueError("gold_parent_ids không được rỗng")
+
+    retrieved_parents = set(top_parent_ids)
+    hits = len(retrieved_parents & gold_parent_ids)
+    return hits / len(gold_parent_ids)
 
 
 def mrr_at_k(retrieved: Sequence[str], gold: set[str], k: int) -> float:
@@ -65,10 +103,49 @@ def score_question(
     """Tính toàn bộ metric cho một câu hỏi."""
     scores: dict[str, float] = {}
     for k in ks:
-        scores[f"recall@{k}"] = recall_at_k(retrieved, gold, k)
-        scores[f"mrr@{k}"] = mrr_at_k(retrieved, gold, k)
-        scores[f"ndcg@{k}"] = ndcg_at_k(retrieved, gold, k)
+        top = _top_k_unique(retrieved, k)
+        scores[f"strict_match_recall@{k}"] = strict_match_recall_at_k(
+            top, gold, k
+        )
+        scores[f"mrr@{k}"] = mrr_at_k(top, gold, k)
+        scores[f"ndcg@{k}"] = ndcg_at_k(top, gold, k)
+        scores[f"precision@{k}"] = sum(chunk_id in gold for chunk_id in top) / k
     return scores
+
+
+def _percentile(sorted_values: Sequence[float], probability: float) -> float:
+    position = (len(sorted_values) - 1) * probability
+    lower_index = math.floor(position)
+    upper_index = math.ceil(position)
+    if lower_index == upper_index:
+        return sorted_values[lower_index]
+    fraction = position - lower_index
+    return (
+        sorted_values[lower_index] * (1 - fraction)
+        + sorted_values[upper_index] * fraction
+    )
+
+
+def _bootstrap_mean_confidence_interval(
+    values: Sequence[float | None], rng: random.Random
+) -> dict[str, float | int | None]:
+    """Percentile-bootstrap CI for a macro mean, resampling questions."""
+    observed = [value for value in values if value is not None]
+    count = len(observed)
+    if not count:
+        return {"lower": None, "upper": None, "num_questions": 0}
+
+    bootstrap_means = [
+        sum(rng.choices(observed, k=count)) / count
+        for _ in range(BOOTSTRAP_RESAMPLES)
+    ]
+    bootstrap_means.sort()
+    alpha = (1 - BOOTSTRAP_CONFIDENCE_LEVEL) / 2
+    return {
+        "lower": _percentile(bootstrap_means, alpha),
+        "upper": _percentile(bootstrap_means, 1 - alpha),
+        "num_questions": count,
+    }
 
 
 # ----------------------------------------------------------------------
@@ -83,18 +160,22 @@ def _read_json_array(path: str | Path) -> list[dict[str, Any]]:
     return data
 
 
-def load_gold(ground_truth_path: str | Path, *, use_candidates: bool = False) -> dict[str, set[str]]:
-    """Đọc ground_truth.json: id -> tập gold_context_ids (hoặc candidate_context_ids nếu use_candidates=True)."""
+def load_gold(
+    ground_truth_path: str | Path,
+) -> dict[str, set[str]]:
+    """Read only explicitly verified ground chunk IDs."""
     gold: dict[str, set[str]] = {}
     for position, item in enumerate(_read_json_array(ground_truth_path), start=1):
+        if not isinstance(item, dict):
+            raise ValueError(f"Phần tử thứ {position} trong ground truth phải là object.")
         question_id = item.get("id")
         gold_ids = item.get("gold_context_ids")
-        if use_candidates and not gold_ids:
-            gold_ids = item.get("candidate_context_ids")
         if not isinstance(question_id, str) or not question_id.strip():
             raise ValueError(f"Phần tử thứ {position} thiếu id hợp lệ.")
         if not isinstance(gold_ids, list):
             raise ValueError(f"Câu hỏi {question_id!r} thiếu gold_context_ids.")
+        if item.get("gold_context_ids_confirmed") is not True:
+            gold_ids = []
         if question_id in gold:
             raise ValueError(f"ID trùng trong ground truth: {question_id}")
         gold[question_id] = {str(chunk_id) for chunk_id in gold_ids}
@@ -123,7 +204,9 @@ def evaluate(
     ks: Sequence[int] = DEFAULT_KS,
     queries_paths: Sequence[str | Path] = (),
     *,
-    use_candidates: bool = False,
+    parent_by_chunk: Mapping[str, str] | None = None,
+    verified_only: bool = True,
+    report_metadata: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Chấm điểm file kết quả retrieval so với ground_truth.json.
 
@@ -132,20 +215,26 @@ def evaluate(
     (docs/sprint6_benchmark.md mục 10). Số đo theo category lấy category từ
     kết quả hoặc từ ``queries_paths``.
 
-    ``use_candidates=True`` chấm câu chưa có gold bằng ``candidate_context_ids``
-    (chưa duyệt, chỉ là số tham khảo); mỗi câu và báo cáo ghi ``label_source``
-    để không trộn lẫn hai loại nhãn.
+    Chỉ chấm trên ``gold_context_ids``; câu không có gold phù hợp bị bỏ qua.
+    Báo cáo khoảng tin cậy 95% percentile bootstrap cho trung bình macro,
+    resampling câu hỏi độc lập với seed cố định để tái lập kết quả.
     """
+    if not ks or any(isinstance(k, bool) or not isinstance(k, int) or k < 1 for k in ks):
+        raise ValueError("ks phải chứa các số nguyên dương.")
+    if not verified_only:
+        raise ValueError("Metric chỉ chấm trên gold_context_ids đã xác nhận.")
     categories_by_id = load_categories(queries_paths)
 
-    gold_by_id = load_gold(ground_truth_path, use_candidates=use_candidates)
-    verified_by_id = load_gold(ground_truth_path) if use_candidates else gold_by_id
+    gold_by_id = load_gold(ground_truth_path)
+    verified_by_id = gold_by_id
     results = _read_json_array(results_path)
 
     per_question: list[dict[str, Any]] = []
     skipped: list[str] = []
 
-    for item in results:
+    for position, item in enumerate(results, start=1):
+        if not isinstance(item, dict):
+            raise ValueError(f"Kết quả thứ {position} phải là JSON object.")
         question_id = item.get("query_id")
         if not question_id:
             if "question_id" in item:
@@ -161,21 +250,85 @@ def evaluate(
             skipped.append(question_id)
             continue
 
-        scores = score_question(item["retrieved_chunk_ids"], gold, ks)
+        retrieved = item.get("retrieved_chunk_ids")
+        if not isinstance(retrieved, list) or not all(
+            isinstance(chunk_id, str) for chunk_id in retrieved
+        ):
+            raise ValueError(
+                f"Kết quả {question_id!r} thiếu retrieved_chunk_ids hợp lệ."
+            )
+        scores = score_question(retrieved, gold, ks)
+        retrieved_parent_ids = item.get("retrieved_parent_clause_ids")
+        if retrieved_parent_ids is None:
+            retrieved_parent_ids = [None] * len(retrieved)
+        if (
+            not isinstance(retrieved_parent_ids, list)
+            or len(retrieved_parent_ids) != len(retrieved)
+        ):
+            raise ValueError(
+                f"Kết quả {question_id!r} có retrieved_parent_clause_ids không khớp."
+            )
+
+        verified_gold = verified_by_id[question_id]
+        gold_parent_ids = {
+            parent_by_chunk[chunk_id]
+            for chunk_id in verified_gold
+            if parent_by_chunk is not None
+            and isinstance(parent_by_chunk.get(chunk_id), str)
+            and parent_by_chunk[chunk_id].strip()
+        }
+        # Thiếu metadata nếu: không có map cha, chưa có gold xác minh,
+        # hoặc có gold chunk không có parent.
+        gold_parent_metadata_missing = (
+            parent_by_chunk is None
+            or not verified_gold
+            or any(
+                not isinstance(parent_by_chunk.get(chunk_id), str)
+                or not parent_by_chunk[chunk_id].strip()
+                for chunk_id in verified_gold
+            )
+        )
         entry = {"query_id": question_id, **scores}
+        parent_metadata_missing_by_k: dict[int, bool] = {}
+        for k in ks:
+            indices = _top_k_unique_indices(retrieved, k)
+            top_parents = [retrieved_parent_ids[i] for i in indices]
+            missing = gold_parent_metadata_missing or any(
+                not isinstance(parent_id, str) or not parent_id.strip()
+                for parent_id in top_parents
+            )
+            parent_metadata_missing_by_k[k] = missing
+            entry[f"parent_match_metadata_missing@{k}"] = missing
+            entry[f"parent_match_recall@{k}"] = (
+                None
+                if missing or not gold_parent_ids
+                else parent_match_recall_at_k(top_parents, gold_parent_ids)
+            )
+        entry["parent_match_metadata_missing"] = any(
+            parent_metadata_missing_by_k.values()
+        )
         cat = item.get("category") or categories_by_id.get(question_id)
         if cat:
             entry["category"] = cat
-        entry["label_source"] = "gold" if verified_by_id[question_id] else "candidate"
         per_question.append(entry)
 
     if not per_question:
         raise ValueError("Không có câu hỏi nào có gold để chấm điểm.")
 
-    metric_names = [key for key in per_question[0] if key not in ("query_id", "category", "label_source")]
-    num_candidate = sum(row["label_source"] == "candidate" for row in per_question)
+    metric_names = [
+        key for key in per_question[0]
+        if key not in (
+            "query_id", "category", "parent_match_metadata_missing"
+        )
+        and not key.startswith("parent_match_metadata_missing@")
+    ]
     average = {
-        name: sum(row[name] for row in per_question) / len(per_question)
+        name: (
+            sum(row[name] for row in per_question if row[name] is not None)
+            / sum(row[name] is not None for row in per_question)
+            if any(row[name] is not None for row in per_question)
+            else None
+        )
         for name in metric_names
     }
 
@@ -185,33 +338,70 @@ def evaluate(
         if cat:
             category_scores.setdefault(cat, []).append(row)
 
-    by_category: dict[str, dict[str, float]] = {}
+    by_category: dict[str, dict[str, float | None]] = {}
     if category_scores:
         for cat, rows in category_scores.items():
-            by_category[cat] = {
-                name: sum(r[name] for r in rows) / len(rows)
-                for name in metric_names
-            }
+            by_category[cat] = {}
+            for name in metric_names:
+                available = [row[name] for row in rows if row[name] is not None]
+                by_category[cat][name] = (
+                    sum(available) / len(available) if available else None
+                )
+
+    rng = random.Random(BOOTSTRAP_SEED)
+
+    def confidence_intervals_for(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+        return {
+            name: _bootstrap_mean_confidence_interval(
+                [row[name] for row in rows], rng
+            )
+            for name in metric_names
+        }
+
+    confidence_intervals = {
+        "method": "percentile_bootstrap",
+        "confidence_level": BOOTSTRAP_CONFIDENCE_LEVEL,
+        "resamples": BOOTSTRAP_RESAMPLES,
+        "seed": BOOTSTRAP_SEED,
+        "average": confidence_intervals_for(per_question),
+        "by_category": {
+            cat: confidence_intervals_for(rows)
+            for cat, rows in category_scores.items()
+        },
+    }
+
+    parent_scored_by_k = {
+        str(k): sum(row[f"parent_match_recall@{k}"] is not None for row in per_question)
+        for k in ks
+    }
+    parent_metadata_missing_by_k = {
+        str(k): sum(row[f"parent_match_metadata_missing@{k}"] for row in per_question)
+        for k in ks
+    }
+    max_k = max(ks)
 
     report = {
-        "label_source": "gold_and_candidate" if num_candidate else "gold",
         "num_questions": len(per_question),
-        "num_scored_on_gold": len(per_question) - num_candidate,
-        "num_scored_on_candidate": num_candidate,
+        "num_scored_questions": len(per_question),
         "num_skipped": len(skipped),
         "skipped": skipped,
+        "num_parent_scored_questions": parent_scored_by_k[str(max_k)],
+        "num_parent_metadata_missing_questions": parent_metadata_missing_by_k[str(max_k)],
+        "num_parent_scored_questions_by_k": parent_scored_by_k,
+        "num_parent_metadata_missing_questions_by_k": parent_metadata_missing_by_k,
         "average": average,
+        "confidence_intervals": confidence_intervals,
         "per_question": per_question,
     }
+    if report_metadata is not None:
+        report.update(report_metadata)
     if by_category:
         report["by_category"] = by_category
 
-    print(
-        f"Đã chấm {len(per_question)} câu ({num_candidate} câu trên candidate chưa duyệt; "
-        f"bỏ qua {len(skipped)} câu chưa có nhãn)"
-    )
+    print(f"Scored {len(per_question)} questions (skipped {len(skipped)} without gold)")
     for name, value in average.items():
-        print(f"  {name}: {value:.4f}")
+        formatted = f"{value:.4f}" if value is not None else "N/A"
+        print(f"  {name}: {formatted}")
 
     if output_path is not None:
         output = Path(output_path)
@@ -219,6 +409,6 @@ def evaluate(
         output.write_text(
             json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"Đã lưu báo cáo vào: {output.resolve()}")
+        print(f"Saved metrics report: {output.resolve()}")
 
     return report
