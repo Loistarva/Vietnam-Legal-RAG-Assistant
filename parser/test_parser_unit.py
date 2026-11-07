@@ -314,6 +314,15 @@ MAX_TITLE_WORDS_IN_CORPUS = 40
 TITLE_LENGTH_ALLOWLIST: set = {
     ("ND01", "8"),  # NĐ 126/2014 Điều 8: tiêu đề thật 44 từ
     ("TT02", "4"),  # TT 02a/2015 Điều 4: tiêu đề thật 41 từ
+    # Văn bản sửa đổi: tên Điều nêu đủ văn bản bị sửa và chuỗi văn bản đã sửa trước đó (D1).
+    ("nd_07_2025_nd_cp_congbao_191_192", "1"),  # 46 từ
+    ("nd_18_2026_nd_cp_congbao_61", "1"),  # 44 từ
+    ("nd_18_2026_nd_cp_congbao_61", "3"),  # 41 từ
+    ("nd_18_2026_nd_cp_congbao_61", "8"),  # 51 từ
+    ("nd_18_2026_nd_cp_congbao_61", "9"),  # 49 từ
+    ("nd_18_2026_nd_cp_congbao_61", "13"),  # 45 từ
+    ("nd_18_2026_nd_cp_congbao_61", "14"),  # 44 từ
+    ("tt_04_2024_tt_btp", "2"),  # 67 từ
 }
 # Ngoại lệ đối chiếu số Khoản: {(tên_file_txt_không_đuôi, "số Điều"): "lý do"}.
 CLAUSE_COUNT_EXEMPT: Dict[Tuple[str, str], str] = {}
@@ -831,3 +840,14 @@ def test_document_number_comes_from_so_label():
         "NGHỊ ĐỊNH\n"
     )
     assert extract_document_number(text) == "207/2025/NĐ-CP"
+
+
+def test_document_number_allows_spaces_around_slash():
+    # TT 04/2024 in "Số: 04 /2024/TT-BTP"; không được lấy số hiệu 02/2020 nhắc trong tiêu đề.
+    text = (
+        "BỘ TƯ PHÁP\n"
+        "Số: 04 /2024/TT-BTP Hà Nội, ngày 06 tháng 6 năm 2024\n"
+        "THÔNG TƯ\n"
+        "Sửa đổi, bổ sung một số điều của Thông tư số 02/2020/TT-BTP\n"
+    )
+    assert extract_document_number(text) == "04/2024/TT-BTP"

@@ -1121,6 +1121,8 @@ def extract_document_number(text: str) -> str:
     # không sửa nội dung TXT gốc mà parser dùng để tách Điều/Khoản.
     number_text = unicodedata.normalize("NFC", text or "")
     number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s*[-–]\s*(?=[A-Za-zĐđ0-9])", "-", number_text)
+    # Bản in có khi tách số hiệu quanh dấu "/", ví dụ "Số: 04 /2024/TT-BTP".
+    number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s*/\s*(?=[A-Za-zĐđ0-9])", "/", number_text)
     number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s+(?=[A-Za-zĐđ0-9])", " ", number_text)
     number_text = re.sub(r"\s+", " ", number_text).strip()
 
