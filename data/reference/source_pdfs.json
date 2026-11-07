@@ -82,6 +82,27 @@
       }
     },
     {
+      "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
+      "document_id": "nd_07_2025_nd_cp",
+      "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",
+      "bytes": 528291,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+      "document_id": "nd_18_2026_nd_cp",
+      "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
+      "bytes": 713137,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
+      "document_id": "nd_87_2020_nd_cp",
+      "sha256": "7c168f73e39170476d97a6fc51607a56b86b560484a4fb64c63b108206e50a55",
+      "bytes": 472094,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
       "document_id": "nd_123_2015_nd_cp",
       "sha256": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376",
@@ -100,6 +121,13 @@
         "commit": "72a7377",
         "date": "2026-10-23"
       }
+    },
+    {
+      "path": "data/raw_data/additional_documents/tt_04_2024_tt_btp.pdf",
+      "document_id": "tt_04_2024_tt_btp",
+      "sha256": "58e05dae781e2032054de6674072e9076248d6e97b1e753ab97a47cc2b335d57",
+      "bytes": 633279,
+      "added_in": null
     },
     {
       "path": "data/raw_data/additional_documents/TT_15_2015_BTP.pdf",

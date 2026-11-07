@@ -27,6 +27,14 @@ BY_ID = {c["chunk_id"]: c for c in CHUNKS}
 OVERRIDES = load_overrides(PERIODS)
 
 
+ARTICLE_TITLES = {
+    (doc["document_id"], str(article["article_number"])): article.get("article_title") or ""
+    for path in sorted((ROOT / "parser/parsed_jsons").glob("*.json"))
+    for doc in [json.loads(path.read_text(encoding="utf-8"))]
+    for article in doc.get("articles", [])
+}
+
+
 def _number_pattern(document_number: str) -> re.Pattern[str]:
     return re.compile(re.escape(document_number).replace(r"\-", "[-‐–]"), re.IGNORECASE)
 
@@ -42,7 +50,12 @@ def test_override_has_evidence_in_corpus(override):
     assert evidence is not None, f"Không có chunk {override.evidence_chunk_id} trong corpus"
     assert evidence["document_id"] == override.changed_by
     number = REGISTRY[override.document_id]["document_number"]
-    assert _number_pattern(number).search(evidence["chunk_text"]), f"{override.evidence_chunk_id} không nêu {number}"
+    # Văn bản sửa nhiều văn bản nêu văn bản bị sửa ở tên Điều ("Điều 2. Sửa đổi, bổ sung một số
+    # điều của Nghị định số 123/2015/NĐ-CP"), từng Khoản chỉ ghi "Sửa đổi khoản 1 Điều 9 như sau".
+    title = ARTICLE_TITLES.get((evidence["document_id"], str(evidence["metadata"].get("article_number"))), "")
+    assert _number_pattern(number).search(evidence["chunk_text"] + " " + title), (
+        f"{override.evidence_chunk_id} và tên Điều chứa nó không nêu {number}"
+    )
 
 
 @pytest.mark.parametrize("override", [o for o in OVERRIDES if o.chapters], ids=lambda o: o.id)
@@ -60,7 +73,9 @@ def test_corpus_carries_provision_periods():
         doc_expiry = REGISTRY[chunk["document_id"]].get("expiry_date") or None
         match = None
         for override in OVERRIDES:
-            if override.scope_of(chunk["document_id"], meta.get("article_number"), meta.get("clause_number")):
+            if override.scope_of(
+                chunk["document_id"], meta.get("article_number"), meta.get("clause_number"), chunk.get("point_ref")
+            ):
                 match = override
         if match is None:
             assert meta["effective_to"] == doc_expiry, chunk["chunk_id"]
@@ -128,6 +143,47 @@ def test_load_overrides_rejects_overlapping_scope(tmp_path):
     ]}), encoding="utf-8")
     with pytest.raises(ValueError, match="có ở cả"):
         load_overrides(path)
+
+
+def test_point_override_splits_the_clause_and_filters_only_that_point():
+    # Điểm a khoản 1 Điều 63 NĐ 126/2014 bị bãi bỏ từ 2016-01-01; câu dẫn và điểm b-e còn hiệu lực.
+    parts = sorted(
+        (c for c in CHUNKS if c["chunk_id"].startswith("nd_126_2014_nd_cp_art_63_clause_1_chunk_")),
+        key=lambda c: int(c["chunk_id"].rsplit("_", 1)[1]),
+    )
+    assert [c.get("point_ref") for c in parts] == [None, "Điểm a", "Điểm b", "Điểm c", "Điểm d", "Điểm đ", "Điểm e"]
+    point_a = parts[1]
+    assert point_a["chunk_text"].startswith("a)")
+    assert is_effective_at(point_a, "2015-12-31") and not is_effective_at(point_a, "2016-01-01")
+    assert all(is_effective_at(c, "2026-10-15") for c in parts if c is not point_a)
+
+
+def test_point_override_needs_a_chunk_with_exactly_that_point():
+    record = {**_record("63", "1"), "point_ref": "Điểm a-b"}
+    assert apply_to_chunk(record, OVERRIDES) is None
+    record = {**_record("63", "1"), "point_ref": "Điểm a"}
+    override, item = apply_to_chunk(record, OVERRIDES)
+    assert item == ("point", "63", "1", "a")
+    assert record["metadata"]["effective_to"] == "2016-01-01"
+
+
+def test_load_overrides_rejects_point_inside_listed_clause(tmp_path):
+    path = tmp_path / "periods.json"
+    path.write_text(json.dumps({"overrides": [{
+        "id": "a", "document_id": "d", "clauses": [{"article": "1", "clause": "2"}],
+        "points": [{"article": "1", "clause": "2", "point": "a"}], "provision_status": "repealed",
+        "effective_to": "2020-01-01", "changed_by": "e", "provision": "p", "evidence_chunk_id": "c",
+    }]}), encoding="utf-8")
+    with pytest.raises(ValueError, match="Điểm nằm trong"):
+        load_overrides(path)
+
+
+def test_amended_provision_has_its_new_text_in_force():
+    # Khoản 1 Điều 10 NĐ 123/2015 bị bãi bỏ từ 2025-01-09; khoản 2 Điều 9 được sửa, nội dung mới ở NĐ 07/2025.
+    assert not is_effective_at(BY_ID["nd_123_2015_nd_cp_art_10_clause_1_chunk_1"], "2026-10-15")
+    assert not is_effective_at(BY_ID["nd_123_2015_nd_cp_art_9_clause_2_chunk_1"], "2026-10-15")
+    assert is_effective_at(BY_ID["nd_123_2015_nd_cp_art_9_clause_2_chunk_1"], "2024-12-31")
+    assert is_effective_at(BY_ID["nd_07_2025_nd_cp_art_2_clause_5_chunk_1"], "2026-10-15")
 
 
 def test_load_overrides_rejects_unknown_status(tmp_path):
