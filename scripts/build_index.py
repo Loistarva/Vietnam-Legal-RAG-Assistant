@@ -68,6 +68,31 @@ def resolve_build_config(settings: dict[str, Any], *, input_override: str | None
     }
 
 
+def drop_local_collection(storage_path: Path | str, collection: str) -> None:
+    """Xóa hẳn collection Qdrant local trước khi dựng lại.
+
+    Trên Windows, delete_collection của Qdrant local mode không xóa được thư mục dữ liệu khi
+    chính client đó còn giữ file; tạo lại collection cùng tên sẽ nạp lại point cũ. Vì vậy xóa
+    bằng một client riêng, đóng client, rồi mới xóa thư mục còn sót.
+    """
+    import shutil
+
+    storage = Path(storage_path)
+    if not storage.exists():
+        return
+    from qdrant_client import QdrantClient
+
+    client = QdrantClient(path=str(storage))
+    try:
+        if collection in [c.name for c in client.get_collections().collections]:
+            client.delete_collection(collection)
+    finally:
+        client.close()
+    leftover = storage / "collection" / collection
+    if leftover.exists():
+        shutil.rmtree(leftover)
+
+
 def validate_existing_index_for_build(
     *,
     point_count: int,
@@ -225,6 +250,8 @@ def main() -> int:
     print(f"[1/3] Đã nạp và xác thực {len(chunks)} chunks hợp lệ (SHA256={corpus_sha[:12]}...).")
 
     try:
+        if args.recreate and not args.mock:
+            drop_local_collection(qdrant_path, collection)
         # Recreate chỉ xảy ra khi người chạy chủ động truyền --recreate.
         store = LegalVectorStore(
             collection_name=collection,
@@ -268,6 +295,15 @@ def main() -> int:
         indexed_count = retriever.index_chunks(chunks)
     except Exception as exc:
         print(f"LỖI: Lập chỉ mục chunks thất bại: {exc}", file=sys.stderr)
+        return 1
+
+    point_count = store.count()
+    if point_count != len(chunks):
+        print(
+            f"LỖI: Collection '{collection}' có {point_count} point sau khi dựng, corpus có {len(chunks)} chunk; "
+            "còn point của lần dựng trước. Xóa collection (hoặc thư mục của nó) rồi dựng lại.",
+            file=sys.stderr,
+        )
         return 1
 
     elapsed = time.perf_counter() - t0
