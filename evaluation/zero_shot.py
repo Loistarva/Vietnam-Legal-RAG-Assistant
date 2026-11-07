@@ -2,9 +2,8 @@
 """
 Zero-shot LLM baseline using local Ollama.
 
-- Input: data/benchmark/queries_dev.json
-- Ground truth: data/benchmark/ground_truth.json
-- Output: evaluation/results/zero_shot_dev_results.json
+- Input: an explicitly selected question-set JSON
+- Output: an explicitly selected predictions JSON
 - No RAG context, no retrieval.
 """
 
@@ -19,29 +18,6 @@ import ollama
 
 
 # ============================================================
-# PATH CONFIGURATION
-# ============================================================
-
-# Project root: Vietnam-Legal-RAG-Assistant/
-ROOT_DIR = Path(__file__).resolve().parents[1]
-
-QUERIES_DEV_PATH = (
-    ROOT_DIR / "data" / "benchmark" / "queries_dev.json"
-)
-
-GROUND_TRUTH_PATH = (
-    ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
-)
-
-OUTPUT_PATH = (
-    ROOT_DIR
-    / "evaluation"
-    / "results"
-    / "zero_shot_dev_results.json"
-)
-
-
-# ============================================================
 # 1. LOAD QUESTIONS
 # ============================================================
 
@@ -53,7 +29,7 @@ def load_questions(path: Path) -> list[dict[str, Any]]:
             f"Không tìm thấy file câu hỏi: {path}"
         )
 
-    with path.open("r", encoding="utf-8") as f:
+    with path.open("r", encoding="utf-8-sig") as f:
         questions = json.load(f)
 
     if not isinstance(questions, list):
@@ -241,14 +217,14 @@ def main() -> None:
     parser.add_argument(
         "--questions",
         type=Path,
-        default=QUERIES_DEV_PATH,
-        help="Path to the development questions JSON.",
+        required=True,
+        help="Path to the question-set JSON (Dev, Test, or another split).",
     )
 
     parser.add_argument(
         "--output",
         type=Path,
-        default=OUTPUT_PATH,
+        required=True,
         help="Path to save generated answers.",
     )
 

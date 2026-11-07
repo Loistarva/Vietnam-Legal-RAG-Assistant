@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 import yaml
 
-from retrieval.retrieval_evaluation import evaluate
+from retrieval.retrieval_evaluation import DEFAULT_OUTPUT, ROOT, evaluate, main
 from retrieval.settings import load_settings
 
 
@@ -21,6 +21,18 @@ RUN_CONFIG = {
 
 
 class RetrievalEvaluationTest(unittest.TestCase):
+    def test_cli_defaults_to_verified_benchmark_ground_truth(self):
+        with patch("sys.argv", ["retrieval_evaluation.py"]), patch(
+            "retrieval.retrieval_evaluation.evaluate"
+        ) as run:
+            self.assertEqual(main(), 0)
+
+        self.assertEqual(
+            run.call_args.kwargs["ground_truth_path"],
+            ROOT / "data" / "benchmark" / "ground_truth.json",
+        )
+        self.assertEqual(run.call_args.args[2], DEFAULT_OUTPUT)
+
     def test_duplicate_question_without_id_and_duplicate_query_id_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
@@ -105,9 +117,12 @@ class RetrievalEvaluationTest(unittest.TestCase):
             dev_path.write_text(json.dumps([{"id": "Q1", "question": query,
                                              "relevant_chunk_ids": ["A", "B"]}]), encoding="utf-8")
             chunks_path.write_text(json.dumps([
-                {"chunk_id": "A", "chunk_text": "relevant A", "metadata": {"article_ref": "A"}},
-                {"chunk_id": "B", "chunk_text": "relevant B", "metadata": {"article_ref": "B"}},
-                {"chunk_id": "C", "chunk_text": "irrelevant", "metadata": {"article_ref": "C"}},
+                {"chunk_id": "A", "parent_clause_id": "clause-A",
+                 "chunk_text": "relevant A", "metadata": {"article_ref": "A"}},
+                {"chunk_id": "B", "parent_clause_id": "clause-B",
+                 "chunk_text": "relevant B", "metadata": {"article_ref": "B"}},
+                {"chunk_id": "C", "parent_clause_id": "clause-C",
+                 "chunk_text": "irrelevant", "metadata": {"article_ref": "C"}},
             ]), encoding="utf-8")
             results_dir.mkdir()
             run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
@@ -130,9 +145,12 @@ class RetrievalEvaluationTest(unittest.TestCase):
             row = metrics["hybrid"]
             expected_ndcg = (1 / math.log2(3) + 1 / math.log2(4)) / (1 + 1 / math.log2(3))
             self.assertEqual(row["recall_at_10"], 1.0)
+            self.assertEqual(row["parent_match_recall_at_10"], 1.0)
             self.assertEqual(row["mrr_at_10"], 0.5)
             self.assertAlmostEqual(row["ndcg_at_10"], expected_ndcg)
             self.assertEqual(row["precision_at_10"], 0.2)
+            report = (output_dir / "retrieval_report.md").read_text(encoding="utf-8")
+            self.assertIn("Parent Match@10", report)
 
     def test_ground_truth_mode_scores_only_reviewed_dev_gold(self):
         with tempfile.TemporaryDirectory() as temp_dir:

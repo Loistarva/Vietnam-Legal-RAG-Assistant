@@ -1,4 +1,4 @@
-"""Run BM25, dense, and RRF retrieval over one shared Dev query JSON file."""
+"""Run BM25, dense, and RRF retrieval over one shared benchmark query JSON file."""
 from __future__ import annotations
 
 import argparse
@@ -77,26 +77,29 @@ def read_queries(path: Path) -> list[tuple[str, str, str]]:
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
-        raise ValueError(f"Không đọc được Dev query file {path}: {exc}") from exc
+        raise ValueError(f"Không đọc được benchmark query file {path}: {exc}") from exc
     if not isinstance(data, list) or not data:
-        raise ValueError("Dev set phải là JSON list không rỗng")
+        raise ValueError("Benchmark query set phải là JSON list không rỗng")
     queries = []
     for index, row in enumerate(data, 1):
         if not isinstance(row, dict):
-            raise ValueError(f"Dev query #{index} phải là object có id và question")
+            raise ValueError(f"Benchmark query #{index} phải là object có id và question")
         query_id = row.get("id") or row.get("query_id")
         query = row.get("query") or row.get("question")
         try:
             as_of_date = normalize_as_of_date(row.get("as_of_date"))
         except ValueError as exc:
-            raise ValueError(f"Dev query #{index} ({query_id or 'chưa có id'}) có as_of_date sai: {exc}") from exc
+            raise ValueError(
+                f"Benchmark query #{index} ({query_id or 'chưa có id'}) "
+                f"có as_of_date sai: {exc}"
+            ) from exc
         if not isinstance(query_id, str) or not query_id.strip():
-            raise ValueError(f"Dev query #{index} thiếu id")
+            raise ValueError(f"Benchmark query #{index} thiếu id")
         if not isinstance(query, str) or not query.strip():
-            raise ValueError(f"Dev query {query_id} thiếu question không rỗng")
+            raise ValueError(f"Benchmark query {query_id} thiếu question không rỗng")
         queries.append((query_id.strip(), query.strip(), as_of_date))
     if len({query_id for query_id, _, _ in queries}) != len(queries):
-        raise ValueError("Dev query file có id trùng lặp")
+        raise ValueError("Benchmark query file có id trùng lặp")
     return queries
 
 
@@ -183,6 +186,8 @@ def main() -> int:
     parser.add_argument("--elasticsearch-index", default=None,
                         help="Elasticsearch index override; default bm25.index from shared config")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "retrieval" / "results")
+    parser.add_argument("--output-prefix", choices=("dev", "test"), default="dev",
+                        help="Split prefix for the three saved retrieval files")
     parser.add_argument("--top-k", type=int, default=None,
                         help="Override retrieval.result_top_k")
     parser.add_argument("--candidate-k", type=int, default=None,
@@ -261,7 +266,7 @@ def main() -> int:
 
         args.output_dir.mkdir(parents=True, exist_ok=True)
         for method, envelopes in saved.items():
-            destination = args.output_dir / f"dev_{method}.json"
+            destination = args.output_dir / f"{args.output_prefix}_{method}.json"
             destination.write_text(json.dumps(envelopes, ensure_ascii=False, indent=2), encoding="utf-8")
             hits = sum(len(envelope["results"]) for envelope in envelopes)
             print(f"{method}: {hits} hits / {len(envelopes)} queries -> {destination}")

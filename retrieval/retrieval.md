@@ -13,7 +13,7 @@ Dev 4 xây dựng lớp truy xuất cho RAG: BM25-only, Dense-only, Hybrid Retri
 | Hợp nhất | RRF; `retrieval/rrf.py`, `retrieval/hybrid_retriever.py` | Kết hợp thứ hạng BM25 và Dense, không cộng trực tiếp điểm BM25 với cosine similarity. |
 | Build index | `retrieval/build_bm25_index.py` | Đọc file chunk Hôn nhân và Gia đình, chuyển từng chunk thành tài liệu Elasticsearch và nạp index BM25. |
 | Chạy benchmark | `retrieval/run_dev_retrieval.py` | Chạy BM25-only, Dense-only và Hybrid trên cùng truy vấn/corpus, ghi ba tệp JSON kết quả; mỗi tệp là mảng `RetrievalEnvelope` (một envelope mỗi câu, `query_id` lấy từ `id` của benchmark), theo mục 5.4 của `docs/data_contract.md`. |
-| Đánh giá | `retrieval/retrieval_evaluation.py` | Tính Recall@10, MRR@10, nDCG@10, Precision@10; xuất báo cáo Markdown và CSV tiếng Việt. |
+| Đánh giá | `retrieval/retrieval_evaluation.py` → `evaluation.metrics.evaluate` | Dùng chung phép tính Recall@K, MRR@K, nDCG@K, Precision@K; bổ sung kiểm tra temporal và xuất báo cáo Markdown/CSV tiếng Việt. |
 
 Cấu hình dùng chung nằm trong `retrieval/config.yaml`: Elasticsearch index `bm25-e6-verified-20261101`, Dense model `BAAI/bge-m3` (1024 chiều), candidate depth 50, Top-10 và RRF k=60 (chọn trên Dev, xem [so sánh rrf_k](evaluation/rrf_k_comparison_dev_75.md)). Runner Hybrid + Reranker đọc shared config qua `retrieval.settings.load_settings()`; collection, storage path, corpus, model và dimension phải khớp metadata index đã build. BM25/Dense/Hybrid benchmark không bật reranker.
 
@@ -122,16 +122,15 @@ Runner so SHA-256 corpus với metadata Elasticsearch và Qdrant; hai index ph�
 
 ### 4. Đánh giá và trạng thái nhãn
 
-Chấm trên Gold đã duyệt bằng `--ground-truth`: evaluator đọc `queries_dev.json` và `ground_truth.json`, chỉ chấm 75 câu Dev có `gold_context_ids_confirmed = true`, bỏ qua envelope của 195 câu draft và từ chối câu thuộc split Test. Không có `--ground-truth` thì `--dev-set` phải có `relevant_chunk_ids`, và báo cáo ghi rõ nhãn đó không phải Gold đã duyệt.
+Mặc định evaluator chấm trên Gold đã duyệt trong `data/benchmark/ground_truth.json`: đọc `queries_dev.json`, chỉ chấm 75 câu Dev có `gold_context_ids_confirmed = true`, bỏ qua envelope của 195 câu draft và từ chối câu thuộc split Test. Có thể đổi file nhãn bằng `--ground-truth`; truyền `--ground-truth` cùng `--dev-set` tương ứng để chọn tập khác. Để đánh giá dữ liệu legacy có `relevant_chunk_ids` trực tiếp trong `--dev-set`, dùng `--no-ground-truth`.
 
 ```powershell
 python -m retrieval.retrieval_evaluation `
   --dev-set .\data\benchmark\queries_dev.json `
-  --ground-truth .\data\benchmark\ground_truth.json `
-  --results-dir .\retrieval\results --output-dir .\retrieval\evaluation
+  --results-dir .\retrieval\results
 ```
 
-Trạng thái nhãn và quy tắc sử dụng nằm trong [benchmark label provenance](../docs/benchmark_label_provenance.md). Không dùng tệp kết quả cũ làm đầu vào đánh giá corpus mới.
+Kết quả retrieval được đọc từ `retrieval/results`; báo cáo Markdown và CSV được ghi vào `retrieval/evaluation` theo mặc định. Có thể đổi hai nơi này riêng bằng `--results-dir` và `--output-dir`. Trạng thái nhãn và quy tắc sử dụng nằm trong [benchmark label provenance](../docs/benchmark_label_provenance.md). Không dùng tệp kết quả cũ làm đầu vào đánh giá corpus mới.
 
 ## Kết quả trên Dev
 

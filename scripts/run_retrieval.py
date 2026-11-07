@@ -21,6 +21,7 @@ The Dev 4 batch runner for BM25/Dense/Hybrid comparison is ``python -m retrieval
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
@@ -78,6 +79,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--model", default=None, help="Ghi đè reranker.model (backend cross_encoder)")
     parser.add_argument("--retrieval-top-k", type=int, default=None,
                         help="Ghi đè retrieval_top_k (số candidate thô trước reranking)")
+    parser.add_argument("--rrf-k", type=int, default=None,
+                        help="Ghi đè rrf_k của cấu hình retrieval")
     parser.add_argument("--max-candidates", type=int, default=None,
                         help="Ghi đè reranker.max_candidates (trần candidate vào Cross-Encoder)")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH, help="reranking/config.yaml")
@@ -141,6 +144,8 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
     settings = load_retrieval_settings(args.retrieval_config)
     if args.retrieval_top_k is not None:
         settings["retrieval_top_k"] = args.retrieval_top_k
+    if args.rrf_k is not None:
+        settings["rrf_k"] = args.rrf_k
     reranker_config = load_reranker_config(
         args.config,
         enabled=False if args.reranker == "none" else (True if args.reranker else None),
@@ -193,7 +198,11 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
                                   qdrant_storage_path=str(actual_qdrant_path),
-                                  corpus_path=settings["corpus_path"], fusion=settings["fusion"])
+                                  corpus_path=settings["corpus_path"],
+                                  corpus_sha256=hashlib.sha256(
+                                      Path(settings["corpus_path"]).read_bytes()
+                                  ).hexdigest(),
+                                  fusion=settings["fusion"])
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
                              retriever_name=retriever_name, retriever_settings=retriever_settings,
                              parent_resolver=parent_resolver)
@@ -225,7 +234,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 1
 
     payload = outputs[0] if args.query is not None else outputs
-    text = json.dumps(payload, ensure_ascii=False, indent=2)
+    text = json.dumps(payload, ensure_ascii=False, indent=2, default=_json_default)
     if args.output:
         write_json(args.output, text)
         print(f"Đã ghi {len(outputs)} kết quả -> {args.output}", file=sys.stderr)
@@ -234,7 +243,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.eval_output:
         rows = [{"query_id": output["query_id"],
                  "retrieved_chunk_ids": [row["chunk_id"] for row in output["results"]]} for output in outputs]
-        write_json(args.eval_output, json.dumps(rows, ensure_ascii=False, indent=2))
+        write_json(args.eval_output, json.dumps(rows, ensure_ascii=False, indent=2, default=_json_default))
         print(f"Đã ghi file cho evaluation -> {args.eval_output}", file=sys.stderr)
     return 0
 
@@ -242,6 +251,12 @@ def main(argv: Sequence[str] | None = None) -> int:
 def write_json(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text + "\n", encoding="utf-8")
+
+
+def _json_default(value: Any) -> str:
+    if isinstance(value, Path):
+        return str(value)
+    raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
 
 
 if __name__ == "__main__":

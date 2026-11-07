@@ -119,3 +119,18 @@ Python 3.13, JSON Schema Draft 2020-12, `unittest` / `pytest`. Toàn bộ dữ l
 | 02/11/2026 | fix/d1-draft-check | Test chưa chạy lần nào. Đáp án HN_081 bỏ câu suy diễn “mọi hành vi xúc phạm … đều vi phạm nghĩa vụ nhân thân”, không có trong Điều 21 Luật 52/2014/QH13 (rà lại đáp án 105 câu đã duyệt với chunk gold); gold và câu hỏi Test không đổi. Đóng băng lại gold bằng `freeze_gold.py --create --force`. | Questions: `9dd472f56972…c3876`<br>Gold: `09941456ee39…c519f` |
 | 02/11/2026 | fix/d1-draft-check | Test chưa chạy lần nào. Sửa tên người duyệt trong `verified_by` (ghi sai “Nguyễn Quốc Hòa”) thành “Nguyễn Thị Quỳnh Hoa” ở 92 câu đã duyệt, gồm 30/30 câu Test, cùng `gold_review_verified.csv` và mục 2 của tài liệu này; nội dung câu hỏi, gold, đáp án không đổi. Đóng băng lại gold bằng `freeze_gold.py --create --force`. | Questions: `9dd472f56972…c3876`<br>Gold: `1fa2e53d1389…4f986` |
 | 02/11/2026 | fix/d1-draft-check | Test chưa chạy lần nào. Khi xác nhận kiểm nháp D1, sửa đáp án 4 câu Test cho khớp chunk gold: HN_156 (khoản 2 Điều 96 Luật 52/2014/QH13: xác nhận của cơ sở y tế là yêu cầu thêm khi lập cùng thỏa thuận với cơ sở y tế, không phải “hoặc” thay công chứng), HN_181 (khoản 3 Điều 121: thêm “pháp luật và tập quán quốc tế”), HN_246 (khoản 2, khoản 3 Điều 57 Nghị định 126/2014/NĐ-CP: thời hạn 30 ngày theo từng trường hợp), HN_268 (Điều 5 Nghị quyết 01/2024/NQ-HĐTP: bỏ ý “không có khả năng thanh toán phần chênh lệch” chỉ có ở Ví dụ 2). Gold và câu hỏi Test không đổi. Đóng băng lại gold bằng `freeze_gold.py --create --force`. | Questions: `9dd472f56972…c3876`<br>Gold: `59a9cdf02f76…68811` |
+| 07/11/2026 | fix/metrics | Chạy Test lần đầu cho BM25, Dense, Hybrid, Hybrid + Reranker bằng `scripts/run_final_test.py` (d76c6f8, kết quả commit ở 133b257), trên câu hỏi và gold Test trước PR #27. Sau khi gộp testing (PR #27 sửa câu HN_181 và đáp án 4 câu Test), chạy lại một lần trên 25fadec (kết quả commit ở c19f50f) với cùng config và code: chỉ danh sách chunk của HN_181 đổi ở BM25, Dense, Hybrid + Reranker, metric từng câu không đổi. Không chỉnh cấu hình sau khi xem kết quả Test. Manifest không đổi. | Lần 1: Questions `d3eb903c5e65…2f517`, Gold `f3b4e856a6fd…c1c87`<br>Lần 2: Questions `9dd472f56972…c3876`, Gold `59a9cdf02f76…68811` |
+
+## 7. Quyết định định nghĩa Recall
+
+Với mỗi câu hỏi có `gold_context_ids` đã xác nhận, Recall@K được tính:
+
+```text
+Recall@K = hits / len(gold)
+hits = số gold ID phân biệt xuất hiện trong top-K kết quả
+gold = tập gold_context_ids đã xác nhận của câu hỏi
+```
+
+Điểm Recall@K của benchmark là trung bình macro điểm từng câu hỏi đủ điều kiện. Cách này khác mục 14.4 của kế hoạch, vốn dùng **hit-based**: mỗi câu chỉ nhận 1 nếu top-K có ít nhất một gold ID, và 0 nếu không có. Hit-based đo tỷ lệ câu có tìm được ít nhất một kết quả phù hợp; Recall ở đây đo phần gold được truy hồi. Vì một câu có thể có nhiều gold context, Recall phân biệt truy hồi một phần với truy hồi đầy đủ, thay vì cho hai trường hợp cùng điểm như hit-based. Lý do chọn là cần phản ánh độ bao phủ các căn cứ gold của câu trả lời.
+
+Khi tạo `baseline_report`, phải ghi cùng định nghĩa và cách tổng hợp này; không gọi chỉ số hit-based là Recall. Có thể báo cáo hit rate riêng nếu cần đo tỷ lệ câu có ít nhất một kết quả phù hợp.

@@ -28,4 +28,4 @@ Các metric trong [retrieval_report.md](retrieval_report.md) là kết quả l�
 
 ## Ghi chú về SHA-256 corpus
 
-Index BM25 và Qdrant lưu SHA-256 của các byte trong `chunks.jsonl` khi dựng; runner và evaluator từ chối index dựng từ corpus khác. Với `core.autocrlf=true` trên Windows, file được checkout với CRLF nên hash khác bản LF trên Linux/macOS. Vì vậy mỗi máy phải tự dựng index từ chính checkout của mình, không chép index giữa các máy có cấu hình line ending khác nhau.
+Index BM25 và Qdrant lưu SHA-256 của các byte trong `chunks.jsonl` khi dựng; runner và evaluator từ chối index dựng từ corpus khác. Với `core.autocrlf=true` trên Windows, file được checkout với CRLF nên hash khác bản LF trên Linux/macOS. Vì vậy mỗi máy phải tự dựng index từ chính checkout của mình, không chép index giữa các máy có cấu hình line ending khác nhau. Riêng `docs/test_run_config_freeze.json` chuẩn hóa CRLF thành LF trước khi băm corpus/config để xác minh nội dung Test nhất quán trên Windows và Linux; cách băm của manifest không thay đổi hash byte-level dùng để đối chiếu index.

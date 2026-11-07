@@ -1,0 +1,51 @@
+{
+  "status": "proposed_pending_user_and_dev2_review",
+  "created_on": "2026-11-06",
+  "baseline_git_sha": "0f8a6a7b019a593a1f4d29cea850ec7fbd6465cc",
+  "gold_audit_ref": "origin/pr/27",
+  "excluded_added_data_ref": "origin/pr/25",
+  "user_excluded_id_spec": "HN_037–HN_050, HN_053, HN_057–HN_060, HN_063–HN_065, HN_068–HN_077, HN_079–HN_080, HN_083–HN_086, HN_089–HN_103, HN_105–HN_111, HN_113, HN_115–HN_127, HN_129, HN_131–HN_154, HN_157–HN_168, HN_170–HN_172, HN_174–HN_175, HN_178–HN_180, HN_182, HN_184–HN_186, HN_188–HN_191, HN_195, HN_199–HN_207, HN_209, HN_211–HN_214, HN_216–HN_218, HN_222–HN_229, HN_232–HN_239, HN_241, HN_243–HN_245, HN_247–HN_248, HN_253–HN_254, HN_257–HN_260, HN_262–HN_267, HN_269–HN_270, HN_272–HN_274, HN_276–HN_277, HN_279–HN_280, HN_285–HN_287, HN_289, HN_291, HN_293, HN_295",
+  "explicit_known_issue_ids": [
+    "HN_078"
+  ],
+  "selected_ids": [
+    "HN_001",
+    "HN_002",
+    "HN_004",
+    "HN_007",
+    "HN_009",
+    "HN_010",
+    "HN_013",
+    "HN_016",
+    "HN_017",
+    "HN_018",
+    "HN_020",
+    "HN_021",
+    "HN_023",
+    "HN_025",
+    "HN_028",
+    "HN_029",
+    "HN_030",
+    "HN_031",
+    "HN_032",
+    "HN_033",
+    "HN_035",
+    "HN_061",
+    "HN_062",
+    "HN_067",
+    "HN_087",
+    "HN_104",
+    "HN_155",
+    "HN_297",
+    "HN_299",
+    "HN_300"
+  ],
+  "selection_basis": "Conservative source-and-stability screen; no model outputs or metrics used. Existing corpus only; select clear unchanged answers from Luat 52/2014, preserve original query objects. This is not a representative sample of all Dev test types.",
+  "source_screen_notes": {
+    "HN_078": "Known query typo vo, chon; do not select even though the answer was revised.",
+    "HN_288": "Not declared incorrect; prefer direct-source cases without illustrative claims about transaction forms requiring further source review.",
+    "scope": "Exclude chunks AND document IDs newly added by PR25, not all historically collected documents in additional_documents. No canonical benchmark data is edited."
+  },
+  "gold_audit_git_sha": "c36fe416ac0e665789a131f1f5228fc6c01207a4",
+  "excluded_added_data_git_sha": "54c0e37f5f913f179628d152297b126c1fda2189"
+}

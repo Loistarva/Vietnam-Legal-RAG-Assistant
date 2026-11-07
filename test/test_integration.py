@@ -13,6 +13,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import jsonschema
 
@@ -334,6 +335,20 @@ class CliTest(unittest.TestCase):
         self.assertEqual([row["chunk_id"] for row in output["results"]],
                          ["l_52_2014_qh13_art_9_chunk_1", "l_22_2000_qh10_art_9_chunk_1"])
         self.assertEqual(output["config"]["retriever"]["retrieval_top_k"], 4)
+
+    def test_hybrid_path_config_serializes_when_writing_json(self):
+        with patch(
+            "scripts.run_retrieval.build_hybrid_retriever",
+            return_value=FixtureRetriever(FIXTURE["candidates"]),
+        ):
+            code, out, err = self.run_cli(
+                "--query", QUERY, "--retriever", "hybrid", "--reranker", "none",
+                "--no-parent-context",
+            )
+
+        self.assertEqual(code, 0, err)
+        output = json.loads(out)
+        self.assertIsInstance(output["config"]["retriever"]["corpus_path"], str)
 
     def test_batch_queries_write_output_file(self):
         with tempfile.TemporaryDirectory() as tmp:
