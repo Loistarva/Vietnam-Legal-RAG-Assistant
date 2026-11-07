@@ -9,7 +9,7 @@
   "top_k": 10,
   "sha256": {
     "corpus": "080f1607e5c917085e99d370053115901e8357dce824d9379579ab3d35190a14",
-    "retrieval_config": "cbbd08528fec137833f98fc0587a8cec224905d1a9f9939daac39478d7960daa",
+    "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
     "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471"
   },
   "note": "SHA-256 được tính sau khi chuẩn hóa CRLF thành LF để manifest nhất quán giữa Windows và Linux. Không đổi nội dung cấu hình Test sau khi khóa; nếu cần thay đổi, cập nhật manifest và commit riêng trước khi chạy Test."
