@@ -1,16 +1,16 @@
 # Task 4 – Kiểm thử và đánh giá trên Dev set
 
-## Kết quả hiện tại (2026-11-02)
+## Kết quả hiện tại (2026-11-07)
 
-Corpus 2.164 chunk (SHA-256 `9a72a35e532f…`), BGE-M3 1024 chiều, Elasticsearch index `bm25-e6-verified-20261101`, candidate depth 50, RRF k=60, Top-10; chấm 75 câu Dev có Gold đã duyệt, `as_of_date` của từng câu. Chi tiết: [báo cáo đánh giá](../retrieval/evaluation/retrieval_report.md); chọn `rrf_k`: [so sánh rrf_k](../retrieval/evaluation/rrf_k_comparison_dev_75.md).
+Corpus 2.164 chunk có `effective_to` cấp Điều/Khoản (D1, SHA-256 sau khi đổi CRLF thành LF `080f1607e5c9…`), BGE-M3 1024 chiều, Elasticsearch index `bm25-e6-verified-20261101`, candidate depth 50, RRF k=60, Top-10; chấm 75 câu Dev có Gold đã duyệt, `as_of_date` của từng câu. Chi tiết: [báo cáo đánh giá](../retrieval/evaluation/retrieval_report.md); chọn `rrf_k`: [so sánh rrf_k](../retrieval/evaluation/rrf_k_comparison_dev_75.md); chọn model dense: [so sánh model](../retrieval/evaluation/dense_model_comparison_dev_75.md).
 
 | Phương pháp | Recall@10 | MRR@10 | nDCG@10 | Precision@10 | Temporal Violation Rate |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| BM25 | 0.6736 | 0.5778 | 0.5612 | 0.1480 | 0 |
-| Dense | 0.7574 | 0.6563 | 0.6490 | 0.1587 | 0 |
-| Hybrid | 0.7395 | 0.6973 | 0.6600 | 0.1640 | 0 |
+| BM25 | 0.7003 | 0.5987 | 0.5812 | 0.1547 | 0 |
+| Dense | 0.7685 | 0.6607 | 0.6570 | 0.1653 | 0 |
+| Hybrid | 0.7528 | 0.7136 | 0.6723 | 0.1693 | 0 |
 
-Kết quả trên Dev, chưa chạy Test. Các phần dưới đây là snapshot lịch sử.
+Kết quả trên Dev; kết quả Test ở [baseline report](baseline_report.md). Các phần dưới đây là snapshot lịch sử.
 
 > **Lưu ý về phiên bản:** Các phần dưới đây là snapshot lịch sử, không phải kết quả trên trạng thái workspace hiện tại: được tạo trên corpus 1.159/1.175 chunk và cấu hình BKAI 768 chiều, dùng nhãn proposal chưa thẩm định. Xem [nguồn và trạng thái nhãn benchmark](benchmark_label_provenance.md) để biết trạng thái nhãn hiện tại và giới hạn sử dụng.
 

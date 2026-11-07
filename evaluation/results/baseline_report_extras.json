@@ -56,27 +56,27 @@
   "paired_hybrid_reranker_minus_hybrid": {
     "dev": {
       "strict_match_recall@10": {
-        "mean_difference": 0.0526031746031746,
-        "lower": 0.006984126984126986,
-        "upper": 0.10466904761904759,
+        "mean_difference": 0.04371428571428571,
+        "lower": 0.001777777777777778,
+        "upper": 0.09178174603174598,
         "better": 11,
         "worse": 4,
         "num_questions": 75
       },
       "mrr@10": {
-        "mean_difference": 0.050873015873015875,
-        "lower": -0.020907142857142836,
-        "upper": 0.12761944444444442,
-        "better": 16,
-        "worse": 12,
+        "mean_difference": 0.04576190476190477,
+        "lower": -0.021222222222222222,
+        "upper": 0.1169845238095238,
+        "better": 15,
+        "worse": 10,
         "num_questions": 75
       },
       "ndcg@10": {
-        "mean_difference": 0.06401193190894823,
-        "lower": 0.007510092902224618,
-        "upper": 0.12564331773625817,
-        "better": 26,
-        "worse": 18,
+        "mean_difference": 0.059912581370155434,
+        "lower": 0.008830870721491026,
+        "upper": 0.11758916088980867,
+        "better": 25,
+        "worse": 17,
         "num_questions": 75
       }
     },
@@ -90,19 +90,19 @@
         "num_questions": 30
       },
       "mrr@10": {
-        "mean_difference": -0.06190476190476191,
-        "lower": -0.17936507936507937,
-        "upper": 0.047222222222222235,
+        "mean_difference": -0.059126984126984125,
+        "lower": -0.1746031746031746,
+        "upper": 0.05,
         "better": 3,
         "worse": 5,
         "num_questions": 30
       },
       "ndcg@10": {
-        "mean_difference": -0.018999486038333346,
-        "lower": -0.09776115751890542,
-        "upper": 0.05254292139265336,
-        "better": 6,
-        "worse": 6,
+        "mean_difference": -0.014190272843503566,
+        "lower": -0.09121876470692131,
+        "upper": 0.05569817235531711,
+        "better": 7,
+        "worse": 5,
         "num_questions": 30
       }
     }

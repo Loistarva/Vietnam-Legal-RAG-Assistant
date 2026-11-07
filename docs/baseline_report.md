@@ -10,40 +10,40 @@ Các metric dưới đây là trung bình macro trên 75 câu Dev có Gold đã 
 
 | Phương pháp | Recall@5 | Parent Match@5 | MRR@5 | nDCG@5 | Recall@10 | Parent Match@10 | MRR@10 | nDCG@10 | Precision@10 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| BM25 | 0.6010 | 0.6053 | 0.5733 | 0.5304 | 0.6736 | 0.6872 | 0.5778 | 0.5612 | 0.1480 |
-| Dense | 0.6441 | 0.6663 | 0.6489 | 0.6039 | 0.7574 | 0.7751 | 0.6563 | 0.6490 | 0.1587 |
-| Hybrid (BM25 + Dense, RRF) | 0.6769 | 0.6903 | 0.6938 | 0.6315 | 0.7395 | 0.7493 | 0.6973 | 0.6600 | 0.1640 |
-| **Hybrid + Reranker** | **0.7335** | **0.7475** | **0.7482** | **0.6981** | **0.7921** | **0.8065** | **0.7482** | **0.7240** | **0.1840** |
+| BM25 | 0.6188 | 0.6213 | 0.5904 | 0.5469 | 0.7003 | 0.7192 | 0.5987 | 0.5812 | 0.1547 |
+| Dense | 0.6508 | 0.6717 | 0.6533 | 0.6099 | 0.7685 | 0.7858 | 0.6607 | 0.6570 | 0.1653 |
+| Hybrid (BM25 + Dense, RRF) | 0.6769 | 0.6894 | 0.7078 | 0.6394 | 0.7528 | 0.7679 | 0.7136 | 0.6723 | 0.1693 |
+| **Hybrid + Reranker** | **0.7335** | **0.7475** | **0.7571** | **0.7040** | **0.7965** | **0.8132** | **0.7593** | **0.7322** | **0.1853** |
 
 Khoảng tin cậy 95% ở @10 (percentile bootstrap theo câu, 10.000 lần, seed 42; `confidence_intervals.average` trong các file metric):
 
 | Phương pháp | Recall@10 | Parent Match@10 | MRR@10 | nDCG@10 | Precision@10 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| BM25 | [0.581, 0.762] | [0.594, 0.776] | [0.485, 0.671] | [0.479, 0.644] | [0.119, 0.179] |
-| Dense | [0.668, 0.841] | [0.688, 0.861] | [0.560, 0.747] | [0.561, 0.732] | [0.128, 0.191] |
-| Hybrid | [0.652, 0.821] | [0.664, 0.830] | [0.608, 0.785] | [0.577, 0.739] | [0.133, 0.196] |
-| Hybrid + Reranker | [0.714, 0.864] | [0.729, 0.877] | [0.664, 0.826] | [0.647, 0.798] | [0.149, 0.221] |
+| BM25 | [0.611, 0.785] | [0.628, 0.805] | [0.506, 0.688] | [0.500, 0.662] | [0.125, 0.187] |
+| Dense | [0.681, 0.850] | [0.701, 0.869] | [0.566, 0.751] | [0.570, 0.740] | [0.135, 0.199] |
+| Hybrid | [0.668, 0.831] | [0.685, 0.846] | [0.625, 0.798] | [0.590, 0.750] | [0.139, 0.203] |
+| Hybrid + Reranker | [0.720, 0.867] | [0.739, 0.881] | [0.677, 0.837] | [0.656, 0.805] | [0.151, 0.223] |
 
 Khoảng tin cậy của từng phương pháp chồng lên nhau nhiều, nên không dùng chúng để kết luận phương pháp nào hơn. So sánh Hybrid + Reranker với Hybrid trên cùng câu hỏi (bootstrap ghép cặp, như `reranking/evaluation/candidate_text_comparison_dev_75.md`):
 
 | Hybrid + Reranker − Hybrid, Dev | Hiệu trung bình | CI95 | Số câu hơn / kém |
 | --- | ---: | ---: | ---: |
-| Recall@10 | +0.0526 | [+0.0070, +0.1047] | 11 / 4 |
-| MRR@10 | +0.0509 | [−0.0209, +0.1276] | 16 / 12 |
-| nDCG@10 | +0.0640 | [+0.0075, +0.1256] | 26 / 18 |
+| Recall@10 | +0.0437 | [+0.0018, +0.0918] | 11 / 4 |
+| MRR@10 | +0.0458 | [−0.0212, +0.1170] | 15 / 10 |
+| nDCG@10 | +0.0599 | [+0.0088, +0.1176] | 25 / 17 |
 
 Trên Dev, Hybrid + Reranker hơn Hybrid ở Recall@10 và nDCG@10 (CI95 không chứa 0); MRR@10 tăng nhưng chưa phân biệt được.
 
 ## Kết quả Retrieval trên Test
 
-Test gồm 30 câu đã đóng băng; mỗi phương pháp có 300 kết quả (30 câu × Top-10). Test đã chạy hai lần với cùng cấu hình và code: lần 1 trước khi gộp PR #27, lần 2 sau khi PR #27 sửa câu HN_181; chỉ danh sách chunk của HN_181 đổi, metric từng câu không đổi (nhật ký ở mục 6 của `docs/sprint6_benchmark.md`). Các file kết quả có đủ 30 query, nội dung query khớp `queries_test.json` (SHA-256 bắt đầu `521eff66a6a0`).
+Test gồm 30 câu đã đóng băng; mỗi phương pháp có 300 kết quả (30 câu × Top-10). Số dưới đây là lần chạy thứ ba, sau khi corpus có `effective_to` cấp Điều/Khoản (D1) và index được dựng lại; cấu hình retrieval, reranker và câu hỏi, gold Test không đổi. Hai lần trước (trước và sau khi PR #27 sửa câu HN_181) chạy trên corpus cũ, nơi top-10 của BM25, Dense, Hybrid + Reranker có 4, 2, 6 chunk của Điều/Khoản đã bị bãi bỏ. So với lần 2, BM25 và Dense giữ nguyên số; Hybrid đổi Recall@5 +0,011, nDCG@5 +0,003, nDCG@10 −0,002; Hybrid + Reranker đổi MRR, nDCG từ 0,003 trở xuống; Recall@10 của cả bốn phương pháp không đổi (nhật ký ở mục 6 của `docs/sprint6_benchmark.md`). Các file kết quả có đủ 30 query, nội dung query khớp `queries_test.json` (SHA-256 bắt đầu `521eff66a6a0`).
 
 | Phương pháp | Recall@5 | Parent Match@5 | MRR@5 | nDCG@5 | Recall@10 | Parent Match@10 | MRR@10 | nDCG@10 | Precision@10 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | BM25 | 0.8150 | 0.8317 | 0.8817 | 0.7942 | 0.8672 | 0.8728 | 0.8817 | 0.8195 | 0.1767 |
 | Dense | 0.8339 | 0.8283 | 0.8333 | 0.7806 | 0.9061 | 0.9006 | 0.8375 | 0.8134 | 0.1800 |
-| Hybrid (BM25 + Dense, RRF) | 0.8578 | 0.8744 | **0.9278** | **0.8506** | 0.9367 | 0.9311 | **0.9333** | **0.8849** | 0.1900 |
-| Hybrid + Reranker | **0.8978** | **0.8978** | 0.8667 | 0.8421 | **0.9561** | **0.9561** | 0.8714 | 0.8659 | **0.1967** |
+| Hybrid (BM25 + Dense, RRF) | 0.8689 | 0.8744 | **0.9278** | **0.8539** | 0.9367 | 0.9311 | **0.9333** | **0.8827** | 0.1900 |
+| Hybrid + Reranker | **0.8978** | **0.8978** | 0.8694 | 0.8447 | **0.9561** | **0.9561** | 0.8742 | 0.8685 | **0.1967** |
 
 Khoảng tin cậy 95% ở @10:
 
@@ -51,14 +51,14 @@ Khoảng tin cậy 95% ở @10:
 | --- | ---: | ---: | ---: | ---: | ---: |
 | BM25 | [0.767, 0.953] | [0.776, 0.951] | [0.778, 0.967] | [0.718, 0.910] | [0.140, 0.217] |
 | Dense | [0.839, 0.965] | [0.829, 0.962] | [0.732, 0.932] | [0.725, 0.892] | [0.147, 0.213] |
-| Hybrid | [0.870, 0.989] | [0.861, 0.987] | [0.856, 1.000] | [0.811, 0.951] | [0.153, 0.230] |
-| Hybrid + Reranker | [0.898, 1.000] | [0.898, 1.000] | [0.768, 0.958] | [0.789, 0.935] | [0.157, 0.237] |
+| Hybrid | [0.870, 0.989] | [0.861, 0.987] | [0.856, 1.000] | [0.810, 0.948] | [0.153, 0.230] |
+| Hybrid + Reranker | [0.898, 1.000] | [0.898, 1.000] | [0.774, 0.958] | [0.791, 0.938] | [0.157, 0.237] |
 
 | Hybrid + Reranker − Hybrid, Test | Hiệu trung bình | CI95 | Số câu hơn / kém |
 | --- | ---: | ---: | ---: |
 | Recall@10 | +0.0194 | [+0.0000, +0.0500] | 2 / 0 |
-| MRR@10 | −0.0619 | [−0.1794, +0.0472] | 3 / 5 |
-| nDCG@10 | −0.0190 | [−0.0978, +0.0525] | 6 / 6 |
+| MRR@10 | −0.0591 | [−0.1746, +0.0500] | 3 / 5 |
+| nDCG@10 | −0.0142 | [−0.0912, +0.0557] | 7 / 5 |
 
 Trên Test, Hybrid + Reranker có Recall, Parent Match và Precision cao nhất; Hybrid có MRR@5, MRR@10, nDCG@5 và nDCG@10 cao nhất. Không chênh lệch nào giữa hai phương pháp phân biệt được: Recall@10 chỉ khác ở 2/30 câu, MRR@10 và nDCG@10 có CI95 chứa 0. Với 30 câu, CI95 rộng tới khoảng ±0,1. Các điểm Test chỉ để báo cáo cuối, không dùng để chọn hay tinh chỉnh cấu hình.
 
@@ -73,7 +73,7 @@ Chunk trả về trong Top-10 không có hiệu lực tại `as_of_date` của c
 | Hybrid | 0 / 750 | 0 / 300 | 0 |
 | Hybrid + Reranker | 0 / 750 | 0 / 300 | 0 |
 
-Temporal Violation Rate bằng 0 ở cả 8 file. Số này đo trên corpus hiện tại (SHA-256 bắt đầu `9a72a35e532f`), trong đó hiệu lực mới ghi ở cấp văn bản: Điều/Khoản đã bị bãi bỏ của văn bản còn hiệu lực một phần (ví dụ Điều 19–50 Nghị định 126/2014/NĐ-CP) chưa có `effective_to`, nên chưa bị tính là vi phạm (D1 trong `docs/sprint6_issue_recheck_after_merge.docx`).
+Temporal Violation Rate bằng 0 ở cả 8 file. Corpus hiện tại (SHA-256 sau khi đổi CRLF thành LF bắt đầu `080f1607e5c9`) có `effective_to` cấp Điều/Khoản cho 131 chunk bị bãi bỏ hoặc sửa đổi bởi văn bản trong corpus (`data/reference/provision_periods.json`, ví dụ Điều 19–50 Nghị định 126/2014/NĐ-CP), nên bộ lọc theo thời điểm loại được các chunk này. Đo lại các file kết quả trước khi chạy lại bằng corpus hiện tại: Dev có 67, 54, 65, 85 chunk vi phạm (ở 17, 12, 16, 12 câu) với BM25, Dense, Hybrid, Hybrid + Reranker; Test có 4, 2, 0, 6. Điều/Khoản bị bãi bỏ bởi văn bản không có trong corpus vẫn chưa có `effective_to` (D1 trong `docs/sprint6_issue_recheck_after_merge.docx`).
 
 ## Kết quả Zero-shot generation
 
@@ -108,9 +108,9 @@ Token F1 không phản ánh độ đúng: nhóm `mang_thai_ho` có Token F1 cao 
 - **Retrieval Test:** 30/30 câu trong Test đã đóng băng được chấm với Gold; mỗi phương pháp có 300 kết quả Top-10.
 - **Zero-shot Dev30:** `evaluation/datasets/dev_gold_30_queries_v1.json`, chọn bởi Dev 1 (`evaluation/manifests/dev_gold_30_manifest.json`), xác nhận ở `evaluation/review/dev30_confirmation_v1.json`.
 - **Gold retrieval:** `data/benchmark/ground_truth.json`, chỉ dùng `ground_truth.gold_context_ids`.
-- **Corpus:** `data/chunking_output/chunks.jsonl`, 2.164 chunk, 24 văn bản; SHA-256 bắt đầu `9a72a35e532f`.
+- **Corpus:** `data/chunking_output/chunks.jsonl`, 2.164 chunk, 24 văn bản, có `effective_to` cấp Điều/Khoản (D1); SHA-256 (CRLF → LF) bắt đầu `080f1607e5c9`.
 - **BM25:** Elasticsearch index `bm25-e6-verified-20261101`, trường `content_segmented`.
-- **Dense:** `BAAI/bge-m3`, 1024 chiều, Qdrant collection `vietnam_legal_chunks`.
+- **Dense:** `BAAI/bge-m3`, 1024 chiều, Qdrant collection `vietnam_legal_chunks`; chọn trên Dev so với bkai và AITeamVN (`retrieval/evaluation/dense_model_comparison_dev_75.md`).
 - **Hybrid:** BM25 + Dense, Reciprocal Rank Fusion, `rrf_k=60`, candidate depth 50, Top-10.
 - **Hybrid + Reranker:** Cross-Encoder `BAAI/bge-reranker-v2-m3` rerank tối đa 50 candidates, `candidate_text: document_breadcrumb_chunk_text`, giữ Top-5 để đưa vào context; bảng metric tính trên 10 kết quả đã lưu cho mỗi câu.
 - **Zero-shot:** `qwen2.5:7b` qua Ollama, `temperature` 0, `num_predict` 512 (câu trả lời HN_299 bị cắt); 30 bản ghi kết quả đều ghi `context_used=false`; prompt không đưa `as_of_date` vào.
@@ -138,4 +138,4 @@ Token F1 không phản ánh độ đúng: nhóm `mang_thai_ho` có Token F1 cao 
 
 ## Kết luận
 
-Trên Dev, Hybrid + Reranker dẫn đầu mọi metric retrieval và hơn Hybrid ở Recall@10, nDCG@10 với CI95 không chứa 0. Trên Test, Hybrid + Reranker có Recall cao nhất còn Hybrid có MRR và nDCG cao nhất, nhưng chênh lệch giữa hai phương pháp không phân biệt được với 30 câu. Không phương pháp nào trả chunk hết hiệu lực theo metadata hiện có. Zero-shot `qwen2.5:7b` không có context trả lời đúng trọng tâm (Relevance 4.43/5) nhưng nội dung pháp lý kém (Faithfulness 2.53/5, 7/30 câu sai kết luận, không câu nào không có lỗi); đây là mức so sánh cho RAG có context ở sprint sau.
+Trên Dev, Hybrid + Reranker dẫn đầu mọi metric retrieval và hơn Hybrid ở Recall@10, nDCG@10 với CI95 không chứa 0. Trên Test, Hybrid + Reranker có Recall cao nhất còn Hybrid có MRR và nDCG cao nhất, nhưng chênh lệch giữa hai phương pháp không phân biệt được với 30 câu. Không phương pháp nào trả chunk hết hiệu lực theo metadata hiện có, kể cả các Điều/Khoản đã bị bãi bỏ mà kết quả trên corpus cũ còn trả về. Zero-shot `qwen2.5:7b` không có context trả lời đúng trọng tâm (Relevance 4.43/5) nhưng nội dung pháp lý kém (Faithfulness 2.53/5, 7/30 câu sai kết luận, không câu nào không có lỗi); đây là mức so sánh cho RAG có context ở sprint sau.
