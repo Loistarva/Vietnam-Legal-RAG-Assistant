@@ -1,5 +1,7 @@
 """Check all question review sheet coverage; does not set gold flags."""
-import argparse,csv,json
+import argparse
+import csv
+import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def readcsv(path):
@@ -15,7 +17,8 @@ if __name__=='__main__':
     y=readcsv(source) if source.is_file() else None
     assert [r['question_id'] for r in x]==[q['id'] for q in dev]
     if y is not None: assert [r['question_id'] for r in y]==[q['id'] for q in test]
-    reviewed=lambda rows:sum(bool(r['reviewer'].strip() and r['reviewed_at'].strip() and r['valid_at_question_date'].strip()) for r in rows)
+    def reviewed(rows):
+        return sum(bool(r['reviewer'].strip() and r['reviewed_at'].strip() and r['valid_at_question_date'].strip()) for r in rows)
     print(f'Dev review rows: {len(x)}, completed forms: {reviewed(x)}')
     if y is None:
         print(f'Test review: file RESTRICTED không có trong gói Git (đúng); nhận {len(test)} câu Test khóa, truyền --test-review-sheet để soát bảng riêng.')

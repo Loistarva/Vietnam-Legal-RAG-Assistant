@@ -166,6 +166,9 @@ def main() -> int:
                 if not q or not relevant:
                     continue
                 relevant_set = set(relevant)
+                unknown = relevant_set - dataset_chunk_ids
+                if unknown:
+                    raise ValueError(f"Gold của câu {q!r} không có trong dataset: {sorted(unknown)[:5]}")
                 ranked = retriever.search(q, top_k=10)
                 ranked_ids = [h["chunk_id"] for h in ranked]
                 recall_scores.append(recall_at_k(ranked_ids, relevant_set, 5))

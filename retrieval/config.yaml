@@ -15,6 +15,7 @@ bm25:
 
 dense:
   backend: qdrant
+  # Chọn trên 75 câu Dev đã duyệt (retrieval/evaluation/dense_model_comparison_dev_75.md): bkai, AITeamVN không hơn có ý nghĩa.
   model: BAAI/bge-m3
   collection: vietnam_legal_chunks
   index_dir: data/indexes

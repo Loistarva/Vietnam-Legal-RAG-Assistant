@@ -22,13 +22,30 @@ from chunking_rules import (
     CHILD_CONTEXT_MAX_WORDS,
     FALLBACK_OVERLAP_WORDS,
     PARENT_MAX_CHARS,
-    chunk_parsed_file,
+    chunk_legal_document,
     is_implicit_clause,
     normalize_text,
     tokenizer_version,
 )  # noqa: E402
+from provision_periods import apply_to_chunk, load_overrides, split_point_clause_ids  # noqa: E402
 
 KHOAN_SEGMENT_RE = re.compile(r"Khoản \S+")
+
+
+def load_corpus_scope(path: Path | None = None) -> dict[str, set[str]]:
+    """Điều được đưa vào corpus của các văn bản chỉ có một phần thuộc phạm vi corpus.
+
+    Văn bản không có trong file được đưa vào toàn bộ. Mỗi mục cần danh sách Điều và lý do.
+    """
+    path = path or REPO / "data/reference/corpus_scope.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    scope: dict[str, set[str]] = {}
+    for doc_id, entry in (data.get("documents") or {}).items():
+        articles = [str(a) for a in entry.get("articles") or []]
+        if not articles or not entry.get("reason"):
+            raise ValueError(f"corpus_scope.json: {doc_id} cần articles và reason")
+        scope[doc_id] = set(articles)
+    return scope
 
 
 def _tokens(text: str) -> list[str]:
@@ -153,6 +170,14 @@ def main() -> None:
     truncated_intros: list[str] = []
     short_fragments: list[str] = []
     unknown_validity: list[str] = []
+    # Khoảng hiệu lực cấp Điều/Khoản (data/reference/provision_periods.json, D1).
+    overrides = load_overrides()
+    split_ids = split_point_clause_ids(overrides)
+    # Văn bản sửa nhiều văn bản: chỉ đưa vào corpus các Điều thuộc phạm vi (data/reference/corpus_scope.json).
+    corpus_scope = load_corpus_scope()
+    scope_report: dict[str, dict[str, list[str]]] = {}
+    matched_scope: dict[str, set[tuple[str, ...]]] = defaultdict(set)
+    override_of_child: dict[str, str] = {}
 
     for source_path in parser_sources:
         with source_path.open(encoding="utf-8") as f:
@@ -167,6 +192,18 @@ def main() -> None:
         if metadata.get("validity_status") == "Không xác định":
             unknown_validity.append(source_path.name)
 
+        scope = corpus_scope.get(str(doc.get("document_id")))
+        if scope is not None:
+            numbers = [str(a.get("article_number")) for a in doc.get("articles", [])]
+            unknown = sorted(set(scope) - set(numbers))
+            if unknown:
+                raise ValueError(f"corpus_scope.json: {source_path.name} không có Điều {unknown}")
+            doc = {**doc, "articles": [a for a in doc["articles"] if str(a.get("article_number")) in scope]}
+            scope_report[str(doc.get("document_id"))] = {
+                "included": [n for n in numbers if n in scope],
+                "excluded": [n for n in numbers if n not in scope],
+            }
+
         source_clause_ids: set[str] = set()
         implicit_clause_ids: set[str] = set()
         for article in doc.get("articles", []):
@@ -176,7 +213,8 @@ def main() -> None:
             if is_implicit_clause(clauses):
                 implicit_clause_ids |= ids
 
-        result = chunk_parsed_file(source_path)
+        # Khoản có Điểm bị bãi bỏ/sửa đổi riêng được tách theo Điểm để ghi đúng khoảng hiệu lực.
+        result = chunk_legal_document(doc, {"split_point_clause_ids": split_ids & source_clause_ids})
         source_articles = {str(a.get("article_number")) for a in doc.get("articles", [])}
         covered_articles = {
             str(c.metadata.get("article_number"))
@@ -232,6 +270,11 @@ def main() -> None:
                 raise ValueError(f"article_number metadata không khớp: {child.chunk_id}")
             if not re.fullmatch(r"[a-z0-9_]+", child.chunk_id):
                 raise ValueError(f"chunk_id không theo data contract (chữ thường, số, gạch dưới): {child.chunk_id}")
+            applied = apply_to_chunk(payload, overrides)
+            if applied is not None:
+                override, scope_item = applied
+                matched_scope[override.id].add(scope_item)
+                override_of_child[child.chunk_id] = override.id
             children.append(payload)
 
         file_summary.append({
@@ -244,6 +287,21 @@ def main() -> None:
             "num_children": len(result.children),
         })
         print(f"{source_path.name}: {len(result.parents)} Parent, {len(result.children)} Child")
+
+    for override in overrides:
+        unmatched = sorted(override.scope_items() - matched_scope[override.id])
+        if unmatched:
+            raise ValueError(f"provision_periods.json {override.id}: không có chunk cho {unmatched}")
+    # Parent chỉ nhận khoảng hiệu lực của Điều/Khoản khi mọi Child của nó cùng một bản ghi.
+    by_override = {o.id: o for o in overrides}
+    for parent in parents:
+        ids = {override_of_child.get(cid) for cid in parent.get("child_ids", [])}
+        if len(ids) == 1 and None not in ids:
+            override = by_override[ids.pop()]
+            current = parent["metadata"].get("effective_to")
+            if not current or override.effective_to < current:
+                parent["metadata"]["effective_to"] = override.effective_to
+            parent["metadata"]["provision_status"] = override.provision_status
 
     child_ids = [c["chunk_id"] for c in children]
     parent_ids = [p["parent_id"] for p in parents]
@@ -308,6 +366,10 @@ def main() -> None:
         "included_source_files": [str(p.relative_to(REPO)).replace("\\", "/") for p in parser_sources],
         "excluded_source_files": [],
         "documents": file_summary,
+        "corpus_scope": scope_report,
+        "provision_periods": {
+            o.id: sum(1 for oid in override_of_child.values() if oid == o.id) for o in overrides
+        },
         "warnings": warnings,
     }
 

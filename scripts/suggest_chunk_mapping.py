@@ -1,5 +1,8 @@
 """Generate a CSV for manual review from new chunking exports. NEVER auto-label gold."""
-import argparse,csv,json,re
+import argparse
+import csv
+import json
+import re
 from collections import defaultdict
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]

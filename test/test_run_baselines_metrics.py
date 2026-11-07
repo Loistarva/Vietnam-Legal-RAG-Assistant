@@ -1,4 +1,3 @@
-import hashlib
 import json
 import tempfile
 import unittest
@@ -6,6 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts.run_baselines_metrics import main
+from embedding.vector_store import chunk_file_sha256
 
 
 class RunBaselinesMetricsTest(unittest.TestCase):
@@ -48,9 +48,7 @@ class RunBaselinesMetricsTest(unittest.TestCase):
     def _write_results(self):
         config = {
             "top_k": 10,
-            "corpus_sha256": hashlib.sha256(
-                self.chunks_path.read_bytes()
-            ).hexdigest(),
+            "corpus_sha256": chunk_file_sha256(self.chunks_path),
             "as_of_date": self.query["as_of_date"],
         }
         results = [{
@@ -90,7 +88,7 @@ class RunBaselinesMetricsTest(unittest.TestCase):
         self.assertEqual(report["label_source"], "ground_truth.gold_context_ids")
         self.assertEqual(
             report["input_sha256"]["corpus"],
-            hashlib.sha256(self.chunks_path.read_bytes()).hexdigest(),
+            chunk_file_sha256(self.chunks_path),
         )
         self.assertEqual(
             report["input_sha256"]["queries"],
