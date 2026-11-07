@@ -147,6 +147,8 @@ class EvaluationIdTest(unittest.TestCase):
             "empty": "query_id,answer_relevance_score,faithfulness_score\nHN_001,,5\n",
             "duplicate": "query_id,answer_relevance_score,faithfulness_score\nHN_001,4,5\nHN_001,4,5\n",
             "unknown_id": "query_id,answer_relevance_score,faithfulness_score\nHN_999,4,5\n",
+            "stale_prediction": "query_id,answer_relevance_score,faithfulness_score,prediction_sha256\n"
+                                "HN_001,4,5," + evaluate_zero_shot.prediction_sha256("Câu trả lời khác.") + "\n",
         }
         for name, content in cases.items():
             with self.subTest(name):

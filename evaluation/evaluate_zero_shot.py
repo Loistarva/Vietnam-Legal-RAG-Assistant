@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import string
@@ -407,6 +408,12 @@ def load_as_of_dates(queries_paths: list[Path] | tuple[Path, ...]) -> dict[str, 
     return dates
 
 
+def prediction_sha256(prediction: str) -> str:
+    """SHA-256 của câu trả lời (UTF-8, xuống dòng LF) để gắn điểm chấm tay với đúng câu trả lời."""
+    text = str(prediction or "").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _manual_score(row: dict[str, Any], key: str, question_id: str) -> int:
     value = str(row.get(key) or "").strip()
     if value not in {"1", "2", "3", "4", "5"}:
@@ -574,6 +581,12 @@ def evaluate(
         }
         if question_id in manual_rubric:
             m_row = manual_rubric[question_id]
+            expected_sha = str(m_row.get("prediction_sha256") or "").strip()
+            if expected_sha and expected_sha != prediction_sha256(prediction):
+                raise ValueError(
+                    f"Bảng chấm tay: câu trả lời của {question_id} khác câu trả lời đã chấm "
+                    "(prediction_sha256 không khớp); cần chấm tay lại."
+                )
             rel_1_5 = _manual_score(m_row, "answer_relevance_score", question_id)
             faith_1_5 = _manual_score(m_row, "faithfulness_score", question_id)
             row.update({

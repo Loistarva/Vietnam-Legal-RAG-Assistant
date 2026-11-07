@@ -25,21 +25,21 @@ HN_035, HN_061, HN_062, HN_067, HN_087, HN_104, HN_155, HN_297, HN_299, HN_300.
 
 Trang nguồn chính thức để người duyệt đối chiếu thêm: [Luật 52/2014/QH13](https://vanban.chinhphu.vn/default.aspx?docid=175351&pageid=27160). Link này phục vụ review, không thay citation/Gold trong benchmark gốc.
 
-## Manifest và lệnh kiểm tra
+## Manifest, xác nhận và lệnh kiểm tra
 
-- `evaluation/manifests/dev_gold_30_manifest.json`: **proposed_pending_user_and_dev2_review**, chứa ID/hash, input SHAs, phân bố và danh sách dữ liệu bị loại; chưa là quyết định khóa official của nhóm.
-- `evaluation/rubrics/dev_gold_30_ids_v1.txt`: cùng 30 ID, cùng thứ tự. Đây là ID list, không phải rubric guide hoặc score sheet.
-- `remaining_reviewed_dev_ids` trong manifest chỉ là phép trừ 30 ID khỏi 75 Dev source_checked. Không mặc định cả 45 câu còn lại đều đạt màn lọc nguồn/ổn định; Dev 2/5 phải rà các câu đang sửa trước calibration.
+- `evaluation/manifests/dev_gold_30_manifest.json`: bản đề xuất của Dev 1, giữ nguyên status **proposed_pending_user_and_dev2_review** và các hash đã ghim để khớp nhánh `feature/week09-dev30-selection`.
+- `evaluation/review/dev30_confirmation_v1.json`: bản xác nhận ngày 07/11/2026 trên PR #32 (status `confirmed_for_zero_shot_baseline`): kiểm lại trên dữ liệu hiện tại, ghi SHA-256 đầu vào, phân bố, tham số sinh và giới hạn của mẫu.
+- `evaluation/rubrics/dev_gold_30_ids_v1.txt`: cùng 30 ID, cùng thứ tự.
+- `evaluation/rubrics/zero_shot_rubric_guide_v1.md`, `evaluation/rubrics/zero_shot_dev30_manual_scores_v1.csv`: hướng dẫn chấm tay và bảng điểm chấm tay của 30 câu.
+- `remaining_reviewed_dev_ids` trong manifest chỉ là phép trừ 30 ID khỏi 75 Dev source_checked. Không mặc định cả 45 câu còn lại đều đạt màn lọc nguồn/ổn định.
 
 ```powershell
-# Sau clone moi/shallow: tai dung cac Git commit nguon da pin
-python scripts/fetch_dev30_sources.py
-python scripts/prepare_dev30.py
-python -m pytest test/test_dev30_selection.py -q
+python -m pytest test/test_dev30_confirmation.py -q
+python scripts/run_zero_shot_dev.py --rubric-input evaluation/rubrics/zero_shot_dev30_manual_scores_v1.csv
 ```
 
-Bước fetch chỉ tải commit còn thiếu, không checkout/merge nhánh hoặc đổi query; cần quyền đọc remote. Sau bước fetch, các kiểm tra chạy offline. CI cũng chạy bước này vì actions/checkout mặc định là shallow. Lệnh prepare mặc định chỉ kiểm tra; `--write` sinh các file proposal sau khi checks đạt. Nếu nội dung manifest v1 khác phiên bản đã sinh, script dừng yêu cầu review/v2 thay vì ghi đè. Không chỉnh canonical benchmark, corpus hoặc freeze manifest.
+Test kiểm hash của file câu hỏi, 30 ID khớp `queries_dev.json`, không thuộc Test, gold đã xác nhận và không chung Khoản với gold Test, bảng chấm tay phủ đúng 30 câu. Lệnh thứ hai chạy lại model (cần Ollama) và sẽ dừng nếu câu trả lời mới khác câu trả lời đã chấm tay (cột `prediction_sha256`); khi đó phải chấm tay lại. Chỉ chấm lại trên câu trả lời đã lưu thì dùng `python -m evaluation.evaluate_zero_shot --predictions evaluation/results/zero_shot_dev30_results.json --queries evaluation/datasets/dev_gold_30_queries_v1.json --rubric-input evaluation/rubrics/zero_shot_dev30_manual_scores_v1.csv --metrics-output evaluation/results/zero_shot_dev30_metrics.json --scored-output evaluation/results/zero_shot_dev30_scored.json --rubric-csv evaluation/results/zero_shot_dev30_rubric_table.csv`. Các script chuẩn bị tập 30 câu (`scripts/fetch_dev30_sources.py`, `scripts/prepare_dev30.py`, `test/test_dev30_selection.py`) nằm ở nhánh `feature/week09-dev30-selection` của Dev 1, không có trong repo này.
 
 Loader compatibility với code `evaluation/zero_shot.py` tại metrics SHA `aadb20420cecada28a5a03e0c31a11b88bd7cc84` đã kiểm: đọc đủ 30 ID, không gọi Ollama/model; log tại `evaluation/review/dev30_loader_compatibility_v1.json`. Bàn giao file JSON cho đối số `--queries` của runner phù hợp; không tự chạy official A/B ở bước chuẩn bị. Dev 2 phải xác nhận ID/manifest, rubric guide, prompt/date policy, generation params và Freeze trước khi dùng cùng file cho A/B.
 
-Không sửa danh sách câu sau khi đã xem output để cải thiện điểm. Chưa có điểm rubric, threshold hoặc kết quả inference trong đợt chuẩn bị này.
+Không sửa danh sách câu sau khi đã xem output để cải thiện điểm.
