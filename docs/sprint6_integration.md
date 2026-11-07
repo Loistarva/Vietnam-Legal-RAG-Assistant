@@ -1,0 +1,247 @@
+# Sprint 6 – Tích hợp Hybrid Retrieval + Reranker (Dev 5)
+
+Owner: Dev 5 (Reranker & Packaging Lead). Tài liệu mô tả interface, contract đầu ra, cấu hình, cách chạy standalone và các điểm cần phối hợp.
+
+## 1. Trạng thái: phần chạy thật và phần giả lập
+
+| Thành phần | Trạng thái | Kiểm chứng |
+| --- | --- | --- |
+| `Reranker` (cắt candidate, khử trùng lặp, xếp hạng, bảo toàn trường) | Chạy thật | `test/test_reranker.py` |
+| `MockScorer` (điểm cố định theo `chunk_id` hoặc tỉ lệ token câu hỏi xuất hiện trong chunk) | Stub, không phải mô hình liên quan; chỉ chạy khi chọn `--reranker mock`, output mang nhãn `<retriever>_mock_reranker` | Unit test |
+| `CrossEncoderScorer` (`BAAI/bge-reranker-v2-m3`), **backend mặc định** | Chạy thật (sentence-transformers 5.7.0, GPU, fp16) | Unit test bằng model giả; chạy tay trên fixture và 10 câu Dev (mục 5.1) |
+| `RetrievalPipeline` + `HybridRetriever` của Dev 4 | Chạy thật với nhánh BM25/Dense giả lập đúng dạng output adapter | `test/test_integration.py` |
+| CLI `--retriever fixture` / `--retriever mock` | Chạy offline | Integration test; chạy tay 285 câu Dev |
+| CLI `--retriever hybrid` (Elasticsearch + Qdrant thật), **retriever mặc định** | Đã nối dây; chưa có số đo chất lượng (G3) | Chỉ test nhánh lỗi cấu hình |
+| CLI `--retriever precomputed` (rerank candidate đã lưu, mục 6.1) | Chạy thật | Integration test: kết quả hai bước trùng kết quả một bước |
+
+Mặc định của CLI theo sơ đồ kiến trúc: Hybrid (BM25 + Dense + RRF, Top-50) rồi Cross-Encoder `bge-reranker-v2-m3`. Retriever và scorer giả lập chỉ chạy khi chọn rõ (`--retriever mock|fixture`, `--reranker mock`). Trước 27/10, `reranker.backend` mặc định là `mock` và `--retriever` mặc định là `mock`, nên lệnh `run_retrieval.py --query ... --top-k 5` của kế hoạch Sprint 6 chạy toàn bộ bằng stub, còn output vẫn mang nhãn `*_reranker`.
+
+Đã đo latency của reranker thật (mục 5.1), nhưng chưa có số đo chất lượng: candidate pool thật cần Elasticsearch và Qdrant. Bước tiếp theo là chạy Hybrid + Reranker trên Dev set (mục 7), theo hai bước nếu máy không đủ bộ nhớ cho cả model dense và reranker (mục 6.1).
+
+## 2. Luồng xử lý
+
+```text
+query
+  └─► Retriever.search(query, retrieval_top_k)          # HybridRetriever (Dev 4): BM25 ∥ Dense → RRF
+        └─► to_contract_result()                         # map về Retrieval result (mục 4.3)
+              └─► Reranker.rerank(query, candidates, top_k)
+                    ├─ khử trùng lặp theo chunk_id (giữ bản xếp hạng cao nhất, bù trường còn trống)
+                    ├─ cắt còn max_candidates theo thứ hạng retrieval
+                    ├─ Scorer.score(query, pool)         # cross_encoder (mặc định) | mock
+                    └─ sắp theo score giảm dần → rank 1..top_k
+                          └─► ParentContextResolver.resolve(results)   # gắn parent_id, parent_text
+                                └─► {query_id, query, retriever, results, latency_ms, top_k, config, stats}
+```
+
+`as_of_date` (CLI `--as-of-date`, hoặc trường `as_of_date` của từng câu trong `--queries`) được truyền vào `Retriever.search(..., as_of_date=...)` khi retriever khai báo tham số này; bộ lọc theo thời điểm thuộc retriever (Dev 4, E1). `HybridRetriever` hiện chưa nhận `as_of_date`, nên pipeline ghi `config.temporal_filter = "not_supported_by_retriever"` và log cảnh báo, để không ai hiểu nhầm là kết quả đã được lọc.
+
+Parent-Context Resolver chạy trong pipeline, sau reranker, đúng thứ tự của sơ đồ kiến trúc (Reranker → Parent-Context Resolver): reranker chấm chunk con, không chấm văn bản parent. Mỗi kết quả giữ nguyên `chunk_id`, `rank`, `score` của chunk con (Strict Match và trích dẫn vẫn dùng được) và có thêm `parent_id`, `parent_text` lấy từ `data/chunking_output/parents.json`. Các chunk con cùng parent chỉ kết quả xếp hạng cao nhất mang `parent_text`, các kết quả sau có `parent_text = null`. Khi tổng `parent_text` vượt `parent_context.max_context_chars`, các parent còn lại cũng nhận `null`. `stats.parent_context` đếm số parent được gắn, số dùng chung, số không tìm thấy và số vượt ngân sách. Hai tham số `parent_resolver`, `confidence_filter` của `HybridRetriever` không được dùng khi đi qua pipeline.
+
+Reranking do pipeline đảm nhận. `build_hybrid_retriever` tạo `HybridRetriever` không gắn reranker; khi đó Hybrid trả nguyên top `retrieval_top_k` candidate sau RRF. `Reranker` cũng tuân theo protocol `Reranker` trong `retrieval/hybrid_retriever.py`, nên có thể truyền trực tiếp `HybridRetriever(..., reranker=Reranker(...))`. Integration test kiểm tra cả hai cách nối.
+
+## 3. Interface
+
+| Đối tượng | Chữ ký | Ghi chú |
+| --- | --- | --- |
+| `reranking.reranker.Reranker` | `rerank(query: str, hits: list[dict], top_k: int \| None = None) -> list[dict]` | `top_k=None` dùng `rerank_top_k`. Hàm không sửa input. |
+| `reranking.reranker.Scorer` | `score(query: str, candidates: list[dict]) -> list[float]` | Trả một điểm cho mỗi candidate, theo thứ tự đầu vào. Điểm phải hữu hạn. |
+| `reranking.reranker.build_reranker` | `(RerankerConfig) -> Reranker \| None` | Trả `None` khi `enabled: false`. |
+| `reranking.pipeline.RetrievalPipeline` | `run(query, top_k=None, *, query_id) -> dict` | Retriever là bất kỳ đối tượng nào có `search(query, top_k)`. |
+| `scripts/run_retrieval.py` | CLI | Xem mục 6. |
+
+Reranker chỉ đổi thứ tự. Mọi trường đầu vào được giữ nguyên, gồm `chunk_id`, `chunk_text`, `parent_clause_id`, `document_id` và `metadata.validity_status`. Chỉ `rank` và `score` được thay bằng kết quả rerank. Reranker lưu thứ hạng và điểm trước rerank ở `retrieval_rank` và `retrieval_score`; khi đóng gói kết quả, pipeline chuyển chúng sang `source_ranks.retrieval` và `source_scores.retrieval` (hai trường schema có khai báo) và ghi điểm rerank vào `reranker_score`, để đo tác động của reranking. Khi hai candidate bằng điểm, candidate có thứ hạng retrieval cao hơn đứng trước.
+
+## 4. Contract đầu ra
+
+Đầu ra là một `RetrievalEnvelope` của `schemas/retrieval_schema.json`: `query_id`, `query`, `retriever`, `results`, `latency_ms` (bằng `stats.total_latency_ms`), `top_k`, `config` và `stats`. Mỗi phần tử trong `results` có đủ các trường của mục 4.3 và qua được `#/$defs/RetrievalResultItem`. Integration test validate toàn bộ output theo gốc schema. Khi chạy `--queries`, file output là mảng các envelope, đúng quy định cho file kết quả đánh giá ở mục 5.4 của `docs/data_contract.md`. Ví dụ dưới đây chỉ minh họa cấu trúc; giá trị score và latency không phải số đo thật:
+
+```json
+{
+  "query_id": "Q_CLI_001",
+  "query": "Điều kiện kết hôn theo quy định pháp luật là gì?",
+  "retriever": "hybrid_reranker",
+  "results": [{
+    "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+    "document_id": "l_52_2014_qh13",
+    "article_id": "l_52_2014_qh13_art_8",
+    "clause_id": "l_52_2014_qh13_art_8_clause_1",
+    "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
+    "rank": 1,
+    "score": 0.97,
+    "chunk_text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: ...",
+    "metadata": {"article_number": "8", "validity_status": "Còn hiệu lực", "doc_id": "l_52_2014_qh13"},
+    "parent_id": "l_52_2014_qh13_art_8",
+    "rrf_score": 0.015873,
+    "reranker_score": 0.97,
+    "retrieval_sources": ["dense"],
+    "source_ranks": {"dense": 2, "retrieval": 4},
+    "source_scores": {"retrieval": 0.015873}
+  }],
+  "latency_ms": 0.0,
+  "top_k": 5,
+  "config": {
+    "retriever": {"backend": "hybrid", "retrieval_top_k": 50, "rrf_k": 60},
+    "reranker": {"backend": "cross_encoder", "model": "BAAI/bge-reranker-v2-m3", "rerank_top_k": 5, "max_candidates": 50},
+    "top_k": 5
+  },
+  "stats": {"retrieved_candidates": 50, "input_candidates": 50, "duplicates_removed": 0, "truncated_candidates": 0,
+            "scored_candidates": 50, "output_candidates": 5, "returned": 5,
+            "retrieval_latency_ms": 0.0, "rerank_latency_ms": 0.0, "total_latency_ms": 0.0}
+}
+```
+
+Quy tắc ánh xạ trong `to_contract_result`:
+
+- Chỉ dùng alias đã ghi trong `docs/data_contract.md` mục 5: `doc_id` → `document_id` và `text` → `chunk_text`. Đầu ra chỉ có một trường nội dung là `chunk_text`; trường `text` bị bỏ.
+- `article_id`, `clause_id` và `parent_clause_id` được chép khi upstream cung cấp, nếu không có thì để `null`. Pipeline **không suy ra** các trường này từ `parent_id` hay từ chuỗi ID, để evaluation ghi nhận thiếu metadata thay vì tính Parent Match sai (mục 13.4).
+- `validity_status` nằm trong `metadata`. Nếu upstream không có giá trị này, pipeline gán `"Không xác định"` theo quy ước Data Audit.
+- `score` là điểm của bước cuối cùng: điểm reranker, hoặc điểm RRF khi tắt reranker. Không so sánh điểm giữa các bước.
+- `rank` bắt đầu từ 1. Nếu không có kết quả, pipeline trả `results: []`.
+- `config` và `stats` ghi model, candidate pool, top_k và latency theo quy định benchmark (mục 7).
+
+## 5. Cấu hình
+
+| Tham số | File | Mặc định | Ý nghĩa |
+| --- | --- | ---: | --- |
+| `retrieval_top_k` | `retrieval/config.yaml` (Dev 4) | 50 | Số candidate thô lấy từ Hybrid trước rerank. Chỉ đọc từ `retrieval.retrieval_top_k`; thiếu khóa này thì pipeline báo lỗi, không dùng `hybrid.candidate_k`. CLI: `--retrieval-top-k`. |
+| `rrf_k` | `retrieval/config.yaml` (Dev 4) | 60 | Hằng số RRF. |
+| `reranker.rerank_top_k` | `reranking/config.yaml` | 5 | Số chunk giữ lại sau rerank, cũng là giá trị mặc định của `--top-k`. |
+| `reranker.max_candidates` | `reranking/config.yaml` | 50 | Số candidate tối đa đưa vào Cross-Encoder (mục 13.2). CLI: `--max-candidates`. |
+| `reranker.backend` | `reranking/config.yaml` | `cross_encoder` | `cross_encoder` hoặc `mock` (chỉ cho test, chạy offline). CLI: `--reranker` (`none` để tắt). |
+| `reranker.model` | `reranking/config.yaml` | `BAAI/bge-reranker-v2-m3` | Model Cross-Encoder. CLI: `--model`. |
+| `reranker.batch_size` / `max_length` / `device` | `reranking/config.yaml` | 16 / 512 / null | Tham số suy luận của Cross-Encoder. |
+| `reranker.dtype` | `reranking/config.yaml` | `auto` | Kiểu trọng số của Cross-Encoder: `auto` là float16 khi chạy CUDA, float32 khi chạy CPU; hoặc `float32`, `float16`, `bfloat16`. Ghi trong `config.reranker.dtype`. |
+| `reranker.candidate_text` | `reranking/config.yaml` | `document_breadcrumb_chunk_text` | Văn bản đưa vào scorer: `chunk_text`; `breadcrumb_chunk_text` (breadcrumb rồi `chunk_text`); `document_breadcrumb_chunk_text` (tên, số hiệu văn bản, breadcrumb rồi `chunk_text`). Chọn trên 75 câu Dev đã duyệt (G5, [so sánh](../reranking/evaluation/candidate_text_comparison_dev_75.md)): với `chunk_text`, Hybrid + Reranker kém Hybrid (MRR@10 0,560 so với 0,697); với `document_breadcrumb_chunk_text` đạt MRR@10 0,748, Recall@10 0,792. |
+| `parent_context.enabled` | `reranking/config.yaml` | `true` | Bật Parent-Context Resolver. CLI: `--no-parent-context` để tắt. |
+| `parent_context.parents_file` | `reranking/config.yaml` | `data/chunking_output/parents.json` | Nguồn `parent_text`. |
+| `parent_context.max_context_chars` | `reranking/config.yaml` | 6000 | Trần tổng số ký tự `parent_text` của một câu trả về. |
+
+`rerank_top_k = 5` là lệch có chủ đích so với sơ đồ kiến trúc (Reranker trả Top-10): kế hoạch Sprint 6 mục 14.3 chốt `rerank_top_k: 5` cho sprint này. Khi chạy Hybrid + Reranker trên Dev set, chấm ở cả K = 5 và K = 10 (`--top-k 10`) để so với sơ đồ; chỉ đổi giá trị mặc định khi số đo trên gold đã duyệt cho thấy cần (G1).
+
+Các giá trị trên chỉ là giá trị khởi đầu. Khóa lạ trong `reranker` bị từ chối để bắt lỗi gõ sai tên khóa. Điều kiện ràng buộc: `top_k ≤ min(retrieval_top_k, max_candidates)`, nếu vi phạm CLI trả exit code 2. Mỗi lần rerank ghi log số candidate vào, số candidate được chấm, số trùng, số bị cắt, số trả ra và latency, ví dụ:
+
+```text
+INFO reranking.reranker: Reranker[cross_encoder] input=50 scored=50 (dup=0, cut=0) output=5 latency=2003.8ms model_load=15488.6ms
+```
+
+Thời gian tải model được tách thành `model_load_ms`. Model chỉ tải một lần cho mỗi tiến trình, ở lần rerank đầu tiên có candidate, nên `rerank_latency_ms` chỉ gồm thời gian khử trùng lặp, chấm điểm và sắp xếp.
+
+### 5.1. Latency đo được của `bge-reranker-v2-m3`
+
+Môi trường đo: NVIDIA RTX 3050 Ti Laptop (4 GB VRAM), torch 2.12 + CUDA 12.6, `batch_size: 16`, `max_length: 512`. Candidate lấy từ chế độ `mock`, nên số này chỉ phản ánh tốc độ, không phản ánh chất lượng. Bảng dưới đo ở fp32 (19/10).
+
+| Trường hợp | `max_candidates` | `rerank_latency_ms` |
+| --- | ---: | ---: |
+| Tải model, một lần mỗi tiến trình (đọc từ ổ D:) | — | 14.400–16.800 |
+| Một câu hỏi, lần gọi đầu (gồm warm-up CUDA) | 20 | 1.823 |
+| Một câu hỏi, lần gọi đầu (gồm warm-up CUDA) | 50 | 2.004 |
+| Batch 10 câu Dev, trung vị câu 2–10 | 50 | 1.298 |
+
+Trên fixture, reranker đưa chunk đúng (Điều 8 khoản 1 Luật HN&GĐ 2014) từ thứ hạng retrieval 4 lên thứ hạng 1, và đẩy chunk lạc đề ("không thừa nhận hôn nhân cùng giới") xuống cuối.
+
+So sánh fp32 và fp16 (27/10, cùng GPU, 50 chunk đầu của corpus, lần gọi thứ hai sau warm-up):
+
+| `dtype` | VRAM sau khi tải model | VRAM đỉnh khi chấm 50 candidate | Latency 50 candidate |
+| --- | ---: | ---: | ---: |
+| `float32` | 2.166 MiB | 2.312 MiB | 1.648 ms |
+| `float16` (`auto` trên CUDA) | 1.083 MiB | 1.160 MiB | 406 ms |
+
+Điểm của 6 candidate trong fixture lệch nhau tối đa 0,0006 giữa hai kiểu, thứ hạng giữ nguyên. Vì vậy `dtype: auto` chọn float16 khi chạy CUDA.
+
+## 6. Chạy standalone
+
+Cài môi trường (Python 3.12, xem `README.md`), sau đó chạy từ thư mục gốc repo:
+
+```powershell
+# 1) Offline, không cần dịch vụ hay model: Dense mock (Dev 3) trên corpus thật + mock scorer
+python scripts/run_retrieval.py --query "Điều kiện kết hôn là gì?" --top-k 5 --retriever mock --reranker mock
+
+# 2) Candidate list cố định trong test/fixtures/reranker_candidates.json + cross-encoder thật
+python scripts/run_retrieval.py --query "Điều kiện kết hôn là gì?" --retriever fixture
+
+# 3) Pipeline thật (mặc định): Elasticsearch BM25 + Qdrant + RRF + bge-reranker-v2-m3
+$env:ELASTICSEARCH_URL = "http://localhost:9200"
+$env:QDRANT_PATH = (Resolve-Path .\data\indexes\qdrant_storage).Path
+python scripts/run_retrieval.py --query "Điều kiện kết hôn là gì?" --top-k 5
+```
+
+Index BM25, collection Qdrant và dense model lấy từ `retrieval/config.yaml`; `--elasticsearch-index`, `--collection`, `--dense-model` chỉ dùng khi cần ghi đè.
+
+Model Cross-Encoder (~2,2 GB) được tải về thư mục cache Hugging Face, mặc định nằm trên ổ C:. Để cache ở ổ khác, đặt biến môi trường `HF_HOME` (ví dụ `setx HF_HOME D:\cache\huggingface`). Khi model đã có sẵn trong cache, đặt `HF_HUB_OFFLINE=1` để không kết nối mạng.
+
+`--retriever mock` dùng vector giả lập tất định và `--reranker mock` chấm bằng tỉ lệ token trùng, nên thứ hạng **không mang ý nghĩa ngữ nghĩa**. Hai chế độ này chỉ dùng để kiểm tra luồng và contract; CLI log cảnh báo và output mang nhãn `<retriever>_mock_reranker` để không lẫn với kết quả thật. Ở chế độ `hybrid`, Elasticsearch index và Qdrant collection phải được nạp từ cùng corpus và cùng dense model (xem `retrieval/retrieval.md`).
+
+Các tùy chọn khác:
+
+- `--output FILE`: ghi JSON ra file thay vì stdout.
+- `--queries FILE`: chạy batch trên một file câu hỏi.
+- `--eval-output FILE`: ghi thêm file `[{query_id, retrieved_chunk_ids}]` cho `evaluation.metrics.evaluate` (Dev 2).
+- `--log-level`: chọn mức log. Log được ghi ra stderr, nên stdout chỉ chứa JSON.
+
+### 6.1. Chạy hai bước khi không đủ bộ nhớ
+
+Trên máy GPU 4 GB, RAM 16 GB, nạp model dense và `bge-reranker-v2-m3` trong cùng một tiến trình có thể bị segfault hoặc hết bộ nhớ (G3). Khi đó tách thành hai tiến trình: lần 1 chỉ chạy Hybrid và lưu Top-`retrieval_top_k` candidate, lần 2 chỉ nạp reranker và chấm các candidate đã lưu.
+
+```powershell
+# Lần 1: Hybrid, không rerank, không gắn parent, lưu đủ 50 candidate mỗi câu
+python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json --reranker none --no-parent-context `
+  --top-k 50 --output retrieval/results/dev_hybrid_top50.json
+# Lần 2: rerank các candidate đã lưu
+python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json --retriever precomputed `
+  --candidates retrieval/results/dev_hybrid_top50.json --top-k 10 `
+  --output retrieval/results/dev_hybrid_reranker.json --eval-output retrieval/results/dev_hybrid_reranker_eval.json
+```
+
+`PrecomputedRetriever` tra candidate theo `query_id` và từ chối file đã rerank, file đã gắn `parent_text`, câu hỏi khác với câu đã lưu, hoặc file lưu ít hơn `retrieval_top_k` candidate. Output lần 2 mang nhãn của retriever ở lần 1 (ví dụ `hybrid_reranker`) và chép cấu hình retriever của lần 1 (`rrf_k`, `dense_model`, `bm25_index`, `collection`) vào `config.retriever`, kèm đường dẫn `candidates`. File `dev_hybrid.json` của `python -m retrieval.run_dev_retrieval --top-k 50` (Dev 4) cũng dùng được làm file lần 1: nhãn lấy từ trường `retriever` và cấu hình lấy từ `config` phẳng của envelope. Bộ lọc theo thời điểm, nếu có, đã chạy ở lần 1. Kết quả hai bước trùng kết quả chạy một bước (`test_two_stage_run_matches_single_run`).
+
+Mã thoát:
+
+| Exit code | Ý nghĩa |
+| ---: | --- |
+| 0 | Thành công, kể cả khi `results: []`. |
+| 1 | Lỗi retriever, reranker, dịch vụ hoặc model (`PipelineError`, `ConnectionError`, thiếu package). Lỗi không bị đổi thành kết quả rỗng và pipeline không tự fallback. |
+| 2 | Đầu vào hoặc cấu hình sai: query rỗng, `top_k` không hợp lệ, file thiếu, thiếu URL Elasticsearch, hoặc chạy trên Test set khi chưa thêm `--allow-test-split`. |
+
+## 7. Tuning trên Dev set
+
+Chỉ tuning `retrieval_top_k`, `max_candidates` và `rerank_top_k` trên Dev set. CLI từ chối file câu hỏi có tên chứa `test` hoặc có bản ghi `split: "test"`, trừ khi thêm `--allow-test-split` cho lần đánh giá chính thức sau khi đã khóa cấu hình.
+
+```powershell
+python scripts/run_retrieval.py --queries data/benchmark/queries_dev.json `
+  --retrieval-top-k 50 --max-candidates 50 --top-k 10 `
+  --output retrieval/results/dev_hybrid_reranker.json --eval-output retrieval/results/dev_hybrid_reranker_eval.json
+python -c "from evaluation.metrics import evaluate; evaluate('retrieval/results/dev_hybrid_reranker_eval.json', 'data/benchmark/ground_truth.json')"
+```
+
+Lặp lại với các tổ hợp `retrieval_top_k`/`max_candidates` ∈ {20, 50, 100}. So sánh Recall@K, MRR@K, NDCG@K với `stats.rerank_latency_ms` ở cùng điều kiện, rồi mới chốt giá trị trong `reranking/config.yaml`. Nếu không đủ bộ nhớ, chạy theo hai bước ở mục 6.1. Luồng chạy batch và chấm điểm đã được kiểm chứng ở chế độ `mock` trên 285 câu Dev. Kết quả `mock` không được dùng làm số đo chất lượng.
+
+## 8. Khảo sát model reranker
+
+| Model | Kích thước | Ghi chú |
+| --- | --- | --- |
+| `BAAI/bge-reranker-v2-m3` (**mặc định**) | ~568M | Cross-encoder đa ngôn ngữ dựa trên bge-m3, giấy phép Apache-2.0, chạy trực tiếp bằng `sentence_transformers.CrossEncoder`. Cùng họ với embedding bge-m3 trong `retrieval/config.yaml`. |
+| `Alibaba-NLP/gte-multilingual-reranker-base` | ~306M | Nhẹ hơn, đa ngôn ngữ, Apache-2.0. Cần `trust_remote_code`. |
+| `jinaai/jina-reranker-v2-base-multilingual` | ~278M | Nhanh, nhưng giấy phép CC-BY-NC (phi thương mại). |
+| `itdainb/PhoRanker` | PhoBERT-base | Cross-encoder cho tiếng Việt. Yêu cầu input đã tách từ, phải đồng bộ với quy tắc word-segmentation của dự án. |
+
+Chưa model nào được đo trên Dev set của dự án. Lựa chọn mặc định dựa trên khả năng đa ngôn ngữ, giấy phép và tính tương thích với stack hiện có. Có thể đổi model bằng `reranker.model` hoặc `--model` mà không phải sửa code, với điều kiện model chạy được qua `CrossEncoder`.
+
+## 9. Kiểm thử
+
+```powershell
+python -m pytest test/test_reranker.py test/test_integration.py -v
+python -m pytest test/                          # toàn bộ thư mục test; chạy từ thư mục gốc repo
+python -m unittest discover -s test -v          # tương đương, không cần pytest
+```
+
+Các bài test bao phủ: đọc và validate config (mặc định `hybrid` + `cross_encoder`, `dtype`), nhãn `*_mock_reranker`, chạy hai bước bằng `--retriever precomputed`, giới hạn `max_candidates`, kết quả rỗng (một nhánh hoặc cả hai nhánh), lỗi adapter BM25/Dense/reranker, output adapter sai dạng, `chunk_id` trùng, bảo toàn metadata và ID, không suy đoán `parent_clause_id`, validate `schemas/retrieval_schema.json`, chế độ batch, chặn Test set và mã thoát của CLI.
+
+## 10. Vấn đề contract phát hiện, cần phối hợp
+
+1. **Corpus chưa có `parent_clause_id`/`clause_id`/`article_id` (Dev 1, Dev 3).** `data/chunking_output/chunks.jsonl` chỉ có `parent_id` ở cấp Điều, ví dụ `l_52_2014_qh13_art_8`. `scripts/build_index.py::_adapt_chunk_for_vector_store` điền `parent_clause_id` bằng `parent_id` hoặc `{article_id}_clause_1`, nghĩa là giá trị trong Qdrant là giá trị suy đoán, trái với mục 13.4. Pipeline Dev 5 giữ nguyên giá trị upstream trả về, nên ở chế độ `mock`/`hybrid`, hit từ nhánh Dense mang giá trị suy đoán này, còn hit chỉ có từ BM25 nhận `null`. Cần bổ sung `parent_clause_id` thật ở bước chunking trước khi báo cáo Parent Match.
+2. **Output của `ElasticsearchBM25Retriever` (Dev 4)** dùng `text`/`parent_id` và không có `chunk_text`/`document_id`/`parent_clause_id` ở cấp gốc. Pipeline đang ánh xạ alias. Nên chuẩn hóa ngay tại adapter.
+3. **`retrieval/config.yaml` (Dev 4)**: pipeline đọc qua `retrieval/settings.py::load_settings`, nên `retrieval_top_k` chỉ lấy từ `retrieval.retrieval_top_k` (mục 14.3); thiếu khóa này, hoặc còn khai báo `hybrid.candidate_k`/`hybrid.top_k`, thì báo lỗi (E8).
+4. **`schemas/retrieval_schema.json` (CTM)** đã cập nhật ở `ee755a5`: bắt buộc đủ 9 trường của mục 4.3, bỏ `text`, gốc schema chuyển sang `RetrievalEnvelope` và kết quả nằm ở `$defs/RetrievalResultItem`. Từ `3d646da`, envelope khai báo thêm `query`, `config`, `stats` (tùy chọn) và pipeline điền `latency_ms`, `top_k` ở gốc, nên toàn bộ output qua được schema (C7).
+5. **`retrieval.hybrid_retriever.CrossEncoderReranker`** đã bị xóa (25/10): class này trùng chức năng với `reranking/reranker.py` và không còn nơi nào dùng. Reranker duy nhất là `reranking.reranker.Reranker`, truyền vào `HybridRetriever` qua protocol `Reranker`.
+6. **Test:** tất cả test trong `parser/`, `test/` và `retrieval/test/` pass khi chạy chung (`python -m pytest`, `pytest.ini` đặt `testpaths = parser test retrieval/test`); CI (`.github/workflows/tests.yml`) chạy đúng lệnh này trên mọi push và PR. Thư mục `tests/` đã gộp vào `test/`; bản draft trùng lặp của test benchmark đã bỏ, chỉ còn `test/test_benchmark.py`.
+7. **Benchmark dùng `id` (`HN_001`)** thay cho `query_id`. CLI chấp nhận cả hai tên trường, và `query_id` của đầu ra lấy theo giá trị đó.

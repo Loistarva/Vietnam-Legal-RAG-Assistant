@@ -1,0 +1,20 @@
+{
+  "date_prepared": "2026-10-16",
+  "source_upload": "benchmark_sprint6_HNGD_chuan_lead_cho_chunking(3).zip",
+  "source_sha256": "6e2cfa9fe3ef89819d03d512fb53a0d77210db467ea8c48ad3e058a7a6174c2d",
+  "source_kind": "user-provided 60-question benchmark",
+  "expansion_source": "300-question previously generated draft, 240 entries extracted from local PDFs and pending review",
+  "test_file_sha256": "0b4b3a2f75a02ace122333fedddb45a8b36229217841619ea55107c36cacdbdf",
+  "status": "HANDOFF_VALIDATED_NOT_FINAL_LEGAL_GOLD",
+  "production_chunks_available": false,
+  "human_review_completed": false,
+  "revision": "2026-10-16 clean handoff / schema and smoke-to-candidate audit",
+  "changes_from_uploaded_zip": [
+    "34 smoke IDs moved to candidate_context_ids",
+    "answer_kind tracked for all 300",
+    "review priority audit",
+    "41 tests",
+    "removed stale/duplicate review exports"
+  ],
+  "confirmed_production_gold_context_ids": 0
+}

@@ -1,0 +1,43 @@
+{
+  "total_questions": 300,
+  "dev": 270,
+  "test": 30,
+  "dev_verified": 75,
+  "dev_draft": 195,
+  "test_verified": 30,
+  "ground_truth_records": 300,
+  "draft_ground_truth": 195,
+  "legally_reviewed_ground_truth": 105,
+  "confirmed_production_gold_context_ids": 105,
+  "production_candidate_unverified": 176,
+  "smoke_chunk_candidates": 0,
+  "partial_candidate_evidence": 0,
+  "not_mapped": 19,
+  "article_registry_records": 799,
+  "article_registry_source_checked": 86,
+  "b5_duplicate_chunk_groups": 31,
+  "b5_verified_questions": 15,
+  "split_strategy": "clause_group_stratified_split; adjusted 2026-10-31 (docs/sprint6_benchmark.md mục 2, 6)",
+  "dev_test_shared_gold_clauses": 0,
+  "test_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876",
+  "test_gold_sha256": "59a9cdf02f76aec81fc2416059f92ef758f0bdbaaad9c6aa2d24d81eb3068811",
+  "required_files": [
+    "schemas/benchmark_schema.json",
+    "data/benchmark/queries_dev.json",
+    "data/benchmark/queries_test.json",
+    "data/benchmark/ground_truth.json",
+    "test/test_benchmark.py",
+    "docs/sprint6_benchmark.md",
+    "docs/test_questions_freeze.json",
+    "docs/test_gold_freeze.json"
+  ],
+  "test_count": 48,
+  "status": "GOLD_105_CLAUSE_VERIFIED; TEST_30_REFROZEN_2026_10_31",
+  "confirmed_gold_context_ids_count": 250,
+  "candidate_context_mapped_questions": 176,
+  "answer_kind_counts": {
+    "draft_answer_unreviewed": 19,
+    "extracted_article_text_unreviewed": 176,
+    "reviewed_answer": 105
+  }
+}

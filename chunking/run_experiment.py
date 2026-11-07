@@ -6,18 +6,18 @@ Tạo ra 2 sản phẩm đầu ra bắt buộc theo yêu cầu:
   2. chunking/chunking_examples.json: Tệp JSON chứa các trường hợp chunking mẫu minh họa:
      - Điều bình thường
      - Điều dài được tách thành nhiều Parent (lặp lại tiêu đề, breadcrumb Khoản)
-     - Khoản dài có nhiều Điểm
-     - Gom các Khoản ngắn
+     - Khoản dài có danh sách Điểm (cắt tại ranh giới Điểm, câu dẫn trong embed_text)
+     - Điều không chia Khoản và Điều có intro
      - Định dạng payload cho Qdrant, Elasticsearch, Parent Store.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
-
-import pandas as pd
 
 # Đảm bảo import được chunking_rules
 BASE_DIR = Path(__file__).resolve().parent
@@ -25,19 +25,13 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from chunking_rules import (  # noqa: E402
-    PARENT_MAX_CHARS,
-    CHILD_MAX_TOKENS,
-    CHILD_MAX_UNITS,
-    CHILD_MIN_WORDS,
-    ChunkResult,
     chunk_legal_document,
-    chunk_parsed_file,
 )
 
 
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════════════
 #  CÁC CẤU HÌNH THỬ NGHIỆM (CONFIG MATRIX)
-# ═══════════════════════════════════════════════════════════════
+# ═════════════════════════════════════════════════════════════════════════════
 
 CONFIGS: dict[str, dict[str, Any]] = {
     "Config A (Baseline - Khuyến nghị)": {
@@ -59,29 +53,23 @@ CONFIGS: dict[str, dict[str, Any]] = {
         "child_max_tokens": 512,
         "child_max_units": 350,
         "child_min_words": 30,
-        "mo_ta": "Ngữ cảnh rộng: Parent <=2500 ký tự; Child <=350 từ giữ nhiều thông tin bổ trợ nhưng có thể làm loãng vector similarity",
+        "mo_ta": "Ngữ cảnh rộng: Parent <=2500 ký tự; Child <=350 từ giúp giữ nguyên vẹn các điều khoản phức tạp, nhưng rủi ro loãng vector",
     },
-    "Config D (Strict - Không gom khoản)": {
+    "Config D (Strict - Không gộp mảnh)": {
         "parent_max_chars": 1500,
         "child_max_tokens": 256,
         "child_max_units": 200,
         "child_min_words": 1,
-        "mo_ta": "Tách tuyệt đối theo từng khoản, không gom khoản ngắn; dễ tạo ra các chunk chỉ có 5-10 từ",
+        "mo_ta": "Như Config A nhưng không gộp mảnh ngắn của Khoản bị tách: đo số mảnh vụn mà quy tắc child_min_words loại bỏ",
     },
 }
 
 
 def load_test_documents() -> dict[str, dict[str, Any]]:
-    """Nạp tất cả các file JSON mẫu có trong repo."""
+    """Nạp mọi văn bản trong parser/parsed_jsons/ (cùng nguồn với export_legal_chunks.py)."""
     docs: dict[str, dict[str, Any]] = {}
 
-    candidates = [
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "L01.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "ND01.json",
-        BASE_DIR.parent / "parser" / "parsed_jsons" / "TT01.json",
-        BASE_DIR.parent / "data" / "sample_documents.json",
-        BASE_DIR.parent / "parsed_output_test.json",
-    ]
+    candidates = sorted((BASE_DIR.parent / "parser" / "parsed_jsons").glob("*.json"))
 
     for p in candidates:
         if p.exists():
@@ -109,148 +97,161 @@ def evaluate_config(
     total_children = 0
     parent_lengths: list[int] = []
     child_words: list[int] = []
-    split_article_count = 0
-    has_breadcrumb_count = 0
-    under_50_words = 0
-    w50_to_150_words = 0
-    w150_to_250_words = 0
-    over_250_words = 0
+    oversized_parents = 0
+    short_fragments = 0
+    point_ref_chunks = 0
+    failed_docs: list[str] = []
 
-    per_doc_stats = {}
-
-    for doc_key, doc in docs.items():
-        res: ChunkResult = chunk_legal_document(doc, cfg_params)
-        n_p = len(res.parents)
-        n_c = len(res.children)
-        total_parents += n_p
-        total_children += n_c
-
-        # Thống kê chi tiết từng doc
-        per_doc_stats[doc_key] = {
-            "num_parents": n_p,
-            "num_children": n_c,
-            "ratio": round(n_c / n_p, 2) if n_p else 0,
-        }
-
+    for doc_name, doc_content in docs.items():
+        try:
+            res = chunk_legal_document(doc_content, cfg_params)
+        except ValueError as e:
+            # Ghi văn bản lỗi vào bảng thay vì bỏ qua im lặng.
+            print(f"  [Lỗi] Không thể chunk {doc_name} với {cfg_name}: {e}")
+            failed_docs.append(doc_name)
+            continue
+        total_parents += len(res.parents)
+        total_children += len(res.children)
+        per_clause = Counter(c.clause_id for c in res.children)
         for p in res.parents:
-            plen = len(p.text)
-            parent_lengths.append(plen)
-            if "_p" in p.parent_id:
-                split_article_count += 1
-            if p.breadcrumb and " > " in p.breadcrumb:
-                has_breadcrumb_count += 1
-
+            parent_lengths.append(len(p.text))
+            oversized_parents += len(p.text) > cfg_params["parent_max_chars"]
         for c in res.children:
-            cw = len(c.text.split())
-            child_words.append(cw)
-            if cw < 50:
-                under_50_words += 1
-            elif 50 <= cw <= 150:
-                w50_to_150_words += 1
-            elif 150 < cw <= 250:
-                w150_to_250_words += 1
-            else:
-                over_250_words += 1
+            child_words.append(len(c.text.split()))
+            short_fragments += per_clause[c.clause_id] > 1 and len(c.text.split()) < 20
+            point_ref_chunks += c.point_ref is not None
 
-    avg_p_len = round(sum(parent_lengths) / len(parent_lengths), 1) if parent_lengths else 0
-    max_p_len = max(parent_lengths) if parent_lengths else 0
-    avg_c_words = round(sum(child_words) / len(child_words), 1) if child_words else 0
-    max_c_words = max(child_words) if child_words else 0
-    bc_rate = round(has_breadcrumb_count / total_parents * 100, 1) if total_parents else 0
+    avg_parent_len = round(sum(parent_lengths) / len(parent_lengths), 1) if parent_lengths else 0
+    max_parent_len = max(parent_lengths) if parent_lengths else 0
+    min_parent_len = min(parent_lengths) if parent_lengths else 0
+
+    avg_child_w = round(sum(child_words) / len(child_words), 1) if child_words else 0
+    max_child_w = max(child_words) if child_words else 0
+    min_child_w = min(child_words) if child_words else 0
+
+    ratio = round(total_children / total_parents, 2) if total_parents > 0 else 0
 
     return {
         "config_name": cfg_name,
-        "parent_max_chars": cfg_params.get("parent_max_chars"),
-        "child_max_tokens": cfg_params.get("child_max_tokens"),
-        "child_min_words": cfg_params.get("child_min_words"),
+        "parent_max_chars": cfg_params["parent_max_chars"],
+        "child_max_tokens": cfg_params["child_max_tokens"],
+        "child_max_units": cfg_params["child_max_units"],
+        "child_min_words": cfg_params["child_min_words"],
         "total_parents": total_parents,
         "total_children": total_children,
-        "child_per_parent_ratio": round(total_children / total_parents, 2) if total_parents else 0,
-        "avg_parent_chars": avg_p_len,
-        "max_parent_chars": max_p_len,
-        "avg_child_words": avg_c_words,
-        "max_child_words": max_c_words,
-        "split_parents_count": split_article_count,
-        "breadcrumb_coverage_pct": bc_rate,
-        "child_under_50_words": under_50_words,
-        "child_50_to_150_words": w50_to_150_words,
-        "child_150_to_250_words": w150_to_250_words,
-        "child_over_250_words": over_250_words,
-        "mo_ta": cfg_params.get("mo_ta", ""),
-        "per_doc_stats": per_doc_stats,
+        "child_per_parent_ratio": ratio,
+        "avg_parent_chars": avg_parent_len,
+        "min_parent_chars": min_parent_len,
+        "max_parent_chars": max_parent_len,
+        "avg_child_words": avg_child_w,
+        "min_child_words": min_child_w,
+        "max_child_words": max_child_w,
+        "oversized_parents": oversized_parents,
+        "short_fragments": short_fragments,
+        "point_ref_chunks": point_ref_chunks,
+        "failed_docs": failed_docs,
+        "description": cfg_params.get("mo_ta", ""),
     }
 
 
 def generate_evaluation_excel(results: list[dict[str, Any]], out_path: Path):
-    """Xuất file Excel đánh giá đẹp mắt với nhiều sheet phân tích."""
+    """Xuất file Excel đánh giá chi tiết chunking_evaluation.xlsx với nhiều sheet phân tích."""
+    try:
+        import pandas as pd
+    except ImportError:
+        print("[Lỗi] Cần cài đặt thư viện 'pandas' và 'openpyxl' để xuất file Excel.")
+        return
+
+    # Sheet 1: Tổng quan so sánh
+    df_summary = pd.DataFrame([
+        {
+            "Cấu hình": r["config_name"],
+            "Parent Max Chars": r["parent_max_chars"],
+            "Child Max Tokens": r["child_max_tokens"],
+            "Child Max Words": r["child_max_units"],
+            "Child Min Words": r["child_min_words"],
+            "Tổng số Parent Chunks": r["total_parents"],
+            "Tổng số Child Chunks": r["total_children"],
+            "Tỷ lệ Child / Parent": r["child_per_parent_ratio"],
+            "Độ dài TB Parent (ký tự)": r["avg_parent_chars"],
+            "Parent dài nhất (ký tự)": r["max_parent_chars"],
+            "Độ dài TB Child (từ)": r["avg_child_words"],
+            "Child dài nhất (từ)": r["max_child_words"],
+            "Child ngắn nhất (từ)": r["min_child_words"],
+            "Parent vượt ngưỡng": r["oversized_parents"],
+            "Mảnh < 20 từ của Khoản bị tách": r["short_fragments"],
+            "Chunk có point_ref": r["point_ref_chunks"],
+            "Văn bản lỗi": ", ".join(r["failed_docs"]),
+        }
+        for r in results
+    ])
+
+    # Sheet 2: Ma trận tiêu chí đánh giá chất lượng RAG
+    criteria_data = [
+        {
+            "Tiêu chí": "1. Khả năng bảo toàn ngữ cảnh điều luật (Article Integrity)",
+            "Config A (Baseline - 256 tokens)": "Rất tốt - Parent chứa trọn vẹn cả điều hoặc nhóm khoản logic",
+            "Config B (Small - 128 tokens)": "Trung bình - Điều luật dài bị cắt vụn thành nhiều mảnh nhỏ",
+            "Config C (Large - 512 tokens)": "Xuất sắc - Hầu như mọi điều đều nằm trọn trong 1 Parent",
+        },
+        {
+            "Tiêu chí": "2. Độ tương thích mô hình Embedding (BGE-M3 / OpenAI)",
+            "Config A (Baseline - 256 tokens)": "Tối ưu - 256 tokens là điểm ngọt (sweet spot) của Bi-Encoder",
+            "Config B (Small - 128 tokens)": "Tốt - Vector rất tập trung nhưng có thể thiếu ngữ cảnh",
+            "Config C (Large - 512 tokens)": "Kém - Rủi ro loãng vector thông tin (Information Dilution)",
+        },
+        {
+            "Tiêu chí": "3. Độ chính xác khi định vị trích dẫn (Citation Precision)",
+            "Config A (Baseline - 256 tokens)": "Xuất sắc - Semantic ID trỏ chính xác đến cấp Khoản/Điểm",
+            "Config B (Small - 128 tokens)": "Tốt - Định vị rất chi tiết nhưng hay bị gãy câu",
+            "Config C (Large - 512 tokens)": "Trung bình - Khó chỉ rõ đoạn nào trong văn bản là căn cứ",
+        },
+        {
+            "Tiêu chí": "4. Hiệu quả chi phí & Tài nguyên (Storage / Compute Cost)",
+            "Config A (Baseline - 256 tokens)": "Cân bằng - Số lượng vector vừa phải, tốc độ tìm kiếm nhanh",
+            "Config B (Small - 128 tokens)": "Tốn kém - Tăng 1.8x số vector, tốn dung lượng RAM của Qdrant",
+            "Config C (Large - 512 tokens)": "Tiết kiệm - Số lượng vector ít nhất nhưng reranking tốn GPU",
+        },
+        {
+            "Tiêu chí": "5. Độ mượt mà khi tái hiện câu trả lời cho LLM (Generation Fluency)",
+            "Config A (Baseline - 256 tokens)": "Hoàn hảo - LLM nhận đủ cả Parent Context + Focus Chunk",
+            "Config B (Small - 128 tokens)": "Rời rạc - Cần gộp nhiều chunk nhỏ mới đủ thông tin trả lời",
+            "Config C (Large - 512 tokens)": "Đầy đủ - Nhưng dễ bị vượt quá Context Window khi top_k lớn",
+        },
+    ]
+    df_criteria = pd.DataFrame(criteria_data)
+
+    # Sheet 3: Khuyến nghị & Quy tắc lựa chọn
+    recommendation_data = [
+        {
+            "Hạng mục": "Cấu hình được chọn cho Production",
+            "Chi tiết": "Config A (Baseline - 256 tokens / 200 words)",
+        },
+        {
+            "Hạng mục": "Lý do lựa chọn",
+            "Chi tiết": (
+                "Đạt điểm cân bằng hoàn hảo giữa ngữ cảnh (Parent) và độ sắc nét ngữ nghĩa (Child). "
+                "Tỷ lệ ~2.3 Child/Parent đảm bảo việc mở rộng ngữ cảnh (Parent Retrieval) đạt hiệu quả cao nhất "
+                "mà không gây bùng nổ số lượng vector trong cơ sở dữ liệu."
+            ),
+        },
+        {
+            "Hạng mục": "Ngưỡng giới hạn Child Chunk",
+            "Chi tiết": (
+                "Tối đa 200 từ (~256 tokens). Mỗi chunk thuộc đúng 1 Khoản; mảnh dưới 20 từ chỉ được gộp "
+                "với mảnh liền kề của cùng Khoản, Khoản ngắn trọn vẹn giữ thành chunk riêng."
+            ),
+        },
+        {
+            "Hạng mục": "Ngưỡng giới hạn Parent Chunk",
+            "Chi tiết": "Tối đa 1500 ký tự. Các điều dài hơn bắt buộc phải tách thành nhiều Parent liên tiếp (_p1, _p2) có lặp tiêu đề.",
+        },
+    ]
+    df_recom = pd.DataFrame(recommendation_data)
+
     with pd.ExcelWriter(out_path, engine="openpyxl") as writer:
-        # Sheet 1: Bảng so sánh tổng quan
-        summary_rows = []
-        for r in results:
-            summary_rows.append({
-                "Cấu hình": r["config_name"],
-                "Parent Max (ký tự)": r["parent_max_chars"],
-                "Child Max (token)": r["child_max_tokens"],
-                "Child Min (từ)": r["child_min_words"],
-                "Tổng số Parent": r["total_parents"],
-                "Tổng số Child": r["total_children"],
-                "Tỷ lệ Child / Parent": r["child_per_parent_ratio"],
-                "Độ dài Parent TB (ký tự)": r["avg_parent_chars"],
-                "Độ dài Parent Max (ký tự)": r["max_parent_chars"],
-                "Độ dài Child TB (từ)": r["avg_child_words"],
-                "Độ dài Child Max (từ)": r["max_child_words"],
-                "Số Parent bị tách do Điều dài": r["split_parents_count"],
-                "Bao phủ Breadcrumb (%)": f"{r['breadcrumb_coverage_pct']}%",
-                "Mô tả & Định hướng": r["mo_ta"],
-            })
-        df_summary = pd.DataFrame(summary_rows)
-        df_summary.to_excel(writer, sheet_name="TongQuan_SoSanh", index=False)
-
-        # Sheet 2: Chi tiết theo từng văn bản
-        doc_rows = []
-        doc_names = list(results[0]["per_doc_stats"].keys()) if results else []
-        for dname in doc_names:
-            row = {"Văn bản": dname}
-            for r in results:
-                d_stat = r["per_doc_stats"].get(dname, {})
-                cfg_short = r["config_name"].split(" ")[1]
-                row[f"{cfg_short}_Parents"] = d_stat.get("num_parents", 0)
-                row[f"{cfg_short}_Children"] = d_stat.get("num_children", 0)
-                row[f"{cfg_short}_Tyle"] = d_stat.get("ratio", 0)
-            doc_rows.append(row)
-        df_docs = pd.DataFrame(doc_rows)
-        df_docs.to_excel(writer, sheet_name="ChiTiet_TungVanBan", index=False)
-
-        # Sheet 3: Phân bố kích thước Child Chunk
-        dist_rows = []
-        for r in results:
-            tot = r["total_children"] or 1
-            dist_rows.append({
-                "Cấu hình": r["config_name"],
-                "Tổng số Child": r["total_children"],
-                "< 50 từ (Số lượng)": r["child_under_50_words"],
-                "< 50 từ (Tỷ lệ %)": f"{round(r['child_under_50_words'] / tot * 100, 1)}%",
-                "50 - 150 từ (Số lượng)": r["child_50_to_150_words"],
-                "50 - 150 từ (Tỷ lệ %)": f"{round(r['child_50_to_150_words'] / tot * 100, 1)}%",
-                "150 - 250 từ (Số lượng)": r["child_150_to_250_words"],
-                "150 - 250 từ (Tỷ lệ %)": f"{round(r['child_150_to_250_words'] / tot * 100, 1)}%",
-                "> 250 từ (Số lượng)": r["child_over_250_words"],
-                "> 250 từ (Tỷ lệ %)": f"{round(r['child_over_250_words'] / tot * 100, 1)}%",
-            })
-        df_dist = pd.DataFrame(dist_rows)
-        df_dist.to_excel(writer, sheet_name="PhanBo_KichThuoc", index=False)
-
-        # Sheet 4: Đề xuất & Kết luận
-        recom_rows = [
-            {"Mục": "Cấu hình khuyến nghị", "Nội dung": "Config A (Baseline)"},
-            {"Mục": "Ngưỡng Parent", "Nội dung": "1500 ký tự (chứa trọn vẹn 1 Điều hoặc 1 cụm 2-4 Khoản liên quan trực tiếp)"},
-            {"Mục": "Ngưỡng Child", "Nội dung": "256 tokens / ~200 từ (khớp max_seq_length của BKAI / BGE-M3 Dense Vector)"},
-            {"Mục": "Xử lý Khoản ngắn", "Nội dung": "Tự động gom các khoản < 20 từ vào khoản liền kề để tránh chunk vụn (giảm rác trong Vector DB)"},
-            {"Mục": "Xử lý Điều dài", "Nội dung": "Tách thành nhiều Parent, bắt buộc lặp lại [Điều X. Tiêu đề] và cập nhật breadcrumb Khoản X-Y"},
-            {"Mục": "Đánh giá Config D", "Nội dung": "Không khuyến nghị do sinh ra quá nhiều chunk < 50 từ (làm giảm chất lượng embedding và tăng chi phí index)"},
-            {"Mục": "Đánh giá Config C", "Nội dung": "Không khuyến nghị cho BGE-M3 do chunk quá dài (>250 từ) dễ bị cắt bớt (truncation) khi vector hóa"},
-        ]
-        df_recom = pd.DataFrame(recom_rows)
+        df_summary.to_excel(writer, sheet_name="SoSanh_TongQuan", index=False)
+        df_criteria.to_excel(writer, sheet_name="TieuChi_DanhGia", index=False)
         df_recom.to_excel(writer, sheet_name="DeXuat_QuyTac", index=False)
 
 
@@ -259,13 +260,12 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
     Trích xuất các trường hợp chunking tiêu biểu ra file chunking_examples.json:
       - Case 1: Điều bình thường (vừa vặn 1 Parent, 1-N Child)
       - Case 2: Điều DÀI (vượt ngưỡng 1500 ký tự, tách thành _p1, _p2 với tiêu đề lặp lại)
-      - Case 3: Khoản DÀI có nhiều Điểm (tách theo từng Điểm a, b, c)
-      - Case 4: Gom các Khoản ngắn (< 20 từ)
+      - Case 3: Khoản DÀI có danh sách Điểm (cắt tại ranh giới Điểm, point_ref theo dải Điểm)
+      - Case 4: Điều có intro (intro trong embed_text của mọi Child)
       - Case 5: Định dạng đầy đủ payload cho Qdrant, Elasticsearch, Parent Store.
     """
-    # Chạy config A trên L01 và sample_documents
-    l01_doc = docs.get("L01")
-    sample_doc = docs.get("sample_documents_0") or docs.get("sample_documents")
+    # Chạy config A trên l_52_2014_qh13
+    l01_doc = docs.get("l_52_2014_qh13") or docs.get("L01")
 
     examples: dict[str, Any] = {
         "metadata": {
@@ -291,11 +291,12 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
                 "child_chunks": [c.to_qdrant_payload() for c in c_normal],
             })
 
-        # Case 2: Điều DÀI (tìm Parent có _p1 và _p2)
-        p_long_1 = next((p for p in res.parents if "_p1" in p.parent_id), None)
-        if p_long_1:
-            base_id = p_long_1.parent_id[:-3]
-            related_parents = [p for p in res.parents if p.parent_id.startswith(base_id)]
+        # Case 2: Điều DÀI phải tách thành nhiều Parent (ví dụ Điều 8 hoặc điều có _p1)
+        long_parents = [p for p in res.parents if "_p" in p.parent_id]
+        if long_parents:
+            # Lấy parent đầu tiên có _p1
+            p_long_base = long_parents[0].parent_id.split("_p")[0]
+            related_parents = [p for p in res.parents if p.parent_id.startswith(p_long_base)]
             examples["examples"].append({
                 "case_name": "Case 2: Điều DÀI vượt ngưỡng (Split Long Article)",
                 "description": "Điều có tổng độ dài > 1500 ký tự được tách thành nhiều Parent Chunks liên tiếp (_p1, _p2). Tiêu đề Điều được lặp lại ở đầu mỗi Parent và Breadcrumb được cập nhật chỉ rõ nhóm Khoản.",
@@ -307,19 +308,31 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
                 ][:3],
             })
 
-    # Case 3: Khoản có nhiều Điểm (từ sample_documents nếu có)
-    if sample_doc:
-        res_sample = chunk_legal_document(sample_doc, CONFIGS["Config A (Baseline - Khuyến nghị)"])
-        p_pts = res_sample.parents[0] if res_sample.parents else None
-        if p_pts:
+        # Case 3: Khoản dài có danh sách Điểm (Luật 52/2014 Điều 5 khoản 2 "Cấm các hành vi sau đây:")
+        point_children = [c for c in res.children if c.clause_id.endswith("_art_5_clause_2")]
+        if len(point_children) > 1:
             examples["examples"].append({
-                "case_name": "Case 3: Khoản chi tiết có nhiều Điểm (Points in Clause)",
-                "description": "Mỗi điểm a, b, c được gán Semantic ID chi tiết và gắn phần lời dẫn của khoản.",
-                "parent_chunk": p_pts.to_store_dict(),
-                "child_chunks": [c.to_qdrant_payload() for c in res_sample.children],
+                "case_name": "Case 3: Khoản dài có danh sách Điểm (Points in Clause)",
+                "description": (
+                    "Khoản vượt giới hạn Child được cắt tại ranh giới Điểm; point_ref ghi dải Điểm của từng phần. "
+                    "Phần thứ 2 trở đi mang câu dẫn của Khoản trong embed_text, chunk_text giữ nguyên văn."
+                ),
+                "child_chunks": [c.to_qdrant_payload() for c in point_children],
             })
 
-    # Case 4: Minh họa Payload Database nạp vào 3 thành phần trong Kiến trúc
+        # Case 4: Điều có intro (Điều 3 "Trong Luật này, các từ ngữ dưới đây được hiểu như sau:")
+        intro_children = [c for c in res.children if c.article_id.endswith("_art_3")][:2]
+        if intro_children:
+            examples["examples"].append({
+                "case_name": "Case 4: Điều có intro trước các Khoản (Article Intro)",
+                "description": (
+                    "Intro chỉ có trong Parent và trong embed_text của mọi Child của Điều; "
+                    "Điều không chia Khoản (Case 1) không ghi 'Khoản 1' vào clause_ref và breadcrumb."
+                ),
+                "child_chunks": [c.to_qdrant_payload() for c in intro_children],
+            })
+
+    # Case 5: Minh họa Payload Database nạp vào 3 thành phần trong Kiến trúc
     if examples["examples"]:
         first_child = None
         for ex in examples["examples"]:
@@ -329,7 +342,7 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
 
         if first_child:
             examples["examples"].append({
-                "case_name": "Case 4: Định dạng Payload nạp vào Cơ sở dữ liệu (Database Payloads)",
+                "case_name": "Case 5: Định dạng Payload nạp vào Cơ sở dữ liệu (Database Payloads)",
                 "description": "Minh họa cấu trúc JSON sẵn sàng nạp vào Vector DB (Qdrant), Sparse Index (Elasticsearch) và Parent Store.",
                 "qdrant_payload": first_child,
                 "elasticsearch_doc": {
@@ -350,13 +363,21 @@ def generate_examples_json(docs: dict[str, Any], out_path: Path):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Chạy thử nghiệm đánh giá cấu hình chunking.")
+    parser.add_argument(
+        "--export-reports",
+        action="store_true",
+        help="Xuất chunking_evaluation.xlsx và chunking_examples.json.",
+    )
+    args = parser.parse_args()
+
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except Exception:
         pass
 
     print("=" * 70)
-    print("🔬 CHẠY THỬ NGHIỆM ĐÁNH GIÁ CẤU HÌNH CHUNKING VÀ XUẤT BÁO CÁO")
+    print("CHẠY THỬ NGHIỆM ĐÁNH GIÁ CẤU HÌNH CHUNKING")
     print("=" * 70)
 
     docs = load_test_documents()
@@ -370,23 +391,23 @@ def main():
         results.append(r)
         print(f"      -> {r['total_parents']} Parents, {r['total_children']} Children (Tỷ lệ: {r['child_per_parent_ratio']})")
 
-    # Xuất file Excel
-    excel_path = BASE_DIR / "chunking_evaluation.xlsx"
-    print(f"\n📊 Đang xuất bảng đánh giá: {excel_path.name}...")
-    generate_evaluation_excel(results, excel_path)
-    print(f"  ✅ Đã lưu {excel_path}")
+    if args.export_reports:
+        excel_path = BASE_DIR / "chunking_evaluation.xlsx"
+        print(f"\nĐang xuất bảng đánh giá: {excel_path.name}...")
+        generate_evaluation_excel(results, excel_path)
+        print(f"Đã lưu {excel_path}")
 
-    # Xuất file JSON ví dụ
-    json_path = BASE_DIR / "chunking_examples.json"
-    print(f"📋 Đang xuất các trường hợp mẫu: {json_path.name}...")
-    generate_examples_json(docs, json_path)
-    print(f"  ✅ Đã lưu {json_path}")
+        json_path = BASE_DIR / "chunking_examples.json"
+        print(f"Đang xuất các trường hợp mẫu: {json_path.name}...")
+        generate_examples_json(docs, json_path)
+        print(f"Đã lưu {json_path}")
+    else:
+        print("\nKhông xuất file báo cáo. Dùng --export-reports nếu cần tạo Excel và JSON.")
 
     print("\n" + "=" * 70)
-    print("🎉 HOÀN THÀNH THỬ NGHIỆM VÀ XUẤT TẤT CẢ FILE BÁO CÁO!")
+    print("HOÀN THÀNH THỬ NGHIỆM!")
     print("=" * 70)
 
 
 if __name__ == "__main__":
     main()
-

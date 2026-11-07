@@ -1,0 +1,128 @@
+import json
+import os
+import tempfile
+import time
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+
+from jsonschema import Draft202012Validator
+
+from retrieval.hybrid_retriever import HybridRetriever, HybridSearchConfig
+from retrieval.run_dev_retrieval import (
+    TimedRetriever,
+    latency_by_method,
+    read_queries,
+    resolve_run_config,
+    resolve_qdrant_storage_path,
+    to_envelope,
+)
+from retrieval.settings import load_settings
+
+ROOT = Path(__file__).resolve().parents[1]
+SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
+
+
+def chunk(chunk_id, score):
+    return {
+        "chunk_id": chunk_id, "document_id": "l_52_2014_qh13", "article_id": "l_52_2014_qh13_art_8",
+        "clause_id": "l_52_2014_qh13_art_8_clause_1", "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
+        "chunk_text": f"Nội dung {chunk_id}", "score": score,
+        "metadata": {"validity_status": "Còn hiệu lực", "article_number": "8"},
+    }
+
+
+class StaticRetriever:
+    def __init__(self, hits):
+        self.hits = hits
+
+    def search(self, query, top_k, *, as_of_date):
+        return [dict(hit) for hit in self.hits[:top_k]]
+
+
+class RunDevRetrievalOutputTest(unittest.TestCase):
+    def test_timed_retriever_records_individual_branch_latency(self):
+        class DelayedRetriever(StaticRetriever):
+            def __init__(self, delay, hits):
+                super().__init__(hits)
+                self.delay = delay
+
+            def search(self, query, top_k, *, as_of_date=None):
+                time.sleep(self.delay)
+                return super().search(query, top_k, as_of_date=as_of_date)
+
+        hit = chunk("chunk-1", 1.0)
+        sparse = TimedRetriever(DelayedRetriever(0.01, [hit]))
+        dense = TimedRetriever(DelayedRetriever(0.04, [hit]))
+        started = time.perf_counter()
+        result = HybridRetriever(sparse, dense, HybridSearchConfig(top_k=1, candidate_k=1)).retrieve("query")
+        total_ms = (time.perf_counter() - started) * 1000.0
+        latencies = latency_by_method(sparse, dense, total_ms)
+        self.assertEqual(len(result["hybrid"]), 1)
+        self.assertGreater(latencies["bm25"], 0)
+        self.assertGreater(latencies["dense"], latencies["bm25"])
+        self.assertGreater(latencies["hybrid"], latencies["dense"])
+
+    def test_run_config_uses_shared_defaults_and_explicit_overrides(self):
+        settings = load_settings()
+        defaults = resolve_run_config(settings)
+        self.assertEqual((defaults["top_k"], defaults["candidate_k"], defaults["rrf_k"]), (10, 50, 60))
+        self.assertEqual(defaults["collection"], settings["dense"]["collection"])
+        self.assertEqual(
+            Path(defaults["qdrant_storage_path"]),
+            ROOT / "data" / "indexes" / "qdrant_storage",
+        )
+        self.assertEqual(
+            resolve_qdrant_storage_path(settings, env_path="custom/qdrant"),
+            ROOT / "custom" / "qdrant",
+        )
+        overridden = resolve_run_config(
+            settings, top_k=5, candidate_k=20, rrf_k=42,
+            collection="test-collection", elasticsearch_index="test-index",
+        )
+        self.assertEqual((overridden["top_k"], overridden["candidate_k"], overridden["rrf_k"]), (5, 20, 42))
+        self.assertEqual(overridden["collection"], "test-collection")
+        self.assertEqual(overridden["elasticsearch_index"], "test-index")
+
+    def test_qdrant_storage_path_uses_dense_index_dir(self):
+        settings = load_settings()
+        settings["dense"]["index_dir"] = "custom/indexes"
+        with patch.dict(os.environ, {"QDRANT_PATH": ""}):
+            self.assertEqual(
+                resolve_qdrant_storage_path(settings),
+                ROOT / "custom" / "indexes" / "qdrant_storage",
+            )
+
+    def test_qdrant_storage_path_honors_environment_override(self):
+        settings = load_settings()
+        with patch.dict(os.environ, {"QDRANT_PATH": "custom/qdrant_storage"}):
+            self.assertEqual(
+                resolve_qdrant_storage_path(settings),
+                ROOT / "custom" / "qdrant_storage",
+            )
+
+    def test_read_queries_keeps_benchmark_ids(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "queries.json"
+            path.write_text(json.dumps([{"id": "HN_001", "question": " Tuổi kết hôn? ",
+                                         "as_of_date": "1995-06-01"}]), encoding="utf-8")
+            self.assertEqual(read_queries(path), [("HN_001", "Tuổi kết hôn?", "1995-06-01")])
+            path.write_text(json.dumps(["Tuổi kết hôn?"]), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                read_queries(path)
+
+    def test_every_method_writes_schema_valid_envelopes(self):
+        a, b = chunk("l_52_2014_qh13_art_8_clause_1_chunk_1", 3.0), chunk("l_52_2014_qh13_art_8_clause_2_chunk_1", 1.0)
+        retriever = HybridRetriever(StaticRetriever([a, b]), StaticRetriever([b, a]),
+                                    HybridSearchConfig(top_k=2, candidate_k=2, rrf_k=60))
+        ranked = retriever.retrieve("Tuổi kết hôn?")
+        validator = Draft202012Validator(SCHEMA)
+        for method in ("bm25", "dense", "hybrid"):
+            envelope = to_envelope(method, "HN_001", "Tuổi kết hôn?", ranked[method], {"top_k": 2}, 1.5)
+            self.assertEqual(list(validator.iter_errors(envelope)), [], method)
+            self.assertEqual(envelope["query_id"], "HN_001")
+            self.assertEqual([row["rank"] for row in envelope["results"]], [1, 2])
+
+
+if __name__ == "__main__":
+    unittest.main()

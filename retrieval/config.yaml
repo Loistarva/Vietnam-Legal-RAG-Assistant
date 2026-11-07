@@ -1,0 +1,38 @@
+retrieval:
+  # Số ứng viên đầu vào mỗi nhánh retrieval.
+  retrieval_top_k: 50
+  # Số kết quả cuối cùng sau fusion/reranking.
+  result_top_k: 10
+  # Đường dẫn tương đối trong config luôn tính từ thư mục gốc repository.
+  corpus_path: data/chunking_output/chunks.jsonl
+
+bm25:
+  backend: elasticsearch
+  index: bm25-e6-verified-20261101
+  text_field: content_segmented
+  tokenizer: underthesea
+  tokenizer_version: 9.5.0
+
+dense:
+  backend: qdrant
+  model: BAAI/bge-m3
+  collection: vietnam_legal_chunks
+  index_dir: data/indexes
+  supported_models:
+    BAAI/bge-m3:
+      dimension: 1024
+      use_word_segmentation: false
+      text_field: embed_text_raw
+    bkai-foundation-models/vietnamese-bi-encoder:
+      dimension: 768
+      use_word_segmentation: true
+      text_field: embed_text_raw
+    AITeamVN/Vietnamese_Embedding:
+      dimension: 1024
+      use_word_segmentation: false
+      text_field: embed_text_raw
+
+hybrid:
+  fusion: rrf
+  # Chọn trên 75 câu Dev đã duyệt (retrieval/evaluation/rrf_k_comparison_dev_75.md): Top-50 vào reranker giống hệt với k = 10.
+  rrf_k: 60

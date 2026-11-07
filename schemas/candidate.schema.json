@@ -1,0 +1,153 @@
+{
+  "additionalProperties": false,
+  "description": "Đại diện cho một chunk ứng viên từ pipeline retrieval/rerank.",
+  "properties": {
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "chunk_id": {
+      "title": "Chunk Id",
+      "type": "string"
+    },
+    "chunk_text": {
+      "title": "Chunk Text",
+      "type": "string"
+    },
+    "score": {
+      "title": "Score",
+      "type": "number"
+    },
+    "rank": {
+      "minimum": 1,
+      "title": "Rank",
+      "type": "integer"
+    },
+    "retrieval_source": {
+      "title": "Retrieval Source",
+      "type": "string"
+    },
+    "validity_status": {
+      "title": "Validity Status",
+      "type": "string"
+    },
+    "effective_from": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective From"
+    },
+    "effective_to": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective To"
+    },
+    "as_of_date": {
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "article_id": {
+      "title": "Article Id",
+      "type": "string"
+    },
+    "clause_id": {
+      "title": "Clause Id",
+      "type": "string"
+    },
+    "parent_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Id"
+    },
+    "parent_clause_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Clause Id"
+    },
+    "candidate_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Candidate Text"
+    },
+    "evidence_index": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Evidence Index"
+    },
+    "vector_ref": {
+      "anyOf": [
+        {},
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vector Ref"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "query_id",
+    "chunk_id",
+    "chunk_text",
+    "score",
+    "rank",
+    "retrieval_source",
+    "validity_status",
+    "as_of_date",
+    "document_id",
+    "article_id",
+    "clause_id"
+  ],
+  "title": "CandidateChunk",
+  "type": "object"
+}

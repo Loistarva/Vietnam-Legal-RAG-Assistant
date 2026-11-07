@@ -18,9 +18,9 @@ if sys.platform == "win32":
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE_DIR))
 
-# Nạp động LegalDocumentSchema từ tests/schema_test.py để tránh xung đột với module 'tests' của Python standard library
+# Nạp động LegalDocumentSchema từ test/schema_test.py để tránh xung đột với package 'test' của Python standard library
 schema_spec = importlib.util.spec_from_file_location(
-    "schema_test", BASE_DIR / "tests" / "schema_test.py"
+    "schema_test", BASE_DIR / "test" / "schema_test.py"
 )
 schema_mod = importlib.util.module_from_spec(schema_spec)
 schema_spec.loader.exec_module(schema_mod)

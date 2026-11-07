@@ -1,10 +1,24 @@
 # Python virtual environments
 /.venv*/
 
+# IDE
+.idea/
+
 # Python-generated files
 __pycache__/
+**/__pycache__/
 *.py[cod]
+*.pyo
 .pytest_cache/
 
-# Local embedded Qdrant database
+# Local embedded Qdrant database and index artifacts
 /qdrant_data/
+/data/indexes/*
+!/data/indexes/README.md
+
+# Automatic benchmark backups
+/data/benchmark/backups/
+*.bak
+
+# Office lock files (created while a document is open)
+~$*
