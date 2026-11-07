@@ -3,8 +3,12 @@
 Usage: python build_gold_300_provisional.py --root <benchmark_repo> --output <output_dir>
 """
 from __future__ import annotations
-import argparse, csv, datetime, hashlib, json, re, sys
-from collections import defaultdict, Counter
+import argparse
+import csv
+import hashlib
+import json
+import sys
+from collections import defaultdict
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -31,7 +35,8 @@ def build(root, out, update_ground_truth=False):
     versions=read_json(ref/'document_versions.json')
     suggestion_rows=load_candidates(data/'production_chunk_candidates.csv')
     idx={x['chunk_id']:x for x in chunks}
-    if len(idx)!=len(chunks): raise ValueError('Duplicate production chunk IDs')
+    if len(idx)!=len(chunks):
+        raise ValueError('Duplicate production chunk IDs')
     docs={x['document_number'].casefold():x for x in versions}
     ranked=defaultdict(list)
     for r in suggestion_rows:
@@ -44,14 +49,19 @@ def build(root, out, update_ground_truth=False):
     no_support=[]
     for g in gt:
         qid=g['id']
-        evidence=[]; evidence_tier=[]; alerts=[]
+        evidence=[]
+        evidence_tier=[]
+        alerts=[]
         cited_docs={x['document_id'] for x in g.get('citations',[])}
         gold_articles=g.get('gold_article_ids') or []
         if g.get('gold_context_ids'):
             for cid in g['gold_context_ids']:
-                if cid not in idx: raise ValueError(f'Existing gold {cid} missing from index: {qid}')
-                if idx[cid]['document_number'] not in cited_docs: raise ValueError(f'Existing gold wrong document: {qid}')
-                evidence.append(cid); evidence_tier.append('EXISTING_REVIEWED_ID')
+                if cid not in idx:
+                    raise ValueError(f'Existing gold {cid} missing from index: {qid}')
+                if idx[cid]['document_number'] not in cited_docs:
+                    raise ValueError(f'Existing gold wrong document: {qid}')
+                evidence.append(cid)
+                evidence_tier.append('EXISTING_REVIEWED_ID')
         # One candidate for each referenced article, subject to independent legal review.
         for aid in gold_articles:
             viable=[]
@@ -62,7 +72,8 @@ def build(root, out, update_ground_truth=False):
             if viable:
                 cid=viable[0]['chunk_id']
                 if cid not in evidence:
-                    evidence.append(cid); evidence_tier.append('UNREVIEWED_CHUNK_PROPOSAL')
+                    evidence.append(cid)
+                    evidence_tier.append('UNREVIEWED_CHUNK_PROPOSAL')
             else:
                 alerts.append('MISSING_ARTICLE_CANDIDATE:'+aid)
         # One original legal-text case was previously excluded from candidate matching:
@@ -70,7 +81,8 @@ def build(root, out, update_ground_truth=False):
         if qid=='HN_051':
             cid='l02_art_10_chunk_5'
             if cid in idx and idx[cid]['article_id']=='L02_D10' and cid not in evidence:
-                evidence.append(cid);evidence_tier.append('UNREVIEWED_CHUNK_PROPOSAL')
+                evidence.append(cid)
+                evidence_tier.append('UNREVIEWED_CHUNK_PROPOSAL')
             else:
                 alerts.append('MISSING_L02_ARTICLE_10_5_CHUNK')
         # Questions with no cited articles (document validity, temporal law): add source-backed version contexts.
@@ -79,8 +91,10 @@ def build(root, out, update_ground_truth=False):
             # Comparison questions explicitly mention a second legal instrument.
             # Add its status evidence rather than silently treating one source as sufficient.
             compared_docs=set(cited_docs)
-            if qid=='HN_043': compared_docs.add('10/2015/NĐ-CP')
-            if qid=='HN_044': compared_docs.add('207/2025/NĐ-CP')
+            if qid=='HN_043':
+                compared_docs.add('10/2015/NĐ-CP')
+            if qid=='HN_044':
+                compared_docs.add('207/2025/NĐ-CP')
             for number in sorted(compared_docs):
                 doc=docs.get(number.casefold())
                 if not doc:
@@ -106,7 +120,8 @@ def build(root, out, update_ground_truth=False):
                         'source':'data/reference/document_versions.json',
                     }
                 if stable not in evidence:
-                    evidence.append(stable);evidence_tier.append('UNREVIEWED_VERSION_METADATA')
+                    evidence.append(stable)
+                    evidence_tier.append('UNREVIEWED_VERSION_METADATA')
         if not evidence:
             alerts.append('NO_EVIDENCE_ID')
             no_support.append(qid)
@@ -129,13 +144,18 @@ def build(root, out, update_ground_truth=False):
             'review_required':'YES' if x['gold_id_assignment_status'].startswith('PROVISIONAL') else 'NO',
             'issues':';'.join(alerts), 'verified_gold':'YES' if g.get('gold_context_ids_confirmed') else 'NO',
         })
-    if len(gt)!=300 or len(full)!=300: raise ValueError(f'expected 300 questions, found {len(gt)}')
+    if len(gt)!=300 or len(full)!=300:
+        raise ValueError(f'expected 300 questions, found {len(gt)}')
     all_ids=set(idx)|set(version_chunks)
     unknown=sorted({cid for g in full for cid in g['gold_context_ids'] if cid not in all_ids})
-    if unknown or no_support: raise ValueError(f'unresolved IDs={unknown}; empty={no_support}')
-    if len(all_ids)!=len(idx)+len(version_chunks): raise ValueError('Duplicate version ID overlaps production index')
-    if {g['id'] for g in full}!={g['id'] for g in gt}: raise ValueError('ID set changed')
-    if any(not g['gold_context_ids'] for g in full): raise ValueError('empty context ids')
+    if unknown or no_support:
+        raise ValueError(f'unresolved IDs={unknown}; empty={no_support}')
+    if len(all_ids)!=len(idx)+len(version_chunks):
+        raise ValueError('Duplicate version ID overlaps production index')
+    if {g['id'] for g in full}!={g['id'] for g in gt}:
+        raise ValueError('ID set changed')
+    if any(not g['gold_context_ids'] for g in full):
+        raise ValueError('empty context ids')
 
     if update_ground_truth:
         # Directly update candidates in ground_truth.json while preserving schema compliance
@@ -169,11 +189,15 @@ def build(root, out, update_ground_truth=False):
             'warning': 'PROVISIONAL only. These 300 IDs have NOT been fully verified against official law, and are NOT production Gold. Use ground_truth.json as the canonical source. --final is expected to remain blocked.'
         }
     }
-    if out.exists() and any(out.iterdir()): raise FileExistsError(f'Output is not empty: {out}')
+    if out.exists() and any(out.iterdir()):
+        raise FileExistsError(f'Output is not empty: {out}')
     out.mkdir(parents=True,exist_ok=True)
-    for name,obj in outputs.items(): write_json(out/name,obj)
+    for name,obj in outputs.items():
+        write_json(out/name,obj)
     with (out/'full_gold_ids_audit.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        wr=csv.DictWriter(f,fieldnames=list(report[0].keys()));wr.writeheader();wr.writerows(report)
+        wr=csv.DictWriter(f,fieldnames=list(report[0].keys()))
+        wr.writeheader()
+        wr.writerows(report)
     print('PROVISIONAL_MAPPING_OK')
     print('Questions:',len(full))
     print('Nonempty gold_context_ids:',sum(bool(g['gold_context_ids']) for g in full))
@@ -189,4 +213,5 @@ def main():
     p.add_argument('--update-ground-truth', action='store_true', help='Cập nhật trực tiếp vào data/benchmark/ground_truth.json')
     a=p.parse_args()
     build(a.root.resolve(), a.output.resolve(), update_ground_truth=a.update_ground_truth)
-if __name__=='__main__':main()
+if __name__=='__main__':
+    main()

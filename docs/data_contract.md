@@ -46,7 +46,7 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 | `issuing_body` | String | **Có** | Cơ quan ban hành (VD: "Chính phủ"). |
 | `validity_status` | String | **Có** | Enum: `["Còn hiệu lực", "Hết hiệu lực", "Sắp có hiệu lực", "Sửa đổi bổ sung", "Không xác định"]`. |
 | `source_status` | String / Null | Không | Trạng thái gốc từ nguồn tra cứu văn bản (VD: "Hết hiệu lực một phần"). |
-| `provision_status` | String / Null | Không | Mức độ hiệu lực điều khoản (VD: "document_level_only", "requires_review"). |
+| `provision_status` | String / Null | Không | Mức độ hiệu lực điều khoản (VD: "document_level_only", "requires_review"). Ở chunk, giá trị `repealed` hoặc `amended` nghĩa là Điều/Khoản/Điểm đó có khoảng hiệu lực riêng ghi trong `data/reference/provision_periods.json`. |
 
 **Ánh xạ trạng thái từ registry (`data/reference/document_versions.json`):**
 
@@ -56,7 +56,7 @@ Registry giữ trạng thái gốc theo nguồn tra cứu ở trường `source_
 | :--- | :--- | :--- |
 | Còn hiệu lực | Còn hiệu lực | |
 | Hết hiệu lực toàn bộ | Hết hiệu lực | Bắt buộc có `expiry_date`. |
-| Hết hiệu lực một phần | Sửa đổi bổ sung | Phần lớn văn bản còn áp dụng; chưa ghi Điều/Khoản nào hết hiệu lực (`provision_status = requires_review`). |
+| Hết hiệu lực một phần | Sửa đổi bổ sung | Phần lớn văn bản còn áp dụng (`provision_status = requires_review`). Điều/Khoản/Điểm đã bị bãi bỏ hoặc sửa đổi bởi văn bản có trong corpus được ghi ở `data/reference/provision_periods.json`; exporter ghi `effective_to` và `provision_status` của bản ghi đó vào chunk (kiểm bởi `test/test_provision_periods.py`). Bản ghi cấp Điểm làm Khoản đó được tách mỗi Điểm một chunk (`point_ref` = "Điểm a"), câu dẫn thành chunk riêng. Với Khoản bị sửa đổi, `evidence_chunk_id` là chunk của văn bản sửa đổi chứa nội dung mới, nên tại `as_of_date` sau ngày sửa retriever trả nội dung mới thay cho bản cũ. |
 | Có điều khoản bị sửa đổi / bãi bỏ | Sửa đổi bổ sung | |
 | Cần kiểm tra trạng thái mới nhất | Không xác định | Exporter cảnh báo khi gặp giá trị này. |
 
@@ -280,3 +280,7 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **TT10** | `tt_57_2015_tt_byt` | 57/2015/TT-BYT | Sửa đổi bổ sung | Quy định chi tiết một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo |
 | **TT11** | `tt_38_2025_tt_byt` | 38/2025/TT-BYT | Còn hiệu lực | Quy định chi tiết một số điều của Nghị định số 207/2025/NĐ-CP ngày 15 tháng 7 năm 2025 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo |
 | **ND09** | `nd_123_2015_nd_cp` | 123/2015/NĐ-CP | Sửa đổi bổ sung | Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch |
+| **ND12** | `nd_87_2020_nd_cp` | 87/2020/NĐ-CP | Sửa đổi bổ sung | Quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến |
+| **ND11** | `nd_07_2025_nd_cp` | 07/2025/NĐ-CP | Sửa đổi bổ sung | Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực |
+| **ND13** | `nd_18_2026_nd_cp` | 18/2026/NĐ-CP | Còn hiệu lực | Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp |
+| **TT13** | `tt_04_2024_tt_btp` | 04/2024/TT-BTP | Còn hiệu lực | Sửa đổi, bổ sung một số điều của Thông tư số 02/2020/TT-BTP ngày 08/4/2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn sử dụng, quản lý mẫu sổ quốc tịch và mẫu giấy tờ về quốc tịch và Thông tư số 04/2020/TT-BTP ngày 28/5/2020 của Bộ trưởng Bộ Tư pháp quy định chi tiết thi hành một số điều của Luật Hộ tịch và Nghị định số 123/2015/NĐ-CP ngày 15/11/2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch |

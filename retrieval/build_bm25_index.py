@@ -2,11 +2,11 @@
 from __future__ import annotations
 
 import json
-import hashlib
 import os
 from pathlib import Path
 from typing import Any
 
+from embedding.vector_store import chunk_file_sha256
 from retrieval.temporal import normalize_date
 
 try:
@@ -318,9 +318,7 @@ def build_bm25_index(
         chunks_path, tokenizer=resolved["tokenizer"],
         tokenizer_version=resolved["tokenizer_version"],
     )
-    tokenizer_provenance["corpus_sha256"] = hashlib.sha256(
-        chunks_path.read_bytes()
-    ).hexdigest()
+    tokenizer_provenance["corpus_sha256"] = chunk_file_sha256(chunks_path)
     owns_client = client is None
     if client is None:
         client = Elasticsearch(resolved_es_url, request_timeout=60)

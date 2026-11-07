@@ -519,13 +519,56 @@ def _split_long_clause_unit(
     return result_units
 
 
+def _split_clause_at_points(
+    u: _ClauseUnit,
+    max_chars: int = 1200,
+    max_words: int = 190,
+) -> list[_ClauseUnit]:
+    """Tách Khoản thành câu dẫn và từng Điểm riêng (mỗi phần một chunk).
+
+    Dùng cho Khoản có Điểm bị bãi bỏ hoặc sửa đổi riêng (data/reference/provision_periods.json,
+    trường points), để khoảng hiệu lực ghi được cho đúng chunk của Điểm đó. Một Điểm chỉ bị
+    tách tiếp theo câu khi tự nó vượt giới hạn.
+    """
+    parsed = split_point_list(u.text)
+    if not parsed:
+        raise ValueError(f"{u.clause_id}: cần tách theo Điểm nhưng không nhận ra danh sách Điểm")
+    lead, points = parsed
+    pieces: list[tuple[str, str | None]] = []
+    if lead:
+        pieces.extend((s, None) for s in _whole_or_sentences(lead, max_chars, max_words))
+    for letter, p_text in points:
+        pieces.extend((s, letter) for s in _whole_or_sentences(p_text, max_chars, max_words))
+    return [
+        _ClauseUnit(
+            clause_id=u.clause_id,
+            article_id=u.article_id,
+            parent_article_id=u.parent_article_id,
+            clause_number=u.clause_number,
+            point_letter=u.point_letter,
+            text=text,
+            char_count=len(text),
+            sub_index=idx,
+            total_subs=len(pieces),
+            implicit=u.implicit,
+            point_ref=_point_range([letter]) if letter else None,
+            lead_text=lead if (lead and letter) else None,
+        )
+        for idx, (text, letter) in enumerate(pieces, start=1)
+    ]
+
+
 def _extract_clause_units(
     raw_chunks: list[dict[str, Any]],
     max_unit_chars: int = 1200,
     max_unit_words: int = 190,
     min_words: int = CHILD_MIN_WORDS,
+    split_point_clause_ids: frozenset[str] = frozenset(),
 ) -> list[_ClauseUnit]:
-    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars và <= max_unit_words)."""
+    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars và <= max_unit_words).
+
+    Khoản có clause_id trong split_point_clause_ids được tách theo từng Điểm.
+    """
     units: list[_ClauseUnit] = []
     for item in raw_chunks:
         txt = normalize_text(item.get("text", ""))
@@ -543,7 +586,10 @@ def _extract_clause_units(
             total_subs=1,
             implicit=bool(item.get("implicit")),
         )
-        units.extend(_split_long_clause_unit(base_u, max_chars=max_unit_chars, max_words=max_unit_words, min_words=min_words))
+        if base_u.clause_id in split_point_clause_ids:
+            units.extend(_split_clause_at_points(base_u, max_chars=max_unit_chars, max_words=max_unit_words))
+        else:
+            units.extend(_split_long_clause_unit(base_u, max_chars=max_unit_chars, max_words=max_unit_words, min_words=min_words))
     return units
 
 
@@ -834,7 +880,11 @@ def _chunk_structured_document(
                 art_intro = ""
 
         # Trích xuất và giới hạn kích thước từng unit
-        unit_kwargs = {"max_unit_words": max_unit_words, "min_words": min_words}
+        unit_kwargs = {
+            "max_unit_words": max_unit_words,
+            "min_words": min_words,
+            "split_point_clause_ids": frozenset(cfg.get("split_point_clause_ids") or ()),
+        }
         units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300, **unit_kwargs)
 
         # Parent đầu tiên chứa header + intro + phần đầu của Khoản đầu: tách nhỏ phần đó

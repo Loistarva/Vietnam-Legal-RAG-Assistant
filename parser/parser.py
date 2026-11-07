@@ -1,11 +1,10 @@
 """Thư viện parse văn bản luật (TXT) thành JSON theo Điều / Khoản (Kiến trúc 4 tầng). Không có main; entry point là test_parser.py."""
-import argparse
 import json
 import os
 import re
 import unicodedata
 from pathlib import Path
-from typing import Dict, List, Literal, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -545,10 +544,6 @@ def split_title_from_line_structure(head: str) -> Optional[Tuple[str, str]]:
         first_char = next((ch for ch in line if ch.isalpha()), "")
         starts_lowercase = bool(first_char and first_char.islower())
         if starts_lowercase:
-            prev_tokens = re.findall(r"[A-Za-zÀ-ỹĐđ0-9]+", previous)
-            prev_word = prev_tokens[-1].lower() if prev_tokens else ""
-            prev_tail = " ".join(w.lower() for w in prev_tokens[-2:])
-
             # Dòng bắt đầu bằng chữ thường thường là phần tiêu đề bị wrap,
             # ví dụ "... tài khoản chứng khoán, động" + "sản khác ...".
             # Chỉ nối khi dòng trước chưa kết thúc một câu hoàn chỉnh; không
@@ -926,7 +921,7 @@ def parse_text_to_articles(raw_text: str, doc_id: str):
     # Mốc mở đầu hỗ trợ CHƯƠNG I / Chương I / Chương 1 và dấu hai chấm.
     # Chỉ cắt từ mốc nếu phần tiêu đề theo sau đủ giống heading viết hoa.
     chapter_start_re = re.compile(
-        rf"(?<!\S)Chương\s+(?:I|1)\s*[.:]?(?=\s)",
+        r"(?<!\S)Chương\s+(?:I|1)\s*[.:]?(?=\s)",
         re.IGNORECASE
     )
     m0 = None
@@ -1126,6 +1121,8 @@ def extract_document_number(text: str) -> str:
     # không sửa nội dung TXT gốc mà parser dùng để tách Điều/Khoản.
     number_text = unicodedata.normalize("NFC", text or "")
     number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s*[-–]\s*(?=[A-Za-zĐđ0-9])", "-", number_text)
+    # Bản in có khi tách số hiệu quanh dấu "/", ví dụ "Số: 04 /2024/TT-BTP".
+    number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s*/\s*(?=[A-Za-zĐđ0-9])", "/", number_text)
     number_text = re.sub(r"(?<=[A-Za-zĐđ0-9])\s+(?=[A-Za-zĐđ0-9])", " ", number_text)
     number_text = re.sub(r"\s+", " ", number_text).strip()
 

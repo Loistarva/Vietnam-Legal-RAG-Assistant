@@ -49,7 +49,7 @@ def run_pipeline():
         for file_path in parsed_files:
             with open(file_path, "r", encoding="utf-8") as f:
                 raw_json = json.load(f)
-            doc_obj = LegalDocumentSchema(**raw_json)
+            LegalDocumentSchema(**raw_json)
             validated_docs.append(raw_json)
         print(f"-> 100% ({len(validated_docs)}/{len(parsed_files)}) văn bản vượt qua Schema Validation!")
 
@@ -74,7 +74,7 @@ def run_pipeline():
         sample_payload = all_child_payloads[0]
         assert "embed_text" in sample_payload, "Payload thiếu trường embed_text!"
         assert "validity_status" in sample_payload, "Payload thiếu validity_status cho bộ lọc!"
-        print(f"-> Payload mẫu hợp lệ:")
+        print("-> Payload mẫu hợp lệ:")
         print(f"   + ID: {sample_payload.get('id')}")
         print(f"   + Breadcrumb: {sample_payload.get('breadcrumb')}")
         print(f"   + Validity Status: {sample_payload.get('validity_status')}")

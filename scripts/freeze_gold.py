@@ -1,6 +1,9 @@
 """Freeze evaluation labels in the Test split only when final checks pass on Test questions."""
 from __future__ import annotations
-import argparse, hashlib, json, sys
+import argparse
+import hashlib
+import json
+import sys
 from pathlib import Path
 
 if sys.platform == "win32":
@@ -14,7 +17,7 @@ ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT/'scripts') not in sys.path:
     sys.path.insert(0, str(ROOT/'scripts'))
 
-from validate_benchmark import DATA, REF, canonical_json_sha256, check, inputs, load
+from validate_benchmark import DATA, canonical_json_sha256, check, inputs, load
 MANIFEST=ROOT/'docs'/'test_gold_freeze.json'
 
 def sha256(data):
@@ -23,7 +26,8 @@ def sha256(data):
     return canonical_json_sha256(data)
 
 def payload():
-    test=load(DATA/'queries_test.json');g=load(DATA/'ground_truth.json')
+    test=load(DATA/'queries_test.json')
+    g=load(DATA/'ground_truth.json')
     by_id={x['id']:x for x in g}
     return {'questions':test,'test_ground_truth':[by_id[q['id']] for q in test]}
 
@@ -105,17 +109,24 @@ def run(mode, force=False):
         )
 
     else:
-        if not MANIFEST.exists():raise RuntimeError('Chưa có manifest Test Gold vì chưa đủ chunks/review')
+        if not MANIFEST.exists():
+            raise RuntimeError('Chưa có manifest Test Gold vì chưa đủ chunks/review')
         test_issues = verify_test_split_ready()
         if test_issues:
             raise RuntimeError(f'Tập Test không đạt chuẩn final: {test_issues[:3]}')
-        if current()!=load(MANIFEST):raise RuntimeError('Test Gold bị thay đổi')
+        if current()!=load(MANIFEST):
+            raise RuntimeError('Test Gold bị thay đổi')
         print(f'PASS: Test Gold ({len(payload()["questions"])} câu) không đổi')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();gr=p.add_mutually_exclusive_group(required=True)
-    gr.add_argument('--create',action='store_true');gr.add_argument('--verify',action='store_true')
+    p=argparse.ArgumentParser()
+    gr=p.add_mutually_exclusive_group(required=True)
+    gr.add_argument('--create',action='store_true')
+    gr.add_argument('--verify',action='store_true')
     p.add_argument('--force',action='store_true',help='Cho phép thay manifest hiện hữu khi hash/list ID khác')
     a=p.parse_args()
-    try:run('create' if a.create else 'verify', force=a.force)
-    except RuntimeError as exc:print('FAIL:',exc);sys.exit(1)
+    try:
+        run('create' if a.create else 'verify', force=a.force)
+    except RuntimeError as exc:
+        print('FAIL:',exc)
+        sys.exit(1)

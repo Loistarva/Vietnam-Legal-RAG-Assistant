@@ -17,7 +17,6 @@ from embedding.dense_retriever import (
     DenseRetriever,
     get_model_spec,
     load_dense_retrieval_config,
-    preprocess_text,
 )
 from embedding.vector_store import (
     LegalVectorStore,
@@ -26,7 +25,7 @@ from embedding.vector_store import (
     is_effective_at,
     normalize_chunk_record,
 )
-from evaluation.evaluate_zero_shot import compute_rubric_scores, evaluate
+from evaluation.evaluate_zero_shot import compute_rubric_scores
 from scripts.build_index import load_chunks_from_repo
 
 
