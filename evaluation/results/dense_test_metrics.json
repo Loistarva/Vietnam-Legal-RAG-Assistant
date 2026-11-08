@@ -1171,10 +1171,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "f85749e5bed17788090ddf0cdf4c92ef83b4ef12142798559e06fadf13bd19c8"
+    "ground_truth": "37d64cd551a8d2ff16fba5640c2a5000816431a118642ca39a9b15b1cd4f6cf3",
+    "retrieval_results": "d00641e9255eb6d653229d74f8cc3b8eece8c121ade85361436fde8b66324084"
   },
   "run_config": {
     "top_k": 10,
@@ -1187,7 +1187,7 @@
     "elasticsearch_index": "bm25-e6-verified-20261101",
     "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
     "fusion": "rrf",
-    "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+    "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
     "as_of_date_by_query": {
       "HN_005": "2026-10-15",
@@ -1231,7 +1231,7 @@
       10
     ]
   },
-  "test_run_commit": "b3776e6eb77221f16c7199dcc8292588eef2b6be",
+  "test_run_commit": "defee7e45f7b7310ff41379f42728a76f86cb465",
   "by_category": {
     "ket_hon": {
       "strict_match_recall@5": 0.8666666666666667,

@@ -465,7 +465,7 @@
         }
       }
     ],
-    "latency_ms": 9738.114,
+    "latency_ms": 20210.319,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -478,7 +478,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -949,7 +949,7 @@
         }
       }
     ],
-    "latency_ms": 537.941,
+    "latency_ms": 1995.483,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -962,7 +962,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1014,7 +1014,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 115.573456,
+          "bm25": 115.57087,
           "dense": 0.75791
         }
       },
@@ -1060,7 +1060,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 105.153946,
+          "bm25": 105.15142,
           "dense": 0.72654
         }
       },
@@ -1106,7 +1106,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 97.803375,
+          "bm25": 97.80107,
           "dense": 0.68403
         }
       },
@@ -1198,7 +1198,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 76.17238,
+          "bm25": 76.1699,
           "dense": 0.656015
         }
       },
@@ -1290,7 +1290,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 57.07395,
+          "bm25": 57.07182,
           "dense": 0.666457
         }
       },
@@ -1336,7 +1336,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 59.55152,
+          "bm25": 59.54905,
           "dense": 0.637084
         }
       },
@@ -1382,7 +1382,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 59.523968,
+          "bm25": 59.521152,
           "dense": 0.649363
         }
       },
@@ -1428,12 +1428,12 @@
           "dense": 25
         },
         "source_scores": {
-          "bm25": 68.16583,
+          "bm25": 68.1642,
           "dense": 0.616562
         }
       }
     ],
-    "latency_ms": 529.942,
+    "latency_ms": 2051.437,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1446,7 +1446,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1498,7 +1498,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 103.24836,
+          "bm25": 103.250336,
           "dense": 0.746869
         }
       },
@@ -1544,7 +1544,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 98.603004,
+          "bm25": 98.60468,
           "dense": 0.672466
         }
       },
@@ -1590,7 +1590,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 83.291275,
+          "bm25": 83.29273,
           "dense": 0.724013
         }
       },
@@ -1636,7 +1636,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 86.73441,
+          "bm25": 86.73648,
           "dense": 0.685621
         }
       },
@@ -1682,7 +1682,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 87.58161,
+          "bm25": 87.58299,
           "dense": 0.622742
         }
       },
@@ -1728,7 +1728,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 60.1995,
+          "bm25": 60.201393,
           "dense": 0.631481
         }
       },
@@ -1774,7 +1774,7 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 78.39063,
+          "bm25": 78.39259,
           "dense": 0.61716
         }
       },
@@ -1820,7 +1820,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 59.54522,
+          "bm25": 59.5471,
           "dense": 0.624418
         }
       },
@@ -1866,7 +1866,7 @@
           "dense": 11
         },
         "source_scores": {
-          "bm25": 58.932068,
+          "bm25": 58.934074,
           "dense": 0.622167
         }
       },
@@ -1912,12 +1912,12 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 56.8417,
+          "bm25": 56.843647,
           "dense": 0.624392
         }
       }
     ],
-    "latency_ms": 528.621,
+    "latency_ms": 1811.643,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1930,7 +1930,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2258,7 +2258,7 @@
           "dense": 12
         },
         "source_scores": {
-          "bm25": 35.505764,
+          "bm25": 35.510345,
           "dense": 0.542571
         }
       },
@@ -2401,7 +2401,7 @@
         }
       }
     ],
-    "latency_ms": 534.496,
+    "latency_ms": 2027.61,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2414,7 +2414,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2466,7 +2466,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 108.12525,
+          "bm25": 108.126915,
           "dense": 0.714225
         }
       },
@@ -2512,7 +2512,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 37.003914,
+          "bm25": 37.00584,
           "dense": 0.629998
         }
       },
@@ -2558,7 +2558,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 34.410835,
+          "bm25": 34.412834,
           "dense": 0.572168
         }
       },
@@ -2604,7 +2604,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 37.44277,
+          "bm25": 37.444336,
           "dense": 0.548381
         }
       },
@@ -2650,7 +2650,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 33.308174,
+          "bm25": 33.30953,
           "dense": 0.554239
         }
       },
@@ -2696,7 +2696,7 @@
           "dense": 19
         },
         "source_scores": {
-          "bm25": 37.980892,
+          "bm25": 37.982784,
           "dense": 0.538318
         }
       },
@@ -2742,7 +2742,7 @@
           "dense": 15
         },
         "source_scores": {
-          "bm25": 32.18486,
+          "bm25": 32.18693,
           "dense": 0.543101
         }
       },
@@ -2834,7 +2834,7 @@
           "dense": 13
         },
         "source_scores": {
-          "bm25": 28.48727,
+          "bm25": 28.488321,
           "dense": 0.544218
         }
       },
@@ -2880,12 +2880,12 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 26.487808,
+          "bm25": 26.489882,
           "dense": 0.555758
         }
       }
     ],
-    "latency_ms": 577.633,
+    "latency_ms": 1885.799,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2898,7 +2898,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3369,7 +3369,7 @@
         }
       }
     ],
-    "latency_ms": 536.152,
+    "latency_ms": 2045.211,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3382,7 +3382,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3853,7 +3853,7 @@
         }
       }
     ],
-    "latency_ms": 550.177,
+    "latency_ms": 2077.132,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3866,7 +3866,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4337,7 +4337,7 @@
         }
       }
     ],
-    "latency_ms": 546.02,
+    "latency_ms": 1916.048,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4350,7 +4350,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4821,7 +4821,7 @@
         }
       }
     ],
-    "latency_ms": 533.962,
+    "latency_ms": 2078.642,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4834,7 +4834,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4886,7 +4886,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 68.23242,
+          "bm25": 68.2304,
           "dense": 0.601141
         }
       },
@@ -4932,7 +4932,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 69.31038,
+          "bm25": 69.308235,
           "dense": 0.540915
         }
       },
@@ -4978,7 +4978,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 64.62688,
+          "bm25": 64.62533,
           "dense": 0.548397
         }
       },
@@ -5024,7 +5024,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 65.918495,
+          "bm25": 65.9157,
           "dense": 0.524311
         }
       },
@@ -5070,7 +5070,7 @@
           "dense": 15
         },
         "source_scores": {
-          "bm25": 55.814922,
+          "bm25": 55.812153,
           "dense": 0.515382
         }
       },
@@ -5116,7 +5116,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 45.774166,
+          "bm25": 45.771584,
           "dense": 0.552924
         }
       },
@@ -5208,7 +5208,7 @@
           "dense": 31
         },
         "source_scores": {
-          "bm25": 55.033207,
+          "bm25": 55.03032,
           "dense": 0.503186
         }
       },
@@ -5254,7 +5254,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 39.76792,
+          "bm25": 39.765392,
           "dense": 0.576011
         }
       },
@@ -5300,12 +5300,12 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 41.709705,
+          "bm25": 41.707417,
           "dense": 0.534991
         }
       }
     ],
-    "latency_ms": 558.24,
+    "latency_ms": 2039.584,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5318,7 +5318,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5370,7 +5370,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 156.01555,
+          "bm25": 156.01144,
           "dense": 0.715434
         }
       },
@@ -5416,7 +5416,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 80.020004,
+          "bm25": 80.018555,
           "dense": 0.65468
         }
       },
@@ -5462,7 +5462,7 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 85.70598,
+          "bm25": 85.70371,
           "dense": 0.625367
         }
       },
@@ -5508,7 +5508,7 @@
           "dense": 41
         },
         "source_scores": {
-          "bm25": 95.24011,
+          "bm25": 95.2367,
           "dense": 0.596208
         }
       },
@@ -5554,7 +5554,7 @@
           "dense": 35
         },
         "source_scores": {
-          "bm25": 74.44744,
+          "bm25": 74.444374,
           "dense": 0.600011
         }
       },
@@ -5600,7 +5600,7 @@
           "dense": 44
         },
         "source_scores": {
-          "bm25": 74.539955,
+          "bm25": 74.53877,
           "dense": 0.595357
         }
       },
@@ -5646,7 +5646,7 @@
           "dense": 34
         },
         "source_scores": {
-          "bm25": 73.13276,
+          "bm25": 73.12847,
           "dense": 0.600294
         }
       },
@@ -5692,7 +5692,7 @@
           "dense": 28
         },
         "source_scores": {
-          "bm25": 71.34232,
+          "bm25": 71.33864,
           "dense": 0.606957
         }
       },
@@ -5738,7 +5738,7 @@
           "dense": 26
         },
         "source_scores": {
-          "bm25": 70.04265,
+          "bm25": 70.03821,
           "dense": 0.609274
         }
       },
@@ -5784,12 +5784,12 @@
           "dense": 43
         },
         "source_scores": {
-          "bm25": 72.321236,
+          "bm25": 72.32486,
           "dense": 0.596042
         }
       }
     ],
-    "latency_ms": 540.649,
+    "latency_ms": 1876.323,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5802,7 +5802,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5854,7 +5854,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 170.74333,
+          "bm25": 170.74103,
           "dense": 0.776603
         }
       },
@@ -5900,7 +5900,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 105.83912,
+          "bm25": 105.83808,
           "dense": 0.726653
         }
       },
@@ -5946,7 +5946,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 61.98011,
+          "bm25": 61.97907,
           "dense": 0.686969
         }
       },
@@ -5992,7 +5992,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 64.02944,
+          "bm25": 64.0284,
           "dense": 0.648586
         }
       },
@@ -6038,7 +6038,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 86.68064,
+          "bm25": 86.68244,
           "dense": 0.615333
         }
       },
@@ -6084,7 +6084,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 57.97662,
+          "bm25": 57.975582,
           "dense": 0.639039
         }
       },
@@ -6130,7 +6130,7 @@
           "dense": 23
         },
         "source_scores": {
-          "bm25": 57.532402,
+          "bm25": 57.5306,
           "dense": 0.600861
         }
       },
@@ -6176,7 +6176,7 @@
           "dense": 35
         },
         "source_scores": {
-          "bm25": 67.108284,
+          "bm25": 67.10864,
           "dense": 0.581867
         }
       },
@@ -6268,12 +6268,12 @@
           "dense": 24
         },
         "source_scores": {
-          "bm25": 52.00688,
+          "bm25": 52.005405,
           "dense": 0.600595
         }
       }
     ],
-    "latency_ms": 535.948,
+    "latency_ms": 2021.288,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6286,7 +6286,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6338,7 +6338,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 120.333694,
+          "bm25": 120.33169,
           "dense": 0.768657
         }
       },
@@ -6384,7 +6384,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 89.017746,
+          "bm25": 89.015915,
           "dense": 0.653516
         }
       },
@@ -6430,7 +6430,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 67.295364,
+          "bm25": 67.29345,
           "dense": 0.588203
         }
       },
@@ -6476,7 +6476,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 56.11108,
+          "bm25": 56.108967,
           "dense": 0.58859
         }
       },
@@ -6522,7 +6522,7 @@
           "dense": 20
         },
         "source_scores": {
-          "bm25": 47.52631,
+          "bm25": 47.523403,
           "dense": 0.565126
         }
       },
@@ -6568,7 +6568,7 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 46.882664,
+          "bm25": 46.879044,
           "dense": 0.568677
         }
       },
@@ -6614,7 +6614,7 @@
           "dense": 17
         },
         "source_scores": {
-          "bm25": 43.04249,
+          "bm25": 43.03669,
           "dense": 0.569444
         }
       },
@@ -6660,7 +6660,7 @@
           "dense": 37
         },
         "source_scores": {
-          "bm25": 46.20642,
+          "bm25": 46.20397,
           "dense": 0.549711
         }
       },
@@ -6706,7 +6706,7 @@
           "dense": 24
         },
         "source_scores": {
-          "bm25": 43.66588,
+          "bm25": 43.66161,
           "dense": 0.560987
         }
       },
@@ -6752,12 +6752,12 @@
           "dense": 39
         },
         "source_scores": {
-          "bm25": 44.91217,
+          "bm25": 44.905846,
           "dense": 0.549313
         }
       }
     ],
-    "latency_ms": 538.303,
+    "latency_ms": 1780.141,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6770,7 +6770,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6822,7 +6822,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 109.207825,
+          "bm25": 109.19737,
           "dense": 0.732708
         }
       },
@@ -6868,7 +6868,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 104.728874,
+          "bm25": 104.7239,
           "dense": 0.710068
         }
       },
@@ -6914,7 +6914,7 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 102.064835,
+          "bm25": 102.05455,
           "dense": 0.699228
         }
       },
@@ -6960,7 +6960,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 76.01359,
+          "bm25": 76.0067,
           "dense": 0.719921
         }
       },
@@ -7006,7 +7006,7 @@
           "dense": 15
         },
         "source_scores": {
-          "bm25": 81.78192,
+          "bm25": 81.77443,
           "dense": 0.69883
         }
       },
@@ -7052,7 +7052,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 69.88005,
+          "bm25": 69.87195,
           "dense": 0.725342
         }
       },
@@ -7098,7 +7098,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 72.99079,
+          "bm25": 72.98244,
           "dense": 0.703742
         }
       },
@@ -7144,7 +7144,7 @@
           "dense": 29
         },
         "source_scores": {
-          "bm25": 81.62551,
+          "bm25": 81.616745,
           "dense": 0.677511
         }
       },
@@ -7190,7 +7190,7 @@
           "dense": 16
         },
         "source_scores": {
-          "bm25": 74.43708,
+          "bm25": 74.43312,
           "dense": 0.694013
         }
       },
@@ -7236,12 +7236,12 @@
           "dense": 22
         },
         "source_scores": {
-          "bm25": 78.20623,
+          "bm25": 78.19844,
           "dense": 0.685091
         }
       }
     ],
-    "latency_ms": 541.554,
+    "latency_ms": 2060.416,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7254,7 +7254,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7306,7 +7306,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 120.97403,
+          "bm25": 120.96736,
           "dense": 0.791614
         }
       },
@@ -7352,7 +7352,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 103.19135,
+          "bm25": 103.187096,
           "dense": 0.776318
         }
       },
@@ -7444,7 +7444,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 83.719055,
+          "bm25": 83.71413,
           "dense": 0.740512
         }
       },
@@ -7536,7 +7536,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 80.65979,
+          "bm25": 80.65602,
           "dense": 0.736766
         }
       },
@@ -7582,7 +7582,7 @@
           "dense": 23
         },
         "source_scores": {
-          "bm25": 115.96934,
+          "bm25": 115.96347,
           "dense": 0.699953
         }
       },
@@ -7628,7 +7628,7 @@
           "dense": 25
         },
         "source_scores": {
-          "bm25": 117.299934,
+          "bm25": 117.29369,
           "dense": 0.699218
         }
       },
@@ -7674,7 +7674,7 @@
           "dense": 29
         },
         "source_scores": {
-          "bm25": 125.95688,
+          "bm25": 125.95251,
           "dense": 0.692669
         }
       },
@@ -7720,12 +7720,12 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 99.53963,
+          "bm25": 99.536316,
           "dense": 0.724469
         }
       }
     ],
-    "latency_ms": 539.09,
+    "latency_ms": 1967.956,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7738,7 +7738,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7790,7 +7790,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 205.51881,
+          "bm25": 205.51541,
           "dense": 0.798325
         }
       },
@@ -7836,7 +7836,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 214.48253,
+          "bm25": 214.47903,
           "dense": 0.778282
         }
       },
@@ -7882,7 +7882,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 149.1163,
+          "bm25": 149.11058,
           "dense": 0.785659
         }
       },
@@ -7974,7 +7974,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 194.69547,
+          "bm25": 194.69128,
           "dense": 0.749523
         }
       },
@@ -8020,7 +8020,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 92.104195,
+          "bm25": 92.100815,
           "dense": 0.73182
         }
       },
@@ -8066,7 +8066,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 84.59235,
+          "bm25": 84.589,
           "dense": 0.717302
         }
       },
@@ -8112,7 +8112,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 85.75875,
+          "bm25": 85.76326,
           "dense": 0.716969
         }
       },
@@ -8158,7 +8158,7 @@
           "dense": 11
         },
         "source_scores": {
-          "bm25": 83.44571,
+          "bm25": 83.44244,
           "dense": 0.688013
         }
       },
@@ -8204,12 +8204,12 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 75.50839,
+          "bm25": 75.50479,
           "dense": 0.699792
         }
       }
     ],
-    "latency_ms": 626.169,
+    "latency_ms": 2171.322,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8222,7 +8222,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8274,7 +8274,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 200.30678,
+          "bm25": 200.30125,
           "dense": 0.789897
         }
       },
@@ -8320,7 +8320,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 180.24324,
+          "bm25": 180.23651,
           "dense": 0.77353
         }
       },
@@ -8366,7 +8366,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 164.81851,
+          "bm25": 164.81253,
           "dense": 0.786812
         }
       },
@@ -8412,7 +8412,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 178.3904,
+          "bm25": 178.3849,
           "dense": 0.775643
         }
       },
@@ -8458,7 +8458,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 150.48228,
+          "bm25": 150.47581,
           "dense": 0.712885
         }
       },
@@ -8504,7 +8504,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 128.51306,
+          "bm25": 128.50865,
           "dense": 0.71817
         }
       },
@@ -8550,7 +8550,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 121.89501,
+          "bm25": 121.8942,
           "dense": 0.719853
         }
       },
@@ -8596,7 +8596,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 124.493576,
+          "bm25": 124.48817,
           "dense": 0.708984
         }
       },
@@ -8642,7 +8642,7 @@
           "dense": 16
         },
         "source_scores": {
-          "bm25": 137.79628,
+          "bm25": 137.79161,
           "dense": 0.70316
         }
       },
@@ -8688,12 +8688,12 @@
           "dense": 11
         },
         "source_scores": {
-          "bm25": 123.098465,
+          "bm25": 123.09349,
           "dense": 0.707962
         }
       }
     ],
-    "latency_ms": 628.329,
+    "latency_ms": 1887.706,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8706,7 +8706,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8758,7 +8758,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 134.14389,
+          "bm25": 134.14023,
           "dense": 0.713389
         }
       },
@@ -8804,7 +8804,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 137.81082,
+          "bm25": 137.80699,
           "dense": 0.701384
         }
       },
@@ -8896,7 +8896,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 105.967255,
+          "bm25": 105.96243,
           "dense": 0.640027
         }
       },
@@ -8942,7 +8942,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 89.001884,
+          "bm25": 88.99762,
           "dense": 0.683153
         }
       },
@@ -8988,7 +8988,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 95.625435,
+          "bm25": 95.62106,
           "dense": 0.653957
         }
       },
@@ -9034,7 +9034,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 100.438416,
+          "bm25": 100.43442,
           "dense": 0.64229
         }
       },
@@ -9080,7 +9080,7 @@
           "dense": 13
         },
         "source_scores": {
-          "bm25": 101.33379,
+          "bm25": 101.32802,
           "dense": 0.636375
         }
       },
@@ -9126,7 +9126,7 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 102.94851,
+          "bm25": 102.945244,
           "dense": 0.596999
         }
       },
@@ -9172,12 +9172,12 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 74.61954,
+          "bm25": 74.6147,
           "dense": 0.657099
         }
       }
     ],
-    "latency_ms": 615.696,
+    "latency_ms": 2088.745,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9190,7 +9190,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9288,7 +9288,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 68.98959,
+          "bm25": 68.9947,
           "dense": 0.612298
         }
       },
@@ -9334,7 +9334,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 71.95277,
+          "bm25": 71.958,
           "dense": 0.593327
         }
       },
@@ -9661,7 +9661,7 @@
         }
       }
     ],
-    "latency_ms": 620.913,
+    "latency_ms": 2102.631,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9674,7 +9674,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9726,7 +9726,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 98.89203,
+          "bm25": 98.89389,
           "dense": 0.659552
         }
       },
@@ -9772,7 +9772,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 74.20488,
+          "bm25": 74.20651,
           "dense": 0.639435
         }
       },
@@ -9818,7 +9818,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 78.14222,
+          "bm25": 78.14364,
           "dense": 0.595145
         }
       },
@@ -9864,7 +9864,7 @@
           "dense": 22
         },
         "source_scores": {
-          "bm25": 65.81825,
+          "bm25": 65.82033,
           "dense": 0.567476
         }
       },
@@ -9910,7 +9910,7 @@
           "dense": 20
         },
         "source_scores": {
-          "bm25": 62.198574,
+          "bm25": 62.20021,
           "dense": 0.569241
         }
       },
@@ -9956,7 +9956,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 48.77181,
+          "bm25": 48.77404,
           "dense": 0.615612
         }
       },
@@ -10002,7 +10002,7 @@
           "dense": 16
         },
         "source_scores": {
-          "bm25": 51.937557,
+          "bm25": 51.93908,
           "dense": 0.571178
         }
       },
@@ -10048,7 +10048,7 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 52.25039,
+          "bm25": 52.25222,
           "dense": 0.569605
         }
       },
@@ -10094,7 +10094,7 @@
           "dense": 30
         },
         "source_scores": {
-          "bm25": 54.759003,
+          "bm25": 54.76099,
           "dense": 0.563193
         }
       },
@@ -10140,12 +10140,12 @@
           "dense": 31
         },
         "source_scores": {
-          "bm25": 53.509857,
+          "bm25": 53.51191,
           "dense": 0.562738
         }
       }
     ],
-    "latency_ms": 618.421,
+    "latency_ms": 1840.822,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10158,7 +10158,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10210,7 +10210,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 137.82794,
+          "bm25": 137.82613,
           "dense": 0.719233
         }
       },
@@ -10256,7 +10256,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 116.21782,
+          "bm25": 116.21355,
           "dense": 0.719919
         }
       },
@@ -10302,7 +10302,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 117.084854,
+          "bm25": 117.08254,
           "dense": 0.718436
         }
       },
@@ -10348,7 +10348,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 119.08008,
+          "bm25": 119.07812,
           "dense": 0.687812
         }
       },
@@ -10394,7 +10394,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 101.61155,
+          "bm25": 101.60913,
           "dense": 0.717699
         }
       },
@@ -10486,7 +10486,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 112.61715,
+          "bm25": 112.61342,
           "dense": 0.714159
         }
       },
@@ -10532,7 +10532,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 113.37795,
+          "bm25": 113.37593,
           "dense": 0.683846
         }
       },
@@ -10578,7 +10578,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 86.89317,
+          "bm25": 86.89084,
           "dense": 0.68218
         }
       },
@@ -10624,12 +10624,12 @@
           "dense": 17
         },
         "source_scores": {
-          "bm25": 89.31001,
+          "bm25": 89.30819,
           "dense": 0.654871
         }
       }
     ],
-    "latency_ms": 612.17,
+    "latency_ms": 2261.709,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10642,7 +10642,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -10694,7 +10694,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 94.13681,
+          "bm25": 94.13825,
           "dense": 0.625965
         }
       },
@@ -10740,7 +10740,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 98.17961,
+          "bm25": 98.181244,
           "dense": 0.584879
         }
       },
@@ -10832,7 +10832,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 94.10015,
+          "bm25": 94.09782,
           "dense": 0.601053
         }
       },
@@ -10878,7 +10878,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 67.11398,
+          "bm25": 67.1156,
           "dense": 0.519934
         }
       },
@@ -10924,7 +10924,7 @@
           "dense": 21
         },
         "source_scores": {
-          "bm25": 73.880226,
+          "bm25": 73.880844,
           "dense": 0.490205
         }
       },
@@ -10970,7 +10970,7 @@
           "dense": 13
         },
         "source_scores": {
-          "bm25": 63.933933,
+          "bm25": 63.935593,
           "dense": 0.501876
         }
       },
@@ -11016,7 +11016,7 @@
           "dense": 22
         },
         "source_scores": {
-          "bm25": 72.21017,
+          "bm25": 72.20991,
           "dense": 0.489714
         }
       },
@@ -11062,7 +11062,7 @@
           "dense": 29
         },
         "source_scores": {
-          "bm25": 76.75236,
+          "bm25": 76.75432,
           "dense": 0.480799
         }
       },
@@ -11108,12 +11108,12 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 65.496346,
+          "bm25": 65.49756,
           "dense": 0.494271
         }
       }
     ],
-    "latency_ms": 611.21,
+    "latency_ms": 2039.538,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -11126,7 +11126,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -11178,7 +11178,7 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 158.69472,
+          "bm25": 158.69629,
           "dense": 0.773229
         }
       },
@@ -11224,7 +11224,7 @@
           "dense": 12
         },
         "source_scores": {
-          "bm25": 144.27026,
+          "bm25": 144.27893,
           "dense": 0.777921
         }
       },
@@ -11270,7 +11270,7 @@
           "dense": 10
         },
         "source_scores": {
-          "bm25": 137.13965,
+          "bm25": 137.14565,
           "dense": 0.780018
         }
       },
@@ -11316,7 +11316,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 125.92001,
+          "bm25": 125.926025,
           "dense": 0.783657
         }
       },
@@ -11362,7 +11362,7 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 149.605,
+          "bm25": 149.6111,
           "dense": 0.724111
         }
       },
@@ -11408,7 +11408,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 101.4991,
+          "bm25": 101.49726,
           "dense": 0.832569
         }
       },
@@ -11454,7 +11454,7 @@
           "dense": 22
         },
         "source_scores": {
-          "bm25": 141.50694,
+          "bm25": 141.5165,
           "dense": 0.714512
         }
       },
@@ -11500,7 +11500,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 94.201096,
+          "bm25": 94.20809,
           "dense": 0.83738
         }
       },
@@ -11546,7 +11546,7 @@
           "dense": 33
         },
         "source_scores": {
-          "bm25": 144.32274,
+          "bm25": 144.33035,
           "dense": 0.692338
         }
       },
@@ -11592,12 +11592,12 @@
           "dense": 21
         },
         "source_scores": {
-          "bm25": 122.3877,
+          "bm25": 122.38664,
           "dense": 0.716745
         }
       }
     ],
-    "latency_ms": 728.297,
+    "latency_ms": 1978.538,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -11610,7 +11610,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -11662,7 +11662,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 184.80745,
+          "bm25": 184.80556,
           "dense": 0.733834
         }
       },
@@ -11708,7 +11708,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 108.91566,
+          "bm25": 108.91203,
           "dense": 0.753888
         }
       },
@@ -11754,7 +11754,7 @@
           "dense": 16
         },
         "source_scores": {
-          "bm25": 149.64458,
+          "bm25": 149.64093,
           "dense": 0.687483
         }
       },
@@ -11800,7 +11800,7 @@
           "dense": 15
         },
         "source_scores": {
-          "bm25": 137.32855,
+          "bm25": 137.32613,
           "dense": 0.693408
         }
       },
@@ -11846,7 +11846,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 115.24546,
+          "bm25": 115.24679,
           "dense": 0.716476
         }
       },
@@ -11938,7 +11938,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 101.05979,
+          "bm25": 101.06048,
           "dense": 0.72764
         }
       },
@@ -11984,7 +11984,7 @@
           "dense": 14
         },
         "source_scores": {
-          "bm25": 109.97331,
+          "bm25": 109.974,
           "dense": 0.699901
         }
       },
@@ -12030,7 +12030,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 95.82972,
+          "bm25": 95.83103,
           "dense": 0.717852
         }
       },
@@ -12076,12 +12076,12 @@
           "dense": 37
         },
         "source_scores": {
-          "bm25": 126.05053,
+          "bm25": 126.051476,
           "dense": 0.651677
         }
       }
     ],
-    "latency_ms": 548.714,
+    "latency_ms": 2002.543,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -12094,7 +12094,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -12146,7 +12146,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 244.15416,
+          "bm25": 244.14691,
           "dense": 0.731264
         }
       },
@@ -12192,7 +12192,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 223.31116,
+          "bm25": 223.31488,
           "dense": 0.74185
         }
       },
@@ -12238,7 +12238,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 232.4,
+          "bm25": 232.40266,
           "dense": 0.68979
         }
       },
@@ -12284,7 +12284,7 @@
           "dense": 5
         },
         "source_scores": {
-          "bm25": 231.87173,
+          "bm25": 231.87573,
           "dense": 0.693403
         }
       },
@@ -12330,7 +12330,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 197.23537,
+          "bm25": 197.23438,
           "dense": 0.696122
         }
       },
@@ -12376,7 +12376,7 @@
           "dense": 3
         },
         "source_scores": {
-          "bm25": 180.32643,
+          "bm25": 180.3283,
           "dense": 0.697587
         }
       },
@@ -12422,7 +12422,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 195.41081,
+          "bm25": 195.4145,
           "dense": 0.658406
         }
       },
@@ -12468,7 +12468,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 180.36191,
+          "bm25": 180.357,
           "dense": 0.651132
         }
       },
@@ -12514,7 +12514,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 173.8639,
+          "bm25": 173.85187,
           "dense": 0.656404
         }
       },
@@ -12560,12 +12560,12 @@
           "dense": 12
         },
         "source_scores": {
-          "bm25": 94.53282,
+          "bm25": 94.52942,
           "dense": 0.617066
         }
       }
     ],
-    "latency_ms": 560.363,
+    "latency_ms": 2045.389,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -12578,7 +12578,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -12630,7 +12630,7 @@
           "dense": 4
         },
         "source_scores": {
-          "bm25": 114.746056,
+          "bm25": 114.744125,
           "dense": 0.751907
         }
       },
@@ -12676,7 +12676,7 @@
           "dense": 6
         },
         "source_scores": {
-          "bm25": 126.2865,
+          "bm25": 126.28431,
           "dense": 0.746372
         }
       },
@@ -12722,7 +12722,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 106.482414,
+          "bm25": 106.48054,
           "dense": 0.76597
         }
       },
@@ -12768,7 +12768,7 @@
           "dense": 7
         },
         "source_scores": {
-          "bm25": 113.76266,
+          "bm25": 113.760345,
           "dense": 0.745641
         }
       },
@@ -12814,7 +12814,7 @@
           "dense": 1
         },
         "source_scores": {
-          "bm25": 96.79516,
+          "bm25": 96.79383,
           "dense": 0.770074
         }
       },
@@ -12906,7 +12906,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 100.95029,
+          "bm25": 100.94806,
           "dense": 0.74463
         }
       },
@@ -12952,7 +12952,7 @@
           "dense": 17
         },
         "source_scores": {
-          "bm25": 110.50496,
+          "bm25": 110.502304,
           "dense": 0.728285
         }
       },
@@ -12998,7 +12998,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 93.41726,
+          "bm25": 93.41511,
           "dense": 0.745204
         }
       },
@@ -13044,12 +13044,12 @@
           "dense": 13
         },
         "source_scores": {
-          "bm25": 100.26716,
+          "bm25": 100.26454,
           "dense": 0.736363
         }
       }
     ],
-    "latency_ms": 532.414,
+    "latency_ms": 2095.796,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -13062,7 +13062,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -13533,7 +13533,7 @@
         }
       }
     ],
-    "latency_ms": 608.453,
+    "latency_ms": 2067.688,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -13546,7 +13546,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -14017,7 +14017,7 @@
         }
       }
     ],
-    "latency_ms": 606.908,
+    "latency_ms": 2008.647,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -14030,7 +14030,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -14082,7 +14082,7 @@
           "dense": 2
         },
         "source_scores": {
-          "bm25": 123.10367,
+          "bm25": 123.10163,
           "dense": 0.704613
         }
       },
@@ -14220,7 +14220,7 @@
           "dense": 8
         },
         "source_scores": {
-          "bm25": 72.77042,
+          "bm25": 72.767876,
           "dense": 0.659073
         }
       },
@@ -14358,7 +14358,7 @@
           "dense": 9
         },
         "source_scores": {
-          "bm25": 60.135803,
+          "bm25": 60.133472,
           "dense": 0.657543
         }
       },
@@ -14404,7 +14404,7 @@
           "dense": 16
         },
         "source_scores": {
-          "bm25": 62.07617,
+          "bm25": 62.074005,
           "dense": 0.645901
         }
       },
@@ -14496,12 +14496,12 @@
           "dense": 18
         },
         "source_scores": {
-          "bm25": 63.59699,
+          "bm25": 63.59556,
           "dense": 0.64433
         }
       }
     ],
-    "latency_ms": 611.276,
+    "latency_ms": 2139.289,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -14514,7 +14514,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }

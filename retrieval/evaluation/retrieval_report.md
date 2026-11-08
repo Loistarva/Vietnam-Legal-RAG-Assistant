@@ -1,8 +1,8 @@
 # Báo cáo đánh giá truy xuất
 
-- Ngày tạo: 2026-11-07
+- Ngày tạo: 2026-11-08
 - Bộ Dev: `data/benchmark/queries_dev.json` (270 câu; chấm 75 câu)
-- Corpus: `data/chunking_output/chunks.jsonl` (2322 chunk; SHA-256 bắt đầu `c18239351424`).
+- Corpus: `data/chunking_output/chunks.jsonl` (2322 chunk; SHA-256 bắt đầu `7105c4840613`).
 - Phạm vi: corpus 28 văn bản; chỉ chấm trên Dev set, không phải đánh giá trên Test set.
 - CSV chứa nội dung chunk được truy xuất, cờ liên quan và nội dung/mã chunk chuẩn để đối chiếu.
 - Truy xuất thưa: Elasticsearch BM25 `multi_match` trên nội dung phân đoạn, đường dẫn ngữ cảnh và metadata Điều/Khoản.
