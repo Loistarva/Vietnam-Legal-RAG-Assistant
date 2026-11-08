@@ -11618,13 +11618,43 @@
     "parent_id": "nd_07_2025_nd_cp_art_2_p2",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
-    "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n2. Sửa đổi, bổ sung khoản 1, khoản 2 Điều 2 như sau: “1. Người yêu cầu đăng ký hộ tịch, cấp bản sao trích lục hộ tịch xuất trình bản chính một trong các giấy tờ là hộ chiếu, chứng minh nhân dân, Thẻ căn cước công dân, Thẻ căn cước, Căn cước điện tử, Giấy chứng nhận căn cước hoặc giấy tờ khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng (sau đây gọi là giấy tờ tùy thân) để chứng minh về nhân thân. 2. Người yêu cầu đăng ký khai sinh phải nộp Giấy chứng sinh hoặc giấy tờ thay Giấy chứng sinh theo quy định tại khoản 1 Điều 16 của Luật Hộ tịch; người yêu cầu đăng ký khai tử phải nộp Giấy báo tử hoặc giấy tờ thay Giấy báo tử theo quy định tại khoản 1 Điều 34 của Luật Hộ tịch và tại khoản 2 Điều 4 của Nghị định này.\nTrường hợp người yêu cầu đã nộp bản điện tử Giấy chứng sinh, Giấy báo tử hoặc cơ quan đăng ký hộ tịch đã khai thác được dữ liệu điện tử có ký số của Giấy chứng sinh, Giấy báo tử thì không phải nộp bản giấy.”.",
+    "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n2. Sửa đổi, bổ sung khoản 1, khoản 2 Điều 2 như sau: “1. Người yêu cầu đăng ký hộ tịch, cấp bản sao trích lục hộ tịch xuất trình bản chính một trong các giấy tờ là hộ chiếu, chứng minh nhân dân, Thẻ căn cước công dân, Thẻ căn cước, Căn cước điện tử, Giấy chứng nhận căn cước hoặc giấy tờ khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng (sau đây gọi là giấy tờ tùy thân) để chứng minh về nhân thân.",
     "breadcrumb": "Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi... > Khoản 2",
     "article_ref": "Điều 2",
     "clause_refs": "Khoản 2",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "nd_07_2025_nd_cp_art_2_clause_2_chunk_1",
+      "nd_07_2025_nd_cp_art_2_clause_2_chunk_1"
+    ],
+    "metadata": {
+      "doc_id": "nd_07_2025_nd_cp",
+      "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+      "document_type": "Nghị định",
+      "document_number": "07/2025/NĐ-CP",
+      "issue_date": "2025-01-09",
+      "effective_date": "2025-01-09",
+      "effective_from": "2025-01-09",
+      "effective_to": "2026-01-15",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+      "issuing_body": "Chính phủ",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_status": "Hết hiệu lực một phần",
+      "provision_status": "amended",
+      "chapter": null,
+      "section": null,
+      "article_number": "2"
+    }
+  },
+  {
+    "parent_id": "nd_07_2025_nd_cp_art_2_p3",
+    "doc_id": "nd_07_2025_nd_cp",
+    "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+    "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n2. Người yêu cầu đăng ký khai sinh phải nộp Giấy chứng sinh hoặc giấy tờ thay Giấy chứng sinh theo quy định tại khoản 1 Điều 16 của Luật Hộ tịch; người yêu cầu đăng ký khai tử phải nộp Giấy báo tử hoặc giấy tờ thay Giấy báo tử theo quy định tại khoản 1 Điều 34 của Luật Hộ tịch và tại khoản 2 Điều 4 của Nghị định này. Trường hợp người yêu cầu đã nộp bản điện tử Giấy chứng sinh, Giấy báo tử hoặc cơ quan đăng ký hộ tịch đã khai thác được dữ liệu điện tử có ký số của Giấy chứng sinh, Giấy báo tử thì không phải nộp bản giấy.”.",
+    "breadcrumb": "Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi... > Khoản 2",
+    "article_ref": "Điều 2",
+    "clause_refs": "Khoản 2",
+    "chunk_type": "ARTICLE",
+    "child_ids": [
       "nd_07_2025_nd_cp_art_2_clause_2_chunk_2"
     ],
     "metadata": {
@@ -11647,7 +11677,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p3",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p4",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n3. Sửa đổi, bổ sung Điều 3 như sau: a) Sửa đổi, bổ sung tên Điều 3 như sau: Cách thức nộp, tiếp nhận hồ sơ đăng ký hộ tịch, tiến hành xác minh khi giải quyết hồ sơ đăng ký hộ tịch. b) Sửa đổi, bổ sung khoản 1 Điều 3 như sau: “1. Người yêu cầu đăng ký hộ tịch có thể nộp hồ sơ trực tiếp tại cơ quan đăng ký hộ tịch, gửi hồ sơ qua hệ thống bưu chính hoặc đăng ký trực tuyến theo quy định pháp luật về đăng ký hộ tịch trực tuyến. Hồ sơ đăng ký hộ tịch lập thành 01 (một) bộ.”. c) Bổ sung khoản 5 Điều 3 như sau: “5.\nĐối với yêu cầu đăng ký khai sinh mà cha, mẹ trẻ đã đăng ký kết hôn, trên cơ sở thông tin về Giấy chứng nhận kết hôn cung cấp trong Tờ khai đăng ký khai sinh, cơ quan đăng ký hộ tịch có trách nhiệm tra cứu thông tin về tình trạng hôn nhân của cha, mẹ trẻ trên Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh thông qua kết nối với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư. Đối với yêu cầu đăng ký kết hôn, cơ quan đăng ký hộ tịch tra cứu thông tin về tình trạng hôn nhân của người yêu cầu đăng ký kết hôn trên Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh thông qua kết nối với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư.",
@@ -11679,7 +11709,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p4",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p5",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\nKết quả tra cứu được lưu trữ dưới dạng điện tử hoặc bản giấy, phản ánh đầy đủ, chính xác thông tin tại thời điểm tra cứu và đính kèm hồ sơ của người đăng ký. Trường hợp không tra cứu được tình trạng hôn nhân do chưa có thông tin trong Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư, thì cơ quan đăng ký hộ tịch đề nghị Ủy ban nhân dân cấp xã nơi người yêu cầu thường trú/nơi đã đăng ký kết hôn xác minh, cung cấp thông tin. Trong thời hạn 03 ngày làm việc kể từ ngày nhận được yêu cầu xác minh, Ủy ban nhân dân cấp xã nơi nhận được đề nghị xác minh có trách nhiệm kiểm tra, xác minh và gửi kết quả về tình trạng hôn nhân của người đó.”.\n4. Sửa đổi điểm c khoản 1 Điều 4 như sau: “c) Số định danh cá nhân của người được đăng ký khai sinh được cấp khi đăng ký khai sinh. Việc cấp Số định danh cá nhân được thực hiện theo quy định của Luật Căn cước và các văn bản quy định chi tiết thi hành, trên cơ sở bảo đảm đồng bộ với Luật Hộ tịch và Nghị định này;”.\n5. Sửa đổi khoản 2 Điều 9 như sau: “2. Người yêu cầu đăng ký khai sinh xuất trình giấy tờ theo quy định tại khoản 1 Điều 2 của Nghị định này.”.",
@@ -11712,7 +11742,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p5",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p6",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n6. Sửa đổi, bổ sung khoản 4 Điều 22 như sau: “4. Trường hợp người yêu cầu xác nhận tình trạng hôn nhân đã từng đăng ký thường trú tại nhiều nơi khác nhau, người yêu cầu cung cấp các giấy tờ chứng minh tình trạng hôn nhân tại nơi thường trú trước đây (nếu có). Trên cơ sở các thông tin được cung cấp, cơ quan đăng ký hộ tịch tra cứu thông tin về tình trạng hôn nhân của người yêu cầu xác nhận tình trạng hôn nhân trên Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh thông qua kết nối với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư. Trường hợp không tra cứu được do chưa có thông tin trong Cơ sở dữ liệu thì cơ quan đăng ký hộ tịch phối hợp với các cơ quan có liên quan thực hiện việc xác minh. Thời hạn, phương thức gửi yêu cầu xác minh thực hiện theo quy định tại khoản 5 Điều 3 của Nghị định này.”.\n7. Sửa đổi khoản 2 Điều 23 như sau: “2. Giấy xác nhận tình trạng hôn nhân được sử dụng để kết hôn tại Cơ quan đại diện Việt Nam ở nước ngoài, cơ quan có thẩm quyền của nước ngoài ở nước ngoài hoặc sử dụng vào mục đích khác.”.",
@@ -11744,7 +11774,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p6",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p7",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n8. Bổ sung Mục 5 Chương 3 như sau: “Mục 5 ĐĂNG KÝ GIÁM SÁT VIỆC GIÁM HỘ, ĐĂNG KÝ CHẤM DỨT GIÁM SÁT VIỆC GIÁM HỘ Điều 28a. Thẩm quyền đăng ký giám sát việc giám hộ, đăng ký chấm dứt giám sát việc giám hộ 1. Ủy ban nhân dân cấp xã nơi cư trú của người được giám hộ thực hiện đăng ký giám sát việc giám hộ. 2. Ủy ban nhân dân cấp xã đã đăng ký giám sát việc giám hộ thực hiện đăng ký chấm dứt giám sát việc giám hộ. Điều 28b. Thủ tục đăng ký giám sát việc giám hộ 1. Người yêu cầu đăng ký giám sát việc giám hộ nộp Tờ khai đăng ký giám sát việc giám hộ theo mẫu quy định và văn bản là căn cứ chứng minh việc thỏa thuận cử/chọn người giám sát giám hộ theo quy định của Bộ luật Dân sự cho cơ quan đăng ký hộ tịch có thẩm quyền. 2.",
@@ -11775,7 +11805,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p7",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p8",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\nTrong thời hạn 03 ngày làm việc kể từ ngày tiếp nhận hồ sơ, nếu thấy đủ điều kiện theo quy định pháp luật thì công chức tư pháp - hộ tịch ghi vào Sổ hộ tịch, báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu. Trường hợp cần phải xác minh thì thời hạn giải quyết được kéo dài nhưng không quá 05 ngày làm việc kể từ ngày tiếp nhận hồ sơ. Điều 28c. Thủ tục đăng ký chấm dứt giám sát việc giám hộ 1. Người yêu cầu đăng ký chấm dứt giám sát việc giám hộ nộp Tờ khai đăng ký chấm dứt giám sát việc giám hộ theo mẫu quy định và giấy tờ là căn cứ chấm dứt giám sát việc giám hộ cho cơ quan đăng ký hộ tịch có thẩm quyền. 2. Trình tự đăng ký chấm dứt giám sát việc giám hộ được thực hiện tương tự quy định tại khoản 2 Điều 28b của Nghị định này. 3.\nTờ khai, các biểu mẫu Sổ, Trích lục hộ tịch liên quan đến đăng ký giám sát việc giám hộ, đăng ký chấm dứt giám sát việc giám hộ được ban hành theo Phụ lục kèm theo Nghị định này.”.",
@@ -11807,7 +11837,7 @@
     }
   },
   {
-    "parent_id": "nd_07_2025_nd_cp_art_2_p8",
+    "parent_id": "nd_07_2025_nd_cp_art_2_p9",
     "doc_id": "nd_07_2025_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
     "text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n9. Sửa đổi khoản 3 Điều 30 như sau: “3. Ngoài giấy tờ quy định tại khoản 1 Điều này, nếu bên kết hôn là công dân Việt Nam đã ly hôn hoặc hủy việc kết hôn tại cơ quan có thẩm quyền nước ngoài nhưng qua tra cứu thông tin trong Cơ sở dữ liệu hộ tịch điện tử; thông qua kết nối giữa Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư không thể hiện thông tin về việc đã ghi chú ly hôn, hủy việc kết hôn thì cơ quan đăng ký hộ tịch hướng dẫn công dân thực hiện thủ tục ghi vào sổ hộ tịch việc ly hôn/hủy việc kết hôn tại cơ quan nhà nước có thẩm quyền trước khi giải quyết việc đăng ký kết hôn;\nnếu người có yêu cầu đăng ký kết hôn là công chức, viên chức hoặc đang phục vụ trong lực lượng vũ trang thì phải nộp văn bản của cơ quan, đơn vị quản lý xác nhận việc người đó kết hôn với người nước ngoài không trái với quy định của ngành đó.”\n10. Bãi bỏ khoản 1 Điều 10 Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch.",

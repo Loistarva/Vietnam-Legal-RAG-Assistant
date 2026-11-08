@@ -8,9 +8,9 @@
   ],
   "top_k": 10,
   "sha256": {
-    "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
     "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471"
   },
-  "note": "SHA-256 được tính sau khi chuẩn hóa CRLF thành LF để manifest nhất quán giữa Windows và Linux. Không đổi nội dung cấu hình Test sau khi khóa; nếu cần thay đổi, cập nhật manifest và commit riêng trước khi chạy Test."
+  "note": "SHA-256 được tính sau khi chuẩn hóa CRLF thành LF để manifest nhất quán giữa Windows và Linux. Không đổi nội dung cấu hình Test sau khi khóa; nếu cần thay đổi, cập nhật manifest và commit riêng trước khi chạy Test. Corpus cập nhật để sửa F1: tách Khoản trích dẫn có thời hạn khác nhau trong NĐ 07/2025. Manifest này chuẩn bị cho lần chạy mới; chưa chạy lại Dev/Test và kết quả cũ không thuộc corpus mới."
 }

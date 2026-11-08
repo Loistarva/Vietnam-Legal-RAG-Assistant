@@ -32,11 +32,14 @@ class ProvisionOverride:
     changed_by: str
     provision: str
     evidence_chunk_id: str
+    quoted_clauses: frozenset[tuple[str, str, str]] = frozenset()
+    evidence_context_ids: tuple[str, ...] = ()
 
     def scope_of(
-        self, document_id: str, article_number: Any, clause_number: Any, point_ref: Any = None
+        self, document_id: str, article_number: Any, clause_number: Any, point_ref: Any = None,
+        quoted_clause_number: Any = None,
     ) -> tuple[str, ...] | None:
-        """Phần tử phạm vi khớp: ("article", n), ("clause", n, k), ("point", n, k, p) hoặc None.
+        """Phạm vi khớp: article, clause, point hoặc quoted_clause (a, k, q).
 
         Bản ghi cấp Điểm chỉ khớp chunk chứa đúng một Điểm (point_ref "Điểm p"); exporter
         tách các Khoản đó theo Điểm (split_point_clause_ids).
@@ -47,6 +50,9 @@ class ProvisionOverride:
         if article in self.articles:
             return ("article", article)
         clause = str(clause_number) if clause_number is not None else None
+        quoted = str(quoted_clause_number) if quoted_clause_number is not None else None
+        if (article, clause, quoted) in self.quoted_clauses:
+            return ("quoted_clause", article, clause, quoted)
         if (article, clause) in self.clauses:
             return ("clause", article, clause)
         if isinstance(point_ref, str) and point_ref.startswith("Điểm ") and "-" not in point_ref:
@@ -60,6 +66,7 @@ class ProvisionOverride:
             {("article", a) for a in self.articles}
             | {("clause", a, k) for a, k in self.clauses}
             | {("point", a, k, p) for a, k, p in self.points}
+            | {("quoted_clause", a, k, q) for a, k, q in self.quoted_clauses}
         )
 
 
@@ -81,14 +88,28 @@ def _parse_override(raw: dict[str, Any]) -> ProvisionOverride:
     points = frozenset(
         (str(p["article"]), str(p["clause"]), str(p["point"])) for p in raw.get("points") or []
     )
-    if not articles and not clauses and not points:
-        raise ValueError(f"provision_periods.json: {raw['id']}: cần ít nhất một trong articles, clauses, points")
+    quoted_clauses = frozenset(
+        (str(q["article"]), str(q["clause"]), str(q["quoted_clause"]))
+        for q in raw.get("quoted_clauses") or []
+    )
+    if not articles and not clauses and not points and not quoted_clauses:
+        raise ValueError(f"provision_periods.json: {raw['id']}: cần ít nhất một trong articles, clauses, points, quoted_clauses")
     overlap = {a for a, _ in clauses} & articles
     if overlap:
         raise ValueError(f"provision_periods.json: {raw['id']}: Khoản nằm trong Điều đã liệt kê: {sorted(overlap)}")
     covered = {(a, k) for a, k, _ in points if a in articles or (a, k) in clauses}
     if covered:
         raise ValueError(f"provision_periods.json: {raw['id']}: Điểm nằm trong Điều/Khoản đã liệt kê: {sorted(covered)}")
+    if any(a in articles or (a, k) in clauses for a, k, _ in quoted_clauses):
+        raise ValueError(f"provision_periods.json: {raw['id']}: Khoản trích dẫn nằm trong Điều/Khoản đã liệt kê")
+    context_ids = raw.get("evidence_context_ids", [raw["evidence_chunk_id"]])
+    if (
+        not isinstance(context_ids, list) or not context_ids
+        or any(not isinstance(cid, str) or not cid for cid in context_ids)
+        or len(set(context_ids)) != len(context_ids)
+        or raw["evidence_chunk_id"] not in context_ids
+    ):
+        raise ValueError(f"provision_periods.json: {raw['id']}: evidence_context_ids không hợp lệ")
     return ProvisionOverride(
         id=raw["id"],
         document_id=raw["document_id"],
@@ -101,6 +122,8 @@ def _parse_override(raw: dict[str, Any]) -> ProvisionOverride:
         changed_by=raw["changed_by"],
         provision=raw["provision"],
         evidence_chunk_id=raw["evidence_chunk_id"],
+        quoted_clauses=quoted_clauses,
+        evidence_context_ids=tuple(context_ids),
     )
 
 
@@ -126,6 +149,11 @@ def split_point_clause_ids(overrides: list[ProvisionOverride]) -> set[str]:
     return {f"{o.document_id}_art_{a}_clause_{k}" for o in overrides for a, k, _ in o.points}
 
 
+def split_quoted_clause_ids(overrides: list[ProvisionOverride]) -> set[str]:
+    """Khoản sửa đổi cần chia theo các Khoản được trích dẫn bên trong."""
+    return {f"{o.document_id}_art_{a}_clause_{k}" for o in overrides for a, k, _ in o.quoted_clauses}
+
+
 def apply_to_chunk(record: dict[str, Any], overrides: list[ProvisionOverride]) -> tuple[ProvisionOverride, tuple[str, ...]] | None:
     """Ghi effective_to, provision_status của Điều/Khoản vào bản ghi chunk (chunks.jsonl).
 
@@ -135,7 +163,8 @@ def apply_to_chunk(record: dict[str, Any], overrides: list[ProvisionOverride]) -
     document_id = record.get("document_id") or record.get("doc_id")
     for override in overrides:
         item = override.scope_of(
-            document_id, meta.get("article_number"), meta.get("clause_number"), record.get("point_ref")
+            document_id, meta.get("article_number"), meta.get("clause_number"), record.get("point_ref"),
+            meta.get("quoted_clause_number"),
         )
         if item is None:
             continue

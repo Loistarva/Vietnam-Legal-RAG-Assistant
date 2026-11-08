@@ -140,6 +140,19 @@ Các cặp trường `id`/`chunk_id`, `doc_id`/`document_id` và `text`/`chunk_t
 - **`point_ref`:** Tùy chọn (`["string", "null"]`), chứa thông tin Điểm nếu có hoặc `null`.
 
 ### 5.3. Metadata mở rộng
+
+`quoted_clause_number` (chuỗi số, tùy chọn) xác định Khoản được trích bên trong một
+Khoản sửa đổi. `clause_number` và `clause_id` vẫn chỉ Khoản của văn bản nguồn.
+Khi các Khoản trích dẫn có thời hạn khác nhau, exporter tách child và parent theo
+ranh giới này, rồi áp dụng `quoted_clauses` trong `provision_periods.json`.
+ID vẫn theo `{clause_id}_chunk_{n}`; không dùng số Khoản trích dẫn làm Khoản nguồn.
+
+Trong `provision_periods.json`, `evidence_chunk_id` là định danh dẫn chứng chính;
+`evidence_context_ids` là danh sách có thứ tự của toàn bộ chunk cần đọc để có đủ
+câu dẫn và nội dung thay thế. Nếu không khai báo, danh sách mặc định chỉ chứa
+`evidence_chunk_id`. Exporter kiểm mọi ID trong nhóm tồn tại và thuộc văn bản
+`changed_by`. Trường này phục vụ truy vết/review, không tự mở rộng kết quả top-k
+của retriever và không thay thế bộ lọc thời gian.
 Trường `metadata` chứa metadata của văn bản cùng `chapter`, `section`, `article_number`, và các trường mở rộng phục vụ lọc downstream: `document_title`, `clause_number`, `source_url`, `effective_from`, `effective_to`.
 
 ---
