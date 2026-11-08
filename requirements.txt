@@ -1,4 +1,4 @@
-﻿# Project dependencies (Python 3.12). Install: python -m pip install -r requirements.txt
+# Project dependencies (Python 3.12). Install: python -m pip install -r requirements.txt
 
 # Dense retrieval, Elasticsearch BM25 client, Qdrant store and the cross-encoder
 # reranker (sentence-transformers) — pinned by Dev 3 in embedding/requirements.txt.
@@ -21,3 +21,6 @@ pytest>=8
 pymupdf>=1.24
 pandas>=2
 ollama>=0.3
+
+# HTTP client for Model Gateway (model_gateway/llm_gateway.py)
+requests>=2.31

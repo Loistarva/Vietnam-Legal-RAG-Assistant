@@ -80,3 +80,51 @@ python embedding/retrieval_smoke_test.py --help
 # Chạy thử nghiệm khói ở chế độ Mock
 python embedding/retrieval_smoke_test.py --mock
 ```
+
+## Hợp đồng bàn giao Embedding Model (Dev 3 Ownership -> Dev 4 Consumer)
+
+Trong Sprint 9 (Kế hoạch V3), phân hệ **Dev 3** chịu trách nhiệm Model Ownership (đặc tả, tiền xử lý và kiểm định vector), bàn giao cho **Dev 4** (vận hành Qdrant Server & Indexing Pipeline).
+
+### 1. Đặc tả mô hình sản xuất (Production Model Specification)
+Nguồn sự thật cấu hình duy nhất là file `retrieval/config.yaml`:
+- **Mô hình chuẩn**: `dense.model` trong `retrieval/config.yaml` (`BAAI/bge-m3`)
+- **Số chiều vector (Dimension)**: `1024` (từ `dense.supported_models.<model>.dimension`)
+- **Khoảng cách vector**: Cosine Similarity
+- **Trường văn bản đầu vào**: `dense.supported_models.<model>.text_field` (`embed_text_raw`, trích xuất từ `chunks.jsonl`)
+- **Tách từ tiếng Việt (`use_word_segmentation`)**: `False` (bge-m3 nhận chuỗi văn bản tự nhiên, không qua underthesea)
+- **Tên collection duy nhất**: `dense.collection` (`vietnam_legal_chunks`)
+
+### 2. Giao diện lập trình (API Handoff Interface)
+Dev 4 gọi trực tiếp các tiện ích từ `embedding/model_registry.py`:
+
+```python
+from embedding.model_registry import (
+    get_embedding_spec,
+    validate_collection_dimension,
+    prepare_text_for_embedding,
+    get_index_spec,
+)
+from embedding.vector_store import read_index_metadata
+
+# 1. Lấy thông số cấu hình model từ retrieval/config.yaml
+spec = get_embedding_spec("BAAI/bge-m3")
+# Output: {"name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "text_field": "embed_text_raw", "collection_name": "vietnam_legal_chunks"}
+
+# 2. Đặc tả collection theo config, dùng khi tạo collection trên Qdrant Server
+index_spec = get_index_spec()
+# Output: {"collection_name": "vietnam_legal_chunks", "vector_size": 1024, "dimension": 1024, "model_name": "BAAI/bge-m3", ...}
+
+# 2b. Metadata của index ĐÃ dựng (model, dimension, SHA-256 corpus lúc build), dùng để
+#     xác nhận collection khớp corpus hiện tại; None nếu collection chưa có metadata
+built = read_index_metadata("data/indexes/qdrant_storage", index_spec["collection_name"])
+
+# 3. Kiểm tra tính tương thích trước khi nạp Qdrant
+validate_collection_dimension("BAAI/bge-m3", actual_dimension=1024)  # Trả về True; ném ValueError nếu sai lệch
+
+# 4. Tiền xử lý đối xứng trước khi embed (cho cả batch index và realtime query)
+clean_text = prepare_text_for_embedding("Điều kiện ly hôn theo Luật Hôn nhân 2014", "BAAI/bge-m3")
+```
+
+### 3. Nguyên tắc vận hành
+- **Fail-Fast**: Bất kỳ sự lệch pha nào giữa vector dimension lưu trong collection metadata và cấu hình model spec đều phải ném ngoại lệ dừng pipeline ngay lập tức.
+- **Tính đối xứng (Symmetry)**: Vector hóa tập chunk dữ liệu (precompute) và vector hóa câu hỏi người dùng (inference) phải sử dụng cùng hàm `prepare_text_for_embedding`.
