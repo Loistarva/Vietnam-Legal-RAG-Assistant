@@ -43,6 +43,7 @@ def resolve_run_config(settings: dict[str, Any], *, top_k: int | None = None,
         "dimension": model_spec["dimension"],
         "collection": collection or settings["dense"]["collection"],
         "qdrant_storage_path": str(resolve_qdrant_storage_path(settings)),
+        "qdrant_url": os.getenv("QDRANT_URL"),
         "elasticsearch_index": elasticsearch_index or settings["bm25"]["index"],
         "chunks": str(chunks) if chunks is not None else settings["retrieval"]["corpus_path"],
         "fusion": settings["hybrid"]["fusion"],
@@ -237,6 +238,8 @@ def main() -> int:
             collection_name=collection,
             dimension=dimension,
             storage_path=qdrant_path,
+            url=run_config["qdrant_url"],
+            create_if_missing=False,
         )
         count = store.count()
         if count != chunk_count:

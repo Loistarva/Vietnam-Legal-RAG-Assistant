@@ -101,6 +101,11 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
                 ROOT / "custom" / "qdrant_storage",
             )
 
+    def test_run_config_records_qdrant_server_url(self):
+        with patch.dict(os.environ, {"QDRANT_URL": "http://127.0.0.1:6333"}):
+            self.assertEqual(resolve_run_config(load_settings())["qdrant_url"],
+                             "http://127.0.0.1:6333")
+
     def test_read_queries_keeps_benchmark_ids(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "queries.json"
