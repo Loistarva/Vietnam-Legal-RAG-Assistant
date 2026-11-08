@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-11-06T11:51:16.162033+00:00",
+  "sha": "54c0e37f5f913f179628d152297b126c1fda2189",
+  "offline": true,
+  "scope": "historical validation summary; machine-local paths and raw logs omitted",
+  "results": [
+    {
+      "args": [
+        "scripts/validate_benchmark.py"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "Dev=270; Test=30; total=300; mode=handoff; issues=0",
+        "PASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production."
+      ]
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "PASS: 30 câu Test chưa bị thay đổi"
+      ]
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "PASS: Test Gold (30 câu) không đổi"
+      ]
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "........................................................................ [ 89%]",
+        ".....................................................................    [100%]",
+        "644 passed, 1 skipped in 30.03s"
+      ]
+    }
+  ]
+}
