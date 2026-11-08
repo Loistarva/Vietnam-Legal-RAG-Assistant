@@ -74,7 +74,8 @@ def test_corpus_carries_provision_periods():
         match = None
         for override in OVERRIDES:
             if override.scope_of(
-                chunk["document_id"], meta.get("article_number"), meta.get("clause_number"), chunk.get("point_ref")
+                chunk["document_id"], meta.get("article_number"), meta.get("clause_number"),
+                chunk.get("point_ref"), meta.get("quoted_clause_number"),
             ):
                 match = override
         if match is None:
@@ -194,3 +195,73 @@ def test_load_overrides_rejects_unknown_status(tmp_path):
     }]}), encoding="utf-8")
     with pytest.raises(ValueError, match="provision_status"):
         load_overrides(path)
+
+
+def test_quoted_versions_filter_only_the_superseded_text_and_parent():
+    """NĐ18/2026 sửa lại k1; k2 và phần miễn nộp bản giấy phải giữ nguyên."""
+    prefix = "nd_07_2025_nd_cp_art_2_clause_2_chunk_"
+    parts = [c for c in CHUNKS if c["chunk_id"].startswith(prefix)]
+    old = [c for c in parts if c["metadata"]["quoted_clause_number"] == "1"]
+    retained = [c for c in parts if c["metadata"]["quoted_clause_number"] == "2"]
+    assert old and retained
+    for chunk in old:
+        assert is_effective_at(chunk, "2026-01-14")
+        assert not is_effective_at(chunk, "2026-01-15")
+    for chunk in retained:
+        assert is_effective_at(chunk, "2026-01-15")
+        assert is_effective_at(chunk, "2026-11-07")
+    assert "không phải nộp bản giấy" in " ".join(c["text"] for c in retained)
+    assert {c["parent_id"] for c in old}.isdisjoint(c["parent_id"] for c in retained)
+    parents = json.loads((ROOT / "data/chunking_output/parents.json").read_text(encoding="utf-8"))
+    for parent in parents:
+        if parent["parent_id"] in {c["parent_id"] for c in old}:
+            assert not is_effective_at(parent, "2026-01-15")
+        if parent["parent_id"] in {c["parent_id"] for c in retained}:
+            assert is_effective_at(parent, "2026-01-15")
+            assert "chứng minh về nhân thân" not in parent["text"]
+    replacement = BY_ID["nd_18_2026_nd_cp_art_13_clause_1_chunk_1"]
+    assert not is_effective_at(replacement, "2026-01-14")
+    assert is_effective_at(replacement, "2026-01-15")
+
+
+def test_evidence_context_is_complete_and_in_source_order():
+    positions = {c["chunk_id"]: i for i, c in enumerate(CHUNKS)}
+    for override in OVERRIDES:
+        assert override.evidence_chunk_id in override.evidence_context_ids
+        evidence = [BY_ID[cid] for cid in override.evidence_context_ids]
+        assert all(c["document_id"] == override.changed_by for c in evidence)
+        indices = [positions[cid] for cid in override.evidence_context_ids]
+        assert indices == sorted(indices)
+    repeal = OVERRIDES[0]
+    assert "Bãi bỏ" in " ".join(BY_ID[cid]["text"] for cid in repeal.evidence_context_ids)
+    combined = next(o for o in OVERRIDES if o.id == "nd_123_2015_art_2_clauses_1_2_amended")
+    assert "không phải nộp bản giấy" in " ".join(BY_ID[cid]["text"] for cid in combined.evidence_context_ids)
+
+
+def test_quoted_split_preserves_text_and_rejects_unrecognized_source():
+    from chunking.chunking_rules import _ClauseUnit, _split_quoted_clauses
+
+    text = '2. Sửa hai khoản: “1. Nội dung cũ. 2. Nội dung còn hiệu lực.”'
+    unit = _ClauseUnit("d_art_2_clause_2", "d_art_2", "d_art_2", "2", None, text, len(text))
+    parts = _split_quoted_clauses(unit, 1200, 190)
+    assert " ".join(p.text for p in parts) == text
+    assert [p.quoted_clause_number for p in parts] == ["1", "2"]
+    unit.text = '2. Không có đoạn trích chia Khoản.'
+    with pytest.raises(ValueError, match="không nhận ra"):
+        _split_quoted_clauses(unit, 1200, 190)
+
+
+def test_tt30_repeals_original_versions_but_keeps_replacement_definitions():
+    """F4: trạng thái bãi bỏ bản gốc không được loại định nghĩa thay thế."""
+    for original_clause, replacement_clause, concept in (
+        ("2", "1", "Sàng lọc trước sinh"),
+        ("3", "2", "Sàng lọc sơ sinh"),
+    ):
+        original = BY_ID[f"tt_34_2017_tt_byt_art_2_clause_{original_clause}_chunk_1"]
+        replacement = BY_ID[f"tt_30_2019_tt_byt_art_1_clause_{replacement_clause}_chunk_1"]
+        assert original["provision_status"] == "repealed"
+        assert is_effective_at(original, "2020-01-31")
+        assert not is_effective_at(original, "2020-02-01")
+        assert not is_effective_at(replacement, "2020-01-31")
+        assert is_effective_at(replacement, "2020-02-01")
+        assert concept in replacement["text"]

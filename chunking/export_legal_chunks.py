@@ -14,7 +14,7 @@ from typing import Any
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "chunking"))
-from chunking_rules import (
+from chunking_rules import (  # noqa: E402
     CHILD_MAX_TOKENS,
     CHILD_MAX_UNITS,
     CHILD_MIN_CHARS,
@@ -27,7 +27,7 @@ from chunking_rules import (
     normalize_text,
     tokenizer_version,
 )  # noqa: E402
-from provision_periods import apply_to_chunk, load_overrides, split_point_clause_ids  # noqa: E402
+from provision_periods import apply_to_chunk, load_overrides, split_point_clause_ids, split_quoted_clause_ids  # noqa: E402
 
 KHOAN_SEGMENT_RE = re.compile(r"Khoản \S+")
 
@@ -173,6 +173,7 @@ def main() -> None:
     # Khoảng hiệu lực cấp Điều/Khoản (data/reference/provision_periods.json, D1).
     overrides = load_overrides()
     split_ids = split_point_clause_ids(overrides)
+    quoted_split_ids = split_quoted_clause_ids(overrides)
     # Văn bản sửa nhiều văn bản: chỉ đưa vào corpus các Điều thuộc phạm vi (data/reference/corpus_scope.json).
     corpus_scope = load_corpus_scope()
     scope_report: dict[str, dict[str, list[str]]] = {}
@@ -214,7 +215,10 @@ def main() -> None:
                 implicit_clause_ids |= ids
 
         # Khoản có Điểm bị bãi bỏ/sửa đổi riêng được tách theo Điểm để ghi đúng khoảng hiệu lực.
-        result = chunk_legal_document(doc, {"split_point_clause_ids": split_ids & source_clause_ids})
+        result = chunk_legal_document(doc, {
+            "split_point_clause_ids": split_ids & source_clause_ids,
+            "split_quoted_clause_ids": quoted_split_ids & source_clause_ids,
+        })
         source_articles = {str(a.get("article_number")) for a in doc.get("articles", [])}
         covered_articles = {
             str(c.metadata.get("article_number"))
@@ -304,6 +308,16 @@ def main() -> None:
             parent["metadata"]["provision_status"] = override.provision_status
 
     child_ids = [c["chunk_id"] for c in children]
+    child_by_id = {c["chunk_id"]: c for c in children}
+    child_position = {cid: index for index, cid in enumerate(child_ids)}
+    for override in overrides:
+        for evidence_id in override.evidence_context_ids:
+            evidence = child_by_id.get(evidence_id)
+            if evidence is None or evidence["document_id"] != override.changed_by:
+                raise ValueError(f"{override.id}: evidence_context_ids không có hoặc sai văn bản: {evidence_id}")
+        positions = [child_position[cid] for cid in override.evidence_context_ids]
+        if positions != sorted(positions):
+            raise ValueError(f"{override.id}: evidence_context_ids không theo thứ tự văn bản")
     parent_ids = [p["parent_id"] for p in parents]
     dup_child = [x for x, n in Counter(child_ids).items() if n > 1]
     dup_parent = [x for x, n in Counter(parent_ids).items() if n > 1]
