@@ -13,8 +13,8 @@ from pydantic import ValidationError
 
 from embedding.model_registry import (
     get_embedding_spec,
+    get_index_spec,
     prepare_text_for_embedding,
-    read_index_metadata,
     validate_collection_dimension,
 )
 from generation.prompt_builder import (
@@ -775,12 +775,19 @@ class TestEmbeddingOwnershipHandoff:
         assert spec["text_field"] == "embed_text_raw"
         assert spec["collection_name"] == "vietnam_legal_chunks"
 
-    def test_read_index_metadata(self):
-        meta = read_index_metadata()
+    def test_get_index_spec(self):
+        meta = get_index_spec()
         assert meta["collection_name"] == "vietnam_legal_chunks"
         assert meta["vector_size"] == 1024
         assert meta["dimension"] == 1024
         assert meta["model_name"] == "BAAI/bge-m3"
+        assert meta["text_field"] == "embed_text_raw"
+
+    def test_registry_does_not_shadow_built_index_metadata_reader(self):
+        # read_index_metadata của vector_store đọc metadata index thật; registry không có hàm cùng tên
+        import embedding.model_registry as registry_module
+
+        assert not hasattr(registry_module, "read_index_metadata")
 
     def test_validate_collection_dimension_success_and_fail_fast(self):
         assert validate_collection_dimension("BAAI/bge-m3", 1024) is True

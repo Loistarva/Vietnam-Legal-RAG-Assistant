@@ -102,16 +102,21 @@ from embedding.model_registry import (
     get_embedding_spec,
     validate_collection_dimension,
     prepare_text_for_embedding,
-    read_index_metadata,
+    get_index_spec,
 )
+from embedding.vector_store import read_index_metadata
 
 # 1. Lấy thông số cấu hình model từ retrieval/config.yaml
 spec = get_embedding_spec("BAAI/bge-m3")
 # Output: {"name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "text_field": "embed_text_raw", "collection_name": "vietnam_legal_chunks"}
 
-# 2. Đọc metadata cấu hình collection cho Qdrant Server
-meta = read_index_metadata()
+# 2. Đặc tả collection theo config, dùng khi tạo collection trên Qdrant Server
+index_spec = get_index_spec()
 # Output: {"collection_name": "vietnam_legal_chunks", "vector_size": 1024, "dimension": 1024, "model_name": "BAAI/bge-m3", ...}
+
+# 2b. Metadata của index ĐÃ dựng (model, dimension, SHA-256 corpus lúc build), dùng để
+#     xác nhận collection khớp corpus hiện tại; None nếu collection chưa có metadata
+built = read_index_metadata("data/indexes/qdrant_storage", index_spec["collection_name"])
 
 # 3. Kiểm tra tính tương thích trước khi nạp Qdrant
 validate_collection_dimension("BAAI/bge-m3", actual_dimension=1024)  # Trả về True; ném ValueError nếu sai lệch

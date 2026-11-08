@@ -98,18 +98,21 @@ def prepare_text_for_embedding(text: str, model_name: str | None = None) -> str:
     )
 
 
-def read_index_metadata() -> dict[str, Any]:
+def get_index_spec(model_name: str | None = None) -> dict[str, Any]:
     """
-    Trả về thông tin metadata cấu hình chỉ mục (collection, vector_size, dimension, model_name, text_field)
-    để Dev 4 xác thực khi dựng và vận hành Qdrant Server.
+    Đặc tả collection mà config yêu cầu (collection, vector_size, model, text_field) để Dev 4
+    tạo collection trên Qdrant Server.
+
+    Chỉ đọc retrieval/config.yaml, không đọc index đã dựng. Để xác nhận index thật khớp
+    model và corpus, dùng ``embedding.vector_store.read_index_metadata(storage_path, collection)``
+    (metadata ghi lúc build: model, dimension, SHA-256 corpus).
     """
-    registry = ModelRegistry()
-    spec = registry.get_default_model()
+    spec = get_embedding_spec(model_name)
     return {
-        "collection_name": registry.dense_config["collection"],
+        "collection_name": spec["collection_name"],
         "vector_size": spec["dimension"],
         "dimension": spec["dimension"],
         "model_name": spec["name"],
-        "use_word_segmentation": spec.get("use_word_segmentation", False),
-        "text_field": spec.get("text_field", "embed_text_raw"),
+        "use_word_segmentation": spec["use_word_segmentation"],
+        "text_field": spec["text_field"],
     }
