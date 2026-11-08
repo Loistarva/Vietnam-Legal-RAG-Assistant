@@ -1,0 +1,11 @@
+provider: "ollama"
+base_url: "http://localhost:11434"
+model: "qwen2.5:7b"
+temperature: 0.0
+repeat_penalty: 1.15
+num_predict: 1024
+num_ctx: 8192
+timeout_seconds: 120
+max_retries: 1
+cache_enabled: false
+fallback_locked: true
