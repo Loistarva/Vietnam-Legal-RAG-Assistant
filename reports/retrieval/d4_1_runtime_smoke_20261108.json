@@ -1,0 +1,304 @@
+{
+  "query_id": "D4_1_RUNTIME_SMOKE",
+  "query": "Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?",
+  "retriever": "hybrid_reranker",
+  "results": [
+    {
+      "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_1",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
+      "rank": 1,
+      "score": 0.9992332458496094,
+      "chunk_text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "8",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "1",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương II KẾT HÔN > Điều 8. Điều kiện kết hôn > Khoản 1"
+      },
+      "parent_id": "l_52_2014_qh13_art_8",
+      "rrf_score": 0.03252247488101534,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 2,
+        "dense": 1,
+        "retrieval": 1
+      },
+      "source_scores": {
+        "bm25": 49.108055,
+        "dense": 0.726491,
+        "retrieval": 0.03252247488101534
+      },
+      "reranker_score": 0.9992332458496094,
+      "parent_text": "[Điều 8. Điều kiện kết hôn]\n1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.\n2. Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính."
+    },
+    {
+      "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_1",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "article_id": "ttlt_01_2016_ttlt_tandtc_art_2",
+      "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
+      "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
+      "rank": 2,
+      "score": 0.8981344103813171,
+      "chunk_text": "1. “Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên” quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình là trường hợp nam đã đủ hai mươi tuổi, nữ đã đủ mười tám tuổi trở lên và được xác định theo ngày, tháng, năm sinh. Trường hợp không xác định được ngày sinh, tháng sinh thì thực hiện như sau: a) Nếu xác định được năm sinh nhưng không xác định được tháng sinh thì tháng sinh được xác định là tháng một của năm sinh;",
+      "metadata": {
+        "doc_id": "ttlt_01_2016_ttlt_tandtc",
+        "title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "document_type": "Thông tư liên tịch",
+        "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+        "issue_date": "2016-01-06",
+        "effective_date": "2016-03-01",
+        "effective_from": "2016-03-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=97615",
+        "issuing_body": "Tòa án nhân dân tối cao, Viện kiểm sát nhân dân tối cao, Bộ Tư pháp",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": null,
+        "section": null,
+        "article_number": "2",
+        "document_title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "clause_number": "1",
+        "document_id": "ttlt_01_2016_ttlt_tandtc",
+        "breadcrumb": "Điều 2. Căn cứ hủy việc kết hôn trái pháp luật > Khoản 1 > Điểm a"
+      },
+      "parent_id": "ttlt_01_2016_ttlt_tandtc_art_2_p1",
+      "rrf_score": 0.03149801587301587,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 4,
+        "dense": 3,
+        "retrieval": 3
+      },
+      "source_scores": {
+        "bm25": 47.483738,
+        "dense": 0.602964,
+        "retrieval": 0.03149801587301587
+      },
+      "reranker_score": 0.8981344103813171,
+      "parent_text": "[Điều 2. Căn cứ hủy việc kết hôn trái pháp luật]\nKhi giải quyết yêu cầu hủy việc kết hôn trái pháp luật, Tòa án phải căn cứ vào điều kiện kết hôn quy định tại Điều 8 của Luật hôn nhân và gia đình để xem xét, quyết định xử lý việc kết hôn trái pháp luật và lưu ý một số điểm như sau:\n1. “Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên” quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình là trường hợp nam đã đủ hai mươi tuổi, nữ đã đủ mười tám tuổi trở lên và được xác định theo ngày, tháng, năm sinh. Trường hợp không xác định được ngày sinh, tháng sinh thì thực hiện như sau: a) Nếu xác định được năm sinh nhưng không xác định được tháng sinh thì tháng sinh được xác định là tháng một của năm sinh;\nb) Nếu xác định được năm sinh, tháng sinh nhưng không xác định được ngày sinh thì ngày sinh được xác định là ngày mùng một của tháng sinh. Ví dụ: Chị B sinh ngày 10-01-1997, đến ngày 08-01-2015 chị B đăng ký kết hôn với anh A tại Ủy ban nhân dân xã X. Tại thời điểm đăng ký kết hôn chị B chưa đủ 18 tuổi (ngày chị B đủ 18 tuổi là ngày 10-01-2015), như vậy, theo quy định tại khoản 1 Điều 9 của Luật hôn nhân và gia đình năm 2000 thì chị B đã đủ tuổi kết hôn, tuy nhiên vì ngày chị B đăng ký kết hôn Luật hôn nhân và gia đình đã có hiệu lực (ngày 01-01-2015) nên chị B đã vi phạm điều kiện về tuổi kết hôn quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình."
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_3_clause_8_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_3",
+      "clause_id": "l_52_2014_qh13_art_3_clause_8",
+      "parent_clause_id": "l_52_2014_qh13_art_3_clause_8",
+      "rank": 3,
+      "score": 0.8489110469818115,
+      "chunk_text": "8. Tảo hôn là việc lấy vợ, lấy chồng khi một bên hoặc cả hai bên chưa đủ tuổi kết hôn theo quy định tại điểm a khoản 1 Điều 8 của Luật này.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "3",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "8",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương I NHỮNG QUY ĐỊNH CHUNG > Điều 3. Giải thích từ ngữ > Khoản 8"
+      },
+      "parent_id": "l_52_2014_qh13_art_3_p1",
+      "rrf_score": 0.014925373134328358,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 7,
+        "retrieval": 14
+      },
+      "source_scores": {
+        "dense": 0.592682,
+        "retrieval": 0.014925373134328358
+      },
+      "reranker_score": 0.8489110469818115,
+      "parent_text": "[Điều 3. Giải thích từ ngữ]\nTrong Luật này, các từ ngữ dưới đây được hiểu như sau:\n1. Hôn nhân là quan hệ giữa vợ và chồng sau khi kết hôn.\n2. Gia đình là tập hợp những người gắn bó với nhau do hôn nhân, quan hệ huyết thống hoặc quan hệ nuôi dưỡng, làm phát sinh các quyền và nghĩa vụ giữa họ với nhau theo quy định của Luật này.\n3. Chế độ hôn nhân và gia đình là toàn bộ những quy định của pháp luật về kết hôn, ly hôn; quyền và nghĩa vụ giữa vợ và chồng, giữa cha mẹ và con, giữa các thành viên khác trong gia đình; cấp dưỡng; xác định cha, mẹ, con; quan hệ hôn nhân và gia đình có yếu tố nước ngoài và những vấn đề khác liên quan đến hôn nhân và gia đình.\n4. Tập quán về hôn nhân và gia đình là quy tắc xử sự có nội dung rõ ràng về quyền, nghĩa vụ của các bên trong quan hệ hôn nhân và gia đình, được lặp đi, lặp lại trong một thời gian dài và được thừa nhận rộng rãi trong một vùng, miền hoặc cộng đồng.\n5. Kết hôn là việc nam và nữ xác lập quan hệ vợ chồng với nhau theo quy định của Luật này về điều kiện kết hôn và đăng ký kết hôn.\n6. Kết hôn trái pháp luật là việc nam, nữ đã đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền nhưng một bên hoặc cả hai bên vi phạm điều kiện kết hôn theo quy định tại Điều 8 của Luật này.\n7. Chung sống như vợ chồng là việc nam, nữ tổ chức cuộc sống chung và coi nhau là vợ chồng.\n8. Tảo hôn là việc lấy vợ, lấy chồng khi một bên hoặc cả hai bên chưa đủ tuổi kết hôn theo quy định tại điểm a khoản 1 Điều 8 của Luật này."
+    },
+    {
+      "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1_chunk_2",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "article_id": "ttlt_01_2016_ttlt_tandtc_art_2",
+      "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
+      "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_1",
+      "rank": 4,
+      "score": 0.7623143196105957,
+      "chunk_text": "b) Nếu xác định được năm sinh, tháng sinh nhưng không xác định được ngày sinh thì ngày sinh được xác định là ngày mùng một của tháng sinh. Ví dụ: Chị B sinh ngày 10-01-1997, đến ngày 08-01-2015 chị B đăng ký kết hôn với anh A tại Ủy ban nhân dân xã X. Tại thời điểm đăng ký kết hôn chị B chưa đủ 18 tuổi (ngày chị B đủ 18 tuổi là ngày 10-01-2015), như vậy, theo quy định tại khoản 1 Điều 9 của Luật hôn nhân và gia đình năm 2000 thì chị B đã đủ tuổi kết hôn, tuy nhiên vì ngày chị B đăng ký kết hôn Luật hôn nhân và gia đình đã có hiệu lực (ngày 01-01-2015) nên chị B đã vi phạm điều kiện về tuổi kết hôn quy định tại điểm a khoản 1 Điều 8 của Luật hôn nhân và gia đình.",
+      "metadata": {
+        "doc_id": "ttlt_01_2016_ttlt_tandtc",
+        "title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "document_type": "Thông tư liên tịch",
+        "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+        "issue_date": "2016-01-06",
+        "effective_date": "2016-03-01",
+        "effective_from": "2016-03-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=97615",
+        "issuing_body": "Tòa án nhân dân tối cao, Viện kiểm sát nhân dân tối cao, Bộ Tư pháp",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": null,
+        "section": null,
+        "article_number": "2",
+        "document_title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "clause_number": "1",
+        "document_id": "ttlt_01_2016_ttlt_tandtc",
+        "breadcrumb": "Điều 2. Căn cứ hủy việc kết hôn trái pháp luật > Khoản 1 > Điểm b"
+      },
+      "parent_id": "ttlt_01_2016_ttlt_tandtc_art_2_p1",
+      "rrf_score": 0.03200204813108039,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 3,
+        "dense": 2,
+        "retrieval": 2
+      },
+      "source_scores": {
+        "bm25": 47.668438,
+        "dense": 0.660935,
+        "retrieval": 0.03200204813108039
+      },
+      "reranker_score": 0.7623143196105957,
+      "parent_text": null
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_51_clause_3_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_51",
+      "clause_id": "l_52_2014_qh13_art_51_clause_3",
+      "parent_clause_id": "l_52_2014_qh13_art_51_clause_3",
+      "rank": 5,
+      "score": 0.4776075780391693,
+      "chunk_text": "3. Chồng không có quyền yêu cầu ly hôn trong trường hợp vợ đang có thai, sinh con hoặc đang nuôi con dưới 12 tháng tuổi.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương IV CHẤM DỨT HÔN NHÂN",
+        "section": "Mục 1 LY HÔN",
+        "article_number": "51",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "3",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương IV CHẤM DỨT HÔN NHÂN > Mục 1 LY HÔN > Điều 51. Quyền yêu cầu giải quyết ly hôn > Khoản 3"
+      },
+      "parent_id": "l_52_2014_qh13_art_51",
+      "rrf_score": 0.0125,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 20,
+        "retrieval": 37
+      },
+      "source_scores": {
+        "dense": 0.569798,
+        "retrieval": 0.0125
+      },
+      "reranker_score": 0.4776075780391693,
+      "parent_text": "[Điều 51. Quyền yêu cầu giải quyết ly hôn]\n1. Vợ, chồng hoặc cả hai người có quyền yêu cầu Tòa án giải quyết ly hôn.\n2. Cha, mẹ, người thân thích khác có quyền yêu cầu Tòa án giải quyết ly hôn khi một bên vợ, chồng do bị bệnh tâm thần hoặc mắc bệnh khác mà không thể nhận thức, làm chủ được hành vi của mình, đồng thời là nạn nhân của bạo lực gia đình do chồng, vợ của họ gây ra làm ảnh hưởng nghiêm trọng đến tính mạng, sức khỏe, tinh thần của họ.\n3. Chồng không có quyền yêu cầu ly hôn trong trường hợp vợ đang có thai, sinh con hoặc đang nuôi con dưới 12 tháng tuổi."
+    }
+  ],
+  "latency_ms": 80636.773,
+  "top_k": 5,
+  "config": {
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "bm25_index": "bm25-e6-verified-20261101",
+      "collection": "vietnam_legal_chunks",
+      "qdrant_storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "corpus_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "fusion": "rrf"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    },
+    "parent_context": {
+      "parents_file": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\parents.json",
+      "max_context_chars": 6000
+    },
+    "as_of_date": "2026-10-15",
+    "temporal_filter": "retriever",
+    "top_k": 5
+  },
+  "stats": {
+    "retrieved_candidates": 50,
+    "input_candidates": 50,
+    "duplicates_removed": 0,
+    "truncated_candidates": 0,
+    "scored_candidates": 50,
+    "output_candidates": 5,
+    "rerank_latency_ms": 54003.482,
+    "model_load_ms": 16635.733,
+    "parent_context": {
+      "parents_attached": 4,
+      "parents_shared": 1,
+      "parents_missing": 0,
+      "parents_over_budget": 0,
+      "upstream_parent_id_replaced": 0,
+      "context_chars": 3864
+    },
+    "returned": 5,
+    "retrieval_latency_ms": 9969.538,
+    "total_latency_ms": 80636.773
+  }
+}

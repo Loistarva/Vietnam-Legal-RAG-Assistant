@@ -24,6 +24,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any, Sequence
@@ -44,6 +45,7 @@ from reranking.pipeline import (  # noqa: E402
 from embedding.vector_store import chunk_file_sha256  # noqa: E402
 from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
+from retrieval.temporal import normalize_as_of_date  # noqa: E402
 
 logger = logging.getLogger("run_retrieval")
 RETRIEVERS = ("hybrid", "precomputed", "mock", "fixture")
@@ -63,8 +65,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
                         help="JSON list câu hỏi (chuỗi hoặc object có id/query_id và question/query)")
     parser.add_argument("--query-id", default="Q_CLI_001", help="query_id cho chế độ --query")
     parser.add_argument("--as-of-date", default=None,
-                        help="Thời điểm áp dụng luật (YYYY-MM-DD) cho --query, và cho các câu của --queries "
-                             "không có as_of_date")
+                        help="Ngày UI nhập (YYYY-MM-DD) cho --query; ngày trong câu hỏi được ưu tiên. "
+                             "Benchmark --queries bắt buộc mỗi dòng có as_of_date riêng")
     parser.add_argument("--no-parent-context", action="store_true",
                         help="Tắt Parent-Context Resolver (mặc định theo parent_context.enabled)")
     parser.add_argument("--top-k", type=int, default=None,
@@ -92,6 +94,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"))
     parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX"))
     parser.add_argument("--qdrant-path", default=os.getenv("QDRANT_PATH"))
+    parser.add_argument("--qdrant-url", default=os.getenv("QDRANT_URL"),
+                        help="Qdrant server URL; nếu bỏ trống sẽ dùng local storage")
     parser.add_argument("--collection", default=None,
                         help="Ghi đè dense.collection; mặc định dùng retrieval/config.yaml")
     parser.add_argument("--dense-model", default=None, help="Ghi đè dense.model của retrieval/config.yaml")
@@ -104,12 +108,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def read_queries(path: Path, *, allow_test_split: bool,
-                 default_as_of_date: str | None = None) -> list[tuple[str, str, str | None]]:
-    """Return (query_id, question, as_of_date) triples; refuse the frozen Test set unless explicitly allowed.
-
-    ``as_of_date`` comes from the question row (benchmark field), else ``default_as_of_date``.
-    """
+def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str, str]]:
+    """Load benchmark rows by ID, requiring each row to carry its own valid as_of_date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -122,22 +122,64 @@ def read_queries(path: Path, *, allow_test_split: bool,
         raise InputError("Test set đang đóng băng; chỉ tuning trên Dev set (thêm --allow-test-split cho lần chạy chính thức)")
     queries, seen = [], set()
     for index, row in enumerate(data, 1):
-        as_of_date = default_as_of_date
         if isinstance(row, str):
             query_id, question = f"Q_{index:03d}", row
+            as_of_date = None
         elif isinstance(row, dict):
             query_id = row.get("query_id") or row.get("id") or f"Q_{index:03d}"
             question = row.get("question") or row.get("query")
-            as_of_date = row.get("as_of_date") or default_as_of_date
+            as_of_date = row.get("as_of_date")
         else:
             query_id, question = None, None
         if not isinstance(question, str) or not question.strip():
             raise InputError(f"Câu hỏi #{index} thiếu question/query không rỗng")
+        if as_of_date is None or (isinstance(as_of_date, str) and not as_of_date.strip()):
+            raise InputError(f"Benchmark query {query_id!r} thiếu as_of_date; không dùng ngày CLI hoặc ngày hiện tại")
+        try:
+            as_of_date = normalize_as_of_date(as_of_date)
+        except ValueError as exc:
+            raise InputError(f"Benchmark query {query_id!r} có as_of_date không hợp lệ: {exc}") from exc
         if query_id in seen:
             raise InputError(f"query_id bị trùng: {query_id}")
         seen.add(query_id)
         queries.append((str(query_id), question, as_of_date))
     return queries
+
+
+_QUESTION_DATE_PATTERNS = (
+    re.compile(r"(?<!\d)(\d{4}-\d{2}-\d{2})(?!\d)"),
+    re.compile(r"(?<!\d)(\d{1,2})[/-](\d{1,2})[/-](\d{4})(?!\d)"),
+    re.compile(r"(?i)\bngày\s+(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})\b"),
+    # A bare year is a legal query date only when introduced by an explicit
+    # temporal phrase. This avoids interpreting years in law titles as dates.
+    re.compile(r"(?i)(?:^|\b(?:vào|trong|tại\s+thời\s+điểm)\s+)năm\s+(\d{4})\b"),
+)
+
+
+def extract_question_as_of_date(question: str) -> str | None:
+    """Extract an explicit date; a year-only mention means January 1 of that year."""
+    matches = []
+    for pattern_index, pattern in enumerate(_QUESTION_DATE_PATTERNS):
+        match = pattern.search(question)
+        if match:
+            matches.append((match.start(), pattern_index, match))
+    if not matches:
+        return None
+    _, pattern_index, match = min(matches, key=lambda item: (item[0], item[1]))
+    if pattern_index == 0:
+        raw = match.group(1)
+    elif pattern_index in (1, 2):
+        day, month, year = match.groups()
+        raw = f"{year}-{int(month):02d}-{int(day):02d}"
+    else:
+        raw = f"{match.group(1)}-01-01"
+    return normalize_as_of_date(raw)
+
+
+def resolve_interactive_as_of_date(question: str, ui_as_of_date: str | None) -> str:
+    """Resolve query date by question, UI input, then today's local date."""
+    question_date = extract_question_as_of_date(question)
+    return normalize_as_of_date(question_date if question_date is not None else ui_as_of_date)
 
 
 def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
@@ -192,12 +234,14 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         model_dimension = ModelRegistry(settings["shared_config"]).get_model(actual_model)["dimension"]
         retriever = build_hybrid_retriever(
             settings, elasticsearch_url=args.elasticsearch_url, elasticsearch_index=args.elasticsearch_index,
-            qdrant_path=str(actual_qdrant_path), collection=actual_collection, dense_model=actual_model)
+            qdrant_path=str(actual_qdrant_path), qdrant_url=args.qdrant_url,
+            collection=actual_collection, dense_model=actual_model)
         retriever_settings.update(rrf_k=settings["rrf_k"], dense_model=actual_model,
                                   dimension=model_dimension,
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
                                   qdrant_storage_path=str(actual_qdrant_path),
+                                  qdrant_url=args.qdrant_url,
                                   corpus_path=settings["corpus_path"],
                                   corpus_sha256=chunk_file_sha256(settings["corpus_path"]),
                                   fusion=settings["fusion"])
@@ -214,10 +258,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.query is not None:
             if not args.query.strip():
                 raise InputError("--query không được rỗng")
-            queries = [(args.query_id, args.query, args.as_of_date)]
+            queries = [(args.query_id, args.query,
+                        resolve_interactive_as_of_date(args.query, args.as_of_date))]
         else:
-            queries = read_queries(args.queries, allow_test_split=args.allow_test_split,
-                                   default_as_of_date=args.as_of_date)
+            queries = read_queries(args.queries, allow_test_split=args.allow_test_split)
         pipeline = build_pipeline(args)
         outputs = [pipeline.run(question, args.top_k, query_id=query_id, as_of_date=as_of_date)
                    for query_id, question, as_of_date in queries]

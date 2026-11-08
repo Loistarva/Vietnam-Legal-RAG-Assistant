@@ -321,6 +321,7 @@ class LegalVectorStore:
         use_qdrant: bool = True,
         create_if_missing: bool = False,
         recreate: bool = False,
+        url: Optional[str] = None,
     ) -> None:
         if use_qdrant and not HAS_QDRANT:
             raise ImportError(
@@ -331,13 +332,23 @@ class LegalVectorStore:
         self.dimension = dimension
         self.storage_path = storage_path
         self.use_qdrant = bool(use_qdrant)
-        self.persistent = bool(self.use_qdrant and storage_path and storage_path != ":memory:")
+        if url and not self.use_qdrant:
+            raise ValueError("Không thể dùng QDRANT_URL khi use_qdrant=False.")
+        if url and recreate:
+            raise ValueError("Không hỗ trợ recreate khi kết nối Qdrant server; thao tác này có thể xóa dữ liệu.")
+        self.url = url
+        self.is_server = bool(self.use_qdrant and url)
+        self.persistent = bool(
+            self.use_qdrant and (self.is_server or (storage_path and storage_path != ":memory:"))
+        )
         self.create_if_missing = create_if_missing or recreate or not self.persistent
         self._memory_records: List[Dict[str, Any]] = []
         self.client: Optional[Any] = None
 
         if self.use_qdrant:
-            if self.persistent:
+            if self.is_server:
+                self.client = QdrantClient(url=url)
+            elif self.persistent:
                 Path(storage_path).mkdir(parents=True, exist_ok=True)
                 self.client = QdrantClient(path=storage_path)
             else:
@@ -355,9 +366,10 @@ class LegalVectorStore:
         existing = self._collection_names()
         if self.collection_name not in existing:
             if not self.create_if_missing:
+                location = self.url or self.storage_path or ":memory:"
                 raise ValueError(
-                    f"Collection '{self.collection_name}' không tồn tại tại {self.storage_path}; "
-                    "kiểm tra tên collection hoặc dựng bằng scripts/build_index.py."
+                    f"Collection '{self.collection_name}' không tồn tại tại {location}; "
+                    "kiểm tra cấu hình hoặc dựng/migrate collection trước khi truy vấn."
                 )
             self.client.create_collection(
                 collection_name=self.collection_name,

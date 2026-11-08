@@ -1,0 +1,288 @@
+{
+  "query_id": "D42_HISTORICAL",
+  "query": "Năm 2010, Luật Hôn nhân và gia đình 2000 có cấm kết hôn cùng giới không?",
+  "retriever": "hybrid_reranker",
+  "results": [
+    {
+      "chunk_id": "l_22_2000_qh10_art_10_clause_5_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_10",
+      "clause_id": "l_22_2000_qh10_art_10_clause_5",
+      "parent_clause_id": "l_22_2000_qh10_art_10_clause_5",
+      "rank": 1,
+      "score": 0.9487365484237671,
+      "chunk_text": "5. Giữa những người cùng giới tính.",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "10",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "5",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 10. Những trường hợp cấm kết hôn > Khoản 5"
+      },
+      "parent_id": "l_22_2000_qh10_art_10",
+      "rrf_score": 0.02815814850530376,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 25,
+        "dense": 1,
+        "retrieval": 5
+      },
+      "source_scores": {
+        "bm25": 35.665005,
+        "dense": 0.675949,
+        "retrieval": 0.02815814850530376
+      },
+      "reranker_score": 0.9487365484237671
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_4_clause_2_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_4",
+      "clause_id": "l_22_2000_qh10_art_4_clause_2",
+      "parent_clause_id": "l_22_2000_qh10_art_4_clause_2",
+      "rank": 2,
+      "score": 0.934668242931366,
+      "chunk_text": "2. Cấm tảo hôn, cưỡng ép kết hôn, cản trở hôn nhân tự nguyện, tiến bộ; cấm kết hôn giả tạo, lừa dối để kết hôn, ly hôn; cấm cưỡng ép ly hôn, ly hôn giả tạo; cấm yêu sách của cải trong việc cưới hỏi. Cấm người đang có vợ, có chồng mà kết hôn hoặc chung sống như vợ chồng với người khác hoặc người chưa có vợ, chưa có chồng mà kết hôn hoặc chung sống như vợ chồng với người đang có chồng, có vợ. Cấm ngượ đãi, hành hạ ông, bà, cha, mẹ, vợ, chồng, con, cháu, anh, chị, em và các thành viên khác trong gia đình.",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 1 NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "4",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "2",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 1 NHỮNG QUY ĐỊNH CHUNG > Điều 4. Bảo vệ chế độ hôn nhân và gia đình > Khoản 2"
+      },
+      "parent_id": "l_22_2000_qh10_art_4",
+      "rrf_score": 0.03149801587301587,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 4,
+        "dense": 3,
+        "retrieval": 1
+      },
+      "source_scores": {
+        "bm25": 47.22112,
+        "dense": 0.63698,
+        "retrieval": 0.03149801587301587
+      },
+      "reranker_score": 0.934668242931366
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_10_clause_3_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_10",
+      "clause_id": "l_22_2000_qh10_art_10_clause_3",
+      "parent_clause_id": "l_22_2000_qh10_art_10_clause_3",
+      "rank": 3,
+      "score": 0.9010502099990845,
+      "chunk_text": "3. Giữa những người cùng dòng máu về trực hệ; giữa những người có họ trong phạm vi ba đời;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "10",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "3",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 10. Những trường hợp cấm kết hôn > Khoản 3"
+      },
+      "parent_id": "l_22_2000_qh10_art_10",
+      "rrf_score": 0.016129032258064516,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 2,
+        "retrieval": 17
+      },
+      "source_scores": {
+        "dense": 0.664927,
+        "retrieval": 0.016129032258064516
+      },
+      "reranker_score": 0.9010502099990845
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_9_clause_3_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_9",
+      "clause_id": "l_22_2000_qh10_art_9_clause_3",
+      "parent_clause_id": "l_22_2000_qh10_art_9_clause_3",
+      "rank": 4,
+      "score": 0.8937267065048218,
+      "chunk_text": "3. Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn quy định tại Điều 10 của Luật này.",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "9",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "3",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 9. Điều kiện kết hôn > Khoản 3"
+      },
+      "parent_id": "l_22_2000_qh10_art_9",
+      "rrf_score": 0.02728937728937729,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 24,
+        "dense": 5,
+        "retrieval": 6
+      },
+      "source_scores": {
+        "bm25": 35.96036,
+        "dense": 0.626971,
+        "retrieval": 0.02728937728937729
+      },
+      "reranker_score": 0.8937267065048218
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_10_clause_1_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_10",
+      "clause_id": "l_22_2000_qh10_art_10_clause_1",
+      "parent_clause_id": "l_22_2000_qh10_art_10_clause_1",
+      "rank": 5,
+      "score": 0.877921462059021,
+      "chunk_text": "1. Người đang có vợ hoặc có chồng;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "10",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "1",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 10. Những trường hợp cấm kết hôn > Khoản 1"
+      },
+      "parent_id": "l_22_2000_qh10_art_10",
+      "rrf_score": 0.015625,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 4,
+        "retrieval": 19
+      },
+      "source_scores": {
+        "dense": 0.633849,
+        "retrieval": 0.015625
+      },
+      "reranker_score": 0.877921462059021
+    }
+  ],
+  "latency_ms": 92682.687,
+  "top_k": 5,
+  "config": {
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "bm25_index": "bm25-e6-verified-20261101",
+      "collection": "vietnam_legal_chunks",
+      "qdrant_storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "corpus_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "fusion": "rrf"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    },
+    "parent_context": null,
+    "as_of_date": "2010-01-01",
+    "temporal_filter": "retriever",
+    "top_k": 5
+  },
+  "stats": {
+    "retrieved_candidates": 50,
+    "input_candidates": 50,
+    "duplicates_removed": 0,
+    "truncated_candidates": 0,
+    "scored_candidates": 50,
+    "output_candidates": 5,
+    "rerank_latency_ms": 62368.837,
+    "model_load_ms": 20465.01,
+    "returned": 5,
+    "retrieval_latency_ms": 9809.961,
+    "total_latency_ms": 92682.687
+  }
+}

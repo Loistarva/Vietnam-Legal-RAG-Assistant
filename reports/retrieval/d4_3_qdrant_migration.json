@@ -1,0 +1,19 @@
+{
+  "collection": "vietnam_legal_chunks",
+  "qdrant_client_version": "1.19.1",
+  "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+  "source_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+  "target_url": "http://127.0.0.1:6333",
+  "point_count": 2322,
+  "vector_dimension": 1024,
+  "distance": "Cosine",
+  "source_payload_sha256": "e804e78e02dd2a0060dddf01d425a5100eeb44cc0fd68d993346eb797dac6c22",
+  "target_payload_sha256": "e804e78e02dd2a0060dddf01d425a5100eeb44cc0fd68d993346eb797dac6c22",
+  "payload_hash_match": true,
+  "vector_atol": 1e-07,
+  "vectors_within_tolerance": true,
+  "max_abs_vector_diff": 1.4900970457532026e-08,
+  "min_cosine_similarity": 0.9999999999999996,
+  "verified_at_utc": "2026-11-08T02:48:49.207050+00:00",
+  "status": "PASS"
+}
