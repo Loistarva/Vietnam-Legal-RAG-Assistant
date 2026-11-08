@@ -155,6 +155,22 @@ def test_precomputed_artifact_mismatch_is_refused(rag, override, message):
         _source([_g3_envelope(rag, **override)])
 
 
+@pytest.mark.parametrize("section, key, value", [
+    ("retriever", "rrf_k", 10), ("retriever", "dense_model", "bkai"), ("reranker", "model", "other"),
+])
+def test_precomputed_settings_mismatch_is_refused(rag, section, key, value):
+    expected = {"retriever": {"rrf_k": 60, "dense_model": "BAAI/bge-m3"}, "reranker": {"model": "bge"}}
+    env = _g3_envelope(rag)
+    env["config"]["retriever"].update(rrf_k=60, dense_model="BAAI/bge-m3")
+    env["config"]["reranker"]["model"] = "bge"
+    PrecomputedRerankedSource([env], expected_corpus_sha256="abc", expected_settings=expected,
+                              expected_candidate_text="document_breadcrumb_chunk_text")
+    env["config"][section][key] = value
+    with pytest.raises(ValueError, match=f"{section}.{key}"):
+        PrecomputedRerankedSource([env], expected_corpus_sha256="abc", expected_settings=expected,
+                                  expected_candidate_text="document_breadcrumb_chunk_text")
+
+
 def test_precomputed_question_or_date_mismatch_is_refused(rag):
     source = _source([_g3_envelope(rag)])
     with pytest.raises(ValueError, match="as_of_date"):

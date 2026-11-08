@@ -46,6 +46,7 @@ def test_disclaimer_is_not_duplicated(rag):
     ({"answer": "Theo [1] và [4]."}, "ANSWER_MARKER_OUTSIDE_CONTEXT"),
     ({"answer": "Theo [1] và [2].", "evidence_indices": [1]}, "ANSWER_MARKER_NOT_IN_EVIDENCE_INDICES"),
     ({"query_id": "HN_OTHER"}, "QUERY_ID_MISMATCH"),
+    ({"answer": "Theo [1] (doc_a_art_1_clause_1_chunk_1), có."}, "ANSWER_CONTAINS_CHUNK_ID"),
 ])
 def test_fail_returns_policy_message_not_model_text(rag, response, reason):
     gen = rag.FakeGenerator(**response)

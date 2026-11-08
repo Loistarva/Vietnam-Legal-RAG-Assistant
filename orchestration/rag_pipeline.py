@@ -131,6 +131,7 @@ def _envelope_facts(envelope: Mapping[str, Any]) -> dict[str, Any]:
         "as_of_date": envelope.get("as_of_date") or config.get("as_of_date"),
         "reranker": reranker if isinstance(reranker, Mapping) else None,
         "corpus_sha256": retriever.get("corpus_sha256") if isinstance(retriever, Mapping) else None,
+        "retriever": retriever if isinstance(retriever, Mapping) else {},
         "parent_context": parent,
     }
 
@@ -138,12 +139,15 @@ def _envelope_facts(envelope: Mapping[str, Any]) -> dict[str, Any]:
 class PrecomputedRerankedSource:
     """Reranked envelopes saved by an earlier run (G3 ``retrieval/results/dev_hybrid_reranker.json``
     or Dev 4's D4.4 JSONL). Refuses an artifact made on another corpus, another candidate text,
-    a mock scorer, another question text or another date."""
+    a mock scorer, other retrieval/reranker settings (``expected_settings``), another question
+    text or another date, so the record's config versions describe the run that made it."""
 
     name = "precomputed"
 
     def __init__(self, envelopes: Sequence[Mapping[str, Any]], *, expected_corpus_sha256: str,
-                 expected_candidate_text: str, source_path: str = "in-memory"):
+                 expected_candidate_text: str,
+                 expected_settings: Mapping[str, Mapping[str, Any]] | None = None,
+                 source_path: str = "in-memory"):
         if not envelopes:
             raise ValueError("Artifact precomputed không có câu hỏi nào")
         self.source_path = source_path
@@ -166,6 +170,13 @@ class PrecomputedRerankedSource:
             if facts["corpus_sha256"] != expected_corpus_sha256:
                 raise ValueError(f"{query_id}: artifact làm trên corpus {facts['corpus_sha256']!r}, "
                                  f"corpus hiện tại {expected_corpus_sha256!r}; hãy chạy lại retrieval/rerank")
+            sections = {"retriever": facts["retriever"], "reranker": reranker}
+            for section, expected in (expected_settings or {}).items():
+                for key, value in expected.items():
+                    saved = sections[section].get(key)
+                    if saved != value:
+                        raise ValueError(f"{query_id}: artifact có {section}.{key}={saved!r}, cấu hình hiện tại "
+                                         f"{value!r}; hãy chạy lại retrieval/rerank")
             self.envelopes[query_id] = envelope
 
     @classmethod
@@ -238,6 +249,8 @@ def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> Grounding
                                 invalid_indices=invalid)
     if result.grounding_status != "PASS":
         return result
+    if any(item.chunk_id in llm.answer for item in payload.evidence_items):
+        return _gate_result("FAIL", "ANSWER_CONTAINS_CHUNK_ID")
     inline = {int(n) for n in INLINE_MARKER.findall(llm.answer)}
     outside = sorted(inline - set(payload.source_map))
     if outside:
@@ -420,7 +433,12 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
     if precomputed is not None:
         source: CandidateSource = PrecomputedRerankedSource.from_file(
             precomputed, expected_corpus_sha256=versions.corpus_version.removeprefix("sha256:"),
-            expected_candidate_text=reranker_config.candidate_text)
+            expected_candidate_text=reranker_config.candidate_text,
+            expected_settings={
+                "retriever": {"retrieval_top_k": settings["retrieval_top_k"], "rrf_k": settings["rrf_k"],
+                              "dense_model": settings["dense_model"]},
+                "reranker": {"model": reranker_config.model, "max_candidates": reranker_config.max_candidates},
+            })
     else:
         retriever = build_hybrid_retriever(settings, elasticsearch_url=elasticsearch_url, qdrant_path=qdrant_path)
         live = RetrievalPipeline(retriever, build_reranker(reranker_config),
