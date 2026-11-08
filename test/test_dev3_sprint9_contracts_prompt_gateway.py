@@ -129,6 +129,46 @@ class TestContractsAndSchemas:
         assert "bm25" in chunk.retrieval_sources
         assert chunk.rrf_score == 0.032
         assert chunk.reranker_score == 0.88
+        # Hit do cả hai nhánh tìm thấy không bị gắn nhãn theo nhánh đầu tiên
+        assert chunk.retrieval_source == "hybrid"
+
+    @pytest.mark.parametrize("missing", ["validity_status", "document_id", "rank", "score"])
+    def test_candidate_chunk_from_retrieval_item_rejects_missing_fields(self, missing):
+        item = {
+            "chunk_id": "c1",
+            "document_id": "doc",
+            "article_id": "art",
+            "clause_id": "clause",
+            "rank": 1,
+            "score": 0.5,
+            "chunk_text": "Nội dung",
+            "metadata": {"validity_status": "Còn hiệu lực"},
+        }
+        if missing == "validity_status":
+            item["metadata"] = {}
+        else:
+            item.pop(missing)
+        with pytest.raises(ValueError, match=missing):
+            CandidateChunk.from_retrieval_item(item, query_id="q", as_of_date="2024-01-01", retriever="bm25")
+
+    @pytest.mark.parametrize(
+        "path",
+        sorted((Path(__file__).resolve().parent.parent / "retrieval" / "results").rglob("*.json")),
+        ids=lambda p: p.name,
+    )
+    def test_candidate_chunk_from_real_retrieval_results(self, path):
+        envelopes = json.loads(path.read_text(encoding="utf-8"))
+        if not (isinstance(envelopes, list) and envelopes and "results" in envelopes[0]):
+            pytest.skip("không phải dump RetrievalEnvelope")
+        for envelope in envelopes:
+            for item in envelope["results"]:
+                chunk = CandidateChunk.from_retrieval_item(
+                    item,
+                    query_id=envelope["query_id"],
+                    as_of_date="2024-01-01",
+                    retriever=envelope["retriever"],
+                )
+                assert chunk.retrieval_source == envelope["retriever"]
 
     def test_context_payload_auto_computations(self):
         item1 = EvidenceItem(
@@ -251,6 +291,34 @@ class TestContractsAndSchemas:
                 as_of_date_source="benchmark",
                 evidence_items=[item1],
             )
+        with pytest.raises(ValidationError, match="không phải ngày hợp lệ"):
+            ContextPayload(
+                query_id="q_date_fail",
+                query="Query",
+                as_of_date="2024-13-45",
+                as_of_date_source="benchmark",
+                evidence_items=[item1],
+            )
+
+    def test_context_payload_rejects_inconsistent_source_map_and_total_chars(self):
+        item1 = EvidenceItem(
+            evidence_index=1,
+            chunk_id="c1",
+            parent_clause_id="p1",
+            document_id="d1",
+            article_id="a1",
+            clause_id="cl1",
+            content="X" * 9000,
+            validity_status="Còn hiệu lực",
+        )
+        base = dict(query_id="q", query="Query", as_of_date="2024-01-01", as_of_date_source="benchmark")
+        # total_chars truyền tay không được che ngân sách thật
+        with pytest.raises(ValidationError, match="total_chars"):
+            ContextPayload(**base, evidence_items=[item1], total_chars=100)
+        # source_map truyền tay phải giống map dựng từ evidence_items
+        short = item1.model_copy(update={"content": "Nội dung"})
+        with pytest.raises(ValidationError, match="source_map"):
+            ContextPayload(**base, evidence_items=[short], source_map={1: {"chunk_id": "ZZZ"}})
 
     def test_structured_rag_output_constraints(self):
         out = StructuredRAGOutput(
@@ -259,6 +327,10 @@ class TestContractsAndSchemas:
             abstained=False,
         )
         assert out.evidence_indices == [1, 3]
+
+        # JSON Schema gửi Ollama giới hạn index trong [1, 5]
+        items = StructuredRAGOutput.model_json_schema()["properties"]["evidence_indices"]["items"]
+        assert items["minimum"] == 1 and items["maximum"] == 5
 
         # Chặn nếu đưa string chunk_id vào evidence_indices
         with pytest.raises(ValidationError):

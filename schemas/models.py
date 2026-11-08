@@ -12,8 +12,9 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from pathlib import Path
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import (
     BaseModel,
@@ -39,7 +40,19 @@ def _check_iso_date(value: str | None, field_name: str, required: bool = True) -
         return None
     if not ISO_DATE_REGEX.match(val_str):
         raise ValueError(f"Trường '{field_name}' phải theo định dạng ngày ISO (YYYY-MM-DD), nhận được: '{val_str}'")
+    try:
+        date.fromisoformat(val_str)
+    except ValueError as exc:
+        raise ValueError(f"Trường '{field_name}' không phải ngày hợp lệ: '{val_str}'") from exc
     return val_str
+
+
+def _required_text(value: Any, field_name: str) -> str:
+    """Lấy chuỗi bắt buộc từ dữ liệu nguồn; thiếu thì báo lỗi thay vì tự điền."""
+    text = "" if value is None else str(value).strip()
+    if not text:
+        raise ValueError(f"Thiếu trường bắt buộc '{field_name}' trong item retrieval")
+    return text
 
 
 class StrictBaseModel(BaseModel):
@@ -81,7 +94,10 @@ class CandidateChunk(StrictBaseModel):
     vector_ref: Any | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
 
-    @field_validator("query_id", "chunk_id", "chunk_text")
+    @field_validator(
+        "query_id", "chunk_id", "chunk_text", "retrieval_source", "validity_status",
+        "document_id", "article_id", "clause_id",
+    )
     @classmethod
     def validate_non_empty_strings(cls, v: str, info) -> str:
         if not v or not v.strip():
@@ -113,10 +129,18 @@ class CandidateChunk(StrictBaseModel):
         item: dict[str, Any],
         query_id: str,
         as_of_date: str,
+        retriever: str | None = None,
     ) -> CandidateChunk:
-        """Trích xuất an toàn các trường từ RetrievalResultItem (dev_hybrid_reranker/retrieval results)."""
+        """Chuyển một RetrievalResultItem (schemas/retrieval_schema.json) sang CandidateChunk.
+
+        ``retriever`` là trường ``retriever`` của RetrievalEnvelope (bm25, dense, hybrid,
+        hybrid_reranker); file BM25/Dense không có ``retrieval_sources`` theo từng item.
+        Thiếu hiệu lực, ID, rank hoặc score thì báo lỗi, không tự điền giá trị.
+        """
         meta = item.get("metadata") or {}
-        validity_status = item.get("validity_status") or meta.get("validity_status") or "Còn hiệu lực"
+        validity_status = _required_text(
+            item.get("validity_status") or meta.get("validity_status"), "validity_status"
+        )
         effective_from = item.get("effective_from") or meta.get("effective_from")
         effective_to = item.get("effective_to") or meta.get("effective_to")
 
@@ -129,27 +153,38 @@ class CandidateChunk(StrictBaseModel):
         else:
             retrieval_sources = []
 
-        retrieval_source = item.get("retrieval_source")
+        # Nguồn của candidate: trường của item > retriever của envelope > nguồn duy nhất.
+        # Hit hybrid do nhiều nhánh cùng tìm thấy không được gắn nhãn theo nhánh đầu tiên.
+        retrieval_source = item.get("retrieval_source") or retriever
         if not retrieval_source:
-            retrieval_source = retrieval_sources[0] if retrieval_sources else "hybrid"
-        if retrieval_source not in retrieval_sources:
-            retrieval_sources.append(retrieval_source)
+            if len(retrieval_sources) == 1:
+                retrieval_source = retrieval_sources[0]
+            elif len(retrieval_sources) > 1:
+                retrieval_source = "hybrid"
+            else:
+                raise ValueError("Thiếu retrieval_source: item không có retrieval_sources và không truyền retriever")
 
         score_val = item.get("score")
         if score_val is None:
-            score_val = item.get("reranker_score") or item.get("rrf_score") or 0.0
+            score_val = item.get("reranker_score")
+        if score_val is None:
+            score_val = item.get("rrf_score")
+        if score_val is None:
+            raise ValueError("Thiếu trường bắt buộc 'score' trong item retrieval")
+        if item.get("rank") is None:
+            raise ValueError("Thiếu trường bắt buộc 'rank' trong item retrieval")
         score = float(score_val)
-        rank = int(item.get("rank") or 1)
+        rank = int(item["rank"])
 
-        document_id = str(item.get("document_id") or meta.get("document_id") or "")
-        article_id = str(item.get("article_id") or meta.get("article_id") or "")
-        clause_id = str(item.get("clause_id") or meta.get("clause_id") or "")
+        document_id = _required_text(item.get("document_id") or meta.get("document_id"), "document_id")
+        article_id = _required_text(item.get("article_id") or meta.get("article_id"), "article_id")
+        clause_id = _required_text(item.get("clause_id") or meta.get("clause_id"), "clause_id")
         parent_clause_id = item.get("parent_clause_id") or meta.get("parent_clause_id")
-        chunk_text = str(item.get("chunk_text") or item.get("content") or item.get("text") or "").strip()
+        chunk_text = _required_text(item.get("chunk_text"), "chunk_text")
 
         return cls(
             query_id=query_id,
-            chunk_id=str(item.get("chunk_id") or item.get("id") or ""),
+            chunk_id=_required_text(item.get("chunk_id"), "chunk_id"),
             chunk_text=chunk_text,
             score=score,
             rank=rank,
@@ -253,10 +288,13 @@ class ContextPayload(StrictBaseModel):
                 f"nhận được: {indices}"
             )
 
-        # Tính và kiểm tra total_chars <= max_context_chars
+        # total_chars luôn tính từ nội dung thật; giá trị truyền vào phải khớp
         calc_chars = sum(len(item.content) for item in self.evidence_items)
-        if self.total_chars == 0:
-            self.total_chars = calc_chars
+        if self.total_chars not in (0, calc_chars):
+            raise ValueError(
+                f"total_chars ({self.total_chars}) không khớp tổng ký tự thật của evidence ({calc_chars})"
+            )
+        self.total_chars = calc_chars
         if self.total_chars > self.max_context_chars:
             raise ValueError(
                 f"Tổng ký tự ngữ cảnh ({self.total_chars}) vượt quá giới hạn max_context_chars ({self.max_context_chars})"
@@ -283,19 +321,22 @@ class ContextPayload(StrictBaseModel):
                 "provision_status": item.provision_status,
             }
 
-        if not self.source_map:
-            self.source_map = built_map
-        else:
-            if set(self.source_map.keys()) != set(expected_indices):
-                raise ValueError("source_map không khớp chính xác 1-1 với evidence_items")
+        # source_map luôn dựng từ evidence_items; nếu truyền vào thì phải giống hệt
+        if self.source_map and self.source_map != built_map:
+            raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")
+        self.source_map = built_map
 
         return self
 
 
 class StructuredRAGOutput(StrictBaseModel):
-    """Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG)."""
+    """Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG).
+
+    minimum/maximum của evidence_indices đi vào JSON Schema gửi Ollama (``format``) để
+    grammar chặn index ngoài [1, 5]; index > số evidence thật do mapper/validator chặn.
+    """
     answer: str
-    evidence_indices: list[int] = Field(default_factory=list)
+    evidence_indices: list[Annotated[int, Field(ge=1, le=5)]] = Field(default_factory=list)
     abstained: bool = False
     abstention_reason: str | None = None
     needs_clarification: bool = False
