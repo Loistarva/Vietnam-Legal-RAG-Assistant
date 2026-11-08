@@ -1,8 +1,8 @@
 # D1.2 — bàn giao citation validator
 
 Triển khai trên `feature/week09-dev1-planning`, ngày 07/11/2026.
-Schema và generation được lấy nguyên bản từ Dev 3, commit
-`d94eeec` (`feature/contracts-prompt-gateway`); không tạo schema song song,
+Validator dùng `schemas/models.py` và `generation/prompt_builder.py` của Dev 3
+(PR #34, `feature/contracts-prompt-gateway`); không tạo schema song song,
 không sửa mã Dev 3 hay tự coi prompt là đã được Freeze M1.
 
 ## Giao diện cho Dev 5
@@ -23,10 +23,13 @@ result = validate_citations(
 Payload minh họa (ID giả để test contract, không phải căn cứ pháp lý):
 
 ```python
+from generation.prompt_builder import map_evidence_indices_to_citations
+from grounding.citation_validator import validate_citations
 from schemas.models import ContextPayload, EvidenceItem
 
 context = ContextPayload(
     query_id="demo", query="Câu hỏi minh họa", as_of_date="2026-11-07",
+    as_of_date_source="benchmark",
     evidence_items=[EvidenceItem(
         evidence_index=1, chunk_id="child-1", parent_clause_id="parent-1",
         document_id="doc-1", article_id="article-1", clause_id="clause-1",
@@ -93,9 +96,9 @@ mapping bị bỏ sót, duplicates, không mutation và PASS với subset select
 Trạng thái: implementation hoàn thành; chờ Dev 3 + Dev 5 peer review/tích hợp Gate.
 
 Rà soát cuối bổ sung kiểm tra container sai kiểu/None và model bị mutate sau parse,
-tránh exception thay vì FAIL. Kết quả cuối: 67 tests D1.2 PASS; full pytest
-915 passed, 1 skipped (69.13s); 8 tests Node evidence guard PASS;
-`git diff --check` sạch. Chưa chạy CI remote/chưa commit hoặc push.
+tránh exception thay vì FAIL. 67 tests D1.2 PASS với cả schema trong nhánh này
+và schema của PR #34 (`b17e1e3`); fixture truyền `as_of_date_source` vì
+`ContextPayload` của #34 bắt buộc trường này.
 
 ## Giới hạn citation cấp Điểm
 

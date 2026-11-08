@@ -11,7 +11,7 @@ def fixture_pair():
                         document_id="doc-1", article_id="article-1", clause_id="clause-1",
                         content="The selected expanded parent text.", validity_status="valid")
     ctx = ContextPayload(query_id="dev-1", query="question", as_of_date="2026-11-07",
-                         evidence_items=[item])
+                         as_of_date_source="benchmark", evidence_items=[item])
     citation = MappedCitation(**{k: getattr(item, k) for k in
         ("evidence_index", "chunk_id", "parent_clause_id", "document_id", "article_id", "clause_id")})
     return ctx, citation
@@ -113,6 +113,7 @@ def test_multiple_items_sorted_and_subset_allowed():
     ctx, c = fixture_pair()
     second = ctx.evidence_items[0].model_copy(update={"evidence_index": 2, "chunk_id": "child-2"})
     ctx = ContextPayload(query_id=ctx.query_id, query=ctx.query, as_of_date=ctx.as_of_date,
+                         as_of_date_source=ctx.as_of_date_source,
                          evidence_items=[ctx.evidence_items[0], second])
     c2 = c.model_copy(update={"evidence_index": 2, "chunk_id": "child-2"})
     result = validate_citations(ctx, [c2, c], evidence_indices=[2, 1])
