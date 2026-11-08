@@ -2133,9 +2133,9 @@
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
     "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
-    "queries": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "7abd11c263d9305225ab947d5e4cce0b1b0921e139a1472af7c67df3b8b234c0"
+    "queries": "16d28493e3e7be9c257d34d2688becb31b54108737cfb67b8c60d2e3d1e2524f",
+    "ground_truth": "4d81c13fb21de7ce3d428cb20d2ab7edc9307507438661df82d1f63adc0afe88",
+    "retrieval_results": "24f10d0278838a99fbd757bd7e15032e8046519dea24a0adce8985477bb58826"
   },
   "run_config": {
     "top_k": 10,
@@ -2144,9 +2144,9 @@
     "dense_model": "BAAI/bge-m3",
     "dimension": 1024,
     "collection": "vietnam_legal_chunks",
-    "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
+    "qdrant_storage_path": "D:\\AI_PRJ\\wt-gold300\\data\\indexes\\qdrant_storage",
     "elasticsearch_index": "bm25-e6-verified-20261101",
-    "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
+    "chunks": "D:\\AI_PRJ\\wt-gold300\\data\\chunking_output\\chunks.jsonl",
     "fusion": "rrf",
     "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
     "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",

@@ -2133,9 +2133,9 @@
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
     "corpus": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
-    "queries": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "6aaf4583e65c3a64bb9357fc69f2de3d1448101fb0119052302ab8f5cd8b458f"
+    "queries": "16d28493e3e7be9c257d34d2688becb31b54108737cfb67b8c60d2e3d1e2524f",
+    "ground_truth": "4d81c13fb21de7ce3d428cb20d2ab7edc9307507438661df82d1f63adc0afe88",
+    "retrieval_results": "304bddbf7318e99a40fd5365a3efd24aa622de0f130bf7be877ef7e233cb1bf6"
   },
   "run_config": {
     "retriever": {
@@ -2146,11 +2146,11 @@
       "dimension": 1024,
       "bm25_index": "bm25-e6-verified-20261101",
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
-      "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-gold300\\data\\indexes\\qdrant_storage",
+      "corpus_path": "D:\\AI_PRJ\\wt-gold300\\data\\chunking_output\\chunks.jsonl",
       "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
       "fusion": "rrf",
-      "candidates": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\ed5a65c211784539\\f70a92dc-3172-46e0-b690-2ca20555a2a3\\scratchpad\\cand_dev_top50_v2.json"
+      "candidates": "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\ed5a65c211784539\\46a999b2-41e6-417f-9f80-b5df5280fe72\\scratchpad\\cand_dev_top50_v2.json"
     },
     "reranker": {
       "backend": "cross_encoder",
@@ -2161,7 +2161,7 @@
       "dtype": "auto"
     },
     "parent_context": {
-      "parents_file": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\parents.json",
+      "parents_file": "D:\\AI_PRJ\\wt-gold300\\data\\chunking_output\\parents.json",
       "max_context_chars": 6000
     },
     "temporal_filter": "retriever",
