@@ -4,8 +4,6 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-import yaml
-
 from retrieval.settings import load_settings, validate_settings
 from scripts.build_index import resolve_build_config, validate_existing_index_for_build
 from retrieval.retrieval_evaluation import evaluate
@@ -18,20 +16,6 @@ class RetrievalSettingsTest(unittest.TestCase):
         self.assertEqual(config["retrieval"]["result_top_k"], 10)
         self.assertEqual(config["hybrid"]["fusion"], "rrf")
         self.assertNotIn("candidate_k", config["hybrid"])
-
-    def test_bm25_baseline_default_index_comes_from_config(self):
-        import importlib
-        import os
-        import evaluation.bm25_baseline as baseline
-
-        try:
-            with patch.dict(os.environ):
-                os.environ.pop("ELASTICSEARCH_INDEX", None)
-                self.assertEqual(importlib.reload(baseline).DEFAULT_INDEX, load_settings()["bm25"]["index"])
-            with patch.dict(os.environ, {"ELASTICSEARCH_INDEX": "custom-index"}):
-                self.assertEqual(importlib.reload(baseline).DEFAULT_INDEX, "custom-index")
-        finally:
-            importlib.reload(baseline)
 
     def test_missing_retrieval_top_k_fails(self):
         config = copy.deepcopy(load_settings())

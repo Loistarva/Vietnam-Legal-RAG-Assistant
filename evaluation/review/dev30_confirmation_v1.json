@@ -1,0 +1,79 @@
+{
+  "scope": "DEV30_ZERO_SHOT_SET_CONFIRMATION",
+  "version": 1,
+  "status": "confirmed_for_zero_shot_baseline",
+  "confirmed_on": "2026-11-07",
+  "confirmed_by": "Dev 5 (Tuna-ble), trên PR #32; Dev 2 (minhanhltnc) xác nhận lại khi duyệt PR",
+  "manifest": "evaluation/manifests/dev_gold_30_manifest.json",
+  "manifest_status_note": "Manifest v1 của Dev 1 giữ nguyên (status proposed_pending_user_and_dev2_review) để không lệch với nhánh feature/week09-dev30-selection; file này là bản xác nhận.",
+  "query_file": "evaluation/datasets/dev_gold_30_queries_v1.json",
+  "ids_file": "evaluation/rubrics/dev_gold_30_ids_v1.txt",
+  "question_count": 30,
+  "input_sha256_lf_normalized": {
+    "evaluation/datasets/dev_gold_30_queries_v1.json": "da08c76de467288c8b5faa2870ef741e92a62f301f59bdbb1dac0e6a15702f93",
+    "data/benchmark/queries_dev.json": "9d1d8d75d5a0dafa10795a5617dbfc5aaaaf35e117923b87935f97dbbb2efb71",
+    "data/benchmark/ground_truth.json": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
+    "data/chunking_output/chunks.jsonl": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264"
+  },
+  "input_update_note": "Cập nhật 2026-11-07 (fix/leftover-after-0211): queries_dev.json sửa lỗi gõ câu HN_078, HN_207 (không thuộc 30 câu); corpus có effective_to cấp Điều/Khoản/Điểm (D1) và thêm NĐ 87/2020, NĐ 07/2025, NĐ 18/2026, TT 04/2024 (2.322 chunk; chỉ các Điều thuộc phạm vi theo data/reference/corpus_scope.json). Kiểm lại: 30 bản ghi vẫn giống queries_dev.json, 45/45 chunk gold còn trong corpus và có hiệu lực tại as_of_date.",
+  "checks": {
+    "ids_unique_and_same_order_as_ids_file": true,
+    "records_identical_to_queries_dev_json": true,
+    "split_dev_and_not_in_queries_test_json": true,
+    "gold_context_ids_confirmed": "30/30",
+    "reference_answer_non_empty": "30/30",
+    "gold_chunks_in_corpus_and_in_force_at_as_of_date": "45/45 chunk, đều thuộc l_52_2014_qh13",
+    "gold_chunk_or_parent_clause_shared_with_test_gold": 0,
+    "question_text_identical_to_a_test_question": 0,
+    "gold_changes_since_manifest_inputs": "So với ground_truth 7e6a9d48… (0f8a6a7) và PR #25 (54c0e37): 30 câu chỉ khác verified_by (PR #27 sửa tên người duyệt); câu hỏi, gold, đáp án không đổi.",
+    "reference_answer_matches_gold_chunks": "Đọc đối chiếu 30/30 đáp án với toàn văn chunk gold khi chấm tay; không thấy đáp án nào sai so với chunk."
+  },
+  "distribution": {
+    "category": {
+      "ket_hon": 7,
+      "tai_san": 5,
+      "cap_duong": 5,
+      "ly_hon": 3,
+      "con_cai": 3,
+      "nguyen_tac_quy_dinh": 3,
+      "vo_chong": 2,
+      "mang_thai_ho": 2
+    },
+    "question_type": {
+      "fact": 13,
+      "situation": 14,
+      "multi_hop": 3
+    },
+    "difficulty": {
+      "easy": 13,
+      "medium": 12,
+      "hard": 5
+    },
+    "test_type": {
+      "current_law": 29,
+      "outdated_law_trap": 1
+    },
+    "as_of_date": "2026-10-15 (cả 30 câu)"
+  },
+  "generation_policy": {
+    "runner": "scripts/run_zero_shot_dev.py (evaluation/zero_shot.py)",
+    "model": "qwen2.5:7b (Ollama)",
+    "options": {
+      "temperature": 0,
+      "num_predict": 512,
+      "repeat_penalty": 1.15,
+      "repeat_last_n": 64
+    },
+    "context_used": false,
+    "prompt_note": "Prompt hệ thống cố định trong evaluation/zero_shot.py: answer_question; prompt không đưa as_of_date của câu hỏi vào. num_predict 512 làm câu trả lời HN_299 bị cắt."
+  },
+  "limits": [
+    "Mẫu tiện dụng theo chất lượng nguồn, chỉ dùng Luật 52/2014/QH13; không đại diện cho 75 câu Dev đã duyệt hay toàn bộ văn bản trong corpus.",
+    "Không có câu historical_law hay partially_expired; chỉ một câu outdated_law_trap (HN_035).",
+    "Một số câu dùng chung Khoản gold (ví dụ HN_001, HN_002, HN_004 cùng khoản 1 Điều 8), nên 30 câu không phải 30 quan sát độc lập."
+  ],
+  "manual_rubric": {
+    "guide": "evaluation/rubrics/zero_shot_rubric_guide_v1.md",
+    "scores": "evaluation/rubrics/zero_shot_dev30_manual_scores_v1.csv"
+  }
+}

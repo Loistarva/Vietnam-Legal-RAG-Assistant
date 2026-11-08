@@ -8,11 +8,18 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import math
+import sys
+import tempfile
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from evaluation.metrics import evaluate as evaluate_shared_metrics
 
 
 def read_json(path: Path):
@@ -27,20 +34,78 @@ def write_csv(rows: list[dict], path: Path) -> None:
         writer.writerows(rows)
 
 
-def normalize_results(data: list[dict]) -> list[dict]:
+def normalize_results(data: list[dict]) -> list[dict[str, Any]]:
     flat = []
     for item in data:
         if not (isinstance(item, dict) and "results" in item and isinstance(item["results"], list)):
             raise ValueError("Kết quả truy xuất phải tuân thủ RetrievalEnvelope schema (chứa 'results')")
-        q_text = item.get("query") or item.get("query_id") or ""
+        query_id = item.get("query_id")
+        if not isinstance(query_id, str) or not query_id:
+            raise ValueError("RetrievalEnvelope thiếu query_id hợp lệ")
         for res in item["results"]:
             flat.append({
-                "query": q_text,
+                "query_id": query_id,
                 "chunk_id": res.get("chunk_id"),
                 "score": res.get("score") if res.get("score") is not None else res.get("rrf_score", 0.0),
                 "rank": res.get("rank"),
             })
     return flat
+
+
+def score_with_shared_metrics(
+    labels_by_query: dict[str, set[str]],
+    retrieved_by_query: dict[str, list[str]],
+    k: int,
+) -> dict[str, float | None]:
+    with tempfile.TemporaryDirectory(prefix="task4-metrics-") as temp_dir:
+        temp_path = Path(temp_dir)
+        ground_truth_path = temp_path / "ground_truth.json"
+        results_path = temp_path / "results.json"
+        ground_truth_path.write_text(
+            json.dumps([
+                {
+                    "id": query_id,
+                    "gold_context_ids": sorted(labels),
+                    "gold_context_ids_confirmed": True,
+                }
+                for query_id, labels in labels_by_query.items()
+            ]),
+            encoding="utf-8",
+        )
+        results_path.write_text(
+            json.dumps([
+                {
+                    "query_id": query_id,
+                    "retrieved_chunk_ids": retrieved_by_query[query_id],
+                }
+                for query_id in labels_by_query
+            ]),
+            encoding="utf-8",
+        )
+        return evaluate_shared_metrics(
+            results_path, ground_truth_path, ks=(k,)
+        )["average"]
+
+
+def _ranked_results_by_query(results: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    by_query: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in results:
+        by_query[row["query_id"]].append(row)
+    return by_query
+
+
+def _top_ten_chunk_ids(
+    method: str,
+    query_id: str,
+    by_query: dict[str, list[dict[str, Any]]],
+) -> list[str]:
+    ranked = sorted(by_query.get(query_id, []), key=lambda row: row["rank"])
+    if len(ranked) != 10:
+        raise ValueError(f"{method}: cần đúng Top-10 cho truy vấn {query_id!r}")
+    ids = [row["chunk_id"] for row in ranked]
+    if len(set(ids)) != 10:
+        raise ValueError(f"{method}: chunk ID trùng trong truy vấn {query_id!r}")
+    return ids
 
 
 def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
@@ -71,9 +136,10 @@ def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
     candidate_queries = 0
     excluded = 0
     for question in dev:
-        item = truth.get(question["id"])
+        query_id = question["id"]
+        item = truth.get(query_id)
         if item is None:
-            raise ValueError(f"Thiếu ground truth cho {question['id']}")
+            raise ValueError(f"Thiếu ground truth cho {query_id}")
         gold = set(item.get("gold_context_ids") or [])
         labels = gold or set(item.get("candidate_context_ids") or [])
         if not labels:
@@ -85,38 +151,27 @@ def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
             candidate_queries += 1
         missing = labels - chunk_ids
         if missing:
-            raise ValueError(f"Candidate IDs không có trong corpus ({question['id']}): {sorted(missing)}")
-        query_labels[question["question"]] = labels
+            raise ValueError(f"Candidate IDs không có trong corpus ({query_id}): {sorted(missing)}")
+        query_labels[query_id] = labels
 
     output_rows = []
     for method in ("bm25", "dense", "hybrid"):
         results = normalize_results(read_json(results_dir / f"dev_{method}.json"))
-        by_query: dict[str, list[dict]] = defaultdict(list)
-        for row in results:
-            by_query[row["query"]].append(row)
-        recalls, mrrs, ndcgs, precisions = [], [], [], []
-        for query, relevant in query_labels.items():
-            ranked = sorted(by_query.get(query, []), key=lambda row: row["rank"])
-            if len(ranked) != 10:
-                raise ValueError(f"{method}: cần đúng Top-10 cho truy vấn {query!r}")
-            ids = [row["chunk_id"] for row in ranked]
-            if len(set(ids)) != 10:
-                raise ValueError(f"{method}: chunk ID trùng trong truy vấn {query!r}")
-            hit_ranks = [rank for rank, cid in enumerate(ids, 1) if cid in relevant]
-            recalls.append(len(set(ids) & relevant) / len(relevant))
-            mrrs.append(1 / hit_ranks[0] if hit_ranks else 0.0)
-            dcg = sum(1 / math.log2(rank + 1) for rank in hit_ranks)
-            idcg = sum(1 / math.log2(rank + 1) for rank in range(1, min(10, len(relevant)) + 1))
-            ndcgs.append(dcg / idcg if idcg else 0.0)
-            precisions.append(len(hit_ranks) / 10)
-        n = len(query_labels)
+        by_query = _ranked_results_by_query(results)
+        retrieved_by_query = {
+            query_id: _top_ten_chunk_ids(method, query_id, by_query)
+            for query_id in query_labels
+        }
+        metrics = score_with_shared_metrics(query_labels, retrieved_by_query, 10)
         output_rows.append({
             "method": method.upper(), "queries_retrieved": len(dev),
-            "queries_scored": n, "queries_excluded_unlabeled": excluded,
+            "queries_scored": len(query_labels), "queries_excluded_unlabeled": excluded,
             "queries_scored_gold_confirmed": confirmed_queries,
             "queries_scored_candidate_unverified": candidate_queries,
-            "recall_at_10": sum(recalls) / n, "mrr_at_10": sum(mrrs) / n,
-            "ndcg_at_10": sum(ndcgs) / n, "precision_at_10": sum(precisions) / n,
+            "recall_at_10": metrics["strict_match_recall@10"],
+            "mrr_at_10": metrics["mrr@10"],
+            "ndcg_at_10": metrics["ndcg@10"],
+            "precision_at_10": metrics["precision@10"],
         })
 
     write_csv(output_rows, output_path)
@@ -127,59 +182,55 @@ def evaluate(dev_path: Path, ground_truth_path: Path, chunks_path: Path,
               f"({row['queries_scored']} scored, {row['queries_excluded_unlabeled']} excluded)")
     print(f"CSV: {output_path}")
 
-    # Also score article-level labels from gold_article_ids. This is a distinct
-    # metric from exact chunk matching and remains provisional until labels are reviewed.
     article_labels: dict[str, set[str]] = {}
     article_excluded = 0
     for question in dev:
-        item = truth[question["id"]]
-        labels = set(item.get("gold_article_ids") or [])
+        query_id = question["id"]
+        labels = set(truth[query_id].get("gold_article_ids") or [])
         if labels:
-            article_labels[question["question"]] = labels
+            article_labels[query_id] = labels
         else:
             article_excluded += 1
     article_rows = []
     for method in ("bm25", "dense", "hybrid"):
         results = normalize_results(read_json(results_dir / f"dev_{method}.json"))
-        by_query: dict[str, list[dict]] = defaultdict(list)
-        for row in results:
-            by_query[row["query"]].append(row)
-        recalls, mrrs, ndcgs, precisions = [], [], [], []
-        for query, relevant in article_labels.items():
-            ranked = sorted(by_query.get(query, []), key=lambda row: row["rank"])
-            if len(ranked) != 10:
-                raise ValueError(f"{method}: cần đúng Top-10 cho truy vấn {query!r}")
-            seen: set[str] = set()
-            article_hits: list[tuple[int, str]] = []
-            for rank, row in enumerate(ranked, 1):
-                article_id = chunk_to_article.get(row["chunk_id"])
-                if article_id and article_id not in seen:
-                    seen.add(article_id)
-                    article_hits.append((rank, article_id))
-            hit_ranks = [rank for rank, aid in article_hits if aid in relevant]
-            recalls.append(len({aid for rank, aid in article_hits if rank <= 10} & relevant) / len(relevant))
-            mrrs.append(1 / hit_ranks[0] if hit_ranks else 0.0)
-            dcg = sum(1 / math.log2(rank + 1) for rank in hit_ranks)
-            idcg = sum(1 / math.log2(rank + 1) for rank in range(1, min(10, len(relevant)) + 1))
-            ndcgs.append(dcg / idcg if idcg else 0.0)
-            precisions.append(len(hit_ranks) / 10)
-        n = len(article_labels)
+        by_query = _ranked_results_by_query(results)
+        retrieved_by_query: dict[str, list[str]] = {}
+        for query_id in article_labels:
+            seen_articles: set[str] = set()
+            article_results = []
+            for rank, chunk_id in enumerate(
+                _top_ten_chunk_ids(method, query_id, by_query), start=1
+            ):
+                article_id = chunk_to_article.get(chunk_id)
+                if article_id and article_id not in seen_articles:
+                    seen_articles.add(article_id)
+                    article_results.append(article_id)
+                else:
+                    placeholder = f"__unmatched_article__:{query_id}:{rank}"
+                    while placeholder in article_labels[query_id]:
+                        placeholder = "_" + placeholder
+                    article_results.append(placeholder)
+            retrieved_by_query[query_id] = article_results
+        metrics = score_with_shared_metrics(article_labels, retrieved_by_query, 10)
         article_rows.append({
             "method": method.upper(), "label_level": "article_id",
-            "queries_retrieved": len(dev), "queries_scored": n,
+            "queries_retrieved": len(dev), "queries_scored": len(article_labels),
             "queries_excluded_unlabeled": article_excluded,
             "queries_scored_gold_confirmed": sum(
-                bool(truth[q["id"]].get("gold_context_ids"))
-                and truth[q["id"]].get("gold_context_ids_confirmed") is True
-                for q in dev if truth[q["id"]].get("gold_article_ids")
+                bool(truth[question["id"]].get("gold_context_ids"))
+                and truth[question["id"]].get("gold_context_ids_confirmed") is True
+                for question in dev if truth[question["id"]].get("gold_article_ids")
             ),
             "queries_scored_candidate_unverified": sum(
-                bool(truth[q["id"]].get("gold_article_ids"))
-                and truth[q["id"]].get("gold_context_ids_confirmed") is not True
-                for q in dev
+                bool(truth[question["id"]].get("gold_article_ids"))
+                and truth[question["id"]].get("gold_context_ids_confirmed") is not True
+                for question in dev
             ),
-            "recall_at_10": sum(recalls) / n, "mrr_at_10": sum(mrrs) / n,
-            "ndcg_at_10": sum(ndcgs) / n, "precision_at_10": sum(precisions) / n,
+            "recall_at_10": metrics["strict_match_recall@10"],
+            "mrr_at_10": metrics["mrr@10"],
+            "ndcg_at_10": metrics["ndcg@10"],
+            "precision_at_10": metrics["precision@10"],
         })
     write_csv(article_rows, article_output_path)
     for row in article_rows:

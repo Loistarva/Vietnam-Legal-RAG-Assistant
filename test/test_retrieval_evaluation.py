@@ -1,5 +1,4 @@
 import json
-import hashlib
 import math
 import tempfile
 import unittest
@@ -8,8 +7,9 @@ from unittest.mock import patch
 
 import yaml
 
-from retrieval.retrieval_evaluation import evaluate
+from retrieval.retrieval_evaluation import DEFAULT_OUTPUT, ROOT, evaluate, main
 from retrieval.settings import load_settings
+from embedding.vector_store import chunk_file_sha256
 
 
 RUN_CONFIG = {
@@ -21,6 +21,18 @@ RUN_CONFIG = {
 
 
 class RetrievalEvaluationTest(unittest.TestCase):
+    def test_cli_defaults_to_verified_benchmark_ground_truth(self):
+        with patch("sys.argv", ["retrieval_evaluation.py"]), patch(
+            "retrieval.retrieval_evaluation.evaluate"
+        ) as run:
+            self.assertEqual(main(), 0)
+
+        self.assertEqual(
+            run.call_args.kwargs["ground_truth_path"],
+            ROOT / "data" / "benchmark" / "ground_truth.json",
+        )
+        self.assertEqual(run.call_args.args[2], DEFAULT_OUTPUT)
+
     def test_duplicate_question_without_id_and_duplicate_query_id_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
@@ -66,7 +78,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             temporal_config = {
                 **RUN_CONFIG,
                 "as_of_date": as_of_date,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 envelope = [{
@@ -105,12 +117,15 @@ class RetrievalEvaluationTest(unittest.TestCase):
             dev_path.write_text(json.dumps([{"id": "Q1", "question": query,
                                              "relevant_chunk_ids": ["A", "B"]}]), encoding="utf-8")
             chunks_path.write_text(json.dumps([
-                {"chunk_id": "A", "chunk_text": "relevant A", "metadata": {"article_ref": "A"}},
-                {"chunk_id": "B", "chunk_text": "relevant B", "metadata": {"article_ref": "B"}},
-                {"chunk_id": "C", "chunk_text": "irrelevant", "metadata": {"article_ref": "C"}},
+                {"chunk_id": "A", "parent_clause_id": "clause-A",
+                 "chunk_text": "relevant A", "metadata": {"article_ref": "A"}},
+                {"chunk_id": "B", "parent_clause_id": "clause-B",
+                 "chunk_text": "relevant B", "metadata": {"article_ref": "B"}},
+                {"chunk_id": "C", "parent_clause_id": "clause-C",
+                 "chunk_text": "irrelevant", "metadata": {"article_ref": "C"}},
             ]), encoding="utf-8")
             results_dir.mkdir()
-            run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
+            run_config = {**RUN_CONFIG, "corpus_sha256": chunk_file_sha256(chunks_path)}
             for method in ("bm25", "dense", "hybrid"):
                 envelope = [{
                     "query_id": "Q1",
@@ -130,9 +145,12 @@ class RetrievalEvaluationTest(unittest.TestCase):
             row = metrics["hybrid"]
             expected_ndcg = (1 / math.log2(3) + 1 / math.log2(4)) / (1 + 1 / math.log2(3))
             self.assertEqual(row["recall_at_10"], 1.0)
+            self.assertEqual(row["parent_match_recall_at_10"], 1.0)
             self.assertEqual(row["mrr_at_10"], 0.5)
             self.assertAlmostEqual(row["ndcg_at_10"], expected_ndcg)
             self.assertEqual(row["precision_at_10"], 0.2)
+            report = (output_dir / "retrieval_report.md").read_text(encoding="utf-8")
+            self.assertIn("Parent Match@10", report)
 
     def test_ground_truth_mode_scores_only_reviewed_dev_gold(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -156,7 +174,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
                 {"chunk_id": "B", "chunk_text": "B", "metadata": {}},
             ]), encoding="utf-8")
             results_dir.mkdir()
-            run_config = {**RUN_CONFIG, "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest()}
+            run_config = {**RUN_CONFIG, "corpus_sha256": chunk_file_sha256(chunks_path)}
             for method in ("bm25", "dense", "hybrid"):
                 envelopes = [{
                     "query_id": query_id, "query": text, "retriever": method,
@@ -200,7 +218,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             results_dir.mkdir()
             run_config = {
                 **RUN_CONFIG, "top_k": 2, "candidate_k": 5,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 (results_dir / f"dev_{method}.json").write_text(json.dumps([{
@@ -227,7 +245,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
                                              "relevant_chunk_ids": ["A"]}]), encoding="utf-8")
             chunks_path.write_text(json.dumps([{"chunk_id": "A", "text": "A", "metadata": {}}]), encoding="utf-8")
             results_dir.mkdir()
-            actual_hash = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
+            actual_hash = chunk_file_sha256(chunks_path)
             for changed, invalid_value in (("rrf_k", 20), ("dense_model", "unknown/model"),
                                            ("corpus_sha256", "f" * 64)):
                 bad_config = {**RUN_CONFIG, "corpus_sha256": actual_hash, changed: invalid_value}
@@ -282,7 +300,7 @@ class RetrievalEvaluationTest(unittest.TestCase):
             results_dir.mkdir()
             config = {
                 **RUN_CONFIG,
-                "corpus_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
+                "corpus_sha256": chunk_file_sha256(chunks_path),
             }
             for method in ("bm25", "dense", "hybrid"):
                 (results_dir / f"dev_{method}.json").write_text(json.dumps([

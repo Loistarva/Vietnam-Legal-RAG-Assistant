@@ -59,7 +59,11 @@ def run_cleaner() -> None:
     )
 
     if result.get("failed", 0) > 0:
-        print("[cảnh báo] Có PDF chưa xử lý thành công; xem log cleaner để biết chi tiết.")
+        # Không parse tiếp trên TXT của trang OCR lỗi (H8).
+        raise SystemExit(
+            f"Cleaner báo {result['failed']} PDF cần kiểm tra: {result.get('failed_files')}; "
+            "xem log cleaner, sửa rồi chạy lại."
+        )
 
 
 def check_doc_structure(doc: dict) -> Tuple[List[str], List[str]]:

@@ -6,9 +6,6 @@ from retrieval.hybrid_retriever import ElasticsearchBM25Retriever, _segment_bm25
 
 
 class FakeClient:
-    def __init__(self, extra_metadata=None):
-        self.extra_metadata = extra_metadata or {}
-
     class Indices:
         def __init__(self, extra_metadata=None):
             self.extra_metadata = extra_metadata or {}

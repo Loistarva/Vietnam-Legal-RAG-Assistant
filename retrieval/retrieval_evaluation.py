@@ -3,24 +3,29 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import json
-import math
 import sys
+import tempfile
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
 from typing import Any
 
-from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
+from evaluation.metrics import evaluate as evaluate_shared_metrics
+
 DEFAULT_DEV = ROOT / "data" / "benchmark" / "queries_dev.json"
 DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 DEFAULT_RESULTS = ROOT / "retrieval" / "results"
+DEFAULT_OUTPUT = ROOT / "retrieval" / "evaluation"
 METHODS = ("bm25", "dense", "hybrid")
 from retrieval.settings import DEFAULT_CONFIG_PATH, load_settings
 from embedding.model_registry import ModelRegistry
+from embedding.vector_store import chunk_file_sha256
 
 
 def read_json(path: Path) -> Any:
@@ -70,7 +75,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
              top_k: int | None = None,
              candidate_k: int | None = None,
              rrf_k: int | None = None,
-             ground_truth_path: Path | None = None) -> dict[str, dict[str, float]]:
+             ground_truth_path: Path | None = None) -> dict[str, dict[str, float | None]]:
     settings = load_settings(config_path)
     if settings["hybrid"].get("fusion") != "rrf":
         raise ValueError("Evaluator hiện chỉ hỗ trợ kết quả được tạo với fusion=rrf")
@@ -154,7 +159,13 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
                 if isinstance(chunk.get(field), str) and chunk.get(field).strip()
             ), "")
     chunks_by_id = {chunk["chunk_id"]: chunk for chunk in normalized_chunks}
-    corpus_sha256 = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
+    parent_by_chunk = {
+        chunk_id: chunk["parent_clause_id"]
+        for chunk_id, chunk in chunks_by_id.items()
+        if isinstance(chunk.get("parent_clause_id"), str)
+        and chunk["parent_clause_id"].strip()
+    }
+    corpus_sha256 = chunk_file_sha256(chunks_path)
     expected_run_config["corpus_sha256"] = corpus_sha256
     missing_gold_ids = {cid for ids in relevant.values() for cid in ids} - chunks_by_id.keys()
     if missing_gold_ids:
@@ -162,7 +173,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
 
     output_dir.mkdir(parents=True, exist_ok=True)
     aggregate_rows: list[dict[str, Any]] = []
-    metrics: dict[str, dict[str, float]] = {}
+    metrics: dict[str, dict[str, float | None]] = {}
     def _normalize_dev_rows(raw_list: list[Any]) -> list[dict[str, Any]]:
         flat = []
         for item in raw_list:
@@ -243,7 +254,6 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
                 "relevant_chunk_text": expected_text,
             })
 
-        recalls, reciprocal_ranks, ndcgs, precisions = [], [], [], []
         temporal_checks = temporal_violations = temporal_metadata_missing = 0
         for row in rows:
             chunk = chunks_by_id[row["chunk_id"]]
@@ -254,7 +264,8 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
             temporal_checks += 1
             if not is_effective_at(chunk, row["as_of_date"]):
                 temporal_violations += 1
-        for query_id, relevant_ids in relevant.items():
+        evaluation_rows = []
+        for query_id in relevant:
             ranked = sorted(by_query.get(query_id, []), key=lambda row: row["rank"])
             ranks = [row["rank"] for row in ranked]
             if len(ranks) != len(set(ranks)):
@@ -262,23 +273,52 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
             returned_ids = [row["chunk_id"] for row in ranked]
             if len(returned_ids) != len(set(returned_ids)):
                 raise ValueError(f"{method}: chunk_id bị trùng trong query_id {query_id}")
-            recalls.append(len(set(returned_ids[:metric_k]) & relevant_ids) / len(relevant_ids))
-            hits_at_k = [1 if cid in relevant_ids else 0 for cid in returned_ids[:metric_k]]
-            dcg = sum(hit / math.log2(rank + 1) for rank, hit in enumerate(hits_at_k, 1))
-            ideal_hits = min(len(relevant_ids), metric_k)
-            idcg = sum(1 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
-            ndcgs.append(dcg / idcg if idcg else 0.0)
-            precisions.append(sum(hits_at_k) / metric_k)
-            reciprocal_ranks.append(next((1 / rank for rank, cid in enumerate(returned_ids[:metric_k], 1)
-                                          if cid in relevant_ids), 0.0))
+            evaluation_rows.append({
+                "query_id": query_id,
+                "retrieved_chunk_ids": returned_ids,
+                "retrieved_parent_clause_ids": [
+                    chunks_by_id[chunk_id].get("parent_clause_id") or None
+                    for chunk_id in returned_ids
+                ],
+            })
+
+        with tempfile.TemporaryDirectory(prefix="retrieval-metrics-") as temp_dir:
+            temp_path = Path(temp_dir)
+            ground_truth_path = temp_path / "ground_truth.json"
+            results_path = temp_path / "results.json"
+            ground_truth_path.write_text(
+                json.dumps([
+                    {
+                        "id": query_id,
+                        "gold_context_ids": sorted(gold_ids),
+                        "gold_context_ids_confirmed": True,
+                    }
+                    for query_id, gold_ids in relevant.items()
+                ]),
+                encoding="utf-8",
+            )
+            results_path.write_text(
+                json.dumps(evaluation_rows), encoding="utf-8"
+            )
+            shared_report = evaluate_shared_metrics(
+                results_path,
+                ground_truth_path,
+                ks=(metric_k,),
+                parent_by_chunk=parent_by_chunk,
+            )
+        shared_metrics = shared_report["average"]
         suffix = str(metric_k)
         metrics[method] = {
             "query_count": float(len(relevant)),
             "result_count": float(len(rows)),
-            f"recall_at_{suffix}": sum(recalls) / len(recalls),
-            f"mrr_at_{suffix}": sum(reciprocal_ranks) / len(reciprocal_ranks),
-            f"ndcg_at_{suffix}": sum(ndcgs) / len(ndcgs),
-            f"precision_at_{suffix}": sum(precisions) / len(precisions),
+            f"recall_at_{suffix}": shared_metrics[f"strict_match_recall@{suffix}"],
+            f"parent_match_recall_at_{suffix}": shared_metrics[f"parent_match_recall@{suffix}"],
+            f"mrr_at_{suffix}": shared_metrics[f"mrr@{suffix}"],
+            f"ndcg_at_{suffix}": shared_metrics[f"ndcg@{suffix}"],
+            f"precision_at_{suffix}": shared_metrics[f"precision@{suffix}"],
+            "parent_metadata_missing_count": float(
+                shared_report["num_parent_metadata_missing_questions"]
+            ),
             "temporal_violation_rate": (temporal_violations / temporal_checks
                                          if temporal_checks else 0.0),
             "temporal_violation_count": float(temporal_violations),
@@ -328,12 +368,19 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         "",
         "## Kết quả định lượng",
         "",
-        f"| Phương pháp | Số kết quả | Recall@{metric_k} | MRR@{metric_k} | nDCG@{metric_k} | Precision@{metric_k} |",
-        "| --- | ---: | ---: | ---: | ---: | ---: |",
+        f"| Phương pháp | Số kết quả | Recall@{metric_k} | Parent Match@{metric_k} | MRR@{metric_k} | nDCG@{metric_k} | Precision@{metric_k} |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for method in METHODS:
         metric = metrics[method]
-        report.append(f"| {method.upper()} | {int(metric['result_count'])} | {metric[f'recall_at_{metric_k}']:.4f} | {metric[f'mrr_at_{metric_k}']:.4f} | {metric[f'ndcg_at_{metric_k}']:.4f} | {metric[f'precision_at_{metric_k}']:.4f} |")
+        parent_match = metric[f"parent_match_recall_at_{metric_k}"]
+        parent_match_text = f"{parent_match:.4f}" if parent_match is not None else "N/A"
+        report.append(
+            f"| {method.upper()} | {int(metric['result_count'])} | "
+            f"{metric[f'recall_at_{metric_k}']:.4f} | {parent_match_text} | "
+            f"{metric[f'mrr_at_{metric_k}']:.4f} | {metric[f'ndcg_at_{metric_k}']:.4f} | "
+            f"{metric[f'precision_at_{metric_k}']:.4f} |"
+        )
     report.extend([
         "",
         "| Phương pháp | Temporal Violation Rate | Số vi phạm / đã kiểm tra | Chunk thiếu metadata ngày |",
@@ -350,7 +397,7 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
         "",
         "## Cách đọc và giới hạn",
         "",
-        f"Các chỉ số là trung bình macro trên các câu hỏi Dev. Recall@{metric_k} đo tỷ lệ chunk liên quan được lấy về trong Top-{metric_k}; MRR@{metric_k} là nghịch đảo thứ hạng của chunk liên quan đầu tiên; nDCG@{metric_k} dùng nhãn liên quan nhị phân; Precision@{metric_k} chia số chunk liên quan trong Top-{metric_k} cho {metric_k}.",
+        f"Các chỉ số là trung bình macro trên các câu hỏi Dev. Recall@{metric_k} đo tỷ lệ chunk liên quan được lấy về trong Top-{metric_k}; Parent Match@{metric_k} đo tỷ lệ Khoản gold được truy xuất, dựa trên `parent_clause_id` có sẵn trong corpus (N/A nếu thiếu metadata); MRR@{metric_k} là nghịch đảo thứ hạng của chunk liên quan đầu tiên; nDCG@{metric_k} dùng nhãn liên quan nhị phân; Precision@{metric_k} chia số chunk liên quan trong Top-{metric_k} cho {metric_k}.",
         "Temporal Violation Rate chỉ tính trên kết quả có ít nhất một mốc hiệu lực; chunk thiếu cả effective_from và effective_to được đếm riêng, không mặc định xem là hợp lệ.",
         "",
         "Nhãn chưa được chuyên gia pháp lý thẩm định. Kết quả trên Dev dùng để phát triển và chọn cấu hình; không đại diện cho chất lượng trên Test set hoặc các lĩnh vực pháp luật khác.",
@@ -362,31 +409,47 @@ def evaluate(dev_path: Path, results_dir: Path, output_dir: Path,
     print(f"Đã tạo CSV: {csv_path}")
     print(f"Đã tạo báo cáo: {output_dir / 'retrieval_report.md'}")
     for method, metric in metrics.items():
-        print(f"{method}: Recall@{metric_k}={metric[f'recall_at_{metric_k}']:.4f}, MRR@{metric_k}={metric[f'mrr_at_{metric_k}']:.4f}, "
-              f"nDCG@{metric_k}={metric[f'ndcg_at_{metric_k}']:.4f}, Precision@{metric_k}={metric[f'precision_at_{metric_k}']:.4f}, "
+        parent_match = metric[f"parent_match_recall_at_{metric_k}"]
+        parent_match_text = f"{parent_match:.4f}" if parent_match is not None else "N/A"
+        print(f"{method}: Recall@{metric_k}={metric[f'recall_at_{metric_k}']:.4f}, "
+              f"ParentMatch@{metric_k}={parent_match_text}, "
+              f"nDCG@{metric_k}={metric[f'ndcg_at_{metric_k}']:.4f}, "
+              f"Precision@{metric_k}={metric[f'precision_at_{metric_k}']:.4f}, "
               f"TemporalViolationRate={metric['temporal_violation_rate']:.4f}")
     return metrics
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH)
     parser.add_argument("--dev-set", type=Path, default=DEFAULT_DEV)
     parser.add_argument("--chunks", type=Path, default=None,
                         help="Corpus JSON used to display retrieved and expected chunk text")
     parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_RESULTS)
+    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--dense-model", default=None)
     parser.add_argument("--elasticsearch-index", default=None)
     parser.add_argument("--collection", default=None)
     parser.add_argument("--top-k", type=int, default=None)
     parser.add_argument("--candidate-k", type=int, default=None)
     parser.add_argument("--rrf-k", type=int, default=None)
-    parser.add_argument("--ground-truth", type=Path, default=None,
-                        help="Chấm theo Gold đã duyệt trong ground_truth.json; --dev-set khi đó là queries_dev.json")
+    ground_truth_group = parser.add_mutually_exclusive_group()
+    ground_truth_group.add_argument(
+        "--ground-truth",
+        type=Path,
+        default=ROOT / "data" / "benchmark" / "ground_truth.json",
+        help="Ground Truth; mặc định dùng Gold đã duyệt trong data/benchmark/ground_truth.json",
+    )
+    ground_truth_group.add_argument(
+        "--no-ground-truth",
+        action="store_const",
+        const=None,
+        dest="ground_truth",
+        help="Dùng relevant_chunk_ids trong --dev-set (chế độ legacy)",
+    )
     args = parser.parse_args()
-    if hasattr(sys.stdout, "reconfigure"):
-        sys.stdout.reconfigure(encoding="utf-8")
     try:
         evaluate(args.dev_set, args.results_dir, args.output_dir, args.chunks,
                  config_path=args.config, dense_model=args.dense_model,

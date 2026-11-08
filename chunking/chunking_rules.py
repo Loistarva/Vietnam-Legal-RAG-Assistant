@@ -321,6 +321,7 @@ class _ClauseUnit:
     implicit: bool = False          # clause_1 giả định của Điều không chia Khoản
     point_ref: str | None = None    # Dải Điểm của phần khi Khoản có danh sách điểm bị tách
     lead_text: str | None = None    # Câu dẫn của danh sách điểm, gắn cho phần thứ 2 trở đi
+    quoted_clause_number: str | None = None
 
 
 # Thứ tự chữ cái của Điểm trong văn bản quy phạm pháp luật (không dùng f, j, w, z)
@@ -519,13 +520,90 @@ def _split_long_clause_unit(
     return result_units
 
 
+def _split_clause_at_points(
+    u: _ClauseUnit,
+    max_chars: int = 1200,
+    max_words: int = 190,
+) -> list[_ClauseUnit]:
+    """Tách Khoản thành câu dẫn và từng Điểm riêng (mỗi phần một chunk).
+
+    Dùng cho Khoản có Điểm bị bãi bỏ hoặc sửa đổi riêng (data/reference/provision_periods.json,
+    trường points), để khoảng hiệu lực ghi được cho đúng chunk của Điểm đó. Một Điểm chỉ bị
+    tách tiếp theo câu khi tự nó vượt giới hạn.
+    """
+    parsed = split_point_list(u.text)
+    if not parsed:
+        raise ValueError(f"{u.clause_id}: cần tách theo Điểm nhưng không nhận ra danh sách Điểm")
+    lead, points = parsed
+    pieces: list[tuple[str, str | None]] = []
+    if lead:
+        pieces.extend((s, None) for s in _whole_or_sentences(lead, max_chars, max_words))
+    for letter, p_text in points:
+        pieces.extend((s, letter) for s in _whole_or_sentences(p_text, max_chars, max_words))
+    return [
+        _ClauseUnit(
+            clause_id=u.clause_id,
+            article_id=u.article_id,
+            parent_article_id=u.parent_article_id,
+            clause_number=u.clause_number,
+            point_letter=u.point_letter,
+            text=text,
+            char_count=len(text),
+            sub_index=idx,
+            total_subs=len(pieces),
+            implicit=u.implicit,
+            point_ref=_point_range([letter]) if letter else None,
+            lead_text=lead if (lead and letter) else None,
+        )
+        for idx, (text, letter) in enumerate(pieces, start=1)
+    ]
+
+
+def _split_quoted_clauses(u: _ClauseUnit, max_chars: int, max_words: int) -> list[_ClauseUnit]:
+    """Tách từng Khoản trong đoạn sửa đổi được trích dẫn, không đổi Khoản nguồn.
+
+    Chỉ dùng cho Khoản được yêu cầu rõ trong cấu hình hiệu lực. Fail closed nếu
+    không nhận ra một đoạn trích gồm các Khoản đánh số liên tiếp từ 1.
+    """
+    opening = re.search(r'[“"]1\.\s+', u.text)
+    if opening is None:
+        raise ValueError(f"{u.clause_id}: không nhận ra Khoản được trích dẫn")
+    markers = list(re.finditer(r'(?<!\S)(\d+)\.\s+', u.text[opening.start() + 1:]))
+    numbers = [int(m.group(1)) for m in markers]
+    if len(numbers) < 2 or numbers != list(range(1, len(numbers) + 1)):
+        raise ValueError(f"{u.clause_id}: số Khoản trích dẫn không liên tiếp: {numbers}")
+    starts = [0] + [opening.start() + 1 + m.start() for m in markers[1:]]
+    result = []
+    for idx, start in enumerate(starts):
+        end = starts[idx + 1] if idx + 1 < len(starts) else len(u.text)
+        text = u.text[start:end].strip()
+        part = _ClauseUnit(
+            clause_id=u.clause_id, article_id=u.article_id,
+            parent_article_id=u.parent_article_id, clause_number=u.clause_number,
+            point_letter=u.point_letter, text=text, char_count=len(text), implicit=u.implicit,
+        )
+        split = _split_long_clause_unit(part, max_chars=max_chars, max_words=max_words)
+        for unit in split:
+            unit.quoted_clause_number = str(idx + 1)
+        result.extend(split)
+    for index, unit in enumerate(result, start=1):
+        unit.sub_index = index
+        unit.total_subs = len(result)
+    return result
+
+
 def _extract_clause_units(
     raw_chunks: list[dict[str, Any]],
     max_unit_chars: int = 1200,
     max_unit_words: int = 190,
     min_words: int = CHILD_MIN_WORDS,
+    split_point_clause_ids: frozenset[str] = frozenset(),
+    split_quoted_clause_ids: frozenset[str] = frozenset(),
 ) -> list[_ClauseUnit]:
-    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars và <= max_unit_words)."""
+    """Chuyển đổi danh sách chunks thô từ parser thành danh sách _ClauseUnit (đảm bảo mỗi unit <= max_unit_chars và <= max_unit_words).
+
+    Khoản có clause_id trong split_point_clause_ids được tách theo từng Điểm.
+    """
     units: list[_ClauseUnit] = []
     for item in raw_chunks:
         txt = normalize_text(item.get("text", ""))
@@ -543,7 +621,12 @@ def _extract_clause_units(
             total_subs=1,
             implicit=bool(item.get("implicit")),
         )
-        units.extend(_split_long_clause_unit(base_u, max_chars=max_unit_chars, max_words=max_unit_words, min_words=min_words))
+        if base_u.clause_id in split_quoted_clause_ids:
+            units.extend(_split_quoted_clauses(base_u, max_unit_chars, max_unit_words))
+        elif base_u.clause_id in split_point_clause_ids:
+            units.extend(_split_clause_at_points(base_u, max_chars=max_unit_chars, max_words=max_unit_words))
+        else:
+            units.extend(_split_long_clause_unit(base_u, max_chars=max_unit_chars, max_words=max_unit_words, min_words=min_words))
     return units
 
 
@@ -579,7 +662,13 @@ def _split_units_to_parent_groups(
 
     for u in units:
         unit_size = u.char_count + 1  # newline trước unit trong parent.text
-        if current_group and (current_size + unit_size > max_chars):
+        # Không để parent kéo nội dung đã hết hiệu lực vào ngữ cảnh của Khoản còn hiệu lực.
+        boundary = current_group and (
+            u.quoted_clause_number is not None or current_group[-1].quoted_clause_number is not None
+        ) and (u.clause_id, u.quoted_clause_number) != (
+            current_group[-1].clause_id, current_group[-1].quoted_clause_number
+        )
+        if current_group and (boundary or current_size + unit_size > max_chars):
             groups.append(current_group)
             current_group = [u]
             current_size = header_len + unit_size
@@ -672,6 +761,8 @@ def _create_child_chunks_from_units(
         child_meta = parent.metadata.copy()
         child_meta["document_title"] = child_meta.get("title") or parent.title
         child_meta["clause_number"] = str(u.clause_number) if u.clause_number is not None and not u.implicit else None
+        if u.quoted_clause_number is not None:
+            child_meta["quoted_clause_number"] = u.quoted_clause_number
         child_meta["source_url"] = parent.metadata.get("source_url") or ""
         child_meta["effective_from"] = parent.metadata.get("effective_from") or parent.metadata.get("effective_date") or ""
         child_meta["effective_to"] = parent.metadata.get("effective_to") or parent.metadata.get("expiry_date")
@@ -834,7 +925,12 @@ def _chunk_structured_document(
                 art_intro = ""
 
         # Trích xuất và giới hạn kích thước từng unit
-        unit_kwargs = {"max_unit_words": max_unit_words, "min_words": min_words}
+        unit_kwargs = {
+            "max_unit_words": max_unit_words,
+            "min_words": min_words,
+            "split_point_clause_ids": frozenset(cfg.get("split_point_clause_ids") or ()),
+            "split_quoted_clause_ids": frozenset(cfg.get("split_quoted_clause_ids") or ()),
+        }
         units = _extract_clause_units(raw_chunks, max_unit_chars=max_chars - 300, **unit_kwargs)
 
         # Parent đầu tiên chứa header + intro + phần đầu của Khoản đầu: tách nhỏ phần đó
@@ -858,7 +954,7 @@ def _chunk_structured_document(
         child_kwargs = {"article_breadcrumb": base_bc, "article_intro": art_intro or None}
 
         # TRƯỜNG HỢP 1: Toàn bộ Điều vừa trong PARENT_MAX_CHARS -> 1 Parent Chunk duy nhất
-        if len(full_article_text) <= max_chars:
+        if len(full_article_text) <= max_chars and not any(u.quoted_clause_number for u in units):
             p_chunk = ParentChunk(
                 parent_id=base_parent_id,
                 doc_id=doc_id,

@@ -50,9 +50,11 @@ Lệnh in JSON theo contract Retrieval result (`query_id`, `retriever`, `results
 | 5. So sánh BM25 / Dense / Hybrid trên Dev | `python -m retrieval.run_dev_retrieval --elasticsearch-url http://localhost:9200 ...` | [docs/retrieval_report.md](docs/retrieval_report.md) |
 | 6. Hybrid + Reranker | `python scripts/run_retrieval.py --query "..." --elasticsearch-url http://localhost:9200` | [docs/sprint6_integration.md](docs/sprint6_integration.md) |
 | 7. Kiểm thử | `python -m pytest test/` (chạy từ thư mục gốc repo) | — |
-| 8. Test chính thức (sau khi khóa dữ liệu, model, tham số và commit) | `python scripts/run_final_test.py` | — |
+| 8. Test chính thức: BM25, Dense, Hybrid, Hybrid + Reranker (sau khi khóa dữ liệu, model, tham số và commit) | `python scripts/run_final_test.py` | `retrieval/results/test/`, `evaluation/results/` |
 
-Tham số chỉ được tuning trên Dev set. Test set đã đóng băng và chỉ dùng cho một lần đánh giá chính thức; `scripts/run_retrieval.py` từ chối chạy trên Test set nếu không có `--allow-test-split`.
+Để chỉ chấm lại các kết quả Dev đã lưu, dùng `python scripts/run_baselines_metrics.py`. `evaluation/run_evaluation.py` là module helper dùng chung cho Dev và Test, không phải CLI độc lập.
+
+Tham số chỉ được tuning trên Dev set. Test runner xác minh manifest câu hỏi/gold, SHA-256 corpus và config đã commit trong `docs/test_run_config_freeze.json` trước khi chạy; Test set đã đóng băng và chỉ dùng cho một lần đánh giá chính thức. `scripts/run_retrieval.py` từ chối chạy trên Test set nếu không có `--allow-test-split`.
 
 ## Cấu hình
 
