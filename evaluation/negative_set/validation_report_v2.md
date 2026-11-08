@@ -37,3 +37,14 @@ python -m pytest test/test_negative_set.py -q
 Kết quả: validator 0 issues; 61 test D1.5 PASS; full pytest 911 pass, 1 skip;
 ruff check . không lỗi. Corpus, benchmark, config và Test
 freeze không thay đổi trong phần D1.5.
+
+## Sửa theo review 09/11
+
+- `reason` của 6 câu thiếu dữ kiện (NEG_DEV_019–024) được viết riêng cho từng
+  câu: thiếu dữ kiện gì và vì sao kết luận phụ thuộc vào dữ kiện đó. Câu hỏi,
+  nhãn, route, action và `clarification_fields` không đổi. Hash dataset đổi
+  thành `735f2bf1…`, đã cập nhật manifest v2.
+- Corpus/registry khác bản pin chỉ còn là `warnings`; coverage của 3 nguồn
+  thiếu vẫn được kiểm trên checkout hiện tại và vẫn báo lỗi nếu nguồn đó xuất
+  hiện. Thêm 2 test cho hai trường hợp này (63 test D1.5 PASS).
+- README có bảng ánh xạ `expected_route` sang `Route` của rule router PR #43.

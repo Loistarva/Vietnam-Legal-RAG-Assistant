@@ -239,6 +239,48 @@ def test_current_checkout_collision_detected_even_when_pinned_snapshots_are_clea
     assert "duplicate/benchmark question" in capsys.readouterr().out
 
 
+def _run_on_changed_corpus(tmp_path, monkeypatch, change_chunks):
+    """Run the CLI on a copy of the current checkout whose chunks.jsonl was edited."""
+    from scripts import validate_negative_set as validator
+    for relative in ("data/reference/document_versions.json", "data/benchmark/queries_dev.json",
+                     "data/benchmark/queries_test.json"):
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / relative, target)
+    chunks = read_jsonl((ROOT / "data/chunking_output/chunks.jsonl").read_text(encoding="utf-8-sig"))
+    change_chunks(chunks)
+    target = tmp_path / "data/chunking_output/chunks.jsonl"
+    target.parent.mkdir(parents=True)
+    target.write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in chunks), encoding="utf-8")
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    monkeypatch.setattr(validator, "git_bytes", lambda ref, name: subprocess.check_output(
+        ["git", "show", f"{ref}:{name}"], cwd=ROOT))
+    monkeypatch.setattr(sys, "argv", ["validate_negative_set.py", "--dataset",
+                                     str(DATA / "dev_negative_queries_v2.jsonl"), "--manifest",
+                                     str(DATA / "dev_negative_manifest_v2.json")])
+    return validator.main()
+
+
+def test_unrelated_corpus_change_is_only_a_warning(tmp_path, monkeypatch, capsys):
+    def edit_text(chunks):
+        chunks[0]["text"] = chunks[0].get("text", "") + " (regenerated)"
+    assert _run_on_changed_corpus(tmp_path, monkeypatch, edit_text) == 0
+    report = json.loads(capsys.readouterr().out)
+    assert report["issues"] == []
+    assert any("chunks.jsonl" in w for w in report["warnings"])
+
+
+def test_corpus_change_adding_a_missing_source_fails(tmp_path, monkeypatch, capsys):
+    def add_source(chunks):
+        added = deepcopy(chunks[0])
+        added["chunk_id"] = "l_60_2014_qh13_art_16_chunk_1"
+        added["document_number"] = "60/2014/QH13"
+        added.setdefault("metadata", {})["document_number"] = "60/2014/QH13"
+        chunks.append(added)
+    assert _run_on_changed_corpus(tmp_path, monkeypatch, add_source) == 1
+    assert "requested source now present" in capsys.readouterr().out
+
+
 def test_fetch_pinned_sources_restores_shallow_clone_and_preserves_head(tmp_path):
     from scripts.validate_negative_set import fetch_sources
     source = tmp_path / "source"
