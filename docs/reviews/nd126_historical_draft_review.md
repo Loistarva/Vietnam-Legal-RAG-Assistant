@@ -26,6 +26,11 @@ Chọn hướng lịch sử để giữ chủ đề/căn cứ hiện có. Không
   chuyển thành gold. Không tăng số Dev đã duyệt: vẫn 75 câu.
 - HN_207 là sửa bổ sung từ review PR #35: bỏ tiêu đề chương lẫn trong đáp án,
   lấy đúng nội dung hai chunk khoản 1-2 Điều 18. Vẫn giữ draft/candidate.
+- Sửa theo review PR #39: đáp án HN_225, HN_226, HN_232, HN_234, HN_236 có đuôi
+  tên Điều ở đầu đoạn trích (HN_236 còn dính tiêu đề chương sau, HN_234 dừng ở
+  "3."). Dựng lại từ đúng nội dung các candidate như HN_207; vẫn giữ draft. Các
+  đáp án khác trong 26 câu vẫn là đoạn trích bị cắt ở khoảng 1.000 ký tự, cần
+  biên tập khi duyệt.
 - Không đổi Test, 75 câu Dev đã duyệt, corpus, cấu hình retrieval hoặc manifest
   Test. Không chạy lại Test. Kết quả retrieval lưu sẵn chưa được chạy lại cho
   các draft thay đổi; không chỉnh hash của kết quả cũ để giả khớp dữ liệu mới.

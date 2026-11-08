@@ -1,5 +1,6 @@
 """Prevent repealed ND126 provisions from being used as current-law candidates."""
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -37,6 +38,18 @@ def test_historical_draft_has_explicit_date_and_effective_candidates(query_id):
 def test_hn207_draft_answer_has_only_its_mapped_provisions():
     label = LABELS["HN_207"]
     assert "QUAN HỆ HÔN NHÂN" not in label["answer"]
+    assert all(CHUNKS[cid]["text"] in label["answer"] for cid in label["candidate_context_ids"])
+    assert label["review_status"] == "draft"
+
+
+@pytest.mark.parametrize("query_id", ["HN_225", "HN_226", "HN_232", "HN_234", "HN_236"])
+def test_historical_draft_answer_has_no_title_tail_or_next_heading(query_id):
+    label = LABELS[query_id]
+    head = label["answer"].split("(126/2014/NĐ-CP): ", 1)[1]
+    assert re.match(r"(\d+\. |Việc )", head)
+    words = [w.strip(",.;:") for w in label["answer"].split()]
+    caps = [len(w) > 1 and w.isupper() for w in words]
+    assert not any(all(caps[i:i + 3]) for i in range(len(caps) - 2))
     assert all(CHUNKS[cid]["text"] in label["answer"] for cid in label["candidate_context_ids"])
     assert label["review_status"] == "draft"
 
