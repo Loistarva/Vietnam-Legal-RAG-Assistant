@@ -7,13 +7,28 @@
 | Query Dev | `data/benchmark/queries_dev.json` | 270 | 75 câu có Gold đã duyệt, 195 câu draft |
 | Query Test | `data/benchmark/queries_test.json` | 30 | 30 câu có Gold đã duyệt; câu hỏi và đáp án đã khóa |
 | Nhãn | `data/benchmark/ground_truth.json` | 300 | 105 `source_checked`, 195 `draft` |
-| Corpus ChildChunk | `data/chunking_output/chunks.jsonl` | 2.164 chunk | Mọi ID Gold và proposal đều có trong corpus |
+| Corpus ChildChunk | `data/chunking_output/chunks.jsonl` | 2.322 chunk | Mọi ID Gold và candidate đều có trong corpus |
 
 Query dùng ID `HN_001`–`HN_300`, không trùng ID và đều có `as_of_date`. 105 câu Gold đã duyệt có `review_status = "source_checked"`, `gold_context_ids_confirmed = true`, `verified_by` và `verified_at`, tổng cộng 250 `gold_context_ids`. Quy tắc gán nhãn, người duyệt và cách chia Dev/Test xem [sprint6_benchmark.md](sprint6_benchmark.md).
 
-195 câu Dev còn lại ở `draft`: `gold_context_ids` rỗng, `gold_context_ids_confirmed = false`. `candidate_context_ids` (213 câu, 541 ID, 434 ID duy nhất) là proposal, không phải ground truth.
+195 câu Dev còn lại ở `draft`: `gold_context_ids` rỗng, `gold_context_ids_confirmed = false`, `verified_by` và `verified_at` trống. Evaluator (`retrieval/retrieval_evaluation.py`, `evaluation/metrics.py`) và `scripts/check_split.py` chỉ chấm câu có `gold_context_ids_confirmed = true`, nên số đo Dev vẫn tính trên 75 câu.
 
-Test được khóa bằng hai manifest: `docs/test_questions_freeze.json` (câu hỏi) và `docs/test_gold_freeze.json` (câu hỏi và đáp án). Kiểm tra bằng `python scripts/freeze_test.py --verify` và `python scripts/freeze_gold.py --verify`.
+## Mapping context của các câu draft (PR #25)
+
+PR #25 ghép các câu draft với chunk trong corpus: 176 câu dẫn toàn Điều, HN_053 dẫn Điều 109 Luật 22/2000/QH10, 12 câu hiệu lực dẫn điều khoản bãi bỏ, thay thế hoặc ngày hiệu lực, và 6 câu từng dùng ID giả. Mapping lấy đủ child chunk của Điều được dẫn, kể cả chunk nối tiếp. Các mapping này nằm ở `candidate_context_ids` với `mapping_status = "production_candidate_unverified"` và `evidence_level = "chunk_text_matched_unverified"`: chỉ xác nhận ID có trong corpus và khớp Điều được dẫn, chưa xác nhận đáp án đủ, dẫn chiếu sang Điều khác hay hiệu lực theo ngày hỏi. Danh sách mapping xem `data/benchmark/gold_context_completion_audit.json`.
+
+Hiện có 230 câu có `candidate_context_ids` (560 ID, 436 ID duy nhất), trong đó 193 câu draft. Khi duyệt một câu, người duyệt chuyển candidate đúng sang `gold_context_ids`, đặt `gold_context_ids_confirmed = true` và ghi `verified_by`, `verified_at`. HN_063 đã thu hẹp cả câu hỏi, đáp án và candidate từ 25 chunk toàn Điều xuống 3 chunk khoản 1, 5, 7 Điều 3 để phân biệt hôn nhân, kết hôn và chung sống như vợ chồng; vẫn giữ draft. Audit PR #25 là lịch sử mapping, xem `docs/reviews/hn063_candidate_narrowing.json` cho thay đổi mới.
+
+Sáu câu từng dùng ID giả:
+
+- HN_046, HN_050, HN_058 dùng Khoản 3 Điều 2 và Khoản 1 Điều 4 Thông tư 04/2024/TT-BTP; HN_060 dùng Khoản 1 Điều 2 và Khoản 1 Điều 5 Nghị định 07/2025/NĐ-CP. Hai văn bản này có toàn văn trong corpus (nguồn Công báo trong `data/reference/source_pdfs.json`), nên PR không còn giữ bản trích gõ tay.
+- HN_039 (Nghị định 24/2013/NĐ-CP bãi bỏ Nghị định 68/2002/NĐ-CP) và HN_048 (Thông tư 01/2018/TT-BTP bãi bỏ Thông tư 07/2002/TT-BTP) để `not_mapped`, vì hai văn bản bãi bỏ chưa có trong corpus. Đưa vào thì cần chạy cleaner, parser, exporter với `data/reference/corpus_scope.json` (chỉ Điều 45 Nghị định 24/2013, Điều 1 và Điều 3 Thông tư 01/2018) và dựng lại index. PDF Dev 1 đã tải nằm trong commit 07d365d.
+
+Câu hiệu lực draft có thể dùng điều khoản bãi bỏ của một văn bản đã hết hiệu lực làm chứng cứ (ví dụ HN_040, Điều 31 Thông tư 15/2015/TT-BTP bãi bỏ Thông tư 02a/2015/TT-BTP). `scripts/validate_benchmark.py` (`supports_historical_repeal`) chỉ chấp nhận khi đoạn trích có "bãi bỏ", nêu số hiệu văn bản bị bãi bỏ và ngày hiệu lực khớp ngày hết hiệu lực; với câu draft, chứng cứ đọc từ `candidate_context_ids`.
+
+26 câu draft dẫn Điều 20–50 Nghị định 126/2014/NĐ-CP đã chuyển sang `historical_law` tại 31/12/2015, có ngày lịch sử trong câu hỏi và đáp án. Candidate khớp thời điểm trước khi bị bãi bỏ từ 01/01/2016; trạng thái vẫn draft, không tăng số Dev đã duyệt. Danh sách chính xác 26 ID và audit trước/sau ở `docs/reviews/nd126_historical_draft_audit.json`.
+
+Test được khóa bằng hai manifest: `docs/test_questions_freeze.json` (câu hỏi) và `docs/test_gold_freeze.json` (câu hỏi và đáp án). Kiểm tra bằng `python scripts/freeze_test.py --verify` và `python scripts/freeze_gold.py --verify`. PR #25 không đổi câu Test; 20 câu draft Dev được viết lại để không trùng Khoản gold của Test.
 
 ## Cách dùng nhãn
 

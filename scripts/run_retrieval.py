@@ -21,7 +21,6 @@ The Dev 4 batch runner for BM25/Dense/Hybrid comparison is ``python -m retrieval
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import os
@@ -42,6 +41,7 @@ from reranking.pipeline import (  # noqa: E402
     build_mock_dense_retriever,
     load_retrieval_settings,
 )
+from embedding.vector_store import chunk_file_sha256  # noqa: E402
 from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
 
@@ -199,9 +199,7 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   collection=actual_collection,
                                   qdrant_storage_path=str(actual_qdrant_path),
                                   corpus_path=settings["corpus_path"],
-                                  corpus_sha256=hashlib.sha256(
-                                      Path(settings["corpus_path"]).read_bytes()
-                                  ).hexdigest(),
+                                  corpus_sha256=chunk_file_sha256(settings["corpus_path"]),
                                   fusion=settings["fusion"])
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
                              retriever_name=retriever_name, retriever_settings=retriever_settings,

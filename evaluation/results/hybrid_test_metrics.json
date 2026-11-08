@@ -14,13 +14,13 @@
     "10": 0
   },
   "average": {
-    "strict_match_recall@5": 0.8577777777777779,
+    "strict_match_recall@5": 0.8688888888888889,
     "mrr@5": 0.9277777777777777,
-    "ndcg@5": 0.8505621809406311,
-    "precision@5": 0.3466666666666667,
+    "ndcg@5": 0.853937600330149,
+    "precision@5": 0.35333333333333333,
     "strict_match_recall@10": 0.9366666666666668,
     "mrr@10": 0.9333333333333333,
-    "ndcg@10": 0.8848870754925672,
+    "ndcg@10": 0.8826904797165451,
     "precision@10": 0.19,
     "parent_match_recall@5": 0.8744444444444445,
     "parent_match_recall@10": 0.9311111111111111
@@ -32,8 +32,8 @@
     "seed": 42,
     "average": {
       "strict_match_recall@5": {
-        "lower": 0.7544444444444445,
-        "upper": 0.9466666666666667,
+        "lower": 0.7711111111111111,
+        "upper": 0.9522222222222222,
         "num_questions": 30
       },
       "mrr@5": {
@@ -42,13 +42,13 @@
         "num_questions": 30
       },
       "ndcg@5": {
-        "lower": 0.753193745552266,
-        "upper": 0.9356088105646694,
+        "lower": 0.7582816581940798,
+        "upper": 0.9362661681647523,
         "num_questions": 30
       },
       "precision@5": {
-        "lower": 0.26666666666666666,
-        "upper": 0.4266666666666667,
+        "lower": 0.28,
+        "upper": 0.43333333333333335,
         "num_questions": 30
       },
       "strict_match_recall@10": {
@@ -62,8 +62,8 @@
         "num_questions": 30
       },
       "ndcg@10": {
-        "lower": 0.810912364756681,
-        "upper": 0.9510967928972573,
+        "lower": 0.8096132978917485,
+        "upper": 0.9482961898638445,
         "num_questions": 30
       },
       "precision@10": {
@@ -501,7 +501,7 @@
       },
       "mang_thai_ho": {
         "strict_match_recall@5": {
-          "lower": 0.3333333333333333,
+          "lower": 0.6666666666666666,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -511,12 +511,12 @@
           "num_questions": 3
         },
         "ndcg@5": {
-          "lower": 0.46927872602275644,
+          "lower": 0.6508205185601091,
           "upper": 1.0,
           "num_questions": 3
         },
         "precision@5": {
-          "lower": 0.20000000000000004,
+          "lower": 0.4000000000000001,
           "upper": 0.8000000000000002,
           "num_questions": 3
         },
@@ -531,7 +531,7 @@
           "num_questions": 3
         },
         "ndcg@10": {
-          "lower": 0.6364391809889587,
+          "lower": 0.6508205185601091,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -915,13 +915,13 @@
     },
     {
       "query_id": "HN_156",
-      "strict_match_recall@5": 0.3333333333333333,
+      "strict_match_recall@5": 0.6666666666666666,
       "mrr@5": 1.0,
-      "ndcg@5": 0.46927872602275644,
-      "precision@5": 0.2,
+      "ndcg@5": 0.6508205185601091,
+      "precision@5": 0.4,
       "strict_match_recall@10": 0.6666666666666666,
       "mrr@10": 1.0,
-      "ndcg@10": 0.6364391809889587,
+      "ndcg@10": 0.6508205185601091,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.5,
@@ -1070,11 +1070,11 @@
       "query_id": "HN_252",
       "strict_match_recall@5": 1.0,
       "mrr@5": 1.0,
-      "ndcg@5": 1.0,
+      "ndcg@5": 0.9197207891481876,
       "precision@5": 0.4,
       "strict_match_recall@10": 1.0,
       "mrr@10": 1.0,
-      "ndcg@10": 1.0,
+      "ndcg@10": 0.9197207891481876,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 1.0,
@@ -1171,10 +1171,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "d83f28de6c04eab1d15674ed74c5f602c7c2df157fbb66ff0b4b977efa8e3a48"
+    "ground_truth": "37d64cd551a8d2ff16fba5640c2a5000816431a118642ca39a9b15b1cd4f6cf3",
+    "retrieval_results": "6a92bb02ee456e108c776edd6effb0c9563789d5393544cc88403a8cb6dabc41"
   },
   "run_config": {
     "top_k": 10,
@@ -1183,11 +1183,11 @@
     "dense_model": "BAAI/bge-m3",
     "dimension": 1024,
     "collection": "vietnam_legal_chunks",
-    "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+    "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
     "elasticsearch_index": "bm25-e6-verified-20261101",
-    "chunks": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+    "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
     "fusion": "rrf",
-    "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
     "as_of_date_by_query": {
       "HN_005": "2026-10-15",
@@ -1231,7 +1231,7 @@
       10
     ]
   },
-  "test_run_commit": "25fadec4c37b6073694ebcf22c229286480fc6a7",
+  "test_run_commit": "defee7e45f7b7310ff41379f42728a76f86cb465",
   "by_category": {
     "ket_hon": {
       "strict_match_recall@5": 0.7999999999999999,
@@ -1330,13 +1330,13 @@
       "parent_match_recall@10": 1.0
     },
     "mang_thai_ho": {
-      "strict_match_recall@5": 0.7777777777777778,
+      "strict_match_recall@5": 0.8888888888888888,
       "mrr@5": 1.0,
-      "ndcg@5": 0.8230929086742522,
-      "precision@5": 0.46666666666666673,
+      "ndcg@5": 0.8568471025694322,
+      "precision@5": 0.5333333333333333,
       "strict_match_recall@10": 0.8888888888888888,
       "mrr@10": 1.0,
-      "ndcg@10": 0.8788130603296529,
+      "ndcg@10": 0.8568471025694322,
       "precision@10": 0.26666666666666666,
       "parent_match_recall@5": 0.8333333333333334,
       "parent_match_recall@10": 0.8333333333333334

@@ -15,12 +15,12 @@
   },
   "average": {
     "strict_match_recall@5": 0.8977777777777778,
-    "mrr@5": 0.8666666666666667,
-    "ndcg@5": 0.8421190290552037,
+    "mrr@5": 0.8694444444444444,
+    "ndcg@5": 0.8447316464740116,
     "precision@5": 0.36666666666666664,
     "strict_match_recall@10": 0.9561111111111111,
-    "mrr@10": 0.8714285714285714,
-    "ndcg@10": 0.8658875894542338,
+    "mrr@10": 0.875,
+    "ndcg@10": 0.8692626686655311,
     "precision@10": 0.19666666666666668,
     "parent_match_recall@5": 0.8977777777777778,
     "parent_match_recall@10": 0.9561111111111111
@@ -37,13 +37,13 @@
         "num_questions": 30
       },
       "mrr@5": {
-        "lower": 0.7583333333333333,
-        "upper": 0.9583333333333334,
+        "lower": 0.763888888888889,
+        "upper": 0.961111111111111,
         "num_questions": 30
       },
       "ndcg@5": {
-        "lower": 0.7456231220339935,
-        "upper": 0.9290383676271264,
+        "lower": 0.7472328035710739,
+        "upper": 0.9313978618649308,
         "num_questions": 30
       },
       "precision@5": {
@@ -57,13 +57,13 @@
         "num_questions": 30
       },
       "mrr@10": {
-        "lower": 0.7678571428571428,
+        "lower": 0.7777083333333339,
         "upper": 0.9583333333333334,
         "num_questions": 30
       },
       "ndcg@10": {
-        "lower": 0.7889457857639562,
-        "upper": 0.9352797998465839,
+        "lower": 0.7930000840639512,
+        "upper": 0.9385926131131456,
         "num_questions": 30
       },
       "precision@10": {
@@ -95,7 +95,7 @@
           "num_questions": 3
         },
         "ndcg@5": {
-          "lower": 0.6992148198508502,
+          "lower": 0.6548086577531307,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -115,7 +115,7 @@
           "num_questions": 3
         },
         "ndcg@10": {
-          "lower": 0.6992148198508502,
+          "lower": 0.6548086577531307,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -350,12 +350,12 @@
           "num_questions": 2
         },
         "mrr@5": {
-          "lower": 0.25,
+          "lower": 0.3333333333333333,
           "upper": 1.0,
           "num_questions": 2
         },
         "ndcg@5": {
-          "lower": 0.5012658353418871,
+          "lower": 0.5437713091520254,
           "upper": 1.0,
           "num_questions": 2
         },
@@ -370,12 +370,12 @@
           "num_questions": 2
         },
         "mrr@10": {
-          "lower": 0.25,
+          "lower": 0.3333333333333333,
           "upper": 1.0,
           "num_questions": 2
         },
         "ndcg@10": {
-          "lower": 0.5012658353418871,
+          "lower": 0.5437713091520254,
           "upper": 1.0,
           "num_questions": 2
         },
@@ -511,7 +511,7 @@
           "num_questions": 3
         },
         "ndcg@5": {
-          "lower": 0.9197207891481876,
+          "lower": 0.9674679834891693,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -531,7 +531,7 @@
           "num_questions": 3
         },
         "ndcg@10": {
-          "lower": 0.9197207891481876,
+          "lower": 0.9674679834891693,
           "upper": 1.0,
           "num_questions": 3
         },
@@ -578,12 +578,12 @@
           "num_questions": 2
         },
         "mrr@10": {
-          "lower": 0.14285714285714285,
+          "lower": 0.16666666666666666,
           "upper": 1.0,
           "num_questions": 2
         },
         "ndcg@10": {
-          "lower": 0.3333333333333333,
+          "lower": 0.3562071871080222,
           "upper": 1.0,
           "num_questions": 2
         },
@@ -933,12 +933,12 @@
     {
       "query_id": "HN_173",
       "strict_match_recall@5": 1.0,
-      "mrr@5": 0.25,
-      "ndcg@5": 0.5012658353418871,
+      "mrr@5": 0.3333333333333333,
+      "ndcg@5": 0.5437713091520254,
       "precision@5": 0.4,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.25,
-      "ndcg@10": 0.5012658353418871,
+      "mrr@10": 0.3333333333333333,
+      "ndcg@10": 0.5437713091520254,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 1.0,
@@ -1022,8 +1022,8 @@
       "ndcg@5": 0.0,
       "precision@5": 0.0,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.14285714285714285,
-      "ndcg@10": 0.3333333333333333,
+      "mrr@10": 0.16666666666666666,
+      "ndcg@10": 0.3562071871080222,
       "precision@10": 0.1,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.0,
@@ -1070,11 +1070,11 @@
       "query_id": "HN_252",
       "strict_match_recall@5": 1.0,
       "mrr@5": 1.0,
-      "ndcg@5": 0.9197207891481876,
+      "ndcg@5": 1.0,
       "precision@5": 0.4,
       "strict_match_recall@10": 1.0,
       "mrr@10": 1.0,
-      "ndcg@10": 0.9197207891481876,
+      "ndcg@10": 1.0,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 1.0,
@@ -1104,11 +1104,11 @@
       "query_id": "HN_278",
       "strict_match_recall@5": 0.6,
       "mrr@5": 1.0,
-      "ndcg@5": 0.6992148198508501,
+      "ndcg@5": 0.6548086577531307,
       "precision@5": 0.6,
       "strict_match_recall@10": 0.6,
       "mrr@10": 1.0,
-      "ndcg@10": 0.6992148198508501,
+      "ndcg@10": 0.6548086577531307,
       "precision@10": 0.3,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.6,
@@ -1171,10 +1171,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "e96d83b4034f81f19ca7d3ea5acf678a13e9239e8afb941096fb082dfeaf9ca2"
+    "ground_truth": "37d64cd551a8d2ff16fba5640c2a5000816431a118642ca39a9b15b1cd4f6cf3",
+    "retrieval_results": "6ff5c854cf498bcc5d720e888160e7d02d34ca1d067c3341e6fac5b26a949b2e"
   },
   "run_config": {
     "retriever": {
@@ -1185,9 +1185,9 @@
       "dimension": 1024,
       "bm25_index": "bm25-e6-verified-20261101",
       "collection": "vietnam_legal_chunks",
-      "qdrant_storage_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
-      "corpus_path": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
-      "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
+      "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "fusion": "rrf"
     },
     "reranker": {
@@ -1199,7 +1199,7 @@
       "dtype": "auto"
     },
     "parent_context": {
-      "parents_file": "E:\\nhom AI\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\parents.json",
+      "parents_file": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\parents.json",
       "max_context_chars": 6000
     },
     "temporal_filter": "retriever",
@@ -1246,16 +1246,16 @@
       10
     ]
   },
-  "test_run_commit": "25fadec4c37b6073694ebcf22c229286480fc6a7",
+  "test_run_commit": "defee7e45f7b7310ff41379f42728a76f86cb465",
   "by_category": {
     "ket_hon": {
       "strict_match_recall@5": 0.8666666666666667,
       "mrr@5": 1.0,
-      "ndcg@5": 0.8997382732836167,
+      "ndcg@5": 0.8849362192510436,
       "precision@5": 0.3333333333333333,
       "strict_match_recall@10": 0.8666666666666667,
       "mrr@10": 1.0,
-      "ndcg@10": 0.8997382732836167,
+      "ndcg@10": 0.8849362192510436,
       "precision@10": 0.16666666666666666,
       "parent_match_recall@5": 0.8666666666666667,
       "parent_match_recall@10": 0.8666666666666667
@@ -1310,12 +1310,12 @@
     },
     "cap_duong": {
       "strict_match_recall@5": 1.0,
-      "mrr@5": 0.625,
-      "ndcg@5": 0.7506329176709435,
+      "mrr@5": 0.6666666666666666,
+      "ndcg@5": 0.7718856545760127,
       "precision@5": 0.30000000000000004,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.625,
-      "ndcg@10": 0.7506329176709435,
+      "mrr@10": 0.6666666666666666,
+      "ndcg@10": 0.7718856545760127,
       "precision@10": 0.15000000000000002,
       "parent_match_recall@5": 1.0,
       "parent_match_recall@10": 1.0
@@ -1347,11 +1347,11 @@
     "mang_thai_ho": {
       "strict_match_recall@5": 1.0,
       "mrr@5": 1.0,
-      "ndcg@5": 0.9623962575457856,
+      "ndcg@5": 0.9891559944963898,
       "precision@5": 0.6,
       "strict_match_recall@10": 1.0,
       "mrr@10": 1.0,
-      "ndcg@10": 0.9623962575457856,
+      "ndcg@10": 0.9891559944963898,
       "precision@10": 0.3,
       "parent_match_recall@5": 1.0,
       "parent_match_recall@10": 1.0
@@ -1362,8 +1362,8 @@
       "ndcg@5": 0.5,
       "precision@5": 0.4,
       "strict_match_recall@10": 1.0,
-      "mrr@10": 0.5714285714285714,
-      "ndcg@10": 0.6666666666666666,
+      "mrr@10": 0.5833333333333334,
+      "ndcg@10": 0.6781035935540111,
       "precision@10": 0.25,
       "parent_match_recall@5": 0.5,
       "parent_match_recall@10": 1.0

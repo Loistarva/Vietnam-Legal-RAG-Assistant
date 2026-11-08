@@ -210,16 +210,16 @@
     "10": 0
   },
   "average": {
-    "strict_match_recall@5": 0.6441269841269841,
-    "mrr@5": 0.6488888888888888,
-    "ndcg@5": 0.6039066614290594,
-    "precision@5": 0.26133333333333336,
-    "strict_match_recall@10": 0.7573650793650794,
-    "mrr@10": 0.6562698412698412,
-    "ndcg@10": 0.6490281587938782,
-    "precision@10": 0.15866666666666668,
-    "parent_match_recall@5": 0.6663492063492064,
-    "parent_match_recall@10": 0.7751428571428571
+    "strict_match_recall@5": 0.6507936507936508,
+    "mrr@5": 0.6533333333333333,
+    "ndcg@5": 0.6098647084956175,
+    "precision@5": 0.2693333333333333,
+    "strict_match_recall@10": 0.7684761904761905,
+    "mrr@10": 0.6607142857142857,
+    "ndcg@10": 0.656818575555143,
+    "precision@10": 0.16533333333333333,
+    "parent_match_recall@5": 0.6716825396825397,
+    "parent_match_recall@10": 0.7858095238095237
   },
   "confidence_intervals": {
     "method": "percentile_bootstrap",
@@ -228,53 +228,53 @@
     "seed": 42,
     "average": {
       "strict_match_recall@5": {
-        "lower": 0.5490158730158731,
-        "upper": 0.7341293650793651,
+        "lower": 0.5563436507936509,
+        "upper": 0.7393333333333334,
         "num_questions": 75
       },
       "mrr@5": {
-        "lower": 0.5488888888888889,
-        "upper": 0.7433611111111106,
+        "lower": 0.5544444444444445,
+        "upper": 0.7466666666666667,
         "num_questions": 75
       },
       "ndcg@5": {
-        "lower": 0.5112930116681267,
-        "upper": 0.6921857601512844,
+        "lower": 0.5187819001154123,
+        "upper": 0.6969689102289023,
         "num_questions": 75
       },
       "precision@5": {
-        "lower": 0.21066666666666667,
-        "upper": 0.31733333333333336,
+        "lower": 0.2186666666666667,
+        "upper": 0.32266666666666666,
         "num_questions": 75
       },
       "strict_match_recall@10": {
-        "lower": 0.6678730158730158,
-        "upper": 0.8409571428571427,
+        "lower": 0.6811428571428572,
+        "upper": 0.8495555555555556,
         "num_questions": 75
       },
       "mrr@10": {
-        "lower": 0.5602341269841271,
-        "upper": 0.7474603174603175,
+        "lower": 0.5656349206349207,
+        "upper": 0.7508055555555554,
         "num_questions": 75
       },
       "ndcg@10": {
-        "lower": 0.5612688559810632,
-        "upper": 0.732151186813558,
+        "lower": 0.569789680181117,
+        "upper": 0.7400535156868793,
         "num_questions": 75
       },
       "precision@10": {
-        "lower": 0.128,
-        "upper": 0.19066666666666668,
+        "lower": 0.13466666666666666,
+        "upper": 0.19866666666666666,
         "num_questions": 75
       },
       "parent_match_recall@5": {
-        "lower": 0.5723492063492064,
-        "upper": 0.7582539682539683,
+        "lower": 0.5792349206349207,
+        "upper": 0.7627936507936508,
         "num_questions": 75
       },
       "parent_match_recall@10": {
-        "lower": 0.687681746031746,
-        "upper": 0.8613333333333333,
+        "lower": 0.7007928571428572,
+        "upper": 0.8688904761904762,
         "num_questions": 75
       }
     },
@@ -623,7 +623,7 @@
           "num_questions": 5
         },
         "ndcg@10": {
-          "lower": 0.5321647550115071,
+          "lower": 0.5278710698280603,
           "upper": 0.8885320713440146,
           "num_questions": 5
         },
@@ -645,53 +645,53 @@
       },
       "mang_thai_ho": {
         "strict_match_recall@5": {
-          "lower": 0.125,
-          "upper": 0.71875,
+          "lower": 0.2,
+          "upper": 0.75625,
           "num_questions": 8
         },
         "mrr@5": {
-          "lower": 0.125,
+          "lower": 0.20833333333333331,
           "upper": 0.875,
           "num_questions": 8
         },
         "ndcg@5": {
-          "lower": 0.125,
-          "upper": 0.7429544622879122,
+          "lower": 0.20499317317784577,
+          "upper": 0.767019720645035,
           "num_questions": 8
         },
         "precision@5": {
-          "lower": 0.075,
-          "upper": 0.55,
+          "lower": 0.15,
+          "upper": 0.625,
           "num_questions": 8
         },
         "strict_match_recall@10": {
-          "lower": 0.125,
-          "upper": 0.825,
+          "lower": 0.22916666666666669,
+          "upper": 0.875,
           "num_questions": 8
         },
         "mrr@10": {
-          "lower": 0.125,
+          "lower": 0.20833333333333331,
           "upper": 0.875,
           "num_questions": 8
         },
         "ndcg@10": {
-          "lower": 0.125,
-          "upper": 0.8010104819013152,
+          "lower": 0.2231308012700548,
+          "upper": 0.8285050277155533,
           "num_questions": 8
         },
         "precision@10": {
-          "lower": 0.05,
-          "upper": 0.325,
+          "lower": 0.0875,
+          "upper": 0.3875,
           "num_questions": 8
         },
         "parent_match_recall@5": {
-          "lower": 0.125,
-          "upper": 0.7189062499999977,
+          "lower": 0.1875,
+          "upper": 0.75,
           "num_questions": 8
         },
         "parent_match_recall@10": {
-          "lower": 0.125,
-          "upper": 0.825,
+          "lower": 0.25,
+          "upper": 0.875,
           "num_questions": 8
         }
       },
@@ -1893,18 +1893,18 @@
     },
     {
       "query_id": "HN_256",
-      "strict_match_recall@5": 0.0,
-      "mrr@5": 0.0,
-      "ndcg@5": 0.0,
-      "precision@5": 0.0,
-      "strict_match_recall@10": 0.0,
-      "mrr@10": 0.0,
-      "ndcg@10": 0.0,
-      "precision@10": 0.0,
+      "strict_match_recall@5": 0.5,
+      "mrr@5": 0.3333333333333333,
+      "ndcg@5": 0.4468535299918563,
+      "precision@5": 0.6,
+      "strict_match_recall@10": 0.8333333333333334,
+      "mrr@10": 0.3333333333333333,
+      "ndcg@10": 0.5950154700534794,
+      "precision@10": 0.5,
       "parent_match_metadata_missing@5": false,
-      "parent_match_recall@5": 0.0,
+      "parent_match_recall@5": 0.4,
       "parent_match_metadata_missing@10": false,
-      "parent_match_recall@10": 0.0,
+      "parent_match_recall@10": 0.8,
       "parent_match_metadata_missing": false,
       "category": "mang_thai_ho"
     },
@@ -1916,7 +1916,7 @@
       "precision@5": 0.2,
       "strict_match_recall@10": 0.6666666666666666,
       "mrr@10": 0.3333333333333333,
-      "ndcg@10": 0.40179981797758046,
+      "ndcg@10": 0.39106560501896365,
       "precision@10": 0.2,
       "parent_match_metadata_missing@5": false,
       "parent_match_recall@5": 0.5,
@@ -2132,10 +2132,10 @@
   ],
   "label_source": "ground_truth.gold_context_ids",
   "input_sha256": {
-    "corpus": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
-    "queries": "f073554dacf05e3c0c8cfed58d9a448cbcbc2a615e858875a18282cb55d391d6",
-    "ground_truth": "9bdbac48c28ea329bcdf428235f7d74c4522d4a8eda96c125ea12597bbe8448c",
-    "retrieval_results": "e77c2cc5f1be15aa511a070e1a511cf303c9fdc157ffb0f4eafcbe3d57f91ac8"
+    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+    "queries": "556bb2975f893f913ce76be46fe520f46263999bbee1b2c6a86a08f1c2b2ad70",
+    "ground_truth": "37d64cd551a8d2ff16fba5640c2a5000816431a118642ca39a9b15b1cd4f6cf3",
+    "retrieval_results": "f6ed5437e46f0879b1a49d47e994f2828a3d449f8282c03e8cb713779d25e01e"
   },
   "run_config": {
     "top_k": 10,
@@ -2144,11 +2144,11 @@
     "dense_model": "BAAI/bge-m3",
     "dimension": 1024,
     "collection": "vietnam_legal_chunks",
-    "qdrant_storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+    "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
     "elasticsearch_index": "bm25-e6-verified-20261101",
-    "chunks": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+    "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
     "fusion": "rrf",
-    "corpus_sha256": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
     "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
     "as_of_date_by_query": {
       "HN_001": "2026-10-15",
@@ -2338,37 +2338,37 @@
       "HN_206": "2026-10-15",
       "HN_207": "2026-10-15",
       "HN_208": "2026-10-15",
-      "HN_209": "2026-10-15",
+      "HN_209": "2015-12-31",
       "HN_210": "2026-10-15",
-      "HN_211": "2026-10-15",
-      "HN_212": "2026-10-15",
-      "HN_213": "2026-10-15",
-      "HN_214": "2026-10-15",
+      "HN_211": "2015-12-31",
+      "HN_212": "2015-12-31",
+      "HN_213": "2015-12-31",
+      "HN_214": "2015-12-31",
       "HN_215": "2026-10-15",
-      "HN_216": "2026-10-15",
-      "HN_217": "2026-10-15",
-      "HN_218": "2026-10-15",
+      "HN_216": "2015-12-31",
+      "HN_217": "2015-12-31",
+      "HN_218": "2015-12-31",
       "HN_219": "2026-10-15",
       "HN_220": "2026-10-15",
       "HN_221": "2026-10-15",
-      "HN_222": "2026-10-15",
-      "HN_223": "2026-10-15",
-      "HN_224": "2026-10-15",
-      "HN_225": "2026-10-15",
-      "HN_226": "2026-10-15",
-      "HN_227": "2026-10-15",
-      "HN_228": "2026-10-15",
-      "HN_229": "2026-10-15",
+      "HN_222": "2015-12-31",
+      "HN_223": "2015-12-31",
+      "HN_224": "2015-12-31",
+      "HN_225": "2015-12-31",
+      "HN_226": "2015-12-31",
+      "HN_227": "2015-12-31",
+      "HN_228": "2015-12-31",
+      "HN_229": "2015-12-31",
       "HN_230": "2026-10-15",
       "HN_231": "2026-10-15",
-      "HN_232": "2026-10-15",
-      "HN_233": "2026-10-15",
-      "HN_234": "2026-10-15",
-      "HN_235": "2026-10-15",
-      "HN_236": "2026-10-15",
-      "HN_237": "2026-10-15",
-      "HN_238": "2026-10-15",
-      "HN_239": "2026-10-15",
+      "HN_232": "2015-12-31",
+      "HN_233": "2015-12-31",
+      "HN_234": "2015-12-31",
+      "HN_235": "2015-12-31",
+      "HN_236": "2015-12-31",
+      "HN_237": "2015-12-31",
+      "HN_238": "2015-12-31",
+      "HN_239": "2015-12-31",
       "HN_241": "2026-10-15",
       "HN_242": "2026-10-15",
       "HN_243": "2026-10-15",
@@ -2400,8 +2400,8 @@
       "HN_273": "2026-10-15",
       "HN_274": "2026-10-15",
       "HN_275": "2026-10-15",
-      "HN_276": "2026-10-15",
-      "HN_277": "2026-10-15",
+      "HN_276": "2015-12-31",
+      "HN_277": "2015-12-31",
       "HN_279": "2026-10-15",
       "HN_280": "2026-10-15",
       "HN_282": "2026-10-15",
@@ -2512,22 +2512,22 @@
       "precision@5": 0.24000000000000005,
       "strict_match_recall@10": 0.8333333333333334,
       "mrr@10": 0.7666666666666667,
-      "ndcg@10": 0.7103484131777609,
+      "ndcg@10": 0.7082015705860375,
       "precision@10": 0.18,
       "parent_match_recall@5": 0.8,
       "parent_match_recall@10": 0.9
     },
     "mang_thai_ho": {
-      "strict_match_recall@5": 0.41875,
-      "mrr@5": 0.5,
-      "ndcg@5": 0.4339772311439561,
-      "precision@5": 0.3,
-      "strict_match_recall@10": 0.475,
-      "mrr@10": 0.5,
-      "ndcg@10": 0.4630052409506576,
-      "precision@10": 0.17500000000000002,
-      "parent_match_recall@5": 0.41875,
-      "parent_match_recall@10": 0.475
+      "strict_match_recall@5": 0.48125,
+      "mrr@5": 0.5416666666666666,
+      "ndcg@5": 0.4898339223929381,
+      "precision@5": 0.375,
+      "strict_match_recall@10": 0.5791666666666667,
+      "mrr@10": 0.5416666666666666,
+      "ndcg@10": 0.5373821747073425,
+      "precision@10": 0.23750000000000002,
+      "parent_match_recall@5": 0.46875,
+      "parent_match_recall@10": 0.575
     },
     "nguyen_tac_quy_dinh": {
       "strict_match_recall@5": 0.86,

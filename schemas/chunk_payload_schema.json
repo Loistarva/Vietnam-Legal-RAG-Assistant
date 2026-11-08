@@ -288,6 +288,11 @@
             "null"
           ]
         },
+        "quoted_clause_number": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]*$",
+          "description": "Số Khoản trong đoạn trích sửa đổi; clause_number vẫn là Khoản của văn bản nguồn."
+        },
         "source_url": {
           "type": "string",
           "minLength": 1
