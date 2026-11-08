@@ -3,7 +3,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
-from typing import List, Literal, Optional
+from typing import Literal
 
 import jsonschema
 import pytest
@@ -60,10 +60,10 @@ class BaseSchema(BaseModel):
 class ChunkSchema(BaseSchema):
     chunk_id: str
     parent_clause_id: str
-    clause_number: Optional[str] = None
-    point_letter: Optional[str] = None
+    clause_number: str | None = None
+    point_letter: str | None = None
     chunk_text: str = Field(..., min_length=10)
-    char_count: Optional[int] = None
+    char_count: int | None = None
 
     _clean_chunk_text = field_validator("chunk_text", mode="before")(clean_text)
 
@@ -80,7 +80,7 @@ class ClauseSchema(BaseSchema):
     clause_number: str
     clause_text: str = Field(..., min_length=1, description="Nội dung thô của toàn bộ Khoản (dành cho Parser)")
     # Optional: Parser không cần quan tâm, bước Chunking sẽ điền sau
-    chunks: Optional[List[ChunkSchema]] = None
+    chunks: list[ChunkSchema] | None = None
 
     _clean_clause_text = field_validator("clause_text", mode="before")(clean_text)
 
@@ -94,11 +94,11 @@ class ClauseSchema(BaseSchema):
 class ArticleSchema(BaseSchema):
     article_id: str
     article_number: str
-    article_title: Optional[str] = None
-    chapter: Optional[str] = None
-    section: Optional[str] = None
-    intro: Optional[str] = None
-    clauses: List[ClauseSchema] = Field(..., min_length=1)
+    article_title: str | None = None
+    chapter: str | None = None
+    section: str | None = None
+    intro: str | None = None
+    clauses: list[ClauseSchema] = Field(..., min_length=1)
 
     @model_validator(mode="after")
     def clauses_must_belong_to_article(self):
@@ -112,20 +112,20 @@ class DocumentMetadataSchema(BaseSchema):
     document_type: DocumentType
     document_number: str
     issue_date: date
-    effective_date: Optional[date] = None
-    expiry_date: Optional[date] = None
+    effective_date: date | None = None
+    expiry_date: date | None = None
     issuing_body: str
     validity_status: ValidityStatus
-    source_url: Optional[str] = ""
-    source_status: Optional[str] = None
-    provision_status: Optional[str] = None
+    source_url: str | None = ""
+    source_status: str | None = None
+    provision_status: str | None = None
 
 
 class LegalDocumentSchema(BaseSchema):
     document_id: str = Field(..., pattern=r"^[a-z0-9_]+$")
     metadata: DocumentMetadataSchema
-    articles: List[ArticleSchema] = Field(..., min_length=1)
-    footnotes: List[str] = Field(default_factory=list)
+    articles: list[ArticleSchema] = Field(..., min_length=1)
+    footnotes: list[str] = Field(default_factory=list)
 
 
 # =============================================================================
@@ -369,7 +369,6 @@ def test_registry_titles_are_trich_yeu_only():
         )
 
 
-
 # =============================================================================
 # Dev 3 Sprint 9 Pydantic & Canonical Schema Tests (DoD-06)
 # =============================================================================
@@ -435,6 +434,7 @@ def test_evidence_item_and_context_payload_validation():
         query_id="q_001",
         query="Điều kiện kết hôn năm 2024?",
         as_of_date="2024-01-01",
+        as_of_date_source="benchmark",
         evidence_items=[item1],
     )
     assert payload.total_chars == len(item1.content)
@@ -443,7 +443,7 @@ def test_evidence_item_and_context_payload_validation():
 
     # Kiểm tra chặn rỗng
     with pytest.raises(ValidationError):
-        ContextPayload(query_id="", query="abc", as_of_date="2024-01-01")
+        ContextPayload(query_id="", query="abc", as_of_date="2024-01-01", as_of_date_source="benchmark", evidence_items=[item1])
 
 
 def test_structured_rag_output_and_indices_validation():
@@ -463,17 +463,11 @@ def test_structured_rag_output_and_indices_validation():
             evidence_indices=["chunk_123"],  # type: ignore
         )
 
-    # Chặn index ngoài [1, 5]
+    # Chặn boolean lẩn vào integer
     with pytest.raises(ValidationError):
         StructuredRAGOutput(
             answer="Answer",
-            evidence_indices=[0],
-        )
-
-    with pytest.raises(ValidationError):
-        StructuredRAGOutput(
-            answer="Answer",
-            evidence_indices=[6],
+            evidence_indices=[True],  # type: ignore
         )
 
 
@@ -496,7 +490,7 @@ def test_llm_response_provenance_validation():
         latency_ms=125.5,
         token_usage=TokenUsage(input=450, output=120),
     )
-    assert resp.model == "Qwen2.5:7b"
+    assert resp.model == "qwen2.5:7b"
     assert resp.parse_status == "ok"
     assert not resp.truncated
 
@@ -522,7 +516,7 @@ def test_rag_output_record_appendix_b_schema():
         ],
         grounding_status="PASS",
         retrieval_trace={"top_k": 5, "rerank_used": True},
-        model="Qwen2.5:7b",
+        model="qwen2.5:7b",
         prompt_version="v1.0_controlled_rag_m1",
         num_ctx=8192,
         num_predict=1024,

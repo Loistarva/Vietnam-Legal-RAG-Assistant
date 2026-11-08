@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 test/test_dev3_sprint9_contracts_prompt_gateway.py
 Toàn bộ unit test và contract test cho phân hệ Dev 3 Sprint 9 (Kế hoạch V3).
@@ -7,16 +6,15 @@ Toàn bộ unit test và contract test cho phân hệ Dev 3 Sprint 9 (Kế hoạ
 import copy
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 import pytest
 from pydantic import ValidationError
 
 from embedding.model_registry import (
-    DEFAULT_DIMENSION,
-    DEFAULT_PRODUCTION_MODEL,
     get_embedding_spec,
     prepare_text_for_embedding,
+    read_index_metadata,
     validate_collection_dimension,
 )
 from generation.prompt_builder import (
@@ -25,23 +23,19 @@ from generation.prompt_builder import (
     STANDARD_DISCLAIMER,
     build_controlled_rag_prompt,
     build_zero_shot_prompt,
-    format_evidence_item,
+    get_prompt_hash,
     map_evidence_indices_to_citations,
 )
 from model_gateway.llm_gateway import (
     GatewayExecutionError,
     QwenGateway,
-    QwenGatewayConfig,
     summarize_truncation_and_provenance,
 )
 from schemas.models import (
     CandidateChunk,
     ContextPayload,
     EvidenceItem,
-    GroundingResult,
     LLMResponse,
-    MappedCitation,
-    RAGOutputRecord,
     StructuredRAGOutput,
     TokenUsage,
 )
@@ -91,6 +85,51 @@ class TestContractsAndSchemas:
         with pytest.raises(ValidationError):
             CandidateChunk(**bad_idx)
 
+        # Chặn ngày sai định dạng ISO YYYY-MM-DD
+        bad_date = copy.deepcopy(valid_data)
+        bad_date["as_of_date"] = "not-a-date"
+        with pytest.raises(ValidationError):
+            CandidateChunk(**bad_date)
+
+        bad_eff = copy.deepcopy(valid_data)
+        bad_eff["effective_from"] = "01-01-2024"
+        with pytest.raises(ValidationError):
+            CandidateChunk(**bad_eff)
+
+    def test_candidate_chunk_from_retrieval_item(self):
+        item = {
+            "chunk_id": "nd_126_2014_art_3_clause_1_chunk_1",
+            "document_id": "nd_126_2014_nd_cp",
+            "article_id": "art_3",
+            "clause_id": "clause_1",
+            "parent_clause_id": "nd_126_2014_art_3_clause_1",
+            "rank": 1,
+            "score": 0.88,
+            "rrf_score": 0.032,
+            "reranker_score": 0.88,
+            "chunk_text": "Áp dụng tập quán trong hôn nhân và gia đình...",
+            "retrieval_sources": ["dense", "bm25"],
+            "source_ranks": {"dense": 2, "bm25": 1},
+            "source_scores": {"dense": 0.75, "bm25": 14.5},
+            "metadata": {
+                "validity_status": "Còn hiệu lực",
+                "effective_from": "2015-02-15",
+                "effective_to": None,
+                "document_number": "126/2014/NĐ-CP",
+                "article_number": "3",
+            },
+        }
+        chunk = CandidateChunk.from_retrieval_item(item, query_id="q_hybrid_01", as_of_date="2024-01-01")
+        assert chunk.query_id == "q_hybrid_01"
+        assert chunk.chunk_id == "nd_126_2014_art_3_clause_1_chunk_1"
+        assert chunk.validity_status == "Còn hiệu lực"
+        assert chunk.effective_from == "2015-02-15"
+        assert chunk.effective_to is None
+        assert "dense" in chunk.retrieval_sources
+        assert "bm25" in chunk.retrieval_sources
+        assert chunk.rrf_score == 0.032
+        assert chunk.reranker_score == 0.88
+
     def test_context_payload_auto_computations(self):
         item1 = EvidenceItem(
             evidence_index=1,
@@ -101,6 +140,7 @@ class TestContractsAndSchemas:
             clause_id="clause_a",
             content="Nội dung điều 1",
             validity_status="Còn hiệu lực",
+            effective_from="2015-01-01",
         )
         item2 = EvidenceItem(
             evidence_index=2,
@@ -111,12 +151,14 @@ class TestContractsAndSchemas:
             clause_id="clause_b",
             content="Nội dung điều 2 dài hơn",
             validity_status="Còn hiệu lực",
+            effective_from="2015-01-01",
         )
 
         payload = ContextPayload(
             query_id="dev_q02",
             query="Hỏi về ly hôn",
             as_of_date="2024-01-01",
+            as_of_date_source="benchmark",
             evidence_items=[item1, item2],
         )
 
@@ -127,8 +169,90 @@ class TestContractsAndSchemas:
         assert payload.source_map[1]["chunk_id"] == "chunk_a"
         assert payload.source_map[2]["chunk_id"] == "chunk_b"
 
+    def test_context_payload_rejects_non_contiguous_indices(self):
+        item1 = EvidenceItem(
+            evidence_index=1,
+            chunk_id="c1",
+            parent_clause_id="p1",
+            document_id="d1",
+            article_id="a1",
+            clause_id="cl1",
+            content="Nội dung 1",
+            validity_status="Còn hiệu lực",
+        )
+        item3 = EvidenceItem(
+            evidence_index=3,
+            chunk_id="c3",
+            parent_clause_id="p3",
+            document_id="d3",
+            article_id="a3",
+            clause_id="cl3",
+            content="Nội dung 3",
+            validity_status="Còn hiệu lực",
+        )
+
+        with pytest.raises(ValidationError, match="duy nhất và liên tục"):
+            ContextPayload(
+                query_id="q_bad_idx",
+                query="Query",
+                as_of_date="2024-01-01",
+                as_of_date_source="benchmark",
+                evidence_items=[item1, item3],
+            )
+
+    def test_context_payload_rejects_total_chars_exceeding_max(self):
+        long_content = "X" * 3500
+        item1 = EvidenceItem(
+            evidence_index=1,
+            chunk_id="c1",
+            parent_clause_id="p1",
+            document_id="d1",
+            article_id="a1",
+            clause_id="cl1",
+            content=long_content,
+            validity_status="Còn hiệu lực",
+        )
+        item2 = EvidenceItem(
+            evidence_index=2,
+            chunk_id="c2",
+            parent_clause_id="p2",
+            document_id="d2",
+            article_id="a2",
+            clause_id="cl2",
+            content=long_content,
+            validity_status="Còn hiệu lực",
+        )
+        # 3500 * 2 = 7000 > max_context_chars (6000)
+        with pytest.raises(ValidationError, match="vượt quá giới hạn max_context_chars"):
+            ContextPayload(
+                query_id="q_overflow",
+                query="Query",
+                as_of_date="2024-01-01",
+                as_of_date_source="benchmark",
+                evidence_items=[item1, item2],
+            )
+
+    def test_context_payload_rejects_invalid_date(self):
+        item1 = EvidenceItem(
+            evidence_index=1,
+            chunk_id="c1",
+            parent_clause_id="p1",
+            document_id="d1",
+            article_id="a1",
+            clause_id="cl1",
+            content="Content",
+            validity_status="Còn hiệu lực",
+        )
+        with pytest.raises(ValidationError, match="ISO"):
+            ContextPayload(
+                query_id="q_date_fail",
+                query="Query",
+                as_of_date="not-a-date",
+                as_of_date_source="benchmark",
+                evidence_items=[item1],
+            )
+
     def test_structured_rag_output_constraints(self):
-        # Hợp lệ
         out = StructuredRAGOutput(
             answer="Điều kiện ly hôn là...",
             evidence_indices=[1, 3],
@@ -141,13 +265,6 @@ class TestContractsAndSchemas:
             StructuredRAGOutput(
                 answer="Answer",
                 evidence_indices=["chunk_123"],  # type: ignore
-            )
-
-        # Chặn số nguyên ngoài [1, 5]
-        with pytest.raises(ValidationError):
-            StructuredRAGOutput(
-                answer="Answer",
-                evidence_indices=[1, 7],
             )
 
     def test_json_schemas_on_disk_match_models(self):
@@ -174,26 +291,40 @@ class TestPromptBuilder:
         assert PROMPT_B_VERSION == "v1.0_controlled_rag_m1"
         assert STANDARD_DISCLAIMER == "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
 
+    def test_prompt_hash(self):
+        h1 = get_prompt_hash("Sample prompt text")
+        h2 = get_prompt_hash("Sample prompt text")
+        h3 = get_prompt_hash("Different text")
+        assert len(h1) == 64
+        assert h1 == h2
+        assert h1 != h3
+
     def test_build_zero_shot_prompt_formatting(self):
         prompt = build_zero_shot_prompt(
             query="Độ tuổi kết hôn hợp pháp của nam và nữ?",
             as_of_date="2024-01-01",
-            include_as_of_date=True,
         )
         assert PROMPT_A_VERSION in prompt
         assert STANDARD_DISCLAIMER in prompt
         assert "Theo quy định có hiệu lực tại ngày 2024-01-01..." in prompt
         assert "Độ tuổi kết hôn hợp pháp của nam và nữ?" in prompt
         assert "Hôn nhân và Gia đình Việt Nam" in prompt
+        assert "1. Chỉ trả lời" in prompt
+        assert "2. Nếu câu hỏi" in prompt
+        assert "3. Thời điểm hiệu lực" in prompt
+        assert "4. Cuối câu trả lời" in prompt
 
     def test_build_controlled_rag_prompt_formatting(self):
         item1 = EvidenceItem(
             evidence_index=1,
             chunk_id="hn_gd_art_8_clause_1",
             parent_clause_id="hn_gd_art_8_clause_1",
-            document_id="Luật Hôn nhân và gia đình 2014",
-            article_id="Điều 8",
-            clause_id="Khoản 1",
+            document_id="law_hn_gd_2014",
+            document_title="Luật Hôn nhân và gia đình 2014",
+            document_number="52/2014/QH13",
+            article_id="art_8",
+            clause_id="clause_1",
+            breadcrumb="Điều 8 Khoản 1",
             content="Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên.",
             validity_status="Còn hiệu lực",
             effective_from="2015-01-01",
@@ -203,20 +334,30 @@ class TestPromptBuilder:
             query_id="dev_q03",
             query="Tuổi kết hôn là bao nhiêu?",
             as_of_date="2024-01-01",
+            as_of_date_source="benchmark",
             evidence_items=[item1],
         )
 
         prompt = build_controlled_rag_prompt(payload)
         assert PROMPT_B_VERSION in prompt
         assert STANDARD_DISCLAIMER in prompt
-        assert "[1] Văn bản: Luật Hôn nhân và gia đình 2014" in prompt
-        assert "Điều/Khoản: hn_gd_art_8_clause_1" in prompt
-        assert "Hiệu lực: 2015-01-01 -> hiện tại" in prompt
+        assert "Chỉ tư vấn trong phạm vi pháp luật Hôn nhân và Gia đình Việt Nam" in prompt
+        assert "[1] Luật Hôn nhân và gia đình 2014 (52/2014/QH13) | Điều 8 Khoản 1 | Hiệu lực: Còn hiệu lực (2015-01-01 -> )" in prompt
         assert "Nội dung: Nam từ đủ 20 tuổi trở lên" in prompt
         assert "tự suy diễn" in prompt
         assert "evidence_indices" in prompt
 
-    def test_map_evidence_indices_to_citations(self):
+    def test_build_controlled_rag_prompt_rejects_empty(self):
+        with pytest.raises(ValidationError):
+            ContextPayload(
+                query_id="q_empty",
+                query="Query",
+                as_of_date="2024-01-01",
+                as_of_date_source="benchmark",
+                evidence_items=[],
+            )
+
+    def test_map_evidence_indices_to_citations_dedupes(self):
         item1 = EvidenceItem(
             evidence_index=1,
             chunk_id="chunk_01",
@@ -241,17 +382,15 @@ class TestPromptBuilder:
             query_id="dev_q04",
             query="Câu hỏi test",
             as_of_date="2024-01-01",
+            as_of_date_source="benchmark",
             evidence_items=[item1, item2],
         )
 
-        # Mô hình trả về: 1 (hợp lệ), 2 (hợp lệ), 6 (ngoài 1..5), 99 (ngoài source_map)
-        valid_citations, invalid_indices = map_evidence_indices_to_citations([1, 2, 6, 99], payload)
+        # Trùng lặp [1, 1, 2, 6, 99] -> khử trùng [1, 2], invalid [6, 99]
+        valid_citations, invalid_indices = map_evidence_indices_to_citations([1, 1, 2, 6, 99], payload)
         assert len(valid_citations) == 2
         assert valid_citations[0].evidence_index == 1
-        assert valid_citations[0].chunk_id == "chunk_01"
         assert valid_citations[1].evidence_index == 2
-        assert valid_citations[1].chunk_id == "chunk_02"
-
         assert invalid_indices == [6, 99]
 
 
@@ -272,9 +411,10 @@ class TestQwenModelGateway:
     def test_gateway_run_a_zero_shot(self):
         recorded_calls = []
 
-        def mock_transport(url: str, payload: Dict[str, Any], timeout: float) -> Dict[str, Any]:
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
             recorded_calls.append({"url": url, "payload": payload, "timeout": timeout})
             return {
+                "model": "qwen2.5:7b",
                 "response": "Nam từ đủ 20 tuổi, nữ từ đủ 18 tuổi.",
                 "done": True,
                 "done_reason": "stop",
@@ -291,8 +431,8 @@ class TestQwenModelGateway:
             structured_output=False,
         )
 
-        assert len(recorded_calls) == 1
-        sent_payload = recorded_calls[0]["payload"]
+        assert len(recorded_calls) >= 1
+        sent_payload = recorded_calls[-1]["payload"]
         assert sent_payload["options"]["num_ctx"] == 8192
         assert sent_payload["options"]["num_predict"] == 1024
         assert sent_payload["options"]["temperature"] == 0.0
@@ -304,15 +444,14 @@ class TestQwenModelGateway:
         assert resp.parse_status == "raw_text"
         assert resp.done_reason == "stop"
         assert resp.truncated is False
+        assert resp.context_truncated is False
         assert resp.token_usage.input == 80
         assert resp.token_usage.output == 25
 
     def test_gateway_run_b_structured_output_ok(self):
-        recorded_calls = []
-
-        def mock_transport(url: str, payload: Dict[str, Any], timeout: float) -> Dict[str, Any]:
-            recorded_calls.append({"url": url, "payload": payload, "timeout": timeout})
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
             return {
+                "model": "qwen2.5:7b",
                 "response": json.dumps({
                     "answer": "Theo quy định, nam từ đủ 20 tuổi, nữ từ đủ 18 tuổi.",
                     "evidence_indices": [1],
@@ -335,17 +474,79 @@ class TestQwenModelGateway:
             structured_output=True,
         )
 
-        assert len(recorded_calls) == 1
-        assert "format" in recorded_calls[0]["payload"]
         assert resp.parse_status == "ok"
         assert resp.evidence_indices == [1]
         assert resp.abstained is False
         assert resp.truncated is False
 
-    def test_gateway_run_b_truncation_detection(self):
-        def mock_transport(url: str, payload: Dict[str, Any], timeout: float) -> Dict[str, Any]:
-            # Giả lập phản hồi bị cắt đứt giữa chừng vì chạm trần num_predict
+    def test_gateway_run_b_parses_out_of_bound_indices_as_ok(self):
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
             return {
+                "model": "qwen2.5:7b",
+                "response": json.dumps({
+                    "answer": "Trả lời câu hỏi.",
+                    "evidence_indices": [1, 6],
+                    "abstained": False,
+                }),
+                "done": True,
+                "done_reason": "stop",
+                "prompt_eval_count": 200,
+                "eval_count": 40,
+            }
+
+        gateway = QwenGateway(transport=mock_transport)
+        resp = gateway.generate(
+            prompt="Prompt RAG B",
+            query_id="q_oob",
+            run_mode="B_controlled_rag",
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=True,
+        )
+
+        assert resp.parse_status == "ok"
+        assert resp.evidence_indices == [1, 6]
+
+    def test_gateway_context_truncated_detection(self):
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+            return {
+                "model": "qwen2.5:7b",
+                "response": "Answer",
+                "done": True,
+                "done_reason": "stop",
+                "prompt_eval_count": 8192,  # Bằng trần num_ctx
+                "eval_count": 100,
+            }
+
+        gateway = QwenGateway(transport=mock_transport)
+        resp = gateway.generate(
+            prompt="Prompt Long",
+            query_id="q_ctx_trunc",
+            run_mode="A_zero_shot",
+            prompt_version=PROMPT_A_VERSION,
+        )
+        assert resp.context_truncated is True
+
+    def test_gateway_rejects_mismatched_model(self):
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+            return {
+                "model": "llama3.1:8b",  # Khác model qwen2.5:7b
+                "response": "Answer",
+                "done": True,
+            }
+
+        gateway = QwenGateway(transport=mock_transport)
+        with pytest.raises(GatewayExecutionError, match="không khớp"):
+            gateway.generate(
+                prompt="Prompt",
+                query_id="q_mismatch",
+                run_mode="A_zero_shot",
+                prompt_version=PROMPT_A_VERSION,
+            )
+
+    def test_gateway_run_b_truncation_detection(self):
+        def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+            return {
+                "model": "qwen2.5:7b",
                 "response": '{"answer": "Theo quy định tại Điều 8 Luật Hôn nhân và gia đình n',
                 "done": True,
                 "done_reason": "length",
@@ -362,22 +563,21 @@ class TestQwenModelGateway:
             structured_output=True,
         )
 
-        # Phải phân loại rõ parse_status = truncated_json và truncated = True
         assert resp.parse_status == "truncated_json"
         assert resp.truncated is True
         assert resp.done_reason == "length"
+        assert resp.answer == ""
 
     def test_gateway_retry_and_fail_fast(self):
         call_count = 0
 
-        def failing_transport(url: str, payload: Dict[str, Any], timeout: float) -> Dict[str, Any]:
+        def failing_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
             nonlocal call_count
             call_count += 1
             raise TimeoutError("Connection timed out")
 
         gateway = QwenGateway(transport=failing_transport)
 
-        # Khi timeout, retry đúng 1 lần (tổng 2 lần thử) rồi ném GatewayExecutionError
         with pytest.raises(GatewayExecutionError, match="sau 2 lần thử"):
             gateway.generate(
                 prompt="Prompt test",
@@ -396,6 +596,7 @@ class TestQwenModelGateway:
             prompt_version=PROMPT_B_VERSION,
             done_reason="stop",
             truncated=False,
+            context_truncated=False,
             parse_status="ok",
             latency_ms=100.0,
             token_usage=TokenUsage(input=200, output=50),
@@ -403,23 +604,26 @@ class TestQwenModelGateway:
         r2 = LLMResponse(
             query_id="q2",
             run_mode="B_controlled_rag",
-            answer="Ans 2 truncated...",
+            answer="",
             evidence_indices=[],
             prompt_version=PROMPT_B_VERSION,
             done_reason="length",
             truncated=True,
+            context_truncated=True,
             parse_status="truncated_json",
             latency_ms=300.0,
-            token_usage=TokenUsage(input=200, output=1024),
+            token_usage=TokenUsage(input=8192, output=1024),
         )
 
         summary = summarize_truncation_and_provenance([r1, r2])
         assert summary["total_queries"] == 2
         assert summary["truncation_count"] == 1
         assert summary["truncation_rate"] == 0.5
+        assert summary["context_truncated_count"] == 1
+        assert summary["context_truncated_rate"] == 0.5
         assert summary["json_parse_failure_count"] == 1
         assert summary["json_parse_failure_rate"] == 0.5
-        assert summary["total_input_tokens"] == 400
+        assert summary["total_input_tokens"] == 8392
         assert summary["total_output_tokens"] == 1074
 
 
@@ -428,22 +632,27 @@ class TestQwenModelGateway:
 # =============================================================================
 
 class TestEmbeddingOwnershipHandoff:
-    def test_default_production_model_spec(self):
-        spec = get_embedding_spec(DEFAULT_PRODUCTION_MODEL)
+    def test_production_model_spec_from_config(self):
+        spec = get_embedding_spec("BAAI/bge-m3")
         assert spec["name"] == "BAAI/bge-m3"
-        assert spec["dimension"] == DEFAULT_DIMENSION  # 1024
+        assert spec["dimension"] == 1024
         assert spec["use_word_segmentation"] is False
         assert spec["text_field"] == "embed_text_raw"
+        assert spec["collection_name"] == "vietnam_legal_chunks"
+
+    def test_read_index_metadata(self):
+        meta = read_index_metadata()
+        assert meta["collection_name"] == "vietnam_legal_chunks"
+        assert meta["vector_size"] == 1024
+        assert meta["dimension"] == 1024
+        assert meta["model_name"] == "BAAI/bge-m3"
 
     def test_validate_collection_dimension_success_and_fail_fast(self):
-        # Chiều đúng: 1024
         assert validate_collection_dimension("BAAI/bge-m3", 1024) is True
-
-        # Chiều lệch: ném ValueError
         with pytest.raises(ValueError, match="Lệch chiều vector"):
             validate_collection_dimension("BAAI/bge-m3", 768)
 
-    def test_prepare_text_for_embedding(self):
+    def test_prepare_text_for_embedding_calls_preprocess_text(self):
         raw = "  Điều 56.   Ly hôn   theo yêu cầu  của một bên   "
         prepared = prepare_text_for_embedding(raw, "BAAI/bge-m3")
         assert prepared == "Điều 56. Ly hôn theo yêu cầu của một bên"

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 model_gateway package
 Qwen Model Gateway for Sprint 9.
