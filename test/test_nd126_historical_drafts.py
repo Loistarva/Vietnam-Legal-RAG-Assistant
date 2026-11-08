@@ -39,3 +39,17 @@ def test_hn207_draft_answer_has_only_its_mapped_provisions():
     assert "QUAN HỆ HÔN NHÂN" not in label["answer"]
     assert all(CHUNKS[cid]["text"] in label["answer"] for cid in label["candidate_context_ids"])
     assert label["review_status"] == "draft"
+
+
+def test_hn063_question_and_candidates_cover_only_three_named_concepts():
+    query, label = QUERIES["HN_063"], LABELS["HN_063"]
+    expected = [f"l_52_2014_qh13_art_3_clause_{n}_chunk_1" for n in (1, 5, 7)]
+    assert label["candidate_context_ids"] == expected
+    assert label["gold_clause_ids"] == [CHUNKS[cid]["clause_id"] for cid in expected]
+    assert all(is_effective_at(CHUNKS[cid], query["as_of_date"]) for cid in expected)
+    for concept in ("hôn nhân", "kết hôn", "chung sống như vợ chồng"):
+        assert concept in query["question"].lower()
+        assert concept in label["answer"].lower()
+    assert label["review_status"] == "draft"
+    assert label["gold_context_ids"] == []
+    assert label["gold_context_ids_confirmed"] is False

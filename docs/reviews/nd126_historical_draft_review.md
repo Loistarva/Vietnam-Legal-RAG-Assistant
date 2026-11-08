@@ -39,6 +39,6 @@ Chọn hướng lịch sử để giữ chủ đề/căn cứ hiện có. Không
 
 ## Việc còn lại
 
-HN_063 và hai câu chưa mapping HN_039/HN_048 là các mục ưu tiên sau, chưa xử lý
-trong thay đổi này. HN_078 vẫn giữ nguyên vì đã source_checked; nhận xét biên tập
+HN_063 đã xử lý trong commit tiếp theo của cùng nhánh; xem `hn063_candidate_narrowing.md`.
+Hai câu chưa mapping HN_039/HN_048 chưa xử lý. HN_078 vẫn giữ nguyên vì đã source_checked; nhận xét biên tập
 được ghi trong báo cáo review dữ liệu PR #35.
