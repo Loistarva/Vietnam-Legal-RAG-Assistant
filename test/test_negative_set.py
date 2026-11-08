@@ -15,13 +15,13 @@ DATA = ROOT / "evaluation/negative_set"
 
 
 def rows():
-    return [json.loads(line) for line in (DATA / "dev_negative_queries_v1.jsonl").read_text(encoding="utf-8").splitlines()]
+    return [json.loads(line) for line in (DATA / "dev_negative_queries_v2.jsonl").read_text(encoding="utf-8").splitlines()]
 
 
 def test_versioned_artifact_counts_and_hash():
     dataset = rows()
-    manifest = json.loads((DATA / "dev_negative_manifest_v1.json").read_text(encoding="utf-8"))
-    assert len(dataset) == 24
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
+    assert len(dataset) == 26
     assert manifest["dataset_canonical_sha256"] == canonical_hash(dataset)
     assert manifest["review_status"] == "pending_peer_review"
     assert validate_rows(dataset, [], [], []) == []
@@ -88,7 +88,7 @@ def test_normalization_keeps_document_numbers_distinct():
 
 @pytest.mark.parametrize("change", ["dataset_hash", "baseline_hash"])
 def test_cli_rejects_tampered_manifest(tmp_path, change):
-    manifest = json.loads((DATA / "dev_negative_manifest_v1.json").read_text(encoding="utf-8"))
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
     if change == "dataset_hash":
         manifest["dataset_canonical_sha256"] = "0" * 64
     else:
@@ -125,7 +125,7 @@ def test_jsonl_crlf_and_terminal_newline_supported():
     "bad_sha", "bad_count_type", "missing_group", "bad_date", "false_review_claim", "missing_corpus_hash",
 ])
 def test_manifest_must_not_disable_safety_checks(case):
-    manifest = json.loads((DATA / "dev_negative_manifest_v1.json").read_text(encoding="utf-8"))
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
     if case == "empty_sources":
         manifest["benchmark_query_sources"] = []
     elif case == "missing_baseline_dev":
@@ -184,7 +184,7 @@ def test_invalid_clarification_or_non_ascii_id_rejected(change):
 
 @pytest.mark.parametrize("case", ["date_mismatch", "nonobject_row", "malformed_json", "missing_file", "empty_sources"])
 def test_cli_bad_inputs_fail_cleanly(tmp_path, case):
-    dataset, manifest = rows(), json.loads((DATA / "dev_negative_manifest_v1.json").read_text(encoding="utf-8"))
+    dataset, manifest = rows(), json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
     if case == "date_mismatch":
         dataset[0]["as_of_date"] = "2026-10-16"
         manifest["dataset_canonical_sha256"] = canonical_hash(dataset)
@@ -207,7 +207,7 @@ def test_cli_bad_inputs_fail_cleanly(tmp_path, case):
 
 
 def test_cli_supports_utf8_bom_and_crlf_without_mutating_files(tmp_path):
-    raw = (DATA / "dev_negative_queries_v1.jsonl").read_text(encoding="utf-8")
+    raw = (DATA / "dev_negative_queries_v2.jsonl").read_text(encoding="utf-8")
     dataset_path = tmp_path / "bom.jsonl"
     dataset_path.write_bytes(b"\xef\xbb\xbf" + raw.replace("\n", "\r\n").encode("utf-8"))
     before = dataset_path.read_bytes()
@@ -233,8 +233,8 @@ def test_current_checkout_collision_detected_even_when_pinned_snapshots_are_clea
     monkeypatch.setattr(validator, "git_bytes", lambda ref, name: subprocess.check_output(
         ["git", "show", f"{ref}:{name}"], cwd=ROOT))
     monkeypatch.setattr(sys, "argv", ["validate_negative_set.py", "--dataset",
-                                     str(DATA / "dev_negative_queries_v1.jsonl"), "--manifest",
-                                     str(DATA / "dev_negative_manifest_v1.json")])
+                                     str(DATA / "dev_negative_queries_v2.jsonl"), "--manifest",
+                                     str(DATA / "dev_negative_manifest_v2.json")])
     assert validator.main() == 1
     assert "duplicate/benchmark question" in capsys.readouterr().out
 

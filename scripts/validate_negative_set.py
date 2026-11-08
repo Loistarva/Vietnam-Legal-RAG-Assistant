@@ -63,7 +63,7 @@ def valid_date(value):
 def validate_manifest(manifest):
     if not isinstance(manifest, dict):
         raise ValueError("Manifest must be an object")
-    if manifest.get("dataset_version") != "dev_negative_v1":
+    if manifest.get("dataset_version") not in {"dev_negative_v1", "dev_negative_v2"}:
         raise ValueError("Unsupported dataset version")
     if not valid_date(manifest.get("as_of_date")) or not valid_date(manifest.get("created_on")):
         raise ValueError("Invalid manifest date")
@@ -219,8 +219,8 @@ def validate_rows(rows, registry, chunks, queries):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset", type=Path, default=DATA / "dev_negative_queries_v1.jsonl")
-    parser.add_argument("--manifest", type=Path, default=DATA / "dev_negative_manifest_v1.json")
+    parser.add_argument("--dataset", type=Path, default=DATA / "dev_negative_queries_v2.jsonl")
+    parser.add_argument("--manifest", type=Path, default=DATA / "dev_negative_manifest_v2.json")
     parser.add_argument("--fetch-sources", action="store_true", help="Explicitly fetch missing pinned Git sources before offline validation")
     args = parser.parse_args()
     try:

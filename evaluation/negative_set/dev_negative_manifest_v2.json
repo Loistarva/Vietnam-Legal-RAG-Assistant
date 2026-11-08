@@ -1,0 +1,76 @@
+{
+  "dataset_version": "dev_negative_v2",
+  "created_on": "2026-11-08",
+  "as_of_date": "2026-10-15",
+  "purpose": "Development router, evidence-abstention and clarification calibration; not official A/B or Test",
+  "review_status": "pending_peer_review",
+  "reviewers_required": [
+    "Dev 2",
+    "Tech Lead"
+  ],
+  "authorship": "New synthetic scenarios authored for D1.5; not sampled or paraphrased from benchmark questions",
+  "question_count": 26,
+  "label_counts": {
+    "non_legal": 6,
+    "legal_out_of_scope": 8,
+    "missing_corpus_evidence": 6,
+    "insufficient_facts": 6
+  },
+  "dataset_canonical_sha256": "4fe1c575703a67b53911ba2d14063cb2b5d3c1e922d65aabd3955faf6390d0b1",
+  "baseline_git_sha": "fc666421fb50d394d11df2368303031092a30578",
+  "baseline_files_git_sha256": {
+    "data/reference/document_versions.json": "3d8cc357107b3ed76d40e3ee5dadbbc8a4c07492dc19d41e9199725d8b452694",
+    "data/chunking_output/chunks.jsonl": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023"
+  },
+  "benchmark_query_sources": [
+    {
+      "git_sha": "fc666421fb50d394d11df2368303031092a30578",
+      "path": "data/benchmark/queries_dev.json",
+      "canonical_sha256": "69b583d9d9606e96e537c25f79425f21d9c12c4d1672fe8e41ad404da9b536e0"
+    },
+    {
+      "git_sha": "fc666421fb50d394d11df2368303031092a30578",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    },
+    {
+      "git_sha": "6288e8c7868c198d4c12c9b8e0f7a49d445facd2",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    }
+  ],
+  "scope_review_required": [
+    "Adoption and family civil-status are treated as family-related for these source-coverage cases",
+    "Divorce court-fee questions test a missing primary source, not general tax/fee jurisdiction"
+  ],
+  "reference_identity_sources": [
+    {
+      "document_number": "52/2010/QH12",
+      "url": "https://vanban.chinhphu.vn/?docid=96052&pageid=27160"
+    },
+    {
+      "document_number": "60/2014/QH13",
+      "url": "https://vbpl.moj.gov.vn/bonoivu/Pages/vbpq-thuoctinh.aspx?ItemID=46746"
+    },
+    {
+      "document_number": "326/2016/UBTVQH14",
+      "url": "https://baochinhphu.vn/uy-ban-thuong-vu-quoc-hoi-ra-nghi-quyet-ve-an-phi-le-phi-toa-an-102215425.htm"
+    }
+  ],
+  "supersedes": "dev_negative_v1; original artifact retained as historical",
+  "boundary_review_ids": [
+    "NEG_DEV_025",
+    "NEG_DEV_026"
+  ],
+  "coverage_review": {
+    "date": "2026-11-08",
+    "registry_documents": 28,
+    "corpus_chunks": 2322,
+    "missing_primary_numbers": [
+      "52/2010/QH12",
+      "60/2014/QH13",
+      "326/2016/UBTVQH14"
+    ],
+    "note": "Checked registry and corpus primary document identities on pinned testing, not just hashes. New decrees ND87/2020, ND07/2025, ND18/2026 and TT04/2024 are related evidence, not the requested primary documents. Boundary labels remain proposals."
+  }
+}
