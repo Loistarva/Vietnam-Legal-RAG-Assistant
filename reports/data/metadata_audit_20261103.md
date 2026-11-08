@@ -1,14 +1,14 @@
 # D1.1 — Metadata audit và document aliases
 
-Ngày thực hiện: **07/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
+Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `6eff7c2a6db34202b5b3ffad6c5ee14ef5902366`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `eaff78b1d5c0ee753ebfcc598a02a1cca0b706bc`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
-- Registry: 24 văn bản; corpus: 2164 chunks / 24 văn bản; article index: 799 dòng.
-- Structural errors: **0**; warnings: 24. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
-- Alias keys: 562; ambiguous keys: 24. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
+- Registry: 28 văn bản; corpus: 2322 chunks / 28 văn bản; article index: 851 dòng.
+- Structural errors: **0**; warnings: 28. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
+- Alias keys: 766; ambiguous keys: 38. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
 ## Kiểm tra đã làm
 
@@ -29,7 +29,7 @@ Các cờ này đã có trong registry; không trình bày thành lỗi mới v�
 
 Warning counts:
 
-- provision_effectivity_not_independently_verified: 24
+- provision_effectivity_not_independently_verified: 28
 
 ## Alias mơ hồ tiêu biểu
 
@@ -41,6 +41,7 @@ Warning counts:
   ],
   "2025": [
     "l_81_2025_qh15",
+    "nd_07_2025_nd_cp",
     "nd_207_2025_nd_cp",
     "tt_38_2025_tt_byt"
   ],
@@ -63,16 +64,17 @@ Warning counts:
 
 ## Nguồn và giới hạn
 
-Registry canonical SHA-256: `19d8f6b3ab8c47c3363ee08fa0d77afc0f9f2d1c9196692de5a36b638df9cd64`.
-- data/reference/document_versions.json: raw file SHA-256 `af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb`
-- data/reference/article_index.json: raw file SHA-256 `d62154c08c40a29de5063cd7d333b02f4028a619232ba545224134ee2769f4c0`
+Registry canonical SHA-256: `67424ec6c5cc10408d22277d514f6b5280edeedac1fbd0cb3051d4d0785a5010`.
+- data/reference/document_versions.json: raw file SHA-256 `1e453a58d1d83fd145694d88bc2f81a2aa26c8669676aad7ce4885417aa6babf`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `81c72a08bbfa41f2cb190faebb16d02beb4d505c8bb56b2072acada719c0d578`
+- data/reference/article_index.json: raw file SHA-256 `868f890a9e4c10d718b5ab515b4f27f78a695b01edb5bb79ca8c01c4e4fc2d2f`
+- data/reference/provision_periods.json: raw file SHA-256 `b51bd299a26cac561c47ba15c40bed7a5110a600dcc93e2f175c0c2bcdb6ddb9`
 
 Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
 
 Remote context:
 
-origin/testing snapshot d203ed5b4e8925d63742d897bd8a9879b1a04c34; differing tracked input paths vs HEAD: ['data/normalized_metadata.json', 'data/reference/article_index.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review.
+origin/testing snapshot fc666421fb50d394d11df2368303031092a30578; differing tracked input paths vs HEAD: []. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review.
 
 ## Cách tái lập và bàn giao
 

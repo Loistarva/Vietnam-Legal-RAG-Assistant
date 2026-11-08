@@ -96,3 +96,7 @@ Rà soát cuối bổ sung kiểm tra container sai kiểu/None và model bị m
 tránh exception thay vì FAIL. Kết quả cuối: 67 tests D1.2 PASS; full pytest
 915 passed, 1 skipped (69.13s); 8 tests Node evidence guard PASS;
 `git diff --check` sạch. Chưa chạy CI remote/chưa commit hoặc push.
+
+## Giới hạn citation cấp Điểm
+
+Validator hiện kiểm đến document/article/clause và selected evidence. Citation cấp Điểm chưa được kiểm độc lập; không suy ra một Điểm là đúng chỉ vì Khoản chứa nó khớp. Reviewer Dev 3 + Dev 5 chốt contract Điểm trước khi mở rộng.

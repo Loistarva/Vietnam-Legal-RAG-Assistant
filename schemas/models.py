@@ -9,11 +9,12 @@ Single Source of Truth for:
   - TokenUsage & LLMResponse (D3.1 / D3.4)
   - MappedCitation, GroundingResult & RAGOutputRecord (D3.1)
 """
+
 from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Literal, Optional, Tuple
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import (
     BaseModel,
@@ -26,11 +27,13 @@ from pydantic import (
 
 class StrictBaseModel(BaseModel):
     """Base model forbidding unknown fields and stripping string inputs."""
+
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
 class CandidateChunk(StrictBaseModel):
     """Đại diện cho một chunk ứng viên từ pipeline retrieval/rerank."""
+
     query_id: str
     chunk_id: str
     chunk_text: str
@@ -66,12 +69,15 @@ class CandidateChunk(StrictBaseModel):
     @classmethod
     def validate_evidence_index(cls, v: Optional[int]) -> Optional[int]:
         if v is not None and (v < 1 or v > 5):
-            raise ValueError(f"evidence_index phải nằm trong khoảng [1, 5], nhận được: {v}")
+            raise ValueError(
+                f"evidence_index phải nằm trong khoảng [1, 5], nhận được: {v}"
+            )
         return v
 
 
 class EvidenceItem(StrictBaseModel):
     """Đại diện cho từng mảnh bằng chứng đưa vào prompt sau Parent Resolver (Top 1..5)."""
+
     evidence_index: int = Field(ge=1, le=5)
     chunk_id: str
     parent_clause_id: str
@@ -84,7 +90,14 @@ class EvidenceItem(StrictBaseModel):
     effective_to: Optional[str] = None
     source_url: Optional[str] = None
 
-    @field_validator("chunk_id", "parent_clause_id", "document_id", "article_id", "clause_id", "content")
+    @field_validator(
+        "chunk_id",
+        "parent_clause_id",
+        "document_id",
+        "article_id",
+        "clause_id",
+        "content",
+    )
     @classmethod
     def validate_non_empty(cls, v: str, info) -> str:
         if not v or not v.strip():
@@ -94,10 +107,13 @@ class EvidenceItem(StrictBaseModel):
 
 class ContextPayload(StrictBaseModel):
     """Đầu vào cho Prompt Builder & Citation Validator."""
+
     query_id: str
     query: str
     as_of_date: str
-    as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"] = "benchmark"
+    as_of_date_source: Literal[
+        "benchmark", "query_text", "user_input", "system_today"
+    ] = "benchmark"
     evidence_items: List[EvidenceItem] = Field(default_factory=list)
     source_map: Dict[int, Dict[str, Any]] = Field(default_factory=dict)
     max_context_chars: int = 6000
@@ -138,6 +154,7 @@ class ContextPayload(StrictBaseModel):
 
 class StructuredRAGOutput(StrictBaseModel):
     """Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG)."""
+
     answer: str
     evidence_indices: List[int] = Field(default_factory=list)
     abstained: bool = False
@@ -149,20 +166,26 @@ class StructuredRAGOutput(StrictBaseModel):
     def validate_evidence_indices(cls, v: List[int]) -> List[int]:
         for idx in v:
             if not isinstance(idx, int) or isinstance(idx, bool):
-                raise ValueError(f"Chỉ số evidence_indices phải là số nguyên, nhận được: {type(idx).__name__}")
+                raise ValueError(
+                    f"Chỉ số evidence_indices phải là số nguyên, nhận được: {type(idx).__name__}"
+                )
             if idx < 1 or idx > 5:
-                raise ValueError(f"Chỉ số bằng chứng phải nằm trong tập [1, 2, 3, 4, 5], nhận được: {idx}")
+                raise ValueError(
+                    f"Chỉ số bằng chứng phải nằm trong tập [1, 2, 3, 4, 5], nhận được: {idx}"
+                )
         return v
 
 
 class TokenUsage(StrictBaseModel):
     """Số lượng token sử dụng (input prompt eval, output generation eval)."""
+
     input: int = 0
     output: int = 0
 
 
 class LLMResponse(StrictBaseModel):
     """Runtime Provenance và kết quả gọi Model Gateway (Task D3.4)."""
+
     query_id: str
     run_mode: Literal["A_zero_shot", "B_controlled_rag", "C_production_rag"]
     answer: str
@@ -188,6 +211,7 @@ class LLMResponse(StrictBaseModel):
 
 class MappedCitation(StrictBaseModel):
     """Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5]."""
+
     evidence_index: int = Field(ge=1, le=5)
     chunk_id: str
     document_id: str
@@ -198,6 +222,7 @@ class MappedCitation(StrictBaseModel):
 
 class GroundingResult(StrictBaseModel):
     """Kết quả kiểm định căn cứ từ Dev 1 / Dev 5."""
+
     grounding_status: Literal["PASS", "FAIL", "ABSTAIN", "NEEDS_CLARIFICATION"]
     is_grounded: bool
     valid_citations: List[MappedCitation] = Field(default_factory=list)
@@ -208,10 +233,13 @@ class GroundingResult(StrictBaseModel):
 
 class RAGOutputRecord(StrictBaseModel):
     """Bản ghi JSONL hoàn chỉnh cho benchmark và production (Phụ lục B)."""
+
     query_id: str
     query: str
     as_of_date: str
-    as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"] = "benchmark"
+    as_of_date_source: Literal[
+        "benchmark", "query_text", "user_input", "system_today"
+    ] = "benchmark"
     answer: str
     evidence_indices: List[int] = Field(default_factory=list)
     citations: List[MappedCitation] = Field(default_factory=list)
@@ -254,7 +282,10 @@ def export_json_schemas(output_dir: str | Path | None = None) -> Dict[str, Path]
     written_paths: Dict[str, Path] = {}
     for filename, schema_dict in mapping.items():
         file_path = target_dir / filename
-        file_path.write_text(json.dumps(schema_dict, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        file_path.write_text(
+            json.dumps(schema_dict, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
         written_paths[filename] = file_path
 
     return written_paths

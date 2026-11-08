@@ -85,3 +85,7 @@ python -m pytest test/test_document_aliases.py -q
 Builder không truy cập mạng hoặc cần lịch sử Git để sinh aliases từ input working tree. Script audit ghi HEAD và snapshot `origin/testing` hiện có để truy nguyên, không fetch/merge tự động. Raw file hashes có thể khác vì CRLF checkout; hash registry canonical dùng JSON sorted keys/compact UTF-8/trailing newline để ổn định. Chỉ regenerate/review khi metadata thay đổi, không sửa artifact bằng tay để vượt check.
 
 Dev 2 review vocabulary/normalization/ambiguous handling và tích hợp parser; Dev 3 review canonical ID và date mapping. Chưa có xác nhận reviewer ở bước bàn giao này.
+
+## Cập nhật 08/11
+
+Alias map được sinh lại từ registry 28 văn bản. Alias thiếu năm như “Nghị định 126” trả insufficient_context kèm candidates (hoặc ambiguous nếu nhiều ứng viên), không trả văn bản không tồn tại. Cần năm rõ ràng để chọn ứng viên; không tự chọn năm mới nhất. Metadata audit đọc provision_periods.json: khoảng chunk phải nằm trong khoảng văn bản, khác nhau chỉ được chấp nhận khi khớp override đúng Điều/Khoản/Điểm/Khoản trích dẫn và đúng ngày kết thúc.

@@ -48,3 +48,7 @@ Fail nêu reason code để sửa đầu vào cụ thể; guard không sửa man
 Nhánh planning đã được merge cập nhật từ `origin/testing` để kiểm chính các file bàn giao đang được nhóm sử dụng. Những sửa Gold/Test và re-freeze từ upstream được nhận qua merge, không phải D1.4 tự chỉnh Test; logs có hash trước/sau chứng minh guard chỉ đọc. Không thay dữ liệu đã chấm hoặc chạy lại holdout.
 
 Kết quả test và provenance: `reports/data/dev30_handoff_d14_20261107.md` và raw JSON đi kèm. Reviewer theo kế hoạch: **Dev 2 + Tech Lead**. Guard PASS chứng minh điều kiện dữ liệu/leakage trong phạm vi này, không phải review pháp lý độc lập hay phê duyệt official evaluation.
+
+## Cập nhật 08/11: tích hợp corpus mới
+
+Hash toàn file Dev/Gold/corpus khác bản xác nhận chỉ sinh input_warnings, không chặn vì thay đổi ngoài Dev30. File 30 queries vẫn bị khóa; từng query phải bằng bản gốc trong Dev hiện tại; selected_gold_content_hash, gold chunk identity/content/effectivity theo dev30_selected_chunk_hashes_v1.json và Test questions/gold freeze vẫn bắt buộc. Fingerprint 45 chunk được đối chiếu từ e0cea35 tới testing mới, không thay đổi selection/confirmation của Dev 2/5.

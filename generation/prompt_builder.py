@@ -4,9 +4,10 @@ generation/prompt_builder.py
 Prompt Builder & Evidence Numbering [1]...[5] for Sprint 9 (Task D3.2).
 Complies with DoD-09 and DoD-11.
 """
+
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
@@ -15,7 +16,9 @@ PROMPT_A_VERSION: str = "v1.0_zero_shot_m1"
 PROMPT_B_VERSION: str = "v1.0_controlled_rag_m1"
 
 # Cố định câu Disclaimer chuẩn theo yêu cầu Sprint 9
-STANDARD_DISCLAIMER: str = "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
+STANDARD_DISCLAIMER: str = (
+    "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
+)
 
 
 def format_evidence_item(item: EvidenceItem) -> str:
@@ -58,21 +61,27 @@ def build_zero_shot_prompt(
     ]
 
     if include_as_of_date and as_of_date:
-        prompt_lines.extend([
-            f"3. Thời điểm hiệu lực áp dụng: {as_of_date}.",
-            f'   Khi trả lời câu hỏi gắn với mốc thời gian hoặc hiệu lực văn bản, câu trả lời phải nêu rõ: "Theo quy định có hiệu lực tại ngày {as_of_date}...".',
-            "4. Đảm bảo căn cứ vào các văn bản pháp luật có hiệu lực tại mốc thời gian trên.",
-        ])
+        prompt_lines.extend(
+            [
+                f"3. Thời điểm hiệu lực áp dụng: {as_of_date}.",
+                f'   Khi trả lời câu hỏi gắn với mốc thời gian hoặc hiệu lực văn bản, câu trả lời phải nêu rõ: "Theo quy định có hiệu lực tại ngày {as_of_date}...".',
+                "4. Đảm bảo căn cứ vào các văn bản pháp luật có hiệu lực tại mốc thời gian trên.",
+            ]
+        )
     else:
-        prompt_lines.append("3. Đảm bảo viện dẫn chính xác các văn bản quy phạm pháp luật liên quan.")
+        prompt_lines.append(
+            "3. Đảm bảo viện dẫn chính xác các văn bản quy phạm pháp luật liên quan."
+        )
 
-    prompt_lines.extend([
-        f"5. Cuối câu trả lời luôn đính kèm câu khuyến cáo: \"{STANDARD_DISCLAIMER}\".",
-        "",
-        f"CÂU HỎI: {query.strip()}",
-        "",
-        "TRẢ LỜI:",
-    ])
+    prompt_lines.extend(
+        [
+            f'5. Cuối câu trả lời luôn đính kèm câu khuyến cáo: "{STANDARD_DISCLAIMER}".',
+            "",
+            f"CÂU HỎI: {query.strip()}",
+            "",
+            "TRẢ LỜI:",
+        ]
+    )
 
     return "\n".join(prompt_lines)
 
@@ -90,7 +99,11 @@ def build_controlled_rag_prompt(context_payload: ContextPayload) -> str:
     for item in context_payload.evidence_items[:5]:
         evidence_blocks.append(format_evidence_item(item))
 
-    context_str = "\n".join(evidence_blocks) if evidence_blocks else "Không có bằng chứng được cung cấp."
+    context_str = (
+        "\n".join(evidence_blocks)
+        if evidence_blocks
+        else "Không có bằng chứng được cung cấp."
+    )
 
     prompt = f"""Bạn là trợ lý pháp lý phân tích chuyên sâu tuân thủ nghiêm ngặt bằng chứng (Controlled Legal RAG).
 Phiên bản hướng dẫn: {PROMPT_B_VERSION}

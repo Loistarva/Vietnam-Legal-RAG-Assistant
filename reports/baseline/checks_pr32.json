@@ -1,18 +1,18 @@
 {
   "observed_at": "2026-11-06T11:51:17.639196+00:00",
-  "checkout": "D:\\GitHubProjects\\week09-audit-pr32",
-  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
   "sha": "1700f912aa02084f26ba27df0de9f53e8e72ee7c",
-  "tracked_status_before": "",
   "offline": true,
+  "scope": "historical validation summary; machine-local paths and raw logs omitted",
   "results": [
     {
       "args": [
         "scripts/validate_benchmark.py"
       ],
       "exit_code": 0,
-      "stdout": "Dev=270; Test=30; total=300; mode=handoff; issues=0\nPASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production.\n",
-      "stderr": ""
+      "summary": [
+        "Dev=270; Test=30; total=300; mode=handoff; issues=0",
+        "PASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production."
+      ]
     },
     {
       "args": [
@@ -20,8 +20,9 @@
         "--verify"
       ],
       "exit_code": 0,
-      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
-      "stderr": ""
+      "summary": [
+        "PASS: 30 câu Test chưa bị thay đổi"
+      ]
     },
     {
       "args": [
@@ -29,8 +30,9 @@
         "--verify"
       ],
       "exit_code": 0,
-      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
-      "stderr": ""
+      "summary": [
+        "PASS: Test Gold (30 câu) không đổi"
+      ]
     },
     {
       "args": [
@@ -39,10 +41,11 @@
         "-q"
       ],
       "exit_code": 0,
-      "stdout": "........................................................................ [ 10%]\n...........................................s............................ [ 21%]\n........................................................................ [ 32%]\n........................................................................ [ 43%]\n........................................................................ [ 54%]\n........................................................................ [ 65%]\n........................................................................ [ 76%]\n........................................................................ [ 87%]\n........................................................................ [ 98%]\n...........                                                              [100%]\n658 passed, 1 skipped in 29.64s\n",
-      "stderr": ""
+      "summary": [
+        "........................................................................ [ 98%]",
+        "...........                                                              [100%]",
+        "658 passed, 1 skipped in 29.64s"
+      ]
     }
-  ],
-  "tracked_status_after": "",
-  "sha_after": "1700f912aa02084f26ba27df0de9f53e8e72ee7c"
+  ]
 }

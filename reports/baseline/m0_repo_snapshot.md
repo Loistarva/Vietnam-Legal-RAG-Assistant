@@ -1,5 +1,25 @@
 # D1.0 — Baseline repo Tuần 9
 
+## Cập nhật 08/11
+
+Baseline tích hợp mới: `origin/testing` **fc666421fb50d394d11df2368303031092a30578** (merge PR #40). Registry 28 văn bản, corpus 2.322 child chunk. Các snapshot ngày 06/11 bên dưới là lịch sử, không đại diện trạng thái hiện tại.
+
+PR #35, #36, #37, #38, #39, #40 đã merge. PR #25 đã đóng, thay bằng #36. #38 tách hiệu lực Khoản trích dẫn; #39 sửa draft lịch sử/HN_063 và đáp án draft; #40 đã dựng lại index và chạy lại Dev/Test lần 5. Không cần chạy lại đánh giá chỉ vì các thay đổi guard/audit trong PR #33.
+
+Hash file (chuẩn hóa LF; hash file Test khác hash payload canonical trong manifest):
+
+- `data/chunking_output/chunks.jsonl`: `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`
+- `data/benchmark/queries_test.json`: `521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f`
+- `docs/test_questions_freeze.json`: `f814aff4c6108042475c504ba8bb3e9d880241cf4364fcdb0d6493ea9e43f9ac`
+- `docs/test_gold_freeze.json`: `55d82b889a6dd786ca0b3881321820d38335d0d45198a9e1fcc91b3989c5faee`
+- `docs/test_run_config_freeze.json`: `ae45c37577380e1e1c530db6be1d667e3d4e16e215078a3ad867ea861fdad6b3`
+- `retrieval/config.yaml`: `08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179`
+- `reranking/config.yaml`: `b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471`
+
+D1.5 tách sang [PR #41](https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/41), dùng nhánh đã có và manifest v2 pin baseline này, 26 câu; Dev 2 + Tech Lead chốt nhãn, Dev 4/5 nhận bàn giao. PR #33 tập trung D1.0/D1.1/D1.2/D1.4. D1.3 PII Tuần 10 theo [issue #42](https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/issues/42). Các trạng thái review vẫn là pending, không tự tuyên bố M0/official A/B được duyệt.
+
+## Hồ sơ baseline 06/11 (lịch sử)
+
 Ngày: 06/11/2026 (Asia/Saigon). Thời điểm audit UTC: 2026-11-06T11:57:28.944Z; GitHub snapshot UTC: 2026-11-06T11:56:05.4605034Z. Nguồn: Kế hoạch Tuần 9 V3; Git blobs sau fetch; GitHub REST API PR metadata và Actions. Không dùng nguyên trạng các nhận định cũ trong kế hoạch.
 
 ## Kết luận

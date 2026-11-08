@@ -65,3 +65,7 @@ Chín chunk mới:
 ## 4. Phần còn là giới hạn tài liệu
 
 docs/benchmark_label_provenance.md giải thích phần 294/300 và 6 placeholder là lịch sử, nhưng vẫn có số liệu cũ/mệnh đề cũ về confirmed ở phần sau. Đây là điểm làm rõ tài liệu khi bàn giao, không phủ nhận các commit mapping đã sửa. Bằng chứng machine-readable: ../baseline/m0_audit_evidence.json.
+
+## Cập nhật 08/11 - PR #36 và các sửa tiếp theo
+
+PR #36 làm lại #25: giữ mapping chưa duyệt ở candidate, bỏ bản trích gõ tay đã được thay bằng văn bản đầy đủ hoặc chưa được nạp; không nâng 195 draft thành gold. Giữ corpus của #35 (2.322 chunk); HN_039/HN_048 not_mapped vì thiếu NĐ24/2013 và TT01/2018. 20 câu draft được viết lại để tránh Test-clause overlap. #38 tiếp tục đổi nội dung hai child chunk NĐ07/2025, hash corpus LF thành 7105c484…; #39 chuyển 26 draft sang lịch sử và thu hẹp HN_063; #40 đã dựng lại index, chạy Dev/Test lần 5 và cập nhật provenance. Baseline mới: fc666421fb50d394d11df2368303031092a30578. D1.1 chấp nhận hiệu lực cấp Khoản chỉ khi trong khoảng văn bản và khớp provision_periods; D1.4 chỉ cảnh báo hash toàn file đổi ngoài tập chọn, vẫn kiểm selected query/gold/chunk và Test freeze. Không sửa benchmark, corpus, config hoặc Test để làm guard pass.
