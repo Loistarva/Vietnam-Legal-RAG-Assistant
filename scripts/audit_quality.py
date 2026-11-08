@@ -22,7 +22,10 @@ def audit(private_dir: Path|None=None):
     risk_counts=Counter()
     for split,items in [('Dev',dev),('Test',test)]:
         for q in items:
-            g=truth[q['id']];risks=[];a=g['answer'];text=q['question']
+            g=truth[q['id']]
+            risks=[]
+            a=g['answer']
+            text=q['question']
             if g['answer_kind']=='extracted_article_text_unreviewed':
                 risks.append('PDF_EXCERPT_NOT_DIRECT_ANSWER')
             if g['answer_kind']=='draft_answer_unreviewed':
@@ -41,14 +44,16 @@ def audit(private_dir: Path|None=None):
                 risks.append('TEMPORAL_LAW_STATUS_NEEDS_REVIEW')
             if any(docs.get(c['document_id'],{}).get('provision_status')=='document_level_only' for c in g['citations']):
                 risks.append('DOCUMENT_STATUS_ONLY')
-            if len(a)>800:risks.append('VERY_LONG_DRAFT_ANSWER')
+            if len(a)>800:
+                risks.append('VERY_LONG_DRAFT_ANSWER')
             if re.search(r'\b(KẾT HÔN|LY HÔN|QUAN HỆ GIỮA VỢ VÀ CHỒNG|CẤP DƯỠNG)\s*$',a):
                 risks.append('POSSIBLE_PDF_CHAPTER_HEADING_LEAK')
             if any(k in text.casefold() for k in ['trường hợp liên quan đến','những nội dung pháp lý cụ thể nào','được giải quyết theo căn cứ nào','cần đáp ứng những yêu cầu cụ thể nào']):
                 risks.append('QUESTION_MAY_BE_TOO_GENERIC')
             if q['question_type']=='multi_hop' and len(g['gold_article_ids'])<2:
                 risks.append('MULTIHOP_MISSING_ARTICLE_REFERENCE')
-            for r in risks:risk_counts[r]+=1
+            for r in risks:
+                risk_counts[r]+=1
             rows.append({'question_id':q['id'],'split':split,'question_type':q['question_type'],
                          'test_type':q['test_type'],'answer_kind':g['answer_kind'],
                          'mapping_status':g['mapping_status'],'risk_count':len(risks),
@@ -63,14 +68,19 @@ def audit(private_dir: Path|None=None):
             'extracted_pdf_draft_answers':sum(g['answer_kind']=='extracted_article_text_unreviewed' for g in truth.values()),
             'review_flags':dict(sorted(risk_counts.items())),
             'note':'Cảnh báo để người kiểm duyệt ưu tiên, không phải kết luận pháp luật đúng/sai hoặc thống kê gold verified.'}
-    docs_path=ROOT/'docs';docs_path.mkdir(exist_ok=True)
+    docs_path=ROOT/'docs'
+    docs_path.mkdir(exist_ok=True)
     (docs_path/'quality_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with (docs_path/'quality_review_priorities_dev.csv').open('w',encoding='utf-8-sig',newline='') as fp:
-        writer=csv.DictWriter(fp,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(r for r in rows if r['split']=='Dev')
+        writer=csv.DictWriter(fp,fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(r for r in rows if r['split']=='Dev')
     if private_dir is not None:
         private_dir.mkdir(parents=True,exist_ok=True)
         with (private_dir/'quality_review_priorities_test_RESTRICTED.csv').open('w',encoding='utf-8-sig',newline='') as fp:
-            writer=csv.DictWriter(fp,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(r for r in rows if r['split']=='Test')
+            writer=csv.DictWriter(fp,fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(r for r in rows if r['split']=='Test')
     return report
 if __name__=='__main__':
     ap=argparse.ArgumentParser()

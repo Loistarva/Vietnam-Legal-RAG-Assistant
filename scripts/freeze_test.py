@@ -43,15 +43,22 @@ def run(mode, force=False):
         MANIFEST.write_text(json.dumps(current,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print(f'FROZEN: {current["question_count"]} câu hỏi Test (sha256={current["sha256"]})')
     else:
-        if not MANIFEST.exists():raise RuntimeError('Chưa có manifest')
+        if not MANIFEST.exists():
+            raise RuntimeError('Chưa có manifest')
         existing=json.loads(MANIFEST.read_text(encoding='utf8'))
-        if existing!=current:raise RuntimeError('Test đã thay đổi: hash hoặc danh sách ID không trùng')
+        if existing!=current:
+            raise RuntimeError('Test đã thay đổi: hash hoặc danh sách ID không trùng')
         print(f'PASS: {current["question_count"]} câu Test chưa bị thay đổi')
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True)
-    group.add_argument('--create',action='store_true');group.add_argument('--verify',action='store_true')
+    p=argparse.ArgumentParser()
+    group=p.add_mutually_exclusive_group(required=True)
+    group.add_argument('--create',action='store_true')
+    group.add_argument('--verify',action='store_true')
     p.add_argument('--force',action='store_true')
     a=p.parse_args()
-    try:run('create' if a.create else 'verify', force=a.force)
-    except RuntimeError as e:print('FAIL:',e);sys.exit(1)
+    try:
+        run('create' if a.create else 'verify', force=a.force)
+    except RuntimeError as e:
+        print('FAIL:',e)
+        sys.exit(1)
