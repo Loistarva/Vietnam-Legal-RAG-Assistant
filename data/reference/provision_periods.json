@@ -87,7 +87,8 @@
       "effective_to": "2020-02-01",
       "changed_by": "tt_30_2019_tt_byt",
       "provision": "khoản 2 Điều 2 Thông tư 30/2019/TT-BYT: bãi bỏ khoản 2, khoản 3 Điều 2",
-      "evidence_chunk_id": "tt_30_2019_tt_byt_art_2_clause_2_chunk_1"
+      "evidence_chunk_id": "tt_30_2019_tt_byt_art_2_clause_2_chunk_1",
+      "review_notes": "Đối chiếu 2026-11-08: giữ repealed cho nội dung phiên bản gốc theo Điều 2 khoản 2 TT 30/2019 và danh mục Bộ Y tế mục 53 (2024). Nội dung thay thế nằm ở tt_30_2019_tt_byt_art_1_clause_1_chunk_1 và tt_30_2019_tt_byt_art_1_clause_2_chunk_1, được văn bản hợp nhất trên vbpl.vn (Attachments/141540) giữ tại Điều 2 khoản 2-3, chú thích 2-3. Không hiểu trạng thái này là loại bỏ các định nghĩa mới. Xem docs/reviews/pr35_f4_tt30_verification.md; chưa ký duyệt pháp lý thay Dev 1."
     },
     {
       "id": "tt_57_2015_chapters_1_2_5_6_repealed",

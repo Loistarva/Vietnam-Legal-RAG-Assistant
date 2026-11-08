@@ -249,3 +249,19 @@ def test_quoted_split_preserves_text_and_rejects_unrecognized_source():
     unit.text = '2. Không có đoạn trích chia Khoản.'
     with pytest.raises(ValueError, match="không nhận ra"):
         _split_quoted_clauses(unit, 1200, 190)
+
+
+def test_tt30_repeals_original_versions_but_keeps_replacement_definitions():
+    """F4: trạng thái bãi bỏ bản gốc không được loại định nghĩa thay thế."""
+    for original_clause, replacement_clause, concept in (
+        ("2", "1", "Sàng lọc trước sinh"),
+        ("3", "2", "Sàng lọc sơ sinh"),
+    ):
+        original = BY_ID[f"tt_34_2017_tt_byt_art_2_clause_{original_clause}_chunk_1"]
+        replacement = BY_ID[f"tt_30_2019_tt_byt_art_1_clause_{replacement_clause}_chunk_1"]
+        assert original["provision_status"] == "repealed"
+        assert is_effective_at(original, "2020-01-31")
+        assert not is_effective_at(original, "2020-02-01")
+        assert not is_effective_at(replacement, "2020-01-31")
+        assert is_effective_at(replacement, "2020-02-01")
+        assert concept in replacement["text"]

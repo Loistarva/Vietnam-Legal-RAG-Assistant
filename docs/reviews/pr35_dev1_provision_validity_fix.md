@@ -12,8 +12,9 @@ Base: `e0cea35` (`fix/leftover-after-0211`). Báo cáo gốc ở PR #37.
 - Bổ sung `evidence_context_ids` cho hai dẫn chứng thiếu câu dẫn bãi bỏ và bốn
   dẫn chứng có nội dung tiếp ở chunk sau. Exporter kiểm tồn tại và văn bản nguồn.
   Đây là nhóm dẫn chứng để review/truy vết, không phải thay đổi top-k retrieval.
-- Không đổi trạng thái TT 30/2019 (F4); vẫn cần người phụ trách làm rõ biểu diễn
-  phiên bản và xác nhận pháp lý.
+- F4 đã đối chiếu bổ sung: giữ trạng thái bãi bỏ cho phiên bản gốc và giữ định
+  nghĩa thay thế trong TT 30/2019. Xem `pr35_f4_tt30_verification.md`; không ký
+  duyệt pháp lý thay người phụ trách.
 
 ## Ảnh hưởng dữ liệu
 
