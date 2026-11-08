@@ -1,6 +1,6 @@
 {
   "additionalProperties": false,
-  "description": "Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG).",
+  "description": "Schema ép kiểu đầu ra JSON của LLM cho Run B (Controlled RAG).\n\nminimum/maximum của evidence_indices đi vào JSON Schema gửi Ollama (``format``) để\ngrammar chặn index ngoài [1, 5]; index > số evidence thật do mapper/validator chặn.",
   "properties": {
     "answer": {
       "title": "Answer",
@@ -8,6 +8,8 @@
     },
     "evidence_indices": {
       "items": {
+        "maximum": 5,
+        "minimum": 1,
         "type": "integer"
       },
       "title": "Evidence Indices",

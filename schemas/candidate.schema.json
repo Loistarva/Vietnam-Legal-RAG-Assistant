@@ -27,6 +27,13 @@
       "title": "Retrieval Source",
       "type": "string"
     },
+    "retrieval_sources": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Retrieval Sources",
+      "type": "array"
+    },
     "validity_status": {
       "title": "Validity Status",
       "type": "string"
@@ -106,6 +113,56 @@
       ],
       "default": null,
       "title": "Candidate Text"
+    },
+    "parent_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Text"
+    },
+    "rrf_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rrf Score"
+    },
+    "reranker_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reranker Score"
+    },
+    "source_ranks": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Source Ranks",
+      "type": "object"
+    },
+    "source_scores": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Source Scores",
+      "type": "object"
     },
     "evidence_index": {
       "anyOf": [

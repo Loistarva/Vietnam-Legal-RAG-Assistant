@@ -73,6 +73,78 @@
           ],
           "default": null,
           "title": "Source Url"
+        },
+        "document_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Number"
+        },
+        "document_title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Title"
+        },
+        "article_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Article Number"
+        },
+        "clause_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clause Number"
+        },
+        "breadcrumb": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Breadcrumb"
+        },
+        "provision_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provision Status"
         }
       },
       "required": [
@@ -105,7 +177,6 @@
       "type": "string"
     },
     "as_of_date_source": {
-      "default": "benchmark",
       "enum": [
         "benchmark",
         "query_text",
@@ -144,7 +215,8 @@
   "required": [
     "query_id",
     "query",
-    "as_of_date"
+    "as_of_date",
+    "as_of_date_source"
   ],
   "title": "ContextPayload",
   "type": "object"
