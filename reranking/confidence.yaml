@@ -1,0 +1,11 @@
+# Confidence Threshold Filter (Owner: Dev 5). Đọc bởi reranking/confidence.py::load_confidence_config.
+# Chạy sau reranker, trước Parent-Context Resolver: điểm reranker top-1 < min_top1_score -> từ chối
+# (không gọi LLM); kết quả < min_evidence_score bị bỏ khỏi ngữ cảnh.
+# Chọn trên Dev ngoài 30 ID official + tập âm Dev 1; không dùng Test. File riêng để không đổi
+# hash reranking/config.yaml đã khoá trong freeze manifest của Test.
+confidence:
+  enabled: false
+  score_field: reranker_score
+  min_top1_score: null
+  min_evidence_score: null
+  threshold_config_version: confidence_off
