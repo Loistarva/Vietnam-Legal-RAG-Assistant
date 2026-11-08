@@ -598,6 +598,69 @@ class TestQwenModelGateway:
         )
         assert resp.context_truncated is True
 
+    @pytest.mark.parametrize("served", ["qwen2.5:3b", "qwen2.5:14b", "qwen2.5"])
+    def test_gateway_rejects_other_tag_of_same_family(self, served):
+        gateway = QwenGateway(transport=lambda url, payload, timeout: {
+            "model": served, "response": "Answer", "done": True, "done_reason": "stop",
+        })
+        with pytest.raises(GatewayExecutionError, match="không khớp"):
+            gateway.generate(prompt="P", query_id="q", run_mode="A_zero_shot", prompt_version=PROMPT_A_VERSION)
+
+    def test_gateway_accepts_same_model_ignoring_case_and_latest_tag(self):
+        gateway = QwenGateway(
+            {"model": "llama3"},
+            transport=lambda url, payload, timeout: {
+                "model": "Llama3:latest", "response": "Answer", "done": True, "done_reason": "stop",
+            },
+        )
+        resp = gateway.generate(prompt="P", query_id="q", run_mode="A_zero_shot", prompt_version=PROMPT_A_VERSION)
+        assert resp.answer == "Answer"
+
+    def test_gateway_keeps_non_integer_indices_and_abstention_reason(self):
+        gateway = QwenGateway(transport=lambda url, payload, timeout: {
+            "model": "qwen2.5:7b",
+            "response": json.dumps({
+                "answer": "Không đủ căn cứ.",
+                "evidence_indices": ["1", 2.0, True, 3],
+                "abstained": True,
+                "abstention_reason": "Evidence không nói về độ tuổi",
+            }),
+            "done": True,
+            "done_reason": "stop",
+        })
+        resp = gateway.generate(
+            prompt="P", query_id="q", run_mode="B_controlled_rag",
+            prompt_version=PROMPT_B_VERSION, structured_output=True,
+        )
+        assert resp.parse_status == "ok"
+        assert resp.evidence_indices == [3]
+        assert resp.rejected_evidence_values == ['"1"', "2.0", "true"]
+        assert resp.abstention_reason == "Evidence không nói về độ tuổi"
+
+    def test_probe_reads_digest_from_api_tags(self):
+        class FakeResponse:
+            def __init__(self, data):
+                self.status_code = 200
+                self._data = data
+
+            def json(self):
+                return self._data
+
+        class FakeSession:
+            def get(self, url, timeout):
+                if url.endswith("/api/version"):
+                    return FakeResponse({"version": "0.6.2"})
+                return FakeResponse({"models": [
+                    {"name": "qwen2.5:3b", "model": "qwen2.5:3b", "digest": "sha256:other"},
+                    {"name": "qwen2.5:7b", "model": "qwen2.5:7b", "digest": "sha256:abc123"},
+                ]})
+
+        gateway = QwenGateway(transport=lambda url, payload, timeout: {})
+        gateway._session = FakeSession()
+        gateway._probe_ollama_metadata()
+        assert gateway.ollama_version == "0.6.2"
+        assert gateway.model_digest == "sha256:abc123"
+
     def test_gateway_rejects_mismatched_model(self):
         def mock_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
             return {

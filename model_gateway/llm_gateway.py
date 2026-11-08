@@ -25,6 +25,12 @@ class GatewayExecutionError(Exception):
     """Ngoại lệ khi không thể kết nối hoặc thực thi gọi mô hình qua Gateway."""
 
 
+def normalize_model_name(name: str) -> str:
+    """Chuẩn hóa tên model Ollama: chữ thường, không ghi tag nghĩa là ``:latest``."""
+    clean = str(name).strip().lower()
+    return clean if ":" in clean else f"{clean}:latest"
+
+
 class QwenGatewayConfig(BaseModel):
     provider: str = "ollama"
     base_url: str = "http://localhost:11434"
@@ -84,7 +90,11 @@ class QwenGateway:
         return QwenGatewayConfig(**data)
 
     def _probe_ollama_metadata(self) -> None:
-        """Truy vấn /api/version và /api/show để lấy ollama_version và model_digest."""
+        """Lấy ollama_version (/api/version) và model_digest (/api/tags, models[].digest).
+
+        /api/show không trả digest, nên digest lấy từ danh sách model đã pull.
+        Offline thì giữ None; không điền giá trị thay thế.
+        """
         if self._session is None:
             return
         base = self.config.base_url.rstrip("/")
@@ -92,10 +102,9 @@ class QwenGateway:
             v_resp = self._session.get(f"{base}/api/version", timeout=2.0)
             if v_resp.status_code == 200:
                 self.ollama_version = v_resp.json().get("version")
-            s_resp = self._session.post(f"{base}/api/show", json={"model": self.config.model}, timeout=2.0)
-            if s_resp.status_code == 200:
-                show_data = s_resp.json()
-                self.model_digest = show_data.get("digest") or show_data.get("details", {}).get("parent_model")
+            t_resp = self._session.get(f"{base}/api/tags", timeout=2.0)
+            if t_resp.status_code == 200:
+                self.model_digest = find_model_digest(t_resp.json(), self.config.model)
         except Exception:
             # Không làm crash khi offline init
             pass
@@ -163,15 +172,12 @@ class QwenGateway:
         raw_res = self._execute_http_post(url, payload, self.config.timeout_seconds)
         latency_ms = (time.perf_counter() - t0) * 1000.0
 
-        # Kiểm tra model thực tế từ response
+        # Kiểm tra model thực tế từ response: so đủ tên và tag (qwen2.5:3b khác qwen2.5:7b)
         resp_model = raw_res.get("model")
-        if resp_model:
-            expected_base = self.config.model.split(":")[0].strip().lower()
-            resp_base = str(resp_model).split(":")[0].strip().lower()
-            if expected_base != resp_base:
-                raise GatewayExecutionError(
-                    f"Model phản hồi ({resp_model}) không khớp với model cấu hình ({self.config.model})"
-                )
+        if resp_model and normalize_model_name(resp_model) != normalize_model_name(self.config.model):
+            raise GatewayExecutionError(
+                f"Model phản hồi ({resp_model}) không khớp với model cấu hình ({self.config.model})"
+            )
 
         # Trích xuất dữ liệu phản hồi
         raw_text = raw_res.get("response", "")
@@ -213,7 +219,9 @@ class QwenGateway:
         parse_status: Literal["ok", "truncated_json", "invalid_json", "raw_text"] = "ok"
         answer = ""
         evidence_indices: list[int] = []
+        rejected_evidence_values: list[str] = []
         abstained = False
+        abstention_reason: str | None = None
         needs_clarification = False
 
         try:
@@ -223,12 +231,22 @@ class QwenGateway:
 
             # Nếu JSON hợp lệ nhưng evidence_indices chứa số ngoài [1, 5] (ví dụ [1, 6]),
             # VẪN parse thành công, gán parse_status = 'ok' và giữ nguyên để map_evidence_indices_to_citations xử lý.
+            # Giá trị không phải số nguyên ("1", 2.0, true, chuỗi chunk_id) được giữ lại trong
+            # rejected_evidence_values để Gate đánh FAIL, không bị bỏ đi trong im lặng.
             raw_indices = parsed_json.get("evidence_indices", [])
             if isinstance(raw_indices, list):
-                evidence_indices = [idx for idx in raw_indices if isinstance(idx, int) and not isinstance(idx, bool)]
+                for idx in raw_indices:
+                    if isinstance(idx, int) and not isinstance(idx, bool):
+                        evidence_indices.append(idx)
+                    else:
+                        rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
+            elif raw_indices is not None:
+                rejected_evidence_values.append(json.dumps(raw_indices, ensure_ascii=False))
 
             answer = str(parsed_json.get("answer") or "").strip()
             abstained = bool(parsed_json.get("abstained", False))
+            reason = parsed_json.get("abstention_reason")
+            abstention_reason = str(reason).strip() if reason else None
             needs_clarification = bool(parsed_json.get("needs_clarification", False))
             parse_status = "ok"
         except Exception:
@@ -245,7 +263,9 @@ class QwenGateway:
             run_mode=run_mode,
             answer=answer,
             evidence_indices=evidence_indices,
+            rejected_evidence_values=rejected_evidence_values,
             abstained=abstained,
+            abstention_reason=abstention_reason,
             needs_clarification=needs_clarification,
             model=self.config.model,
             prompt_version=prompt_version,
@@ -264,6 +284,16 @@ class QwenGateway:
             ollama_version=self.ollama_version,
             model_digest=self.model_digest,
         )
+
+
+def find_model_digest(tags_payload: dict[str, Any], model_name: str) -> str | None:
+    """Tìm digest của model trong response /api/tags (``models[].name`` / ``models[].model``)."""
+    target = normalize_model_name(model_name)
+    for entry in tags_payload.get("models") or []:
+        names = {normalize_model_name(entry[key]) for key in ("name", "model") if entry.get(key)}
+        if target in names:
+            return entry.get("digest")
+    return None
 
 
 def summarize_truncation_and_provenance(responses: list[LLMResponse]) -> dict[str, Any]:

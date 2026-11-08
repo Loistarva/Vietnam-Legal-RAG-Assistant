@@ -365,7 +365,10 @@ class LLMResponse(StrictBaseModel):
     run_mode: Literal["A_zero_shot", "B_controlled_rag", "C_production_rag"]
     answer: str
     evidence_indices: list[int] = Field(default_factory=list)
+    # Giá trị không phải số nguyên mà model trả trong evidence_indices (JSON-encoded); Gate coi là FAIL
+    rejected_evidence_values: list[str] = Field(default_factory=list)
     abstained: bool = False
+    abstention_reason: str | None = None
     needs_clarification: bool = False
 
     # Runtime metadata bắt buộc
