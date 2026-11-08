@@ -315,7 +315,7 @@
         "parent_id": "nd_123_2015_nd_cp_art_34"
       }
     ],
-    "latency_ms": 209.204,
+    "latency_ms": 559.062,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -328,7 +328,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -649,7 +649,7 @@
         "parent_id": "l_52_2014_qh13_art_16"
       }
     ],
-    "latency_ms": 7.049,
+    "latency_ms": 24.51,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -662,7 +662,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -679,7 +679,7 @@
         "clause_id": "l_52_2014_qh13_art_15_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_15_clause_1",
         "rank": 1,
-        "score": 115.573456,
+        "score": 115.57087,
         "chunk_text": "Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -710,7 +710,7 @@
         "clause_id": "l_52_2014_qh13_art_14_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_14_clause_1",
         "rank": 2,
-        "score": 105.153946,
+        "score": 105.15142,
         "chunk_text": "1. Nam, nữ có đủ điều kiện kết hôn theo quy định của Luật này chung sống với nhau như vợ chồng mà không đăng ký kết hôn thì không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Quyền, nghĩa vụ đối với con, tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 15 và Điều 16 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -741,7 +741,7 @@
         "clause_id": "l_52_2014_qh13_art_16_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_16_clause_1",
         "rank": 3,
-        "score": 97.803375,
+        "score": 97.80107,
         "chunk_text": "1. Quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo thỏa thuận giữa các bên; trong trường hợp không có thỏa thuận thì giải quyết theo quy định của Bộ luật dân sự và các quy định khác của pháp luật có liên quan.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -803,7 +803,7 @@
         "clause_id": "l_52_2014_qh13_art_16_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_16_clause_2",
         "rank": 5,
-        "score": 76.17238,
+        "score": 76.1699,
         "chunk_text": "2. Việc giải quyết quan hệ tài sản phải bảo đảm quyền, lợi ích hợp pháp của phụ nữ và con; công việc nội trợ và công việc khác có liên quan để duy trì đời sống chung được coi như lao động có thu nhập.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -865,7 +865,7 @@
         "clause_id": "l_52_2014_qh13_art_130_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_130_clause_1",
         "rank": 7,
-        "score": 68.16583,
+        "score": 68.1642,
         "chunk_text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -896,7 +896,7 @@
         "clause_id": "l_52_2014_qh13_art_110_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_110_clause_1",
         "rank": 8,
-        "score": 67.85934,
+        "score": 67.85754,
         "chunk_text": "Cha, mẹ có nghĩa vụ cấp dưỡng cho con chưa thành niên, con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình trong trường hợp không sống chung với con hoặc sống chung với con nhưng vi phạm nghĩa vụ nuôi dưỡng con.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -927,7 +927,7 @@
         "clause_id": "l_52_2014_qh13_art_80_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_80_clause_1",
         "rank": 9,
-        "score": 66.249794,
+        "score": 66.24738,
         "chunk_text": "Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -983,7 +983,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 7.507,
+    "latency_ms": 30.55,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -996,7 +996,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1013,7 +1013,7 @@
         "clause_id": "l_52_2014_qh13_art_16_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_16_clause_1",
         "rank": 1,
-        "score": 103.24836,
+        "score": 103.250336,
         "chunk_text": "1. Quan hệ tài sản, nghĩa vụ và hợp đồng của nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn được giải quyết theo thỏa thuận giữa các bên; trong trường hợp không có thỏa thuận thì giải quyết theo quy định của Bộ luật dân sự và các quy định khác của pháp luật có liên quan.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1044,7 +1044,7 @@
         "clause_id": "l_52_2014_qh13_art_14_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_14_clause_1",
         "rank": 2,
-        "score": 98.603004,
+        "score": 98.60468,
         "chunk_text": "1. Nam, nữ có đủ điều kiện kết hôn theo quy định của Luật này chung sống với nhau như vợ chồng mà không đăng ký kết hôn thì không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Quyền, nghĩa vụ đối với con, tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 15 và Điều 16 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1075,7 +1075,7 @@
         "clause_id": "l_52_2014_qh13_art_14_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_14_clause_2",
         "rank": 3,
-        "score": 87.58161,
+        "score": 87.58299,
         "chunk_text": "2. Trong trường hợp nam, nữ chung sống với nhau như vợ chồng theo quy định tại khoản 1 Điều này nhưng sau đó thực hiện việc đăng ký kết hôn theo quy định của pháp luật thì quan hệ hôn nhân được xác lập từ thời điểm đăng ký kết hôn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1106,7 +1106,7 @@
         "clause_id": "l_52_2014_qh13_art_130_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_130_clause_1",
         "rank": 4,
-        "score": 86.73441,
+        "score": 86.73648,
         "chunk_text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1137,7 +1137,7 @@
         "clause_id": "l_52_2014_qh13_art_16_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_16_clause_2",
         "rank": 5,
-        "score": 83.291275,
+        "score": 83.29273,
         "chunk_text": "2. Việc giải quyết quan hệ tài sản phải bảo đảm quyền, lợi ích hợp pháp của phụ nữ và con; công việc nội trợ và công việc khác có liên quan để duy trì đời sống chung được coi như lao động có thu nhập.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1168,7 +1168,7 @@
         "clause_id": "l_52_2014_qh13_art_15_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_15_clause_1",
         "rank": 6,
-        "score": 78.39063,
+        "score": 78.39259,
         "chunk_text": "Quyền, nghĩa vụ giữa nam, nữ chung sống với nhau như vợ chồng và con được giải quyết theo quy định của Luật này về quyền, nghĩa vụ của cha mẹ và con.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1199,7 +1199,7 @@
         "clause_id": "l_52_2014_qh13_art_61_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_61_clause_1",
         "rank": 7,
-        "score": 75.45959,
+        "score": 75.461624,
         "chunk_text": "1. Trong trường hợp vợ chồng sống chung với gia đình mà ly hôn, nếu tài sản của vợ chồng trong khối tài sản chung của gia đình không xác định được thì vợ hoặc chồng được chia một phần trong khối tài sản chung của gia đình căn cứ vào công sức đóng góp của vợ chồng vào việc tạo lập, duy trì, phát triển khối tài sản chung cũng như vào đời sống chung của gia đình. Việc chia một phần trong khối tài sản chung do vợ chồng thỏa thuận với gia đình; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1230,7 +1230,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_12_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_12_clause_3",
         "rank": 8,
-        "score": 70.51262,
+        "score": 70.514206,
         "chunk_text": "3. Trong trường hợp tài sản chung được chia trong thời kỳ hôn nhân mà trong giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng đất ghi tên cả vợ và chồng thì bên được chia phần tài sản bằng hiện vật có quyền yêu cầu cơ quan đăng ký tài sản cấp lại giấy chứng nhận quyền sở hữu, giấy chứng nhận quyền sử dụng đất trên cơ sở văn bản thỏa thuận của vợ chồng hoặc quyết định của Tòa án về chia tài sản chung.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -1261,7 +1261,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_3",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_7_clause_3",
         "rank": 9,
-        "score": 65.942245,
+        "score": 65.943665,
         "chunk_text": "3. Khi chia tài sản chung của vợ chồng khi ly hôn, Tòa án phải xác định vợ, chồng có quyền, nghĩa vụ về tài sản với người thứ ba hay không để đưa người thứ ba vào tham gia tố tụng với tư cách người có quyền lợi, nghĩa vụ liên quan. Trường hợp vợ, chồng có quyền, nghĩa vụ về tài sản với người thứ ba mà họ có yêu cầu giải quyết thì Tòa án phải giải quyết khi chia tài sản chung của vợ chồng. Trường hợp vợ chồng có nghĩa vụ với người thứ ba mà người thứ ba không yêu cầu giải quyết thì Tòa án hướng dẫn họ để giải quyết bằng vụ án khác.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -1292,7 +1292,7 @@
         "clause_id": "l_52_2014_qh13_art_61_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_61_clause_2",
         "rank": 10,
-        "score": 63.634724,
+        "score": 63.636833,
         "chunk_text": "2. Trong trường hợp vợ chồng sống chung với gia đình mà tài sản của vợ chồng trong khối tài sản chung của gia đình có thể xác định được theo phần thì khi ly hôn, phần tài sản của vợ chồng được trích ra từ khối tài sản chung đó để chia theo quy định tại Điều 59 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1317,7 +1317,7 @@
         "parent_id": "l_52_2014_qh13_art_61"
       }
     ],
-    "latency_ms": 7.666,
+    "latency_ms": 20.613,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1330,7 +1330,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1651,7 +1651,7 @@
         "parent_id": "l_52_2014_qh13_art_66"
       }
     ],
-    "latency_ms": 7.001,
+    "latency_ms": 13.664,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1664,7 +1664,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -1681,7 +1681,7 @@
         "clause_id": "l_52_2014_qh13_art_20_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_20_clause_1",
         "rank": 1,
-        "score": 108.12525,
+        "score": 108.126915,
         "chunk_text": "Việc lựa chọn nơi cư trú của vợ chồng do vợ chồng thỏa thuận, không bị ràng buộc bởi phong tục, tập quán, địa giới hành chính.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1712,7 +1712,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_15_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_15_clause_1",
         "rank": 2,
-        "score": 37.980892,
+        "score": 37.982784,
         "chunk_text": "1. Trường hợp lựa chọn áp dụng chế độ tài sản của vợ chồng theo thỏa thuận thì vợ chồng có thể thỏa thuận về xác định tài sản theo một trong các nội dung sau đây: a) Tài sản giữa vợ và chồng bao gồm tài sản chung và tài sản riêng của vợ, chồng; b) Giữa vợ và chồng không có tài sản riêng của vợ, chồng mà tất cả tài sản do vợ, chồng có được trước khi kết hôn hoặc trong thời kỳ hôn nhân đều thuộc tài sản chung; c) Giữa vợ và chồng không có tài sản chung mà tất cả tài sản do vợ, chồng có được trước khi kết hôn và trong thời kỳ hôn nhân đều thuộc sở hữu riêng của người có được tài sản đó; d) Xác định theo thỏa thuận khác của vợ chồng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -1743,7 +1743,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_7_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_7_clause_1",
         "rank": 3,
-        "score": 37.789288,
+        "score": 37.79107,
         "chunk_text": "Chế độ tài sản của vợ chồng theo luật định được áp dụng trong trường hợp vợ chồng không lựa chọn áp dụng chế độ tài sản theo thỏa thuận hoặc có thỏa thuận về chế độ tài sản nhưng thỏa thuận này bị Tòa án tuyên bố vô hiệu theo quy định tại Điều 50 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -1774,7 +1774,7 @@
         "clause_id": "l_52_2014_qh13_art_28_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_28_clause_2",
         "rank": 4,
-        "score": 37.44277,
+        "score": 37.444336,
         "chunk_text": "2. Các quy định tại các điều 29, 30, 31 và 32 của Luật này được áp dụng không phụ thuộc vào chế độ tài sản mà vợ chồng đã lựa chọn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1805,7 +1805,7 @@
         "clause_id": "l_52_2014_qh13_art_31_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_31_clause_1",
         "rank": 5,
-        "score": 37.003914,
+        "score": 37.00584,
         "chunk_text": "Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1836,7 +1836,7 @@
         "clause_id": "nd_123_2015_nd_cp_art_29_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_29_clause_2",
         "rank": 6,
-        "score": 35.399113,
+        "score": 35.400543,
         "chunk_text": "2. Người yêu cầu đăng ký khai sinh xuất trình giấy tờ chứng minh việc trẻ em cư trú tại Việt Nam và nộp các giấy tờ sau đây: a) Tờ khai theo mẫu quy định; b) Giấy chứng sinh hoặc giấy tờ khác do cơ quan có thẩm quyền nước ngoài cấp xác nhận về việc trẻ em được sinh ra ở nước ngoài và quan hệ mẹ - con nếu có; c) Văn bản thỏa thuận của cha mẹ lựa chọn quốc tịch cho con theo quy định tại Khoản 1 Điều 36 của Luật Hộ tịch đối với trường hợp trẻ em có cha hoặc mẹ là công dân Việt Nam, người kia là công dân nước ngoài.",
         "metadata": {
           "doc_id": "nd_123_2015_nd_cp",
@@ -1867,7 +1867,7 @@
         "clause_id": "l_52_2014_qh13_art_28_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_28_clause_1",
         "rank": 7,
-        "score": 34.410835,
+        "score": 34.412834,
         "chunk_text": "1. Vợ chồng có quyền lựa chọn áp dụng chế độ tài sản theo luật định hoặc chế độ tài sản theo thỏa thuận. Chế độ tài sản của vợ chồng theo luật định được thực hiện theo quy định tại các điều từ Điều 33 đến Điều 46 và từ Điều 59 đến Điều 64 của Luật này. Chế độ tài sản của vợ chồng theo thỏa thuận được thực hiện theo quy định tại các điều 47, 48, 49, 50 và 59 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1898,7 +1898,7 @@
         "clause_id": "l_52_2014_qh13_art_47_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_47_clause_1",
         "rank": 8,
-        "score": 33.308174,
+        "score": 33.30953,
         "chunk_text": "Trong trường hợp hai bên kết hôn lựa chọn chế độ tài sản theo thỏa thuận thì thỏa thuận này phải được lập trước khi kết hôn, bằng hình thức văn bản có công chứng hoặc chứng thực. Chế độ tài sản của vợ chồng theo thỏa thuận được xác lập kể từ ngày đăng ký kết hôn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1929,7 +1929,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_14_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_14_clause_3",
         "rank": 9,
-        "score": 32.475292,
+        "score": 32.477364,
         "chunk_text": "3. Từ thời điểm việc chia tài sản chung của vợ chồng có hiệu lực, nếu tài sản có được từ việc khai thác tài sản riêng của vợ, chồng mà không xác định được đó là thu nhập do lao động, hoạt động sản xuất, kinh doanh của vợ, chồng hay là hoa lợi, lợi tức phát sinh từ tài sản riêng đó thì thuộc sở hữu chung của vợ chồng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -1960,7 +1960,7 @@
         "clause_id": "l_52_2014_qh13_art_123_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_3",
         "rank": 10,
-        "score": 32.18486,
+        "score": 32.18693,
         "chunk_text": "3. Tòa án nhân dân cấp huyện nơi cư trú của công dân Việt Nam hủy việc kết hôn trái pháp luật, giải quyết việc ly hôn, các tranh chấp về quyền và nghĩa vụ của vợ chồng, cha mẹ và con, về nhận cha, mẹ, con, nuôi con nuôi và giám hộ giữa công dân Việt Nam cư trú ở khu vực biên giới với công dân của nước láng giềng cùng cư trú ở khu vực biên giới với Việt Nam theo quy định của Luật này và các quy định khác của pháp luật Việt Nam.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -1985,7 +1985,7 @@
         "parent_id": "l_52_2014_qh13_art_123"
       }
     ],
-    "latency_ms": 6.767,
+    "latency_ms": 16.37,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -1998,7 +1998,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2319,7 +2319,7 @@
         "parent_id": "l_52_2014_qh13_art_125"
       }
     ],
-    "latency_ms": 7.542,
+    "latency_ms": 22.123,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2332,7 +2332,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2653,7 +2653,7 @@
         "parent_id": "l_52_2014_qh13_art_88"
       }
     ],
-    "latency_ms": 6.447,
+    "latency_ms": 23.107,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -2666,7 +2666,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -2987,7 +2987,7 @@
         "parent_id": "l_52_2014_qh13_art_40"
       }
     ],
-    "latency_ms": 7.521,
+    "latency_ms": 13.573,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3000,7 +3000,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3321,7 +3321,7 @@
         "parent_id": "nq_01_2024_nq_hdtp_art_7"
       }
     ],
-    "latency_ms": 6.77,
+    "latency_ms": 18.823,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3334,7 +3334,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3351,7 +3351,7 @@
         "clause_id": "l_52_2014_qh13_art_122_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_1",
         "rank": 1,
-        "score": 69.31038,
+        "score": 69.308235,
         "chunk_text": "1. Các quy định của pháp luật về hôn nhân và gia đình của nước Cộng hòa xã hội chủ nghĩa Việt Nam được áp dụng đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, trừ trường hợp Luật này có quy định khác. Trong trường hợp điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác với quy định của Luật này thì áp dụng quy định của điều ước quốc tế đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3382,7 +3382,7 @@
         "clause_id": "l_52_2014_qh13_art_132_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_132_clause_1",
         "rank": 2,
-        "score": 68.23242,
+        "score": 68.2304,
         "chunk_text": "Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2015. Luật hôn nhân và gia đình số 22/2000/QH10 hết hiệu lực kể từ ngày Luật này có hiệu lực.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3413,7 +3413,7 @@
         "clause_id": "l_52_2014_qh13_art_6_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_6_clause_1",
         "rank": 3,
-        "score": 65.918495,
+        "score": 65.9157,
         "chunk_text": "Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3444,7 +3444,7 @@
         "clause_id": "l_52_2014_qh13_art_122_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_2",
         "rank": 4,
-        "score": 64.62688,
+        "score": 64.62533,
         "chunk_text": "2. Trong trường hợp Luật này, các văn bản pháp luật khác của Việt Nam có dẫn chiếu về việc áp dụng pháp luật nước ngoài thì pháp luật nước ngoài được áp dụng, nếu việc áp dụng đó không trái với các nguyên tắc cơ bản được quy định tại Điều 2 của Luật này. Trong trường hợp pháp luật nước ngoài dẫn chiếu trở lại pháp luật Việt Nam thì áp dụng pháp luật về hôn nhân và gia đình Việt Nam.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3475,7 +3475,7 @@
         "clause_id": "nd_123_2015_nd_cp_art_45_clause_2",
         "parent_clause_id": "nd_123_2015_nd_cp_art_45_clause_2",
         "rank": 5,
-        "score": 55.814922,
+        "score": 55.812153,
         "chunk_text": "2. Bãi bỏ các văn bản quy phạm pháp luật và các điều khoản sau đây: a) Nghị định số 77/2001/NĐ-CP ngày 22 tháng 10 năm 2001 của Chính phủ quy định chi tiết về đăng ký kết hôn theo Nghị quyết số 35/2000/QH10 của Quốc hội về việc thi hành Luật Hôn nhân và gia đình; b) Nghị định số 158/2005/NĐ-CP ngày 27 tháng 12 năm 2005 của Chính phủ về đăng ký và quản lý hộ tịch; c) Điều 1 và Điều 3 của Nghị định số 06/2012/NĐ-CP ngày 02 tháng 02 năm 2012 của Chính phủ sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực; d) Các Điều 3, 5 và 44 của Nghị định số 24/2013/NĐ-CP ngày 28 tháng 3 năm 2013 của Chính phủ quy định chi tiết thi hành Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài;",
         "metadata": {
           "doc_id": "nd_123_2015_nd_cp",
@@ -3506,7 +3506,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "rank": 6,
-        "score": 55.50113,
+        "score": 55.499214,
         "chunk_text": "2. Trường hợp hòa giải không thành hoặc vụ, việc hôn nhân và gia đình có áp dụng tập quán không thuộc phạm vi hòa giải ở cơ sở thì Tòa án giải quyết vụ, việc đó theo quy định của pháp luật tố tụng dân sự.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -3537,7 +3537,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_1_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_1_clause_1",
         "rank": 7,
-        "score": 55.033207,
+        "score": 55.03032,
         "chunk_text": "Nghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -3599,7 +3599,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_3_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_3_clause_1",
         "rank": 9,
-        "score": 52.961403,
+        "score": 52.958996,
         "chunk_text": "1. Quy định các bên không có thỏa thuận tại Khoản 1 Điều 7 của Luật Hôn nhân và gia đình được hiểu là các bên không có thỏa thuận về áp dụng tập quán và cũng không có thỏa thuận khác về vụ, việc cần được giải quyết.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -3630,7 +3630,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "rank": 10,
-        "score": 52.59455,
+        "score": 52.59236,
         "chunk_text": "2. Việc áp dụng tập quán phải tuân theo các điều kiện được quy định tại Điều 7 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -3655,7 +3655,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_2"
       }
     ],
-    "latency_ms": 7.582,
+    "latency_ms": 21.754,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -3668,7 +3668,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -3685,7 +3685,7 @@
         "clause_id": "l_52_2014_qh13_art_6_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_6_clause_1",
         "rank": 1,
-        "score": 156.01555,
+        "score": 156.01144,
         "chunk_text": "Các quy định của Bộ luật dân sự và các luật khác có liên quan đến quan hệ hôn nhân và gia đình được áp dụng đối với quan hệ hôn nhân và gia đình trong trường hợp Luật này không quy định.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3716,7 +3716,7 @@
         "clause_id": "l_52_2014_qh13_art_103_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_103_clause_1",
         "rank": 2,
-        "score": 95.24011,
+        "score": 95.2367,
         "chunk_text": "1. Các thành viên gia đình có quyền, nghĩa vụ quan tâm, chăm sóc, giúp đỡ, tôn trọng nhau. Quyền, lợi ích hợp pháp về nhân thân và tài sản của các thành viên gia đình quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan được pháp luật bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3747,7 +3747,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_1",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_1",
         "rank": 3,
-        "score": 93.811714,
+        "score": 93.81242,
         "chunk_text": "1. Khi xem xét, giải quyết yêu cầu có liên quan đến việc hủy kết hôn trái pháp luật, Tòa án phải căn cứ vào yêu cầu của đương sự và điều kiện kết hôn, điều kiện công nhận quan hệ hôn nhân quy định tại Điều 8 và Điều 11 của Luật hôn nhân và gia đình để quyết định.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -3778,7 +3778,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5",
         "rank": 4,
-        "score": 93.13759,
+        "score": 93.13756,
         "chunk_text": "5. Việc xác định thời điểm “cả hai bên kết hôn đã có đủ các điều kiện kết hôn” quy định tại khoản 2 Điều 11 của Luật hôn nhân và gia đình phải căn cứ vào các quy định của pháp luật. Tòa án yêu cầu đương sự xác định và cung cấp các tài liệu, chứng cứ để xác định thời điểm cả hai bên kết hôn đã có đủ các điều kiện kết hôn theo quy định tại Điều 8 của Luật hôn nhân và gia đình. Ví dụ 1: Trường hợp kết hôn khi một bên bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn là vi phạm điều kiện kết hôn quy định tại điểm d khoản 1 Điều 8 của Luật hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -3809,7 +3809,7 @@
         "clause_id": "l_52_2014_qh13_art_32_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_32_clause_2",
         "rank": 5,
-        "score": 88.610565,
+        "score": 88.6158,
         "chunk_text": "2. Trong giao dịch với người thứ ba ngay tình thì vợ, chồng đang chiếm hữu động sản mà theo quy định của pháp luật không phải đăng ký quyền sở hữu được coi là người có quyền xác lập, thực hiện giao dịch liên quan đến tài sản đó trong trường hợp Bộ luật dân sự có quy định về việc bảo vệ người thứ ba ngay tình.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3840,7 +3840,7 @@
         "clause_id": "l_81_2025_qh15_art_2_clause_13",
         "parent_clause_id": "l_81_2025_qh15_art_2_clause_13",
         "rank": 6,
-        "score": 85.90894,
+        "score": 85.906425,
         "chunk_text": "13. Thay thế cụm từ “Tòa án nhân dân cấp huyện” bằng cụm từ “Tòa án nhân dân khu vực” tại khoản 3 Điều 123 của Luật Hôn nhân và gia đình số 52/2014/QH13.",
         "metadata": {
           "doc_id": "l_81_2025_qh15",
@@ -3871,7 +3871,7 @@
         "clause_id": "l_81_2025_qh15_art_2_clause_11",
         "parent_clause_id": "l_81_2025_qh15_art_2_clause_11",
         "rank": 7,
-        "score": 85.885155,
+        "score": 85.882576,
         "chunk_text": "đ) Căn cứ vào các quy định của Luật này, các quy định khác của pháp luật Việt Nam có liên quan và điều ước quốc tế mà Việt Nam là thành viên, Hội đồng thảo luận và quyết định theo đa số việc chuyển giao hoặc từ chối chuyển giao. 5. Chậm nhất là mười ngày làm việc, kể từ ngày ra quyết định chuyển giao hoặc từ chối chuyển giao, Tòa án nhân dân khu vực gửi quyết định cho người được chuyển giao, Viện kiểm sát nhân dân cùng cấp, Bộ Công an để thực hiện các quyền và nghĩa vụ theo quy định của pháp luật. Người yêu cầu chuyển giao có quyền kháng cáo, Viện kiểm sát nhân dân cùng cấp có quyền kháng nghị trong thời hạn mười lăm ngày, Viện kiểm sát nhân dân cấp tỉnh có quyền kháng nghị trong thời hạn ba mươi ngày, kể từ ngày Tòa án nhân dân khu vực ra quyết định.",
         "metadata": {
           "doc_id": "l_81_2025_qh15",
@@ -3902,7 +3902,7 @@
         "clause_id": "l_52_2014_qh13_art_122_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_1",
         "rank": 8,
-        "score": 85.70598,
+        "score": 85.70371,
         "chunk_text": "1. Các quy định của pháp luật về hôn nhân và gia đình của nước Cộng hòa xã hội chủ nghĩa Việt Nam được áp dụng đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, trừ trường hợp Luật này có quy định khác. Trong trường hợp điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác với quy định của Luật này thì áp dụng quy định của điều ước quốc tế đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3933,7 +3933,7 @@
         "clause_id": "l_81_2025_qh15_art_2_clause_11",
         "parent_clause_id": "l_81_2025_qh15_art_2_clause_11",
         "rank": 9,
-        "score": 84.592674,
+        "score": 84.59041,
         "chunk_text": "a) Một thành viên của Hội đồng trình bày nội dung hồ sơ của nước yêu cầu dẫn độ và nêu ý kiến về cơ sở pháp lý của việc dẫn độ; b) Kiểm sát viên phát biểu quan điểm của Viện kiểm sát nhân dân về việc dẫn độ; c) Luật sư hoặc người đại diện hợp pháp của người bị yêu cầu dẫn độ trình bày ý kiến, nếu có; d) Người bị yêu cầu dẫn độ trình bày ý kiến; đ) Căn cứ vào các quy định của Luật này, các quy định khác của pháp luật Việt Nam có liên quan và điều ước quốc tế mà Việt Nam là thành viên, Hội đồng thảo luận và quyết định theo đa số việc dẫn độ hoặc từ chối dẫn độ. 5.",
         "metadata": {
           "doc_id": "l_81_2025_qh15",
@@ -3964,7 +3964,7 @@
         "clause_id": "l_52_2014_qh13_art_123_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_1",
         "rank": 10,
-        "score": 83.88716,
+        "score": 83.88458,
         "chunk_text": "1. Thẩm quyền đăng ký hộ tịch liên quan đến các quan hệ hôn nhân và gia đình có yếu tố nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -3989,7 +3989,7 @@
         "parent_id": "l_52_2014_qh13_art_123"
       }
     ],
-    "latency_ms": 9.258,
+    "latency_ms": 24.101,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4002,7 +4002,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4019,7 +4019,7 @@
         "clause_id": "l_52_2014_qh13_art_21_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_21_clause_1",
         "rank": 1,
-        "score": 170.74333,
+        "score": 170.74103,
         "chunk_text": "Vợ, chồng có nghĩa vụ tôn trọng, giữ gìn và bảo vệ danh dự, nhân phẩm, uy tín cho nhau.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4050,7 +4050,7 @@
         "clause_id": "l_52_2014_qh13_art_5_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_5_clause_4",
         "rank": 2,
-        "score": 105.83912,
+        "score": 105.83808,
         "chunk_text": "4. Danh dự, nhân phẩm, uy tín, bí mật đời tư và các quyền riêng tư khác của các bên được tôn trọng, bảo vệ trong quá trình giải quyết vụ việc về hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4081,7 +4081,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_4_clause_3",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_4_clause_3",
         "rank": 3,
-        "score": 90.642944,
+        "score": 90.64456,
         "chunk_text": "3. “Hôn nhân lâm vào tình trạng trầm trọng, đời sống chung không thể kéo dài, mục đích của hôn nhân không đạt được” là thuộc một trong các trường hợp sau đây: a) Không có tình nghĩa vợ chồng, ví dụ: vợ, chồng không thương yêu, quý trọng, chăm sóc, giúp đỡ nhau; vợ, chồng sống ly thân, bỏ mặc vợ hoặc chồng; b) Vợ, chồng có quan hệ ngoại tình; c) Vợ, chồng xúc phạm nhau, làm tổn hại đến danh dự, nhân phẩm, uy tín, tổn thất về tinh thần hoặc gây thương tích, tổn hại đến sức khỏe của nhau; d) Không bình đẳng về quyền, nghĩa vụ giữa vợ, chồng; không tôn trọng quyền tự do tín ngưỡng, tôn giáo của vợ, chồng; không giúp đỡ, tạo điều kiện cho nhau phát triển.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -4112,7 +4112,7 @@
         "clause_id": "l_52_2014_qh13_art_22_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_22_clause_1",
         "rank": 4,
-        "score": 86.68064,
+        "score": 86.68244,
         "chunk_text": "Vợ, chồng có nghĩa vụ tôn trọng quyền tự do tín ngưỡng, tôn giáo của nhau.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4143,7 +4143,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_4_clause_2",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_4_clause_2",
         "rank": 5,
-        "score": 67.108284,
+        "score": 67.10864,
         "chunk_text": "2. “Vi phạm nghiêm trọng quyền, nghĩa vụ của vợ, chồng” là vi phạm quy định của Luật Hôn nhân và gia đình về quyền, nghĩa vụ của vợ, chồng dẫn đến xâm phạm nghiêm trọng đến quyền, lợi ích hợp pháp của người kia. Ví dụ: Vợ, chồng phá tán tài sản gia đình.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -4205,7 +4205,7 @@
         "clause_id": "l_52_2014_qh13_art_5_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_5_clause_1",
         "rank": 7,
-        "score": 64.02944,
+        "score": 64.0284,
         "chunk_text": "1. Quan hệ hôn nhân và gia đình được xác lập, thực hiện theo quy định của Luật này được tôn trọng và được pháp luật bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4236,7 +4236,7 @@
         "clause_id": "l_52_2014_qh13_art_18_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_18_clause_1",
         "rank": 8,
-        "score": 61.98011,
+        "score": 61.97907,
         "chunk_text": "Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4267,7 +4267,7 @@
         "clause_id": "l_52_2014_qh13_art_4_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_4_clause_1",
         "rank": 9,
-        "score": 57.97662,
+        "score": 57.975582,
         "chunk_text": "1. Nhà nước có chính sách, biện pháp bảo hộ hôn nhân và gia đình, tạo điều kiện để nam, nữ xác lập hôn nhân tự nguyện, tiến bộ, một vợ một chồng, vợ chồng bình đẳng; xây dựng gia đình ấm no, tiến bộ, hạnh phúc và thực hiện đầy đủ chức năng của mình; tăng cường tuyên truyền, phổ biến, giáo dục pháp luật về hôn nhân và gia đình; vận động nhân dân xóa bỏ phong tục, tập quán lạc hậu về hôn nhân và gia đình, phát huy truyền thống, phong tục, tập quán tốt đẹp thể hiện bản sắc của mỗi dân tộc.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4298,7 +4298,7 @@
         "clause_id": "l_52_2014_qh13_art_2_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_2_clause_2",
         "rank": 10,
-        "score": 57.532402,
+        "score": 57.5306,
         "chunk_text": "2. Hôn nhân giữa công dân Việt Nam thuộc các dân tộc, tôn giáo, giữa người theo tôn giáo với người không theo tôn giáo, giữa người có tín ngưỡng với người không có tín ngưỡng, giữa công dân Việt Nam với người nước ngoài được tôn trọng và được pháp luật bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4323,7 +4323,7 @@
         "parent_id": "l_52_2014_qh13_art_2"
       }
     ],
-    "latency_ms": 7.717,
+    "latency_ms": 20.978,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4336,7 +4336,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4353,7 +4353,7 @@
         "clause_id": "l_52_2014_qh13_art_52_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_52_clause_1",
         "rank": 1,
-        "score": 120.333694,
+        "score": 120.33169,
         "chunk_text": "Nhà nước và xã hội khuyến khích việc hòa giải ở cơ sở khi vợ, chồng có yêu cầu ly hôn. Việc hòa giải được thực hiện theo quy định của pháp luật về hòa giải ở cơ sở.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4384,7 +4384,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_1",
         "rank": 2,
-        "score": 89.017746,
+        "score": 89.015915,
         "chunk_text": "1. Trường hợp giải quyết vụ, việc hôn nhân và gia đình có áp dụng tập quán thì thực hiện việc hòa giải theo quy định của pháp luật về hòa giải ở cơ sở, khuyến khích sự tham gia hòa giải của người có uy tín trong cộng đồng, chức sắc tôn giáo.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4415,7 +4415,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "rank": 3,
-        "score": 67.295364,
+        "score": 67.29345,
         "chunk_text": "2. Trường hợp hòa giải không thành hoặc vụ, việc hôn nhân và gia đình có áp dụng tập quán không thuộc phạm vi hòa giải ở cơ sở thì Tòa án giải quyết vụ, việc đó theo quy định của pháp luật tố tụng dân sự.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4446,7 +4446,7 @@
         "clause_id": "l_52_2014_qh13_art_120_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_120_clause_1",
         "rank": 4,
-        "score": 56.11108,
+        "score": 56.108967,
         "chunk_text": "Nhà nước và xã hội khuyến khích tổ chức, cá nhân trợ giúp bằng tiền hoặc tài sản khác cho gia đình, cá nhân có hoàn cảnh đặc biệt khó khăn, túng thiếu.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4477,7 +4477,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_5_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_5_clause_2",
         "rank": 5,
-        "score": 54.70312,
+        "score": 54.696014,
         "chunk_text": "2. Tập quán lạc hậu về hôn nhân và gia đình là tập quán trái với những nguyên tắc cơ bản của chế độ hôn nhân và gia đình quy định tại Điều 2 của Luật Hôn nhân và gia đình hoặc vi phạm điều cấm quy định tại Khoản 2 Điều 5 của Luật Hôn nhân và gia đình. Ban hành kèm theo Nghị định này Danh mục tập quán lạc hậu về hôn nhân và gia đình cần vận động xóa bỏ hoặc cấm áp dụng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4508,7 +4508,7 @@
         "clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "parent_clause_id": "tt_38_2025_tt_byt_art_3_clause_2",
         "rank": 6,
-        "score": 53.61948,
+        "score": 53.61715,
         "chunk_text": "2. Trường hợp cơ sở lưu giữ không đủ điều kiện để tiếp tục thực hiện việc lưu giữ mẫu: a) Cơ sở đang lưu giữ mẫu phải liên hệ với một cơ sở được phép lưu giữ khác để thỏa thuận việc giao nhận mẫu và thông báo đến người gửi mẫu/người nhận mẫu hiến. Việc giao, nhận chỉ được thực hiện khi có sự đồng ý của cả cơ sở giao mẫu, cơ sở nhận mẫu và người gửi mẫu/người nhận mẫu hiến. Trong trường hợp cần chuyển mẫu khẩn cấp thì hai cơ sở cần thỏa thuận trước để thực hiện việc giao nhận, sau đó phải thông báo đến người gửi mẫu/người nhận mẫu hiến; b) Việc vận chuyển mẫu phải được thực hiện bởi nhân viên của cơ sở giao mẫu hoặc cơ sở nhận mẫu; c) Chi phí vận chuyển mẫu do cơ sở giao mẫu chi trả; d) Trong quá trình vận chuyển, mẫu phải được bảo quản trong thiết bị bảo quản đông lạnh chuyên dụng, có niêm phong của cơ sở giao mẫu;",
         "metadata": {
           "doc_id": "tt_38_2025_tt_byt",
@@ -4539,7 +4539,7 @@
         "clause_id": "l_52_2014_qh13_art_123_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_1",
         "rank": 7,
-        "score": 51.98697,
+        "score": 51.98489,
         "chunk_text": "1. Thẩm quyền đăng ký hộ tịch liên quan đến các quan hệ hôn nhân và gia đình có yếu tố nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4570,7 +4570,7 @@
         "clause_id": "l_52_2014_qh13_art_122_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_1",
         "rank": 8,
-        "score": 51.19233,
+        "score": 51.188576,
         "chunk_text": "1. Các quy định của pháp luật về hôn nhân và gia đình của nước Cộng hòa xã hội chủ nghĩa Việt Nam được áp dụng đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, trừ trường hợp Luật này có quy định khác. Trong trường hợp điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác với quy định của Luật này thì áp dụng quy định của điều ước quốc tế đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4601,7 +4601,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_59_clause_4",
         "parent_clause_id": "nd_126_2014_nd_cp_art_59_clause_4",
         "rank": 9,
-        "score": 49.052994,
+        "score": 49.05062,
         "chunk_text": "4. Thanh tra, kiểm tra việc thực hiện pháp luật về hôn nhân và gia đình có yếu tố nước ngoài tại Cơ quan đại diện; giải quyết khiếu nại, tố cáo theo quy định của pháp luật; xử lý vi phạm hành chính về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4632,7 +4632,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "rank": 10,
-        "score": 48.725403,
+        "score": 48.721497,
         "chunk_text": "1. Chỉ đạo Cơ quan đại diện trong việc thi hành pháp luật về hôn nhân và gia đình có yếu tố nước ngoài, về nghiệp vụ đăng ký hộ tịch; thực hiện các biện pháp bảo vệ quyền và lợi ích hợp pháp của công dân Việt Nam ở nước ngoài trong quan hệ hôn nhân và gia đình phù hợp với pháp luật của nước tiếp nhận và điều ước quốc tế mà Việt Nam là thành viên;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -4657,7 +4657,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_59_p1"
       }
     ],
-    "latency_ms": 8.005,
+    "latency_ms": 18.525,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -4670,7 +4670,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -4687,7 +4687,7 @@
         "clause_id": "l_52_2014_qh13_art_68_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_68_clause_1",
         "rank": 1,
-        "score": 109.207825,
+        "score": 109.19737,
         "chunk_text": "1. Quyền và nghĩa vụ của cha mẹ và con theo quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4718,7 +4718,7 @@
         "clause_id": "l_52_2014_qh13_art_68_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_68_clause_2",
         "rank": 2,
-        "score": 104.728874,
+        "score": 104.7239,
         "chunk_text": "2. Con sinh ra không phụ thuộc vào tình trạng hôn nhân của cha mẹ đều có quyền và nghĩa vụ như nhau đối với cha mẹ của mình được quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4749,7 +4749,7 @@
         "clause_id": "l_52_2014_qh13_art_68_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_68_clause_3",
         "rank": 3,
-        "score": 102.064835,
+        "score": 102.05455,
         "chunk_text": "3. Giữa con nuôi và cha nuôi, mẹ nuôi có các quyền và nghĩa vụ của cha mẹ và con được quy định tại Luật này, Luật nuôi con nuôi, Bộ luật dân sự và các luật khác có liên quan.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4774,44 +4774,13 @@
         "parent_id": "l_52_2014_qh13_art_68"
       },
       {
-        "chunk_id": "l_52_2014_qh13_art_80_clause_1_chunk_1",
-        "document_id": "l_52_2014_qh13",
-        "article_id": "l_52_2014_qh13_art_80",
-        "clause_id": "l_52_2014_qh13_art_80_clause_1",
-        "parent_clause_id": "l_52_2014_qh13_art_80_clause_1",
-        "rank": 4,
-        "score": 85.903534,
-        "chunk_text": "Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
-        "metadata": {
-          "doc_id": "l_52_2014_qh13",
-          "title": "Luật Hôn nhân và gia đình 2014",
-          "document_type": "Luật",
-          "document_number": "52/2014/QH13",
-          "issue_date": "2014-06-19",
-          "effective_date": "2015-01-01",
-          "effective_from": "2015-01-01",
-          "effective_to": null,
-          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
-          "issuing_body": "Quốc hội",
-          "validity_status": "Còn hiệu lực",
-          "source_status": "Còn hiệu lực",
-          "provision_status": "document_level_only",
-          "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
-          "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
-          "article_number": "80",
-          "document_title": "Luật Hôn nhân và gia đình 2014",
-          "clause_number": null
-        },
-        "parent_id": "l_52_2014_qh13_art_80"
-      },
-      {
         "chunk_id": "l_52_2014_qh13_art_98_clause_4_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_98",
         "clause_id": "l_52_2014_qh13_art_98_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_98_clause_4",
-        "rank": 5,
-        "score": 85.89835,
+        "rank": 4,
+        "score": 85.89575,
         "chunk_text": "4. Giữa con sinh ra từ việc mang thai hộ với các thành viên khác của gia đình bên nhờ mang thai hộ có các quyền, nghĩa vụ theo quy định của Luật này, Bộ luật dân sự và luật khác có liên quan.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4836,13 +4805,44 @@
         "parent_id": "l_52_2014_qh13_art_98"
       },
       {
+        "chunk_id": "l_52_2014_qh13_art_80_clause_1_chunk_1",
+        "document_id": "l_52_2014_qh13",
+        "article_id": "l_52_2014_qh13_art_80",
+        "clause_id": "l_52_2014_qh13_art_80_clause_1",
+        "parent_clause_id": "l_52_2014_qh13_art_80_clause_1",
+        "rank": 5,
+        "score": 85.895256,
+        "chunk_text": "Trong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này.",
+        "metadata": {
+          "doc_id": "l_52_2014_qh13",
+          "title": "Luật Hôn nhân và gia đình 2014",
+          "document_type": "Luật",
+          "document_number": "52/2014/QH13",
+          "issue_date": "2014-06-19",
+          "effective_date": "2015-01-01",
+          "effective_from": "2015-01-01",
+          "effective_to": null,
+          "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+          "issuing_body": "Quốc hội",
+          "validity_status": "Còn hiệu lực",
+          "source_status": "Còn hiệu lực",
+          "provision_status": "document_level_only",
+          "chapter": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON",
+          "section": "Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON",
+          "article_number": "80",
+          "document_title": "Luật Hôn nhân và gia đình 2014",
+          "clause_number": null
+        },
+        "parent_id": "l_52_2014_qh13_art_80"
+      },
+      {
         "chunk_id": "l_52_2014_qh13_art_18_clause_1_chunk_1",
         "document_id": "l_52_2014_qh13",
         "article_id": "l_52_2014_qh13_art_18",
         "clause_id": "l_52_2014_qh13_art_18_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_18_clause_1",
         "rank": 6,
-        "score": 85.753075,
+        "score": 85.74411,
         "chunk_text": "Quyền, nghĩa vụ về nhân thân của vợ, chồng quy định tại Luật này, Bộ luật dân sự và các luật khác có liên quan được tôn trọng và bảo vệ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4873,7 +4873,7 @@
         "clause_id": "l_52_2014_qh13_art_98_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_98_clause_2",
         "rank": 7,
-        "score": 83.32694,
+        "score": 83.32569,
         "chunk_text": "2. Quyền, nghĩa vụ của bên nhờ mang thai hộ vì mục đích nhân đạo đối với con phát sinh kể từ thời điểm con được sinh ra. Người mẹ nhờ mang thai hộ được hưởng chế độ thai sản theo quy định của pháp luật về lao động và bảo hiểm xã hội từ thời điểm nhận con cho đến khi con đủ 06 tháng tuổi.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4904,7 +4904,7 @@
         "clause_id": "l_52_2014_qh13_art_71_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_71_clause_2",
         "rank": 8,
-        "score": 81.78192,
+        "score": 81.77443,
         "chunk_text": "2. Con có nghĩa vụ và quyền chăm sóc, nuôi dưỡng cha mẹ, đặc biệt khi cha mẹ mất năng lực hành vi dân sự, ốm đau, già yếu, khuyết tật; trường hợp gia đình có nhiều con thì các con phải cùng nhau chăm sóc, nuôi dưỡng cha mẹ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4935,7 +4935,7 @@
         "clause_id": "l_52_2014_qh13_art_70_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_70_clause_3",
         "rank": 9,
-        "score": 81.62551,
+        "score": 81.616745,
         "chunk_text": "3. Con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự hoặc không có khả năng lao động và không có tài sản để tự nuôi mình thì có quyền sống chung với cha mẹ, được cha mẹ trông nom, nuôi dưỡng, chăm sóc. Con chưa thành niên tham gia công việc gia đình phù hợp với lứa tuổi và không trái với quy định của pháp luật về bảo vệ, chăm sóc và giáo dục trẻ em.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4966,7 +4966,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_1",
         "rank": 10,
-        "score": 81.44397,
+        "score": 81.43452,
         "chunk_text": "1. Ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quan hệ hôn nhân và gia đình có yếu tố nước ngoài được tôn trọng và bảo vệ phù hợp với các quy định của pháp luật Việt Nam và điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -4991,7 +4991,7 @@
         "parent_id": "l_52_2014_qh13_art_121"
       }
     ],
-    "latency_ms": 8.574,
+    "latency_ms": 26.182,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5004,7 +5004,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5021,7 +5021,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_14_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_14_clause_1",
         "rank": 1,
-        "score": 125.95688,
+        "score": 125.95251,
         "chunk_text": "c) Giấy tờ chứng minh người mang thai hộ đã từng sinh con gồm một trong các giấy tờ sau: Giấy khai sinh hoặc Giấy chứng sinh của con người mang thai hộ hoặc bản xác nhận của Ủy ban nhân dân cấp xã nơi cư trú của người mang thai hộ; d) Thỏa thuận về mang thai hộ vì mục đích nhân đạo theo quy định tại Điều 96 Luật Hôn nhân và Gia đình.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5052,7 +5052,7 @@
         "clause_id": "l_52_2014_qh13_art_96_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_96_clause_1",
         "rank": 2,
-        "score": 120.97403,
+        "score": 120.96736,
         "chunk_text": "1. Thỏa thuận về mang thai hộ vì mục đích nhân đạo giữa vợ chồng nhờ mang thai hộ (sau đây gọi là bên nhờ mang thai hộ) và vợ chồng người mang thai hộ (sau đây gọi là bên mang thai hộ) phải có các nội dung cơ bản sau đây: a) Thông tin đầy đủ về bên nhờ mang thai hộ và bên mang thai hộ theo các điều kiện có liên quan quy định tại Điều 95 của Luật này; b) Cam kết thực hiện các quyền, nghĩa vụ quy định tại Điều 97 và Điều 98 của Luật này; c) Việc giải quyết hậu quả trong trường hợp có tai biến sản khoa; hỗ trợ để bảo đảm sức khỏe sinh sản cho người mang thai hộ trong thời gian mang thai và sinh con, việc nhận con của bên nhờ mang thai hộ, quyền và nghĩa vụ của hai bên đối với con trong trường hợp con chưa được giao cho bên nhờ mang thai hộ và các quyền, nghĩa vụ khác có liên quan;",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5083,7 +5083,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_14_clause_3",
         "parent_clause_id": "nd_207_2025_nd_cp_art_14_clause_3",
         "rank": 3,
-        "score": 117.299934,
+        "score": 117.29369,
         "chunk_text": "3. Trường hợp người mang thai hộ và cặp vợ chồng nhờ mang thai hộ đáp ứng đủ điều kiện sức khỏe để thực hiện việc mang thai hộ, cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo: a) Thực hiện và xác nhận về việc tư vấn cho các bên về y tế, tâm lý (lợi ích và rủi ro có thể xảy ra trong quá trình mang thai hộ), pháp lý (quyền và nghĩa vụ của mỗi bên theo quy định của pháp luật); b) Thực hiện kỹ thuật mang thai hộ.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5114,7 +5114,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_14_clause_4",
         "parent_clause_id": "nd_207_2025_nd_cp_art_14_clause_4",
         "rank": 4,
-        "score": 115.96934,
+        "score": 115.96347,
         "chunk_text": "4. Trường hợp người mang thai hộ và cặp vợ chồng nhờ mang thai hộ không đáp ứng đủ điều kiện sức khỏe để thực hiện việc mang thai hộ, trong thời hạn 10 ngày làm việc, cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo phải trả lời bằng văn bản và nêu rõ lý do.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5145,7 +5145,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_14_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_14_clause_1",
         "rank": 5,
-        "score": 115.38909,
+        "score": 115.3849,
         "chunk_text": "1. Cặp vợ chồng vô sinh gửi hồ sơ đề nghị thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo đến cơ sở khám bệnh, chữa bệnh được phép thực hiện kỹ thuật này, gồm: a) Đơn đề nghị được thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo theo mẫu quy định tại Phụ lục II ban hành kèm theo Nghị định này; b) Bản xác nhận của Ủy ban nhân dân cấp xã nơi thường trú của bên mang thai hộ hoặc bên nhờ mang thai hộ hoặc giấy tờ tự chứng minh mối quan hệ thân thích cùng hàng của bên mang thai hộ và bên nhờ mang thai hộ theo quy định tại khoản 5 Điều 2 Nghị định này trên cơ sở các giấy tờ hộ tịch có liên quan có công chứng, chứng thực và chịu trách nhiệm trước pháp luật về tính xác thực của các giấy tờ;",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5176,7 +5176,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_3_clause_5",
         "parent_clause_id": "nd_207_2025_nd_cp_art_3_clause_5",
         "rank": 6,
-        "score": 110.362236,
+        "score": 110.3585,
         "chunk_text": "5. Vợ chồng nhờ mang thai hộ, người mang thai hộ, trẻ sinh ra nhờ mang thai hộ vì mục đích nhân đạo được đảm bảo an toàn về đời sống riêng tư, bí mật cá nhân, bí mật gia đình và được pháp luật tôn trọng, bảo vệ.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5207,7 +5207,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_14_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_14_clause_2",
         "rank": 7,
-        "score": 108.99536,
+        "score": 108.99133,
         "chunk_text": "2. Sau khi nhận đủ hồ sơ theo quy định tại khoản 1 Điều này, cơ sở được phép thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo phải khám sức khỏe cho người mang thai hộ, cặp vợ chồng nhờ mang thai hộ; xác nhận về việc người vợ bên nhờ mang thai hộ không thể mang thai và sinh con ngay cả khi áp dụng kỹ thuật hỗ trợ sinh sản; xác nhận khả năng mang thai hộ của người phụ nữ mang thai hộ.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5269,7 +5269,7 @@
         "clause_id": "l_52_2014_qh13_art_95_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_95_clause_1",
         "rank": 9,
-        "score": 103.19135,
+        "score": 103.187096,
         "chunk_text": "1. Việc mang thai hộ vì mục đích nhân đạo phải được thực hiện trên cơ sở tự nguyện của các bên và được lập thành văn bản.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5300,7 +5300,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_13_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_13_clause_1",
         "rank": 10,
-        "score": 101.80568,
+        "score": 101.8037,
         "chunk_text": "1. Hồ sơ, thủ tục đề nghị cho phép cơ sở khám bệnh, chữa bệnh được thực hiện kỹ thuật mang thai hộ vì mục đích nhân đạo thực hiện theo hồ sơ, thủ tục điều chỉnh giấy phép hoạt động của pháp luật về khám bệnh, chữa bệnh, trong đó phải bao gồm các tài liệu chứng minh đáp ứng điều kiện quy định tại Điều 12 Nghị định này.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -5325,7 +5325,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_13"
       }
     ],
-    "latency_ms": 7.748,
+    "latency_ms": 17.157,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5338,7 +5338,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5355,7 +5355,7 @@
         "clause_id": "l_52_2014_qh13_art_113_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_113_clause_2",
         "rank": 1,
-        "score": 214.48253,
+        "score": 214.47903,
         "chunk_text": "2. Cháu đã thành niên không sống chung với ông bà nội, ông bà ngoại có nghĩa vụ cấp dưỡng cho ông bà nội, ông bà ngoại trong trường hợp ông bà không có khả năng lao động, không có tài sản để tự nuôi mình và không có người khác cấp dưỡng theo quy định của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5386,7 +5386,7 @@
         "clause_id": "l_52_2014_qh13_art_113_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_113_clause_1",
         "rank": 2,
-        "score": 205.51881,
+        "score": 205.51541,
         "chunk_text": "1. Ông bà nội, ông bà ngoại không sống chung với cháu có nghĩa vụ cấp dưỡng cho cháu trong trường hợp cháu chưa thành niên hoặc cháu đã thành niên không có khả năng lao động, không có tài sản để tự nuôi mình và không có người cấp dưỡng theo quy định tại Điều 112 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5448,7 +5448,7 @@
         "clause_id": "l_52_2014_qh13_art_104_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_104_clause_1",
         "rank": 4,
-        "score": 194.69547,
+        "score": 194.69128,
         "chunk_text": "1. Ông bà nội, ông bà ngoại có quyền, nghĩa vụ trông nom, chăm sóc, giáo dục cháu, sống mẫu mực và nêu gương tốt cho con cháu; trường hợp cháu chưa thành niên, cháu đã thành niên mất năng lực hành vi dân sự hoặc không có khả năng lao động và không có tài sản để tự nuôi mình mà không có người nuôi dưỡng theo quy định tại Điều 105 của Luật này thì ông bà nội, ông bà ngoại có nghĩa vụ nuôi dưỡng cháu.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5479,7 +5479,7 @@
         "clause_id": "l_52_2014_qh13_art_107_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_107_clause_1",
         "rank": 5,
-        "score": 149.1163,
+        "score": 149.11058,
         "chunk_text": "1. Nghĩa vụ cấp dưỡng được thực hiện giữa cha, mẹ và con; giữa anh, chị, em với nhau; giữa ông bà nội, ông bà ngoại và cháu; giữa cô, dì, chú, cậu, bác ruột và cháu ruột; giữa vợ và chồng theo quy định của Luật này. Nghĩa vụ cấp dưỡng không thể thay thế bằng nghĩa vụ khác và không thể chuyển giao cho người khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5510,7 +5510,7 @@
         "clause_id": "l_52_2014_qh13_art_114_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_114_clause_1",
         "rank": 6,
-        "score": 92.104195,
+        "score": 92.100815,
         "chunk_text": "1. Cô, dì, chú, cậu, bác ruột không sống chung với cháu ruột có nghĩa vụ cấp dưỡng cho cháu trong trường hợp cháu chưa thành niên hoặc cháu đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình mà không có người khác cấp dưỡng theo quy định của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5541,7 +5541,7 @@
         "clause_id": "l_52_2014_qh13_art_119_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_119_clause_3",
         "rank": 7,
-        "score": 86.67855,
+        "score": 86.67924,
         "chunk_text": "3. Cá nhân, cơ quan, tổ chức khác khi phát hiện hành vi trốn tránh thực hiện nghĩa vụ cấp dưỡng có quyền đề nghị cơ quan, tổ chức quy định tại các điểm b, c và d khoản 2 Điều này yêu cầu Tòa án buộc người không tự nguyện thực hiện nghĩa vụ cấp dưỡng phải thực hiện nghĩa vụ đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5572,7 +5572,7 @@
         "clause_id": "l_52_2014_qh13_art_119_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_119_clause_1",
         "rank": 8,
-        "score": 85.75875,
+        "score": 85.76326,
         "chunk_text": "1. Người được cấp dưỡng, cha, mẹ hoặc người giám hộ của người đó, theo quy định của pháp luật về tố tụng dân sự, có quyền yêu cầu Tòa án buộc người không tự nguyện thực hiện nghĩa vụ cấp dưỡng phải thực hiện nghĩa vụ đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5603,7 +5603,7 @@
         "clause_id": "l_52_2014_qh13_art_114_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_114_clause_2",
         "rank": 9,
-        "score": 84.59235,
+        "score": 84.589,
         "chunk_text": "2. Cháu đã thành niên không sống chung với cô, dì, chú, cậu, bác ruột có nghĩa vụ cấp dưỡng cho cô, dì, chú, cậu, bác ruột trong trường hợp người cần được cấp dưỡng không có khả năng lao động và không có tài sản để tự nuôi mình mà không có người khác cấp dưỡng theo quy định của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5634,7 +5634,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_7_clause_4",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_7_clause_4",
         "rank": 10,
-        "score": 83.44571,
+        "score": 83.44244,
         "chunk_text": "4. Nghĩa vụ cấp dưỡng của cha, mẹ đối với con chưa thành niên, con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình phát sinh kể từ thời điểm cha, mẹ không sống chung với con hoặc sống chung với con nhưng vi phạm nghĩa vụ nuôi dưỡng con, trừ trường hợp các bên có thỏa thuận khác.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -5659,7 +5659,7 @@
         "parent_id": "nq_01_2024_nq_hdtp_art_7"
       }
     ],
-    "latency_ms": 7.918,
+    "latency_ms": 21.274,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -5672,7 +5672,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -5689,7 +5689,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_4",
         "rank": 1,
-        "score": 200.30678,
+        "score": 200.30125,
         "chunk_text": "4. Chính phủ quy định chi tiết việc giải quyết quan hệ hôn nhân và gia đình có yếu tố nước ngoài nhằm bảo đảm quyền, lợi ích hợp pháp của các bên và bảo đảm thực hiện quy định tại khoản 2 Điều 5 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5720,7 +5720,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_1",
         "rank": 2,
-        "score": 180.24324,
+        "score": 180.23651,
         "chunk_text": "1. Ở nước Cộng hòa xã hội chủ nghĩa Việt Nam, quan hệ hôn nhân và gia đình có yếu tố nước ngoài được tôn trọng và bảo vệ phù hợp với các quy định của pháp luật Việt Nam và điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5751,7 +5751,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_3",
         "rank": 3,
-        "score": 178.3904,
+        "score": 178.3849,
         "chunk_text": "3. Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam bảo hộ quyền, lợi ích hợp pháp của công dân Việt Nam ở nước ngoài trong quan hệ hôn nhân và gia đình phù hợp với pháp luật Việt Nam, pháp luật của nước sở tại, pháp luật và tập quán quốc tế.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5782,7 +5782,7 @@
         "clause_id": "l_52_2014_qh13_art_121_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_121_clause_2",
         "rank": 4,
-        "score": 164.81851,
+        "score": 164.81253,
         "chunk_text": "2. Trong quan hệ hôn nhân và gia đình với công dân Việt Nam, người nước ngoài tại Việt Nam có các quyền, nghĩa vụ như công dân Việt Nam, trừ trường hợp pháp luật Việt Nam có quy định khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5813,7 +5813,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_59_clause_1",
         "rank": 5,
-        "score": 150.48228,
+        "score": 150.47581,
         "chunk_text": "1. Chỉ đạo Cơ quan đại diện trong việc thi hành pháp luật về hôn nhân và gia đình có yếu tố nước ngoài, về nghiệp vụ đăng ký hộ tịch; thực hiện các biện pháp bảo vệ quyền và lợi ích hợp pháp của công dân Việt Nam ở nước ngoài trong quan hệ hôn nhân và gia đình phù hợp với pháp luật của nước tiếp nhận và điều ước quốc tế mà Việt Nam là thành viên;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -5844,7 +5844,7 @@
         "clause_id": "l_52_2014_qh13_art_123_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_1",
         "rank": 6,
-        "score": 137.79628,
+        "score": 137.79161,
         "chunk_text": "1. Thẩm quyền đăng ký hộ tịch liên quan đến các quan hệ hôn nhân và gia đình có yếu tố nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5875,7 +5875,7 @@
         "clause_id": "l_52_2014_qh13_art_123_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_123_clause_2",
         "rank": 7,
-        "score": 129.80853,
+        "score": 129.8038,
         "chunk_text": "2. Thẩm quyền giải quyết các vụ việc hôn nhân và gia đình có yếu tố nước ngoài tại Tòa án được thực hiện theo quy định của Bộ luật tố tụng dân sự.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5906,7 +5906,7 @@
         "clause_id": "l_52_2014_qh13_art_122_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_122_clause_1",
         "rank": 8,
-        "score": 128.51306,
+        "score": 128.50865,
         "chunk_text": "1. Các quy định của pháp luật về hôn nhân và gia đình của nước Cộng hòa xã hội chủ nghĩa Việt Nam được áp dụng đối với quan hệ hôn nhân và gia đình có yếu tố nước ngoài, trừ trường hợp Luật này có quy định khác. Trong trường hợp điều ước quốc tế mà Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên có quy định khác với quy định của Luật này thì áp dụng quy định của điều ước quốc tế đó.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -5937,7 +5937,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_58_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_58_clause_2",
         "rank": 9,
-        "score": 125.69341,
+        "score": 125.68634,
         "chunk_text": "2. Hướng dẫn Ủy ban nhân dân cấp tỉnh và phối hợp với Bộ Ngoại giao chỉ đạo, hướng dẫn Cơ quan đại diện trong việc thi hành pháp luật về hôn nhân và gia đình có yếu tố nước ngoài; phổ biến, giáo dục pháp luật và giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -5968,7 +5968,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
         "parent_clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
         "rank": 10,
-        "score": 124.493576,
+        "score": 124.48817,
         "chunk_text": "4. Thanh tra, kiểm tra việc thực hiện pháp luật về hôn nhân và gia đình có yếu tố nước ngoài; giải quyết khiếu nại, tố cáo theo quy định của pháp luật; xử lý vi phạm hành chính về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -5993,7 +5993,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 8.876,
+    "latency_ms": 30.045,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6006,7 +6006,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6023,7 +6023,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_2",
         "rank": 1,
-        "score": 137.81082,
+        "score": 137.80699,
         "chunk_text": "2. Trường hợp hòa giải không thành hoặc vụ, việc hôn nhân và gia đình có áp dụng tập quán không thuộc phạm vi hòa giải ở cơ sở thì Tòa án giải quyết vụ, việc đó theo quy định của pháp luật tố tụng dân sự.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6054,7 +6054,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_4_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_4_clause_1",
         "rank": 2,
-        "score": 134.14389,
+        "score": 134.14023,
         "chunk_text": "1. Trường hợp giải quyết vụ, việc hôn nhân và gia đình có áp dụng tập quán thì thực hiện việc hòa giải theo quy định của pháp luật về hòa giải ở cơ sở, khuyến khích sự tham gia hòa giải của người có uy tín trong cộng đồng, chức sắc tôn giáo.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6085,7 +6085,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_3_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_3_clause_1",
         "rank": 3,
-        "score": 105.967255,
+        "score": 105.96243,
         "chunk_text": "1. Quy định các bên không có thỏa thuận tại Khoản 1 Điều 7 của Luật Hôn nhân và gia đình được hiểu là các bên không có thỏa thuận về áp dụng tập quán và cũng không có thỏa thuận khác về vụ, việc cần được giải quyết.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6116,7 +6116,7 @@
         "clause_id": "l_52_2014_qh13_art_130_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_130_clause_1",
         "rank": 4,
-        "score": 102.94851,
+        "score": 102.945244,
         "chunk_text": "Trong trường hợp có yêu cầu giải quyết việc áp dụng chế độ tài sản của vợ chồng theo thỏa thuận; quan hệ nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn có yếu tố nước ngoài thì cơ quan có thẩm quyền của Việt Nam áp dụng các quy định của Luật này và các luật khác có liên quan của Việt Nam để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6178,7 +6178,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_1_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_1_clause_1",
         "rank": 6,
-        "score": 101.33379,
+        "score": 101.32802,
         "chunk_text": "Nghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6209,7 +6209,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_6_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_6_clause_2",
         "rank": 7,
-        "score": 100.438416,
+        "score": 100.43442,
         "chunk_text": "2. Căn cứ vào thực tiễn áp dụng tập quán về hôn nhân và gia đình tại địa phương, Ủy ban nhân dân cấp tỉnh trình Hội đồng nhân dân cùng cấp sửa đổi, bổ sung danh mục tập quán đã ban hành.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6240,7 +6240,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_5_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_5_clause_2",
         "rank": 8,
-        "score": 100.175125,
+        "score": 100.169556,
         "chunk_text": "2. Tập quán lạc hậu về hôn nhân và gia đình là tập quán trái với những nguyên tắc cơ bản của chế độ hôn nhân và gia đình quy định tại Điều 2 của Luật Hôn nhân và gia đình hoặc vi phạm điều cấm quy định tại Khoản 2 Điều 5 của Luật Hôn nhân và gia đình. Ban hành kèm theo Nghị định này Danh mục tập quán lạc hậu về hôn nhân và gia đình cần vận động xóa bỏ hoặc cấm áp dụng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6271,7 +6271,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "rank": 9,
-        "score": 95.625435,
+        "score": 95.62106,
         "chunk_text": "2. Việc áp dụng tập quán phải tuân theo các điều kiện được quy định tại Điều 7 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6302,7 +6302,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_5_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_5_clause_1",
         "rank": 10,
-        "score": 92.40753,
+        "score": 92.40202,
         "chunk_text": "1. Các Bộ, ngành liên quan và Ủy ban nhân dân các cấp phối hợp với Mặt trận Tổ quốc Việt Nam xây dựng, thực hiện các chính sách, biện pháp sau đây: a) Tạo điều kiện để người dân thực hiện các quy định của pháp luật về hôn nhân và gia đình; phát huy truyền thống, tập quán tốt đẹp thể hiện bản sắc của mỗi dân tộc, xóa bỏ tập quán lạc hậu về hôn nhân và gia đình; b) Tăng cường tuyên truyền, phổ biến pháp luật về hôn nhân và gia đình, vận động người dân phát huy truyền thống, tập quán tốt đẹp và xóa bỏ tập quán lạc hậu về hôn nhân và gia đình; c) Giáo dục thế hệ trẻ bảo tồn, phát triển ngôn ngữ, chữ viết và phát huy các giá trị văn hóa trong tập quán tốt đẹp của mỗi dân tộc.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6327,7 +6327,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_5"
       }
     ],
-    "latency_ms": 7.84,
+    "latency_ms": 17.923,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6340,7 +6340,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6450,7 +6450,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_2",
         "rank": 4,
-        "score": 71.95277,
+        "score": 71.958,
         "chunk_text": "2. Việc áp dụng tập quán phải tuân theo các điều kiện được quy định tại Điều 7 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6512,7 +6512,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_2_clause_1",
         "rank": 6,
-        "score": 68.98959,
+        "score": 68.9947,
         "chunk_text": "1. Tập quán được áp dụng phải là quy tắc xử sự phù hợp với quy định tại Khoản 4 Điều 3 của Luật Hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6661,7 +6661,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_4"
       }
     ],
-    "latency_ms": 7.692,
+    "latency_ms": 15.699,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -6674,7 +6674,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -6691,7 +6691,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_9_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_9_clause_3",
         "rank": 1,
-        "score": 98.89203,
+        "score": 98.89389,
         "chunk_text": "3. Thu nhập hợp pháp khác theo quy định của pháp luật.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6722,7 +6722,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_9_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_9_clause_2",
         "rank": 2,
-        "score": 78.14222,
+        "score": 78.14364,
         "chunk_text": "2. Tài sản mà vợ, chồng được xác lập quyền sở hữu theo quy định của Bộ luật Dân sự đối với vật vô chủ, vật bị chôn giấu, bị chìm đắm, vật bị đánh rơi, bị bỏ quên, gia súc, gia cầm bị thất lạc, vật nuôi dưới nước.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6753,7 +6753,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_9_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_9_clause_1",
         "rank": 3,
-        "score": 74.20488,
+        "score": 74.20651,
         "chunk_text": "1. Khoản tiền thưởng, tiền trúng thưởng xổ số, tiền trợ cấp, trừ trường hợp quy định tại Khoản 3 Điều 11 của Nghị định này.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6784,7 +6784,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_14_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_14_clause_3",
         "rank": 4,
-        "score": 65.81825,
+        "score": 65.82033,
         "chunk_text": "3. Từ thời điểm việc chia tài sản chung của vợ chồng có hiệu lực, nếu tài sản có được từ việc khai thác tài sản riêng của vợ, chồng mà không xác định được đó là thu nhập do lao động, hoạt động sản xuất, kinh doanh của vợ, chồng hay là hoa lợi, lợi tức phát sinh từ tài sản riêng đó thì thuộc sở hữu chung của vợ chồng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6815,7 +6815,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_14_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_14_clause_1",
         "rank": 5,
-        "score": 65.69542,
+        "score": 65.69746,
         "chunk_text": "1. Việc chia tài sản chung của vợ chồng trong thời kỳ hôn nhân không làm chấm dứt chế độ tài sản của vợ chồng theo luật định.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6846,7 +6846,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_15_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_15_clause_1",
         "rank": 6,
-        "score": 65.42627,
+        "score": 65.42817,
         "chunk_text": "1. Trường hợp lựa chọn áp dụng chế độ tài sản của vợ chồng theo thỏa thuận thì vợ chồng có thể thỏa thuận về xác định tài sản theo một trong các nội dung sau đây: a) Tài sản giữa vợ và chồng bao gồm tài sản chung và tài sản riêng của vợ, chồng; b) Giữa vợ và chồng không có tài sản riêng của vợ, chồng mà tất cả tài sản do vợ, chồng có được trước khi kết hôn hoặc trong thời kỳ hôn nhân đều thuộc tài sản chung; c) Giữa vợ và chồng không có tài sản chung mà tất cả tài sản do vợ, chồng có được trước khi kết hôn và trong thời kỳ hôn nhân đều thuộc sở hữu riêng của người có được tài sản đó; d) Xác định theo thỏa thuận khác của vợ chồng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -6877,7 +6877,7 @@
         "clause_id": "l_52_2014_qh13_art_33_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_33_clause_1",
         "rank": 7,
-        "score": 62.198574,
+        "score": 62.20021,
         "chunk_text": "1. Tài sản chung của vợ chồng gồm tài sản do vợ, chồng tạo ra, thu nhập do lao động, hoạt động sản xuất, kinh doanh, hoa lợi, lợi tức phát sinh từ tài sản riêng và thu nhập hợp pháp khác trong thời kỳ hôn nhân, trừ trường hợp được quy định tại khoản 1 Điều 40 của Luật này; tài sản mà vợ chồng được thừa kế chung hoặc được tặng cho chung và tài sản khác mà vợ chồng thỏa thuận là tài sản chung. Quyền sử dụng đất mà vợ, chồng có được sau khi kết hôn là tài sản chung của vợ chồng, trừ trường hợp vợ hoặc chồng được thừa kế riêng, được tặng cho riêng hoặc có được thông qua giao dịch bằng tài sản riêng.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6908,7 +6908,7 @@
         "clause_id": "l_52_2014_qh13_art_41_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_41_clause_1",
         "rank": 8,
-        "score": 60.946785,
+        "score": 60.948856,
         "chunk_text": "1. Sau khi chia tài sản chung trong thời kỳ hôn nhân, vợ chồng có quyền thỏa thuận chấm dứt hiệu lực của việc chia tài sản chung. Hình thức của thỏa thuận được thực hiện theo quy định tại khoản 2 Điều 38 của Luật này.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6939,7 +6939,7 @@
         "clause_id": "l_52_2014_qh13_art_38_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_38_clause_1",
         "rank": 9,
-        "score": 59.272102,
+        "score": 59.273533,
         "chunk_text": "1. Trong thời kỳ hôn nhân, vợ chồng có quyền thỏa thuận chia một phần hoặc toàn bộ tài sản chung, trừ trường hợp quy định tại Điều 42 của Luật này; nếu không thỏa thuận được thì có quyền yêu cầu Tòa án giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6970,7 +6970,7 @@
         "clause_id": "l_52_2014_qh13_art_24_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_24_clause_3",
         "rank": 10,
-        "score": 58.93938,
+        "score": 58.940254,
         "chunk_text": "3. Vợ, chồng đại diện cho nhau khi một bên mất năng lực hành vi dân sự mà bên kia có đủ điều kiện làm người giám hộ hoặc khi một bên bị hạn chế năng lực hành vi dân sự mà bên kia được Tòa án chỉ định làm người đại diện theo pháp luật cho người đó, trừ trường hợp theo quy định của pháp luật thì người đó phải tự mình thực hiện quyền, nghĩa vụ có liên quan. Trong trường hợp một bên vợ, chồng mất năng lực hành vi dân sự mà bên kia có yêu cầu Tòa án giải quyết ly hôn thì căn cứ vào quy định về giám hộ trong Bộ luật dân sự, Tòa án chỉ định người khác đại diện cho người bị mất năng lực hành vi dân sự để giải quyết việc ly hôn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -6995,7 +6995,7 @@
         "parent_id": "l_52_2014_qh13_art_24"
       }
     ],
-    "latency_ms": 7.698,
+    "latency_ms": 18.887,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7008,7 +7008,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7025,7 +7025,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_51_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_51_clause_1",
         "rank": 1,
-        "score": 137.82794,
+        "score": 137.82613,
         "chunk_text": "Trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài (sau đây gọi là Trung tâm) là đơn vị sự nghiệp thuộc Trung ương Hội Liên hiệp Phụ nữ Việt Nam hoặc Hội Liên hiệp phụ nữ tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là Hội Liên hiệp phụ nữ).",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7056,7 +7056,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_52_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_52_clause_2",
         "rank": 2,
-        "score": 119.08008,
+        "score": 119.07812,
         "chunk_text": "2. Các bên kết hôn có quyền được tư vấn, hỗ trợ về hôn nhân và gia đình có yếu tố nước ngoài. Việc tư vấn, hỗ trợ không phụ thuộc vào quốc tịch, nơi cư trú của người có yêu cầu.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7087,7 +7087,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "rank": 3,
-        "score": 117.084854,
+        "score": 117.08254,
         "chunk_text": "đ) Báo cáo định kỳ 06 tháng và hàng năm về hoạt động của Trung tâm, báo cáo quyết toán tình hình thu, chi tài chính liên quan đến hoạt động tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài cho Hội Liên hiệp phụ nữ và Sở Tư pháp nơi đăng ký hoạt động; báo cáo đột xuất, cung cấp tài liệu hoặc giải thích về những vấn đề liên quan đến hoạt động của Trung tâm khi có yêu cầu của cơ quan nhà nước có thẩm quyền; e) Chịu sự kiểm tra, quản lý của Hội Liên hiệp phụ nữ; g) Chịu sự thanh tra, kiểm tra của Trung ương Hội Liên hiệp Phụ nữ Việt Nam, Bộ Tư pháp, Sở Tư pháp nơi đăng ký hoạt động và cơ quan có thẩm quyền khác theo quy định của pháp luật; h) Các nghĩa vụ khác theo quy định của pháp luật.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7118,7 +7118,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_55_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_55_clause_1",
         "rank": 4,
-        "score": 116.21782,
+        "score": 116.21355,
         "chunk_text": "1. Trung tâm có quyền hạn sau đây: a) Tư vấn những vấn đề liên quan đến hôn nhân và gia đình có yếu tố nước ngoài cho công dân Việt Nam theo hướng dẫn của Hội Liên hiệp Phụ nữ; b) Tư vấn, bồi dưỡng cho công dân Việt Nam về ngôn ngữ, văn hóa, phong tục tập quán, pháp luật về hôn nhân và gia đình, về nhập cư của nước mà người yêu cầu dự định kết hôn với công dân nước đó; c) Tư vấn, giúp đỡ người nước ngoài tìm hiểu về ngôn ngữ, văn hóa, phong tục tập quán, pháp luật về hôn nhân và gia đình của Việt Nam; d) Giúp đỡ các bên kết hôn tìm hiểu về hoàn cảnh cá nhân, gia đình của mỗi bên và các vấn đề khác liên quan mà các bên yêu cầu; đ) Cấp giấy xác nhận cho công dân Việt Nam sau khi đã được tư vấn, bồi dưỡng theo quy định tại Điểm a và Điểm b Khoản 1 Điều này, nếu có yêu cầu;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7149,7 +7149,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_52_clause_3",
         "parent_clause_id": "nd_126_2014_nd_cp_art_52_clause_3",
         "rank": 5,
-        "score": 113.37795,
+        "score": 113.37593,
         "chunk_text": "3. Nghiêm cấm lợi dụng việc tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài nhằm mua bán người, bóc lột sức lao động, xâm phạm tình dục hoặc vì mục đích trục lợi khác.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7180,7 +7180,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_55_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_55_clause_1",
         "rank": 6,
-        "score": 112.61715,
+        "score": 112.61342,
         "chunk_text": "e) Giúp đỡ các bên kết hôn hoàn tất hồ sơ đăng ký kết hôn theo quy định của pháp luật, nếu có yêu cầu; g) Trường hợp công dân Việt Nam hoặc người nước ngoài có nhu cầu giới thiệu người nước ngoài hoặc công dân Việt Nam để kết hôn thì Trung tâm thực hiện giới thiệu; h) Hoạt động hợp tác với tổ chức tư vấn, hỗ trợ hôn nhân của nước ngoài được thành lập theo quy định của pháp luật nước đó để giải quyết những vấn đề liên quan đến hôn nhân và gia đình giữa công dân Việt Nam với người nước ngoài; i) Được nhận thù lao để trang trải chi phí hoạt động và được thanh toán chi phí thực tế hợp lý khác theo quy định của pháp luật, bảo đảm nguyên tắc phi lợi nhuận; k) Được thay đổi nội dung giấy đăng ký hoạt động theo quy định tại Điều 56 của Nghị định này.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7242,7 +7242,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_52_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_52_clause_1",
         "rank": 8,
-        "score": 101.61155,
+        "score": 101.60913,
         "chunk_text": "1. Hoạt động của Trung tâm phải bảo đảm nguyên tắc phi lợi nhuận, góp phần làm lành mạnh hóa quan hệ hôn nhân và gia đình có yếu tố nước ngoài, phù hợp với nguyên tắc cơ bản của chế độ hôn nhân và gia đình Việt Nam, thuần phong mỹ tục của dân tộc.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7273,7 +7273,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_64_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_64_clause_1",
         "rank": 9,
-        "score": 89.31001,
+        "score": 89.30819,
         "chunk_text": "1. Trung ương Hội Liên hiệp Phụ nữ Việt Nam phối hợp với Bộ Tư pháp, các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ, Ủy ban nhân dân cấp tỉnh thực hiện các hoạt động trong lĩnh vực hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7304,7 +7304,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
         "parent_clause_id": "nd_126_2014_nd_cp_art_58_clause_4",
         "rank": 10,
-        "score": 89.06834,
+        "score": 89.06592,
         "chunk_text": "4. Thanh tra, kiểm tra việc thực hiện pháp luật về hôn nhân và gia đình có yếu tố nước ngoài; giải quyết khiếu nại, tố cáo theo quy định của pháp luật; xử lý vi phạm hành chính về hôn nhân và gia đình có yếu tố nước ngoài theo quy định của pháp luật;",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7329,7 +7329,7 @@
         "parent_id": "nd_126_2014_nd_cp_art_58"
       }
     ],
-    "latency_ms": 9.069,
+    "latency_ms": 28.747,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7342,7 +7342,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7359,7 +7359,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_57_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_57_clause_2",
         "rank": 1,
-        "score": 98.17961,
+        "score": 98.181244,
         "chunk_text": "2. Trong trường hợp chấm dứt hoạt động theo quy định tại Điểm a Khoản 1 Điều này, Hội Liên hiệp phụ nữ phải có văn bản thông báo về việc chấm dứt hoạt động của Trung tâm gửi Sở Tư pháp, nơi Trung tâm đăng ký hoạt động, chậm nhất 30 ngày trước ngày chấm dứt hoạt động của Trung tâm. Trung tâm phải nộp lại giấy đăng ký hoạt động cho Sở Tư pháp, nơi đã đăng ký hoạt động.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7421,7 +7421,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_57_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_57_clause_1",
         "rank": 3,
-        "score": 94.13681,
+        "score": 94.13825,
         "chunk_text": "1. Trung tâm chấm dứt hoạt động trong các trường hợp sau đây: a) Hội Liên hiệp phụ nữ quyết định giải thể Trung tâm; b) Trung tâm bị tước quyền sử dụng giấy đăng ký hoạt động theo quyết định của cơ quan nhà nước có thẩm quyền.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7452,7 +7452,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_57_clause_4",
         "parent_clause_id": "nd_126_2014_nd_cp_art_57_clause_4",
         "rank": 4,
-        "score": 94.10015,
+        "score": 94.09782,
         "chunk_text": "4. Trước ngày chấm dứt hoạt động, Trung tâm có trách nhiệm thanh toán các khoản nợ (nếu có) với tổ chức, cá nhân có liên quan và giải quyết các vấn đề có liên quan đến việc chấm dứt hoạt động; báo cáo bằng văn bản gửi Hội Liên hiệp phụ nữ và Sở Tư pháp, nơi đăng ký hoạt động.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7483,7 +7483,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_54_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_54_clause_2",
         "rank": 5,
-        "score": 76.75236,
+        "score": 76.75432,
         "chunk_text": "2. Hồ sơ đăng ký hoạt động của Trung tâm được lập thành 01 bộ, gồm các giấy tờ sau đây: a) Tờ khai đăng ký hoạt động theo mẫu quy định; b) Bản sao Quyết định thành lập Trung tâm; c) Giấy tờ chứng minh địa điểm đặt trụ sở của Trung tâm; d) Phiếu lý lịch tư pháp của người dự kiến đứng đầu Trung tâm được cấp chưa quá 03 tháng, tính đến ngày nhận hồ sơ; đ) Bản sao quy chế hoạt động quy định tại Khoản 1 Điều 53 của Nghị định này.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7514,7 +7514,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_56_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_56_clause_2",
         "rank": 6,
-        "score": 73.880226,
+        "score": 73.880844,
         "chunk_text": "2. Trường hợp muốn thay đổi người đứng đầu Trung tâm hoặc thay đổi nội dung hoạt động của Trung tâm, Hội Liên hiệp phụ nữ phải có văn bản gửi Sở Tư pháp, nơi đăng ký hoạt động của Trung tâm, trong đó nêu rõ mục đích, nội dung, lý do thay đổi, kèm theo giấy đăng ký hoạt động của Trung tâm. Nếu thay đổi người đứng đầu Trung tâm thì còn phải có Phiếu lý lịch tư pháp của người dự kiến thay thế được cấp chưa quá 03 tháng tính đến ngày nhận hồ sơ. Trong thời hạn 05 ngày làm việc, kể từ ngày nhận đủ hồ sơ hợp lệ, Sở Tư pháp xác nhận nội dung thay đổi vào giấy đăng ký hoạt động. Trường hợp từ chối thì Sở Tư pháp thông báo bằng văn bản cho Hội Liên hiệp phụ nữ và nêu rõ lý do.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7576,7 +7576,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_55_clause_2",
         "rank": 8,
-        "score": 72.21017,
+        "score": 72.20991,
         "chunk_text": "đ) Báo cáo định kỳ 06 tháng và hàng năm về hoạt động của Trung tâm, báo cáo quyết toán tình hình thu, chi tài chính liên quan đến hoạt động tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài cho Hội Liên hiệp phụ nữ và Sở Tư pháp nơi đăng ký hoạt động; báo cáo đột xuất, cung cấp tài liệu hoặc giải thích về những vấn đề liên quan đến hoạt động của Trung tâm khi có yêu cầu của cơ quan nhà nước có thẩm quyền; e) Chịu sự kiểm tra, quản lý của Hội Liên hiệp phụ nữ; g) Chịu sự thanh tra, kiểm tra của Trung ương Hội Liên hiệp Phụ nữ Việt Nam, Bộ Tư pháp, Sở Tư pháp nơi đăng ký hoạt động và cơ quan có thẩm quyền khác theo quy định của pháp luật; h) Các nghĩa vụ khác theo quy định của pháp luật.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -7607,7 +7607,7 @@
         "clause_id": "l_52_2014_qh13_art_65_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_65_clause_1",
         "rank": 9,
-        "score": 71.570015,
+        "score": 71.571434,
         "chunk_text": "Hôn nhân chấm dứt kể từ thời điểm vợ hoặc chồng chết. Trong trường hợp Tòa án tuyên bố vợ hoặc chồng là đã chết thì thời điểm hôn nhân chấm dứt được xác định theo ngày chết được ghi trong bản án, quyết định của Tòa án.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -7638,7 +7638,7 @@
         "clause_id": "l_52_2014_qh13_art_31_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_31_clause_1",
         "rank": 10,
-        "score": 67.37571,
+        "score": 67.37764,
         "chunk_text": "Việc xác lập, thực hiện, chấm dứt các giao dịch liên quan đến nhà là nơi ở duy nhất của vợ chồng phải có sự thỏa thuận của vợ chồng. Trong trường hợp nhà ở thuộc sở hữu riêng của vợ hoặc chồng thì chủ sở hữu có quyền xác lập, thực hiện, chấm dứt giao dịch liên quan đến tài sản đó nhưng phải bảo đảm chỗ ở cho vợ chồng.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -7663,7 +7663,7 @@
         "parent_id": "l_52_2014_qh13_art_31"
       }
     ],
-    "latency_ms": 16.326,
+    "latency_ms": 22.205,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -7676,7 +7676,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -7693,7 +7693,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_5_clause_4",
         "parent_clause_id": "nd_207_2025_nd_cp_art_5_clause_4",
         "rank": 1,
-        "score": 158.69472,
+        "score": 158.69629,
         "chunk_text": "4. Người nhận tinh trùng, nhận noãn, nhận phôi phải có đủ sức khỏe theo quy định của Bộ trưởng Bộ Y tế để thực hiện kỹ thuật thụ tinh trong ống nghiệm.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7724,7 +7724,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_3",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_3",
         "rank": 2,
-        "score": 149.605,
+        "score": 149.6111,
         "chunk_text": "3. Trường hợp cặp vợ chồng hoặc phụ nữ độc thân quy định tại khoản 1, khoản 2 Điều này đã hiến tinh trùng, hiến noãn, hiến phôi nhưng tiếp tục có nguyện vọng sinh con thì được quyền yêu cầu cơ sở cho sử dụng tinh trùng, noãn, phôi đã hiến để thực hiện kỹ thuật hỗ trợ sinh sản.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7755,7 +7755,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "rank": 3,
-        "score": 144.32274,
+        "score": 144.33035,
         "chunk_text": "1. Trường hợp cặp vợ chồng đã sinh con bằng tinh trùng, noãn, phôi của chính họ và còn dư tinh trùng, noãn, phôi hoặc phụ nữ độc thân đã sinh con bằng noãn của chính họ mà còn dư noãn thì việc xử lý tinh trùng, noãn, phôi còn dư thực hiện theo nguyện vọng của cặp vợ chồng hoặc người phụ nữ độc thân đó, cụ thể như sau: a) Đề nghị gửi theo quy định tại Điều 9 của Nghị định này;",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7786,7 +7786,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_5_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_5_clause_1",
         "rank": 4,
-        "score": 144.27026,
+        "score": 144.27893,
         "chunk_text": "1. Người nhận tinh trùng phải là người vợ trong cặp vợ chồng đang điều trị vô sinh mà nguyên nhân vô sinh là do người chồng hoặc là phụ nữ độc thân có nhu cầu sinh con và noãn của họ bảo đảm chất lượng để thụ thai.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7817,7 +7817,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "rank": 5,
-        "score": 141.50694,
+        "score": 141.5165,
         "chunk_text": "b) Hiến cho cơ sở được thực hiện việc lưu giữ. Việc hiến phải được thể hiện bằng văn bản với sự đồng ý của cả hai vợ chồng hoặc người phụ nữ độc thân, trong đó phải thể hiện rõ cho phép sử dụng tinh trùng, noãn, phôi hiến cho một trong các trường hợp sau đây: Để thực hiện sinh con bằng kỹ thuật hỗ trợ sinh sản cho một cặp vợ chồng vô sinh hoặc một phụ nữ độc thân khác; Sử dụng vì mục đích nghiên cứu khoa học; Sử dụng cho cả hai mục đích: để thực hiện việc sinh con bằng kỹ thuật hỗ trợ sinh sản cho một cặp vợ chồng vô sinh khác hoặc một phụ nữ độc thân; nghiên cứu khoa học; c) Đề nghị hủy.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7848,7 +7848,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_2",
         "rank": 6,
-        "score": 138.42982,
+        "score": 138.43622,
         "chunk_text": "2. Trường hợp cặp vợ chồng hoặc phụ nữ độc thân đã sinh con bằng tinh trùng, noãn, phôi hiến và còn dư tinh trùng, noãn, phôi thì việc xử lý tinh trùng, noãn, phôi còn dư thực hiện theo nguyện vọng của cặp vợ chồng hoặc người phụ nữ độc thân đó, cụ thể như sau: a) Đề nghị gửi theo quy định tại Điều 9 của Nghị định này và chỉ được sử dụng để tiếp tục sinh con cho chính cặp vợ chồng hoặc người phụ nữ độc thân đó; b) Hiến cho cơ sở được thực hiện việc lưu giữ để sử dụng vào mục đích nghiên cứu khoa học; việc hiến phải được thể hiện bằng văn bản với sự đồng ý của cả hai vợ chồng hoặc người phụ nữ độc thân; c) Đề nghị hủy.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7879,7 +7879,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_5_clause_3",
         "parent_clause_id": "nd_207_2025_nd_cp_art_5_clause_3",
         "rank": 7,
-        "score": 137.13965,
+        "score": 137.14565,
         "chunk_text": "3. Người nhận phôi phải thuộc một trong các trường hợp sau đây: a) Người vợ trong cặp vợ chồng đang điều trị vô sinh mà nguyên nhân vô sinh là do cả người vợ và người chồng; b) Người vợ trong cặp vợ chồng đang điều trị vô sinh mà vợ chồng đã thực hiện kỹ thuật thụ tinh trong ống nghiệm nhưng bị thất bại, trừ trường hợp mang thai hộ vì mục đích nhân đạo; c) Phụ nữ độc thân mà không có noãn hoặc noãn không bảo đảm chất lượng để thụ thai.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7910,7 +7910,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_9_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_9_clause_2",
         "rank": 8,
-        "score": 126.67228,
+        "score": 126.68074,
         "chunk_text": "c) Nếu người chồng trong cặp vợ chồng gửi phôi chết thì phải hủy phôi của cặp vợ chồng đó, trừ các trường hợp: người vợ có nguyện vọng được sinh con bằng phôi của hai vợ chồng; hoặc người vợ có văn bản hiến phôi cho cơ sở lưu giữ để nghiên cứu khoa học hoặc thực hiện kỹ thuật hỗ trợ sinh sản cho một phụ nữ độc thân hoặc một cặp vợ chồng khác; d) Nếu người vợ trong cặp vợ chồng hoặc cả hai vợ chồng gửi phôi chết thì phải hủy phôi của cặp vợ chồng đó, trừ trường hợp có văn bản của cả hai vợ chồng thể hiện nguyện vọng hiến phôi cho cơ sở lưu giữ để nghiên cứu khoa học hoặc thực hiện kỹ thuật hỗ trợ sinh sản cho một phụ nữ độc thân hoặc một cặp vợ chồng khác;",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7941,7 +7941,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_5_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_5_clause_2",
         "rank": 9,
-        "score": 125.92001,
+        "score": 125.926025,
         "chunk_text": "2. Người nhận noãn phải là người Việt Nam hoặc người gốc Việt Nam, hoặc người nước ngoài có chồng là người Việt Nam hoặc người gốc Việt Nam và là người vợ trong cặp vợ chồng đang điều trị vô sinh mà nguyên nhân vô sinh là do người vợ không có noãn hoặc noãn không bảo đảm chất lượng để thụ thai.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7972,7 +7972,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_9_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_9_clause_2",
         "rank": 10,
-        "score": 123.005585,
+        "score": 123.011154,
         "chunk_text": "2. Trường hợp người gửi tinh trùng, gửi noãn, gửi phôi chết: a) Nếu người gửi tinh trùng chết thì cơ sở lưu giữ phải hủy số tinh trùng đang lưu giữ của người đó, trừ các trường hợp: người vợ có nguyện vọng được sinh con bằng tinh trùng của người chồng đã chết; hoặc trước khi chết người gửi có văn bản thể hiện nguyện vọng hiến tinh trùng cho cơ sở lưu giữ theo quy định tại Nghị định này; b) Nếu người gửi noãn chết thì cơ sở lưu giữ phải hủy số noãn đang lưu giữ của người đó, trừ trường hợp trước khi chết người gửi có văn bản thể hiện nguyện vọng hiến noãn cho cơ sở lưu giữ theo quy định tại Nghị định này;",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -7997,7 +7997,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_9_p1"
       }
     ],
-    "latency_ms": 8.391,
+    "latency_ms": 21.613,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8010,7 +8010,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8027,7 +8027,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_6_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_6_clause_1",
         "rank": 1,
-        "score": 184.80745,
+        "score": 184.80556,
         "chunk_text": "1. Việc thực hiện kỹ thuật thụ tinh nhân tạo có sử dụng tinh trùng của người hiến phải tuân thủ các quy định tại Điều 3 Nghị định này và phải được thực hiện tại các cơ sở được phép thực hiện kỹ thuật thụ tinh trong ống nghiệm.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8058,7 +8058,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_6_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_6_clause_2",
         "rank": 2,
-        "score": 149.64458,
+        "score": 149.64093,
         "chunk_text": "2. Trường hợp người nhận tinh trùng hiến đã sinh con, việc xử lý tinh trùng hiến còn dư được thực hiện theo quy định tại khoản 2 Điều 7 Nghị định này.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8089,7 +8089,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_4_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_4_clause_1",
         "rank": 3,
-        "score": 137.32855,
+        "score": 137.32613,
         "chunk_text": "1. Đối tượng hiến tinh trùng, hiến noãn, hiến phôi: a) Người được quy định tại khoản 1 Điều 6 Luật Hiến, lấy, ghép mô, bộ phận cơ thể người và hiến, lấy xác; b) Cặp vợ chồng sau khi thực hiện kỹ thuật thụ tinh trong ống nghiệm hoặc mang thai hộ vì mục đích nhân đạo còn dư tinh trùng, noãn, phôi và không có nhu cầu sử dụng số lượng tinh trùng, noãn, phôi này; c) Phụ nữ độc thân sau khi thực hiện kỹ thuật thụ tinh trong ống nghiệm còn dư noãn và không có nhu cầu sử dụng số lượng noãn này.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8120,7 +8120,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_2",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_2",
         "rank": 4,
-        "score": 127.16884,
+        "score": 127.16837,
         "chunk_text": "2. Trường hợp cặp vợ chồng hoặc phụ nữ độc thân đã sinh con bằng tinh trùng, noãn, phôi hiến và còn dư tinh trùng, noãn, phôi thì việc xử lý tinh trùng, noãn, phôi còn dư thực hiện theo nguyện vọng của cặp vợ chồng hoặc người phụ nữ độc thân đó, cụ thể như sau: a) Đề nghị gửi theo quy định tại Điều 9 của Nghị định này và chỉ được sử dụng để tiếp tục sinh con cho chính cặp vợ chồng hoặc người phụ nữ độc thân đó; b) Hiến cho cơ sở được thực hiện việc lưu giữ để sử dụng vào mục đích nghiên cứu khoa học; việc hiến phải được thể hiện bằng văn bản với sự đồng ý của cả hai vợ chồng hoặc người phụ nữ độc thân; c) Đề nghị hủy.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8151,7 +8151,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_1",
         "rank": 5,
-        "score": 126.05053,
+        "score": 126.051476,
         "chunk_text": "b) Hiến cho cơ sở được thực hiện việc lưu giữ. Việc hiến phải được thể hiện bằng văn bản với sự đồng ý của cả hai vợ chồng hoặc người phụ nữ độc thân, trong đó phải thể hiện rõ cho phép sử dụng tinh trùng, noãn, phôi hiến cho một trong các trường hợp sau đây: Để thực hiện sinh con bằng kỹ thuật hỗ trợ sinh sản cho một cặp vợ chồng vô sinh hoặc một phụ nữ độc thân khác; Sử dụng vì mục đích nghiên cứu khoa học; Sử dụng cho cả hai mục đích: để thực hiện việc sinh con bằng kỹ thuật hỗ trợ sinh sản cho một cặp vợ chồng vô sinh khác hoặc một phụ nữ độc thân; nghiên cứu khoa học; c) Đề nghị hủy.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8182,7 +8182,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_8_clause_1",
         "parent_clause_id": "nd_207_2025_nd_cp_art_8_clause_1",
         "rank": 6,
-        "score": 125.09917,
+        "score": 125.10046,
         "chunk_text": "1. Việc lưu giữ tinh trùng, lưu giữ noãn, lưu giữ phôi được thực hiện tại: a) Cơ sở khám bệnh, chữa bệnh đã được cấp có thẩm quyền cho phép thực hiện kỹ thuật thụ tinh trong ống nghiệm; b) Ngân hàng mô theo quy định của pháp luật về hiến, lấy, ghép mô, bộ phận cơ thể người và hiến, lấy xác.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8213,7 +8213,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_7_clause_3",
         "parent_clause_id": "nd_207_2025_nd_cp_art_7_clause_3",
         "rank": 7,
-        "score": 123.59836,
+        "score": 123.59527,
         "chunk_text": "3. Trường hợp cặp vợ chồng hoặc phụ nữ độc thân quy định tại khoản 1, khoản 2 Điều này đã hiến tinh trùng, hiến noãn, hiến phôi nhưng tiếp tục có nguyện vọng sinh con thì được quyền yêu cầu cơ sở cho sử dụng tinh trùng, noãn, phôi đã hiến để thực hiện kỹ thuật hỗ trợ sinh sản.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8244,7 +8244,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_10_clause_4",
         "parent_clause_id": "nd_207_2025_nd_cp_art_10_clause_4",
         "rank": 8,
-        "score": 119.49809,
+        "score": 119.49535,
         "chunk_text": "b) Có tối thiểu 02 người có trình độ đại học về một trong các lĩnh vực y, dược hoặc sinh học, công nghệ sinh học và có văn bằng hoặc chứng nhận đào tạo về kỹ năng thực hành trong Lab thụ tinh trong ống nghiệm kèm theo xác nhận đã trực tiếp thực hiện ít nhất 20 chu kỳ điều trị vô sinh bằng kỹ thuật thụ tinh trong ống nghiệm do cơ sở khám bệnh, chữa bệnh quy định tại khoản 5 Điều này cấp theo mẫu quy định tại Phụ lục I ban hành kèm theo Nghị định này; c) Các nhân sự quy định tại Khoản này phải là nhân sự làm việc toàn thời gian tại bệnh viện.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8275,7 +8275,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_10_clause_5",
         "parent_clause_id": "nd_207_2025_nd_cp_art_10_clause_5",
         "rank": 9,
-        "score": 118.938416,
+        "score": 118.93578,
         "chunk_text": "5. Các văn bằng, chứng nhận đào tạo quy định tại khoản 4 Điều này phải được cấp bởi cơ sở khám bệnh, chữa bệnh trong nước hoặc nước ngoài. Trường hợp cơ sở cấp văn bằng, chứng nhận đào tạo là cơ sở trong nước thì cơ sở khám bệnh, chữa bệnh đó phải được cấp có thẩm quyền cho phép thực hiện kỹ thuật thụ tinh trong ống nghiệm, đã thực hiện ít nhất 1.000 chu kỳ điều trị vô sinh bằng kỹ thuật thụ tinh trong ống nghiệm và là cơ sở cập nhật kiến thức y khoa liên tục. Trường hợp cơ sở cấp văn bằng, chứng nhận đào tạo là cơ sở ở nước ngoài thì cơ quan cấp phép thực hiện việc đánh giá thực tế năng lực thực hiện kỹ thuật trong quá trình thẩm định.",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8306,7 +8306,7 @@
         "clause_id": "nd_207_2025_nd_cp_art_10_clause_4",
         "parent_clause_id": "nd_207_2025_nd_cp_art_10_clause_4",
         "rank": 10,
-        "score": 118.87612,
+        "score": 118.8732,
         "chunk_text": "4. Nhân sự: a) Có tối thiểu 02 người hành nghề có chức danh bác sĩ với phạm vi hành nghề khám bệnh, chữa bệnh chuyên khoa sản phụ khoa và có văn bằng hoặc chứng nhận đào tạo về kỹ năng lâm sàng thụ tinh trong ống nghiệm kèm theo xác nhận đã trực tiếp thực hiện ít nhất 20 chu kỳ điều trị vô sinh bằng kỹ thuật thụ tinh trong ống nghiệm do cơ sở khám bệnh, chữa bệnh quy định tại khoản 5 Điều này cấp theo mẫu quy định tại Phụ lục I ban hành kèm theo Nghị định này;",
         "metadata": {
           "doc_id": "nd_207_2025_nd_cp",
@@ -8331,7 +8331,7 @@
         "parent_id": "nd_207_2025_nd_cp_art_10_p1"
       }
     ],
-    "latency_ms": 8.536,
+    "latency_ms": 29.609,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8344,7 +8344,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8361,7 +8361,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "rank": 1,
-        "score": 244.15416,
+        "score": 244.14691,
         "chunk_text": "Việc chia di sản ảnh hưởng nghiêm trọng đến đời sống của vợ hoặc chồng còn sống và gia đình theo quy định tại khoản 3 Điều 66 của Luật Hôn nhân và gia đình và Điều 661 của Bộ luật Dân sự là trường hợp người chết có để lại di sản, nhưng nếu chia di sản này cho người thừa kế thì vợ hoặc chồng còn sống và gia đình gặp nhiều khó khăn trong cuộc sống như: không có chỗ ở, mất nguồn tư liệu sản xuất duy nhất... Ví dụ 1: Trước khi kết hôn, anh A mua được một ngôi nhà cấp 4 có diện tích 35 m2. Sau đó anh A kết hôn với chị B và không nhập ngôi nhà này vào khối tài sản chung của vợ chồng. Sau khi sinh được một người con thì anh A chết và không để lại di chúc. Bố mẹ của anh A yêu cầu chia di sản thừa kế là ngôi nhà của anh A.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -8392,7 +8392,7 @@
         "clause_id": "l_52_2014_qh13_art_66_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_66_clause_1",
         "rank": 2,
-        "score": 232.4,
+        "score": 232.40266,
         "chunk_text": "1. Khi một bên vợ, chồng chết hoặc bị Tòa án tuyên bố là đã chết thì bên còn sống quản lý tài sản chung của vợ chồng, trừ trường hợp trong di chúc có chỉ định người khác quản lý di sản hoặc những người thừa kế thỏa thuận cử người khác quản lý di sản.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8423,7 +8423,7 @@
         "clause_id": "l_52_2014_qh13_art_66_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_66_clause_2",
         "rank": 3,
-        "score": 231.87173,
+        "score": 231.87573,
         "chunk_text": "2. Khi có yêu cầu về chia di sản thì tài sản chung của vợ chồng được chia đôi, trừ trường hợp vợ chồng có thỏa thuận về chế độ tài sản. Phần tài sản của vợ, chồng chết hoặc bị Tòa án tuyên bố là đã chết được chia theo quy định của pháp luật về thừa kế.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8454,7 +8454,7 @@
         "clause_id": "l_52_2014_qh13_art_66_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_66_clause_3",
         "rank": 4,
-        "score": 223.31116,
+        "score": 223.31488,
         "chunk_text": "3. Trong trường hợp việc chia di sản ảnh hưởng nghiêm trọng đến đời sống của vợ hoặc chồng còn sống, gia đình thì vợ, chồng còn sống có quyền yêu cầu Tòa án hạn chế phân chia di sản theo quy định của Bộ luật dân sự.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8485,7 +8485,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "rank": 5,
-        "score": 197.23537,
+        "score": 197.23438,
         "chunk_text": "Chị B và con không có chỗ ở nào khác và cũng chưa có điều kiện để tạo lập chỗ ở khác. Ngôi nhà này lại không thể chia được bằng hiện vật. Trong trường hợp này việc chia di sản thừa kế là ngôi nhà sẽ ảnh hưởng nghiêm trọng đến đời sống của chị B và con. Ví dụ 2: Anh C và chị D kết hôn với nhau và mua được ngôi nhà có diện tích 35 m2. Sau khi sinh được một người con thì anh C chết và không để lại di chúc. Bố mẹ của anh C yêu cầu chia di sản do anh C để lại là phần nhà của anh C trong ngôi nhà này. Chị D và con không có chỗ ở nào khác, trong khi đó ngôi nhà này nếu chia bằng hiện vật thì không bảo đảm cho việc sinh hoạt tối thiểu của chị D và con; nếu buộc chị D phải thanh toán bằng tiền phần thừa kế mà bố mẹ anh C được hưởng thì chị D cũng không có khả năng.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -8516,7 +8516,7 @@
         "clause_id": "l_52_2014_qh13_art_67_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_67_clause_2",
         "rank": 6,
-        "score": 195.41081,
+        "score": 195.4145,
         "chunk_text": "2. Quan hệ tài sản của người bị tuyên bố là đã chết trở về với người vợ hoặc chồng được giải quyết như sau: a) Trong trường hợp hôn nhân được khôi phục thì quan hệ tài sản được khôi phục kể từ thời điểm quyết định của Tòa án hủy bỏ tuyên bố chồng, vợ là đã chết có hiệu lực. Tài sản do vợ, chồng có được kể từ thời điểm quyết định của Tòa án về việc tuyên bố chồng, vợ là đã chết có hiệu lực đến khi quyết định hủy bỏ tuyên bố chồng, vợ đã chết có hiệu lực là tài sản riêng của người đó; b) Trong trường hợp hôn nhân không được khôi phục thì tài sản có được trước khi quyết định của Tòa án về việc tuyên bố vợ, chồng là đã chết có hiệu lực mà chưa chia được giải quyết như chia tài sản khi ly hôn.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8547,7 +8547,7 @@
         "clause_id": "l_52_2014_qh13_art_67_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_67_clause_1",
         "rank": 7,
-        "score": 180.36191,
+        "score": 180.357,
         "chunk_text": "1. Khi Tòa án ra quyết định hủy bỏ tuyên bố một người là đã chết mà vợ hoặc chồng của người đó chưa kết hôn với người khác thì quan hệ hôn nhân được khôi phục kể từ thời điểm kết hôn. Trong trường hợp có quyết định cho ly hôn của Tòa án theo quy định tại khoản 2 Điều 56 của Luật này thì quyết định cho ly hôn vẫn có hiệu lực pháp luật. Trong trường hợp vợ, chồng của người đó đã kết hôn với người khác thì quan hệ hôn nhân được xác lập sau có hiệu lực pháp luật.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8578,7 +8578,7 @@
         "clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "parent_clause_id": "nq_01_2024_nq_hdtp_art_5_clause_1",
         "rank": 8,
-        "score": 180.32643,
+        "score": 180.3283,
         "chunk_text": "Trong trường hợp này, việc chia di sản thừa kế phần nhà của anh C trong ngôi nhà có diện tích 35 m2 sẽ ảnh hưởng nghiêm trọng đến đời sống của chị D và con.",
         "metadata": {
           "doc_id": "nq_01_2024_nq_hdtp",
@@ -8609,7 +8609,7 @@
         "clause_id": "l_52_2014_qh13_art_66_clause_4",
         "parent_clause_id": "l_52_2014_qh13_art_66_clause_4",
         "rank": 9,
-        "score": 173.8639,
+        "score": 173.85187,
         "chunk_text": "4. Tài sản của vợ chồng trong kinh doanh được giải quyết theo quy định tại các khoản 1, 2 và 3 Điều này, trừ trường hợp pháp luật về kinh doanh có quy định khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8640,7 +8640,7 @@
         "clause_id": "l_52_2014_qh13_art_65_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_65_clause_1",
         "rank": 10,
-        "score": 173.65045,
+        "score": 173.65327,
         "chunk_text": "Hôn nhân chấm dứt kể từ thời điểm vợ hoặc chồng chết. Trong trường hợp Tòa án tuyên bố vợ hoặc chồng là đã chết thì thời điểm hôn nhân chấm dứt được xác định theo ngày chết được ghi trong bản án, quyết định của Tòa án.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8665,7 +8665,7 @@
         "parent_id": "l_52_2014_qh13_art_65"
       }
     ],
-    "latency_ms": 9.755,
+    "latency_ms": 25.278,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -8678,7 +8678,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -8695,7 +8695,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_4",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_4",
         "rank": 1,
-        "score": 126.2865,
+        "score": 126.28431,
         "chunk_text": "4. Khi xử lý yêu cầu hủy việc kết hôn trái pháp luật, Tòa án phải căn cứ vào quy định của pháp luật hôn nhân và gia đình có hiệu lực tại thời điểm xác lập quan hệ hôn nhân để xác định việc kết hôn có trái pháp luật hay không. Trình tự, thủ tục giải quyết yêu cầu xử lý việc kết hôn trái pháp luật được thực hiện theo quy định của Luật hôn nhân và gia đình và pháp luật tố tụng dân sự có hiệu lực tại thời điểm giải quyết. Đối với yêu cầu hủy việc kết hôn trái pháp luật thuộc trường hợp cán bộ và bộ đội miền Nam tập kết ra miền Bắc từ năm 1954, đã có vợ, có chồng ở miền Nam mà lấy vợ, lấy chồng ở miền Bắc thì vẫn xử lý theo Thông tư số 60/TATC ngày 22-02-1978 của Tòa án nhân dân tối cao “Hướng dẫn giải quyết các trường hợp cán bộ, bộ đội trong Nam tập kết ra Bắc mà lấy vợ, lấy chồng khác”.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8726,7 +8726,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2",
         "rank": 2,
-        "score": 114.746056,
+        "score": 114.744125,
         "chunk_text": "b) Nếu một hoặc hai bên yêu cầu hủy việc kết hôn trái pháp luật hoặc có một bên yêu cầu công nhận quan hệ hôn nhân hoặc có một bên yêu cầu ly hôn còn bên kia không có yêu cầu thì Tòa án quyết định hủy việc kết hôn trái pháp luật. Trường hợp có đơn khởi kiện, đơn yêu cầu Tòa án giải quyết thì quyền, nghĩa vụ của cha, mẹ, con; quan hệ tài sản, nghĩa vụ và hợp đồng giữa các bên từ thời điểm kết hôn đến thời điểm hủy việc kết hôn trái pháp luật được giải quyết theo quy định tại Điều 12 của Luật hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8757,7 +8757,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_3",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_3",
         "rank": 3,
-        "score": 113.76266,
+        "score": 113.760345,
         "chunk_text": "3. Trường hợp hai bên đã đăng ký kết hôn nhưng tại thời điểm Tòa án giải quyết hai bên kết hôn vẫn không có đủ các điều kiện kết hôn quy định tại Điều 8 của Luật hôn nhân và gia đình thì thực hiện như sau: a) Nếu có yêu cầu hủy việc kết hôn trái pháp luật thì Tòa án quyết định hủy việc kết hôn trái pháp luật; b) Nếu một hoặc cả hai bên yêu cầu ly hôn hoặc yêu cầu công nhận quan hệ hôn nhân thì Tòa án bác yêu cầu của họ và quyết định hủy việc kết hôn trái pháp luật. Trường hợp quyết định theo hướng dẫn tại điểm a và điểm b khoản này thì Tòa án áp dụng quy định tại Điều 12 của Luật hôn nhân và gia đình để giải quyết hậu quả pháp lý của việc hủy kết hôn trái pháp luật.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8788,7 +8788,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_1",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_1",
         "rank": 4,
-        "score": 110.50496,
+        "score": 110.502304,
         "chunk_text": "1. Khi xem xét, giải quyết yêu cầu có liên quan đến việc hủy kết hôn trái pháp luật, Tòa án phải căn cứ vào yêu cầu của đương sự và điều kiện kết hôn, điều kiện công nhận quan hệ hôn nhân quy định tại Điều 8 và Điều 11 của Luật hôn nhân và gia đình để quyết định.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8819,7 +8819,7 @@
         "clause_id": "l_52_2014_qh13_art_10_clause_3",
         "parent_clause_id": "l_52_2014_qh13_art_10_clause_3",
         "rank": 5,
-        "score": 106.482414,
+        "score": 106.48054,
         "chunk_text": "3. Cá nhân, cơ quan, tổ chức khác khi phát hiện việc kết hôn trái pháp luật thì có quyền đề nghị cơ quan, tổ chức quy định tại các điểm b, c và d khoản 2 Điều này yêu cầu Tòa án hủy việc kết hôn trái pháp luật.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8850,7 +8850,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_4_clause_2",
         "rank": 6,
-        "score": 101.66797,
+        "score": 101.666176,
         "chunk_text": "2. Trường hợp tại thời điểm kết hôn, hai bên kết hôn không có đủ điều kiện kết hôn nhưng sau đó có đủ điều kiện kết hôn quy định tại Điều 8 của Luật hôn nhân và gia đình thì Tòa án xử lý như sau: a) Nếu hai bên kết hôn cùng yêu cầu Tòa án công nhận quan hệ hôn nhân thì Tòa án quyết định công nhận quan hệ hôn nhân đó kể từ thời điểm các bên kết hôn có đủ điều kiện kết hôn. Ví dụ 1: Anh A sinh ngày 25-01-1996, chị B sinh ngày 10-01-1995. Ngày 08-01-2015, anh A và chị B đăng ký kết hôn. Ngày 25-9-2016, Tòa án mở phiên họp giải quyết yêu cầu hủy việc kết hôn trái pháp luật.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8881,7 +8881,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_2",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_2",
         "rank": 7,
-        "score": 100.95029,
+        "score": 100.94806,
         "chunk_text": "2. Tòa án thụ lý, giải quyết yêu cầu hủy việc kết hôn trái pháp luật theo quy định tại khoản 6 Điều 3 và Điều 11 của Luật hôn nhân và gia đình khi việc kết hôn đó đã được đăng ký tại đúng cơ quan có thẩm quyền. Cơ quan có thẩm quyền đăng ký kết hôn được xác định theo quy định của pháp luật về hộ tịch, pháp luật về hôn nhân và gia đình. Trường hợp nam, nữ đăng ký kết hôn tại đúng cơ quan có thẩm quyền đăng ký kết hôn mà yêu cầu Tòa án hủy việc kết hôn trái pháp luật thì thực hiện theo hướng dẫn tại Điều 4 của Thông tư liên tịch này. Trường hợp việc kết hôn được đăng ký tại không đúng cơ quan có thẩm quyền hoặc trường hợp nam, nữ chung sống với nhau như vợ chồng nhưng không có đăng ký kết hôn mà có yêu cầu Tòa án giải quyết thì thực hiện theo hướng dẫn tại khoản 3 và khoản 4 Điều này.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8912,7 +8912,7 @@
         "clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_3",
         "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_3_clause_3",
         "rank": 8,
-        "score": 100.26716,
+        "score": 100.26454,
         "chunk_text": "3. Trường hợp nam, nữ có đăng ký kết hôn nhưng việc kết hôn đăng ký tại không đúng cơ quan có thẩm quyền (không phân biệt có vi phạm điều kiện kết hôn hay không) mà có yêu cầu Tòa án hủy việc kết hôn trái pháp luật hoặc yêu cầu ly hôn thì Tòa án áp dụng Điều 9 của Luật hôn nhân và gia đình tuyên bố không công nhận quan hệ hôn nhân giữa họ đồng thời hủy Giấy chứng nhận kết hôn và thông báo cho cơ quan hộ tịch đã đăng ký kết hôn để xử lý theo quy định tại Điều 13 của Luật hôn nhân và gia đình. Nếu có yêu cầu Tòa án giải quyết về quyền, nghĩa vụ đối với con; tài sản, nghĩa vụ và hợp đồng giữa các bên thì giải quyết theo quy định tại Điều 15 và Điều 16 của Luật hôn nhân và gia đình.",
         "metadata": {
           "doc_id": "ttlt_01_2016_ttlt_tandtc",
@@ -8974,7 +8974,7 @@
         "clause_id": "l_52_2014_qh13_art_10_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_10_clause_2",
         "rank": 10,
-        "score": 96.79516,
+        "score": 96.79383,
         "chunk_text": "2. Cá nhân, cơ quan, tổ chức sau đây, theo quy định của pháp luật về tố tụng dân sự, có quyền yêu cầu Tòa án hủy việc kết hôn trái pháp luật do việc kết hôn vi phạm quy định tại các điểm a, c và d khoản 1 Điều 8 của Luật này: a) Vợ, chồng của người đang có vợ, có chồng mà kết hôn với người khác; cha, mẹ, con, người giám hộ hoặc người đại diện theo pháp luật khác của người kết hôn trái pháp luật; b) Cơ quan quản lý nhà nước về gia đình; c) Cơ quan quản lý nhà nước về trẻ em; d) Hội liên hiệp phụ nữ.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -8999,7 +8999,7 @@
         "parent_id": "l_52_2014_qh13_art_10"
       }
     ],
-    "latency_ms": 7.405,
+    "latency_ms": 19.958,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9012,7 +9012,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9333,7 +9333,7 @@
         "parent_id": "l_52_2014_qh13_art_37"
       }
     ],
-    "latency_ms": 8.061,
+    "latency_ms": 17.8,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9346,7 +9346,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9667,7 +9667,7 @@
         "parent_id": "l_52_2014_qh13_art_46"
       }
     ],
-    "latency_ms": 7.026,
+    "latency_ms": 15.858,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -9680,7 +9680,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }
@@ -9697,7 +9697,7 @@
         "clause_id": "l_52_2014_qh13_art_60_clause_1",
         "parent_clause_id": "l_52_2014_qh13_art_60_clause_1",
         "rank": 1,
-        "score": 123.10367,
+        "score": 123.10163,
         "chunk_text": "1. Quyền, nghĩa vụ tài sản của vợ chồng đối với người thứ ba vẫn có hiệu lực sau khi ly hôn, trừ trường hợp vợ chồng và người thứ ba có thỏa thuận khác.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -9790,7 +9790,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_16_clause_1",
         "parent_clause_id": "nd_126_2014_nd_cp_art_16_clause_1",
         "rank": 4,
-        "score": 80.37797,
+        "score": 80.37634,
         "chunk_text": "Trường hợp chế độ tài sản của vợ chồng theo thỏa thuận được áp dụng thì khi xác lập, thực hiện giao dịch vợ, chồng có nghĩa vụ cung cấp cho người thứ ba biết về những thông tin liên quan; nếu vợ, chồng vi phạm nghĩa vụ này thì người thứ ba được coi là ngay tình và được bảo vệ quyền lợi theo quy định của Bộ luật Dân sự.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -9821,7 +9821,7 @@
         "clause_id": "l_52_2014_qh13_art_60_clause_2",
         "parent_clause_id": "l_52_2014_qh13_art_60_clause_2",
         "rank": 5,
-        "score": 72.77042,
+        "score": 72.767876,
         "chunk_text": "2. Trong trường hợp có tranh chấp về quyền, nghĩa vụ tài sản thì áp dụng quy định tại các điều 27, 37 và 45 của Luật này và quy định của Bộ luật dân sự để giải quyết.",
         "metadata": {
           "doc_id": "l_52_2014_qh13",
@@ -9883,7 +9883,7 @@
         "clause_id": "nd_126_2014_nd_cp_art_8_clause_2",
         "parent_clause_id": "nd_126_2014_nd_cp_art_8_clause_2",
         "rank": 7,
-        "score": 70.29364,
+        "score": 70.29178,
         "chunk_text": "2. Vợ chồng đã công khai thỏa thuận theo quy định của pháp luật có liên quan về việc chiếm hữu, sử dụng, định đoạt tài sản và người thứ ba biết hoặc phải biết nhưng vẫn xác lập, thực hiện giao dịch trái với thỏa thuận của vợ chồng.",
         "metadata": {
           "doc_id": "nd_126_2014_nd_cp",
@@ -10001,7 +10001,7 @@
         "parent_id": "l_52_2014_qh13_art_32"
       }
     ],
-    "latency_ms": 7.614,
+    "latency_ms": 22.289,
     "top_k": 10,
     "config": {
       "top_k": 10,
@@ -10014,7 +10014,7 @@
       "elasticsearch_index": "bm25-e6-verified-20261101",
       "chunks": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
       "fusion": "rrf",
-      "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
       "latency_measurement": "bm25_and_dense_branch_wall_time; hybrid_end_to_end_pipeline_wall_time",
       "as_of_date": "2026-10-15"
     }

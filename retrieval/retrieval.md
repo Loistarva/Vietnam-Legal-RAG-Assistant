@@ -134,7 +134,7 @@ Kết quả retrieval được đọc từ `retrieval/results`; báo cáo Markdo
 
 ## Kết quả trên Dev
 
-Corpus 2.322 chunk có khoảng hiệu lực cấp Điều/Khoản/Điểm và các văn bản sửa đổi Nghị định 123/2015, Thông tư 04/2020 (D1, SHA-256 sau khi đổi CRLF thành LF `c18239351424…`), BGE-M3, index `bm25-e6-verified-20261101`, candidate depth 50, RRF k=60, Top-10; chấm 75 câu Dev có Gold đã duyệt, `as_of_date` của từng câu. Chi tiết: [báo cáo đánh giá](evaluation/retrieval_report.md); chọn model dense: [so sánh model](evaluation/dense_model_comparison_dev_75.md).
+Corpus 2.322 chunk có khoảng hiệu lực cấp Điều/Khoản/Điểm và các văn bản sửa đổi Nghị định 123/2015, Thông tư 04/2020 (D1, SHA-256 sau khi đổi CRLF thành LF `7105c4840613…`), BGE-M3, index `bm25-e6-verified-20261101`, candidate depth 50, RRF k=60, Top-10; chấm 75 câu Dev có Gold đã duyệt, `as_of_date` của từng câu. Chi tiết: [báo cáo đánh giá](evaluation/retrieval_report.md); chọn model dense: [so sánh model](evaluation/dense_model_comparison_dev_75.md).
 
 | Phương pháp | Recall@10 | MRR@10 | nDCG@10 | Precision@10 | Temporal Violation Rate |
 | --- | ---: | ---: | ---: | ---: | ---: |
