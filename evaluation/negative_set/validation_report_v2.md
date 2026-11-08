@@ -34,5 +34,6 @@ python scripts/validate_negative_set.py --fetch-sources
 python -m pytest test/test_negative_set.py -q
 ```
 
-Kết quả: validator 0 issues; 61 test PASS. Corpus, benchmark, config và Test
+Kết quả: validator 0 issues; 61 test D1.5 PASS; full pytest 911 pass, 1 skip;
+ruff check . không lỗi. Corpus, benchmark, config và Test
 freeze không thay đổi trong phần D1.5.
