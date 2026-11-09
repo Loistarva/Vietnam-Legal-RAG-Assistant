@@ -28,6 +28,9 @@ jobs:
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           python -m pip install -r requirements.txt
 
+      - name: Fetch pinned negative-set sources
+        run: python scripts/validate_negative_set.py --fetch-sources
+
       - name: No tracked bytecode
         run: |
           if git ls-files | grep -E '\.py[co]$'; then

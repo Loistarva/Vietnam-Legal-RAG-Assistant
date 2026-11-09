@@ -487,7 +487,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 15046.543,
+    "latency_ms": 25871.342,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -500,7 +500,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -526,8 +526,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 931.93,
-      "model_load_ms": 5016.409,
+      "rerank_latency_ms": 1246.261,
+      "model_load_ms": 9260.978,
       "parent_context": {
         "parents_attached": 7,
         "parents_shared": 1,
@@ -537,8 +537,8 @@
         "context_chars": 5917
       },
       "returned": 10,
-      "retrieval_latency_ms": 9097.912,
-      "total_latency_ms": 15046.543
+      "retrieval_latency_ms": 15363.782,
+      "total_latency_ms": 25871.342
     }
   },
   {
@@ -1033,7 +1033,7 @@
         "parent_text": "[Điều 14. Giải quyết hậu quả của việc nam, nữ chung sống với nhau như vợ chồng mà không đăng ký kết hôn]\n1. Nam, nữ có đủ điều kiện kết hôn theo quy định của Luật này chung sống với nhau như vợ chồng mà không đăng ký kết hôn thì không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Quyền, nghĩa vụ đối với con, tài sản, nghĩa vụ và hợp đồng giữa các bên được giải quyết theo quy định tại Điều 15 và Điều 16 của Luật này.\n2. Trong trường hợp nam, nữ chung sống với nhau như vợ chồng theo quy định tại khoản 1 Điều này nhưng sau đó thực hiện việc đăng ký kết hôn theo quy định của pháp luật thì quan hệ hôn nhân được xác lập từ thời điểm đăng ký kết hôn."
       }
     ],
-    "latency_ms": 1148.404,
+    "latency_ms": 2835.745,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -1046,7 +1046,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -1072,8 +1072,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 589.642,
-      "model_load_ms": 0.001,
+      "rerank_latency_ms": 870.602,
+      "model_load_ms": 0.002,
       "parent_context": {
         "parents_attached": 8,
         "parents_shared": 1,
@@ -1083,8 +1083,8 @@
         "context_chars": 5987
       },
       "returned": 10,
-      "retrieval_latency_ms": 558.48,
-      "total_latency_ms": 1148.404
+      "retrieval_latency_ms": 1964.567,
+      "total_latency_ms": 2835.745
     }
   },
   {
@@ -1135,7 +1135,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 115.573456,
+          "bm25": 115.57087,
           "dense": 0.75791,
           "retrieval": 0.03278688524590164
         },
@@ -1185,7 +1185,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 105.153946,
+          "bm25": 105.15142,
           "dense": 0.72654,
           "retrieval": 0.03225806451612903
         },
@@ -1235,7 +1235,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 59.523968,
+          "bm25": 59.521152,
           "dense": 0.649363,
           "retrieval": 0.027526395173453996
         },
@@ -1285,7 +1285,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 97.803375,
+          "bm25": 97.80107,
           "dense": 0.68403,
           "retrieval": 0.031746031746031744
         },
@@ -1335,7 +1335,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 76.17238,
+          "bm25": 76.1699,
           "dense": 0.656015,
           "retrieval": 0.030536130536130537
         },
@@ -1482,7 +1482,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 68.16583,
+          "bm25": 68.1642,
           "dense": 0.616562,
           "retrieval": 0.0266900790166813
         },
@@ -1579,7 +1579,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 59.55152,
+          "bm25": 59.54905,
           "dense": 0.637084,
           "retrieval": 0.027650648360030512
         },
@@ -1587,7 +1587,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1127.292,
+    "latency_ms": 2634.529,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -1600,7 +1600,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -1626,7 +1626,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 501.966,
+      "rerank_latency_ms": 775.305,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -1637,8 +1637,8 @@
         "context_chars": 5476
       },
       "returned": 10,
-      "retrieval_latency_ms": 625.045,
-      "total_latency_ms": 1127.292
+      "retrieval_latency_ms": 1858.92,
+      "total_latency_ms": 2634.529
     }
   },
   {
@@ -1689,7 +1689,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 103.24836,
+          "bm25": 103.250336,
           "dense": 0.746869,
           "retrieval": 0.03278688524590164
         },
@@ -1739,7 +1739,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 83.291275,
+          "bm25": 83.29273,
           "dense": 0.724013,
           "retrieval": 0.0315136476426799
         },
@@ -1789,7 +1789,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 86.73441,
+          "bm25": 86.73648,
           "dense": 0.685621,
           "retrieval": 0.03149801587301587
         },
@@ -1839,7 +1839,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 98.603004,
+          "bm25": 98.60468,
           "dense": 0.672466,
           "retrieval": 0.031754032258064516
         },
@@ -1889,7 +1889,7 @@
           "retrieval": 21
         },
         "source_scores": {
-          "bm25": 54.10887,
+          "bm25": 54.11055,
           "dense": 0.612882,
           "retrieval": 0.023976023976023976
         },
@@ -1939,7 +1939,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 87.58161,
+          "bm25": 87.58299,
           "dense": 0.622742,
           "retrieval": 0.03036576949620428
         },
@@ -1989,7 +1989,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 78.39063,
+          "bm25": 78.39259,
           "dense": 0.61716,
           "retrieval": 0.028665028665028666
         },
@@ -2039,7 +2039,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 58.932068,
+          "bm25": 58.934074,
           "dense": 0.622167,
           "retrieval": 0.02690501986276634
         },
@@ -2089,7 +2089,7 @@
           "retrieval": 15
         },
         "source_scores": {
-          "bm25": 60.146946,
+          "bm25": 60.1483,
           "dense": 0.607593,
           "retrieval": 0.024961240310077522
         },
@@ -2139,7 +2139,7 @@
           "retrieval": 24
         },
         "source_scores": {
-          "bm25": 52.610744,
+          "bm25": 52.612972,
           "dense": 0.611308,
           "retrieval": 0.023024594453165882
         },
@@ -2147,7 +2147,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1035.786,
+    "latency_ms": 2390.832,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -2160,7 +2160,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -2186,8 +2186,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 484.723,
-      "model_load_ms": 0.001,
+      "rerank_latency_ms": 646.219,
+      "model_load_ms": 0.002,
       "parent_context": {
         "parents_attached": 6,
         "parents_shared": 4,
@@ -2197,8 +2197,8 @@
         "context_chars": 4779
       },
       "returned": 10,
-      "retrieval_latency_ms": 550.779,
-      "total_latency_ms": 1035.786
+      "retrieval_latency_ms": 1744.255,
+      "total_latency_ms": 2390.832
     }
   },
   {
@@ -2530,17 +2530,17 @@
           "clause_number": "4"
         },
         "parent_id": "ttlt_01_2016_ttlt_tandtc_art_7_p4",
-        "rrf_score": 0.012658227848101266,
+        "rrf_score": 0.01282051282051282,
         "retrieval_sources": [
           "bm25"
         ],
         "source_ranks": {
-          "bm25": 19,
+          "bm25": 18,
           "retrieval": 38
         },
         "source_scores": {
-          "bm25": 31.33394,
-          "retrieval": 0.012658227848101266
+          "bm25": 31.33848,
+          "retrieval": 0.01282051282051282
         },
         "reranker_score": 0.025177001953125,
         "parent_text": "[Điều 7. Nguyên tắc giải quyết tài sản của vợ chồng khi ly hôn]\ncho vợ, chồng đang hoạt động sản xuất, kinh doanh được tiếp tục được sản xuất, kinh doanh để tạo thu nhập và phải thanh toán cho bên kia phần giá trị tài sản chênh lệch. Việc bảo vệ lợi ích chính đáng của mỗi bên trong sản xuất, kinh doanh và hoạt động nghề nghiệp không được ảnh hưởng đến điều kiện sống tối thiểu của vợ, chồng và con chưa thành niên, con đã thành niên nhưng mất năng lực hành vi dân sự. Ví dụ: Vợ chồng có tài sản chung là một chiếc ô tô người chồng đang chạy xe taxi trị giá 400 triệu đồng và một cửa hàng tạp hóa người vợ đang kinh doanh trị giá 200 triệu đồng. Khi giải quyết ly hôn và chia tài sản chung, Tòa án phải xem xét giao cửa hàng tạp hóa cho người vợ, giao xe ô tô cho người chồng để họ tiếp tục kinh doanh, tạo thu nhập. Người chồng nhận được phần giá trị tài sản lớn hơn phải thanh toán cho người vợ phần giá trị là 100 triệu đồng.\nd) “Lỗi của mỗi bên trong vi phạm quyền, nghĩa vụ của vợ chồng” là lỗi của vợ hoặc chồng vi phạm quyền, nghĩa vụ về nhân thân, tài sản của vợ chồng dẫn đến ly hôn. Ví dụ: Trường hợp người chồng có hành vi bạo lực gia đình, không chung thủy hoặc phá tán tài sản thì khi giải quyết ly hôn Tòa án phải xem xét yếu tố lỗi của người chồng khi chia tài sản chung của vợ chồng để đảm bảo quyền, lợi ích hợp pháp của vợ và con chưa thành niên."
@@ -2691,7 +2691,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1009.988,
+    "latency_ms": 2226.31,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -2704,7 +2704,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -2730,7 +2730,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 474.406,
+      "rerank_latency_ms": 525.292,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -2741,8 +2741,8 @@
         "context_chars": 5551
       },
       "returned": 10,
-      "retrieval_latency_ms": 535.363,
-      "total_latency_ms": 1009.988
+      "retrieval_latency_ms": 1700.713,
+      "total_latency_ms": 2226.31
     }
   },
   {
@@ -2793,7 +2793,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 108.12525,
+          "bm25": 108.126915,
           "dense": 0.714225,
           "retrieval": 0.03278688524590164
         },
@@ -2843,7 +2843,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 37.003914,
+          "bm25": 37.00584,
           "dense": 0.629998,
           "retrieval": 0.0315136476426799
         },
@@ -2893,7 +2893,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 32.18486,
+          "bm25": 32.18693,
           "dense": 0.543101,
           "retrieval": 0.02761904761904762
         },
@@ -2939,7 +2939,7 @@
           "retrieval": 26
         },
         "source_scores": {
-          "bm25": 30.378614,
+          "bm25": 30.3806,
           "retrieval": 0.0136986301369863
         },
         "reranker_score": 0.207275390625,
@@ -3082,7 +3082,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 30.048605,
+          "bm25": 30.050661,
           "dense": 0.517494,
           "retrieval": 0.022772772772772773
         },
@@ -3128,7 +3128,7 @@
           "retrieval": 36
         },
         "source_scores": {
-          "bm25": 28.15652,
+          "bm25": 28.15856,
           "retrieval": 0.012048192771084338
         },
         "reranker_score": 0.057373046875,
@@ -3229,7 +3229,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1068.42,
+    "latency_ms": 2690.038,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -3242,7 +3242,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -3268,7 +3268,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 490.822,
+      "rerank_latency_ms": 757.062,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 8,
@@ -3279,8 +3279,8 @@
         "context_chars": 5482
       },
       "returned": 10,
-      "retrieval_latency_ms": 577.369,
-      "total_latency_ms": 1068.42
+      "retrieval_latency_ms": 1932.216,
+      "total_latency_ms": 2690.038
     }
   },
   {
@@ -3786,7 +3786,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1075.854,
+    "latency_ms": 2494.097,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -3799,7 +3799,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -3825,7 +3825,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 528.652,
+      "rerank_latency_ms": 762.098,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -3836,8 +3836,8 @@
         "context_chars": 5671
       },
       "returned": 10,
-      "retrieval_latency_ms": 546.978,
-      "total_latency_ms": 1075.854
+      "retrieval_latency_ms": 1731.611,
+      "total_latency_ms": 2494.097
     }
   },
   {
@@ -4341,7 +4341,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 985.328,
+    "latency_ms": 2233.792,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -4354,7 +4354,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -4380,7 +4380,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 447.752,
+      "rerank_latency_ms": 524.464,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -4391,8 +4391,8 @@
         "context_chars": 4836
       },
       "returned": 10,
-      "retrieval_latency_ms": 537.331,
-      "total_latency_ms": 985.328
+      "retrieval_latency_ms": 1708.77,
+      "total_latency_ms": 2233.792
     }
   },
   {
@@ -4901,7 +4901,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1055.24,
+    "latency_ms": 2246.985,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -4914,7 +4914,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -4940,7 +4940,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 471.244,
+      "rerank_latency_ms": 579.697,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 5,
@@ -4951,8 +4951,8 @@
         "context_chars": 5301
       },
       "returned": 10,
-      "retrieval_latency_ms": 583.763,
-      "total_latency_ms": 1055.24
+      "retrieval_latency_ms": 1666.966,
+      "total_latency_ms": 2246.985
     }
   },
   {
@@ -5458,7 +5458,7 @@
         "parent_text": "[Điều 115. Nghĩa vụ cấp dưỡng giữa vợ và chồng khi ly hôn]\nKhi ly hôn nếu bên khó khăn, túng thiếu có yêu cầu cấp dưỡng mà có lý do chính đáng thì bên kia có nghĩa vụ cấp dưỡng theo khả năng của mình."
       }
     ],
-    "latency_ms": 1080.753,
+    "latency_ms": 2459.144,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -5471,7 +5471,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -5497,7 +5497,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 541.8,
+      "rerank_latency_ms": 770.931,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 9,
@@ -5508,8 +5508,8 @@
         "context_chars": 5646
       },
       "returned": 10,
-      "retrieval_latency_ms": 538.716,
-      "total_latency_ms": 1080.753
+      "retrieval_latency_ms": 1687.705,
+      "total_latency_ms": 2459.144
     }
   },
   {
@@ -5556,7 +5556,7 @@
           "retrieval": 33
         },
         "source_scores": {
-          "bm25": 46.445538,
+          "bm25": 46.446617,
           "retrieval": 0.012658227848101266
         },
         "reranker_score": 0.1983642578125,
@@ -5605,7 +5605,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 55.814922,
+          "bm25": 55.812153,
           "dense": 0.515382,
           "retrieval": 0.02871794871794872
         },
@@ -5655,7 +5655,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 69.31038,
+          "bm25": 69.308235,
           "dense": 0.540915,
           "retrieval": 0.03177805800756621
         },
@@ -5705,7 +5705,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 68.23242,
+          "bm25": 68.2304,
           "dense": 0.601141,
           "retrieval": 0.03252247488101534
         },
@@ -5755,7 +5755,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 45.774166,
+          "bm25": 45.771584,
           "dense": 0.552924,
           "retrieval": 0.02821869488536155
         },
@@ -5805,7 +5805,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 64.62688,
+          "bm25": 64.62533,
           "dense": 0.548397,
           "retrieval": 0.03125
         },
@@ -5855,7 +5855,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 65.918495,
+          "bm25": 65.9157,
           "dense": 0.524311,
           "retrieval": 0.030158730158730156
         },
@@ -5952,7 +5952,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 50.24748,
+          "bm25": 50.245846,
           "dense": 0.49892,
           "retrieval": 0.023361976369495163
         },
@@ -6010,7 +6010,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1017.589,
+    "latency_ms": 2268.31,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -6023,7 +6023,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -6049,7 +6049,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 467.029,
+      "rerank_latency_ms": 519.087,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 8,
@@ -6060,8 +6060,8 @@
         "context_chars": 5938
       },
       "returned": 10,
-      "retrieval_latency_ms": 550.32,
-      "total_latency_ms": 1017.589
+      "retrieval_latency_ms": 1748.546,
+      "total_latency_ms": 2268.31
     }
   },
   {
@@ -6112,7 +6112,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 156.01555,
+          "bm25": 156.01144,
           "dense": 0.715434,
           "retrieval": 0.03278688524590164
         },
@@ -6158,7 +6158,7 @@
           "retrieval": 27
         },
         "source_scores": {
-          "bm25": 83.104095,
+          "bm25": 83.10556,
           "retrieval": 0.014084507042253521
         },
         "reranker_score": 0.87841796875,
@@ -6207,7 +6207,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 95.24011,
+          "bm25": 95.2367,
           "dense": 0.596208,
           "retrieval": 0.02603002235707442
         },
@@ -6257,7 +6257,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 71.34232,
+          "bm25": 71.33864,
           "dense": 0.606957,
           "retrieval": 0.021264626462646263
         },
@@ -6303,7 +6303,7 @@
           "retrieval": 29
         },
         "source_scores": {
-          "bm25": 81.58322,
+          "bm25": 81.579605,
           "retrieval": 0.013888888888888888
         },
         "reranker_score": 0.82568359375,
@@ -6352,7 +6352,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 72.321236,
+          "bm25": 72.32486,
           "dense": 0.596042,
           "retrieval": 0.020235053653551355
         },
@@ -6402,7 +6402,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 70.04265,
+          "bm25": 70.03821,
           "dense": 0.609274,
           "retrieval": 0.02097370136926755
         },
@@ -6452,7 +6452,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 74.539955,
+          "bm25": 74.53877,
           "dense": 0.595357,
           "retrieval": 0.021663577386468954
         },
@@ -6554,7 +6554,7 @@
         "parent_text": "[Điều 125. Công nhận, ghi chú bản án, quyết định của Tòa án, cơ quan có thẩm quyền của nước ngoài về hôn nhân và gia đình]\n1. Việc công nhận bản án, quyết định về hôn nhân và gia đình của Tòa án nước ngoài có yêu cầu thi hành tại Việt Nam được thực hiện theo quy định của Bộ luật tố tụng dân sự.\n2. Chính phủ quy định việc ghi vào sổ hộ tịch các việc về hôn nhân và gia đình theo bản án, quyết định của Tòa án nước ngoài mà không có yêu cầu thi hành tại Việt Nam hoặc không có đơn yêu cầu không công nhận tại Việt Nam; quyết định về hôn nhân và gia đình của cơ quan khác có thẩm quyền của nước ngoài."
       }
     ],
-    "latency_ms": 1023.921,
+    "latency_ms": 2394.296,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -6567,7 +6567,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -6593,7 +6593,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 486.175,
+      "rerank_latency_ms": 659.541,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 8,
@@ -6604,8 +6604,8 @@
         "context_chars": 4816
       },
       "returned": 10,
-      "retrieval_latency_ms": 537.499,
-      "total_latency_ms": 1023.921
+      "retrieval_latency_ms": 1734.202,
+      "total_latency_ms": 2394.296
     }
   },
   {
@@ -6656,7 +6656,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 170.74333,
+          "bm25": 170.74103,
           "dense": 0.776603,
           "retrieval": 0.03278688524590164
         },
@@ -6706,7 +6706,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 105.83912,
+          "bm25": 105.83808,
           "dense": 0.726653,
           "retrieval": 0.03225806451612903
         },
@@ -6756,7 +6756,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 61.98011,
+          "bm25": 61.97907,
           "dense": 0.686969,
           "retrieval": 0.03057889822595705
         },
@@ -6806,7 +6806,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 86.68064,
+          "bm25": 86.68244,
           "dense": 0.615333,
           "retrieval": 0.029910714285714284
         },
@@ -6950,7 +6950,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 64.02944,
+          "bm25": 64.0284,
           "dense": 0.648586,
           "retrieval": 0.03055037313432836
         },
@@ -7000,7 +7000,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 57.97662,
+          "bm25": 57.975582,
           "dense": 0.639039,
           "retrieval": 0.029877369007803793
         },
@@ -7050,7 +7050,7 @@
           "retrieval": 14
         },
         "source_scores": {
-          "bm25": 51.86202,
+          "bm25": 51.86022,
           "dense": 0.579443,
           "retrieval": 0.022399203583872575
         },
@@ -7100,7 +7100,7 @@
           "retrieval": 12
         },
         "source_scores": {
-          "bm25": 46.741318,
+          "bm25": 46.740856,
           "dense": 0.612421,
           "retrieval": 0.023717595146166573
         },
@@ -7108,7 +7108,7 @@
         "parent_text": "[Điều 17. Bình đẳng về quyền, nghĩa vụ giữa vợ, chồng]\nVợ, chồng bình đẳng với nhau, có quyền, nghĩa vụ ngang nhau về mọi mặt trong gia đình, trong việc thực hiện các quyền, nghĩa vụ của công dân được quy định trong Hiến pháp, Luật này và các luật khác có liên quan."
       }
     ],
-    "latency_ms": 1012.841,
+    "latency_ms": 2629.413,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -7121,7 +7121,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -7147,8 +7147,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 455.83,
-      "model_load_ms": 0.001,
+      "rerank_latency_ms": 742.015,
+      "model_load_ms": 0.002,
       "parent_context": {
         "parents_attached": 10,
         "parents_shared": 0,
@@ -7158,8 +7158,8 @@
         "context_chars": 5856
       },
       "returned": 10,
-      "retrieval_latency_ms": 556.737,
-      "total_latency_ms": 1012.841
+      "retrieval_latency_ms": 1887.074,
+      "total_latency_ms": 2629.413
     }
   },
   {
@@ -7210,7 +7210,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 120.333694,
+          "bm25": 120.33169,
           "dense": 0.768657,
           "retrieval": 0.03278688524590164
         },
@@ -7260,7 +7260,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 89.017746,
+          "bm25": 89.015915,
           "dense": 0.653516,
           "retrieval": 0.03225806451612903
         },
@@ -7451,7 +7451,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 67.295364,
+          "bm25": 67.29345,
           "dense": 0.588203,
           "retrieval": 0.03036576949620428
         },
@@ -7497,7 +7497,7 @@
           "retrieval": 20
         },
         "source_scores": {
-          "bm25": 51.19233,
+          "bm25": 51.188576,
           "retrieval": 0.014705882352941176
         },
         "reranker_score": 0.410888671875,
@@ -7542,7 +7542,7 @@
           "retrieval": 29
         },
         "source_scores": {
-          "bm25": 47.504,
+          "bm25": 47.499916,
           "retrieval": 0.013513513513513514
         },
         "reranker_score": 0.378662109375,
@@ -7591,7 +7591,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 43.04249,
+          "bm25": 43.03669,
           "dense": 0.569444,
           "retrieval": 0.022987012987012986
         },
@@ -7641,7 +7641,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 56.11108,
+          "bm25": 56.108967,
           "dense": 0.58859,
           "retrieval": 0.030330882352941176
         },
@@ -7649,7 +7649,7 @@
         "parent_text": "[Điều 120. Khuyến khích việc trợ giúp của tổ chức, cá nhân]\nNhà nước và xã hội khuyến khích tổ chức, cá nhân trợ giúp bằng tiền hoặc tài sản khác cho gia đình, cá nhân có hoàn cảnh đặc biệt khó khăn, túng thiếu."
       }
     ],
-    "latency_ms": 1052.475,
+    "latency_ms": 2285.296,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -7662,7 +7662,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -7688,7 +7688,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 499.614,
+      "rerank_latency_ms": 600.127,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -7699,8 +7699,8 @@
         "context_chars": 4362
       },
       "returned": 10,
-      "retrieval_latency_ms": 552.41,
-      "total_latency_ms": 1052.475
+      "retrieval_latency_ms": 1684.889,
+      "total_latency_ms": 2285.296
     }
   },
   {
@@ -7751,7 +7751,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 74.43708,
+          "bm25": 74.43312,
           "dense": 0.694013,
           "retrieval": 0.025353016688061617
         },
@@ -7801,7 +7801,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 102.064835,
+          "bm25": 102.05455,
           "dense": 0.699228,
           "retrieval": 0.029386529386529386
         },
@@ -7851,7 +7851,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 72.99079,
+          "bm25": 72.98244,
           "dense": 0.703742,
           "retrieval": 0.02591362126245847
         },
@@ -7901,7 +7901,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 104.728874,
+          "bm25": 104.7239,
           "dense": 0.710068,
           "retrieval": 0.030834914611005692
         },
@@ -7947,7 +7947,7 @@
           "retrieval": 40
         },
         "source_scores": {
-          "bm25": 77.85284,
+          "bm25": 77.844444,
           "retrieval": 0.012987012987012988
         },
         "reranker_score": 0.94091796875,
@@ -7985,20 +7985,20 @@
           "breadcrumb": "Chương V QUAN HỆ GIỮA CHA MẸ VÀ CON > Mục 1 QUYỀN VÀ NGHĨA VỤ GIỮA CHA MẸ VÀ CON > Điều 80. Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng"
         },
         "parent_id": "l_52_2014_qh13_art_80",
-        "rrf_score": 0.025240384615384616,
+        "rrf_score": 0.025,
         "retrieval_sources": [
           "bm25",
           "dense"
         ],
         "source_ranks": {
-          "bm25": 4,
+          "bm25": 5,
           "dense": 44,
-          "retrieval": 11
+          "retrieval": 13
         },
         "source_scores": {
-          "bm25": 85.903534,
+          "bm25": 85.895256,
           "dense": 0.660526,
-          "retrieval": 0.025240384615384616
+          "retrieval": 0.025
         },
         "reranker_score": 0.9384765625,
         "parent_text": "[Điều 80. Quyền, nghĩa vụ của con dâu, con rể, cha mẹ vợ, cha mẹ chồng]\nTrong trường hợp con dâu, con rể sống chung với cha mẹ chồng, cha mẹ vợ thì giữa các bên có các quyền, nghĩa vụ tôn trọng, quan tâm, chăm sóc và giúp đỡ nhau theo quy định tại các điều 69, 70, 71 và 72 của Luật này."
@@ -8046,7 +8046,7 @@
           "retrieval": 19
         },
         "source_scores": {
-          "bm25": 65.55267,
+          "bm25": 65.5544,
           "dense": 0.700563,
           "retrieval": 0.023234683281412254
         },
@@ -8096,7 +8096,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 76.01359,
+          "bm25": 76.0067,
           "dense": 0.719921,
           "retrieval": 0.028373015873015873
         },
@@ -8146,7 +8146,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 109.207825,
+          "bm25": 109.19737,
           "dense": 0.732708,
           "retrieval": 0.03278688524590164
         },
@@ -8196,7 +8196,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 81.78192,
+          "bm25": 81.77443,
           "dense": 0.69883,
           "retrieval": 0.02803921568627451
         },
@@ -8204,7 +8204,7 @@
         "parent_text": "[Điều 71. Nghĩa vụ và quyền chăm sóc, nuôi dưỡng]\n1. Cha, mẹ có nghĩa vụ và quyền ngang nhau, cùng nhau chăm sóc, nuôi dưỡng con chưa thành niên, con đã thành niên mất năng lực hành vi dân sự hoặc không có khả năng lao động và không có tài sản để tự nuôi mình.\n2. Con có nghĩa vụ và quyền chăm sóc, nuôi dưỡng cha mẹ, đặc biệt khi cha mẹ mất năng lực hành vi dân sự, ốm đau, già yếu, khuyết tật; trường hợp gia đình có nhiều con thì các con phải cùng nhau chăm sóc, nuôi dưỡng cha mẹ."
       }
     ],
-    "latency_ms": 1018.286,
+    "latency_ms": 2574.3,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -8217,7 +8217,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -8243,8 +8243,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 479.552,
-      "model_load_ms": 0.001,
+      "rerank_latency_ms": 691.425,
+      "model_load_ms": 0.002,
       "parent_context": {
         "parents_attached": 6,
         "parents_shared": 4,
@@ -8254,8 +8254,8 @@
         "context_chars": 3887
       },
       "returned": 10,
-      "retrieval_latency_ms": 538.521,
-      "total_latency_ms": 1018.286
+      "retrieval_latency_ms": 1882.582,
+      "total_latency_ms": 2574.3
     }
   },
   {
@@ -8306,7 +8306,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 120.97403,
+          "bm25": 120.96736,
           "dense": 0.791614,
           "retrieval": 0.03225806451612903
         },
@@ -8406,7 +8406,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 83.719055,
+          "bm25": 83.71413,
           "dense": 0.740512,
           "retrieval": 0.028484848484848488
         },
@@ -8456,7 +8456,7 @@
           "retrieval": 12
         },
         "source_scores": {
-          "bm25": 99.9623,
+          "bm25": 99.95992,
           "dense": 0.716915,
           "retrieval": 0.027242401779095628
         },
@@ -8506,7 +8506,7 @@
           "retrieval": 15
         },
         "source_scores": {
-          "bm25": 78.58103,
+          "bm25": 78.5766,
           "dense": 0.731615,
           "retrieval": 0.02638888888888889
         },
@@ -8556,7 +8556,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 103.19135,
+          "bm25": 103.187096,
           "dense": 0.776318,
           "retrieval": 0.03036576949620428
         },
@@ -8606,7 +8606,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 99.53963,
+          "bm25": 99.536316,
           "dense": 0.724469,
           "retrieval": 0.027402402402402402
         },
@@ -8706,7 +8706,7 @@
           "retrieval": 24
         },
         "source_scores": {
-          "bm25": 77.84491,
+          "bm25": 77.84225,
           "dense": 0.699942,
           "retrieval": 0.024250440917107582
         },
@@ -8756,7 +8756,7 @@
           "retrieval": 22
         },
         "source_scores": {
-          "bm25": 70.42048,
+          "bm25": 70.41894,
           "dense": 0.732683,
           "retrieval": 0.025320462098433298
         },
@@ -8764,7 +8764,7 @@
         "parent_text": "[Điều 97. Quyền, nghĩa vụ của bên mang thai hộ vì mục đích nhân đạo]\n1. Người mang thai hộ, chồng của người mang thai hộ có quyền, nghĩa vụ như cha mẹ trong việc chăm sóc sức khỏe sinh sản và chăm sóc, nuôi dưỡng con cho đến thời điểm giao đứa trẻ cho bên nhờ mang thai hộ; phải giao đứa trẻ cho bên nhờ mang thai hộ.\n2. Người mang thai hộ phải tuân thủ quy định về thăm khám, các quy trình sàng lọc để phát hiện, điều trị các bất thường, dị tật của bào thai theo quy định của Bộ Y tế.\n3. Người mang thai hộ được hưởng chế độ thai sản theo quy định của pháp luật về lao động và bảo hiểm xã hội cho đến thời điểm giao đứa trẻ cho bên nhờ mang thai hộ. Trong trường hợp kể từ ngày sinh đến thời điểm giao đứa trẻ mà thời gian hưởng chế độ thai sản chưa đủ 60 ngày thì người mang thai hộ vẫn được hưởng chế độ thai sản cho đến khi đủ 60 ngày. Việc sinh con do mang thai hộ không tính vào số con theo chính sách dân số và kế hoạch hóa gia đình.\n4. Bên mang thai hộ có quyền yêu cầu bên nhờ mang thai hộ thực hiện việc hỗ trợ, chăm sóc sức khỏe sinh sản. Trong trường hợp vì lý do tính mạng, sức khỏe của mình hoặc sự phát triển của thai nhi, người mang thai hộ có quyền quyết định về số lượng bào thai, việc tiếp tục hay không tiếp tục mang thai phù hợp với quy định của pháp luật về chăm sóc sức khỏe sinh sản và sinh con bằng kỹ thuật hỗ trợ sinh sản.\n5. Trong trường hợp bên nhờ mang thai hộ từ chối nhận con thì bên mang thai hộ có quyền yêu cầu Tòa án buộc bên nhờ mang thai hộ nhận con."
       }
     ],
-    "latency_ms": 1015.696,
+    "latency_ms": 2444.405,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -8777,7 +8777,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -8803,7 +8803,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 479.083,
+      "rerank_latency_ms": 724.508,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 5,
@@ -8814,8 +8814,8 @@
         "context_chars": 5459
       },
       "returned": 10,
-      "retrieval_latency_ms": 536.324,
-      "total_latency_ms": 1015.696
+      "retrieval_latency_ms": 1719.505,
+      "total_latency_ms": 2444.405
     }
   },
   {
@@ -8866,7 +8866,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 149.1163,
+          "bm25": 149.11058,
           "dense": 0.785659,
           "retrieval": 0.0315136476426799
         },
@@ -8916,7 +8916,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 85.75875,
+          "bm25": 85.76326,
           "dense": 0.716969,
           "retrieval": 0.029411764705882353
         },
@@ -8966,7 +8966,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 214.48253,
+          "bm25": 214.47903,
           "dense": 0.778282,
           "retrieval": 0.032266458495966696
         },
@@ -9016,7 +9016,7 @@
           "retrieval": 11
         },
         "source_scores": {
-          "bm25": 83.414894,
+          "bm25": 83.41893,
           "dense": 0.673504,
           "retrieval": 0.027417840375586856
         },
@@ -9066,7 +9066,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 205.51881,
+          "bm25": 205.51541,
           "dense": 0.798325,
           "retrieval": 0.03252247488101534
         },
@@ -9166,7 +9166,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 194.69547,
+          "bm25": 194.69128,
           "dense": 0.749523,
           "retrieval": 0.03125
         },
@@ -9216,7 +9216,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 86.67855,
+          "bm25": 86.67924,
           "dense": 0.647502,
           "retrieval": 0.027271052146674038
         },
@@ -9266,7 +9266,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 84.59235,
+          "bm25": 84.589,
           "dense": 0.717302,
           "retrieval": 0.029418126757516764
         },
@@ -9316,7 +9316,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 92.104195,
+          "bm25": 92.100815,
           "dense": 0.73182,
           "retrieval": 0.030303030303030304
         },
@@ -9324,7 +9324,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 984.516,
+    "latency_ms": 2262.335,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -9337,7 +9337,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -9363,7 +9363,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 438.488,
+      "rerank_latency_ms": 506.772,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 5,
@@ -9374,8 +9374,8 @@
         "context_chars": 3378
       },
       "returned": 10,
-      "retrieval_latency_ms": 545.809,
-      "total_latency_ms": 984.516
+      "retrieval_latency_ms": 1755.264,
+      "total_latency_ms": 2262.335
     }
   },
   {
@@ -9426,7 +9426,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 200.30678,
+          "bm25": 200.30125,
           "dense": 0.789897,
           "retrieval": 0.03278688524590164
         },
@@ -9476,7 +9476,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 180.24324,
+          "bm25": 180.23651,
           "dense": 0.77353,
           "retrieval": 0.031754032258064516
         },
@@ -9526,7 +9526,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 164.81851,
+          "bm25": 164.81253,
           "dense": 0.786812,
           "retrieval": 0.031754032258064516
         },
@@ -9576,7 +9576,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 178.3904,
+          "bm25": 178.3849,
           "dense": 0.775643,
           "retrieval": 0.031746031746031744
         },
@@ -9626,7 +9626,7 @@
           "retrieval": 21
         },
         "source_scores": {
-          "bm25": 88.21005,
+          "bm25": 88.21746,
           "dense": 0.707018,
           "retrieval": 0.02332285115303983
         },
@@ -9723,7 +9723,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 128.51306,
+          "bm25": 128.50865,
           "dense": 0.71817,
           "retrieval": 0.029631255487269532
         },
@@ -9773,7 +9773,7 @@
           "retrieval": 33
         },
         "source_scores": {
-          "bm25": 98.06358,
+          "bm25": 98.06076,
           "dense": 0.664149,
           "retrieval": 0.019743240614666407
         },
@@ -9823,7 +9823,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 150.48228,
+          "bm25": 150.47581,
           "dense": 0.712885,
           "retrieval": 0.030090497737556562
         },
@@ -9873,7 +9873,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 137.79628,
+          "bm25": 137.79161,
           "dense": 0.70316,
           "retrieval": 0.028309409888357256
         },
@@ -9881,7 +9881,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1127.906,
+    "latency_ms": 2456.027,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -9894,7 +9894,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -9920,8 +9920,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 583.601,
-      "model_load_ms": 0.007,
+      "rerank_latency_ms": 733.748,
+      "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
         "parents_shared": 3,
@@ -9931,8 +9931,8 @@
         "context_chars": 5919
       },
       "returned": 10,
-      "retrieval_latency_ms": 544.08,
-      "total_latency_ms": 1127.906
+      "retrieval_latency_ms": 1721.814,
+      "total_latency_ms": 2456.027
     }
   },
   {
@@ -9983,7 +9983,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 134.14389,
+          "bm25": 134.14023,
           "dense": 0.713389,
           "retrieval": 0.03252247488101534
         },
@@ -10033,7 +10033,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 137.81082,
+          "bm25": 137.80699,
           "dense": 0.701384,
           "retrieval": 0.03252247488101534
         },
@@ -10133,7 +10133,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 105.967255,
+          "bm25": 105.96243,
           "dense": 0.640027,
           "retrieval": 0.030158730158730156
         },
@@ -10183,7 +10183,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 101.33379,
+          "bm25": 101.32802,
           "dense": 0.636375,
           "retrieval": 0.028850145288501453
         },
@@ -10233,7 +10233,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 95.625435,
+          "bm25": 95.62106,
           "dense": 0.653957,
           "retrieval": 0.02964426877470356
         },
@@ -10283,7 +10283,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 89.001884,
+          "bm25": 88.99762,
           "dense": 0.683153,
           "retrieval": 0.029709507042253523
         },
@@ -10383,7 +10383,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 100.438416,
+          "bm25": 100.43442,
           "dense": 0.64229,
           "retrieval": 0.029631255487269532
         },
@@ -10433,7 +10433,7 @@
           "retrieval": 12
         },
         "source_scores": {
-          "bm25": 100.175125,
+          "bm25": 100.169556,
           "dense": 0.612039,
           "retrieval": 0.02786377708978328
         },
@@ -10441,7 +10441,7 @@
         "parent_text": "[Điều 5. Tuyên truyền, vận động nhân dân về áp dụng tập quán]\n1. Các Bộ, ngành liên quan và Ủy ban nhân dân các cấp phối hợp với Mặt trận Tổ quốc Việt Nam xây dựng, thực hiện các chính sách, biện pháp sau đây: a) Tạo điều kiện để người dân thực hiện các quy định của pháp luật về hôn nhân và gia đình; phát huy truyền thống, tập quán tốt đẹp thể hiện bản sắc của mỗi dân tộc, xóa bỏ tập quán lạc hậu về hôn nhân và gia đình; b) Tăng cường tuyên truyền, phổ biến pháp luật về hôn nhân và gia đình, vận động người dân phát huy truyền thống, tập quán tốt đẹp và xóa bỏ tập quán lạc hậu về hôn nhân và gia đình; c) Giáo dục thế hệ trẻ bảo tồn, phát triển ngôn ngữ, chữ viết và phát huy các giá trị văn hóa trong tập quán tốt đẹp của mỗi dân tộc.\n2. Tập quán lạc hậu về hôn nhân và gia đình là tập quán trái với những nguyên tắc cơ bản của chế độ hôn nhân và gia đình quy định tại Điều 2 của Luật Hôn nhân và gia đình hoặc vi phạm điều cấm quy định tại Khoản 2 Điều 5 của Luật Hôn nhân và gia đình. Ban hành kèm theo Nghị định này Danh mục tập quán lạc hậu về hôn nhân và gia đình cần vận động xóa bỏ hoặc cấm áp dụng."
       }
     ],
-    "latency_ms": 1082.192,
+    "latency_ms": 2546.788,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -10454,7 +10454,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -10480,7 +10480,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 539.189,
+      "rerank_latency_ms": 782.914,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -10491,8 +10491,8 @@
         "context_chars": 3211
       },
       "returned": 10,
-      "retrieval_latency_ms": 542.777,
-      "total_latency_ms": 1082.192
+      "retrieval_latency_ms": 1763.507,
+      "total_latency_ms": 2546.788
     }
   },
   {
@@ -10593,7 +10593,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 71.95277,
+          "bm25": 71.958,
           "dense": 0.593327,
           "retrieval": 0.03149801587301587
         },
@@ -10743,7 +10743,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 68.98959,
+          "bm25": 68.9947,
           "dense": 0.612298,
           "retrieval": 0.031544957774465976
         },
@@ -11001,7 +11001,7 @@
         "parent_text": "[Điều 1. Phạm vi điều chỉnh]\nNghị định này quy định chi tiết về áp dụng tập quán về hôn nhân và gia đình, chế độ tài sản của vợ chồng, giải quyết các việc về hôn nhân và gia đình có yếu tố nước ngoài và một số biện pháp thi hành Luật Hôn nhân và gia đình."
       }
     ],
-    "latency_ms": 1103.305,
+    "latency_ms": 2475.664,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -11014,7 +11014,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -11040,7 +11040,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 559.31,
+      "rerank_latency_ms": 734.741,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -11051,8 +11051,8 @@
         "context_chars": 3211
       },
       "returned": 10,
-      "retrieval_latency_ms": 543.782,
-      "total_latency_ms": 1103.305
+      "retrieval_latency_ms": 1740.635,
+      "total_latency_ms": 2475.664
     }
   },
   {
@@ -11103,7 +11103,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 74.20488,
+          "bm25": 74.20651,
           "dense": 0.639435,
           "retrieval": 0.03200204813108039
         },
@@ -11153,7 +11153,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 78.14222,
+          "bm25": 78.14364,
           "dense": 0.595145,
           "retrieval": 0.030834914611005692
         },
@@ -11203,7 +11203,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 98.89203,
+          "bm25": 98.89389,
           "dense": 0.659552,
           "retrieval": 0.03278688524590164
         },
@@ -11253,7 +11253,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 65.81825,
+          "bm25": 65.82033,
           "dense": 0.567476,
           "retrieval": 0.027820121951219513
         },
@@ -11299,7 +11299,7 @@
           "retrieval": 18
         },
         "source_scores": {
-          "bm25": 65.42627,
+          "bm25": 65.42817,
           "retrieval": 0.015151515151515152
         },
         "reranker_score": 0.81787109375,
@@ -11348,7 +11348,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 54.759003,
+          "bm25": 54.76099,
           "dense": 0.563193,
           "retrieval": 0.024444444444444446
         },
@@ -11394,7 +11394,7 @@
           "retrieval": 16
         },
         "source_scores": {
-          "bm25": 65.69542,
+          "bm25": 65.69746,
           "retrieval": 0.015384615384615385
         },
         "reranker_score": 0.70751953125,
@@ -11443,7 +11443,7 @@
           "retrieval": 12
         },
         "source_scores": {
-          "bm25": 47.38623,
+          "bm25": 47.38815,
           "dense": 0.556999,
           "retrieval": 0.01905453225660103
         },
@@ -11493,7 +11493,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 45.982723,
+          "bm25": 45.98438,
           "dense": 0.554943,
           "retrieval": 0.018433571185864764
         },
@@ -11548,7 +11548,7 @@
         "parent_text": "[Điều 13. Chiếm hữu, sử dụng, định đoạt tài sản chung của vợ chồng]\n1. Việc chiếm hữu, sử dụng, định đoạt tài sản chung do vợ chồng thỏa thuận. Trong trường hợp vợ hoặc chồng xác lập, thực hiện giao dịch liên quan đến tài sản chung để đáp ứng nhu cầu thiết yếu của gia đình thì được coi là có sự đồng ý của bên kia, trừ trường hợp quy định tại Khoản 2 Điều 35 của Luật Hôn nhân và gia đình.\n2. Trong trường hợp vợ hoặc chồng định đoạt tài sản chung vi phạm quy định tại Khoản 2 Điều 35 của Luật Hôn nhân và gia đình thì bên kia có quyền yêu cầu Tòa án tuyên bố giao dịch vô hiệu và giải quyết hậu quả pháp lý của giao dịch vô hiệu."
       }
     ],
-    "latency_ms": 1067.58,
+    "latency_ms": 2300.723,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -11561,7 +11561,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -11587,7 +11587,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 522.259,
+      "rerank_latency_ms": 558.903,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 5,
@@ -11598,8 +11598,8 @@
         "context_chars": 3319
       },
       "returned": 10,
-      "retrieval_latency_ms": 545.1,
-      "total_latency_ms": 1067.58
+      "retrieval_latency_ms": 1741.515,
+      "total_latency_ms": 2300.723
     }
   },
   {
@@ -11700,7 +11700,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 116.21782,
+          "bm25": 116.21355,
           "dense": 0.719919,
           "retrieval": 0.032018442622950824
         },
@@ -11750,7 +11750,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 86.89317,
+          "bm25": 86.89084,
           "dense": 0.68218,
           "retrieval": 0.028370221327967807
         },
@@ -11800,7 +11800,7 @@
           "retrieval": 33
         },
         "source_scores": {
-          "bm25": 71.11546,
+          "bm25": 71.11229,
           "dense": 0.63694,
           "retrieval": 0.02129817444219067
         },
@@ -11850,7 +11850,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 112.61715,
+          "bm25": 112.61342,
           "dense": 0.714159,
           "retrieval": 0.030303030303030304
         },
@@ -11900,7 +11900,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 137.82794,
+          "bm25": 137.82613,
           "dense": 0.719233,
           "retrieval": 0.03252247488101534
         },
@@ -11950,7 +11950,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 101.61155,
+          "bm25": 101.60913,
           "dense": 0.717699,
           "retrieval": 0.030330882352941176
         },
@@ -11996,7 +11996,7 @@
           "retrieval": 47
         },
         "source_scores": {
-          "bm25": 76.87642,
+          "bm25": 76.87251,
           "retrieval": 0.010869565217391304
         },
         "reranker_score": 0.97998046875,
@@ -12045,7 +12045,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 113.37795,
+          "bm25": 113.37593,
           "dense": 0.683846,
           "retrieval": 0.029877369007803793
         },
@@ -12091,14 +12091,14 @@
           "retrieval": 40
         },
         "source_scores": {
-          "bm25": 85.56176,
+          "bm25": 85.55939,
           "retrieval": 0.013333333333333334
         },
         "reranker_score": 0.97705078125,
         "parent_text": null
       }
     ],
-    "latency_ms": 1124.698,
+    "latency_ms": 2339.81,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -12111,7 +12111,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -12137,7 +12137,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 587.841,
+      "rerank_latency_ms": 643.904,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -12148,8 +12148,8 @@
         "context_chars": 5525
       },
       "returned": 10,
-      "retrieval_latency_ms": 536.571,
-      "total_latency_ms": 1124.698
+      "retrieval_latency_ms": 1695.366,
+      "total_latency_ms": 2339.81
     }
   },
   {
@@ -12200,7 +12200,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 94.13681,
+          "bm25": 94.13825,
           "dense": 0.625965,
           "retrieval": 0.032266458495966696
         },
@@ -12300,7 +12300,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 98.17961,
+          "bm25": 98.181244,
           "dense": 0.584879,
           "retrieval": 0.032018442622950824
         },
@@ -12350,7 +12350,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 94.10015,
+          "bm25": 94.09782,
           "dense": 0.601053,
           "retrieval": 0.031754032258064516
         },
@@ -12396,7 +12396,7 @@
           "retrieval": 44
         },
         "source_scores": {
-          "bm25": 51.692574,
+          "bm25": 51.691856,
           "retrieval": 0.011494252873563218
         },
         "reranker_score": 0.81103515625,
@@ -12445,7 +12445,7 @@
           "retrieval": 16
         },
         "source_scores": {
-          "bm25": 54.786224,
+          "bm25": 54.788124,
           "dense": 0.477384,
           "retrieval": 0.023369565217391305
         },
@@ -12495,7 +12495,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 72.21017,
+          "bm25": 72.20991,
           "dense": 0.489714,
           "retrieval": 0.02690100430416069
         },
@@ -12545,7 +12545,7 @@
           "retrieval": 18
         },
         "source_scores": {
-          "bm25": 65.242165,
+          "bm25": 65.24233,
           "dense": 0.468477,
           "retrieval": 0.02303732303732304
         },
@@ -12595,7 +12595,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 65.823166,
+          "bm25": 65.82264,
           "dense": 0.469738,
           "retrieval": 0.02378987898789879
         },
@@ -12645,7 +12645,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 76.75236,
+          "bm25": 76.75432,
           "dense": 0.480799,
           "retrieval": 0.02662057044079516
         },
@@ -12653,7 +12653,7 @@
         "parent_text": "[Điều 54. Thủ tục đăng ký hoạt động của Trung tâm, cấp lại giấy đăng ký hoạt động của Trung tâm]\n1. Sau khi có quyết định thành lập, Trung tâm phải đăng ký hoạt động tại Sở Tư pháp, nơi đặt trụ sở của Trung tâm.\n2. Hồ sơ đăng ký hoạt động của Trung tâm được lập thành 01 bộ, gồm các giấy tờ sau đây: a) Tờ khai đăng ký hoạt động theo mẫu quy định; b) Bản sao Quyết định thành lập Trung tâm; c) Giấy tờ chứng minh địa điểm đặt trụ sở của Trung tâm; d) Phiếu lý lịch tư pháp của người dự kiến đứng đầu Trung tâm được cấp chưa quá 03 tháng, tính đến ngày nhận hồ sơ; đ) Bản sao quy chế hoạt động quy định tại Khoản 1 Điều 53 của Nghị định này.\n3. Trong thời hạn 05 ngày làm việc, kể từ ngày nhận đủ hồ sơ hợp lệ, Sở Tư pháp cấp giấy đăng ký hoạt động theo mẫu quy định cho Trung tâm. Trường hợp từ chối cấp giấy đăng ký hoạt động thì Sở Tư pháp thông báo bằng văn bản cho Trung tâm, trong đó nêu rõ lý do từ chối.\n4. Trường hợp giấy đăng ký hoạt động của Trung tâm bị mất hoặc hư hỏng không sử dụng được thì được cấp lại giấy đăng ký hoạt động."
       }
     ],
-    "latency_ms": 1085.143,
+    "latency_ms": 2461.861,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -12666,7 +12666,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -12692,7 +12692,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 539.087,
+      "rerank_latency_ms": 666.738,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -12703,8 +12703,8 @@
         "context_chars": 5931
       },
       "returned": 10,
-      "retrieval_latency_ms": 545.836,
-      "total_latency_ms": 1085.143
+      "retrieval_latency_ms": 1794.823,
+      "total_latency_ms": 2461.861
     }
   },
   {
@@ -12755,7 +12755,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 144.27026,
+          "bm25": 144.27893,
           "dense": 0.777921,
           "retrieval": 0.029513888888888888
         },
@@ -12805,7 +12805,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 137.13965,
+          "bm25": 137.14565,
           "dense": 0.780018,
           "retrieval": 0.029211087420042643
         },
@@ -12855,7 +12855,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 158.69472,
+          "bm25": 158.69629,
           "dense": 0.773229,
           "retrieval": 0.029906956136464335
         },
@@ -12905,7 +12905,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 125.92001,
+          "bm25": 125.926025,
           "dense": 0.783657,
           "retrieval": 0.02919863597612958
         },
@@ -12955,7 +12955,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 94.201096,
+          "bm25": 94.20809,
           "dense": 0.83738,
           "retrieval": 0.027031740495291244
         },
@@ -13005,7 +13005,7 @@
           "retrieval": 17
         },
         "source_scores": {
-          "bm25": 104.7217,
+          "bm25": 104.723114,
           "dense": 0.722755,
           "retrieval": 0.024706420619185605
         },
@@ -13055,7 +13055,7 @@
           "retrieval": 27
         },
         "source_scores": {
-          "bm25": 98.04112,
+          "bm25": 98.04652,
           "dense": 0.706014,
           "retrieval": 0.023000660938532716
         },
@@ -13105,7 +13105,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 101.4991,
+          "bm25": 101.49726,
           "dense": 0.832569,
           "retrieval": 0.027637721755368813
         },
@@ -13155,7 +13155,7 @@
           "retrieval": 15
         },
         "source_scores": {
-          "bm25": 115.18286,
+          "bm25": 115.18996,
           "dense": 0.712876,
           "retrieval": 0.025206087507926443
         },
@@ -13205,7 +13205,7 @@
           "retrieval": 23
         },
         "source_scores": {
-          "bm25": 101.78577,
+          "bm25": 101.79199,
           "dense": 0.710529,
           "retrieval": 0.023809523809523808
         },
@@ -13213,7 +13213,7 @@
         "parent_text": "[Điều 3. Nguyên tắc áp dụng kỹ thuật hỗ trợ sinh sản và mang thai hộ vì mục đích nhân đạo]\n1. Việc thực hiện hiến tinh trùng, hiến noãn, hiến phôi trong kỹ thuật hỗ trợ sinh sản phải tuân theo nguyên tắc chỉ được hiến tại một cơ sở được phép lưu giữ tinh trùng, lưu giữ noãn, lưu giữ phôi.\n2. Tinh trùng, noãn, phôi hiến chỉ được sử dụng cho một phụ nữ hoặc một cặp vợ chồng để sinh con.\n3. Việc hiến và nhận tinh trùng, hiến và nhận phôi được thực hiện trên nguyên tắc vô danh giữa người hiến và người nhận.\n4. Chỉ thực hiện kỹ thuật hỗ trợ sinh sản đối với các cặp vợ chồng vô sinh hoặc có chỉ định về y tế và phụ nữ độc thân có nguyện vọng.\n5. Vợ chồng nhờ mang thai hộ, người mang thai hộ, trẻ sinh ra nhờ mang thai hộ vì mục đích nhân đạo được đảm bảo an toàn về đời sống riêng tư, bí mật cá nhân, bí mật gia đình và được pháp luật tôn trọng, bảo vệ."
       }
     ],
-    "latency_ms": 1428.795,
+    "latency_ms": 2629.939,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -13226,7 +13226,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -13252,7 +13252,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 882.065,
+      "rerank_latency_ms": 944.138,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -13263,8 +13263,8 @@
         "context_chars": 5388
       },
       "returned": 10,
-      "retrieval_latency_ms": 546.499,
-      "total_latency_ms": 1428.795
+      "retrieval_latency_ms": 1685.25,
+      "total_latency_ms": 2629.939
     }
   },
   {
@@ -13315,7 +13315,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 184.80745,
+          "bm25": 184.80556,
           "dense": 0.733834,
           "retrieval": 0.032266458495966696
         },
@@ -13365,7 +13365,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 149.64458,
+          "bm25": 149.64093,
           "dense": 0.687483,
           "retrieval": 0.02928692699490662
         },
@@ -13415,7 +13415,7 @@
           "retrieval": 13
         },
         "source_scores": {
-          "bm25": 127.16884,
+          "bm25": 127.16837,
           "dense": 0.646558,
           "retrieval": 0.025240384615384616
         },
@@ -13465,7 +13465,7 @@
           "retrieval": 29
         },
         "source_scores": {
-          "bm25": 81.23208,
+          "bm25": 81.23037,
           "dense": 0.649856,
           "retrieval": 0.019708737864077668
         },
@@ -13515,7 +13515,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 126.05053,
+          "bm25": 126.051476,
           "dense": 0.651677,
           "retrieval": 0.025693893735130847
         },
@@ -13565,7 +13565,7 @@
           "retrieval": 12
         },
         "source_scores": {
-          "bm25": 123.59836,
+          "bm25": 123.59527,
           "dense": 0.654321,
           "retrieval": 0.025451688923802042
         },
@@ -13615,7 +13615,7 @@
           "retrieval": 16
         },
         "source_scores": {
-          "bm25": 108.81545,
+          "bm25": 108.817024,
           "dense": 0.660661,
           "retrieval": 0.024652147610405323
         },
@@ -13665,7 +13665,7 @@
           "retrieval": 23
         },
         "source_scores": {
-          "bm25": 98.524216,
+          "bm25": 98.522354,
           "dense": 0.65365,
           "retrieval": 0.021910919540229883
         },
@@ -13715,7 +13715,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 137.32855,
+          "bm25": 137.32613,
           "dense": 0.693408,
           "retrieval": 0.029206349206349208
         },
@@ -13761,14 +13761,14 @@
           "retrieval": 48
         },
         "source_scores": {
-          "bm25": 99.77813,
+          "bm25": 99.77921,
           "retrieval": 0.011627906976744186
         },
         "reranker_score": 0.96044921875,
         "parent_text": null
       }
     ],
-    "latency_ms": 1399.244,
+    "latency_ms": 3051.594,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -13781,7 +13781,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -13807,7 +13807,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 853.715,
+      "rerank_latency_ms": 1144.134,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -13818,8 +13818,8 @@
         "context_chars": 5845
       },
       "returned": 10,
-      "retrieval_latency_ms": 545.137,
-      "total_latency_ms": 1399.244
+      "retrieval_latency_ms": 1906.964,
+      "total_latency_ms": 3051.594
     }
   },
   {
@@ -13870,7 +13870,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 244.15416,
+          "bm25": 244.14691,
           "dense": 0.731264,
           "retrieval": 0.03252247488101534
         },
@@ -13920,7 +13920,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 223.31116,
+          "bm25": 223.31488,
           "dense": 0.74185,
           "retrieval": 0.032018442622950824
         },
@@ -13970,7 +13970,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 197.23537,
+          "bm25": 197.23438,
           "dense": 0.696122,
           "retrieval": 0.031009615384615385
         },
@@ -14020,7 +14020,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 232.4,
+          "bm25": 232.40266,
           "dense": 0.68979,
           "retrieval": 0.03128054740957967
         },
@@ -14070,7 +14070,7 @@
           "retrieval": 6
         },
         "source_scores": {
-          "bm25": 180.32643,
+          "bm25": 180.3283,
           "dense": 0.697587,
           "retrieval": 0.03057889822595705
         },
@@ -14120,7 +14120,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 231.87173,
+          "bm25": 231.87573,
           "dense": 0.693403,
           "retrieval": 0.03125763125763126
         },
@@ -14170,7 +14170,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 195.41081,
+          "bm25": 195.4145,
           "dense": 0.658406,
           "retrieval": 0.03007688828584351
         },
@@ -14267,7 +14267,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 173.8639,
+          "bm25": 173.85187,
           "dense": 0.656404,
           "retrieval": 0.02919863597612958
         },
@@ -14317,7 +14317,7 @@
           "retrieval": 16
         },
         "source_scores": {
-          "bm25": 88.34964,
+          "bm25": 88.35104,
           "dense": 0.593796,
           "retrieval": 0.021505376344086023
         },
@@ -14325,7 +14325,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1172.18,
+    "latency_ms": 2732.314,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -14338,7 +14338,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -14364,7 +14364,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 614.263,
+      "rerank_latency_ms": 878.851,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 5,
@@ -14375,8 +14375,8 @@
         "context_chars": 5210
       },
       "returned": 10,
-      "retrieval_latency_ms": 557.579,
-      "total_latency_ms": 1172.18
+      "retrieval_latency_ms": 1853.164,
+      "total_latency_ms": 2732.314
     }
   },
   {
@@ -14427,7 +14427,7 @@
           "retrieval": 5
         },
         "source_scores": {
-          "bm25": 96.79516,
+          "bm25": 96.79383,
           "dense": 0.770074,
           "retrieval": 0.030679156908665108
         },
@@ -14477,7 +14477,7 @@
           "retrieval": 2
         },
         "source_scores": {
-          "bm25": 126.2865,
+          "bm25": 126.28431,
           "dense": 0.746372,
           "retrieval": 0.031544957774465976
         },
@@ -14527,7 +14527,7 @@
           "retrieval": 3
         },
         "source_scores": {
-          "bm25": 106.482414,
+          "bm25": 106.48054,
           "dense": 0.76597,
           "retrieval": 0.0315136476426799
         },
@@ -14627,7 +14627,7 @@
           "retrieval": 9
         },
         "source_scores": {
-          "bm25": 93.41726,
+          "bm25": 93.41511,
           "dense": 0.745204,
           "retrieval": 0.028404512489927477
         },
@@ -14677,7 +14677,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 114.746056,
+          "bm25": 114.744125,
           "dense": 0.751907,
           "retrieval": 0.031754032258064516
         },
@@ -14727,7 +14727,7 @@
           "retrieval": 7
         },
         "source_scores": {
-          "bm25": 100.95029,
+          "bm25": 100.94806,
           "dense": 0.74463,
           "retrieval": 0.029418126757516764
         },
@@ -14777,7 +14777,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 113.76266,
+          "bm25": 113.760345,
           "dense": 0.745641,
           "retrieval": 0.030798389007344232
         },
@@ -14827,7 +14827,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 110.50496,
+          "bm25": 110.502304,
           "dense": 0.728285,
           "retrieval": 0.028612012987012988
         },
@@ -14877,7 +14877,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 100.26716,
+          "bm25": 100.26454,
           "dense": 0.736363,
           "retrieval": 0.028404512489927477
         },
@@ -14885,7 +14885,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 1049.603,
+    "latency_ms": 2137.935,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -14898,7 +14898,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -14924,7 +14924,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 492.683,
+      "rerank_latency_ms": 523.375,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 6,
@@ -14935,8 +14935,8 @@
         "context_chars": 5510
       },
       "returned": 10,
-      "retrieval_latency_ms": 556.681,
-      "total_latency_ms": 1049.603
+      "retrieval_latency_ms": 1614.139,
+      "total_latency_ms": 2137.935
     }
   },
   {
@@ -15435,7 +15435,7 @@
         "parent_text": "[Điều 45. Nghĩa vụ riêng về tài sản của vợ, chồng]\nVợ, chồng có các nghĩa vụ riêng về tài sản sau đây:\n1. Nghĩa vụ của mỗi bên vợ, chồng có trước khi kết hôn;\n2. Nghĩa vụ phát sinh từ việc chiếm hữu, sử dụng, định đoạt tài sản riêng, trừ trường hợp nghĩa vụ phát sinh trong việc bảo quản, duy trì, tu sửa tài sản riêng của vợ, chồng theo quy định tại khoản 4 Điều 44 hoặc quy định tại khoản 4 Điều 37 của Luật này;\n3. Nghĩa vụ phát sinh từ giao dịch do một bên xác lập, thực hiện không vì nhu cầu của gia đình;\n4. Nghĩa vụ phát sinh từ hành vi vi phạm pháp luật của vợ, chồng."
       }
     ],
-    "latency_ms": 1028.445,
+    "latency_ms": 2302.544,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -15448,7 +15448,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -15474,8 +15474,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 485.065,
-      "model_load_ms": 0.002,
+      "rerank_latency_ms": 555.839,
+      "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 9,
         "parents_shared": 1,
@@ -15485,8 +15485,8 @@
         "context_chars": 3908
       },
       "returned": 10,
-      "retrieval_latency_ms": 543.159,
-      "total_latency_ms": 1028.445
+      "retrieval_latency_ms": 1746.155,
+      "total_latency_ms": 2302.544
     }
   },
   {
@@ -15985,7 +15985,7 @@
         "parent_text": null
       }
     ],
-    "latency_ms": 984.544,
+    "latency_ms": 2565.675,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -15998,7 +15998,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -16024,8 +16024,8 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 438.782,
-      "model_load_ms": 0.001,
+      "rerank_latency_ms": 706.721,
+      "model_load_ms": 0.002,
       "parent_context": {
         "parents_attached": 8,
         "parents_shared": 0,
@@ -16035,8 +16035,8 @@
         "context_chars": 5719
       },
       "returned": 10,
-      "retrieval_latency_ms": 545.536,
-      "total_latency_ms": 984.544
+      "retrieval_latency_ms": 1858.66,
+      "total_latency_ms": 2565.675
     }
   },
   {
@@ -16137,7 +16137,7 @@
           "retrieval": 1
         },
         "source_scores": {
-          "bm25": 123.10367,
+          "bm25": 123.10163,
           "dense": 0.704613,
           "retrieval": 0.03252247488101534
         },
@@ -16237,7 +16237,7 @@
           "retrieval": 8
         },
         "source_scores": {
-          "bm25": 62.07617,
+          "bm25": 62.074005,
           "dense": 0.645901,
           "retrieval": 0.026856524873828405
         },
@@ -16287,7 +16287,7 @@
           "retrieval": 16
         },
         "source_scores": {
-          "bm25": 48.622585,
+          "bm25": 48.62029,
           "dense": 0.649899,
           "retrieval": 0.024336928009326728
         },
@@ -16337,7 +16337,7 @@
           "retrieval": 4
         },
         "source_scores": {
-          "bm25": 72.77042,
+          "bm25": 72.767876,
           "dense": 0.659073,
           "retrieval": 0.030090497737556562
         },
@@ -16487,7 +16487,7 @@
           "retrieval": 10
         },
         "source_scores": {
-          "bm25": 63.59699,
+          "bm25": 63.59556,
           "dense": 0.64433,
           "retrieval": 0.026709401709401708
         },
@@ -16533,14 +16533,14 @@
           "retrieval": 28
         },
         "source_scores": {
-          "bm25": 80.37797,
+          "bm25": 80.37634,
           "retrieval": 0.015625
         },
         "reranker_score": 0.403564453125,
         "parent_text": "[Điều 16. Cung cấp thông tin về chế độ tài sản của vợ chồng theo thỏa thuận trong giao dịch với người thứ ba]\nTrường hợp chế độ tài sản của vợ chồng theo thỏa thuận được áp dụng thì khi xác lập, thực hiện giao dịch vợ, chồng có nghĩa vụ cung cấp cho người thứ ba biết về những thông tin liên quan; nếu vợ, chồng vi phạm nghĩa vụ này thì người thứ ba được coi là ngay tình và được bảo vệ quyền lợi theo quy định của Bộ luật Dân sự."
       }
     ],
-    "latency_ms": 1013.437,
+    "latency_ms": 2231.086,
     "top_k": 10,
     "config": {
       "retriever": {
@@ -16553,7 +16553,7 @@
         "collection": "vietnam_legal_chunks",
         "qdrant_storage_path": "D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
         "corpus_path": "D:\\AI_PRJ\\wt-leftover\\data\\chunking_output\\chunks.jsonl",
-        "corpus_sha256": "c18239351424f62d65c4a146ef2a73ed023b1bf5330e0a3fdadb828872b91264",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
         "fusion": "rrf"
       },
       "reranker": {
@@ -16579,7 +16579,7 @@
       "truncated_candidates": 0,
       "scored_candidates": 50,
       "output_candidates": 10,
-      "rerank_latency_ms": 466.59,
+      "rerank_latency_ms": 547.626,
       "model_load_ms": 0.001,
       "parent_context": {
         "parents_attached": 7,
@@ -16590,8 +16590,8 @@
         "context_chars": 5997
       },
       "returned": 10,
-      "retrieval_latency_ms": 546.595,
-      "total_latency_ms": 1013.437
+      "retrieval_latency_ms": 1683.069,
+      "total_latency_ms": 2231.086
     }
   }
 ]

@@ -1,0 +1,290 @@
+{
+  "errors": [],
+  "warnings": [
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_52_2014_qh13",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_126_2014_nd_cp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_207_2025_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nq_01_2024_nq_hdtp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_02a_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_32_2016_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_34_2017_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_30_2019_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_22_2000_qh10",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_21_lct_hdnn7",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_70_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_32_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_68_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_77_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2001_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2002_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_15_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_10_2015_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_04_2020_tt_btp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_57_2015_tt_byt",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_38_2025_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_123_2015_nd_cp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_81_2025_qh15",
+      "source_status": "document_level_only"
+    }
+  ],
+  "registry_document_count": 24,
+  "corpus_chunk_count": 2164,
+  "corpus_document_count": 24,
+  "article_count": 799,
+  "chunks_by_document": {
+    "l_21_lct_hdnn7": 58,
+    "l_22_2000_qh10": 235,
+    "l_52_2014_qh13": 336,
+    "l_81_2025_qh15": 94,
+    "nd_10_2015_nd_cp": 79,
+    "nd_123_2015_nd_cp": 143,
+    "nd_126_2014_nd_cp": 191,
+    "nd_207_2025_nd_cp": 57,
+    "nd_32_2002_nd_cp": 50,
+    "nd_68_2002_nd_cp": 231,
+    "nd_70_2001_nd_cp": 82,
+    "nd_77_2001_nd_cp": 18,
+    "nq_01_2024_nq_hdtp": 41,
+    "tt_02a_2015_tt_btp": 49,
+    "tt_04_2020_tt_btp": 130,
+    "tt_07_2001_tt_btp": 9,
+    "tt_07_2002_tt_btp": 50,
+    "tt_15_2015_tt_btp": 110,
+    "tt_30_2019_tt_byt": 7,
+    "tt_32_2016_tt_byt": 20,
+    "tt_34_2017_tt_byt": 25,
+    "tt_38_2025_tt_byt": 20,
+    "tt_57_2015_tt_byt": 84,
+    "ttlt_01_2016_ttlt_tandtc": 45
+  },
+  "requires_provision_review_ids": [
+    "nd_126_2014_nd_cp",
+    "tt_04_2020_tt_btp",
+    "tt_57_2015_tt_byt",
+    "nd_123_2015_nd_cp"
+  ],
+  "audit_date": "2026-11-07",
+  "review_status": "pending_peer_review",
+  "source": {
+    "git_sha": "6eff7c2a6db34202b5b3ffad6c5ee14ef5902366",
+    "remote_testing_sha": "d203ed5b4e8925d63742d897bd8a9879b1a04c34",
+    "file_sha256": {
+      "data/reference/document_versions.json": "af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283",
+      "data/chunking_output/chunks.jsonl": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+      "data/reference/article_index.json": "d62154c08c40a29de5063cd7d333b02f4028a619232ba545224134ee2769f4c0"
+    },
+    "remote_note": "origin/testing snapshot d203ed5b4e8925d63742d897bd8a9879b1a04c34; differing tracked input paths vs HEAD: ['data/normalized_metadata.json', 'data/reference/article_index.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review."
+  },
+  "alias_count": 562,
+  "ambiguous_aliases": {
+    "2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "2014": [
+      "l_52_2014_qh13",
+      "nd_126_2014_nd_cp"
+    ],
+    "2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "2016": [
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc"
+    ],
+    "2025": [
+      "l_81_2025_qh15",
+      "nd_207_2025_nd_cp",
+      "tt_38_2025_tt_byt"
+    ],
+    "luat hn gd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hngd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hon nhan va gia dinh": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "nam 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "nam 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "nam 2014": [
+      "l_52_2014_qh13",
+      "nd_126_2014_nd_cp"
+    ],
+    "nam 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "nam 2016": [
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc"
+    ],
+    "nam 2025": [
+      "l_81_2025_qh15",
+      "nd_207_2025_nd_cp",
+      "tt_38_2025_tt_byt"
+    ],
+    "nd 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nd 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nd 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "nghi dinh 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nghi dinh 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nghi dinh 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "quy dinh chi tiet thi hanh mot so dieu cua luat ho tich va nghi dinh so 123 2015 nd cp ngay 15 thang 11 nam 2015 cua chinh phu quy dinh chi tiet mot so dieu va bien phap thi hanh luat ho tich": [
+      "tt_04_2020_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "thong tu 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "tt 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ]
+  },
+  "alias_registry_canonical_sha256": "19d8f6b3ab8c47c3363ee08fa0d77afc0f9f2d1c9196692de5a36b638df9cd64"
+}
