@@ -4,6 +4,7 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
+import copy
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -77,7 +78,12 @@ class BuildPrecomputeTests(unittest.TestCase):
                 "query": f"Question {query_id}?",
                 "retriever": "hybrid_reranker",
                 "config": {
-                    "retriever": {"retrieval_top_k": 50, "rrf_k": 60},
+                    "retriever": {
+                        "retrieval_top_k": 50,
+                        "rrf_k": 60,
+                        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+                    },
+                    "as_of_date": "2010-01-01",
                     "reranker": {
                         "backend": "cross_encoder",
                         "model": "BAAI/bge-reranker-v2-m3",
@@ -87,17 +93,17 @@ class BuildPrecomputeTests(unittest.TestCase):
                     }
                 },
                 "results": [{
-                    "chunk_id": f"{query_id}_CHUNK_1",
+                    "chunk_id": f"{query_id}_CHUNK_{rank}",
                     "chunk_text": "Nội dung khoản pháp luật.",
-                    "rank": 1,
-                    "score": 0.95,
-                    "retrieval_rank": 3,
+                    "rank": rank,
+                    "score": 0.95 - rank / 100,
+                    "retrieval_rank": rank + 2,
                     "retrieval_score": 0.02,
                     "metadata": {
                         "title": "Luật Hôn nhân và gia đình 2014",
                         "breadcrumb": "Chương II > Điều 8 > Khoản 1",
                     },
-                }],
+                } for rank in range(1, 6)],
             }
             for query_id in self.ids
         ]
@@ -109,10 +115,84 @@ class BuildPrecomputeTests(unittest.TestCase):
         self.assertEqual(len(output), 30)
         self.assertTrue(all(row["precomputed"] is True for row in output))
         self.assertTrue(all(row["as_of_date"] == "2010-01-01" for row in output))
+        self.assertTrue(all(row["reranked_result_count"] == 5 for row in output))
+        self.assertTrue(all(row["source_result_count"] == 5 for row in output))
         self.assertEqual(
             output[0]["results"][0]["candidate_text"],
             "Luật Hôn nhân và gia đình 2014\nChương II > Điều 8 > Khoản 1\nNội dung khoản pháp luật.",
         )
+
+    def test_retrieval_rank_falls_back_to_source_ranks_retrieval(self):
+        source = copy.deepcopy(self.source)
+        for record in source:
+            for hit in record["results"]:
+                hit.pop("retrieval_rank", None)
+                hit.pop("source_rank", None)
+                hit["source_ranks"] = {"bm25": 3, "dense": 1, "retrieval": 1}
+        output = pipeline.build_precompute_records(
+            source, self.benchmark, self.ids, candidate_text, self.config
+        )
+        self.assertEqual(
+            [hit["retrieval_rank"] for hit in output[0]["results"]],
+            [1, 1, 1, 1, 1],
+        )
+
+    def test_source_run_config_redacts_absolute_machine_paths(self):
+        sanitized = pipeline.sanitize_source_config({
+            "retriever": {
+                "qdrant_path": r"D:\\AI_PRJ\\wt-leftover\\data\\indexes\\qdrant_storage",
+                "scratch": r"C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\scratchpad\\cand_dev_top50.json",
+                "retrieval_top_k": 50,
+            }
+        })
+        serialized = str(sanitized)
+        self.assertNotIn("AI_PRJ", serialized)
+        self.assertNotIn("Users", serialized)
+        self.assertIn("qdrant_storage", serialized)
+        self.assertIn("cand_dev_top50.json", serialized)
+        self.assertEqual(sanitized["retriever"]["retrieval_top_k"], 50)
+
+    def test_selects_top_five_from_ten_result_g3(self):
+        ten_result_source = []
+        for row in self.source:
+            clone = dict(row)
+            clone["results"] = [
+                {
+                    "chunk_id": f"{row['query_id']}_TOP_{rank}",
+                    "chunk_text": "Nội dung pháp luật.",
+                    "rank": rank,
+                    "score": 1.0 - rank / 100,
+                    "source_ranks": {"bm25": rank, "dense": rank, "retrieval": rank},
+                    "metadata": {"title": "Luật Hôn nhân và gia đình", "breadcrumb": "Điều 1"},
+                }
+                for rank in range(1, 11)
+            ]
+            ten_result_source.append(clone)
+        output = pipeline.build_precompute_records(
+            ten_result_source, self.benchmark, self.ids, candidate_text, self.config,
+            expected_corpus_sha256="7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+        )
+        self.assertTrue(all(row["source_result_count"] == 10 for row in output))
+        self.assertTrue(all([hit["rank"] for hit in row["results"]] == [1, 2, 3, 4, 5]
+                            for row in output))
+
+    def test_rejects_g3_from_different_corpus(self):
+        broken = copy.deepcopy(self.source)
+        broken[0]["config"]["retriever"]["corpus_sha256"] = "c" * 64
+        with self.assertRaisesRegex(pipeline.PrecomputeError, "khác corpus hiện tại"):
+            pipeline.build_precompute_records(
+                broken, self.benchmark, self.ids, candidate_text, self.config,
+                expected_corpus_sha256="7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+            )
+
+    def test_rejects_g3_as_of_date_different_from_benchmark(self):
+        broken = copy.deepcopy(self.source)
+        broken[0]["config"]["as_of_date"] = "2011-01-01"
+        with self.assertRaisesRegex(pipeline.PrecomputeError, "không khớp benchmark"):
+            pipeline.build_precompute_records(
+                broken, self.benchmark, self.ids, candidate_text, self.config,
+                expected_corpus_sha256="7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+            )
 
     def test_rejects_wrong_candidate_text_mode(self):
         broken = [dict(self.source[0])]

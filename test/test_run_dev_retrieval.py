@@ -115,6 +115,9 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
             path.write_text(json.dumps(["Tuổi kết hôn?"]), encoding="utf-8")
             with self.assertRaises(ValueError):
                 read_queries(path)
+            path.write_text(json.dumps([{"id": "HN_001", "question": "Tuổi kết hôn?"}]), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "thiếu as_of_date"):
+                read_queries(path)
 
     def test_every_method_writes_schema_valid_envelopes(self):
         a, b = chunk("l_52_2014_qh13_art_8_clause_1_chunk_1", 3.0), chunk("l_52_2014_qh13_art_8_clause_2_chunk_1", 1.0)

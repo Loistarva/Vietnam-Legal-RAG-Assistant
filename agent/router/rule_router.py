@@ -211,6 +211,11 @@ _LEGAL_SIGNALS = (
     "đúng luật",
     "sai quy định",
     "luật thuế",
+    "quyền yêu cầu",
+    "khởi kiện",
+    "bồi thường",
+    "khiếu nại",
+    "kháng cáo",
 )
 
 _HNGD_TERMS = (
@@ -225,6 +230,8 @@ _HNGD_TERMS = (
     "hủy việc kết hôn",
     "cấp dưỡng",
     "quyền nuôi con",
+    "người trực tiếp nuôi",
+    "nguyện vọng của con",
     "nuôi con sau ly hôn",
     "chế độ tài sản",
     "tài sản chung của vợ chồng",
@@ -235,6 +242,25 @@ _HNGD_TERMS = (
     "xác định cha mẹ con",
     "mang thai hộ",
     "kết hôn với người nước ngoài",
+    "hôn nhân có yếu tố nước ngoài",
+    "vợ chồng",
+    "thời kỳ hôn nhân",
+    "tài sản chung",
+    "tài sản riêng",
+    "nuôi con",
+    "thăm nom",
+    "con nuôi",
+    "nhận cha, mẹ, con",
+    "nhận cha mẹ con",
+    "hộ tịch",
+    "khai sinh",
+    "người thứ ba ngay tình",
+    "trách nhiệm liên đới",
+    "hạn chế quyền đối với con chưa thành niên",
+    "tình trạng hôn nhân",
+    "án phí ly hôn",
+    "công nhận thuận tình ly hôn",
+    "quyền thăm nom",
 )
 
 _OUT_OF_SCOPE_TERMS = (
@@ -264,40 +290,20 @@ _OUT_OF_SCOPE_TERMS = (
     "hợp đồng mua bán nhà đất",
     "phạt vì đỗ xe",
     "đỗ xe sai quy định",
-)
-
-_LEGAL_QUESTION_MARKERS = (
-    "quy định",
-    "là gì",
-    "thế nào",
-    "ra sao",
-    "bao lâu",
-    "bao nhiêu",
-    "có được",
-    "được phép",
-    "ai có quyền",
-    "quyền gì",
-    "nghĩa vụ gì",
-    "nghĩa vụ",
-    "điều kiện",
-    "thủ tục",
-    "bị xử lý",
-    "xử lý thế nào",
-    "mức phạt",
-    "tìm hiểu",
-    "muốn hỏi",
-    "hỏi về",
-    "giải thích",
-    "tư vấn",
-    "cần làm gì",
-    "có bắt buộc",
-    "phải làm gì",
-    "chia tài sản",
-    "phân chia tài sản",
-    "cần giấy tờ gì",
-    "cần những giấy tờ gì",
-    "có đúng luật không",
-    "quy định gì",
+    "thửa đất",
+    "ranh giới đất",
+    "tranh chấp đất",
+    "đất đai",
+    "thừa kế",
+    "di chúc",
+    "di sản",
+    "lao động",
+    "thành lập doanh nghiệp",
+    "doanh nghiệp",
+    "vượt đèn đỏ",
+    "xử phạt hành chính",
+    "khung hình phạt",
+    "tội",
 )
 
 _EDUCATION_STATEMENT = re.compile(
@@ -308,6 +314,28 @@ _EXPLICIT_QUESTION_OR_REQUEST = re.compile(
     r"có được|điều kiện|quyền gì|nghĩa vụ gì|bao lâu|bao nhiêu)\b"
 )
 _LEGAL_CITATION = re.compile(r"\b(?:điều|khoản)\s+\d+\b")
+_LEGAL_DOCUMENT_REFERENCE = re.compile(
+    r"\b(?:luật|nghị\s+định|thông\s+tư|nghị\s+quyết|pháp\s+lệnh|văn\s+bản|nđ|tt|nq)\s+"
+    r"(?:số\s+)?(?:\d{1,4}[a-zđ]?(?:[./-][\wđ-]+)*|\d{4})\b",
+    re.IGNORECASE,
+)
+_CONTEXTUAL_LEGAL_SIGNAL = re.compile(
+    r"\b(?:tôi|em|mình|người đó|đương sự)?\s*(?:có quyền|được quyền)\s+"
+    r"(?:yêu cầu|khởi kiện|bồi thường|khiếu nại|kháng cáo|nuôi con|ly hôn|"
+    r"đăng ký kết hôn|chia tài sản)\b"
+    r"|\b(?:hồ sơ|thủ tục)\s+(?:đăng ký kết hôn|kết hôn|ly hôn|khởi kiện|"
+    r"khởi kiện tại tòa án|nhận cha mẹ con|nhận cha, mẹ, con)\b"
+    r"|\b(?:nộp|gửi)\s+(?:đơn|hồ sơ)\s+(?:tại|lên)\s+tòa(?:\s+án)?\b"
+    r"|\bkhởi kiện\s+(?:tại|lên)\s+tòa(?:\s+án)?\b",
+    re.IGNORECASE,
+)
+_INDEPENDENT_OUTSIDE_TOPIC = re.compile(
+    r"\b(?:và|đồng thời|ngoài ra|cùng với|kèm theo)\b.{0,100}\b(?:"
+    r"thuế|hình sự|hợp đồng lao động|doanh nghiệp|tranh chấp đất(?: đai)?|"
+    r"tranh chấp thừa kế|phân chia di sản|di chúc)\b"
+    r"|\b(?:tranh chấp đất(?: đai)?|phân chia di sản|tranh chấp thừa kế)\b",
+    re.IGNORECASE,
+)
 
 
 class RuleRouter:
@@ -416,16 +444,28 @@ class RuleRouter:
         outside_match = any(term in query for term in _OUT_OF_SCOPE_TERMS)
         explicit_legal = any(term in query for term in _LEGAL_SIGNALS) or bool(
             _LEGAL_CITATION.search(query)
+            or _LEGAL_DOCUMENT_REFERENCE.search(query)
+            or _CONTEXTUAL_LEGAL_SIGNAL.search(query)
         )
-        topic_question = (
-            (hngd_match or outside_match)
-            and any(marker in query for marker in _LEGAL_QUESTION_MARKERS)
+        # Property questions about spouses during marriage/divorce remain HNGD
+        # when they mention overlapping concepts such as labor, inheritance,
+        # or land. Those concepts alone do not change the governing legal domain.
+        hngd_property_context = (
+            "thời kỳ hôn nhân" in query
+            or (
+                "ly hôn" in query
+                and any(term in query for term in ("tài sản", "quyền sử dụng đất", "đất riêng"))
+            )
         )
-
+        independent_outside_topic = bool(_INDEPENDENT_OUTSIDE_TOPIC.search(query))
+        if hngd_match and hngd_property_context and not independent_outside_topic:
+            outside_match = False
         # A statement about studying law is not itself a request for legal help.
         education_statement = bool(_EDUCATION_STATEMENT.search(query))
         has_request = bool(_EXPLICIT_QUESTION_OR_REQUEST.search(query))
-        legal_intent = (explicit_legal or topic_question) and not (
+        # A recognized legal topic is itself sufficient intent. Requiring a
+        # question marker misroutes yes/no and procedural questions to chat.
+        legal_intent = (hngd_match or outside_match or explicit_legal) and not (
             education_statement and not has_request
         )
 
@@ -464,7 +504,7 @@ class RuleRouter:
         return RouteDecision(
             query_id=query_id,
             route=Route.LEGAL_SCOPE_UNCERTAIN,
-            action=Action.POLICY_ABSTENTION,
+            action=Action.LEGAL_RETRIEVAL,
             route_reason=RouteReason.LEGAL_SCOPE_UNCERTAIN,
             as_of_date=as_of_date,
         )

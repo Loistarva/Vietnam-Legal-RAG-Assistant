@@ -1,6 +1,7 @@
 """Shared date normalization and effective-period checks for legal retrieval."""
 from __future__ import annotations
 
+import re
 from datetime import date, datetime
 from typing import Any, Mapping
 
@@ -39,6 +40,83 @@ def normalize_as_of_date(value: Any = None) -> str:
     if normalized is None:
         raise ValueError("as_of_date không được rỗng")
     return normalized
+
+
+_DATE_VALUE = r"(?:\d{4}-\d{1,2}-\d{1,2}|\d{1,2}[/-]\d{1,2}[/-]\d{4})"
+_DATE_CONTEXTS = (
+    re.compile(rf"^\s*(?:ngày\s+)?(?P<value>{_DATE_VALUE})(?!\d)", re.IGNORECASE),
+    re.compile(
+        rf"\b(?:tại(?:\s+thời\s+điểm)?|vào\s+ngày|tính\s+đến|đến\s+ngày)\s+"
+        rf"(?:ngày\s+)?(?P<value>{_DATE_VALUE})(?!\d)", re.IGNORECASE
+    ),
+    re.compile(
+        r"^\s*(?:vào|trong|tại(?:\s+thời\s+điểm)?|tính\s+đến)\s+"
+        r"(?:ngày\s+)?(?P<day>\d{1,2})\s+tháng\s+(?P<month>\d{1,2})\s+năm\s+(?P<year>\d{4})\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\b(?:vào\s+ngày|tại(?:\s+thời\s+điểm)?|tính\s+đến)\s+"
+        r"(?:ngày\s+)?(?P<day>\d{1,2})\s+tháng\s+(?P<month>\d{1,2})\s+năm\s+(?P<year>\d{4})\b",
+        re.IGNORECASE,
+    ),
+)
+_YEAR_CONTEXTS = (
+    re.compile(r"^\s*năm\s+(?P<year>\d{4})\b", re.IGNORECASE),
+    re.compile(r"\b(?:vào|trong|tại\s+thời\s+điểm)\s+năm\s+(?P<year>\d{4})\b", re.IGNORECASE),
+)
+
+
+def extract_question_as_of_date(question: str, *, today: date | None = None) -> str | None:
+    """Extract only dates stated as query-time context, not dates in legal titles.
+
+    Invalid date mentions are ignored so interactive input can fall back to the
+    UI date or today. A bare year means year-end for a past year, today for the
+    current year, and January 1 for a future year.
+    """
+    if not isinstance(question, str) or not question.strip():
+        return None
+    today = today or date.today()
+    for pattern in _DATE_CONTEXTS:
+        match = pattern.search(question)
+        if not match:
+            continue
+        if "value" in match.groupdict() and match.group("value"):
+            raw = match.group("value")
+            try:
+                if re.fullmatch(r"\d{4}-\d{1,2}-\d{1,2}", raw):
+                    year, month, day = re.split("-", raw)
+                    return date(int(year), int(month), int(day)).isoformat()
+                day, month, year = re.split(r"[/-]", raw)
+                return date(int(year), int(month), int(day)).isoformat()
+            except ValueError:
+                return None
+        try:
+            return date(int(match.group("year")), int(match.group("month")),
+                        int(match.group("day"))).isoformat()
+        except ValueError:
+            return None
+
+    for pattern in _YEAR_CONTEXTS:
+        match = pattern.search(question)
+        if match:
+            year = int(match.group("year"))
+            if year == today.year:
+                return today.isoformat()
+            return date(year, 12, 31).isoformat() if year < today.year else date(year, 1, 1).isoformat()
+    return None
+
+
+def resolve_interactive_as_of_date(
+    question: str, ui_as_of_date: Any = None, *, today: date | None = None
+) -> tuple[str, str]:
+    """Return the resolved date and provenance: question, ui, or today."""
+    question_date = extract_question_as_of_date(question, today=today)
+    if question_date is not None:
+        return question_date, "question"
+    if ui_as_of_date is not None and str(ui_as_of_date).strip():
+        return normalize_as_of_date(ui_as_of_date), "ui"
+    effective_today = today or date.today()
+    return effective_today.isoformat(), "today"
 
 
 def effective_period(record: Mapping[str, Any]) -> tuple[str | None, str | None]:

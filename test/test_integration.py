@@ -424,7 +424,7 @@ class CliTest(unittest.TestCase):
             expected = json.loads(single.read_text(encoding="utf-8"))[0]
         assert_contract(self, reranked)
         self.assertEqual(reranked["retriever"], "fixture_mock_reranker")
-        self.assertEqual(reranked["config"]["retriever"]["candidates"], str(stage1))
+        self.assertEqual(reranked["config"]["retriever"]["candidates"], "<external-path>")
         self.assertEqual([(row["chunk_id"], row["score"]) for row in reranked["results"]],
                          [(row["chunk_id"], row["score"]) for row in expected["results"]])
 

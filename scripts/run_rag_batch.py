@@ -1,24 +1,28 @@
 #!/usr/bin/env python3
-"""Prepare and execute resumable sequential RAG batches.
-
-This module owns batch input, benchmark resolution, validation, resume state,
-execution bookkeeping, and JSONL output. The shared Dev5 ``run_rag`` adapter is
-intentionally not implemented here; the CLI currently supports preparation
-only until that handoff is available.
-"""
+"""Prepare and execute resumable sequential RAG batches with provenance."""
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib
 import json
+import os
+import platform
+import subprocess
 import sys
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Iterable, Sequence
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 DEFAULT_BENCHMARK = ROOT / "data" / "benchmark" / "queries_dev.json"
+DEFAULT_RUNNER = "orchestration.rag_pipeline:run_rag"
 
 
 class BatchInputError(ValueError):
@@ -51,7 +55,7 @@ def load_ids_from_txt(path: str | Path) -> tuple[list[Any], list[InputError]]:
     with source.open("r", encoding="utf-8-sig") as stream:
         for line_no, line in enumerate(stream, 1):
             value = line.strip()
-            if value:
+            if value and not value.startswith("#"):
                 ids.append(value)
     return ids, errors
 
@@ -93,6 +97,7 @@ def normalize_input_ids(ids: Iterable[Any]) -> tuple[list[str], list[InputError]
             errors.append(InputError("input", "query_id không được rỗng.", line=position))
             continue
         if query_id in seen:
+            errors.append(InputError("input", f"query_id bị trùng: {query_id!r}.", line=position))
             continue
         seen.add(query_id)
         normalized.append(query_id)
@@ -217,6 +222,8 @@ class JsonlWriter:
         self.errors_path = Path(errors_path)
         self.results_path.parent.mkdir(parents=True, exist_ok=True)
         self.errors_path.parent.mkdir(parents=True, exist_ok=True)
+        self.results_path.touch(exist_ok=True)
+        self.errors_path.touch(exist_ok=True)
 
     @staticmethod
     def _append(path: Path, record: dict[str, Any]) -> None:
@@ -339,10 +346,18 @@ def _load_input(path: Path) -> tuple[list[str], list[InputError], int]:
 
 
 def prepare_batch(
-    input_path: str | Path, benchmark_path: str | Path
+    input_path: str | Path, benchmark_path: str | Path, *, allow_test_split: bool = False
 ) -> tuple[list[dict[str, Any]], list[InputError], dict[str, int]]:
+    benchmark_source = Path(benchmark_path)
+    benchmark_data = load_benchmark(benchmark_path)
+    is_test = "test" in benchmark_source.stem.casefold() or any(
+        isinstance(row, dict) and str(row.get("split", "")).casefold() == "test"
+        for row in benchmark_data
+    )
+    if is_test and not allow_test_split:
+        raise BatchInputError("Test split đang đóng băng; chỉ dùng với --allow-test-split cho đánh giá chính thức.")
     ids, errors, initial_count = _load_input(Path(input_path))
-    benchmark = build_benchmark_index(load_benchmark(benchmark_path))
+    benchmark = build_benchmark_index(benchmark_data)
     queries, resolution_errors = resolve_queries(ids, benchmark)
     errors.extend(resolution_errors)
     stats = {
@@ -354,29 +369,235 @@ def prepare_batch(
     return queries, errors, stats
 
 
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _repo_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path.resolve())
+
+
+def _read_json_url(url: str) -> dict[str, Any]:
+    try:
+        with urlopen(url, timeout=3) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except (OSError, HTTPError, URLError, json.JSONDecodeError) as exc:
+        raise BatchInputError(f"Ollama preflight thất bại tại {url}: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise BatchInputError(f"Ollama trả dữ liệu không hợp lệ tại {url}.")
+    return payload
+
+
+def preflight_ollama() -> dict[str, Any]:
+    """Fail before the batch if the configured local model gateway is unavailable."""
+    import yaml
+
+    from generation.prompt_builder import PROMPT_B_VERSION
+
+    gateway_path = ROOT / "model_gateway/config/local_qwen.yaml"
+    confidence_path = ROOT / "reranking/confidence.yaml"
+    try:
+        gateway = yaml.safe_load(gateway_path.read_text(encoding="utf-8")) or {}
+        confidence = yaml.safe_load(confidence_path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError) as exc:
+        raise BatchInputError(f"Không đọc được cấu hình model/threshold: {exc}") from exc
+
+    provider = gateway.get("provider", "ollama")
+    if provider != "ollama":
+        raise BatchInputError(f"Batch adapter hiện chỉ preflight provider ollama, nhận {provider!r}.")
+    base_url = str(gateway.get("base_url", "http://localhost:11434")).rstrip("/")
+    model_name = str(gateway.get("model", "qwen2.5:7b"))
+    version_payload = _read_json_url(f"{base_url}/api/version")
+    tags_payload = _read_json_url(f"{base_url}/api/tags")
+    models = tags_payload.get("models") or []
+
+    def normalized(name: Any) -> str:
+        clean = str(name or "").strip().casefold()
+        return clean if ":" in clean else f"{clean}:latest"
+
+    model_entry = next((entry for entry in models if isinstance(entry, dict) and any(
+        normalized(entry.get(key)) == normalized(model_name) for key in ("name", "model")
+    )), None)
+    if model_entry is None:
+        raise BatchInputError(
+            f"Ollama đang chạy tại {base_url}, nhưng chưa có model {model_name!r}; "
+            "hãy pull model trước khi chạy batch."
+        )
+
+    warmup_payload = {
+        "model": model_name,
+        "prompt": "Trả lời bằng một từ: sẵn sàng",
+        "stream": False,
+        "keep_alive": "10m",
+        "options": {
+            "temperature": gateway.get("temperature", 0.0),
+            "repeat_penalty": gateway.get("repeat_penalty", 1.0),
+            "num_predict": 1,
+            "num_ctx": gateway.get("num_ctx", 8192),
+        },
+    }
+    try:
+        request = Request(
+            f"{base_url}/api/generate",
+            data=json.dumps(warmup_payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urlopen(request, timeout=float(gateway.get("timeout_seconds", 120))) as response:
+            warmup = json.loads(response.read().decode("utf-8"))
+    except (OSError, HTTPError, URLError, json.JSONDecodeError) as exc:
+        raise BatchInputError(f"Ollama model warm-up thất bại trước batch: {exc}") from exc
+    if not isinstance(warmup, dict) or not isinstance(warmup.get("response"), str):
+        raise BatchInputError("Ollama model warm-up trả response không hợp lệ; batch chưa được bắt đầu.")
+
+    confidence_values = confidence.get("confidence") if isinstance(confidence, dict) else {}
+    confidence_values = confidence_values if isinstance(confidence_values, dict) else {}
+    return {
+        "provider": provider,
+        "base_url": base_url,
+        "model": model_name,
+        "model_config_path": _repo_path(gateway_path),
+        "model_config_sha256": _sha256_file(gateway_path),
+        "model_digest": model_entry.get("digest"),
+        "ollama_version": version_payload.get("version"),
+        "model_preflight": "PASS",
+        "temperature": gateway.get("temperature", 0.0),
+        "repeat_penalty": gateway.get("repeat_penalty", 1.0),
+        "num_predict": gateway.get("num_predict", 1024),
+        "num_ctx": gateway.get("num_ctx", 8192),
+        "timeout_seconds": gateway.get("timeout_seconds", 120),
+        "max_retries": gateway.get("max_retries", 1),
+        "cache_enabled": gateway.get("cache_enabled", False),
+        "fallback_locked": gateway.get("fallback_locked", True),
+        "prompt_version": PROMPT_B_VERSION,
+        "confidence_thresholds": confidence_values,
+        "threshold_config_version": confidence_values.get("threshold_config_version"),
+        "threshold_config_path": _repo_path(confidence_path),
+        "threshold_config_sha256": _sha256_file(confidence_path),
+        "hyde_enabled": False,
+        "judge_enabled": False,
+        "python_version": sys.version.split()[0],
+        "python_implementation": platform.python_implementation(),
+        "platform": platform.platform(),
+    }
+
+
+def build_run_manifest(input_path: Path, benchmark_path: Path, runner: str,
+                       results_path: Path,
+                       runtime_snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
+    retrieval_config = ROOT / "retrieval/config.yaml"
+    rerank_config = ROOT / "reranking/config.yaml"
+    corpus = ROOT / "data/chunking_output/chunks.jsonl"
+    try:
+        git_sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
+                                 capture_output=True, text=True).stdout.strip()
+        branch = subprocess.run(["git", "branch", "--show-current"], cwd=ROOT, check=True,
+                                capture_output=True, text=True).stdout.strip()
+        dirty = bool(subprocess.run(["git", "status", "--porcelain"], cwd=ROOT, check=True,
+                                    capture_output=True, text=True).stdout.strip())
+    except (OSError, subprocess.CalledProcessError):
+        git_sha, branch, dirty = "unknown", "unknown", True
+
+    precomputed_value = os.getenv("RAG_PRECOMPUTED")
+    precomputed = None
+    if precomputed_value:
+        precomputed_path = Path(precomputed_value)
+        if not precomputed_path.is_absolute():
+            precomputed_path = ROOT / precomputed_path
+        if not precomputed_path.is_file():
+            raise BatchInputError(f"RAG_PRECOMPUTED không trỏ tới file tồn tại: {precomputed_path}")
+        precomputed = {"path": _repo_path(precomputed_path),
+                       "sha256": _sha256_file(precomputed_path)}
+
+    try:
+        from embedding.vector_store import chunk_file_sha256
+        corpus_sha = chunk_file_sha256(corpus)
+    except (OSError, FileNotFoundError):
+        corpus_sha = None
+    required_files = (input_path, benchmark_path, retrieval_config, rerank_config)
+    missing = [str(path) for path in required_files if not path.is_file()]
+    if missing:
+        raise BatchInputError(f"Thiếu file cần đưa vào run manifest: {missing}")
+    stable = {
+        "runner": runner,
+        "git_branch": branch,
+        "git_sha": git_sha,
+        "working_tree_dirty": dirty,
+        "benchmark_path": _repo_path(benchmark_path),
+        "benchmark_sha256": _sha256_file(benchmark_path),
+        "input_ids_path": _repo_path(input_path),
+        "input_ids_sha256": _sha256_file(input_path),
+        "retrieval_config_sha256": _sha256_file(retrieval_config),
+        "rerank_config_sha256": _sha256_file(rerank_config),
+        "corpus_sha256": corpus_sha,
+        "precomputed_artifact": precomputed,
+        "as_of_date_source": "benchmark",
+        "results_path": _repo_path(results_path),
+        "runtime": runtime_snapshot,
+    }
+    signature = hashlib.sha256(json.dumps(stable, sort_keys=True, separators=(",", ":"))
+                               .encode("utf-8")).hexdigest()
+    return {"manifest_version": "d4.6.run_manifest.v2", **stable,
+            "run_signature_sha256": signature}
+
+
+def prepare_run_manifest(manifest_path: Path, expected: dict[str, Any], results_path: Path) -> dict[str, Any]:
+    """Reject resume if its manifest differs from the current inputs/configuration."""
+    if manifest_path.exists():
+        existing = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if existing.get("run_signature_sha256") != expected["run_signature_sha256"]:
+            raise BatchInputError("Run manifest không khớp input/config hiện tại; dùng thư mục output mới.")
+        if not results_path.exists():
+            raise BatchInputError("Có run_manifest.json nhưng thiếu results JSONL; không thể resume an toàn.")
+        return existing
+    if results_path.exists():
+        raise BatchInputError("Có results JSONL nhưng thiếu run_manifest.json; từ chối resume không provenance.")
+    manifest = {**expected, "started_at_utc": datetime.now(timezone.utc).isoformat(),
+                "finished_at_utc": None, "status": "RUNNING"}
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return manifest
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Chạy batch RAG tuần tự, có resume và ghi JSONL.")
     parser.add_argument("--input", required=True, help="File ID .txt hoặc .jsonl")
     parser.add_argument("--benchmark", default=str(DEFAULT_BENCHMARK))
     parser.add_argument("--output-dir", help="Thư mục chứa results.jsonl và errors.jsonl.")
+    parser.add_argument("--output", help="Đường dẫn đầy đủ/tương đối của JSONL success output.")
     parser.add_argument(
         "--runner",
-        help="Callable adapter theo dạng python.module:callable; contract: nhận query dict, trả result dict.",
+        default=DEFAULT_RUNNER,
+        help=f"Callable adapter python.module:callable (mặc định {DEFAULT_RUNNER}).",
     )
+    parser.add_argument("--allow-test-split", action="store_true",
+                        help="Cho phép chạy Test chỉ trong lần đánh giá chính thức đã được duyệt.")
+    parser.add_argument("--require-clean-checkout", action="store_true",
+                        help="Chỉ chạy nếu HEAD đã có trên upstream và working tree sạch, kể cả untracked files.")
     parser.add_argument(
         "--prepare-only", action="store_true",
         help="Chỉ nạp, resolve và kiểm tra query; không gọi runner hoặc ghi output batch.",
     )
     args = parser.parse_args(argv)
-    if not args.prepare_only and (not args.output_dir or not args.runner):
+    if not args.prepare_only and not args.output_dir and not args.output:
         print(
-            "Để chạy batch cần --output-dir và --runner. Adapter phải gọi shared RAG pipeline; "
-            "chưa có adapter Dev5 trong repo. Dùng --prepare-only để kiểm tra input.",
+            "Để chạy batch cần --output-dir hoặc --output.",
             file=sys.stderr,
         )
         return 2
     try:
-        queries, errors, stats = prepare_batch(args.input, args.benchmark)
+        input_path = Path(args.input).resolve()
+        benchmark_path = Path(args.benchmark).resolve()
+        queries, errors, stats = prepare_batch(
+            input_path, benchmark_path, allow_test_split=args.allow_test_split
+        )
     except (OSError, BatchInputError) as exc:
         print(f"Batch preparation thất bại: {exc}", file=sys.stderr)
         return 1
@@ -389,10 +610,38 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 1 if errors else 0
 
     try:
-        writer = JsonlWriter(
-            Path(args.output_dir) / "results.jsonl",
-            Path(args.output_dir) / "errors.jsonl",
+        if args.require_clean_checkout:
+            status = subprocess.run(
+                ["git", "status", "--porcelain"], cwd=ROOT, check=True,
+                capture_output=True, text=True,
+            ).stdout.strip()
+            branch = subprocess.run(
+                ["git", "branch", "--show-current"], cwd=ROOT, check=True,
+                capture_output=True, text=True,
+            ).stdout.strip()
+            upstream = subprocess.run(
+                ["git", "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"],
+                cwd=ROOT, check=True, capture_output=True, text=True,
+            ).stdout.strip()
+            pushed = subprocess.run(
+                ["git", "merge-base", "--is-ancestor", "HEAD", upstream],
+                cwd=ROOT, check=False, capture_output=True, text=True,
+            ).returncode == 0
+            if status or not branch or not pushed:
+                raise BatchInputError(
+                    "Run chính thức yêu cầu branch có upstream, HEAD đã được push lên upstream "
+                    "và working tree sạch (bao gồm untracked files)."
+                )
+        results_path = Path(args.output).resolve() if args.output else Path(args.output_dir).resolve() / "results.jsonl"
+        output_dir = Path(args.output_dir).resolve() if args.output_dir else results_path.parent
+        errors_path = output_dir / "errors.jsonl" if not args.output else results_path.with_name(results_path.stem + "_errors.jsonl")
+        manifest_path = output_dir / "run_manifest.json"
+        runtime_snapshot = preflight_ollama() if args.runner == DEFAULT_RUNNER else None
+        expected_manifest = build_run_manifest(
+            input_path, benchmark_path, args.runner, results_path, runtime_snapshot
         )
+        manifest = prepare_run_manifest(manifest_path, expected_manifest, results_path)
+        writer = JsonlWriter(results_path, errors_path)
         for error in errors:
             writer.write_input_error(error)
         runner = load_runner(args.runner) if queries else None
@@ -408,10 +657,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             if runner is not None
             else {"succeeded": 0, "failed": 0, "skipped": 0}
         )
-    except (OSError, BatchInputError) as exc:
+    except (OSError, BatchInputError, subprocess.CalledProcessError) as exc:
         print(f"Batch execution setup failed: {exc}", file=sys.stderr)
         return 1
     summary = {**counts, "invalid_records": len(errors), "valid_queries": len(queries)}
+    manifest.update(summary)
+    manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
+    manifest["status"] = "FAILED" if errors or counts["failed"] else "SUCCESS"
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 1 if errors or counts["failed"] else 0
 

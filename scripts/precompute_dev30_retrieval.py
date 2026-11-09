@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build the immutable D4.4 Dev30 retrieval/rerank precompute artifact.
 
-The script consumes the G3 rerank artifact already pushed on the remote
-``results/rerank`` branch. It never runs retrieval or reranking itself.
+The script consumes the G3 rerank artifact from its verified remote ref/commit.
+It never runs retrieval or reranking itself.
 It selects the official 30 IDs, takes each as_of_date from queries_dev.json,
 materializes the exact document_breadcrumb_chunk_text used by the reranker,
 and writes JSONL plus a provenance manifest.
@@ -29,7 +29,7 @@ import subprocess
 import sys
 import tempfile
 from datetime import date, datetime, timezone
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any, Iterable
 from urllib.parse import urlparse
 
@@ -44,6 +44,9 @@ DEFAULT_RERANK_CONFIG = ROOT / "reranking/config.yaml"
 DEFAULT_CORPUS = ROOT / "data/chunking_output/chunks.jsonl"
 DEFAULT_OUTPUT_DIR = ROOT / "evaluation/results/precompute"
 DEFAULT_MANIFEST = ROOT / "reports/retrieval/precompute_manifest.json"
+DEFAULT_SOURCE_ARTIFACT = ROOT / "retrieval/results/dev_hybrid_reranker.json"
+DEFAULT_SOURCE_COMMIT = "defee7e45f7b7310ff41379f42728a76f86cb465"
+DEFAULT_SOURCE_REF = "testing"
 EXPECTED_CANDIDATE_TEXT = "document_breadcrumb_chunk_text"
 EXPECTED_QUERY_COUNT = 30
 
@@ -60,6 +63,11 @@ def sha256_file(path: Path) -> str:
     if not path.is_file():
         raise FileNotFoundError(f"Không tìm thấy file: {path}")
     return sha256_bytes(path.read_bytes())
+
+
+def normalized_corpus_sha256(path: Path) -> str:
+    from embedding.vector_store import chunk_file_sha256
+    return chunk_file_sha256(path)
 
 
 def canonical_sha256(value: Any) -> str:
@@ -274,6 +282,20 @@ def _get_hit_list(record: dict[str, Any]) -> list[dict[str, Any]]:
     )
 
 
+def sanitize_source_config(value: Any) -> Any:
+    """Keep source settings while redacting absolute workstation paths."""
+    if isinstance(value, dict):
+        return {str(key): sanitize_source_config(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [sanitize_source_config(item) for item in value]
+    if isinstance(value, tuple):
+        return [sanitize_source_config(item) for item in value]
+    if isinstance(value, str) and re.match(r"^(?:[A-Za-z]:[\\/]|\\\\|/)", value):
+        name = PureWindowsPath(value).name if "\\" in value or re.match(r"^[A-Za-z]:", value) else Path(value).name
+        return f"<local-path>/{name}" if name else "<local-path>"
+    return value
+
+
 def load_candidate_text_builder():
     try:
         from reranking.reranker import CANDIDATE_TEXT_MODES, candidate_text as build_candidate_text
@@ -304,11 +326,13 @@ def verify_remote_source(
     artifact_path: Path,
     source_ref: str,
     source_commit: str,
-    source_pr_url: str,
+    source_pr_url: str | None = None,
 ) -> dict[str, str]:
-    parsed = urlparse(source_pr_url)
-    if parsed.scheme != "https" or not parsed.netloc or not re.search(r"/(pull|merge_requests)/\d+", parsed.path):
-        raise PrecomputeError("--source-pr-url phải là URL HTTPS của Pull Request/Merge Request.")
+    if source_pr_url is not None:
+        parsed = urlparse(source_pr_url)
+        if (parsed.scheme != "https" or not parsed.netloc
+                or not re.search(r"/(pull|merge_requests)/\d+", parsed.path)):
+            raise PrecomputeError("--source-pr-url nếu có phải là URL HTTPS của Pull Request/Merge Request.")
     if not re.fullmatch(r"[0-9a-fA-F]{40,64}", source_commit):
         raise PrecomputeError("--source-commit phải là full Git SHA (40 hoặc 64 ký tự hex), không dùng SHA rút gọn.")
     if not source_ref or source_ref.startswith("-"):
@@ -335,14 +359,16 @@ def verify_remote_source(
             "Hãy checkout/copy đúng artifact từ remote PR trước khi precompute."
         )
 
-    return {
+    result = {
         "source_ref": refspec,
         "source_commit": source_commit.lower(),
         "remote_ref_head": remote_head,
-        "source_pr_url": source_pr_url,
         "source_artifact_path": rel_path,
         "source_artifact_sha256": sha256_bytes(local_bytes),
     }
+    if source_pr_url is not None:
+        result["source_pr_url"] = source_pr_url
+    return result
 
 
 def _config_values(retrieval_cfg: dict[str, Any], rerank_cfg: dict[str, Any]) -> dict[str, Any]:
@@ -394,6 +420,7 @@ def build_precompute_records(
     official_ids: list[str],
     candidate_text_builder,
     reranker_config_values: dict[str, Any],
+    expected_corpus_sha256: str | None = None,
 ) -> list[dict[str, Any]]:
     source_by_id: dict[str, dict[str, Any]] = {}
     for record in source_records:
@@ -448,6 +475,20 @@ def build_precompute_records(
         source_retrieval_config = source_run_config.get("retriever")
         if not isinstance(source_retrieval_config, dict):
             raise PrecomputeError(f"G3 record {query_id} thiếu config.retriever snapshot.")
+        source_corpus_sha = source_retrieval_config.get("corpus_sha256")
+        if not isinstance(source_corpus_sha, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", source_corpus_sha):
+            raise PrecomputeError(f"G3 record {query_id} thiếu config.retriever.corpus_sha256 hợp lệ.")
+        if expected_corpus_sha256 is not None and source_corpus_sha.lower() != expected_corpus_sha256.lower():
+            raise PrecomputeError(
+                f"G3 record {query_id} dùng corpus SHA {source_corpus_sha}, "
+                f"khác corpus hiện tại {expected_corpus_sha256}."
+            )
+        source_as_of_date = source_run_config.get("as_of_date")
+        if source_as_of_date != benchmark["as_of_date"]:
+            raise PrecomputeError(
+                f"G3 record {query_id} as_of_date={source_as_of_date!r} không khớp "
+                f"benchmark {benchmark['as_of_date']!r}."
+            )
         source_retrieval_expected = {
             "retrieval_top_k": reranker_config_values["retrieval_top_k"],
             "rrf_k": reranker_config_values["rrf_k"],
@@ -468,15 +509,24 @@ def build_precompute_records(
         hits = _get_hit_list(source_record)
         if not hits:
             raise PrecomputeError(f"G3 record {query_id} không có reranked candidates.")
-        if len(hits) > int(reranker_config_values["rerank_top_k"]):
+        source_result_count = len(hits)
+        if source_result_count < int(reranker_config_values["rerank_top_k"]):
             raise PrecomputeError(
-                f"G3 record {query_id} có {len(hits)} results, vượt rerank_top_k="
-                f"{reranker_config_values['rerank_top_k']}."
+                f"G3 record {query_id} chỉ có {source_result_count} results; "
+                f"cần ít nhất rerank_top_k={reranker_config_values['rerank_top_k']}."
+            )
+        if source_result_count > int(reranker_config_values["result_top_k"]):
+            raise PrecomputeError(
+                f"G3 record {query_id} có {source_result_count} results, vượt "
+                f"result_top_k={reranker_config_values['result_top_k']}."
             )
 
         output_hits: list[dict[str, Any]] = []
         seen_chunk_ids: set[str] = set()
-        for position, raw_hit in enumerate(hits, 1):
+        if any(not isinstance(row, dict) for row in hits):
+            raise PrecomputeError(f"G3 record {query_id} có result không phải object.")
+        ordered_hits = sorted(hits, key=lambda row: row.get("rank", 10**9))
+        for position, raw_hit in enumerate(ordered_hits, 1):
             hit = dict(raw_hit)
             chunk_id = hit.get("chunk_id")
             if not isinstance(chunk_id, str) or not chunk_id.strip():
@@ -494,7 +544,8 @@ def build_precompute_records(
                 raise PrecomputeError(f"G3 {query_id}/{chunk_id} có rank không hợp lệ.")
             if not isinstance(score, (int, float)) or isinstance(score, bool):
                 raise PrecomputeError(f"G3 {query_id}/{chunk_id} thiếu reranker score.")
-            metadata = hit.get("metadata") if isinstance(hit.get("metadata"), dict) else {}
+            if rank > int(reranker_config_values["rerank_top_k"]):
+                continue
             candidate = candidate_text_builder(hit, mode=EXPECTED_CANDIDATE_TEXT)
             if not isinstance(candidate, str) or not candidate.strip():
                 raise PrecomputeError(f"Không dựng được candidate_text cho {query_id}/{chunk_id}.")
@@ -508,7 +559,20 @@ def build_precompute_records(
             hit["candidate_text"] = candidate
             hit["rank"] = rank
             hit["score"] = float(score)
-            hit.setdefault("retrieval_rank", hit.get("source_rank"))
+            retrieval_rank = hit.get("retrieval_rank")
+            if retrieval_rank is None:
+                retrieval_rank = hit.get("source_rank")
+            if retrieval_rank is None:
+                source_ranks = hit.get("source_ranks")
+                if isinstance(source_ranks, dict):
+                    retrieval_rank = source_ranks.get("retrieval")
+            if (not isinstance(retrieval_rank, int) or isinstance(retrieval_rank, bool)
+                    or retrieval_rank < 1):
+                raise PrecomputeError(
+                    f"G3 {query_id}/{chunk_id} thiếu retrieval rank hợp lệ "
+                    "(retrieval_rank, source_rank hoặc source_ranks.retrieval)."
+                )
+            hit["retrieval_rank"] = retrieval_rank
             hit.setdefault("retrieval_score", hit.get("rrf_score"))
             output_hits.append(hit)
 
@@ -516,6 +580,10 @@ def build_precompute_records(
         ranks = [row["rank"] for row in output_hits]
         if len(set(ranks)) != len(ranks):
             raise PrecomputeError(f"G3 {query_id} có rank trùng.")
+        if len(output_hits) != int(reranker_config_values["rerank_top_k"]):
+            raise PrecomputeError(
+                f"G3 {query_id} không đủ Top-{reranker_config_values['rerank_top_k']} reranked hits."
+            )
 
         source_config = source_record.get("config")
         outputs.append({
@@ -539,8 +607,9 @@ def build_precompute_records(
                 "rerank_top_k": reranker_config_values["rerank_top_k"],
                 "candidate_text": EXPECTED_CANDIDATE_TEXT,
             },
-            "source_run_config": source_config,
+            "source_run_config": sanitize_source_config(source_config),
             "reranked_result_count": len(output_hits),
+            "source_result_count": source_result_count,
             "retrieval_candidate_pool": int(source_retrieval_config["retrieval_top_k"]),
             "results": output_hits,
         })
@@ -574,14 +643,14 @@ def write_new_file(path: Path, content: bytes) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-artifact", type=Path, required=True,
-                        help="Local copy of remote G3 artifact, e.g. reranking/results/dev_hybrid_reranker.json")
-    parser.add_argument("--source-ref", default="results/rerank",
-                        help="Remote branch containing G3; default: results/rerank")
-    parser.add_argument("--source-commit", required=True,
+    parser.add_argument("--source-artifact", type=Path, default=DEFAULT_SOURCE_ARTIFACT,
+                        help="Local G3 artifact: retrieval/results/dev_hybrid_reranker.json")
+    parser.add_argument("--source-ref", default=DEFAULT_SOURCE_REF,
+                        help="Remote branch containing G3; default: testing")
+    parser.add_argument("--source-commit", default=DEFAULT_SOURCE_COMMIT,
                         help="Full commit SHA on remote source branch")
-    parser.add_argument("--source-pr-url", required=True,
-                        help="Remote PR/MR URL that delivered G3")
+    parser.add_argument("--source-pr-url", default=None,
+                        help="Remote PR/MR URL for provenance (optional; ref, commit and Git blob are verified independently)")
     parser.add_argument("--ids", type=Path, default=DEFAULT_IDS)
     parser.add_argument(
         "--id-manifest", type=Path, default=None,
@@ -613,16 +682,15 @@ def main() -> int:
             # This is allowed; the JSONL and manifest have distinct requested names.
             pass
 
-        print("[1/7] Verify G3 remote PR/ref/commit and artifact blob...")
+        print("[1/7] Verify G3 remote ref/commit and artifact blob...")
         remote = verify_remote_source(
             args.source_artifact, args.source_ref, args.source_commit, args.source_pr_url
         )
 
         print("[2/7] Validate official 30 IDs from TXT...")
         official_ids = read_official_ids(args.ids)
-        optional_id_manifest = None
         if args.id_manifest is not None:
-            optional_id_manifest = validate_id_manifest(args.id_manifest, official_ids)
+            validate_id_manifest(args.id_manifest, official_ids)
         ids_sha = sha256_bytes(("\n".join(official_ids) + "\n").encode("utf-8"))
 
         print("[3/7] Load benchmark dates and config snapshots...")
@@ -639,7 +707,8 @@ def main() -> int:
             "values": config_values,
         }
         config_bundle_sha = canonical_sha256(config_bundle)
-        corpus_sha = sha256_file(args.corpus)
+        corpus_sha = normalized_corpus_sha256(args.corpus)
+        corpus_raw_sha = sha256_file(args.corpus)
         ids_manifest_sha = sha256_file(args.id_manifest) if args.id_manifest is not None else None
         benchmark_sha = sha256_file(args.benchmark)
 
@@ -648,7 +717,8 @@ def main() -> int:
         source_records = _records_from_artifact(source_data)
         candidate_text_builder = load_candidate_text_builder()
         output_records = build_precompute_records(
-            source_records, benchmark_rows, official_ids, candidate_text_builder, config_values
+            source_records, benchmark_rows, official_ids, candidate_text_builder, config_values,
+            expected_corpus_sha256=corpus_sha,
         )
 
         output_path = args.output_dir / f"{args.run_date}_dev30_retrieval.jsonl"
@@ -708,6 +778,7 @@ def main() -> int:
             "config_bundle_sha256": config_bundle_sha,
             "corpus_path": args.corpus.resolve().relative_to(ROOT).as_posix(),
             "corpus_sha256": corpus_sha,
+            "corpus_raw_sha256": corpus_raw_sha,
             "source_artifact": remote,
             "output_path": output_path.resolve().relative_to(ROOT).as_posix(),
             "output_sha256": output_sha,

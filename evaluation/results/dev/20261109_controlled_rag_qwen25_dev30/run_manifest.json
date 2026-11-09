@@ -1,0 +1,28 @@
+{
+  "manifest_version": "d4.6.run_manifest.v1",
+  "runner": "orchestration.rag_pipeline:run_rag",
+  "git_sha": "ef72d9dff6f1c9568cfab80634bb458d588a3013",
+  "working_tree_dirty": true,
+  "benchmark_path": "data/benchmark/queries_dev.json",
+  "benchmark_sha256": "febdcbb45665d666a69346ce429e18ada186e21e45947e8157336b8f4f551d41",
+  "input_ids_path": "evaluation/rubrics/dev_gold_30_ids_v1.txt",
+  "input_ids_sha256": "18931d3efb7aa302005a23189656174bae587fe5b830673da2954f0859a313ee",
+  "retrieval_config_sha256": "31f1b932cc7958dd979f7f7ff521c7401742cad823b80f0ac48b16600056c1d9",
+  "rerank_config_sha256": "38d109b55a4da5b4e46369abbeea7bcf567cf20cf7779a951bb9073e016e0602",
+  "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+  "precomputed_artifact": {
+    "path": "evaluation/results/precompute/20261109_dev30_retrieval.jsonl",
+    "sha256": "f4f2d76c483bb76f420aa2ad7a734e2bd296c5e2715922eb07eddb336a7f8d2c"
+  },
+  "as_of_date_source": "benchmark",
+  "results_path": "evaluation/results/dev/20261109_controlled_rag_qwen25_dev30/results.jsonl",
+  "run_signature_sha256": "baf35df981c4a3a0e6de28c412dba37eaeb37caaad631e1c03a446aa50056ae1",
+  "started_at_utc": "2026-11-09T12:09:21.085725+00:00",
+  "finished_at_utc": "2026-11-09T12:13:25.249183+00:00",
+  "status": "FAILED",
+  "succeeded": 1,
+  "failed": 29,
+  "skipped": 0,
+  "invalid_records": 0,
+  "valid_queries": 30
+}

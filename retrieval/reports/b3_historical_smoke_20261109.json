@@ -1,0 +1,306 @@
+{
+  "query_id": "B3_HISTORICAL_SMOKE",
+  "query": "Tại thời điểm ngày 01 tháng 01 năm 2010, điều kiện kết hôn được quy định thế nào?",
+  "retriever": "hybrid_reranker",
+  "results": [
+    {
+      "chunk_id": "l_22_2000_qh10_art_9_clause_1_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_9",
+      "clause_id": "l_22_2000_qh10_art_9_clause_1",
+      "parent_clause_id": "l_22_2000_qh10_art_9_clause_1",
+      "rank": 1,
+      "score": 0.5361921191215515,
+      "chunk_text": "1. Nam từ hai mươi tuổi trở lên, nữ từ mười tám tuổi trở lên;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "9",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "1",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 9. Điều kiện kết hôn > Khoản 1"
+      },
+      "parent_id": "l_22_2000_qh10_art_9",
+      "rrf_score": 0.015873015873015872,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 3,
+        "retrieval": 22
+      },
+      "source_scores": {
+        "dense": 0.638909,
+        "retrieval": 0.015873015873015872
+      },
+      "reranker_score": 0.5361921191215515,
+      "parent_text": "[Điều 9. Điều kiện kết hôn]\nNam nữ kết hôn với nhau phải tuân theo các điều kiện sau đây:\n1. Nam từ hai mươi tuổi trở lên, nữ từ mười tám tuổi trở lên;\n2. Việc kết hôn do nam và nữ tự nguyện quyết định, không bên nào được ép buộc, lừa dối bên nào; không ai được cưỡng ép hoặc cản trở;\n3. Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn quy định tại Điều 10 của Luật này."
+    },
+    {
+      "chunk_id": "nd_77_2001_nd_cp_art_2_clause_2_chunk_1",
+      "document_id": "nd_77_2001_nd_cp",
+      "article_id": "nd_77_2001_nd_cp_art_2",
+      "clause_id": "nd_77_2001_nd_cp_art_2_clause_2",
+      "parent_clause_id": "nd_77_2001_nd_cp_art_2_clause_2",
+      "rank": 2,
+      "score": 0.4701370894908905,
+      "chunk_text": "2. Nam và nữ chung sống với nhau như vợ chồng từ ngày 03 tháng 01 năm 1987 đến ngày 01 tháng 01 năm 2001 mà có đủ điều kiện kết hôn theo quy định của Luật Hôn nhân và gia đình năm 2000, thì có nghĩa vụ đăng ký kết hôn. Từ sau ngày 01 tháng 01 năm 2003 mà họ không đăng ký kết hôn, thì pháp luật không công nhận họ là vợ chồng.",
+      "metadata": {
+        "doc_id": "nd_77_2001_nd_cp",
+        "title": "Quy định chi tiết về đăng ký kết hôn theo Nghị quyết số 35/2000/QH10 của Quốc hội về việc thi hành Luật Hôn nhân và gia đình",
+        "document_type": "Nghị định",
+        "document_number": "77/2001/NĐ-CP",
+        "issue_date": "2001-10-22",
+        "effective_date": "2001-11-06",
+        "effective_from": "2001-11-06",
+        "effective_to": "2016-01-01",
+        "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 1 NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "2",
+        "document_title": "Quy định chi tiết về đăng ký kết hôn theo Nghị quyết số 35/2000/QH10 của Quốc hội về việc thi hành Luật Hôn nhân và gia đình",
+        "clause_number": "2",
+        "document_id": "nd_77_2001_nd_cp",
+        "breadcrumb": "Chương 1 NHỮNG QUY ĐỊNH CHUNG > Điều 2. Khuyến khích đăng ký kết hôn và nghĩa vụ đăng ký kết hôn > Khoản 2"
+      },
+      "parent_id": "nd_77_2001_nd_cp_art_2",
+      "rrf_score": 0.031754032258064516,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 2,
+        "dense": 4,
+        "retrieval": 2
+      },
+      "source_scores": {
+        "bm25": 66.32249,
+        "dense": 0.636914,
+        "retrieval": 0.031754032258064516
+      },
+      "reranker_score": 0.4701370894908905,
+      "parent_text": "[Điều 2. Khuyến khích đăng ký kết hôn và nghĩa vụ đăng ký kết hôn]\n1. Những trường hợp quan hệ vợ chồng xác lập trước ngày 03 tháng 01 năm 1987, mà chưa đăng ký kết hôn, thì được Nhà nước khuyến khích và tạo điều kiện thuận tiện cho đăng ký kết hôn. Việc đăng ký kết hôn đối với những trường hợp này không bị hạn chế về thời gian.\n2. Nam và nữ chung sống với nhau như vợ chồng từ ngày 03 tháng 01 năm 1987 đến ngày 01 tháng 01 năm 2001 mà có đủ điều kiện kết hôn theo quy định của Luật Hôn nhân và gia đình năm 2000, thì có nghĩa vụ đăng ký kết hôn. Từ sau ngày 01 tháng 01 năm 2003 mà họ không đăng ký kết hôn, thì pháp luật không công nhận họ là vợ chồng."
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_9_clause_2_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_9",
+      "clause_id": "l_22_2000_qh10_art_9_clause_2",
+      "parent_clause_id": "l_22_2000_qh10_art_9_clause_2",
+      "rank": 3,
+      "score": 0.41747045516967773,
+      "chunk_text": "2. Việc kết hôn do nam và nữ tự nguyện quyết định, không bên nào được ép buộc, lừa dối bên nào; không ai được cưỡng ép hoặc cản trở;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "9",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "2",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 9. Điều kiện kết hôn > Khoản 2"
+      },
+      "parent_id": "l_22_2000_qh10_art_9",
+      "rrf_score": 0.024955436720142603,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 42,
+        "dense": 6,
+        "retrieval": 13
+      },
+      "source_scores": {
+        "bm25": 29.01587,
+        "dense": 0.620085,
+        "retrieval": 0.024955436720142603
+      },
+      "reranker_score": 0.41747045516967773,
+      "parent_text": null
+    },
+    {
+      "chunk_id": "nd_68_2002_nd_cp_art_10_clause_1_chunk_1",
+      "document_id": "nd_68_2002_nd_cp",
+      "article_id": "nd_68_2002_nd_cp_art_10",
+      "clause_id": "nd_68_2002_nd_cp_art_10_clause_1",
+      "parent_clause_id": "nd_68_2002_nd_cp_art_10_clause_1",
+      "rank": 4,
+      "score": 0.40306806564331055,
+      "chunk_text": "1. Trong việc kết hôn giữa công dân Việt Nam với người nước ngoài, mỗi bên phải tuân theo pháp luật của nước mình về điều kiện kết hôn; người nước ngoài còn phải tuân theo quy định tại Điều 9 và Điều 10 của Luật Hôn nhân và gia đình của Việt Nam về điều kiện kết hôn và các trường hợp cấm kết hôn, nếu việc kết hôn được tiến hành trước cơ quan nhà nước có thẩm quyền của Việt Nam.",
+      "metadata": {
+        "doc_id": "nd_68_2002_nd_cp",
+        "title": "Quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
+        "document_type": "Nghị định",
+        "document_number": "68/2002/NĐ-CP",
+        "issue_date": "2002-07-10",
+        "effective_date": "2003-01-02",
+        "effective_from": "2003-01-02",
+        "effective_to": "2013-05-15",
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=22363",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 2 KẾT HÔN",
+        "section": null,
+        "article_number": "10",
+        "document_title": "Quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
+        "clause_number": "1",
+        "document_id": "nd_68_2002_nd_cp",
+        "breadcrumb": "Chương 2 KẾT HÔN > Điều 10. Điều kiện kết hôn > Khoản 1"
+      },
+      "parent_id": "nd_68_2002_nd_cp_art_10",
+      "rrf_score": 0.027271052146674038,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 21,
+        "dense": 7,
+        "retrieval": 6
+      },
+      "source_scores": {
+        "bm25": 33.574577,
+        "dense": 0.614891,
+        "retrieval": 0.027271052146674038
+      },
+      "reranker_score": 0.40306806564331055,
+      "parent_text": "[Điều 10. Điều kiện kết hôn]\n1. Trong việc kết hôn giữa công dân Việt Nam với người nước ngoài, mỗi bên phải tuân theo pháp luật của nước mình về điều kiện kết hôn; người nước ngoài còn phải tuân theo quy định tại Điều 9 và Điều 10 của Luật Hôn nhân và gia đình của Việt Nam về điều kiện kết hôn và các trường hợp cấm kết hôn, nếu việc kết hôn được tiến hành trước cơ quan nhà nước có thẩm quyền của Việt Nam.\n2. Trong việc kết hôn giữa người nước ngoài với nhau tại Việt Nam, trước cơ quan nhà nước có thẩm quyền của Việt Nam, mỗi bên phải tuân theo pháp luật của nước mà họ là công dân hoặc thường trú (đối với người không quốc tịch) về điều kiện kết hôn; ngoài ra, còn phải tuân theo quy định tại Điều 9 và Điều 10 của Luật Hôn nhân và gia đình của Việt Nam về điều kiện kết hôn và các trường hợp cấm kết hôn."
+    },
+    {
+      "chunk_id": "l_22_2000_qh10_art_8_clause_2_chunk_1",
+      "document_id": "l_22_2000_qh10",
+      "article_id": "l_22_2000_qh10_art_8",
+      "clause_id": "l_22_2000_qh10_art_8_clause_2",
+      "parent_clause_id": "l_22_2000_qh10_art_8_clause_2",
+      "rank": 5,
+      "score": 0.3364546298980713,
+      "chunk_text": "2. Kết hôn là việc nam và nữ xác lập quan hệ vợ chồng theo quy định của pháp luật về điều kiện kết hôn và đăng ký kết hôn;",
+      "metadata": {
+        "doc_id": "l_22_2000_qh10",
+        "title": "Luật Hôn nhân và gia đình 2000",
+        "document_type": "Luật",
+        "document_number": "22/2000/QH10",
+        "issue_date": "2000-06-09",
+        "effective_date": "2001-01-01",
+        "effective_from": "2001-01-01",
+        "effective_to": "2015-01-01",
+        "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Hết hiệu lực",
+        "source_status": "Hết hiệu lực toàn bộ",
+        "provision_status": "document_level_only",
+        "chapter": "Chương 1 NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "8",
+        "document_title": "Luật Hôn nhân và gia đình 2000",
+        "clause_number": "2",
+        "document_id": "l_22_2000_qh10",
+        "breadcrumb": "Chương 1 NHỮNG QUY ĐỊNH CHUNG > Điều 8. Giải thích từ ngữ > Khoản 2"
+      },
+      "parent_id": "l_22_2000_qh10_art_8_p1",
+      "rrf_score": 0.011494252873563218,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 27,
+        "retrieval": 42
+      },
+      "source_scores": {
+        "dense": 0.556223,
+        "retrieval": 0.011494252873563218
+      },
+      "reranker_score": 0.3364546298980713,
+      "parent_text": "[Điều 8. Giải thích từ ngữ]\nTrong Luật này, các từ ngữ dưới đây được hiểu như sau:\n1. Chế độ hôn nhân và gia đình là toàn bộ những quy định của pháp luật về kết hôn, ly hôn, nghĩa vụ và quyền giữa vợ và chồng, giữa cha mẹ và con, giữa các thành viên khác trong gia đình, cấp dưỡng, xác định cha, mẹ, con, con nuôi, giám hộ, quan hệ hôn nhân và gia đình có yếu tố nước ngoài và những vấn đề khác liên quan đến hôn nhân và gia đình;\n2. Kết hôn là việc nam và nữ xác lập quan hệ vợ chồng theo quy định của pháp luật về điều kiện kết hôn và đăng ký kết hôn;\n3. Kết hôn trái pháp luật là việc xác lập quan hệ vợ chồng có đăng ký kết hôn nhưng vi phạm điều kiện kết hôn do pháp luật quy định;\n4. Tảo hôn là việc lấy vợ, lấy chồng khi một bên hoặc cả hai bên chưa đủ tuổi kết hôn theo quy định của pháp luật;\n5. Cưỡng ép kết hôn là hành vi buộc người khác phải kết hôn trái với nguyện vọng của họ;\n6. Hôn nhân là quan hệ giữa vợ và chồng sau khi đã kết hôn;\n7. Thời kỳ hôn nhân là khoảng thời gian tồn tại quan hệ vợ chồng, tính từ ngày đăng ký kết hôn đến ngày chấm dứt hôn nhân;\n8. Ly hôn là chấm dứt quan hệ hôn nhân do Tòa án công nhận hoặc quyết định theo yêu cầu của vợ hoặc của chồng hoặc cả hai vợ chồng;\n9. Cưỡng ép ly hôn là hành vi buộc người khác phải ly hôn trái với nguyện vọng của họ;\n10. Gia đình là tập hợp những người gắn bó với nhau do hôn nhân, quan hệ huyết thống hoặc do quan hệ nuôi dưỡng, làm phát sinh các nghĩa vụ và quyền giữa họ với nhau theo quy định của Luật này;"
+    }
+  ],
+  "latency_ms": 132750.567,
+  "top_k": 5,
+  "config": {
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "bm25_index": "bm25-e6-verified-20261109-b3",
+      "collection": "vietnam_legal_chunks_b3",
+      "qdrant_storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_url": "http://127.0.0.1:6333",
+      "corpus_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "fusion": "rrf"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    },
+    "parent_context": {
+      "parents_file": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\parents.json",
+      "max_context_chars": 6000
+    },
+    "as_of_date": "2010-01-01",
+    "temporal_filter": "retriever",
+    "top_k": 5,
+    "as_of_date_source": "question"
+  },
+  "stats": {
+    "retrieved_candidates": 50,
+    "input_candidates": 50,
+    "duplicates_removed": 0,
+    "truncated_candidates": 0,
+    "scored_candidates": 50,
+    "output_candidates": 5,
+    "rerank_latency_ms": 82482.74,
+    "model_load_ms": 35120.86,
+    "parent_context": {
+      "parents_attached": 4,
+      "parents_shared": 1,
+      "parents_missing": 0,
+      "parents_over_budget": 0,
+      "upstream_parent_id_replaced": 0,
+      "context_chars": 3339
+    },
+    "returned": 5,
+    "retrieval_latency_ms": 15119.048,
+    "total_latency_ms": 132750.567
+  }
+}

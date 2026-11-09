@@ -24,7 +24,6 @@ import argparse
 import json
 import logging
 import os
-import re
 import sys
 from pathlib import Path
 from typing import Any, Sequence
@@ -45,7 +44,11 @@ from reranking.pipeline import (  # noqa: E402
 from embedding.vector_store import chunk_file_sha256  # noqa: E402
 from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
-from retrieval.temporal import normalize_as_of_date  # noqa: E402
+from retrieval.temporal import (  # noqa: E402
+    extract_question_as_of_date,  # noqa: F401 - public compatibility re-export
+    normalize_as_of_date,
+    resolve_interactive_as_of_date as resolve_interactive_date,
+)
 
 logger = logging.getLogger("run_retrieval")
 RETRIEVERS = ("hybrid", "precomputed", "mock", "fixture")
@@ -55,6 +58,17 @@ DEFAULT_CHUNKS = ROOT / "data" / "chunking_output" / "chunks.jsonl"
 
 class InputError(ValueError):
     """Invalid user input (exit code 2)."""
+
+
+def _portable_path(value: str | Path) -> str:
+    """Serialize repository paths relatively and hide paths outside the checkout."""
+    path = Path(value)
+    if not path.is_absolute():
+        return path.as_posix()
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return "<external-path>"
 
 
 def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
@@ -146,40 +160,9 @@ def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str, 
     return queries
 
 
-_QUESTION_DATE_PATTERNS = (
-    re.compile(r"(?<!\d)(\d{4}-\d{2}-\d{2})(?!\d)"),
-    re.compile(r"(?<!\d)(\d{1,2})[/-](\d{1,2})[/-](\d{4})(?!\d)"),
-    re.compile(r"(?i)\bngày\s+(\d{1,2})\s+tháng\s+(\d{1,2})\s+năm\s+(\d{4})\b"),
-    # A bare year is a legal query date only when introduced by an explicit
-    # temporal phrase. This avoids interpreting years in law titles as dates.
-    re.compile(r"(?i)(?:^|\b(?:vào|trong|tại\s+thời\s+điểm)\s+)năm\s+(\d{4})\b"),
-)
-
-
-def extract_question_as_of_date(question: str) -> str | None:
-    """Extract an explicit date; a year-only mention means January 1 of that year."""
-    matches = []
-    for pattern_index, pattern in enumerate(_QUESTION_DATE_PATTERNS):
-        match = pattern.search(question)
-        if match:
-            matches.append((match.start(), pattern_index, match))
-    if not matches:
-        return None
-    _, pattern_index, match = min(matches, key=lambda item: (item[0], item[1]))
-    if pattern_index == 0:
-        raw = match.group(1)
-    elif pattern_index in (1, 2):
-        day, month, year = match.groups()
-        raw = f"{year}-{int(month):02d}-{int(day):02d}"
-    else:
-        raw = f"{match.group(1)}-01-01"
-    return normalize_as_of_date(raw)
-
-
 def resolve_interactive_as_of_date(question: str, ui_as_of_date: str | None) -> str:
-    """Resolve query date by question, UI input, then today's local date."""
-    question_date = extract_question_as_of_date(question)
-    return normalize_as_of_date(question_date if question_date is not None else ui_as_of_date)
+    """Compatibility wrapper; date resolution is owned by retrieval.temporal."""
+    return resolve_interactive_date(question, ui_as_of_date)[0]
 
 
 def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
@@ -209,7 +192,7 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
     if args.retriever == "fixture":
         candidates = args.candidates or DEFAULT_CANDIDATES
         retriever = FixtureRetriever.from_file(candidates)
-        retriever_settings["candidates"] = str(candidates)
+        retriever_settings["candidates"] = _portable_path(candidates)
     elif args.retriever == "precomputed":
         if args.candidates is None:
             raise ValueError("--retriever precomputed cần --candidates (file --output của lần chạy --reranker none)")
@@ -219,10 +202,10 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         retriever_name = str(source.get("backend") or "precomputed")
         retriever_settings.update({key: value for key, value in source.items()
                                    if key not in ("backend", "retrieval_top_k")})
-        retriever_settings["candidates"] = str(args.candidates)
+        retriever_settings["candidates"] = _portable_path(args.candidates)
     elif args.retriever == "mock":
         retriever = build_mock_dense_retriever(args.chunks)
-        retriever_settings.update(chunks=str(args.chunks), embedding="deterministic_mock")
+        retriever_settings.update(chunks=_portable_path(args.chunks), embedding="deterministic_mock")
     else:
         actual_model = args.dense_model or settings["dense_model"]
         actual_collection = args.collection or settings["collection"]
@@ -240,9 +223,9 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
                                   dimension=model_dimension,
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
-                                  qdrant_storage_path=str(actual_qdrant_path),
+                                  qdrant_storage_path=_portable_path(actual_qdrant_path),
                                   qdrant_url=args.qdrant_url,
-                                  corpus_path=settings["corpus_path"],
+                                  corpus_path=_portable_path(settings["corpus_path"]),
                                   corpus_sha256=chunk_file_sha256(settings["corpus_path"]),
                                   fusion=settings["fusion"])
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
@@ -258,13 +241,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.query is not None:
             if not args.query.strip():
                 raise InputError("--query không được rỗng")
-            queries = [(args.query_id, args.query,
-                        resolve_interactive_as_of_date(args.query, args.as_of_date))]
+            resolved_date, date_source = resolve_interactive_date(args.query, args.as_of_date)
+            queries = [(args.query_id, args.query, resolved_date)]
         else:
             queries = read_queries(args.queries, allow_test_split=args.allow_test_split)
         pipeline = build_pipeline(args)
         outputs = [pipeline.run(question, args.top_k, query_id=query_id, as_of_date=as_of_date)
                    for query_id, question, as_of_date in queries]
+        if args.query is not None:
+            outputs[0].setdefault("config", {})["as_of_date_source"] = date_source
+        else:
+            for output in outputs:
+                output.setdefault("config", {})["as_of_date_source"] = "benchmark"
     except PipelineError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

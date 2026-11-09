@@ -18,6 +18,7 @@ from scripts.run_rag_batch import (
     main,
     normalize_input_ids,
     prepare_batch,
+    preflight_ollama,
     resolve_query,
     validate_query,
 )
@@ -25,7 +26,7 @@ from scripts.run_rag_batch import (
 
 def test_load_ids_from_txt(tmp_path):
     source = tmp_path / "ids.txt"
-    source.write_text("HN_001\n\n HN_002 \n", encoding="utf-8")
+    source.write_text("# official IDs\nHN_001\n\n HN_002 \n", encoding="utf-8")
     ids, errors = load_ids_from_txt(source)
     assert ids == ["HN_001", "HN_002"]
     assert errors == []
@@ -49,7 +50,8 @@ def test_remove_duplicate_ids_preserving_first_occurrence_and_reject_invalid():
     )
     assert ids == ["HN_001", "HN_002"]
     assert initial_count == 5
-    assert len(errors) == 2
+    assert len(errors) == 3
+    assert "trùng" in errors[0].message
 
 
 def test_load_benchmark_and_build_index(tmp_path):
@@ -124,6 +126,78 @@ def test_empty_or_non_string_question_is_rejected():
             validate_query(
                 {"query_id": "HN_001", "query": question, "as_of_date": "2020-01-01"}
             )
+
+
+def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch):
+    class FakeResponse:
+        def __init__(self, payload):
+            self.payload = json.dumps(payload).encode("utf-8")
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return False
+
+        def read(self):
+            return self.payload
+
+    def fake_urlopen(url, timeout):
+        if hasattr(url, "full_url"):
+            assert url.full_url.endswith("/api/generate")
+            assert url.get_method() == "POST"
+            assert json.loads(url.data)["options"]["num_predict"] == 1
+            return FakeResponse({"response": "sẵn sàng", "done": True})
+        assert timeout == 3
+        if url.endswith("/api/version"):
+            return FakeResponse({"version": "test-ollama"})
+        return FakeResponse({"models": [{"name": "qwen2.5:7b", "digest": "test-digest"}]})
+
+    monkeypatch.setattr("scripts.run_rag_batch.urlopen", fake_urlopen)
+    runtime = preflight_ollama()
+    assert runtime["model"] == "qwen2.5:7b"
+    assert runtime["model_digest"] == "test-digest"
+    assert runtime["ollama_version"] == "test-ollama"
+    assert runtime["temperature"] == 0.0
+    assert runtime["repeat_penalty"] == 1.15
+    assert runtime["num_ctx"] == 8192
+    assert runtime["num_predict"] == 1024
+    assert runtime["timeout_seconds"] == 120
+    assert runtime["max_retries"] == 1
+    assert runtime["prompt_version"]
+    assert runtime["threshold_config_version"] == "conf_v1_20261109"
+
+
+def test_ollama_preflight_fails_before_batch_when_service_unavailable(monkeypatch):
+    def unavailable(_url, timeout):
+        raise OSError("connection refused")
+
+    monkeypatch.setattr("scripts.run_rag_batch.urlopen", unavailable)
+    with pytest.raises(BatchInputError, match="Ollama preflight thất bại"):
+        preflight_ollama()
+
+
+def test_cli_does_not_create_outputs_when_gateway_preflight_fails(tmp_path, monkeypatch, capsys):
+    input_path = tmp_path / "ids.txt"
+    benchmark_path = tmp_path / "queries_dev.json"
+    output_dir = tmp_path / "run"
+    input_path.write_text("HN_001\n", encoding="utf-8")
+    benchmark_path.write_text(
+        json.dumps([{"id": "HN_001", "question": "Câu hỏi?", "as_of_date": "2020-01-01"}]),
+        encoding="utf-8",
+    )
+
+    def fail_preflight():
+        raise BatchInputError("Ollama chưa sẵn sàng")
+
+    monkeypatch.setattr("scripts.run_rag_batch.preflight_ollama", fail_preflight)
+    status = main([
+        "--input", str(input_path), "--benchmark", str(benchmark_path),
+        "--output-dir", str(output_dir),
+    ])
+    assert status == 1
+    assert "Ollama chưa sẵn sàng" in capsys.readouterr().err
+    assert not output_dir.exists()
 
 
 def test_resume_skips_only_valid_success_records_and_retries_errors(tmp_path):
@@ -251,4 +325,29 @@ def test_cli_refuses_execution_without_dev5_runner_adapter(tmp_path, capsys):
     status = main(["--input", str(input_path)])
     captured = capsys.readouterr()
     assert status == 2
-    assert "adapter Dev5" in captured.err
+    assert "output-dir" in captured.err
+
+
+def test_test_split_is_refused_without_explicit_allow_flag(tmp_path):
+    ids = tmp_path / "ids.txt"
+    benchmark = tmp_path / "queries_test.json"
+    ids.write_text("HN_001\n", encoding="utf-8")
+    benchmark.write_text(
+        json.dumps([{"id": "HN_001", "question": "Q?", "as_of_date": "2020-01-01", "split": "test"}]),
+        encoding="utf-8",
+    )
+    with pytest.raises(BatchInputError, match="Test split"):
+        prepare_batch(ids, benchmark)
+    queries, errors, _ = prepare_batch(ids, benchmark, allow_test_split=True)
+    assert len(queries) == 1
+    assert not errors
+
+
+def test_run_manifest_rejects_resume_with_changed_signature(tmp_path):
+    manifest_path = tmp_path / "run_manifest.json"
+    results_path = tmp_path / "results.jsonl"
+    results_path.write_text("", encoding="utf-8")
+    manifest_path.write_text(json.dumps({"run_signature_sha256": "old"}), encoding="utf-8")
+    from scripts.run_rag_batch import prepare_run_manifest
+    with pytest.raises(BatchInputError, match="không khớp"):
+        prepare_run_manifest(manifest_path, {"run_signature_sha256": "new"}, results_path)

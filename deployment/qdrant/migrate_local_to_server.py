@@ -5,16 +5,28 @@ import argparse
 import hashlib
 import json
 import math
+import sys
 from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 from typing import Any
 
-from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
-
-
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from qdrant_client import QdrantClient  # noqa: E402
+from qdrant_client.models import Distance, PointStruct, VectorParams  # noqa: E402
+
+from embedding.vector_store import chunk_file_sha256  # noqa: E402
+
+
+def portable_path(path: Path) -> str:
+    """Keep report paths repository-relative and avoid exposing machine paths."""
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return "<external-path>"
 
 
 def canonical_json(value: Any) -> str:
@@ -111,9 +123,15 @@ def vector_comparison_metrics(source_map: dict[str, Any], target_map: dict[str, 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-path", type=Path, default=ROOT / "data/indexes/qdrant_storage")
+    parser.add_argument("--chunks", type=Path, default=ROOT / "data/chunking_output/chunks.jsonl",
+                        help="Corpus JSONL được dùng để đối chiếu SHA chuẩn hóa")
     parser.add_argument("--url", default="http://127.0.0.1:6333")
     parser.add_argument("--collection", default="vietnam_legal_chunks")
     parser.add_argument("--expected-count", type=int, default=2322)
+    parser.add_argument("--expected-corpus-sha256", required=True,
+                        help="Corpus SHA-256 chuẩn hóa được phép migrate")
+    parser.add_argument("--replace-target", action="store_true",
+                        help="Xóa và tạo lại collection server hiện tại sau khi source baseline đã xác minh")
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--vector-atol", type=float, default=1e-7,
                         help="Maximum allowed absolute vector-coordinate drift during verification.")
@@ -121,6 +139,9 @@ def main() -> None:
     parser.add_argument("--diagnose-only", action="store_true",
                         help="Read source and target and report differences without writing points.")
     args = parser.parse_args()
+    expected_sha = args.expected_corpus_sha256.strip().lower()
+    if len(expected_sha) != 64 or any(char not in "0123456789abcdef" for char in expected_sha):
+        parser.error("--expected-corpus-sha256 phải là 64 ký tự hex")
     if (args.expected_count < 1 or args.batch_size < 1 or not math.isfinite(args.vector_atol)
             or args.vector_atol < 0):
         parser.error("--expected-count and --batch-size must be positive; --vector-atol must be finite and non-negative")
@@ -132,8 +153,14 @@ def main() -> None:
     corpus_sha256 = sidecar.get("corpus_sha256")
     if (sidecar.get("collection_name") != args.collection
             or sidecar.get("chunk_count") != args.expected_count
-            or not isinstance(corpus_sha256, str) or len(corpus_sha256) != 64):
+            or not isinstance(corpus_sha256, str) or len(corpus_sha256) != 64
+            or corpus_sha256.lower() != expected_sha):
         raise RuntimeError("Metadata sidecar collection/count/corpus_sha256 does not match migration baseline.")
+    actual_corpus_sha = chunk_file_sha256(args.chunks)
+    if actual_corpus_sha != expected_sha:
+        raise RuntimeError(
+            f"Current corpus SHA mismatch: {actual_corpus_sha} != {expected_sha}; migration not started."
+        )
 
     source = QdrantClient(path=str(args.source_path))
     target = QdrantClient(url=args.url, timeout=60)
@@ -157,6 +184,10 @@ def main() -> None:
 
         print("[2/6] Checking target collection...")
         target_names = {item.name for item in target.get_collections().collections}
+        if args.collection in target_names and args.replace_target:
+            target.delete_collection(args.collection)
+            target_names.remove(args.collection)
+            print("Removed existing target collection after validating local source baseline.")
         if args.collection not in target_names:
             if args.diagnose_only:
                 raise RuntimeError(f"Target collection does not exist: {args.collection}")
@@ -258,7 +289,8 @@ def main() -> None:
             "collection": args.collection,
             "qdrant_client_version": version("qdrant-client"),
             "corpus_sha256": corpus_sha256,
-            "source_path": str(args.source_path.resolve()),
+            "expected_corpus_sha256": expected_sha,
+            "source_path": portable_path(args.source_path),
             "target_url": args.url,
             "point_count": target_count,
             "vector_dimension": vectors.size,

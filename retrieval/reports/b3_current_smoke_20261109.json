@@ -1,0 +1,309 @@
+{
+  "query_id": "B3_CURRENT_SMOKE",
+  "query": "Điều kiện kết hôn hiện nay được quy định thế nào?",
+  "retriever": "hybrid_reranker",
+  "results": [
+    {
+      "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_8",
+      "clause_id": "l_52_2014_qh13_art_8_clause_1",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_1",
+      "rank": 1,
+      "score": 0.956596851348877,
+      "chunk_text": "1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương II KẾT HÔN",
+        "section": null,
+        "article_number": "8",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "1",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương II KẾT HÔN > Điều 8. Điều kiện kết hôn > Khoản 1"
+      },
+      "parent_id": "l_52_2014_qh13_art_8",
+      "rrf_score": 0.032266458495966696,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 3,
+        "dense": 1,
+        "retrieval": 1
+      },
+      "source_scores": {
+        "bm25": 27.574137,
+        "dense": 0.690597,
+        "retrieval": 0.032266458495966696
+      },
+      "reranker_score": 0.956596851348877,
+      "parent_text": "[Điều 8. Điều kiện kết hôn]\n1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định; c) Không bị mất năng lực hành vi dân sự; d) Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn theo quy định tại các điểm a, b, c và d khoản 2 Điều 5 của Luật này.\n2. Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính."
+    },
+    {
+      "chunk_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5_chunk_1",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "article_id": "ttlt_01_2016_ttlt_tandtc_art_2",
+      "clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5",
+      "parent_clause_id": "ttlt_01_2016_ttlt_tandtc_art_2_clause_5",
+      "rank": 2,
+      "score": 0.8172561526298523,
+      "chunk_text": "5. Việc xác định thời điểm “cả hai bên kết hôn đã có đủ các điều kiện kết hôn” quy định tại khoản 2 Điều 11 của Luật hôn nhân và gia đình phải căn cứ vào các quy định của pháp luật. Tòa án yêu cầu đương sự xác định và cung cấp các tài liệu, chứng cứ để xác định thời điểm cả hai bên kết hôn đã có đủ các điều kiện kết hôn theo quy định tại Điều 8 của Luật hôn nhân và gia đình. Ví dụ 1: Trường hợp kết hôn khi một bên bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn là vi phạm điều kiện kết hôn quy định tại điểm d khoản 1 Điều 8 của Luật hôn nhân và gia đình.",
+      "metadata": {
+        "doc_id": "ttlt_01_2016_ttlt_tandtc",
+        "title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "document_type": "Thông tư liên tịch",
+        "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+        "issue_date": "2016-01-06",
+        "effective_date": "2016-03-01",
+        "effective_from": "2016-03-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=97615",
+        "issuing_body": "Tòa án nhân dân tối cao, Viện kiểm sát nhân dân tối cao, Bộ Tư pháp",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": null,
+        "section": null,
+        "article_number": "2",
+        "document_title": "Hướng dẫn thi hành một số quy định của Luật Hôn nhân và gia đình",
+        "clause_number": "5",
+        "document_id": "ttlt_01_2016_ttlt_tandtc",
+        "breadcrumb": "Điều 2. Căn cứ hủy việc kết hôn trái pháp luật > Khoản 5"
+      },
+      "parent_id": "ttlt_01_2016_ttlt_tandtc_art_2_p3",
+      "rrf_score": 0.027745885954841176,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 7,
+        "dense": 18,
+        "retrieval": 9
+      },
+      "source_scores": {
+        "bm25": 24.27818,
+        "dense": 0.590776,
+        "retrieval": 0.027745885954841176
+      },
+      "reranker_score": 0.8172561526298523,
+      "parent_text": "[Điều 2. Căn cứ hủy việc kết hôn trái pháp luật]\n5. Việc xác định thời điểm “cả hai bên kết hôn đã có đủ các điều kiện kết hôn” quy định tại khoản 2 Điều 11 của Luật hôn nhân và gia đình phải căn cứ vào các quy định của pháp luật. Tòa án yêu cầu đương sự xác định và cung cấp các tài liệu, chứng cứ để xác định thời điểm cả hai bên kết hôn đã có đủ các điều kiện kết hôn theo quy định tại Điều 8 của Luật hôn nhân và gia đình. Ví dụ 1: Trường hợp kết hôn khi một bên bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn là vi phạm điều kiện kết hôn quy định tại điểm d khoản 1 Điều 8 của Luật hôn nhân và gia đình.\nTuy nhiên, nếu sau khi bị cưỡng ép kết hôn hoặc bị lừa dối kết hôn mà bên bị cưỡng ép kết hôn, bị lừa dối kết hôn đã biết nhưng đã thông cảm, tiếp tục chung sống hòa thuận thì thời điểm đủ điều kiện kết hôn là thời điểm đương sự biết mình bị cưỡng ép, bị lừa dối kết hôn nhưng vẫn tiếp tục sống chung như vợ chồng. Ví dụ 2: Ngày 15-01-2005, chị B kết hôn với anh A. Đến ngày 15-01-2010, chị B lại kết hôn với anh C. Ngày 25-01-2012, Tòa án có quyết định tuyên bố anh A chết. Ngày 12-6-2015, Tòa án mở phiên họp giải quyết yêu cầu hủy việc kết hôn trái pháp luật giữa chị B và anh C. Tại phiên họp, chị B và anh C đều yêu cầu công nhận quan hệ hôn nhân thì chị B và anh C phải cung cấp Quyết định của Tòa án tuyên bố anh A đã chết để xác định thời điểm chị B và anh C đủ điều kiện kết hôn."
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_3_clause_5_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_3",
+      "clause_id": "l_52_2014_qh13_art_3_clause_5",
+      "parent_clause_id": "l_52_2014_qh13_art_3_clause_5",
+      "rank": 3,
+      "score": 0.7595630884170532,
+      "chunk_text": "5. Kết hôn là việc nam và nữ xác lập quan hệ vợ chồng với nhau theo quy định của Luật này về điều kiện kết hôn và đăng ký kết hôn.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "3",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "5",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương I NHỮNG QUY ĐỊNH CHUNG > Điều 3. Giải thích từ ngữ > Khoản 5"
+      },
+      "parent_id": "l_52_2014_qh13_art_3_p1",
+      "rrf_score": 0.029910714285714284,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 10,
+        "dense": 4,
+        "retrieval": 3
+      },
+      "source_scores": {
+        "bm25": 23.125605,
+        "dense": 0.618779,
+        "retrieval": 0.029910714285714284
+      },
+      "reranker_score": 0.7595630884170532,
+      "parent_text": "[Điều 3. Giải thích từ ngữ]\nTrong Luật này, các từ ngữ dưới đây được hiểu như sau:\n1. Hôn nhân là quan hệ giữa vợ và chồng sau khi kết hôn.\n2. Gia đình là tập hợp những người gắn bó với nhau do hôn nhân, quan hệ huyết thống hoặc quan hệ nuôi dưỡng, làm phát sinh các quyền và nghĩa vụ giữa họ với nhau theo quy định của Luật này.\n3. Chế độ hôn nhân và gia đình là toàn bộ những quy định của pháp luật về kết hôn, ly hôn; quyền và nghĩa vụ giữa vợ và chồng, giữa cha mẹ và con, giữa các thành viên khác trong gia đình; cấp dưỡng; xác định cha, mẹ, con; quan hệ hôn nhân và gia đình có yếu tố nước ngoài và những vấn đề khác liên quan đến hôn nhân và gia đình.\n4. Tập quán về hôn nhân và gia đình là quy tắc xử sự có nội dung rõ ràng về quyền, nghĩa vụ của các bên trong quan hệ hôn nhân và gia đình, được lặp đi, lặp lại trong một thời gian dài và được thừa nhận rộng rãi trong một vùng, miền hoặc cộng đồng.\n5. Kết hôn là việc nam và nữ xác lập quan hệ vợ chồng với nhau theo quy định của Luật này về điều kiện kết hôn và đăng ký kết hôn.\n6. Kết hôn trái pháp luật là việc nam, nữ đã đăng ký kết hôn tại cơ quan nhà nước có thẩm quyền nhưng một bên hoặc cả hai bên vi phạm điều kiện kết hôn theo quy định tại Điều 8 của Luật này.\n7. Chung sống như vợ chồng là việc nam, nữ tổ chức cuộc sống chung và coi nhau là vợ chồng.\n8. Tảo hôn là việc lấy vợ, lấy chồng khi một bên hoặc cả hai bên chưa đủ tuổi kết hôn theo quy định tại điểm a khoản 1 Điều 8 của Luật này."
+    },
+    {
+      "chunk_id": "nd_123_2015_nd_cp_art_44_clause_2_chunk_1",
+      "document_id": "nd_123_2015_nd_cp",
+      "article_id": "nd_123_2015_nd_cp_art_44",
+      "clause_id": "nd_123_2015_nd_cp_art_44_clause_2",
+      "parent_clause_id": "nd_123_2015_nd_cp_art_44_clause_2",
+      "rank": 4,
+      "score": 0.6693196892738342,
+      "chunk_text": "2. Đối với trường hợp nam, nữ chung sống với nhau như vợ chồng trước ngày 03 tháng 01 năm 1987 mà chưa đăng ký kết hôn thì được khuyến khích và tạo điều kiện để đăng ký kết hôn. Quan hệ hôn nhân được công nhận kể từ ngày các bên xác lập quan hệ chung sống với nhau như vợ chồng. Thẩm quyền, thủ tục đăng ký kết hôn được thực hiện theo quy định tại Điều 17 và Điều 18 của Luật Hộ tịch.",
+      "metadata": {
+        "doc_id": "nd_123_2015_nd_cp",
+        "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+        "document_type": "Nghị định",
+        "document_number": "123/2015/NĐ-CP",
+        "issue_date": "2015-11-15",
+        "effective_date": "2016-01-01",
+        "effective_from": "2016-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Sửa đổi bổ sung",
+        "source_status": "Hết hiệu lực một phần",
+        "provision_status": "requires_review",
+        "chapter": "Chương V ĐIỀU KHOẢN THI HÀNH",
+        "section": null,
+        "article_number": "44",
+        "document_title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
+        "clause_number": "2",
+        "document_id": "nd_123_2015_nd_cp",
+        "breadcrumb": "Chương V ĐIỀU KHOẢN THI HÀNH > Điều 44. Điều khoản chuyển tiếp > Khoản 2"
+      },
+      "parent_id": "nd_123_2015_nd_cp_art_44",
+      "rrf_score": 0.012987012987012988,
+      "retrieval_sources": [
+        "dense"
+      ],
+      "source_ranks": {
+        "dense": 17,
+        "retrieval": 34
+      },
+      "source_scores": {
+        "dense": 0.594326,
+        "retrieval": 0.012987012987012988
+      },
+      "reranker_score": 0.6693196892738342,
+      "parent_text": "[Điều 44. Điều khoản chuyển tiếp]\n1. Hồ sơ yêu cầu đăng ký hộ tịch được cơ quan đăng ký hộ tịch tiếp nhận trước ngày 01 tháng 01 năm 2016 mà chưa giải quyết xong thì tiếp tục được giải quyết theo quy định của Nghị định số 158/2005/NĐ-CP ngày 27 tháng 12 năm 2005 của Chính phủ về đăng ký và quản lý hộ tịch và Nghị định số 126/2014/NĐ-CP ngày 31 tháng 12 năm 2014 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình.\n2. Đối với trường hợp nam, nữ chung sống với nhau như vợ chồng trước ngày 03 tháng 01 năm 1987 mà chưa đăng ký kết hôn thì được khuyến khích và tạo điều kiện để đăng ký kết hôn. Quan hệ hôn nhân được công nhận kể từ ngày các bên xác lập quan hệ chung sống với nhau như vợ chồng. Thẩm quyền, thủ tục đăng ký kết hôn được thực hiện theo quy định tại Điều 17 và Điều 18 của Luật Hộ tịch."
+    },
+    {
+      "chunk_id": "l_52_2014_qh13_art_3_clause_12_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "l_52_2014_qh13_art_3",
+      "clause_id": "l_52_2014_qh13_art_3_clause_12",
+      "parent_clause_id": "l_52_2014_qh13_art_3_clause_12",
+      "rank": 5,
+      "score": 0.6095524430274963,
+      "chunk_text": "12. Yêu sách của cải trong kết hôn là việc đòi hỏi về vật chất một cách quá đáng và coi đó là điều kiện để kết hôn nhằm cản trở việc kết hôn tự nguyện của nam, nữ.",
+      "metadata": {
+        "doc_id": "l_52_2014_qh13",
+        "title": "Luật Hôn nhân và gia đình 2014",
+        "document_type": "Luật",
+        "document_number": "52/2014/QH13",
+        "issue_date": "2014-06-19",
+        "effective_date": "2015-01-01",
+        "effective_from": "2015-01-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+        "issuing_body": "Quốc hội",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương I NHỮNG QUY ĐỊNH CHUNG",
+        "section": null,
+        "article_number": "3",
+        "document_title": "Luật Hôn nhân và gia đình 2014",
+        "clause_number": "12",
+        "document_id": "l_52_2014_qh13",
+        "breadcrumb": "Chương I NHỮNG QUY ĐỊNH CHUNG > Điều 3. Giải thích từ ngữ > Khoản 12"
+      },
+      "parent_id": "l_52_2014_qh13_art_3_p2",
+      "rrf_score": 0.024266201685556526,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 33,
+        "dense": 14,
+        "retrieval": 15
+      },
+      "source_scores": {
+        "bm25": 19.981852,
+        "dense": 0.59734,
+        "retrieval": 0.024266201685556526
+      },
+      "reranker_score": 0.6095524430274963,
+      "parent_text": "[Điều 3. Giải thích từ ngữ]\n9. Cưỡng ép kết hôn, ly hôn là việc đe dọa, uy hiếp tinh thần, hành hạ, ngược đãi, yêu sách của cải hoặc hành vi khác để buộc người khác phải kết hôn hoặc ly hôn trái với ý muốn của họ.\n10. Cản trở kết hôn, ly hôn là việc đe dọa, uy hiếp tinh thần, hành hạ, ngược đãi, yêu sách của cải hoặc hành vi khác để ngăn cản việc kết hôn của người có đủ điều kiện kết hôn theo quy định của Luật này hoặc buộc người khác phải duy trì quan hệ hôn nhân trái với ý muốn của họ.\n11. Kết hôn giả tạo là việc lợi dụng kết hôn để xuất cảnh, nhập cảnh, cư trú, nhập quốc tịch Việt Nam, quốc tịch nước ngoài; hưởng chế độ ưu đãi của Nhà nước hoặc để đạt được mục đích khác mà không nhằm mục đích xây dựng gia đình.\n12. Yêu sách của cải trong kết hôn là việc đòi hỏi về vật chất một cách quá đáng và coi đó là điều kiện để kết hôn nhằm cản trở việc kết hôn tự nguyện của nam, nữ.\n13. Thời kỳ hôn nhân là khoảng thời gian tồn tại quan hệ vợ chồng, được tính từ ngày đăng ký kết hôn đến ngày chấm dứt hôn nhân.\n14. Ly hôn là việc chấm dứt quan hệ vợ chồng theo bản án, quyết định có hiệu lực pháp luật của Tòa án.\n15. Ly hôn giả tạo là việc lợi dụng ly hôn để trốn tránh nghĩa vụ tài sản, vi phạm chính sách, pháp luật về dân số hoặc để đạt được mục đích khác mà không nhằm mục đích chấm dứt hôn nhân."
+    }
+  ],
+  "latency_ms": 130804.227,
+  "top_k": 5,
+  "config": {
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "bm25_index": "bm25-e6-verified-20261109-b3",
+      "collection": "vietnam_legal_chunks_b3",
+      "qdrant_storage_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\indexes\\qdrant_storage",
+      "qdrant_url": "http://127.0.0.1:6333",
+      "corpus_path": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\chunks.jsonl",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "fusion": "rrf"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    },
+    "parent_context": {
+      "parents_file": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\parents.json",
+      "max_context_chars": 6000
+    },
+    "as_of_date": "2026-11-09",
+    "temporal_filter": "retriever",
+    "top_k": 5,
+    "as_of_date_source": "ui"
+  },
+  "stats": {
+    "retrieved_candidates": 50,
+    "input_candidates": 50,
+    "duplicates_removed": 0,
+    "truncated_candidates": 0,
+    "scored_candidates": 50,
+    "output_candidates": 5,
+    "rerank_latency_ms": 100410.768,
+    "model_load_ms": 16852.011,
+    "parent_context": {
+      "parents_attached": 5,
+      "parents_shared": 0,
+      "parents_missing": 0,
+      "parents_over_budget": 0,
+      "upstream_parent_id_replaced": 0,
+      "context_chars": 5448
+    },
+    "returned": 5,
+    "retrieval_latency_ms": 13500.747,
+    "total_latency_ms": 130804.227
+  }
+}

@@ -40,6 +40,29 @@ class RuleRouterTest(unittest.TestCase):
         decision = self.router.route("Nghĩa vụ cấp dưỡng sau ly hôn")
         self.assertEqual(decision.route, Route.LEGAL_HNGD)
 
+    def test_hngd_topic_routes_without_question_marker(self):
+        for query in (
+            "Cấp dưỡng có thể thực hiện một lần thay vì hằng tháng không?",
+            "Chồng có quyền tự yêu cầu ly hôn khi vợ đang mang thai không?",
+            "Phạm vi điều chỉnh của Luật Hôn nhân và gia đình 2014",
+            "Tôi muốn kết hôn với người nước ngoài. Tôi phải nộp hồ sơ ở đâu?",
+            "Thời kỳ hôn nhân và tài sản riêng",
+            "Quyền thăm nom con sau ly hôn",
+        ):
+            with self.subTest(query=query):
+                self.assertEqual(self.router.route(query).action, Action.LEGAL_RETRIEVAL)
+
+    def test_legal_out_of_scope_routes_to_abstention_without_marker(self):
+        for query in (
+            "Di chúc và di sản",
+            "Ranh giới thửa đất",
+            "Doanh nghiệp và lao động",
+            "Vượt đèn đỏ",
+        ):
+            with self.subTest(query=query):
+                self.assertEqual(self.router.route(query).route, Route.LEGAL_OUT_OF_SCOPE)
+                self.assertEqual(self.router.route(query).action, Action.POLICY_ABSTENTION)
+
     def test_parentage_question_is_hngd(self):
         decision = self.router.route("Xác định cha, mẹ, con theo pháp luật")
         self.assertEqual(decision.route, Route.LEGAL_HNGD)
@@ -91,22 +114,56 @@ class RuleRouterTest(unittest.TestCase):
                 self.assertEqual(decision.action, Action.GENERAL_CHAT)
                 self.assertEqual(decision.route_reason, RouteReason.NON_LEGAL_NO_LEGAL_INTENT)
 
-    def test_generic_legal_request_is_abstained_for_scope_clarification(self):
+    def test_generic_legal_request_enters_retrieval_for_confidence_gate(self):
         decision = self.router.route("Tôi cần tư vấn pháp luật")
         self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
-        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+        self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
         self.assertEqual(decision.route_reason, RouteReason.LEGAL_SCOPE_UNCERTAIN)
 
-    def test_unknown_cited_legal_scope_is_abstained(self):
+    def test_unknown_cited_legal_scope_enters_retrieval(self):
         decision = self.router.route("Khoản 2 Điều 5 quy định thế nào?")
         self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
-        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+        self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+
+    def test_unspecified_legal_rights_enter_retrieval_for_confidence_gate(self):
+        for query in (
+            "Tôi có quyền yêu cầu bồi thường không?",
+            "Tôi có quyền khởi kiện không?",
+        ):
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
 
     def test_mixed_scope_is_not_routed_as_hngd_only(self):
-        decision = self.router.route("Chia tài sản khi ly hôn và nghĩa vụ thuế liên quan")
-        self.assertEqual(decision.route, Route.MIXED_LEGAL_SCOPE)
-        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
-        self.assertEqual(decision.route_reason, RouteReason.MIXED_LEGAL_SCOPE)
+        for query in (
+            "Chia tài sản khi ly hôn và nghĩa vụ thuế liên quan",
+            "Ly hôn, chia tài sản và tranh chấp đất đai thì giải quyết thế nào?",
+            "Ly hôn chia tài sản và phân chia di sản theo thừa kế thì sao?",
+        ):
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.MIXED_LEGAL_SCOPE)
+                self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+                self.assertEqual(decision.route_reason, RouteReason.MIXED_LEGAL_SCOPE)
+
+    def test_land_or_inheritance_as_marital_property_stays_hngd(self):
+        for query in (
+            "Ly hôn, chia tài sản và quyền sử dụng đất được giải quyết thế nào?",
+            "Tài sản thừa kế trong thời kỳ hôn nhân có phải tài sản chung không?",
+        ):
+            with self.subTest(query=query):
+                self.assertEqual(self.router.route(query).route, Route.LEGAL_HNGD)
+
+    def test_generic_employment_and_admission_paperwork_stays_nonlegal(self):
+        for query in (
+            "Tôi cần hồ sơ xin việc gồm những gì?",
+            "Hướng dẫn thủ tục nhập học đại học",
+        ):
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.NON_LEGAL)
+                self.assertEqual(decision.action, Action.GENERAL_CHAT)
 
     def test_whitespace_and_case_normalization(self):
         decision = self.router.route("  ĐIỀU KIỆN   KẾT HÔN LÀ GÌ? ")

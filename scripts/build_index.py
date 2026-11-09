@@ -205,6 +205,12 @@ def main() -> int:
         action="store_true",
         help="XÓA collection Qdrant hiện tại trước khi dựng lại toàn bộ index",
     )
+    parser.add_argument(
+        "--expected-corpus-sha256",
+        type=str,
+        default=None,
+        help="SHA-256 chuẩn hóa kỳ vọng; dừng trước khi ghi/xóa nếu corpus không khớp",
+    )
     args = parser.parse_args()
 
     try:
@@ -251,6 +257,17 @@ def main() -> int:
             return 1
 
     corpus_sha = chunk_file_sha256(input_path)
+    if args.expected_corpus_sha256:
+        expected_sha = args.expected_corpus_sha256.strip().lower()
+        if len(expected_sha) != 64 or any(char not in "0123456789abcdef" for char in expected_sha):
+            print("LỖI: --expected-corpus-sha256 phải là 64 ký tự hex.", file=sys.stderr)
+            return 1
+        if corpus_sha != expected_sha:
+            print(
+                f"LỖI: Corpus SHA không khớp: thực tế={corpus_sha}, kỳ vọng={expected_sha}.",
+                file=sys.stderr,
+            )
+            return 1
     print(f"[1/3] Đã nạp và xác thực {len(chunks)} chunks hợp lệ (SHA256={corpus_sha[:12]}...).")
 
     try:

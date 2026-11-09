@@ -74,7 +74,7 @@ def resolve_qdrant_storage_path(settings: dict[str, Any], *,
 
 
 def read_queries(path: Path) -> list[tuple[str, str, str]]:
-    """Return (query_id, query, as_of_date) rows; missing dates use today's date."""
+    """Return benchmark rows; every query must carry its own as_of_date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -87,6 +87,13 @@ def read_queries(path: Path) -> list[tuple[str, str, str]]:
             raise ValueError(f"Benchmark query #{index} phải là object có id và question")
         query_id = row.get("id") or row.get("query_id")
         query = row.get("query") or row.get("question")
+        if row.get("as_of_date") is None or (
+            isinstance(row.get("as_of_date"), str) and not row["as_of_date"].strip()
+        ):
+            raise ValueError(
+                f"Benchmark query #{index} ({query_id or 'chưa có id'}) thiếu as_of_date; "
+                "benchmark không được tự dùng ngày hiện tại."
+            )
         try:
             as_of_date = normalize_as_of_date(row.get("as_of_date"))
         except ValueError as exc:

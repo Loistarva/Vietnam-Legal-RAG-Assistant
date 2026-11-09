@@ -184,9 +184,14 @@ class E1TemporalRetrievalEndToEndTest(unittest.TestCase):
         self.assertIn("old-law-chunk", historical_ids)
         self.assertNotIn("old-law-chunk", current_ids)
         self.assertIn("current-law-chunk", current_ids)
+        expired_boundary = pipeline.run("Quy định pháp luật lịch sử?", as_of_date="2001-01-01")
+        self.assertNotIn("old-law-chunk", {row["chunk_id"] for row in expired_boundary["results"]})
         self.assertEqual(historical["config"]["as_of_date"], "1995-06-01")
         self.assertEqual(historical["config"]["temporal_filter"], "retriever")
-        self.assertEqual(sparse.as_of_dates, ["1995-06-01", "2026-10-30"])
+        self.assertEqual(
+            sparse.as_of_dates,
+            ["1995-06-01", "2026-10-30", "2001-01-01"],
+        )
 
 
 if __name__ == "__main__":
