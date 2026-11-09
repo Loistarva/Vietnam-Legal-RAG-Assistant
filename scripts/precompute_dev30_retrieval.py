@@ -65,8 +65,26 @@ def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
 
 
+def normalized_text_bytes(raw: bytes) -> bytes:
+    """Normalize all newline conventions so text hashes are platform-stable."""
+    return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def normalized_bytes_sha256(raw: bytes) -> str:
+    return sha256_bytes(normalized_text_bytes(raw))
+
+
+def normalized_file_sha256(path: Path) -> str:
+    if not path.is_file():
+        raise FileNotFoundError(f"Không tìm thấy file: {path}")
+    return normalized_bytes_sha256(path.read_bytes())
+
+
 def normalized_corpus_sha256(path: Path) -> str:
+    # Corpus provenance has a repository-wide canonicalization contract;
+    # newline normalization here is only for ordinary text-file manifest hashes.
     from embedding.vector_store import chunk_file_sha256
+
     return chunk_file_sha256(path)
 
 
@@ -701,16 +719,31 @@ def main() -> int:
 
         config_bundle = {
             "retrieval_config_path": args.retrieval_config.resolve().relative_to(ROOT).as_posix(),
-            "retrieval_config_sha256": sha256_file(args.retrieval_config),
+            "retrieval_config_sha256": normalized_file_sha256(args.retrieval_config),
             "rerank_config_path": args.rerank_config.resolve().relative_to(ROOT).as_posix(),
-            "rerank_config_sha256": sha256_file(args.rerank_config),
+            "rerank_config_sha256": normalized_file_sha256(args.rerank_config),
             "values": config_values,
         }
         config_bundle_sha = canonical_sha256(config_bundle)
         corpus_sha = normalized_corpus_sha256(args.corpus)
         corpus_raw_sha = sha256_file(args.corpus)
-        ids_manifest_sha = sha256_file(args.id_manifest) if args.id_manifest is not None else None
-        benchmark_sha = sha256_file(args.benchmark)
+        ids_manifest_sha = (
+            normalized_file_sha256(args.id_manifest) if args.id_manifest is not None else None
+        )
+        ids_manifest_raw_sha = (
+            sha256_file(args.id_manifest) if args.id_manifest is not None else None
+        )
+        benchmark_sha = normalized_file_sha256(args.benchmark)
+        benchmark_raw_sha = sha256_file(args.benchmark)
+
+        current_git_sha = _git(["rev-parse", "HEAD"]).stdout.decode().strip()
+        current_branch = _git(["branch", "--show-current"]).stdout.decode().strip()
+        dirty = bool(_git(["status", "--porcelain"]).stdout.strip())
+        if dirty:
+            raise PrecomputeError(
+                "Precompute official phải chạy từ working tree sạch. "
+                "Commit các thay đổi và xử lý artifact tạm trước khi tạo manifest."
+            )
 
         print("[4/7] Parse G3 artifact and build the 30 precomputed records...")
         source_data = read_json_or_jsonl(args.source_artifact)
@@ -732,15 +765,12 @@ def main() -> int:
             json.dumps(row, ensure_ascii=False, separators=(",", ":"), allow_nan=False) + "\n"
             for row in output_records
         ).encode("utf-8")
-        output_sha = sha256_bytes(output_bytes)
-
-        current_git_sha = _git(["rev-parse", "HEAD"]).stdout.decode().strip()
-        current_branch = _git(["branch", "--show-current"]).stdout.decode().strip()
-        dirty = bool(_git(["status", "--porcelain"]).stdout.strip())
+        output_sha = normalized_bytes_sha256(output_bytes)
+        output_raw_sha = sha256_bytes(output_bytes)
 
         per_query_dates = {row["query_id"]: row["as_of_date"] for row in output_records}
         manifest = {
-            "manifest_schema_version": "d4.4.precompute_manifest.v1",
+            "manifest_schema_version": "d4.4.precompute_manifest.v2",
             "run_id": f"{args.run_date}_dev30_retrieval",
             "created_at_utc": datetime.now(timezone.utc).isoformat(),
             "precomputed": True,
@@ -750,7 +780,8 @@ def main() -> int:
             "dataset_ids_sha256": ids_sha,
             "official_ids_file": {
                 "path": args.ids.resolve().relative_to(ROOT).as_posix(),
-                "sha256": sha256_file(args.ids),
+                "sha256": normalized_file_sha256(args.ids),
+                "raw_sha256": sha256_file(args.ids),
                 "count": len(official_ids),
                 "selection_source": "official_dev_gold_30_ids_txt",
             },
@@ -758,21 +789,25 @@ def main() -> int:
                 {
                     "path": args.id_manifest.resolve().relative_to(ROOT).as_posix(),
                     "sha256": ids_manifest_sha,
+                    "raw_sha256": ids_manifest_raw_sha,
                     "validated": True,
                 } if args.id_manifest is not None else None
             ),
             "benchmark_path": args.benchmark.resolve().relative_to(ROOT).as_posix(),
             "benchmark_sha256": benchmark_sha,
+            "benchmark_raw_sha256": benchmark_raw_sha,
             "as_of_date_source": "data/benchmark/queries_dev.json",
             "as_of_dates": per_query_dates,
             "candidate_text": EXPECTED_CANDIDATE_TEXT,
             "retrieval_config": {
                 "path": config_bundle["retrieval_config_path"],
                 "sha256": config_bundle["retrieval_config_sha256"],
+                "raw_sha256": sha256_file(args.retrieval_config),
             },
             "rerank_config": {
                 "path": config_bundle["rerank_config_path"],
                 "sha256": config_bundle["rerank_config_sha256"],
+                "raw_sha256": sha256_file(args.rerank_config),
             },
             "config_values": config_values,
             "config_bundle_sha256": config_bundle_sha,
@@ -782,6 +817,7 @@ def main() -> int:
             "source_artifact": remote,
             "output_path": output_path.resolve().relative_to(ROOT).as_posix(),
             "output_sha256": output_sha,
+            "output_raw_sha256": output_raw_sha,
             "repository": {
                 "branch": current_branch,
                 "git_sha": current_git_sha,
@@ -802,7 +838,7 @@ def main() -> int:
             raise
 
         print("[7/7] Verify output SHA and query count...")
-        if sha256_file(output_path) != output_sha:
+        if normalized_file_sha256(output_path) != output_sha:
             raise PrecomputeError("Output SHA-256 verification failed after write.")
         written = [json.loads(line) for line in output_path.read_text(encoding="utf-8").splitlines() if line.strip()]
         written_ids = [row.get("query_id") for row in written]

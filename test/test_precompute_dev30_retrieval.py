@@ -17,6 +17,29 @@ import precompute_dev30_retrieval as pipeline
 from reranking.reranker import candidate_text
 
 
+class NewlineHashTests(unittest.TestCase):
+    def test_normalized_hash_is_stable_for_lf_crlf_and_bare_cr(self):
+        lf = b"line 1\nline 2\n"
+        crlf = b"line 1\r\nline 2\r\n"
+        bare_cr = b"line 1\rline 2\r"
+        expected = pipeline.normalized_bytes_sha256(lf)
+        self.assertEqual(pipeline.normalized_bytes_sha256(crlf), expected)
+        self.assertEqual(pipeline.normalized_bytes_sha256(bare_cr), expected)
+        self.assertNotEqual(pipeline.sha256_bytes(lf), pipeline.sha256_bytes(crlf))
+
+    def test_normalized_file_hash_matches_across_newline_styles(self):
+        with tempfile.TemporaryDirectory() as directory:
+            lf_path = Path(directory) / "lf.txt"
+            crlf_path = Path(directory) / "crlf.txt"
+            lf_path.write_bytes(b"line 1\nline 2\n")
+            crlf_path.write_bytes(b"line 1\r\nline 2\r\n")
+            self.assertEqual(
+                pipeline.normalized_file_sha256(lf_path),
+                pipeline.normalized_file_sha256(crlf_path),
+            )
+            self.assertNotEqual(pipeline.sha256_file(lf_path), pipeline.sha256_file(crlf_path))
+
+
 class ReadOfficialIdsTests(unittest.TestCase):
     def test_requires_exactly_30_unique_ids(self):
         with tempfile.TemporaryDirectory() as directory:

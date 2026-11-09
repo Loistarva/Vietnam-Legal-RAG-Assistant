@@ -141,6 +141,26 @@ def normalize_query(query: str) -> str:
     return " ".join(normalized.split()).casefold()
 
 
+def strip_vietnamese_diacritics(value: str) -> str:
+    """Return a comparison form for common Vietnamese queries without accents."""
+    decomposed = unicodedata.normalize("NFD", value.casefold())
+    without_marks = "".join(char for char in decomposed if unicodedata.category(char) != "Mn")
+    return without_marks.replace("đ", "d")
+
+
+def _has_any_term(query: str, unaccented_query: str, terms: Sequence[str]) -> bool:
+    def has_phrase(text: str, term: str) -> bool:
+        normalized_text = re.sub(r"[^\w]+", " ", text, flags=re.UNICODE).strip()
+        normalized_term = re.sub(r"[^\w]+", " ", term, flags=re.UNICODE).strip()
+        return f" {normalized_term} " in f" {normalized_text} "
+
+    return any(
+        has_phrase(query, term.casefold())
+        or has_phrase(unaccented_query, strip_vietnamese_diacritics(term))
+        for term in terms
+    )
+
+
 def _parse_as_of_date(value: str | date | datetime | None) -> date | None:
     if value is None or value == "":
         return None
@@ -229,6 +249,13 @@ _HNGD_TERMS = (
     "hủy kết hôn",
     "hủy việc kết hôn",
     "cấp dưỡng",
+    "ly dị",
+    "ly thân",
+    "lấy vợ",
+    "lấy chồng",
+    "lấy nhau",
+    "cưới nhau",
+    "đồng giới",
     "quyền nuôi con",
     "người trực tiếp nuôi",
     "nguyện vọng của con",
@@ -247,9 +274,13 @@ _HNGD_TERMS = (
     "thời kỳ hôn nhân",
     "tài sản chung",
     "tài sản riêng",
+    "của chung",
     "nuôi con",
     "thăm nom",
     "con nuôi",
+    "con riêng",
+    "bố dượng",
+    "mẹ kế",
     "nhận cha, mẹ, con",
     "nhận cha mẹ con",
     "hộ tịch",
@@ -264,6 +295,14 @@ _HNGD_TERMS = (
 )
 
 _OUT_OF_SCOPE_TERMS = (
+    "nợ lương",
+    "nợ tiền lương",
+    "hàng xóm xây nhà lấn",
+    "lấn sang đất",
+    "cho vay tiền",
+    "đòi nợ",
+    "mua hàng online bị lừa",
+    "báo công an",
     "luật thuế",
     "thuế thu nhập cá nhân",
     "thuế doanh nghiệp",
@@ -303,11 +342,13 @@ _OUT_OF_SCOPE_TERMS = (
     "vượt đèn đỏ",
     "xử phạt hành chính",
     "khung hình phạt",
-    "tội",
 )
 
 _EDUCATION_STATEMENT = re.compile(
     r"\b(?:tôi|em|mình)\s+(?:đang\s+)?(?:học|nghiên cứu)\s+(?:môn\s+)?luật\b"
+)
+_EDUCATION_STATEMENT_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_EDUCATION_STATEMENT.pattern), re.IGNORECASE
 )
 _EXPLICIT_QUESTION_OR_REQUEST = re.compile(
     r"\?|\b(?:là gì|thế nào|ra sao|giải thích|cho biết|tư vấn|tìm hiểu|"
@@ -329,12 +370,29 @@ _CONTEXTUAL_LEGAL_SIGNAL = re.compile(
     r"|\bkhởi kiện\s+(?:tại|lên)\s+tòa(?:\s+án)?\b",
     re.IGNORECASE,
 )
+_CONTEXTUAL_LEGAL_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_CONTEXTUAL_LEGAL_SIGNAL.pattern), re.IGNORECASE
+)
+_CLEAR_NONLEGAL_SIGNAL = re.compile(
+    r"\b(?:xin chào|chào bạn|thời tiết|nhiệt độ|mưa hôm nay|"
+    r"hồ sơ xin việc|thủ tục nhập học|(?:viết (?:giúp tôi )?(?:một )?)?(?:bài thơ|lời chúc)|"
+    r"email xin nghỉ phép|"
+    r"mua quà sinh nhật|giải thích (?:thuật toán|binary search)|"
+    r"hướng dẫn học (?:python|lập trình))\b",
+    re.IGNORECASE,
+)
+_CLEAR_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_CLEAR_NONLEGAL_SIGNAL.pattern), re.IGNORECASE
+)
 _INDEPENDENT_OUTSIDE_TOPIC = re.compile(
     r"\b(?:và|đồng thời|ngoài ra|cùng với|kèm theo)\b.{0,100}\b(?:"
     r"thuế|hình sự|hợp đồng lao động|doanh nghiệp|tranh chấp đất(?: đai)?|"
     r"tranh chấp thừa kế|phân chia di sản|di chúc)\b"
     r"|\b(?:tranh chấp đất(?: đai)?|phân chia di sản|tranh chấp thừa kế)\b",
     re.IGNORECASE,
+)
+_INDEPENDENT_OUTSIDE_TOPIC_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_INDEPENDENT_OUTSIDE_TOPIC.pattern), re.IGNORECASE
 )
 
 
@@ -440,29 +498,71 @@ class RuleRouter:
         query_id: str | None,
         as_of_date: str | date | datetime | None,
     ) -> RouteDecision:
-        hngd_match = any(term in query for term in _HNGD_TERMS)
-        outside_match = any(term in query for term in _OUT_OF_SCOPE_TERMS)
-        explicit_legal = any(term in query for term in _LEGAL_SIGNALS) or bool(
+        unaccented_query = strip_vietnamese_diacritics(query)
+        hngd_match = _has_any_term(query, unaccented_query, _HNGD_TERMS)
+        outside_match = _has_any_term(query, unaccented_query, _OUT_OF_SCOPE_TERMS)
+        explicit_legal = _has_any_term(query, unaccented_query, _LEGAL_SIGNALS) or bool(
             _LEGAL_CITATION.search(query)
+            or _LEGAL_CITATION.search(unaccented_query)
             or _LEGAL_DOCUMENT_REFERENCE.search(query)
+            or _LEGAL_DOCUMENT_REFERENCE.search(unaccented_query)
             or _CONTEXTUAL_LEGAL_SIGNAL.search(query)
+            or _CONTEXTUAL_LEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
         )
-        # Property questions about spouses during marriage/divorce remain HNGD
-        # when they mention overlapping concepts such as labor, inheritance,
-        # or land. Those concepts alone do not change the governing legal domain.
+        family_relation_context = _has_any_term(
+            query,
+            unaccented_query,
+            ("vợ", "chồng", "vợ chồng", "hôn nhân", "ly hôn", "ly dị", "ly thân",
+             "con nuôi", "con riêng", "bố dượng", "mẹ kế"),
+        )
+        property_context = _has_any_term(
+            query,
+            unaccented_query,
+            ("tài sản", "lương", "lao động", "vốn góp", "quyền sử dụng đất",
+             "thừa kế", "di sản"),
+        )
         hngd_property_context = (
-            "thời kỳ hôn nhân" in query
+            (family_relation_context and property_context)
+            or _has_any_term(query, unaccented_query, ("thời kỳ hôn nhân",))
             or (
-                "ly hôn" in query
-                and any(term in query for term in ("tài sản", "quyền sử dụng đất", "đất riêng"))
+                _has_any_term(query, unaccented_query, ("tài sản chung",))
+                and _has_any_term(query, unaccented_query, ("quyền sử dụng đất",))
             )
         )
-        independent_outside_topic = bool(_INDEPENDENT_OUTSIDE_TOPIC.search(query))
+        independent_outside_topic = bool(
+            _INDEPENDENT_OUTSIDE_TOPIC.search(query)
+            or _INDEPENDENT_OUTSIDE_TOPIC_UNACCENTED.search(unaccented_query)
+        )
         if hngd_match and hngd_property_context and not independent_outside_topic:
             outside_match = False
         # A statement about studying law is not itself a request for legal help.
-        education_statement = bool(_EDUCATION_STATEMENT.search(query))
+        education_statement = bool(
+            _EDUCATION_STATEMENT.search(query)
+            or _EDUCATION_STATEMENT_UNACCENTED.search(unaccented_query)
+        )
         has_request = bool(_EXPLICIT_QUESTION_OR_REQUEST.search(query))
+        clear_nonlegal = (
+            education_statement and not has_request
+        ) or bool(
+            _CLEAR_NONLEGAL_SIGNAL.search(query)
+            or _CLEAR_NONLEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
+        )
+        strong_legal_context = bool(
+            _LEGAL_CITATION.search(query)
+            or _LEGAL_CITATION.search(unaccented_query)
+            or _LEGAL_DOCUMENT_REFERENCE.search(query)
+            or _LEGAL_DOCUMENT_REFERENCE.search(unaccented_query)
+            or _CONTEXTUAL_LEGAL_SIGNAL.search(query)
+            or _CONTEXTUAL_LEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
+        )
+        if clear_nonlegal and not strong_legal_context:
+            return RouteDecision(
+                query_id=query_id,
+                route=Route.NON_LEGAL,
+                action=Action.GENERAL_CHAT,
+                route_reason=RouteReason.NON_LEGAL_NO_LEGAL_INTENT,
+                as_of_date=as_of_date,
+            )
         # A recognized legal topic is itself sufficient intent. Requiring a
         # question marker misroutes yes/no and procedural questions to chat.
         legal_intent = (hngd_match or outside_match or explicit_legal) and not (
@@ -472,9 +572,9 @@ class RuleRouter:
         if not legal_intent:
             return RouteDecision(
                 query_id=query_id,
-                route=Route.NON_LEGAL,
-                action=Action.GENERAL_CHAT,
-                route_reason=RouteReason.NON_LEGAL_NO_LEGAL_INTENT,
+                route=Route.LEGAL_SCOPE_UNCERTAIN,
+                action=Action.LEGAL_RETRIEVAL,
+                route_reason=RouteReason.LEGAL_SCOPE_UNCERTAIN,
                 as_of_date=as_of_date,
             )
         if hngd_match and outside_match:

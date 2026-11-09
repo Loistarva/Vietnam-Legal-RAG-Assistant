@@ -105,6 +105,8 @@ class RuleRouterTest(unittest.TestCase):
             "Viết một bài thơ về tình yêu",
             "Hướng dẫn học Python cơ bản",
             "Viết lời chúc cho vợ nhân ngày sinh nhật",
+            "Viết một bài thơ về ly hôn",
+            "Viết email xin nghỉ phép dù vợ tôi đang ly thân",
             "Tôi đang học môn Luật HNGĐ",
         )
         for query in cases:
@@ -119,6 +121,11 @@ class RuleRouterTest(unittest.TestCase):
         self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
         self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
         self.assertEqual(decision.route_reason, RouteReason.LEGAL_SCOPE_UNCERTAIN)
+
+    def test_unrecognized_question_defaults_to_safe_retrieval(self):
+        decision = self.router.route("Quy định trong trường hợp đặc biệt này thế nào?")
+        self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
+        self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
 
     def test_unknown_cited_legal_scope_enters_retrieval(self):
         decision = self.router.route("Khoản 2 Điều 5 quy định thế nào?")
@@ -164,6 +171,40 @@ class RuleRouterTest(unittest.TestCase):
                 decision = self.router.route(query)
                 self.assertEqual(decision.route, Route.NON_LEGAL)
                 self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_review_holdout_family_questions_never_go_to_general_chat(self):
+        queries = (
+            "Chồng tôi ngoại tình, tôi muốn đơn phương ly dị thì làm sao?",
+            "Vợ tôi bỏ đi 3 năm không liên lạc, tôi có thể ly dị được không?",
+            "Tuổi tối thiểu để lấy vợ là bao nhiêu?",
+            "Hai người đồng giới có được cưới nhau không?",
+            "Bố mẹ ly thân thì con 10 tuổi ở với ai?",
+            "Tiền lương của chồng có phải là của chung không?",
+            "Anh em họ trong phạm vi ba đời có được lấy nhau không?",
+            "ly hon thi chia tai san the nao",
+            "Lao động của vợ trong gia đình có được coi như lao động có thu nhập khi chia tài sản chung không?",
+            "Vốn góp vào doanh nghiệp bằng tài sản chung của vợ chồng có cần chồng đồng ý không?",
+            "Tài sản chung là quyền sử dụng đất thì khi chia phải làm sao?",
+            "Con nuôi có được hưởng thừa kế như con đẻ không?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertNotEqual(decision.action, Action.GENERAL_CHAT)
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+
+    def test_review_holdout_out_of_scope_legal_questions_do_not_go_to_chat(self):
+        queries = (
+            "Công ty nợ lương 3 tháng thì tôi làm gì?",
+            "Hàng xóm xây nhà lấn sang đất nhà tôi thì kiện ở đâu?",
+            "Cho vay tiền không có giấy tờ có đòi được không?",
+            "Mua hàng online bị lừa thì báo công an thế nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertNotEqual(decision.action, Action.GENERAL_CHAT)
+                self.assertEqual(decision.route, Route.LEGAL_OUT_OF_SCOPE)
 
     def test_whitespace_and_case_normalization(self):
         decision = self.router.route("  ĐIỀU KIỆN   KẾT HÔN LÀ GÌ? ")
