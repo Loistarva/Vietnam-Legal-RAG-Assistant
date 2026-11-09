@@ -18,7 +18,7 @@ from enum import Enum
 from typing import Sequence
 
 
-CLASSIFIER_VERSION = "rule_router_v1"
+CLASSIFIER_VERSION = "rule_router_v2"
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -373,12 +373,20 @@ _CONTEXTUAL_LEGAL_SIGNAL = re.compile(
 _CONTEXTUAL_LEGAL_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_CONTEXTUAL_LEGAL_SIGNAL.pattern), re.IGNORECASE
 )
+_NEGATED_HNGD_SCOPE = re.compile(
+    r"\bkhông\s+có\s+(?:tranh\s+chấp\s+)?(?:tài\s+sản\s+)?"
+    r"(?:vợ\s+chồng|hôn\s+nhân|gia\s+đình)\b",
+    re.IGNORECASE,
+)
 _CLEAR_NONLEGAL_SIGNAL = re.compile(
     r"\b(?:xin chào|chào bạn|thời tiết|nhiệt độ|mưa hôm nay|"
     r"hồ sơ xin việc|thủ tục nhập học|(?:viết (?:giúp tôi )?(?:một )?)?(?:bài thơ|lời chúc)|"
     r"email xin nghỉ phép|"
     r"mua quà sinh nhật|giải thích (?:thuật toán|binary search)|"
-    r"hướng dẫn học (?:python|lập trình))\b",
+    r"(?:hướng dẫn )?học (?:python|lập trình)|lập lịch học|công thức nấu|món ăn|nấu món|"
+    r"kể (?:một )?câu chuyện|câu chuyện vui|lịch trình du lịch|gợi ý du lịch|"
+    r"dịch (?:câu|đoạn văn)|giải phương trình|đạo hàm|bài tập toán|"
+    r"đánh giá (?:điện thoại|máy tính)|cách trồng cây|chăm sóc cây)\b",
     re.IGNORECASE,
 )
 _CLEAR_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
@@ -500,6 +508,15 @@ class RuleRouter:
     ) -> RouteDecision:
         unaccented_query = strip_vietnamese_diacritics(query)
         hngd_match = _has_any_term(query, unaccented_query, _HNGD_TERMS)
+        # A negated family-scope phrase used to clarify that a different
+        # dispute is unrelated must not turn that dispute into an HNGD query.
+        without_negated_hngd = _NEGATED_HNGD_SCOPE.sub(" ", query)
+        if without_negated_hngd != query and not _has_any_term(
+            without_negated_hngd,
+            strip_vietnamese_diacritics(without_negated_hngd),
+            _HNGD_TERMS,
+        ):
+            hngd_match = False
         outside_match = _has_any_term(query, unaccented_query, _OUT_OF_SCOPE_TERMS)
         explicit_legal = _has_any_term(query, unaccented_query, _LEGAL_SIGNALS) or bool(
             _LEGAL_CITATION.search(query)
@@ -547,15 +564,21 @@ class RuleRouter:
             _CLEAR_NONLEGAL_SIGNAL.search(query)
             or _CLEAR_NONLEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
         )
-        strong_legal_context = bool(
-            _LEGAL_CITATION.search(query)
-            or _LEGAL_CITATION.search(unaccented_query)
-            or _LEGAL_DOCUMENT_REFERENCE.search(query)
-            or _LEGAL_DOCUMENT_REFERENCE.search(unaccented_query)
-            or _CONTEXTUAL_LEGAL_SIGNAL.search(query)
-            or _CONTEXTUAL_LEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
-        )
-        if clear_nonlegal and not strong_legal_context:
+        # A clear general-chat phrase must never erase a legal request in the
+        # same query. Treat a legal topic plus an explicit question/request as
+        # mixed intent; abstain so the system cannot answer the whole prompt as
+        # unrestricted chat. Bare incidental mentions (for example, a poem
+        # "about divorce") remain general chat.
+        has_legal_request = outside_match or explicit_legal or (hngd_match and has_request)
+        if clear_nonlegal and has_legal_request:
+            return RouteDecision(
+                query_id=query_id,
+                route=Route.MIXED_LEGAL_SCOPE,
+                action=Action.POLICY_ABSTENTION,
+                route_reason=RouteReason.MIXED_LEGAL_SCOPE,
+                as_of_date=as_of_date,
+            )
+        if clear_nonlegal and not has_legal_request:
             return RouteDecision(
                 query_id=query_id,
                 route=Route.NON_LEGAL,

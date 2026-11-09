@@ -14,7 +14,7 @@ DEFAULT_HOLDOUT = ROOT / "test/agent/data/router_holdout.jsonl"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from agent.router.rule_router import Action, Route, RuleRouter
+from agent.router.rule_router import CLASSIFIER_VERSION, Action, Route, RuleRouter
 from embedding.vector_store import chunk_file_sha256
 
 
@@ -24,7 +24,7 @@ def read_json(path: Path):
 
 def read_router_holdout(path: Path) -> tuple[list[dict], str | None]:
     if not path.is_file():
-        return [], f"Không tìm thấy holdout độc lập: {path.name}"
+        return [], f"Không tìm thấy holdout candidate: {path.name}"
     rows: list[dict] = []
     try:
         for line_number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
@@ -79,7 +79,7 @@ def run() -> tuple[str, bool]:
     parser.add_argument("--report", type=Path, default=None,
                         help="Markdown report path; if omitted, print to stdout")
     parser.add_argument("--holdout", type=Path, default=DEFAULT_HOLDOUT,
-                        help="Independent 30–40 case JSONL holdout set")
+                        help="30–40 case JSONL holdout candidate (labels need independent review)")
     args = parser.parse_args()
 
     official_ids = [line.strip() for line in (ROOT / "evaluation/rubrics/dev_gold_30_ids_v1.txt")
@@ -129,8 +129,8 @@ def run() -> tuple[str, bool]:
         "dev_legal_retrieval_at_least_95_percent": dev_pass,
         "negative_non_legal_6_of_6": nonlegal_pass,
         "no_legal_negative_to_GENERAL_CHAT": legal_not_general,
-        "independent_holdout_safety_no_legal_to_GENERAL_CHAT": holdout_evaluation["safety_pass"],
-        "independent_holdout_classification_exact_route_and_action": holdout_evaluation[
+        "holdout_candidate_safety_no_legal_to_GENERAL_CHAT": holdout_evaluation["safety_pass"],
+        "holdout_candidate_route_action_match": holdout_evaluation[
             "classification_pass"
         ],
     }
@@ -147,9 +147,10 @@ def run() -> tuple[str, bool]:
         "",
         f"- Thời điểm UTC: {datetime.now(timezone.utc).isoformat()}",
         f"- Git commit: `{git_sha}`",
+        f"- Classifier version: `{CLASSIFIER_VERSION}`",
         f"- Corpus SHA chuẩn hóa: `{corpus_sha}`",
         f"- Official IDs: {len(official)}; Dev queries: {len(dev)}; negative v2: {len(negatives)}",
-        f"- Independent router holdout: {len(holdout)} cases; source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
+        f"- Router holdout candidate: {len(holdout)} cases; reviewer label confirmation: pending; source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
         f"- Holdout validation error: `{holdout_error or 'none'}`",
         f"- Holdout legal-to-GENERAL_CHAT: {len(holdout_legal_to_general)}; exact route/action mismatches: {len(holdout_mismatches)}",
         "",
@@ -165,7 +166,7 @@ def run() -> tuple[str, bool]:
               "| Expected route | Predicted route | Count |", "|---|---|---:|"]
     lines.extend(f"| {expected} | {actual} | {count} |"
                  for (expected, actual), count in sorted(confusion.items()))
-    lines += ["", "## Independent holdout detail", "",
+    lines += ["", "## Holdout candidate detail (labels pending independent reviewer confirmation)", "",
               "| ID | Expected route/action | Actual route/action | Result |",
               "|---|---|---|---|"]
     lines.extend(

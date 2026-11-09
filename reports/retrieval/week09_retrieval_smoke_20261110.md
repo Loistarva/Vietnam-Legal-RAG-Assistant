@@ -12,7 +12,7 @@
 - Retrieval config SHA-256 chuẩn hóa: `08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179`.
 - Rerank config SHA-256 chuẩn hóa: `b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471`.
 - Git commit không được ghi trong log/JSON runtime đã gửi.
-- Tên ba JSON đầu ra có hậu tố `20261109`, trong khi thời điểm log là 10/11/2026. Giữ nguyên tên file và ghi nhận sai khác này.
+- Ba JSON đầu ra giữ hậu tố `20261109` theo tên lệnh đã chạy, dù log là 10/11/2026; nội dung runtime ghi đúng ngày chạy.
 
 ## Tổng hợp kết quả
 
@@ -100,6 +100,6 @@ Chương IV ĐIỀU KHOẢN THI HÀNH > Điều 15. Hiệu lực thi hành > Kho
 - JSON xác nhận dùng index/collection mặc định trong config và corpus SHA mới; không truyền override tên index hoặc collection.
 - Các hit trả về phù hợp mốc hiệu lực của từng truy vấn. Với ca outdated, Top-1 là điều khoản của Nghị định 207/2025 nêu việc bãi bỏ Nghị định 10/2015; không có hit nào mang document number `10/2015/NĐ-CP`.
 - Đây là smoke Retrieval, không thay thế đánh giá chất lượng pháp lý hoặc benchmark đầy đủ.
-- Các JSON runtime vẫn ghi đường dẫn tuyệt đối cho `parent_context.parents_file`; cần xử lý C1 trước khi commit các JSON.
+- Đường dẫn trong JSON runtime đã được chuẩn hóa thành đường dẫn tương đối trong repository.
 - Git commit không có trong runtime evidence. Bổ sung SHA khi chạy từ commit sạch nếu cần provenance phát hành.
 - D4.7 runtime smoke: **3/3 ca hoàn tất và đạt kiểm tra smoke**. C1 cleanup và provenance commit vẫn chưa nghiệm thu.

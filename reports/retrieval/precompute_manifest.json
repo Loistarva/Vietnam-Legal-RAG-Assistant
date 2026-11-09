@@ -1,7 +1,7 @@
 {
-  "manifest_schema_version": "d4.4.precompute_manifest.v1",
-  "run_id": "20261109_dev30_retrieval",
-  "created_at_utc": "2026-11-09T14:39:36.424050+00:00",
+  "manifest_schema_version": "d4.4.precompute_manifest.v2",
+  "run_id": "20261110_dev30_retrieval",
+  "created_at_utc": "2026-11-09T17:24:28.466956+00:00",
   "precomputed": true,
   "split": "dev",
   "query_count": 30,
@@ -40,13 +40,15 @@
   "dataset_ids_sha256": "2e06bea96377dfad993c6e18c1d0f75a463a55085889deea47be62d0343f552f",
   "official_ids_file": {
     "path": "evaluation/rubrics/dev_gold_30_ids_v1.txt",
-    "sha256": "18931d3efb7aa302005a23189656174bae587fe5b830673da2954f0859a313ee",
+    "sha256": "2e06bea96377dfad993c6e18c1d0f75a463a55085889deea47be62d0343f552f",
+    "raw_sha256": "18931d3efb7aa302005a23189656174bae587fe5b830673da2954f0859a313ee",
     "count": 30,
     "selection_source": "official_dev_gold_30_ids_txt"
   },
   "optional_id_manifest": null,
   "benchmark_path": "data/benchmark/queries_dev.json",
-  "benchmark_sha256": "febdcbb45665d666a69346ce429e18ada186e21e45947e8157336b8f4f551d41",
+  "benchmark_sha256": "556bb2975f893f913ce76be46fe520f46263999bbee1b2c6a86a08f1c2b2ad70",
+  "benchmark_raw_sha256": "febdcbb45665d666a69346ce429e18ada186e21e45947e8157336b8f4f551d41",
   "as_of_date_source": "data/benchmark/queries_dev.json",
   "as_of_dates": {
     "HN_001": "2026-10-15",
@@ -83,11 +85,13 @@
   "candidate_text": "document_breadcrumb_chunk_text",
   "retrieval_config": {
     "path": "retrieval/config.yaml",
-    "sha256": "31f1b932cc7958dd979f7f7ff521c7401742cad823b80f0ac48b16600056c1d9"
+    "sha256": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
+    "raw_sha256": "31f1b932cc7958dd979f7f7ff521c7401742cad823b80f0ac48b16600056c1d9"
   },
   "rerank_config": {
     "path": "reranking/config.yaml",
-    "sha256": "38d109b55a4da5b4e46369abbeea7bcf567cf20cf7779a951bb9073e016e0602"
+    "sha256": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471",
+    "raw_sha256": "38d109b55a4da5b4e46369abbeea7bcf567cf20cf7779a951bb9073e016e0602"
   },
   "config_values": {
     "retrieval_top_k": 50,
@@ -99,7 +103,7 @@
     "reranker_backend": "cross_encoder",
     "reranker_model": "BAAI/bge-reranker-v2-m3"
   },
-  "config_bundle_sha256": "c22187cb01c3951ab12cefa784fe2f0b35ba7b3320d156536b2ce38544228c1c",
+  "config_bundle_sha256": "fcdb05934af8d1bae4923f2c2b83feb54238b5b6f04f575a5d0619d49e0b6001",
   "corpus_path": "data/chunking_output/chunks.jsonl",
   "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
   "corpus_raw_sha256": "81c72a08bbfa41f2cb190faebb16d02beb4d505c8bb56b2072acada719c0d578",
@@ -110,11 +114,12 @@
     "source_artifact_path": "retrieval/results/dev_hybrid_reranker.json",
     "source_artifact_sha256": "738a07c63bb4812bd3a2f9a5e6bb3a57fc5358515057def63d87fc6c2d764dc7"
   },
-  "output_path": "evaluation/results/precompute/20261109_dev30_retrieval.jsonl",
+  "output_path": "evaluation/results/precompute/20261110_dev30_retrieval.jsonl",
   "output_sha256": "6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353",
+  "output_raw_sha256": "6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353",
   "repository": {
     "branch": "feature/retrieval-router-batch",
-    "git_sha": "ef72d9dff6f1c9568cfab80634bb458d588a3013",
-    "working_tree_dirty": true
+    "git_sha": "70427828ae9b5eff3b2a0a10ef1042a12cccf04e",
+    "working_tree_dirty": false
   }
 }

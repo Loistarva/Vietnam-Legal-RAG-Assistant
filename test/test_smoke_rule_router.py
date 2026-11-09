@@ -1,4 +1,4 @@
-"""Tests for the independent router holdout loader."""
+"""Tests for the router holdout candidate loader and evaluation."""
 from __future__ import annotations
 
 import json
@@ -6,16 +6,30 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from agent.router.rule_router import Action, Route, RouteDecision
-from scripts.smoke_rule_router import evaluate_router_holdout, read_router_holdout
+from agent.router.rule_router import Action, Route, RouteDecision, RuleRouter
+from scripts.smoke_rule_router import (
+    DEFAULT_HOLDOUT,
+    evaluate_router_holdout,
+    read_router_holdout,
+)
 
 
 class RouterHoldoutLoaderTests(unittest.TestCase):
+    def test_repository_holdout_candidate_matches_current_labels(self):
+        rows, error = read_router_holdout(DEFAULT_HOLDOUT)
+        self.assertIsNone(error)
+        self.assertEqual(len(rows), 40)
+        router = RuleRouter()
+        decisions = [router.route(row["query"], query_id=row["id"]) for row in rows]
+        result = evaluate_router_holdout(rows, decisions)
+        self.assertTrue(result["safety_pass"], result)
+        self.assertTrue(result["classification_pass"], result)
+
     def test_missing_holdout_is_reported_as_a_blocker(self):
         with tempfile.TemporaryDirectory() as directory:
             rows, error = read_router_holdout(Path(directory) / "router_holdout.jsonl")
         self.assertEqual(rows, [])
-        self.assertIn("Không tìm thấy holdout độc lập", error)
+        self.assertIn("Không tìm thấy holdout candidate", error)
 
     def test_reads_valid_holdout_records(self):
         with tempfile.TemporaryDirectory() as directory:

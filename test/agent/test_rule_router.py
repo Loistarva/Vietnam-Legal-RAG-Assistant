@@ -116,6 +116,24 @@ class RuleRouterTest(unittest.TestCase):
                 self.assertEqual(decision.action, Action.GENERAL_CHAT)
                 self.assertEqual(decision.route_reason, RouteReason.NON_LEGAL_NO_LEGAL_INTENT)
 
+    def test_mixed_general_and_legal_requests_take_safe_abstention_route(self):
+        queries = (
+            "Viết email xin nghỉ phép, công ty nợ lương 3 tháng thì xử lý thế nào?",
+            "Tôi cần hồ sơ xin việc, nhưng công ty giữ lương trái pháp luật thì khiếu nại ở đâu?",
+            "Gợi ý mua quà sinh nhật cho mẹ; mẹ kế có được hưởng thừa kế không?",
+            "Tôi muốn học Python, đồng thời hỏi vợ chồng có quyền chia tài sản chung thế nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.MIXED_LEGAL_SCOPE)
+                self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+                self.assertEqual(decision.route_reason, RouteReason.MIXED_LEGAL_SCOPE)
+
+    def test_classifier_version_is_incremented_for_router_precedence_change(self):
+        decision = self.router.route("Chào bạn")
+        self.assertEqual(decision.classifier_version, "rule_router_v2")
+
     def test_generic_legal_request_enters_retrieval_for_confidence_gate(self):
         decision = self.router.route("Tôi cần tư vấn pháp luật")
         self.assertEqual(decision.route, Route.LEGAL_SCOPE_UNCERTAIN)
@@ -171,6 +189,21 @@ class RuleRouterTest(unittest.TestCase):
                 decision = self.router.route(query)
                 self.assertEqual(decision.route, Route.NON_LEGAL)
                 self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_nonlegal_study_schedule_stays_general_chat(self):
+        decision = self.router.route(
+            "Giúp tôi lập lịch học Python trong hai tuần, mỗi ngày khoảng ba mươi phút."
+        )
+        self.assertEqual(decision.route, Route.NON_LEGAL)
+        self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_negated_family_scope_does_not_override_independent_land_dispute(self):
+        decision = self.router.route(
+            "Hai hộ liền kề tranh chấp mốc ranh giới thửa đất thì phải thực hiện "
+            "thủ tục giải quyết nào? Không có tranh chấp tài sản vợ chồng."
+        )
+        self.assertEqual(decision.route, Route.LEGAL_OUT_OF_SCOPE)
+        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
 
     def test_review_holdout_family_questions_never_go_to_general_chat(self):
         queries = (

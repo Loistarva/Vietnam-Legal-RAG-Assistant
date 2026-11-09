@@ -280,7 +280,7 @@
       "dtype": "auto"
     },
     "parent_context": {
-      "parents_file": "D:\\Vietnam-Legal-RAG-Assistant\\data\\chunking_output\\parents.json",
+      "parents_file": "data/chunking_output/parents.json",
       "max_context_chars": 6000
     },
     "as_of_date": "2026-10-15",
