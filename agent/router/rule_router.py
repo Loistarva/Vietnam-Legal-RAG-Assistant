@@ -18,7 +18,7 @@ from enum import Enum
 from typing import Sequence
 
 
-CLASSIFIER_VERSION = "rule_router_v2"
+CLASSIFIER_VERSION = "rule_router_v3"
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -292,6 +292,22 @@ _HNGD_TERMS = (
     "án phí ly hôn",
     "công nhận thuận tình ly hôn",
     "quyền thăm nom",
+    "tảo hôn",
+    "ngoài giá thú",
+    "giá thú",
+    "xác định cha",
+    "xác định mẹ",
+)
+_HNGD_CONTEXTUAL_SIGNAL = re.compile(
+    r"\b(?:bao nhiêu tuổi|độ tuổi|tuổi tối thiểu)\b.{0,60}"
+    r"\b(?:được\s+)?(?:cưới|kết hôn|lấy vợ|lấy chồng)\b"
+    r"|"
+    r"\b(?:cưới|kết hôn|lấy vợ|lấy chồng)\b.{0,60}"
+    r"\b(?:bao nhiêu tuổi|độ tuổi|tuổi tối thiểu)\b",
+    re.IGNORECASE,
+)
+_HNGD_CONTEXTUAL_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_HNGD_CONTEXTUAL_SIGNAL.pattern), re.IGNORECASE
 )
 
 _OUT_OF_SCOPE_TERMS = (
@@ -317,6 +333,20 @@ _OUT_OF_SCOPE_TERMS = (
     "tội phạm",
     "hình sự",
     "trách nhiệm hình sự",
+    "phạm tội",
+    "đi tù",
+    "phạt tù",
+    "truy cứu trách nhiệm hình sự",
+    "trộm cắp",
+    "lừa đảo",
+    "gây thương tích",
+    "tiền cọc",
+    "thuê nhà",
+    "chủ nhà không trả tiền cọc",
+    "tranh chấp tiền đặt cọc",
+    "lừa chuyển khoản",
+    "bị lừa chuyển khoản",
+    "chiếm đoạt tiền",
     "hợp đồng lao động",
     "sa thải",
     "bảo hiểm xã hội",
@@ -336,7 +366,11 @@ _OUT_OF_SCOPE_TERMS = (
     "thừa kế",
     "di chúc",
     "di sản",
-    "lao động",
+    "tranh chấp bảo hành",
+    "từ chối bảo hành",
+    "bảo vệ quyền lợi người tiêu dùng",
+    "quyền lợi người tiêu dùng",
+    "tranh chấp tiêu dùng",
     "thành lập doanh nghiệp",
     "doanh nghiệp",
     "vượt đèn đỏ",
@@ -352,7 +386,7 @@ _EDUCATION_STATEMENT_UNACCENTED = re.compile(
 )
 _EXPLICIT_QUESTION_OR_REQUEST = re.compile(
     r"\?|\b(?:là gì|thế nào|ra sao|giải thích|cho biết|tư vấn|tìm hiểu|"
-    r"có được|điều kiện|quyền gì|nghĩa vụ gì|bao lâu|bao nhiêu)\b"
+    r"hỏi(?:\s+(?:về|thêm))?|có được|điều kiện|quyền gì|nghĩa vụ gì|bao lâu|bao nhiêu)\b"
 )
 _LEGAL_CITATION = re.compile(r"\b(?:điều|khoản)\s+\d+\b")
 _LEGAL_DOCUMENT_REFERENCE = re.compile(
@@ -382,7 +416,8 @@ _CLEAR_NONLEGAL_SIGNAL = re.compile(
     r"\b(?:xin chào|chào bạn|thời tiết|nhiệt độ|mưa hôm nay|"
     r"hồ sơ xin việc|thủ tục nhập học|(?:viết (?:giúp tôi )?(?:một )?)?(?:bài thơ|lời chúc)|"
     r"email xin nghỉ phép|"
-    r"mua quà sinh nhật|giải thích (?:thuật toán|binary search)|"
+    r"mua quà sinh nhật|gợi ý (?:một )?quà sinh nhật|quà sinh nhật|"
+    r"giải thích (?:thuật toán|binary search)|"
     r"(?:hướng dẫn )?học (?:python|lập trình)|lập lịch học|công thức nấu|món ăn|nấu món|"
     r"kể (?:một )?câu chuyện|câu chuyện vui|lịch trình du lịch|gợi ý du lịch|"
     r"dịch (?:câu|đoạn văn)|giải phương trình|đạo hàm|bài tập toán|"
@@ -391,6 +426,44 @@ _CLEAR_NONLEGAL_SIGNAL = re.compile(
 )
 _CLEAR_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_CLEAR_NONLEGAL_SIGNAL.pattern), re.IGNORECASE
+)
+_SOCIAL_NONLEGAL_SIGNAL = re.compile(
+    r"^\s*(?:"
+    r"xin chào(?: bạn)?"
+    r"|chào(?: bạn| buổi sáng| buổi chiều| buổi tối)?"
+    r"|cảm ơn(?: bạn)?(?: nhé)?"
+    r"|thanks"
+    r"|thank you"
+    r"|tạm biệt"
+    r")[!.?\s]*$",
+    re.IGNORECASE,
+)
+_SOCIAL_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_SOCIAL_NONLEGAL_SIGNAL.pattern), re.IGNORECASE
+)
+_GENERAL_KNOWLEDGE_SIGNAL = re.compile(
+    r"^\s*thủ đô\s+(?:của\s+)?[\w\s]+?\s+là gì\s*[?!.]?\s*$",
+    re.IGNORECASE,
+)
+_GENERAL_KNOWLEDGE_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_GENERAL_KNOWLEDGE_SIGNAL.pattern), re.IGNORECASE
+)
+_GENERAL_ENTERTAINMENT_SIGNAL = re.compile(
+    r"^\s*(?:hãy\s+)?(?:kể|nói)\s+(?:cho tôi\s+)?(?:một\s+)?"
+    r"(?:câu chuyện|chuyện|câu)\s+cười(?:\s+.*)?[!.?]?\s*$",
+    re.IGNORECASE,
+)
+_GENERAL_ENTERTAINMENT_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_GENERAL_ENTERTAINMENT_SIGNAL.pattern), re.IGNORECASE
+)
+_GENERAL_BANKING_SIGNAL = re.compile(
+    r"^\s*(?:(?:hướng dẫn|cách)\s+)?chuyển khoản\s+"
+    r"(?:(?:qua\s+)?ngân hàng(?:\s+(?:như thế nào|ra sao))?|cho bạn bè)"
+    r"(?:\s+(?:như thế nào|ra sao))?[.!?]*\s*$",
+    re.IGNORECASE,
+)
+_GENERAL_BANKING_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_GENERAL_BANKING_SIGNAL.pattern), re.IGNORECASE
 )
 _INDEPENDENT_OUTSIDE_TOPIC = re.compile(
     r"\b(?:và|đồng thời|ngoài ra|cùng với|kèm theo)\b.{0,100}\b(?:"
@@ -507,7 +580,11 @@ class RuleRouter:
         as_of_date: str | date | datetime | None,
     ) -> RouteDecision:
         unaccented_query = strip_vietnamese_diacritics(query)
-        hngd_match = _has_any_term(query, unaccented_query, _HNGD_TERMS)
+        hngd_match = (
+            _has_any_term(query, unaccented_query, _HNGD_TERMS)
+            or bool(_HNGD_CONTEXTUAL_SIGNAL.search(query))
+            or bool(_HNGD_CONTEXTUAL_SIGNAL_UNACCENTED.search(unaccented_query))
+        )
         # A negated family-scope phrase used to clarify that a different
         # dispute is unrelated must not turn that dispute into an HNGD query.
         without_negated_hngd = _NEGATED_HNGD_SCOPE.sub(" ", query)
@@ -538,6 +615,18 @@ class RuleRouter:
             ("tài sản", "lương", "lao động", "vốn góp", "quyền sử dụng đất",
              "thừa kế", "di sản"),
         )
+        spouse_death_context = (
+            _has_any_term(query, unaccented_query, ("vợ", "chồng"))
+            and _has_any_term(query, unaccented_query, ("mất", "chết", "qua đời", "từ trần"))
+            and _has_any_term(
+                query,
+                unaccented_query,
+                ("nhà", "đất", "tài sản", "di sản", "thừa kế", "để lại", "đứng tên"),
+            )
+        )
+        if spouse_death_context:
+            hngd_match = True
+            outside_match = True
         hngd_property_context = (
             (family_relation_context and property_context)
             or _has_any_term(query, unaccented_query, ("thời kỳ hôn nhân",))
@@ -550,7 +639,12 @@ class RuleRouter:
             _INDEPENDENT_OUTSIDE_TOPIC.search(query)
             or _INDEPENDENT_OUTSIDE_TOPIC_UNACCENTED.search(unaccented_query)
         )
-        if hngd_match and hngd_property_context and not independent_outside_topic:
+        if (
+            hngd_match
+            and hngd_property_context
+            and not independent_outside_topic
+            and not spouse_death_context
+        ):
             outside_match = False
         # A statement about studying law is not itself a request for legal help.
         education_statement = bool(
@@ -558,11 +652,20 @@ class RuleRouter:
             or _EDUCATION_STATEMENT_UNACCENTED.search(unaccented_query)
         )
         has_request = bool(_EXPLICIT_QUESTION_OR_REQUEST.search(query))
-        clear_nonlegal = (
-            education_statement and not has_request
-        ) or bool(
-            _CLEAR_NONLEGAL_SIGNAL.search(query)
-            or _CLEAR_NONLEGAL_SIGNAL_UNACCENTED.search(unaccented_query)
+        clear_nonlegal = (education_statement and not has_request) or any(
+            signal.search(text)
+            for signal, text in (
+                (_CLEAR_NONLEGAL_SIGNAL, query),
+                (_CLEAR_NONLEGAL_SIGNAL_UNACCENTED, unaccented_query),
+                (_SOCIAL_NONLEGAL_SIGNAL, query),
+                (_SOCIAL_NONLEGAL_SIGNAL_UNACCENTED, unaccented_query),
+                (_GENERAL_KNOWLEDGE_SIGNAL, query),
+                (_GENERAL_KNOWLEDGE_SIGNAL_UNACCENTED, unaccented_query),
+                (_GENERAL_ENTERTAINMENT_SIGNAL, query),
+                (_GENERAL_ENTERTAINMENT_SIGNAL_UNACCENTED, unaccented_query),
+                (_GENERAL_BANKING_SIGNAL, query),
+                (_GENERAL_BANKING_SIGNAL_UNACCENTED, unaccented_query),
+            )
         )
         # A clear general-chat phrase must never erase a legal request in the
         # same query. Treat a legal topic plus an explicit question/request as

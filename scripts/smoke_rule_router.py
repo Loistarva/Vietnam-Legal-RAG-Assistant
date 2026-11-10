@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
 
 from agent.router.rule_router import CLASSIFIER_VERSION, Action, Route, RuleRouter
 from embedding.vector_store import chunk_file_sha256
+from scripts.validate_router_holdout import DEFAULT_COMPARISON_PATHS, validate_holdout
 
 
 def read_json(path: Path):
@@ -79,7 +80,7 @@ def run() -> tuple[str, bool]:
     parser.add_argument("--report", type=Path, default=None,
                         help="Markdown report path; if omitted, print to stdout")
     parser.add_argument("--holdout", type=Path, default=DEFAULT_HOLDOUT,
-                        help="30–40 case JSONL holdout candidate (labels need independent review)")
+                        help="30–40 case JSONL evaluation dataset (review status documented in metadata)")
     args = parser.parse_args()
 
     official_ids = [line.strip() for line in (ROOT / "evaluation/rubrics/dev_gold_30_ids_v1.txt")
@@ -101,6 +102,15 @@ def run() -> tuple[str, bool]:
     negative_rows = [(row, router.route(row["question"], query_id=row.get("id"))) for row in negatives]
     holdout_path = args.holdout if args.holdout.is_absolute() else ROOT / args.holdout
     holdout, holdout_error = read_router_holdout(holdout_path)
+    comparison_paths = tuple(
+        source
+        for source in DEFAULT_COMPARISON_PATHS
+        if source.resolve() != holdout_path.resolve()
+    )
+    holdout_validation = validate_holdout(holdout_path, comparison_paths)
+    if holdout_validation["errors"]:
+        validation_message = "; ".join(holdout_validation["errors"])
+        holdout_error = f"{holdout_error}; {validation_message}" if holdout_error else validation_message
     holdout_results = [
         (row, router.route(row["query"], query_id=row["id"])) for row in holdout
     ]
@@ -143,15 +153,17 @@ def run() -> tuple[str, bool]:
     corpus_path = ROOT / "data/chunking_output/chunks.jsonl"
     corpus_sha = chunk_file_sha256(corpus_path) if corpus_path.is_file() else "unavailable"
     lines = [
-        "# D4.5 Rule Router smoke",
+        "# R4.7 Rule Router Evaluation",
         "",
         f"- Thời điểm UTC: {datetime.now(timezone.utc).isoformat()}",
         f"- Git commit: `{git_sha}`",
         f"- Classifier version: `{CLASSIFIER_VERSION}`",
         f"- Corpus SHA chuẩn hóa: `{corpus_sha}`",
         f"- Official IDs: {len(official)}; Dev queries: {len(dev)}; negative v2: {len(negatives)}",
-        f"- Router holdout candidate: {len(holdout)} cases; reviewer label confirmation: pending; source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
+        f"- Router holdout candidate: {len(holdout)} cases; label review: completed by Dev2 (peer reviewer; per maintainer confirmation); source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
         f"- Holdout validation error: `{holdout_error or 'none'}`",
+        f"- Holdout expected route distribution: `{json.dumps(holdout_validation['route_counts'], ensure_ascii=False, sort_keys=True)}`",
+        f"- Holdout category distribution: `{json.dumps(holdout_validation['category_counts'], ensure_ascii=False, sort_keys=True)}`",
         f"- Holdout legal-to-GENERAL_CHAT: {len(holdout_legal_to_general)}; exact route/action mismatches: {len(holdout_mismatches)}",
         "",
         "## Gate results",
@@ -166,7 +178,7 @@ def run() -> tuple[str, bool]:
               "| Expected route | Predicted route | Count |", "|---|---|---:|"]
     lines.extend(f"| {expected} | {actual} | {count} |"
                  for (expected, actual), count in sorted(confusion.items()))
-    lines += ["", "## Holdout candidate detail (labels pending independent reviewer confirmation)", "",
+    lines += ["", "## Holdout candidate detail (Dev2 peer review completed; no external legal validation claimed)", "",
               "| ID | Expected route/action | Actual route/action | Result |",
               "|---|---|---|---|"]
     lines.extend(
