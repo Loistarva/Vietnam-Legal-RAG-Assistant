@@ -404,6 +404,7 @@ def build_mock_dense_retriever(chunks_path: str | Path) -> CandidateRetriever:
 
 def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: str | None,
                            elasticsearch_index: str | None = None, qdrant_path: str | None = None,
+                           qdrant_url: str | None = None,
                            collection: str | None = None,
                            dense_model: str | None = None) -> CandidateRetriever:
     """Real Hybrid retriever (Dev 4): Elasticsearch BM25 + Qdrant dense + RRF, no internal reranker.
@@ -450,9 +451,17 @@ def build_hybrid_retriever(settings: Mapping[str, Any], *, elasticsearch_url: st
     storage = Path(qdrant_path or os.getenv("QDRANT_PATH") or settings["qdrant_storage_path"])
     if not storage.is_absolute():
         storage = ROOT / storage
-    store = LegalVectorStore(collection_name=actual_collection, dimension=model_spec["dimension"], storage_path=storage)
+    actual_qdrant_url = qdrant_url or os.getenv("QDRANT_URL")
+    store = LegalVectorStore(
+        collection_name=actual_collection,
+        dimension=model_spec["dimension"],
+        storage_path=str(storage),
+        url=actual_qdrant_url,
+        create_if_missing=False,
+    )
     if store.count() == 0:
-        raise ValueError(f"Qdrant collection {actual_collection} tại {storage} rỗng; chạy scripts/build_index.py trước")
+        location = actual_qdrant_url or str(storage)
+        raise ValueError(f"Qdrant collection {actual_collection} tại {location} rỗng; dựng/migrate collection trước")
     dense = DenseRetriever(vector_store=store, model_name=model, settings=dense_settings,
                            corpus_path=settings["corpus_path"])
 

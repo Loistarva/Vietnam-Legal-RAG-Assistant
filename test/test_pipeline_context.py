@@ -18,6 +18,7 @@ from reranking.parent_context import ParentContextResolver, load_parent_context_
 from reranking.pipeline import FixtureRetriever, RetrievalPipeline  # noqa: E402
 from reranking.reranker import MockScorer, RerankerConfig, candidate_text  # noqa: E402
 from scripts import run_retrieval  # noqa: E402
+from retrieval.temporal import resolve_interactive_as_of_date as resolve_date_with_source  # noqa: E402
 
 SCHEMA = json.loads((ROOT / "schemas" / "retrieval_schema.json").read_text(encoding="utf-8"))
 QUERY = "Điều kiện kết hôn là gì?"
@@ -112,7 +113,7 @@ class AsOfDateTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "YYYY-MM-DD"):
             pipeline.run(QUERY, 1, as_of_date="01/01/2016")
 
-    def test_cli_reads_as_of_date_per_question(self):
+    def test_benchmark_requires_each_query_date_and_does_not_use_cli_fallback(self):
         with tempfile.TemporaryDirectory() as tmp:
             queries = Path(tmp) / "queries_dev.json"
             queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY, "as_of_date": "2014-06-01"},
@@ -124,10 +125,78 @@ class AsOfDateTest(unittest.TestCase):
                 code = run_retrieval.main(["--queries", str(queries), "--retriever", "fixture", "--reranker", "mock",
                                            "--as-of-date", "2026-10-25", "--no-parent-context",
                                            "--output", str(destination), "--log-level", "ERROR"])
-            self.assertEqual(code, 0, stderr.getvalue())
-            outputs = json.loads(destination.read_text(encoding="utf-8"))
-        self.assertEqual([o["config"]["as_of_date"] for o in outputs], ["2014-06-01", "2026-10-25"])
-        self.assertTrue(all(o["config"]["parent_context"] is None for o in outputs))
+            self.assertEqual(code, 2)
+            self.assertIn("HN_002", stderr.getvalue())
+            self.assertIn("thiếu as_of_date", stderr.getvalue())
+
+    def test_benchmark_uses_dates_by_query_id_without_cli_override(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            queries = Path(tmp) / "queries_dev.json"
+            queries.write_text(json.dumps([{"id": "HN_002", "question": QUERY, "as_of_date": "2016-02-03"},
+                                           {"id": "HN_001", "question": QUERY, "as_of_date": "2014-06-01"}],
+                                          ensure_ascii=False), encoding="utf-8")
+            rows = run_retrieval.read_queries(queries, allow_test_split=False)
+        self.assertEqual(rows, [("HN_002", QUERY, "2016-02-03"), ("HN_001", QUERY, "2014-06-01")])
+
+    def test_interactive_date_priority_question_then_ui_then_today(self):
+        resolve = run_retrieval.resolve_interactive_as_of_date
+        self.assertEqual(resolve("Năm 2010, Luật Hôn nhân và gia đình 2000 có cấm không?", "2026-10-25"),
+                         "2010-12-31")
+        self.assertEqual(resolve("Điều kiện kết hôn là gì?", "2026-10-25"), "2026-10-25")
+        self.assertEqual(resolve("Điều kiện kết hôn là gì?", None), date.today().isoformat())
+        self.assertEqual(resolve("Vào ngày 15/03/2010, văn bản có hiệu lực không?", None), "2010-03-15")
+
+    def test_law_title_year_is_not_mistaken_for_query_date(self):
+        question = "Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?"
+        self.assertIsNone(run_retrieval.extract_question_as_of_date(question))
+        self.assertEqual(run_retrieval.resolve_interactive_as_of_date(question, "2026-10-25"), "2026-10-25")
+
+    def test_explicit_year_contexts_dates_and_multiple_time_references(self):
+        extract = run_retrieval.extract_question_as_of_date
+        for question, expected in (
+            ("Vào năm 2012, quy định này thế nào?", "2012-12-31"),
+            ("Trong năm 2024, quy định có hiệu lực không?", "2024-12-31"),
+            ("Tại thời điểm năm 2015, luật nào áp dụng?", "2015-12-31"),
+            ("Luật 2014 được hỏi tại thời điểm năm 2020?", "2020-12-31"),
+            ("Tra cứu tại ngày 15 tháng 3 năm 2010.", "2010-03-15"),
+            ("Tra cứu tại 2010-03-15.", "2010-03-15"),
+        ):
+            with self.subTest(question=question):
+                self.assertEqual(extract(question), expected)
+        self.assertIsNone(extract("Tại thời điểm ngày 31/02/2010, tra cứu quy định."))
+        self.assertIsNone(extract("Luật Hôn nhân và gia đình ngày 19/06/2014 quy định gì?"))
+        self.assertIsNone(extract("Theo Luật Hôn nhân và gia đình 2014, điều kiện kết hôn là gì?"))
+
+    def test_interactive_date_resolution_reports_source_and_ignores_invalid_question_date(self):
+        today = date(2026, 11, 9)
+        self.assertEqual(
+            resolve_date_with_source("Năm 2026, quy định nào áp dụng?", "2026-10-15", today=today),
+            ("2026-11-09", "question"),
+        )
+        self.assertEqual(
+            resolve_date_with_source("Tại thời điểm ngày 31/02/2010, tra cứu.", "2026-10-15", today=today),
+            ("2026-10-15", "ui"),
+        )
+        self.assertEqual(
+            resolve_date_with_source("Không nêu ngày.", None, today=today),
+            ("2026-11-09", "today"),
+        )
+
+    def test_past_current_and_future_year_conventions_are_explicit(self):
+        extract = run_retrieval.extract_question_as_of_date
+        today = date(2026, 11, 9)
+        self.assertEqual(extract("Năm 2010, quy định thế nào?", today=today), "2010-12-31")
+        self.assertEqual(extract("Năm 2026, quy định thế nào?", today=today), "2026-11-09")
+        self.assertEqual(extract("Năm 2030, quy định thế nào?", today=today), "2030-01-01")
+
+    def test_law_issuance_date_is_not_query_date_even_with_day_month_year(self):
+        extract = run_retrieval.extract_question_as_of_date
+        question = "Luật Hôn nhân và gia đình ngày 19/06/2014 quy định tuổi kết hôn thế nào?"
+        self.assertIsNone(extract(question))
+        self.assertEqual(
+            resolve_date_with_source(question, "2026-10-15", today=date(2026, 11, 9)),
+            ("2026-10-15", "ui"),
+        )
 
 
 class RerankerTextModeAndMockWarningTest(unittest.TestCase):

@@ -101,6 +101,11 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
                 ROOT / "custom" / "qdrant_storage",
             )
 
+    def test_run_config_records_qdrant_server_url(self):
+        with patch.dict(os.environ, {"QDRANT_URL": "http://127.0.0.1:6333"}):
+            self.assertEqual(resolve_run_config(load_settings())["qdrant_url"],
+                             "http://127.0.0.1:6333")
+
     def test_read_queries_keeps_benchmark_ids(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "queries.json"
@@ -109,6 +114,9 @@ class RunDevRetrievalOutputTest(unittest.TestCase):
             self.assertEqual(read_queries(path), [("HN_001", "Tuổi kết hôn?", "1995-06-01")])
             path.write_text(json.dumps(["Tuổi kết hôn?"]), encoding="utf-8")
             with self.assertRaises(ValueError):
+                read_queries(path)
+            path.write_text(json.dumps([{"id": "HN_001", "question": "Tuổi kết hôn?"}]), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "thiếu as_of_date"):
                 read_queries(path)
 
     def test_every_method_writes_schema_valid_envelopes(self):

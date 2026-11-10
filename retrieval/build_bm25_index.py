@@ -285,6 +285,7 @@ def build_bm25_index(
     recreate: bool = False,
     client: Any | None = None,
     config_path: str | Path | None = None,
+    expected_corpus_sha256: str | None = None,
 ) -> dict[str, Any]:
     """Load chunks and index them in Elasticsearch; return indexing statistics.
 
@@ -319,6 +320,15 @@ def build_bm25_index(
         tokenizer_version=resolved["tokenizer_version"],
     )
     tokenizer_provenance["corpus_sha256"] = chunk_file_sha256(chunks_path)
+    if expected_corpus_sha256 is not None:
+        expected_sha = expected_corpus_sha256.strip().lower()
+        if len(expected_sha) != 64 or any(char not in "0123456789abcdef" for char in expected_sha):
+            raise ValueError("expected_corpus_sha256 phải là 64 ký tự hex")
+        if tokenizer_provenance["corpus_sha256"] != expected_sha:
+            raise ValueError(
+                "Corpus SHA chuẩn hóa không khớp baseline: "
+                f"{tokenizer_provenance['corpus_sha256']} != {expected_sha}"
+            )
     owns_client = client is None
     if client is None:
         client = Elasticsearch(resolved_es_url, request_timeout=60)
@@ -367,6 +377,7 @@ def build_bm25_index(
             "errors": len(errors),
             "index_count": count,
             "index_name": resolved_index_name,
+            "corpus_sha256": tokenizer_provenance["corpus_sha256"],
             "chunks_file": str(chunks_path),
             "error_details": errors[:5] if errors else [],
         }
@@ -390,6 +401,7 @@ def build_bm25_index(
             client, resolved_index_name, tokenizer=resolved["tokenizer"],
             tokenizer_version=resolved["tokenizer_version"],
             text_field=resolved["text_field"],
+            corpus_sha256=tokenizer_provenance["corpus_sha256"],
         )
         print(json.dumps(stats, ensure_ascii=False, indent=2))
         return stats
@@ -401,7 +413,8 @@ def build_bm25_index(
 def _verify_index_tokenizer(client: Any, index_name: str, *,
                             tokenizer: str = BM25_TOKENIZER,
                             tokenizer_version: str = BM25_TOKENIZER_VERSION,
-                            text_field: str = "content_segmented") -> None:
+                            text_field: str = "content_segmented",
+                            corpus_sha256: str | None = None) -> None:
     """Fail closed unless Elasticsearch mapping metadata matches the expected corpus tokenizer."""
     try:
         mapping_response = client.indices.get_mapping(index=index_name)
@@ -416,6 +429,8 @@ def _verify_index_tokenizer(client: Any, index_name: str, *,
         "bm25_tokenizer_version": tokenizer_version,
         "bm25_text_field": text_field,
     }
+    if corpus_sha256 is not None:
+        expected["corpus_sha256"] = corpus_sha256
     mismatches = {key: (metadata.get(key), value) for key, value in expected.items()
                   if metadata.get(key) != value}
     if mismatches:
@@ -435,11 +450,13 @@ def main() -> None:
                         help="Corpus override; mặc định lấy retrieval.corpus_path")
     parser.add_argument("--es-url", default=None, help="Mặc định lấy từ ELASTICSEARCH_URL")
     parser.add_argument("--index", default=None, help="Index override; mặc định lấy bm25.index")
+    parser.add_argument("--expected-corpus-sha256", default=None,
+                        help="SHA-256 chuẩn hóa bắt buộc trước khi ghi index")
     parser.add_argument("--recreate", action="store_true",
                         help="Xóa index cũ trước khi nạp, để không còn chunk của corpus trước")
     args = parser.parse_args()
     build_bm25_index(args.chunks, args.es_url, args.index, recreate=args.recreate,
-                     config_path=args.config)
+                     config_path=args.config, expected_corpus_sha256=args.expected_corpus_sha256)
 
 
 if __name__ == "__main__":

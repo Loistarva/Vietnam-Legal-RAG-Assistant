@@ -44,6 +44,11 @@ from reranking.pipeline import (  # noqa: E402
 from embedding.vector_store import chunk_file_sha256  # noqa: E402
 from reranking.parent_context import ParentContextResolver, load_parent_context_config  # noqa: E402
 from reranking.reranker import BACKENDS, DEFAULT_CONFIG_PATH, build_reranker, load_reranker_config  # noqa: E402
+from retrieval.temporal import (  # noqa: E402
+    extract_question_as_of_date,  # noqa: F401 - public compatibility re-export
+    normalize_as_of_date,
+    resolve_interactive_as_of_date as resolve_interactive_date,
+)
 
 logger = logging.getLogger("run_retrieval")
 RETRIEVERS = ("hybrid", "precomputed", "mock", "fixture")
@@ -55,6 +60,17 @@ class InputError(ValueError):
     """Invalid user input (exit code 2)."""
 
 
+def _portable_path(value: str | Path) -> str:
+    """Serialize repository paths relatively and hide paths outside the checkout."""
+    path = Path(value)
+    if not path.is_absolute():
+        return path.as_posix()
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return "<external-path>"
+
+
 def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hybrid Retrieval + Reranker (Sprint 6, Dev 5)")
     source = parser.add_mutually_exclusive_group(required=True)
@@ -63,8 +79,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
                         help="JSON list câu hỏi (chuỗi hoặc object có id/query_id và question/query)")
     parser.add_argument("--query-id", default="Q_CLI_001", help="query_id cho chế độ --query")
     parser.add_argument("--as-of-date", default=None,
-                        help="Thời điểm áp dụng luật (YYYY-MM-DD) cho --query, và cho các câu của --queries "
-                             "không có as_of_date")
+                        help="Ngày UI nhập (YYYY-MM-DD) cho --query; ngày trong câu hỏi được ưu tiên. "
+                             "Benchmark --queries bắt buộc mỗi dòng có as_of_date riêng")
     parser.add_argument("--no-parent-context", action="store_true",
                         help="Tắt Parent-Context Resolver (mặc định theo parent_context.enabled)")
     parser.add_argument("--top-k", type=int, default=None,
@@ -92,6 +108,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--elasticsearch-url", default=os.getenv("ELASTICSEARCH_URL"))
     parser.add_argument("--elasticsearch-index", default=os.getenv("ELASTICSEARCH_INDEX"))
     parser.add_argument("--qdrant-path", default=os.getenv("QDRANT_PATH"))
+    parser.add_argument("--qdrant-url", default=os.getenv("QDRANT_URL"),
+                        help="Qdrant server URL; nếu bỏ trống sẽ dùng local storage")
     parser.add_argument("--collection", default=None,
                         help="Ghi đè dense.collection; mặc định dùng retrieval/config.yaml")
     parser.add_argument("--dense-model", default=None, help="Ghi đè dense.model của retrieval/config.yaml")
@@ -104,12 +122,8 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def read_queries(path: Path, *, allow_test_split: bool,
-                 default_as_of_date: str | None = None) -> list[tuple[str, str, str | None]]:
-    """Return (query_id, question, as_of_date) triples; refuse the frozen Test set unless explicitly allowed.
-
-    ``as_of_date`` comes from the question row (benchmark field), else ``default_as_of_date``.
-    """
+def read_queries(path: Path, *, allow_test_split: bool) -> list[tuple[str, str, str]]:
+    """Load benchmark rows by ID, requiring each row to carry its own valid as_of_date."""
     try:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError) as exc:
@@ -122,22 +136,33 @@ def read_queries(path: Path, *, allow_test_split: bool,
         raise InputError("Test set đang đóng băng; chỉ tuning trên Dev set (thêm --allow-test-split cho lần chạy chính thức)")
     queries, seen = [], set()
     for index, row in enumerate(data, 1):
-        as_of_date = default_as_of_date
         if isinstance(row, str):
             query_id, question = f"Q_{index:03d}", row
+            as_of_date = None
         elif isinstance(row, dict):
             query_id = row.get("query_id") or row.get("id") or f"Q_{index:03d}"
             question = row.get("question") or row.get("query")
-            as_of_date = row.get("as_of_date") or default_as_of_date
+            as_of_date = row.get("as_of_date")
         else:
             query_id, question = None, None
         if not isinstance(question, str) or not question.strip():
             raise InputError(f"Câu hỏi #{index} thiếu question/query không rỗng")
+        if as_of_date is None or (isinstance(as_of_date, str) and not as_of_date.strip()):
+            raise InputError(f"Benchmark query {query_id!r} thiếu as_of_date; không dùng ngày CLI hoặc ngày hiện tại")
+        try:
+            as_of_date = normalize_as_of_date(as_of_date)
+        except ValueError as exc:
+            raise InputError(f"Benchmark query {query_id!r} có as_of_date không hợp lệ: {exc}") from exc
         if query_id in seen:
             raise InputError(f"query_id bị trùng: {query_id}")
         seen.add(query_id)
         queries.append((str(query_id), question, as_of_date))
     return queries
+
+
+def resolve_interactive_as_of_date(question: str, ui_as_of_date: str | None) -> str:
+    """Compatibility wrapper; date resolution is owned by retrieval.temporal."""
+    return resolve_interactive_date(question, ui_as_of_date)[0]
 
 
 def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
@@ -167,7 +192,7 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
     if args.retriever == "fixture":
         candidates = args.candidates or DEFAULT_CANDIDATES
         retriever = FixtureRetriever.from_file(candidates)
-        retriever_settings["candidates"] = str(candidates)
+        retriever_settings["candidates"] = _portable_path(candidates)
     elif args.retriever == "precomputed":
         if args.candidates is None:
             raise ValueError("--retriever precomputed cần --candidates (file --output của lần chạy --reranker none)")
@@ -177,10 +202,10 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         retriever_name = str(source.get("backend") or "precomputed")
         retriever_settings.update({key: value for key, value in source.items()
                                    if key not in ("backend", "retrieval_top_k")})
-        retriever_settings["candidates"] = str(args.candidates)
+        retriever_settings["candidates"] = _portable_path(args.candidates)
     elif args.retriever == "mock":
         retriever = build_mock_dense_retriever(args.chunks)
-        retriever_settings.update(chunks=str(args.chunks), embedding="deterministic_mock")
+        retriever_settings.update(chunks=_portable_path(args.chunks), embedding="deterministic_mock")
     else:
         actual_model = args.dense_model or settings["dense_model"]
         actual_collection = args.collection or settings["collection"]
@@ -192,13 +217,15 @@ def build_pipeline(args: argparse.Namespace) -> RetrievalPipeline:
         model_dimension = ModelRegistry(settings["shared_config"]).get_model(actual_model)["dimension"]
         retriever = build_hybrid_retriever(
             settings, elasticsearch_url=args.elasticsearch_url, elasticsearch_index=args.elasticsearch_index,
-            qdrant_path=str(actual_qdrant_path), collection=actual_collection, dense_model=actual_model)
+            qdrant_path=str(actual_qdrant_path), qdrant_url=args.qdrant_url,
+            collection=actual_collection, dense_model=actual_model)
         retriever_settings.update(rrf_k=settings["rrf_k"], dense_model=actual_model,
                                   dimension=model_dimension,
                                   bm25_index=args.elasticsearch_index or settings["bm25_index"],
                                   collection=actual_collection,
-                                  qdrant_storage_path=str(actual_qdrant_path),
-                                  corpus_path=settings["corpus_path"],
+                                  qdrant_storage_path=_portable_path(actual_qdrant_path),
+                                  qdrant_url=args.qdrant_url,
+                                  corpus_path=_portable_path(settings["corpus_path"]),
                                   corpus_sha256=chunk_file_sha256(settings["corpus_path"]),
                                   fusion=settings["fusion"])
     return RetrievalPipeline(retriever, reranker, retrieval_top_k=settings["retrieval_top_k"],
@@ -214,13 +241,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.query is not None:
             if not args.query.strip():
                 raise InputError("--query không được rỗng")
-            queries = [(args.query_id, args.query, args.as_of_date)]
+            resolved_date, date_source = resolve_interactive_date(args.query, args.as_of_date)
+            queries = [(args.query_id, args.query, resolved_date)]
         else:
-            queries = read_queries(args.queries, allow_test_split=args.allow_test_split,
-                                   default_as_of_date=args.as_of_date)
+            queries = read_queries(args.queries, allow_test_split=args.allow_test_split)
         pipeline = build_pipeline(args)
         outputs = [pipeline.run(question, args.top_k, query_id=query_id, as_of_date=as_of_date)
                    for query_id, question, as_of_date in queries]
+        if args.query is not None:
+            outputs[0].setdefault("config", {})["as_of_date_source"] = date_source
+        else:
+            for output in outputs:
+                output.setdefault("config", {})["as_of_date_source"] = "benchmark"
     except PipelineError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

@@ -9,6 +9,7 @@ import copy
 from datetime import date
 import io
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -340,7 +341,7 @@ class CliTest(unittest.TestCase):
         with patch(
             "scripts.run_retrieval.build_hybrid_retriever",
             return_value=FixtureRetriever(FIXTURE["candidates"]),
-        ):
+        ) as build_hybrid, patch.dict(os.environ, {"QDRANT_URL": "http://127.0.0.1:6333"}):
             code, out, err = self.run_cli(
                 "--query", QUERY, "--retriever", "hybrid", "--reranker", "none",
                 "--no-parent-context",
@@ -349,12 +350,15 @@ class CliTest(unittest.TestCase):
         self.assertEqual(code, 0, err)
         output = json.loads(out)
         self.assertIsInstance(output["config"]["retriever"]["corpus_path"], str)
+        self.assertEqual(output["config"]["retriever"]["qdrant_url"], "http://127.0.0.1:6333")
+        self.assertEqual(build_hybrid.call_args.kwargs["qdrant_url"], "http://127.0.0.1:6333")
 
     def test_batch_queries_write_output_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             queries = Path(tmp) / "queries_dev.json"
-            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY},
-                                           {"id": "HN_002", "question": "Nam bao nhiêu tuổi được kết hôn?"}],
+            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY, "as_of_date": "2026-10-15"},
+                                           {"id": "HN_002", "question": "Nam bao nhiêu tuổi được kết hôn?",
+                                            "as_of_date": "2026-10-15"}],
                                           ensure_ascii=False), encoding="utf-8")
             destination = Path(tmp) / "out" / "results.json"
             eval_destination = Path(tmp) / "out" / "eval.json"
@@ -374,7 +378,8 @@ class CliTest(unittest.TestCase):
     def test_test_split_is_refused_unless_allowed(self):
         with tempfile.TemporaryDirectory() as tmp:
             queries = Path(tmp) / "queries_test.json"
-            queries.write_text(json.dumps([{"id": "HN_200", "question": QUERY}]), encoding="utf-8")
+            queries.write_text(json.dumps([{"id": "HN_200", "question": QUERY,
+                                            "as_of_date": "2026-10-15"}]), encoding="utf-8")
             code, _, err = self.run_cli("--queries", str(queries), "--retriever", "fixture")
             self.assertEqual(code, 2)
             self.assertIn("Test set", err)
@@ -400,7 +405,8 @@ class CliTest(unittest.TestCase):
     def test_two_stage_run_matches_single_run(self):
         with tempfile.TemporaryDirectory() as tmp:
             queries = Path(tmp) / "queries_dev.json"
-            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY}], ensure_ascii=False),
+            queries.write_text(json.dumps([{"id": "HN_001", "question": QUERY,
+                                            "as_of_date": "2026-10-15"}], ensure_ascii=False),
                                encoding="utf-8")
             stage1, stage2, single = (Path(tmp) / name for name in ("candidates.json", "reranked.json", "single.json"))
             common = ("--queries", str(queries), "--no-parent-context", "--top-k", "3")
@@ -418,7 +424,7 @@ class CliTest(unittest.TestCase):
             expected = json.loads(single.read_text(encoding="utf-8"))[0]
         assert_contract(self, reranked)
         self.assertEqual(reranked["retriever"], "fixture_mock_reranker")
-        self.assertEqual(reranked["config"]["retriever"]["candidates"], str(stage1))
+        self.assertEqual(reranked["config"]["retriever"]["candidates"], "<external-path>")
         self.assertEqual([(row["chunk_id"], row["score"]) for row in reranked["results"]],
                          [(row["chunk_id"], row["score"]) for row in expected["results"]])
 
