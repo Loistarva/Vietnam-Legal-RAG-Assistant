@@ -14,7 +14,7 @@
 
 | Thành phần | Cấu hình | Bằng chứng / giới hạn |
 | --- | --- | --- |
-| Elasticsearch BM25 | `bm25-e6-verified-20261101` | Ba smoke ngày 10/11 gọi index theo config mặc định và hoàn tất; cần metadata SHA của index để chứng minh trực tiếp nội dung index |
+| Elasticsearch BM25 | `bm25-e6-verified-20261101` | Runtime `GET /_mapping`: `_meta.corpus_sha256=7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`; `GET /_count`: 2.322 documents (kiểm tra 10/11/2026) |
 | Qdrant Server | `vietnam_legal_chunks` | [Migration report mặc định](d4_3_qdrant_migration_default_20261109.json): 2.322 points, dimension 1.024, Cosine, corpus SHA khớp |
 | Retrieval runtime | Hybrid Top-50 → Cross-Encoder Top-5 | [Smoke report](week09_retrieval_smoke_20261110.md): current, historical, outdated; không override tên index/collection |
 
@@ -28,5 +28,5 @@ Precompute Dev30 mới: 30 query, output SHA-256 `6eb200f3803dfe341299f092ae1be9
 
 - `reports/retrieval/d4_3_qdrant_migration_default_20261109.json`
 - `reports/retrieval/week09_retrieval_smoke_20261110.md`
-- `reports/retrieval/precompute_manifest_20261110.json`
+- `reports/retrieval/precompute_manifest.json`
 - `evaluation/results/precompute/20261110_dev30_retrieval.jsonl`
