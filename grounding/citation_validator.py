@@ -1,4 +1,4 @@
-"""D1.2: check citation provenance, not claim truth or legal correctness.
+"""Week 10 D1.1: check citation provenance, not claim truth or legal correctness.
 
 The caller must supply the exact ContextPayload rendered into the prompt, all
 original model indices and the mapper's invalid indices. Never validate against
@@ -62,6 +62,10 @@ def validate_citations(
         return fail("INVALID_CONTEXT_INDEX", indices)
     if len(set(indices)) != len(indices):
         return fail("DUPLICATE_CONTEXT_INDEX", indices)
+    # Pydantic checks this at construction, but payloads remain mutable. Do not
+    # authorize a context that no longer follows the prompt's [1]..[n] contract.
+    if indices != list(range(1, len(items) + 1)):
+        return fail("NON_CONTIGUOUS_CONTEXT_INDEX", indices)
     if any(not isinstance(getattr(item, field), str) or not getattr(item, field).strip()
            for item in items for field in (*_FIELDS, "content")):
         return fail("EMPTY_EVIDENCE_FIELD")

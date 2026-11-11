@@ -1,0 +1,19 @@
+{
+  "description": "Synthetic examples using the Week 9 canonical GroundingResult; not legal evidence.",
+  "pass": {
+    "grounding_status": "PASS",
+    "is_grounded": true,
+    "valid_citations": [{"evidence_index": 1, "chunk_id": "child-1", "document_id": "doc-1", "article_id": "article-1", "clause_id": "clause-1", "parent_clause_id": "parent-1"}],
+    "invalid_indices": [],
+    "unsupported_claims": [],
+    "reason": "CITATIONS_MATCH_SELECTED_CONTEXT"
+  },
+  "fail": {
+    "grounding_status": "FAIL",
+    "is_grounded": false,
+    "valid_citations": [],
+    "invalid_indices": [2],
+    "unsupported_claims": [],
+    "reason": "CITATION_OUTSIDE_CONTEXT"
+  }
+}

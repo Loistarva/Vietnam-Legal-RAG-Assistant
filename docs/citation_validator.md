@@ -1,5 +1,9 @@
 # D1.2 — bàn giao citation validator
 
+Week 10 D1.1 update: see [validator handoff](sprint/week10_dev1_validator.md).
+The Week 9 interface is retained. `NON_CONTIGUOUS_CONTEXT_INDEX` additionally
+rejects mutated contexts that violate the canonical ordered `[1]..[n]` numbering.
+
 Triển khai trên `feature/week09-dev1-planning`, ngày 07/11/2026.
 Validator dùng `schemas/models.py` và `generation/prompt_builder.py` của Dev 3
 (PR #34, `feature/contracts-prompt-gateway`); không tạo schema song song,

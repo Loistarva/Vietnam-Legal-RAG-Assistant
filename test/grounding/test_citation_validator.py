@@ -190,3 +190,67 @@ def test_mutated_citation_index(index):
     ctx, c = fixture_pair()
     c.evidence_index = index
     check(ctx, [c], "INVALID_CITATION_INDEX")
+
+
+@pytest.mark.parametrize("indices", [[2], [1, 3], [2, 1]])
+def test_mutated_context_must_keep_prompt_numbering(indices):
+    ctx, c = fixture_pair()
+    original = ctx.evidence_items[0]
+    ctx.evidence_items = [original.model_copy(update={"evidence_index": i}) for i in indices]
+    ctx.source_map = {i: deepcopy(ctx.source_map[1]) for i in indices}
+    c.evidence_index = indices[0]
+    check(ctx, [c], "NON_CONTIGUOUS_CONTEXT_INDEX", [indices[0]])
+
+
+@pytest.mark.parametrize("field", ["chunk_id", "document_id", "article_id", "clause_id", "parent_clause_id"])
+@pytest.mark.parametrize("location", ["citation", "source_map"])
+def test_missing_citation_metadata_never_passes(field, location):
+    ctx, c = fixture_pair()
+    if location == "citation":
+        setattr(c, field, None)
+        reason = "CITATION_PROVENANCE_MISMATCH"
+    else:
+        del ctx.source_map[1][field]
+        reason = "SOURCE_MAP_PROVENANCE_MISMATCH"
+    check(ctx, [c], reason)
+
+
+def test_outside_context_failure_does_not_mutate_or_repair_input():
+    ctx, c = fixture_pair()
+    # A retrieved chunk omitted from the prompt cannot be added by validation.
+    c = c.model_copy(update={"evidence_index": 2, "chunk_id": "retrieved-not-selected"})
+    indices, invalid = [2], []
+    before = deepcopy((ctx.model_dump(), c.model_dump(), indices, invalid))
+    result = validate_citations(ctx, [c], evidence_indices=indices, invalid_indices=invalid)
+    assert result.reason == "CITATION_OUTSIDE_CONTEXT"
+    assert result.grounding_status == "FAIL"
+    assert result.invalid_indices == [2]
+    assert result.valid_citations == []
+    assert before == (ctx.model_dump(), c.model_dump(), indices, invalid)
+
+
+def test_validation_requires_no_provider_or_api(monkeypatch):
+    import socket
+
+    def deny_network(*args, **kwargs):
+        pytest.fail("Citation validation must not use network services")
+
+    monkeypatch.setattr(socket, "socket", deny_network)
+    monkeypatch.setattr(socket, "create_connection", deny_network)
+    ctx, c = fixture_pair()
+    assert validate_citations(ctx, [c], evidence_indices=[1]).grounding_status == "PASS"
+    check(ctx, [c], "INVALID_EVIDENCE_INDEX", [0])
+
+
+def test_handoff_samples_match_canonical_schema_and_actual_results():
+    import json
+    from pathlib import Path
+    from schemas.models import GroundingResult
+
+    samples = json.loads((Path(__file__).parent / "fixtures" / "week10_grounding_results.json").read_text(encoding="utf-8"))
+    ctx, c = fixture_pair()
+    passed = validate_citations(ctx, [c], evidence_indices=[1])
+    c = c.model_copy(update={"evidence_index": 2, "chunk_id": "retrieved-not-selected"})
+    failed = validate_citations(ctx, [c], evidence_indices=[2])
+    assert GroundingResult.model_validate(samples["pass"]) == passed
+    assert GroundingResult.model_validate(samples["fail"]) == failed
