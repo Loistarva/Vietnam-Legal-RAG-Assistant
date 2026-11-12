@@ -19,3 +19,6 @@ __pycache__/
 /.env
 /.env.*
 !/.env.example
+
+# Real request logs stay local; logs/sample_*.jsonl are synthetic handoff fixtures.
+/logs/runtime/
