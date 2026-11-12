@@ -1,0 +1,107 @@
+{
+  "model": "bkai-foundation-models/vietnamese-bi-encoder",
+  "model_revision": "84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0",
+  "fixture_sha256": "79b4a7085e80142f6aad6703a5f53781f73cd998626f36f97ec84daa914c5cc5",
+  "labels_sha256": "365d39189ac6354e6d36f41465e069d11f79c2e4d200e7f8fd02a8dffcc84c62",
+  "dependency_snapshot_sha256": "3886a566a32565d3f193a17bcdd32d322464e6c0665f56412fa69be12d8b7a55",
+  "system": {
+    "platform": "win32",
+    "architecture": "x64",
+    "cpu": "AMD Ryzen 7 8845H w/ Radeon 780M Graphics"
+  },
+  "retrieval_filter": "must_not metadata.validity_status == Hết hiệu lực; partial/unknown statuses remain eligible",
+  "ingested_chunks": 1079,
+  "eligible_chunks": 638,
+  "human_review_complete": false,
+  "exhaustive_relevance_labels": false,
+  "ground_truth_metrics": {
+    "query_count": 10,
+    "recall_at_5": 0.9,
+    "mrr_at_10": 0.85,
+    "mean_query_embedding_seconds": 0.02987097000009271,
+    "mean_qdrant_search_seconds": 0.015272550000054253,
+    "mean_query_embedding_plus_search_seconds": 0.045143520000146965
+  },
+  "per_query": [
+    {
+      "question_id": "priority_001",
+      "query": "Nam và nữ cần đáp ứng những điều kiện nào để kết hôn?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_8_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_006",
+      "query": "Nam, nữ có đủ điều kiện kết hôn nhưng sống chung không đăng ký kết hôn có làm phát sinh quyền và nghĩa vụ giữa vợ chồng không?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_14_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_011",
+      "query": "Ai quyết định nơi cư trú của vợ chồng?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_20_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_016",
+      "query": "Vợ chồng được lựa chọn những chế độ tài sản nào?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_28_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_021",
+      "query": "Ai quyết định việc chiếm hữu, sử dụng và định đoạt tài sản chung?",
+      "relevant_rank": 2,
+      "recall_at_5": 1,
+      "mrr_at_10": 0.5,
+      "top_1": "L01_art_35_clause_2_chunk_1"
+    },
+    {
+      "question_id": "priority_026",
+      "query": "Nghĩa vụ về tài sản của mỗi bên có trước khi kết hôn là nghĩa vụ riêng hay nghĩa vụ chung của vợ chồng?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_45_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_031",
+      "query": "Tòa án thụ lý đơn yêu cầu ly hôn theo quy định nào?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_53_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_036",
+      "query": "Con có quyền được cha mẹ yêu thương và tôn trọng không?",
+      "relevant_rank": 0,
+      "recall_at_5": 0,
+      "mrr_at_10": 0,
+      "top_1": "L01_art_69_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_041",
+      "query": "Sau ly hôn, cha mẹ còn quyền và nghĩa vụ chăm sóc, nuôi dưỡng, giáo dục con chưa thành niên không?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_81_clause_1_chunk_1"
+    },
+    {
+      "question_id": "priority_046",
+      "query": "Con có quyền nhận cha mẹ khi cha mẹ đã chết không?",
+      "relevant_rank": 1,
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "top_1": "L01_art_90_clause_1_chunk_1"
+    }
+  ]
+}

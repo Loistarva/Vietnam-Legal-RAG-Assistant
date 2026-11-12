@@ -1,0 +1,20 @@
+{
+  "reviewer_type": "assistant",
+  "human_review_complete": false,
+  "query_count": 10,
+  "changed_queries": [
+    "priority_006",
+    "priority_026",
+    "priority_041"
+  ],
+  "dataset_sha256": "79b4a7085e80142f6aad6703a5f53781f73cd998626f36f97ec84daa914c5cc5",
+  "input_labels_sha256": "e0591e87a038a8a12625b65fc1cdf0304f0e62cac886f77053697d01f55cf6be",
+  "output_labels_sha256": "365d39189ac6354e6d36f41465e069d11f79c2e4d200e7f8fd02a8dffcc84c62",
+  "review_basis": "Read all ten queries, supporting chunk text, article context and parser clause excerpts before running retrieval. No Test labels edited.",
+  "limitations": [
+    "Not an independent human legal review.",
+    "Not exhaustive relevance judgments; other valid supporting chunks may be unlabelled.",
+    "Small development set with wording close to source; unsuitable for production quality claims.",
+    "Corpus still contains partially expired/unknown documents and parser structure errors."
+  ]
+}

@@ -1,5 +1,28 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Provisional Dev baseline completed
+
+All 10 Dev questions were reviewed against their supporting corpus chunks and
+parser clause excerpts before retrieval. Three queries were clarified to match
+the source scope; the 40 Test labels were not edited or evaluated. The reviewed
+file is `embedding/data/priority_bkai_dev.support_reviewed.json`; its manifest
+records input/output hashes and explicitly keeps human review pending.
+
+BKAI successfully embedded and ingested all **1,079 points**. The existing
+filter excludes fully expired documents, leaving **638 eligible chunks**;
+partially expired and unknown-status documents remain eligible.
+On the fixed supporting-clause labels: **Recall@5 = 0.90**, **MRR@10 = 0.85**,
+mean query embedding plus vector search **45.14 ms** (not full request latency).
+See `docs/bkai_dev_baseline.md` and the corresponding results/context JSONs.
+
+One labelled clause was not retrieved in Top-10, but its Top-1 alternative
+Article 69(1) also supports the question. Labels and scores remain unchanged;
+this exposes incomplete relevance judgments requiring review rather than
+proving a total evidence-retrieval failure. These are provisional Dev results,
+not a production legal-accuracy measurement or independent human validation.
+Next: review candidate relevance labels, fix parser structure/validity issues
+and compare models using one frozen Dev corpus/judgment version. Reserve Test.
+
 ## Token-safe derivative — current embedding input
 
 Use `embedding/data/priority_bkai_chunks.json` with its matching
@@ -40,7 +63,8 @@ Next provisional Dev benchmark (after reviewing labels and source limitations):
 ```
 
 Use this same derivative fixture and matching labels for cross-model comparisons;
-each other model still needs its own tokenizer audit. No Recall/MRR run is claimed.
+each other model still needs its own tokenizer audit. The provisional BKAI
+Dev run completed later is described at the top of this document.
 
 ## Official-source refresh (supersedes the original snapshot below)
 
