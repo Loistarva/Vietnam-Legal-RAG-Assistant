@@ -11,8 +11,7 @@ Dau ra moi:
   data/chunking_output/chunks.jsonl
   data/chunking_output/report.json
 
-L01 duoc bo sung Dieu 132-133 chi tu PDF chinh thuc qua verified_sources.
-ND01/ND04 duoc tach phu luc va chu ky khoi Dieu cuoi qua repair_document_tail.
+Chu y: L01.pdf hien chi co 131 dieu. Khong tu sinh Dieu 132-133.
 """
 
 from __future__ import annotations
@@ -24,7 +23,6 @@ from pathlib import Path
 
 import cleaner
 import parser as legal_parser
-from verified_sources import apply_verified_sources
 
 
 BASE = Path(__file__).resolve().parent.parent
@@ -108,10 +106,6 @@ def load_document(code: str) -> dict:
 
     if doc.get("document_id") != code:
         raise ValueError(f"Document ID khong khop: {code} => {doc.get('document_id')}")
-    doc = apply_verified_sources(doc)
-    if code in ('ND01', 'ND04'):
-        from repair_document_tail import repair_tail
-        doc, _archive = repair_tail(doc)
     legal_parser.LegalDocumentSchema.model_validate(doc)
     return doc
 
@@ -157,8 +151,7 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                 lines = list(context)
                 if include_intro and index == 1:
                     lines.append(f"Dẫn nhập điều: {intro}")
-                body_label = 'Nội dung điều' if clause.get('number_is_synthetic') else f"Khoản {clause['clause_number']}"
-                lines.append(f"{body_label}: {body}")
+                lines.append(f"Khoản {clause['clause_number']}: {body}")
                 chunk_text = "\n".join(lines)
                 chunk = {
                     "chunk_id": chunk_id,
@@ -169,17 +162,13 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                     "char_count": len(chunk_text),
                 }
                 created.append(chunk)
-                if clause.get('number_is_synthetic'):
-                    chunk['clause_number_is_synthetic'] = True
                 records.append({
                     "chunk_id": chunk_id,
                     "document_id": code,
                     "document_number": doc_number,
                     "document_type": doc_type,
                     "document_title": doc_heading,
-                    "source_file": article.get("source_file", source),
-                    "source_url": article.get("source_url", doc.get("source_verification", {}).get("source_url")),
-                    "source_page": article.get("source_page"),
+                    "source_file": source,
                     "article_id": article["article_id"],
                     "article_number": number,
                     "article_title": art_title,
@@ -191,8 +180,6 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                     "chunk_text": chunk_text,
                     "char_count": len(chunk_text),
                 })
-                if clause.get('number_is_synthetic'):
-                    records[-1]['clause_number_is_synthetic'] = True
 
             # V1: chunk duoc gan vao clause (schema 4 tang).
             clause["chunks"] = created

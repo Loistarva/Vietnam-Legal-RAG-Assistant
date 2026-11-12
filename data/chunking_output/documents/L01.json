@@ -5,9 +5,9 @@
     "document_type": "Luật",
     "document_number": "52/2014/QH13",
     "issue_date": "2014-06-19",
-    "effective_date": "2015-01-01",
+    "effective_date": "2025-07-01",
     "issuing_body": "Quốc hội",
-    "validity_status": "Còn hiệu lực"
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
@@ -6647,107 +6647,10 @@
           ]
         }
       ]
-    },
-    {
-      "article_id": "L01_art_132",
-      "article_number": "132",
-      "article_title": "Hiệu lực thi hành",
-      "chapter": "Chương IX ĐIỀU KHOẢN THI HÀNH",
-      "section": null,
-      "intro": null,
-      "source_file": "data/raw_data/official_verified/L01_52_2014_QH13.pdf",
-      "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2014/08/52_honnhan_gd.signed.pdf",
-      "source_page": 43,
-      "clauses": [
-        {
-          "clause_id": "L01_art_132_clause_1",
-          "parent_article_id": "L01_art_132",
-          "clause_number": "1",
-          "clause_text": "Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2015.\nLuật hôn nhân và gia đình số 22/2000/QH10 hết hiệu lực kể từ ngày Luật này có hiệu lực.",
-          "chunks": [
-            {
-              "chunk_id": "L01_art_132_clause_1_chunk_1",
-              "parent_clause_id": "L01_art_132_clause_1",
-              "clause_number": "1",
-              "point_letter": null,
-              "chunk_text": "Văn bản: Luật 52/2014/QH13 - LUẬT HÔN NHÂN VÀ GIA ĐÌNH\nChương: Chương IX ĐIỀU KHOẢN THI HÀNH\nĐiều 132: Hiệu lực thi hành\nKhoản 1: Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2015. Luật hôn nhân và gia đình số 22/2000/QH10 hết hiệu lực kể từ ngày Luật này có hiệu lực.",
-              "char_count": 277
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "article_id": "L01_art_133",
-      "article_number": "133",
-      "article_title": "Quy định chi tiết và hướng dẫn thi hành",
-      "chapter": "Chương IX ĐIỀU KHOẢN THI HÀNH",
-      "section": null,
-      "intro": null,
-      "source_file": "data/raw_data/official_verified/L01_52_2014_QH13.pdf",
-      "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2014/08/52_honnhan_gd.signed.pdf",
-      "source_page": 43,
-      "clauses": [
-        {
-          "clause_id": "L01_art_133_clause_1",
-          "parent_article_id": "L01_art_133",
-          "clause_number": "1",
-          "clause_text": "Chính phủ quy định chi tiết các điều, khoản được giao trong Luật.\nTòa án nhân dân tối cao chủ trì phối hợp với Viện kiểm sát nhân dân tối cao và Bộ Tư pháp hướng dẫn thi hành các điều, khoản được giao trong Luật.",
-          "chunks": [
-            {
-              "chunk_id": "L01_art_133_clause_1_chunk_1",
-              "parent_clause_id": "L01_art_133_clause_1",
-              "clause_number": "1",
-              "point_letter": null,
-              "chunk_text": "Văn bản: Luật 52/2014/QH13 - LUẬT HÔN NHÂN VÀ GIA ĐÌNH\nChương: Chương IX ĐIỀU KHOẢN THI HÀNH\nĐiều 133: Quy định chi tiết và hướng dẫn thi hành\nKhoản 1: Chính phủ quy định chi tiết các điều, khoản được giao trong Luật. Tòa án nhân dân tối cao chủ trì phối hợp với Viện kiểm sát nhân dân tối cao và Bộ Tư pháp hướng dẫn thi hành các điều, khoản được giao trong Luật.",
-              "char_count": 364
-            }
-          ]
-        }
-      ]
     }
   ],
   "footnotes": [
     "1 Luật số 81/2025/QH15 sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân có căn cứ ban hành như sau: “Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam đã được sửa đổi, bổ sung một số điều theo Nghị quyết số 203/2025/QH15; Quốc hội ban hành Luật sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân số 34/2024/QH15.”. 2",
     "2 Cụm từ “Tòa án nhân dân cấp huyện” được thay thế bởi cụm từ “Tòa án nhân dân khu vực” theo quy định tại khoản"
-  ],
-  "extracted_metadata": {
-    "title": "LUẬT HÔN NHÂN VÀ GIA ĐÌNH",
-    "document_type": "Luật",
-    "document_number": "52/2014/QH13",
-    "issue_date": "2014-06-19",
-    "effective_date": "2025-07-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Không xác định"
-  },
-  "source_verification": {
-    "document_number": "52/2014/QH13",
-    "metadata": {
-      "effective_date": "2015-01-01",
-      "validity_status": "Còn hiệu lực"
-    },
-    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=175351&pageid=27160",
-    "status_source_url": "https://vbpl.moj.gov.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
-    "expected_article_count": 133,
-    "supplement": {
-      "source_file": "data/raw_data/official_verified/L01_52_2014_QH13.pdf",
-      "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2014/08/52_honnhan_gd.signed.pdf",
-      "sha256": "5c8b6404a81129b5f90b9ff2cfb96701a178a81aacb86c12e9126a3a3abc87c1",
-      "page": 43,
-      "method": "Manual transcription checked against rendered signed official PDF, page 43. Unnumbered paragraphs retained in one synthetic clause per article.",
-      "articles": [
-        {
-          "article_number": "132",
-          "article_title": "Hiệu lực thi hành",
-          "text": "Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2015.\nLuật hôn nhân và gia đình số 22/2000/QH10 hết hiệu lực kể từ ngày Luật này có hiệu lực."
-        },
-        {
-          "article_number": "133",
-          "article_title": "Quy định chi tiết và hướng dẫn thi hành",
-          "text": "Chính phủ quy định chi tiết các điều, khoản được giao trong Luật.\nTòa án nhân dân tối cao chủ trì phối hợp với Viện kiểm sát nhân dân tối cao và Bộ Tư pháp hướng dẫn thi hành các điều, khoản được giao trong Luật."
-        }
-      ]
-    },
-    "checked_at": "2026-11-12"
-  }
+  ]
 }

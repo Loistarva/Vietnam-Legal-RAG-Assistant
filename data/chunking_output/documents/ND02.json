@@ -7,7 +7,7 @@
     "issue_date": "2025-07-15",
     "effective_date": "2025-10-01",
     "issuing_body": "Chính phủ",
-    "validity_status": "Còn hiệu lực"
+    "validity_status": "Không xác định"
   },
   "articles": [
     {
@@ -1157,22 +1157,5 @@
       ]
     }
   ],
-  "footnotes": [],
-  "extracted_metadata": {
-    "title": "NGHỊ ĐỊNH Quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
-    "document_type": "Nghị định",
-    "document_number": "207/2025/NĐ-CP",
-    "issue_date": "2025-07-15",
-    "effective_date": "2025-10-01",
-    "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định"
-  },
-  "source_verification": {
-    "document_number": "207/2025/NĐ-CP",
-    "metadata": {
-      "validity_status": "Còn hiệu lực"
-    },
-    "source_url": "https://vbpl.vn/boquocphong/Pages/vbpq-van-ban-goc.aspx?ItemID=179714",
-    "checked_at": "2026-11-12"
-  }
+  "footnotes": []
 }

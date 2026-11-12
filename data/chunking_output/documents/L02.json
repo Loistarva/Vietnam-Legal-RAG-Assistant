@@ -4807,23 +4807,5 @@
       ]
     }
   ],
-  "footnotes": [],
-  "extracted_metadata": {
-    "title": "Luật Hôn nhân và gia đình",
-    "document_type": "Luật",
-    "document_number": "22/2000/QH10",
-    "issue_date": "2000-06-09",
-    "effective_date": "2001-01-01",
-    "issuing_body": "Quốc hội",
-    "validity_status": "Hết hiệu lực"
-  },
-  "source_verification": {
-    "document_number": "22/2000/QH10",
-    "metadata": {
-      "validity_status": "Hết hiệu lực"
-    },
-    "expires_on": "2015-01-01",
-    "source_url": "https://vbpl.moj.gov.vn/tw/Pages/vbpq-thuoctinh.aspx?ItemID=6117&Keyword=&dvid=13",
-    "checked_at": "2026-11-12"
-  }
+  "footnotes": []
 }

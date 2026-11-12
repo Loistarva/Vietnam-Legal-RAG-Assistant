@@ -5,9 +5,6 @@ import argparse
 import json
 import re
 import sys
-import platform
-from datetime import datetime, timezone
-from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
 from vector_store import EmbeddingService, VectorStore, load_chunks, chunk_file_sha256
@@ -26,14 +23,6 @@ def recall_at_k(ranked_ids: list[str], relevant_ids: set[str], k: int) -> float:
     if not relevant_ids:
         raise ValueError("relevant_ids phải chứa ít nhất một chunk")
     return len(set(ranked_ids[:k]) & relevant_ids) / len(relevant_ids)
-
-
-def installed_version(name: str) -> str | None:
-    """Optional preprocessing packages must not break other model runs."""
-    try:
-        return version(name)
-    except PackageNotFoundError:
-        return None
 
 
 def main() -> int:
@@ -86,15 +75,7 @@ def main() -> int:
             print(f"Metadata: {json.dumps(hit['metadata'], ensure_ascii=False)}")
             print(f"Text: {hit['text']}")
         run_result = {
-            "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
             "model": args.model,
-            "model_revision": getattr(service.model[0].auto_model.config, "_commit_hash", None),
-            "device": str(service.model.device),
-            "batch_size": args.batch_size,
-            "python_version": platform.python_version(),
-            "package_versions": {name: installed_version(name) for name in
-                                 ("sentence-transformers", "transformers", "torch", "qdrant-client", "underthesea")},
-            "retrieval_filter": "must_not metadata.validity_status == Hết hiệu lực",
             "collection": collection,
             "chunk_count": len(chunks),
             "chunk_file_sha256": source_hash,

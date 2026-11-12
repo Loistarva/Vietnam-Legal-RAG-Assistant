@@ -1,12 +1,12 @@
 {
   "source": "data/chunking_output/chunks.jsonl",
-  "source_sha256": "c99e3b9f2763a0c07a1af0662c2521711a8b068f3250de3b39284ce446307605",
+  "source_sha256": "395911c3aebd60ff3ed5dfff7852689b034beda403aaa3f0a070ba2b39750acb",
   "documents": [
     {
       "document_id": "L01",
-      "articles": 133,
-      "clauses": 333,
-      "chunks": 337
+      "articles": 131,
+      "clauses": 331,
+      "chunks": 335
     },
     {
       "document_id": "L02",
@@ -45,13 +45,30 @@
       "chunks": 82
     }
   ],
-  "chunk_count": 1066,
+  "chunk_count": 1064,
   "errors": [],
   "warnings": [
     {
+      "document_id": "L01",
+      "field": "effective_date",
+      "parsed": "2025-07-01",
+      "normalized": "2015-01-01",
+      "action": "Verify against authoritative source; neither value auto-approved."
+    },
+    {
+      "document_id": "L01",
+      "field": "validity_status",
+      "action": "Requires legal source verification before production retrieval."
+    },
+    {
       "document_id": "ND01",
-      "field": "source_restriction",
-      "action": "Do not treat the whole document as currently effective; article-level amendment/expiry mapping remains pending."
+      "field": "validity_status",
+      "action": "Requires legal source verification before production retrieval."
+    },
+    {
+      "document_id": "ND02",
+      "field": "validity_status",
+      "action": "Requires legal source verification before production retrieval."
     },
     {
       "document_id": "ND03",
@@ -59,9 +76,19 @@
       "action": "Requires legal source verification before production retrieval."
     },
     {
-      "document_id": "ND03",
-      "field": "source_restriction",
-      "action": "Current status not confirmed from an accessible official status page; retain unknown status. Export has 12 articles; full-text completeness has not been independently confirmed against the official download."
+      "document_id": "ND04",
+      "field": "validity_status",
+      "action": "Requires legal source verification before production retrieval."
+    },
+    {
+      "document_id": "ND05",
+      "field": "validity_status",
+      "action": "Requires legal source verification before production retrieval."
+    },
+    {
+      "document_id": "L01",
+      "field": "source_completeness",
+      "action": "Export contains articles 1–131 only; articles 132–133 are absent. Do not synthesize missing law text."
     }
   ],
   "token_limit_check": "Not run: requires each embedding model tokenizer; character limits do not prove token limits.",
