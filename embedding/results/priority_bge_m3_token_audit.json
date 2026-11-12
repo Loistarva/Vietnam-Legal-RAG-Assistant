@@ -1,0 +1,10 @@
+{
+  "model": "BAAI/bge-m3",
+  "dataset_sha256": "79b4a7085e80142f6aad6703a5f53781f73cd998626f36f97ec84daa914c5cc5",
+  "chunk_count": 1079,
+  "limit": 8192,
+  "max_tokens": 347,
+  "oversized_count": 0,
+  "oversized": [],
+  "note": "Includes special tokens and model-specific preprocessing; no model weights or retrieval metrics."
+}

@@ -1,0 +1,27 @@
+{
+  "status": "post_run_candidates_not_applied_to_baseline",
+  "human_review_complete": false,
+  "baseline_labels_sha256": "365d39189ac6354e6d36f41465e069d11f79c2e4d200e7f8fd02a8dffcc84c62",
+  "policy": "Keep baseline labels and scores frozen for cross-model comparison. Inspect full corpus relevance in a separately versioned judgment set; do not treat returned rankings themselves as ground truth.",
+  "candidates": [
+    {
+      "question_id": "priority_036",
+      "chunk_id": "L01_art_69_clause_1_chunk_1",
+      "source_clause_excerpt": "Thương yêu con, tôn trọng ý kiến của con",
+      "assistant_support_assessment": "Supports the question about parental love and respect from the parental-obligation perspective, alongside the existing Article 70 child-rights label.",
+      "decision": "candidate_support_pending_human_review"
+    },
+    {
+      "question_id": "priority_021",
+      "chunk_id": "L01_art_35_clause_2_chunk_1",
+      "assistant_support_assessment": "Provides related, narrower rules for written agreement in specific transactions; Article 35(1) remains the direct general rule.",
+      "decision": "related_evidence_not_automatically_a_complete_answer"
+    },
+    {
+      "question_id": "priority_021",
+      "chunk_id": "ND01_art_13_clause_1_chunk_1",
+      "assistant_support_assessment": "The text contains the agreement rule, but the document is partially expired and article-level current validity is unverified.",
+      "decision": "requires_article_validity_verification_before_approval"
+    }
+  ]
+}

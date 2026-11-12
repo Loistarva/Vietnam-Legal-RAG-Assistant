@@ -1,5 +1,32 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Three-model dense Dev comparison completed
+
+All runs use the same 1,079-chunk fixture, 638 eligible chunks under the current
+expiry filter, and the same ten supporting-clause Dev judgments. All three
+tokenizer audits pass. Input hashes, per-query macro scores, Top-10 ID existence,
+uniqueness and exclusion of fully expired evidence were checked independently.
+
+| Model | Recall@5 | MRR@10 | Labelled evidence Top-1 |
+|---|---:|---:|---:|
+| BKAI | 0.90 | 0.85 | 8/10 |
+| AITeamVN | 1.00 | 1.00 | 10/10 |
+| BGE-M3 | 1.00 | 1.00 | 10/10 |
+
+See `docs/dense_dev_comparison.md` and
+`embedding/results/priority_dense_dev_comparison.json` for timings, observed
+model snapshot revisions and recomputed rankings. New runs also record package
+versions/device. The ten questions remain assistant-reviewed, not human-approved
+or exhaustive relevance labels. No Test query was run or modified. No production
+model winner is declared from this small development set.
+
+**Next priority:** repair article/appendix/footer boundaries in ND01 and ND04.
+In the BGE smoke result, ND01 appendix items appear as Article 67 clauses;
+the appendix describes customs to eliminate/prohibit and must retain that scope.
+Review candidate relevance labels separately, then freeze a corrected corpus
+and judgment version before hybrid retrieval or final Test evaluation. Baseline
+scores and labels are preserved rather than edited after viewing rankings.
+
 ## Provisional Dev baseline completed
 
 All 10 Dev questions were reviewed against their supporting corpus chunks and
