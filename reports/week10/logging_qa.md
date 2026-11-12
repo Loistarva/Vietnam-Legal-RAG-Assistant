@@ -15,14 +15,18 @@ model inference, live API integration or database calls were used in this QA.
 Do not mark whole-project W10-05 or W10-08 signed off from these fixtures alone.
 `schemas/models.py` and the Week 9 validator/logger described by the plan were
 absent in this checkout. No replacement canonical schema or second Gate was
-created. Existing source-selection validation remains untouched. Dev 3 owns
+created. Out-of-scope additions have been reverted per the user's instruction;
+the pre-2026-11-12 baseline and Dev 1 implementation are retained. Dev 3 owns
 contract freeze and mapping; Dev 5 owns Gate release/recovery and live callbacks.
 
 ## Checks and artifacts
 
-- 28 Dev 1 unit/security/callback tests pass; full suite: **98 Python tests pass**.
-- Existing Node data checks: **4 pass**; `git diff --check` passes.
-- Model/provider/API modules were not edited by this delivery.
+- After the scope rollback, all **28 Dev 1 unit/security/callback tests pass** via
+  the same unittest discovery command. The previous 98-test/4-Node run included
+  out-of-scope tests that have now been removed; it is not the current test count.
+- `git diff --check` passes. Dev 1 source/tests/synthetic fixtures remain identical
+  to commit `659b8f0`; only handoff/report text reflects the rollback.
+- Dev 1 modules import no model/provider/API implementation.
 - Valid fixture returns trusted mapped citations; invalid fixture returns FAIL,
   no validated draft and no citations. It does not execute a retry or stream.
 - Empty context, untrusted index/type/duplicates, missing metadata, conflicting

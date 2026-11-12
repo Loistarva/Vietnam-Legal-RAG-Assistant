@@ -1,3 +1,0 @@
-# Preserve frozen dataset bytes so SHA-256 remains stable across checkouts.
-/data/chunking_output/** -text whitespace=cr-at-eol
-/embedding/data/priority*.json -text

@@ -100,7 +100,6 @@ def main() -> int:
             dataset_chunk_ids = {chunk["chunk_id"] for chunk in chunks}
             recall_scores = []
             reciprocal_ranks = []
-            per_query = []
             query_encode_total = 0.0
             qdrant_search_total = 0.0
             for index, judgment in enumerate(judgments, 1):
@@ -126,12 +125,6 @@ def main() -> int:
                 recall_scores.append(recall_at_k(ranked_ids, relevant_ids, 5))
                 reciprocal_ranks.append(next((1 / rank for rank, chunk_id in enumerate(ranked_ids, 1)
                                               if rank <= 10 and chunk_id in relevant_ids), 0.0))
-                per_query.append({"question_id": judgment.get("question_id"),
-                                  "query": q, "relevant_chunk_ids": sorted(relevant_ids),
-                                  "ranked_chunk_ids": ranked_ids,
-                                  "recall_at_5": recall_scores[-1],
-                                  "mrr_at_10": reciprocal_ranks[-1],
-                                  "review_status": judgment.get("review_status", "unspecified")})
             metrics = {"query_count": len(judgments),
                        "recall_at_5": sum(recall_scores) / len(recall_scores),
                        "mrr_at_10": sum(reciprocal_ranks) / len(reciprocal_ranks),
@@ -139,8 +132,6 @@ def main() -> int:
                        "mean_qdrant_search_seconds": qdrant_search_total / len(judgments),
                        "mean_query_embedding_plus_search_seconds": (query_encode_total + qdrant_search_total) / len(judgments)}
             run_result["ground_truth_metrics"] = metrics
-            run_result["ground_truth_sha256"] = chunk_file_sha256(args.ground_truth)
-            run_result["per_query"] = per_query
             print(f"\nGround truth: {metrics['query_count']} queries | Recall@5={metrics['recall_at_5']:.4f} | MRR@10={metrics['mrr_at_10']:.4f} | mean query latency (embedding + search)={metrics['mean_query_embedding_plus_search_seconds'] * 1000:.2f} ms")
         if args.results:
             args.results.parent.mkdir(parents=True, exist_ok=True)

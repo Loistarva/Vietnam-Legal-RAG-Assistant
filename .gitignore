@@ -12,9 +12,6 @@ __pycache__/
 # Local PDF inspection renders
 /tmp/pdfs/
 
-# Local console logs; machine-readable v2 benchmark results are versioned.
-/data/structure_v2/benchmark/*.log
-
 # Machine-local configuration/credentials
 /.env
 /.env.*

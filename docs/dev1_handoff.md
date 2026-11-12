@@ -1,11 +1,12 @@
 # Week 10: Dev 1 only
 
 Source: user-supplied Week 10 V1.0 plan, section 5.1, D1.1–D1.5. This supersedes
-the broad project roadmap for this work. Existing API/provider/retrieval code is
-left untouched. No UI, new gateway, evaluator, Router tuning or Gate orchestration
-is part of this delivery. The plan's claimed Week 9 canonical validator/logger
-was not present in this branch; the existing `agent.validate_selection` validates
-source-only excerpts and is preserved for its existing consumer.
+the broad project roadmap for this work. At the user's request, the 14 additions
+outside Dev 1 from 2026-11-12 were reverted, retaining the `eab4bf9` baseline and
+this Dev 1 delivery. No UI, new gateway, evaluator, Router tuning or Gate
+orchestration is included. The plan's claimed Week 9 canonical validator/logger
+was not present in this branch. The provisional source-selection implementation
+has also been removed with the out-of-scope work; this validator stands alone.
 
 ## D1.1 validator interface
 
