@@ -531,6 +531,21 @@ def _create_child_chunks_from_units(
         if c:
             children.append(c)
 
+        # Dam bao moi Child Chunk co ID duy nhat trong cung Parent
+    used_ids = set()
+
+    for child in children:
+        original_id = child.chunk_id
+        unique_id = original_id
+        suffix = 2
+
+        while unique_id in used_ids:
+            unique_id = f"{original_id}_part{suffix}"
+            suffix += 1
+
+        child.chunk_id = unique_id
+        used_ids.add(unique_id)
+
     return children
 
 
