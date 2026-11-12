@@ -80,15 +80,21 @@ def reciprocal_rank_fusion(rankings, k=60, top_k=10):
 
 
 class HybridRetriever:
-    def __init__(self, sparse, embedding_service, vector_store, candidate_k=50, rrf_k=60):
+    def __init__(self, sparse, embedding_service, vector_store, candidate_k=50, rrf_k=60,
+                 reranker=None, rerank_depth=50):
         if candidate_k < 10 or rrf_k <= 0:
             raise ValueError('Require at least 10 candidates and positive RRF constant')
         self.sparse, self.service, self.store = sparse, embedding_service, vector_store
         self.candidate_k, self.rrf_k = candidate_k, rrf_k
+        if reranker is not None and (rerank_depth < 10 or rerank_depth > candidate_k):
+            raise ValueError('Rerank depth must be between 10 and candidate_k')
+        self.reranker, self.rerank_depth = reranker, rerank_depth
 
     def retrieve(self, query, top_k=10):
         if top_k < 1 or top_k > self.candidate_k:
             raise ValueError('top_k must be within candidate_k')
+        if self.reranker is not None and top_k > self.rerank_depth:
+            raise ValueError('top_k must be within the rerank candidate depth')
 
         def sparse_branch():
             start = time.perf_counter()
@@ -108,10 +114,16 @@ class HybridRetriever:
         for hit in dense_hits:
             if hit['chunk_id'] not in self.sparse.chunks:
                 raise ValueError('Dense returned unknown/ineligible evidence')
-        fused = reciprocal_rank_fusion({'bm25': sparse_hits, 'dense': dense_hits}, self.rrf_k, top_k)
+        depth = self.rerank_depth if self.reranker is not None else top_k
+        fused = reciprocal_rank_fusion({'bm25': sparse_hits, 'dense': dense_hits}, self.rrf_k, depth)
         for hit in fused:
             chunk = self.sparse.chunks[hit['chunk_id']]
             hit.update(text=chunk['text'], metadata=copy.deepcopy(chunk['metadata']))
-        return {'bm25': sparse_hits, 'dense': dense_hits, 'hybrid': fused,
+        result = {'bm25': sparse_hits, 'dense': dense_hits, 'hybrid': fused[:top_k],
                 'sparse_branch_seconds': sparse_seconds, 'dense_branch_seconds': dense_seconds,
                 'hybrid_wall_seconds': time.perf_counter() - started}
+        if self.reranker is not None:
+            result['reranked'] = self.reranker.rerank(query, fused, top_k)
+            result['rerank_seconds'] = self.reranker.last_seconds
+            result['total_wall_seconds'] = time.perf_counter() - started
+        return result

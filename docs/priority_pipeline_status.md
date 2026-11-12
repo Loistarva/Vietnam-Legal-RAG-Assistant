@@ -1,5 +1,26 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Optional reranker implemented and evaluated
+
+`embedding/reranking.py` adds a pinned multilingual BGE cross-encoder with raw
+relevance logits, deterministic ranking, source metadata preservation and a
+fail-fast pair-token budget. `HybridRetriever` optionally reranks the RRF Top-50
+while retaining the original hybrid Top-10 separately. Disabled behavior remains
+compatible with earlier callers.
+
+The frozen ten-query Dev evaluation gives Recall@5/MRR@10 **1.00/1.00** after
+reranking, compared with **1.00/0.95** for RRF and **1.00/1.00** for dense BGE.
+All labelled evidence is in the candidate pools; maximum pair length is 335/512
+tokens without truncation. Candidate/source hashes, preserved RRF scores,
+metadata, new ordering and per-query/macro metrics were independently checked.
+Seven new tests pass; human review is pending and Test remains reserved.
+
+CPU reranking costs about **18.9 seconds/query** for 50 candidates, excluding
+retrieval. This needs optimization before a responsive product API; it is not
+an end-to-end TTFB measurement. See `docs/reranker_dev.md` and
+`data/structure_v2/reranker/`. Next: parent-context resolution and shared metadata
+filters, alongside validity/label verification and reranker latency work.
+
 ## Local BM25 and hybrid/RRF Dev baseline completed
 
 `embedding/hybrid_retrieval.py` provides local BM25, parallel sparse/BGE branches

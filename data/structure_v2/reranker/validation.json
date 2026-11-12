@@ -1,0 +1,10 @@
+{
+  "hashes_match": true,
+  "candidate_sets_and_rrf_scores_match": true,
+  "ordering_and_metrics_recomputed": true,
+  "query_count": 10,
+  "queries_with_all_labelled_evidence_in_pool": 10,
+  "max_pair_tokens": 335,
+  "no_pair_truncation": true,
+  "test_evaluated": false
+}
