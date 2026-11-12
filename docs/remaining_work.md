@@ -14,6 +14,9 @@ experiments are development baselines, not acceptance of the finished chatbot.
 - Strict-by-default evidence search, shared metadata predicates before sparse/
   vector ranking, conservative reference extraction and canonical parent context
   with source-safe citations. Earlier benchmark policies/results are preserved.
+- Rule-based Agent routing/clarification, full-request budget preflight, whole
+  source packing, provider-neutral source-ID validation and offline verbatim
+  excerpt composition. No real generation provider/API is configured or called.
 - Input/version checks, full index payload verification, per-query metrics and
   regression checks. The 40 Test questions remain reserved.
 
@@ -26,16 +29,17 @@ experiments are development baselines, not acceptance of the finished chatbot.
 | 1 | Evaluation | Human-review all labels and alternative supporting clauses; broaden beyond L01 and source-like questions to other documents, ambiguous queries and no-answer cases. Freeze judgments/configuration before final Test evaluation. |
 | 2 | Retrieval / FR2 | Extend the explicit-reference rules to disambiguation, negation and verified temporal/as-of policies. Integrate Elasticsearch if the SRS infrastructure is retained; the current BM25 backend is local Python. |
 | 2 | Context / FR4 | Add a model-specific context packer/token budget and citation verification for generated claims. Parent resolution and synthetic-number handling are implemented; point-level extraction and broader source review remain pending. |
-| 3 | Agent / FR1, FR3 | Implement legal/non-legal routing, clarification and evidence/confidence policy. Calibrate thresholds on labelled data; raw cosine/RRF scores alone are not legal confidence. |
-| 3 | Generation / FR4, FR5 | Integrate an LLM with source-bound citation prompts, grounding checks, bounded retry and abstention/refusal when evidence is insufficient. |
+| 3 | Agent / FR1, FR3 | Broaden/validate the routing rules, add multi-turn clarification and calibrate evidence confidence on labelled data. Current static/clarification paths are implemented; raw cosine/RRF scores are not legal confidence. |
+| 3 | Generation / FR4, FR5 | Configure a real provider and matching full-request token counter; evaluate source selection before enabling free-form answering. Claim-level citation/entailment checks and bounded retry remain pending; source-ID validation and extractive fallback are implemented. |
 | 4 | API and Web UI | Build API gateway, SSE streaming chat and citations/evidence panel; add integration tests for the full question-to-answer path. |
 | 4 | NFR2, NFR3 and logging | Redis semantic cache, API key guard, rate limiting, request/quality logs and operational configuration. Measure full streaming TTFB and cached response latency after the application exists. |
 | 5 | Acceptance | Run the frozen Test split, grounded-answer/citation checks, out-of-domain/no-answer scenarios and end-to-end performance/security checks. Document limits and deployment instructions. |
 
-The next bounded implementation step is routing/clarification plus budgeted,
-source-bound generation. Dataset/validity and human label work can proceed alongside implementation;
+The next bounded implementation step is configuring/evaluating a real provider
+behind the source-selection interface, then claim-level grounded answering.
+Dataset/validity and human label work can proceed alongside implementation;
 they must be resolved before claiming legal correctness or production readiness.
 Do not treat 1.00 on ten Dev queries as general legal accuracy.
 
 Sources in this repo: `docs/SRS.md`, `docs/structure_v2.md`,
-`docs/structure_v2_dev.md`, `docs/hybrid_dev.md`, `docs/reranker_dev.md` and the versioned result JSONs.
+`docs/structure_v2_dev.md`, `docs/hybrid_dev.md`, `docs/reranker_dev.md`, `docs/agent_flow.md` and the versioned result JSONs.

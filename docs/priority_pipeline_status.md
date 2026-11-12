@@ -1,5 +1,23 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Agent preparation and source-only composition implemented
+
+`agent/` adds rule-based scope routing/static fast paths, clarification states,
+query-budget preflight, whole-article/whole-clause context packing and a provider-
+neutral source-selection stage. Source IDs and citation scope are validated;
+only canonical excerpts are rendered, not unchecked provider prose.
+
+Eleven new tests and seven offline live-evidence scenarios pass. The demonstration
+uses a clearly labelled BGE tokenizer planning proxy and an extractive fallback:
+zero real generation-API calls, no free-form legal advice and no Test evaluation.
+Actual provider calls require a configured matching full-request counter/model.
+This is not a complete claim-level Grounding Gate or calibrated confidence policy.
+
+See `docs/agent_flow.md` and `data/structure_v2/agent/offline_flow.json`. Next:
+configure/evaluate a real provider, then claim-level generation/grounding and
+bounded retry. Multi-turn clarification, legal-data review and application work
+remain pending.
+
 ## Shared metadata policy and parent context implemented
 
 The new high-level `LegalSearchPipeline` defaults to metadata-labelled current
