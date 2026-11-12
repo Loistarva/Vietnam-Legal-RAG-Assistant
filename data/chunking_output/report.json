@@ -1,0 +1,51 @@
+{
+  "L01": {
+    "articles": 131,
+    "clauses": 331,
+    "chunks": 335,
+    "clauses_split": 4,
+    "source": "pdf_parsed_in_memory"
+  },
+  "L02": {
+    "articles": 110,
+    "clauses": 229,
+    "chunks": 233,
+    "clauses_split": 4,
+    "source": "validated_json"
+  },
+  "ND01": {
+    "articles": 67,
+    "clauses": 185,
+    "chunks": 199,
+    "clauses_split": 13,
+    "source": "pdf_parsed_in_memory"
+  },
+  "ND02": {
+    "articles": 17,
+    "clauses": 53,
+    "chunks": 69,
+    "clauses_split": 9,
+    "source": "pdf_parsed_in_memory"
+  },
+  "ND03": {
+    "articles": 12,
+    "clauses": 21,
+    "chunks": 30,
+    "clauses_split": 6,
+    "source": "pdf_parsed_in_memory"
+  },
+  "ND04": {
+    "articles": 26,
+    "clauses": 85,
+    "chunks": 116,
+    "clauses_split": 6,
+    "source": "validated_json"
+  },
+  "ND05": {
+    "articles": 33,
+    "clauses": 80,
+    "chunks": 82,
+    "clauses_split": 2,
+    "source": "validated_json"
+  }
+}

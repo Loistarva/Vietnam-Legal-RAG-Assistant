@@ -120,6 +120,17 @@ class EmbeddingService:
         if not texts or any(not isinstance(t, str) or not t.strip() for t in texts):
             raise ValueError("Danh sách text phải chứa chuỗi không rỗng")
         prepared = self._prepare(texts)
+        # Never silently truncate legal evidence at the embedding boundary.
+        lengths = self.model.tokenizer(prepared, truncation=False, padding=False,
+                                       return_length=True)["length"]
+        oversized = [(index, length) for index, length in enumerate(lengths)
+                     if length > self.model.max_seq_length]
+        if oversized:
+            raise ValueError(
+                f"{len(oversized)} embedding inputs exceed {self.model.max_seq_length} tokens "
+                f"for {self.model_name}; split the source chunks before encoding. "
+                f"First input indices/token counts: {oversized[:10]}"
+            )
         started = time.perf_counter()
         vectors = self.model.encode(prepared, batch_size=self.batch_size, convert_to_numpy=True,
                                     normalize_embeddings=True, show_progress_bar=False)
