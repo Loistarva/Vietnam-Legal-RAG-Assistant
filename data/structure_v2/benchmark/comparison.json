@@ -1,0 +1,310 @@
+{
+  "dataset_sha256": "882ccfe5db1a061d5f133759cf67a16428608a6e5fb2e99379efe6be0a9ee78f",
+  "labels_sha256": "39c19e8d94f523f33dea8433a3b8ce81a7479ad8549a917883ae4ca2756bb3e0",
+  "query_count": 10,
+  "corpus_count": 1024,
+  "eligible_count": 630,
+  "query_and_label_semantics_unchanged": true,
+  "human_review_complete": false,
+  "test_evaluated": false,
+  "models": [
+    {
+      "name": "BKAI",
+      "model": "bkai-foundation-models/vietnamese-bi-encoder",
+      "model_main_revision": "84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0",
+      "main_revision_source": "single_snapshot_observed_at_run_start",
+      "observed_cache_snapshots": [
+        "84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0"
+      ],
+      "recall_at_5": 0.9,
+      "mrr_at_10": 0.85,
+      "baseline_recall_at_5": 0.9,
+      "baseline_mrr_at_10": 0.85,
+      "labelled_top_1": 8,
+      "mean_encode_plus_search_ms": 44.86650999997437,
+      "per_query": [
+        {
+          "question_id": "priority_001",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_8_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_006",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_14_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_011",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_20_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_016",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_28_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_021",
+          "first_relevant_rank": 2,
+          "baseline_first_relevant_rank": 2,
+          "recall_at_5": 1,
+          "mrr_at_10": 0.5,
+          "top_1": "L01_art_35_clause_2_chunk_1"
+        },
+        {
+          "question_id": "priority_026",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_45_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_031",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_53_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_036",
+          "first_relevant_rank": null,
+          "baseline_first_relevant_rank": null,
+          "recall_at_5": 0,
+          "mrr_at_10": 0,
+          "top_1": "L01_art_69_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_041",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_81_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_046",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_90_clause_1_chunk_1"
+        }
+      ]
+    },
+    {
+      "name": "AITeamVN",
+      "model": "AITeamVN/Vietnamese_Embedding",
+      "model_main_revision": "dea33aa1ab339f38d66ae0a40e6c40e0a9249568",
+      "main_revision_source": "single_snapshot_observed_at_run_start",
+      "observed_cache_snapshots": [
+        "dea33aa1ab339f38d66ae0a40e6c40e0a9249568"
+      ],
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "baseline_recall_at_5": 1,
+      "baseline_mrr_at_10": 1,
+      "labelled_top_1": 10,
+      "mean_encode_plus_search_ms": 136.52827000059915,
+      "per_query": [
+        {
+          "question_id": "priority_001",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_8_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_006",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_14_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_011",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_20_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_016",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_28_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_021",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_35_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_026",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_45_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_031",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_53_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_036",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_70_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_041",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_81_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_046",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_90_clause_1_chunk_1"
+        }
+      ]
+    },
+    {
+      "name": "BGE-M3",
+      "model": "BAAI/bge-m3",
+      "model_main_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "main_revision_source": "archived_weight_equivalence_and_main_ref_evidence",
+      "observed_cache_snapshots": [
+        "5617a9f61b028005a4858fdac845db406aefb181",
+        "9a0624b896d81da7492a910ffa53731274b6cf3d"
+      ],
+      "recall_at_5": 1,
+      "mrr_at_10": 1,
+      "baseline_recall_at_5": 1,
+      "baseline_mrr_at_10": 1,
+      "labelled_top_1": 10,
+      "mean_encode_plus_search_ms": 137.45170000020153,
+      "per_query": [
+        {
+          "question_id": "priority_001",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_8_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_006",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_14_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_011",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_20_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_016",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_28_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_021",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_35_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_026",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_45_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_031",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_53_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_036",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_70_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_041",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_81_clause_1_chunk_1"
+        },
+        {
+          "question_id": "priority_046",
+          "first_relevant_rank": 1,
+          "baseline_first_relevant_rank": 1,
+          "recall_at_5": 1,
+          "mrr_at_10": 1,
+          "top_1": "L01_art_90_clause_1_chunk_1"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Ten supporting-clause Dev labels are incomplete and close to source wording.",
+    "Only the identified ND01/ND04 article-tail boundaries were repaired.",
+    "Partial/unknown validity remains eligible under the existing filter.",
+    "Single CPU timings exclude preprocessing; no production winner or Test claim."
+  ]
+}

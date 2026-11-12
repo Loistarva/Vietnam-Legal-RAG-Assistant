@@ -73,3 +73,26 @@ The current expiry filter leaves 630 eligible chunks in the new token-safe corpu
 partially expired/unknown-status documents remain included. The old three-model
 scores are not scores for v2: rerun Dev on the new fixture and matching labels
 before comparing quality. The Test split has not been evaluated.
+
+## Completed Dev rerun
+
+The v2 Dev rerun is now complete for all three models. Query text and relevant
+IDs are unchanged from the baseline. BKAI remains at Recall@5 0.90 / MRR@10 0.85;
+AITeamVN and BGE-M3 remain at 1.00 / 1.00. These are provisional supporting-clause
+scores, with human review pending. See `docs/structure_v2_dev.md`; baseline
+result files remain unchanged.
+
+The sequential offline CPU runner is `embedding/run_structure_v2_dev.py` and
+the independent report/checker is `embedding/summarize_structure_v2_dev.cjs`.
+Raw results, token audits, cache observations, comparison and BGE weight
+equivalence evidence are versioned under `data/structure_v2/benchmark`.
+Console logs and local Qdrant databases are excluded from Git.
+
+```powershell
+.\.venv-embedding\Scripts\python.exe -u embedding/run_structure_v2_dev.py
+.\.venv-embedding\Scripts\python.exe embedding/check_cached_bge_weights.py
+node embedding/summarize_structure_v2_dev.cjs
+```
+
+The weight-equivalence helper checks the specific additional BGE safetensors-only
+snapshot observed locally; it is a provenance check, not another retrieval run.

@@ -1,5 +1,25 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Structure-v2 Dev rerun completed
+
+All three models have been rerun sequentially on CPU against the corrected
+1,024-chunk corpus (630 eligible under the existing filter). The ten Dev queries
+and relevant IDs match the frozen baseline exactly. Token audits, point counts,
+hashes, model main revisions, Top-10 eligibility and recomputed metrics pass.
+Raw results and comparison are in `data/structure_v2/benchmark`.
+
+| Model | v2 Recall@5 | v2 MRR@10 | Change from baseline |
+|---|---:|---:|---|
+| BKAI | 0.90 | 0.85 | Unchanged |
+| AITeamVN | 1.00 | 1.00 | Unchanged |
+| BGE-M3 | 1.00 | 1.00 | Unchanged |
+
+The additional BGE weight format was checked tensor-for-tensor (391 identical
+tensors) against the base weights. See `docs/structure_v2_dev.md` for evidence.
+Human relevance review and article-level validity work remain pending. Test is
+still reserved. Next development step: BM25 baseline, then hybrid/RRF on the
+same frozen Dev version, without changing judgments after viewing rankings.
+
 ## Structure v2 — corrected corpus ready for Dev rerun
 
 ND01 Article 67 and ND04 Article 26 have been rebuilt from the PDF article body,
