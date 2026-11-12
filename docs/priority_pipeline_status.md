@@ -1,5 +1,23 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Shared metadata policy and parent context implemented
+
+The new high-level `LegalSearchPipeline` defaults to metadata-labelled current
+documents only (409 chunks) and extracts explicit document references/publication
+year. BM25 statistics and Qdrant's pre-search ID allowlist use one predicate;
+empty filters do not widen search. Low-level benchmark calls remain compatible
+with the earlier research policy (630 eligible chunks).
+
+Canonical parent-clause/article resolution, article deduplication and source
+citations are available after ranking. Synthetic clause IDs are not presented
+as actual numbered legal clauses; mismatched source metadata is rejected.
+No answer is generated and no hidden article truncation is performed.
+
+See `docs/parent_context_filters.md`. Rule-based reference extraction is not
+historical-validity reasoning; metadata labels do not certify consolidated law.
+The next step is routing/clarification and budgeted grounded generation, with
+validity/label verification, reranker latency and API/UI work still pending.
+
 ## Optional reranker implemented and evaluated
 
 `embedding/reranking.py` adds a pinned multilingual BGE cross-encoder with raw

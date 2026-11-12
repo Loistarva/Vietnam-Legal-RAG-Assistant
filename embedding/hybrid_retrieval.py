@@ -45,15 +45,21 @@ class BM25Index:
         if not self.average_length:
             raise ValueError('Eligible corpus has no lexical tokens')
 
-    def search(self, query, top_k=10):
+    def search(self, query, top_k=10, policy=None):
         if top_k < 1 or not isinstance(query, str) or not query.strip():
             raise ValueError('Require nonempty query and positive top_k')
         scores = defaultdict(float)
+        active = {cid for cid,c in self.chunks.items() if policy is None or policy.matches(c['metadata'])}
+        if not active:
+            return []
+        average_length = sum(self.lengths[cid] for cid in active) / len(active)
+        if not average_length:
+            return []
         for term in sorted(set(self.analyzer(query))):  # Binary query TF, fixed before evaluation.
-            posting = self.postings.get(term, {})
-            idf = math.log1p((len(self.chunks) - len(posting) + 0.5) / (len(posting) + 0.5))
+            posting = {cid:tf for cid,tf in self.postings.get(term, {}).items() if cid in active}
+            idf = math.log1p((len(active) - len(posting) + 0.5) / (len(posting) + 0.5))
             for cid, tf in posting.items():
-                norm = self.k1 * (1 - self.b + self.b * self.lengths[cid] / self.average_length)
+                norm = self.k1 * (1 - self.b + self.b * self.lengths[cid] / average_length)
                 scores[cid] += idf * tf * (self.k1 + 1) / (tf + norm)
         return [{'chunk_id': cid, 'score': score}
                 for cid, score in sorted(scores.items(), key=lambda row: (-row[1], row[0]))[:top_k]
@@ -90,29 +96,43 @@ class HybridRetriever:
             raise ValueError('Rerank depth must be between 10 and candidate_k')
         self.reranker, self.rerank_depth = reranker, rerank_depth
 
-    def retrieve(self, query, top_k=10):
+    def retrieve(self, query, top_k=10, policy=None):
+        if not isinstance(query,str) or not query.strip():
+            raise ValueError('Require a nonempty query')
         if top_k < 1 or top_k > self.candidate_k:
             raise ValueError('top_k must be within candidate_k')
         if self.reranker is not None and top_k > self.rerank_depth:
             raise ValueError('top_k must be within the rerank candidate depth')
+        started = time.perf_counter()
+        allowed = {cid for cid,c in self.sparse.chunks.items() if policy is None or policy.matches(c['metadata'])}
+        if not allowed:
+            result = {'bm25':[], 'dense':[], 'hybrid':[], 'sparse_branch_seconds':0.0,
+                      'dense_branch_seconds':0.0, 'hybrid_wall_seconds':time.perf_counter()-started}
+            if self.reranker is not None:
+                result.update(reranked=[], rerank_seconds=0.0, total_wall_seconds=result['hybrid_wall_seconds'])
+            return result
 
         def sparse_branch():
             start = time.perf_counter()
-            return self.sparse.search(query, self.candidate_k), time.perf_counter() - start
+            hits = (self.sparse.search(query, self.candidate_k) if policy is None else
+                    self.sparse.search(query, self.candidate_k, policy=policy))
+            return hits, time.perf_counter() - start
 
         def dense_branch():
             start = time.perf_counter()
             vector = self.service.embed_query(query)
-            hits = self.store.search(vector, self.candidate_k, exclude_expired=True)
+            kwargs = {'exclude_expired':True}
+            if policy is not None:
+                kwargs['allowed_chunk_ids'] = sorted(allowed)
+            hits = self.store.search(vector, self.candidate_k, **kwargs)
             return hits, time.perf_counter() - start
 
-        started = time.perf_counter()
         with ThreadPoolExecutor(max_workers=2) as pool:
             sparse_future, dense_future = pool.submit(sparse_branch), pool.submit(dense_branch)
             sparse_hits, sparse_seconds = sparse_future.result()
             dense_hits, dense_seconds = dense_future.result()
         for hit in dense_hits:
-            if hit['chunk_id'] not in self.sparse.chunks:
+            if hit['chunk_id'] not in allowed:
                 raise ValueError('Dense returned unknown/ineligible evidence')
         depth = self.rerank_depth if self.reranker is not None else top_k
         fused = reciprocal_rank_fusion({'bm25': sparse_hits, 'dense': dense_hits}, self.rrf_k, depth)
