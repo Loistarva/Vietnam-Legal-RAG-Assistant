@@ -8,3 +8,13 @@ __pycache__/
 
 # Local embedded Qdrant database
 /qdrant_data/
+
+# Local PDF inspection renders
+/tmp/pdfs/
+
+# Machine-local configuration/credentials
+/.env
+/.env.*
+
+# Real request logs stay local; logs/sample_*.jsonl are synthetic handoff fixtures.
+/logs/runtime/
