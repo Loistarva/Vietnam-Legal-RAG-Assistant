@@ -1,5 +1,28 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Local BM25 and hybrid/RRF Dev baseline completed
+
+`embedding/hybrid_retrieval.py` provides local BM25, parallel sparse/BGE branches
+and rank-only RRF with fixed 50-candidate depth and k=60. The same 1,024-chunk
+v2 corpus and ten frozen Dev judgments were used; all 1,024 Qdrant IDs/texts/
+metadata payloads were verified before reusing the existing dense index.
+
+| Method | Recall@5 | MRR@10 |
+|---|---:|---:|
+| BM25 | 1.00 | 0.8833 |
+| BGE-M3 dense | 1.00 | 1.00 |
+| BM25 + BGE-M3 RRF | 1.00 | 0.95 |
+
+Independent RRF/metric recomputation and eligibility/hash checks pass; seven
+new algorithm/concurrency/filter tests pass. Live dense Top-10 matches the
+archived v2 baseline. RRF does not improve labelled MRR on this Dev set; no
+parameters or labels were changed after viewing the result. Test remains reserved.
+
+This is not full SRS FR2: BM25 uses in-process Python, and reranking, query
+metadata extraction, Elasticsearch integration and parent-context resolution
+remain pending. See `docs/hybrid_dev.md` and the full `docs/remaining_work.md`.
+The next bounded step is evaluating a reranker on the existing candidate pool.
+
 ## Structure-v2 Dev rerun completed
 
 All three models have been rerun sequentially on CPU against the corrected

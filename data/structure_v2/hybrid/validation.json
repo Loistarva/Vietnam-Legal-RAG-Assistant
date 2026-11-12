@@ -1,0 +1,9 @@
+{
+  "input_hashes_match": true,
+  "index_payload_count_verified": 1024,
+  "eligible_count": 630,
+  "rrf_independently_recomputed": true,
+  "metrics_independently_recomputed": true,
+  "live_dense_top10_matches_archived_baseline": true,
+  "test_evaluated": false
+}

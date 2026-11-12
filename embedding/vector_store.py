@@ -154,7 +154,8 @@ class EmbeddingService:
 
 class VectorStore:
     def __init__(self, collection_name: str, dimension: int, url: str | None = None,
-                 api_key: str | None = None, local_path: str | Path | None = None):
+                 api_key: str | None = None, local_path: str | Path | None = None,
+                 create_if_missing: bool = True):
         try:
             from qdrant_client import QdrantClient
             from qdrant_client.http import models
@@ -177,6 +178,9 @@ class VectorStore:
         if dimension < 1:
             raise ValueError("dimension phải lớn hơn 0")
         self.dimension = dimension
+        if not create_if_missing and not self.collection_exists():
+            self.client.close()
+            raise ValueError(f'Missing pre-indexed collection: {self.collection_name}')
         self.create_collection()
 
     def collection_exists(self) -> bool:
