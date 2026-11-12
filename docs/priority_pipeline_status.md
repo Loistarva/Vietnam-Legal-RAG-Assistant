@@ -1,5 +1,22 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Structure v2 — corrected corpus ready for Dev rerun
+
+ND01 Article 67 and ND04 Article 26 have been rebuilt from the PDF article body,
+with appendices and signatures/recipient lists preserved separately and excluded
+from article retrieval. ND04's missing digit in `Khoản 5 Điều 3` is restored;
+unnumbered final-article paragraphs have explicitly synthetic storage clause IDs.
+
+The new corpus is in `data/structure_v2`: 398 articles, 971 clauses, 1,021 raw
+chunks and 1,024 BKAI token-safe chunks, with zero overflow above 256 tokens.
+All 50 labels retain identical L01 evidence; human relevance review is pending.
+Six new tests plus existing tests pass (16 Python + 4 Node), and every v2
+document passes the chunk ID/parent/content validator. Exact extracted source
+text is recoverable from archived sections. Earlier benchmark files are frozen.
+
+See `docs/structure_v2.md`. Next, rerun Dev on the v2 corpus and matching labels;
+the old scores below must not be presented as v2 results. Test remains reserved.
+
 ## Three-model dense Dev comparison completed
 
 All runs use the same 1,079-chunk fixture, 638 eligible chunks under the current

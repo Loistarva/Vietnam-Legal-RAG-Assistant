@@ -18,7 +18,7 @@ def split_record(record, token_count, limit):
         return [dict(record)]
     # Keep the document/chapter/article header on every segment; the long
     # intro (if present) belongs to content and must itself be split, not lost.
-    match = re.search(r'(?m)^(?:Dẫn nhập điều|Khoản [^:\n]+): ', text)
+    match = re.search(r'(?m)^(?:Dẫn nhập điều|Nội dung điều|Khoản [^:\n]+): ', text)
     prefix = text[:match.start()] if match else ''
     content = text[len(prefix):]
     boundaries = [m.end() for m in re.finditer(r'\S+\s*', content)]
@@ -68,6 +68,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--input', type=Path, default=Path(__file__).resolve().parent / 'data/priority_chunks.json')
     parser.add_argument('--output-dir', type=Path, default=Path(__file__).resolve().parent / 'data')
+    parser.add_argument('--questions', type=Path, default=None,
+                        help='Matching question object; defaults to input directory/priority_questions.draft.json')
+    parser.add_argument('--dataset-name', default='priority_bkai_token_safe_v1')
     args = parser.parse_args()
     from transformers import AutoTokenizer
     from underthesea import word_tokenize
@@ -80,6 +83,10 @@ def main():
         return len(tokenizer(prepared, truncation=False)['input_ids'])
 
     source_bytes = args.input.read_bytes()
+    question_path = args.questions or args.input.parent / 'priority_questions.draft.json'
+    questions = json.loads(question_path.read_text(encoding='utf-8'))
+    if questions['dataset_sha256'] != hashlib.sha256(source_bytes).hexdigest():
+        raise ValueError('Question labels reference a different input fixture')
     source = json.loads(source_bytes)
     chunks, mapping = [], {}
     for record in source['chunks']:
@@ -93,16 +100,13 @@ def main():
     if max(lengths) > limit:
         raise ValueError('Final token budget validation failed')
     dataset_path = args.output_dir / 'priority_bkai_chunks.json'
-    write(dataset_path, {**source, 'dataset_name': 'priority_bkai_token_safe_v1',
+    write(dataset_path, {**source, 'dataset_name': args.dataset_name,
                          'parent_dataset_sha256': hashlib.sha256(source_bytes).hexdigest(),
                          'token_budget': {'model': model, 'limit': limit,
                                           'preprocessing': 'underthesea',
                                           'tokenizer_commit': tokenizer.init_kwargs.get('_commit_hash')},
                          'chunks': chunks})
     digest = hashlib.sha256(dataset_path.read_bytes()).hexdigest()
-    questions = json.loads((args.input.parent / 'priority_questions.draft.json').read_text(encoding='utf-8'))
-    if questions['dataset_sha256'] != hashlib.sha256(source_bytes).hexdigest():
-        raise ValueError('Question labels reference a different input fixture')
     remapped = remap_questions(questions['questions'], mapping)
     if any(cid not in ids for q in remapped for cid in q['relevant_chunk_ids']):
         raise ValueError('Unknown remapped label IDs')

@@ -2,3 +2,4 @@
 /data/chunking_output/** -text whitespace=cr-at-eol
 /embedding/data/priority*.json -text
 /embedding/requirements-priority-lock.txt -text whitespace=cr-at-eol
+/data/structure_v2/** -text whitespace=cr-at-eol

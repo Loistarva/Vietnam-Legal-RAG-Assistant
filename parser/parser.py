@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Dict, List, Literal, Optional, Tuple
 
 from pydantic import BaseModel, Field, field_validator
+from document_sections import partition_document
 
 FIRST_PAGE_NUMBER = 2
 UP = "A-ZĐÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ"
@@ -27,6 +28,7 @@ class ChunkSchema(BaseModel):
     point_letter: Optional[str] = None
     chunk_text: str = Field(..., min_length=10)
     char_count: Optional[int] = None
+    clause_number_is_synthetic: bool = False
 
     @field_validator("chunk_text")
     @classmethod
@@ -39,6 +41,7 @@ class ClauseSchema(BaseModel):
     clause_id: str
     parent_article_id: str
     clause_number: str
+    number_is_synthetic: bool = False
     clause_text: str = Field(..., min_length=1, description="Nội dung thô của toàn bộ Khoản")
     chunks: Optional[List[ChunkSchema]] = None
 
@@ -72,6 +75,7 @@ class LegalDocumentSchema(BaseModel):
     metadata: LegalMetadata
     articles: List[ArticleSchema] = Field(..., min_length=1)
     footnotes: List[str] = Field(default_factory=list)
+    ancillary_sections: List[dict] = Field(default_factory=list)
 
 
 # =============================================================================
@@ -321,6 +325,7 @@ def build_clauses(art_id: str, body: str, has_clauses: bool) -> List[ClauseSchem
                 clause_id=clause_id,
                 parent_article_id=art_id,
                 clause_number="1",
+                number_is_synthetic=True,
                 clause_text=body.strip(),
                 chunks=None
             )
@@ -343,6 +348,8 @@ def build_clauses(art_id: str, body: str, has_clauses: bool) -> List[ClauseSchem
 
 def parse_text_to_articles(raw_text: str, doc_id: str):
     WARNINGS.clear()
+    raw_text = ''.join(s['text'] for s in partition_document(raw_text)
+                       if s['section_type'] == 'body')
     text = re.sub(r"\s+", " ", raw_text).strip()
     m0 = re.search(rf"(?<!\S)Chương\s+I\s+[{UP}]", text)
     if m0:
@@ -797,12 +804,15 @@ def extract_metadata(raw_text: str, file_path: Optional[str] = None) -> dict:
 
 def parse_raw_text_to_legal_doc(raw_text: str, doc_id: str, metadata: dict) -> dict:
     meta = LegalMetadata(**metadata)
-    articles, footnotes = parse_text_to_articles(raw_text, doc_id)
+    sections = partition_document(raw_text)
+    body = ''.join(s['text'] for s in sections if s['section_type'] == 'body')
+    articles, footnotes = parse_text_to_articles(body, doc_id)
     doc = LegalDocumentSchema(
         document_id=doc_id,
         metadata=meta,
         articles=articles,
         footnotes=footnotes,
+        ancillary_sections=[s for s in sections if s['section_type'] != 'body'],
     )
     return doc.model_dump()
 

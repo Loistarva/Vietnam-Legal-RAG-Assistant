@@ -36,7 +36,7 @@ function validateDocument(doc, rows) {
           check(row.chunk_text === chunk.chunk_text && row.clause_id === clause.clause_id && row.article_id === article.article_id && row.document_id === doc.document_id, `JSONL drift: ${chunk.chunk_id}`);
           check(fs.existsSync(path.join(root, row.source_file)), `Missing source: ${row.source_file}`);
         }
-        const marker = `Khoản ${clause.clause_number}: `;
+        const marker = chunk.clause_number_is_synthetic ? 'Nội dung điều: ' : `Khoản ${clause.clause_number}: `;
         const offset = chunk.chunk_text.lastIndexOf('\n' + marker);
         check(offset >= 0, `Missing clause body: ${chunk.chunk_id}`);
         bodies.push(chunk.chunk_text.slice(offset + 1 + marker.length));

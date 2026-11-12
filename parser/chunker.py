@@ -11,7 +11,8 @@ Dau ra moi:
   data/chunking_output/chunks.jsonl
   data/chunking_output/report.json
 
-Chu y: L01.pdf hien chi co 131 dieu. Khong tu sinh Dieu 132-133.
+L01 duoc bo sung Dieu 132-133 chi tu PDF chinh thuc qua verified_sources.
+ND01/ND04 duoc tach phu luc va chu ky khoi Dieu cuoi qua repair_document_tail.
 """
 
 from __future__ import annotations
@@ -108,6 +109,9 @@ def load_document(code: str) -> dict:
     if doc.get("document_id") != code:
         raise ValueError(f"Document ID khong khop: {code} => {doc.get('document_id')}")
     doc = apply_verified_sources(doc)
+    if code in ('ND01', 'ND04'):
+        from repair_document_tail import repair_tail
+        doc, _archive = repair_tail(doc)
     legal_parser.LegalDocumentSchema.model_validate(doc)
     return doc
 
@@ -153,7 +157,8 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                 lines = list(context)
                 if include_intro and index == 1:
                     lines.append(f"Dẫn nhập điều: {intro}")
-                lines.append(f"Khoản {clause['clause_number']}: {body}")
+                body_label = 'Nội dung điều' if clause.get('number_is_synthetic') else f"Khoản {clause['clause_number']}"
+                lines.append(f"{body_label}: {body}")
                 chunk_text = "\n".join(lines)
                 chunk = {
                     "chunk_id": chunk_id,
@@ -164,6 +169,8 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                     "char_count": len(chunk_text),
                 }
                 created.append(chunk)
+                if clause.get('number_is_synthetic'):
+                    chunk['clause_number_is_synthetic'] = True
                 records.append({
                     "chunk_id": chunk_id,
                     "document_id": code,
@@ -184,6 +191,8 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                     "chunk_text": chunk_text,
                     "char_count": len(chunk_text),
                 })
+                if clause.get('number_is_synthetic'):
+                    records[-1]['clause_number_is_synthetic'] = True
 
             # V1: chunk duoc gan vao clause (schema 4 tang).
             clause["chunks"] = created
