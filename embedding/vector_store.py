@@ -154,8 +154,7 @@ class EmbeddingService:
 
 class VectorStore:
     def __init__(self, collection_name: str, dimension: int, url: str | None = None,
-                 api_key: str | None = None, local_path: str | Path | None = None,
-                 create_if_missing: bool = True):
+                 api_key: str | None = None, local_path: str | Path | None = None):
         try:
             from qdrant_client import QdrantClient
             from qdrant_client.http import models
@@ -178,9 +177,6 @@ class VectorStore:
         if dimension < 1:
             raise ValueError("dimension phải lớn hơn 0")
         self.dimension = dimension
-        if not create_if_missing and not self.collection_exists():
-            self.client.close()
-            raise ValueError(f'Missing pre-indexed collection: {self.collection_name}')
         self.create_collection()
 
     def collection_exists(self) -> bool:
@@ -210,15 +206,11 @@ class VectorStore:
                                                    vector=list(vector), payload=payload))
         self.client.upload_points(self.collection_name, points=points, batch_size=128, wait=True)
 
-    def search(self, query_vector: Sequence[float], top_k: int = 5, exclude_expired: bool = True,
-               allowed_chunk_ids: Sequence[str] | None = None) -> list[dict[str, Any]]:
+    def search(self, query_vector: Sequence[float], top_k: int = 5, exclude_expired: bool = True) -> list[dict[str, Any]]:
         if len(query_vector) != self.dimension:
             raise ValueError(f"Query dimension {len(query_vector)} != collection dimension {self.dimension}")
         if top_k < 1:
             raise ValueError("top_k phải lớn hơn 0")
-        if allowed_chunk_ids is not None and not allowed_chunk_ids:
-            self.last_search_seconds = 0.0
-            return []
 
         # Cấu hình filter loại trừ văn bản hết hiệu lực
         query_filter = None
@@ -231,12 +223,6 @@ class VectorStore:
                     )
                 ]
             )
-        if allowed_chunk_ids is not None:
-            if any(not isinstance(cid,str) or not cid for cid in allowed_chunk_ids):
-                raise ValueError('Invalid allowed chunk IDs')
-            condition = self.models.HasIdCondition(has_id=[str(uuid.uuid5(uuid.NAMESPACE_URL,cid)) for cid in sorted(set(allowed_chunk_ids))])
-            query_filter = self.models.Filter(must=[condition],
-                must_not=query_filter.must_not if query_filter is not None else None)
 
         started = time.perf_counter()
         hits = self.client.query_points(
