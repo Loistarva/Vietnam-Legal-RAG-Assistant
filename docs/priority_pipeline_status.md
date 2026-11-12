@@ -1,5 +1,47 @@
 # Priority data and retrieval baseline — 2026-11-12
 
+## Token-safe derivative — current embedding input
+
+Use `embedding/data/priority_bkai_chunks.json` with its matching
+`priority_bkai_dev.draft.json` / `priority_bkai_test.draft.json` labels.
+The original 1,066-record fixture remains preserved for provenance.
+Exactly 11 oversized original records were split, producing **1,079 chunks**.
+All 50 draft questions are remapped through `priority_bkai_id_map.json`;
+labels remain drafts. Current queries target L01, so their relevant IDs were
+unchanged (the split chunks belong to ND02 and ND04).
+
+The splitter measures full context plus body after BKAI underthesea
+preprocessing, including tokenizer special tokens. Each segment repeats its
+document/chapter/article header. Long intros are split as content rather than
+repeated without a bound. Source fields and clause parent links are retained.
+Offsets and ID mapping allow exact reconstruction of each original text.
+Existing parser contamination (notably appendix/footer content inside ND04
+Article 26) is preserved and still requires structural review; token compliance
+does not certify legal correctness.
+
+Dataset SHA-256: `79b4a7085e80142f6aad6703a5f53781f73cd998626f36f97ec84daa914c5cc5`.
+The independent BKAI audit is `embedding/results/priority_bkai_token_safe_audit.json`.
+It confirms **zero oversized inputs**, maximum **256 tokens**, over all 1,079
+records. Six regression tests pass (including full-corpus content reconstruction,
+metadata preservation and remapped-label/hash validation). Rebuilding the
+derivative twice produced the same dataset SHA-256; `git diff --check` passes.
+
+```powershell
+$env:HF_HOME = "$PWD\.venv-embedding\hf-cache"
+.\.venv-embedding\Scripts\python.exe embedding/fit_token_budget.py
+.\.venv-embedding\Scripts\python.exe embedding/audit_token_limits.py --chunks embedding/data/priority_bkai_chunks.json --model bkai-foundation-models/vietnamese-bi-encoder --output embedding/results/priority_bkai_token_safe_audit.json
+.\.venv-embedding\Scripts\python.exe -m unittest discover -s test -p test_token_budget.py
+```
+
+Next provisional Dev benchmark (after reviewing labels and source limitations):
+
+```powershell
+.\.venv-embedding\Scripts\python.exe embedding/retrieval_smoke_test.py --chunks embedding/data/priority_bkai_chunks.json --ground-truth embedding/data/priority_bkai_dev.draft.json --model bkai-foundation-models/vietnamese-bi-encoder --results embedding/results/priority_bkai_dev_draft.json
+```
+
+Use this same derivative fixture and matching labels for cross-model comparisons;
+each other model still needs its own tokenizer audit. No Recall/MRR run is claimed.
+
 ## Official-source refresh (supersedes the original snapshot below)
 
 The refreshed export has **398 articles, 986 clauses and 1,066 chunks**.
