@@ -18,7 +18,6 @@ __pycache__/
 # Machine-local configuration/credentials
 /.env
 /.env.*
-!/.env.example
 
 # Real request logs stay local; logs/sample_*.jsonl are synthetic handoff fixtures.
 /logs/runtime/

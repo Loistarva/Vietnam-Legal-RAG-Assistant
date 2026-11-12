@@ -3,14 +3,6 @@ import copy
 from typing import Protocol
 
 
-class InvalidProviderOutput(ValueError):
-    pass
-
-
-class ProviderUnavailable(RuntimeError):
-    pass
-
-
 class SourceSelectionProvider(Protocol):
     model_id: str
 
@@ -40,11 +32,8 @@ def render_extracts(ids,source_map):
 
 
 class SourceGenerationStage:
-    def __init__(self,provider=None,max_attempts=1):
-        if type(max_attempts) is not int or max_attempts not in (1,2):
-            raise ValueError('Source selection attempts must be 1 or 2')
+    def __init__(self,provider=None):
         self.provider=provider
-        self.max_attempts=max_attempts
 
     def run(self,prepared):
         if prepared.get('status')!='ready_for_source_selection':
@@ -57,21 +46,12 @@ class SourceGenerationStage:
                     'selection_mode':'retrieval_order_extractive_fallback'}
         if not packed['provider_counter_configured'] or packed['provider_model']!=self.provider.model_id:
             raise ValueError('Configure a matching full-request token counter before calling a provider')
-        for attempt in range(1,self.max_attempts+1):
-            try:
-                response=self.provider.select_sources(copy.deepcopy(packed['messages']),packed['output_reserve'])
-            except ProviderUnavailable:
-                return {'status':'provider_unavailable','answer_generated':False,'llm_called':False,
-                        'provider_attempted':True,'attempt_count':attempt,
-                        'message':'Dịch vụ chọn nguồn hiện không khả dụng. Chưa thể trả kết quả từ mô hình.'}
-            except InvalidProviderOutput:
-                response=None
-            try:
-                ids=validate_selection(response,packed['source_map'])
-            except ValueError:
-                continue
-            return {**render_extracts(ids,packed['source_map']),'llm_called':True,'attempt_count':attempt,
-                    'selection_mode':'provider_source_selection','free_form_legal_advice':False}
-        return {'status':'abstain','answer_generated':False,'llm_called':True,'attempt_count':self.max_attempts,
-                'message':'Đầu ra không khớp nguồn được cung cấp; chưa thể trả kết quả có căn cứ.',
-                'reason':'source_selection_gate_rejected'}
+        response=self.provider.select_sources(packed['messages'],packed['output_reserve'])
+        try:
+            ids=validate_selection(response,packed['source_map'])
+        except ValueError:
+            return {'status':'abstain','answer_generated':False,'llm_called':True,
+                    'message':'Đầu ra không khớp nguồn được cung cấp; chưa thể trả kết quả có căn cứ.',
+                    'reason':'source_selection_gate_rejected'}
+        return {**render_extracts(ids,packed['source_map']),'llm_called':True,
+                'selection_mode':'provider_source_selection','free_form_legal_advice':False}
