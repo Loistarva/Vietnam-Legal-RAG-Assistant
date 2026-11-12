@@ -1,6 +1,66 @@
 # Priority data and retrieval baseline — 2026-11-12
 
-## Verified locally
+## Official-source refresh (supersedes the original snapshot below)
+
+The refreshed export has **398 articles, 986 clauses and 1,066 chunks**.
+L01 now contains Articles 1–133. Articles 132–133 were transcribed from page
+43 of the signed official PDF and retain the PDF path, URL, page and SHA-256.
+The legacy PDF and validated parser inputs were preserved. Raw extracted
+metadata is retained alongside corrected metadata for auditability.
+
+Corrections and supporting URLs are in `data/verified_legal_sources.json`:
+
+| Document | Result |
+|---|---|
+| L01 / 52/2014/QH13 | Effective date corrected to 2015-01-01; official status page reports effective. |
+| L02 / 22/2000/QH10 | Expired 2015-01-01. |
+| ND01 / 126/2014/NĐ-CP | Partially expired; article-level validity mapping still required. |
+| ND02 / 207/2025/NĐ-CP | Official status page reports effective. |
+| ND03 / 01/2024/NQ-HĐTP | Issuing body/title corrected; current status remains unconfirmed. Export has 12 articles; completeness comparison against the official download remains pending. No missing article count is inferred from secondary websites. |
+| ND04 / 10/2015/NĐ-CP | Expired 2025-10-01, replaced by 207/2025/NĐ-CP; title corrected. |
+| ND05 / 70/2001/NĐ-CP | Expired 2015-02-15; issuing body/title corrected. |
+
+Do not use the entire benchmark corpus as currently effective law. Historical
+documents remain in the research fixture; production retrieval must enforce
+validity rules, and partially expired documents need article-level review.
+Metadata corrections do not certify the accuracy or amendment consolidation
+of every article body. Question labels remain drafts requiring human review.
+
+Refresh generated exports with the bundled Python interpreter (pydantic and
+pdfplumber required), then regenerate the fixture and labels:
+
+```powershell
+python parser/refresh_verified_export.py
+node embedding/prepare_priority_dataset.cjs
+node embedding/build_priority_questions.cjs
+python -m unittest discover -s test -p test_verified_sources.py
+node --test test/priority_dataset.test.cjs
+```
+
+Four source-overlay regression tests and four Node integrity tests pass.
+Updated fixture SHA-256: `871045104e89ac2806d8d9cca0db2a1794ca26ce10b72a05036a6574149539e1`.
+The previous hash/results below describe the original pre-correction snapshot.
+
+### Embedding environment and measured token limits
+
+Python 3.12.14 environment `.venv-embedding` now has the embedding and BKAI
+dependencies installed. `pip check` passes. Exact installed versions are
+recorded in `embedding/requirements-priority-lock.txt`; model cache is local
+inside the ignored virtual environment directory.
+
+BKAI tokenizer audit ran on all **1,066 chunks**: **11 exceed 256 tokens**,
+with a maximum of **704 tokens**. IDs and lengths are recorded in
+`embedding/results/priority_bkai_token_audit.json`, bound to the fixture hash.
+These inputs must be split without content loss before the BKAI dense
+benchmark. The fail-fast embedding guard prevents silent truncation.
+No Recall/MRR benchmark is claimed. Other model tokenizers remain to be checked.
+
+```powershell
+$env:HF_HOME = "$PWD\.venv-embedding\hf-cache"
+.\.venv-embedding\Scripts\python.exe embedding/audit_token_limits.py --model bkai-foundation-models/vietnamese-bi-encoder --output embedding/results/priority_bkai_token_audit.json
+```
+
+## Original snapshot — before official-source corrections
 
 - Current `data/chunking_output` contains 7 documents, 396 articles, 984 clauses and 1,064 chunks.
 - `node embedding/prepare_priority_dataset.cjs` validates semantic IDs, clause/chunk parent links, duplicate IDs, JSONL/document agreement, source PDF existence, character counts and exact clause body reconstruction after whitespace normalization.

@@ -1,0 +1,55 @@
+{
+  "model": "bkai-foundation-models/vietnamese-bi-encoder",
+  "dataset_sha256": "871045104e89ac2806d8d9cca0db2a1794ca26ce10b72a05036a6574149539e1",
+  "chunk_count": 1066,
+  "limit": 256,
+  "max_tokens": 704,
+  "oversized_count": 11,
+  "oversized": [
+    {
+      "chunk_id": "ND02_art_17_clause_2_chunk_1",
+      "tokens": 284
+    },
+    {
+      "chunk_id": "ND02_art_17_clause_3_chunk_2",
+      "tokens": 291
+    },
+    {
+      "chunk_id": "ND02_art_17_clause_5_chunk_4",
+      "tokens": 286
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_1_chunk_1",
+      "tokens": 704
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_4_chunk_1",
+      "tokens": 262
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_4_chunk_2",
+      "tokens": 301
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_4_chunk_3",
+      "tokens": 261
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_4_chunk_4",
+      "tokens": 272
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_10_chunk_7",
+      "tokens": 271
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_10_chunk_15",
+      "tokens": 285
+    },
+    {
+      "chunk_id": "ND04_art_26_clause_10_chunk_17",
+      "tokens": 307
+    }
+  ],
+  "note": "Includes special tokens and model-specific preprocessing; no model weights or retrieval metrics."
+}

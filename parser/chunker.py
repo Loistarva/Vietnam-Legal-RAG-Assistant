@@ -23,6 +23,7 @@ from pathlib import Path
 
 import cleaner
 import parser as legal_parser
+from verified_sources import apply_verified_sources
 
 
 BASE = Path(__file__).resolve().parent.parent
@@ -106,6 +107,7 @@ def load_document(code: str) -> dict:
 
     if doc.get("document_id") != code:
         raise ValueError(f"Document ID khong khop: {code} => {doc.get('document_id')}")
+    doc = apply_verified_sources(doc)
     legal_parser.LegalDocumentSchema.model_validate(doc)
     return doc
 
@@ -168,7 +170,9 @@ def make_chunks(doc: dict, code: str) -> list[dict]:
                     "document_number": doc_number,
                     "document_type": doc_type,
                     "document_title": doc_heading,
-                    "source_file": source,
+                    "source_file": article.get("source_file", source),
+                    "source_url": article.get("source_url", doc.get("source_verification", {}).get("source_url")),
+                    "source_page": article.get("source_page"),
                     "article_id": article["article_id"],
                     "article_number": number,
                     "article_title": art_title,

@@ -65,15 +65,17 @@ function main() {
     const canonical = normalized.find(item => item.document_id === code);
     if (canonical && canonical.effective_date !== doc.metadata.effective_date) warnings.push({document_id: code, field: 'effective_date', parsed: doc.metadata.effective_date, normalized: canonical.effective_date, action: 'Verify against authoritative source; neither value auto-approved.'});
     if (!doc.metadata.validity_status || doc.metadata.validity_status === 'Không xác định') warnings.push({document_id: code, field: 'validity_status', action: 'Requires legal source verification before production retrieval.'});
+    const verification = doc.source_verification;
+    if (verification?.restriction) warnings.push({document_id: code, field: 'source_restriction', action: verification.restriction});
+    if (verification?.expected_article_count && doc.articles.length !== verification.expected_article_count) warnings.push({document_id: code, field: 'source_completeness', expected: verification.expected_article_count, actual: doc.articles.length});
     const numbers = new Set(doc.articles.map(a => Number(a.article_number)));
     const missing = Array.from({length: Math.max(...numbers)}, (_, i) => i + 1).filter(i => !numbers.has(i));
     if (missing.length) warnings.push({document_id: code, field: 'article_sequence', missing});
     documents.push({document_id: code, articles: doc.articles.length, clauses: doc.articles.reduce((n,a) => n + a.clauses.length, 0), chunks: rows.filter(r => r.document_id === code).length});
-    for (const row of rows.filter(r => r.document_id === code)) chunks.push({id: row.chunk_id, text: row.chunk_text, embed_text: row.chunk_text, ...Object.fromEntries(Object.entries(row).filter(([k]) => !['chunk_id','chunk_text','char_count'].includes(k))), ...doc.metadata, parent_id: row.clause_id, metadata_verification: 'unverified'});
+    for (const row of rows.filter(r => r.document_id === code)) chunks.push({id: row.chunk_id, text: row.chunk_text, embed_text: row.chunk_text, ...Object.fromEntries(Object.entries(row).filter(([k]) => !['chunk_id','chunk_text','char_count'].includes(k))), ...doc.metadata, parent_id: row.clause_id, metadata_verification: verification ? 'official_source_corrections_applied_not_full_text_certification' : 'unverified', validity_checked_at: verification?.checked_at ?? null});
   }
   const represented = documents.reduce((n,d) => n + d.chunks, 0);
   if (represented !== rows.length) errors.push('Orphan JSONL records');
-  warnings.push({document_id: 'L01', field: 'source_completeness', action: 'Export contains articles 1–131 only; articles 132–133 are absent. Do not synthesize missing law text.'});
   const report = {source, source_sha256: hash(bytes), documents, chunk_count: chunks.length, errors, warnings, token_limit_check: 'Not run: requires each embedding model tokenizer; character limits do not prove token limits.', production_ready: false};
   write('data/chunking_output/validation_report.json', report);
   if (errors.length) throw new Error(JSON.stringify(errors));

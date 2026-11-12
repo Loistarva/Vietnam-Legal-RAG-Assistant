@@ -8,3 +8,6 @@ __pycache__/
 
 # Local embedded Qdrant database
 /qdrant_data/
+
+# Local PDF inspection renders
+/tmp/pdfs/

@@ -7,7 +7,7 @@
     "issue_date": "2014-12-31",
     "effective_date": "2015-02-15",
     "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định"
+    "validity_status": "Hết hiệu lực một phần"
   },
   "articles": [
     {
@@ -3753,5 +3753,24 @@
       ]
     }
   ],
-  "footnotes": []
+  "footnotes": [],
+  "extracted_metadata": {
+    "title": "NGHỊ ĐỊNH Quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình",
+    "document_type": "Nghị định",
+    "document_number": "126/2014/NĐ-CP",
+    "issue_date": "2014-12-31",
+    "effective_date": "2015-02-15",
+    "issuing_body": "Chính phủ",
+    "validity_status": "Không xác định"
+  },
+  "source_verification": {
+    "document_number": "126/2014/NĐ-CP",
+    "metadata": {
+      "validity_status": "Hết hiệu lực một phần"
+    },
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=178372&pageid=27160",
+    "status_source_url": "https://vbpl.vn/caobang/Pages/vbpq-toanvan.aspx?ItemID=47412&Keyword=",
+    "restriction": "Do not treat the whole document as currently effective; article-level amendment/expiry mapping remains pending.",
+    "checked_at": "2026-11-12"
+  }
 }
