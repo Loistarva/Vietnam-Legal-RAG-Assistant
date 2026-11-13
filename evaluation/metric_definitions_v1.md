@@ -26,21 +26,23 @@ Giá trị null nghĩa là không đo được. Không thay null bằng 0 khi t�
 
 ### 2.1 TTFT (Time To First Token)
 
-Khi chạy chế độ non-streaming cục bộ qua Ollama (`stream=False`, tuân thủ nguyên tắc *Buffer-then-stream*: toàn bộ câu trả lời phải đi qua kiểm duyệt Grounding Gate trước khi phát ra giao diện), **TTFT phía người dùng (streaming TTFT) là `N/A`** (không áp dụng / không đo được); hệ thống chỉ ghi nhận tổng thời gian xử lý `total_latency_ms` (trường `latency_ms` trong record, báo cáo p50/p95). Ngoài ra, ở tầng engine model, gateway ghi nhận thêm ước lượng `ttft_model_ms`:
+Khi chạy chế độ non-streaming cục bộ qua Ollama (`stream=False`, tuân thủ nguyên tắc *Buffer-then-stream*: toàn bộ câu trả lời phải đi qua kiểm duyệt Grounding Gate trước khi phát ra giao diện), **TTFT phía người dùng (streaming TTFT) là `N/A`** (không áp dụng / không đo được); hệ thống báo cáo độ trễ xử lý `latency_ms` (ở chế độ `precomputed`) hoặc `total_latency_ms` (khi chạy live đầy đủ cả retrieval + rerank), theo p50/p95. Ngoài ra, ở tầng engine model, gateway ghi nhận thêm ước lượng `ttft_model_ms`:
 
 | Loại | Trường / Giá trị | Ghi chú |
 | --- | --- | --- |
-| TTFT streaming (người dùng) | `N/A` (`latency_ms` khi qua Gate) | Không áp dụng / không đo được khi chạy non-streaming qua Ollama (`stream=False`, *Buffer-then-stream*). Người dùng chỉ nhận câu trả lời sau khi Gate PASS, tức độ trễ thực tế ≈ `total_latency_ms` (`latency_ms`). |
+| TTFT streaming (người dùng) | `N/A` (`latency_ms` / `total_latency_ms` sau Gate) | Không áp dụng / không đo được khi chạy non-streaming qua Ollama (`stream=False`, *Buffer-then-stream*). Người dùng chỉ nhận câu trả lời sau khi Gate PASS, nên độ trễ cảm nhận bằng `latency_ms` (precomputed, không gồm retrieval) hoặc `total_latency_ms` (live E2E). |
 | TTFT của model (tầng engine) | `latency_breakdown.ttft_model_ms` | Giá trị xấp xỉ (`load_ms + prompt_eval_ms`) từ bộ đếm nano giây của Ollama; dùng để tách thời gian nạp/đọc prompt khỏi thời gian sinh token. |
 
-### 2.2 Total latency
+### 2.2 Phân biệt `latency_ms` và `total_latency_ms`
 
-`total_latency_ms` (lưu tại trường `latency_ms` trong record JSONL). Run B chính thức dùng retrieval tính sẵn (`retrieval_ms = null`), nên `latency_ms` của Run B **không gồm** thời gian retrieval và rerank. Báo cáo phải ghi rõ điều này cạnh con số. Khi chạy live, báo thêm `retrieval_ms` riêng.
+- **`latency_ms`**: Thời gian xử lý của pipeline sau khi đã có retrieval artifact (trường `latency_ms` trong record JSONL), **không bao gồm `retrieval_ms`** khi chạy ở chế độ `precomputed` (`retrieval_ms = null`). Run B chính thức dùng artifact tính sẵn nên báo cáo dùng `latency_ms` và phải ghi rõ phạm vi này cạnh con số.
+- **`total_latency_ms`**: Tổng thời gian xử lý đầu cuối đầy đủ (`retrieval_ms + latency_ms`, hoặc `latency_ms` đã bao gồm `retrieval_ms` khi pipeline tự gọi live retrieval + rerank). Khi chạy ở chế độ `precomputed` (`retrieval_ms = null`), báo cáo sử dụng `latency_ms`; khi chạy live, ghi nhận đầy đủ cả `retrieval_ms` riêng và `total_latency_ms`.
 
 ### 2.3 p50, p95 và câu khởi động nguội
 
-- Báo p50 và p95 của `latency_ms` (`total_latency_ms`), `ttft_model_ms`, `eval_ms`, tách Run A và Run B.
-- Phân vị dùng nội suy tuyến tính (`numpy.percentile` mặc định). Với n = 30, p95 gần như là giá trị lớn thứ hai; ghi n cạnh kết quả.
+- Báo p50 và p95 của `latency_ms` (hoặc `total_latency_ms` khi chạy live), `ttft_model_ms`, `eval_ms`, tách riêng Run A và Run B.
+- **Quy tắc nhóm câu gọi model (`llm_calls = 1`):** Khi báo cáo `p50` và `p95` của `latency_ms` (và để so sánh công bằng với Run A — nơi 30/30 câu đều gọi model), tính chính trên tập con các câu thực sự gọi LLM (**`llm_calls = 1`**; trên Run B `post-fix` là **`n = 29`** với `p50 = 4,754.98 ms`, `p95 = 6,558.70 ms`), đồng thời tách riêng các câu ngắt sớm tại Confidence Filter (`llm_calls = 0`, ví dụ `HN_035` với `0.14 ms`) thay vì gộp chung làm kéo lệch phân vị. Có thể ghi chú thêm số liệu toàn bộ `n = 30` để tham chiếu (`p50 = 4,698.81 ms`, `p95 = 6,552.61 ms`).
+- Phân vị dùng nội suy tuyến tính (`numpy.percentile` mặc định). Với `n = 29` hoặc `n = 30`, luôn ghi rõ `n` cạnh kết quả.
 - Câu khởi động nguội = câu có `load_ms > 1000`. Ollama nạp model lần đầu mất tới khoảng 12 giây (đo ngày 11/11), nên các câu này bị loại khỏi p50/p95 và báo riêng: số câu, `query_id`, `load_ms`. Báo cáo ghi rõ đã loại bao nhiêu câu.
 - Run B có bước warm-up trong `scripts/run_rag_batch.py`; Run A không có, nên câu đầu tiên của Run A thường là câu khởi động nguội.
 
