@@ -49,7 +49,10 @@ def test_prompt_b_has_rule_6_before_output_section():
     assert rule in prompt
     assert prompt.index("5. Luôn đính kèm") < prompt.index(rule) < prompt.index("YÊU CẦU ĐẦU RA:")
     assert 'Trường "answer" phải viết hoàn toàn bằng tiếng Việt' in prompt
+    assert "Cộng hòa Xã hội Chủ nghĩa Việt Nam" in prompt
     assert "không viện dẫn pháp luật nước ngoài" in prompt
+    assert "Bộ luật Dân sự Trung Quốc" in prompt and "Luật Hôn nhân Trung Quốc" in prompt
+    assert "NGUYÊN TẮC ĐÓNG NGỮ CẢNH (STRICT CLOSED-CONTEXT)" in prompt
     assert f"Phiên bản hướng dẫn: {PROMPT_B_VERSION}" in prompt
 
 
@@ -57,6 +60,8 @@ def test_prompt_a_has_rule_5_before_question():
     prompt = build_zero_shot_prompt("Tuổi kết hôn?", "2026-10-15")
     assert f"5. {LANGUAGE_RULE_A}" in prompt
     assert prompt.index("4. Cuối câu trả lời") < prompt.index("5. NGÔN NGỮ") < prompt.index("CÂU HỎI:")
+    assert "Cộng hòa Xã hội Chủ nghĩa Việt Nam" in prompt
+    assert "Bộ luật Dân sự Trung Quốc" in prompt and "Luật Hôn nhân Trung Quốc" in prompt
     assert f"Phiên bản hướng dẫn: {PROMPT_A_VERSION}" in prompt
 
 

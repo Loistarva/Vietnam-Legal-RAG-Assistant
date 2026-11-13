@@ -17,13 +17,16 @@ PROMPT_B_VERSION: str = "v1.1_controlled_rag"
 # Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
 LANGUAGE_RULE_B: str = (
     "NGÔN NGỮ VÀ NGUỒN LUẬT: Trường \"answer\" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
-    "hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam có trong bằng chứng; tuyệt đối không viện dẫn pháp "
-    "luật nước ngoài (ví dụ luật Trung Quốc)."
+    "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam được cung cấp trong "
+    "các đoạn bằng chứng; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức tiền huấn "
+    "luyện về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/"
+    "thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác để suy diễn, bổ sung hoặc giải thích."
 )
 LANGUAGE_RULE_A: str = (
     "NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
-    "hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài "
-    "(ví dụ luật Trung Quốc)."
+    "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không "
+    "viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự "
+    "Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác."
 )
 
 # Cố định câu Disclaimer chuẩn theo yêu cầu Sprint 9
@@ -114,10 +117,10 @@ DANH SÁCH BẰNG CHỨNG PHÁP LÝ ĐƯỢC CẤP (Được đánh số từ [1
 {context_str}
 
 RÀNG BUỘC NGHIÊM NGẶT (DEFENSIVE CONSTRAINTS):
-1. CHỈ sử dụng thông tin có thật trong các đoạn bằng chứng [1]...[{evidence_count}] ở trên để trả lời. TUYỆT ĐỐI KHÔNG tự suy diễn hoặc dùng kiến thức ngoài các đoạn bằng chứng này.
+1. NGUYÊN TẮC ĐÓNG NGỮ CẢNH (STRICT CLOSED-CONTEXT): CHỈ sử dụng thông tin có thật trong các đoạn bằng chứng [1]...[{evidence_count}] ở trên để trả lời. Mọi khẳng định pháp lý trong câu trả lời bắt buộc phải có căn cứ trực tiếp từ nội dung [1]...[{evidence_count}]; TUYỆT ĐỐI KHÔNG tự suy diễn hoặc dùng kiến thức ngoài các đoạn bằng chứng này.
 2. VỀ TRÍCH DẪN: Chỉ trả về chỉ số bằng chứng dưới dạng mảng các số nguyên trong trường "evidence_indices" (ví dụ: [1, 2]). TUYỆT ĐỐI KHÔNG chép chuỗi mã chunk_id dài vào câu trả lời hay mảng trích dẫn.
 3. VỀ TỪ CHỐI TRẢ LỜI (ABSTENTION):
-   - Nếu các đoạn bằng chứng trên không đủ thông tin để trả lời câu hỏi, hoặc chứa mâu thuẫn về hiệu lực/thứ bậc không thể giải quyết tại mốc {as_of_date}, bạn BẮT BUỘC phải đặt "abstained": true, nêu rõ lý do trong "abstention_reason", và giải thích ngắn gọn trong "answer".
+   - Nếu các đoạn bằng chứng trên không đề cập đến tình tiết được hỏi, không đủ thông tin/căn cứ để kết luận, hoặc chứa mâu thuẫn về hiệu lực/thứ bậc không thể giải quyết tại mốc {as_of_date}, bạn BẮT BUỘC phải đặt "abstained": true và từ chối trả lời (thay vì tự bổ sung kiến thức ngoài), nêu rõ lý do trong "abstention_reason", và giải thích ngắn gọn trong "answer".
 4. VỀ CÂU HỎI MƠ HỒ:
    - Nếu câu hỏi thiếu dữ kiện quan trọng cần làm rõ, đặt "needs_clarification": true.
 5. Luôn đính kèm khuyến cáo pháp lý: "{STANDARD_DISCLAIMER}".

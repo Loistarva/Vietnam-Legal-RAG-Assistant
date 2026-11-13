@@ -311,6 +311,25 @@ def abstention_fields(grounding: GroundingResult, *, llm_called: bool) -> dict[s
             "abstention_source": source, "needs_clarification": False}
 
 
+def _abstention_reason_detail(
+    grounding: GroundingResult, trace: Mapping[str, Any], llm: LLMResponse | None
+) -> str:
+    """Chi tiết lý do Gate/Confidence cho ``retrieval_trace.gate.reason_detail``."""
+    code = grounding.reason or f"{grounding.grounding_status}_WITHOUT_REASON"
+    if code == "LOW_CONFIDENCE":
+        conf = trace.get("confidence") or {}
+        top1, threshold = conf.get("top1_score"), conf.get("min_top1_score")
+        if isinstance(top1, (int, float)) and isinstance(threshold, (int, float)):
+            return f"LOW_CONFIDENCE: top1_score={float(top1):.3f} < {float(threshold):.2f}"
+    if code == "EMPTY_RETRIEVAL":
+        return "EMPTY_RETRIEVAL: no candidates retrieved"
+    if code == "MODEL_ABSTAINED" and llm is not None and llm.abstention_reason:
+        return f"MODEL_ABSTAINED: {llm.abstention_reason}"
+    if grounding.invalid_indices:
+        return f"{code}: invalid_indices={grounding.invalid_indices}"
+    return code
+
+
 def _ms(value: Any) -> float | None:
     return None if value is None else round(float(value), 2)
 
@@ -433,7 +452,15 @@ class RAGPipeline:
                 trace: dict[str, Any], *, grounding: GroundingResult, payload: ContextPayload | None,
                 llm: LLMResponse | None, prompt: str | None, retrieval_ms: float | None) -> RAGRunResult:
         status = grounding.grounding_status
-        trace["gate"] = {"status": status, "reason": grounding.reason, "invalid_indices": grounding.invalid_indices}
+        abs_fields = abstention_fields(grounding, llm_called=llm is not None)
+        trace["gate"] = {
+            "status": status,
+            "reason": grounding.reason,
+            "reason_detail": _abstention_reason_detail(grounding, trace, llm),
+            "invalid_indices": grounding.invalid_indices,
+            "abstained": abs_fields["abstained"],
+            "abstention_source": abs_fields["abstention_source"],
+        }
         if llm is not None:
             trace["llm"] = {
                 "answer_before_gate": llm.answer,
@@ -462,7 +489,7 @@ class RAGPipeline:
             evidence_indices=list(llm.evidence_indices) if llm is not None else [],
             citations=list(grounding.valid_citations) if status == "PASS" else [],
             grounding_status=status,
-            **abstention_fields(grounding, llm_called=llm is not None),
+            **abs_fields,
             retrieval_trace=trace,
             model=llm.model if llm is not None else meta["model"],
             prompt_version=PROMPT_B_VERSION,

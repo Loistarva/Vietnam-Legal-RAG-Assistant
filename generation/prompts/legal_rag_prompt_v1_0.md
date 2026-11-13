@@ -16,7 +16,7 @@ Dành cho Run A để đo lường năng lực pháp lý gốc (zero-shot capabi
 - Hướng dẫn hiệu lực: Yêu cầu mô hình nêu rõ `"Theo quy định có hiệu lực tại ngày {as_of_date}..."`.
 - Không đòi hỏi mô hình trích dẫn chunk ID.
 - Đánh số quy tắc 1, 2, 3, 4, 5 liên tục, kết thúc luôn có disclaimer chuẩn.
-- Quy tắc 5 (từ v1.1), nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài (ví dụ luật Trung Quốc).`
+- Quy tắc 5 (từ v1.1), nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác.`
 
 ---
 
@@ -31,13 +31,13 @@ Dải số bằng chứng hiển thị chính xác theo số lượng thực t�
 
 ### Ràng buộc nghiêm ngặt (Defensive Constraints):
 1. **Scope Restriction**: Bổ sung quy tắc phạm vi chỉ tư vấn trong phạm vi pháp luật Hôn nhân và Gia đình Việt Nam.
-2. **Evidence-Bounded**: Chỉ sử dụng thông tin trong các đoạn `[1]`...`[{n}]`. Tuyệt đối không tự suy diễn ngoài ngữ cảnh.
+2. **Strict Closed-Context (Evidence-Bounded)**: Chỉ sử dụng thông tin có thật trong các đoạn `[1]`...`[{n}]`. Mọi khẳng định pháp lý bắt buộc có căn cứ trực tiếp từ nội dung được cấp; tuyệt đối không tự suy diễn ngoài ngữ cảnh.
 3. **Numeric Citation Only**: Chỉ trả về chỉ số bằng chứng `[1, 2, ...]` trong trường `evidence_indices`. Tuyệt đối không chép chuỗi mã `chunk_id` dài vào output.
-4. **Abstention**: Khi bằng chứng không đủ hoặc mâu thuẫn thời điểm hiệu lực, đặt `"abstained": true`, nêu rõ `"abstention_reason"`.
+4. **Abstention**: Khi bằng chứng không đề cập đến tình tiết được hỏi, không đủ căn cứ kết luận hoặc mâu thuẫn thời điểm hiệu lực, đặt `"abstained": true`, nêu rõ `"abstention_reason"`.
 5. **Clarification**: Đặt `"needs_clarification": true` nếu câu hỏi thiếu dữ kiện pháp lý thiết yếu.
 6. **Structured Output**: Bắt buộc tuân thủ JSON Schema của `StructuredRAGOutput`.
 7. **Empty Safety**: Ném `ValueError("Empty retrieval: không có bằng chứng để tạo prompt.")` nếu `evidence_items` rỗng.
-8. **Ngôn ngữ và nguồn luật** (từ v1.1): quy tắc số 6 của mục RÀNG BUỘC NGHIÊM NGẶT, ngay trước `YÊU CẦU ĐẦU RA:`, nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Trường "answer" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam có trong bằng chứng; tuyệt đối không viện dẫn pháp luật nước ngoài (ví dụ luật Trung Quốc).` Không thêm system message: khi thử, system message tiếng Việt không giúp thêm (HN_062 vẫn lỗi).
+8. **Ngôn ngữ và nguồn luật** (từ v1.1): quy tắc số 6 của mục RÀNG BUỘC NGHIÊM NGẶT, ngay trước `YÊU CẦU ĐẦU RA:`, nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Trường "answer" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam được cung cấp trong các đoạn bằng chứng; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức tiền huấn luyện về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác để suy diễn, bổ sung hoặc giải thích.` Không thêm system message: khi thử, system message tiếng Việt không giúp thêm (HN_062 vẫn lỗi).
 
 ---
 

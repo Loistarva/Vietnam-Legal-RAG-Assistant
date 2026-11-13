@@ -52,6 +52,14 @@ def test_confidence_filter_abstains_before_llm(rag, rows_scores, reason):
     assert gen.prompts == [] and "llm" not in record.retrieval_trace
     assert record.grounding_status == "ABSTAIN"
     assert _fields(record) == (True, reason, "confidence_filter", False, 0)
+    gate_trace = record.retrieval_trace["gate"]
+    assert gate_trace["abstained"] is True
+    assert gate_trace["abstention_source"] == "confidence_filter"
+    assert gate_trace["reason"] == reason
+    if reason == "LOW_CONFIDENCE":
+        assert gate_trace["reason_detail"] == "LOW_CONFIDENCE: top1_score=0.087 < 0.50"
+    else:
+        assert gate_trace["reason_detail"] == "EMPTY_RETRIEVAL: no candidates retrieved"
 
 
 def test_model_abstains(rag):

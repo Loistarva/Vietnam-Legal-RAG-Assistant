@@ -22,27 +22,29 @@ Giá trị null nghĩa là không đo được. Không thay null bằng 0 khi t�
 
 ## 2. Latency
 
-### 2.1 TTFT: báo 2 loại
+### 2.1 TTFT (Time To First Token)
 
-| Loại | Công thức | Ghi chú |
+Khi chạy chế độ non-streaming cục bộ qua Ollama (`stream=False`, tuân thủ nguyên tắc *Buffer-then-stream*: toàn bộ câu trả lời phải đi qua kiểm duyệt Grounding Gate trước khi phát ra giao diện), **TTFT phía người dùng (streaming TTFT) là `N/A`** (không áp dụng / không đo được); hệ thống chỉ ghi nhận tổng thời gian xử lý `total_latency_ms` (trường `latency_ms` trong record, báo cáo p50/p95). Ngoài ra, ở tầng engine model, gateway ghi nhận thêm ước lượng `ttft_model_ms`:
+
+| Loại | Trường / Giá trị | Ghi chú |
 | --- | --- | --- |
-| TTFT của model | `latency_breakdown.ttft_model_ms` | Giá trị xấp xỉ vì gateway gọi Ollama với `stream: false`: Ollama trả thời gian nạp model và xử lý prompt, không trả thời điểm phát token đầu tiên. |
-| TTFT người dùng thấy | `latency_ms` | Câu trả lời chỉ hiện sau khi qua Gate, nên người dùng không thấy token nào trước khi cả câu sinh xong. TTFT người dùng ≈ total latency. |
+| TTFT streaming (người dùng) | `N/A` (`latency_ms` khi qua Gate) | Không áp dụng / không đo được khi chạy non-streaming qua Ollama (`stream=False`, *Buffer-then-stream*). Người dùng chỉ nhận câu trả lời sau khi Gate PASS, tức độ trễ thực tế ≈ `total_latency_ms` (`latency_ms`). |
+| TTFT của model (tầng engine) | `latency_breakdown.ttft_model_ms` | Giá trị xấp xỉ (`load_ms + prompt_eval_ms`) từ bộ đếm nano giây của Ollama; dùng để tách thời gian nạp/đọc prompt khỏi thời gian sinh token. |
 
 ### 2.2 Total latency
 
-`latency_ms`. Run B chính thức dùng retrieval tính sẵn (`retrieval_ms = null`), nên `latency_ms` của Run B **không gồm** thời gian retrieval và rerank. Báo cáo phải ghi rõ điều này cạnh con số. Khi chạy live, báo thêm `retrieval_ms` riêng.
+`total_latency_ms` (lưu tại trường `latency_ms` trong record JSONL). Run B chính thức dùng retrieval tính sẵn (`retrieval_ms = null`), nên `latency_ms` của Run B **không gồm** thời gian retrieval và rerank. Báo cáo phải ghi rõ điều này cạnh con số. Khi chạy live, báo thêm `retrieval_ms` riêng.
 
 ### 2.3 p50, p95 và câu khởi động nguội
 
-- Báo p50 và p95 của `latency_ms`, `ttft_model_ms`, `eval_ms`, tách Run A và Run B.
+- Báo p50 và p95 của `latency_ms` (`total_latency_ms`), `ttft_model_ms`, `eval_ms`, tách Run A và Run B.
 - Phân vị dùng nội suy tuyến tính (`numpy.percentile` mặc định). Với n = 30, p95 gần như là giá trị lớn thứ hai; ghi n cạnh kết quả.
 - Câu khởi động nguội = câu có `load_ms > 1000`. Ollama nạp model lần đầu mất tới khoảng 12 giây (đo ngày 11/11), nên các câu này bị loại khỏi p50/p95 và báo riêng: số câu, `query_id`, `load_ms`. Báo cáo ghi rõ đã loại bao nhiêu câu.
 - Run B có bước warm-up trong `scripts/run_rag_batch.py`; Run A không có, nên câu đầu tiên của Run A thường là câu khởi động nguội.
 
 ## 3. Cost/request
 
-Qwen chạy local, nên chi phí API là 0 USD cho Run A và Run B. Thay cho chi phí USD, mỗi run báo:
+**Cost/request = `$0.00` (0 USD)** khi suy luận nội bộ bằng mô hình local Ollama (`qwen2.5:7b`) cho cả Run A và Run B. Thay cho chi phí USD, mỗi run báo cáo thêm chỉ số tài nguyên thực tế:
 
 | Chỉ số | Công thức |
 | --- | --- |
@@ -51,7 +53,7 @@ Qwen chạy local, nên chi phí API là 0 USD cho Run A và Run B. Thay cho chi
 | Số lần gọi model | tổng `llm_calls` và trung bình `llm_calls` trên mọi câu (Run B < 1 nếu có câu dừng trước LLM) |
 | Thời gian GPU/CPU sinh token | trung bình và p95 của `eval_ms` trên các câu có `llm_calls = 1` |
 
-Chi phí USD chỉ áp dụng cho Run C nếu chạy API trả phí: `cost_usd = token_input × đơn giá input + token_output × đơn giá output`, ghi đơn giá và ngày lấy đơn giá trong manifest.
+Chi phí API chỉ phát sinh và được ghi nhận khi kích hoạt Run C qua model API bên ngoài: `cost_usd = token_input × đơn giá input + token_output × đơn giá output`, ghi đơn giá và ngày lấy đơn giá trong manifest.
 
 ## 4. Abstention
 
