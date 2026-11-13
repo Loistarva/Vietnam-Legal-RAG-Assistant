@@ -7,6 +7,7 @@ Single Source of Truth for:
   - StructuredRAGOutput (D3.1 / D3.3)
   - TokenUsage & LLMResponse (D3.1 / D3.4)
   - MappedCitation, GroundingResult & RAGOutputRecord (D3.1)
+  - LatencyBreakdown + abstention fields of RAGOutputRecord (P45-4, P45-6)
 """
 from __future__ import annotations
 
@@ -410,8 +411,30 @@ class GroundingResult(StrictBaseModel):
     reason: str | None = None
 
 
+AbstentionSource = Literal["confidence_filter", "model", "grounding_gate", "router"]
+# Nguồn không gọi LLM (llm_calls = 0) và nguồn chỉ có sau khi gọi LLM (llm_calls >= 1)
+_PRE_LLM_SOURCES = {"confidence_filter", "router"}
+
+
+class LatencyBreakdown(StrictBaseModel):
+    """Thời gian từng bước (ms). null = không đo được (không đặt 0), ví dụ retrieval_ms khi
+    dùng artifact precomputed, hoặc các trường thời gian Ollama khi không gọi LLM."""
+    retrieval_ms: float | None = Field(default=None, ge=0)
+    llm_total_ms: float | None = Field(default=None, ge=0)
+    ttft_model_ms: float | None = Field(default=None, ge=0)
+    load_ms: float | None = Field(default=None, ge=0)
+    prompt_eval_ms: float | None = Field(default=None, ge=0)
+    eval_ms: float | None = Field(default=None, ge=0)
+
+
 class RAGOutputRecord(StrictBaseModel):
-    """Bản ghi JSONL hoàn chỉnh cho benchmark và production (Phụ lục B)."""
+    """Bản ghi JSONL hoàn chỉnh cho benchmark và production (Phụ lục B).
+
+    ``abstained``/``abstention_reason``/``abstention_source``/``needs_clarification`` có ở mọi
+    record (P45-4), kể cả khi không gọi LLM; ``abstention_reason`` là mã cố định để evaluator
+    đếm. Gate FAIL tính là từ chối (người dùng chỉ nhận thông báo không kết luận), phân biệt
+    với model tự từ chối qua ``abstention_source``.
+    """
     query_id: str
     query: str
     as_of_date: str
@@ -420,6 +443,10 @@ class RAGOutputRecord(StrictBaseModel):
     evidence_indices: list[int] = Field(default_factory=list)
     citations: list[MappedCitation] = Field(default_factory=list)
     grounding_status: Literal["PASS", "FAIL", "ABSTAIN", "NEEDS_CLARIFICATION"]
+    abstained: bool
+    abstention_reason: str | None
+    abstention_source: AbstentionSource | None
+    needs_clarification: bool
     retrieval_trace: dict[str, Any] = Field(default_factory=dict)
     model: str = "qwen2.5:7b"
     prompt_version: str
@@ -431,6 +458,8 @@ class RAGOutputRecord(StrictBaseModel):
     retrieval_config_version: str
     threshold_config_version: str
     latency_ms: float
+    llm_calls: int = Field(ge=0)
+    latency_breakdown: LatencyBreakdown = Field(default_factory=LatencyBreakdown)
     token_usage: TokenUsage = Field(default_factory=TokenUsage)
     fallback_status: str = "none"
 
@@ -440,6 +469,33 @@ class RAGOutputRecord(StrictBaseModel):
         res = _check_iso_date(v, "as_of_date", required=True)
         assert res is not None
         return res
+
+    @model_validator(mode="after")
+    def check_abstention_fields(self) -> "RAGOutputRecord":
+        """Các trường từ chối phải khớp grounding_status và số lần gọi model."""
+        status, source = self.grounding_status, self.abstention_source
+        if status in ("PASS", "NEEDS_CLARIFICATION"):
+            if self.abstained or self.abstention_reason is not None:
+                raise ValueError(f"{status}: abstained phải false và abstention_reason null")
+            if self.needs_clarification != (status == "NEEDS_CLARIFICATION"):
+                raise ValueError(f"{status}: needs_clarification không khớp grounding_status")
+            if status == "PASS" and source is not None:
+                raise ValueError("PASS: abstention_source phải null")
+            if status == "NEEDS_CLARIFICATION" and source not in ("model", "router"):
+                raise ValueError("NEEDS_CLARIFICATION: abstention_source phải là model hoặc router")
+        else:
+            if not self.abstained or not self.abstention_reason or self.needs_clarification:
+                raise ValueError(f"{status}: cần abstained=true, abstention_reason (mã) và "
+                                 "needs_clarification=false")
+            allowed = {"grounding_gate"} if status == "FAIL" else {"confidence_filter", "model", "router"}
+            if source not in allowed:
+                raise ValueError(f"{status}: abstention_source {source!r} không hợp lệ, cần một trong "
+                                 f"{sorted(allowed)}")
+        if source in _PRE_LLM_SOURCES and self.llm_calls != 0:
+            raise ValueError(f"abstention_source={source}: dừng trước LLM nên llm_calls phải bằng 0")
+        if source not in _PRE_LLM_SOURCES and self.llm_calls < 1:
+            raise ValueError(f"{status} (abstention_source={source}) chỉ có sau khi gọi model: llm_calls >= 1")
+        return self
 
 
 def export_json_schemas(output_dir: str | Path | None = None) -> dict[str, Path]:

@@ -515,6 +515,10 @@ def test_rag_output_record_appendix_b_schema():
             )
         ],
         grounding_status="PASS",
+        abstained=False,
+        abstention_reason=None,
+        abstention_source=None,
+        needs_clarification=False,
         retrieval_trace={"top_k": 5, "rerank_used": True},
         model="qwen2.5:7b",
         prompt_version="v1.0_controlled_rag_m1",
@@ -526,6 +530,7 @@ def test_rag_output_record_appendix_b_schema():
         retrieval_config_version="v1.0",
         threshold_config_version="v1.0",
         latency_ms=150.0,
+        llm_calls=1,
         token_usage=TokenUsage(input=500, output=100),
         fallback_status="none",
     )
