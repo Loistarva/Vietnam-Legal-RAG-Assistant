@@ -21,14 +21,11 @@ def main() -> None:
     parser.add_argument("--queries", type=Path, default=DEFAULT_QUERIES)
     parser.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH)
     parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS_DIR)
-    parser.add_argument("--model", default=None, help="Phải khớp model trong local_qwen.yaml (mặc định lấy từ đó).")
+    parser.add_argument("--model", default="qwen2.5:7b")
     parser.add_argument("--rubric-input", type=Path)
-    parser.add_argument("--prefix", default="zero_shot_dev30",
-                        help="Tiền tố file output, ví dụ <run_date>_zero_shot_qwen25_<split>; "
-                             "không ghi đè file đã có.")
     args = parser.parse_args()
 
-    prefix = args.prefix
+    prefix = "zero_shot_dev30"
     predictions_path = args.results_dir / f"{prefix}_results.json"
     metrics_path = args.results_dir / f"{prefix}_metrics.json"
     scored_path = args.results_dir / f"{prefix}_scored.json"
