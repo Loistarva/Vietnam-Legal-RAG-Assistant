@@ -2,9 +2,22 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "67424ec6c5cc10408d22277d514f6b5280edeedac1fbd0cb3051d4d0785a5010",
+  "registry_canonical_sha256": "2122416009954c005b8a55b1e293050f7729e358b391bed8975212ccecb2618f",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
+    "l_13_2022_qh15": {
+      "document_number": "13/2022/QH15",
+      "title": "Luật phòng, chống bạo lực gia đình",
+      "document_type": "Luật",
+      "issue_year": "2022",
+      "effective_from": "2023-07-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "l_21_lct_hdnn7": {
       "document_number": "21-LCT/HĐNN7",
       "title": "Luật Hôn nhân và gia đình 1986",
@@ -31,6 +44,45 @@
         "effective_to": "expiry_date"
       }
     },
+    "l_35_2013_qh13": {
+      "document_number": "35/2013/QH13",
+      "title": "Luật Hòa giải ở cơ sở",
+      "document_type": "Luật",
+      "issue_year": "2013",
+      "effective_from": "2014-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "l_51_2010_qh12": {
+      "document_number": "51/2010/QH12",
+      "title": "LUẬT NGƯỜI KHUYẾT TẬT",
+      "document_type": "Luật",
+      "issue_year": "2010",
+      "effective_from": "2011-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "l_52_2010_qh12": {
+      "document_number": "52/2010/QH12",
+      "title": "LUẬT NUÔI CON NUÔI",
+      "document_type": "Luật",
+      "issue_year": "2010",
+      "effective_from": "2011-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "l_52_2014_qh13": {
       "document_number": "52/2014/QH13",
       "title": "Luật Hôn nhân và gia đình 2014",
@@ -44,6 +96,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "l_60_2014_qh13": {
+      "document_number": "60/2014/QH13",
+      "title": "LUẬT HỘ TỊCH",
+      "document_type": "Luật",
+      "issue_year": "2014",
+      "effective_from": "2016-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "l_81_2025_qh15": {
       "document_number": "81/2025/QH15",
       "title": "Luật sửa đổi, bổ sung một số điều của Luật Tổ chức Tòa án nhân dân",
@@ -52,6 +117,19 @@
       "effective_from": "2025-07-01",
       "effective_to": null,
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nd_06_2011_nd_cp": {
+      "document_number": "06/2011/NĐ-CP",
+      "title": "quy định chi tiết và hướng dẫn thi hành một số điều của Luật Người cao tuổi",
+      "document_type": "Nghị định",
+      "issue_year": "2011",
+      "effective_from": "2011-03-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -83,6 +161,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "nd_114_2016_nd_cp": {
+      "document_number": "114/2016/NĐ-CP",
+      "title": "Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài",
+      "document_type": "Nghị định",
+      "issue_year": "2016",
+      "effective_from": "2017-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "nd_123_2015_nd_cp": {
       "document_number": "123/2015/NĐ-CP",
       "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch",
@@ -109,6 +200,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "nd_15_2014_nd_cp": {
+      "document_number": "15/2014/NĐ-CP",
+      "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở",
+      "document_type": "Nghị định",
+      "issue_year": "2014",
+      "effective_from": "2014-04-25",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "nd_18_2026_nd_cp": {
       "document_number": "18/2026/NĐ-CP",
       "title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
@@ -117,6 +221,19 @@
       "effective_from": "2026-01-15",
       "effective_to": null,
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nd_19_2011_nd_cp": {
+      "document_number": "19/2011/NĐ-CP",
+      "title": "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi",
+      "document_type": "Nghị định",
+      "issue_year": "2011",
+      "effective_from": "2011-05-08",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -135,6 +252,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "nd_28_2012_nd_cp": {
+      "document_number": "28/2012/NĐ-CP",
+      "title": "quy định chi tiết và hướng dẫn thi hành một số điều của Luật người khuyết tật",
+      "document_type": "Nghị định",
+      "issue_year": "2012",
+      "effective_from": "2012-06-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "nd_32_2002_nd_cp": {
       "document_number": "32/2002/NĐ-CP",
       "title": "Quy định việc áp dụng Luật Hôn nhân và gia đình đối với các dân tộc thiểu số",
@@ -143,6 +273,19 @@
       "effective_from": "2002-04-11",
       "effective_to": "2015-02-15",
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nd_56_2017_nd_cp": {
+      "document_number": "56/2017/NĐ-CP",
+      "title": "Quy định chi tiết một số điều của Luật trẻ em",
+      "document_type": "Nghị định",
+      "issue_year": "2017",
+      "effective_from": "2017-07-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -169,6 +312,19 @@
       "effective_from": "2001-10-18",
       "effective_to": "2015-02-15",
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nd_76_2023_nd_cp": {
+      "document_number": "76/2023/NĐ-CP",
+      "title": "Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình",
+      "document_type": "Nghị định",
+      "issue_year": "2023",
+      "effective_from": "2023-12-25",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -273,6 +429,19 @@
       "effective_from": "2003-01-02",
       "effective_to": "2018-03-20",
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "tt_10_2020_tt_btp": {
+      "document_number": "10/2020/TT-BTP",
+      "title": "ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi",
+      "document_type": "Thông tư",
+      "issue_year": "2020",
+      "effective_from": "2021-02-26",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -506,6 +675,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "06/2011"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "06/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "07 2001": {
       "document_ids": [
         "tt_07_2001_tt_btp"
@@ -666,6 +862,60 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "10/2020"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "10/2020/TT-BTP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "114/2016"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "114/2016/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "123 2015": {
       "document_ids": [
         "nd_123_2015_nd_cp"
@@ -720,6 +970,60 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "13/2022"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "13/2022/QH15"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "15/2014"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "15 2015": {
       "document_ids": [
         "tt_15_2015_tt_btp"
@@ -766,6 +1070,33 @@
       ],
       "forms": [
         "18/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "19/2011"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "19/2011/NĐ-CP"
       ],
       "kinds": [
         "document_number",
@@ -830,10 +1161,66 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "2010": {
+      "document_ids": [
+        "l_51_2010_qh12",
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "2010"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp",
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "2011"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "2012"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "2013"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "2014": {
       "document_ids": [
         "l_52_2014_qh13",
-        "nd_126_2014_nd_cp"
+        "l_60_2014_qh13",
+        "nd_126_2014_nd_cp",
+        "nd_15_2014_nd_cp"
       ],
       "forms": [
         "2014"
@@ -863,6 +1250,7 @@
     },
     "2016": {
       "document_ids": [
+        "nd_114_2016_nd_cp",
         "tt_32_2016_tt_byt",
         "ttlt_01_2016_ttlt_tandtc"
       ],
@@ -877,6 +1265,7 @@
     },
     "2017": {
       "document_ids": [
+        "nd_56_2017_nd_cp",
         "tt_34_2017_tt_byt"
       ],
       "forms": [
@@ -885,7 +1274,7 @@
       "kinds": [
         "year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "2019": {
@@ -904,7 +1293,8 @@
     "2020": {
       "document_ids": [
         "nd_87_2020_nd_cp",
-        "tt_04_2020_tt_btp"
+        "tt_04_2020_tt_btp",
+        "tt_10_2020_tt_btp"
       ],
       "forms": [
         "2020"
@@ -913,6 +1303,32 @@
         "year"
       ],
       "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "2022"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "2023"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
       "requires_identity_context": true
     },
     "2024": {
@@ -1018,6 +1434,33 @@
       ],
       "forms": [
         "22/2000/QH10"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "28/2012"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "28/2012/NĐ-CP"
       ],
       "kinds": [
         "document_number",
@@ -1160,6 +1603,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "35/2013"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "35/2013/QH13"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "38 2025": {
       "document_ids": [
         "tt_38_2025_tt_byt"
@@ -1239,6 +1709,60 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "51/2010"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "51/2010/QH12"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "52/2010"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "52/2010/QH12"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "52 2014": {
       "document_ids": [
         "l_52_2014_qh13"
@@ -1266,6 +1790,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "56/2017"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "57 2015": {
       "document_ids": [
         "tt_57_2015_tt_byt"
@@ -1285,6 +1836,59 @@
       ],
       "forms": [
         "57/2015/TT-BYT"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "6/2011"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "6/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "60/2014"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "60/2014/QH13"
       ],
       "kinds": [
         "document_number",
@@ -1425,6 +2029,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "76/2023"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "76/2023/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "77 2001": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -1502,6 +2133,33 @@
       "kinds": [
         "document_number",
         "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ban hanh huong dan viec ghi chep su dung quan ly va luu tru so mau giay to ho so nuoi con nuoi": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ban hanh huong dan viec ghi chep su dung quan ly va luu tru so mau giay to ho so nuoi con nuoi nam 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi năm 2020"
+      ],
+      "kinds": [
+        "title_with_issue_year"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -1668,6 +2326,47 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l 13": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L 13"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l 13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L 13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L 13/2022/QH15",
+        "l_13_2022_qh15"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l 1986": {
       "document_ids": [
         "l_21_lct_hdnn7"
@@ -1694,12 +2393,53 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "l 2010": {
+      "document_ids": [
+        "l_51_2010_qh12",
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L 2010"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "l 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L 2013"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "l 2014": {
       "document_ids": [
-        "l_52_2014_qh13"
+        "l_52_2014_qh13",
+        "l_60_2014_qh13"
       ],
       "forms": [
         "L 2014"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "l 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L 2022"
       ],
       "kinds": [
         "type_year"
@@ -1776,8 +2516,91 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l 35": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L 35"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l 35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L 35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L 35/2013/QH13",
+        "l_35_2013_qh13"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 51": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L 51"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l 51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L 51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L 51/2010/QH12",
+        "l_51_2010_qh12"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l 52": {
       "document_ids": [
+        "l_52_2010_qh12",
         "l_52_2014_qh13"
       ],
       "forms": [
@@ -1786,8 +2609,36 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "l 52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L 52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L 52/2010/QH12",
+        "l_52_2010_qh12"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "l 52 2014": {
       "document_ids": [
@@ -1809,6 +2660,47 @@
       "forms": [
         "L 52/2014/QH13",
         "l_52_2014_qh13"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 60": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L 60"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l 60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L 60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L 60/2014/QH13",
+        "l_60_2014_qh13"
       ],
       "kinds": [
         "canonical_id",
@@ -1853,6 +2745,45 @@
       ],
       "kinds": [
         "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 13": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L số 13"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l so 13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L số 13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L số 13/2022/QH15"
+      ],
+      "kinds": [
         "type_number"
       ],
       "ambiguous": false,
@@ -1910,8 +2841,87 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l so 35": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L số 35"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l so 35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L số 35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L số 35/2013/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 51": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L số 51"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l so 51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L số 51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L số 51/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l so 52": {
       "document_ids": [
+        "l_52_2010_qh12",
         "l_52_2014_qh13"
       ],
       "forms": [
@@ -1920,8 +2930,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "l so 52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L số 52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L số 52/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "l so 52 2014": {
       "document_ids": [
@@ -1942,6 +2978,45 @@
       ],
       "forms": [
         "L số 52/2014/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 60": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L số 60"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "l so 60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L số 60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L số 60/2014/QH13"
       ],
       "kinds": [
         "type_number"
@@ -2040,6 +3115,97 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l05": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L05"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l06": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L06"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l07": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L07"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l08": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L08"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l09": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L09"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "L13/2022/QH15"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l21 lct hdnn7": {
       "document_ids": [
         "l_21_lct_hdnn7"
@@ -2079,6 +3245,84 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "L35/2013/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "L51/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "L52/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l52 2014": {
       "document_ids": [
         "l_52_2014_qh13"
@@ -2098,6 +3342,32 @@
       ],
       "forms": [
         "L52/2014/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "L60/2014/QH13"
       ],
       "kinds": [
         "type_number"
@@ -2131,6 +3401,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat 13": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật 13"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat 13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật 13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật 13/2022/QH15"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat 1986": {
       "document_ids": [
         "l_21_lct_hdnn7"
@@ -2157,12 +3466,53 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "luat 2010": {
+      "document_ids": [
+        "l_51_2010_qh12",
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật 2010"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "luat 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật 2013"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "luat 2014": {
       "document_ids": [
-        "l_52_2014_qh13"
+        "l_52_2014_qh13",
+        "l_60_2014_qh13"
       ],
       "forms": [
         "Luật 2014"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "luat 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật 2022"
       ],
       "kinds": [
         "type_year"
@@ -2235,8 +3585,87 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat 35": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật 35"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat 35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật 35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật 35/2013/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 51": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật 51"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat 51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật 51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật 51/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat 52": {
       "document_ids": [
+        "l_52_2010_qh12",
         "l_52_2014_qh13"
       ],
       "forms": [
@@ -2245,8 +3674,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "luat 52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật 52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật 52/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "luat 52 2014": {
       "document_ids": [
@@ -2267,6 +3722,45 @@
       ],
       "forms": [
         "Luật 52/2014/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 60": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật 60"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat 60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật 60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật 60/2014/QH13"
       ],
       "kinds": [
         "type_number"
@@ -2506,6 +4000,60 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat ho tich": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "LUẬT HỘ TỊCH"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat ho tich nam 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "LUẬT HỘ TỊCH năm 2014"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat hoa giai o co so": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật Hòa giải ở cơ sở"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat hoa giai o co so nam 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật Hòa giải ở cơ sở năm 2013"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat hon nhan va gia dinh": {
       "document_ids": [
         "l_21_lct_hdnn7",
@@ -2599,6 +4147,126 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat nguoi khuyet tat": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "LUẬT NGƯỜI KHUYẾT TẬT"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat nguoi khuyet tat nam 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "LUẬT NGƯỜI KHUYẾT TẬT năm 2010"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat nuoi con nuoi": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "LUẬT NUÔI CON NUÔI"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat nuoi con nuoi nam 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "LUẬT NUÔI CON NUÔI năm 2010"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat phong chong bao luc gia dinh": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật phòng, chống bạo lực gia đình"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat phong chong bao luc gia dinh nam 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật phòng, chống bạo lực gia đình năm 2022"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 13": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật số 13"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat so 13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật số 13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật số 13/2022/QH15"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat so 21 lct hdnn7": {
       "document_ids": [
         "l_21_lct_hdnn7"
@@ -2651,8 +4319,87 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat so 35": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật số 35"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat so 35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật số 35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật số 35/2013/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 51": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật số 51"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat so 51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật số 51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật số 51/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat so 52": {
       "document_ids": [
+        "l_52_2010_qh12",
         "l_52_2014_qh13"
       ],
       "forms": [
@@ -2661,8 +4408,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "luat so 52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật số 52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật số 52/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "luat so 52 2014": {
       "document_ids": [
@@ -2683,6 +4456,45 @@
       ],
       "forms": [
         "Luật số 52/2014/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 60": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật số 60"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "luat so 60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật số 60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật số 60/2014/QH13"
       ],
       "kinds": [
         "type_number"
@@ -2756,6 +4568,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat13 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật13/2022"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat13 2022 qh15": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "Luật13/2022/QH15"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat21 lct hdnn7": {
       "document_ids": [
         "l_21_lct_hdnn7"
@@ -2795,6 +4633,84 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat35 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật35/2013"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat35 2013 qh13": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "Luật35/2013/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat51 2010": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật51/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat51 2010 qh12": {
+      "document_ids": [
+        "l_51_2010_qh12"
+      ],
+      "forms": [
+        "Luật51/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat52 2010": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật52/2010"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat52 2010 qh12": {
+      "document_ids": [
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "Luật52/2010/QH12"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat52 2014": {
       "document_ids": [
         "l_52_2014_qh13"
@@ -2814,6 +4730,32 @@
       ],
       "forms": [
         "Luật52/2014/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat60 2014": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật60/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat60 2014 qh13": {
+      "document_ids": [
+        "l_60_2014_qh13"
+      ],
+      "forms": [
+        "Luật60/2014/QH13"
       ],
       "kinds": [
         "type_number"
@@ -2903,10 +4845,66 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nam 2010": {
+      "document_ids": [
+        "l_51_2010_qh12",
+        "l_52_2010_qh12"
+      ],
+      "forms": [
+        "năm 2010"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "nam 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp",
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "năm 2011"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "nam 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "năm 2012"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nam 2013": {
+      "document_ids": [
+        "l_35_2013_qh13"
+      ],
+      "forms": [
+        "năm 2013"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nam 2014": {
       "document_ids": [
         "l_52_2014_qh13",
-        "nd_126_2014_nd_cp"
+        "l_60_2014_qh13",
+        "nd_126_2014_nd_cp",
+        "nd_15_2014_nd_cp"
       ],
       "forms": [
         "năm 2014"
@@ -2936,6 +4934,7 @@
     },
     "nam 2016": {
       "document_ids": [
+        "nd_114_2016_nd_cp",
         "tt_32_2016_tt_byt",
         "ttlt_01_2016_ttlt_tandtc"
       ],
@@ -2950,6 +4949,7 @@
     },
     "nam 2017": {
       "document_ids": [
+        "nd_56_2017_nd_cp",
         "tt_34_2017_tt_byt"
       ],
       "forms": [
@@ -2958,7 +4958,7 @@
       "kinds": [
         "year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nam 2019": {
@@ -2977,7 +4977,8 @@
     "nam 2020": {
       "document_ids": [
         "nd_87_2020_nd_cp",
-        "tt_04_2020_tt_btp"
+        "tt_04_2020_tt_btp",
+        "tt_10_2020_tt_btp"
       ],
       "forms": [
         "năm 2020"
@@ -2986,6 +4987,32 @@
         "year"
       ],
       "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "nam 2022": {
+      "document_ids": [
+        "l_13_2022_qh15"
+      ],
+      "forms": [
+        "năm 2022"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nam 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "năm 2023"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
       "requires_identity_context": true
     },
     "nam 2024": {
@@ -3030,6 +5057,36 @@
       ],
       "ambiguous": false,
       "requires_identity_context": true
+    },
+    "nd 06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 06/2011",
+        "NĐ 06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 06/2011/NĐ-CP",
+        "NĐ 06/2011/NĐ-CP",
+        "nd_06_2011_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nd 07 2025": {
       "document_ids": [
@@ -3097,6 +5154,50 @@
         "ND 10/2015/NĐ-CP",
         "NĐ 10/2015/NĐ-CP",
         "nd_10_2015_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 114": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND 114",
+        "NĐ 114"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND 114/2016",
+        "NĐ 114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND 114/2016/NĐ-CP",
+        "NĐ 114/2016/NĐ-CP",
+        "nd_114_2016_nd_cp"
       ],
       "kinds": [
         "canonical_id",
@@ -3193,6 +5294,50 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd 15": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND 15",
+        "NĐ 15"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND 15/2014",
+        "NĐ 15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND 15/2014/NĐ-CP",
+        "NĐ 15/2014/NĐ-CP",
+        "nd_15_2014_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd 18": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -3237,6 +5382,50 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd 19": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 19",
+        "NĐ 19"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 19/2011",
+        "NĐ 19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 19/2011/NĐ-CP",
+        "NĐ 19/2011/NĐ-CP",
+        "nd_19_2011_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd 2001": {
       "document_ids": [
         "nd_70_2001_nd_cp",
@@ -3267,9 +5456,39 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nd 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp",
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 2011",
+        "NĐ 2011"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "nd 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 2012",
+        "NĐ 2012"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nd 2014": {
       "document_ids": [
-        "nd_126_2014_nd_cp"
+        "nd_126_2014_nd_cp",
+        "nd_15_2014_nd_cp"
       ],
       "forms": [
         "ND 2014",
@@ -3278,7 +5497,7 @@
       "kinds": [
         "type_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nd 2015": {
@@ -3296,6 +5515,34 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nd 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND 2016",
+        "NĐ 2016"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND 2017",
+        "NĐ 2017"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nd 2020": {
       "document_ids": [
         "nd_87_2020_nd_cp"
@@ -3303,6 +5550,20 @@
       "forms": [
         "ND 2020",
         "NĐ 2020"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND 2023",
+        "NĐ 2023"
       ],
       "kinds": [
         "type_year"
@@ -3383,6 +5644,50 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd 28": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 28",
+        "NĐ 28"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 28/2012",
+        "NĐ 28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 28/2012/NĐ-CP",
+        "NĐ 28/2012/NĐ-CP",
+        "nd_28_2012_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd 32": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -3422,6 +5727,92 @@
       ],
       "kinds": [
         "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 56": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND 56",
+        "NĐ 56"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND 56/2017",
+        "NĐ 56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND 56/2017/NĐ-CP",
+        "NĐ 56/2017/NĐ-CP",
+        "nd_56_2017_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 6": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 6",
+        "NĐ 6"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 6/2011",
+        "NĐ 6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND 6/2011/NĐ-CP",
+        "NĐ 6/2011/NĐ-CP"
+      ],
+      "kinds": [
         "type_number"
       ],
       "ambiguous": false,
@@ -3557,6 +5948,50 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd 76": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND 76",
+        "NĐ 76"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd 76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND 76/2023",
+        "NĐ 76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND 76/2023/NĐ-CP",
+        "NĐ 76/2023/NĐ-CP",
+        "nd_76_2023_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd 77": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -3645,6 +6080,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd so 06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 06/2011",
+        "NĐ số 06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 06/2011/NĐ-CP",
+        "NĐ số 06/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd so 07 2025": {
       "document_ids": [
         "nd_07_2025_nd_cp"
@@ -3708,6 +6171,48 @@
       "forms": [
         "ND số 10/2015/NĐ-CP",
         "NĐ số 10/2015/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 114": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND số 114",
+        "NĐ số 114"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND số 114/2016",
+        "NĐ số 114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND số 114/2016/NĐ-CP",
+        "NĐ số 114/2016/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -3799,6 +6304,48 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd so 15": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND số 15",
+        "NĐ số 15"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND số 15/2014",
+        "NĐ số 15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND số 15/2014/NĐ-CP",
+        "NĐ số 15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd so 18": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -3834,6 +6381,48 @@
       "forms": [
         "ND số 18/2026/NĐ-CP",
         "NĐ số 18/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 19": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 19",
+        "NĐ số 19"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 19/2011",
+        "NĐ số 19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 19/2011/NĐ-CP",
+        "NĐ số 19/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -3883,6 +6472,48 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd so 28": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 28",
+        "NĐ số 28"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 28/2012",
+        "NĐ số 28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 28/2012/NĐ-CP",
+        "NĐ số 28/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd so 32": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -3918,6 +6549,90 @@
       "forms": [
         "ND số 32/2002/NĐ-CP",
         "NĐ số 32/2002/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 56": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND số 56",
+        "NĐ số 56"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND số 56/2017",
+        "NĐ số 56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND số 56/2017/NĐ-CP",
+        "NĐ số 56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 6": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 6",
+        "NĐ số 6"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 6/2011",
+        "NĐ số 6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND số 6/2011/NĐ-CP",
+        "NĐ số 6/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -4044,6 +6759,48 @@
       "forms": [
         "ND số 70/2001/NĐ-CP",
         "NĐ số 70/2001/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 76": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND số 76",
+        "NĐ số 76"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nd so 76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND số 76/2023",
+        "NĐ số 76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND số 76/2023/NĐ-CP",
+        "NĐ số 76/2023/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -4213,6 +6970,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND06/2011",
+        "NĐ06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND06/2011/NĐ-CP",
+        "NĐ06/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd07": {
       "document_ids": [
         "nd_68_2002_nd_cp"
@@ -4321,6 +7106,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND114/2016",
+        "NĐ114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND114/2016/NĐ-CP",
+        "NĐ114/2016/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd12": {
       "document_ids": [
         "nd_87_2020_nd_cp"
@@ -4403,6 +7216,99 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd14": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND14"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd15": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND15"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND15/2014",
+        "NĐ15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND15/2014/NĐ-CP",
+        "NĐ15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd16": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND16"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd17": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND17"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd18": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND18"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd18 2026": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -4427,6 +7333,60 @@
       ],
       "kinds": [
         "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd19": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "ND19"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND19/2011",
+        "NĐ19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "ND19/2011/NĐ-CP",
+        "NĐ19/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd20": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "ND20"
+      ],
+      "kinds": [
+        "file_code"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -4459,6 +7419,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND28/2012",
+        "NĐ28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "ND28/2012/NĐ-CP",
+        "NĐ28/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd32 2002": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -4480,6 +7468,62 @@
       "forms": [
         "ND32/2002/NĐ-CP",
         "NĐ32/2002/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND56/2017",
+        "NĐ56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "ND56/2017/NĐ-CP",
+        "NĐ56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND6/2011",
+        "NĐ6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "ND6/2011/NĐ-CP",
+        "NĐ6/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -4571,6 +7615,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND76/2023",
+        "NĐ76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "ND76/2023/NĐ-CP",
+        "NĐ76/2023/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd77 2001": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -4620,6 +7692,32 @@
       "forms": [
         "ND87/2020/NĐ-CP",
         "NĐ87/2020/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 06/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -4685,6 +7783,45 @@
       ],
       "forms": [
         "Nghị định 10/2015/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 114": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 114"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 114/2016/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -4770,6 +7907,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh 15": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 15"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh 18": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -4809,6 +7985,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh 19": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 19"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 19/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh 2001": {
       "document_ids": [
         "nd_70_2001_nd_cp",
@@ -4837,9 +8052,37 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nghi dinh 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp",
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2011"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "nghi dinh 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2012"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nghi dinh 2014": {
       "document_ids": [
-        "nd_126_2014_nd_cp"
+        "nd_126_2014_nd_cp",
+        "nd_15_2014_nd_cp"
       ],
       "forms": [
         "Nghị định 2014"
@@ -4847,7 +8090,7 @@
       "kinds": [
         "type_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nghi dinh 2015": {
@@ -4864,12 +8107,51 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nghi dinh 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2016"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2017"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nghi dinh 2020": {
       "document_ids": [
         "nd_87_2020_nd_cp"
       ],
       "forms": [
         "Nghị định 2020"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2023"
       ],
       "kinds": [
         "type_year"
@@ -4943,6 +8225,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh 28": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 28"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 28/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh 32": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -4975,6 +8296,84 @@
       ],
       "forms": [
         "Nghị định 32/2002/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 56": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 56"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 6": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 6"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 6/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5099,6 +8498,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh 76": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 76"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh 76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 76/2023/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh 77": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -5177,6 +8615,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh so 06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 06/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh so 07 2025": {
       "document_ids": [
         "nd_07_2025_nd_cp"
@@ -5235,6 +8699,45 @@
       ],
       "forms": [
         "Nghị định số 10/2015/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 114": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 114"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 114/2016/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5320,6 +8823,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh so 15": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 15"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh so 18": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -5352,6 +8894,45 @@
       ],
       "forms": [
         "Nghị định số 18/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 19": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 19"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 19/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5398,6 +8979,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh so 28": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 28"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 28/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh so 32": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -5430,6 +9050,84 @@
       ],
       "forms": [
         "Nghị định số 32/2002/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 56": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 56"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 6": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 6"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 6/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5554,6 +9252,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh so 76": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 76"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi dinh so 76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 76/2023/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh so 77": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -5632,6 +9369,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh06 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định06/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh06 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định06/2011/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh07 2025": {
       "document_ids": [
         "nd_07_2025_nd_cp"
@@ -5677,6 +9440,32 @@
       ],
       "forms": [
         "Nghị định10/2015/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh114 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định114/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh114 2016 nd cp": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Nghị định114/2016/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5736,6 +9525,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh15 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định15/2014"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh15 2014 nd cp": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Nghị định15/2014/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh18 2026": {
       "document_ids": [
         "nd_18_2026_nd_cp"
@@ -5755,6 +9570,32 @@
       ],
       "forms": [
         "Nghị định18/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh19 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định19/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh19 2011 nd cp": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định19/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5788,6 +9629,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi dinh28 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định28/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh28 2012 nd cp": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định28/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi dinh32 2002": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -5807,6 +9674,58 @@
       ],
       "forms": [
         "Nghị định32/2002/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh56 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định56/2017"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh56 2017 nd cp": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Nghị định56/2017/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh6 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định6/2011"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh6 2011 nd cp": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "Nghị định6/2011/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -5885,6 +9804,32 @@
       ],
       "forms": [
         "Nghị định70/2001/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh76 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định76/2023"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh76 2023 nd cp": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Nghị định76/2023/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -6336,6 +10281,60 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "quy dinh chi tiet mot so dieu cua luat phong chong bao luc gia dinh": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu cua luat phong chong bao luc gia dinh nam 2023": {
+      "document_ids": [
+        "nd_76_2023_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình năm 2023"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu cua luat tre em": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều của Luật trẻ em"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu cua luat tre em nam 2017": {
+      "document_ids": [
+        "nd_56_2017_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều của Luật trẻ em năm 2017"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "quy dinh chi tiet mot so dieu cua nghi dinh so 10 2015 nd cp ngay 28 thang 01 nam 2015 cua chinh phu quy dinh ve sinh con bang ky thuat thu tinh trong ong nghiem va dieu kien mang thai ho vi muc dich nhan dao": {
       "document_ids": [
         "tt_57_2015_tt_byt"
@@ -6410,6 +10409,33 @@
       ],
       "forms": [
         "Quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch năm 2015"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu va bien phap thi hanh luat hoa giai o co so": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu va bien phap thi hanh luat hoa giai o co so nam 2014": {
+      "document_ids": [
+        "nd_15_2014_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở năm 2014"
       ],
       "kinds": [
         "title_with_issue_year"
@@ -6539,6 +10565,87 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "quy dinh chi tiet thi hanh mot so dieu cua luat nuoi con nuoi": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet thi hanh mot so dieu cua luat nuoi con nuoi nam 2011": {
+      "document_ids": [
+        "nd_19_2011_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi năm 2011"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet va huong dan thi hanh mot so dieu cua luat nguoi cao tuoi": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "quy định chi tiết và hướng dẫn thi hành một số điều của Luật Người cao tuổi"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet va huong dan thi hanh mot so dieu cua luat nguoi cao tuoi nam 2011": {
+      "document_ids": [
+        "nd_06_2011_nd_cp"
+      ],
+      "forms": [
+        "quy định chi tiết và hướng dẫn thi hành một số điều của Luật Người cao tuổi năm 2011"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet va huong dan thi hanh mot so dieu cua luat nguoi khuyet tat": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "quy định chi tiết và hướng dẫn thi hành một số điều của Luật người khuyết tật"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet va huong dan thi hanh mot so dieu cua luat nguoi khuyet tat nam 2012": {
+      "document_ids": [
+        "nd_28_2012_nd_cp"
+      ],
+      "forms": [
+        "quy định chi tiết và hướng dẫn thi hành một số điều của Luật người khuyết tật năm 2012"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "quy dinh chi tiet ve dang ky ket hon theo nghi quyet so 35 2000 qh10 cua quoc hoi ve viec thi hanh luat hon nhan va gia dinh": {
       "document_ids": [
         "nd_77_2001_nd_cp"
@@ -6559,6 +10666,33 @@
       ],
       "forms": [
         "Quy định chi tiết về đăng ký kết hôn theo Nghị quyết số 35/2000/QH10 của Quốc hội về việc thi hành Luật Hôn nhân và gia đình năm 2001"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh le phi dang ky nuoi con nuoi le phi cap giay phep hoat dong cua to chuc con nuoi nuoc ngoai": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh le phi dang ky nuoi con nuoi le phi cap giay phep hoat dong cua to chuc con nuoi nuoc ngoai nam 2016": {
+      "document_ids": [
+        "nd_114_2016_nd_cp"
+      ],
+      "forms": [
+        "Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài năm 2016"
       ],
       "kinds": [
         "title_with_issue_year"
@@ -6939,6 +11073,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu 10": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư 10"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu 10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư 10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư 10/2020/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu 15": {
       "document_ids": [
         "tt_15_2015_tt_btp"
@@ -7060,7 +11233,8 @@
     },
     "thong tu 2020": {
       "document_ids": [
-        "tt_04_2020_tt_btp"
+        "tt_04_2020_tt_btp",
+        "tt_10_2020_tt_btp"
       ],
       "forms": [
         "Thông tư 2020"
@@ -7068,7 +11242,7 @@
       "kinds": [
         "type_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "thong tu 2024": {
@@ -7788,6 +11962,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu so 10": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư số 10"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu so 10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư số 10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư số 10/2020/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu so 15": {
       "document_ids": [
         "tt_15_2015_tt_btp"
@@ -8323,6 +12536,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "Thông tư10/2020/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu15 2015": {
       "document_ids": [
         "tt_15_2015_tt_btp"
@@ -8749,6 +12988,47 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt 10": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT 10"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "tt 10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT 10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT 10/2020/TT-BTP",
+        "tt_10_2020_tt_btp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt 15": {
       "document_ids": [
         "tt_15_2015_tt_btp"
@@ -8872,7 +13152,8 @@
     },
     "tt 2020": {
       "document_ids": [
-        "tt_04_2020_tt_btp"
+        "tt_04_2020_tt_btp",
+        "tt_10_2020_tt_btp"
       ],
       "forms": [
         "TT 2020"
@@ -8880,7 +13161,7 @@
       "kinds": [
         "type_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "tt 2024": {
@@ -9408,6 +13689,45 @@
       ],
       "forms": [
         "TT số 07/2002/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 10": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT số 10"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "tt so 10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT số 10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT số 10/2020/TT-BTP"
       ],
       "kinds": [
         "type_number"
@@ -10080,6 +14400,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt10 2020": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT10/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt10 2020 tt btp": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT10/2020/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt11": {
       "document_ids": [
         "tt_38_2025_tt_byt"
@@ -10099,6 +14445,19 @@
       ],
       "forms": [
         "TT13"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt14": {
+      "document_ids": [
+        "tt_10_2020_tt_btp"
+      ],
+      "forms": [
+        "TT14"
       ],
       "kinds": [
         "file_code"

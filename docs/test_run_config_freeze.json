@@ -8,9 +8,11 @@
   ],
   "top_k": 10,
   "sha256": {
-    "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+    "corpus": "50615507ff29d9f45299b2d9bad3e9c69a806f83036f7ca7c238581488c4b867",
     "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
     "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471"
   },
-  "note": "SHA-256 được tính sau khi chuẩn hóa CRLF thành LF để manifest nhất quán giữa Windows và Linux. Không đổi nội dung cấu hình Test sau khi khóa; nếu cần thay đổi, cập nhật manifest và commit riêng trước khi chạy Test. Corpus cập nhật để sửa F1: tách Khoản trích dẫn có thời hạn khác nhau trong NĐ 07/2025. Manifest này chuẩn bị cho lần chạy mới; chưa chạy lại Dev/Test và kết quả cũ không thuộc corpus mới."
+  "note": "14/11/2026: Input snapshot for trial13 corpus41 (3998 chunks). Preserves Test questions, Gold, methods, top_k and retrieval/reranking hashes. Previous corpus28 snapshot retained at reports/data/trial13/history/test_run_config_freeze_corpus28.json. This prepares a new configuration version; no official Dev/Test evaluation has run, old results remain tied to the old corpus, and dataset/legal/provision review is pending.",
+  "artifact_version": "trial13_corpus41_input_snapshot",
+  "review_status": "pending_peer_review"
 }
