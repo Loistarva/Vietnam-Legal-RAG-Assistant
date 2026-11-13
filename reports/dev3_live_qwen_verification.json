@@ -1,6 +1,6 @@
 {
   "report_id": "dev3_live_qwen_verification",
-  "created_at": "2026-11-10T13:14:16.751017+00:00",
+  "created_at": "2026-11-13T14:37:17.339966+00:00",
   "task_reference": "Sprint 9 Dev 3 (Tasks D3.3, D3.4 - DoD-10)",
   "execution_mode": "live_ollama",
   "ollama": {
@@ -14,7 +14,7 @@
     "base_url": "http://localhost:11434",
     "model": "qwen2.5:7b",
     "temperature": 0.0,
-    "repeat_penalty": 1.15,
+    "repeat_penalty": 1.0,
     "num_predict": 1024,
     "num_ctx": 8192,
     "timeout_seconds": 120.0,
@@ -42,69 +42,80 @@
   },
   "runs": {
     "run_a_zero_shot": {
-      "prompt_version": "v1.0_zero_shot_m1",
-      "prompt_hash": "d45bc77e48bdf2e75b6c637eeb45d78363b6dc24a99186ac4e8e0d3cf594b342",
+      "prompt_version": "v1.1_zero_shot",
+      "prompt_hash": "53f5a2585f3b84a7e52518e57a917724be1a02db6eb98bf89c23edb9a53e24ad",
       "response": {
         "query_id": "HN_003",
         "run_mode": "A_zero_shot",
-        "answer": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn ở Việt Nam phải dựa trên sự tự nguyện của cả hai bên. Theo Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2022), điều kiện bắt buộc để đăng ký kết hôn là cả hai đương sự đều đồng ý và có đủ năng lực hành vi dân sự.\n\nDo đó, việc kết hôn không thể được thực hiện nếu một trong hai bên không tự nguyện. Nếu có bất kỳ nghi vấn hoặc tranh chấp về tính tự nguyện của một trong hai bên, cần phải xem xét kỹ lưỡng theo quy định pháp luật để đảm bảo tuân thủ đúng các yêu cầu pháp lý.\n\nThông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+        "answer": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn ở Việt Nam phải do hai bên tự nguyện quyết định. Theo Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2022), hôn nhân chỉ được thành lập khi có sự đồng ý tự nguyện của cả hai bên. Không có bất kỳ một bên nào được ép buộc phải kết hôn.\n\nThông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
         "evidence_indices": [],
         "rejected_evidence_values": [],
         "abstained": false,
         "abstention_reason": null,
         "needs_clarification": false,
         "model": "qwen2.5:7b",
-        "prompt_version": "v1.0_zero_shot_m1",
+        "prompt_version": "v1.1_zero_shot",
         "num_ctx": 8192,
         "num_predict": 1024,
         "temperature": 0.0,
-        "repeat_penalty": 1.15,
+        "repeat_penalty": 1.0,
         "done_reason": "stop",
         "truncated": false,
         "context_truncated": false,
         "parse_status": "raw_text",
-        "latency_ms": 89609.82,
+        "latency_ms": 12350.14,
+        "load_duration_ms": 9.44,
+        "prompt_eval_duration_ms": 529.94,
+        "eval_duration_ms": 11505.24,
+        "total_duration_ms": 12344.99,
+        "ttft_model_ms": 539.38,
         "token_usage": {
-          "input": 327,
-          "output": 183
+          "input": 443,
+          "output": 118
         },
         "fallback_status": "none",
-        "raw_response": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn ở Việt Nam phải dựa trên sự tự nguyện của cả hai bên. Theo Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2022), điều kiện bắt buộc để đăng ký kết hôn là cả hai đương sự đều đồng ý và có đủ năng lực hành vi dân sự.\n\nDo đó, việc kết hôn không thể được thực hiện nếu một trong hai bên không tự nguyện. Nếu có bất kỳ nghi vấn hoặc tranh chấp về tính tự nguyện của một trong hai bên, cần phải xem xét kỹ lưỡng theo quy định pháp luật để đảm bảo tuân thủ đúng các yêu cầu pháp lý.\n\nThông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+        "raw_response": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn ở Việt Nam phải do hai bên tự nguyện quyết định. Theo Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2022), hôn nhân chỉ được thành lập khi có sự đồng ý tự nguyện của cả hai bên. Không có bất kỳ một bên nào được ép buộc phải kết hôn.\n\nThông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
         "ollama_version": "0.40.16",
         "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
       }
     },
     "run_b_controlled_rag": {
-      "prompt_version": "v1.0_controlled_rag_m1",
-      "prompt_hash": "97f1f09b4faff7ca1b89f4cd00771ae4c1f467962821f00904c216a49fc6ab39",
+      "prompt_version": "v1.1_controlled_rag",
+      "prompt_hash": "bb6aced9e602a7cfe90c867efb86c9f4fd8f88459f179d93760e326168572201",
       "response": {
         "query_id": "HN_003",
         "run_mode": "B_controlled_rag",
-        "answer": "Theo quy định tại Điều 8 của Luật Hôn nhân và gia đình năm 2014, việc kết hôn giữa nam và nữ phải tuân theo các điều kiện trong đó bao gồm 'việc kết hôn do nam và nữ tự nguyện quyết định'. Do vậy, việc kết hôn bắt buộc phải do hai bên tự nguyện quyết định.",
+        "answer": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn do nam và nữ tự nguyện quyết định là một trong những điều kiện bắt buộc để xác lập quan hệ vợ chồng. Cụ thể, theo Điều 8 của Luật Hôn nhân và gia đình 2014, nam, nữ kết hôn với nhau phải tuân theo các điều kiện, trong đó bao gồm việc kết hôn do nam và nữ tự nguyện quyết định (Điều 8.1.b). Điều này thể hiện rằng việc kết hôn không được thực hiện dưới bất kỳ hình thức ép buộc hay lừa dối nào.",
         "evidence_indices": [
-          2
+          2,
+          3
         ],
         "rejected_evidence_values": [],
         "abstained": false,
         "abstention_reason": null,
         "needs_clarification": false,
         "model": "qwen2.5:7b",
-        "prompt_version": "v1.0_controlled_rag_m1",
+        "prompt_version": "v1.1_controlled_rag",
         "num_ctx": 8192,
         "num_predict": 1024,
         "temperature": 0.0,
-        "repeat_penalty": 1.15,
+        "repeat_penalty": 1.0,
         "done_reason": "stop",
         "truncated": false,
         "context_truncated": false,
         "parse_status": "ok",
-        "latency_ms": 19922.84,
+        "latency_ms": 24804.11,
+        "load_duration_ms": 5.53,
+        "prompt_eval_duration_ms": 3448.68,
+        "eval_duration_ms": 21288.55,
+        "total_duration_ms": 24794.75,
+        "ttft_model_ms": 3454.21,
         "token_usage": {
-          "input": 2539,
-          "output": 117
+          "input": 2753,
+          "output": 187
         },
         "fallback_status": "none",
-        "raw_response": "{\n  \"answer\": \"Theo quy định tại Điều 8 của Luật Hôn nhân và gia đình năm 2014, việc kết hôn giữa nam và nữ phải tuân theo các điều kiện trong đó bao gồm 'việc kết hôn do nam và nữ tự nguyện quyết định'. Do vậy, việc kết hôn bắt buộc phải do hai bên tự nguyện quyết định.\",\n  \"evidence_indices\": [2],\n  \"abstained\": false,\n  \"abstention_reason\": null,\n  \"needs_clarification\": false\n}",
+        "raw_response": "{\n  \"answer\": \"Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn do nam và nữ tự nguyện quyết định là một trong những điều kiện bắt buộc để xác lập quan hệ vợ chồng. Cụ thể, theo Điều 8 của Luật Hôn nhân và gia đình 2014, nam, nữ kết hôn với nhau phải tuân theo các điều kiện, trong đó bao gồm việc kết hôn do nam và nữ tự nguyện quyết định (Điều 8.1.b). Điều này thể hiện rằng việc kết hôn không được thực hiện dưới bất kỳ hình thức ép buộc hay lừa dối nào.\",\n  \"evidence_indices\": [2, 3],\n  \"abstained\": false,\n  \"abstention_reason\": null,\n  \"needs_clarification\": false\n}",
         "ollama_version": "0.40.16",
         "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
       }
