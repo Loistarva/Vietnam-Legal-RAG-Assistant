@@ -58,7 +58,7 @@ def test_invalid_case_metadata_rejected(change):
 @pytest.mark.parametrize("where", ["registry", "chunk_root", "chunk_metadata"])
 def test_missing_source_case_invalidated_when_document_is_loaded(where):
     dataset = rows()
-    source = {"document_number": "52/2010/QH12"}
+    source = {"document_number": dataset[12]["required_document_number"]}
     registry = [source] if where == "registry" else []
     chunks = [source] if where == "chunk_root" else [{"metadata": source}] if where == "chunk_metadata" else []
     assert any("requested source now present" in e for e in validate_rows(dataset, registry, chunks, []))
@@ -153,7 +153,7 @@ def test_manifest_must_not_disable_safety_checks(case):
 
 
 def test_document_present_in_metadata_not_hidden_by_different_root_number():
-    chunk = {"document_number": "52/2014/QH13", "metadata": {"document_number": "52/2010/QH12"}}
+    chunk = {"document_number": "52/2014/QH13", "metadata": {"document_number": rows()[12]["required_document_number"]}}
     assert any("requested source now present" in e for e in validate_rows(rows(), [], [chunk], []))
 
 
@@ -273,9 +273,9 @@ def test_unrelated_corpus_change_is_only_a_warning(tmp_path, monkeypatch, capsys
 def test_corpus_change_adding_a_missing_source_fails(tmp_path, monkeypatch, capsys):
     def add_source(chunks):
         added = deepcopy(chunks[0])
-        added["chunk_id"] = "l_60_2014_qh13_art_16_chunk_1"
-        added["document_number"] = "60/2014/QH13"
-        added.setdefault("metadata", {})["document_number"] = "60/2014/QH13"
+        added["chunk_id"] = "synthetic_missing_primary_source_fixture"
+        added["document_number"] = rows()[12]["required_document_number"]
+        added.setdefault("metadata", {})["document_number"] = rows()[12]["required_document_number"]
         chunks.append(added)
     assert _run_on_changed_corpus(tmp_path, monkeypatch, add_source) == 1
     assert "requested source now present" in capsys.readouterr().out

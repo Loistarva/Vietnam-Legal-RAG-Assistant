@@ -1,0 +1,55 @@
+{
+  "reason": "Primary sources now ingested. Preserve original questions for later positive coverage review, not active negative calibration.",
+  "source_snapshot": "history/dev_negative_v2_corpus28",
+  "review_status": "pending_peer_review",
+  "queries": [
+    {
+      "id": "NEG_DEV_013",
+      "question": "Về nhận con nuôi, hãy trích nguyên văn Điều 14 Luật Nuôi con nuôi số 52/2010/QH12 và dẫn trực tiếp chunk của chính luật này; không dùng lời dẫn ở văn bản khác thay thế.",
+      "split": "dev",
+      "as_of_date": "2026-10-15",
+      "label": "missing_corpus_evidence",
+      "reason": "Yêu cầu trích trực tiếp nguồn sơ cấp có định danh cụ thể. Luật 52/2010/QH12 không có trong registry/corpus baseline; không được bịa chunk hoặc thay bằng một câu dẫn chiếu.",
+      "expected_route": "legal_in_scope",
+      "expected_action": "insufficient_evidence_abstention",
+      "required_document_number": "52/2010/QH12",
+      "require_primary_source": true
+    },
+    {
+      "id": "NEG_DEV_014",
+      "question": "Bố mẹ đẻ đã đồng ý cho cháu làm con nuôi nhưng ông bà phản đối. Theo Điều 21 Luật Nuôi con nuôi 52/2010/QH12 thì cần sự đồng ý của ai? Cần căn cứ trực tiếp trong luật đó.",
+      "split": "dev",
+      "as_of_date": "2026-10-15",
+      "label": "missing_corpus_evidence",
+      "reason": "Kho chưa có nguồn sơ cấp 52/2010/QH12 để đáp ứng yêu cầu trích đầy đủ; thông tin liên quan trong luật HNGĐ không thay thế được nguồn được yêu cầu.",
+      "expected_route": "legal_in_scope",
+      "expected_action": "insufficient_evidence_abstention",
+      "required_document_number": "52/2010/QH12",
+      "require_primary_source": true
+    },
+    {
+      "id": "NEG_DEV_015",
+      "question": "Về đăng ký khai sinh cho con, hãy trích nguyên văn Điều 16 Luật Hộ tịch số 60/2014/QH13 và chỉ rõ chunk thuộc chính luật đó.",
+      "split": "dev",
+      "as_of_date": "2026-10-15",
+      "label": "missing_corpus_evidence",
+      "reason": "Registry/corpus có văn bản hướng dẫn hộ tịch nhưng không có chính Luật 60/2014/QH13; yêu cầu nguồn sơ cấp không được đáp ứng bằng văn bản khác.",
+      "expected_route": "legal_in_scope",
+      "expected_action": "insufficient_evidence_abstention",
+      "required_document_number": "60/2014/QH13",
+      "require_primary_source": true
+    },
+    {
+      "id": "NEG_DEV_016",
+      "question": "Cha muốn nhận con sau nhiều năm không sống cùng mẹ. Thủ tục tại Điều 25 Luật Hộ tịch 60/2014/QH13 thực hiện ra sao? Cần căn cứ từ chính điều luật này.",
+      "split": "dev",
+      "as_of_date": "2026-10-15",
+      "label": "missing_corpus_evidence",
+      "reason": "Câu hỏi nằm trong nhóm hộ tịch gia đình của corpus, nhưng đòi nguồn gốc 60/2014/QH13 chưa được nạp; không suy ra rằng toàn bộ chủ đề không thể trả lời.",
+      "expected_route": "legal_in_scope",
+      "expected_action": "insufficient_evidence_abstention",
+      "required_document_number": "60/2014/QH13",
+      "require_primary_source": true
+    }
+  ]
+}

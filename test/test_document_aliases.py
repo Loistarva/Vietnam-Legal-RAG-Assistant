@@ -100,7 +100,7 @@ def test_year_alone_never_resolves_even_with_one_candidate(aliases):
     assert result["status"] == "ambiguous" and len(result["candidates"]) == 2
 
 
-@pytest.mark.parametrize("text", ["Luật 2014", "NQ 2024"])
+@pytest.mark.parametrize("text", ["Luật 1986", "NQ 2024"])
 def test_type_and_year_without_name_or_number_still_need_context(aliases, text):
     result = resolve_document_alias(text, aliases)
     assert result["status"] == "insufficient_context" and result["document_id"] is None
@@ -239,7 +239,7 @@ def test_actual_audit_and_generated_file(inputs, aliases):
     report = audit_metadata(*inputs)
     assert report["errors"] == []
     assert (
-        report["registry_document_count"] == 28 and report["corpus_chunk_count"] == 2322
+        report["registry_document_count"] == 41 and report["corpus_chunk_count"] == 3998
     )
     assert load_alias_map() == aliases
 

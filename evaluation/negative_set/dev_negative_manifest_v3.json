@@ -1,0 +1,94 @@
+{
+  "dataset_version": "dev_negative_v2",
+  "created_on": "2026-11-14",
+  "as_of_date": "2026-10-15",
+  "purpose": "Development router, evidence-abstention and clarification calibration; not official A/B or Test",
+  "review_status": "pending_peer_review",
+  "reviewers_required": [
+    "Dev 2",
+    "Tech Lead"
+  ],
+  "authorship": "New synthetic scenarios authored for D1.5; not sampled or paraphrased from benchmark questions",
+  "question_count": 26,
+  "label_counts": {
+    "non_legal": 6,
+    "legal_out_of_scope": 8,
+    "missing_corpus_evidence": 6,
+    "insufficient_facts": 6
+  },
+  "dataset_canonical_sha256": "3a6acab88c1e190b172876a325b94a68180c0e6f1aec8c19cd2829d76ae7b358",
+  "baseline_git_sha": "cbc6af950ba88794300cdf8b550527b70ade0dc8",
+  "baseline_files_git_sha256": {
+    "data/reference/document_versions.json": "318bcaca22af0b29c97270e6114ffe0d8d11484b1351fce802bdaf31051f6177",
+    "data/chunking_output/chunks.jsonl": "50615507ff29d9f45299b2d9bad3e9c69a806f83036f7ca7c238581488c4b867"
+  },
+  "benchmark_query_sources": [
+    {
+      "git_sha": "cbc6af950ba88794300cdf8b550527b70ade0dc8",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    },
+    {
+      "git_sha": "cbc6af950ba88794300cdf8b550527b70ade0dc8",
+      "path": "data/benchmark/queries_dev.json",
+      "canonical_sha256": "69b583d9d9606e96e537c25f79425f21d9c12c4d1672fe8e41ad404da9b536e0"
+    },
+    {
+      "git_sha": "6288e8c7868c198d4c12c9b8e0f7a49d445facd2",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    }
+  ],
+  "scope_review_required": [
+    "Adoption and family civil-status are treated as family-related for these source-coverage cases",
+    "Divorce court-fee questions test a missing primary source, not general tax/fee jurisdiction"
+  ],
+  "reference_identity_sources": [
+    {
+      "document_number": "24/2019/NĐ-CP",
+      "url": "https://vanban.chinhphu.vn/default.aspx?docid=196393&pageid=27160"
+    },
+    {
+      "document_number": "06/2025/NĐ-CP",
+      "url": "https://vanban.chinhphu.vn/?docid=212318&pageid=27160"
+    },
+    {
+      "document_number": "07/2023/TT-BTP",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334.htm"
+    },
+    {
+      "document_number": "05/2015/TTLT-BTP-BCA-BYT",
+      "url": "https://vanban.chinhphu.vn/default.aspx?docid=180308&pageid=27160"
+    },
+    {
+      "document_number": "326/2016/UBTVQH14",
+      "url": "https://baochinhphu.vn/uy-ban-thuong-vu-quoc-hoi-ra-nghi-quyet-ve-an-phi-le-phi-toa-an-102215425.htm"
+    }
+  ],
+  "supersedes": "dev_negative_v2 corpus28; byte-for-byte snapshot retained in history/dev_negative_v2_corpus28",
+  "boundary_review_ids": [
+    "NEG_DEV_025",
+    "NEG_DEV_026"
+  ],
+  "coverage_review": {
+    "date": "2026-11-14",
+    "registry_documents": 41,
+    "corpus_chunks": 3998,
+    "missing_primary_numbers": [
+      "24/2019/NĐ-CP",
+      "06/2025/NĐ-CP",
+      "07/2023/TT-BTP",
+      "05/2015/TTLT-BTP-BCA-BYT",
+      "326/2016/UBTVQH14"
+    ],
+    "note": "Checked primary identities in both registry and chunk root/metadata. References to these documents in other legal texts do not satisfy the explicit request. Review and calibration remain pending."
+  },
+  "artifact_version": "dev_negative_v3",
+  "schema_compatibility_note": "dataset_version remains dev_negative_v2 as the supported row/manifest schema; artifact_version identifies the v3 dataset release. No production code or workflow changes.",
+  "changed_query_ids": [
+    "NEG_DEV_013",
+    "NEG_DEV_014",
+    "NEG_DEV_015",
+    "NEG_DEV_016"
+  ]
+}

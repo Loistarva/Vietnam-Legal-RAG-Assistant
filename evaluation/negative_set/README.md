@@ -1,4 +1,24 @@
-# Bản bàn giao hiện tại: v2
+# Bản bàn giao hiện tại: v3 cho corpus 41 văn bản
+
+Ngày chuẩn bị: **14/11/2026**. Bộ v3 giữ nguyên 22 câu, thay 4 câu `NEG_DEV_013`–`NEG_DEV_016` vì Luật Nuôi con nuôi 52/2010 và Luật Hộ tịch 60/2014 đã được nạp. Bốn tình huống mới yêu cầu trực tiếp nguồn sơ cấp chưa có: NĐ 24/2019, NĐ 06/2025, TT 07/2023 và TTLT 05/2015. Không coi dẫn chiếu trong văn bản khác là đã có nguồn được yêu cầu.
+
+- Bản phát hành: `dev_negative_queries_v3.jsonl` và `dev_negative_manifest_v3.json`.
+- Đường dẫn tương thích CI/runtime cũ: hai file `*_v2.*` chứa **cùng nội dung byte** với v3. Không sửa code validator hoặc workflow để đổi đường dẫn.
+- `artifact_version=dev_negative_v3` định danh lần phát hành. `dataset_version=dev_negative_v2` giữ nguyên định danh **schema được validator hiện tại hỗ trợ**, không có nghĩa là bộ câu hỏi cũ chưa đổi.
+- Snapshot nguyên byte v2 corpus28: [history/dev_negative_v2_corpus28](history/dev_negative_v2_corpus28/). Bốn câu cũ được giữ riêng tại [review/retired_missing_sources_corpus41.json](review/retired_missing_sources_corpus41.json), chờ xem xét làm ca kiểm tra coverage dương.
+- Corpus baseline pin tại `bbac363` (41 văn bản, 3.998 child chunk); ngày khảo sát vẫn `2026-10-15`, không đổi theo ngày tạo dữ liệu.
+- Tất cả nhãn vẫn `pending_peer_review`, cần **Dev 2 + Tech Lead** duyệt; không tự xác nhận calibration hoặc cập nhật threshold.
+- Các kết quả dự đoán/calibration tạo cho v2 cũ không áp dụng cho v3 dù một số ID giữ nguyên. Phải chọn artifact theo hash dataset và corpus, không chỉ theo tên đường dẫn v2.
+
+Chạy rõ bản phát hành:
+
+```powershell
+python scripts/validate_negative_set.py --dataset evaluation/negative_set/dev_negative_queries_v3.jsonl --manifest evaluation/negative_set/dev_negative_manifest_v3.json --fetch-sources
+```
+
+Các ghi chú v2/v1 dưới đây là lịch sử. Xem báo cáo mới [validation_report_v3.md](validation_report_v3.md).
+
+# Bản bàn giao lịch sử: v2, corpus 28 văn bản
 
 Dùng `dev_negative_queries_v2.jsonl` và `dev_negative_manifest_v2.json`. Có 26 câu, đã rà coverage trên testing fc66642 (28 văn bản, 2.322 chunk); nhãn ranh giới NEG_DEV_025/026 chờ Tech Lead chốt. Xem [validation_report_v2.md](validation_report_v2.md). Các mô tả v1 dưới đây giữ để truy vết lịch sử.
 
