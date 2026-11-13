@@ -378,12 +378,20 @@ class LLMResponse(StrictBaseModel):
     num_ctx: int = 8192
     num_predict: int = 1024
     temperature: float = 0.0
-    repeat_penalty: float = 1.15
+    repeat_penalty: float = 1.0
     done_reason: str
     truncated: bool = False
     context_truncated: bool = False
     parse_status: Literal["ok", "truncated_json", "invalid_json", "raw_text"] = "ok"
     latency_ms: float = 0.0
+    # Thời gian Ollama trả về (nano giây -> ms), có cả khi stream=false (P45-3). null = Ollama
+    # không trả trường đó, không đặt 0. ttft_model_ms = load + prompt_eval: từ lúc gửi đến token
+    # đầu tiên của model (xấp xỉ vì gateway gọi không stream). load_duration_ms lớn = khởi động nguội.
+    load_duration_ms: float | None = Field(default=None, ge=0)
+    prompt_eval_duration_ms: float | None = Field(default=None, ge=0)
+    eval_duration_ms: float | None = Field(default=None, ge=0)
+    total_duration_ms: float | None = Field(default=None, ge=0)
+    ttft_model_ms: float | None = Field(default=None, ge=0)
     token_usage: TokenUsage = Field(default_factory=TokenUsage)
     fallback_status: str = "none"
     raw_response: str | None = None

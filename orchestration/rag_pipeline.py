@@ -316,18 +316,17 @@ def _ms(value: Any) -> float | None:
 
 
 def latency_breakdown(llm: LLMResponse | None, *, retrieval_ms: float | None) -> LatencyBreakdown:
-    """Per-step times (P45-6). The Ollama durations come from the gateway fields of P45-3
-    (``ttft_model_ms``, ``load_duration_ms``, ``prompt_eval_duration_ms``, ``eval_duration_ms``)
-    and stay null while the gateway does not return them; nothing is set to 0."""
+    """Per-step times (P45-6). The Ollama durations come from the gateway (P45-3) and stay
+    null when Ollama did not return them; nothing is set to 0."""
     if llm is None:
         return LatencyBreakdown(retrieval_ms=retrieval_ms)
     return LatencyBreakdown(
         retrieval_ms=retrieval_ms,
         llm_total_ms=_ms(llm.latency_ms),
-        ttft_model_ms=_ms(getattr(llm, "ttft_model_ms", None)),
-        load_ms=_ms(getattr(llm, "load_duration_ms", None)),
-        prompt_eval_ms=_ms(getattr(llm, "prompt_eval_duration_ms", None)),
-        eval_ms=_ms(getattr(llm, "eval_duration_ms", None)),
+        ttft_model_ms=_ms(llm.ttft_model_ms),
+        load_ms=_ms(llm.load_duration_ms),
+        prompt_eval_ms=_ms(llm.prompt_eval_duration_ms),
+        eval_ms=_ms(llm.eval_duration_ms),
     )
 
 

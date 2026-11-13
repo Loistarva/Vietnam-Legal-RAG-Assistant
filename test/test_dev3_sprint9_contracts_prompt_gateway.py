@@ -359,8 +359,8 @@ class TestContractsAndSchemas:
 
 class TestPromptBuilder:
     def test_prompt_version_and_disclaimer_frozen(self):
-        assert PROMPT_A_VERSION == "v1.0_zero_shot_m1"
-        assert PROMPT_B_VERSION == "v1.0_controlled_rag_m1"
+        assert PROMPT_A_VERSION == "v1.1_zero_shot"
+        assert PROMPT_B_VERSION == "v1.1_controlled_rag"
         assert STANDARD_DISCLAIMER == "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
 
     def test_prompt_hash(self):
@@ -385,6 +385,7 @@ class TestPromptBuilder:
         assert "2. Nếu câu hỏi" in prompt
         assert "3. Thời điểm hiệu lực" in prompt
         assert "4. Cuối câu trả lời" in prompt
+        assert "5. NGÔN NGỮ VÀ NGUỒN LUẬT" in prompt
 
     def test_build_controlled_rag_prompt_formatting(self):
         item1 = EvidenceItem(
@@ -475,7 +476,7 @@ class TestQwenModelGateway:
         gateway = QwenGateway()
         assert gateway.config.model == "qwen2.5:7b"
         assert gateway.config.temperature == 0.0
-        assert gateway.config.repeat_penalty == 1.15
+        assert gateway.config.repeat_penalty == 1.0
         assert gateway.config.num_predict == 1024
         assert gateway.config.num_ctx == 8192
         assert gateway.config.fallback_locked is True
@@ -508,7 +509,7 @@ class TestQwenModelGateway:
         assert sent_payload["options"]["num_ctx"] == 8192
         assert sent_payload["options"]["num_predict"] == 1024
         assert sent_payload["options"]["temperature"] == 0.0
-        assert sent_payload["options"]["repeat_penalty"] == 1.15
+        assert sent_payload["options"]["repeat_penalty"] == 1.0
         assert "format" not in sent_payload
 
         assert resp.query_id == "q_zero"

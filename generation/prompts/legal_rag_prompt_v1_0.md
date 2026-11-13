@@ -1,7 +1,7 @@
-# Legal RAG Prompt Specification (Sprint 9 - M1 Freeze)
+# Legal RAG Prompt Specification (Sprint 9 - M1 Freeze, v1.1 sau Run B 10/11)
 
-- **Prompt A Version**: `v1.0_zero_shot_m1`
-- **Prompt B Version**: `v1.0_controlled_rag_m1`
+- **Prompt A Version**: `v1.1_zero_shot` (trước đó `v1.0_zero_shot_m1`)
+- **Prompt B Version**: `v1.1_controlled_rag` (trước đó `v1.0_controlled_rag_m1`)
 - **Model**: `qwen2.5:7b`
 - **Standard Disclaimer**: `Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.`
 
@@ -15,7 +15,8 @@ Dành cho Run A để đo lường năng lực pháp lý gốc (zero-shot capabi
 - Quản lý mốc thời gian: Nhận tham số bắt buộc `as_of_date` từ benchmark (ví dụ `2024-01-01`).
 - Hướng dẫn hiệu lực: Yêu cầu mô hình nêu rõ `"Theo quy định có hiệu lực tại ngày {as_of_date}..."`.
 - Không đòi hỏi mô hình trích dẫn chunk ID.
-- Đánh số quy tắc 1, 2, 3, 4 liên tục, kết thúc luôn có disclaimer chuẩn.
+- Đánh số quy tắc 1, 2, 3, 4, 5 liên tục, kết thúc luôn có disclaimer chuẩn.
+- Quy tắc 5 (từ v1.1), nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài (ví dụ luật Trung Quốc).`
 
 ---
 
@@ -36,3 +37,13 @@ Dải số bằng chứng hiển thị chính xác theo số lượng thực t�
 5. **Clarification**: Đặt `"needs_clarification": true` nếu câu hỏi thiếu dữ kiện pháp lý thiết yếu.
 6. **Structured Output**: Bắt buộc tuân thủ JSON Schema của `StructuredRAGOutput`.
 7. **Empty Safety**: Ném `ValueError("Empty retrieval: không có bằng chứng để tạo prompt.")` nếu `evidence_items` rỗng.
+8. **Ngôn ngữ và nguồn luật** (từ v1.1): quy tắc số 6 của mục RÀNG BUỘC NGHIÊM NGẶT, ngay trước `YÊU CẦU ĐẦU RA:`, nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Trường "answer" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam có trong bằng chứng; tuyệt đối không viện dẫn pháp luật nước ngoài (ví dụ luật Trung Quốc).` Không thêm system message: khi thử, system message tiếng Việt không giúp thêm (HN_062 vẫn lỗi).
+
+---
+
+## 3. Change log
+
+| Ngày | Phiên bản | Thay đổi | Lý do |
+| --- | --- | --- | --- |
+| 2026-11-13 | `v1.1_zero_shot`, `v1.1_controlled_rag` | Thêm quy tắc ngôn ngữ và nguồn luật (Prompt A quy tắc 5, Prompt B quy tắc 6); `repeat_penalty` 1.15 → 1.0 trong `model_gateway/config/local_qwen.yaml` | Run B 10/11: HN_025 trả lời gần như toàn bộ bằng tiếng Trung, dẫn Luật Hôn nhân CHND Trung Hoa; HN_062 chuyển sang tiếng Trung ở ý 5. Thử lại 2 câu: chỉ thêm quy tắc vẫn lỗi, quy tắc + `repeat_penalty` 1.0 thì cả hai PASS sạch. Thay đổi sau Freeze, cần Tech Lead duyệt (P45-10). |
+| M1 | `v1.0_zero_shot_m1`, `v1.0_controlled_rag_m1` | Bản khóa đầu tiên | — |

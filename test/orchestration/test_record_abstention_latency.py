@@ -8,6 +8,8 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
+from generation.prompt_builder import LANGUAGE_RULE_B, PROMPT_B_VERSION
+from model_gateway.llm_gateway import QwenGateway
 from orchestration.rag_pipeline import FAIL_MESSAGE, LivePipelineSource, apply_grounding_gate, count_cjk_chars
 from reranking.confidence import ConfidenceConfig
 from schemas.models import LLMResponse, RAGOutputRecord
@@ -168,22 +170,12 @@ def test_full_vietnamese_diacritics_are_not_cjk():
 # ---------------------------------------------------------------------------
 # P45-6: llm_calls and latency_breakdown
 # ---------------------------------------------------------------------------
-class TimedLLMResponse(LLMResponse):
-    """LLMResponse with the Ollama duration fields planned in P45-3 (Dev 3)."""
-    load_duration_ms: float | None = None
-    prompt_eval_duration_ms: float | None = None
-    eval_duration_ms: float | None = None
-    total_duration_ms: float | None = None
-    ttft_model_ms: float | None = None
-
-
-class TimedGenerator:
-    def __init__(self, base, **durations):
-        self.base, self.durations, self.config = base, durations, base.config
-
-    def generate(self, *args, **kwargs):
-        response = self.base.generate(*args, **kwargs)
-        return TimedLLMResponse(**response.model_dump(), **self.durations)
+def test_record_carries_the_new_prompt_version(rag):
+    """P45-1: Run B records name v1.1, so they are told apart from the 10/11 run (v1.0_controlled_rag_m1)."""
+    pipeline, gen = rag.make_pipeline(_five(rag))
+    record = rag.run(pipeline).record
+    assert record.prompt_version == PROMPT_B_VERSION == "v1.1_controlled_rag"
+    assert LANGUAGE_RULE_B in gen.prompts[0]
 
 
 def test_breakdown_is_null_without_measurements(rag):
@@ -196,8 +188,8 @@ def test_breakdown_is_null_without_measurements(rag):
 
 
 def test_breakdown_takes_ollama_durations_when_the_gateway_returns_them(rag):
-    gen = TimedGenerator(rag.FakeGenerator(), load_duration_ms=12000.5, prompt_eval_duration_ms=800.25,
-                         eval_duration_ms=9000.0, total_duration_ms=21900.0, ttft_model_ms=12800.75)
+    gen = rag.FakeGenerator(load_duration_ms=12000.5, prompt_eval_duration_ms=800.25,
+                            eval_duration_ms=9000.0, total_duration_ms=21900.0, ttft_model_ms=12800.75)
     pipeline, _ = rag.make_pipeline(_five(rag), gen)
     breakdown = rag.run(pipeline).record.latency_breakdown
     assert (breakdown.ttft_model_ms, breakdown.load_ms, breakdown.prompt_eval_ms, breakdown.eval_ms) == (
@@ -210,6 +202,24 @@ def test_breakdown_without_llm_call(rag):
     record = rag.run(pipeline).record
     assert record.llm_calls == 0
     assert all(v is None for v in record.latency_breakdown.model_dump().values())
+
+
+def test_breakdown_from_a_real_gateway_reply(rag):
+    """Ollama nanosecond durations flow through QwenGateway into the record."""
+    def transport(url, payload, timeout):
+        body = {"answer": "Theo [1], nam từ đủ 20 tuổi.", "evidence_indices": [1], "abstained": False,
+                "abstention_reason": None, "needs_clarification": False}
+        return {"model": "qwen2.5:7b", "response": json.dumps(body), "done": True, "done_reason": "stop",
+                "prompt_eval_count": 1200, "eval_count": 40, "load_duration": 12_000_000_000,
+                "prompt_eval_duration": 1_500_000_000, "eval_duration": 8_000_000_000,
+                "total_duration": 21_600_000_000}
+
+    pipeline, _ = rag.make_pipeline(_five(rag), QwenGateway(transport=transport))
+    record = rag.run(pipeline).record
+    assert record.grounding_status == "PASS"
+    breakdown = record.latency_breakdown
+    assert (breakdown.load_ms, breakdown.prompt_eval_ms, breakdown.eval_ms, breakdown.ttft_model_ms) == (
+        12000.0, 1500.0, 8000.0, 13500.0)
 
 
 def test_live_source_measures_retrieval(rag):

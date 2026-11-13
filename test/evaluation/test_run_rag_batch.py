@@ -159,7 +159,7 @@ def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch)
     assert runtime["model_digest"] == "test-digest"
     assert runtime["ollama_version"] == "test-ollama"
     assert runtime["temperature"] == 0.0
-    assert runtime["repeat_penalty"] == 1.15
+    assert runtime["repeat_penalty"] == 1.0
     assert runtime["num_ctx"] == 8192
     assert runtime["num_predict"] == 1024
     assert runtime["timeout_seconds"] == 120

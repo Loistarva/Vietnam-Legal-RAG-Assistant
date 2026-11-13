@@ -9,9 +9,22 @@ import hashlib
 
 from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
-# 1. Khóa phiên bản prompt tại M1
-PROMPT_A_VERSION: str = "v1.0_zero_shot_m1"
-PROMPT_B_VERSION: str = "v1.0_controlled_rag_m1"
+# 1. Phiên bản prompt. Khóa tại M1 (v1.0_*_m1); v1.1 thêm quy tắc ngôn ngữ và nguồn luật sau
+#    Run B 10/11 (HN_025, HN_062 trả lời tiếng Trung, dẫn luật Trung Quốc). Cần Tech Lead duyệt (P45-10).
+PROMPT_A_VERSION: str = "v1.1_zero_shot"
+PROMPT_B_VERSION: str = "v1.1_controlled_rag"
+
+# Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
+LANGUAGE_RULE_B: str = (
+    "NGÔN NGỮ VÀ NGUỒN LUẬT: Trường \"answer\" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
+    "hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam có trong bằng chứng; tuyệt đối không viện dẫn pháp "
+    "luật nước ngoài (ví dụ luật Trung Quốc)."
+)
+LANGUAGE_RULE_A: str = (
+    "NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
+    "hay ngôn ngữ khác. Chỉ căn cứ pháp luật Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài "
+    "(ví dụ luật Trung Quốc)."
+)
 
 # Cố định câu Disclaimer chuẩn theo yêu cầu Sprint 9
 STANDARD_DISCLAIMER: str = "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
@@ -48,7 +61,7 @@ def build_zero_shot_prompt(
     """
     Xây dựng Prompt A cho Run A (Zero-Shot Qwen2.5:7b, không có ngữ cảnh RAG).
     Khóa duy nhất một biến thể nhận as_of_date rõ ràng.
-    Đánh số thứ tự quy tắc 1, 2, 3, 4 liên tục.
+    Đánh số thứ tự quy tắc 1, 2, 3, 4, 5 liên tục (quy tắc 5 = ngôn ngữ và nguồn luật, từ v1.1).
     """
     as_of_date_clean = as_of_date.strip()
     prompt_lines = [
@@ -61,6 +74,7 @@ def build_zero_shot_prompt(
         "2. Nếu câu hỏi nằm ngoài phạm vi này hoặc không đủ thông tin để xác định bản chất pháp lý, hãy từ chối lịch sự và nêu rõ lý do.",
         f"3. Thời điểm hiệu lực áp dụng: {as_of_date_clean}. Khi trả lời câu hỏi gắn với mốc thời gian hoặc hiệu lực văn bản, câu trả lời phải nêu rõ: \"Theo quy định có hiệu lực tại ngày {as_of_date_clean}...\". Đảm bảo căn cứ vào các văn bản pháp luật có hiệu lực tại mốc thời gian trên.",
         f"4. Cuối câu trả lời luôn đính kèm câu khuyến cáo: \"{STANDARD_DISCLAIMER}\".",
+        f"5. {LANGUAGE_RULE_A}",
         "",
         f"CÂU HỎI: {query.strip()}",
         "",
@@ -107,6 +121,7 @@ RÀNG BUỘC NGHIÊM NGẶT (DEFENSIVE CONSTRAINTS):
 4. VỀ CÂU HỎI MƠ HỒ:
    - Nếu câu hỏi thiếu dữ kiện quan trọng cần làm rõ, đặt "needs_clarification": true.
 5. Luôn đính kèm khuyến cáo pháp lý: "{STANDARD_DISCLAIMER}".
+6. {LANGUAGE_RULE_B}
 
 YÊU CẦU ĐẦU RA:
 Bạn PHẢI trả về duy nhất một đối tượng JSON hợp lệ (không kèm markdown code block bên ngoài nếu dùng format JSON) tuân thủ đúng cấu trúc sau:
