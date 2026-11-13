@@ -85,6 +85,19 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **ND11** | `nd_07_2025_nd_cp` | 07/2025/NĐ-CP | Sửa đổi bổ sung | Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực |
 | **ND13** | `nd_18_2026_nd_cp` | 18/2026/NĐ-CP | Còn hiệu lực | Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp |
 | **TT13** | `tt_04_2024_tt_btp` | 04/2024/TT-BTP | Còn hiệu lực | Sửa đổi, bổ sung một số điều của Thông tư số 02/2020/TT-BTP ngày 08/4/2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn sử dụng, quản lý mẫu sổ quốc tịch và mẫu giấy tờ về quốc tịch và Thông tư số 04/2020/TT-BTP ngày 28/5/2020 của Bộ trưởng Bộ Tư pháp quy định chi tiết thi hành một số điều của Luật Hộ tịch và Nghị định số 123/2015/NĐ-CP ngày 15/11/2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch |
+| **L05** | `l_60_2014_qh13` | 60/2014/QH13 | Không xác định | LUẬT HỘ TỊCH |
+| **L06** | `l_52_2010_qh12` | 52/2010/QH12 | Không xác định | LUẬT NUÔI CON NUÔI |
+| **L07** | `l_13_2022_qh15` | 13/2022/QH15 | Không xác định | Luật phòng, chống bạo lực gia đình |
+| **TT14** | `tt_10_2020_tt_btp` | 10/2020/TT-BTP | Không xác định | ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi |
+| **ND14** | `nd_06_2011_nd_cp` | 06/2011/NĐ-CP | Không xác định | quy định chi tiết và hướng dẫn thi hành một số điều của Luật Người cao tuổi |
+| **L08** | `l_35_2013_qh13` | 35/2013/QH13 | Không xác định | Luật Hòa giải ở cơ sở |
+| **ND15** | `nd_28_2012_nd_cp` | 28/2012/NĐ-CP | Không xác định | quy định chi tiết và hướng dẫn thi hành một số điều của Luật người khuyết tật |
+| **L09** | `l_51_2010_qh12` | 51/2010/QH12 | Không xác định | LUẬT NGƯỜI KHUYẾT TẬT |
+| **ND16** | `nd_19_2011_nd_cp` | 19/2011/NĐ-CP | Không xác định | Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi |
+| **ND17** | `nd_56_2017_nd_cp` | 56/2017/NĐ-CP | Không xác định | Quy định chi tiết một số điều của Luật trẻ em |
+| **ND18** | `nd_76_2023_nd_cp` | 76/2023/NĐ-CP | Không xác định | Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình |
+| **ND19** | `nd_114_2016_nd_cp` | 114/2016/NĐ-CP | Không xác định | Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài |
+| **ND20** | `nd_15_2014_nd_cp` | 15/2014/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở |
 
 Quy tắc định danh cấu trúc phân cấp:
 - **Article ID**: `[document_id]_art_[số_điều]` (Ví dụ: `l_52_2014_qh13_art_8`). Mã quản lý tương ứng: `L01_D08`.

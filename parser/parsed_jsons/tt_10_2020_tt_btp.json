@@ -1,0 +1,326 @@
+{
+  "document_id": "tt_10_2020_tt_btp",
+  "metadata": {
+    "title": "ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi",
+    "document_type": "Thông tư",
+    "document_number": "10/2020/TT-BTP",
+    "issue_date": "2020-12-28",
+    "effective_date": "2021-02-26",
+    "issuing_body": "Bộ Tư pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
+    "source_status": "Chưa xác minh hiệu lực hiện tại - bộ thử parser/chunker",
+    "provision_status": "requires_review"
+  },
+  "articles": [
+    {
+      "article_id": "tt_10_2020_tt_btp_art_1",
+      "article_number": "1",
+      "article_title": "Phạm vi điều chỉnh",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_1_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_1",
+          "clause_number": "1",
+          "clause_text": "Thông tư này ban hành, hướng dẫn việc ghi chép, sử dụng các mẫu Sổ đăng ký nuôi con nuôi, Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam, giấy tờ nuôi con nuôi; lưu trữ, quản lý Sổ, giấy tờ nuôi con nuôi, hồ sơ đăng ký nuôi con nuôi trong nước, hồ sơ đăng ký nuôi con nuôi có yếu tố nước ngoài và hồ sơ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_2",
+      "article_number": "2",
+      "article_title": "Đối tượng sử dụng mẫu Sổ và mẫu giấy tờ",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "1",
+          "clause_text": "1. Công dân Việt Nam, người Việt Nam định cư ở nước ngoài, người nước ngoài thường trú tại Việt Nam và người nước ngoài thường trú ở nước ngoài có yêu cầu giải quyết các việc về nuôi con nuôi tại Việt Nam;",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân các cấp;",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "3",
+          "clause_text": "3. Sở Tư pháp các tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là Sở Tư pháp);",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_4",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "4",
+          "clause_text": "4. Cơ quan đại diện Việt Nam ở nước ngoài;",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_5",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "5",
+          "clause_text": "5. Cục Con nuôi, Bộ Tư pháp;",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_6",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "6",
+          "clause_text": "6. Tổ chức con nuôi nước ngoài xin cấp, gia hạn, sửa đổi Giấy phép hoạt động nuôi con nuôi nước ngoài tại Việt Nam;",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_2_clause_7",
+          "parent_article_id": "tt_10_2020_tt_btp_art_2",
+          "clause_number": "7",
+          "clause_text": "7. Cá nhân, tổ chức khác có liên quan theo quy định của Luật Nuôi con nuôi.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_3",
+      "article_number": "3",
+      "article_title": "Ban hành mẫu Sổ, mẫu giấy tờ",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_3_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_3",
+          "clause_number": "1",
+          "clause_text": "1. Ban hành kèm theo Thông tư này: a) 02 mẫu Sổ (Phụ lục 1); b) 07 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi trong nước (Phụ lục 2); c) 14 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi có yếu tố nước ngoài (Phụ lục 3); d) 06 mẫu giấy tờ dùng chung cho việc đăng ký nuôi con nuôi trong nước và nuôi con nuôi có yếu tố nước ngoài (Phụ lục 4).",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_3_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_3",
+          "clause_number": "2",
+          "clause_text": "2. Tiêu chuẩn về kích thước, màu sắc, chi tiết kỹ thuật của mẫu Sổ và mẫu giấy tờ được mô tả cụ thể trong các Phụ lục ban hành kèm theo Thông tư này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_4",
+      "article_number": "4",
+      "article_title": "In, phát hành mẫu Sổ và mẫu giấy tờ",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_4_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_4",
+          "clause_number": "1",
+          "clause_text": "1. Các mẫu Sổ, mẫu giấy tờ nuôi con nuôi được đăng tải trên Cổng thông tin điện tử của Bộ Tư pháp (tại địa chỉ: cơ quan đăng ký nuôi con nuôi có thể truy cập, tự in để sử dụng, trừ mẫu Sổ và các mẫu giấy tờ quy định tại khoản 2 Điều này. Các mẫu Sổ, mẫu giấy tờ nuôi con nuôi do cơ quan đăng ký nuôi con nuôi tự in phải được in bằng loại mực tốt, màu đen, không bị nhòe, mất nét hoặc phai màu.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_4_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_4",
+          "clause_number": "2",
+          "clause_text": "2. Bộ Tư pháp in Giấy chứng nhận nuôi con nuôi trong nước (gồm bản chính có nội dung, bản chính - phôi, không có nội dung), Quyết định nuôi con nuôi có yếu tố nước ngoài (gồm bản chính có nội dung, bản chính - phôi, không có nội dung), Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam, Giấy chứng nhận việc nuôi con nuôi có yếu tố nước ngoài phù hợp Công ước La Hay, Sổ đăng ký nuôi con nuôi. Căn cứ vào nhu cầu sử dụng của địa phương, Sở Tư pháp liên hệ với Nhà Xuất bản tư pháp, Bộ Tư pháp để đăng ký mua mẫu Sổ và mẫu giấy tờ nuôi con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_4_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_4",
+          "clause_number": "3",
+          "clause_text": "3. Trường hợp cơ quan đăng ký nuôi con nuôi đã sử dụng Phần mềm đăng ký, quản lý hộ tịch dùng chung thì có thể sử dụng phôi mẫu Giấy chứng nhận nuôi con nuôi trong nước (bản chính - phôi, không có nội dung) và phôi mẫu Quyết định nuôi con nuôi có yếu tố nước ngoài (bản chính - phôi, không có nội dung) để in trực tiếp toàn bộ nội dung thông tin đăng ký nuôi con nuôi theo đúng tiêu chuẩn, được Bộ Tư pháp công nhận.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_4_clause_4",
+          "parent_article_id": "tt_10_2020_tt_btp_art_4",
+          "clause_number": "4",
+          "clause_text": "4. Cá nhân, tổ chức có yêu cầu giải quyết việc nuôi con nuôi (sau đây gọi chung là người có yêu cầu) truy cập trên Cổng thông tin điện tử của Bộ Tư pháp (tại địa chỉ: để tự in và sử dụng các loại mẫu Đơn, Tờ khai và Báo cáo. Trường hợp người có yêu cầu không thể tự in các loại mẫu Đơn, Tờ khai và Báo cáo, thì cơ quan đăng ký nuôi con nuôi có trách nhiệm in và phát miễn phí cho người có yêu cầu.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_5",
+      "article_number": "5",
+      "article_title": "Yêu cầu đối với việc ghi và cách ghi Sổ đăng ký nuôi con nuôi, Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam và giấy tờ nuôi con nuôi",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "1",
+          "clause_text": "1. Công chức tư pháp - hộ tịch cấp xã, người làm công tác hộ tịch tại Phòng Tư pháp cấp huyện, công chức Sở Tư pháp, viên chức ngoại giao, lãnh sự, công chức Cục Con nuôi, Bộ Tư pháp (sau đây gọi là người làm công tác đăng ký nuôi con nuôi) là người thực hiện thủ tục phải trực tiếp ghi vào Sổ đăng ký nuôi con nuôi và giấy tờ nuôi con nuôi. Nội dung ghi phải chính xác; chữ viết phải rõ ràng, đủ nét, không viết tắt, không tẩy xóa; viết cùng một màu mực; không dùng mực đỏ. Việc ghi vào Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam được thực hiện trên máy tính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "2",
+          "clause_text": "2. Họ, chữ đệm, tên của cha, mẹ nuôi và con nuôi phải ghi bằng chữ in hoa theo đúng Chứng minh nhân dân/Thẻ căn cước công dân/Hộ chiếu/Giấy khai sinh hoặc giấy tờ có giá trị thay thế khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "3",
+          "clause_text": "3. Mục Nơi sinh ghi đầy đủ theo Giấy khai sinh của người được nhận làm con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_4",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "4",
+          "clause_text": "4. Mục Giấy tờ tùy thân ghi rõ số, cơ quan cấp, ngày cấp Chứng minh nhân dân/Thẻ căn cước công dân/Hộ chiếu hoặc giấy tờ có giá trị thay thế khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng. Ví dụ: Chứng minh nhân dân số 00108912345, do Công an thành phố Hà Nội cấp ngày 20/10/2014; Hộ chiếu số 503705379, do Bộ Ngoại giao Hoa Kỳ cấp ngày 23/12/2019.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_5",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "5",
+          "clause_text": "5. Mục Nơi cư trú được ghi như sau: a) Trường hợp cha, mẹ nuôi là công dân Việt Nam cư trú ở trong nước, hoặc người nước ngoài thường trú ở Việt Nam thì ghi theo địa chỉ đăng ký thường trú và ghi đủ 03 cấp hành chính (xã, huyện, tỉnh). Trường hợp cha dượng nhận con riêng của vợ, mẹ kế nhận con riêng của chồng hoặc cô, cậu, dì, chú bác ruột nhận cháu làm con nuôi, nếu không có nơi đăng ký thường trú thì ghi theo địa chỉ đăng ký tạm trú; trường hợp không có nơi đăng ký thường trú và nơi đăng ký tạm trú thì ghi theo địa chỉ nơi đang sinh sống. b) Trường hợp cha, mẹ nuôi là người nước ngoài thường trú ở nước ngoài thì ghi theo địa chỉ thường trú ở nước ngoài. Trường hợp người nước ngoài đang làm việc, học tập ở Việt Nam trong thời gian ít nhất là 01 năm thì ghi đồng thời cả địa chỉ thường trú ở nước ngoài và địa chỉ tạm trú ở Việt Nam. c) Nơi cư trú của con nuôi ghi theo địa chỉ đăng ký thường trú của con nuôi và ghi đủ 03 cấp hành chính (xã, huyện, tỉnh). Nếu con nuôi sống ở cơ sở nuôi dưỡng thì ghi tên và địa chỉ trụ sở của cơ sở nuôi dưỡng.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_5_clause_6",
+          "parent_article_id": "tt_10_2020_tt_btp_art_5",
+          "clause_number": "6",
+          "clause_text": "6. Mục Cơ quan đăng ký việc nuôi con nuôi được ghi như sau: a) Trường hợp việc nuôi con nuôi trong nước được đăng ký ở trong nước thì ghi đủ 03 cấp hành chính (xã, huyện, tỉnh) nơi đăng ký. b) Trường hợp việc nuôi con nuôi trong nước được đăng ký tại Cơ quan đại diện Việt Nam ở nước ngoài thì ghi tên Cơ quan đại diện Việt Nam ở nước ngoài (ví dụ: Đại sứ quán CHXHCN Việt Nam tại Berlin). c) Trường hợp ghi vào Sổ việc nuôi con nuôi đã được giải quyết tại cơ quan có thẩm quyền nước ngoài thì ghi đủ 02 cấp hành chính (huyện, tỉnh). d) Trường hợp đăng ký việc nuôi con nuôi có yếu tố nước ngoài thì ghi tên Sở Tư pháp nơi đăng ký.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_6",
+      "article_number": "6",
+      "article_title": "Sửa chữa sai sót khi ghi Sổ đăng ký nuôi con nuôi và giấy tờ nuôi con nuôi",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_6_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_6",
+          "clause_number": "1",
+          "clause_text": "1. Trong quá trình đăng ký nuôi con nuôi, nếu có sai sót trên giấy tờ nuôi con nuôi thì người làm công tác đăng ký nuôi con nuôi phải hủy bỏ giấy tờ đó và ghi giấy tờ mới, không cấp cho người dân giấy tờ nuôi con nuôi đã bị sửa chữa.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_6_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_6",
+          "clause_number": "2",
+          "clause_text": "2. Trong quá trình đăng ký nuôi con nuôi nếu có sai sót trong việc ghi nội dung vào Sổ đăng ký nuôi con nuôi, người làm công tác đăng ký nuôi con nuôi phải gạch ngang phần sai sót, ghi sang bên cạnh hoặc lên phía trên, không được chữa đè lên chữ cũ, không được tẩy xóa và viết đè lên chỗ đã tẩy xóa. Trường hợp có sai sót bỏ trống trang Sổ thì người làm công tác đăng ký nuôi con nuôi phải gạch chéo trang bỏ trống. Cột ghi chú của Sổ đăng ký nuôi con nuôi phải ghi rõ nội dung sửa chữa sai sót; ngày, tháng, năm sửa; người làm công tác đăng ký nuôi con nuôi ký, ghi rõ họ, chữ đệm, tên. Người làm công tác đăng ký nuôi con nuôi có trách nhiệm báo cáo Thủ trưởng cơ quan đăng ký nuôi con nuôi biết về việc sửa chữa sai sót. Thủ trưởng cơ quan đăng ký nuôi con nuôi có trách nhiệm kiểm tra, đóng dấu xác nhận vào nội dung sửa chữa sai sót. Người làm công tác đăng ký nuôi con nuôi không được tự ý tẩy xóa, sửa chữa, bổ sung làm sai lệch nội dung đã ghi trong giấy tờ nuôi con nuôi và Sổ đăng ký nuôi con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_6_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_6",
+          "clause_number": "3",
+          "clause_text": "3. Khi quá trình đăng ký nuôi con nuôi đã kết thúc mà sau đó mới phát hiện có sai sót thông tin trong Sổ hoặc giấy tờ nuôi con nuôi do lỗi của người đi đăng ký nuôi con nuôi hoặc của cơ quan đăng ký nuôi con nuôi thì thực hiện việc cải chính. Thủ tục cải chính được thực hiện theo quy định của pháp luật về cải chính hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_7",
+      "article_number": "7",
+      "article_title": "Lưu trữ, quản lý Sổ và hồ sơ nuôi con nuôi",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_7_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_7",
+          "clause_number": "1",
+          "clause_text": "1. Sổ đăng ký nuôi con nuôi phải được cơ quan đăng ký nuôi con nuôi giữ gìn, bảo quản và lưu trữ vĩnh viễn để sử dụng, phục vụ nhu cầu của người dân và hoạt động quản lý nhà nước.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_7_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_7",
+          "clause_number": "2",
+          "clause_text": "2. Hồ sơ đăng ký nuôi con nuôi trong nước, hồ sơ đăng ký nuôi con nuôi có yếu tố nước ngoài, hồ sơ và Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam được lưu trữ theo quy định của pháp luật về lưu trữ, có thể được lưu trữ điện tử tạo lập từ việc số hóa.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_7_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_7",
+          "clause_number": "3",
+          "clause_text": "3. Cục Con nuôi, Cơ quan đại diện Việt Nam ở nước ngoài, Ủy ban nhân dân cấp xã, Ủy ban nhân dân cấp huyện, Sở Tư pháp có trách nhiệm lưu trữ, bảo quản, khai thác sử dụng Sổ, hồ sơ nuôi con nuôi, hồ sơ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam theo đúng quy định của pháp luật; thực hiện các biện pháp phòng chống bão lụt, cháy, ẩm ướt, mối mọt để bảo đảm an toàn.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_8",
+      "article_number": "8",
+      "article_title": "Điều khoản chuyển tiếp",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_8_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_8",
+          "clause_number": "1",
+          "clause_text": "1. Hồ sơ đăng ký nuôi con nuôi trong nước, hồ sơ đăng ký nuôi con nuôi nước ngoài, hồ sơ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam do cơ quan nhà nước có thẩm quyền tiếp nhận trước ngày Thông tư này có hiệu lực mà chưa giải quyết xong thì các mẫu giấy tờ nuôi con nuôi đã có trong hồ sơ vẫn tiếp tục có giá trị pháp lý theo quy định tại Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi và Thông tư số 24/2014/TT-BTP ngày 29 tháng 12 năm 2014 của Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_8_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_8",
+          "clause_number": "2",
+          "clause_text": "2. Giấy Chứng nhận nuôi con nuôi, Quyết định về việc cho trẻ em Việt Nam làm con nuôi nước ngoài và Sổ đăng ký nuôi con nuôi theo mẫu ban hành kèm theo Thông tư số 24/2014/TT-BTP ngày 29 tháng 12 năm 2014 của Bộ Tư pháp đang sử dụng tại cơ quan nhà nước có thẩm quyền thì được tiếp tục sử dụng đến hết ngày 30 tháng 6 năm 2021.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_10_2020_tt_btp_art_9",
+      "article_number": "9",
+      "article_title": "Hiệu lực thi hành",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_9_clause_1",
+          "parent_article_id": "tt_10_2020_tt_btp_art_9",
+          "clause_number": "1",
+          "clause_text": "1. Thông tư này có hiệu lực từ ngày 26 tháng 02 năm 2021 và thay thế Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi và Thông tư số 24/2014/TT-BTP ngày 29 tháng 12 năm 2014 của Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_9_clause_2",
+          "parent_article_id": "tt_10_2020_tt_btp_art_9",
+          "clause_number": "2",
+          "clause_text": "2. Bãi bỏ Mẫu số 01/BC/PTTE được quy định tại điểm a khoản 2 Điều 9 và Mẫu số 02/BC/VPCNNNg được quy định tại khoản 1 Điều 10 Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_10_2020_tt_btp_art_9_clause_3",
+          "parent_article_id": "tt_10_2020_tt_btp_art_9",
+          "clause_number": "3",
+          "clause_text": "3. Trong quá trình triển khai thực hiện, nếu có vướng mắc, đề nghị Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương, Sở Tư pháp, Cơ quan đại diện Việt Nam ở nước ngoài kịp thời phản ánh về Bộ Tư pháp để có hướng dẫn",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": []
+}

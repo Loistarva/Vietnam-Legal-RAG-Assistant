@@ -323,6 +323,10 @@ TITLE_LENGTH_ALLOWLIST: set = {
     ("nd_18_2026_nd_cp_congbao_61", "13"),  # 45 từ
     ("nd_18_2026_nd_cp_congbao_61", "14"),  # 44 từ
     ("tt_04_2024_tt_btp", "2"),  # 67 từ
+    # Trial13: tiêu đề thật đối chiếu font đậm trên PDF gốc; không cắt ngắn nội dung.
+    ("nd_28_2012_nd_cp", "18"),  # 47 từ: hệ số trợ cấp và kinh phí chăm sóc
+    ("nd_76_2023_nd_cp", "10"),  # 43 từ: quy trình tiếp nhận, xử lý tin báo
+    ("tt_10_2020_tt_btp", "5"),  # 41 từ: cách ghi Sổ và giấy tờ nuôi con nuôi
 }
 # Ngoại lệ đối chiếu số Khoản: {(tên_file_txt_không_đuôi, "số Điều"): "lý do"}.
 CLAUSE_COUNT_EXEMPT: Dict[Tuple[str, str], str] = {}

@@ -1,0 +1,3 @@
+# Preserve original legal PDFs and distributable archives byte-for-byte.
+*.pdf binary
+*.zip binary

@@ -1,0 +1,26 @@
+..................................s..................................... [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 45%]
+........................................................................ [ 61%]
+........................................................................ [ 76%]
+........................................................................ [ 91%]
+......................................                                   [100%]
+469 passed, 1 skipped in 27.31s
+python.exe : Exception ignored in atexit callback <function cleanup_numbered_dir at 0x000001E3177EEC00>:
+At line:2 char:1
++ & D:\GitHubProjects\Vietnam-Legal-RAG-Assistant-benchmark\.venv-gold\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Exception ignor...001E3177EEC00>::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Traceback (most recent call last):
+  File "C:\ProgramData\anaconda3\Lib\site-packages\_pytest\pathlib.py", line 374, in cleanup_numbered_dir
+    cleanup_dead_symlinks(root)
+  File "C:\ProgramData\anaconda3\Lib\site-packages\_pytest\pathlib.py", line 359, in cleanup_dead_symlinks
+    if not left_dir.resolve().exists():
+  File "C:\ProgramData\anaconda3\Lib\pathlib\_abc.py", line 450, in exists
+    self.stat(follow_symlinks=follow_symlinks)
+  File "C:\ProgramData\anaconda3\Lib\pathlib\_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+PermissionError: [WinError 5] Access is denied:
+'C:\\Users\\ADMIN\\AppData\\Local\\Temp\\pytest-of-ADMIN\\pytest-current'

@@ -1,0 +1,151 @@
+{
+  "baseline_commit": "cdca079ba63b5e3d48da690df269ff51bb47c887",
+  "new_documents": 13,
+  "total_documents": 41,
+  "total_pdfs": 41,
+  "new_articles": 521,
+  "new_clauses": 1603,
+  "new_parents": 617,
+  "new_children": 1676,
+  "total_parents": 1696,
+  "total_children": 3998,
+  "unchanged_baseline_parents": 1079,
+  "unchanged_baseline_children": 2322,
+  "duplicate_child_ids": 0,
+  "all_new_schemas_valid": true,
+  "all_new_article_counts_verified": true,
+  "cleaner_reproducible": true,
+  "pdf_hashes_match": true,
+  "unchanged_pipeline_files": [
+    "parser/parser.py",
+    "parser/cleaner.py",
+    "chunking/chunking_rules.py",
+    "chunking/export_legal_chunks.py"
+  ],
+  "tokenizer": "underthesea",
+  "tokenizer_version": "9.5.0",
+  "documents": [
+    {
+      "source": "parser/parsed_jsons/l_13_2022_qh15.json",
+      "document_id": "l_13_2022_qh15",
+      "document_number": "13/2022/QH15",
+      "validity_status": "Không xác định",
+      "num_articles": 56,
+      "num_parents": 65,
+      "num_children": 212
+    },
+    {
+      "source": "parser/parsed_jsons/l_35_2013_qh13.json",
+      "document_id": "l_35_2013_qh13",
+      "document_number": "35/2013/QH13",
+      "validity_status": "Không xác định",
+      "num_articles": 33,
+      "num_parents": 34,
+      "num_children": 103
+    },
+    {
+      "source": "parser/parsed_jsons/l_51_2010_qh12.json",
+      "document_id": "l_51_2010_qh12",
+      "document_number": "51/2010/QH12",
+      "validity_status": "Không xác định",
+      "num_articles": 53,
+      "num_parents": 59,
+      "num_children": 184
+    },
+    {
+      "source": "parser/parsed_jsons/l_52_2010_qh12.json",
+      "document_id": "l_52_2010_qh12",
+      "document_number": "52/2010/QH12",
+      "validity_status": "Không xác định",
+      "num_articles": 52,
+      "num_parents": 58,
+      "num_children": 158
+    },
+    {
+      "source": "parser/parsed_jsons/l_60_2014_qh13.json",
+      "document_id": "l_60_2014_qh13",
+      "document_number": "60/2014/QH13",
+      "validity_status": "Không xác định",
+      "num_articles": 77,
+      "num_parents": 83,
+      "num_children": 195
+    },
+    {
+      "source": "parser/parsed_jsons/nd_06_2011_nd_cp.json",
+      "document_id": "nd_06_2011_nd_cp",
+      "document_number": "06/2011/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 20,
+      "num_parents": 21,
+      "num_children": 61
+    },
+    {
+      "source": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
+      "document_id": "nd_114_2016_nd_cp",
+      "document_number": "114/2016/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 11,
+      "num_parents": 14,
+      "num_children": 31
+    },
+    {
+      "source": "parser/parsed_jsons/nd_15_2014_nd_cp.json",
+      "document_id": "nd_15_2014_nd_cp",
+      "document_number": "15/2014/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 20,
+      "num_parents": 28,
+      "num_children": 54
+    },
+    {
+      "source": "parser/parsed_jsons/nd_19_2011_nd_cp.json",
+      "document_id": "nd_19_2011_nd_cp",
+      "document_number": "19/2011/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 52,
+      "num_parents": 64,
+      "num_children": 152
+    },
+    {
+      "source": "parser/parsed_jsons/nd_28_2012_nd_cp.json",
+      "document_id": "nd_28_2012_nd_cp",
+      "document_number": "28/2012/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 35,
+      "num_parents": 45,
+      "num_children": 120
+    },
+    {
+      "source": "parser/parsed_jsons/nd_56_2017_nd_cp.json",
+      "document_id": "nd_56_2017_nd_cp",
+      "document_number": "56/2017/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 58,
+      "num_parents": 69,
+      "num_children": 194
+    },
+    {
+      "source": "parser/parsed_jsons/nd_76_2023_nd_cp.json",
+      "document_id": "nd_76_2023_nd_cp",
+      "document_number": "76/2023/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 45,
+      "num_parents": 64,
+      "num_children": 179
+    },
+    {
+      "source": "parser/parsed_jsons/tt_10_2020_tt_btp.json",
+      "document_id": "tt_10_2020_tt_btp",
+      "document_number": "10/2020/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 9,
+      "num_parents": 13,
+      "num_children": 33
+    }
+  ],
+  "limitations": [
+    "Trial corpus only: current validity and provision-level amendments remain unverified.",
+    "Original PDFs retain annexes; existing parser exports main articles, not forms/annexes.",
+    "Automated structure/content checks and sampled visual review do not certify every legal sentence."
+  ]
+}

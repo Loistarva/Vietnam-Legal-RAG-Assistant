@@ -1,0 +1,93 @@
+"""Write the human-readable trial result from the checked manifests."""
+import json
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+DIR=ROOT/'reports/data/trial13'
+
+def main():
+    audit=json.loads((DIR/'audit.json').read_text('utf-8'))
+    metadata=json.loads((DIR/'metadata.json').read_text('utf-8'))
+    downloads=json.loads((DIR/'downloads.json').read_text('utf-8'))
+    sources={x['document_id']:x for x in downloads}
+    stats={x['document_id']:x for x in audit['documents']}
+    for path in DIR.glob('*.log'):
+        content=path.read_bytes()
+        if content.startswith((b'\xff\xfe',b'\xfe\xff')):
+            path.write_text(content.decode('utf-16'),encoding='utf-8')
+    tests=(DIR/'tests.log').read_text('utf-8')
+    assert '651 passed, 1 skipped' in tests
+    rows=[]
+    for x in metadata:
+        s=stats[x['document_id']]
+        pdf='../../../'+sources[x['document_id']]['pdf_path']
+        rows.append(f"| {x['file_code']} | [{x['document_number']}]({pdf}) | {x['title']} | {s['num_articles']} | {s['num_parents']} | {s['num_children']} | [Nguồn]({sources[x['document_id']]['url']}) |")
+    text=f'''# Bộ thử bổ sung 13 văn bản — 13/11/2026
+
+Nhánh local: `data/trial-13-documents`, tách từ `testing` tại `{audit['baseline_commit'][:7]}`.
+
+Đã tải **13 PDF gốc**, tạo 13 bản PDF chuẩn hóa theo mẫu L01 trên testing, bổ sung metadata và tạo TXT/JSON/chunk. Tổng corpus đầu vào trên nhánh thử: **41 PDF / 41 JSON văn bản**. Bản gốc của 13 file mới lưu riêng tại `data/source_pdfs/trial13/`; các bản dùng để ingest nằm trong `data/raw_data/additional_documents/`.
+
+## Kết quả
+
+| Chỉ số | Bộ 28 văn bản cũ | Bổ sung 13 | Tổng |
+|---|---:|---:|---:|
+| Văn bản | 28 | 13 | 41 |
+| Parent chunk | 1.079 | 617 | 1.696 |
+| Child chunk | 2.322 | 1.676 | 3.998 |
+
+Bộ mới gồm **521 Điều, 1.603 Khoản**. Kiểm tra schema, chuỗi Điều 1..N, số Điều cuối đã đối chiếu, liên kết parent–child, giới hạn parent và ID trùng đều đạt. PDF có lớp chữ, không gọi OCR. `underthesea==9.5.0`.
+
+Toàn bộ 1.079 parent và 2.322 child cũ giữ nguyên ID **và toàn bộ payload** khi so sánh theo ID với commit gốc. Không cần tạo lại embedding cũ chỉ vì thứ tự parent trong file JSON thay đổi; 1.676 child mới chưa được embedding/index.
+
+Kiểm thử hiện có: **651 passed, 1 skipped**. Bộ gốc đối chiếu: 469 passed, 1 skipped. Trường hợp skipped là kiểm thử có sẵn. Xem [tests.log](tests.log), [baseline_tests.log](baseline_tests.log) và [audit.json](audit.json).
+
+## Danh sách 13 văn bản
+
+| Mã | Số hiệu / PDF local | Tên | Điều | Parent | Child | PDF nguồn |
+|---|---|---|---:|---:|---:|---|
+{chr(10).join(rows)}
+
+## Đã chuẩn hóa những gì
+
+- Đặt tên PDF theo `document_id`; bản gốc giữ nguyên byte tải về trong `data/source_pdfs/trial13/`. Bản PDF dùng ingest được chuyển khổ Letter 612×792 pt, cân giữa trang và tỷ lệ nội dung chính từ 14 pt xuống 12 pt theo L01, giữ bảng/ảnh/phụ lục vector. Chữ ký số/annotation của bản gốc không được sao sang bản dẫn xuất. Cả hai bản có SHA-256 riêng trong [downloads.json](downloads.json).
+- Bổ sung 13 bản ghi vào `data/reference/document_versions.json`, đồng bộ mã quản lý và bảng ánh xạ trong `docs/data_contract.md`, `data/raw_data/README.md`.
+- Lưu trích xuất gốc tại [original_extracted_texts](original_extracted_texts/). Bản đưa vào `parser/extracted_texts_qwen/` đã bỏ dòng metadata chữ ký số và dòng phân cách chỉ gồm gạch; không sửa câu chữ pháp luật. Thư mục có tên qwen theo quy ước repo, nhưng bộ này dùng native text PyMuPDF.
+- Sau kiểm tra lại, tách câu xác nhận Quốc hội thông qua ở cuối 5 Luật khỏi đầu vào parser (vẫn giữ ở bản trích xuất gốc và metadata). Việc này sửa câu ban hành bị gộp vào khoản cuối ở Luật 60/2014, 52/2010 và 35/2013; hai Luật còn lại vốn đã được parser cắt đúng. Không sửa nội dung điều khoản.
+- Chạy cleaner hiện có để bỏ Công báo/số trang, chuẩn Unicode/dấu thanh; lưu đúng định dạng và newline mà kiểm thử yêu cầu. Bản cleaned có thể tái tạo từ bản extracted đã chuẩn bị.
+- Ngày ban hành Luật 51/2010 và 52/2010 lấy **17/06/2010** theo câu thông qua ở cuối PDF; trang tra cứu Chính phủ hiển thị ngày khác. Có ghi chú metadata.
+- Giữ nguyên tiêu đề dài thật ở NĐ 28/2012 Điều 18 (47 từ), NĐ 76/2023 Điều 10 (43 từ), TT 10/2020 Điều 5 (41 từ), đối chiếu font đậm trên PDF. Chỉ bổ sung ba ngoại lệ vào allowlist kiểm thử sẵn có; không nới ngưỡng chung.
+
+**Không sửa** `parser/parser.py`, `parser/cleaner.py`, `chunking/chunking_rules.py`, `chunking/export_legal_chunks.py`. Các kiểm tra hash/mã nguồn trong audit xác nhận điều này.
+
+## Phạm vi của lần thử
+
+- Đây là bộ thử khả năng tiếp nhận dữ liệu, có mở rộng sang nuôi con nuôi, bảo vệ gia đình, người cao tuổi, người khuyết tật và hòa giải. **Chưa phải bản phát hành căn cứ pháp luật hiện hành**.
+- Cả 13 bản ghi mới để `validity_status = Không xác định`, `provision_status = requires_review`, `trial_only = true`. Ngày hiệu lực là ngày hiệu lực ban đầu trong bản gốc; chưa xác minh toàn bộ sửa đổi/bãi bỏ hiện tại. Cờ trial_only nằm ở registry để quản lý, không phải bộ lọc runtime đã được triển khai. Chỉ thử trên nhánh này.
+- PDF gốc vẫn có đầy đủ phụ lục. Parser hiện có chỉ đưa phần Điều chính vào JSON/chunk; biểu mẫu/phụ lục của NĐ 56/2017, NĐ 76/2023, TT 10/2020 chưa được lập chỉ mục riêng.
+- Cảnh báo thiếu Chương I ở TT 10/2020 và NĐ 114/2016 là bình thường vì văn bản không chia Chương. Báo cáo chunking còn cảnh báo hiệu lực chưa xác minh, intro dài và mảnh ngắn; xem [chunking_report.json](../../../data/chunking_output/chunking_report.json).
+- Đã kiểm tra tự động toàn bộ cấu trúc, so sánh payload cũ và xem trực quan mẫu PDF/tiêu đề dài. Chưa rà pháp lý thủ công mọi câu của 13 văn bản.
+- Bản scan Luật Trẻ em 102/2016 đã được loại khỏi bộ thử; không tính thành một trong 13 file.
+
+## Chạy lại từ thư mục gốc worktree
+
+Môi trường đã chạy thành công trên máy này: `D:/GitHubProjects/Vietnam-Legal-RAG-Assistant-benchmark/.venv-gold/Scripts/python.exe`. Các lệnh dưới dùng `python` tương ứng môi trường có dependencies dự án, thêm `beautifulsoup4` cho bước tải file.
+
+```powershell
+python -X utf8 scripts/trial13_download.py
+python -X utf8 scripts/trial13_standardize_pdfs.py
+python -X utf8 scripts/trial13_prepare.py
+python -X utf8 chunking/export_legal_chunks.py
+python -X utf8 scripts/trial13_audit.py
+python -X utf8 -m pytest parser/test_parser_unit.py parser/test_cleaner.py test/test_chunking.py -q --basetemp=tmp/trial13/pytest
+```
+
+Để chỉ parse lại 13 TXT đã chuẩn bị mà không trích xuất lại PDF, dùng `parser/test_parser.py --skip-clean --only` với tên stem trong danh sách. `--only` ở entry point hiện có chỉ lọc bước parse; không lọc cleaner nếu bỏ `--skip-clean`. Bước `trial13_prepare.py` luôn xử lý đúng manifest 13 văn bản.
+
+Chưa commit/push, chưa merge vào `testing`, chưa cập nhật vector DB hoặc benchmark.
+'''
+    (DIR/'README.md').write_text(text,encoding='utf-8')
+    print('Wrote reports/data/trial13/README.md')
+
+if __name__=='__main__':
+    main()

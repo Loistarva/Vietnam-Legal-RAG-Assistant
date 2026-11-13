@@ -1,0 +1,305 @@
+{
+  "branch": "origin/testing",
+  "num_pdfs": 28,
+  "gazette_style_pdfs": 5,
+  "page_size_groups": {
+    "[(595.0, 842.0)]": 2,
+    "[(612.0, 792.0)]": 15,
+    "[(595.3, 841.9)]": 3,
+    "[(595.2, 841.9)]": 1,
+    "[(595.2, 842.0)]": 4,
+    "[(595.2, 842.0), (842.0, 595.2)]": 1,
+    "[(595.3, 842.0), (842.0, 595.3)]": 1,
+    "[(595.3, 842.0)]": 1
+  },
+  "documents": [
+    {
+      "path": "data/raw_data/additional_documents/07_2001_TT-BTP_48707.pdf",
+      "sizes": [
+        [
+          595.0,
+          842.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/07_2002_TT-BTP_50377.pdf",
+      "sizes": [
+        [
+          595.0,
+          842.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/21-LCT_HDNN7_37246.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/32_2002_ND-CP_49194.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/38_2025_TT-BYT_669119.pdf",
+      "sizes": [
+        [
+          595.3,
+          841.9
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/57.2015.TT.BYT.pdf",
+      "sizes": [
+        [
+          595.2,
+          841.9
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/68_2002_ND-CP_49747.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/77_2001_ND-CP_48447.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
+      "sizes": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "gazette_header": true
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_04_2020_BTP.pdf",
+      "sizes": [
+        [
+          595.3,
+          841.9
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_15_2015_BTP.pdf",
+      "sizes": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/TT_30_2019_BYT.pdf",
+      "sizes": [
+        [
+          595.3,
+          841.9
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
+      "sizes": [
+        [
+          595.2,
+          842.0
+        ],
+        [
+          842.0,
+          595.2
+        ]
+      ],
+      "gazette_header": true
+    },
+    {
+      "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+      "sizes": [
+        [
+          595.3,
+          842.0
+        ],
+        [
+          842.0,
+          595.3
+        ]
+      ],
+      "gazette_header": true
+    },
+    {
+      "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
+      "sizes": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "gazette_header": true
+    },
+    {
+      "path": "data/raw_data/additional_documents/tt_04_2024_tt_btp.pdf",
+      "sizes": [
+        [
+          595.3,
+          842.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/circulars/TT01.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/circulars/TT02.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/circulars/TT03.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/circulars/TT04.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L01.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L02.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/L04.pdf",
+      "sizes": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "gazette_header": true
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND01.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND02.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND03.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND04.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    },
+    {
+      "path": "data/raw_data/laws_and_decrees/ND05.pdf",
+      "sizes": [
+        [
+          612.0,
+          792.0
+        ]
+      ],
+      "gazette_header": false
+    }
+  ]
+}

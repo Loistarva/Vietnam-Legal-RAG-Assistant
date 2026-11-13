@@ -1,0 +1,2105 @@
+{
+  "document_id": "l_60_2014_qh13",
+  "metadata": {
+    "title": "LUẬT HỘ TỊCH",
+    "document_type": "Luật",
+    "document_number": "60/2014/QH13",
+    "issue_date": "2014-11-20",
+    "effective_date": "2016-01-01",
+    "issuing_body": "Quốc hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=178129",
+    "source_status": "Chưa xác minh hiệu lực hiện tại - bộ thử parser/chunker",
+    "provision_status": "requires_review"
+  },
+  "articles": [
+    {
+      "article_id": "l_60_2014_qh13_art_1",
+      "article_number": "1",
+      "article_title": "Phạm vi điều chỉnh",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_1_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_1",
+          "clause_number": "1",
+          "clause_text": "1. Luật này quy định về hộ tịch; quyền, nghĩa vụ, nguyên tắc, thẩm quyền, thủ tục đăng ký hộ tịch; Cơ sở dữ liệu hộ tịch và quản lý nhà nước về hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_1_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_1",
+          "clause_number": "2",
+          "clause_text": "2. Thẩm quyền, thủ tục giải quyết các việc về quốc tịch, nuôi con nuôi được thực hiện theo quy định của Luật quốc tịch Việt Nam, Luật nuôi con nuôi, trừ trường hợp Luật này có quy định khác.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_2",
+      "article_number": "2",
+      "article_title": "Hộ tịch và đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_2_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_2",
+          "clause_number": "1",
+          "clause_text": "1. Hộ tịch là những sự kiện được quy định tại Điều 3 của Luật này, xác định tình trạng nhân thân của cá nhân từ khi sinh ra đến khi chết.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_2_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_2",
+          "clause_number": "2",
+          "clause_text": "2. Đăng ký hộ tịch là việc cơ quan nhà nước có thẩm quyền xác nhận hoặc ghi vào Sổ hộ tịch các sự kiện hộ tịch của cá nhân, tạo cơ sở pháp lý để Nhà nước bảo hộ quyền, lợi ích hợp pháp của cá nhân, thực hiện quản lý về dân cư.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_3",
+      "article_number": "3",
+      "article_title": "Nội dung đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_3_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_3",
+          "clause_number": "1",
+          "clause_text": "1. Xác nhận vào Sổ hộ tịch các sự kiện hộ tịch: a) Khai sinh; b) Kết hôn; c) Giám hộ; d) Nhận cha, mẹ, con; đ) Thay đổi, cải chính hộ tịch, xác định lại dân tộc, bổ sung thông tin hộ tịch; e) Khai tử.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_3_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_3",
+          "clause_number": "2",
+          "clause_text": "2. Ghi vào Sổ hộ tịch việc thay đổi hộ tịch của cá nhân theo bản án, quyết định của cơ quan nhà nước có thẩm quyền: a) Thay đổi quốc tịch; b) Xác định cha, mẹ, con; c) Xác định lại giới tính; d) Nuôi con nuôi, chấm dứt việc nuôi con nuôi; đ) Ly hôn, hủy việc kết hôn trái pháp luật, công nhận việc kết hôn; e) Công nhận giám hộ; g) Tuyên bố hoặc hủy tuyên bố một người mất tích, đã chết, bị mất hoặc hạn chế năng lực hành vi dân sự.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_3_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_3",
+          "clause_number": "3",
+          "clause_text": "3. Ghi vào Sổ hộ tịch sự kiện khai sinh; kết hôn; ly hôn; hủy việc kết hôn; giám hộ; nhận cha, mẹ, con; xác định cha, mẹ, con; nuôi con nuôi; thay đổi hộ tịch; khai tử của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_3_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_3",
+          "clause_number": "4",
+          "clause_text": "4. Xác nhận hoặc ghi vào Sổ hộ tịch các việc hộ tịch khác theo quy định của pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_4",
+      "article_number": "4",
+      "article_title": "Giải thích từ ngữ",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": "Trong Luật này, những từ ngữ dưới đây được hiểu như sau:",
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "1",
+          "clause_text": "1. Cơ quan đăng ký hộ tịch là Ủy ban nhân dân xã, phường, thị trấn (sau đây gọi là Ủy ban nhân dân cấp xã), Ủy ban nhân dân huyện, quận, thị xã, thành phố thuộc tỉnh và đơn vị hành chính tương đương (sau đây gọi là Ủy ban nhân dân cấp huyện), Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài (sau đây gọi là Cơ quan đại diện).",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "2",
+          "clause_text": "2. Cơ sở dữ liệu hộ tịch là tập hợp thông tin hộ tịch của cá nhân đã đăng ký và lưu giữ trong Sổ hộ tịch và Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "3",
+          "clause_text": "3. Sổ hộ tịch là sổ giấy được lập và lưu giữ tại cơ quan đăng ký hộ tịch để xác nhận hoặc ghi các sự kiện hộ tịch quy định tại Điều 3 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "4",
+          "clause_text": "4. Cơ sở dữ liệu hộ tịch điện tử là cơ sở dữ liệu ngành, được lập trên cơ sở tin học hóa công tác đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_5",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "5",
+          "clause_text": "5. Cơ quan quản lý Cơ sở dữ liệu hộ tịch gồm cơ quan đăng ký hộ tịch, Bộ Tư pháp, Bộ Ngoại giao và cơ quan khác được giao thẩm quyền theo quy định của pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_6",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "6",
+          "clause_text": "6. Giấy khai sinh là văn bản do cơ quan nhà nước có thẩm quyền cấp cho cá nhân khi được đăng ký khai sinh; nội dung Giấy khai sinh bao gồm các thông tin cơ bản về cá nhân theo quy định tại khoản 1 Điều 14 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_7",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "7",
+          "clause_text": "7. Giấy chứng nhận kết hôn là văn bản do cơ quan nhà nước có thẩm quyền cấp cho hai bên nam, nữ khi đăng ký kết hôn; nội dung Giấy chứng nhận kết hôn bao gồm các thông tin cơ bản quy định tại khoản 2 Điều 17 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_8",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "8",
+          "clause_text": "8. Quê quán của cá nhân được xác định theo quê quán của cha hoặc mẹ theo thỏa thuận của cha, mẹ hoặc theo tập quán được ghi trong tờ khai khi đăng ký khai sinh.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_9",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "9",
+          "clause_text": "9. Trích lục hộ tịch là văn bản do cơ quan nhà nước có thẩm quyền cấp nhằm chứng minh sự kiện hộ tịch của cá nhân đã đăng ký tại cơ quan đăng ký hộ tịch. Bản chính trích lục hộ tịch được cấp ngay sau khi sự kiện hộ tịch được đăng ký. Bản sao trích lục hộ tịch bao gồm bản sao trích lục hộ tịch được cấp từ Cơ sở dữ liệu hộ tịch và bản sao trích lục hộ tịch được chứng thực từ bản chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_10",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "10",
+          "clause_text": "10. Thay đổi hộ tịch là việc cơ quan nhà nước có thẩm quyền đăng ký thay đổi những thông tin hộ tịch của cá nhân khi có lý do chính đáng theo quy định của pháp luật dân sự hoặc thay đổi thông tin về cha, mẹ trong nội dung khai sinh đã đăng ký theo quy định của pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_11",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "11",
+          "clause_text": "11. Xác định lại dân tộc là việc cơ quan nhà nước có thẩm quyền đăng ký xác định lại dân tộc của cá nhân theo quy định của Bộ luật dân sự.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_12",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "12",
+          "clause_text": "12. Cải chính hộ tịch là việc cơ quan nhà nước có thẩm quyền sửa đổi những thông tin hộ tịch của cá nhân trong trường hợp có sai sót khi đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_4_clause_13",
+          "parent_article_id": "l_60_2014_qh13_art_4",
+          "clause_number": "13",
+          "clause_text": "13. Bổ sung hộ tịch là việc cơ quan nhà nước có thẩm quyền cập nhật thông tin hộ tịch còn thiếu cho cá nhân đã được đăng ký.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_5",
+      "article_number": "5",
+      "article_title": "Nguyên tắc đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "1",
+          "clause_text": "1. Tôn trọng và bảo đảm quyền nhân thân của cá nhân.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "2",
+          "clause_text": "2. Mọi sự kiện hộ tịch của cá nhân phải được đăng ký đầy đủ, kịp thời, trung thực, khách quan và chính xác; trường hợp không đủ điều kiện đăng ký hộ tịch theo quy định của pháp luật thì người đứng đầu cơ quan đăng ký hộ tịch từ chối bằng văn bản và nêu rõ lý do.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "3",
+          "clause_text": "3. Đối với những việc hộ tịch mà Luật này không quy định thời hạn giải quyết thì được giải quyết ngay trong ngày; trường hợp nhận hồ sơ sau 15 giờ mà không giải quyết được ngay thì trả kết quả trong ngày làm việc tiếp theo.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "4",
+          "clause_text": "4. Mỗi sự kiện hộ tịch chỉ được đăng ký tại một cơ quan đăng ký hộ tịch có thẩm quyền theo quy định của Luật này. Cá nhân có thể được đăng ký hộ tịch tại cơ quan đăng ký hộ tịch nơi thường trú, tạm trú hoặc nơi đang sinh sống. Trường hợp cá nhân không đăng ký tại nơi thường trú thì Ủy ban nhân dân cấp huyện, Ủy ban nhân dân cấp xã, Cơ quan đại diện nơi đã đăng ký hộ tịch cho cá nhân có trách nhiệm thông báo việc đăng ký hộ tịch đến Ủy ban nhân dân cấp xã nơi cá nhân đó thường trú.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_5",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "5",
+          "clause_text": "5. Mọi sự kiện hộ tịch sau khi đăng ký vào Sổ hộ tịch phải được cập nhật kịp thời, đầy đủ vào Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_6",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "6",
+          "clause_text": "6. Nội dung khai sinh, kết hôn, ly hôn, khai tử, thay đổi, cải chính, bổ sung hộ tịch, xác định lại giới tính, xác định lại dân tộc của cá nhân trong Cơ sở dữ liệu hộ tịch là thông tin đầu vào của Cơ sở dữ liệu quốc gia về dân cư.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_5_clause_7",
+          "parent_article_id": "l_60_2014_qh13_art_5",
+          "clause_number": "7",
+          "clause_text": "7. Bảo đảm công khai, minh bạch thủ tục đăng ký hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_6",
+      "article_number": "6",
+      "article_title": "Quyền, nghĩa vụ đăng ký hộ tịch của cá nhân",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_6_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_6",
+          "clause_number": "1",
+          "clause_text": "1. Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam có quyền, nghĩa vụ đăng ký hộ tịch. Quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_6_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_6",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp kết hôn, nhận cha, mẹ, con thì các bên phải trực tiếp thực hiện tại cơ quan đăng ký hộ tịch. Đối với các việc đăng ký hộ tịch khác hoặc cấp bản sao trích lục hộ tịch thì người có yêu cầu trực tiếp hoặc ủy quyền cho người khác thực hiện. Bộ trưởng Bộ Tư pháp quy định chi tiết việc ủy quyền.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_6_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_6",
+          "clause_number": "3",
+          "clause_text": "3. Người chưa thành niên, người đã thành niên mất năng lực hành vi dân sự yêu cầu đăng ký hộ tịch hoặc cấp bản sao trích lục hộ tịch thông qua người đại diện theo pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_7",
+      "article_number": "7",
+      "article_title": "Thẩm quyền đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_7_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_7",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp xã đăng ký hộ tịch trong các trường hợp sau: a) Đăng ký sự kiện hộ tịch quy định tại các điểm a, b, c, d và e khoản 1 Điều 3 của Luật này cho công dân Việt Nam cư trú ở trong nước; b) Đăng ký thay đổi, cải chính hộ tịch cho người chưa đủ 14 tuổi; bổ sung thông tin hộ tịch cho công dân Việt Nam cư trú ở trong nước; c) Thực hiện các việc hộ tịch theo quy định tại khoản 2 và khoản 4 Điều 3 của Luật này; d) Đăng ký khai sinh cho trẻ em sinh ra tại Việt Nam có cha hoặc mẹ là công dân Việt Nam thường trú tại khu vực biên giới, còn người kia là công dân của nước láng giềng thường trú tại khu vực biên giới với Việt Nam; kết hôn, nhận cha, mẹ, con của công dân Việt Nam thường trú ở khu vực biên giới với công dân của nước láng giềng thường trú ở khu vực biên giới với Việt Nam; khai tử cho người nước ngoài cư trú ổn định lâu dài tại khu vực biên giới của Việt Nam.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_7_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_7",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân cấp huyện đăng ký hộ tịch trong các trường hợp sau, trừ trường hợp quy định tại điểm d khoản 1 Điều này: a) Đăng ký sự kiện hộ tịch quy định tại khoản 1 Điều 3 của Luật này có yếu tố nước ngoài; b) Đăng ký thay đổi, cải chính hộ tịch cho công dân Việt Nam từ đủ 14 tuổi trở lên cư trú ở trong nước; xác định lại dân tộc; c) Thực hiện các việc hộ tịch theo quy định tại khoản 3 Điều 3 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_7_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_7",
+          "clause_number": "3",
+          "clause_text": "3. Cơ quan đại diện đăng ký các việc hộ tịch quy định tại Điều 3 của Luật này cho công dân Việt Nam cư trú ở nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_7_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_7",
+          "clause_number": "4",
+          "clause_text": "4. Chính phủ quy định thủ tục đăng ký khai sinh, kết hôn, nhận cha, mẹ, con, khai tử quy định tại điểm d khoản 1 Điều này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_8",
+      "article_number": "8",
+      "article_title": "Bảo đảm thực hiện quyền, nghĩa vụ đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_8_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_8",
+          "clause_number": "1",
+          "clause_text": "1. Nhà nước có chính sách, biện pháp đồng bộ, tạo điều kiện để cá nhân thực hiện quyền, nghĩa vụ đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_8_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_8",
+          "clause_number": "2",
+          "clause_text": "2. Nhà nước bảo đảm ngân sách, cơ sở vật chất, nguồn nhân lực, đầu tư phát triển công nghệ thông tin cho hoạt động đăng ký và quản lý hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_9",
+      "article_number": "9",
+      "article_title": "Phương thức yêu cầu và tiếp nhận yêu cầu đăng ký hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_9_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_9",
+          "clause_number": "1",
+          "clause_text": "1. Khi yêu cầu đăng ký hộ tịch, cấp bản sao trích lục hộ tịch, cá nhân nộp hồ sơ trực tiếp cho cơ quan đăng ký hộ tịch hoặc gửi hồ sơ qua hệ thống bưu chính hoặc gửi qua hệ thống đăng ký hộ tịch trực tuyến.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_9_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_9",
+          "clause_number": "2",
+          "clause_text": "2. Khi làm thủ tục đăng ký hộ tịch, cấp bản sao trích lục hộ tịch từ Cơ sở dữ liệu hộ tịch, cá nhân xuất trình giấy tờ chứng minh nhân thân cho cơ quan đăng ký hộ tịch. Trường hợp gửi hồ sơ qua hệ thống bưu chính thì phải gửi kèm theo bản sao có chứng thực giấy tờ chứng minh nhân thân.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_9_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_9",
+          "clause_number": "3",
+          "clause_text": "3. Đối với những việc đăng ký hộ tịch có quy định thời hạn giải quyết, thì người tiếp nhận hồ sơ phải viết giấy tiếp nhận; trường hợp hồ sơ chưa đầy đủ, không hợp lệ thì phải hướng dẫn bằng văn bản để người đi đăng ký hộ tịch bổ sung, hoàn thiện. Văn bản hướng dẫn phải ghi đầy đủ, rõ ràng loại giấy tờ bổ sung. Trường hợp người có yêu cầu nộp hồ sơ không đúng cơ quan đăng ký hộ tịch có thẩm quyền thì người tiếp nhận hướng dẫn người đi đăng ký hộ tịch đến cơ quan có thẩm quyền để nộp hồ sơ.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_10",
+      "article_number": "10",
+      "article_title": "Hợp pháp hóa lãnh sự đối với giấy tờ của nước ngoài",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_10_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_10",
+          "clause_number": "1",
+          "clause_text": "Giấy tờ do cơ quan có thẩm quyền của nước ngoài cấp, công chứng hoặc xác nhận để sử dụng cho việc đăng ký hộ tịch tại Việt Nam phải được hợp pháp hóa lãnh sự theo quy định của pháp luật, trừ trường hợp được miễn theo điều ước quốc tế mà Việt Nam là thành viên.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_11",
+      "article_number": "11",
+      "article_title": "Lệ phí hộ tịch",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_11_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_11",
+          "clause_number": "1",
+          "clause_text": "1. Miễn lệ phí đăng ký hộ tịch trong những trường hợp sau: a) Đăng ký hộ tịch cho người thuộc gia đình có công với cách mạng; người thuộc hộ nghèo; người khuyết tật; b) Đăng ký khai sinh, khai tử đúng hạn, giám hộ, kết hôn của công dân Việt Nam cư trú ở trong nước.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_11_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_11",
+          "clause_number": "2",
+          "clause_text": "2. Cá nhân yêu cầu đăng ký sự kiện hộ tịch khác ngoài quy định tại khoản 1 Điều này, yêu cầu cấp bản sao trích lục hộ tịch phải nộp lệ phí. Bộ Tài chính quy định chi tiết thẩm quyền thu, mức thu, nộp, chế độ quản lý và sử dụng lệ phí hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_12",
+      "article_number": "12",
+      "article_title": "Các hành vi bị nghiêm cấm",
+      "chapter": "CHƯƠNG I NHỮNG QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_12_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_12",
+          "clause_number": "1",
+          "clause_text": "1. Nghiêm cấm cá nhân thực hiện các hành vi sau đây: a) Cung cấp thông tin, tài liệu sai sự thật; làm hoặc sử dụng giấy tờ giả, giấy tờ của người khác để đăng ký hộ tịch; b) Đe dọa, cưỡng ép, cản trở việc thực hiện quyền, nghĩa vụ đăng ký hộ tịch; c) Can thiệp trái pháp luật vào hoạt động đăng ký hộ tịch; d) Cam đoan, làm chứng sai sự thật để đăng ký hộ tịch; đ) Làm giả, sửa chữa, làm sai lệch nội dung giấy tờ hộ tịch hoặc thông tin trong Cơ sở dữ liệu hộ tịch; e) Đưa hối lộ, mua chuộc, hứa hẹn lợi ích vật chất, tinh thần để được đăng ký hộ tịch; g) Lợi dụng việc đăng ký hộ tịch hoặc trốn tránh nghĩa vụ đăng ký hộ tịch nhằm động cơ vụ lợi, hưởng chính sách ưu đãi của Nhà nước hoặc trục lợi dưới bất kỳ hình thức nào; h) Người có thẩm quyền quyết định đăng ký hộ tịch thực hiện việc đăng ký hộ tịch cho bản thân hoặc người thân thích theo quy định của Luật hôn nhân và gia đình; i) Truy cập trái phép, trộm cắp, phá hoại thông tin trong Cơ sở dữ liệu hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_12_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_12",
+          "clause_number": "2",
+          "clause_text": "2. Giấy tờ hộ tịch được cấp cho trường hợp đăng ký hộ tịch vi phạm quy định tại các điểm a, d, đ, g và h khoản 1 Điều này đều không có giá trị và phải thu hồi, hủy bỏ.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_12_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_12",
+          "clause_number": "3",
+          "clause_text": "3. Cá nhân thực hiện hành vi quy định tại khoản 1 Điều này thì tùy theo tính chất, mức độ vi phạm có thể bị xử lý vi phạm hành chính hoặc truy cứu trách nhiệm hình sự theo quy định của pháp luật. Trường hợp cán bộ, công chức vi phạm quy định tại khoản 1 Điều này, ngoài bị xử lý như trên còn bị xử lý kỷ luật theo quy định pháp luật về cán bộ, công chức.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_13",
+      "article_number": "13",
+      "article_title": "Thẩm quyền đăng ký khai sinh",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_13_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_13",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp xã nơi cư trú của người cha hoặc người mẹ thực hiện đăng ký khai sinh.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_14",
+      "article_number": "14",
+      "article_title": "Nội dung đăng ký khai sinh",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_14_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_14",
+          "clause_number": "1",
+          "clause_text": "1. Nội dung đăng ký khai sinh gồm: a) Thông tin của người được đăng ký khai sinh: Họ, chữ đệm và tên; giới tính; ngày, tháng, năm sinh; nơi sinh; quê quán; dân tộc; quốc tịch; b) Thông tin của cha, mẹ người được đăng ký khai sinh: Họ, chữ đệm và tên; năm sinh; dân tộc; quốc tịch; nơi cư trú; c) Số định danh cá nhân của người được đăng ký khai sinh.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_14_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_14",
+          "clause_number": "2",
+          "clause_text": "2. Việc xác định quốc tịch, dân tộc, họ của người được khai sinh được thực hiện theo quy định của pháp luật về quốc tịch Việt Nam và pháp luật dân sự.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_14_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_14",
+          "clause_number": "3",
+          "clause_text": "3. Nội dung đăng ký khai sinh quy định tại khoản 1 Điều này là thông tin hộ tịch cơ bản của cá nhân, được ghi vào Sổ hộ tịch, Giấy khai sinh, cập nhật vào Cơ sở dữ liệu hộ tịch điện tử và Cơ sở dữ liệu quốc gia về dân cư. Hồ sơ, giấy tờ của cá nhân liên quan đến thông tin khai sinh phải phù hợp với nội dung đăng ký khai sinh của người đó. Chính phủ quy định việc cấp Số định danh cá nhân cho người được đăng ký khai sinh.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_15",
+      "article_number": "15",
+      "article_title": "Trách nhiệm đăng ký khai sinh",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_15_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_15",
+          "clause_number": "1",
+          "clause_text": "1. Trong thời hạn 60 ngày kể từ ngày sinh con, cha hoặc mẹ có trách nhiệm đăng ký khai sinh cho con; trường hợp cha, mẹ không thể đăng ký khai sinh cho con thì ông hoặc bà hoặc người thân thích khác hoặc cá nhân, tổ chức đang nuôi dưỡng trẻ em có trách nhiệm đăng ký khai sinh cho trẻ em.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_15_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_15",
+          "clause_number": "2",
+          "clause_text": "2. Công chức tư pháp - hộ tịch thường xuyên kiểm tra, đôn đốc việc đăng ký khai sinh cho trẻ em trên địa bàn trong thời hạn quy định; trường hợp cần thiết thì thực hiện đăng ký khai sinh lưu động.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_16",
+      "article_number": "16",
+      "article_title": "Thủ tục đăng ký khai sinh",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_16_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_16",
+          "clause_number": "1",
+          "clause_text": "1. Người đi đăng ký khai sinh nộp tờ khai theo mẫu quy định và giấy chứng sinh cho cơ quan đăng ký hộ tịch. Trường hợp không có giấy chứng sinh thì nộp văn bản của người làm chứng xác nhận về việc sinh; nếu không có người làm chứng thì phải có giấy cam đoan về việc sinh; trường hợp khai sinh cho trẻ em bị bỏ rơi phải có biên bản xác nhận việc trẻ bị bỏ rơi do cơ quan có thẩm quyền lập; trường hợp khai sinh cho trẻ em sinh ra do mang thai hộ phải có văn bản chứng minh việc mang thai hộ theo quy định pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_16_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_16",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy thông tin khai sinh đầy đủ và phù hợp, công chức tư pháp - hộ tịch ghi nội dung khai sinh theo quy định tại khoản 1 Điều 14 của Luật này vào Sổ hộ tịch; cập nhật vào Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư để lấy Số định danh cá nhân. Công chức tư pháp - hộ tịch và người đi đăng ký khai sinh cùng ký tên vào Sổ hộ tịch. Chủ tịch Ủy ban nhân dân cấp xã cấp Giấy khai sinh cho người được đăng ký khai sinh.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_16_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_16",
+          "clause_number": "3",
+          "clause_text": "3. Chính phủ quy định chi tiết việc đăng ký khai sinh cho trẻ em bị bỏ rơi, trẻ em chưa xác định được cha, mẹ, trẻ em sinh ra do mang thai hộ; việc xác định quê quán của trẻ em bị bỏ rơi, trẻ em chưa xác định được cha, mẹ.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_17",
+      "article_number": "17",
+      "article_title": "Thẩm quyền đăng ký kết hôn và nội dung Giấy chứng nhận kết hôn",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 2 ĐĂNG KÝ KẾT HÔN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_17_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_17",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp xã nơi cư trú của một trong hai bên nam, nữ thực hiện đăng ký kết hôn.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_17_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_17",
+          "clause_number": "2",
+          "clause_text": "2. Giấy chứng nhận kết hôn phải có các thông tin sau đây: a) Họ, chữ đệm và tên; ngày, tháng, năm sinh; dân tộc; quốc tịch; nơi cư trú; thông tin về giấy tờ chứng minh nhân thân của hai bên nam, nữ; b) Ngày, tháng, năm đăng ký kết hôn; c) Chữ ký hoặc điểm chỉ của hai bên nam, nữ và xác nhận của cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_18",
+      "article_number": "18",
+      "article_title": "Thủ tục đăng ký kết hôn",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 2 ĐĂNG KÝ KẾT HÔN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_18_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_18",
+          "clause_number": "1",
+          "clause_text": "1. Hai bên nam, nữ nộp tờ khai đăng ký kết hôn theo mẫu quy định cho cơ quan đăng ký hộ tịch và cùng có mặt khi đăng ký kết hôn.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_18_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_18",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy đủ điều kiện kết hôn theo quy định của Luật hôn nhân và gia đình, công chức tư pháp - hộ tịch ghi việc kết hôn vào Sổ hộ tịch, cùng hai bên nam, nữ ký tên vào Sổ hộ tịch. Hai bên nam, nữ cùng ký vào Giấy chứng nhận kết hôn; công chức tư pháp - hộ tịch báo cáo Chủ tịch Ủy ban nhân dân cấp xã tổ chức trao Giấy chứng nhận kết hôn cho hai bên nam, nữ. Trường hợp cần xác minh điều kiện kết hôn của hai bên nam, nữ thì thời hạn giải quyết không quá 05 ngày làm việc.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_19",
+      "article_number": "19",
+      "article_title": "Thẩm quyền đăng ký giám hộ, chấm dứt giám hộ",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_19_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_19",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp xã nơi cư trú của người được giám hộ hoặc người giám hộ thực hiện đăng ký giám hộ. Ủy ban nhân dân cấp xã nơi đã đăng ký giám hộ thực hiện đăng ký chấm dứt giám hộ.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_20",
+      "article_number": "20",
+      "article_title": "Thủ tục đăng ký giám hộ cử",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_20_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_20",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký giám hộ nộp tờ khai đăng ký giám hộ theo mẫu quy định và văn bản cử người giám hộ theo quy định của Bộ luật dân sự cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_20_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_20",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 03 ngày làm việc kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy đủ điều kiện theo quy định pháp luật thì công chức tư pháp - hộ tịch ghi vào Sổ hộ tịch và cùng người đi đăng ký giám hộ ký vào Sổ hộ tịch, báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_21",
+      "article_number": "21",
+      "article_title": "Đăng ký giám hộ đương nhiên",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_21_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_21",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký giám hộ nộp tờ khai đăng ký giám hộ theo mẫu quy định và giấy tờ chứng minh điều kiện giám hộ đương nhiên theo quy định của Bộ luật dân sự cho cơ quan đăng ký hộ tịch. Trường hợp có nhiều người cùng đủ điều kiện làm giám hộ đương nhiên thì nộp thêm văn bản thỏa thuận về việc cử một người làm giám hộ đương nhiên.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_21_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_21",
+          "clause_number": "2",
+          "clause_text": "2. Trình tự đăng ký giám hộ đương nhiên được thực hiện theo quy định tại khoản 2 Điều 20 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_22",
+      "article_number": "22",
+      "article_title": "Đăng ký chấm dứt giám hộ",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_22_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_22",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký chấm dứt giám hộ nộp tờ khai đăng ký chấm dứt giám hộ theo mẫu quy định và giấy tờ làm căn cứ chấm dứt giám hộ theo quy định của Bộ luật dân sự cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_22_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_22",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 02 ngày làm việc kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy việc chấm dứt giám hộ đủ điều kiện theo quy định của Bộ luật dân sự, công chức tư pháp - hộ tịch ghi việc chấm dứt giám hộ vào Sổ hộ tịch, cùng người đi đăng ký chấm dứt giám hộ ký vào Sổ hộ tịch và báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_23",
+      "article_number": "23",
+      "article_title": "Đăng ký thay đổi giám hộ",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_23_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_23",
+          "clause_number": "1",
+          "clause_text": "Trường hợp yêu cầu thay đổi người giám hộ theo quy định của Bộ luật dân sự và có người khác đủ điều kiện nhận làm giám hộ, thì các bên làm thủ tục đăng ký chấm dứt giám hộ trước đó và đăng ký giám hộ mới theo quy định tại Mục này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_24",
+      "article_number": "24",
+      "article_title": "Thẩm quyền đăng ký nhận cha, mẹ, con",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 4 ĐĂNG KÝ NHẬN CHA, MẸ, CON",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_24_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_24",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp xã nơi cư trú của người nhận hoặc người được nhận là cha, mẹ, con thực hiện đăng ký nhận cha, mẹ, con.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_25",
+      "article_number": "25",
+      "article_title": "Thủ tục đăng ký nhận cha, mẹ, con",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 4 ĐĂNG KÝ NHẬN CHA, MẸ, CON",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_25_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_25",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký nhận cha, mẹ, con nộp tờ khai theo mẫu quy định và chứng cứ chứng minh quan hệ cha con hoặc mẹ con cho cơ quan đăng ký hộ tịch. Khi đăng ký nhận cha, mẹ, con các bên phải có mặt.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_25_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_25",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 03 ngày làm việc kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy việc nhận cha, mẹ, con là đúng và không có tranh chấp, công chức tư pháp - hộ tịch ghi vào Sổ hộ tịch, cùng người đăng ký nhận cha, mẹ, con ký vào Sổ hộ tịch và báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu. Trường hợp cần phải xác minh thì thời hạn được kéo dài thêm không quá 05 ngày làm việc.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_26",
+      "article_number": "26",
+      "article_title": "Phạm vi thay đổi hộ tịch",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_26_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_26",
+          "clause_number": "1",
+          "clause_text": "1. Thay đổi họ, chữ đệm và tên của cá nhân trong nội dung khai sinh đã đăng ký khi có căn cứ theo quy định của pháp luật dân sự.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_26_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_26",
+          "clause_number": "2",
+          "clause_text": "2. Thay đổi thông tin về cha, mẹ trong nội dung khai sinh đã đăng ký sau khi được nhận làm con nuôi theo quy định của Luật nuôi con nuôi.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_27",
+      "article_number": "27",
+      "article_title": "Thẩm quyền đăng ký thay đổi, cải chính, bổ sung hộ tịch",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_27_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_27",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp xã nơi đã đăng ký hộ tịch trước đây hoặc nơi cư trú của cá nhân có thẩm quyền giải quyết việc thay đổi, cải chính hộ tịch cho người chưa đủ 14 tuổi; bổ sung hộ tịch cho công dân Việt Nam cư trú ở trong nước.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_28",
+      "article_number": "28",
+      "article_title": "Thủ tục đăng ký thay đổi, cải chính hộ tịch",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_28_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_28",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký thay đổi, cải chính hộ tịch nộp tờ khai theo mẫu quy định và giấy tờ liên quan cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_28_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_28",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 03 ngày làm việc kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy việc thay đổi, cải chính hộ tịch là có cơ sở, phù hợp với quy định của pháp luật dân sự và pháp luật có liên quan, công chức tư pháp - hộ tịch ghi vào Sổ hộ tịch, cùng người yêu cầu đăng ký thay đổi, cải chính hộ tịch ký vào Sổ hộ tịch và báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu. Trường hợp thay đổi, cải chính hộ tịch liên quan đến Giấy khai sinh, Giấy chứng nhận kết hôn thì công chức tư pháp - hộ tịch ghi nội dung thay đổi, cải chính hộ tịch vào Giấy khai sinh, Giấy chứng nhận kết hôn. Trường hợp cần phải xác minh thì thời hạn được kéo dài thêm không quá 03 ngày làm việc.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_28_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_28",
+          "clause_number": "3",
+          "clause_text": "3. Trường hợp đăng ký thay đổi, cải chính hộ tịch không phải tại nơi đăng ký hộ tịch trước đây thì Ủy ban nhân dân cấp xã phải thông báo bằng văn bản kèm theo bản sao trích lục hộ tịch đến Ủy ban nhân dân nơi đăng ký hộ tịch trước đây để ghi vào Sổ hộ tịch. Trường hợp nơi đăng ký hộ tịch trước đây là Cơ quan đại diện thì Ủy ban nhân dân cấp xã phải thông báo bằng văn bản kèm theo bản sao trích lục hộ tịch đến Bộ Ngoại giao để chuyển đến Cơ quan đại diện ghi vào Sổ hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_29",
+      "article_number": "29",
+      "article_title": "Thủ tục bổ sung hộ tịch",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_29_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_29",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu bổ sung hộ tịch nộp tờ khai theo mẫu quy định và giấy tờ liên quan cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_29_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_29",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy yêu cầu bổ sung hộ tịch là đúng, công chức tư pháp - hộ tịch ghi nội dung bổ sung vào mục tương ứng trong Sổ hộ tịch, cùng người yêu cầu ký tên vào Sổ hộ tịch và báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người yêu cầu. Trường hợp bổ sung hộ tịch vào Giấy khai sinh, Giấy chứng nhận kết hôn thì công chức tư pháp - hộ tịch ghi nội dung bổ sung vào mục tương ứng và đóng dấu vào nội dung bổ sung.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_30",
+      "article_number": "30",
+      "article_title": "Trách nhiệm thông báo khi có sự thay đổi hộ tịch",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 6 GHI VÀO SỔ HỘ TỊCH VIỆC THAY ĐỔI HỘ TỊCH THEO BẢN ÁN, QUYẾT ĐỊNH CỦA CƠ QUAN NHÀ NƯỚC CÓ THẨM QUYỀN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_30_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_30",
+          "clause_number": "1",
+          "clause_text": "1. Trong thời hạn 05 ngày làm việc kể từ ngày bản án, quyết định có hiệu lực pháp luật liên quan đến thay đổi hộ tịch của cá nhân theo quy định tại khoản 2 Điều 3 của Luật này, Tòa án nhân dân, cơ quan nhà nước có thẩm quyền có trách nhiệm thông báo bằng văn bản kèm theo trích lục bản án, bản sao quyết định đến Ủy ban nhân dân nơi đã đăng ký hộ tịch của cá nhân để ghi vào Sổ hộ tịch; trường hợp nơi đăng ký hộ tịch là Cơ quan đại diện thì thông báo cho Bộ Ngoại giao để chuyển đến Cơ quan đại diện ghi vào Sổ hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_30_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_30",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp thay đổi quốc tịch thì việc thông báo được thực hiện theo quy định của pháp luật về quốc tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_31",
+      "article_number": "31",
+      "article_title": "Thủ tục ghi vào Sổ hộ tịch việc thay đổi hộ tịch theo bản án, quyết định của cơ quan nhà nước có thẩm quyền",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 6 GHI VÀO SỔ HỘ TỊCH VIỆC THAY ĐỔI HỘ TỊCH THEO BẢN ÁN, QUYẾT ĐỊNH CỦA CƠ QUAN NHÀ NƯỚC CÓ THẨM QUYỀN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_31_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_31",
+          "clause_number": "1",
+          "clause_text": "Ngay sau khi nhận được thông báo theo quy định tại Điều 30 của Luật này, công chức tư pháp - hộ tịch ghi nội dung thay đổi vào Sổ hộ tịch theo bản án, quyết định của Tòa án nhân dân, cơ quan nhà nước có thẩm quyền.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_32",
+      "article_number": "32",
+      "article_title": "Thẩm quyền đăng ký khai tử",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 7 ĐĂNG KÝ KHAI TỬ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_32_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_32",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp xã nơi cư trú cuối cùng của người chết thực hiện việc đăng ký khai tử. Trường hợp không xác định được nơi cư trú cuối cùng của người chết thì Ủy ban nhân dân cấp xã nơi người đó chết hoặc nơi phát hiện thi thể người chết thực hiện việc đăng ký khai tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_33",
+      "article_number": "33",
+      "article_title": "Thời hạn và trách nhiệm đăng ký khai tử",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 7 ĐĂNG KÝ KHAI TỬ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_33_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_33",
+          "clause_number": "1",
+          "clause_text": "1. Trong thời hạn 15 ngày kể từ ngày có người chết thì vợ, chồng hoặc con, cha, mẹ hoặc người thân thích khác của người chết có trách nhiệm đi đăng ký khai tử; trường hợp người chết không có người thân thích thì đại diện của cơ quan, tổ chức, cá nhân liên quan có trách nhiệm đi khai tử.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_33_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_33",
+          "clause_number": "2",
+          "clause_text": "2. Công chức tư pháp - hộ tịch thường xuyên kiểm tra, đôn đốc việc khai tử cho người chết; trường hợp không xác định được người có trách nhiệm đi khai tử thì công chức tư pháp - hộ tịch thực hiện đăng ký khai tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_34",
+      "article_number": "34",
+      "article_title": "Thủ tục đăng ký khai tử",
+      "chapter": "CHƯƠNG II ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP XÃ",
+      "section": "Mục 7 ĐĂNG KÝ KHAI TỬ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_34_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_34",
+          "clause_number": "1",
+          "clause_text": "1. Người có trách nhiệm đi đăng ký khai tử nộp tờ khai theo mẫu quy định và Giấy báo tử hoặc giấy tờ khác thay giấy báo tử cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_34_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_34",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy việc khai tử đúng thì công chức tư pháp - hộ tịch ghi nội dung khai tử vào Sổ hộ tịch, cùng người đi khai tử ký tên vào Sổ hộ tịch và báo cáo Chủ tịch Ủy ban nhân dân cấp xã cấp trích lục cho người đi khai tử. Công chức tư pháp - hộ tịch khóa thông tin hộ tịch của người chết trong Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_35",
+      "article_number": "35",
+      "article_title": "Thẩm quyền đăng ký khai sinh",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": "Ủy ban nhân dân cấp huyện nơi cư trú của người cha hoặc người mẹ thực hiện đăng ký khai sinh cho trẻ em trong các trường hợp sau đây:",
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_35_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_35",
+          "clause_number": "1",
+          "clause_text": "1. Trẻ em được sinh ra tại Việt Nam: a) Có cha hoặc mẹ là công dân Việt Nam còn người kia là người nước ngoài hoặc người không quốc tịch; b) Có cha hoặc mẹ là công dân Việt Nam cư trú ở trong nước còn người kia là công dân Việt Nam định cư ở nước ngoài; c) Có cha và mẹ là công dân Việt Nam định cư ở nước ngoài; d) Có cha và mẹ là người nước ngoài hoặc người không quốc tịch;",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_35_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_35",
+          "clause_number": "2",
+          "clause_text": "2. Trẻ em được sinh ra ở nước ngoài chưa được đăng ký khai sinh về cư trú tại Việt Nam: a) Có cha và mẹ là công dân Việt Nam; b) Có cha hoặc mẹ là công dân Việt Nam.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_36",
+      "article_number": "36",
+      "article_title": "Thủ tục đăng ký khai sinh",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 1 ĐĂNG KÝ KHAI SINH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_36_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_36",
+          "clause_number": "1",
+          "clause_text": "1. Người đi đăng ký khai sinh nộp giấy tờ theo quy định tại khoản 1 Điều 16 của Luật này cho cơ quan đăng ký hộ tịch. Trường hợp cha hoặc mẹ hoặc cả cha và mẹ là người nước ngoài thì phải nộp văn bản thỏa thuận của cha, mẹ về việc chọn quốc tịch cho con. Trường hợp cha, mẹ chọn quốc tịch nước ngoài cho con thì văn bản thỏa thuận phải có xác nhận của cơ quan nhà nước có thẩm quyền của nước ngoài mà người đó là công dân.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_36_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_36",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy thông tin khai sinh đầy đủ và phù hợp, công chức làm công tác hộ tịch ghi nội dung khai sinh theo quy định tại Điều 14 của Luật này vào Sổ hộ tịch; trường hợp trẻ em có quốc tịch nước ngoài thì không ghi nội dung quy định tại điểm c khoản 1 Điều 14 của Luật này. Công chức làm công tác hộ tịch, người đi đăng ký khai sinh cùng ký tên vào Sổ hộ tịch. Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện cấp Giấy khai sinh cho người được đăng ký khai sinh.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_36_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_36",
+          "clause_number": "3",
+          "clause_text": "3. Chính phủ quy định thủ tục đăng ký khai sinh đối với các trường hợp quy định tại khoản 2 Điều 35 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_37",
+      "article_number": "37",
+      "article_title": "Thẩm quyền đăng ký kết hôn",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 2 ĐĂNG KÝ KẾT HÔN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_37_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_37",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp huyện nơi cư trú của công dân Việt Nam thực hiện đăng ký kết hôn giữa công dân Việt Nam với người nước ngoài; giữa công dân Việt Nam cư trú ở trong nước với công dân Việt Nam định cư ở nước ngoài; giữa công dân Việt Nam định cư ở nước ngoài với nhau; giữa công dân Việt Nam đồng thời có quốc tịch nước ngoài với công dân Việt Nam hoặc với người nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_37_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_37",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp người nước ngoài cư trú tại Việt Nam có yêu cầu đăng ký kết hôn tại Việt Nam thì Ủy ban nhân dân cấp huyện nơi cư trú của một trong hai bên thực hiện đăng ký kết hôn.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_38",
+      "article_number": "38",
+      "article_title": "Thủ tục đăng ký kết hôn",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 2 ĐĂNG KÝ KẾT HÔN",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_38_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_38",
+          "clause_number": "1",
+          "clause_text": "1. Hai bên nam, nữ nộp tờ khai theo mẫu quy định và giấy xác nhận của tổ chức y tế có thẩm quyền của Việt Nam hoặc nước ngoài xác nhận người đó không mắc bệnh tâm thần hoặc bệnh khác mà không có khả năng nhận thức, làm chủ được hành vi của mình cho cơ quan đăng ký hộ tịch. Người nước ngoài, công dân Việt Nam định cư ở nước ngoài phải nộp thêm giấy tờ chứng minh tình trạng hôn nhân, bản sao hộ chiếu hoặc giấy tờ có giá trị thay hộ chiếu.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_38_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_38",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 15 ngày kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, công chức làm công tác hộ tịch có trách nhiệm xác minh, nếu thấy đủ điều kiện kết hôn theo quy định của pháp luật thì Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện giải quyết.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_38_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_38",
+          "clause_number": "3",
+          "clause_text": "3. Khi đăng ký kết hôn cả hai bên nam, nữ phải có mặt tại trụ sở Ủy ban nhân dân, công chức làm công tác hộ tịch hỏi ý kiến hai bên nam, nữ, nếu các bên tự nguyện kết hôn thì ghi việc kết hôn vào Sổ hộ tịch, cùng hai bên nam, nữ ký tên vào Sổ hộ tịch. Hai bên nam, nữ cùng ký vào Giấy chứng nhận kết hôn. Chủ tịch Ủy ban nhân dân cấp huyện trao Giấy chứng nhận kết hôn cho hai bên nam, nữ.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_38_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_38",
+          "clause_number": "4",
+          "clause_text": "4. Chính phủ quy định bổ sung giấy tờ trong hồ sơ đăng ký kết hôn, việc phỏng vấn, xác minh mục đích kết hôn khi giải quyết yêu cầu đăng ký kết hôn; thủ tục cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài nhằm bảo đảm quyền, lợi ích hợp pháp của các bên.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_39",
+      "article_number": "39",
+      "article_title": "Thẩm quyền đăng ký giám hộ, chấm dứt giám hộ",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_39_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_39",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp huyện nơi cư trú của người được giám hộ hoặc người giám hộ thực hiện đăng ký giám hộ giữa công dân Việt Nam và người nước ngoài cùng cư trú tại Việt Nam. Ủy ban nhân dân cấp huyện nơi đã đăng ký giám hộ thực hiện đăng ký chấm dứt giám hộ.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_40",
+      "article_number": "40",
+      "article_title": "Thủ tục đăng ký giám hộ cử",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_40_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_40",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký giám hộ nộp tờ khai theo mẫu quy định và văn bản cử người giám hộ theo quy định của Bộ luật dân sự cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_40_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_40",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 05 ngày làm việc kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, công chức làm công tác hộ tịch xác minh, nếu thấy đủ điều kiện theo quy định pháp luật thì ghi vào Sổ hộ tịch và cùng người đi đăng ký giám hộ ký vào Sổ hộ tịch. Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện cấp trích lục cho người yêu cầu.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_41",
+      "article_number": "41",
+      "article_title": "Đăng ký giám hộ đương nhiên",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_41_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_41",
+          "clause_number": "1",
+          "clause_text": "Thủ tục đăng ký giám hộ đương nhiên giữa công dân Việt Nam và người nước ngoài cùng cư trú ở Việt Nam được áp dụng theo quy định tại Điều 21 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_42",
+      "article_number": "42",
+      "article_title": "Thủ tục đăng ký chấm dứt, thay đổi giám hộ",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 3 ĐĂNG KÝ GIÁM HỘ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_42_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_42",
+          "clause_number": "1",
+          "clause_text": "Thủ tục đăng ký chấm dứt, thay đổi giám hộ giữa công dân Việt Nam và người nước ngoài được áp dụng theo quy định tại Điều 22 và Điều 23 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_43",
+      "article_number": "43",
+      "article_title": "Thẩm quyền đăng ký nhận cha, mẹ, con",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 4 ĐĂNG KÝ NHẬN CHA, MẸ, CON",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_43_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_43",
+          "clause_number": "1",
+          "clause_text": "Ủy ban nhân dân cấp huyện nơi cư trú của người được nhận là cha, mẹ, con thực hiện đăng ký nhận cha, mẹ, con giữa công dân Việt Nam với người nước ngoài; giữa công dân Việt Nam cư trú ở trong nước với công dân Việt Nam định cư ở nước ngoài; giữa công dân Việt Nam định cư ở nước ngoài với nhau; giữa công dân Việt Nam đồng thời có quốc tịch nước ngoài với công dân Việt Nam hoặc với người nước ngoài; giữa người nước ngoài với nhau mà một hoặc cả hai bên thường trú tại Việt Nam.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_44",
+      "article_number": "44",
+      "article_title": "Thủ tục đăng ký nhận cha, mẹ, con",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 4 ĐĂNG KÝ NHẬN CHA, MẸ, CON",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_44_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_44",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu đăng ký nhận cha, mẹ, con nộp tờ khai theo mẫu quy định và giấy tờ, đồ vật hoặc các chứng cứ khác để chứng minh quan hệ cha con hoặc mẹ con cho cơ quan đăng ký hộ tịch. Trường hợp đăng ký nhận cha, mẹ, con giữa công dân Việt Nam với người nước ngoài hoặc giữa người nước ngoài với nhau thì người nước ngoài phải nộp thêm bản sao hộ chiếu hoặc giấy tờ có giá trị thay hộ chiếu để chứng minh về nhân thân.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_44_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_44",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 15 ngày kể từ ngày nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, công chức làm công tác hộ tịch xác minh, niêm yết việc nhận cha, mẹ, con tại trụ sở Ủy ban nhân dân cấp huyện trong thời gian 07 ngày liên tục, đồng thời gửi văn bản đề nghị Ủy ban nhân dân cấp xã nơi thường trú của người được nhận là cha, mẹ, con niêm yết trong thời gian 07 ngày liên tục tại trụ sở Ủy ban nhân dân cấp xã.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_44_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_44",
+          "clause_number": "3",
+          "clause_text": "3. Phòng Tư pháp báo cáo và đề xuất Chủ tịch Ủy ban nhân dân cấp huyện quyết định việc đăng ký nhận cha, mẹ, con, nếu thấy đủ điều kiện thì Chủ tịch Ủy ban nhân dân cấp huyện giải quyết.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_44_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_44",
+          "clause_number": "4",
+          "clause_text": "4. Khi đăng ký nhận cha, mẹ, con các bên phải có mặt; công chức làm công tác hộ tịch ghi vào Sổ hộ tịch, cùng các bên ký vào Sổ hộ tịch. Chủ tịch Ủy ban nhân dân cấp huyện cấp trích lục cho các bên.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_45",
+      "article_number": "45",
+      "article_title": "Phạm vi thay đổi hộ tịch",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH, XÁC ĐỊNH LẠI DÂN TỘC",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_45_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_45",
+          "clause_number": "1",
+          "clause_text": "Phạm vi thay đổi hộ tịch theo quy định tại Điều 26 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_46",
+      "article_number": "46",
+      "article_title": "Thẩm quyền đăng ký thay đổi, cải chính, bổ sung hộ tịch, xác định lại dân tộc",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH, XÁC ĐỊNH LẠI DÂN TỘC",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_46_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_46",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp huyện nơi đã đăng ký hộ tịch trước đây hoặc nơi cư trú của người nước ngoài có thẩm quyền giải quyết việc cải chính, bổ sung hộ tịch đối với người nước ngoài đã đăng ký hộ tịch tại cơ quan có thẩm quyền của Việt Nam.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_46_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_46",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân cấp huyện nơi người Việt Nam định cư ở nước ngoài đã đăng ký hộ tịch trước đây có thẩm quyền giải quyết việc thay đổi, cải chính, bổ sung hộ tịch, xác định lại dân tộc.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_46_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_46",
+          "clause_number": "3",
+          "clause_text": "3. Ủy ban nhân dân cấp huyện nơi đã đăng ký hộ tịch trước đây hoặc nơi cư trú của cá nhân có thẩm quyền giải quyết việc thay đổi, cải chính hộ tịch cho công dân Việt Nam từ đủ 14 tuổi trở lên cư trú ở trong nước; xác định lại dân tộc.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_47",
+      "article_number": "47",
+      "article_title": "Thủ tục đăng ký thay đổi, cải chính, bổ sung hộ tịch, xác định lại dân tộc",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 5 ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG HỘ TỊCH, XÁC ĐỊNH LẠI DÂN TỘC",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_47_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_47",
+          "clause_number": "1",
+          "clause_text": "1. Thủ tục đăng ký thay đổi, cải chính hộ tịch được áp dụng theo quy định tại Điều 28 của Luật này. Trường hợp yêu cầu xác định lại dân tộc thì phải có giấy tờ làm căn cứ chứng minh theo quy định của pháp luật; trình tự được thực hiện theo quy định tại Điều 28 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_47_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_47",
+          "clause_number": "2",
+          "clause_text": "2. Thủ tục yêu cầu bổ sung thông tin hộ tịch được áp dụng theo quy định tại Điều 29 của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_48",
+      "article_number": "48",
+      "article_title": "Thẩm quyền ghi vào Sổ hộ tịch việc hộ tịch của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 6 GHI VÀO SỔ HỘ TỊCH VIỆC HỘ TỊCH CỦA CÔNG DÂN VIỆT NAM ĐÃ ĐƯỢC GIẢI QUYẾT TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_48_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_48",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp huyện nơi cư trú của công dân Việt Nam ghi vào Sổ hộ tịch việc khai sinh; kết hôn; giám hộ; nhận cha, mẹ, con; xác định cha, mẹ, con; nuôi con nuôi; thay đổi hộ tịch đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_48_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_48",
+          "clause_number": "2",
+          "clause_text": "2. Ủy ban nhân dân cấp huyện nơi cá nhân đã đăng ký kết hôn hoặc ghi chú việc kết hôn trước đây ghi vào Sổ hộ tịch việc ly hôn, hủy việc kết hôn của cá nhân đã thực hiện ở nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_48_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_48",
+          "clause_number": "3",
+          "clause_text": "3. Ủy ban nhân dân cấp huyện nơi cư trú của người có trách nhiệm khai tử theo quy định tại khoản 1 Điều 33 của Luật này ghi vào Sổ hộ tịch việc khai tử đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_49",
+      "article_number": "49",
+      "article_title": "Thủ tục ghi vào Sổ hộ tịch việc khai sinh; giám hộ; nhận cha, mẹ, con; xác định cha, mẹ, con; nuôi con nuôi; thay đổi hộ tịch; khai tử",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 6 GHI VÀO SỔ HỘ TỊCH VIỆC HỘ TỊCH CỦA CÔNG DÂN VIỆT NAM ĐÃ ĐƯỢC GIẢI QUYẾT TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_49_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_49",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu ghi vào Sổ hộ tịch việc khai sinh; giám hộ; nhận cha, mẹ, con; xác định cha, mẹ, con; nuôi con nuôi; thay đổi hộ tịch; khai tử nộp tờ khai theo mẫu quy định và bản sao có chứng thực giấy tờ chứng minh các việc này đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_49_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_49",
+          "clause_number": "2",
+          "clause_text": "2. Sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, công chức làm công tác hộ tịch kiểm tra, nếu thấy yêu cầu là phù hợp thì ghi vào Sổ hộ tịch. Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện cấp trích lục cho người yêu cầu. Trong trường hợp phải xác minh thì thời hạn giải quyết không quá 03 ngày làm việc.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_50",
+      "article_number": "50",
+      "article_title": "Thủ tục ghi vào Sổ hộ tịch việc kết hôn, ly hôn, hủy việc kết hôn",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 6 GHI VÀO SỔ HỘ TỊCH VIỆC HỘ TỊCH CỦA CÔNG DÂN VIỆT NAM ĐÃ ĐƯỢC GIẢI QUYẾT TẠI CƠ QUAN CÓ THẨM QUYỀN CỦA NƯỚC NGOÀI",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_50_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_50",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu ghi vào Sổ hộ tịch việc kết hôn, ly hôn, hủy việc kết hôn nộp tờ khai theo mẫu quy định và bản sao có chứng thực giấy tờ chứng minh các việc này đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_50_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_50",
+          "clause_number": "2",
+          "clause_text": "2. Trong thời hạn 12 ngày kể từ ngày nhận đủ hồ sơ hợp lệ theo quy định tại khoản 1 Điều này và đủ điều kiện theo quy định của pháp luật, công chức làm công tác hộ tịch ghi vào Sổ hộ tịch. Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện cấp trích lục cho người yêu cầu.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_50_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_50",
+          "clause_number": "3",
+          "clause_text": "3. Chính phủ quy định chi tiết về trình tự, thủ tục và thời gian phối hợp giữa các cơ quan thực hiện Điều này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_51",
+      "article_number": "51",
+      "article_title": "Thẩm quyền đăng ký khai tử",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 7 ĐĂNG KÝ KHAI TỬ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_51_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_51",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp huyện nơi cư trú cuối cùng của người chết thực hiện việc đăng ký khai tử cho người nước ngoài hoặc công dân Việt Nam định cư ở nước ngoài chết tại Việt Nam.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_51_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_51",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp không xác định được nơi cư trú cuối cùng của người chết theo quy định tại khoản 1 Điều này thì Ủy ban nhân dân cấp huyện nơi người đó chết hoặc nơi phát hiện thi thể người chết thực hiện việc đăng ký khai tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_52",
+      "article_number": "52",
+      "article_title": "Thủ tục đăng ký khai tử",
+      "chapter": "CHƯƠNG III ĐĂNG KÝ HỘ TỊCH TẠI ỦY BAN NHÂN DÂN CẤP HUYỆN",
+      "section": "Mục 7 ĐĂNG KÝ KHAI TỬ",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_52_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_52",
+          "clause_number": "1",
+          "clause_text": "1. Người đi đăng ký khai tử nộp tờ khai theo mẫu quy định và Giấy báo tử hoặc giấy tờ khác thay giấy báo tử cho cơ quan đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_52_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_52",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận đủ giấy tờ theo quy định tại khoản 1 Điều này, nếu thấy việc khai tử đúng thì công chức làm công tác hộ tịch ghi vào Sổ hộ tịch và cùng người đi khai tử ký vào Sổ hộ tịch. Phòng Tư pháp báo cáo Chủ tịch Ủy ban nhân dân cấp huyện cấp trích lục hộ tịch cho người đi khai tử. Trường hợp cần xác minh thì thời hạn giải quyết không quá 03 ngày làm việc.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_52_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_52",
+          "clause_number": "3",
+          "clause_text": "3. Sau khi đăng ký khai tử, Ủy ban nhân dân cấp huyện phải thông báo bằng văn bản kèm theo trích lục hộ tịch cho Bộ Ngoại giao để thông báo cho cơ quan có thẩm quyền của nước mà người chết là công dân. Trường hợp người chết là công dân Việt Nam định cư ở nước ngoài thì công chức làm công tác hộ tịch khóa thông tin của người chết trong Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_53",
+      "article_number": "53",
+      "article_title": "Đăng ký hộ tịch cho công dân Việt Nam cư trú ở nước ngoài",
+      "chapter": "CHƯƠNG IV ĐĂNG KÝ HỘ TỊCH TẠI CƠ QUAN ĐẠI DIỆN",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_53_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_53",
+          "clause_number": "1",
+          "clause_text": "1. Cơ quan đại diện thực hiện đăng ký các việc hộ tịch theo quy định tại Điều 3 của Luật này cho công dân Việt Nam cư trú ở nước ngoài, nếu việc đăng ký đó không trái pháp luật của nước tiếp nhận và điều ước quốc tế mà Việt Nam là thành viên.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_53_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_53",
+          "clause_number": "2",
+          "clause_text": "2. Căn cứ quy định của Luật này, Bộ Ngoại giao phối hợp với Bộ Tư pháp hướng dẫn về thẩm quyền, thủ tục đăng ký hộ tịch, việc cấp bản sao trích lục hộ tịch cho công dân Việt Nam cư trú ở nước ngoài tại Cơ quan đại diện.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_54",
+      "article_number": "54",
+      "article_title": "Công chức làm công tác hộ tịch tại Cơ quan đại diện",
+      "chapter": "CHƯƠNG IV ĐĂNG KÝ HỘ TỊCH TẠI CƠ QUAN ĐẠI DIỆN",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_54_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_54",
+          "clause_number": "1",
+          "clause_text": "1. Cơ quan đại diện cử viên chức ngoại giao, lãnh sự thực hiện đăng ký hộ tịch cho công dân Việt Nam cư trú ở nước ngoài.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_54_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_54",
+          "clause_number": "2",
+          "clause_text": "2. Viên chức ngoại giao, lãnh sự làm công tác hộ tịch ngoài điều kiện, tiêu chuẩn của viên chức ngoại giao, lãnh sự phải được bồi dưỡng nghiệp vụ hộ tịch trước khi thực hiện nhiệm vụ đăng ký hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_55",
+      "article_number": "55",
+      "article_title": "Lập Sổ hộ tịch tại Bộ Ngoại giao",
+      "chapter": "CHƯƠNG IV ĐĂNG KÝ HỘ TỊCH TẠI CƠ QUAN ĐẠI DIỆN",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_55_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_55",
+          "clause_number": "1",
+          "clause_text": "Bộ Ngoại giao lập Sổ hộ tịch để ghi chép, cập nhật đầy đủ, quản lý thống nhất thông tin hộ tịch của công dân Việt Nam cư trú ở nước ngoài đã đăng ký tại Cơ quan đại diện và làm căn cứ cấp bản sao trích lục hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_56",
+      "article_number": "56",
+      "article_title": "Trách nhiệm báo cáo của Cơ quan đại diện",
+      "chapter": "CHƯƠNG IV ĐĂNG KÝ HỘ TỊCH TẠI CƠ QUAN ĐẠI DIỆN",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_56_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_56",
+          "clause_number": "1",
+          "clause_text": "Sau khi đăng ký hộ tịch cho công dân Việt Nam cư trú ở nước ngoài, Cơ quan đại diện có trách nhiệm báo cáo bằng văn bản kèm bản sao trích lục hộ tịch về Bộ Ngoại giao để ghi vào Sổ hộ tịch và cập nhật vào Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_57",
+      "article_number": "57",
+      "article_title": "Cơ sở dữ liệu hộ tịch",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 1 CƠ SỞ DỮ LIỆU HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_57_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_57",
+          "clause_number": "1",
+          "clause_text": "1. Cơ sở dữ liệu hộ tịch là tài sản quốc gia, lưu giữ toàn bộ thông tin hộ tịch của mọi cá nhân, làm cơ sở để bảo vệ quyền, lợi ích hợp pháp của cá nhân, phục vụ yêu cầu tra cứu thông tin, quản lý, hoạch định chính sách phát triển kinh tế - xã hội của đất nước.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_57_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_57",
+          "clause_number": "2",
+          "clause_text": "2. Cơ sở dữ liệu hộ tịch bao gồm Sổ hộ tịch và Cơ sở dữ liệu hộ tịch điện tử là căn cứ để cấp bản sao trích lục hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_58",
+      "article_number": "58",
+      "article_title": "Sổ hộ tịch",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 1 CƠ SỞ DỮ LIỆU HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_58_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_58",
+          "clause_number": "1",
+          "clause_text": "1. Sổ hộ tịch là căn cứ pháp lý để lập, cập nhật, điều chỉnh thông tin hộ tịch của cá nhân trong Cơ sở dữ liệu hộ tịch điện tử. Mỗi loại việc hộ tịch phải được ghi vào 01 quyển sổ, các trang phải đóng dấu giáp lai; Sổ hộ tịch được lưu giữ vĩnh viễn theo quy định của pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_58_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_58",
+          "clause_number": "2",
+          "clause_text": "2. Việc khóa Sổ hộ tịch được thực hiện vào ngày cuối cùng của năm. Khi khóa Sổ hộ tịch phải ghi rõ tổng số trang và tổng số sự kiện hộ tịch đã đăng ký; người đứng đầu cơ quan đăng ký hộ tịch ký, đóng dấu. Giấy tờ, đồ vật hoặc chứng cứ khác đã nộp khi đăng ký hộ tịch phải được lưu trữ, bảo quản theo quy định của pháp luật về lưu trữ.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_58_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_58",
+          "clause_number": "3",
+          "clause_text": "3. Cơ quan đăng ký hộ tịch có trách nhiệm lưu trữ, bảo quản Sổ hộ tịch, giấy tờ, đồ vật hoặc chứng cứ khác liên quan đến đăng ký hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_59",
+      "article_number": "59",
+      "article_title": "Cơ sở dữ liệu hộ tịch điện tử",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 1 CƠ SỞ DỮ LIỆU HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_59_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_59",
+          "clause_number": "1",
+          "clause_text": "1. Cơ sở dữ liệu hộ tịch điện tử được lập để lưu giữ, cập nhật, quản lý, tra cứu thông tin hộ tịch, phục vụ yêu cầu đăng ký hộ tịch trực tuyến; được kết nối để cung cấp, trao đổi thông tin hộ tịch cơ bản của cá nhân cho Cơ sở dữ liệu quốc gia về dân cư.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_59_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_59",
+          "clause_number": "2",
+          "clause_text": "2. Chính phủ quy định sự phối hợp giữa các bộ, cơ quan ngang bộ và trách nhiệm của Ủy ban nhân dân các cấp trong việc quản lý, sử dụng Cơ sở dữ liệu hộ tịch điện tử; thủ tục, trình tự đăng ký hộ tịch trực tuyến; việc kết nối, cung cấp, trao đổi thông tin giữa Cơ sở dữ liệu hộ tịch điện tử và Cơ sở dữ liệu quốc gia về dân cư.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_60",
+      "article_number": "60",
+      "article_title": "Cập nhật, điều chỉnh thông tin hộ tịch cá nhân trong Cơ sở dữ liệu hộ tịch điện tử",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 1 CƠ SỞ DỮ LIỆU HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_60_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_60",
+          "clause_number": "1",
+          "clause_text": "1. Các sự kiện hộ tịch của cá nhân ngay sau khi đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ, chính xác vào Cơ sở dữ liệu hộ tịch điện tử. Cơ quan đăng ký hộ tịch chịu trách nhiệm về mọi thông tin hộ tịch được cập nhật trong Cơ sở dữ liệu hộ tịch điện tử.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_60_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_60",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp thông tin trong Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư khác với thông tin trong Sổ hộ tịch thì phải điều chỉnh cho phù hợp với Sổ hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_61",
+      "article_number": "61",
+      "article_title": "Nguyên tắc quản lý, khai thác Cơ sở dữ liệu hộ tịch",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 1 CƠ SỞ DỮ LIỆU HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_61_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_61",
+          "clause_number": "1",
+          "clause_text": "1. Cơ sở dữ liệu hộ tịch được quản lý, bảo mật, bảo đảm an toàn; chỉ những cơ quan, tổ chức, cá nhân có thẩm quyền mới được tiếp cận và khai thác theo quy định của pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_61_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_61",
+          "clause_number": "2",
+          "clause_text": "2. Cơ quan quản lý Cơ sở dữ liệu hộ tịch có trách nhiệm bảo đảm bí mật cá nhân trong Cơ sở dữ liệu hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_62",
+      "article_number": "62",
+      "article_title": "Cấp bản chính trích lục hộ tịch khi đăng ký hộ tịch",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 2 CẤP TRÍCH LỤC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_62_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_62",
+          "clause_number": "1",
+          "clause_text": "1. Khi đăng ký hộ tịch, cơ quan đăng ký hộ tịch cấp 01 bản chính trích lục hộ tịch cho người yêu cầu đăng ký hộ tịch, trừ việc đăng ký khai sinh, đăng ký kết hôn.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_62_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_62",
+          "clause_number": "2",
+          "clause_text": "2. Bản chính trích lục hộ tịch được chứng thực bản sao.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_63",
+      "article_number": "63",
+      "article_title": "Cấp bản sao trích lục hộ tịch về sự kiện hộ tịch đã đăng ký",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 2 CẤP TRÍCH LỤC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_63_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_63",
+          "clause_number": "1",
+          "clause_text": "Cá nhân không phụ thuộc vào nơi cư trú có quyền yêu cầu Cơ quan quản lý Cơ sở dữ liệu hộ tịch cấp bản sao trích lục hộ tịch về sự kiện hộ tịch của mình đã được đăng ký.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_64",
+      "article_number": "64",
+      "article_title": "Thủ tục cấp bản sao trích lục hộ tịch",
+      "chapter": "CHƯƠNG V CƠ SỞ DỮ LIỆU HỘ TỊCH, CẤP TRÍCH LỤC HỘ TỊCH",
+      "section": "Mục 2 CẤP TRÍCH LỤC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_64_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_64",
+          "clause_number": "1",
+          "clause_text": "1. Người yêu cầu cấp bản sao trích lục hộ tịch trực tiếp hoặc thông qua người đại diện gửi tờ khai theo mẫu quy định cho Cơ quan quản lý Cơ sở dữ liệu hộ tịch. Trường hợp cơ quan, tổ chức có thẩm quyền đề nghị cấp bản sao trích lục hộ tịch của cá nhân thì gửi văn bản yêu cầu nêu rõ lý do cho Cơ quan quản lý Cơ sở dữ liệu hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_64_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_64",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận được yêu cầu, nếu đủ điều kiện thì Cơ quan quản lý Cơ sở dữ liệu hộ tịch cấp bản sao trích lục hộ tịch cho người yêu cầu.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_65",
+      "article_number": "65",
+      "article_title": "Trách nhiệm của Chính phủ",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_65_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_65",
+          "clause_number": "1",
+          "clause_text": "1. Chính phủ thống nhất quản lý nhà nước về hộ tịch. Bộ Tư pháp giúp Chính phủ thực hiện quản lý nhà nước về hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_65_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_65",
+          "clause_number": "2",
+          "clause_text": "2. Nội dung quản lý nhà nước về hộ tịch bao gồm: a) Ban hành hoặc trình cơ quan có thẩm quyền ban hành văn bản quy phạm pháp luật về đăng ký và quản lý hộ tịch; tổ chức triển khai thực hiện pháp luật về hộ tịch; b) Ứng dụng công nghệ thông tin trong đăng ký và quản lý hộ tịch; xây dựng và quản lý Cơ sở dữ liệu hộ tịch điện tử; c) Thanh tra, kiểm tra, giải quyết khiếu nại, tố cáo và xử lý vi phạm pháp luật về đăng ký và quản lý hộ tịch; d) Thống kê hộ tịch; đ) Hợp tác quốc tế về hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_66",
+      "article_number": "66",
+      "article_title": "Trách nhiệm của Bộ Tư pháp",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": "Bộ Tư pháp thực hiện quản lý nhà nước về hộ tịch và có nhiệm vụ, quyền hạn sau đây:",
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_66_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_66",
+          "clause_number": "1",
+          "clause_text": "1. Quy định, hướng dẫn, chỉ đạo, bồi dưỡng nghiệp vụ về đăng ký, quản lý hộ tịch cho công chức làm công tác hộ tịch ở trong nước.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_66_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_66",
+          "clause_number": "2",
+          "clause_text": "2. Ban hành, hướng dẫn sử dụng, quản lý Sổ hộ tịch, Giấy khai sinh, Giấy chứng nhận kết hôn, trích lục hộ tịch và các biểu mẫu hộ tịch khác; quy định cụ thể điều kiện, trình tự đăng ký khai sinh, kết hôn, khai tử lưu động.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_66_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_66",
+          "clause_number": "3",
+          "clause_text": "3. Xây dựng và quản lý thống nhất Cơ sở dữ liệu hộ tịch điện tử; hướng dẫn, chỉ đạo địa phương trong việc quản lý, sử dụng phần mềm đăng ký và quản lý hộ tịch, Cơ sở dữ liệu hộ tịch điện tử, cung cấp thông tin hộ tịch cơ bản của cá nhân cho Cơ sở dữ liệu quốc gia về dân cư.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_66_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_66",
+          "clause_number": "4",
+          "clause_text": "4. Hàng năm tổng hợp tình hình, phân tích, đánh giá, thống kê hộ tịch báo cáo Chính phủ.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_67",
+      "article_number": "67",
+      "article_title": "Trách nhiệm của Bộ Ngoại giao",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_67_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_67",
+          "clause_number": "1",
+          "clause_text": "1. Bộ Ngoại giao phối hợp với Bộ Tư pháp thực hiện quản lý nhà nước về hộ tịch tại Cơ quan đại diện và có nhiệm vụ, quyền hạn sau đây: a) Quy định, hướng dẫn, chỉ đạo, kiểm tra, thanh tra công tác đăng ký và quản lý hộ tịch tại các Cơ quan đại diện; b) Tổ chức việc bồi dưỡng nghiệp vụ hộ tịch cho viên chức ngoại giao, lãnh sự; c) Lập Sổ hộ tịch để quản lý thông tin hộ tịch của công dân Việt Nam đã đăng ký tại Cơ quan đại diện; d) Cập nhật, khai thác Cơ sở dữ liệu hộ tịch điện tử và cấp bản sao trích lục hộ tịch theo quy định; đ) Tổng hợp tình hình và thống kê hộ tịch của Cơ quan đại diện gửi Bộ Tư pháp theo quy định của Chính phủ.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_67_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_67",
+          "clause_number": "2",
+          "clause_text": "2. Cơ quan đại diện thực hiện quản lý nhà nước về hộ tịch của công dân Việt Nam cư trú ở nước ngoài và có nhiệm vụ, quyền hạn sau đây: a) Thực hiện việc đăng ký hộ tịch cho công dân Việt Nam cư trú ở nước ngoài theo quy định của pháp luật về hộ tịch, pháp luật về lãnh sự và điều ước quốc tế liên quan; b) Bố trí viên chức ngoại giao, lãnh sự thực hiện nhiệm vụ đăng ký và quản lý hộ tịch tại Cơ quan đại diện; c) Quản lý, sử dụng Sổ hộ tịch và biểu mẫu hộ tịch theo quy định; d) Quản lý, cập nhật và khai thác Cơ sở dữ liệu hộ tịch điện tử và cấp bản sao trích lục hộ tịch theo quy định; đ) Báo cáo Bộ Ngoại giao nội dung đăng ký hộ tịch để cập nhật vào Cơ sở dữ liệu hộ tịch; e) Tổng hợp tình hình và thống kê hộ tịch báo cáo Bộ Ngoại giao theo quy định; g) Lưu giữ giấy tờ, đồ vật và chứng cứ khác liên quan đến đăng ký hộ tịch; h) Giải quyết khiếu nại, tố cáo và xử lý vi phạm về hộ tịch theo thẩm quyền. Viên chức ngoại giao, lãnh sự làm công tác hộ tịch có trách nhiệm giúp Cơ quan đại diện thực hiện nhiệm vụ, quyền hạn theo quy định tại các điểm a, c, d, đ, e và g khoản 2 Điều này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_68",
+      "article_number": "68",
+      "article_title": "Trách nhiệm của Bộ Công an",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": "Bộ Công an chủ trì, phối hợp với Bộ Tư pháp, Bộ Ngoại giao và các bộ, ngành liên quan thực hiện nhiệm vụ, quyền hạn sau đây:",
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_68_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_68",
+          "clause_number": "1",
+          "clause_text": "1. Bảo đảm kết nối Cơ sở dữ liệu quốc gia về dân cư với Cơ sở dữ liệu hộ tịch điện tử theo quy định của pháp luật;",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_68_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_68",
+          "clause_number": "2",
+          "clause_text": "2. Bảo đảm an ninh, an toàn thông tin trong Cơ sở dữ liệu hộ tịch điện tử;",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_68_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_68",
+          "clause_number": "3",
+          "clause_text": "3. Thực hiện các nhiệm vụ khác liên quan đến công tác hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_69",
+      "article_number": "69",
+      "article_title": "Trách nhiệm của Ủy ban nhân dân tỉnh, thành phố trực thuộc",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": "Trung ương",
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_69_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_69",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương (sau đây gọi là Ủy ban nhân dân cấp tỉnh) thực hiện quản lý nhà nước về hộ tịch tại địa phương và có nhiệm vụ, quyền hạn sau đây: a) Hướng dẫn, chỉ đạo việc tổ chức thực hiện công tác đăng ký và quản lý hộ tịch; b) Tổ chức tuyên truyền, phổ biến pháp luật về hộ tịch; c) Căn cứ quy định của Chính phủ, quyết định việc bố trí công chức làm công tác hộ tịch ở cấp huyện, cấp xã; bảo đảm cơ sở vật chất để phục vụ hoạt động đăng ký và quản lý hộ tịch; d) Quản lý, cập nhật, khai thác Cơ sở dữ liệu hộ tịch điện tử theo quy định; đ) Thanh tra, kiểm tra, giải quyết khiếu nại, tố cáo và xử lý vi phạm pháp luật về hộ tịch theo thẩm quyền; e) Thu hồi, hủy bỏ giấy tờ hộ tịch do Ủy ban nhân dân cấp huyện cấp trái quy định của Luật này, trừ trường hợp kết hôn trái pháp luật; g) Định kỳ tổ chức việc bồi dưỡng nghiệp vụ hộ tịch cho công chức làm công tác hộ tịch; h) Tổng hợp tình hình và thống kê hộ tịch báo cáo Bộ Tư pháp theo quy định.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_69_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_69",
+          "clause_number": "2",
+          "clause_text": "2. Sở Tư pháp giúp Ủy ban nhân dân cấp tỉnh thực hiện nhiệm vụ, quyền hạn quy định tại các điểm a, b, d, đ, g và h khoản 1 Điều này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_69_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_69",
+          "clause_number": "3",
+          "clause_text": "3. Chủ tịch Ủy ban nhân dân cấp tỉnh chịu trách nhiệm về công tác đăng ký, quản lý hộ tịch và những vi phạm trong công tác đăng ký, quản lý hộ tịch do buông lỏng quản lý.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_70",
+      "article_number": "70",
+      "article_title": "Trách nhiệm của Ủy ban nhân dân cấp huyện",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_70_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_70",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp huyện thực hiện quản lý nhà nước về hộ tịch tại địa phương và có nhiệm vụ, quyền hạn sau đây: a) Thực hiện đăng ký hộ tịch theo quy định của Luật này; b) Chỉ đạo, kiểm tra việc đăng ký và quản lý hộ tịch tại Ủy ban nhân dân cấp xã; c) Tổ chức tuyên truyền, phổ biến các quy định của pháp luật về hộ tịch; d) Quản lý, sử dụng Sổ hộ tịch, biểu mẫu hộ tịch theo quy định; đ) Căn cứ quy định của Ủy ban nhân dân cấp tỉnh, bố trí công chức làm công tác hộ tịch; e) Quản lý, cập nhật, khai thác Cơ sở dữ liệu hộ tịch điện tử và cấp bản sao trích lục hộ tịch theo quy định; g) Thanh tra, kiểm tra, giải quyết khiếu nại, tố cáo và xử lý vi phạm pháp luật về hộ tịch theo thẩm quyền; h) Thu hồi, hủy bỏ giấy tờ hộ tịch do Ủy ban nhân dân cấp xã cấp trái quy định của Luật này, trừ trường hợp kết hôn trái pháp luật; i) Tổng hợp tình hình và thống kê hộ tịch báo cáo Ủy ban nhân dân cấp tỉnh theo quy định của Chính phủ; k) Lưu trữ Sổ hộ tịch, hồ sơ đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_70_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_70",
+          "clause_number": "2",
+          "clause_text": "2. Phòng Tư pháp giúp Ủy ban nhân dân cấp huyện thực hiện nhiệm vụ, quyền hạn quy định tại các điểm a, b, c, d, e, g, i và k khoản 1 Điều này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_70_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_70",
+          "clause_number": "3",
+          "clause_text": "3. Đối với đơn vị hành chính cấp huyện không có đơn vị hành chính cấp xã thì ngoài việc thực hiện nhiệm vụ, quyền hạn về đăng ký và quản lý hộ tịch của Ủy ban nhân dân cấp huyện, còn thực hiện nhiệm vụ, quyền hạn đăng ký và quản lý hộ tịch của Ủy ban nhân dân cấp xã theo quy định tại Điều 71 của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_70_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_70",
+          "clause_number": "4",
+          "clause_text": "4. Chủ tịch Ủy ban nhân dân cấp huyện chịu trách nhiệm về công tác đăng ký, quản lý hộ tịch và những vi phạm trong công tác đăng ký, quản lý hộ tịch do buông lỏng quản lý.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_71",
+      "article_number": "71",
+      "article_title": "Trách nhiệm của Ủy ban nhân dân cấp xã",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 1 TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_71_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_71",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp xã thực hiện quản lý nhà nước về hộ tịch tại địa phương và có nhiệm vụ, quyền hạn sau đây: a) Thực hiện đăng ký hộ tịch theo quy định của Luật này; b) Căn cứ quy định của Ủy ban nhân dân cấp trên, bố trí công chức tư pháp - hộ tịch thực hiện việc đăng ký hộ tịch; c) Tuyên truyền, phổ biến pháp luật về hộ tịch; d) Quản lý, sử dụng Sổ hộ tịch, biểu mẫu hộ tịch theo quy định; đ) Quản lý, cập nhật, khai thác Cơ sở dữ liệu hộ tịch điện tử và cấp bản sao trích lục hộ tịch theo quy định; e) Tổng hợp tình hình và thống kê hộ tịch báo cáo Ủy ban nhân dân cấp huyện theo quy định của Chính phủ; g) Lưu trữ Sổ hộ tịch, hồ sơ đăng ký hộ tịch; h) Giải quyết khiếu nại, tố cáo và xử lý vi phạm về hộ tịch theo thẩm quyền.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_71_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_71",
+          "clause_number": "2",
+          "clause_text": "2. Chủ tịch Ủy ban nhân dân cấp xã thường xuyên chỉ đạo, đôn đốc việc khai sinh, khai tử; chịu trách nhiệm về công tác đăng ký, quản lý hộ tịch và những vi phạm trong công tác đăng ký, quản lý hộ tịch do buông lỏng quản lý. Công chức tư pháp - hộ tịch giúp Ủy ban nhân dân cấp xã thực hiện nhiệm vụ, quyền hạn quy định tại các điểm a, c, d, đ, e và g khoản 1 Điều này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_72",
+      "article_number": "72",
+      "article_title": "Công chức làm công tác hộ tịch",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 2 CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_72_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_72",
+          "clause_number": "1",
+          "clause_text": "1. Công chức làm công tác hộ tịch bao gồm công chức tư pháp - hộ tịch ở cấp xã; công chức làm công tác hộ tịch ở Phòng Tư pháp thuộc Ủy ban nhân dân cấp huyện; viên chức ngoại giao, lãnh sự làm công tác hộ tịch tại Cơ quan đại diện.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_72_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_72",
+          "clause_number": "2",
+          "clause_text": "2. Công chức tư pháp - hộ tịch cấp xã phải có các tiêu chuẩn sau đây: a) Có trình độ từ trung cấp luật trở lên và đã được bồi dưỡng nghiệp vụ hộ tịch; b) Có chữ viết rõ ràng và trình độ tin học phù hợp theo yêu cầu công việc. Căn cứ điều kiện thực tế về diện tích, dân số, khối lượng công việc tư pháp, hộ tịch của địa phương, Chính phủ quy định việc bố trí công chức tư pháp - hộ tịch đảm nhiệm công tác hộ tịch chuyên trách.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_72_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_72",
+          "clause_number": "3",
+          "clause_text": "3. Công chức làm công tác hộ tịch tại Phòng Tư pháp phải có trình độ cử nhân luật trở lên và đã được bồi dưỡng nghiệp vụ hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_72_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_72",
+          "clause_number": "4",
+          "clause_text": "4. Viên chức ngoại giao, lãnh sự làm công tác hộ tịch tại Cơ quan đại diện đã được bồi dưỡng nghiệp vụ hộ tịch.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_73",
+      "article_number": "73",
+      "article_title": "Nhiệm vụ, quyền hạn của công chức làm công tác hộ tịch",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 2 CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_73_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_73",
+          "clause_number": "1",
+          "clause_text": "1. Trong lĩnh vực hộ tịch, công chức tư pháp - hộ tịch cấp xã có nhiệm vụ, quyền hạn sau đây: a) Tuân thủ quy định của Luật này và các quy định khác của pháp luật có liên quan về hộ tịch; b) Chịu trách nhiệm trước Ủy ban nhân dân cấp xã và pháp luật về việc đăng ký hộ tịch; c) Tuyên truyền, phổ biến, vận động nhân dân chấp hành các quy định của pháp luật về hộ tịch; d) Giúp Ủy ban nhân dân cấp xã đăng ký hộ tịch kịp thời, chính xác, khách quan, trung thực; cập nhật đầy đủ các sự kiện hộ tịch đã được đăng ký vào Cơ sở dữ liệu hộ tịch điện tử; đ) Chủ động kiểm tra, rà soát để đăng ký kịp thời việc sinh, tử phát sinh trên địa bàn. Đối với địa bàn dân cư không tập trung, điều kiện đi lại khó khăn, cách xa trụ sở Ủy ban nhân dân cấp xã, công chức tư pháp - hộ tịch báo cáo Ủy ban nhân dân cấp xã cho tổ chức đăng ký lưu động đối với việc khai sinh, kết hôn, khai tử; e) Thường xuyên trau dồi kiến thức pháp luật để nâng cao năng lực và nghiệp vụ đăng ký hộ tịch; tham gia các lớp bồi dưỡng chuyên môn nghiệp vụ do Ủy ban nhân dân hoặc cơ quan tư pháp cấp trên tổ chức; g) Chủ động báo cáo, đề xuất Ủy ban nhân dân cùng cấp phối hợp với cơ quan, tổ chức kiểm tra, xác minh về thông tin hộ tịch; yêu cầu cơ quan, tổ chức, cá nhân cung cấp thông tin để xác minh khi đăng ký hộ tịch; phối hợp với cơ quan Công an cùng cấp cung cấp thông tin hộ tịch cơ bản của cá nhân cho Cơ sở dữ liệu quốc gia về dân cư.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_73_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_73",
+          "clause_number": "2",
+          "clause_text": "2. Quy định tại khoản 1 Điều này cũng được áp dụng đối với công chức làm công tác hộ tịch của Phòng Tư pháp, viên chức ngoại giao, lãnh sự làm công tác hộ tịch tại Cơ quan đại diện theo nhiệm vụ, quyền hạn của mình.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_74",
+      "article_number": "74",
+      "article_title": "Những việc công chức làm công tác hộ tịch không được làm",
+      "chapter": "CHƯƠNG VI TRÁCH NHIỆM QUẢN LÝ NHÀ NƯỚC VỀ HỘ TỊCH, CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "section": "Mục 2 CÔNG CHỨC LÀM CÔNG TÁC HỘ TỊCH",
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "1",
+          "clause_text": "1. Cửa quyền, hách dịch, sách nhiễu, trì hoãn, gây khó khăn, phiền hà, nhận hối lộ khi đăng ký, quản lý hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "2",
+          "clause_text": "2. Thu lệ phí hộ tịch cao hơn mức quy định hoặc đặt ra các khoản thu khi đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "3",
+          "clause_text": "3. Đặt ra thủ tục, giấy tờ, cố ý kéo dài thời hạn giải quyết đăng ký hộ tịch trái quy định của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_4",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "4",
+          "clause_text": "4. Tẩy xóa, sửa chữa, làm sai lệch nội dung thông tin trong Cơ sở dữ liệu hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_5",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "5",
+          "clause_text": "5. Đăng ký, cấp giấy tờ về hộ tịch trái quy định của Luật này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_6",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "6",
+          "clause_text": "6. Tiết lộ thông tin liên quan đến bí mật cá nhân mà biết được qua đăng ký hộ tịch.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_74_clause_7",
+          "parent_article_id": "l_60_2014_qh13_art_74",
+          "clause_number": "7",
+          "clause_text": "7. Công chức làm công tác hộ tịch vi phạm các quy định tại Điều này thì tùy theo tính chất, mức độ vi phạm có thể bị xử lý kỷ luật hoặc truy cứu trách nhiệm hình sự theo quy định của pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_75",
+      "article_number": "75",
+      "article_title": "Giá trị của Sổ hộ tịch được lập, giấy tờ hộ tịch được cấp trước ngày Luật này có hiệu lực",
+      "chapter": "CHƯƠNG VII ĐIỀU KHOẢN THI HÀNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_75_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_75",
+          "clause_number": "1",
+          "clause_text": "1. Sổ hộ tịch được lưu trữ trước ngày Luật này có hiệu lực vẫn có giá trị làm căn cứ chứng minh sự kiện hộ tịch của cá nhân, tra cứu, cấp bản sao trích lục hộ tịch, cấp giấy xác nhận tình trạng hôn nhân.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_75_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_75",
+          "clause_number": "2",
+          "clause_text": "2. Giấy tờ hộ tịch đã cấp cho cá nhân theo quy định của pháp luật về hộ tịch trước ngày Luật này có hiệu lực vẫn có giá trị sử dụng.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_76",
+      "article_number": "76",
+      "article_title": "Điều khoản chuyển tiếp",
+      "chapter": "CHƯƠNG VII ĐIỀU KHOẢN THI HÀNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_76_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_76",
+          "clause_number": "1",
+          "clause_text": "1. Hồ sơ đăng ký hộ tịch được thụ lý trước ngày Luật này có hiệu lực mà chưa giải quyết xong thì tiếp tục được giải quyết theo quy định của pháp luật về hộ tịch tại thời điểm tiếp nhận.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_76_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_76",
+          "clause_number": "2",
+          "clause_text": "2. Chính phủ quy định chi tiết việc đăng ký lại khai sinh, khai tử, kết hôn đã được đăng ký trước ngày Luật này có hiệu lực.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_76_clause_3",
+          "parent_article_id": "l_60_2014_qh13_art_76",
+          "clause_number": "3",
+          "clause_text": "3. Chính phủ chỉ đạo việc rà soát, bồi dưỡng nghiệp vụ hộ tịch, kiện toàn đội ngũ công chức làm công tác hộ tịch bảo đảm thực hiện nhiệm vụ, quyền hạn được giao trong Luật; quy định thủ tục đăng ký khai sinh, kết hôn; cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam; chế độ lập, quản lý, sử dụng Sổ hộ tịch trong giai đoạn chuyển tiếp cho đến khi xây dựng xong Cơ sở dữ liệu quốc gia về dân cư, chậm nhất đến ngày 01 tháng 01 năm 2020 phải thực hiện thống nhất trên toàn quốc theo quy định của Luật này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "l_60_2014_qh13_art_77",
+      "article_number": "77",
+      "article_title": "Hiệu lực thi hành",
+      "chapter": "CHƯƠNG VII ĐIỀU KHOẢN THI HÀNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "l_60_2014_qh13_art_77_clause_1",
+          "parent_article_id": "l_60_2014_qh13_art_77",
+          "clause_number": "1",
+          "clause_text": "1. Luật này có hiệu lực thi hành kể từ ngày 01 tháng 01 năm 2016.",
+          "chunks": null
+        },
+        {
+          "clause_id": "l_60_2014_qh13_art_77_clause_2",
+          "parent_article_id": "l_60_2014_qh13_art_77",
+          "clause_number": "2",
+          "clause_text": "2. Chính phủ, cơ quan có thẩm quyền quy định chi tiết các điều, khoản được giao trong Luật.",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": []
+}

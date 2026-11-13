@@ -1,0 +1,649 @@
+{
+  "sample_pdf": "data/raw_data/laws_and_decrees/L01.pdf",
+  "sample": {
+    "pages": 40,
+    "page_sizes_pt": [
+      [
+        612.0,
+        792.0
+      ]
+    ],
+    "top_fonts": [
+      {
+        "font": "TimesNewRomanPSMT",
+        "size_pt": 12.0,
+        "characters": 77129
+      },
+      {
+        "font": "TimesNewRomanPS-BoldMT",
+        "size_pt": 12.0,
+        "characters": 8815
+      },
+      {
+        "font": "TimesNewRomanPS-ItalicMT",
+        "size_pt": 12.0,
+        "characters": 685
+      },
+      {
+        "font": "TimesNewRomanPSMT",
+        "size_pt": 8.0,
+        "characters": 1
+      }
+    ],
+    "sparse_pages": [],
+    "replacement_characters": 0,
+    "nul_characters": 0
+  },
+  "pdfs_reformatted": false,
+  "documents": [
+    {
+      "document_id": "l_60_2014_qh13",
+      "pdf_path": "data/raw_data/additional_documents/l_60_2014_qh13.pdf",
+      "pages": 26,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRoman",
+          "size_pt": 14.0,
+          "characters": 50077
+        },
+        {
+          "font": "TimesNewRoman,Bold",
+          "size_pt": 14.0,
+          "characters": 5004
+        },
+        {
+          "font": "TimesNewRoman",
+          "size_pt": 13.0,
+          "characters": 1088
+        },
+        {
+          "font": "TimesNewRoman,Italic",
+          "size_pt": 14.0,
+          "characters": 606
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 6.8,
+          "characters": 143
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 77,
+      "prepared_pipeline_articles": 77,
+      "structure_errors": [],
+      "different_articles_before_preparation": [
+        "77"
+      ],
+      "same_article_count": true
+    },
+    {
+      "document_id": "l_52_2010_qh12",
+      "pdf_path": "data/raw_data/additional_documents/l_52_2010_qh12.pdf",
+      "pages": 21,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 36558
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 2947
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 849
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 290
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 6.8,
+          "characters": 143
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 52,
+      "prepared_pipeline_articles": 52,
+      "structure_errors": [],
+      "different_articles_before_preparation": [
+        "52"
+      ],
+      "same_article_count": true
+    },
+    {
+      "document_id": "l_13_2022_qh15",
+      "pdf_path": "data/raw_data/additional_documents/l_13_2022_qh15.pdf",
+      "pages": 33,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 52249
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 4351
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 333
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 6.8,
+          "characters": 145
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 13.0,
+          "characters": 90
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 56,
+      "prepared_pipeline_articles": 56,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "tt_10_2020_tt_btp",
+      "pdf_path": "data/raw_data/additional_documents/tt_10_2020_tt_btp.pdf",
+      "pages": 91,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 61409
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 35902
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 12.0,
+          "characters": 24723
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 10.0,
+          "characters": 11048
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 7845
+        }
+      ],
+      "sparse_pages": [
+        25,
+        26
+      ],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 9,
+      "prepared_pipeline_articles": 9,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_06_2011_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_06_2011_nd_cp.pdf",
+      "pages": 9,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 15912
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 1388
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 350
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 7.2,
+          "characters": 143
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 13.0,
+          "characters": 92
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 20,
+      "prepared_pipeline_articles": 20,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "l_35_2013_qh13",
+      "pdf_path": "data/raw_data/additional_documents/l_35_2013_qh13.pdf",
+      "pages": 11,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 19165
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 1666
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 442
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 181
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 3.8,
+          "characters": 143
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 33,
+      "prepared_pipeline_articles": 33,
+      "structure_errors": [],
+      "different_articles_before_preparation": [
+        "33"
+      ],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_28_2012_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_28_2012_nd_cp.pdf",
+      "pages": 18,
+      "page_sizes_pt": [
+        [
+          595.3,
+          841.9
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRoman",
+          "size_pt": 14.0,
+          "characters": 38791
+        },
+        {
+          "font": "TimesNewRoman,Bold",
+          "size_pt": 14.0,
+          "characters": 3004
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 702
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 4.5,
+          "characters": 143
+        },
+        {
+          "font": "TimesNewRoman,Bold",
+          "size_pt": 13.0,
+          "characters": 97
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 35,
+      "prepared_pipeline_articles": 35,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "l_51_2010_qh12",
+      "pdf_path": "data/raw_data/additional_documents/l_51_2010_qh12.pdf",
+      "pages": 22,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 39310
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 3082
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 850
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 277
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 6.8,
+          "characters": 143
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 53,
+      "prepared_pipeline_articles": 53,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_19_2011_nd_cp.pdf",
+      "pages": 27,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 51881
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 4393
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 1043
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 7.3,
+          "characters": 143
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 13.0,
+          "characters": 122
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 52,
+      "prepared_pipeline_articles": 52,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_56_2017_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_56_2017_nd_cp.pdf",
+      "pages": 54,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 63943
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 18994
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 7527
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 13.0,
+          "characters": 4992
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 12.0,
+          "characters": 2433
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 58,
+      "prepared_pipeline_articles": 58,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_76_2023_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_76_2023_nd_cp.pdf",
+      "pages": 60,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 94197
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 11363
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 9787
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 10.0,
+          "characters": 2522
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 13.0,
+          "characters": 743
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 45,
+      "prepared_pipeline_articles": 45,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_114_2016_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_114_2016_nd_cp.pdf",
+      "pages": 6,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRoman",
+          "size_pt": 14.0,
+          "characters": 11458
+        },
+        {
+          "font": "TimesNewRoman,Bold",
+          "size_pt": 14.0,
+          "characters": 599
+        },
+        {
+          "font": "TimesNewRoman,Italic",
+          "size_pt": 14.0,
+          "characters": 395
+        },
+        {
+          "font": "TimesNewRoman",
+          "size_pt": 13.0,
+          "characters": 242
+        },
+        {
+          "font": "MyriadPro-Regular-Identity-H",
+          "size_pt": 11.7,
+          "characters": 143
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 11,
+      "prepared_pipeline_articles": 11,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    },
+    {
+      "document_id": "nd_15_2014_nd_cp",
+      "pdf_path": "data/raw_data/additional_documents/nd_15_2014_nd_cp.pdf",
+      "pages": 9,
+      "page_sizes_pt": [
+        [
+          595.2,
+          842.0
+        ]
+      ],
+      "top_fonts": [
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 14.0,
+          "characters": 18541
+        },
+        {
+          "font": "TimesNewRomanPS-BoldMT",
+          "size_pt": 14.0,
+          "characters": 1666
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.0,
+          "characters": 382
+        },
+        {
+          "font": "TimesNewRomanPSMT",
+          "size_pt": 13.9,
+          "characters": 338
+        },
+        {
+          "font": "TimesNewRomanPS-ItalicMT",
+          "size_pt": 14.0,
+          "characters": 251
+        }
+      ],
+      "sparse_pages": [],
+      "replacement_characters": 0,
+      "nul_characters": 0,
+      "native_pipeline_articles": 20,
+      "prepared_pipeline_articles": 20,
+      "structure_errors": [],
+      "different_articles_before_preparation": [],
+      "same_article_count": true
+    }
+  ],
+  "all_native_article_counts_match": true,
+  "all_native_structures_valid": true
+}

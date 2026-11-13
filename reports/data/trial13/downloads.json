@@ -1,0 +1,421 @@
+[
+  {
+    "document_id": "l_60_2014_qh13",
+    "document_number": "60/2014/QH13",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=178129",
+    "official_fields": {
+      "Số ký hiệu": "60/2014/QH13",
+      "Ngày ban hành": "20-11-2014",
+      "Ngày có hiệu lực": "01-01-2016",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Trích yếu": "LUẬT HỘ TỊCH"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/11/5264/10513-1-201411651166-602014qh13pdf",
+    "pages": 26,
+    "native_text_chars": 59667,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/l_60_2014_qh13.pdf",
+    "sha256": "0fcaae3feaa15b873847ed7d5c25879e453cb95d4ccd8e077bc4aad0f478a359",
+    "bytes": 470796,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/11/5264/10513-1-201411651166-602014qh13pdf",
+        "pages": 26,
+        "native_text_chars": 59667,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/l_60_2014_qh13.pdf",
+    "standardized_sha256": "795f33d6e23d0671f06c455ee3c9b25dc91262202bff230daf278dbad1dbf1f0",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "l_52_2010_qh12",
+    "document_number": "52/2010/QH12",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=96052",
+    "official_fields": {
+      "Số ký hiệu": "52/2010/QH12",
+      "Ngày ban hành": "28-06-2010",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Trích yếu": "LUẬT NUÔI CON NUÔI"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/6/2961/1192-1-2010562-563-522010qh12pdf",
+    "pages": 21,
+    "native_text_chars": 43201,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/l_52_2010_qh12.pdf",
+    "sha256": "28908d0ed78ce60fccca407f3edbd9702dddd8f3ada84d1fb24446cfe1d61113",
+    "bytes": 351012,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/6/2961/1192-1-2010562-563-522010qh12pdf",
+        "pages": 21,
+        "native_text_chars": 43201,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/l_52_2010_qh12.pdf",
+    "standardized_sha256": "66937013a6b05339f0110e4d61e79d5e5801a54462891159caa12061707ac581",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "l_13_2022_qh15",
+    "document_number": "13/2022/QH15",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207711",
+    "official_fields": {
+      "Số ký hiệu": "13/2022/QH15",
+      "Ngày ban hành": "14-11-2022",
+      "Ngày có hiệu lực": "01-07-2023",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Trích yếu": "Luật phòng, chống bạo lực gia đình"
+    },
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/4/luat13.pdf",
+    "pages": 33,
+    "native_text_chars": 60015,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/l_13_2022_qh15.pdf",
+    "sha256": "0307e1d0215584ed5df73ac68bfb20b560c318a7a6021ec7a3a6802cc353ff38",
+    "bytes": 504743,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/4/luat13.pdf",
+        "pages": 33,
+        "native_text_chars": 60015,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/l_13_2022_qh15.pdf",
+    "standardized_sha256": "0cb4acd3dcfffd8587e79512a3e9e84b6a2b94427db2ffc8188284299830f2df",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "tt_10_2020_tt_btp",
+    "document_number": "10/2020/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
+    "official_fields": {
+      "Ngày ban hành": "28-12-2020",
+      "Ngày có hiệu lực": "26-02-2021",
+      "Số ký hiệu": "10/2020/TT-BTP",
+      "Loại văn bản": "Thông tư",
+      "Cơ quan ban hành": "Bộ Tư pháp",
+      "Trích yếu": "Thông tư số 10/2020/TT-BTP ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi."
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/12/33164/34634-1-2021281-28210-2020-tt-btp.pdf",
+    "pages": 91,
+    "native_text_chars": 219487,
+    "sparse_pages": [
+      25,
+      26
+    ],
+    "pdf_path": "data/source_pdfs/trial13/tt_10_2020_tt_btp.pdf",
+    "sha256": "f1d3ff0b5f237573d091ed7c10c8d732080b8dda69284d1f2b4d5fe53f91df22",
+    "bytes": 841520,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/12/33164/34634-1-2021281-28210-2020-tt-btp.pdf",
+        "pages": 91,
+        "native_text_chars": 219487,
+        "sparse_pages": [
+          25,
+          26
+        ]
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/tt_10_2020_tt_btp.pdf",
+    "standardized_sha256": "05e8c76cfedcbe7888ad288638fac52c9f1441e9cd5ea4237567d0e0977113e8",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_06_2011_nd_cp",
+    "document_number": "06/2011/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2011-nd-cp-729/3966.htm",
+    "official_fields": {
+      "Ngày ban hành": "14-01-2011",
+      "Ngày có hiệu lực": "01-03-2011",
+      "Số ký hiệu": "06/2011/NĐ-CP",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Nghị định số 06/2011/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Luật Người cao tuổi."
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/1/729/3966-1-201171-72-062011nd-cppdf",
+    "pages": 9,
+    "native_text_chars": 19285,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_06_2011_nd_cp.pdf",
+    "sha256": "9f835630a1254df757ac64986a014a761d3c1cba15ad812a2ccade4e50580be5",
+    "bytes": 308120,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/1/729/3966-1-201171-72-062011nd-cppdf",
+        "pages": 9,
+        "native_text_chars": 19285,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_06_2011_nd_cp.pdf",
+    "standardized_sha256": "b0e6a11cd12c378011c501cccbb35e88e433c43b91b038d8fcdc5967669ad712",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "l_35_2013_qh13",
+    "document_number": "35/2013/QH13",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=169373",
+    "official_fields": {
+      "Số ký hiệu": "35/2013/QH13",
+      "Ngày ban hành": "20-06-2013",
+      "Ngày có hiệu lực": "01-01-2014",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Trích yếu": "Luật hòa giải cơ sở"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/6/6398/3284-1-2013407-408-352013qh13pdf",
+    "pages": 11,
+    "native_text_chars": 22907,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/l_35_2013_qh13.pdf",
+    "sha256": "3415d39344a4313b1babdbbb5ab0efd6275d6edb7e2374afa2b6c3420bad848e",
+    "bytes": 408771,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/6/6398/3284-1-2013407-408-352013qh13pdf",
+        "pages": 11,
+        "native_text_chars": 22907,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/l_35_2013_qh13.pdf",
+    "standardized_sha256": "658d5c5717960bc2b4916d31c63c335afb3cb276d1716ac08c39849a47cc0173",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_28_2012_nd_cp",
+    "document_number": "28/2012/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-28-2012-nd-cp-117.htm",
+    "official_fields": {
+      "Ngày ban hành": "10-04-2012",
+      "Ngày có hiệu lực": "01-06-2012",
+      "Số ký hiệu": "28/2012/NĐ-CP",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Nghị định số 28/2012/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Luật người khuyết tật."
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/4/117/10683-1-2012343-344-282012nd-cppdf",
+    "pages": 18,
+    "native_text_chars": 44672,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_28_2012_nd_cp.pdf",
+    "sha256": "efbd7f6d59d2c9eea37f11344cbbc8b079c7d909d3137d1fe4ef34a2b51be854",
+    "bytes": 339643,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/4/117/10683-1-2012343-344-282012nd-cppdf",
+        "pages": 18,
+        "native_text_chars": 44672,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_28_2012_nd_cp.pdf",
+    "standardized_sha256": "fa6f7d9390cf531c36bf17781481de43dcfad16342306e3d2062223a1232960c",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "l_51_2010_qh12",
+    "document_number": "51/2010/QH12",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=96045",
+    "official_fields": {
+      "Số ký hiệu": "51/2010/QH12",
+      "Ngày ban hành": "29-06-2010",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Trích yếu": "LUẬT NGƯỜI KHUYẾT TẬT"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/6/3086/1275-1-2010570-571-512010qh12pdf",
+    "pages": 22,
+    "native_text_chars": 46446,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/l_51_2010_qh12.pdf",
+    "sha256": "461579b73fe6bdddab8018e3b6f200009c485c82236507b6892ca8d303e64a7f",
+    "bytes": 358799,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/6/3086/1275-1-2010570-571-512010qh12pdf",
+        "pages": 22,
+        "native_text_chars": 46446,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/l_51_2010_qh12.pdf",
+    "standardized_sha256": "f81618f24d728b0db6b58ecf2c91ec8d8604bb0a1a655bc2a7074f20f6f865d5",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_19_2011_nd_cp",
+    "document_number": "19/2011/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
+    "official_fields": {
+      "Số ký hiệu": "19/2011/NĐ-CP",
+      "Ngày ban hành": "21-03-2011",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/3/4925/5109-1-2011171-172-192011nd-cppdf",
+    "pages": 27,
+    "native_text_chars": 60428,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_19_2011_nd_cp.pdf",
+    "sha256": "6f1358bd07c1074e8e9bb7857203560e945c289af9e2a957335308a4cebff5e6",
+    "bytes": 375596,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/3/4925/5109-1-2011171-172-192011nd-cppdf",
+        "pages": 27,
+        "native_text_chars": 60428,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_19_2011_nd_cp.pdf",
+    "standardized_sha256": "c8754fb499267a7071565fbc5c9eb0f1e2cceef87f5a4ae10cbb600b93db682c",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_56_2017_nd_cp",
+    "document_number": "56/2017/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=189758",
+    "official_fields": {
+      "Số ký hiệu": "56/2017/NĐ-CP",
+      "Ngày ban hành": "09-05-2017",
+      "Ngày có hiệu lực": "01-07-2017",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Quy định chi tiết một số điều của Luật trẻ em"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2017/5/23704/17553-1-2017363-36456-2017-nd-cp.pdf",
+    "pages": 54,
+    "native_text_chars": 130608,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_56_2017_nd_cp.pdf",
+    "sha256": "1d3ff02302ca20e1ac1e99b634bacd86d72632199ee0b09362189c45a38c32cb",
+    "bytes": 650881,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2017/5/23704/17553-1-2017363-36456-2017-nd-cp.pdf",
+        "pages": 54,
+        "native_text_chars": 130608,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_56_2017_nd_cp.pdf",
+    "standardized_sha256": "3e2acc8610cdc28f1425d7c58336fb866bbcff6e752b64635f780d74cb4b5a05",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_76_2023_nd_cp",
+    "document_number": "76/2023/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=208906",
+    "official_fields": {
+      "Số ký hiệu": "76/2023/NĐ-CP",
+      "Ngày ban hành": "01-11-2023",
+      "Ngày có hiệu lực": "25-12-2023",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/11/40354/46907-1-20231133-113476-2023-nd-cp.pdf",
+    "pages": 60,
+    "native_text_chars": 147320,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_76_2023_nd_cp.pdf",
+    "sha256": "d860b49935b45ed4d5194a98528c70842ce24780a11c684b4217a7c55c3fed4e",
+    "bytes": 735574,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/11/40354/46907-1-20231133-113476-2023-nd-cp.pdf",
+        "pages": 60,
+        "native_text_chars": 147320,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_76_2023_nd_cp.pdf",
+    "standardized_sha256": "70b636829ce3809588b8b274dcd370ab2824cbf6fb117abe4b043e9763a02f31",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_114_2016_nd_cp",
+    "document_number": "114/2016/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=185624",
+    "official_fields": {
+      "Số ký hiệu": "114/2016/NĐ-CP",
+      "Ngày ban hành": "08-07-2016",
+      "Ngày có hiệu lực": "01-01-2017",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/7/20467/14937-1-1142016nd-cp15018pdf",
+    "pages": 6,
+    "native_text_chars": 13714,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_114_2016_nd_cp.pdf",
+    "sha256": "e503737ba62744c149c3f340137faec283146a886757b4f4ca16a7e70aaebde1",
+    "bytes": 337636,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/7/20467/14937-1-1142016nd-cp15018pdf",
+        "pages": 6,
+        "native_text_chars": 13714,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_114_2016_nd_cp.pdf",
+    "standardized_sha256": "ee1b5a1204388fad7d8b3fd3500bce8aa15e3d6a063a978c4fde45cc9a1ca8e5",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  },
+  {
+    "document_id": "nd_15_2014_nd_cp",
+    "document_number": "15/2014/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=172588",
+    "official_fields": {
+      "Số ký hiệu": "15/2014/NĐ-CP",
+      "Ngày ban hành": "27-02-2014",
+      "Ngày có hiệu lực": "25-04-2014",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Trích yếu": "Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở"
+    },
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/2/6628/3438-1-2014317-318-152014nd-cppdf",
+    "pages": 9,
+    "native_text_chars": 23097,
+    "sparse_pages": [],
+    "pdf_path": "data/source_pdfs/trial13/nd_15_2014_nd_cp.pdf",
+    "sha256": "76f4c09dec9250881d8bb9a74ac96a2fa8031597b1961db5b5a35db608066f87",
+    "bytes": 313140,
+    "download_status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/2/6628/3438-1-2014317-318-152014nd-cppdf",
+        "pages": 9,
+        "native_text_chars": 23097,
+        "sparse_pages": []
+      }
+    ],
+    "standardized_pdf_path": "data/raw_data/additional_documents/nd_15_2014_nd_cp.pdf",
+    "standardized_sha256": "50826341807f19e46e419a6f00b99558015937e6d8220165c0d23ce48b6a0754",
+    "standardization": "Letter, source 14pt scaled to 12pt; original vector content and annexes retained"
+  }
+]
