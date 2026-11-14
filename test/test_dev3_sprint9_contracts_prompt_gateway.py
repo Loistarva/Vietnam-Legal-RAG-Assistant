@@ -359,7 +359,7 @@ class TestContractsAndSchemas:
 
 class TestPromptBuilder:
     def test_prompt_version_and_disclaimer_frozen(self):
-        assert PROMPT_A_VERSION == "v1.1_zero_shot"
+        assert PROMPT_A_VERSION == "v1.2_zero_shot"
         assert PROMPT_B_VERSION == "v1.2_controlled_rag"
         assert STANDARD_DISCLAIMER == "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
 
@@ -385,7 +385,7 @@ class TestPromptBuilder:
         assert "2. Nếu câu hỏi" in prompt
         assert "3. Thời điểm hiệu lực" in prompt
         assert "4. Cuối câu trả lời" in prompt
-        assert "5. NGÔN NGỮ VÀ NGUỒN LUẬT" in prompt
+        assert "5. NGUỒN PHÁP LUẬT (ĐÓNG NGUỒN)" in prompt
 
     def test_build_controlled_rag_prompt_formatting(self):
         item1 = EvidenceItem(

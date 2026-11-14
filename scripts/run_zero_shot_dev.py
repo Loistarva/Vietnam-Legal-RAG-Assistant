@@ -8,6 +8,7 @@ if str(ROOT_DIR) not in sys.path:
 
 from evaluation.evaluate_zero_shot import evaluate
 from evaluation.zero_shot import run_benchmark
+from model_gateway.llm_gateway import DEFAULT_CONFIG_PATH
 
 DEFAULT_QUERIES = ROOT_DIR / "evaluation" / "datasets" / "dev_gold_30_queries_v1.json"
 DEFAULT_GROUND_TRUTH = ROOT_DIR / "data" / "benchmark" / "ground_truth.json"
@@ -21,7 +22,8 @@ def main() -> None:
     parser.add_argument("--queries", type=Path, default=DEFAULT_QUERIES)
     parser.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH)
     parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS_DIR)
-    parser.add_argument("--model", default="qwen2.5:7b")
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH,
+                        help="Shared gateway config used by Run B.")
     parser.add_argument("--rubric-input", type=Path)
     args = parser.parse_args()
 
@@ -31,7 +33,7 @@ def main() -> None:
     scored_path = args.results_dir / f"{prefix}_scored.json"
     rubric_csv_path = args.results_dir / f"{prefix}_rubric_table.csv"
 
-    run_benchmark(args.queries, predictions_path, args.model)
+    run_benchmark(args.queries, predictions_path, config_path=args.config)
     evaluate(
         predictions_path=predictions_path,
         ground_truth_path=args.ground_truth,
