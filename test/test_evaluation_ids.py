@@ -104,15 +104,16 @@ class EvaluationIdTest(unittest.TestCase):
 
         self.assertEqual(result["faithfulness_score"], 1)
 
-    def test_zero_shot_keeps_lexical_scores_apart_and_writes_csv_only_when_asked(self):
+    def test_zero_shot_metrics_contain_only_automatic_scores(self):
         predictions = write(self.dir / "pred.json", [
             {"query_id": "HN_001", "question": "?", "answer": "Nam từ đủ 20 tuổi trở lên.", "method": "zero_shot"},
         ])
         before = evaluate_zero_shot.RUBRIC_CSV_PATH.exists()
         summary = evaluate_zero_shot.evaluate(predictions, self.gt, self.dir / "m.json", self.dir / "s.json")
         self.assertEqual(evaluate_zero_shot.RUBRIC_CSV_PATH.exists(), before)
-        self.assertEqual(summary["rubric_scored_questions"], 0)
-        self.assertIsNone(summary["mean_answer_relevance"])
+        self.assertNotIn("rubric_scored_questions", summary)
+        self.assertNotIn("mean_answer_relevance", summary)
+        self.assertNotIn("mean_faithfulness", summary)
         self.assertEqual(summary["lexical_scored_questions"], 1)
         self.assertIsNotNone(summary["lexical_relevance"])
         scored = json.loads((self.dir / "s.json").read_text(encoding="utf-8"))
@@ -127,7 +128,6 @@ class EvaluationIdTest(unittest.TestCase):
         self.assertEqual(summary["rubric_scored_questions"], 1)
         self.assertEqual(summary["mean_answer_relevance_score"], 4)
         self.assertEqual(summary["mean_faithfulness"], 1.0)
-        # Điểm lexical vẫn được báo song song để so với điểm chấm tay
         self.assertEqual(summary["lexical_scored_questions"], 1)
         self.assertIsNotNone(summary["lexical_relevance"])
         scored = json.loads((self.dir / "s.json").read_text(encoding="utf-8"))

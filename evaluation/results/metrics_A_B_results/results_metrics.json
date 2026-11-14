@@ -1,0 +1,562 @@
+{
+  "run": "B",
+  "num_questions": 30,
+  "llm_called_questions": 29,
+  "non_vietnamese_answer_rate": 0.0,
+  "non_vietnamese_answer_questions": 0,
+  "latency_ms": {
+    "p50": 31835.73,
+    "p95": 50250.49399999999,
+    "steady_p50": 31835.73,
+    "steady_p95": 50250.49399999999,
+    "n_llm_called": 29,
+    "n_excluded_warmup": 0,
+    "warmup_questions": []
+  },
+  "llm_total_latency_ms": {
+    "mean": 33025.66586206897,
+    "n": 29
+  },
+  "token_usage": {
+    "input_mean": 2468.862068965517,
+    "output_mean": 188.0,
+    "input_total": 71597.0,
+    "output_total": 5452.0
+  },
+  "per_question": [
+    {
+      "query_id": "HN_001",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_8_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 25920.85,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_002",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_8_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 22265.95,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_004",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_8_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 31379.19,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_007",
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_5_clause_2"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 52356.99,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_009",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_14_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 33351.74,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_010",
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_14_clause_2"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 20941.09,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_013",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_17_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 27662.92,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_016",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_33_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 31835.73,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_017",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_33_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 25129.39,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_018",
+      "citation_precision": 1.0,
+      "citation_recall": 0.5,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 2,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_43_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 47090.75,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_020",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_38_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 26578.47,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_021",
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_51_clause_3"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 21149.2,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_023",
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "generated_citations": 1,
+      "correct_citations": 0,
+      "gold_clauses_cited": 0,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [],
+      "cjk_chars": 0,
+      "latency_ms": 28316.46,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_025",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_56_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 34795.8,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_028",
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_81_clause_2"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 21206.64,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_029",
+      "citation_precision": 0.5,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_81_clause_3"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 24932.01,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_030",
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "generated_citations": 1,
+      "correct_citations": 0,
+      "gold_clauses_cited": 0,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [],
+      "cjk_chars": 0,
+      "latency_ms": 26620.93,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_031",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_82_clause_3"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 23791.76,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_032",
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "generated_citations": 2,
+      "correct_citations": 0,
+      "gold_clauses_cited": 0,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [],
+      "cjk_chars": 0,
+      "latency_ms": 38962.96,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_033",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_117_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 19585.82,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_035",
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "generated_citations": 0,
+      "correct_citations": 0,
+      "gold_clauses_cited": 0,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [],
+      "abstained": true,
+      "needs_clarification": false,
+      "false_abstention": true
+    },
+    {
+      "query_id": "HN_061",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 1,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 1,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_1_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 38646.73,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_062",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 5,
+      "correct_citations": 5,
+      "gold_clauses_cited": 5,
+      "gold_clauses": 5,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_2_clause_1",
+        "l_52_2014_qh13_art_2_clause_2",
+        "l_52_2014_qh13_art_2_clause_3",
+        "l_52_2014_qh13_art_2_clause_4",
+        "l_52_2014_qh13_art_2_clause_5"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 55013.84,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_067",
+      "citation_precision": 0.5,
+      "citation_recall": 0.5,
+      "generated_citations": 2,
+      "correct_citations": 1,
+      "gold_clauses_cited": 1,
+      "gold_clauses": 2,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_7_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 36307.3,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_087",
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 2,
+      "gold_clauses": 2,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_27_clause_1",
+        "l_52_2014_qh13_art_27_clause_2"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 33594.29,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_104",
+      "citation_precision": 1.0,
+      "citation_recall": 0.5,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 2,
+      "gold_clauses": 4,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_44_clause_2",
+        "l_52_2014_qh13_art_44_clause_4"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 38200.16,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_155",
+      "citation_precision": 0.5,
+      "citation_recall": 0.5,
+      "generated_citations": 4,
+      "correct_citations": 2,
+      "gold_clauses_cited": 2,
+      "gold_clauses": 4,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_95_clause_2",
+        "l_52_2014_qh13_art_95_clause_3"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 44844.13,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_297",
+      "citation_precision": 1.0,
+      "citation_recall": 0.4,
+      "generated_citations": 2,
+      "correct_citations": 2,
+      "gold_clauses_cited": 2,
+      "gold_clauses": 5,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_93_clause_1",
+        "l_52_2014_qh13_art_93_clause_4"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 46161.58,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_299",
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "generated_citations": 2,
+      "correct_citations": 0,
+      "gold_clauses_cited": 0,
+      "gold_clauses": 3,
+      "matched_gold_clause_ids": [],
+      "cjk_chars": 0,
+      "latency_ms": 35224.2,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    },
+    {
+      "query_id": "HN_300",
+      "citation_precision": 0.6666666666666666,
+      "citation_recall": 0.6666666666666666,
+      "generated_citations": 3,
+      "correct_citations": 2,
+      "gold_clauses_cited": 2,
+      "gold_clauses": 3,
+      "matched_gold_clause_ids": [
+        "l_52_2014_qh13_art_116_clause_1",
+        "l_52_2014_qh13_art_117_clause_1"
+      ],
+      "cjk_chars": 0,
+      "latency_ms": 45983.56,
+      "abstained": false,
+      "needs_clarification": false,
+      "false_abstention": false
+    }
+  ],
+  "citation_precision": 0.7056,
+  "citation_recall": 0.7356,
+  "citation_scored_questions": 30,
+  "generated_citations": 52,
+  "correct_citations": 37,
+  "abstention_rate": 0.03333333333333333,
+  "abstained_questions": 1,
+  "clarification_rate": 0.0,
+  "clarification_questions": 0,
+  "false_abstention_rate": 0.03333333333333333,
+  "false_abstentions": 1,
+  "answerable_questions": 30,
+  "citation_validity_rate": 1.0,
+  "valid_evidence_indices": 52,
+  "attempted_evidence_indices": 52,
+  "cost_usd": 0.0,
+  "cost_basis": "local Ollama inference; no API charge",
+  "exact_match": 0.0,
+  "token_f1": 0.3761,
+  "lexical_relevance": 0.9833,
+  "lexical_faithfulness": 0.625,
+  "lexical_relevance_score": 4.93,
+  "lexical_faithfulness_score": 3.5,
+  "lexical_scored_questions": 30,
+  "evaluated_questions": 30,
+  "prediction_ids_without_reference": [],
+  "ground_truth_ids_without_prediction": []
+}

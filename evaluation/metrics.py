@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import math
 import random
+import re
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -411,4 +412,360 @@ def evaluate(
         )
         print(f"Saved metrics report: {output.resolve()}")
 
+    return report
+
+
+# ----------------------------------------------------------------------
+# Answer/run metrics. These are additive and do not alter retrieval metrics above.
+# ----------------------------------------------------------------------
+def citation_match_scores(
+    parsed_citations: Any, ground_truth_item: Mapping[str, Any]
+) -> dict[str, Any] | None:
+    """Score generated citations against reviewed gold clauses.
+
+    Precision is the fraction of citation mentions matching a gold clause.
+    Recall is the fraction of gold clauses cited exactly or by an article-level
+    citation to the same canonical document and article. No legal inference is
+    made; records without reviewed ``gold_clause_ids`` are unscored.
+    """
+    import re
+
+    if not isinstance(parsed_citations, list):
+        return None
+    clause_pattern = re.compile(
+        r"^(?P<document>.+?)_art_(?P<article>\d+[a-z]?)_clause_(?P<clause>\d+[a-z]?)$"
+    )
+    gold_targets: dict[str, tuple[str, str]] = {}
+    gold_ids = ground_truth_item.get("gold_clause_ids") or []
+    if isinstance(gold_ids, list):
+        for clause_id in gold_ids:
+            if isinstance(clause_id, str):
+                match = clause_pattern.fullmatch(clause_id)
+                if match:
+                    gold_targets[clause_id] = (
+                        match.group("document"), match.group("article")
+                    )
+    if not gold_targets:
+        return None
+
+    generated = [citation for citation in parsed_citations if isinstance(citation, dict)]
+    matched_gold: set[str] = set()
+    correct_count = 0
+    for citation in generated:
+        clause_id = citation.get("clause_id")
+        document_id = citation.get("document_id")
+        article = citation.get("article_number")
+        hits: set[str] = set()
+        if isinstance(clause_id, str) and clause_id in gold_targets:
+            hits.add(clause_id)
+        elif (
+            isinstance(document_id, str)
+            and isinstance(article, (str, int))
+            and citation.get("clause_number") is None
+        ):
+            article_key = (document_id, str(article))
+            hits.update(
+                gold_id for gold_id, target in gold_targets.items()
+                if target == article_key
+            )
+        # Run B already supplies canonical clause IDs, while parsers may also
+        # provide only an article ID. Resolve the latter from its canonical ID.
+        if not hits and isinstance(citation.get("article_id"), str):
+            article_match = re.fullmatch(
+                r"(?P<document>.+?)_art_(?P<article>\d+[a-z]?)",
+                citation["article_id"],
+            )
+            if article_match and citation.get("clause_number") is None:
+                article_key = (article_match.group("document"), article_match.group("article"))
+                hits.update(
+                    gold_id for gold_id, target in gold_targets.items()
+                    if target == article_key
+                )
+        if hits:
+            correct_count += 1
+            matched_gold.update(hits)
+
+    return {
+        "citation_precision": correct_count / len(generated) if generated else 0.0,
+        "citation_recall": len(matched_gold) / len(gold_targets),
+        "generated_citations": len(generated),
+        "correct_citations": correct_count,
+        "gold_clauses_cited": len(matched_gold),
+        "gold_clauses": len(gold_targets),
+        "matched_gold_clause_ids": sorted(matched_gold),
+    }
+
+
+def summarize_citation_scores(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+    """Macro-average available per-question citation scores and sum counts."""
+    subset = [row for row in rows if row.get("citation_precision") is not None]
+    if not subset:
+        return {}
+    return {
+        "citation_precision": round(sum(float(row["citation_precision"]) for row in subset) / len(subset), 4),
+        "citation_recall": round(sum(float(row["citation_recall"]) for row in subset) / len(subset), 4),
+        "citation_scored_questions": len(subset),
+        "generated_citations": sum(int(row["generated_citations"]) for row in subset),
+        "correct_citations": sum(int(row["correct_citations"]) for row in subset),
+        "gold_clauses_cited": sum(int(row.get("gold_clauses_cited", 0)) for row in subset),
+        "gold_clauses": sum(int(row.get("gold_clauses", 0)) for row in subset),
+    }
+
+
+def _percentile_value(values: Sequence[float], probability: float) -> float | None:
+    if not values:
+        return None
+    ordered = sorted(values)
+    return _percentile(ordered, probability)
+
+
+def evaluate_answer_run(
+    records: Sequence[Mapping[str, Any]],
+    ground_truth: Sequence[Mapping[str, Any]],
+    *,
+    run: str,
+) -> dict[str, Any]:
+    """Calculate code-based answer/run metrics for a normalized A or B result set.
+
+    Supports Run A records and Run B envelopes shaped as ``{status, query_id,
+    result: {...}}``. Human rubric metrics are intentionally excluded.
+    """
+    run_label = run.strip().upper()
+    if run_label not in {"A", "B"}:
+        raise ValueError("run must be 'A' or 'B'")
+
+    truth_by_id = {
+        str(item.get("id")): item for item in ground_truth
+        if isinstance(item.get("id"), str)
+    }
+    flattened: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+    for index, envelope in enumerate(records):
+        if not isinstance(envelope, Mapping):
+            raise ValueError(f"record at index {index} must be an object")
+        result = envelope.get("result")
+        row = dict(result) if isinstance(result, Mapping) else dict(envelope)
+        query_id = row.get("query_id") or envelope.get("query_id") or row.get("id")
+        if not isinstance(query_id, str) or not query_id.strip():
+            raise ValueError(f"record at index {index} is missing query_id")
+        if query_id not in truth_by_id:
+            raise ValueError(f"query_id {query_id!r} is absent from ground truth")
+        if query_id in seen_ids:
+            raise ValueError(f"duplicate query_id: {query_id}")
+        seen_ids.add(query_id)
+        row["query_id"] = query_id
+        flattened.append(row)
+
+    answerable_ids = {
+        query_id for query_id, item in truth_by_id.items()
+        if isinstance(item.get("gold_clause_ids"), list) and item["gold_clause_ids"]
+    }
+    citation_rows: list[dict[str, Any]] = []
+    per_question: list[dict[str, Any]] = []
+    abstentions = clarifications = false_abstentions = 0
+    cjk_rows = 0
+    called_rows = 0
+    latencies: list[float] = []
+    steady_latencies: list[float] = []
+    warmup_rows: list[dict[str, Any]] = []
+    llm_latencies: list[float] = []
+    input_tokens: list[float] = []
+    output_tokens: list[float] = []
+    total_cost = 0.0
+    cost_seen = False
+    validity_attempts = validity_passes = 0
+
+    def citations_for_record(row: Mapping[str, Any]) -> list[dict[str, Any]]:
+        citations = row.get("citations")
+        if isinstance(citations, list) and citations:
+            return [item for item in citations if isinstance(item, dict)]
+        if run_label != "B":
+            return citations if isinstance(citations, list) else []
+        # For a Gate-rejected B answer, the public citation list is empty. Recover
+        # attempted references from evidence indices + selected context so Citation
+        # Precision and Citation Validity remain separate measures.
+        trace = row.get("retrieval_trace") or {}
+        llm_trace = trace.get("llm") if isinstance(trace, Mapping) else {}
+        attempts = row.get("evidence_indices")
+        if not isinstance(attempts, list) and isinstance(llm_trace, Mapping):
+            attempts = llm_trace.get("evidence_indices", [])
+        context_trace = trace.get("context") if isinstance(trace, Mapping) else {}
+        evidence_rows = context_trace.get("evidence", []) if isinstance(context_trace, Mapping) else []
+        by_index = {
+            evidence.get("evidence_index"): evidence
+            for evidence in evidence_rows
+            if isinstance(evidence, Mapping)
+        }
+        recovered: list[dict[str, Any]] = []
+        for evidence_index in attempts if isinstance(attempts, list) else []:
+            evidence = by_index.get(evidence_index)
+            if not isinstance(evidence, Mapping):
+                recovered.append({"evidence_index": evidence_index})
+                continue
+            chunk_id = evidence.get("chunk_id")
+            if not isinstance(chunk_id, str):
+                continue
+            clause_id = re.sub(r"_chunk_\d+$", "", chunk_id)
+            article_match = re.match(r"^(.+_art_\d+[a-z]?)", clause_id)
+            recovered.append({
+                "evidence_index": evidence_index,
+                "chunk_id": chunk_id,
+                "document_id": clause_id.split("_art_", 1)[0] if "_art_" in clause_id else None,
+                "article_id": article_match.group(1) if article_match else None,
+                "clause_id": clause_id if "_clause_" in clause_id else None,
+                "article_number": article_match.group(1).rsplit("_art_", 1)[-1] if article_match else None,
+                "clause_number": clause_id.rsplit("_clause_", 1)[-1] if "_clause_" in clause_id else None,
+            })
+        rejected = llm_trace.get("rejected_evidence_values", []) if isinstance(llm_trace, Mapping) else []
+        if isinstance(rejected, list):
+            recovered.extend({"rejected_evidence_value": value} for value in rejected)
+        return recovered
+
+    for row in flattened:
+        query_id = row["query_id"]
+        truth = truth_by_id[query_id]
+        citation_result = citation_match_scores(citations_for_record(row), truth)
+        if citation_result is not None:
+            citation_rows.append(citation_result)
+        question_metrics: dict[str, Any] = {"query_id": query_id}
+        if citation_result is not None:
+            question_metrics.update(citation_result)
+
+        calls = row.get("llm_calls", 1 if run_label == "A" else 0)
+        calls = calls if isinstance(calls, int) and not isinstance(calls, bool) else 0
+        called = calls > 0
+        if called:
+            called_rows += 1
+            cjk = row.get("cjk_chars")
+            if cjk is None:
+                trace = row.get("retrieval_trace") or {}
+                llm_trace = trace.get("llm") if isinstance(trace, Mapping) else {}
+                cjk = llm_trace.get("cjk_chars_before_gate", 0) if isinstance(llm_trace, Mapping) else 0
+            if isinstance(cjk, (int, float)) and cjk > 0:
+                cjk_rows += 1
+            question_metrics["cjk_chars"] = cjk
+
+        latency = row.get("latency_ms")
+        if called and isinstance(latency, (int, float)) and not isinstance(latency, bool):
+            latencies.append(float(latency))
+            question_metrics["latency_ms"] = float(latency)
+            breakdown = row.get("latency_breakdown") or {}
+            load_ms = breakdown.get("load_ms") if isinstance(breakdown, Mapping) else None
+            if isinstance(load_ms, (int, float)) and load_ms > 1000:
+                warmup_rows.append({"query_id": query_id, "load_ms": load_ms})
+            else:
+                steady_latencies.append(float(latency))
+        if called:
+            breakdown = row.get("latency_breakdown") or {}
+            llm_ms = breakdown.get("llm_total_ms") if isinstance(breakdown, Mapping) else None
+            if isinstance(llm_ms, (int, float)):
+                llm_latencies.append(float(llm_ms))
+            usage = row.get("token_usage") or {}
+            if isinstance(usage, Mapping):
+                if isinstance(usage.get("input"), (int, float)):
+                    input_tokens.append(float(usage["input"]))
+                if isinstance(usage.get("output"), (int, float)):
+                    output_tokens.append(float(usage["output"]))
+        if isinstance(row.get("cost_usd"), (int, float)):
+            total_cost += float(row["cost_usd"])
+            cost_seen = True
+
+        if run_label == "B":
+            abstained = row.get("abstained") is True
+            clarification = row.get("needs_clarification") is True
+            abstentions += int(abstained)
+            clarifications += int(clarification)
+            if query_id in answerable_ids and (abstained or clarification):
+                false_abstentions += 1
+            question_metrics.update({
+                "abstained": abstained,
+                "needs_clarification": clarification,
+                "false_abstention": query_id in answerable_ids and (abstained or clarification),
+            })
+            trace = row.get("retrieval_trace") or {}
+            llm_trace = trace.get("llm") if isinstance(trace, Mapping) else {}
+            attempts = row.get("evidence_indices")
+            if not isinstance(attempts, list) and isinstance(llm_trace, Mapping):
+                attempts = llm_trace.get("evidence_indices", [])
+            context_trace = trace.get("context") if isinstance(trace, Mapping) else {}
+            evidence_rows = context_trace.get("evidence", []) if isinstance(context_trace, Mapping) else []
+            allowed = {
+                item.get("evidence_index") for item in evidence_rows
+                if isinstance(item, Mapping) and isinstance(item.get("evidence_index"), int)
+            }
+            invalid = set()
+            gate = trace.get("gate") if isinstance(trace, Mapping) else {}
+            if isinstance(gate, Mapping) and isinstance(gate.get("invalid_indices"), list):
+                invalid = set(gate["invalid_indices"])
+            if isinstance(attempts, list):
+                for evidence_index in attempts:
+                    if isinstance(evidence_index, int) and not isinstance(evidence_index, bool):
+                        validity_attempts += 1
+                        validity_passes += int(evidence_index in allowed and evidence_index not in invalid)
+            rejected = llm_trace.get("rejected_evidence_values", []) if isinstance(llm_trace, Mapping) else []
+            if isinstance(rejected, list):
+                validity_attempts += len(rejected)
+        per_question.append(question_metrics)
+
+    citation_summary: dict[str, Any] = {}
+    if citation_rows:
+        citation_summary = {
+            "citation_precision": round(sum(row["citation_precision"] for row in citation_rows) / len(citation_rows), 4),
+            "citation_recall": round(sum(row["citation_recall"] for row in citation_rows) / len(citation_rows), 4),
+            "citation_scored_questions": len(citation_rows),
+            "generated_citations": sum(row["generated_citations"] for row in citation_rows),
+            "correct_citations": sum(row["correct_citations"] for row in citation_rows),
+        }
+
+    report: dict[str, Any] = {
+        "run": run_label,
+        "num_questions": len(flattened),
+        "llm_called_questions": called_rows,
+        "non_vietnamese_answer_rate": cjk_rows / called_rows if called_rows else None,
+        "non_vietnamese_answer_questions": cjk_rows,
+        "latency_ms": {
+            "p50": _percentile_value(latencies, 0.50),
+            "p95": _percentile_value(latencies, 0.95),
+            "steady_p50": _percentile_value(steady_latencies, 0.50),
+            "steady_p95": _percentile_value(steady_latencies, 0.95),
+            "n_llm_called": len(latencies),
+            "n_excluded_warmup": len(warmup_rows),
+            "warmup_questions": warmup_rows,
+        },
+        "llm_total_latency_ms": {
+            "mean": sum(llm_latencies) / len(llm_latencies) if llm_latencies else None,
+            "n": len(llm_latencies),
+        },
+        "token_usage": {
+            "input_mean": sum(input_tokens) / len(input_tokens) if input_tokens else None,
+            "output_mean": sum(output_tokens) / len(output_tokens) if output_tokens else None,
+            "input_total": sum(input_tokens) if input_tokens else 0,
+            "output_total": sum(output_tokens) if output_tokens else 0,
+        },
+        "per_question": per_question,
+        **citation_summary,
+    }
+    if run_label == "B":
+        answerable_count = sum(query_id in answerable_ids for query_id in (row["query_id"] for row in flattened))
+        report["abstention_rate"] = abstentions / len(flattened) if flattened else None
+        report["abstained_questions"] = abstentions
+        report["clarification_rate"] = clarifications / len(flattened) if flattened else None
+        report["clarification_questions"] = clarifications
+        report["false_abstention_rate"] = false_abstentions / answerable_count if answerable_count else None
+        report["false_abstentions"] = false_abstentions
+        report["answerable_questions"] = answerable_count
+        report["citation_validity_rate"] = validity_passes / validity_attempts if validity_attempts else None
+        report["valid_evidence_indices"] = validity_passes
+        report["attempted_evidence_indices"] = validity_attempts
+    if cost_seen:
+        report["cost_usd"] = total_cost
+    else:
+        model_names = {
+            str(row.get("model", "")).casefold()
+            for row in flattened
+            if isinstance(row.get("model"), str) and row.get("model")
+        }
+        if model_names and all("qwen2.5:7b" in name for name in model_names):
+            report["cost_usd"] = 0.0
+            report["cost_basis"] = "local Ollama inference; no API charge"
     return report

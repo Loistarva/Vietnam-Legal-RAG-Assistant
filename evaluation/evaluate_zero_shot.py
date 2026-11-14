@@ -23,6 +23,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from evaluation.metrics import citation_match_scores, summarize_citation_scores
+
 if sys.platform == "win32":
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -38,24 +40,43 @@ RUBRIC_CSV_PATH = ROOT_DIR / "evaluation" / "results" / "zero_shot_rubric_table.
 
 ID_KEYS = ("query_id", "id")
 ANSWER_KEYS = ("answer", "expected_answer")
-# Tên khoá (relevance, faithfulness) theo nguồn điểm rubric
-RUBRIC_KEYS = {
-    "manual": ("answer_relevance", "faithfulness"),
-    "lexical": ("lexical_relevance", "lexical_faithfulness"),
-}
+def lexical_means(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize only automatic lexical estimates for the metrics artifact."""
+    subset = [r for r in rows if r.get("lexical_relevance_score") is not None]
+    if not subset:
+        return {
+            "lexical_relevance": None,
+            "lexical_faithfulness": None,
+            "lexical_relevance_score": None,
+            "lexical_faithfulness_score": None,
+            "lexical_scored_questions": 0,
+        }
+    return {
+        "lexical_relevance": round(sum(r["lexical_relevance"] for r in subset) / len(subset), 4),
+        "lexical_faithfulness": round(sum(r["lexical_faithfulness"] for r in subset) / len(subset), 4),
+        "lexical_relevance_score": round(sum(r["lexical_relevance_score"] for r in subset) / len(subset), 2),
+        "lexical_faithfulness_score": round(sum(r["lexical_faithfulness_score"] for r in subset) / len(subset), 2),
+        "lexical_scored_questions": len(subset),
+    }
 
 
-def rubric_means(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    """Trung bình điểm rubric tách theo nguồn: chấm tay (câu có điểm chấm tay) và lexical
-    (mọi câu); nguồn không có câu nào thì None."""
-    output: dict[str, Any] = {}
-    for source, (rel_key, faith_key) in RUBRIC_KEYS.items():
-        subset = [r for r in rows if r.get(f"{rel_key}_score") is not None]
-        prefix = "mean_" if source == "manual" else ""
-        for key, digits in ((rel_key, 4), (faith_key, 4), (f"{rel_key}_score", 2), (f"{faith_key}_score", 2)):
-            output[prefix + key] = round(sum(r[key] for r in subset) / len(subset), digits) if subset else None
-        output["rubric_scored_questions" if source == "manual" else "lexical_scored_questions"] = len(subset)
-    return output
+def manual_means(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Return manual-score fields only when valid human scores were supplied."""
+    subset = [
+        row for row in rows
+        if row.get("rubric_source") == "manual"
+        and row.get("answer_relevance_score") is not None
+        and row.get("faithfulness_score") is not None
+    ]
+    if not subset:
+        return {}
+    return {
+        "mean_answer_relevance": round(sum(row["answer_relevance"] for row in subset) / len(subset), 4),
+        "mean_faithfulness": round(sum(row["faithfulness"] for row in subset) / len(subset), 4),
+        "mean_answer_relevance_score": round(sum(row["answer_relevance_score"] for row in subset) / len(subset), 2),
+        "mean_faithfulness_score": round(sum(row["faithfulness_score"] for row in subset) / len(subset), 2),
+        "rubric_scored_questions": len(subset),
+    }
 
 
 def load_json(path: Path) -> Any:
@@ -355,6 +376,9 @@ def records_by_id(data: Any, *, is_ground_truth: bool) -> dict[str, Any]:
     for index, item in enumerate(data):
         if not isinstance(item, dict):
             raise ValueError(f"Phần tử thứ {index + 1} không phải object JSON.")
+        nested_result = item.get("result")
+        if isinstance(nested_result, dict):
+            item = {**item, **nested_result}
         item_id = extract_id(item)
         if item_id is None:
             raise ValueError(f"Phần tử thứ {index + 1} thiếu query_id hoặc id hợp lệ.")
@@ -546,7 +570,7 @@ def evaluate(
 
         q_text = ""
         if isinstance(prediction_record, dict):
-            q_text = prediction_record.get("question") or ""
+            q_text = prediction_record.get("question") or prediction_record.get("query") or ""
         if not q_text and isinstance(gt_item, dict):
             q_text = gt_item.get("question") or gt_item.get("query") or ""
 
@@ -560,7 +584,11 @@ def evaluate(
             references=references,
             category=cat or "",
             ground_truth_item=gt_item,
-            as_of_date=as_of_dates.get(question_id),
+            as_of_date=(
+                as_of_dates.get(question_id)
+                or (prediction_record.get("as_of_date") if isinstance(prediction_record, dict) else None)
+                or gt_item.get("as_of_date")
+            ),
         )
         row = {
             "query_id": question_id,
@@ -579,6 +607,10 @@ def evaluate(
             "lexical_rationale": lexical["rubric_rationale"],
             "rubric_rationale": lexical["rubric_rationale"],
         }
+        parsed_citations = prediction_record.get("citations")
+        citation_result = citation_match_scores(parsed_citations, gt_item)
+        if citation_result is not None:
+            row.update(citation_result)
         if question_id in manual_rubric:
             m_row = manual_rubric[question_id]
             expected_sha = str(m_row.get("prediction_sha256") or "").strip()
@@ -617,37 +649,60 @@ def evaluate(
             by_category[c] = {
                 "exact_match": round(sum(r["exact_match"] for r in rows) / len(rows), 4),
                 "token_f1": round(sum(r["token_f1"] for r in rows) / len(rows), 4),
-                **rubric_means(rows),
+                **lexical_means(rows),
+                **summarize_citation_scores(rows),
+                **manual_means(rows),
                 "count": len(rows),
             }
 
+    manual_summary = manual_means(scored)
+    citation_summary = summarize_citation_scores(scored)
     summary = {
         "method": (
-            predictions_data[0].get("method", "unknown")
+            (predictions_data[0].get("result") or predictions_data[0]).get("method", "unknown")
             if isinstance(predictions_data, list)
             and predictions_data
             and isinstance(predictions_data[0], dict)
             else "unknown"
         ),
-        "metric_type": "lexical_overlap_and_rubric_evaluation",
+        "metric_type": (
+            "lexical_overlap_citation_matching_and_manual_rubric"
+            if manual_summary and citation_summary
+            else "lexical_overlap_automatic_and_manual_rubric"
+            if manual_summary
+            else "lexical_overlap_and_citation_matching"
+            if citation_summary
+            else "lexical_overlap_and_automatic_heuristics"
+        ),
         "normalization": (
             "Unicode NFKC, case-insensitive, punctuation removed, "
             "whitespace tokenization"
         ),
         "exact_match": round(sum(em_values) / evaluated_count, 4) if evaluated_count else 0.0,
         "token_f1": round(sum(f1_values) / evaluated_count, 4) if evaluated_count else 0.0,
-        **rubric_means(scored),
+        **lexical_means(scored),
+        **citation_summary,
         "evaluated_questions": evaluated_count,
         "prediction_records": len(predictions),
         "ground_truth_records": len(ground_truth),
         "prediction_ids_without_reference": missing_reference_ids,
         "ground_truth_ids_without_prediction": missing_prediction_ids,
         "note": (
-            "Kết quả đánh giá gồm Lexical Overlap (Exact Match, Token F1) và Rubric Scoring "
-            "(thang 1-5 và chuẩn hóa 0.0-1.0). mean_answer_relevance*, mean_faithfulness* chỉ tính trên "
-            "các câu chấm tay (rubric_scored_questions); lexical_* là điểm suy từ từ vựng, chỉ để tham khảo."
+            "Lexical relevance/faithfulness là ước lượng heuristic tự động từ độ phủ từ khóa, token F1, "
+            "số liệu và dấu hiệu văn bản hết hiệu lực; chỉ dùng tham khảo, không thay cho đánh giá pháp lý."
         ),
     }
+    if manual_summary:
+        summary.update(manual_summary)
+        summary["note"] += (
+            " Các trường mean_* là trung bình điểm người chấm nhập, chỉ tính trên câu có điểm hợp lệ "
+            "và prediction_sha256 khớp với câu trả lời được chấm."
+        )
+    if citation_summary:
+        summary["note"] += (
+            " Citation Precision/Recall được tính tự động từ citation parser đối chiếu "
+            "gold_clause_ids; citation cấp Điều bao phủ gold clauses cùng văn bản/Điều."
+        )
     if by_category:
         summary["by_category"] = by_category
 
@@ -696,10 +751,16 @@ def evaluate(
     print(f"Evaluated questions: {evaluated_count}")
     print(f"Exact Match:             {summary['exact_match']:.4f}")
     print(f"Token F1:                {summary['token_f1']:.4f}")
-    print(f"Rubric (chấm tay):       {summary['rubric_scored_questions']} câu")
-    print(f"Mean Answer Relevance:   {fmt('mean_answer_relevance', 4)} (Score: {fmt('mean_answer_relevance_score', 2)}/5)")
-    print(f"Mean Faithfulness:       {fmt('mean_faithfulness', 4)} (Score: {fmt('mean_faithfulness_score', 2)}/5)")
-    print(f"Lexical (tham khảo):     relevance {fmt('lexical_relevance', 4)}, faithfulness {fmt('lexical_faithfulness', 4)}")
+    if manual_summary:
+        print(f"Manual rubric questions: {manual_summary['rubric_scored_questions']}")
+        print(f"Mean Answer Relevance:   {manual_summary['mean_answer_relevance']:.4f} (Score: {manual_summary['mean_answer_relevance_score']:.2f}/5)")
+        print(f"Mean Faithfulness:       {manual_summary['mean_faithfulness']:.4f} (Score: {manual_summary['mean_faithfulness_score']:.2f}/5)")
+    print(f"Lexical heuristic:       relevance {fmt('lexical_relevance', 4)}, faithfulness {fmt('lexical_faithfulness', 4)}")
+    if citation_summary:
+        print(
+            "Citation matching:       "
+            f"precision {fmt('citation_precision', 4)}, recall {fmt('citation_recall', 4)}"
+        )
     print(f"Metrics:                 {metrics_output_path.resolve()}")
     print(f"Per-question scores:     {scored_output_path.resolve()}")
     if rubric_csv_path is not None:

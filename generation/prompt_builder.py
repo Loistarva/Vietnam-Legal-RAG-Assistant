@@ -9,10 +9,10 @@ import hashlib
 
 from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
-# 1. Phiên bản prompt. Khóa tại M1 (v1.0_*_m1); v1.1 thêm quy tắc ngôn ngữ và nguồn luật sau
+# 1. Phiên bản prompt. Khóa tại M1 (v1.0_*_m1); v1.1 thêm quy tắc ngôn ngữ/nguồn luật; v1.2 và v1.3 tăng cường khóa ngôn ngữ/nguồn luật cho A
 #    Run B 10/11 (HN_025, HN_062 trả lời tiếng Trung, dẫn luật Trung Quốc). Cần Tech Lead duyệt (P45-10).
 #    Prompt B v1.2 thu hẹp quy tắc 4 (hỏi lại) sau Run B 13/11 (HN_016 trả lời đúng nhưng đòi hỏi lại).
-PROMPT_A_VERSION: str = "v1.1_zero_shot"
+PROMPT_A_VERSION: str = "v1.2_zero_shot"
 PROMPT_B_VERSION: str = "v1.2_controlled_rag"
 
 # Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
@@ -24,7 +24,7 @@ LANGUAGE_RULE_B: str = (
     "thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác để suy diễn, bổ sung hoặc giải thích."
 )
 LANGUAGE_RULE_A: str = (
-    "NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
+     "NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
     "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không "
     "viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự "
     "Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác."
@@ -73,7 +73,8 @@ def build_zero_shot_prompt(
     """
     Xây dựng Prompt A cho Run A (Zero-Shot Qwen2.5:7b, không có ngữ cảnh RAG).
     Khóa duy nhất một biến thể nhận as_of_date rõ ràng.
-    Đánh số thứ tự quy tắc 1, 2, 3, 4, 5 liên tục (quy tắc 5 = ngôn ngữ và nguồn luật, từ v1.1).
+    Đánh số thứ tự quy tắc 1, 2, 3, 4, 5 liên tục; v1.2 khóa nguồn pháp luật Việt Nam, giữ tiếng Việt,
+    không chuyển luật nước ngoài thành luật Việt Nam và phân biệt điều chưa nhớ với trường hợp luật không quy định.
     """
     as_of_date_clean = as_of_date.strip()
     prompt_lines = [
@@ -84,12 +85,13 @@ def build_zero_shot_prompt(
         "QUY TẮC TRẢ LỜI:",
         "1. Chỉ trả lời các câu hỏi trong phạm vi pháp luật Hôn nhân và Gia đình Việt Nam.",
         "2. Nếu câu hỏi nằm ngoài phạm vi này hoặc không đủ thông tin để xác định bản chất pháp lý, hãy từ chối lịch sự và nêu rõ lý do.",
-        f"3. Thời điểm hiệu lực áp dụng: {as_of_date_clean}. Khi trả lời câu hỏi gắn với mốc thời gian hoặc hiệu lực văn bản, câu trả lời phải nêu rõ: \"Theo quy định có hiệu lực tại ngày {as_of_date_clean}...\". Đảm bảo căn cứ vào các văn bản pháp luật có hiệu lực tại mốc thời gian trên.",
+        f"3. Mốc kiểm tra hiệu lực pháp luật là {as_of_date_clean}; đây chỉ là mốc để xác định văn bản nào đang có hiệu lực, không hàm ý quy định đã thay đổi. Với câu hỏi thông thường về nội dung của một luật Việt Nam được nêu rõ, hãy trả lời trực tiếp theo quy định đó; không tự thêm lời dẫn về ngày và không suy đoán có sửa đổi nếu không chắc. Chỉ nêu \"Theo quy định có hiệu lực tại ngày {as_of_date_clean}...\" khi câu hỏi hỏi về thời điểm, lịch sử hoặc hiệu lực pháp luật, hoặc khi mốc ngày thực sự làm thay đổi câu trả lời.",
         f"4. Cuối câu trả lời luôn đính kèm câu khuyến cáo: \"{STANDARD_DISCLAIMER}\".",
         f"5. {LANGUAGE_RULE_A}",
         "",
         f"CÂU HỎI: {query.strip()}",
         "",
+        "YÊU CẦU ĐẦU RA ƯU TIÊN CAO NHẤT: Chỉ trả lời theo pháp luật Việt Nam; không lấy hoặc dịch quy định nước ngoài thành câu trả lời về pháp luật Việt Nam. Nếu không nhớ chắc, nêu rõ điểm chưa chắc; không biến việc không nhớ thành khẳng định rằng luật không quy định. Khi biết quy tắc được hỏi, trả lời trực tiếp. Viết toàn bộ câu trả lời bằng tiếng Việt, dùng chữ Quốc ngữ từ đầu đến cuối.",
         "TRẢ LỜI:",
     ]
 
