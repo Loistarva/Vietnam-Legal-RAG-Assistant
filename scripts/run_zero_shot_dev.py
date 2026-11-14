@@ -7,6 +7,7 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from evaluation.evaluate_zero_shot import evaluate
+from evaluation.citation_parser import parse_zero_shot_file
 from evaluation.zero_shot import run_benchmark
 from model_gateway.llm_gateway import DEFAULT_CONFIG_PATH
 
@@ -29,13 +30,17 @@ def main() -> None:
 
     prefix = "zero_shot_dev30"
     predictions_path = args.results_dir / f"{prefix}_results.json"
-    metrics_path = args.results_dir / f"{prefix}_metrics.json"
+    parsed_path = args.results_dir / f"{prefix}_parsed.json"
+    metrics_path = args.results_dir / "metrics_A_B_results" / f"{prefix}_metrics.json"
     scored_path = args.results_dir / f"{prefix}_scored.json"
     rubric_csv_path = args.results_dir / f"{prefix}_rubric_table.csv"
 
     run_benchmark(args.queries, predictions_path, config_path=args.config)
+    parse_zero_shot_file(predictions_path, parsed_path)
+    print(f"Generated answers: {predictions_path.resolve()}")
+    print(f"Parsed citations:  {parsed_path.resolve()}")
     evaluate(
-        predictions_path=predictions_path,
+        predictions_path=parsed_path,
         ground_truth_path=args.ground_truth,
         metrics_output_path=metrics_path,
         scored_output_path=scored_path,
