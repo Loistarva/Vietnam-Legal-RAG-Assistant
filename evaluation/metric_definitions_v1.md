@@ -54,7 +54,7 @@ Khi chạy chế độ non-streaming cục bộ qua Ollama (`stream=False`, tuâ
   - Câu dừng ở confidence filter (`llm_calls = 0`) không gọi model nên `latency_ms` gần 0. Gộp vào sẽ kéo phân vị Run B xuống, trong khi ở Run A cả 30 câu đều gọi model.
   - Các câu này được báo riêng: số câu, `query_id`, `latency_ms`.
   - Có thể ghi thêm p50/p95 trên toàn bộ câu để tham chiếu, nhưng phải ghi rõ `n`.
-  - Ví dụ: Run B chính thức (`evaluation/results/dev/20261113_controlled_rag_qwen25_dev30_post_fix/`, RTX 4060, precomputed) có n = 29, p50 = 4 754,98 ms, p95 = 6 558,70 ms. HN_035 (`llm_calls = 0`) là 0,14 ms. Trên cả 30 câu: p50 = 4 698,81 ms, p95 = 6 552,61 ms. Lượt này không có câu khởi động nguội (`load_ms` lớn nhất 9,11 ms).
+  - Ví dụ: Run B v1.1 ngày 13/11 (`evaluation/results/dev/20261113_controlled_rag_qwen25_dev30_post_fix/`, máy Dev 3 RTX 4060, precomputed) có n = 29, p50 = 4 754,98 ms, p95 = 6 558,70 ms. HN_035 (`llm_calls = 0`) là 0,14 ms. Trên cả 30 câu: p50 = 4 698,81 ms, p95 = 6 552,61 ms. Lượt này không có câu khởi động nguội (`load_ms` lớn nhất 9,11 ms).
 - Phân vị dùng nội suy tuyến tính (`numpy.percentile` mặc định). Luôn ghi rõ `n` cạnh kết quả.
 - Câu khởi động nguội = câu có `load_ms > 1000`. Ollama nạp model lần đầu mất tới khoảng 12 giây (đo ngày 11/11), nên các câu này bị loại khỏi p50/p95 và báo riêng: số câu, `query_id`, `load_ms`. Báo cáo ghi rõ đã loại bao nhiêu câu.
 - Run B có bước warm-up trong `scripts/run_rag_batch.py`; Run A không có, nên câu đầu tiên của Run A thường là câu khởi động nguội.
