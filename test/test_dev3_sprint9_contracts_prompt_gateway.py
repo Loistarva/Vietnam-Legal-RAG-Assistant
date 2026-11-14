@@ -383,9 +383,9 @@ class TestPromptBuilder:
         assert "Hôn nhân và Gia đình Việt Nam" in prompt
         assert "1. Chỉ trả lời" in prompt
         assert "2. Nếu câu hỏi" in prompt
-        assert "3. Thời điểm hiệu lực" in prompt
+        assert "3. Mốc kiểm tra hiệu lực pháp luật là 2024-01-01" in prompt
         assert "4. Cuối câu trả lời" in prompt
-        assert "5. NGUỒN PHÁP LUẬT (ĐÓNG NGUỒN)" in prompt
+        assert "5. NGÔN NGỮ VÀ NGUỒN LUẬT" in prompt
 
     def test_build_controlled_rag_prompt_formatting(self):
         item1 = EvidenceItem(
