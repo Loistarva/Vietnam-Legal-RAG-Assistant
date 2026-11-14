@@ -36,7 +36,7 @@ class QwenGatewayConfig(BaseModel):
     base_url: str = "http://localhost:11434"
     model: str = "qwen2.5:7b"
     temperature: float = 0.0
-    repeat_penalty: float = 1.15
+    repeat_penalty: float = 1.0
     num_predict: int = 1024
     num_ctx: int = 8192
     timeout_seconds: float = 120.0
@@ -186,6 +186,7 @@ class QwenGateway:
         output_tokens = int(raw_res.get("eval_count") or 0)
         token_usage = TokenUsage(input=prompt_tokens, output=output_tokens)
         context_truncated = prompt_tokens >= self.config.num_ctx
+        durations = ollama_durations_ms(raw_res)
 
         # Xử lý Run A (Zero-Shot) hoặc Non-Structured
         if not structured_output:
@@ -208,6 +209,7 @@ class QwenGateway:
                 context_truncated=context_truncated,
                 parse_status="raw_text",
                 latency_ms=round(latency_ms, 2),
+                **durations,
                 token_usage=token_usage,
                 fallback_status="none",
                 raw_response=raw_text,
@@ -278,12 +280,37 @@ class QwenGateway:
             context_truncated=context_truncated,
             parse_status=parse_status,
             latency_ms=round(latency_ms, 2),
+            **durations,
             token_usage=token_usage,
             fallback_status="none",
             raw_response=raw_text,
             ollama_version=self.ollama_version,
             model_digest=self.model_digest,
         )
+
+
+OLLAMA_DURATION_FIELDS = {
+    "load_duration": "load_duration_ms",
+    "prompt_eval_duration": "prompt_eval_duration_ms",
+    "eval_duration": "eval_duration_ms",
+    "total_duration": "total_duration_ms",
+}
+
+
+def ollama_durations_ms(raw_res: dict[str, Any]) -> dict[str, float | None]:
+    """Đọc các trường thời gian (nano giây) Ollama trả cả khi stream=false, đổi sang ms.
+
+    Thiếu trường hoặc giá trị không phải số không âm thì để None, không đặt 0.
+    ``ttft_model_ms`` = load + prompt_eval, chỉ tính khi có đủ cả hai.
+    """
+    out: dict[str, float | None] = {}
+    for source, target in OLLAMA_DURATION_FIELDS.items():
+        value = raw_res.get(source)
+        valid = isinstance(value, (int, float)) and not isinstance(value, bool) and value >= 0
+        out[target] = round(value / 1_000_000, 2) if valid else None
+    load, prompt_eval = out["load_duration_ms"], out["prompt_eval_duration_ms"]
+    out["ttft_model_ms"] = round(load + prompt_eval, 2) if load is not None and prompt_eval is not None else None
+    return out
 
 
 def find_model_digest(tags_payload: dict[str, Any], model_name: str) -> str | None:

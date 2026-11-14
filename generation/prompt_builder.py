@@ -9,9 +9,34 @@ import hashlib
 
 from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
-# 1. Khóa phiên bản prompt tại M1
-PROMPT_A_VERSION: str = "v1.0_zero_shot_m1"
-PROMPT_B_VERSION: str = "v1.0_controlled_rag_m1"
+# 1. Phiên bản prompt. Khóa tại M1 (v1.0_*_m1); v1.1 thêm quy tắc ngôn ngữ và nguồn luật sau
+#    Run B 10/11 (HN_025, HN_062 trả lời tiếng Trung, dẫn luật Trung Quốc). Cần Tech Lead duyệt (P45-10).
+#    Prompt B v1.2 thu hẹp quy tắc 4 (hỏi lại) sau Run B 13/11 (HN_016 trả lời đúng nhưng đòi hỏi lại).
+PROMPT_A_VERSION: str = "v1.1_zero_shot"
+PROMPT_B_VERSION: str = "v1.2_controlled_rag"
+
+# Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
+LANGUAGE_RULE_B: str = (
+    "NGÔN NGỮ VÀ NGUỒN LUẬT: Trường \"answer\" phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
+    "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam được cung cấp trong "
+    "các đoạn bằng chứng; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức tiền huấn "
+    "luyện về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/"
+    "thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác để suy diễn, bổ sung hoặc giải thích."
+)
+LANGUAGE_RULE_A: str = (
+    "NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán "
+    "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không "
+    "viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự "
+    "Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác."
+)
+
+# Quy tắc 4 của Prompt B (v1.2): chỉ hỏi lại khi bằng chứng dẫn tới kết luận khác nhau tùy dữ kiện còn thiếu
+CLARIFICATION_RULE_B: str = (
+    "   - Chỉ đặt \"needs_clarification\": true khi câu hỏi thiếu dữ kiện đến mức các đoạn bằng chứng dẫn tới "
+    "những kết luận khác nhau tùy dữ kiện còn thiếu, nên không thể trả lời nếu chưa hỏi lại người dùng.\n"
+    "   - Nếu bằng chứng đã trả lời được câu hỏi theo quy định chung, hãy trả lời, nêu kèm các ngoại lệ có trong "
+    "bằng chứng, và đặt \"needs_clarification\": false."
+)
 
 # Cố định câu Disclaimer chuẩn theo yêu cầu Sprint 9
 STANDARD_DISCLAIMER: str = "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
@@ -48,7 +73,7 @@ def build_zero_shot_prompt(
     """
     Xây dựng Prompt A cho Run A (Zero-Shot Qwen2.5:7b, không có ngữ cảnh RAG).
     Khóa duy nhất một biến thể nhận as_of_date rõ ràng.
-    Đánh số thứ tự quy tắc 1, 2, 3, 4 liên tục.
+    Đánh số thứ tự quy tắc 1, 2, 3, 4, 5 liên tục (quy tắc 5 = ngôn ngữ và nguồn luật, từ v1.1).
     """
     as_of_date_clean = as_of_date.strip()
     prompt_lines = [
@@ -61,6 +86,7 @@ def build_zero_shot_prompt(
         "2. Nếu câu hỏi nằm ngoài phạm vi này hoặc không đủ thông tin để xác định bản chất pháp lý, hãy từ chối lịch sự và nêu rõ lý do.",
         f"3. Thời điểm hiệu lực áp dụng: {as_of_date_clean}. Khi trả lời câu hỏi gắn với mốc thời gian hoặc hiệu lực văn bản, câu trả lời phải nêu rõ: \"Theo quy định có hiệu lực tại ngày {as_of_date_clean}...\". Đảm bảo căn cứ vào các văn bản pháp luật có hiệu lực tại mốc thời gian trên.",
         f"4. Cuối câu trả lời luôn đính kèm câu khuyến cáo: \"{STANDARD_DISCLAIMER}\".",
+        f"5. {LANGUAGE_RULE_A}",
         "",
         f"CÂU HỎI: {query.strip()}",
         "",
@@ -100,13 +126,14 @@ DANH SÁCH BẰNG CHỨNG PHÁP LÝ ĐƯỢC CẤP (Được đánh số từ [1
 {context_str}
 
 RÀNG BUỘC NGHIÊM NGẶT (DEFENSIVE CONSTRAINTS):
-1. CHỈ sử dụng thông tin có thật trong các đoạn bằng chứng [1]...[{evidence_count}] ở trên để trả lời. TUYỆT ĐỐI KHÔNG tự suy diễn hoặc dùng kiến thức ngoài các đoạn bằng chứng này.
+1. NGUYÊN TẮC ĐÓNG NGỮ CẢNH (STRICT CLOSED-CONTEXT): CHỈ sử dụng thông tin có thật trong các đoạn bằng chứng [1]...[{evidence_count}] ở trên để trả lời. Mọi khẳng định pháp lý trong câu trả lời bắt buộc phải có căn cứ trực tiếp từ nội dung [1]...[{evidence_count}]; TUYỆT ĐỐI KHÔNG tự suy diễn hoặc dùng kiến thức ngoài các đoạn bằng chứng này.
 2. VỀ TRÍCH DẪN: Chỉ trả về chỉ số bằng chứng dưới dạng mảng các số nguyên trong trường "evidence_indices" (ví dụ: [1, 2]). TUYỆT ĐỐI KHÔNG chép chuỗi mã chunk_id dài vào câu trả lời hay mảng trích dẫn.
 3. VỀ TỪ CHỐI TRẢ LỜI (ABSTENTION):
-   - Nếu các đoạn bằng chứng trên không đủ thông tin để trả lời câu hỏi, hoặc chứa mâu thuẫn về hiệu lực/thứ bậc không thể giải quyết tại mốc {as_of_date}, bạn BẮT BUỘC phải đặt "abstained": true, nêu rõ lý do trong "abstention_reason", và giải thích ngắn gọn trong "answer".
+   - Nếu các đoạn bằng chứng trên không đề cập đến tình tiết được hỏi, không đủ thông tin/căn cứ để kết luận, hoặc chứa mâu thuẫn về hiệu lực/thứ bậc không thể giải quyết tại mốc {as_of_date}, bạn BẮT BUỘC phải đặt "abstained": true và từ chối trả lời (thay vì tự bổ sung kiến thức ngoài), nêu rõ lý do trong "abstention_reason", và giải thích ngắn gọn trong "answer".
 4. VỀ CÂU HỎI MƠ HỒ:
-   - Nếu câu hỏi thiếu dữ kiện quan trọng cần làm rõ, đặt "needs_clarification": true.
+{CLARIFICATION_RULE_B}
 5. Luôn đính kèm khuyến cáo pháp lý: "{STANDARD_DISCLAIMER}".
+6. {LANGUAGE_RULE_B}
 
 YÊU CẦU ĐẦU RA:
 Bạn PHẢI trả về duy nhất một đối tượng JSON hợp lệ (không kèm markdown code block bên ngoài nếu dùng format JSON) tuân thủ đúng cấu trúc sau:

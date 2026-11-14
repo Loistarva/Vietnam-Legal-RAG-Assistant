@@ -50,7 +50,14 @@ from reranking.confidence import (
 from reranking.context_builder import MAX_EVIDENCE_ITEMS, build_context_payload
 from reranking.parent_context import ParentContextResolver, load_parent_context_config
 from retrieval.temporal import normalize_as_of_date
-from schemas.models import ContextPayload, GroundingResult, LLMResponse, RAGOutputRecord, TokenUsage
+from schemas.models import (
+    ContextPayload,
+    GroundingResult,
+    LatencyBreakdown,
+    LLMResponse,
+    RAGOutputRecord,
+    TokenUsage,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RETRIEVAL_CONFIG = ROOT / "retrieval" / "config.yaml"
@@ -65,6 +72,14 @@ FAIL_MESSAGE = ("Hệ thống không xác minh được căn cứ trích dẫn c
 CLARIFY_MESSAGE = ("Câu hỏi cần thêm thông tin để xác định quy định áp dụng. Vui lòng bổ sung "
                    "tình huống cụ thể (thời điểm, quan hệ giữa các bên, sự kiện pháp lý).")
 INLINE_MARKER = re.compile(r"\[(\d{1,2})\]")
+# Chữ Hán, kana Nhật, Hangul và dấu câu CJK (《》、。). Tiếng Việt không dùng ký tự nào trong
+# các dải này; Qwen trượt sang tiếng Trung khi bị phạt lặp token (Run B 10/11: HN_025, HN_062).
+CJK_CHARS = re.compile("[\u3000-\u303f\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff\uac00-\ud7af"
+                       "\U00020000-\U0002fa1f]")
+
+
+def count_cjk_chars(text: str) -> int:
+    return len(CJK_CHARS.findall(text or ""))
 
 
 class CandidateSource(Protocol):
@@ -143,6 +158,9 @@ class PrecomputedRerankedSource:
     text or another date, so the record's config versions describe the run that made it."""
 
     name = "precomputed"
+    # Retrieval and rerank ran in an earlier process: their time is unknown, so
+    # latency_breakdown.retrieval_ms stays null instead of the near-zero lookup time.
+    measures_retrieval = False
 
     def __init__(self, envelopes: Sequence[Mapping[str, Any]], *, expected_corpus_sha256: str,
                  expected_candidate_text: str,
@@ -206,6 +224,7 @@ class LivePipelineSource:
     """Live Hybrid + Cross-Encoder + Parent-Context through ``reranking.pipeline.RetrievalPipeline``."""
 
     name = "live"
+    measures_retrieval = True  # fetch() = Hybrid retrieval + Cross-Encoder rerank + parent context
 
     def __init__(self, pipeline: Any):
         if getattr(pipeline, "reranker", None) is None:
@@ -226,8 +245,11 @@ def _gate_result(status: str, reason: str, invalid: Sequence[int] = ()) -> Groun
 
 def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> GroundingResult:
     """Deterministic Gate. PASS only when the output parsed cleanly, was not truncated,
-    did not abstain, and every cited index (structured and inline ``[n]``) maps to the
-    payload rendered into the prompt."""
+    did not abstain, has no CJK characters (``ANSWER_NOT_VIETNAMESE``), and every cited
+    index (structured and inline ``[n]``) maps to the payload rendered into the prompt.
+
+    No check on words such as "nước ngoài": a correct answer may say "công dân Việt Nam
+    với người nước ngoài" (HN_062)."""
     if llm.query_id != payload.query_id:
         return _gate_result("FAIL", "QUERY_ID_MISMATCH")
     if llm.parse_status != "ok":
@@ -244,6 +266,8 @@ def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> Grounding
         return _gate_result("NEEDS_CLARIFICATION", "MODEL_NEEDS_CLARIFICATION")
     if not llm.answer.strip():
         return _gate_result("FAIL", "EMPTY_ANSWER")
+    if count_cjk_chars(llm.answer):
+        return _gate_result("FAIL", "ANSWER_NOT_VIETNAMESE")
     citations, invalid = map_evidence_indices_to_citations(llm.evidence_indices, payload)
     result = validate_citations(payload, citations, evidence_indices=llm.evidence_indices,
                                 invalid_indices=invalid)
@@ -264,6 +288,65 @@ def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> Grounding
 def with_disclaimer(answer: str) -> str:
     answer = answer.strip()
     return answer if STANDARD_DISCLAIMER in answer else f"{answer}\n\n{STANDARD_DISCLAIMER}"
+
+
+def abstention_fields(grounding: GroundingResult, *, llm_called: bool) -> dict[str, Any]:
+    """Top-level abstention fields of a record (P45-4), filled on every path.
+
+    ``abstention_reason`` is a fixed code the evaluator can count; the model's own wording
+    stays in ``retrieval_trace.llm.abstention_reason``. A Gate FAIL counts as an abstention
+    because the user only gets the no-conclusion message."""
+    status = grounding.grounding_status
+    if status == "PASS":
+        return {"abstained": False, "abstention_reason": None, "abstention_source": None,
+                "needs_clarification": False}
+    if status == "NEEDS_CLARIFICATION":
+        return {"abstained": False, "abstention_reason": None, "abstention_source": "model",
+                "needs_clarification": True}
+    if status == "ABSTAIN":
+        source = "model" if llm_called else "confidence_filter"
+    else:
+        source = "grounding_gate"
+    return {"abstained": True, "abstention_reason": grounding.reason or f"{status}_WITHOUT_REASON",
+            "abstention_source": source, "needs_clarification": False}
+
+
+def _abstention_reason_detail(
+    grounding: GroundingResult, trace: Mapping[str, Any], llm: LLMResponse | None
+) -> str:
+    """Chi tiết lý do Gate/Confidence cho ``retrieval_trace.gate.reason_detail``."""
+    code = grounding.reason or f"{grounding.grounding_status}_WITHOUT_REASON"
+    if code == "LOW_CONFIDENCE":
+        conf = trace.get("confidence") or {}
+        top1, threshold = conf.get("top1_score"), conf.get("min_top1_score")
+        if isinstance(top1, (int, float)) and isinstance(threshold, (int, float)):
+            return f"LOW_CONFIDENCE: top1_score={float(top1):.3f} < {float(threshold):.2f}"
+    if code == "EMPTY_RETRIEVAL":
+        return "EMPTY_RETRIEVAL: no candidates retrieved"
+    if code == "MODEL_ABSTAINED" and llm is not None and llm.abstention_reason:
+        return f"MODEL_ABSTAINED: {llm.abstention_reason}"
+    if grounding.invalid_indices:
+        return f"{code}: invalid_indices={grounding.invalid_indices}"
+    return code
+
+
+def _ms(value: Any) -> float | None:
+    return None if value is None else round(float(value), 2)
+
+
+def latency_breakdown(llm: LLMResponse | None, *, retrieval_ms: float | None) -> LatencyBreakdown:
+    """Per-step times (P45-6). The Ollama durations come from the gateway (P45-3) and stay
+    null when Ollama did not return them; nothing is set to 0."""
+    if llm is None:
+        return LatencyBreakdown(retrieval_ms=retrieval_ms)
+    return LatencyBreakdown(
+        retrieval_ms=retrieval_ms,
+        llm_total_ms=_ms(llm.latency_ms),
+        ttft_model_ms=_ms(llm.ttft_model_ms),
+        load_ms=_ms(llm.load_duration_ms),
+        prompt_eval_ms=_ms(llm.prompt_eval_duration_ms),
+        eval_ms=_ms(llm.eval_duration_ms),
+    )
 
 
 def policy_message(status: str, as_of_date: str) -> str:
@@ -328,6 +411,8 @@ class RAGPipeline:
         started = time.perf_counter()
 
         envelope = self.source.fetch(query_id=query_id, query=query, as_of_date=as_of_date)
+        retrieval_ms = (round((time.perf_counter() - started) * 1000.0, 2)
+                        if getattr(self.source, "measures_retrieval", False) else None)
         rows = self._rows(envelope, query_id)
         decision = apply_confidence_threshold(rows, self.confidence)
         trace: dict[str, Any] = {
@@ -343,7 +428,8 @@ class RAGPipeline:
             reason = "EMPTY_RETRIEVAL" if decision.status == "empty" else "LOW_CONFIDENCE"
             grounding = _gate_result("ABSTAIN", reason)
             return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
-                                grounding=grounding, payload=None, llm=None, prompt=None)
+                                grounding=grounding, payload=None, llm=None, prompt=None,
+                                retrieval_ms=retrieval_ms)
 
         kept = decision.kept
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
@@ -359,16 +445,26 @@ class RAGPipeline:
         llm = self.generator.generate(prompt, query_id, RUN_MODE, PROMPT_B_VERSION, structured_output=True)
         grounding = apply_grounding_gate(payload, llm)
         return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
-                            grounding=grounding, payload=payload, llm=llm, prompt=prompt)
+                            grounding=grounding, payload=payload, llm=llm, prompt=prompt,
+                            retrieval_ms=retrieval_ms)
 
     def _finish(self, query_id: str, query: str, as_of_date: str, as_of_date_source: str, started: float,
                 trace: dict[str, Any], *, grounding: GroundingResult, payload: ContextPayload | None,
-                llm: LLMResponse | None, prompt: str | None) -> RAGRunResult:
+                llm: LLMResponse | None, prompt: str | None, retrieval_ms: float | None) -> RAGRunResult:
         status = grounding.grounding_status
-        trace["gate"] = {"status": status, "reason": grounding.reason, "invalid_indices": grounding.invalid_indices}
+        abs_fields = abstention_fields(grounding, llm_called=llm is not None)
+        trace["gate"] = {
+            "status": status,
+            "reason": grounding.reason,
+            "reason_detail": _abstention_reason_detail(grounding, trace, llm),
+            "invalid_indices": grounding.invalid_indices,
+            "abstained": abs_fields["abstained"],
+            "abstention_source": abs_fields["abstention_source"],
+        }
         if llm is not None:
             trace["llm"] = {
                 "answer_before_gate": llm.answer,
+                "cjk_chars_before_gate": count_cjk_chars(llm.answer),
                 "evidence_indices": llm.evidence_indices,
                 "rejected_evidence_values": llm.rejected_evidence_values,
                 "abstained": llm.abstained,
@@ -393,6 +489,7 @@ class RAGPipeline:
             evidence_indices=list(llm.evidence_indices) if llm is not None else [],
             citations=list(grounding.valid_citations) if status == "PASS" else [],
             grounding_status=status,
+            **abs_fields,
             retrieval_trace=trace,
             model=llm.model if llm is not None else meta["model"],
             prompt_version=PROMPT_B_VERSION,
@@ -404,6 +501,8 @@ class RAGPipeline:
             retrieval_config_version=self.versions.retrieval_config_version,
             threshold_config_version=self.versions.threshold_config_version,
             latency_ms=round((time.perf_counter() - started) * 1000.0, 2),
+            llm_calls=1 if llm is not None else 0,
+            latency_breakdown=latency_breakdown(llm, retrieval_ms=retrieval_ms),
             token_usage=llm.token_usage if llm is not None else TokenUsage(),
             fallback_status=llm.fallback_status if llm is not None else "none",
         )
@@ -475,6 +574,6 @@ def run_rag(query: Mapping[str, Any]) -> dict[str, Any]:
 
 __all__ = [
     "LivePipelineSource", "PrecomputedRerankedSource", "RAGPipeline", "RAGRunResult", "RunVersions",
-    "apply_grounding_gate", "build_pipeline", "compute_run_versions", "policy_message", "run_rag",
-    "with_disclaimer",
+    "abstention_fields", "apply_grounding_gate", "build_pipeline", "compute_run_versions", "count_cjk_chars",
+    "latency_breakdown", "policy_message", "run_rag", "with_disclaimer",
 ]
