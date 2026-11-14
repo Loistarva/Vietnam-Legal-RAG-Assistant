@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import tempfile
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -14,7 +15,10 @@ from evaluation.metrics import evaluate_answer_run
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_GROUND_TRUTH = ROOT / "data" / "benchmark" / "ground_truth.json"
-DEFAULT_RUN_A_INPUT = ROOT / "evaluation" / "results" / "zero_shot_dev30_results.json"
+DEFAULT_RUN_A_INPUT = (
+    ROOT / "evaluation" / "results" / "dev"
+    / f"{datetime.now():%Y%m%d}_zero_shot_qwen25_dev30.jsonl"
+)
 DEFAULT_RUN_B_INPUT = (
     ROOT / "evaluation" / "results" / "dev"
     / "20261114_controlled_rag_qwen25_dev30_prompt_v1_2" / "results.jsonl"

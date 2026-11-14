@@ -319,9 +319,22 @@ def parse_zero_shot_file(
 ) -> list[dict[str, Any]]:
     """Parse a Zero-shot result JSON array into a citation-enriched JSON artifact."""
     input_path, output_path = Path(input_path), Path(output_path)
-    records = json.loads(input_path.read_text(encoding="utf-8-sig"))
+    raw = input_path.read_text(encoding="utf-8-sig")
+    try:
+        records = json.loads(raw)
+    except json.JSONDecodeError:
+        records = []
+        for line_number, line in enumerate(raw.splitlines(), start=1):
+            if not line.strip():
+                continue
+            try:
+                records.append(json.loads(line))
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"Invalid JSONL at {input_path}:{line_number}: {exc}"
+                ) from exc
     if not isinstance(records, list):
-        raise ValueError("Zero-shot results file must contain a JSON array")
+        raise ValueError("Zero-shot results must contain a JSON array or JSONL records")
     aliases = load_alias_map(alias_map_path) if alias_map_path else load_alias_map()
     parsed = parse_zero_shot_records(records, alias_map=aliases)
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -20,5 +20,8 @@ __pycache__/
 /data/benchmark/backups/
 *.bak
 
+# Keep the blind-score unblinding key local to the coordinator
+/evaluation/results/dev/blinded_ab_scoring_key_v1.csv
+
 # Office lock files (created while a document is open)
 ~$*

@@ -118,7 +118,13 @@ def run_benchmark(
             print(f"[{i}/{len(questions)}] {question_id}: ERROR - {exc}")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+    if output_path.suffix.casefold() == ".jsonl":
+        output_path.write_text(
+            "".join(json.dumps(result, ensure_ascii=False) + "\n" for result in results),
+            encoding="utf-8",
+        )
+    else:
+        output_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     success = sum(result["answer"] is not None for result in results)
     print("-" * 60)
     print(f"Total: {len(results)}\nSuccessful: {success}\nFailed: {len(results) - success}")

@@ -19,15 +19,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 12776.05,
+      "latency_ms": 16097.87,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 12774.08,
-        "load_ms": 9158.47,
-        "prompt_eval_ms": 640.46,
-        "eval_ms": 2950.38,
-        "ttft_model_ms": 9798.93
+        "llm_total_ms": 16094.57,
+        "load_ms": 12535.81,
+        "prompt_eval_ms": 656.47,
+        "eval_ms": 2867.9,
+        "ttft_model_ms": 13192.28
       },
       "token_usage": {
         "input": 622,
@@ -79,15 +79,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 3205.43,
+      "latency_ms": 3127.01,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 3205.27,
-        "load_ms": 12.33,
-        "prompt_eval_ms": 158.84,
-        "eval_ms": 3017.28,
-        "ttft_model_ms": 171.17
+        "llm_total_ms": 3126.81,
+        "load_ms": 11.25,
+        "prompt_eval_ms": 158.11,
+        "eval_ms": 2940.21,
+        "ttft_model_ms": 169.36
       },
       "token_usage": {
         "input": 622,
@@ -139,15 +139,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6396.41,
+      "latency_ms": 6151.18,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6396.23,
-        "load_ms": 9.56,
-        "prompt_eval_ms": 164.37,
-        "eval_ms": 6203.9,
-        "ttft_model_ms": 173.93
+        "llm_total_ms": 6151.02,
+        "load_ms": 8.46,
+        "prompt_eval_ms": 156.63,
+        "eval_ms": 5955.92,
+        "ttft_model_ms": 165.09
       },
       "token_usage": {
         "input": 623,
@@ -215,15 +215,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 4152.01,
+      "latency_ms": 4044.29,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 4151.85,
-        "load_ms": 9.11,
-        "prompt_eval_ms": 159.29,
-        "eval_ms": 3963.9,
-        "ttft_model_ms": 168.4
+        "llm_total_ms": 4044.13,
+        "load_ms": 10.22,
+        "prompt_eval_ms": 159.49,
+        "eval_ms": 3859.13,
+        "ttft_model_ms": 169.71
       },
       "token_usage": {
         "input": 620,
@@ -277,15 +277,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 5886.2,
+      "latency_ms": 5877.27,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 5886.04,
-        "load_ms": 9.49,
-        "prompt_eval_ms": 159.47,
-        "eval_ms": 5700.38,
-        "ttft_model_ms": 168.96
+        "llm_total_ms": 5877.11,
+        "load_ms": 8.84,
+        "prompt_eval_ms": 158.24,
+        "eval_ms": 5693.96,
+        "ttft_model_ms": 167.08
       },
       "token_usage": {
         "input": 627,
@@ -337,15 +337,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 4068.93,
+      "latency_ms": 4038.44,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 4068.77,
-        "load_ms": 9.13,
-        "prompt_eval_ms": 158.42,
-        "eval_ms": 3883.77,
-        "ttft_model_ms": 167.55
+        "llm_total_ms": 4038.28,
+        "load_ms": 8.39,
+        "prompt_eval_ms": 158.91,
+        "eval_ms": 3856.87,
+        "ttft_model_ms": 167.3
       },
       "token_usage": {
         "input": 624,
@@ -380,15 +380,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6409.86,
+      "latency_ms": 6267.46,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6409.7,
-        "load_ms": 12.03,
-        "prompt_eval_ms": 164.47,
-        "eval_ms": 6213.82,
-        "ttft_model_ms": 176.5
+        "llm_total_ms": 6267.3,
+        "load_ms": 9.07,
+        "prompt_eval_ms": 158.41,
+        "eval_ms": 6072.94,
+        "ttft_model_ms": 167.48
       },
       "token_usage": {
         "input": 613,
@@ -456,15 +456,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 8429.48,
+      "latency_ms": 8291.32,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 8429.3,
-        "load_ms": 8.53,
-        "prompt_eval_ms": 161.05,
-        "eval_ms": 8241.04,
-        "ttft_model_ms": 169.58
+        "llm_total_ms": 8291.16,
+        "load_ms": 9.78,
+        "prompt_eval_ms": 157.42,
+        "eval_ms": 8106.39,
+        "ttft_model_ms": 167.2
       },
       "token_usage": {
         "input": 617,
@@ -516,15 +516,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 7567.85,
+      "latency_ms": 7599.72,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 7567.69,
-        "load_ms": 9.02,
-        "prompt_eval_ms": 168.26,
-        "eval_ms": 7372.64,
-        "ttft_model_ms": 177.28
+        "llm_total_ms": 7599.55,
+        "load_ms": 8.47,
+        "prompt_eval_ms": 170.59,
+        "eval_ms": 7402.74,
+        "ttft_model_ms": 179.06
       },
       "token_usage": {
         "input": 617,
@@ -574,15 +574,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 4598.01,
+      "latency_ms": 4498.19,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 4597.83,
-        "load_ms": 9.16,
-        "prompt_eval_ms": 157.16,
-        "eval_ms": 4414.73,
-        "ttft_model_ms": 166.32
+        "llm_total_ms": 4498.03,
+        "load_ms": 8.48,
+        "prompt_eval_ms": 158.11,
+        "eval_ms": 4313.6,
+        "ttft_model_ms": 166.59
       },
       "token_usage": {
         "input": 613,
@@ -634,15 +634,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 8419.41,
+      "latency_ms": 8001.18,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 8419.24,
-        "load_ms": 10.0,
-        "prompt_eval_ms": 161.75,
-        "eval_ms": 8229.34,
-        "ttft_model_ms": 171.75
+        "llm_total_ms": 8001.01,
+        "load_ms": 8.5,
+        "prompt_eval_ms": 158.43,
+        "eval_ms": 7815.8,
+        "ttft_model_ms": 166.93
       },
       "token_usage": {
         "input": 619,
@@ -694,15 +694,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6734.74,
+      "latency_ms": 6445.29,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6734.58,
-        "load_ms": 9.56,
-        "prompt_eval_ms": 157.78,
-        "eval_ms": 6550.89,
-        "ttft_model_ms": 167.34
+        "llm_total_ms": 6445.12,
+        "load_ms": 8.98,
+        "prompt_eval_ms": 161.49,
+        "eval_ms": 6257.16,
+        "ttft_model_ms": 170.47
       },
       "token_usage": {
         "input": 613,
@@ -754,15 +754,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 4833.34,
+      "latency_ms": 4858.6,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 4833.18,
-        "load_ms": 9.19,
-        "prompt_eval_ms": 160.22,
-        "eval_ms": 4647.6,
-        "ttft_model_ms": 169.41
+        "llm_total_ms": 4858.43,
+        "load_ms": 11.37,
+        "prompt_eval_ms": 154.77,
+        "eval_ms": 4662.87,
+        "ttft_model_ms": 166.14
       },
       "token_usage": {
         "input": 614,
@@ -797,15 +797,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 5454.05,
+      "latency_ms": 5396.43,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 5453.92,
-        "load_ms": 8.93,
-        "prompt_eval_ms": 160.84,
-        "eval_ms": 5267.36,
-        "ttft_model_ms": 169.77
+        "llm_total_ms": 5396.07,
+        "load_ms": 8.58,
+        "prompt_eval_ms": 157.93,
+        "eval_ms": 5214.1,
+        "ttft_model_ms": 166.51
       },
       "token_usage": {
         "input": 621,
@@ -857,15 +857,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 5999.22,
+      "latency_ms": 5970.55,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 5999.05,
-        "load_ms": 8.5,
-        "prompt_eval_ms": 159.71,
-        "eval_ms": 5814.57,
-        "ttft_model_ms": 168.21
+        "llm_total_ms": 5970.38,
+        "load_ms": 45.48,
+        "prompt_eval_ms": 160.15,
+        "eval_ms": 5749.01,
+        "ttft_model_ms": 205.63
       },
       "token_usage": {
         "input": 627,
@@ -917,15 +917,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 8622.43,
+      "latency_ms": 8294.31,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 8622.26,
-        "load_ms": 8.97,
-        "prompt_eval_ms": 158.97,
-        "eval_ms": 8437.3,
-        "ttft_model_ms": 167.94
+        "llm_total_ms": 8294.12,
+        "load_ms": 9.06,
+        "prompt_eval_ms": 159.06,
+        "eval_ms": 8108.98,
+        "ttft_model_ms": 168.12
       },
       "token_usage": {
         "input": 619,
@@ -977,15 +977,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 7604.02,
+      "latency_ms": 7709.27,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 7603.86,
-        "load_ms": 9.57,
-        "prompt_eval_ms": 161.37,
-        "eval_ms": 7415.72,
-        "ttft_model_ms": 170.94
+        "llm_total_ms": 7709.09,
+        "load_ms": 8.98,
+        "prompt_eval_ms": 159.16,
+        "eval_ms": 7524.96,
+        "ttft_model_ms": 168.14
       },
       "token_usage": {
         "input": 615,
@@ -1037,15 +1037,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6073.05,
+      "latency_ms": 6065.55,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6072.91,
-        "load_ms": 9.15,
-        "prompt_eval_ms": 160.11,
-        "eval_ms": 5885.54,
-        "ttft_model_ms": 169.26
+        "llm_total_ms": 6065.39,
+        "load_ms": 8.71,
+        "prompt_eval_ms": 162.35,
+        "eval_ms": 5875.35,
+        "ttft_model_ms": 171.06
       },
       "token_usage": {
         "input": 614,
@@ -1097,15 +1097,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 7503.58,
+      "latency_ms": 7679.13,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 7503.42,
-        "load_ms": 9.86,
-        "prompt_eval_ms": 157.05,
-        "eval_ms": 7320.44,
-        "ttft_model_ms": 166.91
+        "llm_total_ms": 7678.94,
+        "load_ms": 9.2,
+        "prompt_eval_ms": 156.54,
+        "eval_ms": 7495.75,
+        "ttft_model_ms": 165.74
       },
       "token_usage": {
         "input": 619,
@@ -1155,15 +1155,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 5252.78,
+      "latency_ms": 4902.89,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 5252.59,
-        "load_ms": 10.0,
-        "prompt_eval_ms": 157.18,
-        "eval_ms": 5067.05,
-        "ttft_model_ms": 167.18
+        "llm_total_ms": 4902.73,
+        "load_ms": 8.68,
+        "prompt_eval_ms": 159.22,
+        "eval_ms": 4706.54,
+        "ttft_model_ms": 167.9
       },
       "token_usage": {
         "input": 614,
@@ -1198,15 +1198,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6413.93,
+      "latency_ms": 6151.79,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6413.74,
-        "load_ms": 11.07,
-        "prompt_eval_ms": 166.42,
-        "eval_ms": 6217.68,
-        "ttft_model_ms": 177.49
+        "llm_total_ms": 6151.61,
+        "load_ms": 8.2,
+        "prompt_eval_ms": 157.94,
+        "eval_ms": 5969.83,
+        "ttft_model_ms": 166.14
       },
       "token_usage": {
         "input": 634,
@@ -1278,15 +1278,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 14933.18,
+      "latency_ms": 15061.82,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 14933.03,
-        "load_ms": 9.71,
-        "prompt_eval_ms": 158.61,
-        "eval_ms": 14747.39,
-        "ttft_model_ms": 168.32
+        "llm_total_ms": 15061.64,
+        "load_ms": 9.62,
+        "prompt_eval_ms": 166.79,
+        "eval_ms": 14866.9,
+        "ttft_model_ms": 176.41
       },
       "token_usage": {
         "input": 627,
@@ -1338,15 +1338,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 11311.55,
+      "latency_ms": 11107.93,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 11311.39,
-        "load_ms": 9.59,
-        "prompt_eval_ms": 156.39,
-        "eval_ms": 11097.0,
-        "ttft_model_ms": 165.98
+        "llm_total_ms": 11107.78,
+        "load_ms": 8.76,
+        "prompt_eval_ms": 156.87,
+        "eval_ms": 10900.35,
+        "ttft_model_ms": 165.63
       },
       "token_usage": {
         "input": 627,
@@ -1398,15 +1398,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6293.2,
+      "latency_ms": 6275.6,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6293.03,
-        "load_ms": 9.38,
-        "prompt_eval_ms": 183.05,
-        "eval_ms": 6083.35,
-        "ttft_model_ms": 192.43
+        "llm_total_ms": 6275.44,
+        "load_ms": 9.06,
+        "prompt_eval_ms": 182.76,
+        "eval_ms": 6067.71,
+        "ttft_model_ms": 191.82
       },
       "token_usage": {
         "input": 640,
@@ -1474,15 +1474,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 6597.42,
+      "latency_ms": 6464.47,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 6597.25,
-        "load_ms": 23.99,
-        "prompt_eval_ms": 159.68,
-        "eval_ms": 6394.14,
-        "ttft_model_ms": 183.67
+        "llm_total_ms": 6464.28,
+        "load_ms": 8.53,
+        "prompt_eval_ms": 159.13,
+        "eval_ms": 6278.31,
+        "ttft_model_ms": 167.66
       },
       "token_usage": {
         "input": 635,
@@ -1550,15 +1550,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 3813.48,
+      "latency_ms": 3776.91,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 3813.32,
-        "load_ms": 8.95,
-        "prompt_eval_ms": 159.66,
-        "eval_ms": 3625.89,
-        "ttft_model_ms": 168.61
+        "llm_total_ms": 3776.75,
+        "load_ms": 9.18,
+        "prompt_eval_ms": 161.41,
+        "eval_ms": 3589.95,
+        "ttft_model_ms": 170.59
       },
       "token_usage": {
         "input": 636,
@@ -1593,15 +1593,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 4250.7,
+      "latency_ms": 4152.3,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 4250.54,
-        "load_ms": 20.68,
-        "prompt_eval_ms": 155.56,
-        "eval_ms": 4057.32,
-        "ttft_model_ms": 176.24
+        "llm_total_ms": 4152.14,
+        "load_ms": 10.03,
+        "prompt_eval_ms": 159.33,
+        "eval_ms": 3966.39,
+        "ttft_model_ms": 169.36
       },
       "token_usage": {
         "input": 632,
@@ -1653,15 +1653,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 10859.77,
+      "latency_ms": 10620.07,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 10859.62,
-        "load_ms": 10.46,
-        "prompt_eval_ms": 159.31,
-        "eval_ms": 10672.91,
-        "ttft_model_ms": 169.77
+        "llm_total_ms": 10619.89,
+        "load_ms": 8.47,
+        "prompt_eval_ms": 157.64,
+        "eval_ms": 10431.52,
+        "ttft_model_ms": 166.11
       },
       "token_usage": {
         "input": 625,
@@ -1696,15 +1696,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 9236.65,
+      "latency_ms": 8976.0,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 9236.45,
-        "load_ms": 9.74,
-        "prompt_eval_ms": 162.92,
-        "eval_ms": 9030.39,
-        "ttft_model_ms": 172.66
+        "llm_total_ms": 8975.83,
+        "load_ms": 9.4,
+        "prompt_eval_ms": 160.68,
+        "eval_ms": 8787.98,
+        "ttft_model_ms": 170.08
       },
       "token_usage": {
         "input": 624,
@@ -1739,15 +1739,15 @@
       "done_reason": "stop",
       "truncated": false,
       "context_truncated": false,
-      "latency_ms": 12313.32,
+      "latency_ms": 11802.02,
       "llm_calls": 1,
       "latency_breakdown": {
         "retrieval_ms": null,
-        "llm_total_ms": 12313.15,
-        "load_ms": 8.62,
-        "prompt_eval_ms": 160.59,
-        "eval_ms": 12126.12,
-        "ttft_model_ms": 169.21
+        "llm_total_ms": 11801.84,
+        "load_ms": 9.05,
+        "prompt_eval_ms": 164.64,
+        "eval_ms": 11610.09,
+        "ttft_model_ms": 173.69
       },
       "token_usage": {
         "input": 619,

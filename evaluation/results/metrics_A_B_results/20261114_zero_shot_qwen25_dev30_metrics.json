@@ -5,21 +5,21 @@
   "non_vietnamese_answer_rate": 0.0,
   "non_vietnamese_answer_questions": 0,
   "latency_ms": {
-    "p50": 6411.895,
-    "p95": 12567.821499999998,
-    "steady_p50": 6409.86,
-    "steady_p95": 11912.611999999997,
+    "p50": 6271.530000000001,
+    "p95": 13594.909999999989,
+    "steady_p50": 6267.46,
+    "steady_p95": 11524.383999999998,
     "n_llm_called": 30,
     "n_excluded_warmup": 1,
     "warmup_questions": [
       {
         "query_id": "HN_001",
-        "load_ms": 9158.47
+        "load_ms": 12535.81
       }
     ]
   },
   "llm_total_latency_ms": {
-    "mean": 7200.109666666667,
+    "mean": 7189.881333333334,
     "n": 30
   },
   "token_usage": {
@@ -39,7 +39,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 12776.05
+      "latency_ms": 16097.87
     },
     {
       "query_id": "HN_002",
@@ -51,7 +51,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 3205.43
+      "latency_ms": 3127.01
     },
     {
       "query_id": "HN_004",
@@ -63,7 +63,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6396.41
+      "latency_ms": 6151.18
     },
     {
       "query_id": "HN_007",
@@ -75,7 +75,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 4152.01
+      "latency_ms": 4044.29
     },
     {
       "query_id": "HN_009",
@@ -87,7 +87,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 5886.2
+      "latency_ms": 5877.27
     },
     {
       "query_id": "HN_010",
@@ -99,7 +99,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 4068.93
+      "latency_ms": 4038.44
     },
     {
       "query_id": "HN_013",
@@ -111,7 +111,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6409.86
+      "latency_ms": 6267.46
     },
     {
       "query_id": "HN_016",
@@ -123,7 +123,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 8429.48
+      "latency_ms": 8291.32
     },
     {
       "query_id": "HN_017",
@@ -135,7 +135,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 7567.85
+      "latency_ms": 7599.72
     },
     {
       "query_id": "HN_018",
@@ -147,7 +147,7 @@
       "gold_clauses": 2,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 4598.01
+      "latency_ms": 4498.19
     },
     {
       "query_id": "HN_020",
@@ -159,7 +159,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 8419.41
+      "latency_ms": 8001.18
     },
     {
       "query_id": "HN_021",
@@ -171,7 +171,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6734.74
+      "latency_ms": 6445.29
     },
     {
       "query_id": "HN_023",
@@ -183,7 +183,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 4833.34
+      "latency_ms": 4858.6
     },
     {
       "query_id": "HN_025",
@@ -195,7 +195,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 5454.05
+      "latency_ms": 5396.43
     },
     {
       "query_id": "HN_028",
@@ -207,7 +207,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 5999.22
+      "latency_ms": 5970.55
     },
     {
       "query_id": "HN_029",
@@ -219,7 +219,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 8622.43
+      "latency_ms": 8294.31
     },
     {
       "query_id": "HN_030",
@@ -231,7 +231,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 7604.02
+      "latency_ms": 7709.27
     },
     {
       "query_id": "HN_031",
@@ -243,7 +243,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6073.05
+      "latency_ms": 6065.55
     },
     {
       "query_id": "HN_032",
@@ -255,7 +255,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 7503.58
+      "latency_ms": 7679.13
     },
     {
       "query_id": "HN_033",
@@ -267,7 +267,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 5252.78
+      "latency_ms": 4902.89
     },
     {
       "query_id": "HN_035",
@@ -279,7 +279,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6413.93
+      "latency_ms": 6151.79
     },
     {
       "query_id": "HN_061",
@@ -291,7 +291,7 @@
       "gold_clauses": 1,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 14933.18
+      "latency_ms": 15061.82
     },
     {
       "query_id": "HN_062",
@@ -303,7 +303,7 @@
       "gold_clauses": 5,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 11311.55
+      "latency_ms": 11107.93
     },
     {
       "query_id": "HN_067",
@@ -315,7 +315,7 @@
       "gold_clauses": 2,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6293.2
+      "latency_ms": 6275.6
     },
     {
       "query_id": "HN_087",
@@ -327,7 +327,7 @@
       "gold_clauses": 2,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 6597.42
+      "latency_ms": 6464.47
     },
     {
       "query_id": "HN_104",
@@ -339,7 +339,7 @@
       "gold_clauses": 4,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 3813.48
+      "latency_ms": 3776.91
     },
     {
       "query_id": "HN_155",
@@ -351,7 +351,7 @@
       "gold_clauses": 4,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 4250.7
+      "latency_ms": 4152.3
     },
     {
       "query_id": "HN_297",
@@ -363,7 +363,7 @@
       "gold_clauses": 5,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 10859.77
+      "latency_ms": 10620.07
     },
     {
       "query_id": "HN_299",
@@ -375,7 +375,7 @@
       "gold_clauses": 3,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 9236.65
+      "latency_ms": 8976.0
     },
     {
       "query_id": "HN_300",
@@ -387,7 +387,7 @@
       "gold_clauses": 3,
       "matched_gold_clause_ids": [],
       "cjk_chars": 0,
-      "latency_ms": 12313.32
+      "latency_ms": 11802.02
     }
   ],
   "citation_precision": 0.0,

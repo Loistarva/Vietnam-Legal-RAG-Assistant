@@ -1,5 +1,7 @@
 import argparse
 import sys
+import tempfile
+from datetime import datetime
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -28,26 +30,25 @@ def main() -> None:
     parser.add_argument("--rubric-input", type=Path)
     args = parser.parse_args()
 
-    prefix = "zero_shot_dev30"
-    predictions_path = args.results_dir / f"{prefix}_results.json"
-    parsed_path = args.results_dir / f"{prefix}_parsed.json"
-    metrics_path = args.results_dir / "metrics_A_B_results" / f"{prefix}_metrics.json"
-    scored_path = args.results_dir / f"{prefix}_scored.json"
-    rubric_csv_path = args.results_dir / f"{prefix}_rubric_table.csv"
-
+    run_name = f"{datetime.now():%Y%m%d}_zero_shot_qwen25_dev30"
+    dev_results_dir = args.results_dir / "dev"
+    predictions_path = dev_results_dir / f"{run_name}.jsonl"
+    parsed_path = dev_results_dir / f"{run_name}_parsed.json"
+    metrics_path = args.results_dir / "metrics_A_B_results" / f"{run_name}_metrics.json"
+    dev_results_dir.mkdir(parents=True, exist_ok=True)
     run_benchmark(args.queries, predictions_path, config_path=args.config)
     parse_zero_shot_file(predictions_path, parsed_path)
     print(f"Generated answers: {predictions_path.resolve()}")
     print(f"Parsed citations:  {parsed_path.resolve()}")
-    evaluate(
-        predictions_path=parsed_path,
-        ground_truth_path=args.ground_truth,
-        metrics_output_path=metrics_path,
-        scored_output_path=scored_path,
-        rubric_csv_path=rubric_csv_path,
-        queries_paths=[args.queries],
-        rubric_input_path=args.rubric_input,
-    )
+    with tempfile.TemporaryDirectory(prefix="zero-shot-evaluation-", dir=dev_results_dir) as temp_dir:
+        evaluate(
+            predictions_path=parsed_path,
+            ground_truth_path=args.ground_truth,
+            metrics_output_path=metrics_path,
+            scored_output_path=Path(temp_dir) / "scored.json",
+            queries_paths=[args.queries],
+            rubric_input_path=args.rubric_input,
+        )
 
 
 if __name__ == "__main__":
