@@ -360,7 +360,7 @@ class TestContractsAndSchemas:
 class TestPromptBuilder:
     def test_prompt_version_and_disclaimer_frozen(self):
         assert PROMPT_A_VERSION == "v1.1_zero_shot"
-        assert PROMPT_B_VERSION == "v1.1_controlled_rag"
+        assert PROMPT_B_VERSION == "v1.2_controlled_rag"
         assert STANDARD_DISCLAIMER == "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp."
 
     def test_prompt_hash(self):

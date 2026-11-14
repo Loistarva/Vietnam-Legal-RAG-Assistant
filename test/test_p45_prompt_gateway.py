@@ -9,6 +9,7 @@ import pytest
 import yaml
 
 from generation.prompt_builder import (
+    CLARIFICATION_RULE_B,
     LANGUAGE_RULE_A,
     LANGUAGE_RULE_B,
     PROMPT_A_VERSION,
@@ -40,7 +41,7 @@ def _payload() -> ContextPayload:
 # P45-1
 # ---------------------------------------------------------------------------
 def test_versions_moved_off_the_m1_names():
-    assert PROMPT_B_VERSION == "v1.1_controlled_rag" and PROMPT_A_VERSION == "v1.1_zero_shot"
+    assert PROMPT_B_VERSION == "v1.2_controlled_rag" and PROMPT_A_VERSION == "v1.1_zero_shot"
 
 
 def test_prompt_b_has_rule_6_before_output_section():
@@ -100,6 +101,14 @@ def test_durations_are_converted_to_ms():
     assert ollama_durations_ms(DURATIONS_NS) == {
         "load_duration_ms": 12345.68, "prompt_eval_duration_ms": 1500.0, "eval_duration_ms": 8250.0,
         "total_duration_ms": 22100.0, "ttft_model_ms": 13845.68}
+
+
+def test_prompt_b_asks_back_only_when_evidence_cannot_answer():
+    """HN_016 (Run B 13/11): model answered correctly from khoản 1 Điều 33 but set needs_clarification."""
+    prompt = build_controlled_rag_prompt(_payload())
+    assert f"4. VỀ CÂU HỎI MƠ HỒ:\n{CLARIFICATION_RULE_B}\n5. " in prompt
+    assert '"needs_clarification": false' in CLARIFICATION_RULE_B
+    assert "Nếu câu hỏi thiếu dữ kiện quan trọng cần làm rõ" not in prompt
 
 
 @pytest.mark.parametrize("raw", [{}, {"load_duration": None, "prompt_eval_duration": "12"},

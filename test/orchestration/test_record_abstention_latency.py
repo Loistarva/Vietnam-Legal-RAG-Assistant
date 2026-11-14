@@ -179,10 +179,11 @@ def test_full_vietnamese_diacritics_are_not_cjk():
 # P45-6: llm_calls and latency_breakdown
 # ---------------------------------------------------------------------------
 def test_record_carries_the_new_prompt_version(rag):
-    """P45-1: Run B records name v1.1, so they are told apart from the 10/11 run (v1.0_controlled_rag_m1)."""
+    """P45-1: Run B records name the current prompt (v1.2), so they are told apart from the 10/11 run
+    (v1.0_controlled_rag_m1) and the 13/11 run (v1.1_controlled_rag)."""
     pipeline, gen = rag.make_pipeline(_five(rag))
     record = rag.run(pipeline).record
-    assert record.prompt_version == PROMPT_B_VERSION == "v1.1_controlled_rag"
+    assert record.prompt_version == PROMPT_B_VERSION == "v1.2_controlled_rag"
     assert LANGUAGE_RULE_B in gen.prompts[0]
 
 

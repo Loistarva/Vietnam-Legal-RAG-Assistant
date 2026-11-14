@@ -11,8 +11,9 @@ from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
 # 1. Phiên bản prompt. Khóa tại M1 (v1.0_*_m1); v1.1 thêm quy tắc ngôn ngữ và nguồn luật sau
 #    Run B 10/11 (HN_025, HN_062 trả lời tiếng Trung, dẫn luật Trung Quốc). Cần Tech Lead duyệt (P45-10).
+#    Prompt B v1.2 thu hẹp quy tắc 4 (hỏi lại) sau Run B 13/11 (HN_016 trả lời đúng nhưng đòi hỏi lại).
 PROMPT_A_VERSION: str = "v1.1_zero_shot"
-PROMPT_B_VERSION: str = "v1.1_controlled_rag"
+PROMPT_B_VERSION: str = "v1.2_controlled_rag"
 
 # Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
 LANGUAGE_RULE_B: str = (
@@ -27,6 +28,14 @@ LANGUAGE_RULE_A: str = (
     "hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không "
     "viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự "
     "Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác."
+)
+
+# Quy tắc 4 của Prompt B (v1.2): chỉ hỏi lại khi bằng chứng dẫn tới kết luận khác nhau tùy dữ kiện còn thiếu
+CLARIFICATION_RULE_B: str = (
+    "   - Chỉ đặt \"needs_clarification\": true khi câu hỏi thiếu dữ kiện đến mức các đoạn bằng chứng dẫn tới "
+    "những kết luận khác nhau tùy dữ kiện còn thiếu, nên không thể trả lời nếu chưa hỏi lại người dùng.\n"
+    "   - Nếu bằng chứng đã trả lời được câu hỏi theo quy định chung, hãy trả lời, nêu kèm các ngoại lệ có trong "
+    "bằng chứng, và đặt \"needs_clarification\": false."
 )
 
 # Cố định câu Disclaimer chuẩn theo yêu cầu Sprint 9
@@ -122,7 +131,7 @@ RÀNG BUỘC NGHIÊM NGẶT (DEFENSIVE CONSTRAINTS):
 3. VỀ TỪ CHỐI TRẢ LỜI (ABSTENTION):
    - Nếu các đoạn bằng chứng trên không đề cập đến tình tiết được hỏi, không đủ thông tin/căn cứ để kết luận, hoặc chứa mâu thuẫn về hiệu lực/thứ bậc không thể giải quyết tại mốc {as_of_date}, bạn BẮT BUỘC phải đặt "abstained": true và từ chối trả lời (thay vì tự bổ sung kiến thức ngoài), nêu rõ lý do trong "abstention_reason", và giải thích ngắn gọn trong "answer".
 4. VỀ CÂU HỎI MƠ HỒ:
-   - Nếu câu hỏi thiếu dữ kiện quan trọng cần làm rõ, đặt "needs_clarification": true.
+{CLARIFICATION_RULE_B}
 5. Luôn đính kèm khuyến cáo pháp lý: "{STANDARD_DISCLAIMER}".
 6. {LANGUAGE_RULE_B}
 
