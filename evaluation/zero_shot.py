@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -63,6 +64,19 @@ def _canonical_sha256(value: Any) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
+def _sha256_text_file_content(text: str) -> str:
+    encoded = text.replace("\n", os.linesep).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _manifest_path(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(ROOT).as_posix()
+    except ValueError:
+        return resolved.as_posix()
+
+
 def _git(*args: str) -> str | None:
     try:
         return subprocess.run(
@@ -84,6 +98,7 @@ def build_manifest(
     results: list[dict[str, Any]],
     started_at: str,
     *,
+    results_sha256: str,
     split: str = "unspecified",
 ) -> dict[str, Any]:
     config = gateway.config
@@ -106,11 +121,12 @@ def build_manifest(
         "git_branch": _git("branch", "--show-current"),
         "git_sha": _git("rev-parse", "HEAD"),
         "working_tree_dirty": None if git_status is None else bool(git_status),
-        "questions_path": questions_path.resolve().as_posix(),
+        "questions_path": _manifest_path(questions_path),
         "questions_sha256": _sha256_file(questions_path),
         "dataset_ids_hash": _canonical_sha256(question_ids),
         "dataset_question_count": len(question_ids),
-        "results_path": output_path.resolve().as_posix(),
+        "results_path": _manifest_path(output_path),
+        "results_sha256": results_sha256,
         "as_of_date_source": "benchmark",
         "as_of_date_policy": {"source": "benchmark"},
         "retrieval_enabled": False,
@@ -128,7 +144,7 @@ def build_manifest(
             "provider": config.provider,
             "base_url": config.base_url,
             "model": config.model,
-            "model_config_path": config_path.resolve().as_posix(),
+            "model_config_path": _manifest_path(config_path),
             "model_config_sha256": _sha256_file(config_path),
             "model_digest": gateway.model_digest,
             "ollama_version": gateway.ollama_version,
@@ -232,7 +248,7 @@ def rebuild_manifest_from_jsonl(output_path: Path, *, split: str = "unknown") ->
         "questions_path": None, "questions_sha256": None,
         "dataset_ids_hash": _canonical_sha256(ids),
         "dataset_question_count": len(ids),
-        "results_path": output_path.resolve().as_posix(),
+        "results_path": _manifest_path(output_path),
         "results_sha256": _sha256_file(output_path),
         "as_of_date_source": "unknown",
         "as_of_date_policy": None,
@@ -337,14 +353,15 @@ def run_benchmark(
             print(f"[{i}/{len(questions)}] {question_id}: ERROR - {exc}")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    manifest = build_manifest(
-        questions_path, output_path, gateway, Path(config_path), results, started_at,
-        split=split,
-    )
     output_text = (
         "".join(json.dumps(result, ensure_ascii=False) + "\n" for result in results)
         if output_path.suffix.casefold() == ".jsonl"
         else json.dumps(results, ensure_ascii=False, indent=2) + "\n"
+    )
+    manifest = build_manifest(
+        questions_path, output_path, gateway, Path(config_path), results, started_at,
+        results_sha256=_sha256_text_file_content(output_text),
+        split=split,
     )
     manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     if overwrite:
