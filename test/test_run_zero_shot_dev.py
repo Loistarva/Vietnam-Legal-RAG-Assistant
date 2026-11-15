@@ -1,6 +1,5 @@
 import tempfile
 import unittest
-import re
 from pathlib import Path
 from unittest.mock import patch
 
@@ -23,6 +22,7 @@ class RunZeroShotDevTest(unittest.TestCase):
 
         self.assertEqual(DEFAULT_QUERIES.name, "dev_gold_30_queries_v1.json")
         self.assertEqual(run_benchmark.call_args.args[0], DEFAULT_QUERIES)
+        self.assertEqual(run_benchmark.call_args.kwargs["split"], "dev")
         predictions_path = run_benchmark.call_args.args[1]
         self.assertEqual(predictions_path.parent, results_dir / "dev")
         self.assertRegex(

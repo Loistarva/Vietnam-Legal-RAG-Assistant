@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import tempfile
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -15,10 +15,29 @@ from evaluation.metrics import evaluate_answer_run
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_GROUND_TRUTH = ROOT / "data" / "benchmark" / "ground_truth.json"
-DEFAULT_RUN_A_INPUT = (
-    ROOT / "evaluation" / "results" / "dev"
-    / f"{datetime.now():%Y%m%d}_zero_shot_qwen25_dev30.jsonl"
-)
+DEFAULT_RUN_A_DIR = ROOT / "evaluation" / "results" / "dev"
+RUN_A_FILENAME_SUFFIX = "_zero_shot_qwen25_dev30.jsonl"
+
+
+def default_run_a_input(results_dir: Path = DEFAULT_RUN_A_DIR, today: date | None = None) -> Path:
+    """Prefer today's Run A output, otherwise use the latest existing dated run."""
+    run_date = today or datetime.now().date()
+    expected = results_dir / f"{run_date:%Y%m%d}{RUN_A_FILENAME_SUFFIX}"
+    if expected.is_file():
+        return expected
+
+    dated_runs: list[Path] = []
+    for candidate in results_dir.glob(f"*{RUN_A_FILENAME_SUFFIX}"):
+        try:
+            candidate_date = datetime.strptime(candidate.name[:8], "%Y%m%d").date()
+        except ValueError:
+            continue
+        if candidate.is_file() and candidate_date <= run_date:
+            dated_runs.append(candidate)
+    return max(dated_runs, key=lambda path: path.name[:8], default=expected)
+
+
+DEFAULT_RUN_A_INPUT = default_run_a_input()
 DEFAULT_RUN_B_INPUT = (
     ROOT / "evaluation" / "results" / "dev"
     / "20261114_controlled_rag_qwen25_dev30_prompt_v1_2" / "results.jsonl"
@@ -56,6 +75,11 @@ def evaluate_saved_run(run: str, argv: list[str] | None = None) -> None:
     args = parser.parse_args(argv)
 
     input_path = args.input
+    if not input_path.is_file():
+        parser.error(
+            f"Run {run} input not found: {input_path}. "
+            "Provide an existing results file with --input."
+        )
     if run == "A":
         records = read_records(input_path)
         parsed = bool(records) and isinstance(records[0].get("result"), dict) and isinstance(

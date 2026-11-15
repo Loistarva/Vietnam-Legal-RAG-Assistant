@@ -85,8 +85,11 @@ def _alias_mentions(text: str, alias_map: dict[str, Any]) -> list[dict[str, Any]
 
 
 _PROVISION_RE = re.compile(
-    r"(?i)\b(?P<kind>điều|khoản|điểm)\s+(?P<num>\d+[a-z]?|[a-zđ])"
+    r"(?i)\b(?:"
+    r"(?P<kind>điều|khoản)\s+(?P<num>\d+[a-z]?)\b"
     r"(?:\s*\(\s*(?P<paren>\d+[a-z]?)\s*\))?"
+    r"|(?P<point_kind>điểm)\s+(?P<point_num>[a-zđ])\b"
+    r")"
 )
 _PAREN_POINT_RE = re.compile(r"\(\s*(?P<point>[a-zđ])\s*\)", re.IGNORECASE)
 
@@ -99,10 +102,10 @@ def _sentence_bounds(text: str, position: int) -> tuple[int, int]:
 
 
 def _parse_provisions(text: str) -> list[dict[str, Any]]:
-    """Read Điều/Khoản/Điểm references; article numbers alone are not inferred."""
+    """Read numeric Điều/Khoản and lettered Điểm references without inference."""
     provisions: list[dict[str, Any]] = []
     for match in _PROVISION_RE.finditer(text):
-        kind = match.group("kind").casefold()
+        kind = (match.group("kind") or match.group("point_kind")).casefold()
         if kind == "điều":
             provision = {
                 "article_number": match.group("num"),
@@ -126,8 +129,8 @@ def _parse_provisions(text: str) -> list[dict[str, Any]]:
         else:
             provision = {
                 "article_number": None,
-                "clause_number": match.group("paren"),
-                "point": match.group("num"),
+                "clause_number": None,
+                "point": match.group("point_num"),
                 "start": match.start(),
                 "end": match.end(),
                 "text": match.group(0),

@@ -36,7 +36,7 @@ def main() -> None:
     parsed_path = dev_results_dir / f"{run_name}_parsed.json"
     metrics_path = args.results_dir / "metrics_A_B_results" / f"{run_name}_metrics.json"
     dev_results_dir.mkdir(parents=True, exist_ok=True)
-    run_benchmark(args.queries, predictions_path, config_path=args.config)
+    run_benchmark(args.queries, predictions_path, config_path=args.config, split="dev")
     parse_zero_shot_file(predictions_path, parsed_path)
     print(f"Generated answers: {predictions_path.resolve()}")
     print(f"Parsed citations:  {parsed_path.resolve()}")

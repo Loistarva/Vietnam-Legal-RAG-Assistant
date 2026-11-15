@@ -35,7 +35,7 @@ def main() -> None:
     scored_path = args.results_dir / f"{prefix}_scored.json"
     rubric_csv_path = args.results_dir / f"{prefix}_rubric_table.csv"
 
-    run_benchmark(args.queries, predictions_path, config_path=args.config)
+    run_benchmark(args.queries, predictions_path, config_path=args.config, split="test")
     parse_zero_shot_file(predictions_path, parsed_path)
     print(f"Generated answers: {predictions_path.resolve()}")
     print(f"Parsed citations:  {parsed_path.resolve()}")
