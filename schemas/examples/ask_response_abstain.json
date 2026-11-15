@@ -1,0 +1,35 @@
+{
+  "query_id": "HN_035",
+  "query": "Quy định chi tiết về mức phí sao lục hồ sơ dân sự năm 2026 là bao nhiêu?",
+  "as_of_date": "2026-10-15",
+  "as_of_date_source": "benchmark",
+  "route": "FACTUAL_LEGAL",
+  "status": "ABSTAIN",
+  "grounding_status": "ABSTAIN",
+  "answer": "Không đủ căn cứ từ dữ liệu văn bản quy phạm pháp luật hiện có để kết luận chính xác câu hỏi này.",
+  "citations": [],
+  "evidence_indices": [],
+  "abstained": true,
+  "abstention_reason": "LOW_CONFIDENCE",
+  "abstention_source": "confidence_filter",
+  "needs_clarification": false,
+  "clarification_question": null,
+  "error_code": null,
+  "error_message": null,
+  "latency_ms": 18.4,
+  "latency_breakdown": {
+    "retrieval_ms": 18.4,
+    "llm_total_ms": null,
+    "ttft_model_ms": null,
+    "load_ms": null,
+    "prompt_eval_ms": null,
+    "eval_ms": null
+  },
+  "token_usage": {
+    "input": null,
+    "output": null
+  },
+  "model": "qwen2.5:7b",
+  "prompt_version": "v1.2_controlled_rag",
+  "schema_version": "week10_v1.0"
+}

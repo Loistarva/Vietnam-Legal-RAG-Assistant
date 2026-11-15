@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "additionalProperties": false,
+  "description": "Kết quả phân luồng câu hỏi trước retrieval/generation (D3.1).",
+  "properties": {
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "route": {
+      "enum": [
+        "FACTUAL_LEGAL",
+        "OUT_OF_SCOPE",
+        "AMBIGUOUS",
+        "SYSTEM_META"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "should_retrieve": {
+      "default": true,
+      "title": "Should Retrieve",
+      "type": "boolean"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "confidence": {
+      "anyOf": [
+        {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence"
+    },
+    "rule_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rule Id"
+    },
+    "matched_patterns": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Matched Patterns",
+      "type": "array"
+    },
+    "clarification_question": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clarification Question"
+    },
+    "schema_version": {
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query_id",
+    "route"
+  ],
+  "title": "RouteDecision",
+  "type": "object"
+}

@@ -1,0 +1,44 @@
+{
+  "query_id": "HN_003",
+  "query": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
+  "as_of_date": "2026-10-15",
+  "as_of_date_source": "benchmark",
+  "route": "FACTUAL_LEGAL",
+  "status": "OK",
+  "grounding_status": "PASS",
+  "answer": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn phải do nam và nữ tự nguyện quyết định, không bên nào được ép buộc hoặc lừa dối bên nào [2].\n\nThông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+  "citations": [
+    {
+      "evidence_index": 2,
+      "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1",
+      "document_id": "l_52_2014_qh13",
+      "article_id": "art_8",
+      "clause_id": "clause_1",
+      "parent_clause_id": "l_52_2014_qh13_art_8_clause_1"
+    }
+  ],
+  "evidence_indices": [2],
+  "abstained": false,
+  "abstention_reason": null,
+  "abstention_source": null,
+  "needs_clarification": false,
+  "clarification_question": null,
+  "error_code": null,
+  "error_message": null,
+  "latency_ms": 30584.6,
+  "latency_breakdown": {
+    "retrieval_ms": 45.2,
+    "llm_total_ms": 30563.39,
+    "ttft_model_ms": 3615.41,
+    "load_ms": 19.73,
+    "prompt_eval_ms": 3595.68,
+    "eval_ms": 26888.71
+  },
+  "token_usage": {
+    "input": 2821,
+    "output": 182
+  },
+  "model": "qwen2.5:7b",
+  "prompt_version": "v1.2_controlled_rag",
+  "schema_version": "week10_v1.0"
+}

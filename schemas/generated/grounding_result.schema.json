@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "$defs": {
+    "MappedCitation": {
+      "additionalProperties": false,
+      "description": "Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5].",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Clause Id"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "document_id",
+        "article_id",
+        "clause_id"
+      ],
+      "title": "MappedCitation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Kết quả kiểm định căn cứ từ Dev 1 / Dev 5.",
+  "properties": {
+    "grounding_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION"
+      ],
+      "title": "Grounding Status",
+      "type": "string"
+    },
+    "is_grounded": {
+      "title": "Is Grounded",
+      "type": "boolean"
+    },
+    "valid_citations": {
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Valid Citations",
+      "type": "array"
+    },
+    "invalid_indices": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Invalid Indices",
+      "type": "array"
+    },
+    "unsupported_claims": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unsupported Claims",
+      "type": "array"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "grounding_status",
+    "is_grounded"
+  ],
+  "title": "GroundingResult",
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-15T12:30:00Z",
+  "trace_id": "tr_20261115_hn003_01",
+  "query_id": "HN_003",
+  "stage": "generate",
+  "status": "OK",
+  "route": "FACTUAL_LEGAL",
+  "grounding_status": "PASS",
+  "error_code": null,
+  "latency_ms": 30584.6,
+  "message": "QwenGateway hoàn tất structured output với parse_status=ok",
+  "details": {
+    "model": "qwen2.5:7b",
+    "prompt_version": "v1.2_controlled_rag",
+    "done_reason": "stop",
+    "input_tokens": 2821,
+    "output_tokens": 182
+  },
+  "schema_version": "week10_v1.0"
+}
