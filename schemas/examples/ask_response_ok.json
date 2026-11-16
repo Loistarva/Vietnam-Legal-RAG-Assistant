@@ -2,6 +2,8 @@
   "schema_version": "week10_v1.0",
   "query_id": "HN_003",
   "request_id": "req_20261116_hn003",
+  "as_of_date": "2026-10-15",
+  "as_of_date_source": "benchmark",
   "status": "SUCCESS",
   "route": "LEGAL_IN_SCOPE",
   "answer": "Theo quy định có hiệu lực tại ngày 2026-10-15, việc kết hôn phải do nam và nữ tự nguyện quyết định, không bên nào được ép buộc hoặc lừa dối bên nào [2].",
@@ -47,7 +49,8 @@
     "ttft_model_ms": 3615.41,
     "load_ms": 19.73,
     "prompt_eval_ms": 3595.68,
-    "eval_ms": 26888.71
+    "eval_ms": 26888.71,
+    "total_ms": 30615.0
   },
   "error_code": null,
   "error": null

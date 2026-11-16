@@ -2,6 +2,126 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "schema_version": "week10_v1.0",
   "$defs": {
+    "AskTimings": {
+      "additionalProperties": false,
+      "description": "Thời gian từng bước và tổng thời gian cho API AskResponse (D3.1).",
+      "properties": {
+        "retrieval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieval Ms"
+        },
+        "llm_total_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Llm Total Ms"
+        },
+        "ttft_model_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ttft Model Ms"
+        },
+        "load_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Ms"
+        },
+        "prompt_eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Eval Ms"
+        },
+        "eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eval Ms"
+        },
+        "total_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Ms"
+        }
+      },
+      "title": "AskTimings",
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "additionalProperties": false,
+      "description": "Chi tiết lỗi an toàn trả về API (chặn extra fields để không lộ traceback/prompt).",
+      "properties": {
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "title": "ErrorDetail",
+      "type": "object"
+    },
     "EvidenceItem": {
       "additionalProperties": false,
       "description": "Đại diện cho từng mảnh bằng chứng đưa vào prompt sau Parent Resolver (Top 1..5).",
@@ -162,92 +282,6 @@
       "title": "EvidenceItem",
       "type": "object"
     },
-    "LatencyBreakdown": {
-      "additionalProperties": false,
-      "description": "Thời gian từng bước (ms). null = không đo được (không đặt 0), ví dụ retrieval_ms khi\ndùng artifact precomputed, hoặc các trường thời gian Ollama khi không gọi LLM.",
-      "properties": {
-        "retrieval_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Retrieval Ms"
-        },
-        "llm_total_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Llm Total Ms"
-        },
-        "ttft_model_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ttft Model Ms"
-        },
-        "load_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Load Ms"
-        },
-        "prompt_eval_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Prompt Eval Ms"
-        },
-        "eval_ms": {
-          "anyOf": [
-            {
-              "minimum": 0,
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Eval Ms"
-        }
-      },
-      "title": "LatencyBreakdown",
-      "type": "object"
-    },
     "MappedCitation": {
       "additionalProperties": false,
       "description": "Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5].",
@@ -323,6 +357,21 @@
       ],
       "default": null,
       "title": "Request Id"
+    },
+    "as_of_date": {
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "as_of_date_source": {
+      "default": "user_input",
+      "enum": [
+        "benchmark",
+        "query_text",
+        "user_input",
+        "system_today"
+      ],
+      "title": "As Of Date Source",
+      "type": "string"
     },
     "status": {
       "enum": [
@@ -423,7 +472,7 @@
       "type": "string"
     },
     "timings": {
-      "$ref": "#/$defs/LatencyBreakdown"
+      "$ref": "#/$defs/AskTimings"
     },
     "error_code": {
       "anyOf": [
@@ -452,19 +501,18 @@
     "error": {
       "anyOf": [
         {
-          "additionalProperties": true,
-          "type": "object"
+          "$ref": "#/$defs/ErrorDetail"
         },
         {
           "type": "null"
         }
       ],
-      "default": null,
-      "title": "Error"
+      "default": null
     }
   },
   "required": [
     "query_id",
+    "as_of_date",
     "status",
     "route",
     "grounding_status",

@@ -62,7 +62,6 @@
       "type": "string"
     },
     "status": {
-      "default": "PASS",
       "enum": [
         "PASS",
         "FAIL",
@@ -74,16 +73,24 @@
       "type": "string"
     },
     "grounding_status": {
-      "default": "PASS",
-      "enum": [
-        "PASS",
-        "FAIL",
-        "NOT_RUN",
-        "ABSTAIN",
-        "NEEDS_CLARIFICATION"
+      "anyOf": [
+        {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN",
+            "ABSTAIN",
+            "NEEDS_CLARIFICATION"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
       ],
-      "title": "Grounding Status",
-      "type": "string"
+      "default": null,
+      "deprecated": true,
+      "title": "Grounding Status"
     },
     "is_grounded": {
       "default": false,
@@ -110,6 +117,7 @@
       "type": "array"
     },
     "valid_citations": {
+      "deprecated": true,
       "items": {
         "$ref": "#/$defs/MappedCitation"
       },
@@ -124,6 +132,7 @@
       "type": "array"
     },
     "invalid_indices": {
+      "deprecated": true,
       "items": {
         "type": "integer"
       },
@@ -131,6 +140,7 @@
       "type": "array"
     },
     "unsupported_claims": {
+      "deprecated": true,
       "items": {
         "type": "string"
       },
@@ -164,9 +174,13 @@
         }
       ],
       "default": null,
+      "deprecated": true,
       "title": "Reason"
     }
   },
+  "required": [
+    "status"
+  ],
   "title": "GroundingResult",
   "type": "object"
 }
