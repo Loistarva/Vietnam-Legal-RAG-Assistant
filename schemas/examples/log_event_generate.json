@@ -1,20 +1,18 @@
 {
-  "timestamp": "2026-11-15T12:30:00Z",
-  "trace_id": "tr_20261115_hn003_01",
+  "schema_version": "week10_v1.0",
+  "event_id": "evt_20261116_hn003_llm_01",
   "query_id": "HN_003",
-  "stage": "generate",
-  "status": "OK",
-  "route": "FACTUAL_LEGAL",
-  "grounding_status": "PASS",
+  "stage": "llm",
+  "event_type": "llm_generation_completed",
+  "timestamp": "2026-11-16T10:30:00Z",
+  "status": "SUCCESS",
+  "duration_ms": 30584.6,
   "error_code": null,
-  "latency_ms": 30584.6,
-  "message": "QwenGateway hoàn tất structured output với parse_status=ok",
-  "details": {
+  "masked_metadata": {
     "model": "qwen2.5:7b",
     "prompt_version": "v1.2_controlled_rag",
     "done_reason": "stop",
     "input_tokens": 2821,
     "output_tokens": 182
-  },
-  "schema_version": "week10_v1.0"
+  }
 }

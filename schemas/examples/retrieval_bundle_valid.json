@@ -1,10 +1,7 @@
 {
+  "schema_version": "week10_v1.0",
   "query_id": "HN_003",
-  "query": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
   "as_of_date": "2026-10-15",
-  "as_of_date_source": "benchmark",
-  "retriever": "hybrid_reranker",
-  "top_k": 5,
   "candidates": [
     {
       "query_id": "HN_003",
@@ -39,10 +36,11 @@
       }
     }
   ],
-  "total_candidates": 1,
-  "filtered_out_count": 0,
-  "retrieval_ms": 45.2,
-  "corpus_version": "corpus_20261108",
   "retrieval_config_version": "hybrid_reranker_v1",
-  "schema_version": "week10_v1.0"
+  "corpus_hash": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+  "precomputed": false,
+  "latency_ms": 45.2,
+  "query": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
+  "retriever": "hybrid_reranker",
+  "top_k": 5
 }

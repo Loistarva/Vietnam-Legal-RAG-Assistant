@@ -4,26 +4,79 @@
   "additionalProperties": false,
   "description": "Kết quả phân luồng câu hỏi trước retrieval/generation (D3.1).",
   "properties": {
-    "query_id": {
-      "title": "Query Id",
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
       "type": "string"
     },
     "route": {
       "enum": [
-        "FACTUAL_LEGAL",
-        "OUT_OF_SCOPE",
-        "AMBIGUOUS",
-        "SYSTEM_META"
+        "LEGAL_IN_SCOPE",
+        "NON_LEGAL",
+        "LEGAL_OUT_OF_SCOPE",
+        "MIXED_REVIEW"
       ],
       "title": "Route",
       "type": "string"
     },
-    "should_retrieve": {
-      "default": true,
-      "title": "Should Retrieve",
+    "reason_code": {
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "explanation": {
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "query_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Query Id"
+    },
+    "action": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Action"
+    },
+    "matched_rule_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Matched Rule Id"
+    },
+    "fast_path": {
+      "default": false,
+      "title": "Fast Path",
       "type": "boolean"
     },
-    "reason": {
+    "as_of_date": {
       "anyOf": [
         {
           "type": "string"
@@ -33,62 +86,14 @@
         }
       ],
       "default": null,
-      "title": "Reason"
-    },
-    "confidence": {
-      "anyOf": [
-        {
-          "maximum": 1.0,
-          "minimum": 0.0,
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Confidence"
-    },
-    "rule_id": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Rule Id"
-    },
-    "matched_patterns": {
-      "items": {
-        "type": "string"
-      },
-      "title": "Matched Patterns",
-      "type": "array"
-    },
-    "clarification_question": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Clarification Question"
-    },
-    "schema_version": {
-      "default": "week10_v1.0",
-      "title": "Schema Version",
-      "type": "string"
+      "title": "As Of Date"
     }
   },
   "required": [
-    "query_id",
-    "route"
+    "route",
+    "reason_code",
+    "explanation",
+    "policy_version"
   ],
   "title": "RouteDecision",
   "type": "object"

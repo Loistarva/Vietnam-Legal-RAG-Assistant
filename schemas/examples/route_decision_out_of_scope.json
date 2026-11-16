@@ -1,11 +1,12 @@
 {
+  "schema_version": "week10_v1.0",
+  "route": "LEGAL_OUT_OF_SCOPE",
+  "reason_code": "LEGAL_OUT_OF_SCOPE_MATCH",
+  "explanation": "Câu hỏi hỏi về chế tài hình sự, nằm ngoài phạm vi pháp luật Hôn nhân và gia đình Việt Nam.",
+  "policy_version": "router_policy_v1.0",
   "query_id": "Q_OOS_001",
-  "route": "OUT_OF_SCOPE",
-  "should_retrieve": false,
-  "reason": "Câu hỏi nằm ngoài phạm vi pháp luật dân sự - hôn nhân và gia đình Việt Nam (hỏi về thời tiết).",
-  "confidence": 0.99,
-  "rule_id": "rule_oos_non_legal",
-  "matched_patterns": ["thời tiết", "hôm nay"],
-  "clarification_question": null,
-  "schema_version": "week10_v1.0"
+  "action": "ABSTAIN_OUT_OF_SCOPE",
+  "matched_rule_id": "rule_oos_criminal_law",
+  "fast_path": true,
+  "as_of_date": "2026-11-16"
 }

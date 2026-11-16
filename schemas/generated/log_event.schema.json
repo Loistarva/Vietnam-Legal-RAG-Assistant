@@ -2,88 +2,80 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "schema_version": "week10_v1.0",
   "additionalProperties": false,
-  "description": "Sự kiện log có cấu trúc qua các chặng của pipeline RAG (D3.1).",
+  "description": "Sự kiện log có cấu trúc qua 9 chặng của pipeline RAG (D3.1).",
   "properties": {
-    "timestamp": {
-      "title": "Timestamp",
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
       "type": "string"
     },
-    "trace_id": {
-      "title": "Trace Id",
+    "event_id": {
+      "minLength": 1,
+      "title": "Event Id",
       "type": "string"
     },
     "query_id": {
+      "minLength": 1,
       "title": "Query Id",
       "type": "string"
     },
     "stage": {
       "enum": [
-        "request",
-        "route",
-        "retrieve",
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
         "context",
-        "generate",
-        "grounding",
-        "response",
-        "error"
+        "llm",
+        "citation",
+        "gate",
+        "response"
       ],
       "title": "Stage",
       "type": "string"
     },
+    "event_type": {
+      "minLength": 1,
+      "title": "Event Type",
+      "type": "string"
+    },
+    "timestamp": {
+      "minLength": 1,
+      "title": "Timestamp",
+      "type": "string"
+    },
     "status": {
-      "enum": [
-        "OK",
-        "ABSTAIN",
-        "NEEDS_CLARIFICATION",
-        "ERROR"
-      ],
+      "minLength": 1,
       "title": "Status",
       "type": "string"
     },
-    "route": {
+    "duration_ms": {
       "anyOf": [
         {
-          "enum": [
-            "FACTUAL_LEGAL",
-            "OUT_OF_SCOPE",
-            "AMBIGUOUS",
-            "SYSTEM_META"
-          ],
-          "type": "string"
+          "minimum": 0.0,
+          "type": "number"
         },
         {
           "type": "null"
         }
       ],
       "default": null,
-      "title": "Route"
-    },
-    "grounding_status": {
-      "anyOf": [
-        {
-          "enum": [
-            "PASS",
-            "FAIL",
-            "ABSTAIN",
-            "NEEDS_CLARIFICATION"
-          ],
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Grounding Status"
+      "title": "Duration Ms"
     },
     "error_code": {
       "anyOf": [
         {
           "enum": [
+            "AUTH_REQUIRED",
+            "INVALID_REQUEST",
+            "ROUTE_POLICY",
+            "RETRIEVAL_EMPTY",
+            "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
             "JSON_INVALID",
             "CITATION_INVALID",
-            "GATE_FAIL",
+            "GROUNDING_FAIL",
             "INTERNAL_ERROR"
           ],
           "type": "string"
@@ -95,47 +87,18 @@
       "default": null,
       "title": "Error Code"
     },
-    "latency_ms": {
-      "anyOf": [
-        {
-          "minimum": 0,
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Latency Ms"
-    },
-    "message": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Message"
-    },
-    "details": {
+    "masked_metadata": {
       "additionalProperties": true,
-      "title": "Details",
+      "title": "Masked Metadata",
       "type": "object"
-    },
-    "schema_version": {
-      "default": "week10_v1.0",
-      "title": "Schema Version",
-      "type": "string"
     }
   },
   "required": [
-    "timestamp",
-    "trace_id",
+    "event_id",
     "query_id",
     "stage",
+    "event_type",
+    "timestamp",
     "status"
   ],
   "title": "LogEvent",

@@ -216,39 +216,20 @@
   "additionalProperties": false,
   "description": "Gói kết quả truy xuất ứng viên trước khi xây ContextPayload (D3.1).",
   "properties": {
-    "query_id": {
-      "title": "Query Id",
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
       "type": "string"
     },
-    "query": {
-      "title": "Query",
+    "query_id": {
+      "minLength": 1,
+      "title": "Query Id",
       "type": "string"
     },
     "as_of_date": {
       "title": "As Of Date",
       "type": "string"
-    },
-    "as_of_date_source": {
-      "default": "user_input",
-      "enum": [
-        "benchmark",
-        "query_text",
-        "user_input",
-        "system_today"
-      ],
-      "title": "As Of Date Source",
-      "type": "string"
-    },
-    "retriever": {
-      "default": "hybrid_reranker",
-      "title": "Retriever",
-      "type": "string"
-    },
-    "top_k": {
-      "default": 5,
-      "minimum": 1,
-      "title": "Top K",
-      "type": "integer"
     },
     "candidates": {
       "items": {
@@ -257,44 +238,27 @@
       "title": "Candidates",
       "type": "array"
     },
-    "total_candidates": {
-      "default": 0,
-      "minimum": 0,
-      "title": "Total Candidates",
-      "type": "integer"
-    },
-    "filtered_out_count": {
-      "default": 0,
-      "minimum": 0,
-      "title": "Filtered Out Count",
-      "type": "integer"
-    },
-    "retrieval_ms": {
-      "anyOf": [
-        {
-          "minimum": 0,
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Retrieval Ms"
-    },
-    "corpus_version": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Corpus Version"
-    },
     "retrieval_config_version": {
+      "minLength": 1,
+      "title": "Retrieval Config Version",
+      "type": "string"
+    },
+    "corpus_hash": {
+      "minLength": 1,
+      "title": "Corpus Hash",
+      "type": "string"
+    },
+    "precomputed": {
+      "default": false,
+      "title": "Precomputed",
+      "type": "boolean"
+    },
+    "latency_ms": {
+      "minimum": 0.0,
+      "title": "Latency Ms",
+      "type": "number"
+    },
+    "query": {
       "anyOf": [
         {
           "type": "string"
@@ -304,18 +268,40 @@
         }
       ],
       "default": null,
-      "title": "Retrieval Config Version"
+      "title": "Query"
     },
-    "schema_version": {
-      "default": "week10_v1.0",
-      "title": "Schema Version",
-      "type": "string"
+    "retriever": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Retriever"
+    },
+    "top_k": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Top K"
     }
   },
   "required": [
     "query_id",
-    "query",
-    "as_of_date"
+    "as_of_date",
+    "retrieval_config_version",
+    "corpus_hash",
+    "latency_ms"
   ],
   "title": "RetrievalBundle",
   "type": "object"

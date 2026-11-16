@@ -29,9 +29,11 @@ from schemas.models import (
     RetrievalBundle,
     RouteDecision,
     RouteType,
+    SchemaVersionType,
     StructuredRAGOutput,
     TokenUsage,
     export_json_schemas,
+    map_router_route_to_canonical,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,19 +52,15 @@ EXAMPLE_MODEL_MAP: dict[str, tuple[type, str]] = {
 }
 
 
-def _ok_response_kwargs(**overrides) -> dict:
+def _success_response_kwargs(**overrides) -> dict:
     base = {
         "query_id": "Q1",
-        "query": "Điều kiện kết hôn là gì?",
-        "as_of_date": "2026-11-15",
-        "as_of_date_source": "user_input",
-        "route": "FACTUAL_LEGAL",
-        "status": "OK",
-        "grounding_status": "PASS",
+        "request_id": "req_1",
+        "status": "SUCCESS",
+        "route": "LEGAL_IN_SCOPE",
         "answer": "Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên [1].",
-        "abstained": False,
-        "needs_clarification": False,
-        "error_code": None,
+        "grounding_status": "PASS",
+        "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
     }
     base.update(overrides)
     return base
@@ -70,28 +68,56 @@ def _ok_response_kwargs(**overrides) -> dict:
 
 def test_standard_literals_and_aliases():
     assert SCHEMA_VERSION == "week10_v1.0"
+    assert set(get_args(SchemaVersionType)) == {"week10_v1.0"}
     assert Candidate is CandidateChunk
-    assert set(get_args(RouteType)) == {"FACTUAL_LEGAL", "OUT_OF_SCOPE", "AMBIGUOUS", "SYSTEM_META"}
-    assert set(get_args(ResponseStatus)) == {"OK", "ABSTAIN", "NEEDS_CLARIFICATION", "ERROR"}
-    assert set(get_args(GroundingStatus)) == {"PASS", "FAIL", "ABSTAIN", "NEEDS_CLARIFICATION"}
+    assert set(get_args(RouteType)) == {"LEGAL_IN_SCOPE", "NON_LEGAL", "LEGAL_OUT_OF_SCOPE", "MIXED_REVIEW"}
+    assert set(get_args(ResponseStatus)) == {"SUCCESS", "NEEDS_CLARIFICATION", "ABSTAIN", "ERROR"}
+    assert set(get_args(GroundingStatus)) == {"PASS", "FAIL", "NOT_RUN", "ABSTAIN", "NEEDS_CLARIFICATION"}
     assert set(get_args(EventStage)) == {
-        "request",
-        "route",
-        "retrieve",
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
         "context",
-        "generate",
-        "grounding",
+        "llm",
+        "citation",
+        "gate",
         "response",
-        "error",
     }
     assert set(get_args(ErrorCode)) == {
+        "AUTH_REQUIRED",
+        "INVALID_REQUEST",
+        "ROUTE_POLICY",
+        "RETRIEVAL_EMPTY",
+        "LOW_CONFIDENCE",
         "LLM_TIMEOUT",
         "JSON_INVALID",
         "CITATION_INVALID",
-        "GATE_FAIL",
+        "GROUNDING_FAIL",
         "INTERNAL_ERROR",
     }
     assert len(CANONICAL_SCHEMA_MODELS) == 10
+
+
+@pytest.mark.parametrize(
+    "raw_route,expected",
+    [
+        ("LEGAL_HNGD", "LEGAL_IN_SCOPE"),
+        ("LEGAL_IN_SCOPE", "LEGAL_IN_SCOPE"),
+        ("NON_LEGAL", "NON_LEGAL"),
+        ("LEGAL_OUT_OF_SCOPE", "LEGAL_OUT_OF_SCOPE"),
+        ("MIXED_LEGAL_SCOPE", "MIXED_REVIEW"),
+        ("LEGAL_SCOPE_UNCERTAIN", "MIXED_REVIEW"),
+        ("MIXED_REVIEW", "MIXED_REVIEW"),
+    ],
+)
+def test_map_router_route_to_canonical(raw_route: str, expected: RouteType):
+    assert map_router_route_to_canonical(raw_route) == expected
+
+
+def test_map_router_route_to_canonical_rejects_unknown():
+    with pytest.raises(ValueError):
+        map_router_route_to_canonical("UNKNOWN_ROUTE")
 
 
 def test_generated_json_schemas_match_models_and_draft_2020_12():
@@ -143,7 +169,13 @@ def test_remaining_canonical_models_roundtrip_against_generated_schemas():
         prompt_version="v1.2_controlled_rag",
         done_reason="stop",
     )
-    grounding = GroundingResult(grounding_status="PASS", is_grounded=True)
+    grounding = GroundingResult(
+        status="FAIL",
+        violation_codes=["ANSWER_MARKER_NOT_IN_EVIDENCE_INDICES"],
+        retryable=False,
+        abstention_reason="GROUNDING_FAIL",
+    )
+    assert grounding.grounding_status == "FAIL" and grounding.is_grounded is False
 
     pairs = [
         (evidence, "evidence_item.schema.json"),
@@ -156,14 +188,18 @@ def test_remaining_canonical_models_roundtrip_against_generated_schemas():
         jsonschema.Draft202012Validator(schema).validate(model_obj.model_dump(mode="json"))
 
 
-def test_export_json_schemas_writes_legacy_and_generated(tmp_path: Path):
+def test_export_json_schemas_writes_root_and_generated(tmp_path: Path):
     exported = export_json_schemas(tmp_path)
-    assert len(exported) == 13
-    assert set(exported.keys()) >= {
+    assert len(exported) == 14
+    assert {
         "candidate.schema.json",
         "context_payload.schema.json",
         "llm_response.schema.json",
-    }
+        "structured_rag_output.schema.json",
+    } <= set(exported.keys())
+    assert json.loads((tmp_path / "structured_rag_output.schema.json").read_text(encoding="utf-8")) == (
+        StructuredRAGOutput.model_json_schema()
+    )
     assert json.loads((tmp_path / "llm_response.schema.json").read_text(encoding="utf-8")) == (
         StructuredRAGOutput.model_json_schema()
     )
@@ -172,46 +208,120 @@ def test_export_json_schemas_writes_legacy_and_generated(tmp_path: Path):
     assert "error_code" in gen_llm["properties"]
 
 
+def test_ask_response_valid_paths_including_non_legal_and_legacy_ok():
+    non_legal = AskResponse(
+        query_id="Q_CHAT",
+        status="SUCCESS",
+        route="NON_LEGAL",
+        answer="Xin chào, tôi là trợ lý hỏi đáp pháp luật Hôn nhân và gia đình.",
+        grounding_status="NOT_RUN",
+        disclaimer="Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+    )
+    assert non_legal.grounding_status == "NOT_RUN" and non_legal.evidence == []
+
+    legacy_ok = AskResponse(**_success_response_kwargs(status="OK"))
+    assert legacy_ok.status == "SUCCESS"
+
+    clarify_alias = AskResponse(
+        query_id="Q_AMB",
+        status="NEEDS_CLARIFICATION",
+        route="MIXED_REVIEW",
+        answer=None,
+        clarification_question="Vui lòng nêu rõ thời điểm kết hôn?",
+        grounding_status="NOT_RUN",
+        disclaimer="Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+    )
+    assert clarify_alias.clarification == "Vui lòng nêu rõ thời điểm kết hôn?"
+
+
 @pytest.mark.parametrize(
     "bad_overrides",
     [
         {"grounding_status": "FAIL"},
-        {"abstained": True},
-        {"needs_clarification": True},
-        {"error_code": "INTERNAL_ERROR"},
+        {"grounding_status": "NOT_RUN"},  # LEGAL_IN_SCOPE cannot use NOT_RUN when SUCCESS
+        {"answer": None},
         {"answer": "   "},
-        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "abstained": False, "abstention_reason": "LOW_CONFIDENCE"},
-        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "abstained": True, "abstention_reason": None},
-        {"status": "ABSTAIN", "grounding_status": "PASS", "abstained": True, "abstention_reason": "LOW_CONFIDENCE"},
-        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "abstained": True, "abstention_reason": "X", "error_code": "INTERNAL_ERROR"},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NEEDS_CLARIFICATION", "needs_clarification": False},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "PASS", "needs_clarification": True},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NEEDS_CLARIFICATION", "needs_clarification": True, "abstained": True},
-        {"status": "ERROR", "grounding_status": "FAIL", "error_code": None},
-        {"status": "ERROR", "grounding_status": "PASS", "error_code": "LLM_TIMEOUT"},
-        {"status": "ERROR", "grounding_status": "FAIL", "error_code": "LLM_TIMEOUT", "abstained": True},
+        {"disclaimer": "   "},
+        {"clarification": "Hỏi lại?"},
+        {"abstention_reason": "OUT_OF_SCOPE"},
+        {"error_code": "INTERNAL_ERROR"},
+        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "", "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "Draft leak", "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "abstention_message": None, "abstention_reason": None},
+        {"status": "ABSTAIN", "grounding_status": "PASS", "answer": None, "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": "Hỏi lại?", "clarification": "Hỏi lại?"},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": None, "clarification": None},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "PASS", "answer": None, "clarification": "Cần thêm thông tin"},
+        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": "Có lỗi", "error_code": "LLM_TIMEOUT"},
+        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": None, "error_code": None, "error": None},
+        {"status": "ERROR", "grounding_status": "PASS", "answer": None, "error_code": "LLM_TIMEOUT"},
     ],
 )
 def test_ask_response_status_separation_rejects_mixed_states(bad_overrides: dict):
     with pytest.raises(ValidationError):
-        AskResponse(**_ok_response_kwargs(**bad_overrides))
+        AskResponse(**_success_response_kwargs(**bad_overrides))
 
 
-def test_extra_forbid_and_field_validation():
+def test_ask_request_locks_server_params_and_schema_version_literal():
     with pytest.raises(ValidationError):
         AskRequest(query="   ")
 
     with pytest.raises(ValidationError):
-        AskRequest(query="Hỏi?", as_of_date="15-11-2026")
+        AskRequest(query="Hỏi?", as_of_date="16-11-2026")
+
+    for forbidden_kw in (
+        {"run_mode": "A_zero_shot"},
+        {"top_k": 10},
+        {"metadata": {"user": "pii"}},
+    ):
+        with pytest.raises(ValidationError):
+            AskRequest(query="Hỏi?", **forbidden_kw)  # type: ignore[arg-type]
+
+    for bad_version in ("week10_v2.0", "arbitrary", ""):
+        with pytest.raises(ValidationError):
+            AskRequest(query="Hỏi?", schema_version=bad_version)  # type: ignore[arg-type]
+        with pytest.raises(ValidationError):
+            AskResponse(**_success_response_kwargs(schema_version=bad_version))
+
+
+def test_other_canonical_models_validation_and_grounding_compatibility():
+    with pytest.raises(ValidationError):
+        RouteDecision(route="LEGAL_IN_SCOPE", reason_code="", explanation="OK", policy_version="v1")
 
     with pytest.raises(ValidationError):
-        AskRequest(query="Hỏi?", unknown_extra="nope")  # type: ignore[call-arg]
+        RetrievalBundle(
+            query_id="q1",
+            as_of_date="2026-11-16",
+            retrieval_config_version="v1",
+            corpus_hash="abc",
+            latency_ms=-1.0,
+        )
 
     with pytest.raises(ValidationError):
-        RouteDecision(query_id="q1", route="FACTUAL_LEGAL", unexpected=True)  # type: ignore[call-arg]
+        LogEvent(
+            event_id="e1",
+            query_id="q1",
+            stage="invalid_stage",  # type: ignore[arg-type]
+            event_type="x",
+            timestamp="2026-11-16T10:00:00Z",
+            status="SUCCESS",
+        )
 
     with pytest.raises(ValidationError):
-        LogEvent(timestamp="not-a-timestamp", trace_id="t1", query_id="q1", stage="route", status="OK")
+        LogEvent(
+            event_id="e1",
+            query_id="q1",
+            stage="router",
+            event_type="routed",
+            timestamp="not-iso",
+            status="SUCCESS",
+        )
+
+    # Backward compatibility with Sprint 9 citation_validator / rag_pipeline calling pattern
+    legacy_gr = GroundingResult(grounding_status="PASS", is_grounded=True)
+    assert legacy_gr.status == "PASS" and legacy_gr.grounding_status == "PASS"
+    with pytest.raises(ValidationError):
+        GroundingResult(status="PASS", grounding_status="FAIL", is_grounded=True)
 
     usage = TokenUsage()
     assert usage.input is None and usage.output is None

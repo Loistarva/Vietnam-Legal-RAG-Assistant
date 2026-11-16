@@ -1,23 +1,18 @@
 {
+  "schema_version": "week10_v1.0",
   "query_id": "Q_AMB_001",
-  "query": "Thời hiệu giải quyết tranh chấp tài sản là bao lâu?",
-  "as_of_date": "2026-11-15",
-  "as_of_date_source": "user_input",
-  "route": "AMBIGUOUS",
+  "request_id": "req_20261116_amb_001",
   "status": "NEEDS_CLARIFICATION",
-  "grounding_status": "NEEDS_CLARIFICATION",
-  "answer": "Vui lòng nêu rõ loại tranh chấp (dân sự, hôn nhân và gia đình, hay thừa kế) và thời điểm phát sinh sự kiện pháp lý để hệ thống tra cứu chính xác.",
-  "citations": [],
-  "evidence_indices": [],
-  "abstained": false,
+  "route": "MIXED_REVIEW",
+  "answer": null,
+  "clarification": "Vui lòng nêu rõ bạn đang hỏi về chia tài sản khi ly hôn hay tranh chấp thừa kế/hợp đồng dân sự khác để hệ thống tra cứu chính xác.",
+  "abstention_message": null,
   "abstention_reason": null,
-  "abstention_source": "router",
-  "needs_clarification": true,
-  "clarification_question": "Bạn đang hỏi về tranh chấp thừa kế, chia tài sản sau ly hôn, hay tranh chấp hợp đồng dân sự thông thường?",
-  "error_code": null,
-  "error_message": null,
-  "latency_ms": 2.1,
-  "latency_breakdown": {
+  "citations": [],
+  "evidence": [],
+  "grounding_status": "NOT_RUN",
+  "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+  "timings": {
     "retrieval_ms": null,
     "llm_total_ms": null,
     "ttft_model_ms": null,
@@ -25,11 +20,6 @@
     "prompt_eval_ms": null,
     "eval_ms": null
   },
-  "token_usage": {
-    "input": null,
-    "output": null
-  },
-  "model": "qwen2.5:7b",
-  "prompt_version": null,
-  "schema_version": "week10_v1.0"
+  "error_code": null,
+  "error": null
 }

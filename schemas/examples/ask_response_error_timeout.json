@@ -1,23 +1,18 @@
 {
+  "schema_version": "week10_v1.0",
   "query_id": "Q_ERR_001",
-  "query": "Quyền và nghĩa vụ của cha mẹ đối với con chưa thành niên là gì?",
-  "as_of_date": "2026-11-15",
-  "as_of_date_source": "user_input",
-  "route": "FACTUAL_LEGAL",
+  "request_id": "req_20261116_err_001",
   "status": "ERROR",
-  "grounding_status": "FAIL",
-  "answer": "",
-  "citations": [],
-  "evidence_indices": [],
-  "abstained": false,
+  "route": "LEGAL_IN_SCOPE",
+  "answer": null,
+  "clarification": null,
+  "abstention_message": null,
   "abstention_reason": null,
-  "abstention_source": null,
-  "needs_clarification": false,
-  "clarification_question": null,
-  "error_code": "LLM_TIMEOUT",
-  "error_message": "Không thể kết nối đến Ollama model gateway (http://localhost:11434) sau 2 lần thử: ReadTimeout",
-  "latency_ms": 120000.0,
-  "latency_breakdown": {
+  "citations": [],
+  "evidence": [],
+  "grounding_status": "NOT_RUN",
+  "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+  "timings": {
     "retrieval_ms": 38.5,
     "llm_total_ms": null,
     "ttft_model_ms": null,
@@ -25,11 +20,9 @@
     "prompt_eval_ms": null,
     "eval_ms": null
   },
-  "token_usage": {
-    "input": null,
-    "output": null
-  },
-  "model": "qwen2.5:7b",
-  "prompt_version": "v1.2_controlled_rag",
-  "schema_version": "week10_v1.0"
+  "error_code": "LLM_TIMEOUT",
+  "error": {
+    "message": "Không thể kết nối đến Ollama model gateway (http://localhost:11434) sau 2 lần thử: ReadTimeout",
+    "retryable": true
+  }
 }
