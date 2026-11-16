@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "additionalProperties": false,
+  "description": "Kết quả phân luồng câu hỏi trước retrieval/generation (D3.1).",
+  "properties": {
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "route": {
+      "enum": [
+        "LEGAL_IN_SCOPE",
+        "NON_LEGAL",
+        "LEGAL_OUT_OF_SCOPE",
+        "MIXED_REVIEW"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "title": "Reason Code",
+      "type": "string"
+    },
+    "explanation": {
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "query_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Query Id"
+    },
+    "action": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Action"
+    },
+    "matched_rule_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Matched Rule Id"
+    },
+    "fast_path": {
+      "default": false,
+      "title": "Fast Path",
+      "type": "boolean"
+    },
+    "as_of_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "As Of Date"
+    }
+  },
+  "required": [
+    "route",
+    "reason_code",
+    "explanation",
+    "policy_version"
+  ],
+  "title": "RouteDecision",
+  "type": "object"
+}

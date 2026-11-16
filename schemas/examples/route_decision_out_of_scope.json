@@ -1,0 +1,12 @@
+{
+  "schema_version": "week10_v1.0",
+  "route": "LEGAL_OUT_OF_SCOPE",
+  "reason_code": "LEGAL_OUT_OF_SCOPE_MATCH",
+  "explanation": "Câu hỏi hỏi về chế tài hình sự, nằm ngoài phạm vi pháp luật Hôn nhân và gia đình Việt Nam.",
+  "policy_version": "router_policy_v1.0",
+  "query_id": "Q_OOS_001",
+  "action": "ABSTAIN_OUT_OF_SCOPE",
+  "matched_rule_id": "rule_oos_criminal_law",
+  "fast_path": true,
+  "as_of_date": "2026-11-16"
+}
