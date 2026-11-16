@@ -8,7 +8,7 @@
 
 ## 1. Cấu hình thực thi đã xác minh
 
-Từ `model_gateway/config/local_qwen.yaml`:
+Từ [model_gateway/config/local_qwen.yaml](../../model_gateway/config/local_qwen.yaml):
 
 - `provider`: `ollama`
 - `model`: `qwen2.5:7b`
@@ -17,9 +17,9 @@ Từ `model_gateway/config/local_qwen.yaml`:
 
 ---
 
-## 2. Kết quả Smoke Test Live 1 câu (`reports/dev3_live_qwen_verification.json`)
+## 2. Kết quả Smoke Test Live 1 câu ([reports/dev3_live_qwen_verification.json](../dev3_live_qwen_verification.json))
 
-**Thời điểm tạo báo cáo:** `2026-11-14T04:56:46.928654+00:00`  
+**Thời điểm ghi nhận báo cáo live gần nhất:** `2026-11-14T04:56:46.928654+00:00`  
 **Truy vấn:** `HN_003` — *"Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?"* (`as_of_date=2026-10-15`, `as_of_date_source=benchmark`)  
 **Ngữ cảnh:** 5 mảnh bằng chứng từ `retrieval/results/dev_hybrid_reranker.json` (`total_chars=4870 / 6000`).
 
@@ -56,11 +56,11 @@ Từ `model_gateway/config/local_qwen.yaml`:
 
 ## 4. Phần gia cố Tuần 10 & phạm vi kiểm chứng
 
-Các nâng cấp Tuần 10 tại `model_gateway/llm_gateway.py` (`D3.3` & `D3.4`) gồm:
+Các nâng cấp Tuần 10 tại [model_gateway/llm_gateway.py](../../model_gateway/llm_gateway.py) (`D3.3` & `D3.4`) gồm:
 - Loại bỏ markdown fence (` ```json ... ``` `) trước khi parse JSON.
 - Kiểm tra cấu trúc `StructuredRAGOutput` (`extra="forbid"`, bắt buộc có `"answer"` chuỗi) và gắn `error_code="JSON_INVALID"`.
 - Hỗ trợ kiểm tra phạm vi chỉ số trích dẫn qua tham số `max_evidence_index`, ghi nhận chỉ số vượt biên vào `rejected_evidence_values` và gắn `error_code="CITATION_INVALID"`.
 - Chuẩn hóa `GatewayExecutionError.error_code` (`LLM_TIMEOUT` vs `INTERNAL_ERROR`).
 - Giữ `None` khi Ollama không trả `prompt_eval_count` / `eval_count` và sinh `raw_response_reference`.
 
-Lưu ý phạm vi xác minh: trong nhánh Tuần 10 này, các kịch bản lỗi JSON, fence markdown, timeout và chỉ số trích dẫn vượt biên được kiểm thử tự động hoàn toàn qua mock transport trong [test_structured_output.py](file:///C:/Users/Laptop%20K1/IdeaProjects/Vietnam-Legal-RAG-Assistant/test/model_gateway/test_structured_output.py); số liệu live Ollama ở Mục 2 và Mục 3 được kế thừa nguyên trạng từ lần chạy xác minh trước đó (`2026-11-14`).
+Lưu ý phạm vi xác minh (`2026-11-16`): trong phiên kiểm tra hiện tại, `ollama list` xác nhận `qwen2.5:7b` (`845dbda0ea48`) có sẵn trên máy nhưng dịch vụ HTTP Ollama (`http://localhost:11434`) không bật, nên `scripts/verify_qwen_live.py` không ghi đè tệp live JSON; toàn bộ kịch bản hardening của gateway (fence markdown, lỗi JSON, timeout, chỉ số vượt biên) được kiểm thử tự động qua mock transport trong [test_structured_output.py](../../test/model_gateway/test_structured_output.py), còn số liệu live ở Mục 2 và Mục 3 được giữ nguyên từ lần xác minh thực tế ngày `2026-11-14`.

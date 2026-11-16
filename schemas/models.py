@@ -25,14 +25,45 @@ from pydantic import (
     model_validator,
 )
 
-SCHEMA_VERSION = "week10_v1.0"
+SchemaVersionType = Literal["week10_v1.0"]
+SCHEMA_VERSION: SchemaVersionType = "week10_v1.0"
 JSON_SCHEMA_DRAFT = "https://json-schema.org/draft/2020-12/schema"
 
-RouteType = Literal["FACTUAL_LEGAL", "OUT_OF_SCOPE", "AMBIGUOUS", "SYSTEM_META"]
-ResponseStatus = Literal["OK", "ABSTAIN", "NEEDS_CLARIFICATION", "ERROR"]
-GroundingStatus = Literal["PASS", "FAIL", "ABSTAIN", "NEEDS_CLARIFICATION"]
-EventStage = Literal["request", "route", "retrieve", "context", "generate", "grounding", "response", "error"]
-ErrorCode = Literal["LLM_TIMEOUT", "JSON_INVALID", "CITATION_INVALID", "GATE_FAIL", "INTERNAL_ERROR"]
+RouteType = Literal["LEGAL_IN_SCOPE", "NON_LEGAL", "LEGAL_OUT_OF_SCOPE", "MIXED_REVIEW"]
+ResponseStatus = Literal["SUCCESS", "NEEDS_CLARIFICATION", "ABSTAIN", "ERROR"]
+GroundingStatus = Literal["PASS", "FAIL", "NOT_RUN", "ABSTAIN", "NEEDS_CLARIFICATION"]
+EventStage = Literal["api", "router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"]
+ErrorCode = Literal[
+    "AUTH_REQUIRED",
+    "INVALID_REQUEST",
+    "ROUTE_POLICY",
+    "RETRIEVAL_EMPTY",
+    "LOW_CONFIDENCE",
+    "LLM_TIMEOUT",
+    "JSON_INVALID",
+    "CITATION_INVALID",
+    "GROUNDING_FAIL",
+    "INTERNAL_ERROR",
+]
+
+_ROUTER_ROUTE_MAP: dict[str, RouteType] = {
+    "LEGAL_HNGD": "LEGAL_IN_SCOPE",
+    "LEGAL_IN_SCOPE": "LEGAL_IN_SCOPE",
+    "NON_LEGAL": "NON_LEGAL",
+    "LEGAL_OUT_OF_SCOPE": "LEGAL_OUT_OF_SCOPE",
+    "MIXED_LEGAL_SCOPE": "MIXED_REVIEW",
+    "LEGAL_SCOPE_UNCERTAIN": "MIXED_REVIEW",
+    "MIXED_REVIEW": "MIXED_REVIEW",
+}
+
+
+def map_router_route_to_canonical(router_route: str) -> RouteType:
+    """Ánh xạ nhãn Route nội bộ từ RuleRouter (Dev 4) sang RouteType chuẩn Week 10."""
+    raw = str(router_route).strip()
+    mapped = _ROUTER_ROUTE_MAP.get(raw)
+    if mapped is None:
+        raise ValueError(f"Nhãn route không hợp lệ để ánh xạ sang canonical RouteType: {router_route!r}")
+    return mapped
 
 ISO_DATE_REGEX = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -232,22 +263,25 @@ Candidate = CandidateChunk
 
 
 class AskRequest(StrictBaseModel):
-    """Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1)."""
-    query: str
-    query_id: str | None = None
+    """Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1).
+
+    Khóa các tham số nội bộ phía server (không cho phép client truyền ``run_mode``,
+    ``top_k`` hoặc ``metadata`` tự do). Quy ước: ``request_id`` do client cấp, còn
+    ``query_id`` là ID truy vết xuyên suốt pipeline do server gán hoặc tiếp nhận.
+    """
+    schema_version: SchemaVersionType = SCHEMA_VERSION
+    query: str = Field(..., min_length=1)
     as_of_date: str | None = None
-    run_mode: Literal["A_zero_shot", "B_controlled_rag", "C_production_rag"] = "C_production_rag"
-    top_k: int = Field(default=5, ge=1, le=20)
     session_id: str | None = None
-    metadata: dict[str, Any] = Field(default_factory=dict)
-    schema_version: str = SCHEMA_VERSION
+    request_id: str | None = None
+    query_id: str | None = None
 
     @field_validator("query")
     @classmethod
     def validate_query(cls, v: str) -> str:
         return _non_empty_field(v, "query")
 
-    @field_validator("query_id", "session_id")
+    @field_validator("query_id", "session_id", "request_id")
     @classmethod
     def validate_optional_id(cls, v: str | None, info) -> str | None:
         if v is None:
@@ -262,41 +296,59 @@ class AskRequest(StrictBaseModel):
 
 class RouteDecision(StrictBaseModel):
     """Kết quả phân luồng câu hỏi trước retrieval/generation (D3.1)."""
-    query_id: str
+    schema_version: SchemaVersionType = SCHEMA_VERSION
     route: RouteType
-    should_retrieve: bool = True
-    reason: str | None = None
-    confidence: float | None = Field(default=None, ge=0.0, le=1.0)
-    rule_id: str | None = None
-    matched_patterns: list[str] = Field(default_factory=list)
-    clarification_question: str | None = None
-    schema_version: str = SCHEMA_VERSION
+    reason_code: str = Field(..., min_length=1)
+    explanation: str = Field(..., min_length=1)
+    policy_version: str = Field(..., min_length=1)
+    query_id: str | None = None
+    action: str | None = None
+    matched_rule_id: str | None = None
+    fast_path: bool = False
+    as_of_date: str | None = None
 
-    @field_validator("query_id")
+    @field_validator("reason_code", "explanation", "policy_version")
     @classmethod
-    def validate_query_id(cls, v: str) -> str:
-        return _non_empty_field(v, "query_id")
+    def validate_required_fields(cls, v: str, info) -> str:
+        return _non_empty_field(v, info.field_name)
+
+    @field_validator("query_id", "action", "matched_rule_id")
+    @classmethod
+    def validate_optional_fields(cls, v: str | None, info) -> str | None:
+        if v is None:
+            return None
+        return _non_empty_field(v, info.field_name)
+
+    @field_validator("as_of_date")
+    @classmethod
+    def validate_optional_as_of_date(cls, v: str | None) -> str | None:
+        return _check_iso_date(v, "as_of_date", required=False)
 
 
 class RetrievalBundle(StrictBaseModel):
     """Gói kết quả truy xuất ứng viên trước khi xây ContextPayload (D3.1)."""
-    query_id: str
-    query: str
+    schema_version: SchemaVersionType = SCHEMA_VERSION
+    query_id: str = Field(..., min_length=1)
     as_of_date: str
-    as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"] = "user_input"
-    retriever: str = "hybrid_reranker"
-    top_k: int = Field(default=5, ge=1)
     candidates: list[CandidateChunk] = Field(default_factory=list)
-    total_candidates: int = Field(default=0, ge=0)
-    filtered_out_count: int = Field(default=0, ge=0)
-    retrieval_ms: float | None = Field(default=None, ge=0)
-    corpus_version: str | None = None
-    retrieval_config_version: str | None = None
-    schema_version: str = SCHEMA_VERSION
+    retrieval_config_version: str = Field(..., min_length=1)
+    corpus_hash: str = Field(..., min_length=1)
+    precomputed: bool = False
+    latency_ms: float = Field(..., ge=0.0)
+    query: str | None = None
+    retriever: str | None = None
+    top_k: int | None = Field(default=None, ge=1)
 
-    @field_validator("query_id", "query", "retriever")
+    @field_validator("query_id", "retrieval_config_version", "corpus_hash")
     @classmethod
     def validate_required_fields(cls, v: str, info) -> str:
+        return _non_empty_field(v, info.field_name)
+
+    @field_validator("query", "retriever")
+    @classmethod
+    def validate_optional_text(cls, v: str | None, info) -> str | None:
+        if v is None:
+            return None
         return _non_empty_field(v, info.field_name)
 
     @field_validator("as_of_date")
@@ -494,7 +546,7 @@ class LLMResponse(StrictBaseModel):
     error_code: ErrorCode | None = None
     ollama_version: str | None = None
     model_digest: str | None = None
-    schema_version: str = SCHEMA_VERSION
+    schema_version: SchemaVersionType = SCHEMA_VERSION
 
 
 class MappedCitation(StrictBaseModel):
@@ -508,13 +560,54 @@ class MappedCitation(StrictBaseModel):
 
 
 class GroundingResult(StrictBaseModel):
-    """Kết quả kiểm định căn cứ từ Dev 1 / Dev 5."""
-    grounding_status: GroundingStatus
-    is_grounded: bool
+    """Kết quả kiểm định căn cứ từ Dev 1 / Dev 5 (D3.1 + tương thích Sprint 9)."""
+    schema_version: SchemaVersionType = SCHEMA_VERSION
+    status: GroundingStatus = "PASS"
+    grounding_status: GroundingStatus = "PASS"
+    is_grounded: bool = False
+    validated_answer: str | None = None
+    citations: list[MappedCitation] = Field(default_factory=list)
     valid_citations: list[MappedCitation] = Field(default_factory=list)
+    violation_codes: list[str] = Field(default_factory=list)
     invalid_indices: list[int] = Field(default_factory=list)
     unsupported_claims: list[str] = Field(default_factory=list)
+    retryable: bool = False
+    abstention_reason: str | None = None
     reason: str | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def sync_canonical_and_legacy_fields(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        merged = dict(data)
+        has_status = "status" in merged and merged["status"] is not None
+        has_gs = "grounding_status" in merged and merged["grounding_status"] is not None
+        if not has_status and not has_gs:
+            raise ValueError("GroundingResult bắt buộc phải có 'status' hoặc 'grounding_status'")
+        if has_status and has_gs and merged["status"] != merged["grounding_status"]:
+            raise ValueError("Trường 'status' và 'grounding_status' không được mâu thuẫn")
+        resolved_status = merged["status"] if has_status else merged["grounding_status"]
+        merged["status"] = resolved_status
+        merged["grounding_status"] = resolved_status
+
+        if "is_grounded" not in merged:
+            merged["is_grounded"] = resolved_status == "PASS"
+
+        if "citations" in merged and "valid_citations" not in merged:
+            merged["valid_citations"] = merged["citations"]
+        elif "valid_citations" in merged and "citations" not in merged:
+            merged["citations"] = merged["valid_citations"]
+
+        if "abstention_reason" in merged and "reason" not in merged:
+            merged["reason"] = merged["abstention_reason"]
+        elif "reason" in merged and "abstention_reason" not in merged:
+            merged["abstention_reason"] = merged["reason"]
+
+        if resolved_status == "FAIL" and merged.get("reason") and "violation_codes" not in merged:
+            merged["violation_codes"] = [str(merged["reason"])]
+
+        return merged
 
 
 AbstentionSource = Literal["confidence_filter", "model", "grounding_gate", "router"]
@@ -605,93 +698,142 @@ class RAGOutputRecord(StrictBaseModel):
 
 
 class AskResponse(StrictBaseModel):
-    """Đầu ra API chuẩn hóa với tách biệt rạch ròi giữa OK / ABSTAIN / NEEDS_CLARIFICATION / ERROR."""
-    query_id: str
-    query: str
-    as_of_date: str
-    as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"] = "user_input"
-    route: RouteType
+    """Đầu ra API chuẩn hóa tách bạch rạch ròi SUCCESS / ABSTAIN / NEEDS_CLARIFICATION / ERROR."""
+    schema_version: SchemaVersionType = SCHEMA_VERSION
+    query_id: str = Field(..., min_length=1)
+    request_id: str | None = None
     status: ResponseStatus
-    grounding_status: GroundingStatus
-    answer: str = ""
-    citations: list[MappedCitation] = Field(default_factory=list)
-    evidence_indices: list[int] = Field(default_factory=list)
-    abstained: bool = False
+    route: RouteType
+    answer: str | None = None
+    clarification: str | None = None
+    abstention_message: str | None = None
     abstention_reason: str | None = None
-    abstention_source: AbstentionSource | None = None
-    needs_clarification: bool = False
-    clarification_question: str | None = None
+    citations: list[MappedCitation] = Field(default_factory=list)
+    evidence: list[EvidenceItem] = Field(default_factory=list)
+    grounding_status: GroundingStatus
+    disclaimer: str = Field(..., min_length=1)
+    timings: LatencyBreakdown = Field(default_factory=LatencyBreakdown)
     error_code: ErrorCode | None = None
-    error_message: str | None = None
-    latency_ms: float = Field(default=0.0, ge=0)
-    latency_breakdown: LatencyBreakdown = Field(default_factory=LatencyBreakdown)
-    token_usage: TokenUsage = Field(default_factory=TokenUsage)
-    model: str = "qwen2.5:7b"
-    prompt_version: str | None = None
-    schema_version: str = SCHEMA_VERSION
+    error: dict[str, Any] | None = None
 
-    @field_validator("query_id", "query")
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_clarification_alias(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        merged = dict(data)
+        if "clarification_question" in merged:
+            alias_val = merged.pop("clarification_question")
+            if "clarification" not in merged or merged["clarification"] is None:
+                merged["clarification"] = alias_val
+            elif alias_val is not None and merged["clarification"] != alias_val:
+                raise ValueError("'clarification' và 'clarification_question' không được mâu thuẫn")
+        return merged
+
+    @field_validator("status", mode="before")
+    @classmethod
+    def normalize_legacy_ok_status(cls, v: Any) -> Any:
+        if isinstance(v, str) and v.strip() == "OK":
+            return "SUCCESS"
+        return v
+
+    @field_validator("query_id", "disclaimer")
     @classmethod
     def validate_required_fields(cls, v: str, info) -> str:
         return _non_empty_field(v, info.field_name)
 
-    @field_validator("as_of_date")
+    @field_validator("request_id")
     @classmethod
-    def validate_as_of_date(cls, v: str) -> str:
-        res = _check_iso_date(v, "as_of_date", required=True)
-        assert res is not None
-        return res
+    def validate_optional_request_id(cls, v: str | None) -> str | None:
+        if v is None:
+            return None
+        return _non_empty_field(v, "request_id")
 
     @model_validator(mode="after")
     def validate_status_separation(self) -> "AskResponse":
-        """Ngăn trộn lẫn trạng thái OK / ABSTAIN / NEEDS_CLARIFICATION / ERROR."""
-        if self.status == "OK":
-            if self.grounding_status != "PASS":
-                raise ValueError("status='OK' bắt buộc phải có grounding_status='PASS'")
-            if self.abstained or self.needs_clarification or self.error_code is not None:
-                raise ValueError("status='OK' không được đặt abstained, needs_clarification hoặc error_code")
-            if not self.answer.strip():
-                raise ValueError("status='OK' phải có câu trả lời (answer) không rỗng")
+        """Ngăn trộn lẫn SUCCESS / ABSTAIN / NEEDS_CLARIFICATION / ERROR và chặn rò answer."""
+        if self.status == "SUCCESS":
+            if not self.answer or not self.answer.strip():
+                raise ValueError("status='SUCCESS' bắt buộc phải có câu trả lời (answer) không rỗng")
+            if self.route == "NON_LEGAL":
+                if self.grounding_status not in ("NOT_RUN", "PASS"):
+                    raise ValueError("status='SUCCESS' với route='NON_LEGAL' chỉ nhận grounding_status='NOT_RUN' hoặc 'PASS'")
+            elif self.grounding_status != "PASS":
+                raise ValueError("status='SUCCESS' cho luồng legal bắt buộc phải có grounding_status='PASS'")
+            if (
+                self.clarification is not None
+                or self.abstention_message is not None
+                or self.abstention_reason is not None
+                or self.error_code is not None
+                or self.error is not None
+            ):
+                raise ValueError(
+                    "status='SUCCESS' không được đặt clarification, abstention_message, abstention_reason, error_code hoặc error"
+                )
         elif self.status == "ABSTAIN":
-            if self.grounding_status not in ("ABSTAIN", "FAIL"):
-                raise ValueError("status='ABSTAIN' bắt buộc phải có grounding_status là 'ABSTAIN' hoặc 'FAIL'")
-            if not self.abstained or not self.abstention_reason:
-                raise ValueError("status='ABSTAIN' bắt buộc có abstained=True và abstention_reason")
-            if self.needs_clarification or self.error_code is not None:
-                raise ValueError("status='ABSTAIN' không được đặt needs_clarification hoặc error_code")
+            if self.answer is not None:
+                raise ValueError("status='ABSTAIN' bắt buộc phải có answer=None")
+            if self.grounding_status not in ("ABSTAIN", "FAIL", "NOT_RUN"):
+                raise ValueError("status='ABSTAIN' chỉ nhận grounding_status trong ('ABSTAIN', 'FAIL', 'NOT_RUN')")
+            if not (
+                (self.abstention_message and self.abstention_message.strip())
+                or (self.abstention_reason and self.abstention_reason.strip())
+            ):
+                raise ValueError("status='ABSTAIN' bắt buộc phải có abstention_message hoặc abstention_reason")
+            if self.clarification is not None:
+                raise ValueError("status='ABSTAIN' không được đặt clarification")
         elif self.status == "NEEDS_CLARIFICATION":
-            if self.grounding_status != "NEEDS_CLARIFICATION":
-                raise ValueError("status='NEEDS_CLARIFICATION' bắt buộc phải có grounding_status='NEEDS_CLARIFICATION'")
-            if not self.needs_clarification or self.abstained or self.error_code is not None:
-                raise ValueError("status='NEEDS_CLARIFICATION' phải có needs_clarification=True và abstained=False, error_code=None")
+            if self.answer is not None:
+                raise ValueError("status='NEEDS_CLARIFICATION' bắt buộc phải có answer=None")
+            if not self.clarification or not self.clarification.strip():
+                raise ValueError("status='NEEDS_CLARIFICATION' bắt buộc phải có clarification không rỗng")
+            if self.grounding_status not in ("NEEDS_CLARIFICATION", "NOT_RUN"):
+                raise ValueError(
+                    "status='NEEDS_CLARIFICATION' chỉ nhận grounding_status='NEEDS_CLARIFICATION' hoặc 'NOT_RUN'"
+                )
+            if (
+                self.abstention_message is not None
+                or self.abstention_reason is not None
+                or self.error_code is not None
+                or self.error is not None
+            ):
+                raise ValueError(
+                    "status='NEEDS_CLARIFICATION' không được đặt abstention_message, abstention_reason, error_code hoặc error"
+                )
         elif self.status == "ERROR":
-            if self.error_code is None:
-                raise ValueError("status='ERROR' bắt buộc phải có error_code")
+            if self.answer is not None:
+                raise ValueError("status='ERROR' bắt buộc phải có answer=None")
+            if self.error_code is None and not self.error:
+                raise ValueError("status='ERROR' bắt buộc phải có error_code hoặc error")
             if self.grounding_status == "PASS":
                 raise ValueError("status='ERROR' không thể có grounding_status='PASS'")
-            if self.abstained or self.needs_clarification:
-                raise ValueError("status='ERROR' phải đặt abstained=False và needs_clarification=False")
+            if (
+                self.clarification is not None
+                or self.abstention_message is not None
+                or self.abstention_reason is not None
+            ):
+                raise ValueError(
+                    "status='ERROR' không được đặt clarification, abstention_message hoặc abstention_reason"
+                )
         return self
 
 
 class LogEvent(StrictBaseModel):
-    """Sự kiện log có cấu trúc qua các chặng của pipeline RAG (D3.1)."""
-    timestamp: str
-    trace_id: str
-    query_id: str
+    """Sự kiện log có cấu trúc qua 9 chặng của pipeline RAG (D3.1)."""
+    schema_version: SchemaVersionType = SCHEMA_VERSION
+    event_id: str = Field(..., min_length=1)
+    query_id: str = Field(..., min_length=1)
     stage: EventStage
-    status: ResponseStatus
-    route: RouteType | None = None
-    grounding_status: GroundingStatus | None = None
+    event_type: str = Field(..., min_length=1)
+    timestamp: str = Field(..., min_length=1)
+    status: str = Field(..., min_length=1)
+    duration_ms: float | None = Field(default=None, ge=0.0)
     error_code: ErrorCode | None = None
-    latency_ms: float | None = Field(default=None, ge=0)
-    message: str | None = None
-    details: dict[str, Any] = Field(default_factory=dict)
-    schema_version: str = SCHEMA_VERSION
+    masked_metadata: dict[str, Any] = Field(default_factory=dict)
 
-    @field_validator("trace_id", "query_id")
+    @field_validator("event_id", "query_id", "event_type", "status")
     @classmethod
-    def validate_ids(cls, v: str, info) -> str:
+    def validate_required_fields(cls, v: str, info) -> str:
         return _non_empty_field(v, info.field_name)
 
     @field_validator("timestamp")
@@ -721,8 +863,9 @@ CANONICAL_SCHEMA_MODELS: dict[str, type[StrictBaseModel]] = {
 
 def export_json_schemas(output_dir: str | Path | None = None) -> dict[str, Path]:
     """
-    Xuất tự động 3 JSON Schemas legacy ở thư mục gốc và 10 JSON Schemas chuẩn hóa
-    vào thư mục con ``generated/`` với ``$schema`` (Draft 2020-12) và ``schema_version``.
+    Xuất tự động 4 JSON Schemas ở thư mục gốc (3 tệp legacy Sprint 9 và tệp tường minh
+    ``structured_rag_output.schema.json``) cùng 10 JSON Schemas chuẩn hóa trong ``generated/``
+    với ``$schema`` (Draft 2020-12) và ``schema_version``.
     """
     if output_dir is None:
         target_dir = Path(__file__).resolve().parent
@@ -733,14 +876,15 @@ def export_json_schemas(output_dir: str | Path | None = None) -> dict[str, Path]
     generated_dir = target_dir / "generated"
     generated_dir.mkdir(parents=True, exist_ok=True)
 
-    legacy_mapping = {
+    root_mapping = {
         "candidate.schema.json": CandidateChunk.model_json_schema(),
         "context_payload.schema.json": ContextPayload.model_json_schema(),
         "llm_response.schema.json": StructuredRAGOutput.model_json_schema(),
+        "structured_rag_output.schema.json": StructuredRAGOutput.model_json_schema(),
     }
 
     written_paths: dict[str, Path] = {}
-    for filename, schema_dict in legacy_mapping.items():
+    for filename, schema_dict in root_mapping.items():
         file_path = target_dir / filename
         file_path.write_text(json.dumps(schema_dict, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         written_paths[filename] = file_path

@@ -53,12 +53,32 @@
     }
   },
   "additionalProperties": false,
-  "description": "Kết quả kiểm định căn cứ từ Dev 1 / Dev 5.",
+  "description": "Kết quả kiểm định căn cứ từ Dev 1 / Dev 5 (D3.1 + tương thích Sprint 9).",
   "properties": {
-    "grounding_status": {
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "default": "PASS",
       "enum": [
         "PASS",
         "FAIL",
+        "NOT_RUN",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "grounding_status": {
+      "default": "PASS",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN",
         "ABSTAIN",
         "NEEDS_CLARIFICATION"
       ],
@@ -66,14 +86,41 @@
       "type": "string"
     },
     "is_grounded": {
+      "default": false,
       "title": "Is Grounded",
       "type": "boolean"
+    },
+    "validated_answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Validated Answer"
+    },
+    "citations": {
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Citations",
+      "type": "array"
     },
     "valid_citations": {
       "items": {
         "$ref": "#/$defs/MappedCitation"
       },
       "title": "Valid Citations",
+      "type": "array"
+    },
+    "violation_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Violation Codes",
       "type": "array"
     },
     "invalid_indices": {
@@ -90,6 +137,23 @@
       "title": "Unsupported Claims",
       "type": "array"
     },
+    "retryable": {
+      "default": false,
+      "title": "Retryable",
+      "type": "boolean"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
     "reason": {
       "anyOf": [
         {
@@ -103,10 +167,6 @@
       "title": "Reason"
     }
   },
-  "required": [
-    "grounding_status",
-    "is_grounded"
-  ],
   "title": "GroundingResult",
   "type": "object"
 }

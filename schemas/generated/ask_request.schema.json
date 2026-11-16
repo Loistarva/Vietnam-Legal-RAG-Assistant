@@ -2,23 +2,18 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "schema_version": "week10_v1.0",
   "additionalProperties": false,
-  "description": "Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1).",
+  "description": "Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1).\n\nKhóa các tham số nội bộ phía server (không cho phép client truyền ``run_mode``,\n``top_k`` hoặc ``metadata`` tự do). Quy ước: ``request_id`` do client cấp, còn\n``query_id`` là ID truy vết xuyên suốt pipeline do server gán hoặc tiếp nhận.",
   "properties": {
-    "query": {
-      "title": "Query",
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
       "type": "string"
     },
-    "query_id": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "default": null,
-      "title": "Query Id"
+    "query": {
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
     },
     "as_of_date": {
       "anyOf": [
@@ -32,23 +27,6 @@
       "default": null,
       "title": "As Of Date"
     },
-    "run_mode": {
-      "default": "C_production_rag",
-      "enum": [
-        "A_zero_shot",
-        "B_controlled_rag",
-        "C_production_rag"
-      ],
-      "title": "Run Mode",
-      "type": "string"
-    },
-    "top_k": {
-      "default": 5,
-      "maximum": 20,
-      "minimum": 1,
-      "title": "Top K",
-      "type": "integer"
-    },
     "session_id": {
       "anyOf": [
         {
@@ -61,15 +39,29 @@
       "default": null,
       "title": "Session Id"
     },
-    "metadata": {
-      "additionalProperties": true,
-      "title": "Metadata",
-      "type": "object"
+    "request_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Request Id"
     },
-    "schema_version": {
-      "default": "week10_v1.0",
-      "title": "Schema Version",
-      "type": "string"
+    "query_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Query Id"
     }
   },
   "required": [

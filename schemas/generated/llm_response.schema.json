@@ -253,10 +253,15 @@
       "anyOf": [
         {
           "enum": [
+            "AUTH_REQUIRED",
+            "INVALID_REQUEST",
+            "ROUTE_POLICY",
+            "RETRIEVAL_EMPTY",
+            "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
             "JSON_INVALID",
             "CITATION_INVALID",
-            "GATE_FAIL",
+            "GROUNDING_FAIL",
             "INTERNAL_ERROR"
           ],
           "type": "string"
@@ -293,6 +298,7 @@
       "title": "Model Digest"
     },
     "schema_version": {
+      "const": "week10_v1.0",
       "default": "week10_v1.0",
       "title": "Schema Version",
       "type": "string"

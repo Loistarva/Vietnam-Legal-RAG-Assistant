@@ -13,7 +13,7 @@ from model_gateway.llm_gateway import (
     QwenGateway,
     summarize_truncation_and_provenance,
 )
-from schemas.models import SCHEMA_VERSION
+from schemas.models import SCHEMA_VERSION, LLMResponse
 
 
 def _make_gateway(response_text: str, **payload_overrides: Any) -> QwenGateway:
@@ -192,3 +192,37 @@ def test_gateway_preserves_none_tokens_and_summarizes_safely():
     assert summary["total_queries"] == 2
     assert summary["total_input_tokens"] == 0
     assert summary["total_output_tokens"] == 0
+
+
+def test_llm_response_enforces_canonical_error_code_and_schema_version():
+    from pydantic import ValidationError
+
+    valid = LLMResponse(
+        query_id="q_ok",
+        run_mode="C_production_rag",
+        answer="",
+        prompt_version=PROMPT_B_VERSION,
+        done_reason="stop",
+        error_code="GROUNDING_FAIL",
+    )
+    assert valid.error_code == "GROUNDING_FAIL" and valid.schema_version == SCHEMA_VERSION
+
+    with pytest.raises(ValidationError):
+        LLMResponse(
+            query_id="q_old_code",
+            run_mode="C_production_rag",
+            answer="",
+            prompt_version=PROMPT_B_VERSION,
+            done_reason="stop",
+            error_code="GATE_FAIL",  # type: ignore[arg-type]
+        )
+
+    with pytest.raises(ValidationError):
+        LLMResponse(
+            query_id="q_bad_ver",
+            run_mode="C_production_rag",
+            answer="",
+            prompt_version=PROMPT_B_VERSION,
+            done_reason="stop",
+            schema_version="week10_v99",  # type: ignore[arg-type]
+        )
