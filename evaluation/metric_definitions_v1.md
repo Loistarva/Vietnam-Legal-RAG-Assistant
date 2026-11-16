@@ -6,7 +6,7 @@ Hệ thống không stream câu trả lời trước Gate (LLM → buffer → Gr
 
 ## 1. Trường dữ liệu dùng để tính
 
-> **Lưu ý về Run A:** cột Run A dưới đây mô tả record Run A khi Run A chạy qua Qwen Gateway, dùng cùng cấu hình với Run B. Code Run A hiện tại (`evaluation/zero_shot.py`) gọi thẳng `ollama.chat` với tham số riêng, nên chưa ghi các trường `latency_breakdown`, `token_usage`, `cjk_chars`, chưa có manifest và chưa thỏa điều kiện ở mục 6. Dev 2 cần cập nhật Run A trước khi tính metric A/B.
+> **Run A:** `evaluation/zero_shot.py` gọi Qwen Gateway bằng Prompt A `v1.2_zero_shot`, cùng file cấu hình `model_gateway/config/local_qwen.yaml` với Run B, và lấy `as_of_date` theo từng câu từ benchmark. Record lưu generation parameters, latency breakdown, token usage và số ký tự CJK.
 
 | Trường | Run A (`evaluation/zero_shot.py`) | Run B (`orchestration/rag_pipeline.py`) | Ý nghĩa |
 | --- | --- | --- | --- |

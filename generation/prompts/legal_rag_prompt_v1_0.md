@@ -1,6 +1,6 @@
 # Legal RAG Prompt Specification (Sprint 9 - M1 Freeze, v1.1 sau Run B 10/11, Prompt B v1.2 sau Run B 13/11)
 
-- **Prompt A Version**: `v1.1_zero_shot` (trước đó `v1.0_zero_shot_m1`)
+- **Prompt A Version**: `v1.2_zero_shot` (trước đó `v1.1_zero_shot`, `v1.0_zero_shot_m1`)
 - **Prompt B Version**: `v1.2_controlled_rag` (trước đó `v1.1_controlled_rag`, `v1.0_controlled_rag_m1`)
 - **Model**: `qwen2.5:7b`
 - **Standard Disclaimer**: `Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.`
@@ -13,10 +13,12 @@ Dành cho Run A để đo lường năng lực pháp lý gốc (zero-shot capabi
 ### Đặc tả:
 - Giới hạn phạm vi: Pháp luật Hôn nhân & Gia đình Việt Nam.
 - Quản lý mốc thời gian: Nhận tham số bắt buộc `as_of_date` từ benchmark (ví dụ `2024-01-01`).
-- Hướng dẫn hiệu lực: Yêu cầu mô hình nêu rõ `"Theo quy định có hiệu lực tại ngày {as_of_date}..."`.
+- Mốc `as_of_date` là ngày cắt để xác định văn bản có hiệu lực; không mặc định rằng quy định đã đổi. Chỉ nêu `"Theo quy định có hiệu lực tại ngày {as_of_date}..."` khi câu hỏi liên quan đến thời điểm/lịch sử/hiệu lực hoặc ngày đó làm thay đổi câu trả lời. Câu hỏi thông thường về nội dung luật được nêu rõ thì trả lời trực tiếp, không tự thêm lời dẫn thời gian.
 - Không đòi hỏi mô hình trích dẫn chunk ID.
 - Đánh số quy tắc 1, 2, 3, 4, 5 liên tục, kết thúc luôn có disclaimer chuẩn.
-- Quy tắc 5 (từ v1.1), nguyên văn: `NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác.`
+- Quy tắc 5 (`LANGUAGE_RULE_A`), nguyên văn hiện tại: `NGÔN NGỮ VÀ NGUỒN LUẬT: Câu trả lời phải viết hoàn toàn bằng tiếng Việt, không dùng chữ Hán hay ngôn ngữ khác. Chỉ áp dụng pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam; tuyệt đối không viện dẫn pháp luật nước ngoài và không sử dụng kiến thức về pháp luật Trung Quốc (như Bộ luật Dân sự Trung Quốc, Luật Hôn nhân Trung Quốc, các cơ quan/thuật ngữ pháp lý Trung Quốc) hay bất kỳ quốc gia nào khác.`
+- Ngoài quy tắc 5, `build_zero_shot_prompt()` thêm khối `YÊU CẦU ĐẦU RA ƯU TIÊN CAO NHẤT` sau câu hỏi: chỉ trả lời theo pháp luật Việt Nam; không lấy hoặc dịch quy định nước ngoài thành câu trả lời về pháp luật Việt Nam; nếu chưa chắc thì nêu điểm chưa chắc, không suy ra rằng luật không quy định; nếu biết quy tắc thì trả lời trực tiếp; viết bằng tiếng Việt/chữ Quốc ngữ.
+- Prompt A `v1.2_zero_shot` nhận `as_of_date` bắt buộc. Ngày này chỉ là mốc kiểm tra hiệu lực, không hàm ý quy định đã thay đổi. Với câu hỏi thông thường về luật được nêu rõ, prompt yêu cầu trả lời trực tiếp và chỉ nêu ngày trong câu trả lời khi câu hỏi liên quan thời điểm/lịch sử/hiệu lực hoặc ngày làm thay đổi kết luận.
 
 ---
 
@@ -45,6 +47,7 @@ Dải số bằng chứng hiển thị chính xác theo số lượng thực t�
 
 | Ngày | Phiên bản | Thay đổi | Lý do |
 | --- | --- | --- | --- |
+| 2026-11-14 | `v1.2_zero_shot` (Prompt B giữ `v1.2_controlled_rag`) | Giữ nguyên `LANGUAGE_RULE_A` theo wording bạn chọn; làm rõ `as_of_date` chỉ là mốc kiểm tra hiệu lực; thêm khối hướng dẫn đầu ra sau câu hỏi về nguồn luật Việt Nam, cách thể hiện khi chưa chắc và trả lời trực tiếp khi biết quy tắc. Không đổi cấu hình sinh. | Lượt không có ngày nêu đúng tuổi 20/18 nhưng trích sai Điều và năm sửa đổi; lượt có ngày sai tuổi và thêm ngoại lệ không căn cứ. Cần lượt so sánh kiểm soát để đánh giá wording mới; không khẳng định prompt loại hết sai sót. |
 | 2026-11-14 | `v1.2_controlled_rag` (Prompt A giữ `v1.1_zero_shot`) | Prompt B quy tắc 4 (hỏi lại): chỉ đặt `needs_clarification` khi bằng chứng dẫn tới kết luận khác nhau tùy dữ kiện còn thiếu; nếu bằng chứng trả lời được theo quy định chung thì trả lời, nêu ngoại lệ và đặt `false`. | Run B 13/11 (v1.1): HN_016 trả lời đúng khoản 1 Điều 33 nhưng đặt `needs_clarification: true`, lặp lại ở hai máy. Quy tắc 4 cũ quá rộng, nên model đòi hỏi lại chỉ vì câu hỏi có chữ "thường" và Điều 33 có ngoại lệ (khoản 1 Điều 40). Run B 14/11 (`20261114_controlled_rag_qwen25_dev30_prompt_v1_2`, cả 30 câu Dev official): 29 PASS, HN_035 ABSTAIN (`LOW_CONFIDENCE`), không câu nào FAIL hay `NEEDS_CLARIFICATION`, 0 ký tự CJK. Đổi sau Freeze, cần Tech Lead duyệt cùng P45-10. |
 | 2026-11-13 (d7b0d1b) | `v1.1_zero_shot`, `v1.1_controlled_rag` (giữ tên) | Sửa lời văn v1.1, không đổi tên version. **Prompt B:** quy tắc 1 thành "đóng ngữ cảnh", mọi khẳng định pháp lý phải có căn cứ trực tiếp trong bằng chứng. Quy tắc 3 thêm "bằng chứng không đề cập đến tình tiết được hỏi" vào điều kiện từ chối. **Cả A và B:** quy tắc ngôn ngữ cấm thêm việc dùng kiến thức về pháp luật Trung Quốc. | Siết đóng ngữ cảnh sau review PR #45. Hai lượt Run B ngày 13/11 (`20261113_controlled_rag_qwen25_dev30`, `20261113_controlled_rag_qwen25_dev30_post_fix`) và report DoD-10 ở 540aa92 chạy trên lời văn này, nhận ra bằng `retrieval_trace.prompt_sha256`. Lỗi đã biết: HN_016 chuyển từ PASS sang `NEEDS_CLARIFICATION`, nhiều khả năng do quy tắc mới. Nếu sửa tiếp thì đổi tên version thành v1.2. |
 | 2026-11-13 | `v1.1_zero_shot`, `v1.1_controlled_rag` | Thêm quy tắc ngôn ngữ và nguồn luật (Prompt A quy tắc 5, Prompt B quy tắc 6); `repeat_penalty` 1.15 → 1.0 trong `model_gateway/config/local_qwen.yaml` | Run B 10/11: HN_025 trả lời gần như toàn bộ bằng tiếng Trung, dẫn Luật Hôn nhân CHND Trung Hoa; HN_062 chuyển sang tiếng Trung ở ý 5. Thử lại 2 câu: chỉ thêm quy tắc vẫn lỗi, quy tắc + `repeat_penalty` 1.0 thì cả hai PASS sạch. Thay đổi sau Freeze, cần Tech Lead duyệt (P45-10). |

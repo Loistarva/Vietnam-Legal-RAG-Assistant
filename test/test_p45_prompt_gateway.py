@@ -41,7 +41,7 @@ def _payload() -> ContextPayload:
 # P45-1
 # ---------------------------------------------------------------------------
 def test_versions_moved_off_the_m1_names():
-    assert PROMPT_B_VERSION == "v1.2_controlled_rag" and PROMPT_A_VERSION == "v1.1_zero_shot"
+    assert PROMPT_B_VERSION == "v1.2_controlled_rag" and PROMPT_A_VERSION == "v1.2_zero_shot"
 
 
 def test_prompt_b_has_rule_6_before_output_section():
@@ -60,9 +60,12 @@ def test_prompt_b_has_rule_6_before_output_section():
 def test_prompt_a_has_rule_5_before_question():
     prompt = build_zero_shot_prompt("Tuổi kết hôn?", "2026-10-15")
     assert f"5. {LANGUAGE_RULE_A}" in prompt
-    assert prompt.index("4. Cuối câu trả lời") < prompt.index("5. NGÔN NGỮ") < prompt.index("CÂU HỎI:")
-    assert "Cộng hòa Xã hội Chủ nghĩa Việt Nam" in prompt
-    assert "Bộ luật Dân sự Trung Quốc" in prompt and "Luật Hôn nhân Trung Quốc" in prompt
+    assert prompt.index("4. Cuối câu trả lời") < prompt.index("5. NGÔN NGỮ VÀ NGUỒN LUẬT") < prompt.index("CÂU HỎI:")
+    assert prompt.index("CÂU HỎI:") < prompt.index("YÊU CẦU ĐẦU RA ƯU TIÊN CAO NHẤT")
+    assert "chữ Quốc ngữ từ đầu đến cuối" in prompt
+    assert "không lấy hoặc dịch quy định nước ngoài thành câu trả lời về pháp luật Việt Nam" in prompt
+    assert "Nếu không nhớ chắc, nêu rõ điểm chưa chắc" in prompt
+    assert "không biến việc không nhớ thành khẳng định rằng luật không quy định" in prompt
     assert f"Phiên bản hướng dẫn: {PROMPT_A_VERSION}" in prompt
 
 
