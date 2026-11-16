@@ -18,7 +18,7 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 
 ## KPI
 
-| KPI (BRD) | Tập | Số đo | Nguồn | So với mục tiêu đề xuất |
+| KPI (BRD) | Tập | Số đo | Nguồn | So với mục tiêu |
 | --- | --- | --- | --- | --- |
 | BO-01 Recall@5 sau rerank | Test (30) | 0,8978 | [baseline_report.md](baseline_report.md) (08/11) | Đạt ≥ 0,85 |
 | BO-01 Recall@5 sau rerank (theo dõi) | Dev (75) | 0,7335 | như trên | — |

@@ -3,7 +3,7 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-BRD` |
-| Phiên bản | **2.1 — bản nháp chờ Tech Lead duyệt** |
+| Phiên bản | **2.1 — baseline, Tech Lead duyệt 16/11/2026** |
 | Tài liệu liên quan | [SRS 2.1](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
 | Người duyệt | Tech Lead / PM |
 
@@ -13,7 +13,7 @@ BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. H
 
 | Phiên bản | Ngày | Nội dung |
 | --- | --- | --- |
-| 2.1 | 16/11/2026 | BRD cho toàn dự án, bám sơ đồ kiến trúc: mục tiêu, năng lực nghiệp vụ, quy tắc nghiệp vụ, ba giai đoạn, KPI có định nghĩa, tập đo và mục tiêu. |
+| 2.1 | 16/11/2026 | Tech Lead duyệt làm baseline cùng mục tiêu KPI. BRD cho toàn dự án, bám sơ đồ kiến trúc: mục tiêu, năng lực nghiệp vụ, quy tắc nghiệp vụ, ba giai đoạn, KPI có định nghĩa, tập đo và mục tiêu. |
 
 ---
 
@@ -70,7 +70,7 @@ Dự án xây một trợ lý hỏi đáp pháp luật HNGĐ: chỉ trả lời 
 | | | Chi phí / câu hỏi | Mọi lượt chạy | 0 ở chế độ local; trong ngân sách khi dùng provider trả phí | GĐ1 |
 | BO-08 | Kho văn bản cập nhật được | Thời gian từ khi có văn bản sửa đổi tới khi hệ thống áp dụng | Quy trình cập nhật | Tech Lead đặt | GĐ3 |
 
-Toàn bộ mục tiêu trong bảng là **đề xuất** (SRS D-08) cho tới khi Tech Lead duyệt.
+Mục tiêu trong bảng được Tech Lead duyệt ngày 16/11/2026 (SRS D-08). Hai mục chưa có số: p95 thời gian tới câu trả lời (BO-05, chốt khi chọn máy tham chiếu) và thời gian cập nhật kho (BO-08, chốt khi viết feature spec của FR8.9–FR8.10). Đổi mục tiêu sau baseline phải qua PR sửa BRD.
 
 ---
 
