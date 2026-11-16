@@ -4,15 +4,17 @@
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
+Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
+
 ## Tóm tắt theo giai đoạn
 
 | Giai đoạn | Có | Một phần | Chưa | Nhận xét |
 | --- | ---: | ---: | ---: | --- |
-| GĐ1 | 42 | 18 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker. |
-| GĐ2 | 1 | 7 | 25 | Router có nhưng chưa nối; chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
-| GĐ3 | 0 | 0 | 18 | Chưa bắt đầu. |
+| GĐ1 | 39 | 21 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker, vài tiêu chí truy vết (FR2.4-AC4, FR2.11, FR4.1-AC2). |
+| GĐ2 | 1 | 7 | 26 | Router có nhưng chưa nối (FR1.9); chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
+| GĐ3 | 0 | 0 | 18 | Chưa bắt đầu; mỗi khối cần feature spec trước (SRS mục 11). |
 
-Tổng 112 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai giai đoạn (FR3.1, FR6.1, FR8.9, IR1.7, IR2.4) được đếm ở giai đoạn đầu; "Một phần" ở đó có thể là phần của giai đoạn sau chưa có.
+Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai giai đoạn (FR3.1, FR6.1, FR8.9, IR1.7, IR2.4) được đếm ở giai đoạn đầu; "Một phần" ở đó có thể là phần của giai đoạn sau chưa có.
 
 ## KPI
 
@@ -45,6 +47,7 @@ Tổng 112 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | FR1.6 | Một phần | như trên | Như trên. |
 | FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài. |
 | FR1.8 | Một phần | `test/agent/data/router_holdout.jsonl` | Chưa xác nhận tính độc lập. |
+| FR1.9 | Chưa | — | Orchestrator chưa gọi router (kế hoạch Tuần 10 D5.1). |
 
 ## FR2. Lọc trước và truy xuất
 
@@ -53,14 +56,14 @@ Tổng 112 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | FR2.1 | Một phần | `retrieval/temporal.py`, `test/test_pipeline_context.py` | Hàm có; pipeline chưa có chế độ tương tác; nhãn `question/ui/today` chưa ánh xạ sang `query_text/user_input/system_today`. |
 | FR2.2 | Chưa | — | Metadata có sẵn trong chunk (`document_number`, `document_type`, `issuing_body`, `issue_date`). |
 | FR2.3 | Chưa | — | |
-| FR2.4 | Có | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py` | |
+| FR2.4 | Một phần | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py` | AC1–AC3 có; AC4 chưa có test so sánh ba nhánh (Elasticsearch, Qdrant, precomputed). |
 | FR2.5 | Có | `test/test_bm25_retrieval.py` | |
 | FR2.6 | Có | `test/test_dense_retriever.py` | |
 | FR2.7 | Có | `test/test_hybrid_retriever.py` | `retrieval_top_k = 50`, `rrf_k = 60`. |
 | FR2.8 | Một phần | `test/test_reranker.py` | Reranker đang giữ Top-5 (`rerank_top_k = 5`), sơ đồ là Top-10 (D-04). |
 | FR2.9 | Chưa | — | |
 | FR2.10 | Có | `test/orchestration/test_evidence_index_mapping.py` | |
-| FR2.11 | Có | như trên | |
+| FR2.11 | Một phần | như trên | `retrieval_trace` chưa ghi bộ lọc đã áp dụng (`as_of_date` chỉ ở cấp bản ghi). |
 
 ## FR3. Ngưỡng tin cậy và làm rõ
 
@@ -78,7 +81,7 @@ Tổng 112 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR4.1 | Có | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. |
+| FR4.1 | Một phần | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2: thiếu parent mới chỉ ghi cảnh báo vào log, chưa vào `retrieval_trace`. |
 | FR4.2 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schema_test.py` | |
 | FR4.3 | Có | `test/schema_test.py` | |
 | FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py` | Prompt v1.2. |
