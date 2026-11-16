@@ -72,6 +72,37 @@ class RouteDecision:
     classifier_version: str = CLASSIFIER_VERSION
     as_of_date: str | date | datetime | None = None
 
+    def to_canonical(self):
+        """Convert the Dev4 decision to the canonical Dev3 Pydantic contract."""
+        from schemas.models import RouteDecision as CanonicalRouteDecision
+        from schemas.models import map_router_route_to_canonical
+
+        explanations = {
+            RouteReason.FAST_PATH_RULE_MATCH: "Câu hỏi khớp chính xác quy tắc fast-path đã được phê duyệt.",
+            RouteReason.HNGD_DOMAIN_MATCH: "Câu hỏi thuộc phạm vi Hôn nhân và Gia đình.",
+            RouteReason.LEGAL_OUT_OF_SCOPE_MATCH: "Câu hỏi pháp lý nằm ngoài phạm vi Hôn nhân và Gia đình.",
+            RouteReason.LEGAL_SCOPE_UNCERTAIN: "Chưa đủ thông tin để xác định chính xác phạm vi pháp lý.",
+            RouteReason.MIXED_LEGAL_SCOPE: "Câu hỏi kết hợp phạm vi Hôn nhân và Gia đình với lĩnh vực pháp lý khác.",
+            RouteReason.NON_LEGAL_NO_LEGAL_INTENT: "Câu hỏi không thể hiện ý định yêu cầu thông tin pháp lý.",
+            RouteReason.INVALID_EMPTY_QUERY: "Câu hỏi rỗng.",
+            RouteReason.INVALID_QUERY_TYPE: "Kiểu dữ liệu câu hỏi không hợp lệ.",
+            RouteReason.INVALID_AS_OF_DATE: "Ngày áp dụng không hợp lệ.",
+        }
+        as_of_date = self.as_of_date
+        if isinstance(as_of_date, (date, datetime)):
+            as_of_date = as_of_date.isoformat()
+        return CanonicalRouteDecision(
+            route=map_router_route_to_canonical(self.route.value),
+            reason_code=self.route_reason.value,
+            explanation=explanations[self.route_reason],
+            policy_version=self.classifier_version,
+            query_id=self.query_id,
+            action=self.action.value,
+            matched_rule_id=self.matched_rule_id,
+            fast_path=self.fast_path,
+            as_of_date=as_of_date,
+        )
+
     def to_dict(self) -> dict[str, str | bool | None]:
         as_of_date = self.as_of_date
         if isinstance(as_of_date, (date, datetime)):
@@ -624,8 +655,23 @@ class RuleRouter:
                 ("nhà", "đất", "tài sản", "di sản", "thừa kế", "để lại", "đứng tên"),
             )
         )
-        if spouse_death_context:
+        explicit_inheritance_issue = _has_any_term(
+            query, unaccented_query, ("thừa kế", "di sản", "người thừa kế", "phân chia di sản")
+        )
+        spouse_marital_property_issue = _has_any_term(
+            query,
+            unaccented_query,
+            (
+                "tài sản chung", "tài sản riêng", "chế độ tài sản",
+                "tài sản của vợ chồng", "tài sản vợ chồng",
+                "phần tài sản của vợ", "phần tài sản của chồng",
+                "nhà đứng tên", "đất đứng tên", "có được ở tiếp",
+                "quyền của người vợ", "quyền của người chồng",
+            ),
+        )
+        if spouse_death_context and spouse_marital_property_issue:
             hngd_match = True
+        if spouse_death_context and explicit_inheritance_issue:
             outside_match = True
         hngd_property_context = (
             (family_relation_context and property_context)
@@ -643,7 +689,7 @@ class RuleRouter:
             hngd_match
             and hngd_property_context
             and not independent_outside_topic
-            and not spouse_death_context
+            and not (spouse_death_context and explicit_inheritance_issue)
         ):
             outside_match = False
         # A statement about studying law is not itself a request for legal help.

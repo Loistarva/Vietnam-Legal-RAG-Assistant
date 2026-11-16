@@ -18,6 +18,9 @@ from agent.router.rule_router import Action, Route  # noqa: E402
 DEFAULT_HOLDOUT = ROOT / "test/agent/data/router_holdout_independent_v1.jsonl"
 DEFAULT_COMPARISON_PATHS = (
     ROOT / "test/agent/data/router_holdout.jsonl",
+    # R4IH v1 has been consumed for tuning; new holdouts must still be screened
+    # against it so that its topics are not merely paraphrased.
+    ROOT / "test/agent/data/router_holdout_independent_v1.jsonl",
     ROOT / "data/benchmark/queries_dev.json",
     ROOT / "evaluation/negative_set/dev_negative_queries_v2.jsonl",
     ROOT / "test/agent/test_rule_router.py",
@@ -88,7 +91,8 @@ def validate_holdout(
         return {"rows": rows, "errors": [f"Không đọc được holdout: {type(exc).__name__}"],
                 "route_counts": {}, "category_counts": {}, "comparison_matches": []}
 
-    required = ("id", "query", "expected_route", "expected_action", "category")
+    required = ("id", "query", "expected_route", "expected_action", "category", "reason",
+                "reviewer_status")
     for line_number, line in enumerate(lines, 1):
         if not line.strip():
             continue
@@ -106,6 +110,13 @@ def validate_holdout(
             continue
         if any(row[key] != row[key].strip() for key in ("id", "query")):
             errors.append(f"Dòng {line_number}: id/query không được có khoảng trắng đầu hoặc cuối")
+        if row.get("reviewer_status") not in {
+            "PENDING_INDEPENDENT_REVIEW", "INDEPENDENT_REVIEW_COMPLETE", "DEV4"
+        }:
+            errors.append(
+                f"Dòng {line_number}: reviewer_status phải là PENDING_INDEPENDENT_REVIEW "
+                ", INDEPENDENT_REVIEW_COMPLETE hoặc DEV4"
+            )
         try:
             Route(row["expected_route"])
             Action(row["expected_action"])

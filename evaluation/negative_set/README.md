@@ -1,6 +1,6 @@
 # Bản bàn giao hiện tại: v2
 
-Dùng `dev_negative_queries_v2.jsonl` và `dev_negative_manifest_v2.json`. Có 26 câu, đã rà coverage trên testing fc66642 (28 văn bản, 2.322 chunk); nhãn ranh giới NEG_DEV_025/026 chờ Tech Lead chốt. Xem [validation_report_v2.md](validation_report_v2.md). Các mô tả v1 dưới đây giữ để truy vết lịch sử.
+Dùng `dev_negative_queries_v2.jsonl` và `dev_negative_manifest_v2.json`. Có 26 câu, đã rà coverage trên testing fc66642 (28 văn bản, 2.322 chunk). Dev4 đã xác nhận cách phân loại NEG_DEV_025; NEG_DEV_026 và review độc lập của Dev2/Tech Lead vẫn đang chờ. Xem [validation_report_v2.md](validation_report_v2.md). Các mô tả v1 dưới đây giữ để truy vết lịch sử.
 
 # D1.5 — Tập câu âm Dev v1
 

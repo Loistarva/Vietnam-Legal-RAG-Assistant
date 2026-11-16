@@ -1,17 +1,17 @@
-# D4.5 Rule Router smoke
+# D4.5 – Kiểm thử nhanh Rule Router
 
 - Thời điểm UTC: 2026-11-10T12:26:01.605251+00:00
 - Git commit: `cdca079ba63b5e3d48da690df269ff51bb47c887`
 - Classifier version: `rule_router_v2`
 - Corpus SHA chuẩn hóa: `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`
 - Official IDs: 30; Dev queries: 270; negative v2: 26
-- Router holdout candidate: 36 cases; label review: completed by Dev2 (peer reviewer; per maintainer confirmation); source: `test/agent/data/router_holdout_independent_v1.jsonl`
-- Holdout validation error: `none`
+- Bộ holdout dự kiến: 36 câu; Dev2 đã rà soát nhãn (review ngang hàng; theo xác nhận của maintainer); nguồn: `test/agent/data/router_holdout_independent_v1.jsonl`
+- Lỗi xác thực holdout: `none`
 - Holdout expected route distribution: `{"LEGAL_HNGD": 10, "LEGAL_OUT_OF_SCOPE": 8, "LEGAL_SCOPE_UNCERTAIN": 4, "MIXED_LEGAL_SCOPE": 6, "NON_LEGAL": 8}`
 - Holdout category distribution: `{"administrative_penalty": 1, "business_registration": 1, "consumer_protection": 1, "cooking": 1, "criminal_gambling": 1, "entertainment_humor": 1, "gardening": 1, "general_science": 1, "general_weather": 1, "hngd_adoption_relationship": 1, "hngd_change_custody": 1, "hngd_child_visitation": 1, "hngd_parenting_arrangement": 1, "hngd_residence": 1, "hngd_spousal_obligations": 1, "hngd_step_parent": 1, "hngd_support_adult_child": 1, "hngd_support_parents": 1, "hngd_unlawful_marriage": 1, "land_use": 1, "math": 1, "mixed_gardening_hngd": 1, "mixed_hngd_business": 1, "mixed_hngd_employment": 1, "mixed_hngd_tax": 1, "mixed_math_hngd": 1, "mixed_translation_hngd": 1, "rental_tax": 1, "social_goodbye": 1, "social_insurance": 1, "technology_product_advice": 1, "traffic_overload": 1, "uncertain_generic_right": 1, "uncertain_legal_basis": 1, "uncertain_procedural_record": 1, "uncertain_scope_unspecified_dispute": 1}`
 - Holdout legal-to-GENERAL_CHAT: 0; exact route/action mismatches: 3
 
-## Gate results
+## Kết quả các cổng kiểm tra
 
 | Gate | Kết quả |
 |---|---|
@@ -22,9 +22,9 @@
 | holdout_candidate_safety_no_legal_to_GENERAL_CHAT | PASS |
 | holdout_candidate_route_action_match | FAIL |
 
-- Dev queries routed to LEGAL_RETRIEVAL: 268/270 (99.3%)
+- Số câu Dev được định tuyến tới LEGAL_RETRIEVAL: 268/270 (99,3%)
 
-## Negative-set confusion matrix
+## Ma trận nhầm lẫn của Negative Set
 
 | Expected route | Predicted route | Count |
 |---|---|---:|
@@ -33,7 +33,7 @@
 | LEGAL_OUT_OF_SCOPE | MIXED_LEGAL_SCOPE | 1 |
 | NON_LEGAL | NON_LEGAL | 6 |
 
-## Holdout candidate detail (Dev2 peer review completed; no external legal validation claimed)
+## Chi tiết holdout (Dev2 đã rà soát ngang hàng; không khẳng định đã được thẩm định pháp lý bên ngoài)
 
 | ID | Expected route/action | Actual route/action | Result |
 |---|---|---|---|

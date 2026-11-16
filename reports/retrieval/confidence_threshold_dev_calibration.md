@@ -1,6 +1,6 @@
 # Hiệu chỉnh ngưỡng tin cậy (D5.2) — `conf_v1_20261109`
 
-Owner: Dev 5. Reviewer theo kế hoạch: Dev 2 + Tech Lead. Ngày chạy: 09/11/2026 (hạn 05/11 trong kế hoạch V3 đã qua).
+Người phụ trách: Dev 5. Reviewer theo kế hoạch: Dev 2 + Tech Lead. Ngày chạy: 09/11/2026 (hạn 05/11 trong kế hoạch V3 đã qua).
 
 Kết quả chốt, ghi trong [reranking/confidence.yaml](../../reranking/confidence.yaml):
 
@@ -30,7 +30,7 @@ Với mỗi cặp `min_top1_score` × `min_evidence_score`:
 - **Đúng bị loại**: chunk gold trong Top-5 bị ngưỡng bằng chứng loại khỏi ngữ cảnh.
 - **Câu âm lọt**: câu âm vẫn đi tới LLM, tính theo từng nhãn.
 
-## Kết quả quét (trích, `min_evidence_score` = 0.1)
+## Kết quả khảo sát ngưỡng (trích, `min_evidence_score` = 0.1)
 
 | `min_top1_score` | Từ chối sai (gold trong Top-5) | Từ chối khi đã trượt | Đúng bị loại | non_legal lọt /6 | ngoài phạm vi lọt /8 | thiếu nguồn lọt /6 | thiếu dữ kiện lọt /6 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Với mỗi cặp `min_top1_score` × `min_evidence_score`:
 
 Ngưỡng bằng chứng: 0.1 không loại chunk gold nào; 0.2 loại 1 chunk gold (HN_056, điểm 0.165); 0.3 loại 3.
 
-## Lý do chọn
+## Cơ sở lựa chọn
 
 - Điểm top-1 thấp nhất của câu trả lời được có gold trong Top-5 là 0.731 (HN_008). Điểm cao nhất của nhóm câu âm tách rõ là 0.281 (NEG_DEV_013). 0.5 nằm khoảng giữa hai mức, cách mỗi bên khoảng 0.22.
 - 0.7 chặn thêm 2 câu thiếu nguồn, nhưng chỉ cách HN_008 0.03. Với 45 câu, khoảng cách đó dễ là khớp riêng mẫu nên không chọn. Từ 0.8 bắt đầu từ chối sai.
@@ -59,7 +59,7 @@ Ngưỡng bằng chứng: 0.1 không loại chunk gold nào; 0.2 loại 1 chunk 
 4. **Kiểm tra sau khi chốt trên 30 câu official** (không dùng để chọn ngưỡng): 1/30 bị từ chối. Đó là HN_035, câu hỏi tiền đề sai ("Luật 2000 vẫn cấm kết hôn cùng giới đúng không?"). Chunk gold `l_52_2014_qh13_art_8_clause_2_chunk_1` đứng hạng 1 nhưng chỉ có điểm 0.087, vì cross-encoder chấm thấp đoạn trái với tiền đề câu hỏi. Mọi ngưỡng trên 0.087 đều từ chối câu này. Không chỉnh ngưỡng theo câu official. Cần báo Dev 2 để phân tích Run B.
 5. Mẫu nhỏ: 45 câu dương, 26 câu âm. Nhãn tập âm v2 vẫn ở trạng thái `pending_peer_review`. Khi tập âm, corpus hoặc artifact G3 đổi, phải chạy lại script và tăng `threshold_config_version`.
 
-## Chạy lại
+## Chạy lại phép hiệu chỉnh
 
 ```powershell
 python scripts/calibrate_confidence_threshold.py `

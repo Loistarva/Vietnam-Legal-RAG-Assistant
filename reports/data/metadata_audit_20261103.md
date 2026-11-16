@@ -7,7 +7,7 @@ Git SHA lúc audit: `eaff78b1d5c0ee753ebfcc598a02a1cca0b706bc`; registry/corpus 
 ## Kết quả cấu trúc
 
 - Registry: 28 văn bản; corpus: 2322 chunks / 28 văn bản; article index: 851 dòng.
-- Structural errors: **0**; warnings: 28. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
+- Lỗi cấu trúc: **0**; cảnh báo: 28. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
 - Alias keys: 766; ambiguous keys: 38. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
 ## Kiểm tra đã làm
@@ -16,7 +16,7 @@ ID canonical, file_code và số hiệu không trùng; số hiệu/năm khớp i
 
 ## Hiệu lực và vấn đề nguồn
 
-Registry hiện dùng effective_date/expiry_date; alias artifact ánh xạ thành effective_from/effective_to sau kiểm tra, không đổi tên field trong registry/consumer cũ. Ngày kết thúc là cận loại trừ. Alias resolver không lọc hiệu lực hoặc kết luận luật áp dụng; năm là năm ban hành, không phải năm hiệu lực.
+Registry hiện dùng `effective_date`/`expiry_date`; artifact alias ánh xạ thành `effective_from`/`effective_to` sau kiểm tra, không đổi tên field trong registry/consumer cũ. Ngày kết thúc là cận loại trừ. Alias resolver không lọc hiệu lực hoặc kết luận luật áp dụng; năm là năm ban hành, không phải năm hiệu lực.
 
 Cờ requires_review trong nguồn:
 
@@ -70,11 +70,11 @@ Registry canonical SHA-256: `67424ec6c5cc10408d22277d514f6b5280edeedac1fbd0cb305
 - data/reference/article_index.json: raw file SHA-256 `868f890a9e4c10d718b5ab515b4f27f78a695b01edb5bb79ca8c01c4e4fc2d2f`
 - data/reference/provision_periods.json: raw file SHA-256 `b51bd299a26cac561c47ba15c40bed7a5110a600dcc93e2f175c0c2bcdb6ddb9`
 
-Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
+Không kiểm tra HTTP/redirect hoặc tự sửa `source_url`. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải tạo lại/review artifact; `load_alias_map` từ chối bản cũ hoặc bị sửa trái phép. Reviewer: Dev 2 + Dev 3; trạng thái `pending_peer_review`.
 
 Remote context:
 
-origin/testing snapshot fc666421fb50d394d11df2368303031092a30578; differing tracked input paths vs HEAD: []. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review.
+Ảnh chụp `origin/testing`: `fc666421fb50d394d11df2368303031092a30578`; các đường dẫn đầu vào được theo dõi khác HEAD: []. Không tự động merge. Registry/corpus không đổi so với ảnh chụp này nếu không xuất hiện trong danh sách; thay đổi article/source URL cần được review tích hợp.
 
 ## Cách tái lập và bàn giao
 

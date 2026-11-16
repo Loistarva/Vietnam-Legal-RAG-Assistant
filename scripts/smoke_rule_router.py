@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import hashlib
 import json
 import subprocess
 import sys
@@ -114,6 +115,10 @@ def run() -> tuple[str, bool]:
     holdout_results = [
         (row, router.route(row["query"], query_id=row["id"])) for row in holdout
     ]
+    reviewer_statuses = sorted({
+        str(row.get("reviewer_status", "UNSPECIFIED")) for row in holdout
+    })
+    reviewer_summary = ", ".join(reviewer_statuses) if reviewer_statuses else "unavailable"
 
     confusion: collections.Counter[tuple[str, str]] = collections.Counter()
     for row, decision in negative_rows:
@@ -152,15 +157,18 @@ def run() -> tuple[str, bool]:
         git_sha = "unknown"
     corpus_path = ROOT / "data/chunking_output/chunks.jsonl"
     corpus_sha = chunk_file_sha256(corpus_path) if corpus_path.is_file() else "unavailable"
+    router_sha = hashlib.sha256((ROOT / "agent/router/rule_router.py").read_bytes()).hexdigest()
+    holdout_sha = hashlib.sha256(holdout_path.read_bytes()).hexdigest() if holdout_path.is_file() else "unavailable"
     lines = [
         "# R4.7 Rule Router Evaluation",
         "",
         f"- Thời điểm UTC: {datetime.now(timezone.utc).isoformat()}",
         f"- Git commit: `{git_sha}`",
         f"- Classifier version: `{CLASSIFIER_VERSION}`",
+        f"- Router source SHA-256: `{router_sha}`; holdout file SHA-256: `{holdout_sha}`",
         f"- Corpus SHA chuẩn hóa: `{corpus_sha}`",
         f"- Official IDs: {len(official)}; Dev queries: {len(dev)}; negative v2: {len(negatives)}",
-        f"- Router holdout candidate: {len(holdout)} cases; label review: completed by Dev2 (peer reviewer; per maintainer confirmation); source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
+        f"- Router holdout candidate: {len(holdout)} cases; recorded reviewer_status: `{reviewer_summary}` (metadata only; not an independent-review certification); source: `{holdout_path.resolve().relative_to(ROOT).as_posix() if holdout_path.resolve().is_relative_to(ROOT.resolve()) else '<external-path>'}`",
         f"- Holdout validation error: `{holdout_error or 'none'}`",
         f"- Holdout expected route distribution: `{json.dumps(holdout_validation['route_counts'], ensure_ascii=False, sort_keys=True)}`",
         f"- Holdout category distribution: `{json.dumps(holdout_validation['category_counts'], ensure_ascii=False, sort_keys=True)}`",
@@ -178,7 +186,7 @@ def run() -> tuple[str, bool]:
               "| Expected route | Predicted route | Count |", "|---|---|---:|"]
     lines.extend(f"| {expected} | {actual} | {count} |"
                  for (expected, actual), count in sorted(confusion.items()))
-    lines += ["", "## Holdout candidate detail (Dev2 peer review completed; no external legal validation claimed)", "",
+    lines += ["", "## Holdout candidate detail (reviewer status as recorded in each dataset row)", "",
               "| ID | Expected route/action | Actual route/action | Result |",
               "|---|---|---|---|"]
     lines.extend(

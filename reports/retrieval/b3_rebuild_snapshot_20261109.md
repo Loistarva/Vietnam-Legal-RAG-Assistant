@@ -2,7 +2,7 @@
 
 **Cập nhật:** 10/11/2026. Bằng chứng baseline phải dùng corpus chuẩn hóa `7105c484…`; corpus `c1823935…` và các index cũ không được xem là baseline B3.
 
-## Source và corpus
+## Mã nguồn và corpus
 
 | Hạng mục | Trạng thái | Bằng chứng |
 | --- | --- | --- |
@@ -10,7 +10,7 @@
 | Corpus | 2.322 chunks | `data/chunking_output/chunks.jsonl` |
 | Corpus SHA-256 chuẩn hóa CRLF→LF | `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023` | `embedding.vector_store.chunk_file_sha256()` |
 
-## Runtime mặc định và Qdrant
+## Môi trường chạy mặc định và Qdrant
 
 | Thành phần | Cấu hình | Bằng chứng / giới hạn |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ Các collection/index hậu tố `_b3` là kết quả build tạm trước khi 
 
 Precompute Dev30 mới: 30 query, output SHA-256 `6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353`, corpus SHA khớp `7105c484…`. Manifest ngày 10/11 ghi SHA config chuẩn hóa và raw SHA riêng.
 
-## Artifact
+## Tệp kết quả
 
 - `reports/retrieval/d4_3_qdrant_migration_default_20261109.json`
 - `reports/retrieval/week09_retrieval_smoke_20261110.md`

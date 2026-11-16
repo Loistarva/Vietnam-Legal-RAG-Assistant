@@ -13,7 +13,7 @@
   "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
   "precomputed_artifact": {
     "path": "evaluation/results/precompute/20261110_dev30_retrieval.jsonl",
-    "sha256": "576065abe250393ee56130555a175345d5827628802df83f14bbe7aae38574a3"
+    "sha256": "6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353"
   },
   "as_of_date_source": "benchmark",
   "results_path": "evaluation/results/dev/20261113_controlled_rag_qwen25_dev30_post_fix/results.jsonl",
@@ -51,7 +51,7 @@
     "python_implementation": "CPython",
     "platform": "Windows-11-10.0.26300-SP0"
   },
-  "run_signature_sha256": "16000b8ab44bffa4c64b5e5794c7526a95f0e254a5e3b74124e56b9f3150ca10",
+  "run_signature_sha256": "c2a506a799dc674a719f2e0058c923a604df7c24780def91a143cc72651714cd",
   "started_at_utc": "2026-11-13T14:35:49.560240+00:00",
   "finished_at_utc": "2026-11-13T14:38:12.883026+00:00",
   "status": "SUCCESS",

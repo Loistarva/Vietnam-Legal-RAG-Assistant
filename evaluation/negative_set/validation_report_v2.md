@@ -18,9 +18,10 @@ bản bàn giao hiện tại. Validator mặc định dùng v2, không đổi d�
   cần đối chiếu; giữ 3 case yêu cầu nguồn trực tiếp làm control.
 - Viết lại 6 case thiếu dữ kiện theo cách hỏi tự nhiên, không tự nêu toàn bộ
   phần thiếu. Clarification fields vẫn ghi riêng cho evaluator/router.
-- Thêm hai case ranh giới (thừa kế và hình phạt bạo lực gia đình). Nhãn đề xuất
-  legal_out_of_scope chỉ áp dụng câu cụ thể, chưa phải quyết định phạm vi cho
-  toàn bộ chủ đề. Tech Lead cần chốt NEG_DEV_025/026; trạng thái pending_peer_review.
+- Thêm hai case ranh giới (thừa kế và hình phạt bạo lực gia đình). Nhãn
+  `NEG_DEV_025` (`legal_out_of_scope`) được Dev4 xác nhận: câu chỉ hỏi hàng thừa
+  kế theo luật dân sự, không hỏi chế độ tài sản HNGĐ. `NEG_DEV_026` vẫn chờ Tech
+  Lead chốt; review độc lập của Dev2/Tech Lead cho toàn bộ bộ dữ liệu vẫn đang chờ.
 
 ## Bàn giao
 

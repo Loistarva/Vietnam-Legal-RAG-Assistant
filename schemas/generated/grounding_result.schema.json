@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "$defs": {
     "MappedCitation": {
       "additionalProperties": false,
@@ -56,8 +56,11 @@
   "description": "Kết quả kiểm định căn cứ từ Dev 1 / Dev 5 (D3.1 + tương thích Sprint 9).",
   "properties": {
     "schema_version": {
-      "const": "week10_v1.0",
-      "default": "week10_v1.0",
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
       "title": "Schema Version",
       "type": "string"
     },

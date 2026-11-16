@@ -28,6 +28,18 @@ class RuleRouterTest(unittest.TestCase):
         self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
         self.assertEqual(decision.route_reason, RouteReason.HNGD_DOMAIN_MATCH)
 
+    def test_router_decision_converts_to_canonical_dev3_contract(self):
+        canonical = self.router.route(
+            "Chồng mất không để lại di chúc. Di sản chia theo hàng thừa kế nào?",
+            query_id="NEG_DEV_025", as_of_date="2026-10-15",
+        ).to_canonical()
+        self.assertEqual(canonical.schema_version, "week10_v1.1")
+        self.assertEqual(canonical.route, "LEGAL_OUT_OF_SCOPE")
+        self.assertEqual(canonical.query_id, "NEG_DEV_025")
+        self.assertEqual(canonical.policy_version, "rule_router_v3")
+        self.assertTrue(canonical.reason_code)
+        self.assertTrue(canonical.explanation)
+
     def test_child_custody_after_divorce_is_hngd(self):
         decision = self.router.route("Sau ly hôn ai có quyền nuôi con?")
         self.assertEqual(decision.route, Route.LEGAL_HNGD)
@@ -271,18 +283,47 @@ class RuleRouterTest(unittest.TestCase):
             with self.subTest(query=query):
                 self.assertEqual(self.router.route(query).route, Route.LEGAL_HNGD)
 
-    def test_r4_spouse_death_and_property_is_mixed_but_marital_inheritance_stays_hngd(self):
+    def test_spouse_death_routes_by_the_actual_legal_issue(self):
         decision = self.router.route(
             "Chồng mất, nhà đứng tên chồng thì vợ có được ở tiếp không?"
         )
-        self.assertEqual(decision.route, Route.MIXED_LEGAL_SCOPE)
-        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+        self.assertEqual(decision.route, Route.LEGAL_HNGD)
+        self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+
+        inheritance = self.router.route(
+            "Chồng mất không để lại di chúc. Phần di sản của chồng sẽ được chia theo hàng thừa kế nào?"
+        )
+        self.assertEqual(inheritance.route, Route.LEGAL_OUT_OF_SCOPE)
+        self.assertEqual(inheritance.action, Action.POLICY_ABSTENTION)
+
+        mixed_inheritance = self.router.route(
+            "Khi chồng mất, tài sản chung của vợ chồng được xác định thế nào trước khi chia thừa kế?"
+        )
+        self.assertEqual(mixed_inheritance.route, Route.MIXED_LEGAL_SCOPE)
+        self.assertEqual(mixed_inheritance.action, Action.POLICY_ABSTENTION)
+
+        marital_inheritance = self.router.route(
+            "Tài sản thừa kế trong thời kỳ hôn nhân có phải tài sản chung không?"
+        )
+        self.assertEqual(marital_inheritance.route, Route.LEGAL_HNGD)
+        self.assertEqual(marital_inheritance.action, Action.LEGAL_RETRIEVAL)
 
         control = self.router.route(
             "Tài sản thừa kế trong thời kỳ hôn nhân có phải tài sản chung không?"
         )
         self.assertEqual(control.route, Route.LEGAL_HNGD)
         self.assertEqual(control.action, Action.LEGAL_RETRIEVAL)
+
+    def test_official_dev_queries_about_spouse_declared_dead_remain_hngd(self):
+        queries = (
+            "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết tài sản của vợ chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+            "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý quan hệ nhân thân, tài sản khi vợ, chồng bị tuyên bố là đã chết mà trở về dựa trên nguyên tắc nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
 
     def test_generic_employment_and_admission_paperwork_stays_nonlegal(self):
         for query in (

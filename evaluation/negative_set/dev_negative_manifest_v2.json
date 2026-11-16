@@ -16,7 +16,7 @@
     "missing_corpus_evidence": 6,
     "insufficient_facts": 6
   },
-  "dataset_canonical_sha256": "735f2bf172fc40dc682ed9cd608e46cc9e0ec1762a26356f81e8553142f19ff0",
+  "dataset_canonical_sha256": "f5cc13daa748fd238d2b44e314b39e7db4e2b6b35f8c2a39f01d938b0e3b8818",
   "baseline_git_sha": "fc666421fb50d394d11df2368303031092a30578",
   "baseline_files_git_sha256": {
     "data/reference/document_versions.json": "3d8cc357107b3ed76d40e3ee5dadbbc8a4c07492dc19d41e9199725d8b452694",
@@ -71,6 +71,6 @@
       "60/2014/QH13",
       "326/2016/UBTVQH14"
     ],
-    "note": "Checked registry and corpus primary document identities on pinned testing, not just hashes. New decrees ND87/2020, ND07/2025, ND18/2026 and TT04/2024 are related evidence, not the requested primary documents. Boundary labels remain proposals."
+    "note": "Checked registry and corpus primary document identities on pinned testing, not just hashes. New decrees ND87/2020, ND07/2025, ND18/2026 and TT04/2024 are related evidence, not the requested primary documents. Dev4 confirmed NEG_DEV_025 as civil inheritance out of scope; NEG_DEV_026 and independent Dev2/Tech Lead review remain pending."
   }
 }

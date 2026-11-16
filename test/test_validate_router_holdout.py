@@ -28,6 +28,8 @@ def valid_rows() -> list[dict[str, str]]:
             "expected_route": route,
             "expected_action": action,
             "category": f"category_{index % 5}",
+            "reason": "A specific routing signal supports this expected route.",
+            "reviewer_status": "PENDING_INDEPENDENT_REVIEW",
         })
     return rows
 
@@ -68,6 +70,26 @@ class ValidateRouterHoldoutTests(unittest.TestCase):
             write_jsonl(path, rows)
             result = validate_holdout(path)
         self.assertTrue(any("cặp route/action sai" in error for error in result["errors"]))
+
+    def test_requires_reason_and_truthful_review_status(self):
+        rows = valid_rows()
+        rows[0].pop("reason")
+        rows[1]["reviewer_status"] = "REVIEWED"
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "holdout.jsonl"
+            write_jsonl(path, rows)
+            result = validate_holdout(path)
+        self.assertTrue(any("reason" in error for error in result["errors"]))
+        self.assertTrue(any("reviewer_status" in error for error in result["errors"]))
+
+    def test_accepts_dev4_review_status(self):
+        rows = valid_rows()
+        rows[0]["reviewer_status"] = "DEV4"
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "holdout.jsonl"
+            write_jsonl(path, rows)
+            result = validate_holdout(path)
+        self.assertEqual(result["errors"], [])
 
     def test_rejects_exact_match_in_comparison_source(self):
         rows = valid_rows()

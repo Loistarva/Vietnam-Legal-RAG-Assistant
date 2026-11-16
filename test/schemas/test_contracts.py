@@ -99,8 +99,8 @@ def _success_response_kwargs(**overrides) -> dict:
 
 
 def test_standard_literals_and_aliases():
-    assert SCHEMA_VERSION == "week10_v1.0"
-    assert set(get_args(SchemaVersionType)) == {"week10_v1.0"}
+    assert SCHEMA_VERSION == "week10_v1.1"
+    assert set(get_args(SchemaVersionType)) == {"week10_v1.0", "week10_v1.1"}
     assert Candidate is CandidateChunk
     assert set(get_args(RouteType)) == {"LEGAL_IN_SCOPE", "NON_LEGAL", "LEGAL_OUT_OF_SCOPE", "MIXED_REVIEW"}
     assert set(get_args(ResponseStatus)) == {"SUCCESS", "NEEDS_CLARIFICATION", "ABSTAIN", "ERROR"}
@@ -173,6 +173,24 @@ def test_example_payloads_validate_with_pydantic_and_json_schema(example_name: s
 
     schema = json.loads((GENERATED_DIR / schema_file).read_text(encoding="utf-8"))
     jsonschema.Draft202012Validator(schema).validate(payload)
+
+
+def test_retrieval_bundle_serializes_filters_and_stage_latency():
+    source = json.loads((EXAMPLES_DIR / "retrieval_bundle_valid.json").read_text(encoding="utf-8"))
+    bundle = RetrievalBundle.model_validate(source)
+    payload = bundle.model_dump(mode="json")
+    assert payload["metadata_filters"] == {
+        "document_id": "l_52_2014_qh13", "article_id": "art_8",
+        "document_type": None, "document_number": None, "clause_id": None, "validity_status": None,
+    }
+    assert payload["latency_breakdown"]["bm25_ms"] == 11.4
+    assert payload["latency_breakdown"]["parent_context_ms"] is None
+    assert payload["schema_version"] == "week10_v1.1"
+
+    legacy = {key: value for key, value in source.items()
+              if key not in {"metadata_filters", "latency_breakdown"}}
+    legacy["schema_version"] = "week10_v1.0"
+    assert RetrievalBundle.model_validate(legacy).schema_version == "week10_v1.0"
 
 
 def test_remaining_canonical_models_roundtrip_against_generated_schemas():
