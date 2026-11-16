@@ -158,7 +158,7 @@ Cột: **Mã · Yêu cầu · Khối sơ đồ · GĐ · Phụ thuộc · Trạn
 
 Tiêu chí chấp nhận:
 
-- **FR1.1-AC1** Given bộ hồi quy router và holdout, When phân loại, Then số lần gọi Model Gateway = 0 và độ chính xác pháp lý / không pháp lý được ghi vào báo cáo router.
+- **FR1.1-AC1** Given bộ hồi quy router và holdout, When phân loại, Then số lần gọi Model Gateway = 0 và độ chính xác phân loại pháp lý / không pháp lý trên holdout ≥ 90% (BRD BO-04), ghi trong báo cáo router.
 - **FR1.1-AC2** Given 6 câu `non_legal` của tập câu âm, Then cả 6 được phân loại không phải pháp lý.
 - **FR1.2-AC1** Given "Xin chào", Then `route = NON_LEGAL`, `status = SUCCESS`, `grounding_status = NOT_RUN`, `llm_calls = 0`, `citations = []`, có disclaimer.
 - **FR1.2-AC2** Câu trả lời xã giao lấy từ tập kịch bản cố định trong cấu hình và không chứa số hiệu văn bản hay chữ "Điều".
@@ -226,8 +226,8 @@ Tiêu chí chấp nhận:
 - **FR3.1-AC2** Given điểm hạng 1 = 0,087 < 0,5, Then không đủ tin cậy, `reason_code = LOW_CONFIDENCE`, `abstention_source = confidence_filter`.
 - **FR3.3-AC1** Given không đủ tin cậy hoặc không có ứng viên, Then `llm_calls = 0`, `done_reason = not_generated`.
 - **FR3.3-AC2** Given retriever trả rỗng, Then `reason_code = RETRIEVAL_EMPTY`.
-- **FR3.4-AC1** Given 6 câu `insufficient_facts` của tập câu âm, Then tỷ lệ `status = NEEDS_CLARIFICATION` được báo; mỗi câu làm rõ nêu ít nhất một dữ kiện cụ thể (ví dụ thời điểm kết hôn, có đăng ký kết hôn không, tài sản có trước hay sau hôn nhân) và không có kết luận pháp lý.
-- **FR3.4-AC2** Given 6 câu `missing_corpus_evidence`, Then tỷ lệ `status = ABSTAIN` với thông báo "không đủ căn cứ" được báo.
+- **FR3.4-AC1** Given các câu `insufficient_facts` của tập câu âm, Then ≥ 70% có `status = NEEDS_CLARIFICATION` (BRD BO-04); mỗi câu làm rõ nêu ít nhất một dữ kiện cụ thể (ví dụ thời điểm kết hôn, có đăng ký kết hôn không, tài sản có trước hay sau hôn nhân) và không có kết luận pháp lý.
+- **FR3.4-AC2** Given các câu `missing_corpus_evidence` của tập câu âm, Then ≥ 80% có `status = ABSTAIN` với thông báo "không đủ căn cứ" (BRD BO-04).
 - **FR3.4-AC3** Phản hồi làm rõ có `clarification` không rỗng, `answer = null`, `citations = []`, có disclaimer.
 - **FR3.6-AC1** Given model trả `needs_clarification = true`, Then `status = NEEDS_CLARIFICATION`, `grounding_status = NEEDS_CLARIFICATION`, nội dung trả về là thông báo làm rõ, không phải nội dung model.
 - **FR3.7-AC1** Given ngưỡng trong cấu hình thay đổi, Then `threshold_config_version` khác bản trước, có báo cáo quét mới, và báo cáo không đọc file Test.
@@ -248,7 +248,7 @@ Tiêu chí chấp nhận:
 Tiêu chí chấp nhận:
 
 - **FR4.1-AC1** Given chunk có `parent_id`, Then nội dung evidence tương ứng chứa toàn văn parent đó.
-- **FR4.1-AC2** Given `parent_id` không có trong kho parent, Then lỗi dữ liệu được báo (không im lặng dùng chunk thay parent) hoặc hành vi thay thế được ghi trong `retrieval_trace`.
+- **FR4.1-AC2** Given `parent_id` không có trong kho parent, Then evidence dùng nội dung chunk, `retrieval_trace` ghi số parent bị thiếu và `chunk_id` tương ứng, log có cảnh báo; không im lặng bỏ qua.
 - **FR4.2-AC1** Given 3 chunk thuộc cùng một parent, Then parent xuất hiện một lần trong ngữ cảnh.
 - **FR4.2-AC2** Given ngữ cảnh đã dựng, Then chỉ số evidence = `[1..n]` liên tục, khóa của `source_map` = cùng tập, `total_chars ≤ max_context_chars`; vi phạm thì contract `ContextPayload` báo lỗi.
 - **FR4.3-AC1** Mỗi evidence có `document_title`, `document_number`, `breadcrumb`, `validity_status`, `effective_from` không rỗng; `effective_to` có thể rỗng.
@@ -666,7 +666,7 @@ Các yêu cầu trong cùng một đợt làm song song được nhờ mock theo
 
 | Đợt | Nội dung | Yêu cầu | Điều kiện bắt đầu |
 | --- | --- | --- | --- |
-| 0 | Chốt quyết định và contract | D-01, D-02, D-03, D-07; mục 5.2–5.4 trong `schemas/models.py` | Tech Lead duyệt SRS 2.1 |
+| 0 | Đưa contract đã chốt vào code | D-01, D-02, D-03, D-07 (đã chốt); mục 5.2–5.4 vào `schemas/models.py`; interface mục 5.5 (Protocol hoặc lớp trừu tượng) | Đã đạt (SRS 2.1 duyệt 16/11/2026) |
 | 1 | Khung API, router trong pipeline, log, UI với API giả lập | FR1.9, FR1.1–FR1.6, IR2.1, IR2.2, IR2.3, IR2.5, NFR3.1, FR7.1, FR9.9, NFR3.4, NFR7.2, IR1.1–IR1.6, FR6.4 | Đợt 0 xong |
 | 2 | Stream, hỏi lại, sinh lại, CLI, độ bền log | IR2.4, NFR2.1, FR3.4, FR5.6, IR3.1, FR9.10, IR1.7 | IR2.1 và FR1.9 xong; D-05, D-06 chốt |
 | 3 | Đo và nghiệm thu | FR1.8, NFR5.2, NFR6.2, NFR7.3; đo BO-04 và BO-05 trên toàn hệ thống | Đợt 2 xong |
@@ -716,6 +716,21 @@ Các yêu cầu GĐ3 cần feature spec: FR2.2, FR2.3, FR2.9, FR3.1 (phần LLM 
 ---
 
 ## 12. Quản lý thay đổi spec
+
+### 12.1. Mức ràng buộc với nhóm phát triển
+
+| Loại | Ràng buộc | Muốn khác thì |
+| --- | --- | --- |
+| Câu yêu cầu, tiêu chí chấp nhận, quy tắc nghiệp vụ (BRD mục 6) | **Bắt buộc.** Hành vi của code phải khớp. | PR sửa SRS/BRD trước, Tech Lead duyệt, rồi mới sửa code. |
+| Contract (mục 5: schema, enum, mã lỗi, HTTP, interface) | **Bắt buộc**, kể cả tên trường và giá trị enum. | PR sửa SRS và `schemas/models.py` cùng lúc, tăng `schema_version`, báo các bên dùng. |
+| Mã yêu cầu | **Bắt buộc** ghi trong PR code và marker test. | — |
+| Tham số (Top-K, ngưỡng, timeout…) | Theo file cấu hình có phiên bản; SRS chỉ ghi mặc định. | Đổi cấu hình, tăng phiên bản, chạy lại bộ hồi quy; không cần sửa SRS. |
+| Cách hiện thực bên trong module (thuật toán, cấu trúc code, thư viện) | **Tự do**, miễn đạt tiêu chí chấp nhận và giữ contract. | — |
+| Ghi chú thiết kế (mục 7) | Hướng dẫn, không bắt buộc. | — |
+
+Khi gặp chỗ SRS sai, thiếu hoặc không làm được: dừng phần đó, mở issue hoặc PR sửa SRS nêu mã yêu cầu, làm tiếp phần khác. Không tự diễn giải lại rồi code.
+
+### 12.2. Quy trình
 
 1. Thay đổi hành vi bắt đầu bằng PR sửa SRS (hoặc feature spec), Tech Lead duyệt, rồi mới tới PR code.
 2. Thay đổi kiến trúc thì sửa sơ đồ và SRS trong cùng PR.
