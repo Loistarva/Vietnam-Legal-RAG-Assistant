@@ -15,16 +15,19 @@ from schemas.models import (
     SCHEMA_VERSION,
     AskRequest,
     AskResponse,
+    AskTimings,
     Candidate,
     CandidateChunk,
     ContextPayload,
     ErrorCode,
+    ErrorDetail,
     EventStage,
     EvidenceItem,
     GroundingResult,
     GroundingStatus,
     LLMResponse,
     LogEvent,
+    MappedCitation,
     ResponseStatus,
     RetrievalBundle,
     RouteDecision,
@@ -52,15 +55,44 @@ EXAMPLE_MODEL_MAP: dict[str, tuple[type, str]] = {
 }
 
 
+def _sample_evidence(evidence_index: int = 1) -> EvidenceItem:
+    return EvidenceItem(
+        evidence_index=evidence_index,
+        chunk_id=f"c{evidence_index}",
+        parent_clause_id="pc1",
+        document_id="doc1",
+        article_id="art_8",
+        clause_id="clause_1",
+        content="Nam từ đủ 20 tuổi trở lên.",
+        validity_status="Còn hiệu lực",
+    )
+
+
+def _sample_citation(evidence_index: int = 1) -> MappedCitation:
+    return MappedCitation(
+        evidence_index=evidence_index,
+        chunk_id=f"c{evidence_index}",
+        document_id="doc1",
+        article_id="art_8",
+        clause_id="clause_1",
+        parent_clause_id="pc1",
+    )
+
+
 def _success_response_kwargs(**overrides) -> dict:
     base = {
         "query_id": "Q1",
         "request_id": "req_1",
+        "as_of_date": "2026-11-16",
+        "as_of_date_source": "user_input",
         "status": "SUCCESS",
         "route": "LEGAL_IN_SCOPE",
         "answer": "Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên [1].",
+        "citations": [_sample_citation(1)],
+        "evidence": [_sample_evidence(1)],
         "grounding_status": "PASS",
         "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+        "timings": AskTimings(retrieval_ms=12.0, llm_total_ms=120.0, total_ms=140.0),
     }
     base.update(overrides)
     return base
@@ -173,9 +205,10 @@ def test_remaining_canonical_models_roundtrip_against_generated_schemas():
         status="FAIL",
         violation_codes=["ANSWER_MARKER_NOT_IN_EVIDENCE_INDICES"],
         retryable=False,
-        abstention_reason="GROUNDING_FAIL",
+        reason="ANSWER_MARKER_NOT_IN_EVIDENCE_INDICES",
     )
     assert grounding.grounding_status == "FAIL" and grounding.is_grounded is False
+    assert grounding.abstention_reason is None
 
     pairs = [
         (evidence, "evidence_item.schema.json"),
@@ -208,30 +241,51 @@ def test_export_json_schemas_writes_root_and_generated(tmp_path: Path):
     assert "error_code" in gen_llm["properties"]
 
 
-def test_ask_response_valid_paths_including_non_legal_and_legacy_ok():
+def test_ask_response_valid_paths_and_strict_schema_consistency():
     non_legal = AskResponse(
         query_id="Q_CHAT",
+        as_of_date="2026-11-16",
+        as_of_date_source="system_today",
         status="SUCCESS",
         route="NON_LEGAL",
         answer="Xin chào, tôi là trợ lý hỏi đáp pháp luật Hôn nhân và gia đình.",
         grounding_status="NOT_RUN",
         disclaimer="Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+        timings=AskTimings(total_ms=3.5),
     )
-    assert non_legal.grounding_status == "NOT_RUN" and non_legal.evidence == []
+    assert non_legal.grounding_status == "NOT_RUN"
+    assert non_legal.evidence == [] and non_legal.citations == []
+    assert non_legal.timings.total_ms == 3.5
 
-    legacy_ok = AskResponse(**_success_response_kwargs(status="OK"))
-    assert legacy_ok.status == "SUCCESS"
-
-    clarify_alias = AskResponse(
-        query_id="Q_AMB",
-        status="NEEDS_CLARIFICATION",
-        route="MIXED_REVIEW",
-        answer=None,
-        clarification_question="Vui lòng nêu rõ thời điểm kết hôn?",
-        grounding_status="NOT_RUN",
-        disclaimer="Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+    abstain_allowed_code = AskResponse(
+        **_success_response_kwargs(
+            status="ABSTAIN",
+            route="LEGAL_IN_SCOPE",
+            answer=None,
+            citations=[],
+            evidence=[],
+            grounding_status="NOT_RUN",
+            abstention_reason="LOW_CONFIDENCE",
+            error_code="LOW_CONFIDENCE",
+        )
     )
-    assert clarify_alias.clarification == "Vui lòng nêu rõ thời điểm kết hôn?"
+    assert abstain_allowed_code.error_code == "LOW_CONFIDENCE"
+
+    # Legacy Pydantic-only aliases removed so Pydantic matches JSON Schema
+    with pytest.raises(ValidationError):
+        AskResponse(**_success_response_kwargs(status="OK"))
+
+    with pytest.raises(ValidationError):
+        AskResponse(
+            query_id="Q_AMB",
+            as_of_date="2026-11-16",
+            status="NEEDS_CLARIFICATION",
+            route="MIXED_REVIEW",
+            answer=None,
+            clarification_question="Vui lòng nêu rõ thời điểm kết hôn?",
+            grounding_status="NOT_RUN",
+            disclaimer="Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+        )
 
 
 @pytest.mark.parametrize(
@@ -239,27 +293,41 @@ def test_ask_response_valid_paths_including_non_legal_and_legacy_ok():
     [
         {"grounding_status": "FAIL"},
         {"grounding_status": "NOT_RUN"},  # LEGAL_IN_SCOPE cannot use NOT_RUN when SUCCESS
+        {"route": "LEGAL_OUT_OF_SCOPE"},
+        {"citations": []},
+        {"citations": [_sample_citation(2)]},  # evidence_index=2 missing from evidence
+        {"route": "NON_LEGAL", "grounding_status": "PASS", "citations": [], "evidence": []},
+        {"route": "NON_LEGAL", "grounding_status": "NOT_RUN", "citations": []},  # evidence still present
+        {"route": "NON_LEGAL", "grounding_status": "NOT_RUN", "evidence": []},  # citations still present
+        {"as_of_date": "16-11-2026"},
         {"answer": None},
         {"answer": "   "},
         {"disclaimer": "   "},
         {"clarification": "Hỏi lại?"},
         {"abstention_reason": "OUT_OF_SCOPE"},
         {"error_code": "INTERNAL_ERROR"},
-        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "", "abstention_reason": "LOW_CONFIDENCE"},
-        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "Draft leak", "abstention_reason": "LOW_CONFIDENCE"},
-        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "abstention_message": None, "abstention_reason": None},
-        {"status": "ABSTAIN", "grounding_status": "PASS", "answer": None, "abstention_reason": "LOW_CONFIDENCE"},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": "Hỏi lại?", "clarification": "Hỏi lại?"},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": None, "clarification": None},
-        {"status": "NEEDS_CLARIFICATION", "grounding_status": "PASS", "answer": None, "clarification": "Cần thêm thông tin"},
-        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": "Có lỗi", "error_code": "LLM_TIMEOUT"},
-        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": None, "error_code": None, "error": None},
-        {"status": "ERROR", "grounding_status": "PASS", "answer": None, "error_code": "LLM_TIMEOUT"},
+        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "", "citations": [], "evidence": [], "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": "Draft leak", "citations": [], "evidence": [], "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_message": None, "abstention_reason": None},
+        {"status": "ABSTAIN", "grounding_status": "PASS", "answer": None, "citations": [], "evidence": [], "abstention_reason": "LOW_CONFIDENCE"},
+        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error_code": "LLM_TIMEOUT"},
+        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error": {"message": "fail"}},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": "Hỏi lại?", "citations": [], "evidence": [], "clarification": "Hỏi lại?"},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "clarification": None},
+        {"status": "NEEDS_CLARIFICATION", "grounding_status": "PASS", "answer": None, "citations": [], "evidence": [], "clarification": "Cần thêm thông tin"},
+        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": "Có lỗi", "citations": [], "evidence": [], "error_code": "LLM_TIMEOUT"},
+        {"status": "ERROR", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "error_code": None, "error": ErrorDetail(message="Timeout")},
+        {"status": "ERROR", "grounding_status": "PASS", "answer": None, "citations": [], "evidence": [], "error_code": "LLM_TIMEOUT"},
     ],
 )
 def test_ask_response_status_separation_rejects_mixed_states(bad_overrides: dict):
     with pytest.raises(ValidationError):
         AskResponse(**_success_response_kwargs(**bad_overrides))
+
+
+def test_error_detail_rejects_arbitrary_traceback_or_prompt_fields():
+    with pytest.raises(ValidationError):
+        ErrorDetail(message="Failed", traceback="Traceback (most recent call last)...")  # type: ignore[call-arg]
 
 
 def test_ask_request_locks_server_params_and_schema_version_literal():
@@ -320,8 +388,24 @@ def test_other_canonical_models_validation_and_grounding_compatibility():
     # Backward compatibility with Sprint 9 citation_validator / rag_pipeline calling pattern
     legacy_gr = GroundingResult(grounding_status="PASS", is_grounded=True)
     assert legacy_gr.status == "PASS" and legacy_gr.grounding_status == "PASS"
+    abstain_gr = GroundingResult(grounding_status="ABSTAIN", is_grounded=False, reason="LOW_CONFIDENCE")
+    assert abstain_gr.abstention_reason == "LOW_CONFIDENCE"
+    fail_gr = GroundingResult(grounding_status="FAIL", is_grounded=False, reason="OUT_OF_RANGE")
+    assert fail_gr.abstention_reason is None and fail_gr.violation_codes == ["OUT_OF_RANGE"]
+
     with pytest.raises(ValidationError):
         GroundingResult(status="PASS", grounding_status="FAIL", is_grounded=True)
+    with pytest.raises(ValidationError):
+        GroundingResult(status="PASS", is_grounded=False)
+    with pytest.raises(ValidationError):
+        GroundingResult(status="FAIL", is_grounded=True)
+
+    # Empty object rejected by both Pydantic and generated JSON Schema
+    with pytest.raises(ValidationError):
+        GroundingResult()  # type: ignore[call-arg]
+    grounding_schema = json.loads((GENERATED_DIR / "grounding_result.schema.json").read_text(encoding="utf-8"))
+    with pytest.raises(jsonschema.ValidationError):
+        jsonschema.Draft202012Validator(grounding_schema).validate({})
 
     usage = TokenUsage()
     assert usage.input is None and usage.output is None

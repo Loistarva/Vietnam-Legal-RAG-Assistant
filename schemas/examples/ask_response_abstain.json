@@ -2,6 +2,8 @@
   "schema_version": "week10_v1.0",
   "query_id": "Q_OOS_001",
   "request_id": "req_20261116_oos_001",
+  "as_of_date": "2026-11-16",
+  "as_of_date_source": "system_today",
   "status": "ABSTAIN",
   "route": "LEGAL_OUT_OF_SCOPE",
   "answer": null,
@@ -18,8 +20,9 @@
     "ttft_model_ms": null,
     "load_ms": null,
     "prompt_eval_ms": null,
-    "eval_ms": null
+    "eval_ms": null,
+    "total_ms": 1.8
   },
-  "error_code": null,
+  "error_code": "ROUTE_POLICY",
   "error": null
 }

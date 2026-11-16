@@ -80,22 +80,23 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 
 ### 4.3. Quy ước `ResponseStatus` (`SUCCESS` vs `OK` / `answered`) và `ErrorCode` (`GROUNDING_FAIL`)
 
-- Trạng thái thành công chuẩn của `AskResponse` là **`"SUCCESS"`** (thay cho `"OK"` hoặc `"answered"` ở một số mock UI cũ). Validator `normalize_legacy_ok_status` tự chuẩn hóa `"OK"` → `"SUCCESS"` ở đầu vào nhưng JSON Schema chuẩn chỉ chấp nhận `"SUCCESS"`.
+- Trạng thái thành công chuẩn của `AskResponse` là **`"SUCCESS"`** (thay cho `"OK"` hoặc `"answered"` ở một số mock UI cũ). Cả Pydantic và JSON Schema đều **chỉ chấp nhận `"SUCCESS"`** (đã loại bỏ alias `"OK"` và `clarification_question` để bảo đảm nhất quán tuyệt đối).
 - Mã lỗi Gate thất bại chuẩn là **`"GROUNDING_FAIL"`** (thay cho `"GATE_FAIL"`).
 
-### 4.4. Quy tắc tách bạch trạng thái của `AskResponse`
+### 4.4. Quy tắc tách bạch trạng thái, `route` ↔ `citations` và bảo mật của `AskResponse`
 
-`AskResponse.validate_status_separation` thực thi nghiêm ngặt:
+`AskResponse` bổ sung `as_of_date`, `as_of_date_source` (cho client biết chính xác ngày hiệu lực mà server đã áp dụng), `timings: AskTimings` (có `total_ms` cho UI), và `error: ErrorDetail | None` (`{message: str, retryable: bool}`, `extra="forbid"` nhằm ngăn lọt traceback hoặc raw prompt ra API). Validator `validate_status_separation` thực thi nghiêm ngặt:
 
-| `status` | `answer` | `grounding_status` hợp lệ | Trường bắt buộc khác | Trường bị cấm khác `null` |
+| `status` | `answer` | `grounding_status` hợp lệ | Ràng buộc `route` / `citations` / `evidence` | Trường bắt buộc & bị cấm khác |
 | :--- | :--- | :--- | :--- | :--- |
-| `SUCCESS` | Chuỗi không rỗng | `"PASS"` (hoặc `"NOT_RUN"`/`"PASS"` nếu `route == "NON_LEGAL"`) | `disclaimer` không rỗng | `clarification`, `abstention_message`, `abstention_reason`, `error_code`, `error` |
-| `ABSTAIN` | **Bắt buộc `null`** | `"ABSTAIN"`, `"FAIL"`, `"NOT_RUN"` | `disclaimer` và (`abstention_message` hoặc `abstention_reason`) không rỗng | `answer`, `clarification` |
-| `NEEDS_CLARIFICATION` | **Bắt buộc `null`** | `"NEEDS_CLARIFICATION"`, `"NOT_RUN"` | `disclaimer` và `clarification` không rỗng | `answer`, `abstention_message`, `abstention_reason`, `error_code`, `error` |
-| `ERROR` | **Bắt buộc `null`** | Khác `"PASS"` (thường `"FAIL"` hoặc `"NOT_RUN"`) | `disclaimer` không rỗng và (`error_code` hoặc `error`) khác `null` | `answer`, `clarification`, `abstention_message`, `abstention_reason` |
+| `SUCCESS` | Chuỗi không rỗng | `"NOT_RUN"` (`NON_LEGAL`) hoặc `"PASS"` (luồng legal) | **Cấm `LEGAL_OUT_OF_SCOPE`**. Với `NON_LEGAL`: `evidence=[]`, `citations=[]`. Với `LEGAL_IN_SCOPE` / `MIXED_REVIEW`: `citations` không rỗng và mọi `citations[].evidence_index` phải có trong `evidence`. | Bắt buộc `disclaimer`, `as_of_date`. Cấm `clarification`, `abstention_message`, `abstention_reason`, `error_code`, `error`. |
+| `ABSTAIN` | **Bắt buộc `null`** | `"ABSTAIN"`, `"FAIL"`, `"NOT_RUN"` | Cho phép mọi `route`; `citations` / `evidence` rỗng khi ngắt trước retrieval/LLM | Bắt buộc `disclaimer`, `as_of_date`, và (`abstention_message` hoặc `abstention_reason`). `error_code` chỉ nhận `ROUTE_POLICY`, `RETRIEVAL_EMPTY`, `LOW_CONFIDENCE`, `GROUNDING_FAIL` hoặc `null`. Cấm `answer`, `clarification`, `error`. |
+| `NEEDS_CLARIFICATION` | **Bắt buộc `null`** | `"NEEDS_CLARIFICATION"`, `"NOT_RUN"` | `clarification` không rỗng | Bắt buộc `disclaimer`, `as_of_date`, `clarification`. Cấm `answer`, `abstention_message`, `abstention_reason`, `error_code`, `error`. |
+| `ERROR` | **Bắt buộc `null`** | Khác `"PASS"` (thường `"FAIL"` hoặc `"NOT_RUN"`) | `error` là `ErrorDetail` có kiểu (`{message, retryable}`) | Bắt buộc `disclaimer`, `as_of_date` và **`error_code` khác `null`**. Cấm `answer`, `clarification`, `abstention_message`, `abstention_reason`. |
 
 > [!IMPORTANT]
-> Khi `status` là `"ABSTAIN"`, `"NEEDS_CLARIFICATION"` hoặc `"ERROR"`, trường `answer` **luôn phải là `null`** (không đặt chuỗi rỗng `""` hay câu thông báo vào `answer`), để tránh rò rỉ nháp câu trả lời hoặc nhầm lẫn trên UI.
+> - Khi `status` là `"ABSTAIN"`, `"NEEDS_CLARIFICATION"` hoặc `"ERROR"`, trường `answer` **luôn phải là `null`** (không đặt chuỗi rỗng `""` hay câu thông báo vào `answer`), để tránh rò rỉ nháp câu trả lời hoặc nhầm lẫn trên UI.
+> - Trong `GroundingResult`: trường canonical là `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (bắt buộc có `status` hoặc `grounding_status`, bỏ default `"PASS"`, `is_grounded == (status == "PASS")`, và `abstention_reason` chỉ dùng khi `status == "ABSTAIN"`). Các trường cũ (`grounding_status`, `valid_citations`, `invalid_indices`, `unsupported_claims`, `reason`) đã ở trạng thái **deprecated**, chỉ giữ tạm qua `@model_validator` để tương thích với code Sprint 9 (`grounding/citation_validator.py`, `orchestration/rag_pipeline.py`).
 
 ---
 
@@ -130,10 +131,10 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 
 | Thành viên | Điểm cần đồng bộ sang Contract `week10_v1.0` |
 | :--- | :--- |
-| **Dev 1 (Grounding & Validator)** | `GroundingResult` giữ tương thích ngược với `grounding_status`, `is_grounded`, `valid_citations`, `invalid_indices`, `reason`; khi nâng cấp tuần 10 sử dụng thêm `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (mã `"GROUNDING_FAIL"` thay cho `"GATE_FAIL"`). |
+| **Dev 1 (Grounding & Validator)** | `GroundingResult` giữ tạm các trường **deprecated** (`grounding_status`, `valid_citations`, `invalid_indices`, `reason`) để tương thích với `citation_validator.py`; khi nâng cấp tuần 10 chuyển sang `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (mã `"GROUNDING_FAIL"` thay cho `"GATE_FAIL"`, lưu ý `abstention_reason` chỉ dùng ở nhánh `ABSTAIN`). |
 | **Dev 2 (Evaluation & Monitoring)** | Đọc/ghi log theo `LogEvent` mới: dùng `event_id`, `event_type`, `duration_ms`, `masked_metadata` và 9 `EventStage` (`api`, `router`, `retrieval`, `rerank`, `context`, `llm`, `citation`, `gate`, `response`); xử lý `TokenUsage.input`/`output` có thể là `null`. |
 | **Dev 4 (Router & Retrieval)** | Khi xuất `RouteDecision` ra API/Pipeline dùng `map_router_route_to_canonical()` để chuyển `Route` (`LEGAL_HNGD`, `MIXED_LEGAL_SCOPE`, `LEGAL_SCOPE_UNCERTAIN`...) sang `RouteType` (`LEGAL_IN_SCOPE`, `NON_LEGAL`, `LEGAL_OUT_OF_SCOPE`, `MIXED_REVIEW`) kèm `reason_code`, `explanation`, `policy_version`. Gói truy xuất dùng `RetrievalBundle` mới (`retrieval_config_version`, `corpus_hash`, `precomputed`, `latency_ms`). |
-| **Dev 5 (API Gateway & Orchestration)** | Nhận `AskRequest` đã khóa (`query`, `as_of_date`, `session_id`, `request_id`, `query_id`; không nhận `run_mode`/`top_k`/`metadata`). Sinh `query_id` nếu thiếu. Trả `AskResponse` dùng `status="SUCCESS"` (không dùng `"OK"`/`"answered"`), luôn gán `disclaimer` không rỗng, để `answer=None` ở mọi nhánh `ABSTAIN`/`NEEDS_CLARIFICATION`/`ERROR`, điền `evidence: list[EvidenceItem]`, `timings`, và phân biệt `grounding_status="NOT_RUN"` cho nhánh `NON_LEGAL` hoặc dừng sớm trước LLM. |
+| **Dev 5 (API Gateway & Orchestration)** | Nhận `AskRequest` đã khóa (`query`, `as_of_date`, `session_id`, `request_id`, `query_id`; không nhận `run_mode`/`top_k`/`metadata`). Sinh `query_id` nếu thiếu. Trả `AskResponse` dùng `status="SUCCESS"`, điền `as_of_date`, `as_of_date_source`, `disclaimer`, `timings.total_ms`, `error: ErrorDetail`, `error_code` bắt buộc khi `ERROR`; để `answer=None` ở mọi nhánh `ABSTAIN`/`NEEDS_CLARIFICATION`/`ERROR`; luồng legal `SUCCESS` phải có `citations` trỏ vào `evidence`, còn `NON_LEGAL` phải có `grounding_status="NOT_RUN"` và `evidence=[]`. |
 
 ---
 
