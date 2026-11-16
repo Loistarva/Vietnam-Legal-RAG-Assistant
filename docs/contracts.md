@@ -85,12 +85,12 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 
 ### 4.4. Quy tắc tách bạch trạng thái, `route` ↔ `citations` và bảo mật của `AskResponse`
 
-`AskResponse` bổ sung `as_of_date`, `as_of_date_source` (cho client biết chính xác ngày hiệu lực mà server đã áp dụng), `timings: AskTimings` (có `total_ms` cho UI), và `error: ErrorDetail | None` (`{message: str, retryable: bool}`, `extra="forbid"` nhằm ngăn lọt traceback hoặc raw prompt ra API). Validator `validate_status_separation` thực thi nghiêm ngặt:
+`AskResponse` bổ sung `as_of_date`, `as_of_date_source` (đều bắt buộc, không có giá trị mặc định; cho client biết chính xác ngày hiệu lực mà server đã áp dụng), `timings: AskTimings` (có `total_ms` cho UI), và `error: ErrorDetail | None` (`{message: str, retryable: bool}`, `extra="forbid"` nhằm ngăn lọt traceback hoặc raw prompt ra API). Validator `validate_status_separation` thực thi nghiêm ngặt:
 
 | `status` | `answer` | `grounding_status` hợp lệ | Ràng buộc `route` / `citations` / `evidence` | Trường bắt buộc & bị cấm khác |
 | :--- | :--- | :--- | :--- | :--- |
 | `SUCCESS` | Chuỗi không rỗng | `"NOT_RUN"` (`NON_LEGAL`) hoặc `"PASS"` (luồng legal) | **Cấm `LEGAL_OUT_OF_SCOPE`**. Với `NON_LEGAL`: `evidence=[]`, `citations=[]`. Với `LEGAL_IN_SCOPE` / `MIXED_REVIEW`: `citations` không rỗng và mọi `citations[].evidence_index` phải có trong `evidence`. | Bắt buộc `disclaimer`, `as_of_date`. Cấm `clarification`, `abstention_message`, `abstention_reason`, `error_code`, `error`. |
-| `ABSTAIN` | **Bắt buộc `null`** | `"ABSTAIN"`, `"FAIL"`, `"NOT_RUN"` | Cho phép mọi `route`; `citations` / `evidence` rỗng khi ngắt trước retrieval/LLM | Bắt buộc `disclaimer`, `as_of_date`, và (`abstention_message` hoặc `abstention_reason`). `error_code` chỉ nhận `ROUTE_POLICY`, `RETRIEVAL_EMPTY`, `LOW_CONFIDENCE`, `GROUNDING_FAIL` hoặc `null`. Cấm `answer`, `clarification`, `error`. |
+| `ABSTAIN` | **Bắt buộc `null`** | `"ABSTAIN"`, `"FAIL"`, `"NOT_RUN"` | Cho phép mọi `route`; `citations` / `evidence` rỗng khi ngắt trước retrieval/LLM | Bắt buộc `disclaimer`, `as_of_date`, và (`abstention_message` hoặc `abstention_reason`). `error_code` chỉ nhận `ROUTE_POLICY`, `RETRIEVAL_EMPTY`, `LOW_CONFIDENCE`, `GROUNDING_FAIL`, `JSON_INVALID` / `CITATION_INVALID` (chỉ khi `grounding_status="FAIL"`, tức Gate FAIL do JSON hỏng hoặc citation sai) hoặc `null`. Cấm `answer`, `clarification`, `error`. |
 | `NEEDS_CLARIFICATION` | **Bắt buộc `null`** | `"NEEDS_CLARIFICATION"`, `"NOT_RUN"` | `clarification` không rỗng | Bắt buộc `disclaimer`, `as_of_date`, `clarification`. Cấm `answer`, `abstention_message`, `abstention_reason`, `error_code`, `error`. |
 | `ERROR` | **Bắt buộc `null`** | Khác `"PASS"` (thường `"FAIL"` hoặc `"NOT_RUN"`) | `error` là `ErrorDetail` có kiểu (`{message, retryable}`) | Bắt buộc `disclaimer`, `as_of_date` và **`error_code` khác `null`**. Cấm `answer`, `clarification`, `abstention_message`, `abstention_reason`. |
 

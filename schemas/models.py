@@ -47,6 +47,8 @@ ErrorCode = Literal[
     "INTERNAL_ERROR",
 ]
 _ABSTAIN_ERROR_CODES = {"ROUTE_POLICY", "RETRIEVAL_EMPTY", "LOW_CONFIDENCE", "GROUNDING_FAIL"}
+# Gate FAIL vì JSON hỏng / citation sai vẫn abstain (Sprint 10 mục 4), giữ mã cụ thể.
+_GATE_FAIL_ERROR_CODES = {"JSON_INVALID", "CITATION_INVALID"}
 
 _ROUTER_ROUTE_MAP: dict[str, RouteType] = {
     "LEGAL_HNGD": "LEGAL_IN_SCOPE",
@@ -730,7 +732,7 @@ class AskResponse(StrictBaseModel):
     query_id: str = Field(..., min_length=1)
     request_id: str | None = None
     as_of_date: str
-    as_of_date_source: AsOfDateSource = "user_input"
+    as_of_date_source: AsOfDateSource
     status: ResponseStatus
     route: RouteType
     answer: str | None = None
@@ -810,9 +812,15 @@ class AskResponse(StrictBaseModel):
                 raise ValueError("status='ABSTAIN' bắt buộc phải có abstention_message hoặc abstention_reason")
             if self.clarification is not None or self.error is not None:
                 raise ValueError("status='ABSTAIN' không được đặt clarification hoặc error")
-            if self.error_code is not None and self.error_code not in _ABSTAIN_ERROR_CODES:
+            if self.error_code in _GATE_FAIL_ERROR_CODES:
+                if self.grounding_status != "FAIL":
+                    raise ValueError(
+                        f"status='ABSTAIN' với error_code='{self.error_code}' bắt buộc grounding_status='FAIL'"
+                    )
+            elif self.error_code is not None and self.error_code not in _ABSTAIN_ERROR_CODES:
                 raise ValueError(
-                    f"status='ABSTAIN' chỉ nhận error_code thuộc {sorted(_ABSTAIN_ERROR_CODES)} hoặc None"
+                    f"status='ABSTAIN' chỉ nhận error_code thuộc {sorted(_ABSTAIN_ERROR_CODES)}, "
+                    f"{sorted(_GATE_FAIL_ERROR_CODES)} (khi grounding_status='FAIL') hoặc None"
                 )
         elif self.status == "NEEDS_CLARIFICATION":
             if self.answer is not None:
