@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "$defs": {
+    "LatencyBreakdown": {
+      "additionalProperties": false,
+      "description": "Thời gian từng bước (ms). null = không đo được (không đặt 0), ví dụ retrieval_ms khi\ndùng artifact precomputed, hoặc các trường thời gian Ollama khi không gọi LLM.",
+      "properties": {
+        "retrieval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieval Ms"
+        },
+        "llm_total_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Llm Total Ms"
+        },
+        "ttft_model_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ttft Model Ms"
+        },
+        "load_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Ms"
+        },
+        "prompt_eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Eval Ms"
+        },
+        "eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eval Ms"
+        }
+      },
+      "title": "LatencyBreakdown",
+      "type": "object"
+    },
+    "MappedCitation": {
+      "additionalProperties": false,
+      "description": "Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5].",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Clause Id"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "document_id",
+        "article_id",
+        "clause_id"
+      ],
+      "title": "MappedCitation",
+      "type": "object"
+    },
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "Số lượng token sử dụng (input prompt eval, output generation eval). null = không có số liệu.",
+      "properties": {
+        "input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input"
+        },
+        "output": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output"
+        }
+      },
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Đầu ra API chuẩn hóa với tách biệt rạch ròi giữa OK / ABSTAIN / NEEDS_CLARIFICATION / ERROR.",
+  "properties": {
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "query": {
+      "title": "Query",
+      "type": "string"
+    },
+    "as_of_date": {
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "as_of_date_source": {
+      "default": "user_input",
+      "enum": [
+        "benchmark",
+        "query_text",
+        "user_input",
+        "system_today"
+      ],
+      "title": "As Of Date Source",
+      "type": "string"
+    },
+    "route": {
+      "enum": [
+        "FACTUAL_LEGAL",
+        "OUT_OF_SCOPE",
+        "AMBIGUOUS",
+        "SYSTEM_META"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OK",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION",
+        "ERROR"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "grounding_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION"
+      ],
+      "title": "Grounding Status",
+      "type": "string"
+    },
+    "answer": {
+      "default": "",
+      "title": "Answer",
+      "type": "string"
+    },
+    "citations": {
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Citations",
+      "type": "array"
+    },
+    "evidence_indices": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Evidence Indices",
+      "type": "array"
+    },
+    "abstained": {
+      "default": false,
+      "title": "Abstained",
+      "type": "boolean"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
+    "abstention_source": {
+      "anyOf": [
+        {
+          "enum": [
+            "confidence_filter",
+            "model",
+            "grounding_gate",
+            "router"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Source"
+    },
+    "needs_clarification": {
+      "default": false,
+      "title": "Needs Clarification",
+      "type": "boolean"
+    },
+    "clarification_question": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clarification Question"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "LLM_TIMEOUT",
+            "JSON_INVALID",
+            "CITATION_INVALID",
+            "GATE_FAIL",
+            "INTERNAL_ERROR"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "error_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Message"
+    },
+    "latency_ms": {
+      "default": 0.0,
+      "minimum": 0,
+      "title": "Latency Ms",
+      "type": "number"
+    },
+    "latency_breakdown": {
+      "$ref": "#/$defs/LatencyBreakdown"
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    },
+    "model": {
+      "default": "qwen2.5:7b",
+      "title": "Model",
+      "type": "string"
+    },
+    "prompt_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Prompt Version"
+    },
+    "schema_version": {
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query_id",
+    "query",
+    "as_of_date",
+    "route",
+    "status",
+    "grounding_status"
+  ],
+  "title": "AskResponse",
+  "type": "object"
+}

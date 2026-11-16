@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "additionalProperties": false,
+  "description": "Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1).",
+  "properties": {
+    "query": {
+      "title": "Query",
+      "type": "string"
+    },
+    "query_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Query Id"
+    },
+    "as_of_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "As Of Date"
+    },
+    "run_mode": {
+      "default": "C_production_rag",
+      "enum": [
+        "A_zero_shot",
+        "B_controlled_rag",
+        "C_production_rag"
+      ],
+      "title": "Run Mode",
+      "type": "string"
+    },
+    "top_k": {
+      "default": 5,
+      "maximum": 20,
+      "minimum": 1,
+      "title": "Top K",
+      "type": "integer"
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Id"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "title": "Metadata",
+      "type": "object"
+    },
+    "schema_version": {
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query"
+  ],
+  "title": "AskRequest",
+  "type": "object"
+}

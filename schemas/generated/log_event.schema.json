@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "additionalProperties": false,
+  "description": "Sự kiện log có cấu trúc qua các chặng của pipeline RAG (D3.1).",
+  "properties": {
+    "timestamp": {
+      "title": "Timestamp",
+      "type": "string"
+    },
+    "trace_id": {
+      "title": "Trace Id",
+      "type": "string"
+    },
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "request",
+        "route",
+        "retrieve",
+        "context",
+        "generate",
+        "grounding",
+        "response",
+        "error"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OK",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION",
+        "ERROR"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "route": {
+      "anyOf": [
+        {
+          "enum": [
+            "FACTUAL_LEGAL",
+            "OUT_OF_SCOPE",
+            "AMBIGUOUS",
+            "SYSTEM_META"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Route"
+    },
+    "grounding_status": {
+      "anyOf": [
+        {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "ABSTAIN",
+            "NEEDS_CLARIFICATION"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Grounding Status"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "LLM_TIMEOUT",
+            "JSON_INVALID",
+            "CITATION_INVALID",
+            "GATE_FAIL",
+            "INTERNAL_ERROR"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "latency_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latency Ms"
+    },
+    "message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Message"
+    },
+    "details": {
+      "additionalProperties": true,
+      "title": "Details",
+      "type": "object"
+    },
+    "schema_version": {
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "timestamp",
+    "trace_id",
+    "query_id",
+    "stage",
+    "status"
+  ],
+  "title": "LogEvent",
+  "type": "object"
+}
