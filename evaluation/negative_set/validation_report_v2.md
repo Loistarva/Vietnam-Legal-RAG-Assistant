@@ -20,8 +20,10 @@ bản bàn giao hiện tại. Validator mặc định dùng v2, không đổi d�
   phần thiếu. Clarification fields vẫn ghi riêng cho evaluator/router.
 - Thêm hai case ranh giới (thừa kế và hình phạt bạo lực gia đình). Nhãn
   `NEG_DEV_025` (`legal_out_of_scope`) được Dev4 xác nhận: câu chỉ hỏi hàng thừa
-  kế theo luật dân sự, không hỏi chế độ tài sản HNGĐ. `NEG_DEV_026` vẫn chờ Tech
-  Lead chốt; review độc lập của Dev2/Tech Lead cho toàn bộ bộ dữ liệu vẫn đang chờ.
+  kế theo luật dân sự, không hỏi chế độ tài sản HNGĐ. Policy `NEG_DEV_026` được
+  project owner xác nhận ngày 2026-11-17. Project owner báo Dev2 đã review độc lập;
+  SHA của bản Dev2 đã xem chưa được cung cấp và Tech Lead review toàn bộ dataset
+  vẫn đang chờ, nên trạng thái tổng thể tiếp tục là `pending_peer_review`.
 
 ## Bàn giao
 

@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import json
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from agent.router.rule_router import Action, Route, RouteDecision, RuleRouter
@@ -11,10 +13,20 @@ from scripts.smoke_rule_router import (
     DEFAULT_HOLDOUT,
     evaluate_router_holdout,
     read_router_holdout,
+    run,
 )
 
 
 class RouterHoldoutLoaderTests(unittest.TestCase):
+    def test_freeze_mode_skips_holdout_and_passes_dev_and_negative_gates(self):
+        with patch.object(sys, "argv", ["smoke_rule_router.py", "--skip-holdout"]):
+            report, success = run()
+        self.assertTrue(success)
+        self.assertIn("skipped (pre-freeze mode)", report)
+        self.assertIn("negative_26_route_and_router_action_match | PASS", report)
+        self.assertIn("no_legal_query_to_NON_LEGAL_or_GENERAL_CHAT | PASS", report)
+        self.assertNotIn("holdout_candidate_route_action_match", report)
+
     def test_repository_holdout_candidate_matches_current_labels(self):
         rows, error = read_router_holdout(DEFAULT_HOLDOUT)
         self.assertIsNone(error)

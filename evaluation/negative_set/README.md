@@ -1,6 +1,6 @@
 # Bản bàn giao hiện tại: v2
 
-Dùng `dev_negative_queries_v2.jsonl` và `dev_negative_manifest_v2.json`. Có 26 câu, đã rà coverage trên testing fc66642 (28 văn bản, 2.322 chunk). Dev4 đã xác nhận cách phân loại NEG_DEV_025; NEG_DEV_026 và review độc lập của Dev2/Tech Lead vẫn đang chờ. Xem [validation_report_v2.md](validation_report_v2.md). Các mô tả v1 dưới đây giữ để truy vết lịch sử.
+Dùng `dev_negative_queries_v2.jsonl` và `dev_negative_manifest_v2.json`. Có 26 câu, đã rà coverage trên testing fc66642 (28 văn bản, 2.322 chunk). Dev4 xác nhận NEG_DEV_025; project owner xác nhận policy NEG_DEV_026 ngày 2026-11-17. Project owner báo Dev2 đã review độc lập ngày 2026-11-17, nhưng chưa cung cấp SHA bản Dev2 đã xem; Tech Lead review toàn bộ dataset vẫn chờ. Do đó `review_status` vẫn là `pending_peer_review` cho đến khi xác nhận SHA và hoàn tất sign-off. Xem [validation_report_v2.md](validation_report_v2.md). Các mô tả v1 dưới đây giữ để truy vết lịch sử.
 
 # D1.5 — Tập câu âm Dev v1
 
