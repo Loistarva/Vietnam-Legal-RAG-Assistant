@@ -15,7 +15,7 @@
     "sha256": "22e1460d1b3ff85112fd51e588cfa8022ca062be9d8cc7988c9c861700b6603e",
     "review_status": "INDEPENDENT_REVIEW_COMPLETE",
     "reviewer": "Dev3",
-    "evaluation_status": "NOT_RUN"
+    "evaluation_status": "CONSUMED"
   },
   "pre_freeze_evidence": {
     "command": "python scripts/smoke_rule_router.py --skip-holdout",
@@ -36,8 +36,38 @@
     "git_diff_check": "PASS"
   },
   "notes": [
-    "Holdout v3 was skipped during pre-freeze smoke and has not been evaluated.",
-    "Router source and focused Router tests are committed and clean at the recorded Git commit.",
-    "Other unrelated local repository changes are excluded from the Router freeze commit."
-  ]
+    "Pre-freeze smoke skipped holdout v3; after freeze it was evaluated exactly once.",
+    "The v3 result is consumed and must not be used to tune this same frozen router and then re-run.",
+    "Router source and focused Router tests are committed and clean at the recorded freeze commit.",
+    "Other unrelated local repository changes were excluded from the Router freeze commit."
+  ],
+  "evaluation": {
+    "run_utc": "2026-11-17T12:23:06.246852+00:00",
+    "git_commit": "c9aef50c54cccc776b863ad3480339146af28bab",
+    "classifier_version": "rule_router_v4_1",
+    "router_sha256": "2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a",
+    "holdout_sha256": "22e1460d1b3ff85112fd51e588cfa8022ca062be9d8cc7988c9c861700b6603e",
+    "validator": "PASS",
+    "exact_route_action": "24/36",
+    "mismatch_count": 12,
+    "mismatch_ids": [
+      "W13RH_006",
+      "W13RH_011",
+      "W13RH_013",
+      "W13RH_014",
+      "W13RH_015",
+      "W13RH_016",
+      "W13RH_018",
+      "W13RH_020",
+      "W13RH_021",
+      "W13RH_022",
+      "W13RH_023",
+      "W13RH_024"
+    ],
+    "legal_to_nonlegal_or_general_chat": 0,
+    "safety_gate": "PASS",
+    "overall_route_action_gate": "FAIL",
+    "all_non_holdout_pre_freeze_gates": "PASS (5/5)",
+    "report_file_created": false
+  }
 }
