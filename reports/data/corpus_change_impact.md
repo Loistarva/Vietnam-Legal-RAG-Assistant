@@ -4,7 +4,7 @@ So sánh trực tiếp testing f89ef8372a06102802349bb9ea0cf04fcc0a4646 với PR
 
 ## 1. Những gì đã được xử lý
 
-07d365d thay sáu mapping placeholder bằng nguồn/chunk production; 08bcb52 sửa xác thực/kiểm thử cho mapping hoàn chỉnh; 54c0e37 sửa câu Dev draft để tránh giao Khoản Test. Toàn bộ pytest trên đúng PR head: 644 đạt, 1 bỏ qua trong 30,03 giây; validator và hai kiểm tra freeze đều đạt.
+07d365d thay sáu mapping placeholder bằng nguồn/chunk production; 08bcb52 sửa validation/tests cho mapping hoàn chỉnh; 54c0e37 sửa câu Dev draft để tránh giao Khoản Test. Full pytest trên đúng PR head: 644 passed, 1 skipped in 30.03s; validator và hai freeze checks PASS.
 
 195 câu vẫn draft/other; gold_context_ids_confirmed=true được docs/benchmark_label_provenance.md giải thích là xác nhận mapping tồn tại/khớp corpus. Không gọi đây là lỗi nâng 195 câu thành Gold pháp lý. Metric official tiếp tục chỉ dùng source_checked.
 
@@ -21,7 +21,7 @@ So sánh trực tiếp testing f89ef8372a06102802349bb9ea0cf04fcc0a4646 với PR
 | Mọi record dùng ID Điều 19–50 NĐ126 | 0 | 26 |
 | Source_checked trong nhóm đó | 0 | 0 |
 
-26 bản ghi trong nhóm NĐ126 là bản nháp; đây là danh sách cần rà soát nguồn khi chuyển sang Gold, không phải 26 câu đã duyệt mới bị phát hiện sai. Audit ID không kết luận hiệu lực pháp luật; không sửa luật/dữ liệu theo suy đoán.
+26 record trong nhóm NĐ126 là draft; đây là danh sách cần source review khi chuyển Gold, không phải 26 câu đã duyệt mới bị phát hiện sai. Audit ID không kết luận hiệu lực pháp luật; không sửa luật/dữ liệu theo suy đoán.
 
 Corpus thêm 9, xóa 0, sửa chunk cũ 0. 195 record ground_truth thay đổi; xóa record 0; source_checked thay đổi 0; Test thay đổi 0.
 
@@ -57,10 +57,10 @@ Chín chunk mới:
 
 ## 3. Việc tích hợp cần làm nếu nhận PR
 
-1. Người phụ trách rà soát nguồn/provenance của 9 chunk và quyết định chấp nhận/hoãn; báo cáo D1.0 không tự quyết định.
-2. Dựng lại hoặc migration có kiểm soát ES/Qdrant cho corpus 2173; ghi hash/index/version mới. Không dùng artifact corpus 2164 như thể là bản 2173.
+1. Owner review nguồn/provenance 9 chunk và quyết định accept/defer; report D1.0 không tự quyết.
+2. Rebuild hoặc migration có kiểm soát ES/Qdrant cho corpus 2173; ghi hash/index/version mới. Không dùng artifact corpus 2164 như thể là bản 2173.
 3. Kiểm tra kết quả tích hợp với #27 và #32: giữ các sửa đáp án/reviewer/freeze mới, bảo đảm evaluator chỉ chấm nhãn được duyệt. Không kết luận có conflict chỉ vì cùng file; cần thử tích hợp trước.
-4. Chạy validator, kiểm tra rò rỉ, freeze và kiểm thử sau tích hợp. Chỉ freeze lại khi payload Test thực sự đổi và được phép; chỉ thay corpus không bắt buộc đổi hash Test.
+4. Chạy validator, leakage, freeze và tests sau tích hợp. Chỉ re-freeze khi payload Test thực sự đổi và được phép; thay corpus một mình không bắt buộc đổi hash Test.
 
 ## 4. Phần còn là giới hạn tài liệu
 

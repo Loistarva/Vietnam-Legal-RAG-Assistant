@@ -30,7 +30,7 @@ Chạy từ thư mục gốc repo trên Windows:
 .\.venv\Scripts\python.exe scripts/validate_router_holdout.py --holdout evaluation/router_holdout/router_holdout_week10_v1.jsonl
 ```
 
-Lệnh phải báo `VALIDATION PASSED`, số bản ghi, phân bố route và đã so khớp với năm nguồn. Validator kiểm tra JSONL/field bắt buộc, ID và câu hỏi trùng, đủ năm route, mapping route/action và trùng văn bản đã chuẩn hóa. Nếu đường dẫn virtualenv khác, dùng Python của môi trường repo tương ứng.
+Lệnh phải báo `VALIDATION PASSED`, số bản ghi, phân bố route và đã so khớp với sáu nguồn. Validator kiểm tra JSONL/field bắt buộc, ID và câu hỏi trùng, đủ năm route, mapping route/action và trùng văn bản đã chuẩn hóa với sáu nguồn đối chiếu. Nếu đường dẫn virtualenv khác, dùng Python của môi trường repo tương ứng.
 
 Kết quả pass không chứng minh nhãn đúng, không phát hiện paraphrase/semantic overlap và không tự chứng nhận reviewer độc lập.
 
@@ -59,7 +59,7 @@ Nên ẩn expected route/action và dự đoán Router trong vòng chấm đầu
 .\.venv\Scripts\ruff.exe check agent/router/rule_router.py scripts/validate_router_holdout.py scripts/smoke_rule_router.py test/agent/test_rule_router.py test/test_validate_router_holdout.py
 ```
 
-4. Chạy smoke trên Dev Gold, toàn bộ Dev benchmark và Negative Set theo script `scripts/smoke_rule_router.py`; xem gate kết quả, không chỉ tổng accuracy: Dev Gold route, tỷ lệ legal đi retrieval, non-legal sang `GENERAL_CHAT`, và không có câu legal bị route thành `GENERAL_CHAT`.
+4. Chạy smoke trên Dev Gold, toàn bộ Dev benchmark và Negative Set theo script `scripts/smoke_rule_router.py`; áp dụng đầy đủ các gate trước khi freeze: (a) 0 câu hỏi pháp lý bị route thành `NON_LEGAL`/`GENERAL_CHAT`; (b) Dev Gold đạt 30/30; (c) Dev benchmark tối thiểu 270 câu đạt route/action retrieval kỳ vọng (>=95%); (d) Negative Set đạt 26/26 nhãn route/action đã chốt, gồm NEG_DEV_025 và NEG_DEV_026; (e) non-legal không đi vào RAG; và (f) regression đạt ít nhất 90%. Lưu số đếm, mẫu số, mismatch IDs và lệnh chạy cho từng gate. Nếu gate/định nghĩa nhãn chưa được Tech Lead chốt, chưa freeze.
 5. Chỉ freeze khi tất cả tiêu chí do Tech Lead chốt đều đạt, policy không còn pending, test pass, và reviewer/consumer đã xác nhận contract. Nếu gate holdout được đặt là exact route/action match, 14/36 mismatch hiện tại là **không đạt** gate đó.
 
 ### Ghi nhận freeze
@@ -94,17 +94,17 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 
 ## 6. Checklist sign-off
 
-- [ ] Policy route/action và `NEG_DEV_026` được Tech Lead chốt.
+- [ ] Policy route/action được Tech Lead chốt: `NEG_DEV_025`/`NEG_DEV_026` là `legal_out_of_scope` + `policy_abstention`; bạo lực gia đình chỉ hỏi biện pháp/quyền/nghĩa vụ HNGĐ thì in-scope, chỉ hỏi xử lý hình sự thì out-of-scope, hỏi cả hai thì mixed.
 - [ ] Regression/Dev gates đã pass và có lệnh + kết quả.
 - [ ] Reviewer độc lập hoàn tất semantic/legal label review; identity, ngày và SHA được ghi.
-- [ ] Holdout candidate qua validator và semantic overlap review; không dùng dataset đã tiêu thụ để tuyên bố điểm mới.
+- [ ] Holdout v2 qua validator và semantic overlap review độc lập; không dùng v1 đã tiêu thụ để tuyên bố điểm mới.
 - [ ] Router/config/policy được commit; version, commit SHA, source SHA và corpus SHA đã ghi.
 - [ ] Consumer (Dev5) xác nhận contract; Dev2 xác nhận format bàn giao nếu dùng cho evaluation.
 - [ ] Holdout mới được chạy đúng một lần sau freeze; predictions/manifest được lưu và không bị ghi đè.
 
 ## 7. Trạng thái tại thời điểm viết
 
-- `router_holdout_week10_v1.jsonl`: 36 câu, `reviewer_status=DEV4`; owner đã rà soát nhưng chưa có xác nhận reviewer độc lập.
-- Validator: trước đây đạt kiểm tra cấu trúc, mapping và overlap chính xác với năm nguồn.
+- `router_holdout_week10_v1.jsonl`: 36 câu, `reviewer_status=DEV4`; owner đã rà soát nhưng chưa có xác nhận reviewer độc lập. Đã tiêu thụ khi chạy (22/36 khớp, 14 mismatch), vì vậy chỉ dùng làm regression.
+- `router_holdout_week10_v2.jsonl`: candidate 36 câu mới, đang chờ review độc lập; validator exact-text so sánh sáu nguồn. Chưa chạy Router trên v2.
 - Smoke v1: 22/36 route/action khớp, 14 mismatch; đã tiêu thụ.
-- Router freeze: chưa đạt; cần review độc lập, quyết định Tech Lead cho `NEG_DEV_026`, xử lý regression theo dữ liệu không phải holdout đã tiêu thụ, rồi tạo/đánh giá holdout chưa thấy sau freeze.
+- Router freeze: chưa đạt; còn cần xác nhận Tech Lead về policy và toàn bộ gate, review độc lập cho v2, xử lý regression bằng dữ liệu không phải holdout đã tiêu thụ, rồi mới chạy holdout mới sau freeze.

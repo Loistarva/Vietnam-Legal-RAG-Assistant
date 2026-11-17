@@ -366,7 +366,6 @@
       "type": "string"
     },
     "as_of_date_source": {
-      "default": "user_input",
       "enum": [
         "benchmark",
         "query_text",
@@ -516,6 +515,7 @@
   "required": [
     "query_id",
     "as_of_date",
+    "as_of_date_source",
     "status",
     "route",
     "grounding_status",

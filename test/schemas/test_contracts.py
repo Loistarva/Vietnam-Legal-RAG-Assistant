@@ -289,6 +289,29 @@ def test_ask_response_valid_paths_and_strict_schema_consistency():
     )
     assert abstain_allowed_code.error_code == "LOW_CONFIDENCE"
 
+    # Gate FAIL (JSON hỏng / citation sai) abstain kèm mã lỗi cụ thể.
+    for gate_code in ("JSON_INVALID", "CITATION_INVALID"):
+        gate_fail = AskResponse(
+            **_success_response_kwargs(
+                status="ABSTAIN",
+                route="LEGAL_IN_SCOPE",
+                answer=None,
+                citations=[],
+                evidence=[],
+                grounding_status="FAIL",
+                abstention_reason="LLM_OUTPUT_INVALID_JSON",
+                error_code=gate_code,
+            )
+        )
+        assert (gate_fail.status, gate_fail.grounding_status, gate_fail.error_code) == (
+            "ABSTAIN", "FAIL", gate_code
+        )
+
+    missing_source = _success_response_kwargs()
+    missing_source.pop("as_of_date_source")
+    with pytest.raises(ValidationError):
+        AskResponse(**missing_source)
+
     # Legacy Pydantic-only aliases removed so Pydantic matches JSON Schema
     with pytest.raises(ValidationError):
         AskResponse(**_success_response_kwargs(status="OK"))
@@ -297,6 +320,7 @@ def test_ask_response_valid_paths_and_strict_schema_consistency():
         AskResponse(
             query_id="Q_AMB",
             as_of_date="2026-11-16",
+            as_of_date_source="system_today",
             status="NEEDS_CLARIFICATION",
             route="MIXED_REVIEW",
             answer=None,
@@ -329,6 +353,8 @@ def test_ask_response_valid_paths_and_strict_schema_consistency():
         {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_message": None, "abstention_reason": None},
         {"status": "ABSTAIN", "grounding_status": "PASS", "answer": None, "citations": [], "evidence": [], "abstention_reason": "LOW_CONFIDENCE"},
         {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error_code": "LLM_TIMEOUT"},
+        {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error_code": "JSON_INVALID"},
+        {"status": "ABSTAIN", "grounding_status": "ABSTAIN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error_code": "CITATION_INVALID"},
         {"status": "ABSTAIN", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "abstention_reason": "X", "error": {"message": "fail"}},
         {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": "Hỏi lại?", "citations": [], "evidence": [], "clarification": "Hỏi lại?"},
         {"status": "NEEDS_CLARIFICATION", "grounding_status": "NOT_RUN", "answer": None, "citations": [], "evidence": [], "clarification": None},

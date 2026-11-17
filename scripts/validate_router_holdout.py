@@ -21,6 +21,8 @@ DEFAULT_COMPARISON_PATHS = (
     # R4IH v1 has been consumed for tuning; new holdouts must still be screened
     # against it so that its topics are not merely paraphrased.
     ROOT / "test/agent/data/router_holdout_independent_v1.jsonl",
+    # Week 10 v1 has been consumed; a new holdout must not reuse its exact queries.
+    ROOT / "evaluation/router_holdout/router_holdout_week10_v1.jsonl",
     ROOT / "data/benchmark/queries_dev.json",
     ROOT / "evaluation/negative_set/dev_negative_queries_v2.jsonl",
     ROOT / "test/agent/test_rule_router.py",
@@ -153,6 +155,10 @@ def validate_holdout(
 
     comparison_queries: set[str] = set()
     for source in comparison_paths:
+        # A candidate can also be an explicitly listed comparison corpus (for
+        # example, when validating the already-consumed Week 10 v1 itself).
+        if source.resolve() == path.resolve():
+            continue
         found, error = _comparison_queries(source)
         if error:
             errors.append(error)
