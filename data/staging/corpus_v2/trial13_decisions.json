@@ -1,0 +1,80 @@
+[
+    {
+        "document_id":  "l_60_2014_qh13",
+        "file_code":  "L05",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "l_52_2010_qh12",
+        "file_code":  "L06",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "l_13_2022_qh15",
+        "file_code":  "L07",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "tt_10_2020_tt_btp",
+        "file_code":  "TT14",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "nd_06_2011_nd_cp",
+        "file_code":  "ND14",
+        "decision":  "exclude_out_of_scope",
+        "reason":  "Ngoài phạm vi HNGĐ đã thống nhất với người dùng."
+    },
+    {
+        "document_id":  "l_35_2013_qh13",
+        "file_code":  "L08",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "nd_28_2012_nd_cp",
+        "file_code":  "ND15",
+        "decision":  "exclude_out_of_scope",
+        "reason":  "Ngoài phạm vi HNGĐ đã thống nhất với người dùng."
+    },
+    {
+        "document_id":  "l_51_2010_qh12",
+        "file_code":  "L09",
+        "decision":  "exclude_out_of_scope",
+        "reason":  "Ngoài phạm vi HNGĐ đã thống nhất với người dùng."
+    },
+    {
+        "document_id":  "nd_19_2011_nd_cp",
+        "file_code":  "ND16",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "nd_56_2017_nd_cp",
+        "file_code":  "ND17",
+        "decision":  "conditional_parent_required",
+        "reason":  "Luật Trẻ em đã chuẩn hóa và qua cleaner/parser/schema. ND17 vẫn giữ trạng thái hoãn của đợt trial13; chưa đưa vào registry và luồng nạp mặc định của lô này."
+    },
+    {
+        "document_id":  "nd_76_2023_nd_cp",
+        "file_code":  "ND18",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "nd_114_2016_nd_cp",
+        "file_code":  "ND19",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    },
+    {
+        "document_id":  "nd_15_2014_nd_cp",
+        "file_code":  "ND20",
+        "decision":  "accept_for_preparation",
+        "reason":  "Trong phạm vi HNGĐ; cần rà soát hiệu lực trước khi nạp."
+    }
+]

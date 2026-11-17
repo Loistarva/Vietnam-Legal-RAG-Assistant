@@ -1,0 +1,129 @@
+{
+  "verified_at": "2026-11-16",
+  "new_documents": 20,
+  "retained_trial_documents": 10,
+  "excluded_trial_documents": 3,
+  "native_text_documents": 18,
+  "scan_documents_requiring_ocr": 2,
+  "new_document_deduplication": "PASS against baseline + all 13 trial records",
+  "baseline_tracked_files_unchanged": true,
+  "application_code_changed": false,
+  "production_ingest_performed": false,
+  "legal_temporal_review_complete": false,
+  "checks": [
+    {
+      "document_id": "l_102_2016_qh13",
+      "hashes": "PASS",
+      "identity": "PASS (visual only; OCR pending)"
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nq_326_2016_ubtvqh14",
+      "hashes": "PASS",
+      "identity": "PASS (visual only; OCR pending)"
+    },
+    {
+      "document_id": "l_34_2024_qh15",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_24_2019_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_06_2025_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_07_2023_tt_btp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_104_2022_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_09_2022_tt_btp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_120_2025_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "l_85_2025_qh15",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_10_2025_tt_btp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_63_2024_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "nd_301_2026_nd_cp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "l_58_2020_qh14",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_01_2022_tt_btp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_03_2023_tt_btp",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_07_2023_tt_bng",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "tt_07_2025_tt_bng",
+      "hashes": "PASS",
+      "identity": "PASS (text + visual)"
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "article_sequence": "PASS",
+      "articles": 689
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "article_sequence": "PASS",
+      "articles": 517
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "unrelated_following_gazette_documents_removed": "PASS"
+    }
+  ]
+}

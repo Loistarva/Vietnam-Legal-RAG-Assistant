@@ -1,3 +1,5 @@
+> Corpus57 (17/11/2026): b? negative v2/v3 d??i ??y l? c?c snapshot l?ch s? corpus28/corpus41, ch?a ???c ph? duy?t ?? ch?m corpus57. NEG_DEV_013?018 c?a v2 ?? c? ngu?n, c?n duy?t l?i nh?n. Manifest Test corpus41 ???c l?u t?i `data/staging/corpus_v2/history/trial_corpus41/`; manifest Test hi?n h?nh gi? baseline corpus28, kh?ng d?ng ?? ch?y corpus57. Xem `reports/data/corpus_v2/test_fix_notes.md`.
+
 # Bản bàn giao hiện tại: v3 cho corpus 41 văn bản
 
 Ngày chuẩn bị: **14/11/2026**. Bộ v3 giữ nguyên 22 câu, thay 4 câu `NEG_DEV_013`–`NEG_DEV_016` vì Luật Nuôi con nuôi 52/2010 và Luật Hộ tịch 60/2014 đã được nạp. Bốn tình huống mới yêu cầu trực tiếp nguồn sơ cấp chưa có: NĐ 24/2019, NĐ 06/2025, TT 07/2023 và TTLT 05/2015. Không coi dẫn chiếu trong văn bản khác là đã có nguồn được yêu cầu.

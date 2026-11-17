@@ -1,0 +1,405 @@
+Phụ lục
+(Kèm theo Nghị định số 301/2026/NĐ-CP
+ngày 30 tháng 7 năm 2026 của Chính phủ)
+Mẫu số 01 Tờ khai điện tử liên thông đăng ký khai sinh, đăng ký thường trú, 
+cấp thẻ bảo hiểm y tế, cấp thẻ căn cước cho trẻ em dưới 6 tuổi
+Mẫu số 02 Tờ khai điện tử liên thông đăng ký khai tử, xóa đăng ký thường
+trú, giải quyết mai táng phí, tử tuất
+2
+Mẫu số 01
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+_________________________________________
+TỜ KHAI ĐIỆN TỬ
+Liên thông đăng ký khai sinh, đăng ký thường trú, 
+cấp thẻ bảo hiểm y tế và cấp thẻ căn cước cho trẻ em dưới 6 tuổi
+Kính gửi: (1) ..........................................................
+Họ, chữ đệm, tên người yêu cầu: ..........................................................................................
+Số định danh cá nhân: ..........................................................................................
+Ngày, tháng, năm sinh: .............................................................................................................
+Nơi cư trú: (2) ...........................................................................................................................
+Quan hệ với người được khai sinh: ..........................................................................................
+Số điện thoại (6): ....................................; Địa chỉ email (6): ..................................................
+Đề nghị cơ quan đăng ký khai sinh cho người dưới đây:
+Họ, chữ đệm, tên: ...................................................................................................................
+Ngày, tháng, năm sinh: ..................................... ghi bằng chữ: ................................................
+Nơi sinh: (3) .............................................................................................................................
+Giới tính: ............................ Dân tộc: ............................... Quốc tịch: .....................................
+Quê quán: .................................................................................................................................
+Số Giấy chứng sinh (7): ….. ngày …. tháng.... năm.. Cơ sở khám bệnh, chữa bệnh cấp: .......
+Họ, chữ đệm, tên người mẹ: ..................................................................................................
+Số định danh cá nhân/số giấy tờ tùy thân: ............................................................
+Ngày, tháng, năm sinh: .............................................................................................................
+Dân tộc (4): ................................................ Quốc tịch (4): ......................................................
+Nơi cư trú: (2) ...........................................................................................................................
+Họ, chữ đệm, tên người cha: .................................................................................................
+Số định danh cá nhân/số giấy tờ tùy thân: ...........................................................
+Ngày, tháng, năm sinh: .............................................................................................................
+Dân tộc (4): ................................................ Quốc tịch (4): ......................................................
+Nơi cư trú (2): ...........................................................................................................................
+Thông tin về Giấy chứng nhận kết hôn của cha, mẹ trẻ (nếu cha, mẹ trẻ đã đăng ký kết hôn): 
+số ..............................., quyển số .............. đăng ký ngày ......... tháng .........năm .......tại .................
+(Đối với trường hợp khai sinh của trẻ em có cha hoặc mẹ là công dân Việt Nam còn người
+kia là công dân nước ngoài thì đính kèm Văn bản thỏa thuận của cha, mẹ về việc chọn quốc tịch
+cho con).
+3
+Thông tin đăng ký thường trú:
+Họ tên của chủ hộ: ....................................... Số định danh cá nhân: .......................................
+Quan hệ với chủ hộ: .................................................................................................................
+Nơi đề nghị đăng ký thường trú: ..............................................................................................
+Nơi đăng ký khám, chữa bệnh ban đầu (5): .........................................................................
+Số Giấy chứng nhận hộ nghèo: ........................................ ngày cấp: ......................................
+Cấp thẻ căn cước:
+□ Có đề nghị cấp thẻ căn cước trong quy trình liên thông.
+□ Không đề nghị cấp thẻ căn cước trong quy trình liên thông.
+Hình thức nhận kết quả của thủ tục hành chính:
+1. Bản điện tử: □
+Các kết quả thủ tục hành chính được gửi vào kho quản lý dữ liệu điện tử của người yêu cầu
+trên Cổng dịch vụ công quốc gia, ứng dụng VNeID và Hệ thống thông tin giải quyết thủ tục hành 
+chính Bộ Tư pháp, Bộ Công an, Bộ Tài chính.
+2. Bản giấy:
+- Giấy khai sinh: 01 bản chính; …….. bản sao giấy khai sinh tại Bộ phận một cửa của cơ
+quan giải quyết đăng ký khai sinh.
+- Thông báo kết quả giải quyết đăng ký cư trú:
++ □ Tại Bộ phận một cửa của cơ quan giải quyết đăng ký khai sinh
++ □ Tại cơ quan giải quyết đăng ký thường trú
++ □ Qua dịch vụ bưu chính (cá nhân trả cước phí cho cơ quan cung cấp dịch vụ); địa chỉ
+nhận [1]: .......................................................................................................................................
+- Thẻ bảo hiểm y tế:
++ □ Tại Bộ phận một cửa của cơ quan giải quyết đăng ký khai sinh
++ □ Tại cơ quan giải quyết hồ sơ cấp thẻ BHYT
++ □ Qua dịch vụ bưu chính (cá nhân trả cước phí cho cơ quan cung cấp dịch vụ); địa chỉ
+nhận [2]: …………………………………………………………………………………………
+- Thẻ căn cước:
++ □ Tại Bộ phận một cửa của cơ quan giải quyết đăng ký khai sinh
++ □ Tại cơ quan công an cấp xã
++ □ Qua dịch vụ bưu chính (cá nhân trả cước phí cho cơ quan cung cấp dịch vụ); địa chỉ
+nhận [2]: …………………………………………………………………………………………
+- Tích hợp thông tin vào tài khoản định danh điện tử
+□ Đồng ý tích hợp thông tin thẻ bảo hiểm y tế, giấy khai sinh vào tài khoản định danh điện
+tử mức độ 2 trên ứng dụng VNeID của Cha hoặc Mẹ hoặc người giám hộ [3]: ...............................
+Người mẹ thuộc đối tượng được hỗ trợ kinh phí khi sinh con sau đây (tích dấu x nếu
+thuộc trường hợp dưới đây):
+□ Phụ nữ dân tộc thiểu số rất ít người;
+4
+□ Phụ nữ ở tỉnh, thành phố có mức sinh dưới mức sinh thay thế;
+□ Phụ nữ sinh đủ 02 con trước 35 tuổi: Lần sinh thứ …. Liệt kê tên, ngày sinh, số định danh 
+cá nhân của các con đẻ (đối với con đã được cấp số định danh) ………..
+Đăng ký hình thức nhận hỗ trợ tài chính khi sinh con:
+☐ Tài khoản ngân hàng
+Tên chủ tài khoản: ..............................................................................................................
+Số tài khoản: ....................................Ngân hàng: ...............................................................
+☐ Tiền mặt nhận tại Bộ phận Một cửa của cơ quan giải quyết đăng ký khai sinh.
+Tôi cam đoan nội dung khai trên đây là đúng sự thật, được sự thỏa thuận nhất trí của các bên 
+liên quan theo quy định pháp luật và chịu trách nhiệm trước pháp luật về cam đoan của mình.
+Ghi chú:
+(1) Lựa chọn tên các cơ quan có thẩm quyền giải quyết thủ tục hành chính trong quy trình 
+liên thông.
+(2) Công dân lựa chọn nơi thường trú hoặc nơi tạm trú, dữ liệu thường trú hoặc tạm trú theo 
+căn cước công dân sẽ được điền tự động từ Cơ sở dữ liệu quốc gia về dân cư.
+(3) Trường hợp sinh tại Cơ sở khám bệnh, chữa bệnh thì dữ liệu nơi sinh sẽ được điền tự
+động theo dữ liệu giấy chứng sinh từ cơ sở dữ liệu của cơ quan quản lý y tế hoặc từ Cơ sở dữ liệu
+của Bảo hiểm xã hội Việt Nam quản lý. Trường hợp không có dữ liệu thì ghi rõ tên cơ sở khám 
+bệnh, chữa bệnh và địa chỉ trụ sở của Cơ sở khám bệnh, chữa bệnh đó.
+Ví dụ:
+- Bệnh viện Phụ sản Hà Nội, đường La Thành, phường Láng, thành phố Hà Nội;
+- Trạm y tế Từ Sơn, phường Từ Sơn, tỉnh Bắc Ninh. 
+Trường hợp sinh ra ngoài cơ sở khám bệnh, chữa bệnh thì ghi địa danh của 02 cấp hành 
+chính (xã, tỉnh), nơi sinh ra. Ví dụ: phường Từ Sơn, tỉnh Bắc Ninh.
+(4) Dữ liệu dân tộc, quốc tịch của cha, mẹ sẽ được điền tự động theo dữ liệu của Cơ sở dữ
+liệu quốc gia về dân cư.
+(5) Lựa chọn dựa trên cơ sở thông tin do Bảo hiểm xã hội Việt Nam cung cấp.
+(6) Dữ liệu số điện thoại, email sẽ được điền tự động theo dữ liệu của Cơ sở dữ liệu quốc gia 
+về dân cư.
+(7) Dữ liệu về Giấy chứng sinh được liên thông từ cơ sở khám bệnh, chữa bệnh với Cổng
+Dịch vụ công quốc gia hoặc bản điện tử Giấy chứng sinh do người yêu cầu đăng ký khai sinh đính
+kèm trên Cổng Dịch vụ công quốc gia. Trường hợp không có Giấy chứng sinh thì người yêu cầu
+đăng ký khai sinh có thể đính kèm bản chụp hoặc bản điện tử giấy tờ thay Giấy chứng sinh theo 
+quy định pháp luật về hộ tịch.
+5
+Mẫu số 02
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+____________________________________
+TỜ KHAI ĐIỆN TỬ
+Liên thông đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí, tử tuất
+Kính gửi: (1) ...........................................
+Họ, chữ đệm, tên người yêu cầu: ............................................................................................
+Ngày, tháng, năm sinh: .............................................................................................................
+Số định danh cá nhân: ..............................................................................................................
+Nơi cư trú: (2) ..........................................................................................................................
+Quan hệ với người đã chết: ......................................................................................................
+Số điện thoại (5): ...........................................; Địa chỉ email (5): ...........................................
+Nội dung đề nghị: .....................................................................................................................
+1. Đăng ký khai tử cho người có thông tin dưới đây:
+Họ, chữ đệm, tên: .....................................................................................................................
+Ngày, tháng, năm sinh: .............................................................................................................
+Số định danh cá nhân/số giấy tờ tùy thân: ..................................................................................
+Giới tính (3): …………….. Dân tộc (3): ………………… Quốc tịch (3): ................................
+Nơi cư trú cuối cùng: (2) ..........................................................................................................
+Đã chết vào lúc: giờ phút, ngày tháng năm ..............................................................................
+Nơi chết: ...................................................................................................................................
+Nguyên nhân chết: ....................................................................................................................
+Số Giấy báo tử/Giấy tờ thay thế Giấy báo tử (4): …………………. do: .................................
+cấp ngày ………… tháng ………………. năm ...................
+2. Giải quyết mai táng phí, tử tuất
+Thuộc đối tượng:
+□ Bảo trợ xã hội [1]:
+□ Đối tượng hưởng hưu trí xã hội
+□ Đang hưởng trợ cấp xã hội hằng tháng
+□ Con của người đơn thân nghèo đang hưởng trợ cấp hằng tháng
+6
+□ Đối tượng là người đang hưởng trợ cấp tuất hằng tháng, trợ cấp hằng tháng khác.
+□ Người chết trong trường hợp khẩn cấp (thiên tai, hỏa hoạn, tai nạn giao thông,...).
+□ Người có công [2]:
+Quyết định hưởng trợ cấp số: …..…..; ngày ….... tháng ….… năm ….… của ..........................
+Mức trợ cấp, phụ cấp hằng tháng/trợ cấp một lần: ...................................................................
+Trợ cấp, phụ cấp hằng tháng đã nhận hết tháng ……………………. năm ...............................
+□ Bảo hiểm xã hội:
+- Mã số bảo hiểm xã hội/Số sổ bảo hiểm xã hội của người chết: ………………….…………
+- Nơi hưởng lương hưu/trợ cấp bảo hiểm xã hội (đối với người đang hưởng lương hưu hoặc
+trợ cấp bảo hiểm xã hội hằng tháng): ……………………………………………………….………
+- Nơi đóng bảo hiểm xã hội (đối với người đang tham gia bảo hiểm xã hội tự nguyện):
+………………………………………………………………………………………………………
+Thân nhân người chết theo quy định của Luật Bảo hiểm xã hội (bao gồm: con, vợ hoặc
+chồng, cha đẻ, mẹ đẻ, cha vợ hoặc cha chồng, mẹ vợ hoặc mẹ chồng; thành viên khác trong gia 
+đình mà người chết khi còn sống có nghĩa vụ nuôi dưỡng)
+Trường hợp chỉ liên thông giải quyết hưởng trợ cấp mai táng mà người lo mai táng là thân 
+nhân thì kê khai thông tin của thân nhân lo mai táng và một thân nhân khác trong số các thân nhân 
+nêu trên.
+Trường hợp liên thông giải quyết hưởng trợ cấp tuất hằng tháng hoặc một lần: Kê khai tất
+cả thân nhân nêu trên. Trường hợp thân nhân đã chết thì ghi “đã chết” vào cột 7 và không phải
+kê khai thông tin tại cột 8, 9, 10). Số thân nhân được hưởng trợ cấp tuất hằng tháng do gia đình
+đề xuất không quá 04 người
+Các thông tin của thân nhân được xác thực với Cơ sở dữ liệu quốc gia về dân cư.
+Ngày, tháng, 
+năm sinh
+TT Họ và tên
+Số định
+danh cá 
+nhân/Mã 
+số BHXH
+Mối
+quan 
+hệ với
+người
+chết
+Nam Nữ
+Địa chỉ
+nơi cư
+trú, số
+điện
+thoại [3]
+Mức
+thu 
+nhập
+hằng
+tháng 
+[4]
+Loại trợ
+cấp tuất
+đề nghị
+hưởng
+[5]
+Hình 
+thức
+nhận
+trợ
+cấp
+[6]
+Thông tin 
+xác nhận
+của thân 
+nhân qua 
+VNeID 
+[7]
+1 2 3 4 5 6 7 8 9 10 11
+7
+Trường hợp thân nhân hưởng trợ cấp tử tuất chưa đủ 15 tuổi hoặc bị mất, hạn chế năng lực
+hành vi dân sự thì khai bổ sung:
+TT
+Họ, tên 
+người
+hưởng 
+trợ cấp
+Họ, tên 
+người
+đứng tên 
+nhận trợ
+cấp
+Mối quan hệ
+của người
+đứng tên 
+nhận trợ cấp
+với người
+hưởng trợ
+cấp
+Mã số BHXH/số căn
+cước công dân/ hộ
+chiếu (Nếu người
+đứng tên nhận trợ cấp
+trùng với thân nhân 
+đã khai ở bảng trên 
+thì không phải khai 
+cột này)
+Địa chỉ nơi
+cư trú [8]
+Số điện
+thoại di 
+động
+Hình thức
+nhận trợ cấp
+[9]
+1 2 3 4 5 6 7 8
+…
+Danh sách thân nhân người có công [10]
+Ngày, tháng, 
+năm sinh
+TT Họ và 
+tên
+Số định
+danh cá 
+nhân/ 
+CCCD
+Mối
+quan 
+hệ với
+người
+có 
+công
+Nam Nữ
+Địa
+chỉ
+nơi cư
+trú, số
+điện
+thoại
+Hoàn 
+cảnh
+hiện
+tại
+[11]
+Loại trợ
+cấp tuất
+đề nghị
+hưởng
+[12]
+Hình 
+thức
+nhận
+trợ
+cấp
+[13]
+Thông tin 
+xác nhận
+của thân 
+nhân qua 
+VneID 
+[14]
+Phần khai chi tiết về con người có công từ đủ 18 tuổi trở lên đang tiếp tục đi học tại cơ sở
+đào tạo hoặc bị khuyết tật nặng, khuyết tật đặc biệt nặng:
+Cơ sở giáo dục đang theo học
+TT Họ và tên Năm sinh Thời điểm bị
+khuyết tật [15]
+Thời điểm kết
+thúc bậc học phổ
+thông Tên cơ sở Thời gian bắt
+đầu đi học
+1
+2
+….
+Người hoặc tổ chức nhận trợ cấp mai táng:
+Cá nhân
+Họ và tên [16]: ......................................................................................................................
+Ngày tháng năm sinh …………………………….. Nam/Nữ................................................
+CCCD số............................................ Ngày cấp ……………… Nơi cấp.............................
+Địa chỉ nơi cư trú: .................................................................................................................
+8
+Số điện thoại: ........................................................................................................................
+Quan hệ với người chết: .......................................................................................................
+Số điện thoại liên hệ: ............................................................................................................
+Tổ chức
+Tên tổ chức [17]: ...................................................................................................................
+Địa chỉ: ...................................................................................................................................
+Người đại diện theo pháp luật: ……………………………… Chức vụ: ..............................
+Số điện thoại: ..........................................................................................................................
+Đại diện thân nhân nhận trợ cấp tuất một lần
+Họ và tên [18]: .........................................................................................................................
+Ngày tháng năm sinh: …………..………………….. Nam/Nữ: .............................................
+CCCD số …………………….....…… Ngày cấp …………………. Nơi cấp ........................
+Nơi thường trú: .........................................................................................................................
+Số điện thoại: ............................................................................................................................
+Quan hệ với người chết: .......................................................................................................
+Số điện thoại liên hệ: ................................................................................................................
+Hình thức nhận kết quả giải quyết
+1. Bản điện tử: □
+Các kết quả thủ tục hành chính được gửi vào kho quản lý dữ liệu điện tử của người yêu cầu
+trên Cổng dịch vụ công quốc gia, ứng dụng VNeID và Hệ thống thông tin giải quyết thủ tục hành 
+chính Bộ Tư pháp, Bộ Công an, Bộ Nội vụ, Bộ Y tế, Bộ Tài chính.
+2. Bản giấy:
+□ Tại nơi đăng ký khai tử (dành cho đối tượng thuộc lĩnh vực Nội vụ và Y tế).
+□ Trực tiếp tại cơ quan BHXH/Nội vụ/Y tế (hiển thị địa chỉ/số điện thoại của cơ quan 
+BHXH/Nội vụ/Y tế để người yêu cầu đến nhận kết quả).
+□ Qua dịch vụ bưu chính (cá nhân trả cước phí cho cơ quan cung cấp dịch vụ).
+Địa chỉ nhận [19]: ............................................................................................................
+Tiền trợ cấp mai táng, tử tuất [20]:
+□ Tài khoản ngân hàng:
+Tên chủ tài khoản [21]: ....................................................................................................
+Số tài khoản: ..............................................................................................................
+Ngân hàng: .................................................................................................................
+□ Tiền mặt tại cơ quan BHXH/Nội vụ/Y tế (hiển thị địa chỉ cơ quan BHXH/Nội vụ/Y tế để
+người yêu cầu đến nhận tiền)
+Tôi cam đoan những nội dung khai trên đây là đúng sự thật và chịu trách nhiệm trước pháp 
+luật về cam đoan của mình.
+9
+Ghi chú:
+(1) Lựa chọn tên các cơ quan có thẩm quyền giải quyết thủ tục hành chính trong quy trình 
+liên thông.
+(2) Công dân lựa chọn nơi thường trú hoặc nơi tạm trú; dữ liệu thường trú hoặc tạm trú theo 
+căn cước công dân sẽ được điền tự động từ Cơ sở dữ liệu quốc gia về dân cư.
+(3) Dữ liệu giới tính, dân tộc, quốc tịch sẽ được điền tự động theo dữ liệu của Cơ sở dữ liệu
+quốc gia về dân cư.
+(4) Công dân lựa chọn Giấy báo tử hoặc giấy tờ thay thế Giấy báo tử, nếu lựa chọn giấy tờ
+thay thế Giấy báo tử thì chọn theo loại giấy tờ, nhập số giấy tờ; trường hợp không có thì để trống.
+(5) Dữ liệu số điện thoại, email sẽ được điền tự động theo dữ liệu của Cơ sở dữ liệu quốc gia 
+về dân cư.
+[1] Chọn danh mục tỉnh/xã và nhập địa chỉ chi tiết (số nhà, tổ dân phố/thôn/xóm...).
+[2] Chọn danh mục tỉnh/xã và nhập địa chỉ chi tiết (số nhà, tổ dân phố/thôn/xóm...).
+[3] Trong Cha hoặc Mẹ hoặc người giám hộ là người yêu cầu.
+[1] Đối tượng bảo trợ quy định tại Điều 11,14 Nghị định số 20/2021/NĐ-CP.
+[2] Mẫu số 12 Nghị định số 131/2021/NĐ-CP: Ghi rõ diện đối tượng người có công.
+[3] Chi tiết số nhà, phố, tổ, thôn, xã/phường/đặc khu, tỉnh/thành phố; ghi số điện thoại di 
+động.
+[4] Ghi rõ mức thu nhập hằng tháng thực tế của thân nhân tại thời điểm người được khai tử
+chết (không bao gồm khoản trợ cấp theo quy định của pháp luật về ưu đãi người có công).
+[5] Ghi rõ trợ cấp mai táng phí, tuất một lần hay trợ cấp tuất hàng tháng.
+[6] Trường hợp không dùng tiền mặt (nhận trợ cấp qua tài khoản ngân hàng thì ghi: số tài 
+khoản..., chủ tài khoản, ngân hàng mở tài khoản; nhận qua ví điện tử thì ghi số điện thoại di 
+động,...).
+[7] Trường hợp không xác nhận qua ứng dụng VNeID thì đính kèm bản điện tử văn bản thống
+nhất cử người đại diện nhận trợ cấp mai táng phí, tử tuất theo quy định.
+[8] Ghi chi tiết số nhà, phố, tổ, thôn, xã/phường/đặc khu, tỉnh/thành phố; nếu người đứng tên 
+nhận trợ cấp trùng với thân nhân đã khai ở bảng trên khì không phải khai cột này.
+[9] Trường hợp nhận trợ cấp tuất hằng tháng qua tài khoản ngân hàng thì ghi: số tài khoản...,
+chủ tài khoản, ngân hàng mở tài khoản.
+[10] Lập danh sách thân nhân người có công đủ điều kiện hưởng trợ cấp tuất.
+[11] Ghi rõ sống cô đơn, không nơi nương tựa hoặc con mồ côi cả cha mẹ.
+[12] Ghi rõ trợ cấp mai táng phí, tuất một lần hay trợ cấp tuất hằng tháng.
+[13] Trường hợp không dùng tiền mặt (nhận trợ cấp qua tài khoản ngân hàng thì ghi: số tài 
+khoản..., chủ tài khoản, ngân hàng mở tài khoản; nhận qua ví điện tử thì ghi số điện thoại di 
+động,...).
+[14] Trường hợp không xác nhận qua ứng dụng VNelD thì đính kèm bản điện tử văn bản
+thống nhất cử người đại diện nhận trợ cấp mai táng phí, tử tuất theo quy định.
+[15] Ghi rõ thời điểm bị khuyết tật: chưa đủ 18 tuổi hoặc từ đủ 18 tuổi trở lên (trường hợp
+không có con bị khuyết tật thì không ghi cột này).
+[16] Trường hợp người nhận trợ cấp mai táng không thuộc số thân nhân có tên trong bảng kê 
+nêu trên thì khai thêm các thông tin bên dưới.
+[17] Tổ chức nhận hỗ trợ chi phí mai táng là tổ chức đứng ra tổ chức mai táng.
+10
+[18] Thông tin của đại diện thân nhân nhận các khoản trợ cấp một lần được điền tự động từ
+bảng kê khai thân nhân.
+[19] Chọn danh mục tỉnh/xã và nhập địa chỉ chi tiết (số nhà, tổ dân phố/thôn/xóm...).
+[20] Trường hợp người nhận trợ cấp mai táng, trợ cấp tuất một lần không thuộc số thân nhân 
+có tên trong bảng kê nêu trên thì khai thêm các thông tin bên dưới.
+[21] Thông tin chủ tài khoản phải trùng khớp với thông tin của cá nhân nhận trợ cấp mai 
+táng.

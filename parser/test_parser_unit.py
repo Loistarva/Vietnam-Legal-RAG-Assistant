@@ -21,6 +21,7 @@ Corpus-wide tests (chạy trên MỌI văn bản, không chỉ Luật 52/2014 v�
   LEGAL_PARSED_JSON_DIR=path/to/parsed_jsons     (mặc định thư mục chứa LEGAL_PARSED_JSON)
 """
 import functools
+import hashlib
 import json
 import os
 import re
@@ -323,13 +324,31 @@ TITLE_LENGTH_ALLOWLIST: set = {
     ("nd_18_2026_nd_cp_congbao_61", "13"),  # 45 từ
     ("nd_18_2026_nd_cp_congbao_61", "14"),  # 44 từ
     ("tt_04_2024_tt_btp", "2"),  # 67 từ
-    # Trial13: tiêu đề thật đối chiếu font đậm trên PDF gốc; không cắt ngắn nội dung.
-    ("nd_28_2012_nd_cp", "18"),  # 47 từ: hệ số trợ cấp và kinh phí chăm sóc
-    ("nd_76_2023_nd_cp", "10"),  # 43 từ: quy trình tiếp nhận, xử lý tin báo
-    ("tt_10_2020_tt_btp", "5"),  # 41 từ: cách ghi Sổ và giấy tờ nuôi con nuôi
 }
 # Ngoại lệ đối chiếu số Khoản: {(tên_file_txt_không_đuôi, "số Điều"): "lý do"}.
 CLAUSE_COUNT_EXEMPT: Dict[Tuple[str, str], str] = {}
+
+
+@functools.lru_cache(maxsize=1)
+def reviewed_long_titles():
+    """Reviewed source titles are exact expectations, not an unlimited exemption."""
+    fixture = ROOT / "test/fixtures/corpus_v2_reviewed_long_titles.json"
+    rows = json.loads(fixture.read_text(encoding="utf-8"))["entries"]
+    titles = {}
+    checked_sources = {}
+    for row in rows:
+        key = (row["txt_stem"], row["article_number"])
+        assert key not in titles, f"Duplicate reviewed title: {key}"
+        assert row["reason"] and row["source_url"]
+        for source in row["source_artifacts"]:
+            if source["path"] not in checked_sources:
+                path = ROOT / source["path"]
+                checked_sources[source["path"]] = hashlib.sha256(path.read_bytes()).hexdigest()
+            assert checked_sources[source["path"]] == source["sha256"], (
+                f"Reviewed title source changed: {source['path']}"
+            )
+        titles[key] = row["expected_title"]
+    return titles
 
 
 def corpus_txt_files() -> List[Path]:
@@ -483,9 +502,16 @@ def test_titles_are_not_absurdly_long(txt_path):
     too_long = []
     for a in articles:
         title = a.get("article_title") or ""
+        key = (txt_path.stem, str(a["article_number"]))
+        expected = reviewed_long_titles().get(key)
+        if expected is not None:
+            assert title == expected, (
+                f"Reviewed official title changed for {key}: {title!r}"
+            )
+            continue
         if (
             len(title.split()) > MAX_TITLE_WORDS_IN_CORPUS
-            and (txt_path.stem, str(a["article_number"])) not in TITLE_LENGTH_ALLOWLIST
+            and key not in TITLE_LENGTH_ALLOWLIST
         ):
             too_long.append((a["article_number"], len(title.split())))
     assert not too_long, (

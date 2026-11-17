@@ -1,0 +1,34 @@
+[
+  {
+    "document_id": "nd_56_2017_nd_cp",
+    "document_number": "56/2017/NĐ-CP",
+    "document_type": "Nghị định",
+    "title": "Quy định chi tiết một số điều của Luật trẻ em",
+    "issue_date": "2017-05-09",
+    "effective_date": "2017-07-01",
+    "expiry_date": "",
+    "issuing_body": "Chính phủ",
+    "validity_status": "Không xác định",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=189758",
+    "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2017/5/23704/17553-1-2017363-36456-2017-nd-cp.pdf",
+    "pdf_path": "data/source_pdfs/trial13/nd_56_2017_nd_cp.pdf",
+    "pdf_sha256": "1d3ff02302ca20e1ac1e99b634bacd86d72632199ee0b09362189c45a38c32cb",
+    "ingest_pdf_path": "data/staging/corpus_v2/hold/raw_data/nd_56_2017_nd_cp.pdf",
+    "origin": "retained_trial13",
+    "download_status": "Đã tải, kiểm tra lớp chữ",
+    "verified_at": "2026-11-13",
+    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "trial_only": true,
+    "file_code": "ND17",
+    "production_ingest_allowed": false,
+    "ingest_pdf_sha256": "3e2acc8610cdc28f1425d7c58336fb866bbcff6e752b64635f780d74cb4b5a05",
+    "scope_decision": "conditional_parent_required",
+    "ingest_gate": [
+      "legal_temporal_review",
+      "parent_children_law_ingested"
+    ],
+    "technical_pipeline_status": "held_not_in_default_cleaner_or_parser"
+  }
+]

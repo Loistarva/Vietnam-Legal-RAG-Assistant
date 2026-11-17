@@ -1,0 +1,74 @@
+{
+  "document_id": "tt_03_2023_tt_btp",
+  "metadata": {
+    "title": "Sửa đổi Thông tư 01/2022 về hộ tịch điện tử",
+    "document_type": "Thông tư",
+    "document_number": "03/2023/TT-BTP",
+    "issue_date": "2023-08-02",
+    "effective_date": "2023-08-02",
+    "issuing_body": "Bộ Tư pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review"
+  },
+  "articles": [
+    {
+      "article_id": "tt_03_2023_tt_btp_art_1",
+      "article_number": "1",
+      "article_title": "Sửa đổi, bổ sung một số nội dung của Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022 quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_03_2023_tt_btp_art_1_clause_1",
+          "parent_article_id": "tt_03_2023_tt_btp_art_1",
+          "clause_number": "1",
+          "clause_text": "1. Sửa đổi, bổ sung khoản 1 Điều 9 Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022 quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến (sau đây gọi là Thông tư số 01/2022/TT-BTP) như sau: “1. Ban hành kèm theo Thông tư này: a) Các mẫu: Xác nhận thông tin hộ tịch; Tờ khai đề nghị xác nhận thông tin hộ tịch; Giấy báo tử (Phụ lục 1); b) Nội dung các mẫu hộ tịch điện tử tương tác tích hợp, phục vụ đăng ký hộ tịch trực tuyến (Phụ lục 2); c) Mẫu Bản điện tử các giấy tờ hộ tịch (Phụ lục 3)”.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_03_2023_tt_btp_art_1_clause_2",
+          "parent_article_id": "tt_03_2023_tt_btp_art_1",
+          "clause_number": "2",
+          "clause_text": "2. Bổ sung, thay thế các Phụ lục ban hành kèm theo Thông tư số 01/2022/TT-BTP như sau: a) Bổ sung Phụ lục 3 ban hành kèm theo Thông tư này. b) Thay thế Phụ lục 1 và Phụ lục 2 bằng Phụ lục 1 và Phụ lục 2 ban hành kèm theo Thông tư này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "tt_03_2023_tt_btp_art_2",
+      "article_number": "2",
+      "article_title": "Trách nhiệm tổ chức thực hiện và hiệu lực thi hành",
+      "chapter": null,
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "tt_03_2023_tt_btp_art_2_clause_1",
+          "parent_article_id": "tt_03_2023_tt_btp_art_2",
+          "clause_number": "1",
+          "clause_text": "1. Thông tư này có hiệu lực thi hành kể từ ngày 02 tháng 8 năm 2023.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_03_2023_tt_btp_art_2_clause_2",
+          "parent_article_id": "tt_03_2023_tt_btp_art_2",
+          "clause_number": "2",
+          "clause_text": "2. Hồ sơ đăng ký hộ tịch đã tiếp nhận trước ngày Thông tư này có hiệu lực mà chưa giải quyết xong thì tiếp tục được giải quyết theo quy định của Thông tư số 01/2022/TT-BTP.",
+          "chunks": null
+        },
+        {
+          "clause_id": "tt_03_2023_tt_btp_art_2_clause_3",
+          "parent_article_id": "tt_03_2023_tt_btp_art_2",
+          "clause_number": "3",
+          "clause_text": "3. Cục trưởng Cục Hộ tịch, quốc tịch, chứng thực, Thủ trưởng các đơn vị thuộc Bộ Tư pháp, Giám đốc Sở Tư pháp các tỉnh, thành phố trực thuộc Trung ương và các cơ quan, tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Thông tư này. Trong quá trình thực hiện, nếu có vướng mắc, đề nghị Ủy ban nhân dân, Sở Tư pháp các tỉnh, thành phố trực thuộc Trung ương, cơ quan, tổ chức, cá nhân kịp thời phản ánh về Bộ Tư pháp để nghiên cứu, hướng dẫn",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": []
+}

@@ -14,6 +14,23 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "evaluation/negative_set"
 
 
+
+def baseline_bytes(relative):
+    """The v2 negative labels describe the pinned baseline, not expanded corpus v2."""
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
+    return subprocess.check_output(["git", "show", f"{manifest['baseline_git_sha']}:{relative}"], cwd=ROOT)
+
+
+@pytest.fixture
+def negative_baseline(tmp_path):
+    for relative in ("data/reference/document_versions.json", "data/chunking_output/chunks.jsonl",
+                     "data/benchmark/queries_dev.json", "data/benchmark/queries_test.json"):
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(baseline_bytes(relative))
+    return tmp_path
+
+
 def rows():
     return [json.loads(line) for line in (DATA / "dev_negative_queries_v2.jsonl").read_text(encoding="utf-8").splitlines()]
 
@@ -58,7 +75,7 @@ def test_invalid_case_metadata_rejected(change):
 @pytest.mark.parametrize("where", ["registry", "chunk_root", "chunk_metadata"])
 def test_missing_source_case_invalidated_when_document_is_loaded(where):
     dataset = rows()
-    source = {"document_number": dataset[12]["required_document_number"]}
+    source = {"document_number": "52/2010/QH12"}
     registry = [source] if where == "registry" else []
     chunks = [source] if where == "chunk_root" else [{"metadata": source}] if where == "chunk_metadata" else []
     assert any("requested source now present" in e for e in validate_rows(dataset, registry, chunks, []))
@@ -153,7 +170,7 @@ def test_manifest_must_not_disable_safety_checks(case):
 
 
 def test_document_present_in_metadata_not_hidden_by_different_root_number():
-    chunk = {"document_number": "52/2014/QH13", "metadata": {"document_number": rows()[12]["required_document_number"]}}
+    chunk = {"document_number": "52/2014/QH13", "metadata": {"document_number": "52/2010/QH12"}}
     assert any("requested source now present" in e for e in validate_rows(rows(), [], [chunk], []))
 
 
@@ -206,14 +223,19 @@ def test_cli_bad_inputs_fail_cleanly(tmp_path, case):
     assert "Traceback" not in result.stdout + result.stderr
 
 
-def test_cli_supports_utf8_bom_and_crlf_without_mutating_files(tmp_path):
+def test_cli_supports_utf8_bom_and_crlf_without_mutating_files(tmp_path, negative_baseline, monkeypatch, capsys):
     raw = (DATA / "dev_negative_queries_v2.jsonl").read_text(encoding="utf-8")
     dataset_path = tmp_path / "bom.jsonl"
     dataset_path.write_bytes(b"\xef\xbb\xbf" + raw.replace("\n", "\r\n").encode("utf-8"))
     before = dataset_path.read_bytes()
-    result = subprocess.run([sys.executable, str(ROOT / "scripts/validate_negative_set.py"),
-                             "--dataset", str(dataset_path)], cwd=ROOT, capture_output=True, text=True)
-    assert result.returncode == 0
+    from scripts import validate_negative_set as validator
+    monkeypatch.setattr(validator, "ROOT", negative_baseline)
+    monkeypatch.setattr(validator, "git_bytes", lambda ref, name: subprocess.check_output(
+        ["git", "show", f"{ref}:{name}"], cwd=ROOT))
+    monkeypatch.setattr(sys, "argv", ["validate_negative_set.py", "--dataset", str(dataset_path),
+                                     "--manifest", str(DATA / "dev_negative_manifest_v2.json")])
+    assert validator.main() == 0
+    assert json.loads(capsys.readouterr().out)["issues"] == []
     assert dataset_path.read_bytes() == before
 
 
@@ -240,14 +262,14 @@ def test_current_checkout_collision_detected_even_when_pinned_snapshots_are_clea
 
 
 def _run_on_changed_corpus(tmp_path, monkeypatch, change_chunks):
-    """Run the CLI on a copy of the current checkout whose chunks.jsonl was edited."""
+    """Mutate the pinned corpus so unrelated changes are isolated from added sources."""
     from scripts import validate_negative_set as validator
     for relative in ("data/reference/document_versions.json", "data/benchmark/queries_dev.json",
                      "data/benchmark/queries_test.json"):
         target = tmp_path / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / relative, target)
-    chunks = read_jsonl((ROOT / "data/chunking_output/chunks.jsonl").read_text(encoding="utf-8-sig"))
+        target.write_bytes(baseline_bytes(relative))
+    chunks = read_jsonl(baseline_bytes("data/chunking_output/chunks.jsonl").decode("utf-8-sig"))
     change_chunks(chunks)
     target = tmp_path / "data/chunking_output/chunks.jsonl"
     target.parent.mkdir(parents=True)
@@ -273,9 +295,9 @@ def test_unrelated_corpus_change_is_only_a_warning(tmp_path, monkeypatch, capsys
 def test_corpus_change_adding_a_missing_source_fails(tmp_path, monkeypatch, capsys):
     def add_source(chunks):
         added = deepcopy(chunks[0])
-        added["chunk_id"] = "synthetic_missing_primary_source_fixture"
-        added["document_number"] = rows()[12]["required_document_number"]
-        added.setdefault("metadata", {})["document_number"] = rows()[12]["required_document_number"]
+        added["chunk_id"] = "l_60_2014_qh13_art_16_chunk_1"
+        added["document_number"] = "60/2014/QH13"
+        added.setdefault("metadata", {})["document_number"] = "60/2014/QH13"
         chunks.append(added)
     assert _run_on_changed_corpus(tmp_path, monkeypatch, add_source) == 1
     assert "requested source now present" in capsys.readouterr().out
@@ -313,3 +335,12 @@ def test_fetch_rejects_unpinned_refs_without_subprocess(tmp_path, monkeypatch):
     monkeypatch.setattr(subprocess, "run", forbidden)
     with pytest.raises(ValueError):
         validator.fetch_sources({"baseline_git_sha":"--all", "benchmark_query_sources":[]}, tmp_path)
+
+
+def test_current_corpus_invalidates_historical_missing_source_negatives():
+    registry = json.loads((ROOT / "data/reference/document_versions.json").read_text(encoding="utf-8"))
+    chunks = read_jsonl((ROOT / "data/chunking_output/chunks.jsonl").read_text(encoding="utf-8"))
+    available = {d["document_number"] for d in registry}
+    expected = [r for r in rows() if r.get("required_document_number") in available]
+    issues = validate_rows(rows(), registry, chunks, [])
+    assert len([e for e in issues if "requested source now present" in e]) == len(expected)

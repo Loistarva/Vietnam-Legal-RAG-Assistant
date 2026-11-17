@@ -82,64 +82,207 @@
       }
     },
     {
-      "path": "data/raw_data/additional_documents/l_13_2022_qh15.pdf",
+      "path": "data/raw_data/additional_documents/corpus_v2/bl_91_2015_qh13.pdf",
+      "document_id": "bl_91_2015_qh13",
+      "sha256": "6db2e6a2c47639e9db54d5e6d0299c494a1d9f86f25e08985fc9b9a2873d3edf",
+      "bytes": 347362,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/bl_92_2015_qh13.pdf",
+      "document_id": "bl_92_2015_qh13",
+      "sha256": "26702c8db6aa9662578f01ea0465d7b1ae1fd2e3a5917749df8b50c84ec08fe6",
+      "bytes": 435612,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_102_2016_qh13.pdf",
+      "document_id": "l_102_2016_qh13",
+      "sha256": "5bc0a6a03cfec393909c11b37f4242099effae792a87122f93439b85ae7e27a3",
+      "bytes": 135210,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_13_2022_qh15.pdf",
       "document_id": "l_13_2022_qh15",
-      "sha256": "0cb4acd3dcfffd8587e79512a3e9e84b6a2b94427db2ffc8188284299830f2df",
-      "bytes": 385129,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
+      "sha256": "cdc3975366f8610c98273b40aceb8ceb81102021ccc7f1cb30163981ec412ba1",
+      "bytes": 105478,
+      "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/l_35_2013_qh13.pdf",
+      "path": "data/raw_data/additional_documents/corpus_v2/l_34_2024_qh15.pdf",
+      "document_id": "l_34_2024_qh15",
+      "sha256": "51969743e6030c20bf948705fc47285246f37ab67326e729fe07b762eec8dedc",
+      "bytes": 159976,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_35_2013_qh13.pdf",
       "document_id": "l_35_2013_qh13",
-      "sha256": "658d5c5717960bc2b4916d31c63c335afb3cb276d1716ac08c39849a47cc0173",
-      "bytes": 306383,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
+      "sha256": "68678ddeaeae8800d1ef4fac5ed7c2b5eb5ffe806a7fd00e0b41f3236ed21e2d",
+      "bytes": 77283,
+      "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/l_51_2010_qh12.pdf",
-      "document_id": "l_51_2010_qh12",
-      "sha256": "f81618f24d728b0db6b58ecf2c91ec8d8604bb0a1a655bc2a7074f20f6f865d5",
-      "bytes": 244612,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
-      "path": "data/raw_data/additional_documents/l_52_2010_qh12.pdf",
+      "path": "data/raw_data/additional_documents/corpus_v2/l_52_2010_qh12.pdf",
       "document_id": "l_52_2010_qh12",
-      "sha256": "66937013a6b05339f0110e4d61e79d5e5801a54462891159caa12061707ac581",
-      "bytes": 239506,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
+      "sha256": "9066dee114c6a716614e614b928f3eb3c2a36a0cc4e266f233e2499776ae0c61",
+      "bytes": 92082,
+      "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/l_60_2014_qh13.pdf",
+      "path": "data/raw_data/additional_documents/corpus_v2/l_58_2020_qh14.pdf",
+      "document_id": "l_58_2020_qh14",
+      "sha256": "97192aa62be899987c463175959d8269c7c89964cc89cbdc131d8a4b43d24013",
+      "bytes": 99057,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_60_2014_qh13.pdf",
       "document_id": "l_60_2014_qh13",
-      "sha256": "795f33d6e23d0671f06c455ee3c9b25dc91262202bff230daf278dbad1dbf1f0",
-      "bytes": 342180,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
+      "sha256": "a90a917d5c44a15d8ad9d98128f3bded1c941d3d2b1e3e7452ed0ba92a98ba3c",
+      "bytes": 105405,
+      "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/nd_06_2011_nd_cp.pdf",
-      "document_id": "nd_06_2011_nd_cp",
-      "sha256": "b0e6a11cd12c378011c501cccbb35e88e433c43b91b038d8fcdc5967669ad712",
-      "bytes": 198155,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
+      "path": "data/raw_data/additional_documents/corpus_v2/l_85_2025_qh15.pdf",
+      "document_id": "l_85_2025_qh15",
+      "sha256": "47c33c75637953e77c54b534e01f1ed6ba8405abf0d7e6d0d6372ce37525445d",
+      "bytes": 92653,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_06_2025_nd_cp.pdf",
+      "document_id": "nd_06_2025_nd_cp",
+      "sha256": "8311d646c0d31866875fc94f85460b0061069ffda1257721bedfcdde3ca63ce4",
+      "bytes": 81014,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_104_2022_nd_cp.pdf",
+      "document_id": "nd_104_2022_nd_cp",
+      "sha256": "32ee3a7ca1d275a175719c84fef84a3679086a7776a6024698785bea9169ea58",
+      "bytes": 73640,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_114_2016_nd_cp.pdf",
+      "document_id": "nd_114_2016_nd_cp",
+      "sha256": "bf916dc5da3e22e3bfefd2d3b4a61698d62eb8b2eed67ce31e4ea5d011450d96",
+      "bytes": 67821,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_120_2025_nd_cp.pdf",
+      "document_id": "nd_120_2025_nd_cp",
+      "sha256": "5b64f7951ea6763f88fe428e666f44ee5f0b92e6fb7f2e444988b412bc15f464",
+      "bytes": 78477,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_15_2014_nd_cp.pdf",
+      "document_id": "nd_15_2014_nd_cp",
+      "sha256": "084a90b5c01589d533c3d651533f32b980d520e3d7820142ca531a378ac902c4",
+      "bytes": 76035,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_19_2011_nd_cp.pdf",
+      "document_id": "nd_19_2011_nd_cp",
+      "sha256": "fa223aca558c1477810d2eb4c4d078733c73535169869063178a7c7f9db038d6",
+      "bytes": 104754,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_24_2019_nd_cp.pdf",
+      "document_id": "nd_24_2019_nd_cp",
+      "sha256": "9f81fd713a068b2485110a13c2d2bc1fae1653f7e77677b8cf60dd3bed5c9028",
+      "bytes": 69355,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_301_2026_nd_cp.pdf",
+      "document_id": "nd_301_2026_nd_cp",
+      "sha256": "5a682f705d248e3d8feac93701691e33984467535ca7fa45dc9b36db8f9933e4",
+      "bytes": 88017,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_63_2024_nd_cp.pdf",
+      "document_id": "nd_63_2024_nd_cp",
+      "sha256": "d6e894144c71c45d1c7611194868b561ea71d56b0d7d167e06bc1ca5a46ddfa2",
+      "bytes": 97860,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_76_2023_nd_cp.pdf",
+      "document_id": "nd_76_2023_nd_cp",
+      "sha256": "7b3f9d43d2ef2dc1388055c536a390aa9c959801b94324c01adfeaf8fc298608",
+      "bytes": 104049,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/nq_326_2016_ubtvqh14.pdf",
+      "document_id": "nq_326_2016_ubtvqh14",
+      "sha256": "9c5fc06fe6be7b54ac92abad8acf59823a9af4f07cb47353751f27a157c734b7",
+      "bytes": 96835,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_01_2022_tt_btp.pdf",
+      "document_id": "tt_01_2022_tt_btp",
+      "sha256": "dddb5ad5e37d2887e1cf5087aefafcfb30bc6b29566d902dda86e3b57253b835",
+      "bytes": 82606,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_03_2023_tt_btp.pdf",
+      "document_id": "tt_03_2023_tt_btp",
+      "sha256": "80032cbd691cdfaf738fc732e51c33f9f70771fd651db7acc1a0a6b7f510088f",
+      "bytes": 60874,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
+      "document_id": "tt_07_2023_tt_bng",
+      "sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
+      "bytes": 94828,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_btp.pdf",
+      "document_id": "tt_07_2023_tt_btp",
+      "sha256": "fb4bbe2ab5113d30bf8007e1bda14c7390c95ae7c13635c357bd50d42a6908e9",
+      "bytes": 60806,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2025_tt_bng.pdf",
+      "document_id": "tt_07_2025_tt_bng",
+      "sha256": "afaa08d46105abb934b384e92545d4630184099b8c2b77e0aec7e15741654dce",
+      "bytes": 64457,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_09_2022_tt_btp.pdf",
+      "document_id": "tt_09_2022_tt_btp",
+      "sha256": "0b69da02e5b5b5b7b055d013326b5f0e81d478b14553794a8617ef184ff0a250",
+      "bytes": 61243,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_10_2020_tt_btp.pdf",
+      "document_id": "tt_10_2020_tt_btp",
+      "sha256": "26ddbb6e4a833bbf90d487f87b73475b0b1c14ae9e8a765b0a8f4d6b4ee4f835",
+      "bytes": 68422,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_10_2025_tt_btp.pdf",
+      "document_id": "tt_10_2025_tt_btp",
+      "sha256": "0a43fb9452a1c16cc0abeec60a674d6786df83efbad677ef3e5f030c7d31313a",
+      "bytes": 65045,
+      "added_in": null
     },
     {
       "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
@@ -149,71 +292,11 @@
       "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/nd_114_2016_nd_cp.pdf",
-      "document_id": "nd_114_2016_nd_cp",
-      "sha256": "ee1b5a1204388fad7d8b3fd3500bce8aa15e3d6a063a978c4fde45cc9a1ca8e5",
-      "bytes": 226236,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
-      "path": "data/raw_data/additional_documents/nd_15_2014_nd_cp.pdf",
-      "document_id": "nd_15_2014_nd_cp",
-      "sha256": "50826341807f19e46e419a6f00b99558015937e6d8220165c0d23ce48b6a0754",
-      "bytes": 202985,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
       "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
       "document_id": "nd_18_2026_nd_cp",
       "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
       "bytes": 713137,
       "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/nd_19_2011_nd_cp.pdf",
-      "document_id": "nd_19_2011_nd_cp",
-      "sha256": "c8754fb499267a7071565fbc5c9eb0f1e2cceef87f5a4ae10cbb600b93db682c",
-      "bytes": 259160,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
-      "path": "data/raw_data/additional_documents/nd_28_2012_nd_cp.pdf",
-      "document_id": "nd_28_2012_nd_cp",
-      "sha256": "fa6f7d9390cf531c36bf17781481de43dcfad16342306e3d2062223a1232960c",
-      "bytes": 236684,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
-      "path": "data/raw_data/additional_documents/nd_56_2017_nd_cp.pdf",
-      "document_id": "nd_56_2017_nd_cp",
-      "sha256": "3e2acc8610cdc28f1425d7c58336fb866bbcff6e752b64635f780d74cb4b5a05",
-      "bytes": 501494,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
-    },
-    {
-      "path": "data/raw_data/additional_documents/nd_76_2023_nd_cp.pdf",
-      "document_id": "nd_76_2023_nd_cp",
-      "sha256": "70b636829ce3809588b8b274dcd370ab2824cbf6fb117abe4b043e9763a02f31",
-      "bytes": 598709,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
     },
     {
       "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
@@ -248,16 +331,6 @@
       "sha256": "58e05dae781e2032054de6674072e9076248d6e97b1e753ab97a47cc2b335d57",
       "bytes": 633279,
       "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/tt_10_2020_tt_btp.pdf",
-      "document_id": "tt_10_2020_tt_btp",
-      "sha256": "05e8c76cfedcbe7888ad288638fac52c9f1441e9cd5ea4237567d0e0977113e8",
-      "bytes": 736287,
-      "added_in": {
-        "commit": "bbac363",
-        "date": "2026-11-13"
-      }
     },
     {
       "path": "data/raw_data/additional_documents/TT_15_2015_BTP.pdf",

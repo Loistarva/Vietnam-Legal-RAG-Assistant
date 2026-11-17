@@ -1,0 +1,528 @@
+{
+  "reviewed_at": "2026-11-17",
+  "entries": [
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "118",
+      "expected_title": "Buộc người sử dụng lao động tạm ứng tiền lương, tiền bảo hiểm y tế, bảo hiểm xã hội, bảo hiểm thất nghiệp, chi phí cứu chữa tai nạn lao động hoặc bệnh nghề nghiệp, tiền bồi thường, trợ cấp tai nạn lao động hoặc bệnh nghề nghiệp cho người lao động",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "134",
+      "expected_title": "Kiến nghị áp dụng biện pháp khẩn cấp tạm thời của cơ quan, tổ chức, cá nhân khởi kiện vụ án để bảo vệ lợi ích công cộng, lợi ích của Nhà nước, quyền và lợi ích hợp pháp của người khác",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "380",
+      "expected_title": "Quyết định của Tòa án trong trường hợp chấp nhận yêu cầu hủy bỏ quyết định tuyên bố mất năng lực hành vi dân sự, bị hạn chế năng lực hành vi dân sự hoặc có khó khăn trong nhận thức, làm chủ hành vi",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "427",
+      "expected_title": "Bảo đảm hiệu lực quyết định của Tòa án Việt Nam công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "428",
+      "expected_title": "Gửi quyết định của Tòa án về công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "430",
+      "expected_title": "Lệ phí, chi phí xét đơn yêu cầu công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "465",
+      "expected_title": "Quyền, nghĩa vụ tố tụng của người nước ngoài, cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài và tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "467",
+      "expected_title": "Năng lực pháp luật tố tụng dân sự của cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài và tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "468",
+      "expected_title": "Bảo vệ quyền và lợi ích hợp pháp của đương sự là người nước ngoài, cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài, tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "472",
+      "expected_title": "Trả lại đơn khởi kiện, đơn yêu cầu hoặc đình chỉ giải quyết vụ việc dân sự có yếu tố nước ngoài trong trường hợp đã có thỏa thuận trọng tài, thỏa thuận lựa chọn Tòa án nước ngoài hoặc đã có Tòa án nước ngoài, Trọng tài hoặc cơ quan khác có thẩm quyền của nước ngoài giải quyết hoặc đương sự được hưởng quyền miễn trừ tư pháp",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_92_2015_qh13",
+      "article_number": "492",
+      "expected_title": "Xử lý hành vi xúc phạm, xâm hại đến sự tôn nghiêm, uy tín của Tòa án, danh dự, nhân phẩm, sức khỏe của người tiến hành tố tụng hoặc những người khác thực hiện nhiệm vụ theo yêu cầu của Tòa án",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part01.pdf",
+          "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part02.pdf",
+          "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_92_2015_qh13.part03.pdf",
+          "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "l_34_2024_qh15",
+      "article_number": "83",
+      "expected_title": "Phó Chánh án Tòa án nhân dân cấp cao, Tòa án nhân dân tỉnh, thành phố trực thuộc Trung ương, Tòa án nhân dân huyện, quận, thị xã, thành phố thuộc tỉnh, thành phố thuộc thành phố trực thuộc Trung ương, Tòa án nhân dân sơ thẩm chuyên biệt",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/l_34_2024_qh15.part01.pdf",
+          "sha256": "93563b0c26b6f1d596b7f7a3c5d3a654796245d5abe1265920be52cd1ff6553e"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_06_2025_nd_cp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi đã được sửa đổi, bổ sung một số điều theo Nghị định số 24/2019/NĐ-CP ngày 05 tháng 3 năm 2019 của Chính phủ",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_06_2025_nd_cp.part01.pdf",
+          "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_06_2025_nd_cp",
+      "article_number": "2",
+      "expected_title": "Thay thế, bãi bỏ một số quy định của Nghị định số 19/2011/NĐ-CP đã được sửa đổi, bổ sung một số điều theo Nghị định số 24/2019/NĐ-CP, Nghị định số 114/2016/NĐ-CP ngày 08 tháng 7 năm 2016 của Chính phủ quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_06_2025_nd_cp.part01.pdf",
+          "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_07_2023_tt_btp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_btp.part01.pdf",
+          "sha256": "d3d95e81c761e4ff0d86391c18a8c214a5edac64bbe5c2c5853a2256e01380ee"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_btp.part02.pdf",
+          "sha256": "c757a81dafc5932128a5014bbe219095949bb91d0e1a78db66e272d6db2d75a4"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số nội dung tại Nghị định số 61/2015/NĐ-CP ngày 09 tháng 7 năm 2015 quy định về chính sách hỗ trợ tạo việc làm và Quỹ quốc gia về việc làm đã được sửa đổi, bổ sung theo Nghị định số 74/2019/NĐ-CP ngày 23 tháng 9 năm 2019",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "2",
+      "expected_title": "Sửa đổi, bổ sung một số điều và biểu mẫu của Nghị định số 146/2018/NĐ-CP ngày 17 tháng 10 năm 2018 quy định chi tiết và hướng dẫn biện pháp thi hành một số điều của Luật Bảo hiểm y tế",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "5",
+      "expected_title": "Sửa đổi, bổ sung khoản 1 Điều 19 Nghị định số 81/2021/NĐ-CP ngày 27 tháng 8 năm 2021 quy định về cơ chế thu, quản lý học phí đối với cơ sở giáo dục thuộc hệ thống giáo dục quốc dân và chính sách miễn, giảm học phí, hỗ trợ chi phí học tập; giá dịch vụ trong lĩnh vực giáo dục, đào tạo",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "6",
+      "expected_title": "Sửa đổi, bổ sung điểm b khoản 2 Điều 7 Nghị định số 168/2016/NĐ-CP ngày 27 tháng 12 năm 2016 quy định về khoán rừng, vườn cây và diện tích mặt nước trong các Ban quản lý rừng đặc dụng, rừng phòng hộ và Công ty trách nhiệm hữu hạn một thành viên nông, lâm nghiệp Nhà nước",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "8",
+      "expected_title": "Sửa đổi, bổ sung Điều 11 Nghị định số 137/2013/NĐ-CP ngày 21 tháng 10 năm 2013 quy định chi tiết thi hành một số điều của Luật Điện lực và Luật sửa đổi, bổ sung một số điều của Luật Điện lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_104_2022_nd_cp",
+      "article_number": "9",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Nghị định số 99/2015/NĐ-CP ngày 20 tháng 10 năm 2015 quy định chi tiết và hướng dẫn thi hành một số điều của Luật Nhà ở đã được sửa đổi, bổ sung theo Nghị định số 30/2021/NĐ-CP ngày 26 tháng 3 năm 2021",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+          "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_10_2025_tt_btp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi, bổ sung một số điều theo Thông tư số 07/2023/TT-BTP",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_10_2025_tt_btp.part01.pdf",
+          "sha256": "e8687415f5a3a2a0921bf74ae6f4a1f509ec475a0cacd498214ac6a548d14d14"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_10_2025_tt_btp.part02.pdf",
+          "sha256": "9f921986f33b9c79cec1f1da8414e62c7d6170ad786ee7b3dde62d870ee215b6"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_01_2022_tt_btp",
+      "article_number": "3",
+      "expected_title": "Kết nối, chia sẻ thông tin giữa Cơ sở dữ liệu hộ tịch điện tử với Cơ sở dữ liệu quốc gia về dân cư, Cơ sở dữ liệu quốc gia về bảo hiểm, các cơ sở dữ liệu khác, Cổng Dịch vụ công quốc gia, Cổng Dịch vụ công và Hệ thống thông tin một cửa điện tử cấp tỉnh",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_01_2022_tt_btp.part01.pdf",
+          "sha256": "a08493a68f711c1a10c115a4ea2f050ea22e9e9c20b85d8c3e5c7367b72ce381"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_03_2023_tt_btp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số nội dung của Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022 quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến",
+      "source_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_03_2023_tt_btp.part01.pdf",
+          "sha256": "2e76ae0abe2baed7926e19da31adceb86bde924157bdf340cad3622ee1deba30"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_03_2023_tt_btp.part02.pdf",
+          "sha256": "bf13efea6474a3e911ee6370a07d70307885508b956f595f1bb2a880b6141acf"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_03_2023_tt_btp.part03.pdf",
+          "sha256": "588a1521c8072c0c4bb93e12e514f241c79faa39b615b8dc8e6786668ec76662"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_03_2023_tt_btp.part04.pdf",
+          "sha256": "24708ffa522cfa8c3cacddc4f536c80dad3d873edaf8a4cd2b6f9501fbf1aee5"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_07_2025_tt_bng",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Thông tư số 07/2023/TT-BNG ngày 29 tháng 12 năm 2023 của Bộ trưởng Bộ Ngoại giao hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_07_2025_tt_bng.part01.pdf",
+          "sha256": "20e19b58a90a12306d696b3fb18d8dd24d586c8612b7c8c6d14d8ed5ff31bada"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_91_2015_qh13",
+      "article_number": "100",
+      "expected_title": "Trách nhiệm về nghĩa vụ dân sự của Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam, cơ quan nhà nước ở Trung ương, ở địa phương trong quan hệ dân sự với một bên là nhà nước, pháp nhân, cá nhân nước ngoài",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part01.pdf",
+          "sha256": "e8a97fb2f060f944a7d87716176de06e9fbd1d8049006797fea8185f253b5a6e"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part02.pdf",
+          "sha256": "05e02a81f61ac6b110e5835a37acf6bc8ba5fd9d8e984cf9b6b023a9e960da5b"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_91_2015_qh13",
+      "article_number": "125",
+      "expected_title": "Giao dịch dân sự vô hiệu do người chưa thành niên, người mất năng lực hành vi dân sự, người có khó khăn trong nhận thức, làm chủ hành vi, người bị hạn chế năng lực hành vi dân sự xác lập, thực hiện",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part01.pdf",
+          "sha256": "e8a97fb2f060f944a7d87716176de06e9fbd1d8049006797fea8185f253b5a6e"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part02.pdf",
+          "sha256": "05e02a81f61ac6b110e5835a37acf6bc8ba5fd9d8e984cf9b6b023a9e960da5b"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "bl_91_2015_qh13",
+      "article_number": "202",
+      "expected_title": "Thực hiện quyền sở hữu toàn dân đối với tài sản được giao cho tổ chức chính trị, tổ chức chính trị - xã hội, tổ chức chính trị xã hội - nghề nghiệp, tổ chức xã hội, tổ chức xã hội - nghề nghiệp",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part01.pdf",
+          "sha256": "e8a97fb2f060f944a7d87716176de06e9fbd1d8049006797fea8185f253b5a6e"
+        },
+        {
+          "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part02.pdf",
+          "sha256": "05e02a81f61ac6b110e5835a37acf6bc8ba5fd9d8e984cf9b6b023a9e960da5b"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_09_2022_tt_btp",
+      "article_number": "2",
+      "expected_title": "Bãi bỏ một số nội dung của Thông tư số 04/2020/TT-BTP ngày 28 tháng 5 năm 2020 của Bộ trưởng Bộ Tư pháp quy định chi tiết thi hành một số điều của Luật Hộ tịch và Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v2/tt_09_2022_tt_btp.part01.pdf",
+          "sha256": "a87e66710eaf77cd0bbb06abf0a1d39ca9d09c59e6169d46cc563821667a149b"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_10_2020_tt_btp",
+      "article_number": "5",
+      "expected_title": "Yêu cầu đối với việc ghi và cách ghi Sổ đăng ký nuôi con nuôi, Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam và giấy tờ nuôi con nuôi",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/trial13/tt_10_2020_tt_btp.pdf",
+          "sha256": "f1d3ff0b5f237573d091ed7c10c8d732080b8dda69284d1f2b4d5fe53f91df22"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "nd_76_2023_nd_cp",
+      "article_number": "10",
+      "expected_title": "Quy trình tiếp nhận, xử lý tin báo, tố giác về hành vi bạo lực gia đình qua địa chỉ quy định tại các điểm a, b, c, d và đ khoản 1 Điều 19 của Luật Phòng, chống bạo lực gia đình",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=208906",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/trial13/nd_76_2023_nd_cp.pdf",
+          "sha256": "d860b49935b45ed4d5194a98528c70842ce24780a11c684b4217a7c55c3fed4e"
+        }
+      ],
+      "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    }
+  ]
+}

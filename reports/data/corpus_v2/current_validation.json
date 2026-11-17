@@ -1,0 +1,468 @@
+{
+  "verified_at": "2026-11-17",
+  "base_commit": "c1e9f12",
+  "new_documents": 20,
+  "accepted_trial_documents": 9,
+  "held_trial_documents": 1,
+  "excluded_trial_documents": 3,
+  "registry_documents": 57,
+  "cleaner_discovered_pdfs": 57,
+  "parser_cli_result": "29 succeeded, 0 failed",
+  "schema_documents_passed": 57,
+  "runtime_code_and_schema_changed": false,
+  "changed_test_files": [
+    "parser/test_parser_unit.py",
+    "test/test_document_aliases.py",
+    "test/test_negative_set.py",
+    "test/test_run_final_test.py"
+  ],
+  "baseline_28_document_pdf_txt_json_unchanged": true,
+  "baseline_2322_chunk_payloads_preserved_in_v2": true,
+  "active_chunk_artifacts_refreshed_on_feat_branch": true,
+  "chunker": {
+    "documents": 57,
+    "parents": 2051,
+    "children": 4716,
+    "duplicate_ids": 0,
+    "tokenizer": "underthesea 9.5.0",
+    "output_directory": "data/chunking_output",
+    "warnings": [
+      "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
+      "validity_status 'Không xác định' ở 21 văn bản: ['bl_91_2015_qh13.json', 'l_13_2022_qh15.json', 'l_35_2013_qh13.json', 'l_52_2010_qh12.json', 'l_60_2014_qh13.json', 'l_85_2025_qh15.json', 'nd_06_2025_nd_cp.json', 'nd_104_2022_nd_cp.json', 'nd_114_2016_nd_cp.json', 'nd_120_2025_nd_cp.json', 'nd_15_2014_nd_cp.json', 'nd_19_2011_nd_cp.json', 'nd_301_2026_nd_cp.json', 'nd_76_2023_nd_cp.json', 'nq_326_2016_ubtvqh14.json', 'tt_03_2023_tt_btp.json', 'tt_07_2025_tt_bng.json', 'tt_09_2022_tt_btp.json', 'tt_10_2020_tt_btp.json', 'tt_10_2025_tt_btp.json', 'tt_30_2019_tt_byt.json']",
+      "6 mảnh dưới 20 từ của Khoản bị tách, không gộp được trong giới hạn: ['l_81_2025_qh15_art_2_clause_11_chunk_20', 'nd_123_2015_nd_cp_art_4_clause_1_chunk_3', 'nd_123_2015_nd_cp_art_26_clause_1_chunk_1', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_3', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_7', 'nd_18_2026_nd_cp_art_13_clause_4_chunk_1']",
+      "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 11 Điều: ['nd_120_2025_nd_cp.json Điều 10', 'nd_123_2015_nd_cp.json Điều 10', 'nd_19_2011_nd_cp.json Điều 7', 'nd_19_2011_nd_cp.json Điều 13', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_01_2022_tt_btp.json Điều 3', 'tt_07_2002_tt_btp.json Điều 2', 'tt_07_2023_tt_bng.json Điều 4', 'tt_07_2023_tt_bng.json Điều 23', 'tt_15_2015_tt_btp.json Điều 6']"
+    ]
+  },
+  "legal_temporal_review_complete": false,
+  "production_reindex_performed": false,
+  "unit_tests": {
+    "tests": 699,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "failed_cases": []
+  },
+  "full_suite": {
+    "tests": 1983,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 1776,
+    "subtests_passed": 206,
+    "xml_testcases_include_subtests": true
+  },
+  "negative_set_review": {
+    "historical_dataset_unchanged": true,
+    "newly_available_source_cases": [
+      "NEG_DEV_013",
+      "NEG_DEV_014",
+      "NEG_DEV_015",
+      "NEG_DEV_016",
+      "NEG_DEV_017",
+      "NEG_DEV_018"
+    ],
+    "status": "requires_evaluation_owner_review"
+  },
+  "historical_test_freeze_preserved": true,
+  "documents": [
+    {
+      "document_id": "l_102_2016_qh13",
+      "pages": 34,
+      "articles": 106,
+      "clauses": 332,
+      "sha256": "5bc0a6a03cfec393909c11b37f4242099effae792a87122f93439b85ae7e27a3",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "pages": 176,
+      "articles": 517,
+      "clauses": 1484,
+      "sha256": "26702c8db6aa9662578f01ea0465d7b1ae1fd2e3a5917749df8b50c84ec08fe6",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_34_2024_qh15",
+      "pages": 49,
+      "articles": 152,
+      "clauses": 506,
+      "sha256": "51969743e6030c20bf948705fc47285246f37ab67326e729fe07b762eec8dedc",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_24_2019_nd_cp",
+      "pages": 5,
+      "articles": 4,
+      "clauses": 14,
+      "sha256": "9f81fd713a068b2485110a13c2d2bc1fae1653f7e77677b8cf60dd3bed5c9028",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_06_2025_nd_cp",
+      "pages": 11,
+      "articles": 3,
+      "clauses": 24,
+      "sha256": "8311d646c0d31866875fc94f85460b0061069ffda1257721bedfcdde3ca63ce4",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_07_2023_tt_btp",
+      "pages": 2,
+      "articles": 3,
+      "clauses": 8,
+      "sha256": "fb4bbe2ab5113d30bf8007e1bda14c7390c95ae7c13635c357bd50d42a6908e9",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_104_2022_nd_cp",
+      "pages": 7,
+      "articles": 15,
+      "clauses": 40,
+      "sha256": "32ee3a7ca1d275a175719c84fef84a3679086a7776a6024698785bea9169ea58",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_120_2025_nd_cp",
+      "pages": 9,
+      "articles": 24,
+      "clauses": 55,
+      "sha256": "5b64f7951ea6763f88fe428e666f44ee5f0b92e6fb7f2e444988b412bc15f464",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_85_2025_qh15",
+      "pages": 17,
+      "articles": 6,
+      "clauses": 77,
+      "sha256": "47c33c75637953e77c54b534e01f1ed6ba8405abf0d7e6d0d6372ce37525445d",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_10_2025_tt_btp",
+      "pages": 3,
+      "articles": 3,
+      "clauses": 9,
+      "sha256": "0a43fb9452a1c16cc0abeec60a674d6786df83efbad677ef3e5f030c7d31313a",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_63_2024_nd_cp",
+      "pages": 17,
+      "articles": 30,
+      "clauses": 98,
+      "sha256": "d6e894144c71c45d1c7611194868b561ea71d56b0d7d167e06bc1ca5a46ddfa2",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_58_2020_qh14",
+      "pages": 19,
+      "articles": 42,
+      "clauses": 174,
+      "sha256": "97192aa62be899987c463175959d8269c7c89964cc89cbdc131d8a4b43d24013",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_01_2022_tt_btp",
+      "pages": 11,
+      "articles": 15,
+      "clauses": 45,
+      "sha256": "dddb5ad5e37d2887e1cf5087aefafcfb30bc6b29566d902dda86e3b57253b835",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_03_2023_tt_btp",
+      "pages": 2,
+      "articles": 2,
+      "clauses": 5,
+      "sha256": "80032cbd691cdfaf738fc732e51c33f9f70771fd651db7acc1a0a6b7f510088f",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_07_2023_tt_bng",
+      "pages": 16,
+      "articles": 23,
+      "clauses": 54,
+      "sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_07_2025_tt_bng",
+      "pages": 3,
+      "articles": 2,
+      "clauses": 8,
+      "sha256": "afaa08d46105abb934b384e92545d4630184099b8c2b77e0aec7e15741654dce",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nq_326_2016_ubtvqh14",
+      "pages": 17,
+      "articles": 48,
+      "clauses": 171,
+      "sha256": "9c5fc06fe6be7b54ac92abad8acf59823a9af4f07cb47353751f27a157c734b7",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "pages": 140,
+      "articles": 689,
+      "clauses": 1635,
+      "sha256": "6db2e6a2c47639e9db54d5e6d0299c494a1d9f86f25e08985fc9b9a2873d3edf",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_09_2022_tt_btp",
+      "pages": 2,
+      "articles": 4,
+      "clauses": 9,
+      "sha256": "0b69da02e5b5b5b7b055d013326b5f0e81d478b14553794a8617ef184ff0a250",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_301_2026_nd_cp",
+      "pages": 13,
+      "articles": 19,
+      "clauses": 66,
+      "sha256": "5a682f705d248e3d8feac93701691e33984467535ca7fa45dc9b36db8f9933e4",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_60_2014_qh13",
+      "pages": 22,
+      "articles": 77,
+      "clauses": 188,
+      "sha256": "a90a917d5c44a15d8ad9d98128f3bded1c941d3d2b1e3e7452ed0ba92a98ba3c",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_52_2010_qh12",
+      "pages": 15,
+      "articles": 52,
+      "clauses": 151,
+      "sha256": "9066dee114c6a716614e614b928f3eb3c2a36a0cc4e266f233e2499776ae0c61",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_13_2022_qh15",
+      "pages": 21,
+      "articles": 56,
+      "clauses": 205,
+      "sha256": "cdc3975366f8610c98273b40aceb8ceb81102021ccc7f1cb30163981ec412ba1",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "tt_10_2020_tt_btp",
+      "pages": 5,
+      "articles": 9,
+      "clauses": 31,
+      "sha256": "26ddbb6e4a833bbf90d487f87b73475b0b1c14ae9e8a765b0a8f4d6b4ee4f835",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "l_35_2013_qh13",
+      "pages": 9,
+      "articles": 33,
+      "clauses": 103,
+      "sha256": "68678ddeaeae8800d1ef4fac5ed7c2b5eb5ffe806a7fd00e0b41f3236ed21e2d",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "pages": 20,
+      "articles": 52,
+      "clauses": 146,
+      "sha256": "fa223aca558c1477810d2eb4c4d078733c73535169869063178a7c7f9db038d6",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_76_2023_nd_cp",
+      "pages": 21,
+      "articles": 45,
+      "clauses": 164,
+      "sha256": "7b3f9d43d2ef2dc1388055c536a390aa9c959801b94324c01adfeaf8fc298608",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_114_2016_nd_cp",
+      "pages": 5,
+      "articles": 11,
+      "clauses": 29,
+      "sha256": "bf916dc5da3e22e3bfefd2d3b4a61698d62eb8b2eed67ce31e4ea5d011450d96",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    },
+    {
+      "document_id": "nd_15_2014_nd_cp",
+      "pages": 8,
+      "articles": 20,
+      "clauses": 44,
+      "sha256": "084a90b5c01589d533c3d651533f32b980d520e3d7820142ca531a378ac902c4",
+      "cleaner_parser_schema": "PASS",
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12
+    }
+  ],
+  "latest_upstream_review": {
+    "testing_commit": "01fe249",
+    "pr54_commit": "417e3f3",
+    "full_suite_xml_counts": {
+      "tests": 2051,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "pytest_summary": "1844 passed, 1 skipped, 206 subtests passed in 164.94s (0:02:44)\r",
+    "report_path": "reports/data/corpus_v2/pr54_review/REVIEW.md",
+    "historical_corpus_base_commit": "c1e9f12"
+  },
+  "trial_branch_prepush": {
+    "branch": "data/trial-13-documents",
+    "testing_commit": "01fe249",
+    "passed": 1844,
+    "skipped": 1,
+    "subtests_passed": 206,
+    "failures": 0,
+    "runtime_parser_cleaner_chunker_schema_match_testing": true
+  }
+}

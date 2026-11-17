@@ -1,0 +1,136 @@
+Tóm tắt
+PR này đặt BRD và SRS 2.1 làm nguồn yêu cầu chung cho cả dự án. Tech Lead đã duyệt làm baseline ngày 16/11/2026. Từ nay kế hoạch sprint, PR code và test dẫn chiếu tới mã yêu cầu trong SRS (ví dụ FR5.2, IR2.1).
+Tài liệu mô tả toàn bộ hệ thống theo sơ đồ architecture/system_architecture.drawio, không chỉ phần sprint hiện tại. Mỗi khối trên sơ đồ có một nhóm yêu cầu. Phần Retrieval và Knowledge Base của sơ đồ là chuẩn bắt buộc.
+File thay đổi
+
+
+
+File
+Nội dung
+
+
+
+
+docs/SRS.md
+Viết lại SRS 1.0 thành 2.1: 113 yêu cầu (FR1–FR9, IR1–IR4, NFR1–NFR8), contract API, quyết định đã chốt, thứ tự làm GĐ2, Definition of Ready/Done, quy trình feature spec cho GĐ3.
+
+
+docs/BRD.md
+Mới: mục tiêu và KPI, người dùng, năng lực nghiệp vụ theo phân hệ, quy tắc nghiệp vụ, ba giai đoạn, rủi ro, tiêu chí nghiệm thu.
+
+
+docs/requirements_traceability.md
+Mới: trạng thái từng yêu cầu tại c1e9f12 kèm file test làm bằng chứng, số đo KPI hiện tại.
+
+
+docs/feature_specs/TEMPLATE.md
+Mới: mẫu feature spec cho các khối GĐ3.
+
+
+
+Không thay đổi code.
+Những điểm chính
+Mã yêu cầu ổn định. Giữ nghĩa của FR1–FR5 và NFR1–NFR3 của SRS 1.0, chỉ thêm mã con (FR1.1…). Mã đã phát hành không đổi số. SRS mục 13 ánh xạ 1.0 → 2.1; yêu cầu nào của 1.0 bị đổi cách hiểu đều có ghi lý do (ví dụ "chỉ dùng văn bản Còn hiệu lực" → lọc theo ngày hiệu lực; "Bump Retry nới lỏng bộ lọc" → sinh lại tối đa một lần, không bỏ bộ lọc hiệu lực).
+Ba giai đoạn thay cho sprint.
+
+GĐ1 — Lõi RAG có kiểm soát: truy xuất lai, lọc thời điểm, rerank, Gate, đánh giá A/B.
+GĐ2 — Ứng dụng hoàn chỉnh: router trong pipeline, API, UI, log, che PII, hỏi lại.
+GĐ3 — Vận hành mở rộng: cache, rate limit, phiên hội thoại, nhiều model và dự phòng, kiểm tra ngữ nghĩa, nạp văn bản tự động, ReactJS.
+
+Mọi yêu cầu GĐ1–GĐ2 có tiêu chí chấp nhận. 95 yêu cầu, 143 tiêu chí dạng Given/When/Then, mã <mã>-ACk. Mỗi yêu cầu có thêm cột Phụ thuộc.
+Yêu cầu GĐ3 cần feature spec trước khi vào sprint. SRS chỉ đặc tả các khối GĐ3 ở mức kiến trúc. Khi một khối GĐ3 được xếp vào sprint, người được giao viết docs/feature_specs/<mã>-<tên>.md theo mẫu (tham số, tiêu chí chấp nhận, cách đo), Tech Lead duyệt, rồi mới đưa vào sprint (SRS mục 11).
+Definition of Ready (SRS mục 10): một yêu cầu chỉ vào sprint khi đã Approved, có tiêu chí chấp nhận, đủ tham số, không còn quyết định chặn, phụ thuộc đã xong hoặc có mock, đã biết cách kiểm chứng.
+Trạng thái tách khỏi yêu cầu. SRS và BRD không ghi tên Dev, số PR hay số đo. Những thứ thay đổi theo từng PR chỉ nằm trong requirements_traceability.md.
+Quyết định đã chốt (SRS mục 8)
+
+
+
+Mã
+Nội dung
+
+
+
+
+D-01
+Enum route công khai gồm 5 giá trị của router: LEGAL_HNGD, LEGAL_SCOPE_UNCERTAIN, LEGAL_OUT_OF_SCOPE, MIXED_LEGAL_SCOPE, NON_LEGAL
+
+
+D-02
+status = SUCCESS / NEEDS_CLARIFICATION / ABSTAIN / ERROR; bảng mã lý do, mã lỗi, HTTP ở SRS mục 5.3.4
+
+
+D-03
+Thêm NOT_RUN vào grounding_status của AskResponse
+
+
+D-04
+Reranker giữ Top-10 theo sơ đồ; tối đa 5 evidence sau Confidence Filter
+
+
+D-05
+Câu hỏi làm rõ theo nhóm dữ kiện thiếu; tối đa 2 vòng (GĐ3)
+
+
+D-06
+Sinh lại tối đa 1 lần khi lỗi có thể sửa; tắt trong đánh giá official
+
+
+D-07
+Che email, số điện thoại, CMND/CCCD trước log, lịch sử và model bên ngoài
+
+
+D-08
+Mục tiêu KPI theo bảng trong BRD
+
+
+D-09
+Người duyệt pháp lý xác nhận văn bản về dữ liệu cá nhân
+
+
+D-10
+Latency đo trên máy tham chiếu ghi trong manifest; chỉ so sánh cùng máy
+
+
+
+Còn chưa có số: ngưỡng p95 latency (BO-05, chốt khi chọn máy tham chiếu), thời gian cập nhật kho (BO-08, chốt trong feature spec FR8.9–FR8.10).
+Ảnh hưởng tới các PR đang mở
+
+PR docs(srs,brd): update SRS v2.0 and add BRD v2.0 aligned with codebase #47 (docs): PR này thay thế nội dung BRD/SRS của PR docs(srs,brd): update SRS v2.0 and add BRD v2.0 aligned with codebase #47, nên hai PR xung đột ở docs/BRD.md và docs/SRS.md. Đề xuất: đóng PR docs(srs,brd): update SRS v2.0 and add BRD v2.0 aligned with codebase #47, hoặc đổi tên file trong PR docs(srs,brd): update SRS v2.0 and add BRD v2.0 aligned with codebase #47 thành bản mô tả hiện trạng (ví dụ docs/as_built_sprint9.md). Phần mô tả module của PR docs(srs,brd): update SRS v2.0 and add BRD v2.0 aligned with codebase #47 đã được dùng lại cho bối cảnh BRD và cho ma trận truy vết.
+PR feat(contracts,gateway): freeze Week 10 Pydantic schemas, harden Qwen… #49 (contract): RouteType cần dùng 5 giá trị của D-01; AskResponse cần thêm evidence[], disclaimer, NOT_RUN và bộ mã lỗi theo SRS mục 5.3.
+PR Feature/r4 follow up #46 (router v3), PR  sửa một số lỗi tồn động sprint09/metrics_and_run_A/ cập nhật kết quả sprint 10 của dev 2 #51 (UI): đối chiếu với FR1 và IR1 khi review.
+
+Việc tiếp theo
+Theo SRS mục 9, đợt 0 là đưa contract đã chốt (D-01, D-02, D-03, D-07; SRS mục 5.2–5.4) vào schemas/models.py. Sau đó đợt 1 làm song song: nối router vào pipeline, khung API, log và che PII, UI dùng API giả lập.
+Cách review
+
+Đọc SRS mục 2 (luồng theo sơ đồ), rồi nhóm yêu cầu của module mình phụ trách.
+Kiểm tra tiêu chí chấp nhận của module mình có test được và khớp hành vi hiện tại không.
+Kiểm tra trạng thái module mình trong requirements_traceability.md.
+Góp ý sửa yêu cầu: comment vào dòng có mã yêu cầu. Thay đổi sau khi merge đi qua PR sửa SRS (SRS mục 12).
+
+---
+
+Review PR spec/brd-srs-v2.1 (417e3f3): Request changes
+Điểm đạt
+
+Bộ tài liệu BRD 2.1, SRS 2.1, Ma trận truy vết và mẫu Feature Spec GĐ3 được cấu trúc rất rõ ràng, phân rạch GĐ1/GĐ2/GĐ3, DoR/DoD, Given/When/Then AC, và cập nhật số đo thực tế trong requirements_traceability.md chính xác theo các artifact đã chạy.
+Các chỉnh sửa typo và nối edge trên architecture/system_architecture.drawio chính xác, merge với origin/testing không conflict.
+
+Các điểm cần đồng bộ trước khi Tech Lead ký Baseline (vì SRS §12.1 khóa bắt buộc từng tên trường/enum ở §5)
+Hiện §5.3–5.4 của docs/SRS.md đang lệch với schemas/models.py đã merge ở PR #49 (origin/testing 01fe249) và api/ của Dev 5:
+
+Enum route (§5.3.3 & D-01): SRS ghi 5 giá trị nội bộ của RuleRouter (LEGAL_HNGD, LEGAL_SCOPE_UNCERTAIN...), trong khi schemas/models.py dùng RouteType 4 giá trị (LEGAL_IN_SCOPE, NON_LEGAL, LEGAL_OUT_OF_SCOPE, MIXED_REVIEW) và map_router_route_to_canonical(). Cần chốt rõ trong SRS ranh giới Route nội bộ vs RouteType trên API.
+Trường của AskResponse (§5.3.2 vs schemas/models.py extra="forbid"):
+
+Tên trường khác nhau: message (SRS) vs abstention_message/abstention_reason (code); reason_code + error.code (SRS) vs error_code + ErrorDetail(message, retryable) (code).
+Thiếu trên code hiện tại so với SRS: session_id, versions, cache; các trường của citations[] (document_number, point_ref, label) vs MappedCitation; cấu trúc timings (first_status_ms, llm_ms, gate_ms vs AskTimings).
+Quy ước FR7.1-AC2 (query_id = request_id) cần đối chiếu thống nhất với docs/contracts.md §4.1.
+
+
+Mã lỗi & HTTP (§5.3.4 & IR2.2): SRS dùng RATE_LIMITED, LLM_UNAVAILABLE, MODEL_ABSTAINED, MODEL_NEEDS_CLARIFICATION chưa có trong ErrorCode của schemas/models.py; và api/routes/ask.py trả HTTP 403 cho API key sai trong khi IR2.2/§5.3.4 chỉ ghi 401.
+LogEvent (§5.4): SRS ghi 11 stage (thêm session, confidence) và session_id, khác với 9 EventStage trong schemas/models.py.
+Cập nhật ảnh chụp & trạng thái duyệt:
+
+Cập nhật docs/requirements_traceability.md lên sau PR #49 (01fe249, ví dụ FR6.4 đã có trên testing) và bổ sung ghi chú về bản week10_v1.1 (đồng bộ RetrievalBundle).
+Sửa §5.2 ghi rõ đường dẫn JSON Schema là schemas/generated/*.schema.json (và schemas/*.schema.json legacy).
+Nhờ tác giả đề xuất: sửa §5 theo contract code week10_v1.1 đang khóa để giữ đồng bộ, hoặc liệt kê chính xác những điểm schemas/models.py cần PR tiếp theo cập nhật theo SRS trước khi gắn nhãn Approved chính thức.

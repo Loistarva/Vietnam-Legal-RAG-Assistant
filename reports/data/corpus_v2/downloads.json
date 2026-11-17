@@ -1,0 +1,482 @@
+[
+  {
+    "document_id": "l_102_2016_qh13",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/05/102.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/l_102_2016_qh13/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/05/102.signed.pdf",
+    "sha256": "bbc2c729495cd1169f3fe3a0f3b40ad988eea3ca8c7d063f84060300afa4108f",
+    "bytes": 2890643,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_102_2016_qh13",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/4/19611/14045-1-1022016qh1314120pdf",
+    "path": "tmp/corpus_v2/downloads/l_102_2016_qh13/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/4/19611/14045-1-1022016qh1314120pdf",
+    "sha256": "970a47b0d7f27742c9d4e02f1b2f8ad696d7fc7419e4805683b86db6a9fcb975",
+    "bytes": 25137331,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/bl_91_2015_qh13/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+    "sha256": "d2f9e486faa8aa205dff952c813251acb82475a614b388d2a52449a05dd37205",
+    "bytes": 6675593,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "candidate_index": 1,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+    "path": "tmp/corpus_v2/downloads/bl_91_2015_qh13/01.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+    "sha256": "dd2c45f8dee4e0d7b0416786b236e9588092863edcef64db07ef2b74954bba50",
+    "bytes": 5498558,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "candidate_index": 2,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12965-1-912015qh1313017pdf",
+    "path": "tmp/corpus_v2/downloads/bl_91_2015_qh13/02.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12965-1-912015qh1313017pdf",
+    "sha256": "e8a97fb2f060f944a7d87716176de06e9fbd1d8049006797fea8185f253b5a6e",
+    "bytes": 1324726,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "candidate_index": 3,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12968-1-912015qh1313019pdf",
+    "path": "tmp/corpus_v2/downloads/bl_91_2015_qh13/03.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12968-1-912015qh1313019pdf",
+    "sha256": "05e02a81f61ac6b110e5835a37acf6bc8ba5fd9d8e984cf9b6b023a9e960da5b",
+    "bytes": 863227,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92.signed_01.pdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92.signed_01.pdf",
+    "sha256": "fea333cfe1e69659cca3999e0f7678d9f74beb2bc6c8190e3144450fed7558c2",
+    "bytes": 6301431,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 1,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92_.pdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/01.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92_.pdf",
+    "sha256": "40fadaa8bfd7da21619d9b09cbcc8386d0f64a1535893ed0d4e77aff818017ad",
+    "bytes": 6359921,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 2,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92__.pdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/02.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92__.pdf",
+    "sha256": "3c629a4fb70e5d6d65556afee9b2fbd872b97e7e692737b295bc6a23aeb29fc8",
+    "bytes": 3908361,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 3,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28624-1-incb-12511252-29-12-2015signedsignedsignedpdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/03.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28624-1-incb-12511252-29-12-2015signedsignedsignedpdf",
+    "sha256": "bdae2e76f6aaf555adcc7f735ce958aec7b89f647f495b645e894ee7a42b6532",
+    "bytes": 1766732,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 4,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28625-1-incb-12531254-29-12-2015signedsignedpdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/04.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28625-1-incb-12531254-29-12-2015signedsignedpdf",
+    "sha256": "e6f8ee28023bbe15087098cc89df22fededcdd6a9f7a74978f98a87a1c9f5915",
+    "bytes": 1579381,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "candidate_index": 5,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28627-2-incb-12551256-29-12-2015signedsignedsignedsignedsignedpdf",
+    "path": "tmp/corpus_v2/downloads/bl_92_2015_qh13/05.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28627-2-incb-12551256-29-12-2015signedsignedsignedsignedsignedpdf",
+    "sha256": "eba0e306dbd5450b7a4b2b4591c36770b3e17d461b05d585432db2bdafaf3246",
+    "bytes": 2126680,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nq_326_2016_ubtvqh14",
+    "candidate_index": 0,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/12/22191/16544-1-3262016ubtvqh1416723pdf",
+    "path": "tmp/corpus_v2/downloads/nq_326_2016_ubtvqh14/00.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/12/22191/16544-1-3262016ubtvqh1416723pdf",
+    "sha256": "25b7fa97779eb34fbb8b32cc04d5a980a22d23280ae308a0f485ccfb4aa101f8",
+    "bytes": 22904742,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_34_2024_qh15",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/9/34-2024-qh15.pdf",
+    "path": "tmp/corpus_v2/downloads/l_34_2024_qh15/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/9/34-2024-qh15.pdf",
+    "sha256": "93563b0c26b6f1d596b7f7a3c5d3a654796245d5abe1265920be52cd1ff6553e",
+    "bytes": 783632,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_24_2019_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2019/03/24.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_24_2019_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2019/03/24.signed.pdf",
+    "sha256": "d54b30da593aef00248713a07e95e3c675649582193c26f6d15c64cd682a2448",
+    "bytes": 486630,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_24_2019_nd_cp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2019/3/28598/26122-1-2019301-30224-2019-nd-cp.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_24_2019_nd_cp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2019/3/28598/26122-1-2019301-30224-2019-nd-cp.pdf",
+    "sha256": "f4ad3ed7773d303aca44645676ebd8860f0879092ca5632394513b0d3ce13b49",
+    "bytes": 373439,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/06-nd1.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_06_2025_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/06-nd1.signed.pdf",
+    "sha256": "caa449d5432c5d3870f2a839232e8d2f3717b9a36e9271e85f574bda57336498",
+    "bytes": 722525,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_06_2025_nd_cp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+    "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985",
+    "bytes": 322868,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "candidate_index": 0,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46870-1-20231125-112607-2023-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2023_tt_btp/00.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46870-1-20231125-112607-2023-tt-btp.pdf",
+    "sha256": "d3d95e81c761e4ff0d86391c18a8c214a5edac64bbe5c2c5853a2256e01380ee",
+    "bytes": 1174539,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46873-1-20231127-112807-2023-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2023_tt_btp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46873-1-20231127-112807-2023-tt-btp.pdf",
+    "sha256": "c757a81dafc5932128a5014bbe219095949bb91d0e1a78db66e272d6db2d75a4",
+    "bytes": 1011914,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/12/104-cp.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_104_2022_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/12/104-cp.signed.pdf",
+    "sha256": "2bf90b4ca777f3b29a0c93fec083e0354519fa04c9db962edaa25a5a62d55c47",
+    "bytes": 487496,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38392/42711-1-2022965-966104-2022-nd-cp.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_104_2022_nd_cp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38392/42711-1-2022965-966104-2022-nd-cp.pdf",
+    "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0",
+    "bytes": 431778,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_09_2022_tt_btp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/01/09-btp.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_09_2022_tt_btp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/01/09-btp.signed.pdf",
+    "sha256": "a0798faf07ec70a62d1bba8aa9545904f56301ccb54a3b5dfc42553b75b37976",
+    "bytes": 195469,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_09_2022_tt_btp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38657/43277-1-2023217-21809-2022-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_09_2022_tt_btp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38657/43277-1-2023217-21809-2022-tt-btp.pdf",
+    "sha256": "a87e66710eaf77cd0bbb06abf0a1d39ca9d09c59e6169d46cc563821667a149b",
+    "bytes": 312599,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_120_2025_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/120-cp.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_120_2025_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/120-cp.signed.pdf",
+    "sha256": "cec002f9eab02f4d6ef0f1bbd8d97161eec31cf6aea0a5eb9a8acd91fad2e8a4",
+    "bytes": 699907,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_120_2025_nd_cp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45062/56730-1-2025777-778120-2025-nd-cp.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_120_2025_nd_cp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45062/56730-1-2025777-778120-2025-nd-cp.pdf",
+    "sha256": "0f3039356343432aad1f0b081b3ce3cb24d8c320ffbcc004a7b59e88b1f5acad",
+    "bytes": 352836,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_85_2025_qh15",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/85qh.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/l_85_2025_qh15/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/85qh.signed.pdf",
+    "sha256": "1ccb1e4a674e395fd623217a1b5f85126770974d00162cd55e8da6a9298af70c",
+    "bytes": 840856,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_85_2025_qh15",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45520/57597-1-2025953-95485-2025-qh15.pdf",
+    "path": "tmp/corpus_v2/downloads/l_85_2025_qh15/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45520/57597-1-2025953-95485-2025-qh15.pdf",
+    "sha256": "4ec802f21b8949ec66b9eeb312a8ad19657a288980d91d94439f369285a8911e",
+    "bytes": 387650,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/10-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_10_2025_tt_btp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/10-btp.pdf",
+    "sha256": "9dce8415a096a5228570b29920fdeff19ed383c30bb8c8769816dd71594b74b1",
+    "bytes": 898964,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57234-1-2025863-86410-2025-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_10_2025_tt_btp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57234-1-2025863-86410-2025-tt-btp.pdf",
+    "sha256": "e8687415f5a3a2a0921bf74ae6f4a1f509ec475a0cacd498214ac6a548d14d14",
+    "bytes": 616438,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "candidate_index": 2,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57237-1-2025865-86610-2025-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_10_2025_tt_btp/02.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57237-1-2025865-86610-2025-tt-btp.pdf",
+    "sha256": "9f921986f33b9c79cec1f1da8414e62c7d6170ad786ee7b3dde62d870ee215b6",
+    "bytes": 987333,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_63_2024_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/6/63-cp.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_63_2024_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/6/63-cp.signed.pdf",
+    "sha256": "15c765aeb4db92e85d81431ce298312934e863d8dd2e361f1be2ec3be5dd5d08",
+    "bytes": 1280652,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_63_2024_nd_cp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/6/42050/50468-1-2024737-73863-2024-nd-cp.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_63_2024_nd_cp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/6/42050/50468-1-2024737-73863-2024-nd-cp.pdf",
+    "sha256": "0df62837ab8a1a0b30224eb9d6f562e367f87b4de83eab4a30f94c67d426d0cc",
+    "bytes": 673742,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_301_2026_nd_cp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_3-signed.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_301_2026_nd_cp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_3-signed.signed.pdf",
+    "sha256": "ad5cf70c3cd44eab9da8e15405f68c7f9e8444b3071b27d640762f0a17006734",
+    "bytes": 352389,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_301_2026_nd_cp",
+    "candidate_index": 1,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_5-signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_301_2026_nd_cp/01.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_5-signed.pdf",
+    "sha256": "f986ea3b4eba555a1adc548bfe408f00f82aef27327993fa91b4829fa210d76e",
+    "bytes": 260844,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_301_2026_nd_cp",
+    "candidate_index": 2,
+    "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/8/12/470197-1786434405_v1_1786526065_signed.pdf",
+    "path": "tmp/corpus_v2/downloads/nd_301_2026_nd_cp/02.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/8/12/470197-1786434405_v1_1786526065_signed.pdf",
+    "sha256": "d3f1f82222565ccdfa9e3d36b09f633501cbb2eceb05e965622d2f4a3c3bc61a",
+    "bytes": 917487,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_58_2020_qh14",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/07/58.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/l_58_2020_qh14/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/07/58.signed.pdf",
+    "sha256": "3dde08bc0782729d907a2442e648e6dcd9d618e2b001b322349cb7594a6514fc",
+    "bytes": 1535744,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_58_2020_qh14",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/6/31659/31870-1-2020709-71058-2020-qh14.pdf",
+    "path": "tmp/corpus_v2/downloads/l_58_2020_qh14/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/6/31659/31870-1-2020709-71058-2020-qh14.pdf",
+    "sha256": "3ac7d379b251bac67d5909b82a839cdafffb71b3924b5fa0cd4134e0958c7e2e",
+    "bytes": 522684,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_01_2022_tt_btp",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/02/01-tt-btp.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_01_2022_tt_btp/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/02/01-tt-btp.signed.pdf",
+    "sha256": "f32aa7af115a46129df36a22ff911c4394bd0290433621f6186fb6fc92091326",
+    "bytes": 2203032,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_01_2022_tt_btp",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36821/39913-1-2022245-24601-2022-tt-btp.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_01_2022_tt_btp/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36821/39913-1-2022245-24601-2022-tt-btp.pdf",
+    "sha256": "a08493a68f711c1a10c115a4ea2f050ea22e9e9c20b85d8c3e5c7367b72ce381",
+    "bytes": 1319196,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2023_tt_bng",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/01/07-bng.signed.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2023_tt_bng/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/01/07-bng.signed.pdf",
+    "sha256": "c56a695b20a2c8b37324b5db653ab0545d4fad22a4f17bdb13af39fc01144eb6",
+    "bytes": 1003910,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2023_tt_bng",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2023_tt_bng/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
+    "sha256": "5eafcf6f0f4d442cd90fa629beb4ab32eb12b645138989b459f87cc0279677c8",
+    "bytes": 506269,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2025_tt_bng",
+    "candidate_index": 0,
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/07-bng.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2025_tt_bng/00.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/07-bng.pdf",
+    "sha256": "8e636a89112f597aa508ff34c63589e8629a9e112b5915d2fb0d0515300b876e",
+    "bytes": 440757,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_07_2025_tt_bng",
+    "candidate_index": 1,
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45298/57182-1-2025857-85807-2025-tt-bng.pdf",
+    "path": "tmp/corpus_v2/downloads/tt_07_2025_tt_bng/01.pdf",
+    "resolved_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45298/57182-1-2025857-85807-2025-tt-bng.pdf",
+    "sha256": "20e19b58a90a12306d696b3fb18d8dd24d586c8612b7c8c6d14d8ed5ff31bada",
+    "bytes": 294128,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "candidate_index": 0,
+    "url": "https://hctp.moj.gov.vn/documents/37829/0/TT_03.2023.TT.BTP_18153878665282983.pdf/bc09a6d8-7108-94e2-df6f-2e6e51885949?version=1.0&t=1772787708589&download=true",
+    "path": "tmp/corpus_v2/downloads/tt_03_2023_tt_btp/00.pdf",
+    "resolved_url": "https://hctp.moj.gov.vn/documents/37829/0/TT_03.2023.TT.BTP_18153878665282983.pdf/bc09a6d8-7108-94e2-df6f-2e6e51885949?version=1.0&t=1772787708589&download=true",
+    "sha256": "2e76ae0abe2baed7926e19da31adceb86bde924157bdf340cad3622ee1deba30",
+    "bytes": 628070,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "candidate_index": 1,
+    "url": "https://hctp.moj.gov.vn/documents/37829/0/2.Phuluc1+-+TT03.2023_18154049666781573.pdf/6701cb81-3460-dadc-6b0a-1c38fe99dd6b?version=1.0&t=1772787879420&download=true",
+    "path": "tmp/corpus_v2/downloads/tt_03_2023_tt_btp/01.pdf",
+    "resolved_url": "https://hctp.moj.gov.vn/documents/37829/0/2.Phuluc1+-+TT03.2023_18154049666781573.pdf/6701cb81-3460-dadc-6b0a-1c38fe99dd6b?version=1.0&t=1772787879420&download=true",
+    "sha256": "bf13efea6474a3e911ee6370a07d70307885508b956f595f1bb2a880b6141acf",
+    "bytes": 381422,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "candidate_index": 2,
+    "url": "https://hctp.moj.gov.vn/documents/37829/0/3.Phuluc2+-+TT03.2023_18154071941345967.pdf/e041b864-6ef9-390f-a21c-3323b2b731bb?version=1.0&t=1772787901651&download=true",
+    "path": "tmp/corpus_v2/downloads/tt_03_2023_tt_btp/02.pdf",
+    "resolved_url": "https://hctp.moj.gov.vn/documents/37829/0/3.Phuluc2+-+TT03.2023_18154071941345967.pdf/e041b864-6ef9-390f-a21c-3323b2b731bb?version=1.0&t=1772787901651&download=true",
+    "sha256": "588a1521c8072c0c4bb93e12e514f241c79faa39b615b8dc8e6786668ec76662",
+    "bytes": 276101,
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "candidate_index": 3,
+    "url": "https://hctp.moj.gov.vn/documents/37829/0/4.Phuluc3+-+TT03.2023_18154093566585029.pdf/4d7ed0c0-b1d6-b104-f5a5-5ab6027afccb?version=1.0&t=1772787923275&download=true",
+    "path": "tmp/corpus_v2/downloads/tt_03_2023_tt_btp/03.pdf",
+    "resolved_url": "https://hctp.moj.gov.vn/documents/37829/0/4.Phuluc3+-+TT03.2023_18154093566585029.pdf/4d7ed0c0-b1d6-b104-f5a5-5ab6027afccb?version=1.0&t=1772787923275&download=true",
+    "sha256": "24708ffa522cfa8c3cacddc4f536c80dad3d873edaf8a4cd2b6f9501fbf1aee5",
+    "bytes": 2977062,
+    "status": "downloaded"
+  }
+]

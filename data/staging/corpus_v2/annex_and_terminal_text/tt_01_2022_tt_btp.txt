@@ -1,0 +1,1128 @@
+./.
+KT. BỘ TRƯỞNG
+THỨ TRƯỞNG
+Nguyễn Khánh Ngọc
+Phụ lục 1
+NỘI DUNG BẢN ĐIỆN TỬ GIẤY TỜ HỘ TỊCH,
+VĂN BẢN XÁC NHẬN THÔNG TIN HỘ TỊCH, GIẤY BÁO TỬ
+(Kèm theo Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022
+của Bộ Tư pháp quy định chi tiết thi hành một số điều của Nghị định số
+87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ
+quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến)
+STT Loại việc hộ tịch
+1 Nội dung bản điện tử Giấy khai sinh
+2 Nội dung bản điện tử Giấy chứng nhận kết hôn
+3 Nội dung bản điện tử Trích lục khai tử
+4 Nội dung bản điện tử Trích lục đăng ký giám hộ
+5 Nội dung bản điện tử Trích lục đăng ký chấm dứt giám hộ
+6 Nội dung bản điện tử Trích lục đăng ký nhận cha, mẹ, con
+7 Nội dung bản điện tử Trích lục thay đổi, cải chính, bổ sung thông tin hộ
+tịch, xác định lại dân tộc
+8 Nội dung bản điện tử Trích lục ghi vào Sổ hộ tịch việc khai sinh
+9 Nội dung bản điện tử Trích lục ghi chú kết hôn
+10 Nội dung bản điện tử Trích lục ghi chú ly hôn
+11 Nội dung bản điện tử Trích lục ghi vào Sổ hộ tịch các việc hộ tịch khác
+12 Nội dung bản điện tử Giấy xác nhận tình trạng hôn nhân
+13 Văn bản xác nhận thông tin hộ tịch
+14 Giấy báo tử
+NỘI DUNG BẢN ĐIỆN TỬ GIẤY KHAI SINH
+GIẤY KHAI SINH
+Họ, chữ đệm, tên:.............................................
+Số định danh cá nhân:........................................
+Mẹ1:....................................................................
+Cha1:..................................................................
+Nơi đăng ký khai sinh:.......................................
+1 Hiển thị họ, chữ đệm, tên
+NỘI DUNG BẢN ĐIỆN TỬ GIẤY CHỨNG NHẬN KẾT HÔN
+GIẤY CHỨNG NHẬN KẾT HÔN
+Vợ1:............................................................................
+Số định danh cá nhân2:..............................................
+Chồng1:.....................................................................
+Số định danh cá nhân2:..............................................
+Ngày đăng ký kết hôn:............................................
+Nơi đăng ký kết hôn:...............................................
+1 Hiển thị họ, chữ đệm, tên
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+kết hôn
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC KHAI TỬ
+TRÍCH LỤC KHAI TỬ
+Họ, chữ đệm, tên:...............................................
+Số định danh cá nhân1:........................................
+Đã chết vào lúc........ giờ...... phút, ngày..............
+Nơi đăng ký khai tử:............................................
+1 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC ĐĂNG KÝ GIÁM HỘ
+TRÍCH LỤC ĐĂNG KÝ GIÁM HỘ
+Người giám hộ1:...................................................
+Số định danh cá nhân2:..........................................
+Người được giám hộ1:.........................................
+Số định danh cá nhân2:..........................................
+Nơi đăng ký giám hộ:...........................................
+1 Hiển thị Họ, chữ đệm, tên
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+hộ tịch
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC ĐĂNG KÝ
+CHẤM DỨT GIÁM HỘ
+TRÍCH LỤC ĐĂNG KÝ
+CHẤM DỨT GIÁM HỘ
+Người giám hộ1:...................................................
+Số định danh cá nhân2:..........................................
+Người được giám hộ1:.........................................
+Số định danh cá nhân2:.........................................
+Nơi đăng ký chấm dứt giám hộ:..........................
+1 Hiển thị họ, chữ đệm, tên
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+chấm dứt giám hộ
+NỘI DUNG BẢN ĐIỆN TỬ
+TRÍCH LỤC ĐĂNG KÝ NHẬN CHA, MẸ, CON
+TRÍCH LỤC
+ĐĂNG KÝ NHẬN...............1
+Cha/Mẹ2:.................................................................
+Số định danh cá nhân3:............................................
+Con2:........................................................................
+Số định danh cá nhân3:............................................
+Nơi đăng ký nhận....................1:.............................
+1 Ghi rõ việc đăng ký: nhận cha, con hoặc nhận mẹ, con hoặc nhận cha, mẹ, con tùy theo yêu cầu thực tế
+2 Hiển thị họ, chữ đệm, tên
+3 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+nhận cha, mẹ, con
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC THAY ĐỔI/CẢI CHÍNH/
+BỔ SUNG THÔNG TIN HỘ TỊCH, XÁC ĐỊNH LẠI DÂN TỘC
+TRÍCH LỤC......................1
+Họ, chữ đệm, tên:.................................................
+Số định danh cá nhân2:...........................................
+Đã được.............1 từ........................thành...............
+................................................................................
+Nơi đăng ký..........1:...............................................
+................................................................................
+1 Ghi tương ứng theo loại việc hộ tịch: thay đổi hộ tịch/ cải chính hộ tịch/ bổ sung thông tin hộ tịch/ xác
+định lại dân tộc.
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+thay đổi hộ tịch/cải chính hộ tịch/bổ sung thông tin hộ tịch/xác định lại dân tộc.
+NỘI DUNG BẢN ĐIỆN TỬ
+TRÍCH LỤC GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH
+TRÍCH LỤC
+GHI VÀO SỔ HỘ TỊCH VIỆC
+KHAI SINH
+Họ, chữ đệm, tên:...................................................
+Số định danh cá nhân1:.................................................
+Mẹ2:..............................................................................
+Cha2:............................................................................
+Nơi thực hiện ghi chú khai sinh:..................................
+......................................................................................
+1 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân/giấy khai sinh
+2 Hiển thị họ, chữ đệm, tên
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC GHI CHÚ KẾT HÔN
+TRÍCH LỤC GHI CHÚ KẾT HÔN
+Vợ1:...........................................................................
+Số định danh cá nhân2:.............................................
+Chồng1:.....................................................................
+Số định danh cá nhân2:.............................................
+Ngày đăng ký kết hôn:.............................................
+Nơi đăng ký kết hôn:................................................
+Nơi thực hiện ghi chú kết hôn:..................................
+..................................................................................
+1 Hiển thị họ, chữ đệm, tên
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân sử dụng khi đăng ký
+kết hôn
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC GHI CHÚ LY HÔN
+TRÍCH LỤC GHI CHÚ LY HÔN
+Họ, chữ đệm, tên:....................................................
+Số định danh cá nhân1:..............................................
+Đã ly hôn ngày............... theo2..................................
+...................................................................................
+Nơi thực hiện ghi chú ly hôn:...................................
+1 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân
+2 Hiển thị thông tin về bản án, quyết định ly hôn
+NỘI DUNG BẢN ĐIỆN TỬ TRÍCH LỤC GHI VÀO SỔ HỘ TỊCH
+CÁC VIỆC HỘ TỊCH KHÁC
+TRÍCH LỤC
+GHI VÀO SỔ VIỆC........................1
+Họ, chữ đệm, tên:..........................................................
+Số định danh cá nhân2:....................................................
+Đã được ghi vào sổ hộ tịch việc1:....................................
+Theo3................................................................................
+Nơi thực hiện ghi vào Sổ hộ tịch:....................................
+1 Ghi theo nội dung đã được ghi chú vào Sổ hộ tịch (ngoài các việc khai sinh, kết hôn, ly hôn, hủy việc
+kết hôn)
+2 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân
+3 Hiển thị tên giấy tờ hộ tịch đã đăng ký tại nước ngoài
+NỘI DUNG BẢN ĐIỆN TỬ GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN
+GIẤY XÁC NHẬN
+TÌNH TRẠNG HÔN NHÂN
+Họ, chữ đệm, tên:.....................................................
+Số định danh cá nhân1:...............................................
+Tình trạng hôn nhân:..................................................
+....................................................................................
+Ngày cấp:...................................................................
+Nơi cấp:.....................................................................
+1 Trường hợp không có số định danh cá nhân thì hiển thị thông tin giấy tờ tùy thân
+..................................................... CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+................................................... Độc lập - Tự do - Hạnh phúc
+.................................................(1)
+Số:.................../XNHT .........................., ngày.......... tháng............. năm............
+XÁC NHẬN THÔNG TIN HỘ TỊCH
+..........................................................(2)
+Xét đề nghị của ông/bà3:..............................................................................................
+về việc xác nhận thông tin hộ tịch của..............................................................................
+XÁC NHẬN
+Ông/Bà:.................................................................................................................................
+Ngày, tháng, năm sinh:.......................................................................................................
+Số định danh cá nhân:.........................................................................................................
+Giấy tờ tùy thân (4):..............................................................................................................
+Nội dung xác nhận (5):.........................................................................................................
+...............................................................................................................................................
+...............................................................................................................................................
+...............................................................................................................................................
+...............................................................................................................................................
+...............................................................................................................................................
+NGƯỜI KÝ GIẤY XÁC NHẬN
+(Ký, ghi rõ họ tên, chức vụ và đóng dấu)
+1 Ghi tên cơ quan cấp Xác nhận thông tin hộ tịch (ghi theo hướng dẫn tại điểm a, khoản 2, Mục II Phần I
+Phụ lục I ban hành kèm theo Nghị định số 30/2020/NĐ-CP quy định về công tác văn thư)
+2 Ghi tên cơ quan cấp Xác nhận thông tin hộ tịch. (Ví dụ: Phòng Tư pháp quận Ba Đình/Sở Tư pháp tỉnh….)
+3 Ghi họ, chữ đệm, tên, chức danh của công chức đề nghị
+4 Ghi rõ tên loại giấy tờ, số (nếu không phải là Căn cước công dân), cơ quan cấp, ngày cấp
+5 Nội dung xác nhận cụ thể theo yêu cầu và hồ sơ thực tế
+.................................. CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+................................. Độc lập - Tự do - Hạnh phúc
+...............................(1)
+Số:........./....-GBT .........., ngày......... tháng......... năm........
+GIẤY BÁO TỬ
+ỦY BAN NHÂN DÂN..............(1)
+Xét đề nghị của ông/bà...................................................................... về việc báo tử
+THÔNG BÁO
+Ông/Bà:.................................................................................................................................
+Ngày, tháng, năm sinh:.......................................................................................................
+Số định danh cá nhân:.........................................................................................................
+Giấy tờ tùy thân2:.................................................................................................................
+...............................................................................................................................................
+Nơi cư trú trước khi chết:...................................................................................................
+...............................................................................................................................................
+Đã chết vào lúc:........... giờ......... phút........ ngày.......... tháng...... năm...........................
+ghi bằng chữ (3)....................................................................................................................
+...............................................................................................................................................
+Nơi chết (4)............................................................................................................................
+...............................................................................................................................................
+Nguyên nhân chết (5):..........................................................................................................
+NGƯỜI KÝ GIẤY BÁO TỬ
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, đóng dấu)
+1 Ghi tên cơ quan cấp Giấy báo tử
+2 Ghi rõ tên loại giấy tờ tùy thân, số, nơi cấp, ngày cấp (nếu không có số định danh cá nhân)
+3 Ghi rõ bằng số và bằng chữ; nếu không rõ giờ, phút thì bỏ trống
+4 Ghi đủ các cấp địa danh hành chính, nếu chết tại nhà/cơ quan, tổ chức thì ghi rõ địa chỉ (gồm số nhà;
+đường phố; thôn/tổ/bản/ấp; xã, phường, thị trấn; quận, huyện, thị xã, thành phố thuộc tỉnh, thành phố thuộc
+thành phố trực thuộc Trung ương; tỉnh, thành phố trực thuộc Trung ương)
+5 Ghi rõ nguyên nhân chết, nếu không rõ thì để trống
+Phụ lục 2
+NỘI DUNG CÁC BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+TÍCH HỢP, PHỤC VỤ ĐĂNG KÝ HỘ TỊCH TRỰC TUYẾN
+(Kèm theo Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022
+của Bộ Tư pháp quy định chi tiết thi hành một số điều của Nghị định
+số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ
+quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến)
+STT Loại việc hộ tịch
+1 Đăng ký khai sinh
+2 Đăng ký kết hôn
+3 Đăng ký khai tử
+4 Đăng ký giám hộ
+5 Đăng ký chấm dứt giám hộ
+6 Đăng ký nhận cha, mẹ, con
+7 Ghi vào Sổ hộ tịch việc khai sinh
+8 Ghi vào Sổ hộ tịch việc kết hôn
+9 Ghi vào Sổ hộ tịch việc ly hôn
+10 Ghi vào Sổ hộ tịch việc khai tử
+11 Ghi vào Sổ hộ tịch việc nuôi con nuôi
+12 Ghi vào Sổ hộ tịch việc giám hộ, nhận cha, mẹ, con
+13 Ghi vào Sổ hộ tịch các việc hộ tịch khác
+14 Đăng ký lại khai sinh
+15 Đăng ký lại kết hôn
+16 Đăng ký lại khai tử
+17 Đăng ký việc thay đổi, cải chính, bổ sung thông tin hộ tịch, xác định lại
+dân tộc
+18 Cấp bản sao Giấy khai sinh, bản sao Trích lục hộ tịch
+19 Cấp Giấy xác nhận tình trạng hôn nhân
+20 Cấp văn bản xác nhận thông tin hộ tịch
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ KHAI SINH
+I. Thông tin về người yêu cầu đăng ký khai sinh
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được khai sinh.
+II. Thông tin về người được đăng ký khai sinh
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm
+sinh; hệ thống tự động chuyển nội dung từ số sang ghi bằng chữ);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Nơi sinh (gồm các trường thông tin tách biệt riêng theo địa danh hành chính:
+số nhà; đường/phố; thôn/tổ/bản/ấp; xã, phường, thị trấn; quận, huyện, thị xã, thành
+phố thuộc tỉnh, thành phố thuộc thành phố trực thuộc Trung ương; tỉnh, thành phố
+trực thuộc Trung ương);
+(12) Quê quán.
+III. Thông tin về người mẹ của người được khai sinh
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(15) Số định danh cá nhân;
+(16) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(17) Dân tộc;
+(18) Quốc tịch;
+(19) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về người cha của người được khai sinh
+(20) Họ, chữ đệm, tên;
+(21) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng,
+năm);
+(22) Số định danh cá nhân;
+(23) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(24) Dân tộc;
+(25) Quốc tịch;
+(26) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(27) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(28) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp, nội dung đề nghị đăng ký khai
+sinh cho trẻ em là đúng sự thật, đã có sự thỏa thuận nhất trí của cha, mẹ trẻ theo
+quy định pháp luật và chịu hoàn toàn trách nhiệm trước pháp luật về nội dung cam
+đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký khai sinh nhận Giấy khai sinh (bản chính) trực tiếp tại cơ
+quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của
+người yêu cầu sau khi đã hoàn tất thủ tục đăng ký khai sinh tại cơ quan đăng
+ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ KẾT HÔN
+I. Thông tin bên nữ
+(1) Ảnh (trường hợp làm thủ tục đăng ký kết hôn có yếu tố nước ngoài);
+(2) Họ, chữ đệm, tên;
+(3) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(4) Dân tộc;
+(5) Quốc tịch;
+(6) Số định danh cá nhân;
+(7) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(8) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(9) Kết hôn lần thứ mấy.
+II. Thông tin bên nam
+(10) Ảnh (trường hợp làm thủ tục đăng ký kết hôn có yếu tố nước ngoài);
+(11) Họ, chữ đệm, tên;
+(12) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(13) Dân tộc;
+(14) Quốc tịch;
+(15) Số định danh cá nhân;
+(16) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(17) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(18) Kết hôn lần thứ mấy;
+(19) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(20) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, việc kết hôn của
+hai bên là hoàn toàn tự nguyện, không vi phạm quy định của Luật hôn nhân và gia
+đình Việt Nam, chịu hoàn toàn trách nhiệm trước pháp luật về nội dung cam đoan
+của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký kết hôn nhận bản chính Giấy chứng nhận kết hôn trực tiếp
+tại cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký kết hôn tại cơ quan đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ KHAI TỬ
+I. Thông tin về người yêu cầu đăng ký khai tử
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được khai tử.
+II. Thông tin về người được đăng ký khai tử
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Số định danh cá nhân;
+(9) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(10) Nơi cư trú cuối cùng (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(11) Thời gian chết: giờ, phút, ngày, tháng, năm (tách biệt riêng các trường thông
+tin giờ, phút, ngày, tháng, năm);
+(12) Nơi chết;
+(13) Nguyên nhân chết (có chú thích: nếu chưa xác định được/chưa rõ thì để trống);
+(14) Giấy báo tử/Giấy tờ thay thế giấy báo tử: số, ngày, tháng, năm cấp, cơ quan
+cấp (tách biệt riêng các trường thông tin số, ngày, tháng, năm, cơ quan cấp; có chú
+thích nếu không có thì để trống);
+(15) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(16) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký khai tử nhận Trích lục khai tử (bản chính) trực tiếp tại cơ
+quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký khai tử tại cơ quan đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ GIÁM HỘ
+I. Thông tin về người yêu cầu đăng ký giám hộ
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin về người giám hộ
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Giới tính;
+(8) Dân tộc;
+(9) Quốc tịch;
+(10) Số định danh cá nhân;
+(11) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(12) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+III. Thông tin về người được giám hộ
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(15) Giới tính;
+(16) Dân tộc;
+(17) Quốc tịch;
+(18) Số định danh cá nhân;
+(19) Giấy tờ tùy thân: Loại giấy tờ sử dụng (Giấy khai sinh/Thẻ CCCD/CMND/Hộ
+chiếu/Giấy tờ hợp lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp
+đính kèm;
+(20) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(21) Lý do đăng ký giám hộ;
+(22) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(23) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký giám hộ nhận Trích lục đăng ký giám hộ (bản chính) trực
+tiếp tại cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký giám hộ tại cơ quan đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ CHẤM DỨT GIÁM HỘ
+I. Thông tin về người yêu cầu đăng ký chấm dứt giám hộ
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin về người giám hộ
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Giới tính;
+(8) Dân tộc;
+(9) Quốc tịch;
+(10) Số định danh cá nhân;
+(11) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(12) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về người được giám hộ
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(15) Giới tính;
+(16) Dân tộc;
+(17) Quốc tịch;
+(18) Số định danh cá nhân;
+(19) Giấy tờ tùy thân: Loại giấy tờ sử dụng (Giấy khai sinh/CCCD/CMND/Hộ
+chiếu/Giấy tờ hợp lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp
+đính kèm;
+(20) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(21) Đã đăng ký giám hộ: số, ngày, tháng, năm đăng ký, cơ quan đăng ký;
+(22) Lý do chấm dứt giám hộ;
+(23) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(24) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký chấm dứt giám hộ nhận Trích lục đăng ký chấm dứt giám
+hộ (bản chính) trực tiếp tại cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký chấm dứt giám hộ tại cơ quan đăng ký
+hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ NHẬN CHA, MẸ, CON
+I. Thông tin về người yêu cầu đăng ký nhận cha, mẹ, con
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được nhận cha/mẹ/con.
+II. Thông tin về người nhận
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Số định danh cá nhân;
+(12) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(13) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về người được nhận
+(14) Họ, chữ đệm, tên;
+(15) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(16) Giới tính;
+(17) Dân tộc;
+(18) Quốc tịch;
+(19) Số định danh cá nhân;
+(20) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(21) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(22) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(23) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký nhận cha, mẹ, con nhận Trích lục đăng ký nhận cha, mẹ,
+con (bản chính) trực tiếp tại cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký nhận cha, mẹ, con tại cơ quan đăng ký
+hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+GHI VÀO SỔ HỘ TỊCH VIỆC KHAI SINH
+I. Thông tin về người yêu cầu
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được ghi vào sổ hộ tịch việc khai sinh.
+II. Thông tin về người được khai sinh
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm; hệ
+thống tự động chuyển nội dung từ số sang ghi bằng chữ);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Nơi sinh;
+(12) Quê quán.
+III. Thông tin về người mẹ của người được khai sinh
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin: ngày, tháng, năm);
+(15) Dân tộc;
+(16) Quốc tịch;
+(17) Số định danh cá nhân;
+(18) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(19) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về người cha của người được khai sinh
+(20) Họ, chữ đệm, tên;
+(21) Ngày tháng năm sinh (tách biệt riêng 03 trường thông tin: ngày, tháng, năm);
+(22) Dân tộc;
+(23) Quốc tịch;
+(24) Số định danh cá nhân;
+(25) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(26) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+V. Thông tin về việc đăng ký khai sinh
+(27) Nơi đăng ký khai sinh (tên cơ quan, tên quốc gia đã đăng ký khai sinh);
+(28) Giấy khai sinh (số, ngày, tháng, năm cấp);
+(29) Đề nghị cấp bản sao Giấy khai sinh:
+Có
+Số lượng bản sao yêu cầu
+Không
+(30) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận)
+(31) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+GHI VÀO SỔ HỘ TỊCH VIỆC KẾT HÔN
+I. Thông tin về người yêu cầu
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin người vợ
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Dân tộc;
+(8) Quốc tịch;
+(9) Số định danh cá nhân;
+(10) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(11) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin người chồng
+(12) Họ, chữ đệm, tên;
+(13) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(14) Dân tộc;
+(15) Quốc tịch;
+(16) Số định danh cá nhân;
+(17) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(18) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về việc kết hôn
+(19) Nơi đăng ký kết hôn: tên cơ quan, tên quốc gia đã đăng ký kết hôn;
+(20) Giấy tờ chứng nhận việc kết hôn do cơ quan có thẩm quyền nước ngoài cấp
+(số, ngày, tháng năm cấp);
+(21) Tình trạng hôn nhân trước khi kết hôn lần này;
+(22) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(23) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(24) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, chịu hoàn toàn
+trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống thông qua việc xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+GHI VÀO SỔ HỘ TỊCH VIỆC LY HÔN
+I. Thông tin về người yêu cầu
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được ghi chú;
+(6) Đề nghị ghi chú (lựa chọn 1 trong 2 loại việc):
+Ly hôn
+Hủy việc kết hôn
+II. Thông tin bên nữ
+(7) Họ, chữ đệm, tên;
+(8) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Số định danh cá nhân;
+(12) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(13) Nơi cư trú hiện nay (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(14) Nơi cư trú trước khi xuất cảnh;
+(15) Nơi đăng ký kết hôn trước đây.
+III. Thông tin bên nam
+(16) Họ, chữ đệm, tên;
+(17) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(18) Dân tộc;
+(19) Quốc tịch;
+(20) Số định danh cá nhân;
+(21) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm.
+(22) Nơi cư trú hiện nay (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(23) Nơi cư trú trước khi xuất cảnh;
+(24) Nơi đăng ký kết hôn trước đây.
+IV. Thông tin về việc ly hôn
+(25) Nơi ly hôn/hủy việc kết hôn: tên cơ quan, tên quốc gia nước ngoài
+(26) Giấy tờ chứng minh việc ly hôn (Bản án/Quyết định/Giấy tờ hợp lệ khác; số,
+ngày, tháng, năm cấp);
+(27) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(28) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(29) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, chịu hoàn toàn
+trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm
+hoàn tất việc cung cấp thông tin); người yêu cầu trước đó đã đăng nhập vào hệ
+thống thông qua việc xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ HỘ TỊCH TƯƠNG TÁC
+GHI VÀO SỔ HỘ TỊCH VIỆC KHAI TỬ
+I. Thông tin về người yêu cầu ghi vào sổ hộ tịch khai tử
+(1) Họ, chữ đệm, tên người yêu cầu;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được khai tử.
+II. Thông tin về người được khai tử
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Nơi cư trú cuối cùng (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(9) Số định danh cá nhân;
+(10) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(11) Thời gian chết: giờ, phút, ngày, tháng, năm (tách biệt riêng các trường thông
+tin giờ, phút, ngày, tháng, năm);
+(12) Nơi chết;
+(13) Nguyên nhân chết (có chú thích: nếu chưa xác định được/chưa rõ thì để trống).
+III. Thông tin về việc khai tử
+(14) Nơi đăng ký khai tử tại: tên cơ quan, tên quốc gia nước ngoài đăng ký;
+(15) Giấy tờ chứng minh việc đăng ký khai tử (số, ngày, tháng, năm cấp);
+(16) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(17) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(18) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, chịu hoàn toàn
+trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm
+hoàn tất việc cung cấp thông tin); người yêu cầu trước đó đã đăng nhập vào hệ
+thống thông qua việc xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+GHI VÀO SỔ HỘ TỊCH VIỆC NUÔI CON NUÔI
+I. Thông tin về người yêu cầu ghi vào Sổ hộ tịch việc nuôi con nuôi
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin về con nuôi
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Giới tính;
+(8) Dân tộc;
+(9) Quốc tịch;
+(10) Số định danh cá nhân;
+(11) Giấy tờ tùy thân: Loại giấy tờ sử dụng (Giấy khai sinh/CCCD/CMND/Hộ
+chiếu/Giấy tờ hợp lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp
+đính kèm;
+(12) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về mẹ nuôi
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(15) Dân tộc;
+(16) Quốc tịch;
+(17) Số định danh cá nhân;
+(18) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(19) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về cha nuôi
+(20) Họ, chữ đệm, tên;
+(21) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(22) Dân tộc;
+(23) Quốc tịch;
+(24) Số định danh cá nhân;
+(25) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm);
+(26) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+V. Thông tin về việc đăng ký nuôi con nuôi
+(27) Nơi đăng ký việc nuôi con nuôi: tên cơ quan, tên quốc gia đã đăng ký;
+(28) Giấy tờ chứng nhận việc nuôi con nuôi do cơ quan có thẩm quyền của nước
+ngoài cấp (số, ngày, tháng, năm cấp);
+(29) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(30) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(31) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, chịu hoàn toàn
+trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ TƯƠNG TÁC GHI VÀO SỔ HỘ TỊCH
+VIỆC GIÁM HỘ, NHẬN CHA, MẸ, CON
+I. Thông tin về người yêu cầu ghi vào sổ hộ tịch việc giám hộ, nhận cha, mẹ, con
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin về người giám hộ hoặc người nhận cha, mẹ, con
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Giới tính;
+(8) Dân tộc;
+(9) Quốc tịch;
+(10) Số định danh cá nhân;
+(11) Giấy tờ tùy thân: Loại giấy tờ sử dụng (Giấy khai sinh/CCCD/CMND/Hộ
+chiếu/Giấy tờ hợp lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp
+đính kèm;
+(12) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về người được giám hộ hoặc được nhận là cha, mẹ, con
+(13) Họ, chữ đệm, tên;
+(14) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(15) Giới tính;
+(16) Dân tộc;
+(17) Quốc tịch;
+(18) Số định danh cá nhân;
+(19) Giấy tờ tùy thân: Loại giấy tờ sử dụng (Giấy khai sinh/CCCD/CMND/Hộ
+chiếu/Giấy tờ hợp lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp
+đính kèm;
+(20) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về việc đăng ký giám hộ, nhận cha, mẹ, con
+(21) Nơi đăng ký việc nhận cha, mẹ, con/giám hộ: tên cơ quan, tên quốc gia đã
+đăng ký;
+(22) Giấy tờ chứng nhận việc nhận cha, mẹ, con/giám hộ do cơ quan có thẩm
+quyền của nước ngoài cấp (số, ngày, tháng, năm cấp);
+(23) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(24) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(25) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ TƯƠNG TÁC
+GHI VÀO SỔ VIỆC HỘ TỊCH KHÁC
+I. Thông tin về người yêu cầu ghi vào sổ việc hộ tịch khác
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin của công dân Việt Nam đã được đăng ký hộ tịch tại cơ quan có
+thẩm quyền của nước ngoài
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Dân tộc;
+(8) Quốc tịch;
+(9) Số định danh cá nhân;
+(10) Giấy tờ tùy thân: loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(11) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về sự kiện hộ tịch thay đổi
+(12) Nội dung hộ tịch thay đổi;
+(13) Giấy tờ chứng minh việc thay đổi hộ tịch: tên loại giấy tờ (số, ngày, tháng,
+năm cấp, cơ quan cấp, tên quốc gia);
+(14) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(15) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(16) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ LẠI KHAI SINH
+I. Thông tin về người yêu cầu đăng ký lại khai sinh
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được khai sinh.
+II. Thông tin về người được đăng ký lại khai sinh
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin: ngày, tháng, năm;
+hệ thống tự động chuyển nội dung từ số sang ghi bằng chữ);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Nơi sinh (gồm các trường thông tin riêng theo địa danh hành chính: số nhà;
+đường phố; thôn/tổ/bản/ấp; xã, phường, thị trấn; quận, huyện, thị xã, thành phố
+thuộc tỉnh, thành phố thuộc thành phố trực thuộc Trung ương; tỉnh, thành phố trực
+thuộc Trung ương);
+(12) Quê quán;
+(13) Số định danh cá nhân;
+(14) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm.
+III. Thông tin về người mẹ của người được đăng ký lại khai sinh
+(15) Họ, chữ đệm, tên;
+(16) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin: ngày, tháng, năm);
+(17) Dân tộc;
+(18) Quốc tịch;
+(19) Số định danh cá nhân;
+(20) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(21) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về người cha của người được đăng ký lại khai sinh
+(22) Họ, chữ đệm, tên;
+(23) Ngày, tháng, năm sinh (tách biệt riêng 3 trường thông tin ngày, tháng, năm);
+(24) Dân tộc;
+(25) Quốc tịch;
+(26) Số định danh cá nhân;
+(27) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(28) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+V. Thông tin về việc đăng ký khai sinh trước đây
+(29) Cơ quan đăng ký khai sinh trước đây;
+(30) Giấy khai sinh (số, quyển số, ngày, tháng, năm đăng ký);
+(31) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(32) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, không còn bản
+chính Giấy khai sinh, đã nộp đủ các giấy tờ hiện có và chịu hoàn toàn trách nhiệm
+trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký lại khai sinh nhận Giấy khai sinh (bản chính) trực tiếp tại
+Cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của
+người yêu cầu sau khi đã hoàn tất thủ tục đăng ký lại khai sinh tại cơ quan
+đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC
+ĐĂNG KÝ LẠI KẾT HÔN
+I. Thông tin về người yêu cầu đăng ký lại kết hôn
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+II. Thông tin người vợ
+(5) Họ, chữ đệm, tên;
+(6) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(7) Dân tộc;
+(8) Quốc tịch;
+(9) Số định danh cá nhân;
+(10) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(11) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin người chồng
+(12) Họ, chữ đệm, tên;
+(13) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(14) Dân tộc;
+(15) Quốc tịch;
+(16) Số định danh cá nhân;
+(17) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(18) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+IV. Thông tin về việc đăng ký kết hôn trước đây
+(19) Nơi đăng ký kết hôn trước đây;
+(20) Giấy chứng nhận kết hôn (số, quyển số, ngày, tháng, năm đăng ký);
+(21) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(22) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, không còn bản
+chính Giấy chứng nhận kết hôn, đã nộp đủ các giấy tờ hiện có và chịu hoàn toàn
+trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký lại kết hôn nhận Bản chính Giấy chứng nhận kết hôn trực
+tiếp tại cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký lại kết hôn tại cơ quan đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC THỰC HIỆN
+ĐĂNG KÝ LẠI KHAI TỬ
+I. Thông tin về người yêu cầu đăng ký lại khai tử
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được khai tử.
+II. Thông tin về người được đăng ký lại khai tử
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Số định danh cá nhân;
+(9) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(10) Nơi cư trú cuối cùng (nơi thường trú/nơi tạm trú/nơi sinh sống trước khi chết);
+(11) Thời gian chết: giờ, phút, ngày, tháng, năm (tách biệt riêng các trường thông
+tin giờ, phút, ngày, tháng, năm);
+(12) Nơi chết;
+(13) Nguyên nhân chết (có chú thích: nếu chưa xác định được/chưa rõ thì để trống).
+III. Thông tin về việc đăng ký khai tử trước đây
+(14) Nơi đăng ký khai tử trước đây;
+(15) Giấy chứng tử/Trích lục khai tử (số, quyển số, ngày, tháng, năm đăng ký);
+(16) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(17) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật, không còn bản
+chính Giấy chứng tử/Trích lục khai tử, đã nộp đủ các giấy tờ hiện có và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+Người yêu cầu đăng ký lại khai tử nhận Trích lục khai tử (bản chính) trực tiếp tại
+cơ quan đăng ký hộ tịch.
+Bản điện tử sẽ tự động gửi về địa chỉ thư điện tử/thiết bị số/điện thoại của người
+yêu cầu sau khi đã hoàn tất thủ tục đăng ký lại khai tử tại cơ quan đăng ký hộ tịch.
+NỘI DUNG BIỂU MẪU HỘ TỊCH ĐIỆN TỬ TƯƠNG TÁC THỰC HIỆN
+ĐĂNG KÝ THAY ĐỔI, CẢI CHÍNH, BỔ SUNG THÔNG TIN HỘ TỊCH,
+XÁC ĐỊNH LẠI DÂN TỘC
+I. Thông tin về người yêu cầu đăng ký thay đổi, cải chính, bổ sung thông tin
+hộ tịch, xác định lại dân tộc
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được thay đổi, cải chính, bổ sung thông tin hộ tịch, xác định
+lại dân tộc.
+II. Thông tin về người có nội dung thay đổi
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Số định danh cá nhân;
+(12) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày cấp, cơ quan cấp; bản chụp đính kèm;
+(13) Nơi cư trú: (nơi thường trú/nơi tạm trú/nơi đang sinh sống).
+III. Thông tin về nội dung đề nghị đăng ký thay đổi, cải chính, bổ sung thông
+tin hộ tịch, xác định lại dân tộc
+(14) Tên loại Giấy tờ hộ tịch đã đăng ký (số, quyển số, ngày, tháng, năm đăng ký);
+(15) Nội dung đề nghị thay đổi, cải chính hộ tịch, bổ sung thông tin hộ tịch, xác
+định lại dân tộc;
+(16) Lý do thay đổi, cải chính hộ tịch, bổ sung thông tin hộ tịch, xác định lại dân tộc;
+(17) Đề nghị cấp bản sao:
+Có
+Số lượng bản sao yêu cầu:...
+Không
+(18) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(19) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống thông qua việc xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ TƯƠNG TÁC YÊU CẦU CẤP
+BẢN SAO GIẤY KHAI SINH, BẢN SAO TRÍCH LỤC HỘ TỊCH
+I. Thông tin về người yêu cầu
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được cấp bản sao Giấy khai sinh/Trích lục hộ tịch.
+II. Thông tin về giấy tờ hộ tịch đã đăng ký
+(6) Họ, chữ đệm, tên người được đăng ký;
+(7) Số định danh cá nhân;
+(8) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(9) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(10) Loại việc yêu cầu cấp bản sao Giấy khai sinh/Trích lục hộ tịch;
+(11) Cơ quan đã đăng ký sự kiện hộ tịch trước đây;
+(12) Tên giấy tờ hộ tịch, số, quyển số, ngày, tháng, năm đăng ký;
+(13) Số lượng bản sao;
+(14) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(15) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ TƯƠNG TÁC YÊU CẦU CẤP
+GIẤY XÁC NHẬN TÌNH TRẠNG HÔN NHÂN
+I. Thông tin về người yêu cầu cấp Giấy xác nhận tình trạng hôn nhân
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được cấp Giấy xác nhận tình trạng hôn nhân.
+II. Thông tin về người được cấp Giấy xác nhận tình trạng hôn nhân
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Số định danh cá nhân;
+(12) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(13) Nơi cư trú (nơi thường trú/nơi tạm trú);
+(14) Tình trạng hôn nhân;
+(15) Mục đích sử dụng Giấy XNTTHN: Ghi rõ mục đích sử dụng Giấy xác nhận
+tình trạng hôn nhân. Trường hợp sử dụng Giấy xác nhận tình trạng hôn nhân để kết
+hôn, thì phải ghi rõ kết hôn với ai (họ, chữ đệm, tên; ngày, tháng, năm sinh; quốc
+tịch; giấy tờ tùy thân); nơi dự định đăng ký kết hôn.
+(16) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(17) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm
+hoàn tất việc cung cấp thông tin); người yêu cầu trước đó đã đăng nhập vào hệ
+thống thông qua việc xác thực điện tử theo quy định.
+NỘI DUNG BIỂU MẪU ĐIỆN TỬ TƯƠNG TÁC YÊU CẦU CẤP
+VĂN BẢN XÁC NHẬN THÔNG TIN HỘ TỊCH
+I. Thông tin về người yêu cầu cấp văn bản xác nhận thông tin hộ tịch
+(1) Họ, chữ đệm, tên;
+(2) Số định danh cá nhân;
+(3) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp lệ
+thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(4) Nơi cư trú (nơi thường trú/nơi tạm trú/nơi đang sinh sống);
+(5) Quan hệ với người được cấp xác nhận thông tin hộ tịch.
+II. Thông tin về người được cấp xác nhận thông tin hộ tịch
+(6) Họ, chữ đệm, tên;
+(7) Ngày, tháng, năm sinh (tách biệt riêng 03 trường thông tin ngày, tháng, năm);
+(8) Giới tính;
+(9) Dân tộc;
+(10) Quốc tịch;
+(11) Số định danh cá nhân;
+(12) Giấy tờ tùy thân: Loại giấy tờ sử dụng (CCCD/CMND/Hộ chiếu/Giấy tờ hợp
+lệ thay thế); số, ngày, tháng, năm cấp, cơ quan cấp; bản chụp đính kèm;
+(13) Nội dung xác nhận;
+(14) Phương thức nhận kết quả:
+Trực tiếp
+Trực tuyến (bản điện tử sẽ được gửi về địa chỉ thư điện tử/thiết bị số/điện
+thoại của người yêu cầu)
+Bưu chính (cung cấp địa chỉ nơi nhận).
+(15) Hồ sơ đính kèm theo quy định.
+* Người yêu cầu cam đoan các thông tin cung cấp là đúng sự thật và chịu hoàn
+toàn trách nhiệm trước pháp luật về nội dung cam đoan của mình.
+* Biểu mẫu điện tử tương tác ghi nhận thời gian (giờ, phút, giây, ngày, tháng, năm)
+hoàn tất việc cung cấp thông tin; người yêu cầu trước đó đã đăng nhập vào hệ
+thống, thực hiện xác thực điện tử theo quy định.

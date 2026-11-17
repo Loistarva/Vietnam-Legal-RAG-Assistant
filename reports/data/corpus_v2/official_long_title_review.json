@@ -1,0 +1,219 @@
+[
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "118",
+    "words": 52,
+    "official_title": "Buộc người sử dụng lao động tạm ứng tiền lương, tiền bảo hiểm y tế, bảo hiểm xã hội, bảo hiểm thất nghiệp, chi phí cứu chữa tai nạn lao động hoặc bệnh nghề nghiệp, tiền bồi thường, trợ cấp tai nạn lao động hoặc bệnh nghề nghiệp cho người lao động",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "134",
+    "words": 42,
+    "official_title": "Kiến nghị áp dụng biện pháp khẩn cấp tạm thời của cơ quan, tổ chức, cá nhân khởi kiện vụ án để bảo vệ lợi ích công cộng, lợi ích của Nhà nước, quyền và lợi ích hợp pháp của người khác",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "380",
+    "words": 45,
+    "official_title": "Quyết định của Tòa án trong trường hợp chấp nhận yêu cầu hủy bỏ quyết định tuyên bố mất năng lực hành vi dân sự, bị hạn chế năng lực hành vi dân sự hoặc có khó khăn trong nhận thức, làm chủ hành vi",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "427",
+    "words": 45,
+    "official_title": "Bảo đảm hiệu lực quyết định của Tòa án Việt Nam công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "428",
+    "words": 41,
+    "official_title": "Gửi quyết định của Tòa án về công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "430",
+    "words": 42,
+    "official_title": "Lệ phí, chi phí xét đơn yêu cầu công nhận và cho thi hành hoặc không công nhận bản án, quyết định dân sự của Tòa án nước ngoài; công nhận và cho thi hành phán quyết của Trọng tài nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "465",
+    "words": 52,
+    "official_title": "Quyền, nghĩa vụ tố tụng của người nước ngoài, cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài và tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "467",
+    "words": 52,
+    "official_title": "Năng lực pháp luật tố tụng dân sự của cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài và tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "468",
+    "words": 57,
+    "official_title": "Bảo vệ quyền và lợi ích hợp pháp của đương sự là người nước ngoài, cơ quan, tổ chức nước ngoài, chi nhánh, văn phòng đại diện tại Việt Nam của cơ quan, tổ chức nước ngoài, tổ chức quốc tế, cơ quan đại diện của tổ chức quốc tế tại Việt Nam, Nhà nước nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "472",
+    "words": 70,
+    "official_title": "Trả lại đơn khởi kiện, đơn yêu cầu hoặc đình chỉ giải quyết vụ việc dân sự có yếu tố nước ngoài trong trường hợp đã có thỏa thuận trọng tài, thỏa thuận lựa chọn Tòa án nước ngoài hoặc đã có Tòa án nước ngoài, Trọng tài hoặc cơ quan khác có thẩm quyền của nước ngoài giải quyết hoặc đương sự được hưởng quyền miễn trừ tư pháp",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "article_number": "492",
+    "words": 43,
+    "official_title": "Xử lý hành vi xúc phạm, xâm hại đến sự tôn nghiêm, uy tín của Tòa án, danh dự, nhân phẩm, sức khỏe của người tiến hành tố tụng hoặc những người khác thực hiện nhiệm vụ theo yêu cầu của Tòa án",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "l_34_2024_qh15",
+    "article_number": "83",
+    "words": 49,
+    "official_title": "Phó Chánh án Tòa án nhân dân cấp cao, Tòa án nhân dân tỉnh, thành phố trực thuộc Trung ương, Tòa án nhân dân huyện, quận, thị xã, thành phố thuộc tỉnh, thành phố thuộc thành phố trực thuộc Trung ương, Tòa án nhân dân sơ thẩm chuyên biệt",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "article_number": "1",
+    "words": 58,
+    "official_title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi đã được sửa đổi, bổ sung một số điều theo Nghị định số 24/2019/NĐ-CP ngày 05 tháng 3 năm 2019 của Chính phủ",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "article_number": "2",
+    "words": 63,
+    "official_title": "Thay thế, bãi bỏ một số quy định của Nghị định số 19/2011/NĐ-CP đã được sửa đổi, bổ sung một số điều theo Nghị định số 24/2019/NĐ-CP, Nghị định số 114/2016/NĐ-CP ngày 08 tháng 7 năm 2016 của Chính phủ quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "article_number": "1",
+    "words": 47,
+    "official_title": "Sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "1",
+    "words": 53,
+    "official_title": "Sửa đổi, bổ sung một số nội dung tại Nghị định số 61/2015/NĐ-CP ngày 09 tháng 7 năm 2015 quy định về chính sách hỗ trợ tạo việc làm và Quỹ quốc gia về việc làm đã được sửa đổi, bổ sung theo Nghị định số 74/2019/NĐ-CP ngày 23 tháng 9 năm 2019",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "2",
+    "words": 41,
+    "official_title": "Sửa đổi, bổ sung một số điều và biểu mẫu của Nghị định số 146/2018/NĐ-CP ngày 17 tháng 10 năm 2018 quy định chi tiết và hướng dẫn biện pháp thi hành một số điều của Luật Bảo hiểm y tế",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "5",
+    "words": 64,
+    "official_title": "Sửa đổi, bổ sung khoản 1 Điều 19 Nghị định số 81/2021/NĐ-CP ngày 27 tháng 8 năm 2021 quy định về cơ chế thu, quản lý học phí đối với cơ sở giáo dục thuộc hệ thống giáo dục quốc dân và chính sách miễn, giảm học phí, hỗ trợ chi phí học tập; giá dịch vụ trong lĩnh vực giáo dục, đào tạo",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "6",
+    "words": 58,
+    "official_title": "Sửa đổi, bổ sung điểm b khoản 2 Điều 7 Nghị định số 168/2016/NĐ-CP ngày 27 tháng 12 năm 2016 quy định về khoán rừng, vườn cây và diện tích mặt nước trong các Ban quản lý rừng đặc dụng, rừng phòng hộ và Công ty trách nhiệm hữu hạn một thành viên nông, lâm nghiệp Nhà nước",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "8",
+    "words": 42,
+    "official_title": "Sửa đổi, bổ sung Điều 11 Nghị định số 137/2013/NĐ-CP ngày 21 tháng 10 năm 2013 quy định chi tiết thi hành một số điều của Luật Điện lực và Luật sửa đổi, bổ sung một số điều của Luật Điện lực",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "article_number": "9",
+    "words": 51,
+    "official_title": "Sửa đổi, bổ sung một số điều của Nghị định số 99/2015/NĐ-CP ngày 20 tháng 10 năm 2015 quy định chi tiết và hướng dẫn thi hành một số điều của Luật Nhà ở đã được sửa đổi, bổ sung theo Nghị định số 30/2021/NĐ-CP ngày 26 tháng 3 năm 2021",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "article_number": "1",
+    "words": 60,
+    "official_title": "Sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi, bổ sung một số điều theo Thông tư số 07/2023/TT-BTP",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_01_2022_tt_btp",
+    "article_number": "3",
+    "words": 61,
+    "official_title": "Kết nối, chia sẻ thông tin giữa Cơ sở dữ liệu hộ tịch điện tử với Cơ sở dữ liệu quốc gia về dân cư, Cơ sở dữ liệu quốc gia về bảo hiểm, các cơ sở dữ liệu khác, Cổng Dịch vụ công quốc gia, Cổng Dịch vụ công và Hệ thống thông tin một cửa điện tử cấp tỉnh",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "article_number": "1",
+    "words": 61,
+    "official_title": "Sửa đổi, bổ sung một số nội dung của Thông tư số 01/2022/TT-BTP ngày 04 tháng 01 năm 2022 quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_07_2025_tt_bng",
+    "article_number": "1",
+    "words": 53,
+    "official_title": "Sửa đổi, bổ sung một số điều của Thông tư số 07/2023/TT-BNG ngày 29 tháng 12 năm 2023 của Bộ trưởng Bộ Ngoại giao hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "article_number": "100",
+    "words": 45,
+    "official_title": "Trách nhiệm về nghĩa vụ dân sự của Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam, cơ quan nhà nước ở Trung ương, ở địa phương trong quan hệ dân sự với một bên là nhà nước, pháp nhân, cá nhân nước ngoài",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "article_number": "125",
+    "words": 44,
+    "official_title": "Giao dịch dân sự vô hiệu do người chưa thành niên, người mất năng lực hành vi dân sự, người có khó khăn trong nhận thức, làm chủ hành vi, người bị hạn chế năng lực hành vi dân sự xác lập, thực hiện",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "article_number": "202",
+    "words": 45,
+    "official_title": "Thực hiện quyền sở hữu toàn dân đối với tài sản được giao cho tổ chức chính trị, tổ chức chính trị - xã hội, tổ chức chính trị xã hội - nghề nghiệp, tổ chức xã hội, tổ chức xã hội - nghề nghiệp",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_09_2022_tt_btp",
+    "article_number": "2",
+    "words": 62,
+    "official_title": "Bãi bỏ một số nội dung của Thông tư số 04/2020/TT-BTP ngày 28 tháng 5 năm 2020 của Bộ trưởng Bộ Tư pháp quy định chi tiết thi hành một số điều của Luật Hộ tịch và Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "tt_10_2020_tt_btp",
+    "article_number": "5",
+    "words": 41,
+    "official_title": "Yêu cầu đối với việc ghi và cách ghi Sổ đăng ký nuôi con nuôi, Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam và giấy tờ nuôi con nuôi",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  },
+  {
+    "document_id": "nd_76_2023_nd_cp",
+    "article_number": "10",
+    "words": 43,
+    "official_title": "Quy trình tiếp nhận, xử lý tin báo, tố giác về hành vi bạo lực gia đình qua địa chỉ quy định tại các điểm a, b, c, d và đ khoản 1 Điều 19 của Luật Phòng, chống bạo lực gia đình",
+    "reason": "Tiêu đề thật đã đối chiếu PDF nguồn; kiểm tra bằng expected_title chính xác và SHA-256 nguồn trong test/fixtures/corpus_v2_reviewed_long_titles.json. Không nâng ngưỡng chung 40 từ."
+  }
+]

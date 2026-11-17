@@ -1,0 +1,442 @@
+[
+  {
+    "document_id": "l_102_2016_qh13",
+    "expected_articles": 106,
+    "status": "passed",
+    "pages": 34,
+    "articles": 106,
+    "clauses": 332,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": "[metadata] Đã nạp 30 văn bản từ D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-corpus-v2\\data\\staging\\corpus_v2\\compatibility\\document_versions.json\n"
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "expected_articles": 517,
+    "status": "passed",
+    "pages": 176,
+    "articles": 517,
+    "clauses": 1484,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Điều 431: phần từ heading 'Chương XXXVI' đến cuối Điều dài 329 ký tự; giữ nguyên nội dung, không tự động cắt."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "l_34_2024_qh15",
+    "expected_articles": 152,
+    "status": "passed",
+    "pages": 49,
+    "articles": 152,
+    "clauses": 506,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "nd_24_2019_nd_cp",
+    "expected_articles": 4,
+    "status": "passed",
+    "pages": 5,
+    "articles": 4,
+    "clauses": 14,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "expected_articles": 3,
+    "status": "passed",
+    "pages": 11,
+    "articles": 3,
+    "clauses": 24,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "expected_articles": 3,
+    "status": "passed",
+    "pages": 2,
+    "articles": 3,
+    "clauses": 8,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "expected_articles": 15,
+    "status": "passed",
+    "pages": 7,
+    "articles": 15,
+    "clauses": 40,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "nd_120_2025_nd_cp",
+    "expected_articles": 24,
+    "status": "passed",
+    "pages": 9,
+    "articles": 24,
+    "clauses": 55,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "l_85_2025_qh15",
+    "expected_articles": 6,
+    "status": "passed",
+    "pages": 17,
+    "articles": 6,
+    "clauses": 77,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "expected_articles": 3,
+    "status": "passed",
+    "pages": 3,
+    "articles": 3,
+    "clauses": 9,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "nd_63_2024_nd_cp",
+    "expected_articles": 30,
+    "status": "passed",
+    "pages": 17,
+    "articles": 30,
+    "clauses": 98,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "l_58_2020_qh14",
+    "expected_articles": 42,
+    "status": "passed",
+    "pages": 19,
+    "articles": 42,
+    "clauses": 174,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "tt_01_2022_tt_btp",
+    "expected_articles": 15,
+    "status": "passed",
+    "pages": 11,
+    "articles": 15,
+    "clauses": 45,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "expected_articles": 2,
+    "status": "passed",
+    "pages": 2,
+    "articles": 2,
+    "clauses": 5,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "tt_07_2023_tt_bng",
+    "expected_articles": 23,
+    "status": "passed",
+    "pages": 16,
+    "articles": 23,
+    "clauses": 54,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Điều 23: phần từ heading 'Mục 10' đến cuối Điều dài 11721 ký tự; giữ nguyên nội dung, không tự động cắt."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "tt_07_2025_tt_bng",
+    "expected_articles": 2,
+    "status": "passed",
+    "pages": 3,
+    "articles": 2,
+    "clauses": 8,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "l_60_2014_qh13",
+    "expected_articles": 77,
+    "status": "passed",
+    "pages": 22,
+    "articles": 77,
+    "clauses": 188,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "l_52_2010_qh12",
+    "expected_articles": 52,
+    "status": "passed",
+    "pages": 15,
+    "articles": 52,
+    "clauses": 151,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "l_13_2022_qh15",
+    "expected_articles": 56,
+    "status": "passed",
+    "pages": 21,
+    "articles": 56,
+    "clauses": 205,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "tt_10_2020_tt_btp",
+    "expected_articles": 9,
+    "status": "passed",
+    "pages": 5,
+    "articles": 9,
+    "clauses": 31,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "l_35_2013_qh13",
+    "expected_articles": 33,
+    "status": "passed",
+    "pages": 9,
+    "articles": 33,
+    "clauses": 103,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "nd_19_2011_nd_cp",
+    "expected_articles": 52,
+    "status": "passed",
+    "pages": 20,
+    "articles": 52,
+    "clauses": 146,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "nd_76_2023_nd_cp",
+    "expected_articles": 45,
+    "status": "passed",
+    "pages": 21,
+    "articles": 45,
+    "clauses": 164,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "nd_114_2016_nd_cp",
+    "expected_articles": 11,
+    "status": "passed",
+    "pages": 5,
+    "articles": 11,
+    "clauses": 29,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": ""
+  },
+  {
+    "document_id": "nd_15_2014_nd_cp",
+    "expected_articles": 20,
+    "status": "passed",
+    "pages": 8,
+    "articles": 20,
+    "clauses": 44,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": ""
+  },
+  {
+    "document_id": "nq_326_2016_ubtvqh14",
+    "expected_articles": 48,
+    "status": "passed",
+    "pages": 17,
+    "articles": 48,
+    "clauses": 171,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [],
+    "log": "[metadata] Đã nạp 30 văn bản từ D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-corpus-v2\\data\\staging\\corpus_v2\\compatibility\\document_versions.json\n"
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "expected_articles": 689,
+    "status": "passed",
+    "pages": 140,
+    "articles": 689,
+    "clauses": 1635,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không chắc chắn title tự động: 'Thông báo khuyết tật của tài sản tặng cho Bên tặng cho có nghĩa vụ thông báo cho bên được tặng cho khuyết tật của tài sả'"
+    ],
+    "log": "[metadata] Đã nạp 30 văn bản từ D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-corpus-v2\\data\\staging\\corpus_v2\\compatibility\\document_versions.json\n"
+  },
+  {
+    "document_id": "tt_09_2022_tt_btp",
+    "expected_articles": 4,
+    "status": "passed",
+    "pages": 2,
+    "articles": 4,
+    "clauses": 9,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ],
+    "log": "[metadata] Đã nạp 30 văn bản từ D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-corpus-v2\\data\\staging\\corpus_v2\\compatibility\\document_versions.json\n"
+  },
+  {
+    "document_id": "nd_301_2026_nd_cp",
+    "expected_articles": 19,
+    "status": "passed",
+    "pages": 13,
+    "articles": 19,
+    "clauses": 66,
+    "schema": "PASS",
+    "pdf_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "parser": "PASS",
+    "parser_warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản.",
+      "Tiêu đề dài bất thường (86 từ); kiểm tra tách title/body: 'Sửa đổi, bổ sung điểm b khoản 1, điểm b khoản 2, điểm b khoản 3 Điều 10; điểm b khoản 1, điểm b khoản 2 và điểm b khoản '",
+      "Tiêu đề dài bất thường (243 từ); kiểm tra tách title/body: 'Sửa đổi, bổ sung điểm c khoản 3 Điều 10 “c) Trường hợp thân nhân là con từ đủ 18 tuổi trở lên hoặc vợ, chồng; cha đẻ, mẹ'"
+    ],
+    "log": "[metadata] Đã nạp 30 văn bản từ D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-corpus-v2\\data\\staging\\corpus_v2\\compatibility\\document_versions.json\n"
+  }
+]

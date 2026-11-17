@@ -1,0 +1,643 @@
+[
+  {
+    "document_id": "l_102_2016_qh13",
+    "document_number": "102/2016/QH13",
+    "title": "Luật Trẻ em",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=184566",
+    "priority": "P0-A",
+    "reason": "Quyền trẻ em, bảo vệ trẻ trong gia đình, chăm sóc thay thế; bổ sung luật mẹ cho ND17.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Luật số 102/2016/QH13 luật trẻ em.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=184566",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=184566",
+        "path": "reports/data/corpus_v2/sources/l_102_2016_qh13.0.html",
+        "sha256": "c34bbdf91996b712f84b9b153263703c5b985a9b214fbb9edb39c90f8df1c98e"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2016-qh13-19611.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2016-qh13-19611.htm",
+        "path": "reports/data/corpus_v2/sources/l_102_2016_qh13.1.html",
+        "sha256": "56d31186aa2e0e1af41f0f59f67ea9177f420e0fab9712d509f3e5310281f876"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/05/102.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/4/19611/14045-1-1022016qh1314120pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRvTW6BzDBE20RtJB4d_GahhQn05x5acqXdy0QaOamtcokt4qgFdyn6nfkmeJ36Or1&file_name=102_2016_QH13(14120).pdf"
+    ]
+  },
+  {
+    "document_id": "bl_91_2015_qh13",
+    "document_number": "91/2015/QH13",
+    "title": "Bộ luật Dân sự",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+    "priority": "P0-A",
+    "reason": "Nhân thân, giám hộ, đại diện, tài sản chung vợ chồng và thừa kế trong gia đình.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Luật số 91/2015/QH13 bộ luật dân sự.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+        "path": "reports/data/corpus_v2/sources/bl_91_2015_qh13.0.html",
+        "sha256": "e575614c032da78671fb3bfae2c84c5437236f9179f8e54f2eafdb08e8691ec2"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-91-2015-qh13-18397.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-91-2015-qh13-18397.htm",
+        "path": "reports/data/corpus_v2/sources/bl_91_2015_qh13.1.html",
+        "sha256": "39d8e1871bca865d7fd66399c1c1252add69a0ad4615e1f5542e98a51173db8f"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91.signed.pdf",
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/91_.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12965-1-912015qh1313017pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12968-1-912015qh1313019pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRyMvZDHmLExRqqYdacdYeFd4GwomCE4vvRlBXSX_AvxPP3fNTCS5DktCF9JVDsVwq&file_name=91_2015_QH13(13017).pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRyMvZDHmLExRqqYdacdYeFXhBdvIYC8jWEkU1IB9qApbKZlRFZSLuhK9GFixxKmzH&file_name=91_2015_QH13(13019).pdf"
+    ]
+  },
+  {
+    "document_id": "bl_92_2015_qh13",
+    "document_number": "92/2015/QH13",
+    "title": "Bộ luật Tố tụng dân sự",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+    "priority": "P0-A",
+    "reason": "Thẩm quyền và thủ tục tranh chấp HNGĐ, thuận tình ly hôn; đọc cùng Luật 85/2025.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Luật số 92/2015/QH13 bộ luật tố tụng dân sự.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+        "path": "reports/data/corpus_v2/sources/bl_92_2015_qh13.0.html",
+        "sha256": "7dc0ed034aad6d34c547f179b2bc2ee0dda50e967be95458d514e06abb989f6f"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-92-2015-qh13-18411.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-92-2015-qh13-18411.htm",
+        "path": "reports/data/corpus_v2/sources/bl_92_2015_qh13.1.html",
+        "sha256": "2a1061d08ad77674a37d9247de7ee148c6c01e1a27d8a4a169f55985cf8b6e3f"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92.signed_01.pdf",
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92_.pdf",
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/01/92__.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28624-1-incb-12511252-29-12-2015signedsignedsignedpdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28625-1-incb-12531254-29-12-2015signedsignedpdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18411/28627-2-incb-12551256-29-12-2015signedsignedsignedsignedsignedpdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRvY-AtAEnWcbwfBfOjIunhxOBtWeDKbU-4fSqJ8LqHcVRL3__cdRoHKEI1hyAA_-zpKFTYVo4ichjeCJaGzigTlcypTDu5bQvsfNSe3Yf5es~&file_name=In_CB+1251%2b1252+29-12-2015.signed.signed.signed.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRvY-AtAEnWcbwfBfOjIunhxwD0qM11sn5cUGH3lm0yS8AT12IyO0qA7QHaYTcPObF_TtYpmIwmxQOMU2wU0tJHw~~&file_name=In_CB+1253%2b1254+29-12-2015.signed.signed.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRvY-AtAEnWcbwfBfOjIunh1JI7rbxEGz7SmOHjHohKyAETRk1k2aYWxN3Rd4As73qGN-eV-hGALLhe7F6pjFWiamWEMm09Eqn-bqNEWockFo~&file_name=In_CB+1255%2b1256+29-12-2015.signed.signed.signed.signed.signed.pdf"
+    ]
+  },
+  {
+    "document_id": "nq_326_2016_ubtvqh14",
+    "document_number": "326/2016/UBTVQH14",
+    "title": "Án phí và lệ phí Tòa án",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191/16544.htm",
+    "priority": "P0-A",
+    "reason": "Án phí ly hôn, chia tài sản; miễn giảm và lệ phí việc HNGĐ.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "Nghị quyết số 326/2016/UBTVQH14 quy định về mức thu, miễn, giảm, thu, nộp, quản lý và sử dụng án phí và lệ phí tòa án.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191/16544.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191/16544.htm",
+        "path": "reports/data/corpus_v2/sources/nq_326_2016_ubtvqh14.0.html",
+        "sha256": "ae4d979720b74f5bddb19b5b35bcebd11e58831f486792f5a61af898b228381e"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/12/22191/16544-1-3262016ubtvqh1416723pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRNjl8inMoPwJIkoVlzldQx02ge3TumcSY1CUNs8rbu15CTfZtHPrfhi20ZT6UACDv&file_name=326_2016_UBTVQH14(16723).pdf"
+    ]
+  },
+  {
+    "document_id": "l_34_2024_qh15",
+    "document_number": "34/2024/QH15",
+    "title": "Luật Tổ chức Tòa án nhân dân",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+    "priority": "P0-A",
+    "reason": "Tòa gia đình và người chưa thành niên; đọc cùng Luật 81/2025 đã có trong baseline.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+        "path": "reports/data/corpus_v2/sources/l_34_2024_qh15.0.html",
+        "sha256": "5a09c40c30ba8ab677c38eec0c53ce48ef934b007474c03570d4b85de980197c"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/9/34-2024-qh15.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_24_2019_nd_cp",
+    "document_number": "24/2019/NĐ-CP",
+    "title": "Sửa đổi Nghị định 19/2011 về nuôi con nuôi",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+    "priority": "P0-B",
+    "reason": "Bổ sung chuỗi sửa đổi ND16 về nuôi con nuôi.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 24/2019/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+        "path": "reports/data/corpus_v2/sources/nd_24_2019_nd_cp.0.html",
+        "sha256": "6a48eeb7266ce8d53ec5803464a89f4333d5c2757c7eefddbdf36aaf4830629c"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2019-nd-cp-28598.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2019-nd-cp-28598.htm",
+        "path": "reports/data/corpus_v2/sources/nd_24_2019_nd_cp.1.html",
+        "sha256": "b3197a1d9f3c5f84fc5ab64999edfda701d48c4e9de8a45e1e3edf761710bced"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2019/03/24.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2019/3/28598/26122-1-2019301-30224-2019-nd-cp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRsyisaE1NweJ34iQY5UmPaih0Fu4Zx4ioJ-2era1wc0ZZZ_VyON2Y9tkcm50rcuTK99kBLat_9CH6yhWSWoL7YQ~~&file_name=2019_301+%2b+302_24-2019-N%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "document_number": "06/2025/NĐ-CP",
+    "title": "Sửa đổi các Nghị định về nuôi con nuôi",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+    "priority": "P0-B",
+    "reason": "Cập nhật Nghị định 19/2011, 24/2019 và 114/2016 về nuôi con nuôi.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 06/2025/NĐ-CP sửa đổi, bổ sung một số điều của các Nghị định về nuôi con nuôi.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+        "path": "reports/data/corpus_v2/sources/nd_06_2025_nd_cp.0.html",
+        "sha256": "676acb3476a448d9a4f253b57df5d28b9a558a62fe324f8ab6ff19f4e2a98ee6"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2025-nd-cp-43808.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2025-nd-cp-43808.htm",
+        "path": "reports/data/corpus_v2/sources/nd_06_2025_nd_cp.1.html",
+        "sha256": "d1ee7e11a97825a9fd700efb7e43b5ec99efa0e769b59952524b45b98259cf44"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/01/06-nd1.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRW2ksYHhnLfUV4yn2FOZ0xZnA_IlEj08t1w6ESLv3EZ0_Zp_sAseCDamptVwo5f7TGXzybnYx5uZSiyMlszsEWA~~&file_name=2025_135+%2b+136_06-2025-N%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "document_number": "07/2023/TT-BTP",
+    "title": "Sửa đổi Thông tư 10/2020 về nuôi con nuôi",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+    "priority": "P0-B",
+    "reason": "Biểu mẫu và hồ sơ nuôi con nuôi; có nhiều phần Công báo, phải giữ đủ.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "Thông tư số 07/2023/TT-BTP sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+        "path": "reports/data/corpus_v2/sources/tt_07_2023_tt_btp.0.html",
+        "sha256": "c60e34125f2a2b594cbfc31b3a81cc5a59ba083331e582fbdaa2542fc6cdf048"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46870-1-20231125-112607-2023-tt-btp.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46873-1-20231127-112807-2023-tt-btp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRodx-bcVsyW7N3QhOtflm1rwSFG4874npovUHeEW8E-GqgzUZ-td0FevOYM54gqahCrCOcEAlLgkyI8xkjH_tBw~~&file_name=2023_1125+%2b+1126_07-2023-TT-BTP.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRodx-bcVsyW7N3QhOtflm1ov2nHfqK654JC2Z0BGFQsP5pXE1OqZVwWXwR1C8pEhUzZIv3TMgyqAtuMdTubWQeA~~&file_name=2023_1127+%2b+1128_07-2023-TT-BTP.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_104_2022_nd_cp",
+    "document_number": "104/2022/NĐ-CP",
+    "title": "Bỏ yêu cầu sổ hộ khẩu, sổ tạm trú giấy",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+    "priority": "P0-B",
+    "reason": "Chỉ lấy sửa đổi thủ tục hộ tịch tại Nghị định 123/2015 và điều khoản hiệu lực.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 104/2022/NĐ-CP sửa đổi, bổ sung một số điều của các nghị định liên quan đến việc nộp, xuất trình sổ hộ khẩu, sổ tạm trú giấy khi thực hiện thủ tục hành chính, cung cấp dịch vụ công.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+        "path": "reports/data/corpus_v2/sources/nd_104_2022_nd_cp.0.html",
+        "sha256": "e562b1b742ae1e103859e162c156e8b8015e98c09b55438cf3d9276a12b603f7"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-104-2022-nd-cp-38392.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-104-2022-nd-cp-38392.htm",
+        "path": "reports/data/corpus_v2/sources/nd_104_2022_nd_cp.1.html",
+        "sha256": "9a23c6f716ea1b772ef08d1383e65c56f7b0cbb49a3bb0090b5a7ffa7e7dc1ab"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/12/104-cp.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38392/42711-1-2022965-966104-2022-nd-cp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRqUqBmfgsZ0uWcJSWcQjStBxv6XWs_jEpmBysCRZZmDGVgBSVtB8B_KrrLb-QIfAu-Kkqb1mDlaGmDSksSnljOQ~~&file_name=2022_965+%2b+966_104-2022-N%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_09_2022_tt_btp",
+    "document_number": "09/2022/TT-BTP",
+    "title": "Bãi bỏ nội dung trong lĩnh vực trợ giúp pháp lý, hộ tịch",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+    "priority": "P0-B",
+    "reason": "Phần bãi bỏ yêu cầu giấy tờ cư trú trong thủ tục hộ tịch.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Thông tư số 09/2022/TT-BTP bãi bỏ một số nội dung tại các Thông tư trong lĩnh vực trợ giúp pháp lý, hộ tịch do Bộ trưởng Bộ Tư pháp ban hành.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+        "path": "reports/data/corpus_v2/sources/tt_09_2022_tt_btp.0.html",
+        "sha256": "9384314ec42c66a84019d5e2699eb6389efcf672448e2aea2893b94d4baa4cae"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09-2022-tt-btp-38657.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09-2022-tt-btp-38657.htm",
+        "path": "reports/data/corpus_v2/sources/tt_09_2022_tt_btp.1.html",
+        "sha256": "7207f5991a032a2367b652e829c4fde20dffc931b275edc078b86a1b6579eeca"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/01/09-btp.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38657/43277-1-2023217-21809-2022-tt-btp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbR22tgDcmUQ5kdoo0kCdAFZezUxdxyf9GA0bg7fj4xEQEdduHvvwYpZz_7C1FmK_rcQEcOG9kKzU7R6JNKOE6qTA~~&file_name=2023_217+%2b+218_09-2022-TT-BTP.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_120_2025_nd_cp",
+    "document_number": "120/2025/NĐ-CP",
+    "title": "Phân định thẩm quyền chính quyền địa phương 02 cấp trong lĩnh vực tư pháp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=213894",
+    "priority": "P0-B",
+    "reason": "Phần hộ tịch và nuôi con nuôi, chuyển thẩm quyền cấp huyện sang cấp xã.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 120/2025/NĐ-CP quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=213894",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=213894",
+        "path": "reports/data/corpus_v2/sources/nd_120_2025_nd_cp.0.html",
+        "sha256": "1d2ca5e7a980ce2457d0c05da62d349f0c420bb0edd45e5d5c070fb2d8544354"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-120-2025-nd-cp-45062.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-120-2025-nd-cp-45062.htm",
+        "path": "reports/data/corpus_v2/sources/nd_120_2025_nd_cp.1.html",
+        "sha256": "d8183676523aba4161ec25eb196d86cf1a93bf79be97cd3f7b36c22a74a70b16"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/120-cp.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45062/56730-1-2025777-778120-2025-nd-cp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRQuojmjqMhU6l8chVWOeGUPx4OdW9OFq-2COW-dy3wxCaJBw458kT3pU8Y1l7ub8UhFTh0RQb7dQAaQc2M4JhHA~~&file_name=2025_777+%2b+778_120-2025-N%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "l_85_2025_qh15",
+    "document_number": "85/2025/QH15",
+    "title": "Sửa đổi Bộ luật Tố tụng dân sự và các luật liên quan",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214582",
+    "priority": "P0-B",
+    "reason": "Chỉ phần sửa đổi tố tụng dân sự và hòa giải tại Tòa án liên quan HNGĐ; loại phần hành chính, phá sản, tư pháp hình sự.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Luật số 85/2025/QH15 luật sửa đổi, bổ sung một số điều của Bộ luật Tố tụng dân sự, Luật Tố tụng hành chính, Luật Tư pháp người chưa thành niên, Luật Phá sản và Luật Hòa giải, đối thoại tại Tòa án.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214582",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214582",
+        "path": "reports/data/corpus_v2/sources/l_85_2025_qh15.0.html",
+        "sha256": "a4c331027e27f80ced9b77a71335669aa413088df7b5aaa50318281400ca1b63"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-85-2025-qh15-45520.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-85-2025-qh15-45520.htm",
+        "path": "reports/data/corpus_v2/sources/l_85_2025_qh15.1.html",
+        "sha256": "e270753126a030ab3b057900600a4c71e36a6291aa1b276e073bda16135d5d58"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/85qh.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45520/57597-1-2025953-95485-2025-qh15.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRSu4Oyzlx0aDinAFU9WdmcCXfwcwoz24DhZPjZICZ5mLILOFj-JQGthX0mG6cGWYV5eDlqVED0-lCJE1Ohi9FZw~~&file_name=2025_953+%2b+954_85-2025-QH15.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "document_number": "10/2025/TT-BTP",
+    "title": "Sửa đổi Thông tư 10/2020 đã sửa đổi bởi TT 07/2023 về nuôi con nuôi",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+    "priority": "P0-B",
+    "reason": "Cập nhật hồ sơ, biểu mẫu nuôi con nuôi; ưu tiên bản Công báo đủ phụ lục.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Thông tư số 10/2025/TT-BTP sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi, bổ sung một số điều theo Thông tư số 07/2023/TT-BTP.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+        "path": "reports/data/corpus_v2/sources/tt_10_2025_tt_btp.0.html",
+        "sha256": "f9dac3704964700c794bdb1a0aee5b02ab0d76052e53f85b839be6a18f5d9928"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2025-tt-btp-45321/57237.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2025-tt-btp-45321/57237.htm",
+        "path": "reports/data/corpus_v2/sources/tt_10_2025_tt_btp.1.html",
+        "sha256": "d60a620b8c39e42c96306d6790326090b6eabd68c3bc78b20e13f40d1386f9c6"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/10-btp.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57234-1-2025863-86410-2025-tt-btp.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57237-1-2025865-86610-2025-tt-btp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRHnN08tWxfYzOGX1MGheYp84dBVyElmrIcShZfySH6p9tN0B3QTGyrpByo7VMgst64Ph7LzEntrzzLnYM0HjCzQ~~&file_name=2025_863+%2b+864_10-2025-TT-BTP.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRHnN08tWxfYzOGX1MGheYp-spVkoNx_hZ8hzQXUwcKUZMkRfsC7jKn75owo0eXWwnVuBBiIgheH04DyHP-WZK5Q~~&file_name=2025_865+%2b+866_10-2025-TT-BTP.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_63_2024_nd_cp",
+    "document_number": "63/2024/NĐ-CP",
+    "title": "Liên thông điện tử đăng ký khai sinh và các thủ tục liên quan",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210359",
+    "priority": "P1",
+    "reason": "Chỉ nhóm khai sinh, thường trú và BHYT trẻ em dưới 6 tuổi; không nạp mai táng phí, tử tuất.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 63/2024/NĐ-CP quy định việc thực hiện liên thông điện tử 02 nhóm thủ tục hành chính: Đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi; đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí, tử tuất.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210359",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210359",
+        "path": "reports/data/corpus_v2/sources/nd_63_2024_nd_cp.0.html",
+        "sha256": "d0cd31b1b26186ab8d3d88d55399255a6f53f444165ba56e72007f7fd245b4dc"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-63-2024-nd-cp-42050.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-63-2024-nd-cp-42050.htm",
+        "path": "reports/data/corpus_v2/sources/nd_63_2024_nd_cp.1.html",
+        "sha256": "896015986247d60dcf2547268f90732326a4113693d064ccf07ed618c5492a6b"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/6/63-cp.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/6/42050/50468-1-2024737-73863-2024-nd-cp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbR1qC1jioB6ndE0LEMqlKCj9ClMtsvgg5SGHLKiiVQySGzwaWqZieQZa8xc2YLdV3Knb6hyKDeCyvbJibqfnW6GA~~&file_name=2024_737+%2b+738_63-2024-N%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "nd_301_2026_nd_cp",
+    "document_number": "301/2026/NĐ-CP",
+    "title": "Sửa đổi Nghị định 63/2024 về liên thông điện tử",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=219043",
+    "priority": "P1",
+    "reason": "Cập nhật nhóm thủ tục khai sinh cho trẻ em trong Nghị định 63/2024.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Nghị định số 301/2026/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 63/2024/NĐ-CP ngày 10 tháng 6 năm 2024 của Chính phủ quy định việc thực hiện liên thông điện tử 02 nhóm thủ tục hành chính: đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi; đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí, tử tuất",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=219043",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=219043",
+        "path": "reports/data/corpus_v2/sources/nd_301_2026_nd_cp.0.html",
+        "sha256": "168699a5a537338450e4c1352f99aeadf1e7b1b7d614c18255619f61ebaa7bad"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-301-2026-nd-cp-470197.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-301-2026-nd-cp-470197.htm",
+        "path": "reports/data/corpus_v2/sources/nd_301_2026_nd_cp.1.html",
+        "sha256": "3bbe068f27ea289e1b7f658336e45e3e3fc86c6cdda38f1b6aa394f70bcee3dc"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_3-signed.signed.pdf",
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/7/301_2026_nd-cp_30072026_5-signed.pdf",
+      "https://congbaocdn.chinhphu.vn/180507251028987904/2026/8/12/470197-1786434405_v1_1786526065_signed.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwOMEkGwvzkvwWs72mBIjo3RIIrazaTMqXuuowB2LFS3lI6B0McDouODORTqVGTmYDJPvDnT2edKmYOcGBxL7CqQ~~&file_name=2026_468_301%2f2026%2fN%c4%90-CP.pdf"
+    ]
+  },
+  {
+    "document_id": "l_58_2020_qh14",
+    "document_number": "58/2020/QH14",
+    "title": "Luật Hòa giải, đối thoại tại Tòa án",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200446",
+    "priority": "P1",
+    "reason": "Phần hòa giải tranh chấp HNGĐ và công nhận thuận tình ly hôn; loại đối thoại hành chính.",
+    "ingest_scope": "scoped",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Luật số 58/2020/QH14 luật Hòa giải, đối thoại tại Tòa án.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200446",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200446",
+        "path": "reports/data/corpus_v2/sources/l_58_2020_qh14.0.html",
+        "sha256": "64cd9d478ecdf76fa5ba416087aca3a262b44933bd9f8a2a5f4b4c3a5fd58bf8"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-58-2020-qh14-31659.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/luat-so-58-2020-qh14-31659.htm",
+        "path": "reports/data/corpus_v2/sources/l_58_2020_qh14.1.html",
+        "sha256": "873f435fdccb9b0332a00f4c12ef027842dca91a03d9e8bceb5d8d43cfce7643"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/07/58.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/6/31659/31870-1-2020709-71058-2020-qh14.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbR2kSkOkIULCMHZimjP5lT8qAca9qDyFuywix0URMaSRXAu0Iir-cvpG5uEyH-v-WQw2ENkWcC-kfC1Se7n4V71w~~&file_name=2020_709+%2b+710_58-2020-QH14.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_01_2022_tt_btp",
+    "document_number": "01/2022/TT-BTP",
+    "title": "Hướng dẫn cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+    "priority": "P1",
+    "reason": "Thủ tục khai sinh, kết hôn, nhận cha mẹ con và giám hộ trực tuyến; văn bản gốc của TT 03/2023.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Thông tư số 01/2022/TT-BTP quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+        "path": "reports/data/corpus_v2/sources/tt_01_2022_tt_btp.0.html",
+        "sha256": "014684fd9aea8bd19c86c1826eaf241269a8dd46b9c715cfd9cfe50edeb180bb"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2022-tt-btp-36821/39913.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2022-tt-btp-36821/39913.htm",
+        "path": "reports/data/corpus_v2/sources/tt_01_2022_tt_btp.1.html",
+        "sha256": "455b70b74167c8fc331f076b4149c0a6bd4ffaaf0cc28ba8e4549ada5a402373"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/02/01-tt-btp.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36821/39913-1-2022245-24601-2022-tt-btp.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbROn70W6U1o-1m1q9uv3fuV4p8naILy8jHTaDSPpc7xICO8B0saqCqG5P1aLelKvZ11As9wCo_-FVQNzHVSy58gQ~~&file_name=2022_245+%2b+246_01-2022-TT-BTP.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_03_2023_tt_btp",
+    "document_number": "03/2023/TT-BTP",
+    "title": "Sửa đổi Thông tư 01/2022 về hộ tịch điện tử",
+    "source_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+    "priority": "P1",
+    "reason": "Sửa khoản 1 Điều 9 TT 01/2022; không phải văn bản sửa TT 10/2020 về nuôi con nuôi.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "Sửa đổi, bổ sung một số nội dung về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến."
+    ],
+    "source_pages": [
+      {
+        "url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+        "resolved_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+        "path": "reports/data/corpus_v2/sources/tt_03_2023_tt_btp.moj.html",
+        "sha256": "74603a3754f8e991ab6cd42a9a62c3e9f822b067945b3a227829a392ce811a98"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://hctp.moj.gov.vn/documents/37829/0/TT_03.2023.TT.BTP_18153878665282983.pdf/bc09a6d8-7108-94e2-df6f-2e6e51885949?version=1.0&t=1772787708589&download=true",
+      "https://hctp.moj.gov.vn/documents/37829/0/2.Phuluc1+-+TT03.2023_18154049666781573.pdf/6701cb81-3460-dadc-6b0a-1c38fe99dd6b?version=1.0&t=1772787879420&download=true",
+      "https://hctp.moj.gov.vn/documents/37829/0/3.Phuluc2+-+TT03.2023_18154071941345967.pdf/e041b864-6ef9-390f-a21c-3323b2b731bb?version=1.0&t=1772787901651&download=true",
+      "https://hctp.moj.gov.vn/documents/37829/0/4.Phuluc3+-+TT03.2023_18154093566585029.pdf/4d7ed0c0-b1d6-b104-f5a5-5ab6027afccb?version=1.0&t=1772787923275&download=true"
+    ]
+  },
+  {
+    "document_id": "tt_07_2023_tt_bng",
+    "document_number": "07/2023/TT-BNG",
+    "title": "Đăng ký, quản lý hộ tịch tại cơ quan đại diện Việt Nam ở nước ngoài",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=209537",
+    "priority": "P1",
+    "reason": "Khai sinh, kết hôn, giám hộ, nhận cha mẹ con có yếu tố nước ngoài.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Thông tư số 07/2023/TT-BNG hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=209537",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=209537",
+        "path": "reports/data/corpus_v2/sources/tt_07_2023_tt_bng.0.html",
+        "sha256": "fdfddbdc643aa33cd2ae63261508b3ffa3ef7a7fff89324e4badb5df1d164dc5"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-bng-41066/48454.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-bng-41066/48454.htm",
+        "path": "reports/data/corpus_v2/sources/tt_07_2023_tt_bng.1.html",
+        "sha256": "ce53e7e98289d771e605833c1f632486d01a339fbcd5caf012384d67e8ccb25c"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/01/07-bng.signed.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRIJLsn9LTZNgGk6S6bryXAmgEJ6UwrjMT4dXhhEJsLFzNGqa0Dd7XitURf8d6hgxmXN5RUMnKsBtNfSSD-kzJ4Q~~&file_name=2024_163+%2b+164_07-2023-TT-BNG.pdf"
+    ]
+  },
+  {
+    "document_id": "tt_07_2025_tt_bng",
+    "document_number": "07/2025/TT-BNG",
+    "title": "Sửa đổi Thông tư 07/2023 về hộ tịch tại cơ quan đại diện",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+    "priority": "P1",
+    "reason": "Cập nhật đúng chuỗi sửa đổi hộ tịch có yếu tố nước ngoài.",
+    "ingest_scope": "full",
+    "page_titles": [
+      "© Cục Thông tin và Truyền thông Chính phủ",
+      "Thông tư số 07/2025/TT-BNG sửa đổi, bổ sung một số điều của Thông tư số 07/2023/TT-BNG ngày 29 tháng 12 năm 2023 của Bộ trưởng Bộ Ngoại giao hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài.",
+      "giải đáp - chỉ dẫn liên quan"
+    ],
+    "source_pages": [
+      {
+        "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+        "resolved_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+        "path": "reports/data/corpus_v2/sources/tt_07_2025_tt_bng.0.html",
+        "sha256": "8f395e1eefffe27952346b527f08c07d2779d4702504516a55c8824a3b8df178"
+      },
+      {
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2025-tt-bng-45298/57182.htm",
+        "resolved_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2025-tt-bng-45298/57182.htm",
+        "path": "reports/data/corpus_v2/sources/tt_07_2025_tt_bng.1.html",
+        "sha256": "d1c2ceae39e26258dd51c3429e34b38d67ca06a95e77ed0d4a71a11c7b2a976a"
+      }
+    ],
+    "candidate_pdf_urls": [
+      "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/07-bng.pdf",
+      "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45298/57182-1-2025857-85807-2025-tt-bng.pdf",
+      "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbROSd1i4RI7hDFG1h5K_6cPCh_wrYs_ZVot3xOvR7uLtWESpR3nEX52udDSDzr0c7H31q_znbsjjzETGsbbXIhkw~~&file_name=2025_857+%2b+858_07-2025-TT-BNG.pdf"
+    ]
+  }
+]

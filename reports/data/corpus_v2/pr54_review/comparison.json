@@ -1,0 +1,164 @@
+{
+  "schema_version": "week10_v1.0",
+  "route_enum": [
+    "LEGAL_IN_SCOPE",
+    "NON_LEGAL",
+    "LEGAL_OUT_OF_SCOPE",
+    "MIXED_REVIEW"
+  ],
+  "error_enum": [
+    "AUTH_REQUIRED",
+    "INVALID_REQUEST",
+    "ROUTE_POLICY",
+    "RETRIEVAL_EMPTY",
+    "LOW_CONFIDENCE",
+    "LLM_TIMEOUT",
+    "JSON_INVALID",
+    "CITATION_INVALID",
+    "GROUNDING_FAIL",
+    "INTERNAL_ERROR"
+  ],
+  "event_stages": [
+    "api",
+    "router",
+    "retrieval",
+    "rerank",
+    "context",
+    "llm",
+    "citation",
+    "gate",
+    "response"
+  ],
+  "model_fields": {
+    "AskResponse": [
+      "schema_version",
+      "query_id",
+      "request_id",
+      "as_of_date",
+      "as_of_date_source",
+      "status",
+      "route",
+      "answer",
+      "clarification",
+      "abstention_message",
+      "abstention_reason",
+      "citations",
+      "evidence",
+      "grounding_status",
+      "disclaimer",
+      "timings",
+      "error_code",
+      "error"
+    ],
+    "AskTimings": [
+      "retrieval_ms",
+      "llm_total_ms",
+      "ttft_model_ms",
+      "load_ms",
+      "prompt_eval_ms",
+      "eval_ms",
+      "total_ms"
+    ],
+    "LogEvent": [
+      "schema_version",
+      "event_id",
+      "query_id",
+      "stage",
+      "event_type",
+      "timestamp",
+      "status",
+      "duration_ms",
+      "error_code",
+      "masked_metadata"
+    ],
+    "ErrorDetail": [
+      "message",
+      "retryable"
+    ],
+    "MappedCitation": [
+      "evidence_index",
+      "chunk_id",
+      "document_id",
+      "article_id",
+      "clause_id",
+      "parent_clause_id"
+    ]
+  },
+  "srs_payload_rejections": {
+    "route": [
+      {
+        "location": [
+          "route"
+        ],
+        "type": "literal_error"
+      }
+    ],
+    "session_id": [
+      {
+        "location": [
+          "session_id"
+        ],
+        "type": "extra_forbidden"
+      }
+    ],
+    "message": [
+      {
+        "location": [
+          "message"
+        ],
+        "type": "extra_forbidden"
+      }
+    ],
+    "reason_code": [
+      {
+        "location": [
+          "reason_code"
+        ],
+        "type": "extra_forbidden"
+      }
+    ],
+    "versions": [
+      {
+        "location": [
+          "versions"
+        ],
+        "type": "extra_forbidden"
+      }
+    ],
+    "cache": [
+      {
+        "location": [
+          "cache"
+        ],
+        "type": "extra_forbidden"
+      }
+    ]
+  },
+  "corpus_audit": {
+    "documents": 57,
+    "children": 4716,
+    "parents": 2051,
+    "missing_document_source": 0,
+    "parents_over_1500_characters": 0,
+    "children_over_256_segmented_words": 0,
+    "missing_parent": 0,
+    "missing_clause": 0,
+    "missing_required_metadata": {
+      "document_number": 0,
+      "document_type": 0,
+      "issuing_body": 0,
+      "issue_date": 0,
+      "effective_from": 0,
+      "validity_status": 0,
+      "provision_status": 0
+    },
+    "provision_status_counts": {
+      "requires_review": 2800,
+      "document_level_only": 1753,
+      "amended": 27,
+      "repealed": 136
+    },
+    "legal_effectivity_review_complete": false,
+    "live_index_verified": false
+  }
+}

@@ -106,19 +106,31 @@ class TestRunFreezeTest(unittest.TestCase):
 
         self.assertEqual(windows_hash, linux_hash)
 
-    def test_committed_freeze_manifests_match_current_test_inputs(self):
+    def test_committed_freeze_manifests_match_frozen_test_inputs(self):
         from evaluation.test_run_freeze import verify_test_run
         with patch("evaluation.test_run_freeze._require_committed", return_value="locked-commit"):
             commit = verify_test_run(
                 QUERIES_TEST_PATH,
                 GROUND_TRUTH_PATH,
-                CHUNKS_PATH,
+                Path(__file__).resolve().parents[1] / "data/staging/corpus_v2/history/baseline_c1e9f12/chunking_output/chunks.jsonl",
                 Path(__file__).resolve().parents[1] / "retrieval" / "config.yaml",
                 Path(__file__).resolve().parents[1] / "reranking" / "config.yaml",
                 10,
                 ALL_METHODS,
             )
         self.assertEqual(commit, "locked-commit")
+
+    def test_expanded_corpus_cannot_reuse_historical_freeze(self):
+        from evaluation.test_run_freeze import verify_test_run, _file_sha256
+
+        root = Path(__file__).resolve().parents[1]
+        baseline = root / "data/staging/corpus_v2/history/baseline_c1e9f12/chunking_output/chunks.jsonl"
+        if _file_sha256(CHUNKS_PATH) == _file_sha256(baseline):
+            return  # Baseline checkout has no corpus expansion to reject.
+        with self.assertRaisesRegex(ValueError, "corpus"):
+            verify_test_run(QUERIES_TEST_PATH, GROUND_TRUTH_PATH, CHUNKS_PATH,
+                            root / "retrieval/config.yaml", root / "reranking/config.yaml",
+                            10, ALL_METHODS)
 
     def test_preflight_rejects_empty_gold_before_retrieval(self):
         from evaluation.test_run_freeze import verify_test_run

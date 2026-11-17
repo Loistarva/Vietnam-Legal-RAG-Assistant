@@ -1,3 +1,5 @@
+> C?p nh?t corpus v2 (17/11/2026): nh?nh n?y hi?n chu?n b? 57 v?n b?n, 4.716 child chunk. C?c b?o c?o trial13/corpus41 b?n d??i l? l?ch s?. Xem `../corpus_v2/current_validation.json` v? `../../../data/staging/corpus_v2/README.md`. Ba v?n b?n ngo?i ph?m vi ?? b? kh?i ??u v?o; ND17 ?ang ho?n.
+
 # Bộ thử bổ sung 13 văn bản — 13/11/2026
 
 Nhánh local: `data/trial-13-documents`, tách từ `testing` tại `cdca079`.

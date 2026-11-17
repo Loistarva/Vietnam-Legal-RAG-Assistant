@@ -1,0 +1,2374 @@
+./.
+KT. BỘ TRƯỞNG
+THỨ TRƯỞNG
+Nguyễn Thanhky Ngọc
+Phụ lục I
+DANH MỤC SỔ
+(Kèm theo Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025 của Bộ trưởng
+Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày
+28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi
+chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi,
+bổ sung một số điều theo Thông tư số 07/2023/TT-BTP)
+STT Tên Sổ
+1. Sổ đăng ký nuôi con nuôi
+2. Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước
+ngoài tại Việt Nam
+Sổ đăng ký nuôi con nuôi gồm các chi tiết kỹ thuật, mỹ thuật như sau:
+Sổ có kích thước tương đương khổ giấy A4 (210x297mm), được in thành 100 trang.
+Sổ có bìa cứng, cán mờ, được thiết kế màu xanh lá cây chủ đạo, có hoa văn là
+hình trống đồng Ngọc Lũ. Trên cùng là Quốc hiệu và Tiêu ngữ “CỘNG HÒA XÃ
+HỘI CHỦ NGHĨA VIỆT NAM, Độc lập - Tự do - Hạnh phúc”. Tiếp phía dưới
+là hình ảnh quốc huy nước Cộng hòa xã hội chủ nghĩa Việt Nam ở trên dòng chữ
+“BỘ TƯ PHÁP”, kích thước 24x24mm. Tên biểu mẫu là chữ in hoa đậm, màu
+đỏ, cỡ chữ 35pt.
+Các trang trong Sổ được in trên giấy trắng, khổ A4, định lượng 70gsm trở lên,
+sử dụng font chữ Times New Roman, bảng mã Unicode, cỡ chữ 12pt, in 01 màu.
+Yêu cầu đối với Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức
+con nuôi nước ngoài tại Việt Nam:
+Sổ được in, đóng thành quyển, bảo đảm chắc chắn, có khả năng sử dụng lâu
+dài, không bị long gáy, bung trang.
+Trên cùng là Quốc hiệu và Tiêu ngữ “CỘNG HÒA XÃ HỘI CHỦ NGHĨA
+VIỆT NAM, Độc lập - Tự do - Hạnh phúc”. Tiếp phía dưới là hình ảnh quốc huy
+nước Cộng hòa xã hội chủ nghĩa Việt Nam ở trên dòng chữ “BỘ TƯ PHÁP”, kích
+thước 24x24mm. Tên biểu mẫu là chữ in hoa đậm, màu đen, cỡ chữ 35pt.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+BỘ TƯ PHÁP
+SỔ
+ĐĂNG KÝ NUÔI CON NUÔI
+Cơ quan đăng ký nuôi con nuôi (1): ……………………………………….......
+…………………………………………………………………………………
+…………………………………………………………………………………
+Quyển số (2): ....................................................
+Ngày mở (3): ..............tháng..........năm.............
+Ngày khóa (4): ............tháng..........năm............
+HƯỚNG DẪN SỬ DỤNG
+1. Tên “Cơ quan đăng ký nuôi con nuôi1” phải được ghi rõ tại trang bìa của sổ:
+- Sổ đăng ký nuôi con nuôi của Ủy ban nhân dân cấp xã thì phải ghi đủ tên địa danh 02 cấp hành
+chính (cấp xã, cấp tỉnh);
+- Sổ đăng ký nuôi con nuôi của Sở Tư pháp thì ghi tên của Sở Tư pháp và địa danh hành chính
+cấp tỉnh;
+- Sổ đăng ký nuôi con nuôi của Cơ quan đại diện Việt Nam ở nước ngoài thì ghi tên của Cơ quan
+đại diện Việt Nam.
+2. Mục “Quyển số2” ghi số thứ tự của Sổ đăng ký nuôi con nuôi trong năm, trường hợp hết sổ mà
+chưa hết năm thì sử dụng sang quyển sổ khác và ghi số thứ tự tiếp theo; Mục “Ngày mở3” ghi
+ngày đăng ký sự kiện nuôi con nuôi đầu tiên của sổ; Mục “Ngày khóa4” ghi ngày đăng ký sự
+kiện nuôi con nuôi cuối cùng của sổ, trường hợp chưa hết sổ mà hết năm thì ngày khóa sổ là
+ngày 31 tháng 12.
+3. “Số đăng ký5” là số thứ tự ghi vào sổ và năm đăng ký (ví dụ: số 01/2025).
+Số đăng ký trong sổ phải được ghi liên tục từ số 01 đến hết năm, không được bỏ trống, không
+được để trùng số. Nếu hết sổ mà chưa hết năm thì sử dụng sang quyển sổ khác và ghi tiếp theo
+số thứ tự cuối cùng của sổ trước, không ghi lại từ số 01. Nếu sổ được sử dụng tiếp cho năm sau,
+thì số thứ tự của năm sau phải bắt đầu từ số 01, không được lấy tiếp số thứ tự của năm trước.
+Sổ phải đóng dấu giáp lai từ trang đầu đến trang cuối ngay tại thời điểm mở sổ.
+4. “Ngày, tháng, năm đăng ký6” là ngày, tháng, năm ghi vào sổ.
+5. Năm đăng ký bắt đầu từ ngày 01 tháng 01 cho đến hết ngày 31 tháng 12. Hết năm đăng ký
+phải thực hiện khóa sổ, thống kê tổng số sổ đã sử dụng, tổng số sự kiện nuôi con nuôi đã đăng ký
+trong năm, các trường hợp có sửa chữa do ghi chép sai sót, số trang bị bỏ trống (nếu có) vào
+trang liền kề với trang đăng ký cuối cùng của năm; ký, ghi rõ họ, chữ đệm, tên, chức danh; có
+xác nhận của Thủ trưởng cơ quan đăng ký nuôi con nuôi.
+6. Sổ được sử dụng để ghi thông tin về việc đăng ký nuôi con nuôi, đăng ký lại việc nuôi con
+nuôi, chấm dứt việc nuôi con nuôi theo quyết định của tòa án nhân dân có thẩm quyền, việc nuôi
+con nuôi đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài và những thông tin thay
+đổi, cải chính sau này.
+7. Người làm công tác đăng ký nuôi con nuôi phải nghiên cứu kỹ nội dung Thông tư và phần “Hướng
+dẫn sử dụng” trong Sổ đăng ký nuôi con nuôi để thực hiện đầy đủ, chính xác và thống nhất.
+Người làm công tác đăng ký nuôi con nuôi phải tự mình ghi vào sổ, nội dung ghi phải chính xác,
+theo đúng hồ sơ đăng ký nuôi con nuôi. Không tự ý tẩy xóa, sửa chữa, bổ sung làm sai lệch nội
+dung đã ghi trong sổ.
+Chữ viết phải rõ ràng, đủ nét, không viết tắt, không tẩy xóa; viết bằng loại mực tốt, cùng một
+màu; không dùng các màu mực khác nhau; không dùng mực đỏ.
+8. Họ, chữ đệm, tên của cha, mẹ nuôi, con nuôi và người giao con nuôi phải ghi bằng chữ in hoa
+theo đúng Thẻ căn cước/Căn cước điện tử/Hộ chiếu/Giấy khai sinh hoặc giấy tờ có giá trị thay
+thế khác có dán ảnh và thông tin cá nhân do cơ quan có thẩm quyền cấp, còn giá trị sử dụng.
+Mục Nơi sinh của con nuôi ghi đầy đủ theo Giấy khai sinh của con nuôi.
+Nơi cư trú ở trong nước ghi theo địa chỉ đăng ký thường trú và ghi đủ 02 cấp hành chính (cấp xã,
+cấp tỉnh); trường hợp cha dượng nhận con riêng của vợ, mẹ kế nhận con riêng của chồng làm
+con nuôi hoặc cô, cậu, dì, chú, bác ruột nhận cháu làm con nuôi, nếu không có nơi đăng ký
+thường trú thì ghi theo địa chỉ đăng ký tạm trú. Nếu con nuôi sống ở cơ sở nuôi dưỡng thì ghi tên
+và địa chỉ trụ sở của cơ sở nuôi dưỡng. Trường hợp cơ sở nuôi dưỡng có nhiều cơ sở trực thuộc
+thì ghi tên và địa chỉ trụ sở của cơ sở trực thuộc nơi trẻ em sống.
+Trường hợp người nhận con nuôi cư trú ở nước ngoài thì ghi theo nơi thường trú ở nước ngoài.
+Trường hợp người nước ngoài đang làm việc, học tập ở Việt Nam trong thời gian ít nhất là 01
+năm mà chưa được cấp thẻ thường trú thì ghi cả địa chỉ thường trú ở nước ngoài và địa chỉ tạm trú
+ở Việt Nam.
+Đối với Hộ chiếu, phải ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ
+Ngoại giao và Hợp tác quốc tế I-ta-li-a cấp ngày 20/02/2025.
+9. Người làm công tác đăng ký nuôi con nuôi cần đánh dấu vào các ô phù hợp tại cột bên phải
+tương ứng với phần ghi về người nhận con nuôi, con nuôi và người giao con nuôi.
+10. Mục “Căn cứ ghi vào sổ7”, tùy theo từng loại việc, người làm công tác đăng ký nuôi con nuôi
+cần đánh dấu vào ô tương ứng và ghi đầy đủ thông tin.
+11. Mục “Ghi chú8” để ghi thông tin trong trường hợp việc nuôi con nuôi đã chấm dứt theo quyết
+định của tòa án nhân dân có thẩm quyền; thông tin thay đổi, cải chính hộ tịch sau này; thông tin
+sửa chữa, cải chính trong trường hợp có sai sót khi ghi sổ.
+12. Đối với trường hợp ghi vào sổ việc nuôi con nuôi đã được giải quyết tại cơ quan có thẩm
+quyền nước ngoài và đăng ký lại việc nuôi con nuôi, người làm công tác đăng ký nuôi con nuôi
+ghi đầy đủ thông tin về người nhận con nuôi (cha nuôi, mẹ nuôi), con nuôi và đánh dấu vào ô
+tương ứng tại mục “Ghi chú”; những nội dung liên quan đến người giao con nuôi, chữ ký của
+người giao con nuôi và người nhận con nuôi trong sổ được bỏ trống.
+Nếu người nhận con nuôi hoặc người giao con nuôi là vợ hoặc chồng đã ủy quyền cho người kia
+có mặt tại lễ giao nhận con nuôi theo quy định pháp luật thì chỉ người có mặt tại lễ giao nhận ký
+tên vào bên giao.
+13. “Người thực hiện9” là người làm công tác đăng ký nuôi con nuôi.
+Số đăng ký(5): .............................. Ngày, tháng, năm đăng ký(6): ……./………./………
+1. Phần ghi về người nhận con nuôi:
+Cha nuôi:  Cha dượng
+ Chú, cậu, bác ruột Họ, chữ đệm, tên ………………………………………………………………….
+ Khác ………………………………………………………………….
+Ngày, tháng, năm sinh ………………………………………………………………….
+Quốc tịch ………………………………………………………………….
+Số định danh cá ………………………………………………………………….
+nhân/Hộ chiếu …………………………………………………………………
+…………………………………………………………………
+Nơi cư trú …………………………………………………………………
+……...…………………………………………………………
+…………………………………………………………………
+…………………………………………………………………
+Mẹ nuôi:  Mẹ kế
+ Cô, dì, bác ruột
+Họ, chữ đệm, tên …………………………………………………………………
+ Khác
+…………………………………………………………………
+Ngày, tháng, năm sinh …………………………………………………………………
+Quốc tịch …………………………………………………………………
+Số định danh cá …………………………………………………………………
+nhân/Hộ chiếu …………………………………………………………………
+…………………………………………………………………
+Nơi cư trú …………………………………………………………………
+…………………………………………………………………
+………………………………………………………………….
+…………………………………………………………………
+ Con riêng 2. Phần ghi về con nuôi:
+ Cháu ruột
+Họ, chữ đệm, tên:…………………………………… Giới tính:………………........  Trẻ em bị bỏ rơi
+Ngày, tháng, năm sinh: ………………………………………………………………..  Trẻ em mồ côi
+ Trẻ em có hoàn cảnh
+Quốc tịch: ………………………......................................................................................... đặc biệt khác
+Nơi sinh:…………………………..………………………………………………………...  Trẻ em sống tại cơ
+sở nuôi dưỡng ………………………………………………………………………………………………….
+ Trẻ em sống tại gia
+…………………………………………………………………………………………………. đình
+Số định danh cá nhân:……………………………………………………………...…..  Trẻ em sống ở nơi
+khác
+Nơi cư trú:……………………………………………………………………………….....  Trẻ em khuyết tật,
+…………………………………………………………………………………………………. mắc bệnh hiểm nghèo
+………………………………………………………………………………………………….
+………………………………………………………………………………………………….
+3. Phần ghi về người giao con nuôi:  Cha đẻ
+Ông:  Người giám hộ
+Họ, chữ đệm, tên ………………………………………………………………  Đại diện cơ sở nuôi
+……………………………………………………………… dưỡng
+Ngày, tháng, năm sinh ………………………………………………………………  Đại diện Ủy ban nhân
+dân cấp xã (đối với trẻ ………………………………………………………………
+em bị bỏ rơi chưa được
+Quốc tịch ………………………………………………………………
+đưa vào cơ sở nuôi
+Số định danh cá ……………………………………………………………… dưỡng)
+nhân/Hộ chiếu ………………………………………………………………
+………………………………………………………………
+Bà:  Mẹ đẻ
+Họ, chữ đệm, tên ………………………………………………………………  Người giám hộ
+………………………………………………………………  Đại diện cơ sở nuôi
+Ngày, tháng, năm sinh ……………………………………………………………… dưỡng
+ Đại diện Ủy ban nhân Quốc tịch ………………………………………………………………
+dân cấp xã (đối với trẻ
+Số định danh cá ………………………………………………………………
+em bị bỏ rơi chưa được nhân/Hộ chiếu
+……………………………………………………………… đưa vào cơ sở nuôi
+……………………………………………………………… dưỡng)
+………………………………………………………………
+4. Căn cứ ghi vào sổ(7):
+ Theo Giấy chứng nhận nuôi con nuôi trong nước số………………………… Ghi chú (8)
+ngày……… tháng ………… năm…………, do Ủy ban nhân dân xã/phường  Đăng ký lại việc
+……………………………………………………………………………....cấp. nuôi con nuôi
+ Theo Quyết định nuôi con nuôi có yếu tố nước ngoài số …………………….  Việc nuôi con
+ngày……tháng………… năm…….……do ………………………………………cấp. nuôi đã chấm dứt
+ Theo giấy tờ chứng minh việc nuôi con nuôi đã được giải quyết tại cơ theo Quyết định/Bản
+quan có thẩm quyền của ……………………………………………….., án số ……………...
+cấp ngày………… tháng………… năm…………… …………………...
+ngày...tháng…năm
+Bên giao con nuôi Bên nhận con nuôi …….....................
+(Ký và ghi rõ họ, chữ đệm, tên) (Ký và ghi rõ họ, chữ đệm, tên) của Tòa án nhân
+dân.......................
+Ông Bà Ông Bà ………………….
+………………….
+………….............
+ Thông tin thay
+đổi, cải chính:
+……………………
+….….………………
+………………..……
+5. Người thực hiện(9) ……………………
+(Ký, ghi rõ họ, chữ đệm, tên, chức danh) …..…………………
+…………..…………
+…………………..…
+…………………….
+……..………………
+……………..……….
+……………………..
+……….……………
+……………….……
+………………..……
+……………………
+…………………
+…………………
+………………….
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+BỘ TƯ PHÁP
+CỤC HÀNH CHÍNH TƯ PHÁP
+SỔ CẤP, GIA HẠN, SỬA ĐỔI GIẤY PHÉP
+HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI
+NƯỚC NGOÀI TẠI VIỆT NAM
+Quyển số(1) : ................................................
+Ngày mở(2): ...........tháng..........năm.............
+Ngày khóa(3): ..........tháng..........năm...........
+HƯỚNG DẪN SỬ DỤNG
+1. Nội dung cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt
+Nam phải được ghi vào sổ này.
+2. Sổ cấp, gia hạn, sửa đổi Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam
+được ghi trên máy tính. Sau khi khóa sổ, Cục Hành chính tư pháp thuộc Bộ Tư pháp phải in sổ,
+đóng thành quyển, bảo đảm chắc chắn, có khả năng sử dụng lâu dài, không bị long gáy, bung
+trang và phải đóng dấu giáp lai từ trang đầu đến trang cuối của sổ.
+3. Việc mở, khóa sổ được thực hiện như sau:
+- Mục “Quyển số(1)” được đánh số và ghi theo thứ tự bắt đầu từ số 01. “Ngày mở(2)” là ngày
+đăng ký sự kiện cấp, gia hạn, sửa đổi giấy phép đầu tiên của sổ, bắt đầu từ ngày 01 tháng 01 của
+năm đó. “Ngày khóa(3)” là ngày 31 tháng 12 của năm đó.
+- Khi khóa sổ, công chức của Cục Hành chính tư pháp thuộc Bộ Tư pháp phải thống kê rõ tổng số
+sự kiện cấp, gia hạn, sửa đổi trong sổ, in sổ, ký tên, ghi rõ họ, chữ đệm, tên và đóng dấu xác nhận.
+4. Khi ghi các mục có trong sổ, công chức của Cục Hành chính tư pháp phải ghi chính xác, đầy
+đủ nội dung theo Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam.
+- Mục “Tên” của tổ chức con nuôi nước ngoài phải được viết đầy đủ, bao gồm cả tên viết tắt
+(nếu có).
+- Mục “Giấy phép do cơ quan có thẩm quyền của nước ngoài cấp” phải ghi đầy đủ tên cơ quan
+cấp, số Giấy phép (nếu có) và ngày, tháng, năm cấp.
+- Mục “Số(4)” của Giấy phép do cơ quan có thẩm quyền của Việt Nam cấp ghi số của Giấy phép
+được cấp lần đầu tiên.
+- Mục “Ngày, tháng, năm cấp(5)” của Giấy phép do cơ quan có thẩm quyền của Việt Nam cấp ghi
+ngày cấp Giấy phép đầu tiên.
+5. Nếu lần đầu tiên ghi sổ là sự kiện gia hạn hoặc sửa đổi Giấy phép thì phải ghi đầy đủ thông
+tin về Tổ chức con nuôi nước ngoài và thông tin về Văn phòng con nuôi nước ngoài tại Việt
+Nam tại phần “ I. CẤP PHÉP” và bỏ trống mục “Người thực hiện”.
+6. Nội dung gia hạn được ghi vào phần “II. GIA HẠN GIẤY PHÉP”.
+Nội dung sửa đổi Giấy phép được ghi vào phần “III. SỬA ĐỔI GIẤY PHÉP”.
+I. CẤP PHÉP
+1. Thông tin về tổ chức con nuôi nước ngoài: Ghi chú
+Tên
+Trụ sở chính
+Giấy phép do cơ quan có thẩm quyền của nước ngoài cấp:
+Số (nếu có)
+Ngày, tháng, năm
+cấp
+Ngày hết hạn
+Cơ quan cấp
+Giấy phép do cơ quan có thẩm quyền của Việt Nam cấp:
+Số(4)
+Thời hạn Giấy phép Ngày, tháng, năm cấp(5):
+Ngày, tháng, năm hết hạn:
+Số lần gia hạn:……………………………………………….
+Ngày gia hạn cuối cùng:..…………………………………..
+Số lần sửa đổi:………………………………………………..
+Ngày sửa đổi cuối cùng:……………………………………
+2. Thông tin về Văn phòng con nuôi nước ngoài tại Việt Nam:
+Tên
+Địa chỉ
+Người đứng đầu Văn phòng con nuôi nước ngoài:
+Họ, chữ đệm, tên
+Ngày, tháng, năm
+sinh
+Quốc tịch
+Số định danh cá
+nhân/Hộ chiếu:
+Nơi cư trú
+3. Người thực hiện
+(Ký, ghi rõ họ, chữ đệm, tên, chức danh)
+II. GIA HẠN GIẤY PHÉP
+III. SỬA ĐỔI GIẤY PHÉP
+(Xem tiếp Công báo số 865 + 866)
+VĂN BẢN QUY PHẠM PHÁP LUẬT
+BỘ TƯ PHÁP
+Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025
+sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày 28 tháng
+12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép,
+sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi,
+bổ sung một số điều theo Thông tư số 07/2023/TT-BTP
+( Tiếp theo Công báo số 863 + 864)
+Phụ lục II
+DANH MỤC MẪU GIẤY TỜ DÙNG CHO VIỆC ĐĂNG KÝ NUÔI CON
+NUÔI TRONG NƯỚC TẠI ỦY BAN NHÂN DÂN CẤP XÃ VÀ CƠ QUAN
+ĐẠI DIỆN VIỆT NAM Ở NƯỚC NGOÀI
+(Kèm theo Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025 của Bộ trưởng
+Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày
+28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi
+chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi, bổ
+sung một số điều theo Thông tư số 07/2023/TT-BTP)
+STT Tên giấy tờ
+1. Đơn đăng ký nhu cầu nhận trẻ em làm con nuôi
+2. Văn bản xác nhận hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh
+tế của người nhận con nuôi
+3. Giấy chứng nhận nuôi con nuôi trong nước (Bản chính - có nội dung)
+4. Giấy chứng nhận nuôi con nuôi trong nước (Bản chính - phôi, không có
+nội dung)
+5. Giấy chứng nhận nuôi con nuôi trong nước (Bản sao)
+6. Báo cáo tình hình phát triển của con nuôi trong nước
+Giấy chứng nhận nuôi con nuôi trong nước (Bản chính – có nội dung) gồm
+các chi tiết kỹ thuật, mỹ thuật như sau:
+Được in trên giấy trắng định lượng 120gsm, khổ giấy A4 (210 x 297mm), in
+offset 4x1 màu. Nội dung chính in trên mặt trước, có hoa văn chìm, ở chính giữa
+nền hoa văn là hình trống đồng Ngọc Lũ, trên mặt trống đồng là hình vẽ bản đồ
+Việt Nam và các quần đảo Trường Sa, Hoàng Sa, các đảo nhỏ khác… Vị trí hình
+ngôi sao là Thủ đô Hà Nội. Phía ngoài trống đồng là nền hoa văn và được đóng
+khung bởi đường viền trang trí. Nền hoa văn trang trí sử dụng màu sắc phù hợp.
+Nội dung chính được soạn thảo bằng font chữ Times New Roman, bảng mã
+Unicode, cỡ chữ 13pt, khoảng cách dòng là 21.5pt, trường nội dung chữ cách mép
+giấy hai bên là 23mm, cách mép trên là 12.8mm và mép dưới là 18mm. Phía trên
+cùng là Quốc hiệu và Tiêu ngữ “CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT
+NAM, Độc lập - Tự do - Hạnh phúc”. Tiếp phía dưới là hình ảnh Quốc huy nước
+Cộng hòa xã hội chủ nghĩa Việt Nam có kích thước là 20x20mm. Tên mẫu màu
+đỏ, in hoa đậm, cỡ chữ 18pt.
+Mặt sau của Giấy chứng nhận nuôi con nuôi trong nước là bảng “Phần ghi chú
+những thông tin thay đổi, cải chính hộ tịch sau này”, được in trên nền hoa văn phù
+hợp. Nội dung bảng sử dụng font chữ Times New Roman, bảng mã Unicode, cỡ
+chữ 12pt, kích thước bảng là 158 x 260mm.
+Giấy chứng nhận nuôi con nuôi trong nước (bản chính - phôi, không có
+nội dung) gồm các chi tiết kỹ thuật, mỹ thuật như sau:
+Là phôi in màu theo các mô tả chi tiết nêu trên, có Quốc hiệu, Tiêu ngữ, Quốc
+huy và tên mẫu tại mặt trước, bảng “Phần ghi chú những thông tin thay đổi, cải
+chính hộ tịch sau này” ở mặt sau của Giấy chứng nhận nuôi con nuôi trong nước.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+ĐƠN ĐĂNG KÝ NHU CẦU NHẬN TRẺ EM LÀM CON NUÔI
+Kính gửi: Sở Tư pháp tỉnh/thành phố1........................................................................................
+I. Thông tin cơ bản về người đăng ký nhu cầu nhận con nuôi
+Ông Bà
+Họ, chữ đệm, tên
+Ngày, tháng, năm sinh
+Số định danh cá nhân
+Nơi cư trú
+Điện thoại/Thư điện tử
+II. Hoàn cảnh bản thân, gia đình, chỗ ở và điều kiện kinh tế của người đăng ký nhu cầu
+1. Tình trạng hôn nhân và gia đình
+Chưa kết hôn Kết hôn Ly hôn
+Chưa có con đẻ Đã có con đẻ Đã có con nuôi
+Nêu rõ số lượng con: …………….
+Độ tuổi của con lớn nhất:…………..Độ tuổi của con nhỏ nhất:……………….
+2. Tiền án
+Không
+Có (Ghi rõ đã bị kết án về tội gì………………………………………………………………....)
+3. Tình trạng chỗ ở
+Diện tích: ………………………………………………………………………………………......
+Nhà thuộc sở hữu Nhà thuê Nhà ở khác
+Không gian dành cho con nuôi:
+Có
+Không
+4. Nghề nghiệp, thu nhập
+- Nghề nghiệp (nêu rõ làm nghề gì):..................................................................................................
+- Thu nhập:
+Tiền lương tháng (nêu số tiền:.............................................................................................)
+Thu nhập từ sản xuất, kinh doanh, hành nghề độc lập (nêu số tiền:...................................)
+1 Ghi tỉnh/thành phố trực thuộc Trung ương nơi đăng ký thường trú.
+Phụ cấp, trợ cấp (nêu số tiền:..............................................................................................)
+Các nguồn thu nhập khác...........................................(tài khoản tiết kiệm, cho thuê bất
+động sản, cho tặng của người thân, bản quyền…)
+III. Nguyện vọng về trẻ em được nhận làm con nuôi
+(Ghi đặc điểm của trẻ em mà người có nhu cầu nhận con nuôi mong muốn)
+Độ tuổi: ............................................................................................. Giới tính:.........................................................................
+Tình trạng sức khỏe:………………………………………………………………………………………………...................
+Đặc điểm khác (nơi cư trú, tôn giáo, dân tộc…):
+……………………………………………………………………………………………………………………………...................
+……………………………………………………………………………………………………………………………...................
+Chúng tôi/Tôi cam đoan những lời khai trên đây là đúng sự thật. Nếu được giới thiệu trẻ em cần
+được nhận làm con nuôi, chúng tôi/tôi sẽ thực hiện đầy đủ các thủ tục theo quy định pháp luật về
+nuôi con nuôi. Đề nghị Sở Tư pháp xem xét, giải quyết./.
+Làm tại.................., ngày .................tháng ........... năm.................
+ÔNG BÀ
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên)
+III. Xác nhận của Sở Tư pháp
+Sở Tư pháp……………………….2xác nhận đã tiếp nhận Đơn đăng ký nhu cầu nhận trẻ em làm
+con nuôi của Ông/Bà……………………………..3
+.................., ngày .................tháng ........... năm.................
+QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+(Chữ ký của người có thẩm quyền, dấu)
+Họ và tên
+2 Ghi rõ tỉnh/thành phố trực thuộc Trung ương.
+3 Sở Tư pháp gửi bản chụp Đơn đã được xác nhận cho người đăng ký nhu cầu nhận con nuôi.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+VĂN BẢN XÁC NHẬN HOÀN CẢNH GIA ĐÌNH, TÌNH TRẠNG CHỖ Ở,
+ĐIỀU KIỆN KINH TẾ CỦA NGƯỜI NHẬN CON NUÔI
+I. THÔNG TIN VỀ NGƯỜI NHẬN CON NUÔI
+Ông Bà
+Họ, chữ đệm, tên
+Ngày, tháng, năm sinh
+Số định danh cá nhân
+Nơi thường trú
+Nơi tạm trú1
+II. HOÀN CẢNH GIA ĐÌNH CỦA NGƯỜI NHẬN CON NUÔI
+1. Tình trạng hôn nhân, gia đình
+Chưa kết hôn Kết hôn Ly hôn
+Chưa có con đẻ
+Đã có con đẻ Đã có con nuôi Nêu rõ số lượng con: ………
+Thành viên khác sống cùng:
+- Nêu số thành viên sống cùng với người nhận con nuôi: .....................................................................................
+- Nêu rõ mối quan hệ gia đình với người nhận con nuôi: .................................................................
+...........................................................................................................................................................
+- Ý kiến, thái độ của thành viên trong gia đình đối với việc nhận con nuôi:
+Ủng hộ việc nhận con nuôi Không ủng hộ việc nhận con nuôi
+Ý kiến khác: .................................................................................................................................
+...........................................................................................................................................................
+1 Trường hợp nơi thường trú và nơi tạm trú khác nhau thì điền cả thông tin về nơi tạm trú.
+III. TÌNH TRẠNG CHỖ Ở, ĐIỀU KIỆN KINH TẾ
+1. Nhà ở
+Diện tích: ...........................................................................................................................................
+Nhà thuộc sở hữu Nhà thuê Nhà ở khác
+Không gian dành cho con nuôi:
+Có
+Không
+2. Nghề nghiệp, thu nhập
+- Nghề nghiệp (nêu rõ làm nghề gì): .................................................................................................
+- Thu nhập:
+Tiền lương tháng (nêu số tiền:.........................................................................................)
+Thu nhập từ sản xuất, kinh doanh, hành nghề độc lập (nêu số tiền:...................................)
+Phụ cấp, trợ cấp (nêu số tiền:..........................................................................................)
+Các nguồn thu nhập khác..............................(tài khoản tiết kiệm, cho thuê bất động sản,
+cho tặng của người thân, bản quyền…)
+3. Các tài sản khác (nếu có, ghi cụ thể): ........................................................................................
+...........................................................................................................................................................
+Điều kiện kinh tế đảm bảo cho việc nuôi dưỡng con nuôi: Có Không
+Làm tại………..............., ngày........ tháng..........năm..............
+Người nhận con nuôi
+(Ký, ghi rõ họ, chữ đệm, tên)
+Ông Bà
+IV. PHẦN Ý KIẾN, ĐÁNH GIÁ
+1. Đánh giá về hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh tế của người nhận con
+nuôi2
+...............................................................................................................................................................................................................
+...............................................................................................................................................................................................................
+...............................................................................................................................................................................................................
+.............., ngày........ tháng..........năm..............
+2 Đánh giá người nhận con nuôi đủ hay không đủ điều kiện để nhận con nuôi. Nếu việc đăng ký nuôi con nuôi được
+thực hiện tại Ủy ban nhân dân cấp xã thì công chức cấp xã nơi người nhận con nuôi cư trú thực hiện việc đánh giá.
+Nếu việc đăng ký nuôi con nuôi được thực hiện tại Cơ quan đại diện Việt Nam ở nước ngoài thì viên chức lãnh
+sự/ngoại giao thực hiện việc đánh giá.
+Xác nhận của cơ quan có thẩm quyền nơi Người đánh giá
+người nhận con nuôi cư trú3 (Ký, ghi rõ họ, chữ đệm, tên)
+Xác nhận chữ ký bên là của Ông/Bà
+.................................................... là người đã
+tiến hành xác minh, đánh giá hoàn cảnh gia
+đình, tình trạng chỗ ở, điều kiện kinh tế của
+người nhận con nuôi.
+.........................., ngày............tháng..........năm.............
+QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+(Chữ ký của người có thẩm quyền, dấu)
+Họ và tên
+3 Nếu việc đăng ký nuôi con nuôi được thực hiện ở trong nước thì Ủy ban nhân dân cấp xã nơi người nhận con nuôi
+cư trú xác nhận. Nếu việc đăng ký nuôi con nuôi được thực hiện tại Cơ quan đại diện Việt Nam ở nước ngoài thì Cơ
+quan đại diện Việt Nam ở nước ngoài xác nhận.
+Trường hợp người nhận con nuôi có nơi thường trú và nơi tạm trú khác nhau, nếu Ủy ban nhân dân cấp xã nơi
+người nhận con nuôi thường trú đề nghị Ủy ban nhân dân cấp xã nơi người nhận con nuôi tạm trú thực hiện việc xác
+minh, đánh giá hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh tế thì Ủy ban nhân dân cấp xã nơi người nhận
+con nuôi tạm trú thực hiện và có công văn gửi cho Ủy ban nhân dân cấp xã nơi người nhận con nuôi thường trú kèm
+theo văn bản này.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+Số: ................/.................
+GIẤY CHỨNG NHẬN NUÔI CON NUÔI TRONG NƯỚC
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+......................................................................................................... .................................................................................................
+Ngày, tháng, năm sinh:....................................................... Ngày, tháng, năm sinh:................................................
+Quốc tịch: ................................................................................ Quốc tịch: .........................................................................
+Số định danh cá nhân:................................................... Số định danh cá nhân:.............................................
+Nơi cư trú:................................................................................ Nơi cư trú:..........................................................................
+......................................................................................................... ..................................................................................................
+......................................................................................................... ..................................................................................................
+Họ, chữ đệm, tên con nuôi: ......................................................................................................Giới tính:........................
+Ngày, tháng, năm sinh: .......................................................................................Quốc tịch:................................................
+Số định danh cá nhân:..................................................................................................................................................................
+Nơi sinh: ............................................................................................................................................................................................
+Nơi cư trú: ........................................................................................................................................................................................
+.................................................................................................................................................................................................................
+Cơ quan đăng ký việc nuôi con nuôi:..................................................................................................................................
+.................................................................................................................................................................................................................
+Ngày, tháng, năm cấp: .................................................................................................................................................................
+Giấy chứng nhận này có hiệu lực từ ngày ghi vào Sổ đăng ký nuôi con nuôi.
+NGƯỜI KÝ GIẤY CHỨNG NHẬNVào Sổ đăng ký nuôi con nuôi
+Số đăng ký......................................................
+Quyển số.........................................................
+Ngày.............tháng.............năm..................
+Người thực hiện
+(Ký, ghi rõ họ, chữ đệm, tên) ...........................................
+PHẦN GHI CHÚ NHỮNG THÔNG TIN THAY ĐỔI, CẢI CHÍNH HỘ TỊCH SAU NÀY 10
+Họ, chữ đệm, tên, chữ Ngày, tháng, Nội dung ghi chúSTT Căn cứ ghi chú ký của người thực năm ghi chú (đóng dấu vào nội dung đã ghi chú) hiện ghi chú
+CÔNG
+BÁO/Số
++
+866/Ngày
+10-7-2025
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+GIẤY CHỨNG NHẬN NUÔI CON NUÔI TRONG NƯỚC
+PHẦN GHI CHÚ NHỮNG THÔNG TIN THAY ĐỔI, CẢI CHÍNH HỘ TỊCH SAU NÀY 12
+Họ, chữ đệm, tên, chữ Ngày, tháng, Nội dung ghi chúSTT Căn cứ ghi chú ký của người thực hiện năm ghi chú (đóng dấu vào nội dung đã ghi chú) ghi chú
+CÔNG
+BÁO/Số
++
+866/Ngày
+10-7-2025
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+Số:…………/…………. 1
+GIẤY CHỨNG NHẬN NUÔI CON NUÔI TRONG NƯỚC
+(BẢN SAO)
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+......................................................................................................... .................................................................................................
+Ngày, tháng, năm sinh:....................................................... Ngày, tháng, năm sinh:................................................
+Quốc tịch: ................................................................................ Quốc tịch: .........................................................................
+Số định danh cá nhân:........................................... Số định danh cá nhân:......................................
+Nơi cư trú:................................................................................ Nơi cư trú:..........................................................................
+......................................................................................................... ..................................................................................................
+......................................................................................................... ..................................................................................................
+Họ, chữ đệm, tên con nuôi: ......................................................................................................Giới tính:........................
+Ngày, tháng, năm sinh: .......................................................................................Quốc tịch:...............................................
+Số định danh cá nhân:.................................................................................................................................................................
+Nơi sinh: ............................................................................................................................................................................................
+Nơi cư trú: ........................................................................................................................................................................................
+.................................................................................................................................................................................................................
+Cơ quan đăng ký việc nuôi con nuôi:..................................................................................................................................
+.................................................................................................................................................................................................................
+Giấy chứng nhận nuôi con nuôi trong nước được cấp ngày.............tháng..............năm.....................................
+Việc nuôi con nuôi đã được ghi vào Sổ đăng ký nuôi con nuôi, số……. ngày..…..tháng............năm........
+NGƯỜI KÝ GIẤY CHỨNG NHẬN
+(Đã ký)
+.…………………………… Sao từ2……………………………………………
+………………………………3 ……………, ngày…….tháng…..năm…………...
+Số4: /NCNTN-BS NGƯỜI KÝ
+1 Ghi theo số Giấy chứng nhận nuôi con nuôi trong nước (bản chính).
+2 Ghi rõ việc cấp bản sao từ “Sổ đăng ký nuôi con nuôi” hoặc từ “Cơ sở dữ liệu hộ tịch điện tử”.
+3 Ghi tên cơ quan cấp bản sao như sau:
+- Nếu việc cấp bản sao được thực hiện tại Ủy ban nhân dân cấp xã thì ghi đủ 02 cấp hành chính (cấp xã, cấp tỉnh). Ví
+dụ: Ủy ban nhân dân phường Điện Biên, Thành phố Hà Nội.
+- Nếu việc cấp bản sao được thực hiện tại Cơ quan đại diện Việt Nam ở nước ngoài thì ghi tên Cơ quan đại diện Việt
+Nam ở nước ngoài. Ví dụ: Đại sứ quán Cộng hòa xã hội chủ nghĩa Việt Nam tại Béc-lin, Cộng hòa liên bang Đức.
+4 Ghi theo số trong Sổ cấp bản sao trích lục hộ tịch.
+BÁO CÁO TÌNH HÌNH PHÁT TRIỂN CỦA CON NUÔI TRONG NƯỚC
+Báo cáo số:………
+Kính gửi1:…………………………………............................................
+I. NHỮNG THÔNG TIN CHUNG
+1. Cha, mẹ nuôi
+Họ, chữ đệm, tên ……………………………………………………………………………………………………
+cha nuôi
+Họ, chữ đệm, tên ……………………………………………………………………………………………………
+mẹ nuôi
+Địa chỉ liên hệ ……………………………………………………………………………………………………
+Điện thoại/Thư ……………………………………………………………………………………………………
+điện tử
+2. Con nuôi
+Họ, chữ đệm, tên
+(trước khi được ……………………………………………………………………………………………………
+nhận làm con nuôi)
+Họ, chữ đệm, tên
+(sau khi được nhận ……………………………………………………………………………………………………
+làm con nuôi)
+Ngày, tháng, năm ……………………………………………………………………………………………………
+sinh
+Giới tính  Nam  Nữ
+Nơi cư trú hiện tại ……………………………………………………………………………………………………
+……………………………………………………………………………………………………
+Được nhận làm con Theo Giấy chứng nhận nuôi con nuôi trong nước số.................................
+nuôi ngày..........tháng......năm..........., do2…..............................................................................
+……………………………………………………………………………………………..cấp.
+1 Ghi Ủy ban nhân dân cấp xã nơi người nhận con nuôi cư trú. Ghi Cơ quan đại diện Việt Nam ở nước ngoài đối với
+trường hợp đăng ký nuôi con nuôi tại Cơ quan đại diện Việt Nam ở nước ngoài. Trường hợp cha, mẹ nuôi thay đổi
+nơi thường trú khi chưa hết thời hạn phải thông báo tình hình phát triển của con nuôi, cha, mẹ nuôi có trách nhiệm
+tiếp tục thông báo tình hình phát triển của con nuôi cho Ủy ban nhân dân cấp xã nơi chuyển đến cho đến khi hết thời
+hạn 03 năm kể từ ngày giao nhận con nuôi.
+2 Ghi Ủy ban nhân dân cấp xã hoặc Cơ quan đại diện Việt Nam ở nước ngoài nơi đăng ký việc nuôi con nuôi.
+II. ĐIỀU KIỆN SỐNG, SINH HOẠT HIỆN TẠI CỦA CON NUÔI
+1. Hiện đang sống cùng:
+ Cha, mẹ nuôi
+ Người khác:
+Nếu con nuôi đang sống cùng với người khác, đề nghị nêu rõ:
+- Mối quan hệ của trẻ em với người đang sống cùng:
+......................................................................................................................................................................................................
+- Địa chỉ: .................................................................................................................................................................................
+- Điện thoại/Thư điện tử liên hệ: ....................................................................................................................................................
+- Nêu lý do sống cùng người khác:
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+2. Hoàn cảnh gia đình cha, mẹ nuôi có gì thay đổi không?
+ Không  Có
+Nếu có, nêu rõ thay đổi và việc thay đổi có ảnh hưởng tới con nuôi không?
+......................................................................................................................................................................................................
+……………………………………………………………………………………………………………………………………
+III. ĐÁNH GIÁ TÌNH HÌNH PHÁT TRIỂN, HÒA NHẬP CỦA CON NUÔI (kèm theo
+những hình ảnh của con nuôi, nếu có)
+1. Đánh giá chung về mức độ phát triển của con nuôi
+i) Sức khỏe thể chất của con nuôi (chiều cao, cân nặng):
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+ii) Sự hòa nhập của con nuôi với gia đình, cộng đồng:
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+iii) Tình hình học tập và các vấn đề khác đối với sự phát triển của con nuôi:
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+......................................................................................................................................................................................................
+2. Nêu rõ những khó khăn cơ bản con nuôi gặp phải (nếu có)
+i) Về hòa nhập (với cha mẹ nuôi, gia đình họ hàng, cộng đồng: tự ti, mặc cảm; khó làm quen,
+gắn bó với cha mẹ và các thành viên khác trong gia đình; khó thích nghi với nề nếp sinh hoạt
+mới; có thái độ phản ứng/chống đối/quậy phá…):
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+ii) Về sức khỏe (con nuôi có mắc bệnh không, việc điều trị y tế như thế nào…):
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+iii) Về phát triển vận động (con nuôi có khó khăn khi trườn, ngồi, bò, đi, đứng, chạy, nhảy…
+so với độ tuổi hay không):
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+.....................................................................................................................................................................................................
+......................................................................................................................................................................................................
+.............., ngày........ tháng..........năm..............
+Người lập báo cáo3
+(Ký, ghi rõ họ, chữ đệm, tên)
+3 Cha, mẹ nuôi lập báo cáo hoặc cha, mẹ nuôi có thể đề nghị người làm công tác bảo vệ trẻ em hỗ trợ lập báo cáo.
+Phụ lục III
+DANH MỤC MẪU GIẤY TỜ DÙNG CHO VIỆC ĐĂNG KÝ NUÔI CON
+NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+(Kèm theo Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025 của Bộ trưởng
+Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày
+28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi
+chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi, bổ
+sung một số điều theo Thông tư số 07/2023/TT-BTP)
+STT Tên giấy tờ
+1. Đơn xin nhận trẻ em Việt Nam làm con nuôi nước ngoài (Sử dụng cho
+trường hợp nhận trẻ em sống ở cơ sở nuôi dưỡng, song ngữ Việt - Anh)
+2. Đơn xin nhận trẻ em Việt Nam làm con nuôi nước ngoài (Sử dụng cho
+trường hợp nhận con riêng, cháu ruột, song ngữ Việt - Anh)
+3. Văn bản về đặc điểm, sở thích, thói quen đáng lưu ý của trẻ em được
+nhận làm con nuôi
+4. Văn bản xác nhận trẻ em đủ điều kiện làm con nuôi nước ngoài
+5. Quyết định nuôi con nuôi có yếu tố nước ngoài (Sử dụng cho Ủy ban
+nhân dân cấp tỉnh, Bản chính – có nội dung)
+6. Quyết định nuôi con nuôi có yếu tố nước ngoài (Sử dụng cho Sở Tư pháp,
+Bản chính - có nội dung)
+7. Quyết định nuôi con nuôi có yếu tố nước ngoài (Bản chính - phôi, không
+có nội dung)
+8. Trích lục nuôi con nuôi có yếu tố nước ngoài (Bản sao)
+9. Giấy chứng nhận việc nuôi con nuôi có yếu tố nước ngoài phù hợp Công
+ước La Hay số 33 (Song ngữ Việt - Anh) (Bản chính - có nội dung)
+10. Giấy chứng nhận việc nuôi con nuôi có yếu tố nước ngoài phù hợp Công ước
+La Hay số 33 (Song ngữ Việt - Anh) (Bản chính - phôi, không có nội dung)
+11. Báo cáo tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi
+ở nước ngoài (Song ngữ Việt - Anh)
+12. Đơn xin cấp/gia hạn/sửa đổi Giấy phép hoạt động của tổ chức con nuôi
+nước ngoài tại Việt Nam (Song ngữ Việt - Anh)
+13. Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam (Bản
+chính - có nội dung)
+14. Giấy phép hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam (Bản
+chính - phôi, không có nội dung)
+15. Báo cáo tình hình hoạt động của tổ chức con nuôi nước ngoài được cấp
+phép hoạt động tại Việt Nam (Song ngữ Việt - Anh)
+16. Trích lục ghi vào Sổ việc nuôi con nuôi đã được giải quyết tại cơ quan có
+thẩm quyền của nước ngoài
+17. Trích lục ghi vào Sổ việc nuôi con nuôi đã được giải quyết tại cơ quan có
+thẩm quyền của nước ngoài (Bản sao)
+18. Văn bản xác nhận công dân Việt Nam thường trú ở khu vực biên giới đủ
+điều kiện nhận trẻ em của nước láng giềng cư trú ở khu vực biên giới làm
+con nuôi (Bản giấy và bản điện tử)
+19. Văn bản xác nhận công dân Việt Nam thường trú ở trong nước đủ điều
+kiện nhận trẻ em nước ngoài làm con nuôi (Bản giấy và bản điện tử)
+Quyết định nuôi con nuôi có yếu tố nước ngoài (Bản chính – có nội dung),
+Giấy chứng nhận việc nuôi con nuôi có yếu tố nước ngoài phù hợp Công ước La
+Hay số 33 (Bản chính – có nội dung) gồm các chi tiết kỹ thuật, mỹ thuật như sau:
+Được in trên giấy trắng định lượng 120gsm, khổ giấy A4 (210 x 297mm), in
+offset 4x1 màu. Nội dung chính in trên mặt trước, có hoa văn chìm, ở chính giữa
+nền hoa văn là hình trống đồng Ngọc Lũ, trên mặt trống đồng là hình vẽ bản đồ
+Việt Nam và các quần đảo Trường Sa, Hoàng Sa, các đảo nhỏ khác… Vị trí hình
+ngôi sao là Thủ đô Hà Nội. Phía ngoài trống đồng là nền hoa văn và được đóng
+khung bởi đường viền trang trí. Nền hoa văn trang trí sử dụng màu sắc phù hợp.
+Nội dung được soạn thảo bằng font chữ Times New Roman, bảng mã Unicode,
+cỡ chữ 13pt, khoảng cách dòng là 21.5pt, trường nội dung chữ cách mép giấy hai
+bên là 23mm, cách mép trên là 12.8mm và mép dưới là 18mm. Phía trên cùng bên
+trái là tên cơ quan ban hành, số văn bản; tiếp đến là Quốc hiệu và Tiêu ngữ “CỘNG
+HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM, Độc lập - Tự do - Hạnh phúc”. Tiếp
+phía dưới là hình ảnh Quốc huy nước Cộng hòa xã hội chủ nghĩa Việt Nam có kích
+thước là 20x20mm. Tên mẫu màu đỏ, in hoa đậm, cỡ chữ 18 pt.
+Quyết định nuôi con nuôi có yếu tố nước ngoài (Bản chính - phôi, không
+có nội dung), Giấy chứng nhận việc nuôi con nuôi có yếu tố nước ngoài phù
+hợp Công ước La Hay số 33 (Bản chính - phôi, không có nội dung) gồm các chi
+tiết kỹ thuật, mỹ thuật như sau:
+Là phôi in màu theo các mô tả chi tiết nêu trên, có Quốc hiệu, Tiêu ngữ, Quốc
+huy và tên mẫu.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Ảnh chân dung Độc lập - Tự do - Hạnh phúc Ảnh chân dung
+của người nhận của người nhận
+con nuôi (Ông), SOCIALIST REPUBLIC OF VIETNAM con nuôi (Bà),
+kích cỡ 4x6 cm Independence-Freedom-Happiness kích cỡ 4x6 cm Prospective Prospective
+adoptive father’s adoptive
+photo, ĐƠN XIN NHẬN TRẺ EM VIỆT NAM mother’s photo,
+4 x 6 cm LÀM CON NUÔI NƯỚC NGOÀI 4 x 6 cm
+(Sử dụng cho trường hợp nhận trẻ em sống ở cơ sở nuôi dưỡng)
+APPLICATION FOR INTERCOUNTRY ADOPTION OF A VIETNAMESE CHILD
+(For adoption of a child living in an institution)
+Kính gửi: Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa
+xã hội chủ nghĩa Việt Nam
+To: Department of Public Records Administration, Ministry of Justice of the
+Socialist Republic of Vietnam
+1. Phần khai về người nhận con nuôi/Information of prospective adoptive parent(s)
+Thông tin/Information Ông/Mr Bà/Ms
+Họ, chữ đệm, tên /Full name
+Ngày, tháng, năm sinh/Date of
+birth
+Quốc tịch/Nationality
+Số Hộ chiếu/Passport
+number14
+Nghề nghiệp/Occupation
+Nơi cư trú/Place of residence
+Điện thoại/ thư điện tử/Phone
+number/email
+14 Ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác quốc tế I-ta-li-a cấp
+ngày 20/02/2025.
+Specify number, issuing authority and date of issuance. For example: Passport No. 1089123, issued by the Ministry
+of Foreign Affairs and International Cooperation of Italia, on 20/02/2025.
+2. Nguyện vọng về trẻ em được nhận làm con nuôi/Desire for adopting a child with
+Độ tuổi/Age: ......................................................................................................................................
+Giới tính/Sex: .....................................................................................................................................
+Tình trạng sức khỏe/Health status: ....................................................................................................
+Các đặc điểm khác (nếu có)/other characteristics (if any): ...............................................................
+……………………………………………………………………………………………………...
+3. Phần cam đoan/Declaration
+Chúng tôi/Tôi cam đoan những lời khai trên đây là đúng sự thật, việc nhận con nuôi là tự
+nguyện, nhằm xác lập quan hệ cha, mẹ và con lâu dài, bền vững, vì lợi ích tốt nhất của con nuôi.
+Chúng tôi/Tôi cam kết sẽ chăm sóc, nuôi dưỡng, giáo dục cháu như con đẻ của mình và thực
+hiện mọi nghĩa vụ của cha mẹ đối với con theo quy định pháp luật. Chúng tôi/Tôi cam kết trong
+thời hạn 03 năm, kể từ ngày giao nhận con nuôi, định kỳ 06 tháng một lần, gửi báo cáo về tình
+hình phát triển của con nuôi (có kèm theo ảnh) cho Cục Hành chính tư pháp và Cơ quan đại diện
+Việt Nam ở nước nơi chúng tôi/tôi thường trú.
+Đề nghị Cục Hành chính tư pháp xem xét, giải quyết./.
+We/I hereby certify that the above statements are true and the application for adoption is
+voluntary, for the purpose of establishing a long-term, sustainable parent-child relationship in
+the best interest of the child. We/I commit to take care, nurture and educate the child as we/I do
+for our/my biological child, and fulfill all parental obligations towards the child in accordance
+with the law. We/I commit, every 6 months for a period of 03 years as of the date of handover of
+the adopted child, to send reports on the development of the child (with photos) to the
+Department of Public Records Administration and the Representative Mission of Vietnam in the
+country where we/I permanently reside.
+We/I would like to submit to the Department of Public Records Administration for consideration
+and approval of the application.
+Làm tại ..............., ngày............... tháng .............. năm................
+Done in…………, on day..........month.........year............
+ÔNG /Mr BÀ/Ms
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên)
+(Signature, full name) (Signature, full nam)
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Ảnh chân dung Độc lập - Tự do - Hạnh phúc Ảnh chân dung
+của người nhận của người nhận
+con nuôi (Ông), con nuôi (Bà),
+kích cỡ 4x6 cm SOCIALIST REPUBLIC OF VIETNAM kích cỡ 4x6 cm
+Prospective Independence-Freedom-Happiness Prospective
+adoptive father’s adoptive
+photo,
+4 x 6 cm ĐƠN XIN NHẬN TRẺ EM VIỆT NAM father’s4 x 6 photo,cm
+LÀM CON NUÔI NƯỚC NGOÀI
+(Sử dụng cho trường hợp nhận con riêng, cháu ruột)
+APPLICATION FOR INTERCOUNTRY ADOPTION OF A VIETNAMESE CHILD
+(For adoption of a step-child or biological niece/nephew)
+Kính gửi: Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa
+xã hội chủ nghĩa Việt Nam
+To: Department of Public Records Administration, Ministry of Justice of the
+Socialist Republic of Vietnam
+1. Phần khai về người nhận con nuôi/Information of prospective adoptive parent(s)
+Thông tin/Information Ông/Mr Bà/Ms
+Họ, chữ đệm, tên /Full name
+Ngày, tháng, năm sinh/Date of
+birth
+Quốc tịch/Nationality
+Số Hộ chiếu/Passport number1
+Nghề nghiệp/Occupation
+Nơi cư trú/Place of residence
+Điện thoại/ thư điện tử/Phone
+number/email
+2. Phần khai về người được nhận làm con nuôi/Information of the child to be adopted
+Họ, chữ đệm, tên/Full name: ........................................................................ Giới tính/Sex:…………….
+Ngày, tháng, năm sinh/Date of birth:……………………………….. Quốc tịch/Nationality:……………...
+1 Ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác quốc tế I-ta-li-a cấp
+ngày 20/02/2025.
+Specify number, issuing authority and date of issuance. For example: Passport No. 1089123, issued by the Ministry
+of Foreign Affairs and International Cooperation of Italia, on 20/02/2025.
+Số định danh cá nhân/Personal identity number:………………………………………………..…………………..
+Nơi sinh/Place of birth:………………………………….………………………………………………...………………….
+Nơi cư trú/Place of residence:……………………………………………………………. .......................
+........................................................................................................................................................................
+Hiện đang sống tại gia đình của Ông/Bà/currently living with Mr/Ms:
+Họ, chữ đệm, tên/Full name: ......................................................................................................................
+Nơi cư trú/Place of residence: ....................................................................................................................
+........................................................................................................................................................................
+Điện thoại/thư điện tử/Phone number/email: ....................................................................................
+3. Phần cam đoan/Declaration
+Chúng tôi/Tôi cam đoan những lời khai trên đây là đúng sự thật, việc nhận con nuôi là tự
+nguyện, nhằm xác lập quan hệ cha, mẹ và con lâu dài, bền vững, vì lợi ích tốt nhất của con nuôi.
+Chúng tôi/Tôi cam kết sẽ chăm sóc, nuôi dưỡng, giáo dục cháu như con đẻ của mình và thực
+hiện mọi nghĩa vụ của cha mẹ đối với con theo quy định pháp luật. Chúng tôi/Tôi cam kết trong
+thời hạn 03 năm, kể từ ngày giao nhận con nuôi, định kỳ 06 tháng một lần, gửi báo cáo về tình
+hình phát triển của con nuôi (có kèm theo ảnh) cho Cục Hành chính tư pháp và Cơ quan đại diện
+Việt Nam ở nước nơi chúng tôi/tôi thường trú.
+Đề nghị Cục Hành chính tư pháp xem xét, giải quyết./.
+We/I hereby certify that the above statements are true and the application for adoption is
+voluntary, for the purpose of establishing a long-term, sustainable parent-child relationship in
+the best interest of the child. We/I commit to take care, nurture and educate the child as we/I do
+for our/my biological child, and fulfill all parental obligations towards the child in accordance
+with the law. We/I commit, every 6 months for a period of 03 years as of the date of handover of
+the adopted child, to send reports on the development of the child (with photos) to the
+Department of Public Records Administration and the Representative Mission of Vietnam in the
+country where we/I permanently reside.
+We/I would like to submit to the Department of Public Records Administration for consideration
+and approval of the application.
+Làm tại .................., ngày............... tháng .............. năm...............
+Done in…………, on day..........month.........year............ 16
+ÔNG /Mr BÀ/Ms
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên)
+(Signature, full name) (Signature, full name)
+VĂN BẢN
+VỀ ĐẶC ĐIỂM, SỞ THÍCH, THÓI QUEN ĐÁNG LƯU Ý CỦA TRẺ EM ĐƯỢC
+NHẬN LÀM CON NUÔI1
+I. THÔNG TIN VỀ TRẺ EM
+1. Họ, chữ đệm, tên: .................................................................................................................. Nam  Nữ 
+2. Ngày, tháng, năm sinh: ......................................................................................................................................................
+3. Nơi cư trú: ................................................................................................................................................................................
+............................................................................................................................................................................................................
+4. Hoàn cảnh gia đình:
+Bị bỏ rơi
+Mồ côi cả cha và mẹ
+Hoàn cảnh đặc biệt khác (nêu rõ): ..............................................................................................................................
+II. ĐẶC ĐIỂM VỀ THỂ CHẤT, PHÁT TRIỂN VẬN ĐỘNG, TÂM LÝ
+1. Tiền sử cá nhân (sinh thường/sinh non, số tuần lúc sinh, cân nặng lúc sinh, có mắc bệnh
+gì lúc sinh không): ……………………………………………………………………………………………….. ..................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+2. Tiền sử gia đình (cha, mẹ đẻ có mắc bệnh tâm thần, truyền nhiễm hoặc các bệnh hiểm
+nghèo khác không): ...............................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+3. Phát triển thể chất, tâm thần vận động:
+Chiều cao ……. Cân nặng ……….
+Sức khỏe hiện tại:
+Bình thường
+Khuyết tật hoặc mắc bệnh hiểm nghèo
+Nếu bị khuyết tật hoặc mắc bệnh hiểm nghèo thì nêu rõ loại khuyết tật, bệnh hiểm nghèo:
+............................................................................................................................................................................................................
+1 Có giá trị sử dụng nếu được lập chưa quá 12 tháng, tính đến ngày nộp hồ sơ tại cơ quan có thẩm quyền.
+Có đang được điều trị không?
+Không
+Có
+Nếu “có”, nêu thuốc đang dùng và cách điều trị: ....................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+4. Khả năng vận động, tương tác, ngôn ngữ:
+Vận động (nêu rõ khả năng trườn, bò, đi, đứng, ngồi, cầm nắm đồ vật… của trẻ em nhỏ tuổi, độ
+tuổi của trẻ em khi đạt được những khả năng đó): ...................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+Tương tác (nêu rõ khả năng tiếp xúc của trẻ em với những trẻ khác, cô trông trẻ, người lạ; dễ
+tiếp xúc hay khó gần; khả năng chú ý, tập trung của trẻ em, thích/không thích được ẵm bế, an ủi,
+sợ tiếng động lớn; có thái độ hay lo âu, cáu giận không… Trẻ em trên 05 tuổi thích xem
+phim/đọc truyện/chơi thể thao…): ...................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+Ngôn ngữ (Tập nói, biết nói vài từ, câu đầy đủ chưa, phát âm dễ dàng hay khó khăn, ngôn ngữ
+cử chỉ đối với trẻ em khiếm thính. Đối với trẻ em trên 05 tuổi cần đánh giá khả năng diễn đạt suy
+nghĩ, cảm xúc của trẻ, khả năng đọc, viết chính tả, đọc truyện thành lời, nói lắp hay không, nói,
+viết có rõ nghĩa không….):
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+Trẻ em có gặp vấn đề gì đặc biệt không?
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+Trẻ em có đang phải trị liệu vấn đề gì không?
+Không
+Có
+Nếu “có”, đề nghị nêu rõ việc trị liệu (ngôn ngữ, vận động…): .......................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+III. SỞ THÍCH, THÓI QUEN ĐÁNG LƯU Ý CỦA TRẺ EM:
+1. Sở thích (Nêu sở thích nổi bật của trẻ em về ăn uống, vui chơi, âm nhạc, vận động…):
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+2. Thói quen đáng lưu ý của trẻ em (thói quen về ăn uống, loại thức ăn bị dị ứng; thói quen về
+sinh hoạt, giờ giấc (tư thế ngủ, ngủ có đèn hay tắt đèn, đồ vật cầm khi ngủ; trẻ em trên 05 tuổi có
+thói quen nào đặc biệt nhất trong sinh hoạt, học tập và giao tiếp):
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+............................................................................................................................................................................................................
+Làm tại................., ngày............tháng...........năm...........
+Xác nhận của Giám đốc cơ sở nuôi dưỡng 21 Người lập báo cáo32
+(Ký, ghi rõ họ, chữ đệm, tên)
+12 Đối với trẻ em sống ở cơ sở nuôi dưỡng.
+23 Đối với trẻ em sống ở cơ sở nuôi dưỡng thì nhân viên của cơ sở nuôi dưỡng lập báo cáo. Đối với trẻ em thuộc
+diện cháu ruột thì cha/mẹ đẻ hoặc người giám hộ của trẻ em lập báo cáo.
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỈNH/THÀNH PHỐ ......................... Độc lập – Tự do - Hạnh phúc
+SỞ TƯ PHÁP
+………, ngày …… tháng ……năm …….. Số: /STP- ….1
+V/v xác nhận trẻ em đủ điều kiện
+làm con nuôi nước ngoài2
+Kính gửi: ……………………………………………
+Thực hiện quy định tại Điều 33 Luật Nuôi con nuôi, Điều 16 Nghị định số
+19/2011/NĐ-CP ngày 21/3/2011 của Chính phủ quy định chi tiết thi hành một số
+điều của Luật Nuôi con nuôi được sửa đổi, bổ sung năm 2016, 2019, 2025, Sở Tư
+pháp đã kiểm tra, xác minh hồ sơ, lấy ý kiến của những người liên quan theo quy
+định tại Điều 21 Luật Nuôi con nuôi. Căn cứ các quy định về độ tuổi, đối tượng
+được nhận làm con nuôi, Sở Tư pháp xác nhận người có tên dưới đây:
+Họ, chữ đệm, tên: ........................................................ Giới tính: ...................
+Ngày, tháng, năm sinh:................................................ .. .................................
+Nơi cư trú3: ......................................................................................................
+Thuộc đối tượng4: ……………………………….…….., có độ tuổi phù hợp
+theo quy định pháp luật về nuôi con nuôi. Nguồn gốc của trẻ em đã được xác định
+như sau:………………………….5. Việc tìm gia đình thay thế trong nước cho trẻ
+em đã được thực hiện theo quy định pháp luật nhưng không có người trong nước
+nhận trẻ em làm con nuôi. Những người liên quan (………6) đã có ý kiến đồng ý
+và không thay đổi ý kiến về việc cho trẻ em làm con nuôi nước ngoài. Giám đốc cơ
+sở nuôi dưỡng đã thể hiện ý kiến đồng ý cho trẻ em sống ở cơ sở nuôi dưỡng làm
+con nuôi.
+Thuộc đối tượng7:……………, có độ tuổi phù hợp theo quy định pháp luật về
+nuôi con nuôi. Những người liên quan (……….8) đã có ý kiến đồng ý và không
+thay đổi ý kiến về việc cho trẻ em làm con nuôi nước ngoài.
+1 Chữ viết tắt tên đơn vị soạn thảo.
+2 Chỉ xác nhận đối với từng trẻ em.
+3 Ghi theo nơi đăng ký thường trú. Nếu trẻ em sống ở cơ sở nuôi dưỡng thì ghi tên và địa chỉ trụ sở của cơ sở nuôi
+dưỡng.
+4 Đối với trẻ em đang sống tại cơ sở nuôi dưỡng. Ghi rõ trẻ em thuộc một trong các đối tượng sau: trẻ em bị bỏ
+rơi/trẻ em mồ côi cả cha và mẹ hoặc trẻ em có hoàn cảnh đặc biệt khác.
+5 Đối với trẻ em bị bỏ rơi, ghi rõ nội dung kết luận xác minh nguồn gốc của cơ quan Công an cấp tỉnh.
+6 Ghi rõ cha, mẹ đẻ/người giám hộ và người được nhận làm con nuôi từ đủ 09 tuổi trở lên.
+7 Đối với trẻ em đang sống tại gia đình. Ghi rõ trẻ em là con riêng hoặc cháu ruột của người nhận con nuôi.
+8 Ghi rõ cha, mẹ đẻ/người giám hộ và người được nhận làm con nuôi từ đủ 09 tuổi trở lên.
+Đủ điều kiện làm con nuôi nước ngoài theo diện9:
+.........................................................................................................................
+Văn bản này được gửi kèm theo hồ sơ của trẻ em gồm các giấy tờ theo quy
+định tại khoản 1 Điều 32 của Luật Nuôi con nuôi, văn bản xác minh của cơ quan
+Công an cấp tỉnh đối với trường hợp trẻ em bị bỏ rơi; văn bản lấy ý kiến về việc
+đồng ý cho trẻ em làm con nuôi của cha, mẹ đẻ/người giám hộ/ý kiến đồng ý của
+người từ đủ 09 tuổi trở lên về việc làm con nuôi; văn bản thể hiện ý kiến đồng ý
+của Giám đốc cơ sở nuôi dưỡng về việc cho trẻ em làm con nuôi đối với trường
+hợp trẻ em đang sống tại cơ sở nuôi dưỡng.
+Nơi nhận: QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+- Như trên; (Chữ ký của người có thẩm quyền, dấu )-…………..10
+- Lưu: VT,….11
+Họ và tên
+9 Theo thủ tục giới thiệu trẻ em theo quy định tại Điều 36 của Luật Nuôi con nuôi hoặc đích danh theo khoản 2 Điều
+28 của Luật Nuôi con nuôi, khoản 1 Điều 3 của Nghị định số 19/2011/NĐ-CP được sửa đổi, bổ sung năm 2016,
+2019, 2025.
+10 Trường hợp trẻ em đang sống ở cơ sở nuôi dưỡng thì bổ sung Sở Y tế, cơ quan chủ quản (để theo dõi) và cơ sở
+nuôi dưỡng (để phối hợp).
+11 Chữ viết tắt tên đơn vị soạn thảo.
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỈNH/THÀNH PHỐ...................... Độc lập - Tự do - Hạnh phúc
+...................,ngày........ tháng..........năm.............. Số: …………/QĐ-UBND
+QUYẾT ĐỊNH
+NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+ỦY BAN NHÂN DÂN TỈNH/THÀNH PHỐ......................................................................
+Căn cứ Luật Tổ chức chính quyền địa phương năm 2025;
+Căn cứ Luật Nuôi con nuôi năm 2010;
+Căn cứ Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy
+định chi tiết thi hành một số điều của Luật Nuôi con nuôi; Nghị định số 24/2019/NĐ-CP
+ngày 05 tháng 3 năm 2019 của Chính phủ sửa đổi, bổ sung một số điều của Nghị định số
+19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số
+điều của Luật Nuôi con nuôi; Nghị định số 06/2025/NĐ-CP ngày 08 tháng 01 năm 2025 của
+Chính phủ sửa đổi, bổ sung một số điều của các Nghị định về nuôi con nuôi;
+Theo đề nghị của Sở Tư pháp tại Tờ trình số........... ngày........... tháng........... năm...........
+QUYẾT ĐỊNH:
+Điều 1: Ông/Bà có tên dưới đây:
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+................................................................................................ ..................................................................................................
+Ngày, tháng, năm sinh: ............................................. Ngày, tháng, năm sinh: ................................................
+Quốc tịch :....................................................................... Quốc tịch:............................................................................
+Hộ chiếu:........................................................................... Hộ chiếu:..............................................................................
+................................................................................................ ...................................................................................................
+................................................................................................ ...................................................................................................
+Nơi cư trú:....................................................................... Nơi cư trú:..........................................................................
+................................................................................................ ...................................................................................................
+................................................................................................ ...................................................................................................
+Nhận người dưới đây làm con nuôi:
+Họ, chữ đệm, tên con nuôi: ...............................................................................Giới tính ...........................................
+Ngày, tháng, năm sinh: ............................................................................................ Quốc tịch: .................................
+Số định danh cá nhân: ........................................................................................................................................................
+Nơi sinh:....................................................................................................................................................................................
+Nơi cư trú: ...............................................................................................................................................................................
+.......................................................................................................................................................................................................
+Điều 2. Kể từ ngày giao nhận con nuôi, giữa cha, mẹ nuôi và con nuôi phát sinh mối quan hệ
+cha, mẹ và con lâu dài, ổn định. Cha, mẹ nuôi và con nuôi có đầy đủ các quyền, nghĩa vụ của
+cha, mẹ và con theo quy định pháp luật.
+Điều 3. Quyết định này có hiệu lực từ ngày ghi vào Sổ đăng ký nuôi con nuôi.
+Điều 4. Giám đốc Sở Tư pháp và những người có tên tại Điều 1 chịu trách nhiệm thi hành Quyết
+định này.
+Nơi nhận: TM. ỦY BAN NHÂN DÂN TỈNH/THÀNH PHỐ
+- Như Điều 4;
+- Bộ Tư pháp (để báo cáo);
+- UBND cấp xã nơi trẻ em thường trú (để biết);
+- Lưu: VT,……..
+Vào Sổ đăng ký nuôi con nuôi
+Số đăng ký……………………………………………
+Quyển số……………………………………………
+Ngày................tháng...................năm........................
+Người thực hiện
+(Ký, ghi rõ họ, chữ đệm, tên)
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỈNH/THÀNH PHỐ Độc lập - Tự do - Hạnh phúc
+.................................................
+SỞ TƯ PHÁP ......................, ngày........ tháng..........năm..............
+Số: …………/QĐ-STP
+QUYẾT ĐỊNH
+NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+GIÁM ĐỐC SỞ TƯ PHÁP TỈNH/THÀNH PHỐ......................................................................
+Căn cứ Luật Tổ chức chính quyền địa phương năm 2025;
+Căn cứ Luật Nuôi con nuôi năm 2010;
+Căn cứ Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy
+định chi tiết thi hành một số điều của Luật Nuôi con nuôi; Nghị định số 24/2019/NĐ-CP
+ngày 05 tháng 3 năm 2019 của Chính phủ sửa đổi, bổ sung một số điều của Nghị định số
+19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một
+số điều của Luật Nuôi con nuôi; Nghị định số 06/2025/NĐ-CP ngày 08 tháng 01 năm
+2025 của Chính phủ sửa đổi, bổ sung một số điều của các Nghị định về nuôi con nuôi;
+Căn cứ Quyết định số................./QĐ-UBND ngày..............tháng.................năm.................của Ủy
+ban nhân dân tỉnh/thành phố............................................................................................. về việc phân cấp
+thẩm quyền quyết định việc nuôi con nuôi có yếu tố nước ngoài cho Sở Tư pháp.
+Theo đề nghị của Phòng...................................................................................................................................
+QUYẾT ĐỊNH:
+Điều 1: Ông/Bà có tên dưới đây:
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+................................................................................................ ...................................................................................................
+Ngày, tháng, năm sinh: ............................................. Ngày, tháng, năm sinh: ................................................
+Quốc tịch :....................................................................... Quốc tịch:............................................................................
+Hộ chiếu:........................................................................... Hộ chiếu:..............................................................................
+................................................................................................ ...................................................................................................
+................................................................................................ ...................................................................................................
+Nơi cư trú:....................................................................... Nơi cư trú:..........................................................................
+................................................................................................ ...................................................................................................
+................................................................................................ ...................................................................................................
+Nhận người dưới đây làm con nuôi:
+Họ, chữ đệm, tên con nuôi: ...............................................................................Giới tính ...........................................
+Ngày, tháng, năm sinh: ............................................................................................ Quốc tịch: .................................
+Số định danh cá nhân: ........................................................................................................................................................
+Nơi sinh: ...................................................................................................................................................................................
+Nơi cư trú: ...............................................................................................................................................................................
+.......................................................................................................................................................................................................
+Điều 2. Kể từ ngày giao nhận con nuôi, giữa cha, mẹ nuôi và con nuôi phát sinh mối quan hệ
+cha, mẹ và con lâu dài, ổn định. Cha, mẹ nuôi và con nuôi có đầy đủ các quyền, nghĩa vụ của
+cha, mẹ và con theo quy định pháp luật.
+Điều 3. Quyết định này có hiệu lực từ ngày ghi vào Sổ đăng ký nuôi con nuôi.
+Điều 4. Phòng………………………..thuộc Sở Tư pháp và những người có tên tại Điều 1 chịu
+trách nhiệm thi hành Quyết định này.
+Nơi nhận:
+- Như Điều 4; GIÁM ĐỐC
+- Bộ Tư pháp (để báo cáo);
+- UBND tỉnh/thành phố (để báo cáo);
+- UBND cấp xã nơi trẻ em thường trú (để biết);
+- Lưu: VT,……..
+Vào Sổ đăng ký nuôi con nuôi
+Số đăng ký……………………………………………
+Quyển số……………………………………………...
+Ngày................tháng...................năm........................
+Người thực hiện
+(Ký, ghi rõ họ, chữ đệm, tên)
+QUYẾT ĐỊNH
+NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỈNH/THÀNH PHỐ Độc lập - Tự do - Hạnh phúc
+……………………
+SỞ TƯ PHÁP ………, ngày….…tháng ……năm ………
+Số1: /NCNNN-TLBS
+TRÍCH LỤC NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+(BẢN SAO)
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+...................................................................................................... .............................................................................................
+Ngày, tháng, năm sinh: ................................................... Ngày, tháng, năm sinh: ...........................................
+Quốc tịch:............................................................................... Quốc tịch:........................................................................
+Số Hộ chiếu2:....................................................................... Số Hộ chiếu2:.................................................................
+...................................................................................................... ...............................................................................................
+...................................................................................................... ...............................................................................................
+Nơi cư trú:.............................................................................. Nơi cư trú:........................................................................
+...................................................................................................... ...............................................................................................
+Họ, chữ đệm, tên con nuôi: .......................................................................................Giới tính: ....................................
+Ngày, tháng, năm sinh: ............................................................................................ Quốc tịch: ………………….
+Số định danh cá nhân: ...............................................................................................................................................................
+Nơi sinh: ........................................................................................................................................................................................
+Nơi cư trú: ................................................................................................................................................................................. ....
+Quyết định nuôi con nuôi có yếu tố nước ngoài số…………………………, do .…...…………………………....
+cấp ngày……….…tháng…………..năm...................
+Việc nuôi con nuôi đã được ghi vào Sổ đăng ký nuôi con nuôi, số……ngày........tháng..... .năm............
+Thực hiện trích lục từ Sổ đăng ký nuôi con nuôi.
+NGƯỜI KÝ TRÍCH LỤC
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, dấu)
+1 Ghi theo số trong Sổ cấp bản sao trích lục hộ tịch.
+2 Ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác quốc tế I-ta-li-a cấp
+ngày 20/02/2025.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+SOCIALIST REPUBLIC OF VIETNAM
+Independence-Freedom –Happiness
+GIẤY CHỨNG NHẬN
+VIỆC NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+PHÙ HỢP CÔNG ƯỚC LA HAY SỐ 33
+CERTIFICATE
+OF INTERCOUNTRY ADOPTION
+IN CONFORMITY WITH THE HAGUE CONVENTION NO. 33
+Căn cứ Điều 23 Công ước La Hay số 33 ngày 29 tháng 5 năm 1993 về bảo vệ trẻ em và
+hợp tác trong lĩnh vực con nuôi quốc tế;
+Pursuant to Article 23 of the Hague Convention No. 33 of 29 May 1993 on Protection of
+Children and Co-operation in Respect of Intercountry Adoption;
+Căn cứ Điều 38 Luật Nuôi con nuôi Việt Nam;
+Pursuant to Article 38 of the Law on Adoption, Vietnam;
+CHỨNG NHẬN:
+CERTIFIES:
+1. Người có tên dưới đây/The person named below:
+Họ, chữ đệm, tên/Full name: ......................................................... Giới tính/ Sex: ...............
+Ngày, tháng, năm sinh/Date of birth:………………………………. Quốc tịch/Nationality:……….
+Số định danh cá nhân/Personal identity number: ..................................................................
+Nơi sinh/Place of birth: ..........................................................................................................
+Nơi cư trú/Place of residence: ...............................................................................................
+2. Đã được giải quyết cho làm con nuôi của Ông/Bà có tên sau đây/is adopted by the
+following person(s):
+a) Họ, chữ đệm, tên của cha nuôi/Full name of the adoptive father: ……………………..........
+………………………………………………………………………………………………………………………………………..
+Ngày, tháng, năm sinh/Date of birth:
+Quốc tịch/Nationality: ............................................................................................................
+Nơi cư trú/Place of residence: ...............................................................................................
+................................................................................................................................................
+b) Họ, chữ đệm, tên của mẹ nuôi/ Full name of the adoptive mother: .............................
+…………………………………………………………………………………………………………………………..
+.
+Ngày, tháng, năm sinh/Date of birth: .....................................................................................
+Quốc tịch/Nationality: ............................................................................................................
+Nơi cư trú/Place of residence: ...............................................................................................
+................................................................................................................................................
+Theo Quyết định nuôi con nuôi có yếu tố nước ngoài của ......………..……………,
+số.…………/QĐ-........ cấp ngày.……tháng……năm…….. Quyết định này có hiệu lực từ
+ngày ghi vào Sổ đăng ký nuôi con nuôi.
+Under Decision on Intercountry Adoption No……/QD-....... dated
+................[day.......month .......year…… ] by the Department of Justice
+of................……………, which shall become final upon being recorded in the Adoption
+Register.
+Lễ giao nhận con nuôi đã được tổ chức ngày …… tháng ….. năm …… tại trụ sở Sở Tư
+pháp tỉnh/thành phố………………………và việc nuôi con nuôi đã được ghi vào Sổ đăng
+ký nuôi con nuôi ngày …… tháng ….. năm ……
+The Child Giving and Receiving Ceremony was organized on ................[day.......month
+.......year…… ] at the Department of Justice of………………………., and the adoption was
+recorded in the Adoption Register on ................[day.......month .......year…… ].
+3. Việc nuôi con nuôi có yếu tố nước ngoài đã được thực hiện theo đúng Công ước La
+Hay số 33 ngày 29 tháng 5 năm 1993. Cơ quan Trung ương của Nước gốc và Nước nhận
+đã có văn bản đồng ý cho tiếp tục hoàn tất thủ tục nuôi con nuôi có yếu tố nước ngoài
+theo Điều 17(c) của Công ước, gồm:
+The intercountry adoption has been made in accordance with the Hague Convention No.
+33 of 29 May 1993. The Central Authority of the State of origin and the Central Authority
+of the receiving State have agreed in writing that the adoption may proceed under
+paragraph c, Article 17 of the Convention, including:
+- Văn bản đồng ý của Cục Hành chính tư pháp thuộc Bộ Tư pháp nước Cộng hòa xã hội
+chủ nghĩa Việt Nam số ………/HCTP - NCN ngày ……. tháng …… năm…….
+- The Agreement No.............../HCTP - NCN made by the Department of Public
+Records Administration, the Ministry of Justice of the Socialist Republic of Vietnam on
+................[day…..…month .................year .................];
+- Văn bản đồng ý của Cơ quan Trung ương của (Nước nhận ………………….) cấp ngày
+……. tháng……. năm …….. cho phép hoàn tất thủ tục nuôi con nuôi nước ngoài.
+- The Agreement made by the Central Authority of [the receiving State ………………………….]
+on..............[day......month.............year............] stating that the adoption may proceed.
+4. Kể từ ngày giao nhận con nuôi, giữa cha, mẹ nuôi và con nuôi phát sinh mối quan hệ
+cha, mẹ và con lâu dài, ổn định. Cha, mẹ nuôi và con nuôi có đầy đủ các quyền, nghĩa vụ
+của cha mẹ và con theo quy định pháp luật.
+As of the date of handover of the adopted child, the adoptive parent(s) and the adopted
+child shall constitute a permanent, sustainable parent-child relationship. The adoptive
+parent(s) and the adopted child shall have full rights and obligations towards each other
+in accordance with the law.
+Hà Nội, ngày ............... tháng............... năm....................
+Hanoi, on..............[day......month.............year............]
+TL. BỘ TRƯỞNG BỘ TƯ PHÁP
+CỤC TRƯỞNG CỤC HÀNH CHÍNH TƯ PHÁP
+(Ký, ghi rõ họ, chữ đệm, tên, dấu)
+FOR THE MINISTER OF JUSTICE
+DIRECTOR OF THE DEPARTMENT OF
+PUBLIC RECORDS ADMINISTRATION
+(Signature, full name and seal)
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+SOCIALIST REPUBLIC OF VIETNAM
+Independence - Freedom - Happiness
+GIẤY CHỨNG NHẬN
+VIỆC NUÔI CON NUÔI CÓ YẾU TỐ NƯỚC NGOÀI
+PHÙ HỢP CÔNG ƯỚC LA HAY SỐ 33
+CERTIFICATE
+OF INTERCOUNTRY ADOPTION
+IN CONFORMITY WITH THE HAGUE CONVENTION NO. 33
+BÁO CÁO TÌNH HÌNH PHÁT TRIỂN CỦA TRẺ EM VIỆT NAM ĐƯỢC
+CHO LÀM CON NUÔI Ở NƯỚC NGOÀI
+REPORT ON DEVELOPMENT OF AN ADOPTED VIETNAMESE CHILD
+UNDER INTERCOUNTRY ADOPTION
+Báo cáo số/Report No:…………………
+Số hồ sơ/Reference number: …………………………………..
+ Thông qua Tổ chức con nuôi nước ngoài/With the support of a licensed
+foreign adoption service provider
+ Không thông qua Tổ chức con nuôi nước ngoài/Without the support of a
+licensed foreign adoption service provider
+Kính gửi: Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa xã hội chủ nghĩa
+Việt Nam/Cơ quan đại diện Việt Nam tại nước………………….
+To: Department of Public Records Administration, the Ministry of Justice of the
+Socialist Republic of Vietnam/Representative Mission of Vietnam in
+(country)…………
+I. NHỮNG THÔNG TIN CHUNG/GENERAL INFORMATION
+1. Phần thông tin về cha mẹ nuôi/General information on the adoptive parent(s)
+Họ, chữ đệm, tên cha
+…………………………………………………………… nuôi/Full name of the
+adoptive father
+Họ, chữ đệm, tên mẹ
+…………………………………………………………… nuôi/Full name of the
+adoptive mother
+Địa chỉ liên hệ/Contact ……………………………………………………………
+address
+Điện thoại/thư điện
+…………………………………………………………… tử/Phone/email
+2. Phần thông tin về con nuôi/Information on the adopted child
+Họ, chữ đệm, tên trước
+khi được nhận làm con
+nuôi/Full name before the ……………………………………………………………
+adoption
+Họ, chữ đệm, tên sau khi
+được nhận làm con
+nuôi/Full name after the .............................................................................................
+adoption
+Ngày, tháng, năm
+…………………………………………………………… sinh/Date of birth
+Giới tính/Sex
+ Nam/male  Nữ/female
+Nơi cư trú hiện
+tại/Current place of ……………………………………………………………
+residence
+Ngày bàn giao con
+nuôi/Date of handover ……………………………………………………………
+Được nhận làm con Theo Quyết định số..........ngày.........tháng.......năm
+nuôi/Being adopted .........của...........................................................................................
+Under Decision No................... day ....... month ..... year.....of
+the.....................................................................................................
+Quốc tịch mới/New  Có (Yes)  Chưa (Not yet)
+nationality  Đang tiến hành thủ tục (in process)
+Thực hiện thủ tục công  Có (Yes)  Chưa (Not yet)
+nhận/ghi chú Quyết định  Đang tiến hành (in process) nuôi con nuôi có yếu tố
+nước ngoài của Việt
+Nam/
+Recognition/registration
+of the Vietnamese
+Decision on intercountry
+adoption
+Hình thức nuôi con nuôi  Trọn vẹn/Full adoption
+được công nhận/Form of  Đơn giản/Simple adoption adoption
+ Khác/Others
+II. ĐIỀU KIỆN SỐNG, SINH HOẠT HIỆN TẠI CỦA CON NUÔI/CURRENT
+LIVING CONDITIONS AND SITUATION OF THE ADOPTED CHILD
+1. Hiện đang sống cùng/The child is living with:
+ Cha, mẹ nuôi/The adoptive parent(s)
+ Người khác/Others:
+Nêu lý do sống cùng người khác/Reason why the child lives with others: ................................
+Mối quan hệ của trẻ em với người đang sống cùng/Relationship between the child and those
+who the child is living with: ...............................................................................................................
+Địa chỉ/Address: .........................................................................................................................
+Điện thoại/thư điện tử/Phone number/email: ......................................................................................
+2. Hoàn cảnh gia đình cha, mẹ nuôi có gì thay đổi không/Any noticeable change(s) in the
+family situation of the adoptive parent(s):
+ Không (No)  Có (Yes)
+Nếu có, nêu rõ thay đổi và có ảnh hưởng tới con nuôi không/Specify whether such change(s)
+can affect the adopted child (if any)
+........................................................................................................................................................................
+........................................................................................................................................................................
+III. ĐÁNH GIÁ TÌNH HÌNH PHÁT TRIỂN, HÒA NHẬP CỦA CON NUÔI (kèm theo
+những hình ảnh của con nuôi)/ASSESSMENT ON DEVELOPMENT AND INTEGRATION OF
+THE ADOPTED CHILD (Enclosed with the photographs of the adopted child)
+1. Đánh giá chung về mức độ phát triển của con nuôi/Overall assessment on the
+level of development of the adopted child:
+Mức độ/level
+Vượt trội/ Bình Còn hạn
+Tiêu chí/Criteria Outstanding thường/Normal chế/With
+limitation
+Sức khỏe thể chất (chiều cao, cân
+nặng)/Physical health (height, weight)
+Sức khỏe tâm thần/Mental health
+Phát triển ngôn ngữ/Language
+development
+Phát triển vận động/Motor
+development
+Về khả năng hòa nhập, gắn
+bó/Integration
+Kết quả học tập (nếu trẻ đã đi
+học)/Performance at school (if the
+child attends school)
+2. Nêu rõ những khó khăn cơ bản con nuôi gặp phải (nếu có)/specify the main
+difficulties that the adopted child is facing (if any)
+i) Về sức khỏe thể chất (chiều cao, cân nặng)/Physical health (height, weight)
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+iii) Về sức khỏe tâm thần/Mental health
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+iv)Về phát triển ngôn ngữ/Language development
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+v) Về phát triển vận động/Motor development
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+vi) Về hòa nhập (với cha mẹ nuôi, gia đình họ hàng, cộng đồng)/On the child’s
+integration (with the adoptive parent(s), the extended family, and the community):
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+vii) Về kết quả học tập (nếu trẻ đã đi học)/Performance at school (if the child attends
+school)
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+viii) Về các vấn đề khác (nếu có)/Others (if any):
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+Làm tại……………, ngày ……… tháng ……… năm ……….
+Done in……………, on day……… month ……… year……….
+Xác nhận của cơ quan, tổ chức Người lập báo cáo/Done by
+có thẩm quyền (Ký, ghi rõ họ, chữ đệm, tên)
+(Acknowledgement of the competent (Signature, full name)
+authority/relevant organization)
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập -Tự do - Hạnh phúc
+SOCIALIST REPUBLIC OF VIETNAM
+Independence-Freedom-Happiness
+ĐƠN XIN CẤP/GIA HẠN/SỬA ĐỔI GIẤY PHÉP HOẠT ĐỘNG CỦA TỔ CHỨC
+CON NUÔI NƯỚC NGOÀI TẠI VIỆT NAM
+APPLICATION FOR ISSUANCE, EXTENSION OR MODIFICATION OF
+LICENSE FOR A FOREIGN ADOPTION SERVICE PROVIDER TO OPERATE IN
+VIETNAM
+Kính gửi: Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa
+xã hội chủ nghĩa Việt Nam
+To: Department of Public Records Administration, the Ministry of Justice of the
+Socialist Republic of Vietnam
+1. Thông tin về tổ chức con nuôi nước ngoài/Foreign Adoption Service Provider
+Tổ chức con nuôi nước ngoài có tên gọi dưới đây/The following Foreign Adoption
+Service Provider:
+Tên đầy đủ/Full name: ...........................................................................................................
+Tên viết tắt/Name in abbreviation: ........................................................................................
+Địa chỉ trụ sở chính/Head office address: ..............................................................................
+................................................................................................................................................
+Được cơ quan có thẩm quyền của ……………. 1 3cấp phép hoạt động về nuôi con nuôi
+nước ngoài từ ngày…….tháng………..năm……… đến ngày……
+tháng……năm……../Having been accredited by the competent authority of …………..1
+to operate in intercountry adoption from day …… . month ……… ..year ……… to day
+……… month ……… year……….
+2. Thông tin về Văn phòng con nuôi nước ngoài tại Việt Nam24/Foreign Adoption
+Office in Vietnam:
+Tên gọi đầy đủ/Full name: .....................................................................................................
+Tên viết tắt (nếu có)/Name in abbreviation (if any): .............................................................
+Địa chỉ của Văn phòng/Address: ...........................................................................................
+13Ghi rõ tên quốc gia nơi Tổ chức con nuôi nước ngoài được thành lập/Fill in the name of the country where the
+Foreign Adoption Service Provider is duly established.
+24 Trường hợp đề nghị cấp Giấy phép thì ghi bổ sung thêm cụm từ “dự kiến” sau cụm từ “Thông tin về Văn phòng
+con nuôi nước ngoài tại Việt Nam”/In case of an application for issuance of a license, add the word “Tentative”
+before the phrase “Foreign Adoption Office in Vietnam”.
+Họ, chữ đệm, tên người đứng đầu Văn phòng/Full name of the representative of the
+Office in Vietnam: ..................................................................................................................
+Ngày, tháng, năm sinh/Date of birth: ............................................. Giới tính/Sex: ...............
+Số định danh cá nhân/Hộ chiếu/Personal Identity number/Passport number35:
+………………………………………………………………………………………….......
+Nơi cư trú/Place of residence: ...............................................................................................
+................................................................................................................................................
+3. Trân trọng đề nghị Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa xã hội
+chủ nghĩa Việt Nam /Would kindly apply to the Department of Public Records
+Administration, the Ministry of Justice of the Socialist Republic of Vietnam for:
+ Cấp Giấy phép hoạt động tại Việt Nam/Issuing a License to operate in Vietnam
+ Gia hạn Giấy phép hoạt động tại Việt Nam/Extending the License to operate in
+Vietnam
+ Sửa đổi Giấy phép hoạt động tại Việt Nam/Modifying the License to operate in
+Vietnam.
+Nêu rõ nội dung sửa đổi/Please clarify information/content to be modified:
+.................................................................................................................................
+.................................................................................................................................
+Nếu được cấp/gia hạn/sửa đổi Giấy phép hoạt động nuôi con nuôi nước ngoài tại Việt
+Nam, chúng tôi cam kết tuân thủ quy định pháp luật Việt Nam về nuôi con nuôi và các
+quy định pháp luật khác có liên quan; tôn trọng truyền thống, văn hóa Việt Nam; hoạt
+động trong phạm vi nội dung Giấy phép; chịu trách nhiệm trước pháp luật về hoạt động của
+tổ chức con nuôi nước ngoài tại Việt Nam.
+If being issued with a License to operate in intercountry adoption in Vietnam, or having
+the License to operate in intercountry adoption in Vietnam extended or modified, we
+commit to strictly comply with the Vietnamese laws and regulations of adoption; respect
+the tradition, custom and culture of Vietnam; operate in the field permitted under the
+License; take full responsibility for all activities of the Foreign Adoption Service
+Provider in Vietnam.
+Làm tại………….., ngày............. tháng .............. năm...........
+Done in…………….., on day............. month...............year...............
+NGƯỜI ĐỨNG ĐẦU TỔ CHỨC
+(Ký, ghi rõ họ, chữ đệm, tên, dấu)
+HEAD OF THE FOREIGN ADOPTION SERVICE PROVIDER
+(Signature, full name and seal)
+35 Ghi rõ loại giấy tờ, số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác quốc tế
+I-ta-li-a cấp ngày 20/02/2025.
+Specify type of document, number, issuing authority and date of issuance. For example: Passport No. 1089123,
+issued by the Ministry of Foreign Affairs and International Cooperation of Italia, on 20/02/2025.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+BỘ TƯ PHÁP
+CỤC HÀNH CHÍNH TƯ PHÁP
+GIẤY PHÉP
+HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI TẠI
+VIỆT NAM
+BỘ TƯ PHÁP CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+CỤC HÀNH CHÍNH TƯ PHÁP Độc lập – Tự do – Hạnh phúc
+GIẤY PHÉP
+HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI TẠI
+VIỆT NAM
+Số: / HCTP- CQTW
+1. Tổ chức con nuôi nước ngoài
+Tên: ......................................................................................... ...................................
+Tên viết tắt (nếu có): ..................................................................................................
+Trụ sở chính:...............................................................................................................
+.....................................................................................................................................
+2. Văn phòng con nuôi nước ngoài tại Việt Nam
+Tên: ......................................................................................... ....................................
+Địa chỉ: ................................................................................... ....................................
+................................................................................................. ....................................
+3. Người đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam
+Họ, chữ đệm, tên:……………................... Ngày, tháng, năm sinh :…………..........
+Số định danh cá nhân/Số Hộ chiếu: ................................………...............................
+Quốc tịch:……………….................................................………...............................
+4. Giấy phép có giá trị từ ngày.... tháng.... năm..... đến ngày..... tháng.... năm....
+Hà Nội, ngày …… tháng……..năm……
+CỤC TRƯỞNG
+SỬA ĐỔI VÀ GIA HẠN
+SỬA ĐỔI VÀ GIA HẠN
+SỬA ĐỔI VÀ GIA HẠN
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+BỘ TƯ PHÁP
+CỤC HÀNH CHÍNH TƯ PHÁP
+GIẤY PHÉP
+HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI
+TẠI VIỆT NAM
+SỬA ĐỔI VÀ GIA HẠN
+SỬA ĐỔI VÀ GIA HẠN
+SỬA ĐỔI VÀ GIA HẠN
+BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG
+CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI ĐƯỢC CẤP PHÉP HOẠT ĐỘNG
+TẠI VIỆT NAM
+REPORT ON THE OPERATION
+OF A LICENSED FOREIGN ADOPTION SERVICE PROVIDER IN VIETNAM
+Kính gửi: Cục Hành chính tư pháp, Bộ Tư pháp nước Cộng hòa xã hội chủ nghĩa
+Việt Nam
+To: Department of Public Records Administration, the Ministry of Justice of the
+Socialist Republic of Vietnam
+Giai đoạn báo cáo16/Period of report:
+□ Báo cáo 6 tháng đầu năm (The first 6-month report):
+Từ ngày………tháng……..năm…… đến ngày………tháng……..năm……..
+From day…….month…….year ………to day…….month…….year…………….
+□ Báo cáo năm (Annual report)
+Từ ngày………tháng……..năm…… đến ngày………tháng……..năm……..
+From day…….month…….year ………. to day…….month…….year………….
+I. Thông tin cơ bản về tổ chức con nuôi nước ngoài được cấp phép hoạt động tại
+Việt Nam/Basic information on the licensed Foreign Adoption Service Provider in
+Vietnam
+Tên Tổ chức con nuôi nước ……………..……………………………..……………. ngoài ………………………………………………………...... Name of the Foreign
+Adoption Service Provider
+61 Đối với Báo cáo 6 tháng đầu năm: kỳ báo cáo 6 tháng đầu năm được tính từ ngày 15 tháng 12
+năm trước kỳ báo cáo đến hết ngày 14 tháng 6 của kỳ báo cáo. Văn phòng con nuôi nước ngoài
+nộp báo cáo cho Cục Hành chính tư pháp, Bộ Tư pháp chậm nhất vào ngày 20 tháng 6 của kỳ
+báo cáo.
+For the first 6-month report: The reporting period starts from 15 December of the year before
+the reporting period to 14 June of the reporting period. The Foreign Adoption Office submits the
+report to the Department of Public Records Administration, the Ministry of Justice before 20
+June of the reporting perriod.
+Đối với báo cáo năm: kỳ báo cáo năm được tính từ ngày 15 tháng 12 năm trước kỳ báo cáo đến
+hết ngày 14 tháng 12 của kỳ báo cáo. Văn phòng con nuôi nước ngoài nộp báo cáo cho Cục
+Hành chính tư pháp, Bộ Tư pháp chậm nhất vào ngày 20 tháng 12 của kỳ báo cáo.
+For annual report: The reporting period starts from 15 December of the year before the
+reporting period to 14 December of the reporting period. The Foreign Adoption Office submits
+the report to the Department of Public Records Administration, the Ministry of Justice before 20
+December of the reporting perriod.
+Người đứng đầu Văn phòng ……………………………..……………………………
+con nuôi nước ngoài tại
+Việt Nam
+Head of the Foreign
+Adoption Office in Vietnam
+Thời hạn giấy phép hoạt From day…….month…….year……….
+động của tổ chức tại Việt To day ……….month…….year………
+Nam
+The License of the Foreign
+Adoption Service Provider
+in Vietnam is valid
+Nêu những thay đổi của
+Văn phòng về nhân sự, địa
+…………………………………………………….……
+chỉ, thay đổi khác (nếu có)
+…..………………………………………………………
+Changes in the personnel,
+….……………………………………………………….
+address and others of the
+……..……………………………………………………
+Foreign Adoption Service
+Provider (if any)
+II. Kết quả giải quyết việc nuôi con nuôi có yếu tố nước ngoài/Intercountry adoption
+results
+STT/No Các mục báo cáo/Descriptions
+1. Số hồ sơ đã nộp tại Cục Hành chính tư pháp - Bộ Tư pháp/The number of
+dossiers filed with the Department of Public Records Administration, the
+Ministry of Justice: ………………………………………………………….
+2. Số hồ sơ đã được giải quyết/The number of dossiers completed:
+………......
+3. Số hồ sơ đang giải quyết (Ước tính sẽ hoàn tất)/The number of dossiers
+being processed (to be completed): …………………………………………
+4. Số hồ sơ dừng giải quyết/The number of dossiers, the processing of which
+has been stopped: ……………………………………………………………
+Lý do/Reason: ….……………………………………………………………
+STT/No Các mục báo cáo/Descriptions
+5. Nêu địa phương nơi Văn phòng con nuôi nước ngoài tại Việt Nam hỗ trợ
+giải quyết việc nuôi con nuôi/Which provinces the Foreign Adoption Office
+in Vietnam works with/provides support in the field of intercountry
+adoption: …………………………………………………………………….
+……………………………………………………………………………….
+……………………………………………………………………………….
+……………………………………………………………………………….
+6. Nêu khó khăn mà Văn phòng con nuôi nước ngoài tại Việt Nam gặp phải
+trong quá trình hỗ trợ giải quyết việc nuôi con nuôi (nếu có)/What
+difficulties the Foreign Adoption Office in Vietnam faces during the
+intercountry adoption process (if any):
+……………………………………………………………………………….
+……………………………………………………………………………….
+……………………………………………………………………………….
+………………………………………………………………………………..
+III. Kết quả đôn đốc nộp báo cáo tình hình phát triển của trẻ em Việt Nam được
+cho làm con nuôi ở nước ngoài/Results of urging adoptive parents to send reports on
+the development of the adopted children in intercountry adoption
+STT/No Các mục báo cáo/ Descriptions
+Tổng số báo cáo đã nộp tại Cục Hành chính tư pháp - Bộ Tư pháp bao
+1. gồm/Total of reports submitted to the Department of Public Records
+Administration – the Ministry of Justice, including:
+Báo cáo số 1: HS số: …………………………………………………………
+Report No.1: Dossier reference number:…………………………………………
+Báo cáo số 2: HS số: …………………………………………………………
+Report No.2: Dossier reference number:………………………………………….
+Báo cáo số 3: HS số: …………………………………………………………
+Report No.3: Dossier reference number:………………………………………….
+Báo cáo số 4: HS số:………………………………………………………….
+Report No.4: Dossier reference number:………………………………………….
+Báo cáo số 5: HS số:………………………………………………………….
+Report No.5: Dossier reference number:………………………………………….
+Báo cáo số 6: HS số:………………………………………………………….
+Report No.6: Dossier reference number:………………………………………….
+STT/No Các mục báo cáo/ Descriptions
+2. Đánh giá về kết quả báo cáo tình hình phát triển của con nuôi (báo cáo đúng
+hạn, chậm…., nêu lý do)/Assessment on the reporting results of the
+development of the adopted children (reports submitted in due course or late,
+etc. and the reason thereof):………………………………………………………….
+…………………………………………………………………………………..
+3. Đánh giá chung về tình hình phát triển của con nuôi (thuận lợi và khó khăn):
+General assessment of the development of the adopted children (advantages
+and disadvantages):………………………………………………………….....
+…………………………………………………………………………………..
+…………………………………………………………………………………..
+IV. Tình hình thu, chi tài chính/Financial revenue and expenditure
+(Không bao gồm các khoản nêu ở điểm V dưới đây)/(Not including the items specified in
+section V below)
+Đơn vị tính/Currency: Việt Nam đồng/Vietnam Dong
+Tổng thu do Tổ chức con nuôi nước ngoài chuyển/Total receivables transferred by the
+Foreign Adoption Service Provider:……………. ………………………..…………
+Tổng chi tại Việt Nam/Payables in Vietnam:………………………………………
+Cụ thể/In particular:
+Chi/Expenses Tổng số/Total
+Lệ phí/Fee (9.000.000 VNĐ/trường hợp)/VND …………………………………………..
+9,000,000/case
+Chi phí giải quyết việc nuôi con nuôi có …………………………………………..
+yếu tố nước ngoài (50.000.000 VNĐ/trường …………………………………………..
+hợp giới thiệu)/Expense for intercountry
+adoption processing VND 50,000,000/case
+…………………………………………..
+Tổng chi phí hoạt động của Văn phòng
+con nuôi nước ngoài tại Việt Nam ………………………………………….. gồm/Total expenses paid by the Foreign
+Adoption Office in Vietnam …………………………………………..
+- Lương/Salary:
+- Thuê trụ sở/Head Office rental: …………………………………………..
+Chi/Expenses Tổng số/Total
+- Công tác/Expenses for business trip: …………………………………………..
+- Chi phí hành chính khác/Other
+Administrative expenses:
+Chi phí hoàn tất thủ tục gồm: (chi phí x …………………………………………..
+số các trường hợp đã hoàn thành)/Expenses
+………………………………………….. for completion of the intercountry adoptions
+(in total), include: …………………………………………..
+Hộ chiếu/Passport: …………………………………………..
+Visa/Visa: …………………………………………..
+Dịch thuật hồ sơ, giấy tờ, tài
+liệu/Translation of documents:
+Các chi phí khác/Other expenses:
+V. Kết quả hỗ trợ, chăm sóc bảo vệ trẻ em, nếu có/Results of support and care for
+children(if any)
+Đơn vị tính/Currency: Việt Nam đồng/Vietnam Dong
+Đơn vị thụ Tổng số hỗ hưởng/ trợ/Amount Beneficiary
+Tiền/ Hiện vật STT/
+Các mục báo cáo/Descriptions In cash (tính thành No. tiền)/
+In kind
+(equivalent
+to cash)
+1. Hỗ trợ sau khi nhận con nuôi của
+cha mẹ nuôi nước ngoài /Post-
+adoption donations by foreign
+adoptive parents
+2. Hỗ trợ của Tổ chức con nuôi nước
+ngoài/Donations from the Foreign
+Adoption Service Provider
+3. Hỗ trợ cộng đồng (nếu có) thông
+qua cơ quan có thẩm quyền
+(Support for the communities
+through the competent authorities
+(if any)
+VI. Đề xuất, kiến nghị (nếu có)/Suggestion or recommendation (if any)
+…………………………………………………………………………………………….........
+………………………………………………………………………………………...........
+………………………………………………………………………………………...........
+Làm tại……….., ngày … tháng … năm……
+Done in………., on……….[ day…….month……year…..]
+Người đứng đầu Tổ chức con nuôi Người đứng đầu Văn phòng con nuôi nước
+nước ngoài ngoài tại Việt Nam
+Head of the Foreign Adoption Service Head of the Foreign Adoption Office in
+Provider Vietnam
+(Ký, ghi rõ họ tên và đóng dấu) (Ký, ghi rõ họ tên và đóng dấu)
+(Signature, full name and seal) (Signature, full name and seal)
+............................... CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+.....................................1 Độc lập - Tự do - Hạnh phúc
+Số: /NCNNN-TLGS
+..................., ngày.......... tháng .......... năm..................
+TRÍCH LỤC
+Ghi vào Sổ việc nuôi con nuôi đã được giải quyết
+tại cơ quan có thẩm quyền của nước ngoài
+Họ, chữ đệm, tên cha nuôi:.............................................. Họ, chữ đệm, tên mẹ nuôi:..................................
+........................................................................................................... ..............................................................................................
+Ngày, tháng, năm sinh: ......................................................... Ngày, tháng, năm sinh: ...........................................
+Quốc tịch: .................................................................................... Quốc tịch: .......................................................................
+Hộ chiếu2: ................................................................................... Hộ chiếu2:........................................................................
+............................................................................................................ ...............................................................................................
+........................................................................................................... ..............................................................................................
+Nơi cư trú : ................................................................................ Nơi cư trú : ....................................................................
+............................................................................................................ ...............................................................................................
+Họ, chữ đệm, tên con nuôi:........................................................................................................ Giới tính:............................
+Ngày, tháng, năm sinh:...........................................................Quốc tịch:....................................................................................
+Nơi sinh: ..................................................................................................................................................................................................
+Nơi cư trú : ..............................................................................................................................................................................................
+........................................................................................................................................................................................................................
+Việc nuôi con nuôi được giải quyết tại3.....................................................................................................................................................
+theo ……………………….……4 của5 …………………..….……….……, cấp ngày………… tháng……… năm………..
+Việc nuôi con nuôi đã được ghi vào Sổ đăng ký nuôi con nuôi, số...................ngày........tháng..........năm............
+NGƯỜI KÝ TRÍCH LỤC
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, dấu)
+1 Ghi tên cơ quan cấp trích lục.
+2 Ghi số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Châu Âu và Ngoại giao Cộng hòa Pháp cấp
+ngày 20/02/2025.
+3 Ghi tên cơ quan có thẩm quyền của nước ngoài đã giải quyết việc nuôi con nuôi. Ví dụ, Tòa án sơ thẩm thành phố
+Pa-ri, Cộng hòa Pháp.
+4 Ghi tên giấy tờ chứng minh việc nuôi con nuôi đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài. Giấy
+tờ này có thể là Phán quyết của tòa án, hoặc Quyết định của cơ quan hành chính.
+5 Ghi tên quốc gia giải quyết việc nuôi con nuôi. Ví dụ, Cộng hòa Pháp.
+.......................... CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc .....................................1
+...................,ngày..........tháng .......... năm................ Số2: /NCNNN-TLGSBS
+TRÍCH LỤC
+Ghi vào Sổ việc nuôi con nuôi đã được giải quyết
+tại cơ quan có thẩm quyền của nước ngoài
+(BẢN SAO)
+Họ, chữ đệm, tên cha nuôi: ................................ Họ, chữ đệm, tên mẹ nuôi:.......................................
+Ngày, tháng, năm sinh: ........................................... Ngày, tháng, năm sinh: ................................................
+Quốc tịch: ...................................................................... Quốc tịch: ............................................................................
+Hộ chiếu3: ....................................................................... Hộ chiếu3:.............................................................................
+............................................................................................... ...................................................................................................
+............................................................................................. ...................................................................................................
+Nơi cư trú : ............................................................. Nơi cư trú : ........................................................................
+......................................................................................... ...................................................................................................
+Họ, chữ đệm, tên con nuôi: ................................................................................. Giới tính:.......................................
+Ngày, tháng, năm sinh: ................................................................................. Quốc tịch:......................................
+Nơi sinh:.........................................................................................................................................................................................
+Nơi cư trú:....................................................................................................................................... .
+Việc nuôi con nuôi đã được ghi vào Sổ đăng ký nuôi con nuôi tại: ....................................................................
+số ................................................ngày .............tháng...............năm.……….….4
+Thực hiện trích lục từ5: ....................................................................................................................................................... …
+NGƯỜI KÝ TRÍCH LỤC
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, dấu)
+1 Ghi tên cơ quan cấp bản sao.
+2 Ghi theo số trong Sổ cấp bản sao trích lục hộ tịch.
+3 Ghi số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Châu Âu và Ngoại giao Cộng hòa Pháp cấp
+ngày 20/02/2025.
+4 Ghi tên cơ quan đã thực hiện ghi vào sổ, số đăng ký, ngày, tháng, năm thực hiện ghi vào sổ. Ví dụ: Ủy ban nhân
+dân phường Hoàn Kiếm, số 01, ngày 19/8/2025.
+5 Ghi rõ thực hiện việc trích lục từ Sổ đăng ký nuôi con nuôi hay từ Cơ sở dữ liệu hộ tịch điện tử.
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM TỈNH/THÀNH PHỐ ............................ Độc lập – Tự do - Hạnh phúc ỦY BAN NHÂN DÂN
+XÃ/PHƯỜNG/ĐẶC KHU………
+………, ngày …… tháng ……năm ……..
+Số: /UBND - ….1
+V/v xác nhận đủ điều kiện nhận trẻ
+em cư trú ở khu vực biên giới của
+nước láng giềng làm con nuôi
+Kính gửi:.…………………………………………..2
+Chủ tịch Ủy ban nhân dân xã/phường/đặc khu………………………… đã tiếp
+nhận hồ sơ của Ông, Bà……………………3 đề nghị xác nhận Ông, Bà đủ điều kiện
+nhận trẻ em cư trú ở khu vực biên giới của………….4 làm con nuôi. Trong hồ sơ
+thể hiện Ông, Bà có nguyện vọng xin nhận trẻ em ………………5 làm con nuôi.
+Căn cứ quy định tại Điều 14 và Điều 17 của Luật Nuôi con nuôi năm 2010,
+Điều 12 của Nghị định số 120/2025/NĐ-CP ngày 11 tháng 6 năm 2025 của Chính
+phủ quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp trong
+lĩnh vực quản lý nhà nước của Bộ Tư pháp, sau khi xem xét, đánh giá hoàn cảnh cá
+nhân, gia đình, tình trạng sức khỏe, môi trường xã hội và khả năng đảm nhận việc
+nuôi con nuôi ở khu vực biên giới của Ông, Bà, Chủ tịch Ủy ban nhân dân
+xã/phường/đặc khu……………… xác nhận Ông, Bà có đủ điều kiện để nhận trẻ
+em cư trú ở khu vực biên giới của……………….4 làm con nuôi theo quy định của
+pháp luật Việt Nam.
+Nơi nhận: QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ - Như trên;
+- Lưu: VT,….6 (Chữ ký của người có thẩm quyền, dấu )
+Họ và tên
+1 Chữ viết tắt tên đơn vị soạn thảo.
+2 Ghi tên của người đề nghị cấp văn bản.
+3 Ghi rõ họ, chữ đệm, tên, nơi cư trú.
+4 Ghi tên quốc gia có đường biên giới chung với Việt Nam.
+5 Ghi rõ họ, chữ đệm, tên, ngày sinh, giới tính, quốc tịch.
+6 Chữ viết tắt tên đơn vị soạn thảo.
+ỦY BAN NHÂN DÂN CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỈNH/THÀNH PHỐ............... Độc lập – Tự do - Hạnh phúc
+Số: /UBND - ….1 ………, ngày …… tháng ……năm ……..
+V/v xác nhận đủ điều kiện nhận
+trẻ em nước ngoài làm con nuôi
+Kính gửi:.…………………………………………..2
+Chủ tịch Ủy ban nhân dân tỉnh/thành phố………………………… đã tiếp
+nhận hồ sơ của Ông, Bà……………………3 đề nghị xác nhận Ông, Bà đủ điều
+kiện nhận trẻ em nước ngoài làm con nuôi. Trong hồ sơ thể hiện Ông, Bà có
+nguyện vọng xin nhận trẻ em ………………….4 làm con nuôi.
+Căn cứ quy định tại Điều 14 và Điều 17 của Luật Nuôi con nuôi năm 2010,
+Điều 20 của Nghị định số 121/2025/NĐ-CP ngày 11 tháng 6 năm 2025 của Chính
+phủ quy định về phân quyền, phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư
+pháp, sau khi xem xét, đánh giá hoàn cảnh cá nhân, gia đình, tình trạng sức khỏe,
+môi trường xã hội và khả năng đảm nhận việc nuôi con nuôi quốc tế của Ông, Bà,
+Chủ tịch Ủy ban nhân dân tỉnh/thành phố…………………………… xác nhận
+Ông, Bà có đủ điều kiện để nhận trẻ em nước ngoài làm con nuôi theo quy định
+của pháp luật Việt Nam.
+Nơi nhận: QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ - Như trên;
+- Lưu: VT,….5 (Chữ ký của người có thẩm quyền, dấu )
+Họ và tên
+1 Chữ viết tắt tên đơn vị soạn thảo.
+2 Ghi tên của người đề nghị cấp văn bản.
+3 Ghi rõ họ, chữ đệm, tên, nơi cư trú.
+4 Ghi rõ họ, chữ đệm, tên, ngày sinh, giới tính, quốc tịch.
+5 Chữ viết tắt tên đơn vị soạn thảo.
+Phụ lục IV
+DANH MỤC MẪU GIẤY TỜ DÙNG CHUNG CHO VIỆC ĐĂNG KÝ NUÔI
+CON NUÔI TRONG NƯỚC VÀ NUÔI CON NUÔI CÓ YẾU TỐ
+NƯỚC NGOÀI
+(Kèm theo Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025 của Bộ trưởng
+Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày
+28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi
+chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi,
+bổ sung một số điều theo Thông tư số 07/2023/TT-BTP)
+STT Tên giấy tờ
+1. Đơn xin nhận con nuôi
+2. Văn bản thông báo về việc không tìm được gia đình thay thế trong nước
+cho trẻ em
+3. Văn bản lấy ý kiến đồng ý của cha, mẹ đẻ hoặc người giám hộ về việc
+cho trẻ em làm con nuôi
+4. Văn bản lấy ý kiến của người từ đủ 09 tuổi trở lên về việc đồng ý làm
+con nuôi
+5. Văn bản thể hiện ý kiến đồng ý của Giám đốc cơ sở nuôi dưỡng về việc
+cho trẻ em làm con nuôi
+6. Biên bản giao nhận con nuôi
+7. Tờ khai đăng ký lại việc nuôi con nuôi
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Ảnh chân dung Độc lập - Tự do - Hạnh phúc Ảnh chân dung
+của người nhận của người nhận
+con nuôi con nuôi (Bà),
+(Ông), kích cỡ kích cỡ 4x6 cm
+4x6 cm ĐƠN XIN NHẬN CON NUÔI
+Kính gửi:...................................................................1
+1. Phần khai về người nhận con nuôi
+Ông Bà
+Họ, chữ đệm, tên
+Ngày, tháng, năm sinh
+Quốc tịch2
+Số định danh cá nhân/Hộ chiếu2
+Nơi cư trú3
+Điện thoại/Thư điện tử
+2. Phần khai về người được nhận làm con nuôi
+Họ, chữ đệm, tên: ............................................................................... Giới tính3: ..................................
+1 Trường hợp đăng ký việc nuôi con nuôi ở trong nước, ghi Ủy ban nhân dân cấp xã nơi giải
+quyết việc nuôi con nuôi. Trường hợp đề nghị xác nhận công dân Việt Nam thường trú ở khu
+vực biên giới đủ điều kiện nhận trẻ em của nước láng giềng cư trú ở khu vực biên giới làm con
+nuôi, ghi Chủ tịch Ủy ban nhân dân cấp xã nơi giải quyết việc nuôi con nuôi. Trường hợp đăng
+ký việc nuôi con nuôi tại Cơ quan đại diện Việt Nam ở nước ngoài, ghi Cơ quan đại diện Việt
+Nam nơi đăng ký việc nuôi con nuôi. Trường hợp người nước ngoài thường trú ở Việt Nam nhận
+trẻ em Việt Nam làm con nuôi, ghi Sở Tư pháp nơi đăng ký việc nuôi con nuôi. Trường hợp đề
+nghị xác nhận công dân Việt Nam ở trong nước đủ điều kiện nhận trẻ em nước ngoài làm con
+nuôi, ghi Chủ tịch Ủy ban nhân dân tỉnh/thành phố nơi người nhận con nuôi thường trú.
+2 Đối với trường hợp người nước ngoài thường trú ở Việt Nam nhận trẻ em Việt Nam làm con nuôi.
+3 Trường hợp nộp hồ sơ trực tuyến: các thông tin được khai thác từ Cơ sở dữ liệu quốc gia về
+dân cư để tự động điền vào biểu mẫu, đối tượng thực hiện thủ tục hành chính không cần kê khai.
+Nếu các thông tin không được tự động điền vào biểu mẫu thì đối tượng thực hiện thủ tục hành
+chính kê khai đầy đủ.
+Trường hợp nộp hồ sơ giấy (nộp trực tiếp hoặc qua hệ thống bưu chính): đối tượng thực hiện thủ
+tục hành chính kê khai đầy đủ thông tin trong biểu mẫu.
+Ngày, tháng, năm sinh: ....................................................................... Quốc tịch4: .................................
+Số định danh cá nhân/Số Hộ chiếu1: ......................................................................................................
+Nơi sinh3: ...............................................................................................................................................
+Nơi cư trú3: .............................................................................................................................................
+................................................................................................................................................................
+Thuộc đối tượng52: .................................................................................................................................
+ Hiện đang sống tại gia đình của Ông/Bà:
+Họ, chữ đệm, tên: ...................................................................................................................................
+Nơi cư trú: ...............................................................................................................................................
+Điện thoại/Thư điện tử: ..........................................................................................................................
+ Hiện đang sống tại Cơ sở nuôi dưỡng:
+Tên/địa chỉ cơ sở nuôi dưỡng: ................................................................................................................
+................................................................................................................................................................
+3. Cam đoan
+Chúng tôi/Tôi cam đoan những lời khai trên đây là đúng sự thật, việc nhận con nuôi là tự
+nguyện, nhằm xác lập quan hệ cha, mẹ và con lâu dài, bền vững, vì lợi ích tốt nhất của con nuôi.
+Chúng tôi/Tôi cam kết sẽ chăm sóc, nuôi dưỡng, giáo dục cháu như con đẻ của mình và thực
+hiện mọi nghĩa vụ của cha mẹ đối với con theo quy định của pháp luật. Chúng tôi/Tôi cam kết
+trong thời hạn 03 năm, kể từ ngày giao nhận con nuôi, định kỳ 06 tháng một lần, gửi báo cáo về
+tình hình phát triển của con nuôi cho Ủy ban nhân dân cấp xã nơi chúng tôi/tôi cư trú3.
+Đề nghị Cơ quan có thẩm quyền xem xét, giải quyết.
+Làm tại ...................., ngày............. tháng .............. năm...........
+ÔNG BÀ
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên)
+14 Đối với trường hợp đề nghị xác nhận đủ điều kiện nhận trẻ em nước ngoài làm con nuôi.
+25 Ghi rõ đối tượng: trẻ em bị bỏ rơi/trẻ em mồ côi cả cha và mẹ/trẻ em có hoàn cảnh đặc biệt
+khác/con riêng/cháu ruột.
+36 Trường hợp người nhận con nuôi và người được nhận làm con nuôi tạm trú ở nước ngoài, gửi
+Cơ quan đại diện Việt Nam ở nước ngoài. Trường hợp cha, mẹ nuôi thay đổi nơi thường trú khi
+chưa hết thời hạn phải thông báo tình hình phát triển của con nuôi, cha, mẹ nuôi có trách nhiệm
+tiếp tục thông báo tình hình phát triển của con nuôi cho Ủy ban nhân dân cấp xã nơi chuyển đến
+cho đến khi hết thời hạn 03 năm kể từ ngày giao nhận con nuôi.
+TÊN CƠ QUAN, CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+TỔ CHỨC CHỦ QUẢN Độc lập – Tự do - Hạnh phúc
+TÊN CƠ QUAN, TỔ CHỨC
+………, ngày…… tháng…… năm……
+Số:……./….1……2
+V/v không tìm được gia đình thay
+thế trong nước cho trẻ em
+Kính gửi3:……………………………………………………
+Thực hiện trách nhiệm tìm gia đình thay thế cho trẻ em theo quy định tại
+khoản 2 Điều 15 Luật Nuôi con nuôi, …………………………….4 đã thông báo
+tìm người trong nước nhận trẻ em làm con nuôi đối với trẻ em có tên trong danh
+sách kèm theo.
+Thời gian thông báo từ ngày…../…../…… đến hết ngày…../…../…..
+Phạm vi thông báo5:
+ tại cấp xã theo điểm b khoản 2 Điều 15 Luật Nuôi con nuôi
+ tại cấp tỉnh theo điểm c khoản 2 Điều 15 Luật Nuôi con nuôi
+ trên toàn quốc theo điểm d khoản 2 Điều 15 Luật Nuôi con nuôi.
+Nay thời hạn thông báo tìm công dân Việt Nam ở trong nước nhận trẻ em
+làm con nuôi theo quy định của Luật Nuôi con nuôi đã hết, trẻ em có tên nêu tại
+Danh sách kèm theo không được người trong nước nhận làm con nuôi.
+Kính chuyển cơ quan có thẩm quyền xem xét tiến hành thủ tục tiếp theo6.
+(Gửi kèm Công văn thông báo này tài liệu chứng minh đã tiến hành thủ tục
+tìm gia đình thay thế trong nước và Danh sách trẻ em cần tìm gia đình thay thế)
+Nơi nhận: QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+- Như trên; (Chữ ký của người có thẩm quyền, dấu/chữ ký số-…………………; của cơ quan, tổ chức)- Lưu: VT,......77
+Họ và tên
+1 Chữ viết tắt tên cơ quan ban hành văn bản.
+2 Chữ viết tắt tên đơn vị soạn thảo.
+3 Nếu việc thông báo đã được thực hiện ở cấp xã thì ghi tên của Cơ quan chủ quản của cơ sở nuôi dưỡng; nếu việc
+thông báo đã được thực hiện ở cấp tỉnh thì ghi Cục Hành chính tư pháp, Bộ Tư pháp; nếu việc thông báo đã được
+thực hiện ở cấp Trung ương thì ghi tên Sở Tư pháp.
+4 Tên cơ quan, tổ chức thực hiện thông báo: Ủy ban nhân dân cấp xã/Sở Tư pháp/Cục Hành chính tư pháp, Bộ Tư pháp.
+5 Việc thông báo đã được thực hiện ở cấp nào thì đánh dấu vào ô tương ứng.
+6 Nếu việc thông báo đã được thực hiện ở cấp Trung ương, thì nội dung này được ghi như sau: Cục Hành chính tư
+pháp đề nghị Sở Tư pháp kiểm tra, xác minh hồ sơ, lấy ý kiến của người có liên quan và xác nhận trẻ em có đủ điều
+kiện cho làm con nuôi người nước ngoài theo quy định của pháp luật, gửi hồ sơ của trẻ em và các giấy tờ có liên
+quan khác kèm theo văn bản xác nhận trẻ em đủ điều kiện làm con nuôi người nước ngoài cho Cục Hành chính tư
+pháp để tiến hành các thủ tục tiếp theo.
+77 Chữ viết tắt tên đơn vị soạn thảo.
+DANH SÁCH TRẺ EM CẦN TÌM GIA ĐÌNH THAY THẾ
+(Kèm theo Công văn số………/……….. ngày ……..tháng …… năm ………)
+GIỚI TÌNH TRẠNG STT HỌ, CHỮ ĐỆM, TÊN NGÀY SINH TÍNH SỨC KHỎE NƠI CƯ TRÚ81
+1 CÔNG
+3 BÁO/Số
+4 865
++
+…...
+866/Ngày
+10-7-2025
+18 Ghi rõ tên cơ sở nuôi dưỡng, địa chỉ và số điện thoại liên hệ.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+VĂN BẢN LẤY Ý KIẾN ĐỒNG Ý CỦA CHA, MẸ ĐẺ HOẶC NGƯỜI GIÁM HỘ
+VỀ VIỆC CHO TRẺ EM LÀM CON NUÔI1
+Hôm nay, ngày …… tháng ….. năm…….., tại2 ......................................................................
+..................................................................................................................................................
+I. PHẦN THỂ HIỆN Ý KIẾN ĐỒNG Ý
+Chúng tôi/Tôi là người ký tên dưới đây:
+Ông:
+Họ, chữ đệm, tên: .....................................................................................................................
+Ngày, tháng, năm sinh: ...........................................................................................................
+Số định danh cá nhân: ..............................................................................................................
+Nơi cư trú: ................................................................................................................................
+..................................................................................................................................................
+Là:  Cha đẻ  Người giám hộ
+Bà:
+Họ, chữ đệm, tên: .....................................................................................................................
+Ngày, tháng, năm sinh: ............................................................................................................
+Số định danh cá nhân: ..............................................................................................................
+Nơi cư trú: ................................................................................................................................
+..................................................................................................................................................
+Là:  Mẹ đẻ  Người giám hộ
+Đồng ý cho người có tên dưới đây được nhận làm con nuôi:
+Họ, chữ đệm, tên: ....................................................................... Giới tính: ...........................
+Ngày, tháng, năm sinh: ........................................... Quốc tịch3: ............................................
+Số định danh cá nhân: ..............................................................................................................
+Nơi cư trú: ...............................................................................................................................
+..................................................................................................................................................
+1 Khi lấy ý kiến đồng ý cho trẻ em làm con nuôi, công chức cấp xã, viên chức ngoại giao/lãnh sự, công chức Sở Tư
+pháp phải tư vấn cho những người liên quan theo nội dung nêu tại Phụ lục kèm theo.
+2 Ghi nơi tiến hành thủ tục lấy ý kiến.
+3Trong trường hợp cho trẻ em làm con nuôi nước ngoài.
+II. PHẦN CAM ĐOAN
+Sau khi đã được tư vấn đầy đủ về các quy định của pháp luật về nuôi con nuôi, chúng
+tôi/tôi đồng ý cho trẻ em có tên nêu trên được nhận làm con nuôi1:
+ trong nước
+ nước ngoài
+Chúng tôi/Tôi xin khẳng định như sau:
+1. Việc đồng ý cho trẻ em làm con nuôi là hoàn toàn tự nguyện, không bị ép buộc, không
+có bất cứ sự đền bù hay thỏa thuận vật chất nào.
+2. Chúng tôi/Tôi hiểu rằng, việc cho trẻ em làm con nuôi sẽ phát sinh mối quan hệ cha
+mẹ và con lâu dài, ổn định giữa cha, mẹ nuôi và con nuôi.
+3. Chúng tôi/Tôi hiểu rằng kể từ ngày giao nhận con nuôi, chúng tôi/tôi không còn
+quyền, nghĩa vụ chăm sóc, nuôi dưỡng, cấp dưỡng, đại diện theo pháp luật, bồi thường
+thiệt hại, quản lý, định đoạt tài sản riêng đối với con đã cho làm con nuôi. Con nuôi được
+thay đổi, bổ sung hộ tịch theo quy định pháp luật.
+4. Chúng tôi/Tôi hiểu rằng trong thời hạn 15 ngày (đối với nuôi con nuôi trong nước), 30
+ngày (đối với nuôi con nuôi nước ngoài) kể từ ngày được lấy ý kiến (từ ngày …… tháng
+….. năm ……… đến ngày ……. tháng …… năm………), chúng tôi/tôi có thể thay đổi ý
+kiến về việc cho người có tên nêu trên làm con nuôi. Hết thời hạn này, nếu chúng tôi/tôi
+không thay đổi ý kiến thì cơ quan có thẩm quyền sẽ tiến hành giải quyết việc nuôi con
+nuôi theo quy định pháp luật.
+NGƯỜI LÀM CHỨNG52 CHA, MẸ ĐẺ/NGƯỜI GIÁM HỘ
+Tôi tên là………………………., sinh “Đã đọc lại/nghe đọc lại”
+ngày....tháng...năm....., số định danh cá (Ký, ghi rõ họ, chữ đệm, tên/điểm chỉ6)
+nhân:………………….................................
+đã có mặt tại buổi lấy ý kiến, chứng kiến
+việc lấy ý kiến cho trẻ em làm con nuôi.
+(Ký, ghi rõ họ, chữ đệm, tên)
+14 Đánh dấu vào ô tương ứng phía dưới.
+25 Trong trường hợp cha, mẹ đẻ hoặc người giám hộ không biết đọc, viết hoặc có khó khăn trong nhận thức, làm chủ hành vi.
+III. XÁC NHẬN CỦA NGƯỜI LẤY Ý KIẾN61
+- Họ, chữ đệm, tên của người lấy ý kiến: …………………………………………….
+- Công tác tại: …………………………………………………………………………
+- Cam đoan đã tư vấn đầy đủ theo nội dung của Phụ lục Văn bản tư vấn cho cha, mẹ đẻ,
+người giám hộ về việc đồng ý cho trẻ em……………………………. làm con nuôi.
+Những người có tên trên đã ký tên/điểm chỉ trước mặt tôi.
+................, ngày......tháng.......năm ........
+NGƯỜI LẤY Ý KIẾN
+(Ký, ghi rõ họ, chữ đệm, tên)
+IV. XÁC NHẬN CỦA CƠ QUAN LẤY Ý KIẾN6
+Xác nhận chữ ký trên là của Ông/Bà ......................................................., là người đã tiến
+hành lấy ý kiến về việc cho trẻ em........................................................... làm con nuôi.
+.........................., ngày............tháng..........năm.............
+QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, đóng dấu)
+1 6 Nếu là trường hợp nuôi con nuôi trong nước, công chức cấp xã (trường hợp trẻ em thường trú trong nước) hoặc
+viên chức lãnh sự/ngoại giao của Cơ quan đại diện Việt Nam ở nước ngoài (trường hợp trẻ em tạm trú ở nước ngoài)
+lấy ý kiến, Thủ trưởng cơ quan đăng ký nuôi con nuôi xác nhận. Nếu là trường hợp nuôi con nuôi có yếu tố nước
+ngoài thì công chức Sở Tư pháp nơi giải quyết việc nuôi con nuôi hoặc công chức Sở Tư pháp nơi cha, mẹ đẻ hoặc
+người giám hộ của trẻ em cư trú thực hiện lấy ý kiến, Giám đốc Sở Tư pháp nơi lấy ý kiến xác nhận.
+PHỤ LỤC
+VĂN BẢN TƯ VẤN CHO CHA, MẸ ĐẺ, NGƯỜI GIÁM HỘ VỀ VIỆC ĐỒNG Ý
+CHO TRẺ EM LÀM CON NUÔI
+(Dùng cho công chức cấp xã, viên chức ngoại giao/lãnh sự tại Cơ quan đại diện Việt
+Nam ở nước ngoài, công chức Sở Tư pháp khi tiến hành thủ tục lấy ý kiến đồng ý cho trẻ
+em làm con nuôi trong nước hoặc nước ngoài)
+I. Người được tư vấn
+Họ, chữ đệm, tên Ông: ...........................................................................................................
+Là:  Cha đẻ  Người giám hộ
+Họ, chữ đệm, tên Bà:……………………………………………………………………… .
+Là:  Mẹ đẻ  Người giám hộ
+Của người có tên dưới đây được cho làm con nuôi:
+Họ, chữ đệm, tên: ..................................................................... Giới tính: ..........................
+Ngày, tháng, năm sinh: ......................................... Quốc tịch71: ...........................................
+Số định danh cá nhân:............................................................................................................
+Nơi cư trú .............................................................................................................................
+...............................................................................................................................................
+II. Nội dung tư vấn82
+1. Việc đồng ý cho trẻ em làm con nuôi chỉ được thực hiện khi gia đình không còn điều
+kiện và khả năng thực tế để tiếp tục chăm sóc, nuôi dưỡng, giáo dục trẻ em. Ông/Bà đã
+xem xét khả năng và điều kiện tiếp tục chăm sóc, nuôi dưỡng, giáo dục trẻ em chưa?
+Chúng tôi/Tôi không có khả năng và điều kiện để tiếp tục, nuôi dưỡng và chăm sóc trẻ
+em.
+Ý kiến khác: ........................................................................................................................
+................................................................................................................................................
+2. Không ai được lừa dối, dụ dỗ, hứa hẹn trả tiền hoặc trả tiền cho Ông/Bà để có được ý
+kiến đồng ý cho trẻ em làm con nuôi.
+Chúng tôi/Tôi hiểu và cam đoan không có sự lừa dối, dụ dỗ, hứa hẹn hoặc trả tiền.
+Ý kiến khác: ........................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+3. Khi đồng ý cho trẻ em làm con nuôi người khác, Ông/Bà sẽ không còn là cha, mẹ của
+trẻ em sau khi việc đăng ký nuôi con nuôi đã hoàn tất theo quy định pháp luật9.3Cha, mẹ
+nuôi sẽ trở thành cha, mẹ của trẻ em. Việc đồng ý cho trẻ em làm con nuôi sẽ làm phát
+17 Trong trường hợp cho trẻ em làm con nuôi nước ngoài.
+28 Trường hợp trẻ em được cha dượng/mẹ kế nhận làm con nuôi thì không cần tư vấn nội dung nêu tại điểm 1
+39 Trường hợp trẻ em được cha dượng/mẹ kế nhận làm con nuôi thì mẹ đẻ/cha đẻ vẫn là mẹ/cha hợp pháp của con đã
+được nhận làm con nuôi.
+sinh mối quan hệ cha mẹ và con lâu dài, ổn định giữa cha, mẹ nuôi và con nuôi, giống
+như quan hệ cha mẹ và con giữa cha mẹ đẻ và con đẻ.
+Chúng tôi/Tôi đã hiểu
+Ý kiến khác: ........................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+4. Ông/Bà không thể đòi lại trẻ em đã cho làm con nuôi sau khi việc nuôi con nuôi đã
+được đăng ký tại cơ quan có thẩm quyền.
+Chúng tôi/Tôi đã hiểu
+5. Sau khi con đã cho làm con nuôi, Ông/Bà không còn các quyền, nghĩa vụ chăm sóc,
+nuôi dưỡng, cấp dưỡng, đại diện theo pháp luật, bồi thường thiệt hại, quản lý, định đoạt
+tài sản riêng đối với con đã cho làm con nuôi, trừ khi có thỏa thuận khác.
+Chúng tôi/Tôi đã hiểu, chúng tôi không có thỏa thuận khác.
+Ý kiến khác: ........................................................................................................................
+................................................................................................................................................
+................................................................................................................................................
+6. Con nuôi có thể thay đổi, bổ sung hộ tịch theo quy định pháp luật.
+Chúng tôi/Tôi đã hiểu
+7. Ông/Bà có thời gian suy nghĩ là 15 ngày (đối với nuôi con nuôi trong nước), 30 ngày
+(đối với nuôi con nuôi nước ngoài) kể từ ngày lấy ý kiến (từ ngày …… tháng ….. năm
+……… đến ngày ……. tháng …… năm………) về việc thay đổi ý kiến đồng ý cho trẻ
+em làm con nuôi. Nếu Ông/Bà thay đổi ý kiến thì phải thông báo bằng văn bản cho cơ
+quan đăng ký nuôi con nuôi trong thời hạn nêu trên.
+Chúng tôi/Tôi đã hiểu
+8. Nếu Ông/Bà đồng ý cho trẻ em làm con nuôi nước ngoài:
+a) Con của Ông/Bà sẽ được đưa sang một nước khác sinh sống cùng cha, mẹ nuôi là
+người nước ngoài.
+Chúng tôi/Tôi đã hiểu
+b) Những quan hệ pháp lý giữa cha, mẹ đẻ và con được nhận làm con nuôi sẽ chấm dứt.
+Chúng tôi/Tôi đã hiểu
+c) Trường hợp con nuôi là con riêng hoặc cháu ruột của người nhận con nuôi, nếu pháp
+luật nước ngoài cho phép, mối quan hệ giữa cha, mẹ đẻ và trẻ em mới được duy trì.
+Chúng tôi/Tôi đã hiểu
+..............., ngày............tháng.........năm.........
+Người thực hiện Người được tư vấn
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên/điểm chỉ10)
+110 Trong trường hợp cha, mẹ đẻ hoặc người giám hộ không biết đọc, viết hoặc có khó khăn trong nhận thức, làm chủ hành vi.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+VĂN BẢN LẤY Ý KIẾN CỦA NGƯỜI TỪ ĐỦ 09 TUỔI TRỞ LÊN VỀ VIỆC
+ĐỒNG Ý LÀM CON NUÔI1
+Hôm nay, ngày.........tháng ......... năm........., tại2 ...................................................................
+................................................................................................................................................
+I. THỂ HIỆN Ý KIẾN ĐỒNG Ý
+Họ, chữ đệm, tên:………………………………………. Giới tính: .....................................
+Ngày, tháng, năm sinh: ..................................................... Quốc tịch3:..................................
+Số định danh cá nhân: ............................................................................................................
+Nơi cư trú: ..............................................................................................................................
+................................................................................................................................................
+Sau khi đã được tư vấn đầy đủ về các quy định của pháp luật về nuôi con nuôi, tôi đồng ý
+được nhận làm con nuôi và xin khẳng định như sau:
+1. Tôi đồng ý được nhận làm con nuôi một cách tự nguyện, không bị ép buộc.
+2. Tôi hiểu rằng việc làm con nuôi sẽ phát sinh mối quan hệ cha, mẹ và con lâu dài, ổn
+định giữa con nuôi và cha, mẹ nuôi.
+3. Tôi đã được tư vấn đầy đủ về mục đích nuôi con nuôi, quyền và nghĩa vụ phát sinh
+giữa cha, mẹ nuôi và con nuôi sau khi đăng ký nuôi con nuôi.
+4. Tôi hiểu rằng tôi có thể được thay đổi, bổ sung hộ tịch theo quy định pháp luật.
+5. Tôi hiểu rằng trong thời hạn 15 ngày (đối với nuôi con nuôi trong nước), 30 ngày (đối
+với nuôi con nuôi nước ngoài) kể từ ngày được lấy ý kiến (từ ngày …… tháng ….. năm
+……… đến ngày ……. tháng …… năm………), tôi có thể thay đổi ý kiến về việc được
+nhận làm con nuôi. Hết thời hạn này, nếu tôi không thay đổi ý kiến thì cơ quan có thẩm
+quyền sẽ tiến hành giải quyết việc nuôi con nuôi.
+NGƯỜI LÀM CHỨNG4 NGƯỜI TỪ ĐỦ 09 TUỔI TRỞ LÊN
+Tôi tên là………………………., sinh “Đã đọc lại/nghe đọc lại”
+ngày....tháng...năm....., số định danh cá
+(Ký, ghi rõ họ, chữ đệm, tên/điểm chỉ5)nhân:…………………..........................................
+đã có mặt tại buổi lấy ý kiến, chứng kiến việc lấy
+ý kiến về việc làm con nuôi.
+(Ký, ghi rõ họ, chữ đệm, tên)
+1 Khi lấy ý kiến đồng ý làm con nuôi, công chức cấp xã, viên chức ngoại giao/lãnh sự, công chức Sở Tư pháp phải
+tư vấn cho người từ đủ 9 tuổi trở lên theo nội dung nêu tại Phụ lục kèm theo.
+2 Ghi nơi tiến hành thủ tục lấy ý kiến.
+3 Trường hợp thể hiện ý kiến đồng ý làm con nuôi nước ngoài.
+4 Trường hợp lấy ý kiến của trẻ em thì phải có người làm chứng.
+5 Trong trường hợp người từ đủ 9 tuổi trở lên không biết đọc, viết.
+II. XÁC NHẬN CỦA NGƯỜI LẤY Ý KIẾN61
+- Họ, chữ đệm, tên của người lấy ý kiến: …………………………………………………….
+- Công tác tại: ……………………………………………………………………………………
+- Cam đoan đã tư vấn đầy đủ theo nội dung của Phụ lục Văn bản tư vấn cho người từ đủ
+09 tuổi trở lên về việc đồng ý làm con nuôi. Người/những người có tên trên đã ký
+tên/điểm chỉ trước mặt tôi.
+..............., ngày......tháng.........năm .......
+NGƯỜI LẤY Ý KIẾN
+(Ký, ghi rõ họ, chữ đệm, tên)
+III. XÁC NHẬN CỦA CƠ QUAN LẤY Ý KIẾN6
+Xác nhận chữ ký trên là của Ông/Bà ....................................................... là người đã tiến
+hành lấy ý kiến của người có tên ................................................................ về việc đồng ý
+làm con nuôi.
+..................., ngày............ tháng.......... năm .....
+QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, đóng dấu)
+61 Nếu là trường hợp nuôi con nuôi trong nước, công chức cấp xã (trường hợp trẻ em thường trú trong nước) hoặc
+viên chức lãnh sự/ngoại giao của Cơ quan đại diện Việt Nam ở nước ngoài (trường hợp trẻ em tạm trú ở nước ngoài)
+lấy ý kiến, Thủ trưởng cơ quan đăng ký nuôi con nuôi xác nhận. Nếu là trường hợp nuôi con nuôi có yếu tố nước
+ngoài thì công chức Sở Tư pháp lấy ý kiến, Giám đốc Sở Tư pháp xác nhận.
+PHỤ LỤC
+VĂN BẢN TƯ VẤN CHO NGƯỜI TỪ ĐỦ 09 TUỔI TRỞ LÊN
+ĐƯỢC NHẬN LÀM CON NUÔI
+(Dùng cho công chức cấp xã, viên chức ngoại giao/lãnh sự tại Cơ quan đại diện Việt
+Nam ở nước ngoài, công chức Sở Tư pháp khi tiến hành thủ tục lấy ý kiến đồng ý của
+người từ đủ 09 tuổi trở lên làm con nuôi trong nước hoặc nước ngoài)
+I. Người được tư vấn
+Họ, chữ đệm, tên: .....................................................................................................................
+II. Nội dung tư vấn
+1. Sau khi được nhận làm con nuôi, cháu sẽ sống với một gia đình khác, có cha, mẹ khác
+sẽ chăm sóc và nuôi dưỡng cháu.
+Cháu hiểu
+2. Những quan hệ pháp lý giữa cha, mẹ đẻ và cháu sẽ chấm dứt kể từ ngày cháu được
+nhận làm con nuôi7. 1.
+Cháu hiểu
+3. Sau khi được nhận làm con nuôi, cháu có thể được thay đổi, bổ sung hộ tịch theo quy
+định pháp luật.
+Cháu hiểu
+4. Cháu có thời hạn 15 ngày (đối với nuôi con nuôi trong nước), 30 ngày (đối với nuôi
+con nuôi nước ngoài) kể từ ngày được lấy ý kiến để thay đổi ý kiến về việc làm con nuôi.
+Cháu hiểu
+5. Không ai được lừa dối, dụ dỗ, hứa hẹn trả tiền hoặc trả tiền cho cháu để có được ý kiến
+đồng ý cho cháu làm con nuôi
+Cháu hiểu và cam đoan không có sự lừa dối, dụ dỗ, hứa hẹn hoặc trả tiền.
+6. Nếu được làm con nuôi nước ngoài, cháu sẽ sống với gia đình cha, mẹ nuôi là người
+nước ngoài, sinh sống ở nước ngoài và nói tiếng nước ngoài.
+Cháu hiểu
+……..........., ngày........tháng..........năm.........
+Người thực hiện Người từ đủ 09 tuổi trở lên được tư vấn
+(Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên/điểm chỉ82)
+17 Trường hợp người từ đủ 9 tuổi trở lên được cha dượng/mẹ kế nhận làm con nuôi thì mẹ đẻ/cha đẻ vẫn là mẹ/cha
+hợp pháp của con đã được nhận làm con nuôi.
+28 Trong trường hợp người từ đủ 9 tuổi trở lên không biết đọc, viết.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+VĂN BẢN THỂ HIỆN Ý KIẾN ĐỒNG Ý CỦA GIÁM ĐỐC CƠ SỞ NUÔI DƯỠNG
+VỀ VIỆC CHO TRẺ EM LÀM CON NUÔI
+I. Ý KIẾN ĐỒNG Ý CỦA GIÁM ĐỐC CƠ SỞ NUÔI DƯỠNG
+Họ, chữ đệm, tên: ...................................................................................................................
+Ngày, tháng, năm sinh: ..........................................................................................................
+Số định danh cá nhân: ............................................................................................................
+Cam đoan những nội dung sau đây:
+1. Tôi đồng ý cho trẻ em dưới đây làm con nuôi:
+Họ, chữ đệm, tên: ....................................................................... Giới tính:............................
+Ngày, tháng, năm sinh: ..........................................................................................................
+Số định danh cá nhân: ............................................................................................................
+Quốc tịch1: .............................................................................................................................
+Nơi cư trú: ..............................................................................................................................
+................................................................................................................................................
+2. Tôi tự nguyện cho trẻ em làm con nuôi, không bị ép buộc, không có bất cứ sự đền bù
+hay thỏa thuận vật chất nào. Tôi hiểu việc cho trẻ em làm con nuôi sẽ phát sinh mối quan
+hệ cha mẹ và con lâu dài, ổn định giữa cha, mẹ nuôi và con nuôi.
+3. Tôi hiểu rằng nuôi con nuôi là biện pháp chăm sóc thay thế tốt nhất, bảo đảm trẻ em
+phát triển toàn diện cả về thể chất và tinh thần, vì lợi ích tốt nhất của trẻ em.
+Tôi cam đoan những nội dung trên đây là đúng sự thật. Tôi hoàn toàn chịu trách nhiệm
+trước pháp luật về nội dung cam đoan của mình.
+Làm tại…………, ngày ……. tháng ……. năm…………..
+GIÁM ĐỐC CƠ SỞ NUÔI DƯỠNG
+(Ký, ghi rõ họ, chữ đệm, tên, con dấu)
+1 Trong trường hợp cho trẻ em làm con nuôi nước ngoài.
+II. XÁC NHẬN CỦA NGƯỜI LÀM CÔNG TÁC GIẢI QUYẾT NUÔI CON NUÔI21
+- Họ, chữ đệm, tên: ............................................................................................................................
+- Công tác tại: ....................................................................................................................................
+Đã tiếp nhận văn bản thể hiện ý kiến đồng ý của người có tên nêu trên về việc cho trẻ
+em……………………………………… làm con nuôi.
+……….., ngày ……. tháng……. năm…………..
+NGƯỜI THỰC HIỆN
+(Ký, ghi rõ họ, chữ đệm, tên)
+III. XÁC NHẬN CỦA CƠ QUAN ĐĂNG KÝ NUÔI CON NUÔI2
+Xác nhận chữ ký trên là của Ông/Bà ........................................................... là người đã tiếp nhận
+văn bản thể hiện ý kiến đồng ý về việc cho trẻ em ................................................................ làm
+con nuôi.
+...................., ngày............tháng..........năm.............
+QUYỀN HẠN, CHỨC VỤ CỦA NGƯỜI KÝ
+(Ký, ghi rõ họ, chữ đệm, tên, chức vụ, đóng dấu)
+12 Nếu là trường hợp nuôi con nuôi trong nước, công chức cấp xã tiếp nhận ý kiến, Ủy ban nhân dân cấp xã xác nhận. Nếu
+là trường hợp nuôi con nuôi có yếu tố nước ngoài, công chức Sở Tư pháp tiếp nhận ý kiến, Giám đốc Sở Tư pháp xác
+nhận.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+BIÊN BẢN GIAO NHẬN CON NUÔI
+Hôm nay, vào hồi……………giờ………….phút, ngày…..... tháng….... năm .......................................
+tại trụ sở1……………………………đã tổ chức lễ giao nhận con nuôi với những nội dung sau:
+1. Cơ quan đăng ký nuôi con nuôi1: ...............................................................................................
+Đại diện là:
+Ông/Bà: ..............................................................................................................................................
+Chức vụ: ............................................................................................................................................
+2. Người được nhận làm con nuôi:
+Họ, chữ đệm, tên: …………………………… Giới tính: .................................................................
+Ngày, tháng, năm sinh:………………………. Quốc tịch: ...............................................................
+Số định danh cá nhân: ...............................................................................................................
+Nơi sinh:……………………………………………………………………………………………………………..
+Nơi cư trú: ..........................................................................................................................................
+3. Người nhận con nuôi2:
+Ông Bà
+Họ, chữ đệm, tên
+Ngày, tháng, năm sinh
+Quốc tịch
+Số định danh cá
+nhân/Hộ chiếu3
+Nơi cư trú
+1 Ghi tên Ủy ban nhân dân cấp xã hoặc Cơ quan đại diện Việt Nam ở nước ngoài nơi tổ chức giao nhận con nuôi
+trong nước; tên của Sở Tư pháp nơi tổ chức giao nhận con nuôi có yếu tố nước ngoài.
+2 Nếu người nhận con nuôi hoặc người giao con nuôi là vợ hoặc chồng được ủy quyền của người kia để có mặt tại lễ
+giao nhận con nuôi theo quy định pháp luật thì chỉ ghi thông tin của người có mặt tại lễ giao nhận con nuôi.
+3 Đối với Hộ chiếu, ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác
+quốc tế I-ta-li-a cấp ngày 20/02/2025.
+4. Người giao con nuôi41:
+Ông Bà
+Họ, chữ đệm, tên
+Ngày, tháng, năm sinh
+Quốc tịch
+Số định danh cá
+nhân/Hộ chiếu3
+Nơi cư trú
+Quan hệ với người được nhận làm con nuôi: □ Cha đẻ □ Mẹ đẻ □ Người giám hộ
+□ Đại diện cơ sở nuôi dưỡng □ Đại diện UBND cấp xã nơi trẻ em bị bỏ rơi
+Biên bản này được làm thành 03 bản (đối với nuôi con nuôi trong nước)/05 bản (đối với nuôi
+con nuôi có yếu tố nước ngoài), 01 bản trao cho cha mẹ nuôi, 01 bản trao cho cha mẹ đẻ/người
+giám hộ/đại diện cơ sở nuôi dưỡng đối với trẻ em sống tại cơ sở nuôi dưỡng, 01 bản lưu tại cơ
+quan đăng ký nuôi con nuôi và 01 bản gửi cho các cơ quan có thẩm quyền theo quy định tại
+khoản 4 Điều 37 Luật Nuôi con nuôi (đối với nuôi con nuôi có yếu tố nước ngoài).
+Đại diện cơ quan đăng ký Bên giao Bên nhận
+nuôi con nuôi (Ký, ghi rõ họ,chữ đệm, (Ký, ghi rõ họ,chữ đệm,
+(Ký và ghi rõ họ,chữ đệm, tên, tên/điểm chỉ52) tên/điểm chỉ5)
+chức vụ và đóng dấu) Ông Bà Ông Bà
+14 Trường hợp trẻ em bị bỏ rơi chưa được đưa vào cơ sở nuôi dưỡng thì người giao con nuôi là đại diện Ủy ban nhân
+dân cấp xã nơi đăng ký việc nuôi con nuôi.
+25 Trong trường hợp không biết đọc, viết hoặc có khó khăn trong nhận thức, làm chủ hành vi.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+TỜ KHAI ĐĂNG KÝ LẠI VIỆC NUÔI CON NUÔI
+Kính gửi1:...............................................................................
+Họ, chữ đệm, tên người yêu cầu: ...........................................................................................
+Ngày, tháng, năm sinh:..........................................................................................................
+Số định danh cá nhân/Hộ chiếu2: ...........................................................................................
+Nơi cư trú3: .............................................................................................................................
+................................................................................................................................................
+Đề nghị đăng ký lại việc nuôi con nuôi cho những người có tên dưới đây:
+I. Thông tin của con nuôi
+Họ, chữ đệm, tên: ........................................................................... Giới tính3: .....................
+Ngày, tháng, năm sinh:...................................................................... ....................................
+Số định danh cá nhân/Hộ chiếu2:: ..........................................................................................
+...............................................................................................................................................
+Nơi sinh3:...............................................................................................................................
+Nơi cư trú3: .............................................................................................................................
+................................................................................................................................................
+II. Thông tin cha, mẹ nuôi
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+.................................................................. .......................................................................
+Ngày, tháng, năm sinh:.............................. Ngày, tháng, năm sinh:..................................
+Quốc tịch4:................................................. Quốc tịch4:.....................................................
+Số định danh/Hộ chiếu2:............................ Số định danh/Hộ chiếu2:................................
+................................................................... .......................................................................
+................................................................... .......................................................................
+1 Ghi rõ Ủy ban nhân dân cấp xã nếu đăng ký lại việc nuôi con nuôi trong nước, Sở Tư pháp nếu đăng ký lại việc
+nuôi con nuôi có yếu tố nước ngoài.
+2 Đối với Hộ chiếu, ghi rõ số, cơ quan cấp, ngày cấp. Ví dụ: Hộ chiếu số 1089123, do Bộ Ngoại giao và Hợp tác
+quốc tế I-ta-li-a cấp ngày 20/02/2025.
+3Trường hợp nộp hồ sơ trực tuyến: các thông tin được khai thác từ Cơ sở dữ liệu quốc gia về dân cư để tự động điền
+vào biểu mẫu, đối tượng thực hiện thủ tục hành chính không cần kê khai. Nếu các thông tin không được tự động
+điền vào biểu mẫu thì đối tượng thực hiện thủ tục hành chính kê khai đầy đủ.
+Trường hợp nộp hồ sơ giấy (nộp trực tiếp hoặc qua hệ thống bưu chính): đối tượng thực hiện thủ tục hành chính kê
+khai đầy đủ thông tin trong biểu mẫu
+4 Đối với trường hợp đăng ký lại việc nuôi con nuôi có yếu tố nước ngoài.
+Nơi cư trú3:.............................................. Nơi cư trú3...................................................
+................................................................... .......................................................................
+................................................................... .......................................................................
+Đã đăng ký nuôi con nuôi tại51: .............................................................................................
+................................................................................................................................................
+Giấy chứng nhận nuôi con nuôi trong nước/Quyết định nuôi con nuôi có yếu tố nước ngoài
+số...................... ngày ........ tháng ....... năm......... do......................................cấp6. 2.
+Tôi cam đoan việc nuôi con nuôi trước đây đã được đăng ký tại cơ quan có thẩm quyền
+và những nội dung khai trên đây là đúng sự thật. Tôi chịu trách nhiệm trước pháp luật về
+việc cam đoan của mình.
+Làm tại ......................, ngày ............tháng............năm............
+Người yêu cầu
+(Ký, ghi rõ họ, chữ đệm, tên)
+Xác nhận của người làm chứng thứ haiXác nhận của người làm chứng thứ nhất
+Tôi tên là……………………….................... Tôi tên là………………………......
+Ngày sinh:...................................................... Ngày sinh:........................................
+Số định danh cá nhân:……………................ Số định danh cá nhân:…..................
+Tôi xin làm chứng việc nuôi con nuôi trên là Tôi xin làm chứng việc nuôi con
+đúng sự thật và tôi xin chịu trách nhiệm trước nuôi trên là đúng sự thật và tôi xin
+pháp luật về việc làm chứng của mình. chịu trách nhiệm trước pháp luật về
+việc làm chứng của mình.
+................., ngày..........tháng......... năm........... ............, ngày..........tháng......... năm........... (Ký, ghi rõ họ, chữ đệm, tên) (Ký, ghi rõ họ, chữ đệm, tên)
+15 Ghi tên Ủy ban nhân dân cấp cơ sở nơi đã đăng ký việc nuôi con nuôi trong nước; tên Sở Tư pháp nơi đã đăng ký
+việc nuôi con nuôi có yếu tố nước ngoài.
+26 Đối với trường hợp có thông tin về Giấy chứng nhận nuôi con nuôi trong nước/Quyết định nuôi con nuôi có yếu
+tố nước ngoài.
+Phụ lục V
+BẢN ĐIỆN TỬ GIẤY TỜ NUÔI CON NUÔI
+(Kèm theo Thông tư số 10/2025/TT-BTP ngày 20 tháng 6 năm 2025 của Bộ trưởng
+Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 10/2020/TT-BTP ngày
+28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi
+chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi được sửa đổi,
+bổ sung một số điều theo Thông tư số 07/2023/TT-BTP)
+STT Tên bản điện tử giấy tờ nuôi con nuôi
+1 Bản điện tử Giấy chứng nhận nuôi con nuôi trong nước
+* Chú thích:
+- Người ký bản điện tử thực hiện ký số theo quy định pháp luật.
+- Mã QR trên Bản điện tử Giấy chứng nhận nuôi con nuôi trong nước cho phép
+truy cập vào dữ liệu trực tuyến để kiểm tra thông tin và xác minh tính hợp lệ của
+giấy tờ này.
+- Cá nhân sử dụng thông tin trong QRcode có trách nhiệm bảo vệ dữ liệu cá nhân theo
+quy định pháp luật.
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+Độc lập - Tự do - Hạnh phúc
+Số: .........../........................
+GIẤY CHỨNG NHẬN NUÔI CON NUÔI TRONG NƯỚC
+Họ, chữ đệm, tên cha nuôi: Họ, chữ đệm, tên mẹ nuôi:
+... .............................................. ...................................... . .................................................................................................
+Ngày, tháng, năm sinh:.................................................... Ngày, tháng, năm sinh:. ....................................
+Quốc tịch: .............................................................................. Quốc tịch: ............................................................................
+Số định danh cá nhân: Số định danh cá nhân:
+...................................................................................................... ..................................................................................................
+Nơi cư trú:.............................................................................. Nơi cư trú:............................................................................
+....................................................................................................... ...................................................................................................
+....................................................................................................... ...................................................................................................
+Họ, chữ đệm, tên con nuôi: ......................................................................................................Giới tính: .................
+Ngày, tháng, năm sinh: .......................................................................................Quốc tịch: ..............................................
+Số định danh cá nhân:.. ............................................................................................................................................................
+Nơi sinh: ..........................................................................................................................................................................................
+Nơi cư trú: ......................................................................................................................................................................................
+...............................................................................................................................................................................................................
+Cơ quan đăng ký việc nuôi con nuôi:.................................................................................................................................
+...............................................................................................................................................................................................................
+Ngày, tháng, năm cấp: .................................................................................................. ............................................................
+Giấy chứng nhận này có hiệu lực từ ngày ghi vào Sổ đăng ký nuôi con nuôi.
+NGƯỜI KÝ GIẤY CHỨNG NHẬNVào Sổ đăng ký nuôi con nuôi
+Số đăng ký......................................................
+Quyển số.........................................................
+Ngày.............tháng.............năm..................
+Người thực hiện
+(Ký, ghi rõ họ, chữ đệm, tên)
