@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "additionalProperties": false,
+  "description": "Đầu vào chuẩn cho endpoint hỏi đáp / pipeline Week 10 (D3.1).\n\nKhóa các tham số nội bộ phía server (không cho phép client truyền ``run_mode``,\n``top_k`` hoặc ``metadata`` tự do). Quy ước: ``request_id`` do client cấp, còn\n``query_id`` là ID truy vết xuyên suốt pipeline do server gán hoặc tiếp nhận.",
+  "properties": {
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "query": {
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+    },
+    "as_of_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "As Of Date"
+    },
+    "session_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Session Id"
+    },
+    "request_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Request Id"
+    },
+    "query_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Query Id"
+    }
+  },
+  "required": [
+    "query"
+  ],
+  "title": "AskRequest",
+  "type": "object"
+}
