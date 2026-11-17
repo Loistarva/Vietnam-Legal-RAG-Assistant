@@ -307,6 +307,7 @@ def test_ask_response_valid_paths_and_strict_schema_consistency():
             "ABSTAIN", "FAIL", gate_code
         )
 
+    # as_of_date_source không có mặc định: thiếu là lỗi
     missing_source = _success_response_kwargs()
     missing_source.pop("as_of_date_source")
     with pytest.raises(ValidationError):
