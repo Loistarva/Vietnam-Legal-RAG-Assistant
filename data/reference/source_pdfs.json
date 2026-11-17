@@ -285,6 +285,34 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/corpus_v3/nd_24_2013_nd_cp.pdf",
+      "document_id": "nd_24_2013_nd_cp",
+      "sha256": "8a41561eb3bf3934d1302760d8e906b96e5687999b67ff9efed225963b916235",
+      "bytes": 105215,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v3/tt_16_2010_tt_btp.pdf",
+      "document_id": "tt_16_2010_tt_btp",
+      "sha256": "6c7afaee161851ea907d4e68c32ea7a35bbd0d8daf7d388996b59fd6bf3e02e1",
+      "bytes": 66035,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v3/tt_22_2013_tt_btp.pdf",
+      "document_id": "tt_22_2013_tt_btp",
+      "sha256": "a9876a8f1ac9b7ec4845b03d9a8518da0870ff6984de2a08ef189e30481bd3e2",
+      "bytes": 80021,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "sha256": "17630b71f7b084977d67f89009b8b358a7ba8cb3713c1a4865e9f4e01f0fc03c",
+      "bytes": 70889,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
       "document_id": "nd_07_2025_nd_cp",
       "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",

@@ -3093,5 +3093,189 @@
     "parsed_json_path": "parser/parsed_jsons/nd_301_2026_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_301_2026_nd_cp.txt",
     "parsed_json_sha256": "18981c62c6d0ce356a3b9475b5703d8accee86f4b5a9bcc687714896616c87ef"
+  },
+  {
+    "title": "quy định chi tiết thi hành một số điều của Luật hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
+    "document_type": "Nghị định",
+    "issue_date": "2013-03-28",
+    "effective_date": "2013-05-15",
+    "issuing_body": "Chính Phủ",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2013-nd-cp-2851/1740.htm",
+    "document_id": "nd_24_2013_nd_cp",
+    "document_number": "24/2013/NĐ-CP",
+    "file_code": "ND28",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2016-01-01",
+    "temporal_scope": "requires_review",
+    "provision_status": "requires_review",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "origin": "corpus_v3_strict_filtered",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/corpus_v3/nd_24_2013_nd_cp.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/3/2851/1740-1-2013185-186-242013nd-cppdf",
+        "role": "Unmodified official gazette PDF",
+        "sha256": "25ff542b62d03ca42b454a48494a84662e315ed04e1d33529708ff941d2b8f74"
+      },
+      {
+        "source_path": "data/source_documents/corpus_v3/nd_24_2013_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2013-nd-cp-2851/1740.htm",
+        "role": "Official metadata source snapshot",
+        "sha256": "23a1c052717883486784d6350d492b6506611140177d22ee1178c9a997f4cfd5"
+      }
+    ],
+    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v3/nd_24_2013_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_24_2013_nd_cp.json",
+    "normalization_note": "Letter 612x792 pt, Times 12 pt; giữ thứ tự từ/số của nội dung; nguồn gốc lưu riêng. Phụ lục/chữ ký ngoài cấu trúc parser được lưu sidecar.",
+    "effectivity_evidence": {
+      "document_id": "nd_123_2015_nd_cp",
+      "note": "NĐ126/2014 Điều65 bãi bỏ từ 15/02/2015 với ngoại lệ; các Điều3,5,44 còn lại bị NĐ123/2015 bãi bỏ từ 01/01/2016. Không dùng khoảng cấp văn bản để suy ra hiệu lực từng Điều."
+    },
+    "ingest_pdf_sha256": "8a41561eb3bf3934d1302760d8e906b96e5687999b67ff9efed225963b916235",
+    "technical_pipeline_status": "normalized_pdf_cleaner_parser_schema_passed",
+    "download_status": "normalized official source; sha256:8a41561eb3bf3934d1302760d8e906b96e5687999b67ff9efed225963b916235",
+    "normalized_source_text_sha256": "ca743e4d086c43e292a6e5541534f5c060946639da5bf1f2bc6376eb056a308e",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "7691a676c3ee43eba27fb224771da59bc42ad5e4439950b75515875b53b82fac",
+    "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
+  },
+  {
+    "title": "quy định chi tiết và hướng dẫn thi hành một số điều của Nghị định số 24/2013/NĐ-CP ngày 28 tháng 3 năm 2013 của Chính phủ quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
+    "document_type": "Thông tư",
+    "issue_date": "2013-12-31",
+    "effective_date": "2014-02-17",
+    "issuing_body": "Bộ Tư Pháp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+    "document_id": "tt_22_2013_tt_btp",
+    "document_number": "22/2013/TT-BTP",
+    "file_code": "TT22",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2015-04-10",
+    "temporal_scope": "document_level",
+    "provision_status": "requires_review",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "origin": "corpus_v3_strict_filtered",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/corpus_v3/tt_22_2013_tt_btp.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/12/2852/1122-1-2014119-120-222013tt-btppdf",
+        "role": "Unmodified official gazette PDF",
+        "sha256": "affe74884b36e86e0d92304840ea75d7e66d7be97a2993d79a6b53184e7afd06"
+      },
+      {
+        "source_path": "data/source_documents/corpus_v3/tt_22_2013_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+        "role": "Official metadata source snapshot",
+        "sha256": "a33273084b1df9f6c82143caea6c5623e7e4ae4d2aab48967dbf3848a4cf3580"
+      }
+    ],
+    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v3/tt_22_2013_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_22_2013_tt_btp.json",
+    "normalization_note": "Letter 612x792 pt, Times 12 pt; giữ thứ tự từ/số của nội dung; nguồn gốc lưu riêng. Phụ lục/chữ ký ngoài cấu trúc parser được lưu sidecar.",
+    "effectivity_evidence": {
+      "document_id": "tt_02a_2015_tt_btp",
+      "article": "17",
+      "clause": "4",
+      "effective_date_article": "17.1"
+    },
+    "ingest_pdf_sha256": "a9876a8f1ac9b7ec4845b03d9a8518da0870ff6984de2a08ef189e30481bd3e2",
+    "technical_pipeline_status": "normalized_pdf_cleaner_parser_schema_passed",
+    "download_status": "normalized official source; sha256:a9876a8f1ac9b7ec4845b03d9a8518da0870ff6984de2a08ef189e30481bd3e2",
+    "normalized_source_text_sha256": "193488ecdc6a84e31b3ac9643b31a4348a01f9f803a1de8bb443dbbda818322a",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "2b81b8bc9484c6f71c38d5fb30029d9a99ff9ef731691ee915f62a07540e86c6",
+    "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
+  },
+  {
+    "title": "hướng dẫn việc ghi vào sổ hộ tịch việc ly hôn đã tiến hành ở nước ngoài",
+    "document_type": "Thông tư",
+    "issue_date": "2010-10-08",
+    "effective_date": "2010-12-01",
+    "issuing_body": "Bộ Tư Pháp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-16-2010-tt-btp-3751/1617.htm",
+    "document_id": "tt_16_2010_tt_btp",
+    "document_number": "16/2010/TT-BTP",
+    "file_code": "TT23",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2015-04-10",
+    "temporal_scope": "document_level",
+    "provision_status": "requires_review",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "origin": "corpus_v3_strict_filtered",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/corpus_v3/tt_16_2010_tt_btp.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/10/3751/1617-1-2010601-602-162010tt-btppdf",
+        "role": "Unmodified official gazette PDF",
+        "sha256": "c757fbb9af94c1b70a878408e74fa93f0fcd00732a6c40155896026cefcda936"
+      },
+      {
+        "source_path": "data/source_documents/corpus_v3/tt_16_2010_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-16-2010-tt-btp-3751/1617.htm",
+        "role": "Official metadata source snapshot",
+        "sha256": "64e62253647082653b567ff908473e22306b29e47c82c354c8279db873b6ab42"
+      }
+    ],
+    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v3/tt_16_2010_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_16_2010_tt_btp.json",
+    "normalization_note": "Letter 612x792 pt, Times 12 pt; giữ thứ tự từ/số của nội dung; nguồn gốc lưu riêng. Phụ lục/chữ ký ngoài cấu trúc parser được lưu sidecar.",
+    "effectivity_evidence": {
+      "document_id": "tt_02a_2015_tt_btp",
+      "article": "17",
+      "clause": "4",
+      "effective_date_article": "17.1"
+    },
+    "ingest_pdf_sha256": "6c7afaee161851ea907d4e68c32ea7a35bbd0d8daf7d388996b59fd6bf3e02e1",
+    "technical_pipeline_status": "normalized_pdf_cleaner_parser_schema_passed",
+    "download_status": "normalized official source; sha256:6c7afaee161851ea907d4e68c32ea7a35bbd0d8daf7d388996b59fd6bf3e02e1",
+    "normalized_source_text_sha256": "fa04175b0e83b8db63239e73fb9ae72b68a71e5a578c49111d43ee4ea21f90e4",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "3a578b067131b2378469599b457234b632911774dd362aee41f08bb6d5b03634",
+    "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
+  },
+  {
+    "title": "hướng dẫn việc theo dõi tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi nước ngoài và bảo vệ trẻ em trong trường hợp cần thiết",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-02-22",
+    "effective_date": "2016-04-06",
+    "issuing_body": "Bộ Lao Động - Thương Binh Và Xã Hội - Bộ Tư Pháp - Bộ Ngoại Giao - Bộ Công An",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+    "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+    "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+    "file_code": "TTLT01",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "temporal_scope": "requires_review",
+    "provision_status": "requires_review",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "origin": "corpus_v3_strict_filtered",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/2/19228/13711-1-032016ttlt-btp-bng-bca-bldtbxh13768pdf",
+        "role": "Unmodified official gazette PDF",
+        "sha256": "1ff3ba556a25126991b10c8136799fa1cf495f7be734b0ab56bd2d8af930f4fc"
+      },
+      {
+        "source_path": "data/source_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+        "role": "Official metadata source snapshot",
+        "sha256": "e89ba7e7cf450be0d04557178ca7dba563dfd6db587c1851153c42f81903c5ea"
+      }
+    ],
+    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json",
+    "normalization_note": "Letter 612x792 pt, Times 12 pt; giữ thứ tự từ/số của nội dung; nguồn gốc lưu riêng. Phụ lục/chữ ký ngoài cấu trúc parser được lưu sidecar.",
+    "ingest_pdf_sha256": "17630b71f7b084977d67f89009b8b358a7ba8cb3713c1a4865e9f4e01f0fc03c",
+    "technical_pipeline_status": "normalized_pdf_cleaner_parser_schema_passed",
+    "download_status": "normalized official source; sha256:17630b71f7b084977d67f89009b8b358a7ba8cb3713c1a4865e9f4e01f0fc03c",
+    "normalized_source_text_sha256": "53d1fca630d688029334b651297dbf0be9d0acb27de0422270bba37728b976ea",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "9fd291c356a92b4bf8bcc1ec8e9569fd950153796351fc379fcf2f85c90294ef",
+    "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
   }
 ]

@@ -1,3 +1,7 @@
 # Preserve original legal PDFs and distributable archives byte-for-byte.
 *.pdf binary
 *.zip binary
+
+# Preserve archived official source bytes used by corpus-v3 SHA-256 provenance.
+data/source_documents/corpus_v3/*.html -text
+data/source_documents/corpus_v3/*.DOC binary

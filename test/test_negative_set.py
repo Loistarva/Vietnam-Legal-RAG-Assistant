@@ -355,4 +355,14 @@ def test_default_ci_validator_accepts_current_corpus_and_version_aliases():
                             cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stdout + result.stderr
     report = json.loads(result.stdout)
-    assert report["issues"] == [] and report["warnings"] == []
+    assert report["issues"] == []
+    expected_warnings = []
+    for relative in ("data/reference/document_versions.json", "data/chunking_output/chunks.jsonl"):
+        current_text = (ROOT / relative).read_text(encoding="utf-8-sig")
+        pinned_text = baseline_bytes(relative).decode("utf-8-sig")
+        parse = read_jsonl if relative.endswith(".jsonl") else strict_json
+        if canonical_hash(parse(current_text)) != canonical_hash(parse(pinned_text)):
+            expected_warnings.append(
+                f"Working dataset differs from pinned baseline: {relative}; coverage re-checked on current checkout"
+            )
+    assert report["warnings"] == expected_warnings

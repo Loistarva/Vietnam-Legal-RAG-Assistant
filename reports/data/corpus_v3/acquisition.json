@@ -1,0 +1,80 @@
+[
+  {
+    "number": "69/2006/NĐ-CP",
+    "document_id": "nd_69_2006_nd_cp",
+    "initial_acquisition_error": "<urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>",
+    "source_url": "https://moit.gov.vn/van-ban-phap-luat/van-ban-phap-quy/-nghi-dinh-cua-chinh-phu-ve-viec-sua-doi-bo-sung-mot-so-dieu4.html",
+    "html_path": "data/source_documents/corpus_v3/nd_69_2006_nd_cp.moit.html",
+    "document_path": "data/source_documents/corpus_v3/nd_69_2006_nd_cp.DOC",
+    "archive_path": "data/source_documents/corpus_v3/nd_69_2006_nd_cp.zip",
+    "acquisition_status": "official_word_archive_downloaded"
+  },
+  {
+    "document_id": "nd_24_2013_nd_cp",
+    "number": "24/2013/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2013-nd-cp-2851/1740.htm",
+    "html_path": "data/source_documents/corpus_v3/nd_24_2013_nd_cp.html",
+    "links": [
+      {
+        "url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRtzFP4bl-P6xHtQApSiAGhT86aFIojU7i-qdQLL1Bh4qipfYP_Xbu1fVXxVnvmcnW&file_name=2013_185+%2b+186-24_2013_N%c4%90-CP.pdf",
+        "text": "2013_185 + 186-24_2013_NĐ-CP.pdf"
+      }
+    ],
+    "title": "Nghị định số 24/2013/NĐ-CP quy định chi tiết thi hành một số điều của Luật hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài.",
+    "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/3/2851/1740-1-2013185-186-242013nd-cppdf",
+    "pdf_path": "data/source_pdfs/corpus_v3/nd_24_2013_nd_cp.pdf",
+    "pdf_sha256": "25ff542b62d03ca42b454a48494a84662e315ed04e1d33529708ff941d2b8f74",
+    "bytes": 373279
+  },
+  {
+    "document_id": "tt_22_2013_tt_btp",
+    "number": "22/2013/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+    "html_path": "data/source_documents/corpus_v3/tt_22_2013_tt_btp.html",
+    "links": [
+      {
+        "url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRlTIQjReThkjLqgqkGuMvJ3lUPTZi-wxcRgVbxk0EhtSabqq3GY_zptjN_-Ttdfxi&file_name=2014_119+%2b+120-22_2013_TT-BTP.pdf",
+        "text": "2014_119 + 120-22_2013_TT-BTP.pdf"
+      }
+    ],
+    "title": "Thông tư số 22/2013/TT-BTP quy định chi tiết và hướng dẫn thi hành một số điều của Nghị định số 24/2013/NĐ-CP ngày 28 tháng 3 năm 2013 của Chính phủ quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài.",
+    "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/12/2852/1122-1-2014119-120-222013tt-btppdf",
+    "pdf_path": "data/source_pdfs/corpus_v3/tt_22_2013_tt_btp.pdf",
+    "pdf_sha256": "affe74884b36e86e0d92304840ea75d7e66d7be97a2993d79a6b53184e7afd06",
+    "bytes": 357806
+  },
+  {
+    "document_id": "tt_16_2010_tt_btp",
+    "number": "16/2010/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-16-2010-tt-btp-3751/1617.htm",
+    "html_path": "data/source_documents/corpus_v3/tt_16_2010_tt_btp.html",
+    "links": [
+      {
+        "url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRmnpE8nOt8dU7VrjR_c3jXflWMzMc-kg5yjnC6rM1W3yCS4C71TMSRtiQoU1XpOJ5&file_name=2010_601%2b+602-16_2010_TT-BTP.pdf",
+        "text": "2010_601+ 602-16_2010_TT-BTP.pdf"
+      }
+    ],
+    "title": "Thông tư số 16/2010/TT-BTP hướng dẫn việc ghi vào sổ hộ tịch việc ly hôn đã tiến hành ở nước ngoài.",
+    "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/10/3751/1617-1-2010601-602-162010tt-btppdf",
+    "pdf_path": "data/source_pdfs/corpus_v3/tt_16_2010_tt_btp.pdf",
+    "pdf_sha256": "c757fbb9af94c1b70a878408e74fa93f0fcd00732a6c40155896026cefcda936",
+    "bytes": 292105
+  },
+  {
+    "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+    "number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+    "html_path": "data/source_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.html",
+    "links": [
+      {
+        "url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbR8f2fnEuOheuk2WGqWOrre2TjlH-kEOhAzaeRGqnUO0fr7ImXW_tmuFq0dA7GAdVpbLp7m41WTavy90O7HlOYgw~~&file_name=03_2016_TTLT-BTP-BNG-BCA-BL%c4%90TBXH(13768).pdf",
+        "text": "03_2016_TTLT-BTP-BNG-BCA-BLĐTBXH(13768).pdf"
+      }
+    ],
+    "title": "Thông tư liên tịch số 03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH hướng dẫn việc theo dõi tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi nước ngoài và bảo vệ trẻ em trong trường hợp cần thiết.",
+    "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/2/19228/13711-1-032016ttlt-btp-bng-bca-bldtbxh13768pdf",
+    "pdf_path": "data/source_pdfs/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+    "pdf_sha256": "1ff3ba556a25126991b10c8136799fa1cf495f7be734b0ab56bd2d8af930f4fc",
+    "bytes": 352798
+  }
+]

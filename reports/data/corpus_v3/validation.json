@@ -1,0 +1,89 @@
+{
+  "verified_on": "2026-11-17",
+  "scope_candidates": 34,
+  "normalized_documents": 5,
+  "new_active_documents": 4,
+  "held_documents": 1,
+  "active_registry_documents": 61,
+  "parsed_documents": 61,
+  "parents": 2170,
+  "children": 4995,
+  "duplicates": 0,
+  "all_4716_previous_chunk_payloads_preserved": true,
+  "parent_child_links": "PASS",
+  "length_limits": "PASS",
+  "cleaner_parser_schema": "5/5 staged; 4 promoted",
+  "production_es_qdrant_reindex_performed": false,
+  "new_runtime_code_changed": false,
+  "source_sha256_verified": true,
+  "legal_temporal_review_complete": false,
+  "pdf_layout": [
+    {
+      "document_id": "nd_24_2013_nd_cp",
+      "pages": 21,
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12,
+      "out_of_bounds_text": 0,
+      "first_last_page_visual_review": "PASS"
+    },
+    {
+      "document_id": "tt_22_2013_tt_btp",
+      "pages": 9,
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12,
+      "out_of_bounds_text": 0,
+      "first_last_page_visual_review": "PASS"
+    },
+    {
+      "document_id": "tt_16_2010_tt_btp",
+      "pages": 4,
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12,
+      "out_of_bounds_text": 0,
+      "first_last_page_visual_review": "PASS"
+    },
+    {
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "pages": 6,
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12,
+      "out_of_bounds_text": 0,
+      "first_last_page_visual_review": "PASS"
+    },
+    {
+      "document_id": "nd_69_2006_nd_cp",
+      "pages": 7,
+      "page_size_pt": [
+        612,
+        792
+      ],
+      "font_size_pt": 12,
+      "out_of_bounds_text": 0,
+      "first_last_page_visual_review": "PASS"
+    }
+  ],
+  "parser_cli_succeeded": 5,
+  "parser_cli_failed": 0,
+  "held_document_chunker_smoke": "24 parents, 38 children; not included in active corpus",
+  "full_suite": {
+    "passed": 1902,
+    "skipped": 1,
+    "subtests_passed": 210,
+    "failures": 0,
+    "errors": 0
+  },
+  "runtime_parser_cleaner_chunker_schema_workflow_unchanged": true,
+  "new_test_change": "Default negative validator regression now verifies exact warnings for corpus changes against pinned snapshot; coverage errors remain fatal."
+}

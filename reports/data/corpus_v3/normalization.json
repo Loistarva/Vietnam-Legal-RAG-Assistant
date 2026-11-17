@@ -1,0 +1,64 @@
+[
+  {
+    "document_id": "nd_69_2006_nd_cp",
+    "expected_articles": 3,
+    "pages": 7,
+    "status": "passed",
+    "articles": 3,
+    "clauses": 18,
+    "source_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "schema": "PASS",
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "nd_24_2013_nd_cp",
+    "expected_articles": 45,
+    "pages": 21,
+    "status": "passed",
+    "articles": 45,
+    "clauses": 137,
+    "source_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "schema": "PASS",
+    "warnings": []
+  },
+  {
+    "document_id": "tt_22_2013_tt_btp",
+    "expected_articles": 19,
+    "pages": 9,
+    "status": "passed",
+    "articles": 19,
+    "clauses": 54,
+    "source_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "schema": "PASS",
+    "warnings": []
+  },
+  {
+    "document_id": "tt_16_2010_tt_btp",
+    "expected_articles": 10,
+    "pages": 4,
+    "status": "passed",
+    "articles": 10,
+    "clauses": 22,
+    "source_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "schema": "PASS",
+    "warnings": []
+  },
+  {
+    "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+    "expected_articles": 22,
+    "pages": 6,
+    "status": "passed",
+    "articles": 22,
+    "clauses": 52,
+    "source_token_roundtrip": "PASS",
+    "cleaner": "PASS",
+    "schema": "PASS",
+    "warnings": []
+  }
+]

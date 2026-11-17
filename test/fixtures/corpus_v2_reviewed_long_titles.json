@@ -523,6 +523,19 @@
         }
       ],
       "reason": "Exact title checked against archived source PDF; exceeds the 40-word heuristic without absorbing clause text."
+    },
+    {
+      "txt_stem": "tt_22_2013_tt_btp",
+      "article_number": "4",
+      "expected_title": "Chấm dứt giải quyết hồ sơ đăng ký kết hôn; nhận cha, mẹ, con; cấp Giấy xác nhận tình trạng hôn nhân; ghi vào sổ việc kết hôn, nhận cha, mẹ, con đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/corpus_v3/tt_22_2013_tt_btp.pdf",
+          "sha256": "affe74884b36e86e0d92304840ea75d7e66d7be97a2993d79a6b53184e7afd06"
+        }
+      ],
+      "reason": "Tiêu đề Điều 4 TT22/2013 dài thật, đối chiếu thứ tự từ/số với PDF Công báo gốc; giữ nguyên tiêu đề và ngưỡng chung 40 từ."
     }
   ]
 }

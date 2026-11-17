@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Sửa đổi, bổ sung một số điều của Nghị định số 68/2002/NĐ-CP về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
+    "document_type": "Nghị định",
+    "issue_date": "2006-07-21",
+    "effective_date": "2006-08-14",
+    "issuing_body": "Chính phủ",
+    "source_url": "https://moit.gov.vn/van-ban-phap-luat/van-ban-phap-quy/-nghi-dinh-cua-chinh-phu-ve-viec-sua-doi-bo-sung-mot-so-dieu4.html",
+    "document_id": "nd_69_2006_nd_cp",
+    "document_number": "69/2006/NĐ-CP",
+    "file_code": "ND27",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2013-05-15",
+    "temporal_scope": "requires_review",
+    "provision_status": "requires_review",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "origin": "corpus_v3_strict_filtered",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/corpus_v3/nd_69_2006_nd_cp.zip",
+        "source_url": "https://moit.gov.vn/upload/2005517/20210623/693-69_2006_ND-CP.zip",
+        "role": "Official ministry ZIP containing original Word document",
+        "sha256": "0d1360d0a31c35967468a19ec7d8d16b8ba400ec5bf1d36ae8243c2ffcce5a7e"
+      },
+      {
+        "source_path": "data/source_documents/corpus_v3/nd_69_2006_nd_cp.DOC",
+        "role": "Word document extracted byte-for-byte from official ZIP",
+        "sha256": "ec9a1ebc76cfde3ca47287a544867c1d0e535cd404a5487b07bb74a5351c70ad"
+      }
+    ],
+    "ingest_pdf_path": "data/staging/corpus_v3/hold/nd_69_2006_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_69_2006_nd_cp.json",
+    "normalization_note": "Letter 612x792 pt, Times 12 pt; giữ thứ tự từ/số của nội dung; nguồn gốc lưu riêng. Phụ lục/chữ ký ngoài cấu trúc parser được lưu sidecar.",
+    "effectivity_evidence": {
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=15754",
+      "note": "CSDL thể hiện hết hiệu lực toàn bộ 15/05/2013; chuỗi bãi bỏ từng phần trước đó cần rà soát."
+    },
+    "ingest_pdf_sha256": "7bbd4a3bb68d9bfdde0d086ca6b38e85bca8d600bfc5f0ff881906ec97443fec",
+    "technical_pipeline_status": "normalized_roundtrip_passed_held_for_effectivity_review",
+    "download_status": "normalized official source; sha256:7bbd4a3bb68d9bfdde0d086ca6b38e85bca8d600bfc5f0ff881906ec97443fec",
+    "normalized_source_text_sha256": "8780b7c4ecddc328559c9ed8e9b46a838a00f9f1b541d782fc9038a8970cf6e8",
+    "production_ingest_allowed": false,
+    "hold_reason": "NĐ19/2011 Điều51.2 dẫn Khoản8–13 Điều2 NĐ69/2006, trong khi bản Word chính thức và toàn văn CSDL trình bày sửa đổi ở Điều1. Không tự sửa nội dung hoặc tự gán phạm vi bãi bỏ. Cần rà soát cấp Khoản và các giai đoạn áp dụng trước khi index.",
+    "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
+  }
+]
