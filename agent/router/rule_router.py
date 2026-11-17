@@ -18,7 +18,7 @@ from enum import Enum
 from typing import Sequence
 
 
-CLASSIFIER_VERSION = "rule_router_v3"
+CLASSIFIER_VERSION = "rule_router_v4_1"
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -192,6 +192,34 @@ def _has_any_term(query: str, unaccented_query: str, terms: Sequence[str]) -> bo
     )
 
 
+_HNGD_FAMILY_RELATIONS = (
+    "anh chị em", "anh em ruột", "chị em ruột", "ông bà", "ông bà nội",
+    "ông bà ngoại", "cha mẹ", "bố mẹ", "con chưa thành niên",
+    "thành viên gia đình", "thành viên trong gia đình", "người trong gia đình",
+)
+_HNGD_FAMILY_TOPICS = (
+    "nuôi dưỡng", "chăm sóc", "giáo dục", "phụng dưỡng", "cấp dưỡng", "chu cấp",
+    "đại diện", "giám hộ", "danh dự", "nhân phẩm", "uy tín",
+)
+_HNGD_LEGAL_CONTEXT = (
+    "pháp luật", "theo quy định", "quyền", "nghĩa vụ", "trách nhiệm",
+    "trường hợp", "quy định", "phải", "có được", "được quyền",
+)
+
+
+def _has_contextual_hngd_signal(query: str, unaccented_query: str) -> bool:
+    """Require family relationship + family-law topic + legal context.
+
+    This avoids treating words such as ``đại diện`` or ``giám hộ`` alone as
+    sufficient proof that a question belongs to family law.
+    """
+    return (
+        _has_any_term(query, unaccented_query, _HNGD_FAMILY_RELATIONS)
+        and _has_any_term(query, unaccented_query, _HNGD_FAMILY_TOPICS)
+        and _has_any_term(query, unaccented_query, _HNGD_LEGAL_CONTEXT)
+    )
+
+
 def _parse_as_of_date(value: str | date | datetime | None) -> date | None:
     if value is None or value == "":
         return None
@@ -294,6 +322,14 @@ _HNGD_TERMS = (
     "chế độ tài sản",
     "tài sản chung của vợ chồng",
     "tài sản riêng của vợ chồng",
+    "tài sản chung",
+    "tài sản riêng",
+    "của chung",
+    "tài sản chung là quyền sử dụng đất",
+    "tiền lương của chồng",
+    "lương của chồng",
+    "lao động của vợ trong gia đình",
+    "lao động của vợ khi chia tài sản chung",
     "quan hệ vợ chồng",
     "quyền và nghĩa vụ của vợ chồng",
     "xác định cha, mẹ, con",
@@ -303,22 +339,47 @@ _HNGD_TERMS = (
     "hôn nhân có yếu tố nước ngoài",
     "vợ chồng",
     "thời kỳ hôn nhân",
-    "tài sản chung",
-    "tài sản riêng",
-    "của chung",
-    "nuôi con",
     "thăm nom",
+    "nuôi con",
     "con nuôi",
     "con riêng",
     "bố dượng",
     "mẹ kế",
     "nhận cha, mẹ, con",
     "nhận cha mẹ con",
-    "hộ tịch",
-    "khai sinh",
+    "đăng ký khai sinh cho con",
+    "thủ tục đăng ký khai sinh",
+    "cha muốn nhận con",
+    "cha nhận con",
+    "hạn chế quyền đối với con chưa thành niên",
+    "tòa án hạn chế quyền cha mẹ",
+    "hạn chế quyền của cha mẹ đối với con",
+    "hạn chế quyền cha mẹ đối với con",
+    "cha mẹ bị hạn chế quyền đối với con",
+    "quyền của cha mẹ đối với con chưa thành niên",
+    "vợ chồng đại diện cho nhau",
+    "vợ đại diện cho chồng",
+    "chồng đại diện cho vợ",
+    "vợ có được đại diện cho chồng",
+    "chồng có được đại diện cho vợ",
+    "vợ hoặc chồng có thể đại diện",
+    "một bên vợ hoặc chồng đại diện cho bên kia",
+    "đại diện cho nhau trong giao dịch",
+    "đại diện cho nhau trong hoạt động kinh doanh",
+    "đại diện giữa vợ và chồng",
+    "một bên vợ chồng đại diện",
+    "giao dịch do vợ chồng xác lập",
+    "kinh doanh chung của vợ chồng",
+    "hoạt động kinh doanh chung của vợ chồng",
+    "một bên vợ hoặc chồng không thể tự mình xác lập giao dịch",
+    "bên kia có thể đại diện trong trường hợp nào",
+    "vợ hoặc chồng có thể nhân danh người kia thực hiện giao dịch",
+    "giao dịch liên quan đến hoạt động kinh doanh chung",
+    "tài sản chung trong kinh doanh",
+    "tài sản chung và nghĩa vụ chung",
+    "thỏa thuận chia tài sản chung",
     "người thứ ba ngay tình",
     "trách nhiệm liên đới",
-    "hạn chế quyền đối với con chưa thành niên",
     "tình trạng hôn nhân",
     "án phí ly hôn",
     "công nhận thuận tình ly hôn",
@@ -409,6 +470,83 @@ _OUT_OF_SCOPE_TERMS = (
     "khung hình phạt",
 )
 
+# Topic groups use contextual legal phrases, not isolated words. Keeping these
+# grouped makes domain coverage reviewable and reduces accidental matches.
+_OUT_OF_SCOPE_TOPIC_GROUPS = {
+    "intellectual_property": (
+        "quyền tác giả", "bản quyền tác phẩm", "nhãn hiệu đã đăng ký",
+        "sở hữu trí tuệ", "sáng chế được bảo hộ", "xâm phạm nhãn hiệu",
+    ),
+    "immigration": (
+        "xin visa", "visa nhập cảnh", "thủ tục visa", "thủ tục xin visa",
+        "thủ tục xin cấp thị thực", "xin cấp thị thực", "thị thực nhập cảnh",
+        "người nước ngoài nhập cảnh", "nhập cảnh việt nam", "đăng ký cư trú",
+        "đưa trẻ ra nước ngoài", "đưa con ra nước ngoài", "du học ở nước ngoài",
+    ),
+    "labor": (
+        "thời giờ làm thêm", "giới hạn làm thêm giờ", "làm thêm giờ",
+        "tăng ca theo luật lao động", "hợp đồng lao động",
+    ),
+    "tax": (
+        "kê khai và nộp thuế", "nghĩa vụ kê khai thuế", "nộp thuế",
+        "thuế kinh doanh trực tuyến", "nghĩa vụ thuế",
+        "thuế chuyển nhượng", "thuế khi chuyển nhượng",
+        "thuế chuyển nhượng bất động sản", "thuế thu nhập từ chuyển nhượng",
+        "kê khai thuế chuyển nhượng", "nộp thuế chuyển nhượng",
+    ),
+    "traffic": (
+        "không đội mũ bảo hiểm", "xử phạt vi phạm giao thông",
+        "quyết định xử phạt", "giấy phép lái xe", "biên bản vi phạm giao thông",
+        "xử phạt nồng độ cồn", "vi phạm nồng độ cồn", "mức phạt nồng độ cồn",
+        "lái xe sau khi uống rượu bia", "điều khiển phương tiện sau khi uống rượu bia",
+        "điều khiển xe sau khi sử dụng rượu bia", "đã uống rượu bia khi lái xe",
+        "lái xe sau khi uống rượu",
+    ),
+    "environment": (
+        "quy chuẩn tiếng ồn", "tiếng ồn vượt quy chuẩn", "ô nhiễm môi trường",
+        "xả khí thải", "xả thải gây ô nhiễm", "xử phạt môi trường",
+    ),
+    "corporate": (
+        "công ty trách nhiệm hữu hạn", "công ty tnhh", "thành viên công ty tnhh",
+        "chào bán phần vốn góp", "chào bán vốn góp", "tranh chấp phần vốn góp",
+        "tranh chấp vốn góp", "chuyển nhượng phần vốn góp", "chuyển nhượng vốn góp",
+        "mua lại phần vốn góp", "thành viên góp vốn", "góp vốn vào công ty",
+        "phần vốn góp trong công ty", "quyền biểu quyết thành viên",
+        "quyền biểu quyết của thành viên", "cổ phần doanh nghiệp",
+        "cổ phần trong công ty", "tranh chấp cổ phần", "chuyển nhượng cổ phần",
+        "quyền biểu quyết của cổ đông", "cổ đông công ty",
+    ),
+    "land_acquisition": (
+        "thu hồi đất", "quyết định thu hồi đất", "đất đang bị thu hồi",
+        "tranh chấp đất với hàng xóm", "tranh chấp ranh giới đất",
+        "hàng xóm lấn đất", "hàng xóm lấn sang đất", "ranh giới đất với hàng xóm",
+        "lấn chiếm đất của hàng xóm", "tranh chấp mốc giới đất",
+        "đất đang có tranh chấp với hàng xóm",
+    ),
+    "consumer_protection": (
+        "luật bảo vệ quyền lợi người tiêu dùng",
+        "theo luật bảo vệ quyền lợi người tiêu dùng",
+        "yêu cầu bồi thường theo luật bảo vệ quyền lợi người tiêu dùng",
+        "bồi thường cho người tiêu dùng", "người tiêu dùng yêu cầu bồi thường",
+        "người tiêu dùng có thể yêu cầu bồi thường", "mua phải hàng hóa lỗi",
+        "hàng hóa lỗi theo quy định", "yêu cầu bồi thường khi mua phải hàng hóa lỗi",
+        "hàng hóa có khuyết tật", "sản phẩm bị lỗi gây thiệt hại",
+        "tranh chấp với bên bán hàng",
+    ),
+    "criminal_property": (
+        "hành vi chiếm đoạt tài sản", "tội chiếm đoạt tài sản",
+        "lừa đảo chiếm đoạt tài sản", "chiếm đoạt tiền",
+        "chiếm đoạt tài sản", "bị chiếm đoạt tài sản",
+    ),
+}
+
+
+def _has_out_of_scope_topic(query: str, unaccented_query: str) -> bool:
+    return any(
+        _has_any_term(query, unaccented_query, phrases)
+        for phrases in _OUT_OF_SCOPE_TOPIC_GROUPS.values()
+    )
+
 _EDUCATION_STATEMENT = re.compile(
     r"\b(?:tôi|em|mình)\s+(?:đang\s+)?(?:học|nghiên cứu)\s+(?:môn\s+)?luật\b"
 )
@@ -444,7 +582,7 @@ _NEGATED_HNGD_SCOPE = re.compile(
     re.IGNORECASE,
 )
 _CLEAR_NONLEGAL_SIGNAL = re.compile(
-    r"\b(?:xin chào|chào bạn|thời tiết|nhiệt độ|mưa hôm nay|"
+    r"\b(?:xin chào|thời tiết|nhiệt độ|mưa hôm nay|"
     r"hồ sơ xin việc|thủ tục nhập học|(?:viết (?:giúp tôi )?(?:một )?)?(?:bài thơ|lời chúc)|"
     r"email xin nghỉ phép|"
     r"mua quà sinh nhật|gợi ý (?:một )?quà sinh nhật|quà sinh nhật|"
@@ -458,6 +596,66 @@ _CLEAR_NONLEGAL_SIGNAL = re.compile(
 _CLEAR_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_CLEAR_NONLEGAL_SIGNAL.pattern), re.IGNORECASE
 )
+_PRACTICAL_NONLEGAL_INTENTS = (
+    # Programming requests, including natural wording such as "viết giúp tôi một hàm Python".
+    re.compile(
+        r"\b(?:viết|tạo|sửa|debug|xây dựng)\s+(?:(?:giúp\s+)?(?:tôi|em|mình)\s+)?"
+        r"(?:(?:một|một đoạn)\s+)?(?:đoạn\s+)?(?:mã|code|hàm|chương trình)\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\b(?:hàm|vòng lặp|loop|python|mã nguồn)\b.{0,60}"
+        r"\b(?:python|for|while|lập trình|chạy thử|debug)\b",
+        re.IGNORECASE,
+    ),
+    re.compile(r"\b(?:lên|lập|xếp)\s+(?:lịch|kế hoạch|danh sách)\s+.{0,50}\b(?:tham quan|du lịch|đi chơi|cắm trại)\b", re.IGNORECASE),
+    re.compile(r"\b(?:chuẩn bị|cần chuẩn bị|mang theo)\s+.{0,50}\b(?:cắm trại|đi trại|dã ngoại)\b", re.IGNORECASE),
+    re.compile(r"\b(?:đi cắm trại|cắm trại)\b.{0,50}\b(?:cần gì|chuẩn bị gì|mang gì|danh sách đồ)\b", re.IGNORECASE),
+    re.compile(r"\b(?:vì sao|tại sao|giải thích)\s+.{0,50}\b(?:phát sáng|khí quyển|hiện tượng|sao băng)\b", re.IGNORECASE),
+    re.compile(r"\b(?:cây|lá cây|trầu bà)\s+.{0,35}\b(?:vàng lá|héo|rụng lá)\b", re.IGNORECASE),
+    re.compile(r"\b(?:cách\s+)?(?:trồng|chăm sóc|gieo trồng|gieo hạt)\s+(?:cây\s+)?[\w ]{0,30}\b(?:húng quế|rau thơm|húng lủi|bạc hà|húng)\b", re.IGNORECASE),
+)
+_PRACTICAL_NONLEGAL_INTENTS_UNACCENTED = tuple(
+    re.compile(strip_vietnamese_diacritics(pattern.pattern), re.IGNORECASE)
+    for pattern in _PRACTICAL_NONLEGAL_INTENTS
+)
+# Common everyday food/recommendation requests. Keep these patterns bounded to
+# ordinary-life intents; do not infer NON_LEGAL from an unknown query alone.
+_DAILY_NONLEGAL_INTENTS = (
+    re.compile(
+        r"^\s*(?:(?:hôm nay|ngày mai)\s+)?(?:(?:tôi|em|mình)\s+)?"
+        r"(?:nên\s+)?(?:ăn gì|ăn món gì|nấu món gì)[?.!\s]*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:gợi ý|đề xuất|tư vấn)\s+(?:(?:giúp\s+)?(?:tôi|em|mình)\s+)?"
+        r"(?:(?:một|vài)\s+)?(?:món ăn|quán ăn|nhà hàng)(?:\s+.*)?[?.!]*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:(?:tôi|em|mình)\s+)?(?:muốn|đang)\s+(?:tìm|chọn)\s+"
+        r"(?:món ăn|quán ăn|nhà hàng)(?:\s+.*)?[?.!]*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:(?:hãy|giúp tôi|giúp mình)\s+)?(?:lập|lên|gợi ý|tạo)\s+"
+        r"(?:một\s+)?thực đơn(?:\s+chay)?(?:\s+.{0,50})?[?.!]*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:(?:lập|lên|gợi ý)\s+)?thực đơn\s+chay(?:\s+.{0,50})?[?.!]*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:gợi ý|đề xuất)\s+(?:giúp\s+)?(?:tôi|em|mình)\s+"
+        r"(?:một\s+)?thực đơn(?:\s+chay)?(?:\s+.{0,50})?[?.!]*$",
+        re.IGNORECASE,
+    ),
+)
+_DAILY_NONLEGAL_INTENTS_UNACCENTED = tuple(
+    re.compile(strip_vietnamese_diacritics(pattern.pattern), re.IGNORECASE)
+    for pattern in _DAILY_NONLEGAL_INTENTS
+)
 _SOCIAL_NONLEGAL_SIGNAL = re.compile(
     r"^\s*(?:"
     r"xin chào(?: bạn)?"
@@ -469,11 +667,16 @@ _SOCIAL_NONLEGAL_SIGNAL = re.compile(
     r")[!.?\s]*$",
     re.IGNORECASE,
 )
+_SOCIAL_CHAT_INTENT = re.compile(
+    r"\b(?:xin chào|chào bạn)\b.{0,60}\b(?:trò chuyện|nói chuyện|tán gẫu)\b",
+    re.IGNORECASE,
+)
 _SOCIAL_NONLEGAL_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_SOCIAL_NONLEGAL_SIGNAL.pattern), re.IGNORECASE
 )
 _GENERAL_KNOWLEDGE_SIGNAL = re.compile(
-    r"^\s*thủ đô\s+(?:của\s+)?[\w\s]+?\s+là gì\s*[?!.]?\s*$",
+    r"^\s*(?:thủ đô\s+(?:của\s+)?[\w\s]+?\s+(?:là gì|là thành phố nào|ở đâu)|"
+    r"thành phố nào\s+(?:là|được coi là)\s+thủ đô(?:\s+của\s+[\w\s]+)?)\s*[?!.]?\s*$",
     re.IGNORECASE,
 )
 _GENERAL_KNOWLEDGE_SIGNAL_UNACCENTED = re.compile(
@@ -497,10 +700,15 @@ _GENERAL_BANKING_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_GENERAL_BANKING_SIGNAL.pattern), re.IGNORECASE
 )
 _INDEPENDENT_OUTSIDE_TOPIC = re.compile(
-    r"\b(?:và|đồng thời|ngoài ra|cùng với|kèm theo)\b.{0,100}\b(?:"
-    r"thuế|hình sự|hợp đồng lao động|doanh nghiệp|tranh chấp đất(?: đai)?|"
-    r"tranh chấp thừa kế|phân chia di sản|di chúc)\b"
-    r"|\b(?:tranh chấp đất(?: đai)?|phân chia di sản|tranh chấp thừa kế)\b",
+    r"\b(?:và|đồng thời|ngoài ra|cùng với|kèm theo|bên cạnh đó)\b.{0,140}\b(?:"
+    r"thuế(?:\s+chuyển nhượng|\s+thu nhập|\s+doanh nghiệp)?|hình sự|"
+    r"hợp đồng lao động|doanh nghiệp|cổ phần|cổ đông|vốn góp|"
+    r"tranh chấp đất(?: đai)?|ranh giới đất|hàng xóm lấn đất|"
+    r"người tiêu dùng|bồi thường theo luật|chiếm đoạt|lừa đảo|"
+    r"nồng độ cồn|xử phạt giao thông|tranh chấp thừa kế|phân chia di sản|di chúc)\b"
+    r"|\b(?:tranh chấp đất(?: đai)?|ranh giới đất|hàng xóm lấn đất|"
+    r"phân chia di sản|tranh chấp thừa kế|cổ phần doanh nghiệp|tranh chấp cổ phần|"
+    r"thuế chuyển nhượng|chiếm đoạt tài sản|lừa đảo chiếm đoạt tài sản)\b",
     re.IGNORECASE,
 )
 _INDEPENDENT_OUTSIDE_TOPIC_UNACCENTED = re.compile(
@@ -615,6 +823,7 @@ class RuleRouter:
             _has_any_term(query, unaccented_query, _HNGD_TERMS)
             or bool(_HNGD_CONTEXTUAL_SIGNAL.search(query))
             or bool(_HNGD_CONTEXTUAL_SIGNAL_UNACCENTED.search(unaccented_query))
+            or _has_contextual_hngd_signal(query, unaccented_query)
         )
         # A negated family-scope phrase used to clarify that a different
         # dispute is unrelated must not turn that dispute into an HNGD query.
@@ -625,7 +834,10 @@ class RuleRouter:
             _HNGD_TERMS,
         ):
             hngd_match = False
-        outside_match = _has_any_term(query, unaccented_query, _OUT_OF_SCOPE_TERMS)
+        outside_match = (
+            _has_any_term(query, unaccented_query, _OUT_OF_SCOPE_TERMS)
+            or _has_out_of_scope_topic(query, unaccented_query)
+        )
         explicit_legal = _has_any_term(query, unaccented_query, _LEGAL_SIGNALS) or bool(
             _LEGAL_CITATION.search(query)
             or _LEGAL_CITATION.search(unaccented_query)
@@ -684,6 +896,7 @@ class RuleRouter:
         independent_outside_topic = bool(
             _INDEPENDENT_OUTSIDE_TOPIC.search(query)
             or _INDEPENDENT_OUTSIDE_TOPIC_UNACCENTED.search(unaccented_query)
+            or _has_out_of_scope_topic(query, unaccented_query)
         )
         if (
             hngd_match
@@ -704,13 +917,32 @@ class RuleRouter:
                 (_CLEAR_NONLEGAL_SIGNAL, query),
                 (_CLEAR_NONLEGAL_SIGNAL_UNACCENTED, unaccented_query),
                 (_SOCIAL_NONLEGAL_SIGNAL, query),
-                (_SOCIAL_NONLEGAL_SIGNAL_UNACCENTED, unaccented_query),
+                (_SOCIAL_CHAT_INTENT, query),
+                # Greetings are checked only against the original text and
+                # only as a complete utterance. Accent folding can turn
+                # "chào bán" into "chao ban", colliding with "chào bạn".
                 (_GENERAL_KNOWLEDGE_SIGNAL, query),
                 (_GENERAL_KNOWLEDGE_SIGNAL_UNACCENTED, unaccented_query),
                 (_GENERAL_ENTERTAINMENT_SIGNAL, query),
                 (_GENERAL_ENTERTAINMENT_SIGNAL_UNACCENTED, unaccented_query),
                 (_GENERAL_BANKING_SIGNAL, query),
                 (_GENERAL_BANKING_SIGNAL_UNACCENTED, unaccented_query),
+            )
+        )
+        clear_nonlegal = clear_nonlegal or any(
+            pattern.search(text)
+            for pattern, text in zip(
+                _PRACTICAL_NONLEGAL_INTENTS + _PRACTICAL_NONLEGAL_INTENTS_UNACCENTED,
+                (query,) * len(_PRACTICAL_NONLEGAL_INTENTS)
+                + (unaccented_query,) * len(_PRACTICAL_NONLEGAL_INTENTS_UNACCENTED),
+            )
+        )
+        clear_nonlegal = clear_nonlegal or any(
+            pattern.search(text)
+            for pattern, text in zip(
+                _DAILY_NONLEGAL_INTENTS + _DAILY_NONLEGAL_INTENTS_UNACCENTED,
+                (query,) * len(_DAILY_NONLEGAL_INTENTS)
+                + (unaccented_query,) * len(_DAILY_NONLEGAL_INTENTS_UNACCENTED),
             )
         )
         # A clear general-chat phrase must never erase a legal request in the
