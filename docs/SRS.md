@@ -3,7 +3,7 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-SRS` |
-| Phiên bản | **2.1 — baseline, Tech Lead duyệt 16/11/2026; mục 5 sửa 17/11/2026** |
+| Phiên bản | **2.1.1 — làm rõ sau review 17/11/2026, kế thừa baseline 2.1 được Tech Lead duyệt 16/11/2026** |
 | Thay thế | SRS 1.0. Giữ nghĩa của FR1–FR5 và NFR1–NFR3; thêm mã con và nhóm mới. |
 | Kiến trúc tham chiếu | [`architecture/system_architecture.drawio`](../architecture/system_architecture.drawio). Phần Retrieval và Knowledge Base của sơ đồ là **chuẩn bắt buộc**; các phần khác là kiến trúc mục tiêu, được làm rõ trong tài liệu này. |
 | Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
@@ -15,6 +15,7 @@
 | 1.0 | — | FR1–FR5, giao diện, NFR1–NFR3. |
 | 2.1 | 16/11/2026 | Tech Lead duyệt làm baseline: mọi yêu cầu chuyển Approved, D-01–D-10 chốt theo phương án đề xuất. Đặc tả toàn hệ thống theo sơ đồ kiến trúc. Mỗi yêu cầu có mã ổn định, giai đoạn, phụ thuộc, cách kiểm chứng; mọi yêu cầu GĐ1–GĐ2 có tiêu chí chấp nhận. Thêm Definition of Ready, thứ tự làm GĐ2, quy trình feature spec cho GĐ3. Trạng thái triển khai tách sang ma trận truy vết. |
 | 2.1 (sửa) | 17/11/2026 | Mục 5 viết lại theo contract `week10_v1.0` đang có trong code: `route` hai tầng (`Route` của router → `RouteType` công khai, `action` quyết định hành vi), tên trường `AskResponse` theo code, lỗi chặn trước pipeline trả `ApiError`, `LogEvent` 9 stage. Thêm lộ trình contract (5.6): ba thay đổi `week10_v1.1` đã duyệt, các trường để sau. Thêm điều kiện 7 vào Definition of Ready. Sửa D-01, D-02 và tiêu chí FR1.3–FR1.6, FR3.1, FR3.3, FR4.7, FR6.4, FR7.1, FR9.9, IR1.3, IR2.2. |
+| 2.1.1 | 17/11/2026 | Ghi nhận Owner Contract đồng ý gộp các trường bổ sung của `RetrievalBundle` và `RAGOutputRecord.route` vào `week10_v1.1` (5.6). Làm rõ API kiểm tra giới hạn 2.000 ký tự trước pipeline; bổ sung kiểm tra biên FR1.7-AC2 và body `ApiError` trong FR1.7-AC1, IR2.1-AC2, IR2.2-AC1. Giữ contract hiện hành `week10_v1.0`; trạng thái triển khai tiếp tục theo ảnh chụp `testing` trong ma trận truy vết. |
 
 ---
 
@@ -168,7 +169,8 @@ Tiêu chí chấp nhận:
 - **FR1.4-AC2** Thông báo từ chối có cụm nêu phạm vi ("Hôn nhân và gia đình") và disclaimer.
 - **FR1.5-AC1** Given router xếp câu vào `LEGAL_SCOPE_UNCERTAIN`, Then `action = LEGAL_RETRIEVAL`, `route = MIXED_REVIEW` và Retrieval chạy; nếu không đủ tin cậy thì `abstention_source = confidence_filter`; nếu Gate PASS thì `status = SUCCESS`.
 - **FR1.6-AC1** Given "Chào bạn, cho hỏi tuổi kết hôn của nữ là bao nhiêu?", Then `Route` của router là `LEGAL_HNGD` (`route = LEGAL_IN_SCOPE`).
-- **FR1.7-AC1** Given `query = "   "` hoặc `query` dài 2.001 ký tự hoặc `query = 123`, Then `INVALID_REQUEST` (HTTP 422 ở API) và không stage nào chạy.
+- **FR1.7-AC1** Given `query = "   "` hoặc `query` dài 2.001 ký tự hoặc `query = 123`, Then `INVALID_REQUEST` và không stage nào chạy; khi gọi API với key hợp lệ, HTTP 422 và body `ApiError` theo 5.3.4 có `error_code = INVALID_REQUEST`, số lần gọi Router, Retrieval và Model Gateway đều bằng 0.
+- **FR1.7-AC2** Given request hợp lệ ở mọi trường khác và `query` là câu hỏi hợp lệ dài đúng 2.000 ký tự, When kiểm tra đầu vào, Then request vượt qua bước validation; kết quả xử lý tiếp theo phụ thuộc pipeline, không mặc định là SUCCESS.
 - **FR1.8-AC1** Holdout có 30–40 câu, có metadata nguồn; báo cáo similarity audit cho thấy không câu nào trùng hoặc gần trùng với bộ luật và bộ hồi quy; router được đóng băng (ghi version/hash) trước khi chạy holdout.
 - **FR1.9-AC1** Given một request qua API, Then trong log sự kiện `router` có trước mọi sự kiện `retrieval`.
 - **FR1.9-AC2** Given request `NON_LEGAL` hoặc `LEGAL_OUT_OF_SCOPE`, Then số lần gọi Retrieval và Model Gateway = 0.
@@ -431,8 +433,8 @@ Tiêu chí chấp nhận (chạy với API giả lập theo OpenAPI):
 Tiêu chí chấp nhận:
 
 - **IR2.1-AC1** Given request hợp lệ, Then phản hồi hợp lệ theo JSON Schema của `AskResponse` sinh từ `schemas/models.py`.
-- **IR2.1-AC2** Given request có trường lạ hoặc sai kiểu, Then HTTP 422 `INVALID_REQUEST`.
-- **IR2.2-AC1** Thiếu header → 401; sai key → 401; đúng key → 200; key đọc từ biến môi trường, không có giá trị mặc định trong code.
+- **IR2.1-AC2** Given request với key hợp lệ có trường lạ, sai kiểu hoặc `query` vi phạm FR1.7, Then HTTP 422, body `ApiError` theo 5.3.4 gồm `schema_version`, `error_code = INVALID_REQUEST`, `message`, `details[]` và `query_id` nếu đã cấp; không dùng body mặc định chỉ có `detail` của FastAPI.
+- **IR2.2-AC1** Với request hợp lệ, thiếu header → 401; sai key → 401; đúng key → 200. Mỗi phản hồi 401 có body `ApiError` theo 5.3.4 gồm `schema_version`, `error_code = AUTH_REQUIRED`, `message`, `details[]` và `query_id` nếu đã cấp; key đọc từ biến môi trường, không có giá trị mặc định trong code.
 - **IR2.2-AC2** Phản hồi 401 không tiết lộ key hợp lệ hay cấu hình.
 - **IR2.3-AC1** `GET /api/v1/health` trả 200 khi không có key và không gọi Model Gateway (số lần gọi = 0).
 - **IR2.3-AC2** `/openapi.json` có `/api/v1/ask` với schema `AskRequest`, `AskResponse` và các mã HTTP ở 5.3.4.
@@ -505,6 +507,8 @@ Contract gồm: `AskRequest`, `AskResponse`, `RouteDecision`, `RetrievalBundle`,
 | `query_id` | string | không | Chỉ dùng cho chạy lô (ví dụ `HN_001`). Request tương tác để trống, hệ thống sinh. |
 
 Request không nhận trường nào khác (`extra = forbid`): không có tham số model, Top-K hay chế độ chạy; các giá trị này lấy từ cấu hình.
+
+**Trách nhiệm kiểm tra độ dài.** Với contract `week10_v1.0`, lớp API phải kiểm tra giới hạn 2.000 ký tự trước khi gọi pipeline và trả lỗi theo 5.3.4 nếu vượt giới hạn (FR1.7). Yêu cầu này không mặc định rằng `AskRequest` đã có `max_length=2000`. Nếu chuyển giới hạn vào model dùng chung, owner contract phải đánh giá ảnh hưởng tới batch và payload cũ, ghi thay đổi theo 5.6 trước khi sửa model.
 
 #### 5.3.2. `AskResponse`
 
@@ -584,6 +588,8 @@ Lỗi chặn trước pipeline có body `ApiError` `{schema_version, error_code,
 | Request không hợp lệ | `INVALID_REQUEST` | 422 |
 | Lỗi ngoài pipeline | `INTERNAL_ERROR` | 500 |
 
+Lớp API phải cấu hình handler cho lỗi validation để trả `ApiError` theo bảng trên, thay cho body `{"detail": ...}` mặc định của FastAPI; lỗi xác thực cũng trả cùng cấu trúc `ApiError`. OpenAPI và test API phải mô tả, kiểm tra đúng body của các phản hồi 401 và 422 (IR2.1-AC2, IR2.2-AC1).
+
 HTTP 403 để dành cho key hợp lệ nhưng không đủ quyền (chưa dùng). Mã chi tiết (`route_reason` của router; `violation_codes` của Gate như `CITATION_OUTSIDE_CONTEXT`, `ANSWER_NOT_VIETNAMESE`) nằm trong `abstention_reason` và log; `error_code` công khai là nhóm ở các bảng trên.
 
 ### 5.4. `LogEvent`
@@ -627,7 +633,8 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 | `ErrorCode` thêm `LLM_UNAVAILABLE` (HTTP 503); Gateway trả mã này khi không kết nối được model | FR6.4 | `week10_v1.1` | Duyệt 17/11/2026 |
 | `EventStage` thêm `confidence` | FR9.9, FR3.1 | `week10_v1.1` | Duyệt 17/11/2026 |
 | `EvidenceItem.point_ref` (optional) | FR4.7, IR1.4 | `week10_v1.1` | Duyệt 17/11/2026 |
-| `RetrievalBundle.metadata_filters`, `RetrievalBundle.latency_breakdown` (optional) | FR2.11, FR9.4 | `week10_v1.1` | Đề xuất, chờ owner contract và Tech Lead |
+| `RetrievalBundle.metadata_filters`, `RetrievalBundle.latency_breakdown` (optional) | FR2.11, FR9.4 | `week10_v1.1` | Owner Contract đồng ý 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản thống nhất |
+| `RAGOutputRecord.route: RouteType \| None = None` | FR1.9, FR9.8 | `week10_v1.1` | Owner Contract đồng ý 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản thống nhất; bản ghi cũ thiếu `route` vẫn hợp lệ |
 | `AskResponse.session_id`, `LogEvent.session_id`, stage `session` | FR7.1, FR7.2 | Khi FR7.2 vào sprint | Dự kiến |
 | `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | NFR3.2 | Khi NFR3.2 vào sprint | Dự kiến |
 

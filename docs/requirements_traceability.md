@@ -1,10 +1,10 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
-Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
+Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1.1, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
 
 ## Tóm tắt theo giai đoạn
 
@@ -37,16 +37,19 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 
 ## Contract so với SRS mục 5
 
+Quyết định contract được cập nhật theo [review của Owner Contract ngày 17/11/2026](https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/54#pullrequestreview-5938652304). Trạng thái triển khai vẫn đối chiếu với `testing` `01fe249`: được đồng ý đưa vào lộ trình không đồng nghĩa đã triển khai hoặc đã merge.
+
 | Hạng mục (SRS 5.6) | Phiên bản | Trạng thái | Ghi chú |
 | --- | --- | --- | --- |
 | `ErrorCode.LLM_UNAVAILABLE` (503) | `week10_v1.1` | Chưa | Owner contract; Gateway và test `test_structured_output.py` đổi cùng. |
 | `EventStage.confidence` | `week10_v1.1` | Chưa | Owner contract; logger và orchestrator emit theo. |
 | `EvidenceItem.point_ref` | `week10_v1.1` | Chưa | 272/2.322 chunk có `point_ref`. |
-| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Đề xuất | Đang sửa trực tiếp `schemas/models.py` ở PR #56; cần đi qua owner contract. |
+| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
+| `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 
-Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`).
+Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`). Lớp API cần kiểm tra giới hạn 2.000 ký tự trước pipeline (FR1.7) và trả body `ApiError` cho 401/422, gồm cả lỗi validation của FastAPI (IR2.1-AC2, IR2.2-AC1); các AC này chưa được xác nhận trên ảnh chụp `testing`.
 
 ## FR1. Định tuyến
 
@@ -58,7 +61,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR1.4 | Một phần | như trên | Như trên. |
 | FR1.5 | Một phần | như trên | Như trên. |
 | FR1.6 | Một phần | như trên | Như trên. |
-| FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài. |
+| FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài; API cần kiểm tra trước pipeline, kiểm thử biên 2.000/2.001 ký tự và body `ApiError` 422 (AC1–AC2). |
 | FR1.8 | Một phần | `test/agent/data/router_holdout.jsonl` | Chưa xác nhận tính độc lập. |
 | FR1.9 | Chưa | — | Orchestrator gọi router ở PR #55, chưa merge. |
 
