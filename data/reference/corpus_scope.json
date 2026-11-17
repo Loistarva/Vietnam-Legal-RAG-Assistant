@@ -466,6 +466,46 @@
         "99"
       ],
       "reason": "Văn bản lịch sử: quy định chung liên quan đăng ký kết hôn, thẩm quyền giám hộ/cha mẹ con, bổ sung khai sinh, xác nhận tình trạng hôn nhân và thi hành. Tạm loại các Điều sửa bởi NĐ06/2012 (18,30,31,32,34,67), nuôi con nuôi bị bãi bỏ bởi NĐ19/2011 (25–28), và Điều trộn nhiều loại hộ tịch, chờ dựng đủ khoảng áp dụng cấp Khoản. Không coi bản gốc là bản hợp nhất."
+    },
+    "tt_08_2025_tt_btp": {
+      "articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "23",
+        "24"
+      ],
+      "reason": "Chỉ nạp quy định chung, hộ tịch, ghi chú ly hôn/nhận cha mẹ con được giải quyết ở nước ngoài và thi hành. Loại Điều 7–22 về chứng thực, bồi thường, quốc tịch, luật sư và nhiệm vụ khác; Phụ lục giữ trong nguồn gốc, không coi là Điều luật. Điều 23 có ngày kết thúc áp dụng có điều kiện, chưa xác minh trạng thái mới nhất."
+    },
+    "tt_07_2023_tt_bng": {
+      "articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22"
+      ],
+      "reason": "Tạm cách ly khối parsed Điều23 vì chứa lẫn Điều25–41. Cả bản Công báo trang53 (PDF trang13) và bản ký chính thức PDF trang12–13 đều nhảy Điều23 sang25; parser hiện tại không hỗ trợ chuỗi có khoảng trống. Giữ nguyên nguồn/parsed và số Điều; chỉ truy xuất Điều1–22 cho tới khi có đính chính chính thức hoặc parser hỗ trợ. Không tự tạo Điều24. Đối chiếu tại reports/data/foreign_civil_registration_batch3/preexisting_review_findings.json."
     }
   }
 }

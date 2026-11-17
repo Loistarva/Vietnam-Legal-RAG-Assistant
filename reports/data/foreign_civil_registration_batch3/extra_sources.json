@@ -1,0 +1,24 @@
+{
+  "document_id": "ttlt_02_2016_gov",
+  "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=186595&pageid=27160",
+  "html_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_02_2016_gov.html",
+  "properties": {
+    "Số ký hiệu": "02/2016/TTLT-BNG-BTP",
+    "Ngày ban hành": "30-06-2016",
+    "Ngày có hiệu lực": "15-08-2016",
+    "Loại văn bản": "Thông tư liên tịch",
+    "Cơ quan ban hành": "Bộ Ngoại giao, Bộ Tư pháp",
+    "Người ký": "Vũ Hồng Nam, Nguyễn Khánh Ngọc",
+    "Trích yếu": "Hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài",
+    "Tài liệu đính kèm": "02-bng-btp.signed.pdf"
+  },
+  "source_artifacts": [
+    {
+      "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_02_2016_gov.part01.pdf",
+      "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/10/02-bng-btp.signed.pdf",
+      "sha256": "40da06180636ed11f96598f5a0f21df7c9d9836f3a55ecd02cc0dabf3e6724cb",
+      "bytes": 829121
+    }
+  ],
+  "errors": []
+}

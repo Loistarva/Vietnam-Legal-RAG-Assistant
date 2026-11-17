@@ -614,6 +614,40 @@
         }
       ],
       "reason": "Tiêu đề Điều 20 dài thật 41 từ, đối chiếu liên tục với tệp Word chính thức; giữ nguyên ngưỡng chung 40 từ và không miễn kiểm tra nội dung."
+    },
+    {
+      "txt_stem": "tt_08_2025_tt_btp",
+      "article_number": "18",
+      "expected_title": "Thẩm quyền, trách nhiệm của Cục Hành chính tư pháp trong việc theo dõi tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi nước ngoài và bảo vệ trẻ em Việt Nam được cho làm con nuôi nước ngoài trong trường hợp cần thiết",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part04.doc",
+          "sha256": "358c2c4783e8e189a6ae45e00f685578396fdcd37240c86cec147cfbe62c1df1"
+        },
+        {
+          "path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part06.doc",
+          "sha256": "3f4475fb5291ae22722eb572264b20cfaaf06ae39f4b87699423dc31cd52d739"
+        }
+      ],
+      "reason": "Exact Article heading checked against original official Word and Gazette PDF; no clause text included."
+    },
+    {
+      "txt_stem": "tt_08_2025_tt_btp",
+      "article_number": "20",
+      "expected_title": "Thẩm quyền, trách nhiệm của Cục Bổ trợ tư pháp trong việc cấp, cấp lại, thay đổi nội dung, thu hồi Giấy phép thành lập, chấm dứt hoạt động của chi nhánh, công ty luật nước ngoài, chi nhánh của công ty luật nước ngoài tại Việt Nam; cấp, cấp lại, gia hạn, thu hồi Giấy phép hành nghề tại Việt Nam của luật sư nước ngoài",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part04.doc",
+          "sha256": "358c2c4783e8e189a6ae45e00f685578396fdcd37240c86cec147cfbe62c1df1"
+        },
+        {
+          "path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part06.doc",
+          "sha256": "3f4475fb5291ae22722eb572264b20cfaaf06ae39f4b87699423dc31cd52d739"
+        }
+      ],
+      "reason": "Exact Article heading checked against original official Word and Gazette PDF; no clause text included."
     }
   ]
 }

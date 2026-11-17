@@ -1,0 +1,32 @@
+{
+  "reason": "Quarantined parsed Article23 and its merged Article25–41 payload through existing corpus_scope.json; only Articles1–22 remain retrievable. Original PDF, extracted/cleaned text and parsed JSON unchanged. Restore after official correction or parser-owner fix. No fabricated Article24.",
+  "removed_child_count": 26,
+  "removed_chunk_ids": [
+    "tt_07_2023_tt_bng_art_23_clause_1_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_2_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_3_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_4_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_5_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_1",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_2",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_3",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_4",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_5",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_6",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_7",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_8",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_9",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_10",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_11",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_12",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_13",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_14",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_15",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_16",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_17",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_18",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_19",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_20",
+    "tt_07_2023_tt_bng_art_23_clause_6_chunk_21"
+  ]
+}

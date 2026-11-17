@@ -1,0 +1,115 @@
+[
+  {
+    "document_id": "ttlt_11_2008_ttlt_btp_bng",
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=82911&pageid=27160",
+    "html_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_11_2008_ttlt_btp_bng.html",
+    "properties": {
+      "Số ký hiệu": "11/2008/TTLT-BTP-BNG",
+      "Ngày ban hành": "31-12-2008",
+      "Loại văn bản": "Thông tư liên tịch",
+      "Cơ quan ban hành": "Bộ Tư pháp, Bộ Ngoại giao",
+      "Người ký": "Nguyễn Thanh Sơn, Hoàng Thế Liên",
+      "Trích yếu": "Hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện ngoại giao, Cơ quan lãnh sự của Việt Nam ở nước ngoài",
+      "Tài liệu đính kèm": "85613_ttlt11btp.pdf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_11_2008_ttlt_btp_bng.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/85613_ttlt11btp.pdf",
+        "sha256": "0a078c54e7dafec97e348fc61b266b01a7948284c627ba8edb677b9933b22943",
+        "bytes": 1021435
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "ttlt_06_2012_ttlt_btp_bng",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-06-2012-ttlt-btp-bng-16311/11190.htm",
+    "html_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.html",
+    "properties": {
+      "Loại văn bản": "Thông tư liên tịch",
+      "Số, ký hiệu": "06/2012/TTLT-BTP-BNG",
+      "Cơ quan ban hành": "BỘ NGOẠI GIAO - BỘ TƯ PHÁP",
+      "Ngày ban hành": "19/06/2012",
+      "Trích yếu": "sửa đổi, bổ sung một số quy định của Thông tư liên tịch số 11/2008/TTLT-BTP-BNG ngày 31/12/2008 của Bộ Tư pháp và Bộ Ngoại giao hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài.",
+      "Người ký": "NGUYỄN THANH SƠN - ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "03/08/2012",
+      "Công báo": "455 + 456"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/6/16311/11190-1-2012455-456-062012ttlt-btp-bngpdf",
+        "sha256": "e99f633e44854ad48c21107c915c23b2e6752b54706153c56cd861656dc2ac21",
+        "bytes": 252450
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "ttlt_02_2016_ttlt_bng_btp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+    "html_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_02_2016_ttlt_bng_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư liên tịch",
+      "Số, ký hiệu": "02/2016/TTLT-BNG-BTP",
+      "Cơ quan ban hành": "BỘ NGOẠI GIAO - BỘ TƯ PHÁP",
+      "Ngày ban hành": "30/06/2016",
+      "Trích yếu": "hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài.",
+      "Người ký": "VŨ HỒNG NAM - NGUYỄN KHÁNH NGỌC",
+      "Ngày hiệu lực": "15/08/2016",
+      "Công báo": "813 + 814"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_02_2016_ttlt_bng_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/6/20442/14924-1-022016ttlt-bng-btp14995pdf",
+        "sha256": "641a37ae77ce205d25deb30c70043b092930092d7e3bfe98bcb9f79fd313d1e3",
+        "bytes": 13751309
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "tt_08_2025_tt_btp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+    "html_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "08/2025/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "12/06/2025",
+      "Trích yếu": "quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp và phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp.",
+      "Người ký": "Nguyễn Hải Ninh",
+      "Ngày hiệu lực": "01/07/2025",
+      "Công báo": "835 + 836 , 837 + 838"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45197/56987-1-2025835-83608-2025-tt-btp.pdf",
+        "sha256": "5d84f84568546aa2d56c5fab9d2976f0c57d8085696586824906a0eae449a48d",
+        "bytes": 630568
+      },
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part02.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45197/56990-1-2025837-83808-2025-tt-btp.pdf",
+        "sha256": "6f75f7c5cae665b7b984d1779c0a98ae0cc38ca97b01824606c7013001b9bdfa",
+        "bytes": 1567140
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part04.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRBmv6FpMi3qsZUtk3kPzAmkrA5i59Uv32B1ydWXLk_R0GU9WfyYbrAVopAgy_E08QWDrQZWE31RJA-2QUPJPj5w~~&file_name=2025_835+%2b+836_08-2025-TT-BTP.doc",
+        "sha256": "358c2c4783e8e189a6ae45e00f685578396fdcd37240c86cec147cfbe62c1df1",
+        "bytes": 819200
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part06.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRBmv6FpMi3qsZUtk3kPzAmv5cH0sNqnzkiTRG1Pjk30vDkFq5XelJhTwH4bOPZ_zrJs-e73S2bY4e_hjB8JNuEA~~&file_name=2025_837+%2b+838_08-2025-TT-BTP.doc",
+        "sha256": "3f4475fb5291ae22722eb572264b20cfaaf06ae39f4b87699423dc31cd52d739",
+        "bytes": 2113536
+      }
+    ],
+    "errors": []
+  }
+]

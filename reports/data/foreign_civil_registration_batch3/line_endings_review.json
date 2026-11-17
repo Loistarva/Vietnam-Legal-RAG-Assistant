@@ -1,0 +1,23 @@
+{
+  "staging_texts_canonical_lf": true,
+  "normalized_files": [
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_02_2016_gov.part01.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_02_2016_ttlt_bng_btp.part01.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_02_2016_ttlt_bng_btp.part02.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_06_2012_ttlt_btp_bng.part01.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_06_2012_ttlt_btp_bng.part02.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/ttlt_11_2008_ttlt_btp_bng.part01.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part01.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part02.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part03.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part04.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part05.inspect.txt",
+    "data/staging/foreign_civil_registration_batch3/attachment_text/tt_08_2025_tt_btp.part06.txt",
+    "data/staging/foreign_civil_registration_batch3/compatibility/cleaned/ttlt_06_2012_ttlt_btp_bng.txt",
+    "data/staging/foreign_civil_registration_batch3/compatibility/cleaned/tt_08_2025_tt_btp.txt",
+    "data/staging/foreign_civil_registration_batch3/compatibility/extracted/ttlt_06_2012_ttlt_btp_bng.txt",
+    "data/staging/foreign_civil_registration_batch3/compatibility/extracted/tt_08_2025_tt_btp.txt"
+  ],
+  "normalized_source_hashes_refreshed": true,
+  "legal_content_changed": false
+}

@@ -12,3 +12,13 @@ data/source_documents/central_batch1/*.html -text
 # Preserve official historical attachments and normalization text hashes.
 data/source_documents/history_batch2/* -text
 data/staging/history_batch2/**/*.txt text eol=lf
+
+# Preserve official foreign-civil-registration source bytes.
+data/source_documents/foreign_civil_registration_batch3/* -text
+data/staging/foreign_civil_registration_batch3/**/*.txt text eol=lf
+parser/parsed_jsons/tt_08_2025_tt_btp.json text eol=lf
+parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json text eol=lf
+parser/cleaned_texts/tt_08_2025_tt_btp.txt text eol=lf
+parser/cleaned_texts/ttlt_06_2012_ttlt_btp_bng.txt text eol=lf
+parser/extracted_texts_qwen/tt_08_2025_tt_btp.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_06_2012_ttlt_btp_bng.txt text eol=lf

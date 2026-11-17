@@ -1,0 +1,15 @@
+{
+  "active_before": 77,
+  "new_active": 2,
+  "active_after": 79,
+  "held_reviewed": 2,
+  "held_preexisting": 1,
+  "active_ids": [
+    "ttlt_06_2012_ttlt_btp_bng",
+    "tt_08_2025_tt_btp"
+  ],
+  "held_ids": [
+    "ttlt_11_2008_ttlt_btp_bng",
+    "ttlt_02_2016_ttlt_bng_btp"
+  ]
+}

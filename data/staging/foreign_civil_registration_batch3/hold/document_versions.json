@@ -1,0 +1,86 @@
+[
+  {
+    "document_id": "ttlt_11_2008_ttlt_btp_bng",
+    "document_number": "11/2008/TTLT-BTP-BNG",
+    "file_code": "TTLT02",
+    "title": "Hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện ngoại giao, Cơ quan lãnh sự của Việt Nam ở nước ngoài",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2008-12-31",
+    "effective_date": null,
+    "issuing_body": "Bộ Tư Pháp, Bộ Ngoại Giao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=82911&pageid=27160",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_11_2008_ttlt_btp_bng.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/85613_ttlt11btp.pdf",
+        "sha256": "0a078c54e7dafec97e348fc61b266b01a7948284c627ba8edb677b9933b22943",
+        "bytes": 1021435
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_11_2008_ttlt_btp_bng.html",
+        "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=82911&pageid=27160",
+        "sha256": "587dde9e61ca0fea6eb50b032cb999f6d9382ad751451209cf427713c06e15b0",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "foreign_civil_registration_batch3",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Official PDF is scanned; no complete text layer. Do not ingest guessed or incomplete Articles."
+  },
+  {
+    "document_id": "ttlt_02_2016_ttlt_bng_btp",
+    "document_number": "02/2016/TTLT-BNG-BTP",
+    "file_code": "TTLT04",
+    "title": "hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-06-30",
+    "effective_date": "2016-08-15",
+    "issuing_body": "Bộ Ngoại Giao - Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_02_2016_ttlt_bng_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/6/20442/14924-1-022016ttlt-bng-btp14995pdf",
+        "sha256": "641a37ae77ce205d25deb30c70043b092930092d7e3bfe98bcb9f79fd313d1e3",
+        "bytes": 13751309
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_02_2016_ttlt_bng_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+        "sha256": "8fcef48d889aa74953a56daed37c4d8b1316b89566e9d56ef1beba43165ba1cb",
+        "role": "Official metadata snapshot"
+      },
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_02_2016_gov.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/10/02-bng-btp.signed.pdf",
+        "sha256": "40da06180636ed11f96598f5a0f21df7c9d9836f3a55ecd02cc0dabf3e6724cb",
+        "bytes": 829121
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_02_2016_gov.html",
+        "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=186595&pageid=27160",
+        "sha256": "178a9bcebda8b115cc95662e2e15e73b87760838375d6124c32a7bb3d1d0cb21",
+        "role": "Second official metadata snapshot; signed PDF also lacks searchable body"
+      }
+    ],
+    "origin": "foreign_civil_registration_batch3",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Official PDF is scanned; no complete text layer. Do not ingest guessed or incomplete Articles."
+  }
+]

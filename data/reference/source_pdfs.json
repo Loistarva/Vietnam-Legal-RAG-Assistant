@@ -390,6 +390,20 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
+      "document_id": "tt_08_2025_tt_btp",
+      "sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",
+      "bytes": 82476,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
+      "document_id": "ttlt_06_2012_ttlt_btp_bng",
+      "sha256": "e5ef759817353106f0b66246f64de585b526de35cd0935870e1b3fc7495256c5",
+      "bytes": 71644,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/history_batch2/l_02_2007_qh12.pdf",
       "document_id": "l_02_2007_qh12",
       "sha256": "e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",

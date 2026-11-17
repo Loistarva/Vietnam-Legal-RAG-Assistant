@@ -134,6 +134,8 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **L14** | `l_02_2007_qh12` | 02/2007/QH12 | Hết hiệu lực | LUẬT PHÒNG, CHỐNG BẠO LỰC GIA ĐÌNH |
 | **ND35** | `nd_08_2009_nd_cp` | 08/2009/NĐ-CP | Hết hiệu lực | Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống bạo lực gia đình |
 | **ND37** | `nd_110_2009_nd_cp` | 110/2009/NĐ-CP | Hết hiệu lực | Quy định xử phạt vi phạm hành chính trong lĩnh vực phòng, chống bạo lực gia đình |
+| **TTLT03** | `ttlt_06_2012_ttlt_btp_bng` | 06/2012/TTLT-BTP-BNG | Không xác định | sửa đổi, bổ sung một số quy định của Thông tư liên tịch số 11/2008/TTLT-BTP-BNG ngày 31/12/2008 của Bộ Tư pháp và Bộ Ngoại giao hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài |
+| **TT36** | `tt_08_2025_tt_btp` | 08/2025/TT-BTP | Không xác định | quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp và phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp |
 
 Quy tắc định danh cấu trúc phân cấp:
 - **Article ID**: `[document_id]_art_[số_điều]` (Ví dụ: `l_52_2014_qh13_art_8`). Mã quản lý tương ứng: `L01_D08`.

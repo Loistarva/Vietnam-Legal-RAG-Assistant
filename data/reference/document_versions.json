@@ -3991,5 +3991,106 @@
     "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original.",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "parsed_json_sha256": "b2332bdaa17059eb5177664e59a3db95b0dad4c549864cd2c88a25b590334a29"
+  },
+  {
+    "document_id": "ttlt_06_2012_ttlt_btp_bng",
+    "document_number": "06/2012/TTLT-BTP-BNG",
+    "file_code": "TTLT03",
+    "title": "sửa đổi, bổ sung một số quy định của Thông tư liên tịch số 11/2008/TTLT-BTP-BNG ngày 31/12/2008 của Bộ Tư pháp và Bộ Ngoại giao hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2012-06-19",
+    "effective_date": "2012-08-03",
+    "issuing_body": "Bộ Ngoại Giao - Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-06-2012-ttlt-btp-bng-16311/11190.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/6/16311/11190-1-2012455-456-062012ttlt-btp-bngpdf",
+        "sha256": "e99f633e44854ad48c21107c915c23b2e6752b54706153c56cd861656dc2ac21",
+        "bytes": 252450
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-06-2012-ttlt-btp-bng-16311/11190.htm",
+        "sha256": "3300a7c652f1ec5c6c4b8a59c072d987605025fa31f4ce9e15ba4b88d80207c6",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "foreign_civil_registration_batch3",
+    "ingest_pdf_path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json",
+    "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "e5ef759817353106f0b66246f64de585b526de35cd0935870e1b3fc7495256c5",
+    "normalized_source_text_sha256": "c30dc30fa465f82735a5b8d2d7474541da6c57387ce1e8f2f017edff5b6d835b",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official originals downloaded; normalized derivative prepared 2026-11-18",
+    "source_kind": "official_gazette_pdf",
+    "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123"
+  },
+  {
+    "document_id": "tt_08_2025_tt_btp",
+    "document_number": "08/2025/TT-BTP",
+    "file_code": "TT36",
+    "title": "quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp và phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp",
+    "document_type": "Thông tư",
+    "issue_date": "2025-06-12",
+    "effective_date": "2025-07-01",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45197/56987-1-2025835-83608-2025-tt-btp.pdf",
+        "sha256": "5d84f84568546aa2d56c5fab9d2976f0c57d8085696586824906a0eae449a48d",
+        "bytes": 630568
+      },
+      {
+        "source_path": "data/source_pdfs/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part02.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45197/56990-1-2025837-83808-2025-tt-btp.pdf",
+        "sha256": "6f75f7c5cae665b7b984d1779c0a98ae0cc38ca97b01824606c7013001b9bdfa",
+        "bytes": 1567140
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part04.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRBmv6FpMi3qsZUtk3kPzAmkrA5i59Uv32B1ydWXLk_R0GU9WfyYbrAVopAgy_E08QWDrQZWE31RJA-2QUPJPj5w~~&file_name=2025_835+%2b+836_08-2025-TT-BTP.doc",
+        "sha256": "358c2c4783e8e189a6ae45e00f685578396fdcd37240c86cec147cfbe62c1df1",
+        "bytes": 819200
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.part06.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRBmv6FpMi3qsZUtk3kPzAmv5cH0sNqnzkiTRG1Pjk30vDkFq5XelJhTwH4bOPZ_zrJs-e73S2bY4e_hjB8JNuEA~~&file_name=2025_837+%2b+838_08-2025-TT-BTP.doc",
+        "sha256": "3f4475fb5291ae22722eb572264b20cfaaf06ae39f4b87699423dc31cd52d739",
+        "bytes": 2113536
+      },
+      {
+        "source_path": "data/source_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+        "sha256": "834064b31d4000453f394116f508c177f50bdb5f75b438e66573c17d4cf2e0fc",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "foreign_civil_registration_batch3",
+    "ingest_pdf_path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_08_2025_tt_btp.json",
+    "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",
+    "normalized_source_text_sha256": "12f46d50fa29ca72831686ee4cc976f8a201a95530f21c55ef6e4fd88603bbfb",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official originals downloaded; normalized derivative prepared 2026-11-18",
+    "source_kind": "official_word_binary_attachment",
+    "parsed_json_sha256": "f5dec9ac03e7084ed2f016c242b508a142dcbc4f5add2e5481686d9eb5b442a4",
+    "effectivity_note": "Article 23.1 verifies 2025-07-01. Article 23.2 states conditional sunset 2027-03-01 with exceptions and possible earlier provision-level replacement. Do not encode as unconditional expiry; latest status remains unverified."
   }
 ]
