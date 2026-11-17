@@ -55,5 +55,19 @@ Ba điểm chính cần xử lý nếu mở một phiên bản mới: (1) bỏ k
 
 Đây là phân tích giải thích kết quả đã quan sát, không phải căn cứ để thay nhãn hoặc sửa rule dựa trực tiếp trên holdout v2. V2 vẫn được giữ nguyên làm bằng chứng đã tiêu thụ; mọi sửa đổi tiếp theo phải dùng Dev/regression và muốn có điểm độc lập thì cần holdout mới.
 
+## Đánh giá một lần holdout v6 trên `rule_router_v5` (2026-11-17)
+
+- Holdout: [`evaluation/router_holdout/router_holdout_week10_v6.jsonl`](../../evaluation/router_holdout/router_holdout_week10_v6.jsonl) (36 câu mới hoàn toàn `W16RH_001`–`036`; LF SHA-256 `c1db665fd29e75ec6ef287642e5391a8401ef9167991e442c552f330f3a5127c`; `reviewer_status=DEV4` — do kỹ sư soạn sau khi khóa `rule_router_v5`, chưa qua reviewer độc lập Dev2/Dev3).
+- Validator: **PASS** đối chiếu với **10 nguồn** trong repo (`validate_router_holdout.py`).
+- Router: `rule_router_v5` (LF SHA-256 `996bd6a0894aeaf964f188f032961329ec6cdecfe1575bcf80df685aa068f2f7`; raw Windows CRLF bytes lúc chạy `c65025165323212e0e13aa050342a3613dd8b27fbdd4688ae44cb1f886432a43`).
+- Lệnh chạy một lần: `python scripts/smoke_rule_router.py --holdout evaluation/router_holdout/router_holdout_week10_v6.jsonl`.
+- Kết quả: **34/36 exact route/action (94,4%)**, **0 safety violation** (`0` câu pháp lý bị đưa sang `NON_LEGAL`/`GENERAL_CHAT`):
+  - `LEGAL_HNGD`: `10/10`
+  - `MIXED_LEGAL_SCOPE`: `6/6`
+  - `LEGAL_SCOPE_UNCERTAIN`: `6/6`
+  - `LEGAL_OUT_OF_SCOPE`: `7/8` (lệch `W16RH_012` → `LEGAL_SCOPE_UNCERTAIN`, không gây mất an toàn)
+  - `NON_LEGAL`: `5/6` (lệch `W16RH_029` → `LEGAL_SCOPE_UNCERTAIN`)
+- Trạng thái `v6`: `CONSUMED` (không sửa `agent/router/rule_router.py` sau lần chạy này). Chi tiết metadata tại [`evaluation/router_holdout/router_holdout_week10_v6.md`](../../evaluation/router_holdout/router_holdout_week10_v6.md).
+
 ## Công nghệ đã dùng
 JSONL, Python validation script, Unicode/text normalization, exact duplicate checks, route/action contract.

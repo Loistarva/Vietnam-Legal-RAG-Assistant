@@ -78,3 +78,16 @@ Python rule-based classifier, canonical Pydantic route contract, JSONL, pytest/s
 - Holdout Week 10 v3 đã được review độc lập bởi Dev3 và **chưa chạy**. Manifest SHA của code, holdout và bằng chứng freeze: [router_holdout_week10_v3_manifest.json](../evaluation/router_holdout/router_holdout_week10_v3_manifest.json).
 - Các thay đổi cục bộ khác trong working tree không nằm trong commit freeze Router.
 - SHA-256 dùng trong manifest là hash source đã chuẩn hóa LF; hash byte thô của checkout Windows cũng được lưu riêng để đối chiếu smoke output. Hai giá trị hiện cùng là `2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a`.
+
+## Nâng cấp kiến trúc `rule_router_v5` (2026-11-17)
+
+Dựa trên phân tích nguyên nhân gốc từ các bộ đã tiêu thụ (`v1`–`v5`, `R4IH_v1`):
+1. **Nhóm A/Fallback mặc định:** Bỏ hành vi tự đẩy câu hỏi đời thường có 0 tín hiệu pháp lý vào `LEGAL_SCOPE_UNCERTAIN / LEGAL_RETRIEVAL`; tách riêng tín hiệu pháp lý tổng quát (`_GENERIC_LEGAL_DISPUTE_SIGNALS`) khỏi cách hỏi hướng dẫn/giải thích đời thường (`_has_everyday_nonlegal_framing`), đồng thời thay các regex cứng theo từng câu (`v4`/`v5`) bằng nhóm ý định đời thường tổng quát và loại trừ từ ghép nông nghiệp (`đất trồng cây lâu năm`).
+2. **Nhóm B (False Mixed trên HNGĐ):** Gỡ `"cơ quan hộ tịch"` đơn lẻ khỏi `civil_status` để đăng ký kết hôn/công nhận quan hệ tại cơ quan hộ tịch không bị nhận nhầm thành `MIXED_LEGAL_SCOPE`; tách modifier tình trạng chấp hành án của người phối ngẫu (`_SPOUSE_PRISON_STATUS_MODIFIER`) khỏi câu hỏi định tội danh/hình phạt hình sự (`_CRIMINAL_SENTENCING_QUESTION`); mở rộng từ điển HNGĐ theo Luật HNGĐ 2014 & NQ 01/2024/NQ-HĐTP (xác định cha/mẹ/con, hỗ trợ sinh sản, con nuôi, chung sống đồng giới, nghĩa vụ sau ly hôn/ly thân).
+3. **Nhóm C (Mở rộng miền ngoài phạm vi có kiểm soát):** Bổ sung các nhóm lĩnh vực ngoài HNGĐ tổng quát (`aviation_and_transport`, `postal_and_logistics`, `mining_and_geology`, `fisheries_and_maritime`, `fire_safety`, `civil_service_and_public_duty`, `veterinary_and_quarantine`, `sports_and_antidoping`, `maritime_telecom_commerce`) mà không làm mất nhóm `LEGAL_SCOPE_UNCERTAIN` có tổ chức/ngành chung chung thiếu căn cứ.
+
+- **Phiên bản:** `rule_router_v5` (`agent/router/rule_router.py`, LF SHA-256 `996bd6a0894aeaf964f188f032961329ec6cdecfe1575bcf80df685aa068f2f7`).
+- **Pre-freeze gates (`python scripts/smoke_rule_router.py --skip-holdout`):** `5/5 PASS` — Official Gold `30/30`, Dev benchmark `270/270`, Negative Set v2 `26/26`, Non-legal `6/6`, Legal-to-chat `0`.
+- **Kiểm tra trên các bộ chẩn đoán/regression đã tiêu thụ (chỉ mang tính regression, không phải điểm holdout mới):** `router_holdout.jsonl` `40/40`, `R4IH v1` `36/36`, `v1` `36/36`, `v2` `36/36`, `v3` `36/36`, `v4` `36/36`, `v5` `36/36`; tổng safety violations = `0`.
+- **Đánh giá một lần sau khóa trên holdout `v6` mới tạo (`DEV4`):** Xem chi tiết tại [router_holdout_report.md](router_holdout_report.md) (**34/36 = 94,4%**, `0` safety violations).
+- **Trạng thái:** Ứng viên `rule_router_v5` sẵn sàng để Dev 4 rà soát và thực hiện chu trình freeze + holdout độc lập do Dev2/Dev3 xác nhận nếu cần điểm độc lập ngoài nhóm tác giả.

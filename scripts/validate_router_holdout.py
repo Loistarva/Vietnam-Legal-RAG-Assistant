@@ -27,6 +27,7 @@ DEFAULT_COMPARISON_PATHS = (
     ROOT / "evaluation/router_holdout/router_holdout_week10_v2.jsonl",
     ROOT / "evaluation/router_holdout/router_holdout_week10_v3.jsonl",
     ROOT / "evaluation/router_holdout/router_holdout_week10_v4.jsonl",
+    ROOT / "evaluation/router_holdout/router_holdout_week10_v5.jsonl",
     ROOT / "data/benchmark/queries_dev.json",
     ROOT / "evaluation/negative_set/dev_negative_queries_v2.jsonl",
     ROOT / "test/agent/test_rule_router.py",
