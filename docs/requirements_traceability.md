@@ -1,6 +1,6 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp tại `origin/testing` `c1e9f12` (16/11/2026).** File này ghi đã làm tới đâu so với [SRS 2.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
@@ -11,7 +11,7 @@ Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nh
 | Giai đoạn | Có | Một phần | Chưa | Nhận xét |
 | --- | ---: | ---: | ---: | --- |
 | GĐ1 | 39 | 21 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker, vài tiêu chí truy vết (FR2.4-AC4, FR2.11, FR4.1-AC2). |
-| GĐ2 | 1 | 7 | 26 | Router có nhưng chưa nối (FR1.9); chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
+| GĐ2 | 1 | 8 | 25 | Contract API có (`week10_v1.0`); router chưa nối (FR1.9); chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
 | GĐ3 | 0 | 0 | 18 | Chưa bắt đầu; mỗi khối cần feature spec trước (SRS mục 11). |
 
 Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai giai đoạn (FR3.1, FR6.1, FR8.9, IR1.7, IR2.4) được đếm ở giai đoạn đầu; "Một phần" ở đó có thể là phần của giai đoạn sau chưa có.
@@ -35,19 +35,32 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | BO-06 Câu khuyến cáo | Dev30 A / B | 30/30 / 30/30 | file kết quả | Đạt |
 | BO-07 Chi phí / câu | Dev30 | 0 USD (local) | `results_metrics.json` | Đạt |
 
+## Contract so với SRS mục 5
+
+| Hạng mục (SRS 5.6) | Phiên bản | Trạng thái | Ghi chú |
+| --- | --- | --- | --- |
+| `ErrorCode.LLM_UNAVAILABLE` (503) | `week10_v1.1` | Chưa | Owner contract; Gateway và test `test_structured_output.py` đổi cùng. |
+| `EventStage.confidence` | `week10_v1.1` | Chưa | Owner contract; logger và orchestrator emit theo. |
+| `EvidenceItem.point_ref` | `week10_v1.1` | Chưa | 272/2.322 chunk có `point_ref`. |
+| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Đề xuất | Đang sửa trực tiếp `schemas/models.py` ở PR #56; cần đi qua owner contract. |
+| `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
+| `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
+
+Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`).
+
 ## FR1. Định tuyến
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
 | FR1.1 | Một phần | `test/agent/test_rule_router.py`, `test/test_smoke_rule_router.py` | Router chạy độc lập; v3 đang ở PR #46. |
 | FR1.2 | Một phần | `test/agent/test_rule_router.py` | Router trả `GENERAL_CHAT`; chưa có General Chat Responder. |
-| FR1.3 | Một phần | như trên | Chưa nối vào pipeline (kế hoạch Tuần 10 D5.1). |
+| FR1.3 | Một phần | như trên | Contract `RouteDecision` (`RouteType` + `action`) có; nối vào pipeline ở PR #55, chưa merge. |
 | FR1.4 | Một phần | như trên | Như trên. |
 | FR1.5 | Một phần | như trên | Như trên. |
 | FR1.6 | Một phần | như trên | Như trên. |
 | FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài. |
 | FR1.8 | Một phần | `test/agent/data/router_holdout.jsonl` | Chưa xác nhận tính độc lập. |
-| FR1.9 | Chưa | — | Orchestrator chưa gọi router (kế hoạch Tuần 10 D5.1). |
+| FR1.9 | Chưa | — | Orchestrator gọi router ở PR #55, chưa merge. |
 
 ## FR2. Lọc trước và truy xuất
 
@@ -87,7 +100,7 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py` | Prompt v1.2. |
 | FR4.5 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/orchestration/test_grounding_gate.py` | |
 | FR4.6 | Có | `test/test_p45_prompt_gateway.py` | Hash ở `retrieval_trace.prompt_sha256`. |
-| FR4.7 | Có | `test/orchestration/test_evidence_index_mapping.py` | Hiển thị trên UI chờ IR1.4. |
+| FR4.7 | Có | `test/orchestration/test_evidence_index_mapping.py` | AC1 có. AC2 chờ `EvidenceItem.point_ref` (`week10_v1.1`); hiển thị trên UI chờ IR1.4. |
 
 ## FR5. Grounding Gate và từ chối
 
@@ -109,7 +122,7 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | FR6.1 | Một phần | `model_gateway/llm_gateway.py` | Một gateway, một provider (Ollama); chưa có giao diện tương thích OpenAI. |
 | FR6.2 | Có | `model_gateway/config/local_qwen.yaml` | |
 | FR6.3 | Chưa | — | `fallback_locked = true`. |
-| FR6.4 | Chưa | — | Lỗi kiểu `LLM_TIMEOUT` đang ở PR #49. |
+| FR6.4 | Một phần | `model_gateway/llm_gateway.py`, `test/model_gateway/test_structured_output.py` | Gateway gắn `LLM_TIMEOUT`; lỗi kết nối vẫn ra `INTERNAL_ERROR` (test hiện khẳng định như vậy), cần `LLM_UNAVAILABLE` (`week10_v1.1`); chưa có API. |
 | FR6.5 | Chưa | — | |
 | FR6.6 | Có | `test/test_p45_prompt_gateway.py` | |
 | FR6.7 | Có | Manifest các lượt official | |
@@ -119,7 +132,7 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 
 | Mã | Trạng thái | Ghi chú |
 | --- | --- | --- |
-| FR7.1–FR7.4 | Chưa | Batch có `query_id`; chưa có session. |
+| FR7.1–FR7.4 | Chưa | Batch có `query_id`; `AskRequest` nhận `session_id` nhưng chưa có session; `AskResponse.session_id` để sau (SRS mục 5.6). |
 
 ## FR8. Knowledge Base
 
@@ -148,7 +161,7 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | FR9.6 | Một phần | `evaluation/results/dev/blinded_ab_scoring_v1.csv` | Chưa có điểm, chưa có Kappa. |
 | FR9.7 | Có | `test/evaluation/test_dev30_no_test_leakage.py`, `test/test_freeze_safety.py` | |
 | FR9.8 | Có | `test/evaluation/test_run_rag_batch.py` | |
-| FR9.9 | Chưa | — | Chưa có `monitoring/` (kế hoạch Tuần 10 D1.2). |
+| FR9.9 | Chưa | — | `LogEvent` có trong contract (9 stage, `confidence` ở `week10_v1.1`); chưa có `monitoring/` trên `testing`. |
 | FR9.10 | Chưa | — | |
 | FR9.11 | Chưa | — | |
 
@@ -157,10 +170,10 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | Mã | Trạng thái | Ghi chú |
 | --- | --- | --- |
 | IR1.1–IR1.7 | Chưa | UI Streamlit ở PR #51 (`sprint10/UI`), chưa merge. |
-| IR2.1–IR2.5 | Chưa | Chưa có `api/` (kế hoạch Tuần 10 D5.3–D5.6). |
+| IR2.1–IR2.5 | Chưa | `AskRequest`/`AskResponse` có (`test/schemas/test_contracts.py`); `api/` ở PR #55, chưa merge. |
 | IR3.1 | Chưa | Chưa có `scripts/run_rag_cli.py`. |
 | IR3.2 | Có | `scripts/run_rag_batch.py`, `test/evaluation/test_run_rag_batch.py` |
-| IR4.1 | Một phần | `orchestration/rag_pipeline.py` inject nguồn ứng viên và generator; router, validator, logger chưa qua interface. |
+| IR4.1 | Một phần | `orchestration/rag_pipeline.py` inject nguồn ứng viên và generator; model contract chung ở `schemas/models.py`; router, validator, logger chưa qua interface. |
 
 ## NFR
 

@@ -3,7 +3,7 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-SRS` |
-| Phiên bản | **2.1 — baseline, Tech Lead duyệt 16/11/2026** |
+| Phiên bản | **2.1 — baseline, Tech Lead duyệt 16/11/2026; mục 5 sửa 17/11/2026** |
 | Thay thế | SRS 1.0. Giữ nghĩa của FR1–FR5 và NFR1–NFR3; thêm mã con và nhóm mới. |
 | Kiến trúc tham chiếu | [`architecture/system_architecture.drawio`](../architecture/system_architecture.drawio). Phần Retrieval và Knowledge Base của sơ đồ là **chuẩn bắt buộc**; các phần khác là kiến trúc mục tiêu, được làm rõ trong tài liệu này. |
 | Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
@@ -14,6 +14,7 @@
 | --- | --- | --- |
 | 1.0 | — | FR1–FR5, giao diện, NFR1–NFR3. |
 | 2.1 | 16/11/2026 | Tech Lead duyệt làm baseline: mọi yêu cầu chuyển Approved, D-01–D-10 chốt theo phương án đề xuất. Đặc tả toàn hệ thống theo sơ đồ kiến trúc. Mỗi yêu cầu có mã ổn định, giai đoạn, phụ thuộc, cách kiểm chứng; mọi yêu cầu GĐ1–GĐ2 có tiêu chí chấp nhận. Thêm Definition of Ready, thứ tự làm GĐ2, quy trình feature spec cho GĐ3. Trạng thái triển khai tách sang ma trận truy vết. |
+| 2.1 (sửa) | 17/11/2026 | Mục 5 viết lại theo contract `week10_v1.0` đang có trong code: `route` hai tầng (`Route` của router → `RouteType` công khai, `action` quyết định hành vi), tên trường `AskResponse` theo code, lỗi chặn trước pipeline trả `ApiError`, `LogEvent` 9 stage. Thêm lộ trình contract (5.6): ba thay đổi `week10_v1.1` đã duyệt, các trường để sau. Thêm điều kiện 7 vào Definition of Ready. Sửa D-01, D-02 và tiêu chí FR1.3–FR1.6, FR3.1, FR3.3, FR4.7, FR6.4, FR7.1, FR9.9, IR1.3, IR2.2. |
 
 ---
 
@@ -148,7 +149,7 @@ Cột: **Mã · Yêu cầu · Khối sơ đồ · GĐ · Phụ thuộc · Trạn
 | --- | --- | --- | --- | --- | --- | --- |
 | FR1.1 | Hệ thống phải phân loại mọi câu hỏi hợp lệ là **không phải pháp lý** hoặc **pháp lý** bằng luật heuristic, không gọi LLM. | Heuristic Fast-Path | GĐ2 | — | Approved (1.0 FR1) | T |
 | FR1.2 | Khi câu hỏi không phải pháp lý, hệ thống phải trả lời bằng kịch bản tĩnh, bỏ qua Retrieval và LLM, không đưa kết luận pháp lý. | General Chat Responder | GĐ2 | FR1.1, FR1.9, FR5.8 | Approved (1.0 FR1) | T |
-| FR1.3 | Với câu hỏi pháp lý, SuperRouter phải xác định ý định và phạm vi: thuộc HNGĐ, ngoài HNGĐ, lẫn cả hai, hoặc chưa chắc chắn; kết quả là một giá trị `route` (mục 5.3.3) kèm `route_reason`. | SuperRouter / Intent Routing | GĐ2 | D-01 | Approved | T |
+| FR1.3 | Với câu hỏi pháp lý, SuperRouter phải xác định ý định và phạm vi: thuộc HNGĐ, ngoài HNGĐ, lẫn cả hai, hoặc chưa chắc chắn; kết quả là `Route` của router, `action` và `route_reason`, chuyển thành `RouteDecision` theo bảng 5.3.3. | SuperRouter / Intent Routing | GĐ2 | D-01 | Approved | T |
 | FR1.4 | Khi câu hỏi thuộc lĩnh vực pháp luật khác HNGĐ, hoặc lẫn nội dung ngoài phạm vi không tách được, hệ thống phải từ chối theo policy và nêu rõ phạm vi hỗ trợ, không chạy truy xuất. | Intent Routing → Policy Abstention | GĐ2 | FR1.3, FR1.9, D-02 | Approved | T |
 | FR1.5 | Khi phạm vi chưa chắc chắn, hệ thống phải tiếp tục truy xuất và để Confidence Filter quyết định (FR3). | Intent Routing | GĐ2 | FR1.3, FR1.9 | Approved (mới 2.1) | T |
 | FR1.6 | Heuristic non-legal không được ghi đè tín hiệu pháp lý: câu có cả lời chào và câu hỏi pháp lý phải đi nhánh pháp lý. | Heuristic Fast-Path | GĐ2 | FR1.1 | Approved | T |
@@ -162,11 +163,11 @@ Tiêu chí chấp nhận:
 - **FR1.1-AC2** Given 6 câu `non_legal` của tập câu âm, Then cả 6 được phân loại không phải pháp lý.
 - **FR1.2-AC1** Given "Xin chào", Then `route = NON_LEGAL`, `status = SUCCESS`, `grounding_status = NOT_RUN`, `llm_calls = 0`, `citations = []`, có disclaimer.
 - **FR1.2-AC2** Câu trả lời xã giao lấy từ tập kịch bản cố định trong cấu hình và không chứa số hiệu văn bản hay chữ "Điều".
-- **FR1.3-AC1** Given bất kỳ câu pháp lý nào, Then `RouteDecision.route` thuộc 5 giá trị ở 5.3.3 và `route_reason` thuộc enum lý do của router.
-- **FR1.4-AC1** Given 8 câu `legal_out_of_scope` của tập câu âm, Then mỗi câu `status = ABSTAIN`, `reason_code = ROUTE_POLICY`, số lần gọi Retrieval = 0, `llm_calls = 0`.
+- **FR1.3-AC1** Given bất kỳ câu pháp lý nào, Then `Route` của router thuộc 5 giá trị và `action` đúng cột tương ứng ở bảng 5.3.3; `RouteDecision.route` là `RouteType` ánh xạ theo bảng đó; `reason_code` thuộc enum lý do của router.
+- **FR1.4-AC1** Given 8 câu `legal_out_of_scope` của tập câu âm, Then mỗi câu `status = ABSTAIN`, `error_code = ROUTE_POLICY`, số lần gọi Retrieval = 0, `llm_calls = 0`.
 - **FR1.4-AC2** Thông báo từ chối có cụm nêu phạm vi ("Hôn nhân và gia đình") và disclaimer.
-- **FR1.5-AC1** Given câu được xếp `LEGAL_SCOPE_UNCERTAIN`, Then Retrieval chạy; nếu không đủ tin cậy thì `abstention_source = confidence_filter`.
-- **FR1.6-AC1** Given "Chào bạn, cho hỏi tuổi kết hôn của nữ là bao nhiêu?", Then `route = LEGAL_HNGD`.
+- **FR1.5-AC1** Given router xếp câu vào `LEGAL_SCOPE_UNCERTAIN`, Then `action = LEGAL_RETRIEVAL`, `route = MIXED_REVIEW` và Retrieval chạy; nếu không đủ tin cậy thì `abstention_source = confidence_filter`; nếu Gate PASS thì `status = SUCCESS`.
+- **FR1.6-AC1** Given "Chào bạn, cho hỏi tuổi kết hôn của nữ là bao nhiêu?", Then `Route` của router là `LEGAL_HNGD` (`route = LEGAL_IN_SCOPE`).
 - **FR1.7-AC1** Given `query = "   "` hoặc `query` dài 2.001 ký tự hoặc `query = 123`, Then `INVALID_REQUEST` (HTTP 422 ở API) và không stage nào chạy.
 - **FR1.8-AC1** Holdout có 30–40 câu, có metadata nguồn; báo cáo similarity audit cho thấy không câu nào trùng hoặc gần trùng với bộ luật và bộ hồi quy; router được đóng băng (ghi version/hash) trước khi chạy holdout.
 - **FR1.9-AC1** Given một request qua API, Then trong log sự kiện `router` có trước mọi sự kiện `retrieval`.
@@ -223,9 +224,9 @@ Tiêu chí chấp nhận:
 Tiêu chí chấp nhận:
 
 - **FR3.1-AC1** Given điểm reranker [0,90; 0,40; 0,05], `min_evidence_score = 0,1`, `min_top1_score = 0,5`, Then ứng viên 0,05 bị loại khỏi ngữ cảnh và luồng tiếp tục.
-- **FR3.1-AC2** Given điểm hạng 1 = 0,087 < 0,5, Then không đủ tin cậy, `reason_code = LOW_CONFIDENCE`, `abstention_source = confidence_filter`.
+- **FR3.1-AC2** Given điểm hạng 1 = 0,087 < 0,5, Then không đủ tin cậy, `error_code = LOW_CONFIDENCE`, `abstention_source = confidence_filter`.
 - **FR3.3-AC1** Given không đủ tin cậy hoặc không có ứng viên, Then `llm_calls = 0`, `done_reason = not_generated`.
-- **FR3.3-AC2** Given retriever trả rỗng, Then `reason_code = RETRIEVAL_EMPTY`.
+- **FR3.3-AC2** Given retriever trả rỗng, Then `error_code = RETRIEVAL_EMPTY`.
 - **FR3.4-AC1** Given các câu `insufficient_facts` của tập câu âm, Then ≥ 70% có `status = NEEDS_CLARIFICATION` (BRD BO-04); mỗi câu làm rõ nêu ít nhất một dữ kiện cụ thể (ví dụ thời điểm kết hôn, có đăng ký kết hôn không, tài sản có trước hay sau hôn nhân) và không có kết luận pháp lý.
 - **FR3.4-AC2** Given các câu `missing_corpus_evidence` của tập câu âm, Then ≥ 80% có `status = ABSTAIN` với thông báo "không đủ căn cứ" (BRD BO-04).
 - **FR3.4-AC3** Phản hồi làm rõ có `clarification` không rỗng, `answer = null`, `citations = []`, có disclaimer.
@@ -259,6 +260,7 @@ Tiêu chí chấp nhận:
 - **FR4.6-AC1** Mỗi kết quả có `prompt_version` và SHA-256 của prompt; hai câu giống nhau với cùng ngữ cảnh và cùng phiên bản cho cùng SHA-256.
 - **FR4.6-AC2** Sửa nội dung template mà không đổi hằng phiên bản thì test kiểm tra phiên bản prompt báo lỗi.
 - **FR4.7-AC1** Mỗi citation tra ngược được tới `document_number`, Điều, Khoản, Điểm (nếu có) và `validity_status` qua metadata kho.
+- **FR4.7-AC2** Ở API, citation lấy nhãn từ phần tử `evidence` cùng `evidence_index`; Given chunk có `point_ref`, Then phần tử `evidence` đó có `point_ref` *(v1.1, mục 5.6)*.
 
 ### FR5. Grounding Gate và từ chối — Grounding Gate, Verified Grounded Answer + Citations Map, Policy Abstention
 
@@ -297,7 +299,7 @@ Tiêu chí chấp nhận:
 | FR6.1 | Mọi lời gọi model phải đi qua một gateway có giao diện tương thích OpenAI; module khác không gọi trực tiếp provider. | OpenAI-Compatible Interface | GĐ1 (một provider) / GĐ3 | — | Approved (sơ đồ) | T |
 | FR6.2 | Model, tham số sinh (temperature, độ dài tối đa, ngữ cảnh tối đa, repeat penalty), timeout và số lần thử lại nằm trong cấu hình có phiên bản. | Model Router | GĐ1 | — | Approved | I, T |
 | FR6.3 | Model Router phải chọn model theo thứ tự: Primary → Fallback → Local Offline, theo ma trận dự phòng có cấu hình. Thử lại có giới hạn số lần và thời gian. | Model Router; Cascading Fallback Matrix & Retry | GĐ3 | FR6.1, FR6.4 | Approved (sơ đồ) | T |
-| FR6.4 | Khi tất cả model thất bại, hệ thống phải trả `status = ERROR`, `error.code = LLM_UNAVAILABLE` (hoặc `LLM_TIMEOUT` nếu do quá thời gian), phát sự kiện cảnh báo cho Gateway và ghi log; không trả câu trả lời từ nguồn khác. | Exception Detector & User Notifier | GĐ2 | FR6.1, D-02 | Approved (sơ đồ) | T |
+| FR6.4 | Khi tất cả model thất bại, hệ thống phải trả `status = ERROR`, `error_code = LLM_UNAVAILABLE` *(v1.1)* (hoặc `LLM_TIMEOUT` nếu do quá thời gian), phát sự kiện cảnh báo cho Gateway và ghi log; không trả câu trả lời từ nguồn khác. | Exception Detector & User Notifier | GĐ2 | FR6.1, D-02 | Approved (sơ đồ) | T |
 | FR6.5 | Khi bật cache prompt, cache hit phải đi tiếp qua Grounding Gate như đầu ra mới; khóa cache gồm SHA-256 prompt, model và tham số sinh. | Semantic Prompt & KV Cache | GĐ3 | FR6.1, FR5.2 | Approved (sơ đồ) | T |
 | FR6.6 | Gateway phải ghi cho mỗi lời gọi: model thực sự đã dùng, digest/phiên bản, tham số, `done_reason`, đã bị cắt hay chưa, token vào/ra, các mốc thời gian (tải model, xử lý prompt, sinh), chi phí ước tính. Giá trị runtime không trả về thì để rỗng, không tự điền 0. | Model Gateway → Latency & Token Cost Metrics | GĐ1 | — | Approved | T |
 | FR6.7 | Trong đánh giá official, model và tham số phải cố định: tắt fallback, tắt cache. Dữ liệu chỉ được gửi tới provider bên ngoài khi đã che PII (NFR3.4) và được phê duyệt. | Model Router | GĐ1 | — | Approved | A |
@@ -307,7 +309,7 @@ Tiêu chí chấp nhận:
 
 - **FR6.1-AC1** (GĐ1) Ngoài module gateway, không module nào gọi HTTP tới provider model (kiểm tra bằng test quét import hoặc mock transport).
 - **FR6.2-AC1** Given cấu hình thiếu một khóa bắt buộc, Then gateway báo lỗi khi khởi tạo; Given cấu hình hợp lệ, Then kết quả và manifest ghi đúng các giá trị đã cấu hình.
-- **FR6.4-AC1** Given provider không kết nối được sau số lần thử lại, Then `status = ERROR`, `error.code = LLM_UNAVAILABLE`, HTTP 503; Given quá `timeout_seconds`, Then `LLM_TIMEOUT`, HTTP 504.
+- **FR6.4-AC1** Given provider không kết nối được sau số lần thử lại, Then `status = ERROR`, `error_code = LLM_UNAVAILABLE` *(v1.1)*, `error.retryable = true`, HTTP 503; Given quá `timeout_seconds`, Then `error_code = LLM_TIMEOUT`, `error.retryable = true`, HTTP 504.
 - **FR6.4-AC2** Khi lỗi xảy ra, log có sự kiện stage `llm` trạng thái lỗi; chế độ SSE gửi event `error`.
 - **FR6.6-AC1** Mỗi kết quả có `model`, `done_reason`, `truncated`, `token_usage`; manifest có digest và phiên bản runtime.
 - **FR6.6-AC2** Given runtime không trả mốc thời gian, Then trường tương ứng là `null`, không phải 0.
@@ -318,15 +320,15 @@ Tiêu chí chấp nhận:
 
 | Mã | Yêu cầu | Khối | GĐ | Phụ thuộc | Trạng thái | KC |
 | --- | --- | --- | --- | --- | --- | --- |
-| FR7.1 | Hệ thống phải gắn mỗi request với một `session_id` (do client gửi hoặc hệ thống tạo) và một `query_id` duy nhất. | Session & History Manager | GĐ2 | IR2.1 | Approved | T |
+| FR7.1 | Hệ thống phải gắn mỗi request với một `query_id` duy nhất và mang `session_id` của client (nếu có) vào log. Sinh `session_id` khi thiếu và trả lại trong phản hồi làm cùng FR7.2 (mục 5.6). | Session & History Manager | GĐ2 | IR2.1 | Approved | T |
 | FR7.2 | Hệ thống phải lưu mỗi lượt hỏi đáp của phiên: câu hỏi đã che PII, `as_of_date`, route, status, trích dẫn, phiên bản cấu hình, thời điểm. | Session & History Manager (PostgreSQL) | GĐ3 | FR7.1, NFR3.4 | Approved (sơ đồ) | T |
 | FR7.3 | Lịch sử phiên chỉ dùng để hiểu câu hỏi tiếp theo (làm rõ, tham chiếu "trường hợp trên"); không được dùng làm căn cứ pháp lý thay cho evidence. | SuperRouter | GĐ3 | FR7.2 | Approved (mới 2.1) | T |
 | FR7.4 | Dữ liệu phiên có thời hạn lưu và quyền truy cập theo chính sách (NFR7). Người dùng có thể yêu cầu xóa phiên. | Session & History Manager | GĐ3 | FR7.2, NFR7.1 | Approved (mới 2.1) | T, I |
 
 Tiêu chí chấp nhận:
 
-- **FR7.1-AC1** Given request không có `session_id`, Then phản hồi có `session_id` do hệ thống tạo; Given có, Then phản hồi giữ nguyên giá trị đó.
-- **FR7.1-AC2** Given 1.000 request, Then 1.000 `query_id` khác nhau; nếu client gửi `request_id` thì `query_id = request_id`.
+- **FR7.1-AC1** Given request có `session_id`, Then mọi sự kiện log của request mang giá trị đó. Phần sinh và trả lại `session_id` kiểm khi thay đổi contract ở mục 5.6 được hiện thực.
+- **FR7.1-AC2** Given 1.000 request tương tác không gửi `query_id`, Then 1.000 `query_id` khác nhau và `request_id` của client được trả lại nguyên giá trị. Ở chạy lô, `query_id` lấy từ benchmark và tính duy nhất do run manifest kiểm.
 
 ### FR8. Knowledge Base — Raw Data Sources, Vision-LLM Parser, NLP Pipeline, Parent-child Chunking, Elasticsearch, Qdrant
 
@@ -384,7 +386,7 @@ Tiêu chí chấp nhận:
 - **FR9.6-AC1** Phiếu chấm không có nhãn A/B; thứ tự trộn bằng seed được ghi; ít nhất 10 câu chấm đôi; báo cáo có Weighted Cohen's Kappa, hiệu B − A kèm CI95 hoặc kiểm định Wilcoxon.
 - **FR9.7-AC1** Given tập Dev30 chứa một ID của Test hoặc dùng chung Khoản Gold với Test, Then test chống rò rỉ báo lỗi; hash Test khác giá trị đã đóng băng thì lượt chạy official dừng.
 - **FR9.8-AC1** Given thư mục kết quả đã tồn tại, Then lượt chạy từ chối ghi; `--resume` bỏ qua câu đã xong; lỗi từng câu ghi vào file lỗi, không dừng cả lượt.
-- **FR9.9-AC1** Given một request đi hết pipeline, Then log có các sự kiện cùng `query_id` theo thứ tự `api`, `router`, `retrieval`, `rerank`, `confidence`, `context`, `llm`, `citation`, `gate`, `response`; mỗi dòng parse được JSON và có các trường ở mục 5.4.
+- **FR9.9-AC1** Given một request đi hết pipeline, Then log có các sự kiện cùng `query_id` theo thứ tự `api`, `router`, `retrieval`, `rerank`, `confidence`, `context`, `llm`, `citation`, `gate`, `response` (`confidence` từ `week10_v1.1`; trước đó quyết định ngưỡng ghi ở `rerank`); mỗi dòng parse được JSON và có các trường ở mục 5.4.
 - **FR9.9-AC2** Given request đi nhánh xã giao, Then log chỉ có `api`, `router`, `response`.
 - **FR9.10-AC1** Given logger ném lỗi ở mọi lần ghi, Then phản hồi giống hệt trường hợp logger hoạt động; lỗi logger được báo ở kênh riêng.
 
@@ -408,7 +410,7 @@ Tiêu chí chấp nhận (chạy với API giả lập theo OpenAPI):
 
 - **IR1.1-AC1** Nhấn Enter gửi câu hỏi; Shift+Enter xuống dòng (nếu framework hỗ trợ); câu hỏi và phản hồi xuất hiện theo thứ tự trong lịch sử phiên.
 - **IR1.2-AC1** Given người dùng chọn ngày, Then request có `as_of_date` đó; Given không chọn, Then request không có `as_of_date` và UI hiển thị `as_of_date` cùng `as_of_date_source` từ phản hồi.
-- **IR1.3-AC1** Với mỗi giá trị `status`, UI hiển thị đúng trường (`answer`, `clarification`, `message`, `error.message`); không suy trạng thái từ trường rỗng.
+- **IR1.3-AC1** Với mỗi giá trị `status`, UI hiển thị đúng trường (`answer`, `clarification`, `abstention_message`, `error.message`); không suy trạng thái từ trường rỗng.
 - **IR1.3-AC2** Given API chậm hoặc timeout, Then UI hiển thị thông báo lỗi thân thiện, không treo.
 - **IR1.4-AC1** Given phản hồi có 3 evidence, Then panel có 3 mục với đủ trường; bấm `[2]` mở mục 2.
 - **IR1.4-AC2** Given phản hồi không có citation, Then panel ghi "không có căn cứ trích dẫn".
@@ -421,7 +423,7 @@ Tiêu chí chấp nhận (chạy với API giả lập theo OpenAPI):
 | Mã | Yêu cầu | GĐ | Phụ thuộc | Trạng thái | KC |
 | --- | --- | --- | --- | --- | --- |
 | IR2.1 | `POST /api/v1/ask` nhận `AskRequest`, trả `AskResponse` (mục 5.3). | GĐ2 | mục 5.3, D-01, D-02, D-03, FR1.9 | Approved | T |
-| IR2.2 | Mọi endpoint trừ health yêu cầu header `X-API-Key`; thiếu hoặc sai → HTTP 401 `AUTH_REQUIRED`. | GĐ2 | — | Approved (1.0 NFR3) | T |
+| IR2.2 | Mọi endpoint trừ health yêu cầu header `X-API-Key`; thiếu hoặc sai → HTTP 401 `AUTH_REQUIRED`, body `ApiError` (mục 5.3.4). | GĐ2 | — | Approved (1.0 NFR3) | T |
 | IR2.3 | Có `GET /api/v1/health` (không gọi model) và tài liệu OpenAPI (`/docs`, `/openapi.json`). | GĐ2 | IR2.1 | Approved | T |
 | IR2.4 | Stream qua SSE (`text/event-stream`): event `status` cho từng stage; event `final` chứa `AskResponse` sau Gate; event `error` khi lỗi hoặc outage. Nội dung câu trả lời chỉ có trong `final` (FR5.1). WebSocket là phương án thay thế với cùng loại event. | GĐ2 (SSE) / GĐ3 (WebSocket) | IR2.1, FR5.1, FR9.9 | Approved (1.0 §4.2; sơ đồ) | T |
 | IR2.5 | Ánh xạ trạng thái sang HTTP theo mục 5.3.4; không trả prompt thô hay secret. | GĐ2 | D-02 | Approved | T |
@@ -483,72 +485,126 @@ Tiêu chí chấp nhận:
 
 ### 5.2. Nguồn sự thật của contract
 
-`schemas/models.py` (Pydantic) là nguồn duy nhất; JSON Schema trong `schemas/` được sinh tự động, không sửa tay. Thay đổi phá vỡ tương thích phải tăng `schema_version`, cập nhật ví dụ và test. Contract gồm: `AskRequest`, `AskResponse`, `RouteDecision`, `RetrievalBundle`, `CandidateChunk`, `EvidenceItem`, `ContextPayload`, `LLMResponse`, `GroundingResult`, `LogEvent`, bản ghi kết quả chạy lô.
+`schemas/models.py` (Pydantic) là nguồn duy nhất của contract; chỉ owner contract sửa file này. JSON Schema sinh tự động vào `schemas/generated/*.schema.json` bằng `python -m schemas.models`, không sửa tay; ví dụ hợp lệ ở `schemas/examples/`. Các file `*.schema.json` ở gốc `schemas/` là schema dữ liệu (benchmark, chunk, metadata) hoặc bản trước contract hiện hành, không phải nguồn của các model dưới đây.
 
-### 5.3. Contract API (Approved 16/11/2026 — D-01, D-02, D-03)
+Contract gồm: `AskRequest`, `AskResponse`, `RouteDecision`, `RetrievalBundle`, `CandidateChunk`, `EvidenceItem`, `ContextPayload`, `LLMResponse`, `GroundingResult`, `LogEvent`, bản ghi kết quả chạy lô (`RAGOutputRecord`).
+
+**Phiên bản hiện hành: `week10_v1.0`.** Mục 5.3–5.4 mô tả đúng phiên bản này. Chỗ ghi *(v1.1)* là thay đổi đã duyệt ở mục 5.6 nhưng chưa có trong code; nó chỉ ràng buộc khi `schema_version` của code đạt phiên bản đó.
+
+### 5.3. Contract API (duyệt 16/11/2026, sửa 17/11/2026 — D-01, D-02, D-03)
 
 #### 5.3.1. `AskRequest`
 
 | Trường | Kiểu | Bắt buộc | Ràng buộc |
 | --- | --- | --- | --- |
-| `query` | string | có | Sau khi bỏ khoảng trắng: 1–2.000 ký tự. |
+| `schema_version` | string | không | Mặc định phiên bản hiện hành. |
+| `query` | string | có | Không rỗng sau khi bỏ khoảng trắng; API từ chối quá 2.000 ký tự (FR1.7). |
 | `as_of_date` | `YYYY-MM-DD` | không | Ngày người dùng chọn. |
-| `session_id` | string | không | Hệ thống tạo nếu không có. |
-| `request_id` | string | không | Dùng làm `query_id` nếu có. |
+| `session_id` | string | không | Client giữ; hệ thống mang vào log (FR7.1). |
+| `request_id` | string | không | Mã của client; trả lại nguyên giá trị trong `AskResponse`. |
+| `query_id` | string | không | Chỉ dùng cho chạy lô (ví dụ `HN_001`). Request tương tác để trống, hệ thống sinh. |
 
-Request công khai không có tham số model, Top-K hay chế độ chạy; các giá trị này lấy từ cấu hình.
+Request không nhận trường nào khác (`extra = forbid`): không có tham số model, Top-K hay chế độ chạy; các giá trị này lấy từ cấu hình.
 
 #### 5.3.2. `AskResponse`
 
 | Trường | Kiểu | Ghi chú |
 | --- | --- | --- |
-| `schema_version`, `query_id`, `session_id` | string | |
+| `schema_version` | string | |
+| `query_id` | string | Mã truy vết xuyên pipeline, trùng `query_id` trong log. |
+| `request_id` | string \| null | Trả lại từ request. |
 | `status` | `SUCCESS` · `NEEDS_CLARIFICATION` · `ABSTAIN` · `ERROR` | Client dựa vào trường này. |
-| `route` | enum 5.3.3 \| null | |
-| `as_of_date`, `as_of_date_source` | string | FR2.1 |
+| `route` | `RouteType` (5.3.3) | Luôn có. |
+| `as_of_date` | `YYYY-MM-DD` | FR2.1 |
+| `as_of_date_source` | `benchmark` · `query_text` · `user_input` · `system_today` | FR2.1 |
 | `answer` | string \| null | Chỉ khi SUCCESS; không chứa câu khuyến cáo. |
 | `clarification` | string \| null | Chỉ khi NEEDS_CLARIFICATION. |
-| `message` | string \| null | Thông báo từ chối khi ABSTAIN. |
-| `citations[]` | `{evidence_index, document_id, document_number, article_id, clause_id, point_ref, label}` | FR4.7 |
-| `evidence[]` | `{evidence_index, document_title, document_number, breadcrumb, content, validity_status, effective_from, effective_to}` | IR1.4 |
-| `grounding_status` | `PASS` · `FAIL` · `ABSTAIN` · `NEEDS_CLARIFICATION` · `NOT_RUN` | `NOT_RUN` khi không gọi model. |
-| `reason_code` | string \| null | 5.3.4 |
+| `abstention_message` | string \| null | Thông báo từ chối cho người dùng, chỉ khi ABSTAIN. API luôn điền. |
+| `abstention_reason` | string \| null | Lý do chi tiết, chỉ khi ABSTAIN: `reason_code` của router, lý do của Confidence Filter, model hoặc Gate. |
+| `citations[]` | `{evidence_index, chunk_id, document_id, article_id, clause_id, parent_clause_id?}` | Chỉ trỏ tới evidence. Nhãn hiển thị (FR4.7, IR1.4) lấy từ phần tử `evidence` cùng `evidence_index`. |
+| `evidence[]` | `{evidence_index, chunk_id, parent_clause_id, document_id, article_id, clause_id, content, validity_status, effective_from?, effective_to?, source_url?, document_title?, document_number?, article_number?, clause_number?, breadcrumb?, provision_status?}`; thêm `point_ref?` *(v1.1)* | FR4.3, IR1.4 |
+| `grounding_status` | `PASS` · `FAIL` · `ABSTAIN` · `NEEDS_CLARIFICATION` · `NOT_RUN` | `NOT_RUN` khi Gate không chạy (D-03). |
+| `error_code` | `ErrorCode` \| null | Mã nhóm ở 5.3.4, dùng chung cho lý do từ chối và lỗi. Bắt buộc khi ERROR. |
+| `error` | `{message, retryable}` \| null | Chỉ khi ERROR; không chứa traceback, prompt hay secret. |
 | `disclaimer` | string | Luôn có. |
-| `timings` | `{total_ms, first_status_ms, retrieval_ms, llm_ms, gate_ms}` | Stage không chạy = null. |
-| `versions` | `{prompt_version, model, corpus_version, retrieval_config_version, threshold_config_version}` | |
-| `cache` | `{hit: bool, layer}` \| null | FR2.9, FR6.5 |
-| `error` | `{code, message}` \| null | Chỉ khi ERROR. |
+| `timings` | `{total_ms, retrieval_ms, llm_total_ms, ttft_model_ms, load_ms, prompt_eval_ms, eval_ms}` | Không chạy hoặc không đo được = null. |
 
-#### 5.3.3. `route`
+Ràng buộc (validator của `AskResponse` kiểm):
 
-`LEGAL_HNGD` · `LEGAL_SCOPE_UNCERTAIN` · `LEGAL_OUT_OF_SCOPE` · `MIXED_LEGAL_SCOPE` · `NON_LEGAL` (trùng enum `Route` của `agent/router/rule_router.py`).
+- Mỗi `status` chỉ điền trường của nó; ngoài SUCCESS, `answer = null`.
+- SUCCESS của câu pháp lý: `grounding_status = PASS`, `citations` không rỗng, mọi `evidence_index` của citation có trong `evidence`.
+- SUCCESS với `route = NON_LEGAL`: `grounding_status = NOT_RUN`, `evidence` và `citations` rỗng.
+- `route = LEGAL_OUT_OF_SCOPE` không bao giờ SUCCESS; `route = MIXED_REVIEW` có thể SUCCESS (5.3.3).
+- ABSTAIN có `abstention_message` hoặc `abstention_reason`; `JSON_INVALID` và `CITATION_INVALID` chỉ đi với `grounding_status = FAIL`.
+
+Không nằm trong `AskResponse` mà ghi ở log (5.4): phiên bản prompt, model, corpus, cấu hình retrieval và ngưỡng; thông tin cache; thời gian tới sự kiện trạng thái đầu tiên; thời gian của Gate.
+
+#### 5.3.3. `route` và `action`
+
+Router dùng hai tầng nhãn. **`action` quyết định hành vi**; `RouteType` công khai dùng để hiển thị và thống kê.
+
+| `Route` của router | `action` | `RouteType` công khai | Hành vi |
+| --- | --- | --- | --- |
+| `LEGAL_HNGD` | `LEGAL_RETRIEVAL` hoặc `FAST_PATH` | `LEGAL_IN_SCOPE` | Chạy RAG (`FAST_PATH` hiện chạy RAG như `LEGAL_RETRIEVAL`). |
+| `LEGAL_SCOPE_UNCERTAIN` | `LEGAL_RETRIEVAL` | `MIXED_REVIEW` | Chạy RAG; Confidence Filter và Gate quyết định (FR1.5). Có thể SUCCESS. |
+| `MIXED_LEGAL_SCOPE` | `POLICY_ABSTENTION` | `MIXED_REVIEW` | ABSTAIN, `ROUTE_POLICY` (FR1.4). |
+| `LEGAL_OUT_OF_SCOPE` | `POLICY_ABSTENTION` | `LEGAL_OUT_OF_SCOPE` | ABSTAIN, `ROUTE_POLICY` (FR1.4). |
+| `NON_LEGAL` | `GENERAL_CHAT` | `NON_LEGAL` | SUCCESS, `NOT_RUN` (FR1.2). |
+
+- `RouteDecision.route` mang `RouteType`, ánh xạ bằng `map_router_route_to_canonical`; `Route` gốc nằm trong `RouteDecision.reason_code` và `explanation`.
+- Sự kiện log stage `router` ghi `route`, `action`, `reason_code`, `policy_version`.
+- Đánh giá router (FR1.8, tập câu âm) chấm trên `Route` gốc và `action`, không chấm trên `RouteType`.
 
 #### 5.3.4. Mã lý do, mã lỗi, HTTP
 
-| Nhánh | `status` | `grounding_status` | `reason_code` / `error.code` | HTTP |
+Phản hồi có body `AskResponse`:
+
+| Nhánh | `status` | `grounding_status` | `error_code` | HTTP |
 | --- | --- | --- | --- | --- |
 | Grounded | SUCCESS | PASS | — | 200 |
 | Không phải pháp lý | SUCCESS | NOT_RUN | — | 200 |
 | Ngoài phạm vi / lẫn phạm vi | ABSTAIN | NOT_RUN | `ROUTE_POLICY` | 200 |
-| Không có ứng viên | ABSTAIN hoặc NEEDS_CLARIFICATION (FR3.4) | NOT_RUN | `RETRIEVAL_EMPTY` | 200 |
-| Dưới ngưỡng tin cậy | ABSTAIN hoặc NEEDS_CLARIFICATION (FR3.4) | NOT_RUN | `LOW_CONFIDENCE` | 200 |
-| Model từ chối | ABSTAIN | ABSTAIN | `MODEL_ABSTAINED` | 200 |
-| Model xin làm rõ | NEEDS_CLARIFICATION | NEEDS_CLARIFICATION | `MODEL_NEEDS_CLARIFICATION` | 200 |
+| Không có ứng viên | ABSTAIN | NOT_RUN | `RETRIEVAL_EMPTY` | 200 |
+| Dưới ngưỡng tin cậy | ABSTAIN | NOT_RUN | `LOW_CONFIDENCE` | 200 |
+| Thiếu dữ kiện, hỏi lại (FR3.4) | NEEDS_CLARIFICATION | NOT_RUN | — | 200 |
+| Model từ chối | ABSTAIN | ABSTAIN | — | 200 |
+| Model xin làm rõ | NEEDS_CLARIFICATION | NEEDS_CLARIFICATION | — | 200 |
 | Đầu ra lỗi / bị cắt | ABSTAIN | FAIL | `JSON_INVALID` | 200 |
 | Trích dẫn sai | ABSTAIN | FAIL | `CITATION_INVALID` | 200 |
 | Vi phạm Gate khác | ABSTAIN | FAIL | `GROUNDING_FAIL` | 200 |
-| Thiếu / sai API key | ERROR | — | `AUTH_REQUIRED` | 401 |
-| Request không hợp lệ | ERROR | — | `INVALID_REQUEST` | 422 |
-| Vượt giới hạn truy cập | ERROR | — | `RATE_LIMITED` | 429 |
-| Model quá thời gian | ERROR | — | `LLM_TIMEOUT` | 504 |
-| Mọi model thất bại | ERROR | — | `LLM_UNAVAILABLE` | 503 |
-| Lỗi khác | ERROR | — | `INTERNAL_ERROR` | 500 |
+| Model quá thời gian | ERROR | NOT_RUN | `LLM_TIMEOUT`, `retryable = true` | 504 |
+| Không kết nối được model / mọi model thất bại *(v1.1)* | ERROR | NOT_RUN | `LLM_UNAVAILABLE`, `retryable = true` | 503 |
+| Lỗi khác trong pipeline | ERROR | NOT_RUN | `INTERNAL_ERROR` | 500 |
 
-Mã chi tiết của Gate (ví dụ `CITATION_OUTSIDE_CONTEXT`, `ANSWER_NOT_VIETNAMESE`) nằm trong `retrieval_trace` và log; `reason_code` công khai là nhóm ở bảng trên.
+Lỗi chặn trước pipeline có body `ApiError` `{schema_version, error_code, message, query_id?, details[]}` (lớp API định nghĩa, dùng `ErrorCode` của contract):
+
+| Nhánh | `error_code` | HTTP |
+| --- | --- | --- |
+| Thiếu hoặc sai API key | `AUTH_REQUIRED` | 401 |
+| Request không hợp lệ | `INVALID_REQUEST` | 422 |
+| Lỗi ngoài pipeline | `INTERNAL_ERROR` | 500 |
+
+HTTP 403 để dành cho key hợp lệ nhưng không đủ quyền (chưa dùng). Mã chi tiết (`route_reason` của router; `violation_codes` của Gate như `CITATION_OUTSIDE_CONTEXT`, `ANSWER_NOT_VIETNAMESE`) nằm trong `abstention_reason` và log; `error_code` công khai là nhóm ở các bảng trên.
 
 ### 5.4. `LogEvent`
 
-`event_id`, `query_id`, `session_id`, `stage` ∈ {`api`, `session`, `router`, `retrieval`, `rerank`, `confidence`, `context`, `llm`, `citation`, `gate`, `response`}, `event_type`, `timestamp` (UTC), `status`, `duration_ms?`, `masked_metadata`.
+Trường: `schema_version`, `event_id`, `query_id`, `stage`, `event_type`, `timestamp` (ISO-8601, UTC), `status`, `duration_ms?`, `error_code?`, `masked_metadata`.
+
+`stage` ∈ {`api`, `router`, `retrieval`, `rerank`, `context`, `llm`, `citation`, `gate`, `response`}; thêm `confidence` *(v1.1)*.
+
+`masked_metadata` đã che PII (NFR3.4) và mang tối thiểu các thông tin FR9.9 yêu cầu:
+
+| Stage | Nội dung tối thiểu |
+| --- | --- |
+| `api` | `session_id` nếu client gửi; khi stream: thời gian tới sự kiện trạng thái đầu tiên (NFR2.1). |
+| `router` | `route`, `action`, `reason_code`, `policy_version`. |
+| `retrieval` | `corpus_version`, `corpus_hash`, `retrieval_config_version`, số ứng viên. |
+| `confidence` *(v1.1)* | Điểm hạng 1, ngưỡng, `threshold_config_version`, quyết định. Trước v1.1 ghi ở stage `rerank` với `event_type` riêng. |
+| `llm` | `model`, `prompt_version`, `ttft_model_ms`, số token. |
+| `gate` | Kết quả, `violation_codes`. |
+| `response` | `status`, `grounding_status`, `error_code`, `total_ms`, số citation và evidence. |
+
+Khi có cache (FR2.9, FR6.5), stage tương ứng ghi cache hit/miss và tầng cache.
 
 ### 5.5. Interface giữa phân hệ
 
@@ -561,6 +617,19 @@ Mã chi tiết của Gate (ví dụ `CITATION_OUTSIDE_CONTEXT`, `ANSWER_NOT_VIET
 | Mọi phân hệ → Logger | `emit(LogEvent)` |
 | API → UI | HTTP JSON / SSE theo OpenAPI |
 | Chạy lô → Evaluation | JSONL kết quả + manifest |
+
+### 5.6. Lộ trình contract
+
+Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duyệt → owner contract sửa `schemas/models.py`, tăng `schema_version`, thêm test tương thích ngược → bỏ dấu *(v1.x)* ở mục 5.3–5.4 và cập nhật ma trận truy vết. Trong cùng dòng `week10_v1.x` chỉ được **thêm** (giá trị enum, trường optional) và `SchemaVersionType` vẫn nhận phiên bản cũ, để bản ghi cũ còn hợp lệ. Đổi tên, bỏ trường hay đổi nghĩa cần phiên bản chính mới.
+
+| Thay đổi | Yêu cầu | Phiên bản | Trạng thái |
+| --- | --- | --- | --- |
+| `ErrorCode` thêm `LLM_UNAVAILABLE` (HTTP 503); Gateway trả mã này khi không kết nối được model | FR6.4 | `week10_v1.1` | Duyệt 17/11/2026 |
+| `EventStage` thêm `confidence` | FR9.9, FR3.1 | `week10_v1.1` | Duyệt 17/11/2026 |
+| `EvidenceItem.point_ref` (optional) | FR4.7, IR1.4 | `week10_v1.1` | Duyệt 17/11/2026 |
+| `RetrievalBundle.metadata_filters`, `RetrievalBundle.latency_breakdown` (optional) | FR2.11, FR9.4 | `week10_v1.1` | Đề xuất, chờ owner contract và Tech Lead |
+| `AskResponse.session_id`, `LogEvent.session_id`, stage `session` | FR7.1, FR7.2 | Khi FR7.2 vào sprint | Dự kiến |
+| `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | NFR3.2 | Khi NFR3.2 vào sprint | Dự kiến |
 
 ---
 
@@ -643,20 +712,20 @@ Các điểm cần lưu ý khi hiện thực sơ đồ. Đây không phải yêu
 
 ## 8. Quyết định còn mở
 
-Tech Lead đã duyệt cả 10 quyết định theo phương án đề xuất ngày 16/11/2026. Quyết định mới phát sinh thêm vào bảng này với mã tiếp theo; yêu cầu phụ thuộc quyết định chưa chốt thì chưa đạt Definition of Ready (mục 10).
+Tech Lead đã duyệt cả 10 quyết định theo phương án đề xuất ngày 16/11/2026; D-01, D-02 sửa ngày 17/11/2026 cho khớp contract `week10_v1.0`. Quyết định mới phát sinh thêm vào bảng này với mã tiếp theo; yêu cầu phụ thuộc quyết định chưa chốt thì chưa đạt Definition of Ready (mục 10).
 
 | Mã | Câu hỏi | Phương án | Chặn | Kết quả |
 | --- | --- | --- | --- | --- |
-| D-01 | Enum `route` công khai | 5 giá trị ở 5.3.3 | FR1.3, IR2.1 || Duyệt 16/11/2026 |
-| D-02 | Bộ `status`, mã lý do, mã lỗi, HTTP | Bảng 5.3.4 | FR1.4, FR3.4, FR6.4, IR1.3, IR2.1, IR2.5 || Duyệt 16/11/2026 |
-| D-03 | `NOT_RUN` trong `grounding_status` | Thêm vào `AskResponse`; bản ghi chạy lô cũ giữ nguyên | IR2.1 || Duyệt 16/11/2026 |
-| D-04 | Số evidence tối đa sau Confidence Filter | `max_evidence = 5`; Top-10 sau reranker theo sơ đồ | FR2.8, FR3.2 || Duyệt 16/11/2026 |
-| D-05 | Cách sinh câu hỏi làm rõ; số vòng tối đa | GĐ2: mẫu câu theo nhóm dữ kiện thiếu do model chọn; tối đa 2 vòng ở GĐ3 | FR3.4, FR3.5 || Duyệt 16/11/2026 |
-| D-06 | Sinh lại có giới hạn khi Gate lỗi có thể sửa | Tối đa 1 lần; tắt trong đánh giá official | FR5.6 || Duyệt 16/11/2026 |
-| D-07 | Quy tắc che PII | Email, điện thoại, CMND/CCCD; trước log, lịch sử, model ngoài | NFR3.4, FR9.9 || Duyệt 16/11/2026 |
-| D-08 | Mục tiêu KPI | Bảng KPI ở BRD | BRD || Duyệt 16/11/2026 theo bảng KPI của BRD; BO-05 p95 và BO-08 chưa có số. |
-| D-09 | Văn bản pháp lý về dữ liệu cá nhân áp dụng | Người duyệt pháp lý xác nhận | NFR7.3 || Duyệt 16/11/2026. Việc xác nhận văn bản do người duyệt pháp lý làm trước khi mở cho người dùng thật (NFR7.3). |
-| D-10 | Máy tham chiếu đo latency | Ghi cấu hình máy trong manifest; so sánh cùng máy | NFR2.3, NFR2.1 || Duyệt 16/11/2026. Máy tham chiếu cụ thể và ngưỡng p95 (BRD BO-05) chốt khi có lượt đo đầu tiên trên máy đó. |
+| D-01 | Enum `route` công khai | Hai tầng: 5 `Route` của router → 4 `RouteType` công khai; `action` quyết định hành vi (5.3.3) | FR1.3, IR2.1 | Duyệt 16/11/2026; sửa 17/11/2026 |
+| D-02 | Bộ `status`, mã lý do, mã lỗi, HTTP | Bảng 5.3.4: `error_code` dùng chung cho lý do từ chối và lỗi; lỗi chặn trước pipeline trả `ApiError` 401/422; `LLM_UNAVAILABLE` ở `week10_v1.1` | FR1.4, FR3.4, FR6.4, IR1.3, IR2.1, IR2.5 | Duyệt 16/11/2026; sửa 17/11/2026 |
+| D-03 | `NOT_RUN` trong `grounding_status` | Thêm vào `AskResponse`; bản ghi chạy lô cũ giữ nguyên | IR2.1 | Duyệt 16/11/2026 |
+| D-04 | Số evidence tối đa sau Confidence Filter | `max_evidence = 5`; Top-10 sau reranker theo sơ đồ | FR2.8, FR3.2 | Duyệt 16/11/2026 |
+| D-05 | Cách sinh câu hỏi làm rõ; số vòng tối đa | GĐ2: mẫu câu theo nhóm dữ kiện thiếu do model chọn; tối đa 2 vòng ở GĐ3 | FR3.4, FR3.5 | Duyệt 16/11/2026 |
+| D-06 | Sinh lại có giới hạn khi Gate lỗi có thể sửa | Tối đa 1 lần; tắt trong đánh giá official | FR5.6 | Duyệt 16/11/2026 |
+| D-07 | Quy tắc che PII | Email, điện thoại, CMND/CCCD; trước log, lịch sử, model ngoài | NFR3.4, FR9.9 | Duyệt 16/11/2026 |
+| D-08 | Mục tiêu KPI | Bảng KPI ở BRD | BRD | Duyệt 16/11/2026 theo bảng KPI của BRD; BO-05 p95 và BO-08 chưa có số. |
+| D-09 | Văn bản pháp lý về dữ liệu cá nhân áp dụng | Người duyệt pháp lý xác nhận | NFR7.3 | Duyệt 16/11/2026. Việc xác nhận văn bản do người duyệt pháp lý làm trước khi mở cho người dùng thật (NFR7.3). |
+| D-10 | Máy tham chiếu đo latency | Ghi cấu hình máy trong manifest; so sánh cùng máy | NFR2.3, NFR2.1 | Duyệt 16/11/2026. Máy tham chiếu cụ thể và ngưỡng p95 (BRD BO-05) chốt khi có lượt đo đầu tiên trên máy đó. |
 
 ---
 
@@ -666,7 +735,7 @@ Các yêu cầu trong cùng một đợt làm song song được nhờ mock theo
 
 | Đợt | Nội dung | Yêu cầu | Điều kiện bắt đầu |
 | --- | --- | --- | --- |
-| 0 | Đưa contract đã chốt vào code | D-01, D-02, D-03, D-07 (đã chốt); mục 5.2–5.4 vào `schemas/models.py`; interface mục 5.5 (Protocol hoặc lớp trừu tượng) | Đã đạt (SRS 2.1 duyệt 16/11/2026) |
+| 0 | Đưa contract đã chốt vào code | D-01, D-02, D-03, D-07 (đã chốt); mục 5.2–5.4 vào `schemas/models.py`; các dòng `week10_v1.1` ở mục 5.6; interface mục 5.5 (Protocol hoặc lớp trừu tượng) | Đã bắt đầu: `week10_v1.0` xong; còn `week10_v1.1` và interface 5.5 |
 | 1 | Khung API, router trong pipeline, log, UI với API giả lập | FR1.9, FR1.1–FR1.6, IR2.1, IR2.2, IR2.3, IR2.5, NFR3.1, FR7.1, FR9.9, NFR3.4, NFR7.2, IR1.1–IR1.6, FR6.4 | Đợt 0 xong |
 | 2 | Stream, hỏi lại, sinh lại, CLI, độ bền log | IR2.4, NFR2.1, FR3.4, FR5.6, IR3.1, FR9.10, IR1.7 | IR2.1 và FR1.9 xong; D-05, D-06 chốt |
 | 3 | Đo và nghiệm thu | FR1.8, NFR5.2, NFR6.2, NFR7.3; đo BO-04 và BO-05 trên toàn hệ thống | Đợt 2 xong |
@@ -679,7 +748,7 @@ Việc còn lại của GĐ1 không phụ thuộc GĐ2 và làm song song: chấ
 
 ### 10.1. Definition of Ready
 
-Một yêu cầu chỉ được đưa vào sprint khi đủ cả 6 điều kiện:
+Một yêu cầu chỉ được đưa vào sprint khi đủ cả 7 điều kiện:
 
 1. Trạng thái spec là `Approved`.
 2. Có tiêu chí chấp nhận trong SRS (GĐ1–GĐ2) hoặc trong feature spec đã duyệt (GĐ3).
@@ -687,6 +756,7 @@ Một yêu cầu chỉ được đưa vào sprint khi đủ cả 6 điều kiệ
 4. Không còn quyết định mở chặn nó (cột *Chặn* ở mục 8).
 5. Các yêu cầu ở cột *Phụ thuộc* đã xong, hoặc có mock theo contract để làm song song.
 6. Đã biết cách kiểm chứng: tên file test dự kiến hoặc artifact cần nộp.
+7. Mọi trường contract mà tiêu chí chấp nhận dùng đã có trong `schema_version` hiện hành; nếu chưa, việc thay đổi contract (mục 5.6) được xếp trước trong cùng sprint.
 
 ### 10.2. Definition of Done
 
@@ -722,7 +792,7 @@ Các yêu cầu GĐ3 cần feature spec: FR2.2, FR2.3, FR2.9, FR3.1 (phần LLM 
 | Loại | Ràng buộc | Muốn khác thì |
 | --- | --- | --- |
 | Câu yêu cầu, tiêu chí chấp nhận, quy tắc nghiệp vụ (BRD mục 6) | **Bắt buộc.** Hành vi của code phải khớp. | PR sửa SRS/BRD trước, Tech Lead duyệt, rồi mới sửa code. |
-| Contract (mục 5: schema, enum, mã lỗi, HTTP, interface) | **Bắt buộc**, kể cả tên trường và giá trị enum. | PR sửa SRS và `schemas/models.py` cùng lúc, tăng `schema_version`, báo các bên dùng. |
+| Contract (mục 5: schema, enum, mã lỗi, HTTP, interface) | **Bắt buộc** theo phiên bản hiện hành, kể cả tên trường và giá trị enum. Chỗ ghi *(v1.x)* chưa hiện thực thì chưa ràng buộc. | Theo mục 5.6: ghi thay đổi, Tech Lead duyệt, owner contract sửa `schemas/models.py`, tăng `schema_version`, test tương thích ngược, báo các bên dùng. |
 | Mã yêu cầu | **Bắt buộc** ghi trong PR code và marker test. | — |
 | Tham số (Top-K, ngưỡng, timeout…) | Theo file cấu hình có phiên bản; SRS chỉ ghi mặc định. | Đổi cấu hình, tăng phiên bản, chạy lại bộ hồi quy; không cần sửa SRS. |
 | Cách hiện thực bên trong module (thuật toán, cấu trúc code, thư viện) | **Tự do**, miễn đạt tiêu chí chấp nhận và giữ contract. | — |
