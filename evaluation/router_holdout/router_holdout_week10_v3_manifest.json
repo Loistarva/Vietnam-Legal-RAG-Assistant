@@ -1,0 +1,43 @@
+{
+  "manifest_version": "router_holdout_freeze_v1",
+  "freeze_status": "FROZEN",
+  "freeze_date": "2026-11-17",
+  "classifier_version": "rule_router_v4_1",
+  "router_artifact": {
+    "path": "agent/router/rule_router.py",
+    "sha256": "2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a",
+    "sha256_policy": "SHA-256 of tracked source bytes with LF line endings; stable across Windows checkout conversion",
+    "working_tree_raw_sha256": "2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a",
+    "git_commit": "48a9c051dfd14ea0f78e4a708f6aec0526cf3175"
+  },
+  "holdout_artifact": {
+    "path": "evaluation/router_holdout/router_holdout_week10_v3.jsonl",
+    "sha256": "22e1460d1b3ff85112fd51e588cfa8022ca062be9d8cc7988c9c861700b6603e",
+    "review_status": "INDEPENDENT_REVIEW_COMPLETE",
+    "reviewer": "Dev3",
+    "evaluation_status": "NOT_RUN"
+  },
+  "pre_freeze_evidence": {
+    "command": "python scripts/smoke_rule_router.py --skip-holdout",
+    "status": "PASS",
+    "gates_passed": "5/5",
+    "official30": "30/30",
+    "dev_retrieval": "270/270",
+    "negative_v2_router_route_action": "26/26",
+    "nonlegal": "6/6",
+    "legal_to_nonlegal_or_general_chat": "0",
+    "corpus_sha256_normalized": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+    "negative_set_canonical_sha256": "5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f"
+  },
+  "verification": {
+    "router_pytest": "53 passed, 239 subtests passed",
+    "negative_set_pytest": "65 passed",
+    "ruff": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "notes": [
+    "Holdout v3 was skipped during pre-freeze smoke and has not been evaluated.",
+    "Router source and focused Router tests are committed and clean at the recorded Git commit.",
+    "Other unrelated local repository changes are excluded from the Router freeze commit."
+  ]
+}
