@@ -1,0 +1,28 @@
+{
+  "new_active": 11,
+  "held": 8,
+  "active_total": 72,
+  "active_ids": [
+    "nd_110_2013_nd_cp",
+    "tt_66_2025_tt_bca",
+    "nd_110_2025_nd_cp",
+    "tt_24_2011_tt_bvhttdl",
+    "tt_11_2021_tt_btp",
+    "tt_01_2025_tt_btp",
+    "tt_24_2014_tt_btp",
+    "nd_06_2012_nd_cp",
+    "tt_12_2011_tt_btp",
+    "tt_15_2014_tt_btp",
+    "tt_21_2011_tt_btp"
+  ],
+  "held_ids": [
+    "tt_08a_2010_tt_btp",
+    "tt_24_2017_tt_byt",
+    "tt_09b_2013_tt_btp",
+    "nd_82_2020_nd_cp",
+    "nd_144_2021_nd_cp",
+    "nd_67_2015_nd_cp",
+    "tt_05_2012_tt_btp",
+    "ttlt_02_2016_ttlt_bng_btp"
+  ]
+}

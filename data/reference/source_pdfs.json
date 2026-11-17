@@ -82,6 +82,83 @@
       }
     },
     {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+      "document_id": "nd_06_2012_nd_cp",
+      "sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+      "bytes": 73168,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_110_2013_nd_cp.pdf",
+      "document_id": "nd_110_2013_nd_cp",
+      "sha256": "732f66a277d457d6b0ec045b742d7bfe63fbb54cdc900d533ab225051821df8c",
+      "bytes": 143849,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_110_2025_nd_cp.pdf",
+      "document_id": "nd_110_2025_nd_cp",
+      "sha256": "a7eb1877ff0dcdb9796240c000fc18a83d69164b725e070921a48eda1df641bd",
+      "bytes": 87460,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_01_2025_tt_btp.pdf",
+      "document_id": "tt_01_2025_tt_btp",
+      "sha256": "7da493aa1d095c6922b8684072a99454b80e15e255111e3c15a92e653245f053",
+      "bytes": 64042,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_11_2021_tt_btp.pdf",
+      "document_id": "tt_11_2021_tt_btp",
+      "sha256": "66938061927b8679c80204e393f4745fc1750b4cfd12418100fa304323d76868",
+      "bytes": 61980,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_12_2011_tt_btp.pdf",
+      "document_id": "tt_12_2011_tt_btp",
+      "sha256": "eda0b4e098476cdece3f1d2a269816149c5acb90ef0bc52e3ec558197e9e3d03",
+      "bytes": 73090,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_15_2014_tt_btp.pdf",
+      "document_id": "tt_15_2014_tt_btp",
+      "sha256": "5498b67ee81a0a3c04d15d8d63dbd997dd9381fef25aadfbad44f4df399608e0",
+      "bytes": 71651,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_21_2011_tt_btp.pdf",
+      "document_id": "tt_21_2011_tt_btp",
+      "sha256": "3472b357c470b30bb91a434ccdf11e9bc20f38c5591d758d9ff843e03b44a215",
+      "bytes": 73082,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_24_2011_tt_bvhttdl.pdf",
+      "document_id": "tt_24_2011_tt_bvhttdl",
+      "sha256": "e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
+      "bytes": 68710,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_24_2014_tt_btp.pdf",
+      "document_id": "tt_24_2014_tt_btp",
+      "sha256": "ceb7533dc636810ffaba756efd396f6987fbf6351a09d17dbcb17ac28073aacd",
+      "bytes": 64715,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_66_2025_tt_bca.pdf",
+      "document_id": "tt_66_2025_tt_bca",
+      "sha256": "2004f0426ef578438842ffb0f85c7d0106325f9033e46971c4f5dd8e7ecece89",
+      "bytes": 71830,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/corpus_v2/bl_91_2015_qh13.pdf",
       "document_id": "bl_91_2015_qh13",
       "sha256": "6db2e6a2c47639e9db54d5e6d0299c494a1d9f86f25e08985fc9b9a2873d3edf",

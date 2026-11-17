@@ -1,0 +1,718 @@
+[
+  {
+    "document_id": "nd_110_2013_nd_cp",
+    "pages": 44,
+    "status": "passed",
+    "articles": 75,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75"
+    ],
+    "article_titles": [
+      "Phạm vi điều chỉnh",
+      "Đối tượng bị xử phạt",
+      "Biện pháp khắc phục hậu quả",
+      "Quy định về mức phạt tiền đối với cá nhân, tổ chức",
+      null,
+      "Hành vi vi phạm quy định về hoạt động hành nghề luật sư",
+      "Hành vi vi phạm quy định về hoạt động tổ chức hành nghề luật sư, tổ chức hành nghề luật sư nước ngoài tại Việt Nam",
+      "Hành vi vi phạm của tổ chức xã hội - nghề nghiệp của luật sư",
+      "Hành vi vi phạm quy định về trung tâm tư vấn pháp luật",
+      "Hành vi vi phạm quy định về hoạt động tư vấn pháp luật",
+      "Hành vi vi phạm quy định về hồ sơ, thủ tục đề nghị bổ nhiệm công chứng viên, cấp thẻ công chứng viên; hồ sơ đề nghị thành lập, đăng ký hoạt động, đề nghị thay đổi nội dung đăng ký hoạt động văn phòng công chứng",
+      "Hành vi vi phạm quy định về công chứng hợp đồng, giao dịch",
+      "Hành vi vi phạm quy định của công chứng viên về nhận lưu giữ di chúc; công chứng hợp đồng thế chấp bất động sản, di chúc, văn bản thỏa thuận phân chia di sản, văn bản khai nhận di sản, văn bản từ chối nhận di sản",
+      "Hành vi vi phạm quy định về công chứng viên",
+      "Hành vi vi phạm quy định về hoạt động của tổ chức hành nghề công chứng",
+      "Hành vi vi phạm quy định về người yêu cầu giám định tư pháp",
+      "Hành vi vi phạm quy định về người giám định tư pháp; hồ sơ xin phép thành lập; hồ sơ đăng ký hoạt động văn phòng giám định tư pháp",
+      "Hành vi vi phạm quy định về văn phòng giám định tư pháp",
+      "Hành vi vi phạm quy định về đấu giá viên và những người khác có liên quan đến hoạt động bán đấu giá tài sản",
+      "Hành vi vi phạm quy định về người tham gia đấu giá tài sản",
+      "Hành vi vi phạm quy định về tổ chức hoạt động bán đấu giá tài sản",
+      "Hành vi vi phạm quy định về trung tâm trọng tài và tổ chức trọng tài nước ngoài tại Việt Nam",
+      "Hành vi vi phạm quy định về trọng tài viên; hồ sơ đề nghị đăng ký thành lập; hồ sơ đề nghị cấp giấy đăng ký hoạt động trung tâm trọng tài, tổ chức trọng tài nước ngoài tại Việt Nam",
+      "Hành vi vi phạm quy định về chứng thực bản sao từ bản chính, chứng thực chữ ký",
+      "Hành vi vi phạm quy định về chứng thực hợp đồng, giao dịch",
+      "Hành vi vi phạm quy định về chứng thực chữ ký người dịch",
+      "Hành vi vi phạm quy định về đăng ký khai sinh",
+      "Hành vi vi phạm quy định về đăng ký kết hôn và môi giới kết hôn",
+      "Hành vi vi phạm quy định về tổ chức và hoạt động của trung tâm tư vấn, hỗ trợ hôn nhân và gia đình có yếu tố nước ngoài",
+      "Hành vi vi phạm quy định về cấp giấy xác nhận tình trạng hôn nhân",
+      "Hành vi vi phạm quy định về đăng ký khai tử",
+      "Hành vi vi phạm quy định về đăng ký giám hộ",
+      "Hành vi vi phạm quy định về đăng ký việc nhận cha, mẹ, con",
+      "Hành vi vi phạm quy định về thay đổi, cải chính hộ tịch",
+      "Hành vi vi phạm quy định về xác định lại dân tộc, xác định lại giới tính",
+      "Hành vi vi phạm về quản lý, sử dụng giấy tờ hộ tịch",
+      "Hành vi vi phạm quy định về quản lý quốc tịch",
+      "Hành vi vi phạm quy định về quản lý, sử dụng và khai thác cơ sở dữ liệu lý lịch tư pháp; yêu cầu cấp phiếu lý lịch tư pháp; sử dụng phiếu lý lịch tư pháp",
+      "Hành vi vi phạm quy định về hoạt động phổ biến, giáo dục pháp luật",
+      "Hành vi vi phạm quy định về nghĩa vụ của báo cáo viên pháp luật, tuyên truyền viên pháp luật",
+      "Hành vi vi phạm quy định về hợp tác quốc tế về pháp luật",
+      "Hành vi vi phạm quy định về người được trợ giúp pháp lý",
+      "Hành vi vi phạm quy định về người thực hiện trợ giúp pháp lý",
+      "Hành vi vi phạm quy định về tổ chức tham gia trợ giúp pháp lý",
+      "Hành vi vi phạm quy định về đăng ký giao dịch bảo đảm",
+      "Hành vi vi phạm quy định về khai thác thông tin trong cơ sở dữ liệu về giao dịch bảo đảm",
+      "Hành vi tảo hôn, tổ chức tảo hôn",
+      "Hành vi vi phạm quy định về cấm kết hôn, vi phạm chế độ hôn nhân một vợ, một chồng; vi phạm quy định về ly hôn",
+      "Hành vi vi phạm quy định về giám hộ",
+      "Hành vi vi phạm quy định về nuôi con nuôi",
+      "Hành vi vi phạm quy định về văn phòng con nuôi nước ngoài tại Việt Nam",
+      "Hành vi vi phạm quy định trong hoạt động thi hành án dân sự",
+      "Hành vi cản trở, gây khó khăn trong việc thực hiện quyền nộp đơn",
+      "Hành vi vi phạm quy định về nghĩa vụ nộp đơn",
+      "Hành vi vi phạm quy định về nghĩa vụ cung cấp tài liệu, xuất trình giấy tờ",
+      "Hành vi vi phạm trách nhiệm của người nộp đơn yêu cầu mở thủ tục phá sản",
+      "Hành vi vi phạm quy định về hoạt động của doanh nghiệp, hợp tác xã khi đã có quyết định mở thủ tục phá sản",
+      "Hành vi vi phạm quy định về thời hạn và nghĩa vụ kiểm kê tài sản",
+      "Hành vi vi phạm quy định về nghĩa vụ của tổ chức tín dụng nơi doanh nghiệp, hợp tác xã bị áp dụng thủ tục thanh lý có tài khoản",
+      "Hành vi vi phạm quy định về thông báo về tình trạng phá sản",
+      "Hành vi vi phạm quy định về nghĩa vụ của nhân viên, người lao động liên quan đến thủ tục phá sản",
+      "Hành vi vi phạm quy định về điều kiện áp dụng thủ tục phục hồi hoạt động kinh doanh",
+      "Hành vi vi phạm quy định về giám sát thực hiện phương án phục hồi hoạt động kinh doanh",
+      "Hành vi vi phạm quy định về tham gia hội nghị chủ nợ",
+      "Thẩm quyền lập biên bản vi phạm hành chính",
+      "Thẩm quyền xử phạt vi phạm hành chính của Chủ tịch Ủy ban nhân dân các cấp",
+      "Thẩm quyền xử phạt vi phạm hành chính của cơ quan Thanh tra",
+      "Thẩm quyền xử phạt vi phạm hành chính của cơ quan Thi hành án dân sự",
+      "Thẩm quyền xử phạt vi phạm hành chính của cơ quan đại diện ngoại giao, cơ quan lãnh sự, cơ quan khác được ủy quyền thực hiện chức năng lãnh sự của nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài",
+      "Thẩm quyền xử phạt vi phạm hành chính của Tòa án nhân dân",
+      "Thẩm quyền phạt tiền đối với hành vi vi phạm của tổ chức",
+      "Phân định thẩm quyền xử phạt vi phạm hành chính",
+      "Thẩm quyền xử phạt vi phạm hành chính của các cơ quan khác",
+      "Hiệu lực thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "clauses": 289,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 27,
+      "gazette_markings": 54,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không chắc chắn title tự động: 'Hành vi vi phạm quy định về hồ sơ đề nghị cấp chứng chỉ hành nghề luật sư, giấy đăng ký hành nghề luật sư, giấy phép hàn'"
+    ]
+  },
+  {
+    "document_id": "tt_66_2025_tt_bca",
+    "pages": 7,
+    "status": "passed",
+    "articles": 18,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "article_titles": [
+      "Phạm vi điều chỉnh",
+      "Những nội dung cần thực hiện ngay sau khi có Quyết định cấm tiếp xúc",
+      "Phân công người giám sát thực hiện quyết định cấm tiếp xúc",
+      "Xây dựng, phê duyệt và ban hành Kế hoạch thực hiện giám sát",
+      "Thông báo về việc giám sát",
+      "Hồ sơ thực hiện giám sát",
+      "Nội dung và hình thức giám sát",
+      "Cam kết của người bị giám sát",
+      "Thực hiện nghĩa vụ trình diện của người bị giám sát",
+      "Xử lý khi người bị giám sát vi phạm quyết định cấm tiếp xúc",
+      "Kết thúc việc giám sát",
+      "Trách nhiệm của người giám sát",
+      "Trách nhiệm của gia đình người bị giám sát",
+      "Trách nhiệm của Công an cấp xã",
+      "Trách nhiệm của các cơ quan, tổ chức, cá nhân phối hợp thực hiện việc giám sát",
+      "Kinh phí thực hiện",
+      "Hiệu lực thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "clauses": 51,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 9,
+      "gazette_markings": 13,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "nd_110_2025_nd_cp",
+    "pages": 14,
+    "status": "passed",
+    "articles": 17,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "article_titles": [
+      "Phạm vi điều chỉnh",
+      "Đối tượng áp dụng",
+      "Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Nguyên tắc thu thập, tạo lập, cập nhật, kết nối, chia sẻ, quản lý, khai thác, sử dụng Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Nội dung thông tin quản lý nhà nước về phòng, chống bạo lực gia đình",
+      "Nguồn thông tin, dữ liệu thu thập, tạo lập, cập nhật, kết nối, chia sẻ vào Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Cập nhật thông tin, dữ liệu trong Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Kết nối, chia sẻ thông tin, dữ liệu",
+      "Quản lý thông tin, dữ liệu về nội dung quản lý nhà nước về phòng, chống bạo lực gia đình",
+      "Khai thác, sử dụng thông tin, dữ liệu",
+      "Bảo đảm hoạt động của Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Trách nhiệm của Bộ Văn hóa, Thể thao và Du lịch",
+      "Trách nhiệm và quyền hạn của các bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ",
+      "Trách nhiệm, quyền hạn của Ủy ban nhân dân các cấp",
+      "Trách nhiệm và quyền hạn của cơ quan, tổ chức, cá nhân trong việc khai thác, sử dụng Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+      "Hiệu lực thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "clauses": 71,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 10,
+      "gazette_markings": 19,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": []
+  },
+  {
+    "document_id": "tt_24_2011_tt_bvhttdl",
+    "pages": 5,
+    "status": "passed",
+    "articles": 11,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "article_titles": [
+      "Phạm vi, đối tượng điều chỉnh",
+      "Nguyên tắc khen thưởng và hoàn trả thiệt hại",
+      "Tiêu chuẩn và hình thức khen thưởng",
+      "Điều kiện khen thưởng",
+      "Quy trình, thủ tục khen thưởng",
+      "Đối tượng và điều kiện để nhà nước hoàn trả thiệt hại",
+      "Cơ quan chịu trách nhiệm hoàn trả giá trị tài sản bị thiệt hại cho người trực tiếp tham gia phòng, chống bạo lực gia đình",
+      "Kinh phí thực hiện khen thưởng cá nhân, tập thể có thành tích xuất sắc trong phòng, chống bạo lực gia đình",
+      "Kinh phí thực hiện hoàn trả giá trị tài sản bị thiệt hại",
+      "Chi chế độ thực hiện lập và hoàn thiện hồ sơ",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 23,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 2,
+      "gazette_markings": 5,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_11_2021_tt_btp",
+    "pages": 2,
+    "status": "passed",
+    "articles": 3,
+    "article_numbers": [
+      "1",
+      "2",
+      "3"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam",
+      "Thay thế, bãi bỏ một số cụm từ, điểm, điều của Thông tư số",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 12,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 2,
+      "gazette_markings": 3,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_01_2025_tt_btp",
+    "pages": 3,
+    "status": "passed",
+    "articles": 3,
+    "article_numbers": [
+      "1",
+      "2",
+      "3"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp",
+      "Thay thế một số cụm từ của Thông tư số 21/2011/TT-BTP đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 13,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 2,
+      "gazette_markings": 4,
+      "tone_placement_changes": 1,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_24_2014_tt_btp",
+    "pages": 3,
+    "status": "passed",
+    "articles": 2,
+    "article_numbers": [
+      "1",
+      "2"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP",
+      "Hiệu lực thi hành"
+    ],
+    "clauses": 7,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 1,
+      "timestamps": 0,
+      "page_counters": 33,
+      "gazette_markings": 60,
+      "tone_placement_changes": 4,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_08a_2010_tt_btp",
+    "pages": 7,
+    "status": "failed",
+    "error": "Không tìm thấy số hiệu '158/2005/NĐ-CP' trong document_versions.json. Hãy bổ sung/đối chiếu bản ghi trong file metadata rồi chạy lại."
+  },
+  {
+    "document_id": "tt_24_2017_tt_byt",
+    "pages": 0,
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "pages": 7,
+    "status": "passed",
+    "articles": 5,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Nghị định số 158/2005/NĐ-CP ngày 27 tháng 12 năm 2005 về đăng ký và quản lý hộ tịch",
+      "Sửa đổi, bổ sung Điều 8 của Nghị định số 32/2002/NĐ-CP ngày 27 tháng 3 năm 2002 của Chính phủ quy định việc áp dụng Luật Hôn nhân và gia đình đối với các dân tộc thiểu số",
+      null,
+      "Sửa đổi, bổ sung một số điều của Nghị định số 79/2007/NĐ-CP của Chính phủ ngày 18 tháng 5 năm 2007 về cấp bản sao từ sổ gốc, chứng thực bản sao từ bản chính, chứng thực chữ ký",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 26,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 4,
+      "gazette_markings": 8,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_09b_2013_tt_btp",
+    "pages": 3,
+    "status": "passed",
+    "articles": 3,
+    "article_numbers": [
+      "1",
+      "2",
+      "3"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP ngày 25 tháng 3 năm 2010 của",
+      "Ban hành Danh mục biểu mẫu và các biểu mẫu kèm theo Thông tư này như sau",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 12,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 1,
+      "timestamps": 0,
+      "page_counters": 12,
+      "gazette_markings": 24,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "nd_82_2020_nd_cp",
+    "pages": 0,
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp",
+    "pages": 0,
+    "status": "failed",
+    "error": ""
+  },
+  {
+    "document_id": "nd_67_2015_nd_cp",
+    "pages": 21,
+    "status": "passed",
+    "articles": 2,
+    "article_numbers": [
+      "1",
+      "2"
+    ],
+    "article_titles": [
+      "Sửa đổi, bổ sung một số điều của Nghị định số 110/2013/NĐ-CP ngày 24 tháng 9 năm 2013 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã",
+      "Hiệu lực và trách nhiệm tổ chức thực hiện"
+    ],
+    "clauses": 66,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 13,
+      "gazette_markings": 26,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_12_2011_tt_btp",
+    "pages": 7,
+    "status": "passed",
+    "articles": 10,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "article_titles": [
+      "Phạm vi điều chỉnh",
+      "Đối tượng sử dụng biểu mẫu, Sổ đăng ký nuôi con nuôi",
+      "Ban hành biểu mẫu, Sổ đăng ký nuôi con nuôi",
+      "Thẩm quyền in, phát hành biểu mẫu, Sổ đăng ký nuôi con nuôi",
+      "Hướng dẫn sử dụng một số biểu mẫu nuôi con nuôi",
+      "Cách thức ghi Giấy chứng nhận nuôi con nuôi",
+      "Cách thức ghi Sổ đăng ký nuôi con nuôi",
+      "Cách thức khóa Sổ và lưu trữ Sổ đăng ký nuôi con nuôi",
+      "Bãi bỏ các biểu mẫu, Sổ đăng ký nuôi con nuôi tại các văn bản pháp luật liên quan",
+      "Hiệu lực thi hành"
+    ],
+    "clauses": 36,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 1,
+      "timestamps": 0,
+      "page_counters": 33,
+      "gazette_markings": 61,
+      "tone_placement_changes": 2,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "tt_05_2012_tt_btp",
+    "pages": 2,
+    "status": "passed",
+    "articles": 2,
+    "article_numbers": [
+      "1",
+      "2"
+    ],
+    "article_titles": [
+      "Những nội dung sửa đổi, bổ sung",
+      "Điều khoản thi hành"
+    ],
+    "clauses": 4,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 1,
+      "timestamps": 0,
+      "page_counters": 16,
+      "gazette_markings": 32,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": [
+      "Không tìm thấy heading mở đầu Chương I/1 đủ tin cậy; giữ nguyên phần đầu văn bản."
+    ]
+  },
+  {
+    "document_id": "ttlt_02_2016_ttlt_bng_btp",
+    "pages": 1,
+    "status": "failed",
+    "error": "Không tìm thấy Điều nào."
+  },
+  {
+    "document_id": "tt_15_2014_tt_btp",
+    "pages": 6,
+    "status": "passed",
+    "articles": 16,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "article_titles": [
+      "Phạm vi và đối tượng điều chỉnh",
+      "Trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo được nhận đích danh làm con nuôi",
+      "Lập danh sách và hồ sơ của trẻ em có nhu cầu chăm sóc đặc biệt cần tìm gia đình thay thế",
+      "Hỗ trợ chăm sóc y tế và khám sức khỏe chuyên sâu cho trẻ em có nhu cầu chăm sóc đặc biệt cần tìm gia đình thay thế",
+      "Tìm gia đình thay thế ở nước ngoài cho trẻ em có nhu cầu chăm sóc đặc biệt",
+      "Hồ sơ của trẻ em có nhu cầu chăm sóc đặc biệt cần tìm gia đình thay thế ở nước ngoài",
+      "Lấy ý kiến của những người liên quan và xác minh nguồn gốc của trẻ em có nhu cầu chăm sóc đặc biệt cần tìm gia đình thay thế ở nước ngoài",
+      "Xác nhận trẻ em có nhu cầu chăm sóc đặc biệt đủ điều kiện làm con nuôi người nước ngoài",
+      "Hồ sơ của người nước ngoài nhận đích danh trẻ em có nhu cầu chăm sóc đặc biệt làm con nuôi",
+      "Nộp hồ sơ nhận trẻ em có nhu cầu chăm sóc đặc biệt làm con nuôi",
+      "Thẩm định hồ sơ của người nước ngoài nhận đích danh trẻ em có nhu cầu chăm sóc đặc biệt làm con nuôi",
+      "Thông báo kết quả tìm gia đình thay thế ở nước ngoài cho trẻ em có nhu cầu chăm sóc đặc biệt",
+      "Quyết định cho trẻ em có nhu cầu chăm sóc đặc biệt làm con nuôi nước ngoài và tổ chức giao nhận con nuôi",
+      "Hủy quyết định cho trẻ em làm con nuôi nước ngoài",
+      "Hiệu lực thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "clauses": 40,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 4,
+      "gazette_markings": 7,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": []
+  },
+  {
+    "document_id": "tt_21_2011_tt_btp",
+    "pages": 7,
+    "status": "passed",
+    "articles": 18,
+    "article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "article_titles": [
+      "Phạm vi điều chỉnh",
+      "Tổ chức con nuôi nước ngoài được cấp phép hoạt động tại Việt Nam",
+      "Tham gia thực hiện thủ tục giải quyết nuôi con nuôi nước ngoài",
+      "Về hồ sơ xin cấp, gia hạn, sửa đổi giấy phép hoạt động",
+      "Trình tự cấp, gia hạn, sửa đổi giấy phép hoạt động",
+      "Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam",
+      "Hỗ trợ tìm gia đình thay thế cho trẻ em khuyết tật, trẻ em nhiễm",
+      "Thuê trụ sở, sử dụng lao động Việt Nam",
+      "Nghĩa vụ báo cáo về tình hình phát triển của trẻ em",
+      "Nghĩa vụ báo cáo về tình hình hoạt động",
+      "Cơ quan kiểm tra",
+      "Nội dung kiểm tra",
+      "Trình tự tiến hành kiểm tra",
+      "Thanh tra hoạt động của Văn phòng con nuôi nước ngoài",
+      "Khen thưởng và xử lý vi phạm",
+      "Bãi bỏ văn bản quy phạm pháp luật liên quan",
+      "Hiệu lực thi hành",
+      "Tổ chức thực hiện Thông tư"
+    ],
+    "clauses": 38,
+    "source_token_roundtrip": "PASS",
+    "cleaner_stats": {
+      "urls": 0,
+      "timestamps": 0,
+      "page_counters": 17,
+      "gazette_markings": 13,
+      "tone_placement_changes": 0,
+      "label_fixes": 0
+    },
+    "warnings": []
+  }
+]

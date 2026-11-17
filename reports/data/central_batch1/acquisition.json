@@ -1,0 +1,486 @@
+[
+  {
+    "document_id": "nd_110_2013_nd_cp",
+    "document_number": "110/2013/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+    "html_path": "data/source_documents/central_batch1/nd_110_2013_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "110/2013/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "24/09/2013",
+      "Trích yếu": "quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã.",
+      "Người ký": "NGUYỄN TẤN DŨNG",
+      "Ngày hiệu lực": "11/11/2013",
+      "Công báo": "643 + 644"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/9/3794/4715-1-2013643-644-1102013nd-cppdf",
+        "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908",
+        "bytes": 696046
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_66_2025_tt_bca",
+    "document_number": "66/2025/TT-BCA",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+    "html_path": "data/source_documents/central_batch1/tt_66_2025_tt_bca.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "66/2025/TT-BCA",
+      "Cơ quan ban hành": "BỘ CÔNG AN",
+      "Ngày ban hành": "21/07/2025",
+      "Trích yếu": "quy định công tác giám sát việc thực hiện quyết định cấm tiếp xúc theo quy định của Luật Phòng, chống bạo lực gia đình.",
+      "Người ký": "Đại tướng Lương Tam Quang",
+      "Ngày hiệu lực": "04/09/2025",
+      "Công báo": "1117 + 1118"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_66_2025_tt_bca.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/7/45888/58311-1-20251117-111866-2025-tt-bca.pdf",
+        "sha256": "204bab62a071a0eb0ea95d8f2cf4c99c0d78b0790b44eeac55dd20547eee6231",
+        "bytes": 467647
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_110_2025_nd_cp",
+    "document_number": "110/2025/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+    "html_path": "data/source_documents/central_batch1/nd_110_2025_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "110/2025/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "21/05/2025",
+      "Trích yếu": "quy định Cơ sở dữ liệu về phòng, chống bạo lực gia đình.",
+      "Người ký": "Mai Văn Chính",
+      "Ngày hiệu lực": "10/07/2025",
+      "Công báo": "723 + 724"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_110_2025_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/5/44923/56394-1-2025723-724110-2025-nd-cp.pdf",
+        "sha256": "c62886e3eb2dc54b490792caa369202f023609539ed6233f079f52f648edef0b",
+        "bytes": 343541
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_24_2011_tt_bvhttdl",
+    "document_number": "24/2011/TT-BVHTTDL",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2011-tt-bvhttdl-14205.htm",
+    "html_path": "data/source_documents/central_batch1/tt_24_2011_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "24/2011/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "30/12/2011",
+      "Trích yếu": "quy định về tiêu chuẩn, điều kiện khen thưởng cá nhân, tập thể tham gia phòng, chống bạo lực gia đình; đối tượng, điều kiện, cơ quan hoàn trả thiệt hại về giá trị tài sản cho người trực tiếp tham gia phòng, chống bạo lực gia đình.",
+      "Người ký": "HOÀNG TUẤN ANH",
+      "Ngày hiệu lực": "14/02/2012",
+      "Công báo": "133 + 134"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/12/14205/9290-1-2012133-134-242011tt-bvhttdlpdf",
+        "sha256": "ed89474ac972b58a3440443f97bbf0e23974f168d48f7797358fcc0989b481b1",
+        "bytes": 247975
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_11_2021_tt_btp",
+    "document_number": "11/2021/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+    "html_path": "data/source_documents/central_batch1/tt_11_2021_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "11/2021/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "28/12/2021",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam.",
+      "Người ký": "NGUYỄN KHÁNH NGỌC",
+      "Ngày hiệu lực": "11/02/2022",
+      "Công báo": "63 + 64"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_11_2021_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2021/12/36449/39217-1-202263-6411-2021-tt-btp.pdf",
+        "sha256": "7a8ced8ceb560e9fa0003f078c77ff14e3d085f52f89dd6cacad4deff158366c",
+        "bytes": 346797
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_01_2025_tt_btp",
+    "document_number": "01/2025/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+    "html_path": "data/source_documents/central_batch1/tt_01_2025_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "01/2025/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "21/02/2025",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp.",
+      "Người ký": "MAI LƯƠNG KHÔI",
+      "Ngày hiệu lực": "08/04/2025",
+      "Công báo": "459 + 460"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/2/44342/55233-1-2025459-46001-2025-tt-btp.pdf",
+        "sha256": "713dbfd0ccf007d01aa5fe404be5002aa9ab34c7d2aa1f482509a3d8e3d7bf60",
+        "bytes": 890432
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_24_2014_tt_btp",
+    "document_number": "24/2014/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2014-tt-btp-5150.htm",
+    "html_path": "data/source_documents/central_batch1/tt_24_2014_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "24/2014/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "29/12/2014",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi.",
+      "Người ký": "NGUYỄN KHÁNH NGỌC",
+      "Ngày hiệu lực": "11/02/2015",
+      "Công báo": "155 + 156"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2014_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/12/5150/2470-1-2015155-156-242014tt-btppdf",
+        "sha256": "2bd7ef11b25ecea517f7b4f53ce507fc7d8f1e6999e3b5d80e8d2ec1ebdcf687",
+        "bytes": 1115254
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_08a_2010_tt_btp",
+    "document_number": "08a/2010/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08a-2010-tt-btp-264.htm",
+    "html_path": "data/source_documents/central_batch1/tt_08a_2010_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "08a/2010/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "25/03/2010",
+      "Trích yếu": "về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng sổ, biểu mẫu hộ tịch.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "10/05/2010",
+      "Công báo": "374 + 375"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_08a_2010_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/3/264/57-1-2010374-375-o8a2010tt-btppdf",
+        "sha256": "491521c837be3ce2f350ca0688bb55ed76d720e719f9519028ac1c8044f37ea5",
+        "bytes": 334264
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "l_02_2007_qh12",
+    "document_number": "02/2007/QH12",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+    "html_path": "data/source_documents/central_batch1/l_02_2007_qh12.html",
+    "properties": {},
+    "source_artifacts": [],
+    "status": "no_official_pdf_on_page"
+  },
+  {
+    "document_id": "nd_08_2009_nd_cp",
+    "document_number": "08/2009/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+    "html_path": "data/source_documents/central_batch1/nd_08_2009_nd_cp.html",
+    "properties": {},
+    "source_artifacts": [],
+    "status": "no_official_pdf_on_page"
+  },
+  {
+    "document_id": "nd_87_2001_nd_cp",
+    "document_number": "87/2001/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9910",
+    "html_path": "data/source_documents/central_batch1/nd_87_2001_nd_cp.html",
+    "properties": {},
+    "source_artifacts": [],
+    "status": "no_official_pdf_on_page"
+  },
+  {
+    "document_id": "tt_24_2017_tt_byt",
+    "document_number": "24/2017/TT-BYT",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+    "html_path": "data/source_documents/central_batch1/tt_24_2017_tt_byt.html",
+    "properties": {},
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2017_tt_byt.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2017/07/24-byt.signed.pdf",
+        "sha256": "8e45a0f6186a86bb9b3dc6dbd519685075ca54981f74681f56ed1978b32b0b58",
+        "bytes": 536999
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_158_2005_nd_cp",
+    "document_number": "158/2005/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+    "html_path": "data/source_documents/central_batch1/nd_158_2005_nd_cp.html",
+    "properties": {},
+    "source_artifacts": [],
+    "status": "no_official_pdf_on_page"
+  },
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "document_number": "06/2012/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+    "html_path": "data/source_documents/central_batch1/nd_06_2012_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "06/2012/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "02/02/2012",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực.",
+      "Người ký": "NGUYỄN TẤN DŨNG",
+      "Ngày hiệu lực": "01/04/2012",
+      "Công báo": "149 + 150"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_06_2012_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/2/3985/9424-1-2012149-150-062012nd-cppdf",
+        "sha256": "87d3370a25c242e3861fa70b783ca16e0340c06e92c773d9747b082a8d3db379",
+        "bytes": 267477
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_09b_2013_tt_btp",
+    "document_number": "09b/2013/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09b-2013-tt-btp-6923.htm",
+    "html_path": "data/source_documents/central_batch1/tt_09b_2013_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "09b/2013/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "20/05/2013",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP ngày 25 tháng 3 năm 2010 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng sổ, biểu mẫu hộ tịch và Thông tư số 05/2012/TT-BTP ngày 23 tháng 5 năm 2012 của Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "05/07/2013",
+      "Công báo": "437 + 438"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_09b_2013_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/5/6923/3645-1-2013437-438-09b2013tt-btppdf",
+        "sha256": "27529d79d98fd0695e1c63c5af29ad36854ceb780898567e59858fbbbd60868e",
+        "bytes": 528369
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_82_2020_nd_cp",
+    "document_number": "82/2020/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200523",
+    "html_path": "data/source_documents/central_batch1/nd_82_2020_nd_cp.html",
+    "properties": {},
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_82_2020_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/07/82.signed.pdf",
+        "sha256": "f7ea486de2069151c6c9d34956169cc489217a4f821960c780d234ed3a3aaac0",
+        "bytes": 5853309
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp",
+    "document_number": "144/2021/NĐ-CP",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+    "html_path": "data/source_documents/central_batch1/nd_144_2021_nd_cp.html",
+    "properties": {},
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_144_2021_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/144.signed.pdf",
+        "sha256": "7baad192cc56050a3d07e1261ab04642e5ff873cd9f1969ca29234ac432e7d96",
+        "bytes": 4541775
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "nd_67_2015_nd_cp",
+    "document_number": "67/2015/NĐ-CP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-67-2015-nd-cp-16138.htm",
+    "html_path": "data/source_documents/central_batch1/nd_67_2015_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "67/2015/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "14/08/2015",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Nghị định số 110/2013/NĐ-CP ngày 24 tháng 9 năm 2013 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã.",
+      "Người ký": "NGUYỄN TẤN DŨNG",
+      "Ngày hiệu lực": "01/10/2015",
+      "Công báo": "949 + 950"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_67_2015_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/8/16138/11046-1-2015949-950-672015nd-cppdf",
+        "sha256": "f9a38009f857155e4c38babd8fb1abb97be500535c92992a4189f8197ca53ada",
+        "bytes": 461604
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_12_2011_tt_btp",
+    "document_number": "12/2011/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2011-tt-btp-5149.htm",
+    "html_path": "data/source_documents/central_batch1/tt_12_2011_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "12/2011/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "27/06/2011",
+      "Trích yếu": "về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "15/08/2011",
+      "Công báo": "407 + 408"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_12_2011_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/6/5149/7191-1-2011407-408-122011tt-btppdf",
+        "sha256": "2be4125a634501458fd0be1acbd22a95283cbee401f870ddaa2739211604a490",
+        "bytes": 666622
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_05_2012_tt_btp",
+    "document_number": "05/2012/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-05-2012-tt-btp-6922.htm",
+    "html_path": "data/source_documents/central_batch1/tt_05_2012_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "05/2012/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "23/05/2012",
+      "Trích yếu": "sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP ngày 25 tháng 3 năm 2010 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng số, biểu mẫu hộ tịch.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "10/07/2012",
+      "Công báo": "385 + 386"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_05_2012_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/5/6922/10953-1-2012385-386-052012tt-btppdf",
+        "sha256": "1952e0755e5394b27b5ee6c0c79d35794fe76031f2b3551b46a5689db9df3611",
+        "bytes": 406032
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "ttlt_02_2016_ttlt_bng_btp",
+    "document_number": "02/2016/TTLT-BNG-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+    "html_path": "data/source_documents/central_batch1/ttlt_02_2016_ttlt_bng_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư liên tịch",
+      "Số, ký hiệu": "02/2016/TTLT-BNG-BTP",
+      "Cơ quan ban hành": "BỘ NGOẠI GIAO - BỘ TƯ PHÁP",
+      "Ngày ban hành": "30/06/2016",
+      "Trích yếu": "hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài.",
+      "Người ký": "VŨ HỒNG NAM - NGUYỄN KHÁNH NGỌC",
+      "Ngày hiệu lực": "15/08/2016",
+      "Công báo": "813 + 814"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/ttlt_02_2016_ttlt_bng_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/6/20442/14924-1-022016ttlt-bng-btp14995pdf",
+        "sha256": "641a37ae77ce205d25deb30c70043b092930092d7e3bfe98bcb9f79fd313d1e3",
+        "bytes": 13751309
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_15_2014_tt_btp",
+    "document_number": "15/2014/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+    "html_path": "data/source_documents/central_batch1/tt_15_2014_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "15/2014/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "20/05/2014",
+      "Trích yếu": "hướng dẫn tìm gia đình thay thế ở nước ngoài cho trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo, trẻ em từ 5 tuổi trở lên, hai trẻ em trở lên là anh chị em ruột cần tìm gia đình thay thế.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "05/07/2014",
+      "Công báo": "575 + 576"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_15_2014_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/5/10569/6405-1-2014575-576-152014tt-btppdf",
+        "sha256": "6c1568676469cb773e9d20b4e7a34e3e0b16be2e517809b74ceabf9ae185969a",
+        "bytes": 383784
+      }
+    ],
+    "status": "downloaded"
+  },
+  {
+    "document_id": "tt_21_2011_tt_btp",
+    "document_number": "21/2011/TT-BTP",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
+    "html_path": "data/source_documents/central_batch1/tt_21_2011_tt_btp.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "21/2011/TT-BTP",
+      "Cơ quan ban hành": "BỘ TƯ PHÁP",
+      "Ngày ban hành": "21/11/2011",
+      "Trích yếu": "về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam.",
+      "Người ký": "ĐINH TRUNG TỤNG",
+      "Ngày hiệu lực": "05/01/2012",
+      "Công báo": "619 + 620"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_21_2011_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/11/13530/8701-1-2011619-620-212011tt-btppdf",
+        "sha256": "810e915dd47d943235308e409a5e0d081d4d5326bc1f991f176582010eeecaf7",
+        "bytes": 325086
+      }
+    ],
+    "status": "downloaded"
+  }
+]

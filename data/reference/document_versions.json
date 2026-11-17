@@ -3277,5 +3277,472 @@
     "normalized_at": "2026-11-17",
     "parsed_json_sha256": "9fd291c356a92b4bf8bcc1ec8e9569fd950153796351fc379fcf2f85c90294ef",
     "effectivity_review_note": "Đã đối chiếu các mốc ghi trong effectivity_evidence; các giai đoạn sửa đổi/chuyển tiếp khác chưa được tuyên bố rà soát đầy đủ."
+  },
+  {
+    "document_id": "nd_110_2013_nd_cp",
+    "document_number": "110/2013/NĐ-CP",
+    "file_code": "ND29",
+    "title": "quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã",
+    "document_type": "Nghị định",
+    "issue_date": "2013-09-24",
+    "effective_date": "2013-11-11",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2020-09-01",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/9/3794/4715-1-2013643-644-1102013nd-cppdf",
+        "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908",
+        "bytes": 696046
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_110_2013_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+        "sha256": "5d47f86e9c2c78cc557addf36d8bc97c59b7d185193dbc4defe5126ddd4823c4",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_110_2013_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_110_2013_nd_cp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "732f66a277d457d6b0ec045b742d7bfe63fbb54cdc900d533ab225051821df8c",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:732f66a277d457d6b0ec045b742d7bfe63fbb54cdc900d533ab225051821df8c",
+    "normalized_source_text_sha256": "632f681271d4b6bfaf110e9e4602c2b4739aacbe0448d2e17a0c530723f25adb",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "source_url": "https://vbpl.moj.gov.vn/Kiemtoannhanuoc/Pages/vbpq-toanvan.aspx?ItemID=32442&Keyword=",
+      "basis": "CSDL quốc gia: ngày hết hiệu lực 01/09/2020; được thay thế bởi NĐ82/2020."
+    },
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "ebd41a7cb737ae9f01b6cfa7409e40ab5716937f18530f9425d5acae0c91f91a"
+  },
+  {
+    "document_id": "tt_66_2025_tt_bca",
+    "document_number": "66/2025/TT-BCA",
+    "file_code": "TT24",
+    "title": "quy định công tác giám sát việc thực hiện quyết định cấm tiếp xúc theo quy định của Luật Phòng, chống bạo lực gia đình",
+    "document_type": "Thông tư",
+    "issue_date": "2025-07-21",
+    "effective_date": "2025-09-04",
+    "issuing_body": "Bộ Công An",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_66_2025_tt_bca.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/7/45888/58311-1-20251117-111866-2025-tt-bca.pdf",
+        "sha256": "204bab62a071a0eb0ea95d8f2cf4c99c0d78b0790b44eeac55dd20547eee6231",
+        "bytes": 467647
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_66_2025_tt_bca.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+        "sha256": "b9a78d044941a18c9304d61f1df7d2573309e15d1583b306daa9dbac90a506ac",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_66_2025_tt_bca.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_66_2025_tt_bca.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "2004f0426ef578438842ffb0f85c7d0106325f9033e46971c4f5dd8e7ecece89",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:2004f0426ef578438842ffb0f85c7d0106325f9033e46971c4f5dd8e7ecece89",
+    "normalized_source_text_sha256": "f4f02924497c45a98ba30ca793bae8f17e95d15f456719055f23555d7fbd9839",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "bf75c4304b09ef1842d1e26858ff27fa446f30b85020f966f89a18305ed7272b"
+  },
+  {
+    "document_id": "nd_110_2025_nd_cp",
+    "document_number": "110/2025/NĐ-CP",
+    "file_code": "ND30",
+    "title": "quy định Cơ sở dữ liệu về phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2025-05-21",
+    "effective_date": "2025-07-10",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_110_2025_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/5/44923/56394-1-2025723-724110-2025-nd-cp.pdf",
+        "sha256": "c62886e3eb2dc54b490792caa369202f023609539ed6233f079f52f648edef0b",
+        "bytes": 343541
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_110_2025_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+        "sha256": "650ab8204c1c69b93d07290beddaedd6dfd5cc354ff737059fbf38bdc2aba791",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_110_2025_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_110_2025_nd_cp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "a7eb1877ff0dcdb9796240c000fc18a83d69164b725e070921a48eda1df641bd",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:a7eb1877ff0dcdb9796240c000fc18a83d69164b725e070921a48eda1df641bd",
+    "normalized_source_text_sha256": "2a0c89a42b5d86154b104d65e5f63199309dee538fb51d7a2d47cd17d0d3d06b",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "ccf659850632be01916d22a916e9b28a568d23ccdefb475dc1dc7e004918240b"
+  },
+  {
+    "document_id": "tt_24_2011_tt_bvhttdl",
+    "document_number": "24/2011/TT-BVHTTDL",
+    "file_code": "TT25",
+    "title": "quy định về tiêu chuẩn, điều kiện khen thưởng cá nhân, tập thể tham gia phòng, chống bạo lực gia đình; đối tượng, điều kiện, cơ quan hoàn trả thiệt hại về giá trị tài sản cho người trực tiếp tham gia phòng, chống bạo lực gia đình",
+    "document_type": "Thông tư",
+    "issue_date": "2011-12-30",
+    "effective_date": "2012-02-14",
+    "issuing_body": "Bộ Văn Hóa, Thể Thao Và Du Lịch",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2011-tt-bvhttdl-14205.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/12/14205/9290-1-2012133-134-242011tt-bvhttdlpdf",
+        "sha256": "ed89474ac972b58a3440443f97bbf0e23974f168d48f7797358fcc0989b481b1",
+        "bytes": 247975
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_24_2011_tt_bvhttdl.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2011-tt-bvhttdl-14205.htm",
+        "sha256": "ac39593312f4c8af0cecdef21431a9ed813c7f40146432e4ab1336e1de829e2a",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_24_2011_tt_bvhttdl.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_24_2011_tt_bvhttdl.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
+    "normalized_source_text_sha256": "4bb3e54f2cc0d430c01a3921b585f5c2943234a5cd8be1f84010345fd77b6bf8",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "2c8e70d5d7fb9bda11404b5cfd357576b71fa75a9f67669381acdcbbce961cf9"
+  },
+  {
+    "document_id": "tt_11_2021_tt_btp",
+    "document_number": "11/2021/TT-BTP",
+    "file_code": "TT26",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam",
+    "document_type": "Thông tư",
+    "issue_date": "2021-12-28",
+    "effective_date": "2022-02-11",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_11_2021_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2021/12/36449/39217-1-202263-6411-2021-tt-btp.pdf",
+        "sha256": "7a8ced8ceb560e9fa0003f078c77ff14e3d085f52f89dd6cacad4deff158366c",
+        "bytes": 346797
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_11_2021_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+        "sha256": "7d3e7cb7b9e0411f7a1374a0914f30500317ef377ef9606f35baa65dc9d97f2f",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_11_2021_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "66938061927b8679c80204e393f4745fc1750b4cfd12418100fa304323d76868",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:66938061927b8679c80204e393f4745fc1750b4cfd12418100fa304323d76868",
+    "normalized_source_text_sha256": "a2e98ebeab0c80fe74e519b38d71d4bb57fb2c87b96f8fe71037ab2e86a0f623",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "69869b717a5c51c6662d6bf8cc457f656c63fc6d69b2a1c899f7e20d2a3058f3"
+  },
+  {
+    "document_id": "tt_01_2025_tt_btp",
+    "document_number": "01/2025/TT-BTP",
+    "file_code": "TT27",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp",
+    "document_type": "Thông tư",
+    "issue_date": "2025-02-21",
+    "effective_date": "2025-04-08",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/2/44342/55233-1-2025459-46001-2025-tt-btp.pdf",
+        "sha256": "713dbfd0ccf007d01aa5fe404be5002aa9ab34c7d2aa1f482509a3d8e3d7bf60",
+        "bytes": 890432
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_01_2025_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+        "sha256": "cd1dfde486581b6efe06395e2e479da186702f600efc3fef72a305ee2a76aee4",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_01_2025_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles. Dấu ./ . trong đoạn trích sửa đổi chỉ thêm khoảng trắng để tránh parser hiểu nhầm kết thúc văn bản; giữ nguyên thứ tự từ/số/dấu câu.",
+    "ingest_pdf_sha256": "7da493aa1d095c6922b8684072a99454b80e15e255111e3c15a92e653245f053",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:7da493aa1d095c6922b8684072a99454b80e15e255111e3c15a92e653245f053",
+    "normalized_source_text_sha256": "33825ac7eaedaa34287bf58d1e322049cfbf3c0ee10e76ead20db6fd34e42760",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "a129b50296f11f50e0a0af43bdf61743d501075a721db2bc026df92cdf5000ef"
+  },
+  {
+    "document_id": "tt_24_2014_tt_btp",
+    "document_number": "24/2014/TT-BTP",
+    "file_code": "TT28",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi",
+    "document_type": "Thông tư",
+    "issue_date": "2014-12-29",
+    "effective_date": "2015-02-11",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2021-02-26",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2014-tt-btp-5150.htm",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "document_level",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2014_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/12/5150/2470-1-2015155-156-242014tt-btppdf",
+        "sha256": "2bd7ef11b25ecea517f7b4f53ce507fc7d8f1e6999e3b5d80e8d2ec1ebdcf687",
+        "bytes": 1115254
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_24_2014_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2014-tt-btp-5150.htm",
+        "sha256": "409401f97372ab35d3d538bec41238c0a756b66156420a2ef48c17c79b686ea1",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_24_2014_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_24_2014_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "ceb7533dc636810ffaba756efd396f6987fbf6351a09d17dbcb17ac28073aacd",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:ceb7533dc636810ffaba756efd396f6987fbf6351a09d17dbcb17ac28073aacd",
+    "normalized_source_text_sha256": "da7517e57fbab3823fd2928811cd339ccc2467027ff47d6e14e09e6f6ee37cf2",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "document_id": "tt_10_2020_tt_btp",
+      "article": "9",
+      "clause": "1",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm"
+    },
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "636a2073befa648300636610f23145c3ebda85c6da4a33242899ffddea7233a7"
+  },
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "document_number": "06/2012/NĐ-CP",
+    "file_code": "ND31",
+    "title": "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực",
+    "document_type": "Nghị định",
+    "issue_date": "2012-02-02",
+    "effective_date": "2012-04-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_06_2012_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/2/3985/9424-1-2012149-150-062012nd-cppdf",
+        "sha256": "87d3370a25c242e3861fa70b783ca16e0340c06e92c773d9747b082a8d3db379",
+        "bytes": 267477
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_06_2012_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+        "sha256": "02579f31d38c2f10d7cecdf29f3f77e97ac6f8bff2676df828ae117fab36094c",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_06_2012_nd_cp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+    "normalized_source_text_sha256": "66d0c5ef567e431188160ece988516430a1a03d8da011925d7f5c4c41d562438",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "7c139dc099710a6f30369074b8cb8e4a9ca569cc1b151a0296c80570fbdf5c33"
+  },
+  {
+    "document_id": "tt_12_2011_tt_btp",
+    "document_number": "12/2011/TT-BTP",
+    "file_code": "TT32",
+    "title": "về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi",
+    "document_type": "Thông tư",
+    "issue_date": "2011-06-27",
+    "effective_date": "2011-08-15",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2021-02-26",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2011-tt-btp-5149.htm",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "document_level",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_12_2011_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/6/5149/7191-1-2011407-408-122011tt-btppdf",
+        "sha256": "2be4125a634501458fd0be1acbd22a95283cbee401f870ddaa2739211604a490",
+        "bytes": 666622
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_12_2011_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2011-tt-btp-5149.htm",
+        "sha256": "9b7e7cbcc6211de1d789eda5e45aa685c92ed6d56e1d0233a15260e24d43cfba",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_12_2011_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_12_2011_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "eda0b4e098476cdece3f1d2a269816149c5acb90ef0bc52e3ec558197e9e3d03",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:eda0b4e098476cdece3f1d2a269816149c5acb90ef0bc52e3ec558197e9e3d03",
+    "normalized_source_text_sha256": "723c9d496b77125bc3d6dd4a67724388fc41e3b5a116d56fcd738691317f7a8c",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "document_id": "tt_10_2020_tt_btp",
+      "article": "9",
+      "clause": "1",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm"
+    },
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "a6fd0131c1bee8d99146d9bc5d2770d9ce4538bf1ae6254e65f5535c8570c323"
+  },
+  {
+    "document_id": "tt_15_2014_tt_btp",
+    "document_number": "15/2014/TT-BTP",
+    "file_code": "TT34",
+    "title": "hướng dẫn tìm gia đình thay thế ở nước ngoài cho trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo, trẻ em từ 5 tuổi trở lên, hai trẻ em trở lên là anh chị em ruột cần tìm gia đình thay thế",
+    "document_type": "Thông tư",
+    "issue_date": "2014-05-20",
+    "effective_date": "2014-07-05",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_15_2014_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/5/10569/6405-1-2014575-576-152014tt-btppdf",
+        "sha256": "6c1568676469cb773e9d20b4e7a34e3e0b16be2e517809b74ceabf9ae185969a",
+        "bytes": 383784
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_15_2014_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+        "sha256": "bb5036bc56cc25ca1554d9a1b8cb9109e43841276ea36816756e8bc8e528855e",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_15_2014_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_15_2014_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "5498b67ee81a0a3c04d15d8d63dbd997dd9381fef25aadfbad44f4df399608e0",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:5498b67ee81a0a3c04d15d8d63dbd997dd9381fef25aadfbad44f4df399608e0",
+    "normalized_source_text_sha256": "6e301c6338f4fb6f50b8265e4f046bfb6faa6b1e8d9c364da9617384a71bf929",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "406b7707ff01d86a173e1f1fb240c50c2c22825cbbd5b81c324ebb297467fa33"
+  },
+  {
+    "document_id": "tt_21_2011_tt_btp",
+    "document_number": "21/2011/TT-BTP",
+    "file_code": "TT35",
+    "title": "về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam",
+    "document_type": "Thông tư",
+    "issue_date": "2011-11-21",
+    "effective_date": "2012-01-05",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_21_2011_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/11/13530/8701-1-2011619-620-212011tt-btppdf",
+        "sha256": "810e915dd47d943235308e409a5e0d081d4d5326bc1f991f176582010eeecaf7",
+        "bytes": 325086
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_21_2011_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
+        "sha256": "80039f664aa525fab5aff84fc53bea70805f56cb4aa911c9110fa9def26f6794",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_21_2011_tt_btp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_21_2011_tt_btp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "3472b357c470b30bb91a434ccdf11e9bc20f38c5591d758d9ff843e03b44a215",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:3472b357c470b30bb91a434ccdf11e9bc20f38c5591d758d9ff843e03b44a215",
+    "normalized_source_text_sha256": "72473a304ba236c002e84fbf06995f2a0654c1726e3d9dd76c232a3f1a6fc8c0",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": true,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "ff7bc2aab11ae90424c943d26db18164fdaf4975db6ef926b297ca86ca7f097d"
   }
 ]

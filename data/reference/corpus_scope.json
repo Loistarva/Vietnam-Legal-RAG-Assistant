@@ -376,6 +376,35 @@
         "152"
       ],
       "reason": "Cơ cấu/thẩm quyền Tòa chuyên trách có Tòa Gia đình và người chưa thành niên; phải đọc với Luật 81/2025."
+    },
+    "nd_110_2013_nd_cp": {
+      "articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "28",
+        "29",
+        "30",
+        "32",
+        "33",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "74",
+        "75"
+      ],
+      "reason": "Quy định chung, kết hôn, xác nhận tình trạng hôn nhân, cha mẹ con, giám hộ, nuôi con nuôi và điều khoản thi hành. Không nạp luật sư, công chứng, đấu giá, phá sản và các lĩnh vực ngoài HNGĐ. Toàn văn vẫn lưu trong parser/parsed_jsons."
+    },
+    "nd_06_2012_nd_cp": {
+      "articles": [
+        "2",
+        "3",
+        "5"
+      ],
+      "reason": "Điều 2 sửa quy định áp dụng Luật HNGĐ đối với dân tộc thiểu số; Điều 3 bãi bỏ quy định đăng ký kết hôn; Điều 5 thi hành. Điều 1 trộn nhiều loại hộ tịch, Điều 4 chứng thực nên chưa đưa vào index."
     }
   }
 }

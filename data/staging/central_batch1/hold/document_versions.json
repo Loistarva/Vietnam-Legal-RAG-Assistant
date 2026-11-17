@@ -1,0 +1,315 @@
+[
+  {
+    "document_id": "tt_08a_2010_tt_btp",
+    "document_number": "08a/2010/TT-BTP",
+    "file_code": "TT29",
+    "title": "về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng sổ, biểu mẫu hộ tịch",
+    "document_type": "Thông tư",
+    "issue_date": "2010-03-25",
+    "effective_date": "2010-05-10",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08a-2010-tt-btp-264.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_08a_2010_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/3/264/57-1-2010374-375-o8a2010tt-btppdf",
+        "sha256": "491521c837be3ce2f350ca0688bb55ed76d720e719f9519028ac1c8044f37ea5",
+        "bytes": 334264
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_08a_2010_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08a-2010-tt-btp-264.htm",
+        "sha256": "44113dba67db5703eb237f7bcc4757046257c53408546972f87740f8b7d9a4f6",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/tt_08a_2010_tt_btp.pdf"
+  },
+  {
+    "document_id": "tt_24_2017_tt_byt",
+    "document_number": "24/2017/TT-BYT",
+    "file_code": "TT30",
+    "title": "Quy định quy trình tiếp nhận, chăm sóc y tế và thống kê, báo cáo đối với người bệnh là nạn nhân bạo lực gia đình tại cơ sở khám bệnh, chữa bệnh",
+    "document_type": "Thông tư",
+    "issue_date": "2017-05-17",
+    "effective_date": "2017-07-07",
+    "issuing_body": "Bộ Y Tế",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2017_tt_byt.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2017/07/24-byt.signed.pdf",
+        "sha256": "8e45a0f6186a86bb9b3dc6dbd519685075ca54981f74681f56ed1978b32b0b58",
+        "bytes": 536999
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_24_2017_tt_byt.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+        "sha256": "3226daf6e33c5a474416eb45a609af86d2ece1475b5987faa577bd61ccaf6a0d",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/tt_24_2017_tt_byt.pdf"
+  },
+  {
+    "document_id": "tt_09b_2013_tt_btp",
+    "document_number": "09b/2013/TT-BTP",
+    "file_code": "TT31",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP ngày 25 tháng 3 năm 2010 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng sổ, biểu mẫu hộ tịch và Thông tư số 05/2012/TT-BTP ngày 23 tháng 5 năm 2012 của Bộ Tư pháp sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP",
+    "document_type": "Thông tư",
+    "issue_date": "2013-05-20",
+    "effective_date": "2013-07-05",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09b-2013-tt-btp-6923.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_09b_2013_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/5/6923/3645-1-2013437-438-09b2013tt-btppdf",
+        "sha256": "27529d79d98fd0695e1c63c5af29ad36854ceb780898567e59858fbbbd60868e",
+        "bytes": 528369
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_09b_2013_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09b-2013-tt-btp-6923.htm",
+        "sha256": "af14acf0ffd38306c0ca7caa0c7c6d7e5d4a8d4b5330b5c46da1f94fc9bac991",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "8f383f67dcfb45fdb84a95ee07f91b219545e38472febdd776b3608819317833",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:8f383f67dcfb45fdb84a95ee07f91b219545e38472febdd776b3608819317833",
+    "normalized_source_text_sha256": "766c620f52ea29b61546f1d571dff29ea381e6a2aee94c9f827b07ec6f23a660",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "production_ingest_allowed": false,
+    "hold_reason": "Sửa đổi biểu mẫu hộ tịch nhiều loại việc; chưa duyệt phạm vi chi tiết.",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/compatibility/normalized_pdf/tt_09b_2013_tt_btp.pdf"
+  },
+  {
+    "document_id": "nd_82_2020_nd_cp",
+    "document_number": "82/2020/NĐ-CP",
+    "file_code": "ND32",
+    "title": "Quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp; hành chính tư pháp; hôn nhân và gia đình; thi hành án dân sự; phá sản doanh nghiệp, hợp tác xã",
+    "document_type": "Nghị định",
+    "issue_date": "2020-07-15",
+    "effective_date": "2020-09-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200523",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_82_2020_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/07/82.signed.pdf",
+        "sha256": "f7ea486de2069151c6c9d34956169cc489217a4f821960c780d234ed3a3aaac0",
+        "bytes": 5853309
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_82_2020_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200523",
+        "sha256": "df31ca26576fadd57e643bb6b5a7340f599723f365132e55d3c4487baf2de495",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/nd_82_2020_nd_cp.pdf"
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp",
+    "document_number": "144/2021/NĐ-CP",
+    "file_code": "ND33",
+    "title": "Quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng cháy, chữa cháy; cứu nạn, cứu hộ; phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2021-12-31",
+    "effective_date": "2022-01-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_144_2021_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/144.signed.pdf",
+        "sha256": "7baad192cc56050a3d07e1261ab04642e5ff873cd9f1969ca29234ac432e7d96",
+        "bytes": 4541775
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_144_2021_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+        "sha256": "e2bea3b4186d2e33190740fd23d188b241888720a2f8f52d24bdef35159dc077",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/nd_144_2021_nd_cp.pdf"
+  },
+  {
+    "document_id": "nd_67_2015_nd_cp",
+    "document_number": "67/2015/NĐ-CP",
+    "file_code": "ND34",
+    "title": "sửa đổi, bổ sung một số điều của Nghị định số 110/2013/NĐ-CP ngày 24 tháng 9 năm 2013 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã",
+    "document_type": "Nghị định",
+    "issue_date": "2015-08-14",
+    "effective_date": "2015-10-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-67-2015-nd-cp-16138.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_67_2015_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/8/16138/11046-1-2015949-950-672015nd-cppdf",
+        "sha256": "f9a38009f857155e4c38babd8fb1abb97be500535c92992a4189f8197ca53ada",
+        "bytes": 461604
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_67_2015_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-67-2015-nd-cp-16138.htm",
+        "sha256": "f73b5df800f91a102e0026194413d0cb2eee1921000f8a5c009a1da0a682b321",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "60e7e0d5e86572a11fca39e3897240afa216b79324457f9328d5c45f9b3d28f8",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:60e7e0d5e86572a11fca39e3897240afa216b79324457f9328d5c45f9b3d28f8",
+    "normalized_source_text_sha256": "dda35b659caa5aaf014691b47d23a3ab61b98c38bde7c05aecd47299851464aa",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "production_ingest_allowed": false,
+    "hold_reason": "Điều 1 trộn sửa đổi nhiều lĩnh vực; allowlist hiện tại chỉ theo Điều nên chưa đưa vào corpus.",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/compatibility/normalized_pdf/nd_67_2015_nd_cp.pdf"
+  },
+  {
+    "document_id": "tt_05_2012_tt_btp",
+    "document_number": "05/2012/TT-BTP",
+    "file_code": "TT33",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư số 08.a/2010/TT-BTP ngày 25 tháng 3 năm 2010 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng số, biểu mẫu hộ tịch",
+    "document_type": "Thông tư",
+    "issue_date": "2012-05-23",
+    "effective_date": "2012-07-10",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-05-2012-tt-btp-6922.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_05_2012_tt_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/5/6922/10953-1-2012385-386-052012tt-btppdf",
+        "sha256": "1952e0755e5394b27b5ee6c0c79d35794fe76031f2b3551b46a5689db9df3611",
+        "bytes": 406032
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_05_2012_tt_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-05-2012-tt-btp-6922.htm",
+        "sha256": "4b700e6574935415118bae3786a036c0824e34cf876f982632cf83fa25242474",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "006ae0b5e3c1d73c2403fc7b2d133ee8be01e76e6e5f0de0c8950cc0d9128777",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:006ae0b5e3c1d73c2403fc7b2d133ee8be01e76e6e5f0de0c8950cc0d9128777",
+    "normalized_source_text_sha256": "fd8ac27b10f9878f09b82ec2203f0e1e18d656f13dfa5f602df3697ef28dc7a8",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "production_ingest_allowed": false,
+    "hold_reason": "Sửa đổi biểu mẫu hộ tịch nhiều loại việc; chưa duyệt phạm vi chi tiết.",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/compatibility/normalized_pdf/tt_05_2012_tt_btp.pdf"
+  },
+  {
+    "document_id": "ttlt_02_2016_ttlt_bng_btp",
+    "document_number": "02/2016/TTLT-BNG-BTP",
+    "file_code": "TTLT02",
+    "title": "hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-06-30",
+    "effective_date": "2016-08-15",
+    "issuing_body": "Bộ Ngoại Giao - Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/ttlt_02_2016_ttlt_bng_btp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/6/20442/14924-1-022016ttlt-bng-btp14995pdf",
+        "sha256": "641a37ae77ce205d25deb30c70043b092930092d7e3bfe98bcb9f79fd313d1e3",
+        "bytes": 13751309
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/ttlt_02_2016_ttlt_bng_btp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+        "sha256": "8fcef48d889aa74953a56daed37c4d8b1316b89566e9d56ef1beba43165ba1cb",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/ttlt_02_2016_ttlt_bng_btp.pdf"
+  }
+]

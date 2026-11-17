@@ -118,6 +118,17 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **TT22** | `tt_22_2013_tt_btp` | 22/2013/TT-BTP | Hết hiệu lực | quy định chi tiết và hướng dẫn thi hành một số điều của Nghị định số 24/2013/NĐ-CP ngày 28 tháng 3 năm 2013 của Chính phủ quy định chi tiết thi hành một số điều của Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài |
 | **TT23** | `tt_16_2010_tt_btp` | 16/2010/TT-BTP | Hết hiệu lực | hướng dẫn việc ghi vào sổ hộ tịch việc ly hôn đã tiến hành ở nước ngoài |
 | **TTLT01** | `ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh` | 03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH | Không xác định | hướng dẫn việc theo dõi tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi nước ngoài và bảo vệ trẻ em trong trường hợp cần thiết |
+| **ND29** | `nd_110_2013_nd_cp` | 110/2013/NĐ-CP | Hết hiệu lực | quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã |
+| **TT24** | `tt_66_2025_tt_bca` | 66/2025/TT-BCA | Không xác định | quy định công tác giám sát việc thực hiện quyết định cấm tiếp xúc theo quy định của Luật Phòng, chống bạo lực gia đình |
+| **ND30** | `nd_110_2025_nd_cp` | 110/2025/NĐ-CP | Không xác định | quy định Cơ sở dữ liệu về phòng, chống bạo lực gia đình |
+| **TT25** | `tt_24_2011_tt_bvhttdl` | 24/2011/TT-BVHTTDL | Không xác định | quy định về tiêu chuẩn, điều kiện khen thưởng cá nhân, tập thể tham gia phòng, chống bạo lực gia đình; đối tượng, điều kiện, cơ quan hoàn trả thiệt hại về giá trị tài sản cho người trực tiếp tham gia phòng, chống bạo lực gia đình |
+| **TT26** | `tt_11_2021_tt_btp` | 11/2021/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
+| **TT27** | `tt_01_2025_tt_btp` | 01/2025/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp |
+| **TT28** | `tt_24_2014_tt_btp` | 24/2014/TT-BTP | Hết hiệu lực | sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
+| **ND31** | `nd_06_2012_nd_cp` | 06/2012/NĐ-CP | Không xác định | sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực |
+| **TT32** | `tt_12_2011_tt_btp` | 12/2011/TT-BTP | Hết hiệu lực | về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
+| **TT34** | `tt_15_2014_tt_btp` | 15/2014/TT-BTP | Không xác định | hướng dẫn tìm gia đình thay thế ở nước ngoài cho trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo, trẻ em từ 5 tuổi trở lên, hai trẻ em trở lên là anh chị em ruột cần tìm gia đình thay thế |
+| **TT35** | `tt_21_2011_tt_btp` | 21/2011/TT-BTP | Không xác định | về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
 
 Quy tắc định danh cấu trúc phân cấp:
 - **Article ID**: `[document_id]_art_[số_điều]` (Ví dụ: `l_52_2014_qh13_art_8`). Mã quản lý tương ứng: `L01_D08`.

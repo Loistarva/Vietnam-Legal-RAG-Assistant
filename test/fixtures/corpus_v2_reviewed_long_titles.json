@@ -536,6 +536,71 @@
         }
       ],
       "reason": "Tiêu đề Điều 4 TT22/2013 dài thật, đối chiếu thứ tự từ/số với PDF Công báo gốc; giữ nguyên tiêu đề và ngưỡng chung 40 từ."
+    },
+    {
+      "txt_stem": "nd_110_2013_nd_cp",
+      "article_number": "11",
+      "expected_title": "Hành vi vi phạm quy định về hồ sơ, thủ tục đề nghị bổ nhiệm công chứng viên, cấp thẻ công chứng viên; hồ sơ đề nghị thành lập, đăng ký hoạt động, đề nghị thay đổi nội dung đăng ký hoạt động văn phòng công chứng",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+          "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908"
+        }
+      ],
+      "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
+    },
+    {
+      "txt_stem": "nd_110_2013_nd_cp",
+      "article_number": "13",
+      "expected_title": "Hành vi vi phạm quy định của công chứng viên về nhận lưu giữ di chúc; công chứng hợp đồng thế chấp bất động sản, di chúc, văn bản thỏa thuận phân chia di sản, văn bản khai nhận di sản, văn bản từ chối nhận di sản",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+          "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908"
+        }
+      ],
+      "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
+    },
+    {
+      "txt_stem": "nd_110_2013_nd_cp",
+      "article_number": "23",
+      "expected_title": "Hành vi vi phạm quy định về trọng tài viên; hồ sơ đề nghị đăng ký thành lập; hồ sơ đề nghị cấp giấy đăng ký hoạt động trung tâm trọng tài, tổ chức trọng tài nước ngoài tại Việt Nam",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+          "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908"
+        }
+      ],
+      "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
+    },
+    {
+      "txt_stem": "nd_110_2013_nd_cp",
+      "article_number": "69",
+      "expected_title": "Thẩm quyền xử phạt vi phạm hành chính của cơ quan đại diện ngoại giao, cơ quan lãnh sự, cơ quan khác được ủy quyền thực hiện chức năng lãnh sự của nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/central_batch1/nd_110_2013_nd_cp.part01.pdf",
+          "sha256": "5746e125cbb238be1ff2e091aa0f4fee7112e1c6567503541026e32caf4a8908"
+        }
+      ],
+      "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
+    },
+    {
+      "txt_stem": "tt_01_2025_tt_btp",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+          "sha256": "713dbfd0ccf007d01aa5fe404be5002aa9ab34c7d2aa1f482509a3d8e3d7bf60"
+        }
+      ],
+      "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "num_documents": 61,
-  "num_parents": 2170,
-  "num_children": 4995,
+  "num_documents": 72,
+  "num_parents": 2344,
+  "num_children": 5382,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -30,10 +30,13 @@
     "parser/parsed_jsons/l_60_2014_qh13.json",
     "parser/parsed_jsons/l_81_2025_qh15.json",
     "parser/parsed_jsons/l_85_2025_qh15.json",
+    "parser/parsed_jsons/nd_06_2012_nd_cp.json",
     "parser/parsed_jsons/nd_06_2025_nd_cp.json",
     "parser/parsed_jsons/nd_07_2025_nd_cp.json",
     "parser/parsed_jsons/nd_104_2022_nd_cp.json",
     "parser/parsed_jsons/nd_10_2015_nd_cp.json",
+    "parser/parsed_jsons/nd_110_2013_nd_cp.json",
+    "parser/parsed_jsons/nd_110_2025_nd_cp.json",
     "parser/parsed_jsons/nd_114_2016_nd_cp.json",
     "parser/parsed_jsons/nd_120_2025_nd_cp.json",
     "parser/parsed_jsons/nd_123_2015_nd_cp.json",
@@ -55,6 +58,7 @@
     "parser/parsed_jsons/nq_01_2024_nq_hdtp.json",
     "parser/parsed_jsons/nq_326_2016_ubtvqh14.json",
     "parser/parsed_jsons/tt_01_2022_tt_btp.json",
+    "parser/parsed_jsons/tt_01_2025_tt_btp.json",
     "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
     "parser/parsed_jsons/tt_03_2023_tt_btp.json",
     "parser/parsed_jsons/tt_04_2020_tt_btp.json",
@@ -67,14 +71,21 @@
     "parser/parsed_jsons/tt_09_2022_tt_btp.json",
     "parser/parsed_jsons/tt_10_2020_tt_btp.json",
     "parser/parsed_jsons/tt_10_2025_tt_btp.json",
+    "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+    "parser/parsed_jsons/tt_12_2011_tt_btp.json",
+    "parser/parsed_jsons/tt_15_2014_tt_btp.json",
     "parser/parsed_jsons/tt_15_2015_tt_btp.json",
     "parser/parsed_jsons/tt_16_2010_tt_btp.json",
+    "parser/parsed_jsons/tt_21_2011_tt_btp.json",
     "parser/parsed_jsons/tt_22_2013_tt_btp.json",
+    "parser/parsed_jsons/tt_24_2011_tt_bvhttdl.json",
+    "parser/parsed_jsons/tt_24_2014_tt_btp.json",
     "parser/parsed_jsons/tt_30_2019_tt_byt.json",
     "parser/parsed_jsons/tt_32_2016_tt_byt.json",
     "parser/parsed_jsons/tt_34_2017_tt_byt.json",
     "parser/parsed_jsons/tt_38_2025_tt_byt.json",
     "parser/parsed_jsons/tt_57_2015_tt_byt.json",
+    "parser/parsed_jsons/tt_66_2025_tt_bca.json",
     "parser/parsed_jsons/ttlt_01_2016_ttlt_tandtc.json",
     "parser/parsed_jsons/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json"
   ],
@@ -207,6 +218,15 @@
       "num_children": 47
     },
     {
+      "source": "parser/parsed_jsons/nd_06_2012_nd_cp.json",
+      "document_id": "nd_06_2012_nd_cp",
+      "document_number": "06/2012/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 3,
+      "num_parents": 3,
+      "num_children": 4
+    },
+    {
       "source": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
       "document_id": "nd_06_2025_nd_cp",
       "document_number": "06/2025/NĐ-CP",
@@ -241,6 +261,24 @@
       "num_articles": 26,
       "num_parents": 30,
       "num_children": 79
+    },
+    {
+      "source": "parser/parsed_jsons/nd_110_2013_nd_cp.json",
+      "document_id": "nd_110_2013_nd_cp",
+      "document_number": "110/2013/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "num_articles": 16,
+      "num_parents": 20,
+      "num_children": 60
+    },
+    {
+      "source": "parser/parsed_jsons/nd_110_2025_nd_cp.json",
+      "document_id": "nd_110_2025_nd_cp",
+      "document_number": "110/2025/NĐ-CP",
+      "validity_status": "Không xác định",
+      "num_articles": 17,
+      "num_parents": 39,
+      "num_children": 88
     },
     {
       "source": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
@@ -432,6 +470,15 @@
       "num_children": 59
     },
     {
+      "source": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "document_id": "tt_01_2025_tt_btp",
+      "document_number": "01/2025/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 3,
+      "num_parents": 8,
+      "num_children": 13
+    },
+    {
       "source": "parser/parsed_jsons/tt_02a_2015_tt_btp.json",
       "document_id": "tt_02a_2015_tt_btp",
       "document_number": "02A/2015/TT-BTP",
@@ -540,6 +587,33 @@
       "num_children": 12
     },
     {
+      "source": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+      "document_id": "tt_11_2021_tt_btp",
+      "document_number": "11/2021/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 3,
+      "num_parents": 5,
+      "num_children": 13
+    },
+    {
+      "source": "parser/parsed_jsons/tt_12_2011_tt_btp.json",
+      "document_id": "tt_12_2011_tt_btp",
+      "document_number": "12/2011/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "num_articles": 10,
+      "num_parents": 20,
+      "num_children": 41
+    },
+    {
+      "source": "parser/parsed_jsons/tt_15_2014_tt_btp.json",
+      "document_id": "tt_15_2014_tt_btp",
+      "document_number": "15/2014/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 16,
+      "num_parents": 18,
+      "num_children": 40
+    },
+    {
       "source": "parser/parsed_jsons/tt_15_2015_tt_btp.json",
       "document_id": "tt_15_2015_tt_btp",
       "document_number": "15/2015/TT-BTP",
@@ -558,6 +632,15 @@
       "num_children": 23
     },
     {
+      "source": "parser/parsed_jsons/tt_21_2011_tt_btp.json",
+      "document_id": "tt_21_2011_tt_btp",
+      "document_number": "21/2011/TT-BTP",
+      "validity_status": "Không xác định",
+      "num_articles": 18,
+      "num_parents": 21,
+      "num_children": 42
+    },
+    {
       "source": "parser/parsed_jsons/tt_22_2013_tt_btp.json",
       "document_id": "tt_22_2013_tt_btp",
       "document_number": "22/2013/TT-BTP",
@@ -565,6 +648,24 @@
       "num_articles": 19,
       "num_parents": 25,
       "num_children": 55
+    },
+    {
+      "source": "parser/parsed_jsons/tt_24_2011_tt_bvhttdl.json",
+      "document_id": "tt_24_2011_tt_bvhttdl",
+      "document_number": "24/2011/TT-BVHTTDL",
+      "validity_status": "Không xác định",
+      "num_articles": 11,
+      "num_parents": 13,
+      "num_children": 24
+    },
+    {
+      "source": "parser/parsed_jsons/tt_24_2014_tt_btp.json",
+      "document_id": "tt_24_2014_tt_btp",
+      "document_number": "24/2014/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "num_articles": 2,
+      "num_parents": 7,
+      "num_children": 10
     },
     {
       "source": "parser/parsed_jsons/tt_30_2019_tt_byt.json",
@@ -610,6 +711,15 @@
       "num_articles": 33,
       "num_parents": 34,
       "num_children": 84
+    },
+    {
+      "source": "parser/parsed_jsons/tt_66_2025_tt_bca.json",
+      "document_id": "tt_66_2025_tt_bca",
+      "document_number": "66/2025/TT-BCA",
+      "validity_status": "Không xác định",
+      "num_articles": 18,
+      "num_parents": 20,
+      "num_children": 52
     },
     {
       "source": "parser/parsed_jsons/ttlt_01_2016_ttlt_tandtc.json",
@@ -2179,6 +2289,17 @@
         "5"
       ]
     },
+    "nd_06_2012_nd_cp": {
+      "included": [
+        "2",
+        "3",
+        "5"
+      ],
+      "excluded": [
+        "1",
+        "4"
+      ]
+    },
     "nd_07_2025_nd_cp": {
       "included": [
         "2",
@@ -2209,6 +2330,87 @@
         "10",
         "11",
         "13"
+      ]
+    },
+    "nd_110_2013_nd_cp": {
+      "included": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "28",
+        "29",
+        "30",
+        "32",
+        "33",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "74",
+        "75"
+      ],
+      "excluded": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "31",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73"
       ]
     },
     "nd_120_2025_nd_cp": {
@@ -2435,7 +2637,7 @@
   },
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
-    "validity_status 'Không xác định' ở 22 văn bản: ['bl_91_2015_qh13.json', 'l_13_2022_qh15.json', 'l_35_2013_qh13.json', 'l_52_2010_qh12.json', 'l_60_2014_qh13.json', 'l_85_2025_qh15.json', 'nd_06_2025_nd_cp.json', 'nd_104_2022_nd_cp.json', 'nd_114_2016_nd_cp.json', 'nd_120_2025_nd_cp.json', 'nd_15_2014_nd_cp.json', 'nd_19_2011_nd_cp.json', 'nd_301_2026_nd_cp.json', 'nd_76_2023_nd_cp.json', 'nq_326_2016_ubtvqh14.json', 'tt_03_2023_tt_btp.json', 'tt_07_2025_tt_bng.json', 'tt_09_2022_tt_btp.json', 'tt_10_2020_tt_btp.json', 'tt_10_2025_tt_btp.json', 'tt_30_2019_tt_byt.json', 'ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json']",
+    "validity_status 'Không xác định' ở 30 văn bản: ['bl_91_2015_qh13.json', 'l_13_2022_qh15.json', 'l_35_2013_qh13.json', 'l_52_2010_qh12.json', 'l_60_2014_qh13.json', 'l_85_2025_qh15.json', 'nd_06_2012_nd_cp.json', 'nd_06_2025_nd_cp.json', 'nd_104_2022_nd_cp.json', 'nd_110_2025_nd_cp.json', 'nd_114_2016_nd_cp.json', 'nd_120_2025_nd_cp.json', 'nd_15_2014_nd_cp.json', 'nd_19_2011_nd_cp.json', 'nd_301_2026_nd_cp.json', 'nd_76_2023_nd_cp.json', 'nq_326_2016_ubtvqh14.json', 'tt_01_2025_tt_btp.json', 'tt_03_2023_tt_btp.json', 'tt_07_2025_tt_bng.json', 'tt_09_2022_tt_btp.json', 'tt_10_2020_tt_btp.json', 'tt_10_2025_tt_btp.json', 'tt_11_2021_tt_btp.json', 'tt_15_2014_tt_btp.json', 'tt_21_2011_tt_btp.json', 'tt_24_2011_tt_bvhttdl.json', 'tt_30_2019_tt_byt.json', 'tt_66_2025_tt_bca.json', 'ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json']",
     "6 mảnh dưới 20 từ của Khoản bị tách, không gộp được trong giới hạn: ['l_81_2025_qh15_art_2_clause_11_chunk_20', 'nd_123_2015_nd_cp_art_4_clause_1_chunk_3', 'nd_123_2015_nd_cp_art_26_clause_1_chunk_1', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_3', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_7', 'nd_18_2026_nd_cp_art_13_clause_4_chunk_1']",
     "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 13 Điều: ['nd_120_2025_nd_cp.json Điều 10', 'nd_123_2015_nd_cp.json Điều 10', 'nd_19_2011_nd_cp.json Điều 7', 'nd_19_2011_nd_cp.json Điều 13', 'nd_24_2013_nd_cp.json Điều 42', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_01_2022_tt_btp.json Điều 3', 'tt_07_2002_tt_btp.json Điều 2', 'tt_07_2023_tt_bng.json Điều 4', 'tt_07_2023_tt_bng.json Điều 23', 'tt_15_2015_tt_btp.json Điều 6', 'tt_22_2013_tt_btp.json Điều 9']"
   ]

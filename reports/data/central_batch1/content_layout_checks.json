@@ -1,0 +1,101 @@
+[
+  {
+    "document_id": "nd_110_2013_nd_cp",
+    "pages": 44,
+    "articles": 75,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_66_2025_tt_bca",
+    "pages": 7,
+    "articles": 18,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "nd_110_2025_nd_cp",
+    "pages": 14,
+    "articles": 17,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_24_2011_tt_bvhttdl",
+    "pages": 5,
+    "articles": 11,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_11_2021_tt_btp",
+    "pages": 2,
+    "articles": 3,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_01_2025_tt_btp",
+    "pages": 3,
+    "articles": 3,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_24_2014_tt_btp",
+    "pages": 3,
+    "articles": 2,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "pages": 7,
+    "articles": 5,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_12_2011_tt_btp",
+    "pages": 7,
+    "articles": 10,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_15_2014_tt_btp",
+    "pages": 6,
+    "articles": 16,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  },
+  {
+    "document_id": "tt_21_2011_tt_btp",
+    "pages": 7,
+    "articles": 18,
+    "source_sha256": "PASS",
+    "pdf_roundtrip": "PASS",
+    "layout": "PASS",
+    "word_coverage_missing": {}
+  }
+]

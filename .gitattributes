@@ -5,3 +5,6 @@
 # Preserve archived official source bytes used by corpus-v3 SHA-256 provenance.
 data/source_documents/corpus_v3/*.html -text
 data/source_documents/corpus_v3/*.DOC binary
+
+# Keep official source snapshots byte-for-byte for central batch 1.
+data/source_documents/central_batch1/*.html -text

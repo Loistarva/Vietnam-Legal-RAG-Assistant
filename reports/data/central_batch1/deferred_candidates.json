@@ -1,0 +1,54 @@
+{
+  "candidate_count": 30,
+  "acquisition_records": 23,
+  "not_acquired_in_this_batch": [
+    {
+      "document_number": "35/2000/QH10",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "110/2009/NĐ-CP",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "16/2009/TT-BYT",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "02/2010/TT-BVHTTDL",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "23/2014/TT-BVHTTDL",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "167/2013/NĐ-CP",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "83/1998/NĐ-CP",
+      "status": "official_pdf_not_acquired"
+    },
+    {
+      "document_number": "02/2007/QH12",
+      "status": "no_official_pdf_on_page",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256"
+    },
+    {
+      "document_number": "08/2009/NĐ-CP",
+      "status": "no_official_pdf_on_page",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305"
+    },
+    {
+      "document_number": "87/2001/NĐ-CP",
+      "status": "no_official_pdf_on_page",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9910"
+    },
+    {
+      "document_number": "158/2005/NĐ-CP",
+      "status": "no_official_pdf_on_page",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898"
+    }
+  ]
+}
