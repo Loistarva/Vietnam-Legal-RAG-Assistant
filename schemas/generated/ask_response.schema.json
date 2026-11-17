@@ -1,0 +1,523 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.0",
+  "$defs": {
+    "AskTimings": {
+      "additionalProperties": false,
+      "description": "Thời gian từng bước và tổng thời gian cho API AskResponse (D3.1).",
+      "properties": {
+        "retrieval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieval Ms"
+        },
+        "llm_total_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Llm Total Ms"
+        },
+        "ttft_model_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ttft Model Ms"
+        },
+        "load_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Ms"
+        },
+        "prompt_eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Eval Ms"
+        },
+        "eval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Eval Ms"
+        },
+        "total_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Ms"
+        }
+      },
+      "title": "AskTimings",
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "additionalProperties": false,
+      "description": "Chi tiết lỗi an toàn trả về API (chặn extra fields để không lộ traceback/prompt).",
+      "properties": {
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "title": "ErrorDetail",
+      "type": "object"
+    },
+    "EvidenceItem": {
+      "additionalProperties": false,
+      "description": "Đại diện cho từng mảnh bằng chứng đưa vào prompt sau Parent Resolver (Top 1..5).",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "title": "Parent Clause Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string"
+        },
+        "validity_status": {
+          "title": "Validity Status",
+          "type": "string"
+        },
+        "effective_from": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective From"
+        },
+        "effective_to": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective To"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "document_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Number"
+        },
+        "document_title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Title"
+        },
+        "article_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Article Number"
+        },
+        "clause_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clause Number"
+        },
+        "breadcrumb": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Breadcrumb"
+        },
+        "provision_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provision Status"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "parent_clause_id",
+        "document_id",
+        "article_id",
+        "clause_id",
+        "content",
+        "validity_status"
+      ],
+      "title": "EvidenceItem",
+      "type": "object"
+    },
+    "MappedCitation": {
+      "additionalProperties": false,
+      "description": "Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5].",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Clause Id"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "document_id",
+        "article_id",
+        "clause_id"
+      ],
+      "title": "MappedCitation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Đầu ra API chuẩn hóa tách bạch rạch ròi SUCCESS / ABSTAIN / NEEDS_CLARIFICATION / ERROR.",
+  "properties": {
+    "schema_version": {
+      "const": "week10_v1.0",
+      "default": "week10_v1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "query_id": {
+      "minLength": 1,
+      "title": "Query Id",
+      "type": "string"
+    },
+    "request_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Request Id"
+    },
+    "as_of_date": {
+      "title": "As Of Date",
+      "type": "string"
+    },
+    "as_of_date_source": {
+      "enum": [
+        "benchmark",
+        "query_text",
+        "user_input",
+        "system_today"
+      ],
+      "title": "As Of Date Source",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "SUCCESS",
+        "NEEDS_CLARIFICATION",
+        "ABSTAIN",
+        "ERROR"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "route": {
+      "enum": [
+        "LEGAL_IN_SCOPE",
+        "NON_LEGAL",
+        "LEGAL_OUT_OF_SCOPE",
+        "MIXED_REVIEW"
+      ],
+      "title": "Route",
+      "type": "string"
+    },
+    "answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Answer"
+    },
+    "clarification": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clarification"
+    },
+    "abstention_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Message"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
+    "citations": {
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Citations",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceItem"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "grounding_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION"
+      ],
+      "title": "Grounding Status",
+      "type": "string"
+    },
+    "disclaimer": {
+      "minLength": 1,
+      "title": "Disclaimer",
+      "type": "string"
+    },
+    "timings": {
+      "$ref": "#/$defs/AskTimings"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "AUTH_REQUIRED",
+            "INVALID_REQUEST",
+            "ROUTE_POLICY",
+            "RETRIEVAL_EMPTY",
+            "LOW_CONFIDENCE",
+            "LLM_TIMEOUT",
+            "JSON_INVALID",
+            "CITATION_INVALID",
+            "GROUNDING_FAIL",
+            "INTERNAL_ERROR"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ErrorDetail"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "query_id",
+    "as_of_date",
+    "as_of_date_source",
+    "status",
+    "route",
+    "grounding_status",
+    "disclaimer"
+  ],
+  "title": "AskResponse",
+  "type": "object"
+}

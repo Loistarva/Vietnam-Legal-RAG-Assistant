@@ -5,7 +5,9 @@ Complies with DoD-09 and DoD-10.
 """
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import statistics
 import time
 from collections.abc import Callable
@@ -16,13 +18,45 @@ import requests
 import yaml
 from pydantic import BaseModel
 
-from schemas.models import LLMResponse, StructuredRAGOutput, TokenUsage
+from schemas.models import ErrorCode, LLMResponse, StructuredRAGOutput, TokenUsage
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "local_qwen.yaml"
+_MARKDOWN_FENCE_RE = re.compile(
+    r"^\s*```(?:[a-zA-Z0-9_-]+)?\s*\r?\n?(.*?)\r?\n?```\s*$",
+    re.DOTALL,
+)
+
+
+def _strip_markdown_fences(raw_text: str) -> str:
+    """Loại bỏ markdown code fence (```json ... ```) nếu mô hình bọc JSON."""
+    text = raw_text.strip()
+    match = _MARKDOWN_FENCE_RE.match(text)
+    if match:
+        return match.group(1).strip()
+    return text
+
+
+def _build_raw_response_reference(query_id: str, run_mode: str, raw_text: str | None) -> str | None:
+    """Tạo tham chiếu an toàn gắn hash SHA-256 rút gọn cho raw response."""
+    if raw_text is None:
+        return None
+    digest = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()[:12]
+    return f"ollama://{run_mode}/{query_id}#sha256:{digest}"
+
+
+def _optional_non_negative_int(value: Any) -> int | None:
+    """Chuyển số nguyên không âm; thiếu hoặc không hợp lệ giữ None (không bịa 0)."""
+    if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+        return value
+    return None
 
 
 class GatewayExecutionError(Exception):
     """Ngoại lệ khi không thể kết nối hoặc thực thi gọi mô hình qua Gateway."""
+
+    def __init__(self, message: str, error_code: ErrorCode = "INTERNAL_ERROR"):
+        super().__init__(message)
+        self.error_code: ErrorCode = error_code
 
 
 def normalize_model_name(name: str) -> str:
@@ -131,8 +165,15 @@ class QwenGateway:
                     time.sleep(0.1 * attempts)
 
         # Fail-fast, tuyệt đối không silently fallback sang model khác
+        is_timeout = (
+            isinstance(last_error, (TimeoutError, requests.Timeout))
+            or "timeout" in str(last_error).lower()
+            or "timed out" in str(last_error).lower()
+        )
+        error_code: ErrorCode = "LLM_TIMEOUT" if is_timeout else "INTERNAL_ERROR"
         raise GatewayExecutionError(
-            f"Không thể kết nối đến Ollama model gateway ({self.config.base_url}) sau {total_attempts} lần thử: {last_error}"
+            f"Không thể kết nối đến Ollama model gateway ({self.config.base_url}) sau {total_attempts} lần thử: {last_error}",
+            error_code=error_code,
         ) from last_error
 
     def generate(
@@ -143,6 +184,7 @@ class QwenGateway:
         prompt_version: str,
         structured_output: bool = False,
         schema: dict[str, Any] | None = None,
+        max_evidence_index: int | None = None,
     ) -> LLMResponse:
         """
         Gọi mô hình Qwen qua Ollama API (/api/generate).
@@ -181,11 +223,12 @@ class QwenGateway:
 
         # Trích xuất dữ liệu phản hồi
         raw_text = raw_res.get("response", "")
+        raw_ref = _build_raw_response_reference(query_id, run_mode, raw_text)
         done_reason = str(raw_res.get("done_reason") or ("stop" if raw_res.get("done") else "unknown"))
-        prompt_tokens = int(raw_res.get("prompt_eval_count") or 0)
-        output_tokens = int(raw_res.get("eval_count") or 0)
+        prompt_tokens = _optional_non_negative_int(raw_res.get("prompt_eval_count"))
+        output_tokens = _optional_non_negative_int(raw_res.get("eval_count"))
         token_usage = TokenUsage(input=prompt_tokens, output=output_tokens)
-        context_truncated = prompt_tokens >= self.config.num_ctx
+        context_truncated = bool(prompt_tokens is not None and prompt_tokens >= self.config.num_ctx)
         durations = ollama_durations_ms(raw_res)
 
         # Xử lý Run A (Zero-Shot) hoặc Non-Structured
@@ -213,12 +256,15 @@ class QwenGateway:
                 token_usage=token_usage,
                 fallback_status="none",
                 raw_response=raw_text,
+                raw_response_reference=raw_ref,
+                error_code=None,
                 ollama_version=self.ollama_version,
                 model_digest=self.model_digest,
             )
 
-        # Xử lý Run B (Structured Output)
+        # Xử lý Run B / C (Structured Output)
         parse_status: Literal["ok", "truncated_json", "invalid_json", "raw_text"] = "ok"
+        error_code: ErrorCode | None = None
         answer = ""
         evidence_indices: list[int] = []
         rejected_evidence_values: list[str] = []
@@ -227,36 +273,51 @@ class QwenGateway:
         needs_clarification = False
 
         try:
-            parsed_json = json.loads(raw_text)
+            candidate_json_text = _strip_markdown_fences(raw_text)
+            parsed_json = json.loads(candidate_json_text)
             if not isinstance(parsed_json, dict):
                 raise ValueError("JSON phản hồi không phải là dictionary")
+            if "answer" not in parsed_json or not isinstance(parsed_json["answer"], str):
+                raise ValueError("JSON phản hồi thiếu trường bắt buộc 'answer' dạng chuỗi")
 
-            # Nếu JSON hợp lệ nhưng evidence_indices chứa số ngoài [1, 5] (ví dụ [1, 6]),
-            # VẪN parse thành công, gán parse_status = 'ok' và giữ nguyên để map_evidence_indices_to_citations xử lý.
-            # Giá trị không phải số nguyên ("1", 2.0, true, chuỗi chunk_id) được giữ lại trong
-            # rejected_evidence_values để Gate đánh FAIL, không bị bỏ đi trong im lặng.
+            validated_struct = StructuredRAGOutput.model_validate({**parsed_json, "evidence_indices": []})
+
+            # Khi không truyền max_evidence_index (legacy callers), số nguyên ngoài [1, 5] vẫn giữ ở
+            # evidence_indices để Grounding Gate xử lý. Khi truyền max_evidence_index, chỉ số ngoài
+            # [1, max_evidence_index] bị đưa vào rejected_evidence_values và gắn error_code CITATION_INVALID.
             raw_indices = parsed_json.get("evidence_indices", [])
             if isinstance(raw_indices, list):
                 for idx in raw_indices:
                     if isinstance(idx, int) and not isinstance(idx, bool):
-                        evidence_indices.append(idx)
+                        if max_evidence_index is not None and (idx < 1 or idx > max_evidence_index):
+                            rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
+                        else:
+                            evidence_indices.append(idx)
                     else:
                         rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
             elif raw_indices is not None:
                 rejected_evidence_values.append(json.dumps(raw_indices, ensure_ascii=False))
 
-            answer = str(parsed_json.get("answer") or "").strip()
-            abstained = bool(parsed_json.get("abstained", False))
-            reason = parsed_json.get("abstention_reason")
-            abstention_reason = str(reason).strip() if reason else None
-            needs_clarification = bool(parsed_json.get("needs_clarification", False))
+            answer = validated_struct.answer
+            abstained = validated_struct.abstained
+            reason = validated_struct.abstention_reason
+            abstention_reason = reason if reason else None
+            needs_clarification = validated_struct.needs_clarification
             parse_status = "ok"
+            if rejected_evidence_values:
+                error_code = "CITATION_INVALID"
         except Exception:
             if done_reason == "length":
                 parse_status = "truncated_json"
             else:
                 parse_status = "invalid_json"
+            error_code = "JSON_INVALID"
             answer = ""  # Không để lọt JSON thô vào câu trả lời khi parse lỗi
+            evidence_indices = []
+            rejected_evidence_values = []
+            abstained = False
+            abstention_reason = None
+            needs_clarification = False
 
         truncated = (done_reason == "length") or (parse_status == "truncated_json")
 
@@ -284,6 +345,8 @@ class QwenGateway:
             token_usage=token_usage,
             fallback_status="none",
             raw_response=raw_text,
+            raw_response_reference=raw_ref,
+            error_code=error_code,
             ollama_version=self.ollama_version,
             model_digest=self.model_digest,
         )
@@ -361,8 +424,8 @@ def summarize_truncation_and_provenance(responses: list[LLMResponse]) -> dict[st
         idx_95 = int(round(0.95 * (total - 1)))
         p95 = latencies[min(idx_95, total - 1)]
 
-    total_in = sum(r.token_usage.input for r in responses)
-    total_out = sum(r.token_usage.output for r in responses)
+    total_in = sum(r.token_usage.input or 0 for r in responses)
+    total_out = sum(r.token_usage.output or 0 for r in responses)
 
     return {
         "total_queries": total,
