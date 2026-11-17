@@ -94,10 +94,10 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 
 ## 6. Checklist sign-off
 
-- [ ] Policy route/action được Tech Lead chốt: `NEG_DEV_025`/`NEG_DEV_026` là `legal_out_of_scope` + `policy_abstention`; bạo lực gia đình chỉ hỏi biện pháp/quyền/nghĩa vụ HNGĐ thì in-scope, chỉ hỏi xử lý hình sự thì out-of-scope, hỏi cả hai thì mixed.
+- [x] Policy route/action được Tech Lead chốt: `NEG_DEV_025`/`NEG_DEV_026` là `legal_out_of_scope` + `policy_abstention`; bạo lực gia đình chỉ hỏi biện pháp/quyền/nghĩa vụ HNGĐ thì in-scope, chỉ hỏi xử lý hình sự thì out-of-scope, hỏi cả hai thì mixed.
 - [ ] Regression/Dev gates đã pass và có lệnh + kết quả.
-- [ ] Reviewer độc lập hoàn tất semantic/legal label review; identity, ngày và SHA được ghi.
-- [ ] Holdout v2 qua validator và semantic overlap review độc lập; không dùng v1 đã tiêu thụ để tuyên bố điểm mới.
+- [x] Reviewer độc lập hoàn tất semantic/legal label review; identity, ngày và SHA được ghi (`Dev3`, `2026-11-17`, LF SHA-256 `d2cd4087b8d81048e63074b2fdb31aceadd3d18dedc678b956b801693c815e49`).
+- [x] Holdout v2 qua validator và semantic overlap review độc lập (`Dev3`, giữ nguyên 36/36 câu & nhãn kèm ghi chú overlap/ranh giới); không dùng v1 đã tiêu thụ để tuyên bố điểm mới.
 - [ ] Router/config/policy được commit; version, commit SHA, source SHA và corpus SHA đã ghi.
 - [ ] Consumer (Dev5) xác nhận contract; Dev2 xác nhận format bàn giao nếu dùng cho evaluation.
 - [ ] Holdout mới được chạy đúng một lần sau freeze; predictions/manifest được lưu và không bị ghi đè.
@@ -105,6 +105,6 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 ## 7. Trạng thái tại thời điểm viết
 
 - `router_holdout_week10_v1.jsonl`: 36 câu, `reviewer_status=DEV4`; owner đã rà soát nhưng chưa có xác nhận reviewer độc lập. Đã tiêu thụ khi chạy (22/36 khớp, 14 mismatch), vì vậy chỉ dùng làm regression.
-- `router_holdout_week10_v2.jsonl`: candidate 36 câu mới, đang chờ review độc lập; validator exact-text so sánh sáu nguồn. Chưa chạy Router trên v2.
+- `router_holdout_week10_v2.jsonl`: 36 câu mới, đã hoàn tất review độc lập bởi `Dev3` (`2026-11-17`, `reviewer_status=INDEPENDENT_REVIEW_COMPLETE`, giữ nguyên 36/36 câu & nhãn); validator exact-text pass trên sáu nguồn. Chưa chạy Router trên v2.
 - Smoke v1: 22/36 route/action khớp, 14 mismatch; đã tiêu thụ.
-- Router freeze: chưa đạt; còn cần xác nhận Tech Lead về policy và toàn bộ gate, review độc lập cho v2, xử lý regression bằng dữ liệu không phải holdout đã tiêu thụ, rồi mới chạy holdout mới sau freeze.
+- Router freeze: chưa đạt; cần Dev 4 xử lý regression để pass toàn bộ Freeze Gate và ghi nhận freeze SHA trước khi chạy holdout v2.
