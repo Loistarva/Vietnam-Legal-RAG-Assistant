@@ -390,6 +390,41 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/history_batch2/l_02_2007_qh12.pdf",
+      "document_id": "l_02_2007_qh12",
+      "sha256": "e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",
+      "bytes": 84092,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_08_2009_nd_cp.pdf",
+      "document_id": "nd_08_2009_nd_cp",
+      "sha256": "d865f0e2ac4df63cac5e3b65bc8c811319724eef061345b0c710794ebf1faab4",
+      "bytes": 78534,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_110_2009_nd_cp.pdf",
+      "document_id": "nd_110_2009_nd_cp",
+      "sha256": "cfe39b25e63986a7a05baf52b31d80b2c1c29d1e6040e31bd639e44827e4be86",
+      "bytes": 80523,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_158_2005_nd_cp.pdf",
+      "document_id": "nd_158_2005_nd_cp",
+      "sha256": "7a01164edcad601fead1cdb67a0e7689037456ec4ba942baff0f3c855faab82a",
+      "bytes": 123088,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_83_1998_nd_cp.pdf",
+      "document_id": "nd_83_1998_nd_cp",
+      "sha256": "46b097b1951fb762fc9e18f469d475e4168d04238f3b590aeb74aa5727518e85",
+      "bytes": 106459,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
       "document_id": "nd_07_2025_nd_cp",
       "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",

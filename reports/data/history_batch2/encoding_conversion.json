@@ -1,0 +1,82 @@
+[
+  {
+    "document_id": "nd_87_2001_nd_cp",
+    "source_kind": "official_rtf_attachment",
+    "tcvn3_to_unicode": true,
+    "mapping_substitutions": 3602,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "823438323fb470d29ba4642604b807ed48592c01f9296b7ead6468a5647e6831"
+  },
+  {
+    "document_id": "nd_158_2005_nd_cp",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": false,
+    "mapping_substitutions": 0,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "e296ca6f92030662d3d46de248b723c9a6e6d6998ab9abd61169186f858fdfed"
+  },
+  {
+    "document_id": "nd_83_1998_nd_cp",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": true,
+    "mapping_substitutions": 14335,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "2bb1f75722779cc855d52993c51eb63592d83a6e3544313619a540d605afb3de"
+  },
+  {
+    "document_id": "nq_35_2000_qh10",
+    "source_kind": "official_rtf_attachment",
+    "tcvn3_to_unicode": true,
+    "mapping_substitutions": 787,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "797a1639a7d608e5448f3164ad17099cab839f2bc5d19b86f8599bc6fae5d176"
+  },
+  {
+    "document_id": "l_02_2007_qh12",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": false,
+    "mapping_substitutions": 0,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "4372d90ab40d62a7fbbbda505bc52ae10c363b4979f372ef7663dd1efb8766c8"
+  },
+  {
+    "document_id": "nd_08_2009_nd_cp",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": false,
+    "mapping_substitutions": 0,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "0bec8382e89b70f7410cf9570e367e0cbf017c943095ad52e9f05cabc87f2b9d"
+  },
+  {
+    "document_id": "pl_28_l_ctn",
+    "source_kind": "official_rtf_attachment",
+    "tcvn3_to_unicode": true,
+    "mapping_substitutions": 4086,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "378b6a82514aa7e60cd9484f6251afd334334f6e53b582059348155be9522a5e"
+  },
+  {
+    "document_id": "nd_12_2003_nd_cp",
+    "source_kind": "official_rtf_attachment",
+    "tcvn3_to_unicode": true,
+    "mapping_substitutions": 2479,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "d212a0036af46fbc4d28bf981fa4e1ad9de09635a6c2d504a8697980658fee2e"
+  },
+  {
+    "document_id": "tt_01_2008_tt_btp",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": false,
+    "mapping_substitutions": 0,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "b523bcdff61b63f4ad66b433890a50371c3c9270cd3b766977813f12fd519910"
+  },
+  {
+    "document_id": "nd_110_2009_nd_cp",
+    "source_kind": "official_word_binary_attachment",
+    "tcvn3_to_unicode": false,
+    "mapping_substitutions": 0,
+    "reversible_substitution_check": "PASS",
+    "unicode_source_sha256": "89a904faeef395a81b626bc815406205a33989dcd3f4c65e7c157c3a8bbcf54d"
+  }
+]

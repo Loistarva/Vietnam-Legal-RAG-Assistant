@@ -3744,5 +3744,252 @@
     "production_ingest_allowed": true,
     "normalized_at": "2026-11-17",
     "parsed_json_sha256": "ff7bc2aab11ae90424c943d26db18164fdaf4975db6ef926b297ca86ca7f097d"
+  },
+  {
+    "document_id": "nd_158_2005_nd_cp",
+    "document_number": "158/2005/NĐ-CP",
+    "file_code": "ND33",
+    "title": "Về đăng ký và quản lý hộ tịch",
+    "document_type": "Nghị định",
+    "issue_date": "2005-12-27",
+    "effective_date": "2006-04-01",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2016-01-01",
+    "issuing_body": "Chính phủ",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical_document_level_partial_amendments_require_review",
+    "origin": "history_batch2",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_158_2005_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+        "sha256": "ed2fac1b18fce91b037a8ebda22699be45d802a39cdf942ab902c10d8703c1d6",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_158_2005_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/85597_nd158cp.doc",
+        "sha256": "d2283e0b5521813368ff89c14391dfeb4591ce0d926bb7363120ffa3ab4d81a3",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_kind": "official_word_binary_attachment",
+    "source_format_note": "Original official Word/RTF/HTML retained; PDF is an unsigned Unicode ingest derivative, not an original signed PDF.",
+    "ingest_pdf_path": "data/raw_data/additional_documents/history_batch2/nd_158_2005_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_158_2005_nd_cp.json",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "changed_by": "nd_123_2015_nd_cp",
+      "provision": "45.2.b",
+      "note": "Dates verified against official source document and replacement provision; does not certify all intermediate partial repeals."
+    },
+    "ingest_pdf_sha256": "7a01164edcad601fead1cdb67a0e7689037456ec4ba942baff0f3c855faab82a",
+    "download_status": "Normalized official historical source on 2026-11-18; sha256:7a01164edcad601fead1cdb67a0e7689037456ec4ba942baff0f3c855faab82a",
+    "normalized_source_text_sha256": "a6d33b1a1d07353c6bbfd48edb2477f7712cec5dc3075f4a8921efb102d332de",
+    "archive_pdf_path": "data/staging/history_batch2/archive_pdf/nd_158_2005_nd_cp.pdf",
+    "archive_pdf_sha256": "5c425134945aabb269b0d6435b858c4b2d664c83bd88a15682d353e7b68b5d82",
+    "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original. Original heading Mục I standardized to Mục 1 (same ordinal); wording retained, original Word preserved.",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "parsed_json_sha256": "9234b45d490ceaa4fd62dfaeb2400becceace4a36e0c7e6b93717b67b29afc42"
+  },
+  {
+    "document_id": "nd_83_1998_nd_cp",
+    "document_number": "83/1998/NĐ-CP",
+    "file_code": "ND34",
+    "title": "Đăng ký hộ tịch",
+    "document_type": "Nghị định",
+    "issue_date": "1998-10-10",
+    "effective_date": "1998-10-25",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2006-04-01",
+    "issuing_body": "Chính phủ",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical_document_level_partial_amendments_require_review",
+    "origin": "history_batch2",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_83_1998_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+        "sha256": "8b95202bb3ecb82fef07bdf24a3bc4b1630b6f53ecd657d7c19cd0b90edb9ea7",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_83_1998_nd_cp.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/7032_nd83cp.rtf",
+        "sha256": "940649e4c430e10c5d5f525acdf511e67e931998f837659055dc2c37caa5d392",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_kind": "official_word_binary_attachment",
+    "source_format_note": "Original official Word/RTF/HTML retained; PDF is an unsigned Unicode ingest derivative, not an original signed PDF.",
+    "ingest_pdf_path": "data/raw_data/additional_documents/history_batch2/nd_83_1998_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_83_1998_nd_cp.json",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "changed_by": "nd_158_2005_nd_cp",
+      "provision": "98",
+      "note": "Dates verified against official source document and replacement provision; does not certify all intermediate partial repeals."
+    },
+    "ingest_pdf_sha256": "46b097b1951fb762fc9e18f469d475e4168d04238f3b590aeb74aa5727518e85",
+    "download_status": "Normalized official historical source on 2026-11-18; sha256:46b097b1951fb762fc9e18f469d475e4168d04238f3b590aeb74aa5727518e85",
+    "normalized_source_text_sha256": "03698a83f9b0829c6be793db1464c14e9b889fd2169c115b9713405729f8ac7a",
+    "archive_pdf_path": "data/staging/history_batch2/archive_pdf/nd_83_1998_nd_cp.pdf",
+    "archive_pdf_sha256": "e87df348ff3ab4f75c23b2b2794caef53de851e17f72c7971ac20492331f225b",
+    "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original. Roman chapter labels uppercased; Article 95 has its existing label on a separate line so normative text is not mistaken for an article title. No words/numbers added. Chapter/section title blocks uppercased consistently, including wrapped continuation lines; no wording or numbering changed.",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "parsed_json_sha256": "07bd44694fba9e47648698af00ea556e156634af789de167664cb474895947e0"
+  },
+  {
+    "document_id": "l_02_2007_qh12",
+    "document_number": "02/2007/QH12",
+    "file_code": "L14",
+    "title": "LUẬT PHÒNG, CHỐNG BẠO LỰC GIA ĐÌNH",
+    "document_type": "Luật",
+    "issue_date": "2007-11-21",
+    "effective_date": "2008-07-01",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2023-07-01",
+    "issuing_body": "Quốc hội",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical_document_level_partial_amendments_require_review",
+    "origin": "history_batch2",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/l_02_2007_qh12.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+        "sha256": "7b0e6626834d2209b67c741fef8ba9b9a41131b184d3dcff3f6ef807d528627f",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/l_02_2007_qh12.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2007/12/52935_l2qh.doc",
+        "sha256": "1bd42cb072b50e5db4ffba722746936b78738e5b4c49b8dad6521d1d396e1d5c",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_kind": "official_word_binary_attachment",
+    "source_format_note": "Original official Word/RTF/HTML retained; PDF is an unsigned Unicode ingest derivative, not an original signed PDF.",
+    "ingest_pdf_path": "data/raw_data/additional_documents/history_batch2/l_02_2007_qh12.pdf",
+    "parsed_json_path": "parser/parsed_jsons/l_02_2007_qh12.json",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "changed_by": "l_13_2022_qh15",
+      "provision": "56.2",
+      "note": "Dates verified against official source document and replacement provision; does not certify all intermediate partial repeals."
+    },
+    "issue_date_source_discrepancy": "Government properties table lists 05-12-2007; document header and final adoption sentence state 21-11-2007. Registry follows document itself.",
+    "ingest_pdf_sha256": "e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",
+    "download_status": "Normalized official historical source on 2026-11-17; sha256:e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",
+    "normalized_source_text_sha256": "a54042534ea11d203ca9523b2fed199ba4f4abd2885092cdd0e08b1622d30c8d",
+    "archive_pdf_path": "data/staging/history_batch2/archive_pdf/l_02_2007_qh12.pdf",
+    "archive_pdf_sha256": "03f8d4985fbede51100cb9d4fdde4b086b200df45e9d7e9d86f2c38f9800d161",
+    "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original.",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "parsed_json_sha256": "84e0e405d2441dcfb498a4b9616e1acb5ffad04f067f32a6bd3fe94daefdedde"
+  },
+  {
+    "document_id": "nd_08_2009_nd_cp",
+    "document_number": "08/2009/NĐ-CP",
+    "file_code": "ND35",
+    "title": "Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2009-02-04",
+    "effective_date": "2009-03-21",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2023-12-25",
+    "issuing_body": "Chính phủ",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical_document_level_partial_amendments_require_review",
+    "origin": "history_batch2",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_08_2009_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+        "sha256": "358af2aa11ef2616237604633e705f993c4995043fc67d0bd9dd83948ebfd454",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_08_2009_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/86003_nd8cp.doc",
+        "sha256": "74b90b9c8fa0d3d3d72b08db0b9faba6358f69d2606e44671efea2c5b49fbdaa",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_kind": "official_word_binary_attachment",
+    "source_format_note": "Original official Word/RTF/HTML retained; PDF is an unsigned Unicode ingest derivative, not an original signed PDF.",
+    "ingest_pdf_path": "data/raw_data/additional_documents/history_batch2/nd_08_2009_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_08_2009_nd_cp.json",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "changed_by": "nd_76_2023_nd_cp",
+      "provision": "42.1–2",
+      "note": "Dates verified against official source document and replacement provision; does not certify all intermediate partial repeals."
+    },
+    "ingest_pdf_sha256": "d865f0e2ac4df63cac5e3b65bc8c811319724eef061345b0c710794ebf1faab4",
+    "download_status": "Normalized official historical source on 2026-11-17; sha256:d865f0e2ac4df63cac5e3b65bc8c811319724eef061345b0c710794ebf1faab4",
+    "normalized_source_text_sha256": "24c767a7eae7afb0d2b96aa9abe7e4fd5ec365cd51c0a7104e5caa1e223f7628",
+    "archive_pdf_path": "data/staging/history_batch2/archive_pdf/nd_08_2009_nd_cp.pdf",
+    "archive_pdf_sha256": "5a683013afedc01edd4b8617f289eee20f44f9354fbe509c7da2906eec9230c5",
+    "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original.",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "parsed_json_sha256": "c94de3a5bd9ee6d221007f984e4a21be04a88b167c4ee8b0030c2f24eff0cd58"
+  },
+  {
+    "document_id": "nd_110_2009_nd_cp",
+    "document_number": "110/2009/NĐ-CP",
+    "file_code": "ND37",
+    "title": "Quy định xử phạt vi phạm hành chính trong lĩnh vực phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2009-12-10",
+    "effective_date": "2010-01-27",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2013-12-28",
+    "issuing_body": "Chính phủ",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical_document_level_partial_amendments_require_review",
+    "origin": "history_batch2",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_110_2009_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+        "sha256": "021dc8d396cf44b6e85f20ef0bc1c45412cdbd18ece21ca6bc5cfce9954306b3",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_110_2009_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/12/96195_nd110cp.doc",
+        "sha256": "0d2b79d811e79b9fec7551e08d2fbd1ed7ba8eb1b54633bff5b27ecb0a6b2072",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_kind": "official_word_binary_attachment",
+    "source_format_note": "Original official Word/RTF/HTML retained; PDF is an unsigned Unicode ingest derivative, not an original signed PDF.",
+    "ingest_pdf_path": "data/raw_data/additional_documents/history_batch2/nd_110_2009_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_110_2009_nd_cp.json",
+    "production_ingest_allowed": true,
+    "effectivity_evidence": {
+      "changed_by": "nd_167_2013_nd_cp",
+      "provision": null,
+      "note": "Official national-database record reports expiry 28/12/2013; original government attachment Article 32 verifies initial effectivity 27/01/2010.",
+      "source_url": "https://vbpl.moj.gov.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=23846"
+    },
+    "ingest_pdf_sha256": "cfe39b25e63986a7a05baf52b31d80b2c1c29d1e6040e31bd639e44827e4be86",
+    "download_status": "Normalized official historical source on 2026-11-17; sha256:cfe39b25e63986a7a05baf52b31d80b2c1c29d1e6040e31bd639e44827e4be86",
+    "normalized_source_text_sha256": "adf17cdc35ae0480261674dfefda699aa1613b8c2b945629667ecaf76f3a884a",
+    "archive_pdf_path": "data/staging/history_batch2/archive_pdf/nd_110_2009_nd_cp.pdf",
+    "archive_pdf_sha256": "289135c2dabb2013e8ba00852cf89996e398da537e49cee685033f68b457b8c8",
+    "normalization_note": "Letter 612x792 pt, Times New Roman 12pt; original official Word/RTF and source HTML retained byte-for-byte. TCVN3 decoded by reversible character map when applicable; normalized heading case only. Unsigned PDF derivative, not a signed original.",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "parsed_json_sha256": "b2332bdaa17059eb5177664e59a3db95b0dad4c549864cd2c88a25b590334a29"
   }
 ]

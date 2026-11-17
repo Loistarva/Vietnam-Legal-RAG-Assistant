@@ -601,6 +601,19 @@
         }
       ],
       "reason": "Tiêu đề dài thật; đã đối chiếu liên tục thứ tự từ với PDF nguồn chính thức, không thay ngưỡng parser."
+    },
+    {
+      "txt_stem": "nd_08_2009_nd_cp",
+      "article_number": "20",
+      "expected_title": "Áp dụng pháp luật đối với các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình được thành lập trước ngày Nghị định này có hiệu lực thi hành",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/history_batch2/nd_08_2009_nd_cp.doc",
+          "sha256": "74b90b9c8fa0d3d3d72b08db0b9faba6358f69d2606e44671efea2c5b49fbdaa"
+        }
+      ],
+      "reason": "Tiêu đề Điều 20 dài thật 41 từ, đối chiếu liên tục với tệp Word chính thức; giữ nguyên ngưỡng chung 40 từ và không miễn kiểm tra nội dung."
     }
   ]
 }

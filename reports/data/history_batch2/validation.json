@@ -1,0 +1,48 @@
+{
+  "verified_on": "2026-11-18",
+  "baseline_commit": "51abcd7",
+  "official_source_candidates": 10,
+  "original_source_format": "Word/RTF, with official metadata HTML; no original signed PDF claimed",
+  "new_active_documents": 5,
+  "held_candidates": 5,
+  "active_registry_documents": 77,
+  "raw_pdfs": 77,
+  "parsed_documents": 77,
+  "new_fulltext_articles": 297,
+  "parents": 2509,
+  "children": 5784,
+  "new_children": 402,
+  "previous_registry_records_preserved": 72,
+  "previous_child_payloads_preserved": 5382,
+  "previous_parent_payloads_preserved": 2344,
+  "original_source_hashes": "PASS",
+  "source_encoding_and_pdf_token_roundtrip": "PASS",
+  "normative_word_coverage": "5/5 PASS",
+  "pdf_layout": "5/5 PASS",
+  "visual_first_last_pages": "5/5 PASS",
+  "current_registry_parser_replay": "5/5 PASS",
+  "metadata_structural_errors": 0,
+  "source_pdf_manifest": "PASS",
+  "negative_set_issues": 0,
+  "negative_set_warnings": "2 expected corpus-diff notices vs pinned baseline",
+  "full_suite": {
+    "passed": 2130,
+    "subtests_passed": 226,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "ruff_runtime_checks": "PASS",
+  "parser_cleaner_chunker_schema_workflow_changes": false,
+  "legal_article_level_temporal_review_complete": false,
+  "production_es_qdrant_reindex_performed": false,
+  "official_runs_a_b_rerun": false,
+  "independent_audit": {
+    "reviewed_on": "2026-11-18",
+    "fixed_issues": [
+      "Stale Article title list in normalization report for nd_83_1998_nd_cp"
+    ],
+    "data_or_runtime_changes_required": false,
+    "scope": "Source/archive/ingest/parsed/unicode hashes; staged vs active metadata; hold isolation; ZIP bytes; preserved baseline registry"
+  }
+}

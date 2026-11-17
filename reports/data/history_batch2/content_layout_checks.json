@@ -1,0 +1,47 @@
+[
+  {
+    "document_id": "nd_158_2005_nd_cp",
+    "pages": 26,
+    "expected_and_parsed_articles": 99,
+    "source_sha256": "PASS",
+    "word_coverage_missing": {},
+    "layout": "PASS",
+    "original_word_footnote_chars": 0
+  },
+  {
+    "document_id": "nd_83_1998_nd_cp",
+    "pages": 20,
+    "expected_and_parsed_articles": 97,
+    "source_sha256": "PASS",
+    "word_coverage_missing": {},
+    "layout": "PASS",
+    "original_word_footnote_chars": 0
+  },
+  {
+    "document_id": "l_02_2007_qh12",
+    "pages": 11,
+    "expected_and_parsed_articles": 46,
+    "source_sha256": "PASS",
+    "word_coverage_missing": {},
+    "layout": "PASS",
+    "original_word_footnote_chars": 0
+  },
+  {
+    "document_id": "nd_08_2009_nd_cp",
+    "pages": 8,
+    "expected_and_parsed_articles": 22,
+    "source_sha256": "PASS",
+    "word_coverage_missing": {},
+    "layout": "PASS",
+    "original_word_footnote_chars": 0
+  },
+  {
+    "document_id": "nd_110_2009_nd_cp",
+    "pages": 10,
+    "expected_and_parsed_articles": 33,
+    "source_sha256": "PASS",
+    "word_coverage_missing": {},
+    "layout": "PASS",
+    "original_word_footnote_chars": 0
+  }
+]

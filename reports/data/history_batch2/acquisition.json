@@ -1,0 +1,352 @@
+[
+  {
+    "document_number": "87/2001/NĐ-CP",
+    "document_id": "nd_87_2001_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9910",
+    "properties": {
+      "Số ký hiệu": "87/2001/NĐ-CP",
+      "Ngày ban hành": "21-11-2001",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Phan Văn Khải",
+      "Trích yếu": "Về xử phạt vi phạm hành chính trong lĩnh vực hôn nhân và gia đình",
+      "Tài liệu đính kèm": "10092_nd87cp.rtf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_87_2001_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9910",
+        "sha256": "e53ceb5cbb059148ec588d3c293c0dd6d290c2d24100e96ad748295ededc4335",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_87_2001_nd_cp.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/10092_nd87cp.rtf",
+        "sha256": "52af1a9b338229f74bec69218622ac38ce54beb6eeb27817b5558000f0daa4af",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_87_2001_nd_cp.txt",
+    "source_kind": "official_rtf_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "158/2005/NĐ-CP",
+    "document_id": "nd_158_2005_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+    "properties": {
+      "CHÍNH PHỦ ______ Số: 158/2005/NĐ-CP": "CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc ________ Hà Nội, ngày 27 tháng 12 năm 2005",
+      "Số ký hiệu": "158/2005/NĐ-CP",
+      "Ngày ban hành": "27-12-2005",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Phan Văn Khải",
+      "Trích yếu": "Về đăng ký và quản lý hộ tịch",
+      "Tài liệu đính kèm": "85597_nd158cp.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_158_2005_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+        "sha256": "ed2fac1b18fce91b037a8ebda22699be45d802a39cdf942ab902c10d8703c1d6",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_158_2005_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/85597_nd158cp.doc",
+        "sha256": "d2283e0b5521813368ff89c14391dfeb4591ce0d926bb7363120ffa3ab4d81a3",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_158_2005_nd_cp.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "83/1998/NĐ-CP",
+    "document_id": "nd_83_1998_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+    "properties": {
+      "Số ký hiệu": "83/1998/NĐ-CP",
+      "Ngày ban hành": "10-10-1998",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Phan Văn Khải",
+      "Trích yếu": "Đăng ký hộ tịch",
+      "Tài liệu đính kèm": "7032_nd83cp.rtf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_83_1998_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+        "sha256": "8b95202bb3ecb82fef07bdf24a3bc4b1630b6f53ecd657d7c19cd0b90edb9ea7",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_83_1998_nd_cp.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/7032_nd83cp.rtf",
+        "sha256": "940649e4c430e10c5d5f525acdf511e67e931998f837659055dc2c37caa5d392",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_83_1998_nd_cp.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "35/2000/QH10",
+    "document_id": "nq_35_2000_qh10",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9622",
+    "properties": {
+      "Số ký hiệu": "35/2000/QH10",
+      "Ngày ban hành": "09-06-2000",
+      "Loại văn bản": "Nghị quyết",
+      "Cơ quan ban hành": "Quốc hội",
+      "Người ký": "Nông Đức Mạnh",
+      "Trích yếu": "Thi hành Luật Hôn nhân và Gia đình",
+      "Tài liệu đính kèm": "9783_nq35qh.rtf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nq_35_2000_qh10.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9622",
+        "sha256": "70581d0ac4dedc0c7d3e5190a28e80f06ca81976792853e7c3a8e06e41dc126d",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nq_35_2000_qh10.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/9783_nq35qh.rtf",
+        "sha256": "cd8c06b7558bfa0137e609e5baa04af96b40734d9cf42109ce25f9592b0e3e7e",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nq_35_2000_qh10.txt",
+    "source_kind": "official_rtf_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "02/2007/QH12",
+    "document_id": "l_02_2007_qh12",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+    "properties": {
+      "": "CHỦ TỊCH QUỐC HỘI (đã ký) Nguyễn Phú Trọng",
+      "Số ký hiệu": "02/2007/QH12",
+      "Ngày ban hành": "05-12-2007",
+      "Loại văn bản": "Luật",
+      "Cơ quan ban hành": "Quốc hội",
+      "Người ký": "Nguyễn Phú Trọng",
+      "Trích yếu": "LUẬT PHÒNG, CHỐNG BẠO LỰC GIA ĐÌNH",
+      "Tài liệu đính kèm": "52935_l2qh.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/l_02_2007_qh12.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+        "sha256": "7b0e6626834d2209b67c741fef8ba9b9a41131b184d3dcff3f6ef807d528627f",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/l_02_2007_qh12.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2007/12/52935_l2qh.doc",
+        "sha256": "1bd42cb072b50e5db4ffba722746936b78738e5b4c49b8dad6521d1d396e1d5c",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/l_02_2007_qh12.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "08/2009/NĐ-CP",
+    "document_id": "nd_08_2009_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+    "properties": {
+      "CHÍNH PHỦ _________ Số: 08/2009/NĐ-CP": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc ______________________________________ Hà Nội, ngày 04 tháng 02 năm 2009",
+      "Số ký hiệu": "08/2009/NĐ-CP",
+      "Ngày ban hành": "04-02-2009",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Nguyễn Tấn Dũng",
+      "Trích yếu": "Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống bạo lực gia đình",
+      "Tài liệu đính kèm": "86003_nd8cp.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_08_2009_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+        "sha256": "358af2aa11ef2616237604633e705f993c4995043fc67d0bd9dd83948ebfd454",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_08_2009_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/02/86003_nd8cp.doc",
+        "sha256": "74b90b9c8fa0d3d3d72b08db0b9faba6358f69d2606e44671efea2c5b49fbdaa",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_08_2009_nd_cp.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "28/L/CTN",
+    "document_id": "pl_28_l_ctn",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=1822",
+    "properties": {
+      "Số ký hiệu": "28/L/CTN",
+      "Ngày ban hành": "15-12-1993",
+      "Loại văn bản": "Pháp lệnh",
+      "Cơ quan ban hành": "Ủy ban Thường vụ Quốc hội",
+      "Người ký": "Lê Đức Anh",
+      "Trích yếu": "Pháp lệnh Hôn nhân và Gia đình giữa công dân Việt Nam với người nước ngoài",
+      "Tài liệu đính kèm": "1822_pl28tvqh.rtf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/pl_28_l_ctn.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=1822",
+        "sha256": "8bc017bc20b3ea42175e8819c2821bfd2214cdfdd6f8858381f98aa6a08eb7af",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/pl_28_l_ctn.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/1822_pl28tvqh.rtf",
+        "sha256": "4ce87df470f37be817ffa2b4348702cad043436bd68ba5ec80547adc96ab4722",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/pl_28_l_ctn.txt",
+    "source_kind": "official_rtf_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "12/2003/NĐ-CP",
+    "document_id": "nd_12_2003_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=11538",
+    "properties": {
+      "Số ký hiệu": "12/2003/ND-CP",
+      "Ngày ban hành": "12-02-2003",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Phan Văn Khải",
+      "Trích yếu": "Nghị định về sinh con theo phương pháp khoa học",
+      "Tài liệu đính kèm": "11813_nd12cp.rtf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_12_2003_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=11538",
+        "sha256": "446008431e6ccaf3f4731204d0a2d44d601e396a1d502831d20d846a8759f0bd",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_12_2003_nd_cp.rtf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2006/07/11813_nd12cp.rtf",
+        "sha256": "709e2016d697d1e1496ba4c88d28911d10bbd91b4b0758eabf4df8d136a0ec30",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_12_2003_nd_cp.txt",
+    "source_kind": "official_rtf_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "01/2008/TT-BTP",
+    "document_id": "tt_01_2008_tt_btp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=71820",
+    "properties": {
+      "BỘ TƯ PHÁP ______ Số: 01/2008/TT-BTP": "CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc __________ Hà Nội, ngày 02 tháng 6 năm 2008",
+      "Mẫu STP/HT-2008-TKNCN": "Tờ khai đăng ký việc nhận nuôi con nuôi",
+      "Mẫu STP/HT-2008-KS.GC": "Giấy khai sinh (Bản chính)",
+      "Mẫu STP/HT-2008-KH.GC": "Giấy chứng nhận kết hôn (Bản chính)",
+      "Mẫu STP/HT-2008-CMC.GC": "Quyết định công nhận việc nhận cha, mẹ, con (Bản chính)",
+      "Mẫu STP/HT-2008-NCN.GC": "Quyết định công nhận việc nuôi con nuôi (Bản chính)",
+      "Số ký hiệu": "01/2008/TT-BTP",
+      "Ngày ban hành": "02-06-2008",
+      "Loại văn bản": "Thông tư",
+      "Cơ quan ban hành": "Bộ Tư pháp",
+      "Người ký": "Hoàng Thế Liên",
+      "Trích yếu": "Hướng dẫn thực hiện một số quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch",
+      "Tài liệu đính kèm": "73858_tt1btp1.doc 73859_tt1btp2.doc 73860_tt1btp3.doc 73861_tt1btp4.doc 73862_tt1btp5.doc 73863_tt1btp6.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=71820",
+        "sha256": "4d558ec263605dd094c6dbea536ec353ef93b67dc5e2bb7dd56ae83cf315e993",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part01.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73858_tt1btp1.doc",
+        "sha256": "ba3f66e5a26554d8039ecc05d793bd45835ea8930d1f1bc864fb05820c46f2ef",
+        "role": "Unmodified official attachment"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part02.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73859_tt1btp2.doc",
+        "sha256": "26321d005dd298689db22386e6db2378e2c78458d38518cc76b57e04ee983ff4",
+        "role": "Unmodified official attachment"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part03.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73860_tt1btp3.doc",
+        "sha256": "e522ff5f2b9797d7007a7d427b43dba803031c12a4e8aa180569cd775cc1add8",
+        "role": "Unmodified official attachment"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part04.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73861_tt1btp4.doc",
+        "sha256": "a8fc681b318512312bf927476b7d5ac0d72eee97cac455b16dcafb577e4ed684",
+        "role": "Unmodified official attachment"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part05.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73862_tt1btp5.doc",
+        "sha256": "ea68b66915d5a8785f6689b526374731564c8bd1361ee694630be59921c3d472",
+        "role": "Unmodified official attachment"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/tt_01_2008_tt_btp.part06.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2008/07/73863_tt1btp6.doc",
+        "sha256": "b910f1619f3316c9f24d8048d2e8cb8fb3a123d1a669f5e37fedebf700c088ba",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/tt_01_2008_tt_btp.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  },
+  {
+    "document_number": "110/2009/NĐ-CP",
+    "document_id": "nd_110_2009_nd_cp",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+    "properties": {
+      "CHÍNH PHỦ ________ Số: 110/2009/NĐ-CP": "CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc _____________________________________ Hà Nội, ngày 10 tháng 12 năm 2009",
+      "Số ký hiệu": "110/2009/NĐ-CP",
+      "Ngày ban hành": "10-12-2009",
+      "Loại văn bản": "Nghị định",
+      "Cơ quan ban hành": "Chính phủ",
+      "Người ký": "Nguyễn Tấn Dũng",
+      "Trích yếu": "Quy định xử phạt vi phạm hành chính trong lĩnh vực phòng, chống bạo lực gia đình",
+      "Tài liệu đính kèm": "96195_nd110cp.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/history_batch2/nd_110_2009_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+        "sha256": "021dc8d396cf44b6e85f20ef0bc1c45412cdbd18ece21ca6bc5cfce9954306b3",
+        "role": "Official government metadata/full-text snapshot"
+      },
+      {
+        "source_path": "data/source_documents/history_batch2/nd_110_2009_nd_cp.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2009/12/96195_nd110cp.doc",
+        "sha256": "0d2b79d811e79b9fec7551e08d2fbd1ed7ba8eb1b54633bff5b27ecb0a6b2072",
+        "role": "Unmodified official attachment"
+      }
+    ],
+    "source_text_path": "data/staging/history_batch2/source_text/nd_110_2009_nd_cp.txt",
+    "source_kind": "official_word_binary_attachment",
+    "status": "official_fulltext_acquired"
+  }
+]

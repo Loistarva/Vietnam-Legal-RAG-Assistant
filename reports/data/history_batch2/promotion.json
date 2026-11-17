@@ -1,0 +1,20 @@
+{
+  "active_before": 72,
+  "new_active": 5,
+  "held": 5,
+  "active_after": 77,
+  "active_ids": [
+    "nd_158_2005_nd_cp",
+    "nd_83_1998_nd_cp",
+    "l_02_2007_qh12",
+    "nd_08_2009_nd_cp",
+    "nd_110_2009_nd_cp"
+  ],
+  "held_ids": [
+    "nd_87_2001_nd_cp",
+    "nq_35_2000_qh10",
+    "pl_28_l_ctn",
+    "nd_12_2003_nd_cp",
+    "tt_01_2008_tt_btp"
+  ]
+}

@@ -8,3 +8,7 @@ data/source_documents/corpus_v3/*.DOC binary
 
 # Keep official source snapshots byte-for-byte for central batch 1.
 data/source_documents/central_batch1/*.html -text
+
+# Preserve official historical attachments and normalization text hashes.
+data/source_documents/history_batch2/* -text
+data/staging/history_batch2/**/*.txt text eol=lf

@@ -341,3 +341,8 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **TT32** | `tt_12_2011_tt_btp` | 12/2011/TT-BTP | Hết hiệu lực | về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
 | **TT34** | `tt_15_2014_tt_btp` | 15/2014/TT-BTP | Không xác định | hướng dẫn tìm gia đình thay thế ở nước ngoài cho trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo, trẻ em từ 5 tuổi trở lên, hai trẻ em trở lên là anh chị em ruột cần tìm gia đình thay thế |
 | **TT35** | `tt_21_2011_tt_btp` | 21/2011/TT-BTP | Không xác định | về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
+| **ND33** | `nd_158_2005_nd_cp` | 158/2005/NĐ-CP | Hết hiệu lực | Về đăng ký và quản lý hộ tịch |
+| **ND34** | `nd_83_1998_nd_cp` | 83/1998/NĐ-CP | Hết hiệu lực | Đăng ký hộ tịch |
+| **L14** | `l_02_2007_qh12` | 02/2007/QH12 | Hết hiệu lực | LUẬT PHÒNG, CHỐNG BẠO LỰC GIA ĐÌNH |
+| **ND35** | `nd_08_2009_nd_cp` | 08/2009/NĐ-CP | Hết hiệu lực | Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống bạo lực gia đình |
+| **ND37** | `nd_110_2009_nd_cp` | 110/2009/NĐ-CP | Hết hiệu lực | Quy định xử phạt vi phạm hành chính trong lĩnh vực phòng, chống bạo lực gia đình |
