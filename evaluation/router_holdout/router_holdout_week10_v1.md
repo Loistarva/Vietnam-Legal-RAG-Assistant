@@ -6,6 +6,7 @@
 - Every JSONL row records `reviewer_status: DEV4`.
 - This records Dev4 owner review; it does not claim review by an independent third party.
 - Router smoke evaluation was run on 2026-11-16 using `scripts/smoke_rule_router.py --holdout evaluation/router_holdout/router_holdout_week10_v1.jsonl`; result is summarized in [router_regression.md](../../reports/week10/router_regression.md).
+- The original run record does not capture the Git SHA or `CLASSIFIER_VERSION`; therefore the 22/36 score cannot be attributed conclusively to the frozen `rule_router_v3`. It is a consumed historical result only.
 - This run is an evaluation snapshot, not an independent legal review. Do not tune Router on these 36 cases and continue to treat the set as consumed for this evaluation.
 - Corrections applied: W10RH_005 no longer asks about adoption eligibility; W10RH_004 and W10RH_008 were replaced; W10RH_010 no longer tests child custody; W10RH_031 and W10RH_034 avoid administrative-law framing.
 

@@ -1,6 +1,6 @@
 # Hướng dẫn xác minh freeze Router và holdout
 
-Tài liệu này quy định cách kiểm tra Router trước khi freeze và cách đánh giá holdout mà không dùng holdout để tinh chỉnh. Tình trạng cập nhật ngày 2026-11-17: `rule_router_v3` đã được freeze theo ủy quyền của project owner sau khi các pre-freeze gates đạt và owner xác nhận policy, Dev2 independent review, cùng Dev5 consumer approval. Negative Set vẫn giữ `review_status=pending_peer_review` do chưa có SHA của bản Dev2 đã xem và chưa có sign-off đầy đủ trên manifest; kết quả 26/26 được xem là smoke evidence, không phải chứng nhận calibration dataset. `router_holdout_week10_v1.jsonl` đã được chạy, đạt 22/36 route/action và có 14 mismatch; đây là kết quả lịch sử đã tiêu thụ, không dùng để chỉnh Router hay tuyên bố holdout mới.
+Tài liệu này quy định cách kiểm tra Router trước khi freeze và cách đánh giá holdout mà không dùng holdout để tinh chỉnh. Tình trạng cập nhật ngày 2026-11-17: `rule_router_v3` đã được freeze theo ủy quyền của project owner sau khi các pre-freeze gates đạt và policy/consumer contract được xác nhận. Negative Set v2 đã được Dev2 review độc lập và Tech Lead sign-off theo SHA canonical `5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f`; manifest hiện ghi `review_status=peer_reviewed`. Kết quả 26/26 là smoke evidence theo phần route/action thuộc Router, không phải đánh giá độc lập trên holdout. `router_holdout_week10_v1.jsonl` đạt 22/36 với 14 mismatch, nhưng record lần chạy không lưu Git SHA/classifier version nên không thể gán chắc chắn điểm này cho v3; đây là kết quả lịch sử đã tiêu thụ, không dùng để chỉnh Router hay tuyên bố holdout mới.
 
 ## 1. Phân biệt hai việc cần xác minh
 
@@ -50,7 +50,7 @@ Nên ẩn expected route/action và dự đoán Router trong vòng chấm đầu
 
 ### Trước freeze
 
-1. Chốt policy còn mở với Tech Lead hoặc project owner có thẩm quyền, lưu quyết định trong manifest, rồi cập nhật test. Policy `NEG_DEV_026` hiện đã được project owner xác nhận ngày 2026-11-17; review độc lập toàn bộ Negative Set vẫn là trạng thái riêng.
+1. Chốt policy còn mở với Tech Lead hoặc project owner có thẩm quyền, lưu quyết định trong manifest, rồi cập nhật test. Policy `NEG_DEV_026` được xác nhận ngày 2026-11-17; Negative Set v2 đã được Dev2 review và Tech Lead sign-off theo SHA canonical nêu trên.
 2. Sửa Router chỉ dựa trên regression/Dev hoặc lỗi đã xác định. Không dùng 14 mismatch của holdout v1 để tối ưu Router.
 3. Chạy test Router và holdout validator:
 
@@ -101,7 +101,7 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 
 ## 6. Checklist sign-off
 
-- [x] Policy `NEG_DEV_026` được project owner xác nhận ngày 2026-11-17 và ghi vào manifest/nhãn; review độc lập toàn bộ Negative Set vẫn `pending_peer_review`.
+- [x] Policy `NEG_DEV_026` được project owner xác nhận ngày 2026-11-17 và ghi vào manifest/nhãn; Negative Set v2 được Dev2 review và Tech Lead sign-off theo SHA canonical `5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f` (`peer_reviewed`).
 - [x] Project owner đã ủy quyền freeze `rule_router_v3` ngày 2026-11-17 sau khi chốt policy. Không ghi nhận danh tính Tech Lead riêng biệt trong artifact này.
 - [x] Regression/Dev pre-freeze gates đã pass tại working tree hiện tại: Official 30/30; Dev 270/270 retrieval; Negative Set 26/26 theo route và action Router-owned; 6/6 non-legal; không có legal negative sang `NON_LEGAL`/`GENERAL_CHAT`; test Router/holdout 127 passed, 84 subtests.
 - [x] Reviewer độc lập hoàn tất semantic/legal label review; identity, ngày và SHA được ghi (`Dev3`, `2026-11-17`, LF SHA-256 `d2cd4087b8d81048e63074b2fdb31aceadd3d18dedc678b956b801693c815e49`).
@@ -109,13 +109,31 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 - [x] Router/config/policy được commit; ghi nhận classifier source commit `f0c7c295f4804dc4a8e37f7a03b60c1519578af7`, evidence commit `10daaad7`, `rule_router_v3`, Router SHA-256 `41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d`, corpus SHA-256 `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`, schema `week10_v1.1`.
 - [x] Project owner báo Dev5 đã xác nhận contract route/action ngày 2026-11-17; lưu bằng chứng xác nhận vào handoff/PR trước freeze.
 - [x] Project owner báo Dev2 đã review độc lập Negative Set v2.
-- [ ] Gắn xác nhận Dev2 với SHA của file đã review và hoàn tất Tech Lead review toàn bộ Negative Set trước khi dùng tập này làm gold/calibration chính thức.
+- [x] Dev2 review độc lập và Tech Lead sign-off Negative Set v2 theo SHA canonical trong manifest; sign-off áp dụng cho artifact SHA `5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f`.
 - [ ] Dev2 xác nhận format bàn giao nếu holdout v2 được dùng cho evaluation.
-- [ ] Holdout mới được chạy đúng một lần sau freeze; predictions/manifest được lưu và không bị ghi đè.
+- [x] Holdout v2 được chạy đúng một lần sau freeze; SHA đầu vào, Router SHA, kết quả và gate outcomes được ghi trong [router_holdout_report.md](../reports/week10/router_holdout_report.md). V2 đã consumed.
 
 ## 7. Trạng thái tại thời điểm viết
 
 - `router_holdout_week10_v1.jsonl`: 36 câu, `reviewer_status=DEV4`; owner đã rà soát nhưng chưa có xác nhận reviewer độc lập. Đã tiêu thụ khi chạy (22/36 khớp, 14 mismatch), vì vậy chỉ dùng làm regression.
-- `router_holdout_week10_v2.jsonl`: 36 câu mới, đã hoàn tất review độc lập bởi `Dev3` (`2026-11-17`, `reviewer_status=INDEPENDENT_REVIEW_COMPLETE`, giữ nguyên 36/36 câu & nhãn); validator exact-text pass trên sáu nguồn. Chưa chạy Router trên v2.
-- Smoke v1: 22/36 route/action khớp, 14 mismatch; đã tiêu thụ.
-- Router freeze: `rule_router_v3` đã freeze theo owner authorization, evidence commit `10daaad7`; holdout v2 vẫn chưa chạy và chỉ được mở ở bước evaluation riêng sau freeze.
+- `router_holdout_week10_v2.jsonl`: 36 câu, Dev3 review độc lập, validator pass; đã chạy một lần trên frozen `rule_router_v3`: 17/36 exact match, 19 mismatch, 1 legal-to-GENERAL_CHAT safety violation. V2 đã consumed; kết quả ghi trong `reports/week10/router_holdout_report.md`.
+- Smoke trên holdout v1: 22/36 route/action khớp, 14 mismatch; run provenance không lưu classifier version/Git SHA, nên không xác nhận được đây là kết quả của v3; đã tiêu thụ.
+- Router freeze: `rule_router_v3` đã freeze theo owner authorization, evidence commit `10daaad7`. Holdout v2 không đạt acceptance gates, nhưng kết quả không tự hủy freeze record; không chỉnh v3 theo v2. Muốn sửa cần version mới và holdout mới nếu cần đánh giá độc lập.
+
+## 8. Ứng viên Router v4 sau review
+
+- Ngày 2026-11-17, Router được phát triển tiếp dưới phiên bản mới `rule_router_v4`; freeze record và kết quả `rule_router_v3` ở trên được giữ nguyên như lịch sử.
+- V4 sửa va chạm greeting/corporate sale do bỏ dấu, bổ sung nhận diện theo nhóm ngữ cảnh HNGĐ/ngoài phạm vi/mixed và một số intent non-legal. Có regression paraphrase mới, không dùng lại holdout v2 để chỉnh.
+- Kiểm tra không dùng holdout: `python scripts/smoke_rule_router.py --skip-holdout` đạt 5/5 gate — Official 30/30, Dev 270/270, Negative Set v2 26/26, non-legal 6/6, legal-to-chat 0. Test tập trung: 130 passed, 105 subtests; Ruff pass.
+- Router file SHA-256 tại lần kiểm tra: `44466e654e4536b840707003040d7b668ea726db1e6199e123d2144616fffc94`.
+- **V4 chưa freeze và chưa được đánh giá độc lập.** Holdout v2 đã consumed; nếu muốn kết luận chất lượng holdout cho v4, reviewer cần chuẩn bị một holdout mới độc lập sau khi phiên bản này được review/freeze. Không chạy lại v2.
+- Chi tiết code, paraphrase tests và gate report: [router_regression.md](../reports/week10/router_regression.md).
+
+## 9. Freeze Router v4.1
+
+- `rule_router_v4_1` đã được freeze ngày 2026-11-17 tại commit `48a9c051dfd14ea0f78e4a708f6aec0526cf3175`.
+- SHA-256 `agent/router/rule_router.py`: `2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a`.
+- Pre-freeze gates đạt 5/5; smoke bỏ qua holdout. Router tests 53 passed/239 subtests, Negative Set tests 65 passed, Ruff pass.
+- Holdout Week 10 v3 chưa chạy; SHA code, SHA holdout và run status được liên kết trong [manifest](../evaluation/router_holdout/router_holdout_week10_v3_manifest.json).
+- Freeze chỉ gồm Router source và Router tests trong commit đã nêu; các thay đổi khác trong working tree không thuộc snapshot Router.
+- Manifest ghi SHA-256 source theo nội dung LF ổn định và lưu thêm raw working-tree SHA; khi khác line endings, ưu tiên giá trị canonical trong manifest cùng Git commit đã đóng băng.

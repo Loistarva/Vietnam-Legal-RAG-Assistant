@@ -1,6 +1,7 @@
 {
   "manifest_version": "router_holdout_freeze_v1",
   "freeze_status": "FROZEN",
+  "current_artifact_status": "MODIFIED_AFTER_FREEZE; current working source is not the frozen snapshot",
   "freeze_date": "2026-11-17",
   "classifier_version": "rule_router_v4_1",
   "router_artifact": {
@@ -39,8 +40,25 @@
     "Pre-freeze smoke skipped holdout v3; after freeze it was evaluated exactly once.",
     "The v3 result is consumed and must not be used to tune this same frozen router and then re-run.",
     "Router source and focused Router tests are committed and clean at the recorded freeze commit.",
-    "Other unrelated local repository changes were excluded from the Router freeze commit."
+    "Other unrelated local repository changes were excluded from the Router freeze commit.",
+    "Post-holdout edit: rule_router_v4_1 source was changed after the consumed v3 evaluation. The original freeze snapshot above remains historical and does not describe the current working source.",
+    "The consumed v3 mismatches motivated regression-only tests. Do not report a rerun on v3 as independent evaluation of this modified source; obtain a fresh independently reviewed holdout before making an independent performance claim."
   ],
+  "post_holdout_edit": {
+    "classifier_version": "rule_router_v4_1",
+    "source_path": "agent/router/rule_router.py",
+    "source_sha256_lf_normalized": "33d80a59f021dafebab7fad9e048e5219be62aa2745aa2aea6a19fa3e33d559b",
+    "git_commit": null,
+    "working_tree_status": "DIRTY; source and regression tests are not committed",
+    "changes": "Post-consumption edits were extended using reviewed v3/v4 cases as regression-only evidence: added parentage/family-protection cues, out-of-scope domain cues, and bounded everyday-intent patterns.",
+    "verification": {
+      "router_pytest": "55 passed, 270 subtests passed",
+      "consumed_holdout_regressions": "v3 patterns and v4 paraphrases passed; regression only, not independent holdout evidence",
+      "smoke_rule_router_skip_holdout": "PASS; 5/5 gates; official30 30/30; Dev retrieval 270/270; Negative Set v2 26/26; nonlegal 6/6; legal-to-nonlegal/general-chat 0",
+      "ruff": "PASS",
+      "git_diff_check": "PASS"
+    }
+  },
   "evaluation": {
     "run_utc": "2026-11-17T12:23:06.246852+00:00",
     "git_commit": "c9aef50c54cccc776b863ad3480339146af28bab",

@@ -23,6 +23,10 @@ DEFAULT_COMPARISON_PATHS = (
     ROOT / "test/agent/data/router_holdout_independent_v1.jsonl",
     # Week 10 v1 has been consumed; a new holdout must not reuse its exact queries.
     ROOT / "evaluation/router_holdout/router_holdout_week10_v1.jsonl",
+    # Later Week 10 holdouts are included to prevent exact reuse across versions.
+    ROOT / "evaluation/router_holdout/router_holdout_week10_v2.jsonl",
+    ROOT / "evaluation/router_holdout/router_holdout_week10_v3.jsonl",
+    ROOT / "evaluation/router_holdout/router_holdout_week10_v4.jsonl",
     ROOT / "data/benchmark/queries_dev.json",
     ROOT / "evaluation/negative_set/dev_negative_queries_v2.jsonl",
     ROOT / "test/agent/test_rule_router.py",

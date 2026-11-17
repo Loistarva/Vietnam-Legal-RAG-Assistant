@@ -2,10 +2,10 @@
 
 ## Trạng thái
 
-- Candidate holdout gồm 36 câu mới; **chưa chạy Router và chưa dùng để tinh chỉnh**.
+- Holdout gồm 36 câu; đã chạy đúng một lần trên Router frozen `rule_router_v3` ngày 2026-11-17 và nay đã **consumed**. Không dùng lại để tinh chỉnh hay báo cáo như holdout chưa thấy.
 - Reviewer độc lập (**Dev3**) đã hoàn tất rà soát tất cả 36/36 bản ghi vào ngày **2026-11-17** và quyết định **giữ nguyên bộ câu hỏi, `expected_route`, `expected_action` và `reason`**, chuyển `reviewer_status` từ `PENDING_INDEPENDENT_REVIEW` sang `INDEPENDENT_REVIEW_COMPLETE`.
 - Week 10 v1 đã được chạy (22/36 khớp; 14 mismatch), nên chỉ giữ làm regression; không dùng lại để báo cáo kết quả holdout độc lập.
-- Chỉ chạy v2 đúng 1 lần sau khi Router đã được cập nhật đạt toàn bộ Freeze Gate trên Regression/Dev/Negative Set v2 và freeze theo SHA cụ thể.
+- Kết quả duy nhất: 17/36 exact route/action, 19 mismatch, có một legal-to-GENERAL_CHAT safety violation (`W11RH_017`). Xem [báo cáo D4.2](../../reports/week10/router_holdout_report.md). Router vẫn được giữ ở frozen v3; kết quả fail không được dùng để sửa v3 trên chính holdout này.
 
 ## Hồ sơ review độc lập (Dev3 — 2026-11-17)
 

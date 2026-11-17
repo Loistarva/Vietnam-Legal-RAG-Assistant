@@ -389,6 +389,18 @@ _HNGD_TERMS = (
     "giá thú",
     "xác định cha",
     "xác định mẹ",
+    "xác định quan hệ cha con",
+    "yêu cầu xác định cha con",
+    "yêu cầu tòa án xác định quan hệ cha con",
+    "quan hệ hôn nhân",
+    "tự do tín ngưỡng giữa vợ chồng",
+    "tín ngưỡng giữa vợ chồng",
+    "tôn giáo giữa vợ chồng",
+    "quyết định việc học của con",
+    "chọn trường cho con",
+    "chuyển con sang trường",
+    "chồng đưa con",
+    "cha mẹ đưa con",
 )
 _HNGD_CONTEXTUAL_SIGNAL = re.compile(
     r"\b(?:bao nhiêu tuổi|độ tuổi|tuổi tối thiểu)\b.{0,60}"
@@ -400,6 +412,15 @@ _HNGD_CONTEXTUAL_SIGNAL = re.compile(
 )
 _HNGD_CONTEXTUAL_SIGNAL_UNACCENTED = re.compile(
     strip_vietnamese_diacritics(_HNGD_CONTEXTUAL_SIGNAL.pattern), re.IGNORECASE
+)
+_HNGD_DOMESTIC_VIOLENCE_PROTECTIVE_SIGNAL = re.compile(
+    r"\b(?:bạo lực gia đình.{0,140}(?:cấm tiếp xúc|biện pháp bảo vệ)|"
+    r"(?:cấm tiếp xúc|biện pháp bảo vệ).{0,140}bạo lực gia đình)\b",
+    re.IGNORECASE,
+)
+_HNGD_DOMESTIC_VIOLENCE_PROTECTIVE_SIGNAL_UNACCENTED = re.compile(
+    strip_vietnamese_diacritics(_HNGD_DOMESTIC_VIOLENCE_PROTECTIVE_SIGNAL.pattern),
+    re.IGNORECASE,
 )
 
 _OUT_OF_SCOPE_TERMS = (
@@ -505,6 +526,70 @@ _OUT_OF_SCOPE_TOPIC_GROUPS = {
     "environment": (
         "quy chuẩn tiếng ồn", "tiếng ồn vượt quy chuẩn", "ô nhiễm môi trường",
         "xả khí thải", "xả thải gây ô nhiễm", "xử phạt môi trường",
+    ),
+    "banking_and_credit": (
+        "phong tỏa tài khoản", "tài khoản thanh toán", "pháp luật ngân hàng",
+        "hoạt động ngân hàng", "vay vốn ngân hàng", "hợp đồng tín dụng",
+        "khoản vay ngân hàng", "nghĩa vụ trả nợ ngân hàng",
+    ),
+    "construction": (
+        "cơi nới ban công", "thay đổi kết cấu chịu lực", "giấy phép xây dựng",
+        "pháp luật xây dựng",
+    ),
+    "cybersecurity": (
+        "chiếm quyền truy cập tài khoản", "chiếm quyền tài khoản",
+        "xâm nhập trái phép tài khoản", "tài khoản mạng xã hội",
+    ),
+    "data_protection": (
+        "bảo vệ dữ liệu cá nhân", "dữ liệu cá nhân", "dữ liệu vị trí",
+        "chia sẻ dữ liệu cá nhân", "tiết lộ hồ sơ bệnh án",
+    ),
+    "education": (
+        "buộc thôi học", "quyết định kỷ luật sinh viên", "kỷ luật sinh viên",
+        "pháp luật giáo dục đại học", "đình chỉ học", "quyết định đình chỉ học",
+    ),
+    "healthcare": (
+        "trách nhiệm của cơ sở y tế", "trách nhiệm cơ sở y tế",
+        "cơ sở khám chữa bệnh",
+        "chấp thuận phẫu thuật", "đồng ý phẫu thuật", "lưu trữ phôi",
+        "quy trình chuyên môn của bệnh viện",
+    ),
+    "public_procurement": (
+        "pháp luật đấu thầu", "nhà thầu bị loại", "kiến nghị kết quả đánh giá",
+        "kết quả lựa chọn nhà thầu", "hồ sơ mời thầu",
+    ),
+    "civil_status": (
+        "cơ quan hộ tịch", "pháp luật hộ tịch", "đăng ký hộ tịch",
+        "cập nhật thông tin trên giấy khai sinh",
+    ),
+    "insolvency": (
+        "mất khả năng thanh toán", "thủ tục phá sản", "mở thủ tục phá sản",
+        "yêu cầu mở thủ tục phá sản", "chủ nợ nộp đơn phá sản",
+    ),
+    "securities_market": (
+        "công ty đại chúng", "công bố thông tin sai lệch", "ngày chốt quyền",
+        "nhận cổ tức", "giao dịch nội gián", "thị trường chứng khoán",
+    ),
+    "food_safety": (
+        "an toàn thực phẩm", "thực phẩm nhiễm khuẩn", "ngộ độc thực phẩm",
+        "cơ sở chế biến thực phẩm", "thực phẩm không bảo đảm an toàn",
+    ),
+    "pharmaceutical_regulation": (
+        "thuốc kê đơn", "đơn thuốc hợp lệ", "bán thuốc không có đơn",
+        "nhà thuốc bán thuốc", "quy định về dược",
+    ),
+    "water_resources": (
+        "khai thác nước ngầm", "lưu lượng được cấp phép", "giấy phép khai thác nước",
+        "khai thác nước vượt giấy phép", "tài nguyên nước",
+    ),
+    "occupational_safety": (
+        "tai nạn lao động", "an toàn lao động", "bồi thường tai nạn lao động",
+        "máy móc tại nơi làm việc", "tai nạn tại nơi làm việc",
+        "sử dụng lao động chưa đủ tuổi", "lao động chưa đủ tuổi",
+    ),
+    "secured_transactions": (
+        "tài sản bảo đảm", "xử lý tài sản bảo đảm", "dùng nhà làm tài sản bảo đảm",
+        "thế chấp nhà bảo đảm khoản vay", "ngân hàng xử lý tài sản",
     ),
     "corporate": (
         "công ty trách nhiệm hữu hạn", "công ty tnhh", "thành viên công ty tnhh",
@@ -614,6 +699,12 @@ _PRACTICAL_NONLEGAL_INTENTS = (
     re.compile(r"\b(?:vì sao|tại sao|giải thích)\s+.{0,50}\b(?:phát sáng|khí quyển|hiện tượng|sao băng)\b", re.IGNORECASE),
     re.compile(r"\b(?:cây|lá cây|trầu bà)\s+.{0,35}\b(?:vàng lá|héo|rụng lá)\b", re.IGNORECASE),
     re.compile(r"\b(?:cách\s+)?(?:trồng|chăm sóc|gieo trồng|gieo hạt)\s+(?:cây\s+)?[\w ]{0,30}\b(?:húng quế|rau thơm|húng lủi|bạc hà|húng)\b", re.IGNORECASE),
+    re.compile(r"\b(?:lap|len|tao)\s+(?:cho\s+(?:toi|minh)\s+)?lich\s+(?:tu\s+hoc|hoc)\s+.{0,80}\b(?:moi\s+ngay|trong\s+.{1,15}\s+tuan)\b", re.IGNORECASE),
+    re.compile(r"\b(?:huong dan|chi)\s+(?:toi|minh)\s+(?:cach\s+)?chon\s+(?:khau do|toc do man trap|iso)\b", re.IGNORECASE),
+    re.compile(r"\b(?:giai thich|cho biet)\s+.{0,45}\bwi-?fi\s+mesh\b", re.IGNORECASE),
+    re.compile(r"\b(?:goi y|huong dan)\s+.{0,50}\b(?:chuoi dong tac|bai tap)\b.{0,40}\byoga\b", re.IGNORECASE),
+    re.compile(r"\b(?:giai thich|huong dan)\s+.{0,50}\b(?:doc not nhac|dem nhip)\b", re.IGNORECASE),
+    re.compile(r"\b(?:giup\s+(?:toi|minh)\s+)?(?:thiet ke|tao|lam)\s+(?:mot\s+)?bang\s+excel\b", re.IGNORECASE),
 )
 _PRACTICAL_NONLEGAL_INTENTS_UNACCENTED = tuple(
     re.compile(strip_vietnamese_diacritics(pattern.pattern), re.IGNORECASE)
@@ -823,6 +914,8 @@ class RuleRouter:
             _has_any_term(query, unaccented_query, _HNGD_TERMS)
             or bool(_HNGD_CONTEXTUAL_SIGNAL.search(query))
             or bool(_HNGD_CONTEXTUAL_SIGNAL_UNACCENTED.search(unaccented_query))
+            or bool(_HNGD_DOMESTIC_VIOLENCE_PROTECTIVE_SIGNAL.search(query))
+            or bool(_HNGD_DOMESTIC_VIOLENCE_PROTECTIVE_SIGNAL_UNACCENTED.search(unaccented_query))
             or _has_contextual_hngd_signal(query, unaccented_query)
         )
         # A negated family-scope phrase used to clarify that a different

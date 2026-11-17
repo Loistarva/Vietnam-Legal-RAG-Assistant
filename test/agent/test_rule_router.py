@@ -128,6 +128,70 @@ class RuleRouterTest(unittest.TestCase):
             with self.subTest(query=query):
                 self.assertEqual(self.router.route(query).route, expected_route)
 
+    def test_consumed_v3_mismatches_regression_after_reviewed_router_change(self):
+        # These consumed holdout cases are regression evidence only; they must
+        # never be presented as a fresh independent evaluation of this edit.
+        cases = (
+            ("Một người muốn yêu cầu Tòa án xác định quan hệ cha con khi bên kia không phối hợp?", Route.LEGAL_HNGD),
+            ("Ngân hàng phong tỏa tài khoản thanh toán sau giao dịch bất thường theo pháp luật ngân hàng?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nền tảng chia sẻ dữ liệu vị trí người dùng cho quảng cáo khi chưa có đồng ý theo pháp luật?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Theo pháp luật xây dựng, cơi nới ban công và thay đổi kết cấu chịu lực có cần giấy phép?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Bệnh viện phẫu thuật không giải thích rủi ro, trách nhiệm cơ sở y tế theo quy định nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Sinh viên bị buộc thôi học không nêu căn cứ, có thể khiếu nại theo pháp luật giáo dục đại học không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà thầu bị loại do lỗi tải hồ sơ, pháp luật đấu thầu cho kiến nghị kết quả thế nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Vợ chồng vay vốn ngân hàng chữa bệnh cho con, ngân hàng yêu cầu cả hai trả dù một người ký; cần đối chiếu luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Xác định cha con theo Hôn nhân và Gia đình nhưng cơ quan hộ tịch từ chối cập nhật giấy khai sinh; thuộc những lĩnh vực nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Vợ chồng mang thai hộ, bệnh viện lưu trữ phôi sai quy trình; cần áp dụng Hôn nhân gia đình và khám chữa bệnh?", Route.MIXED_LEGAL_SCOPE),
+            ("Thủ tục nhận con nuôi có liên quan hồ sơ bệnh án trẻ bị tiết lộ; cần xét Hôn nhân gia đình và dữ liệu cá nhân?", Route.MIXED_LEGAL_SCOPE),
+            ("Áp dụng biện pháp cấm tiếp xúc theo pháp luật bạo lực gia đình, đồng thời tố giác chiếm quyền tài khoản mạng xã hội?", Route.MIXED_LEGAL_SCOPE),
+        )
+        for query, expected_route in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                expected_action = (
+                    Action.POLICY_ABSTENTION
+                    if expected_route in (Route.LEGAL_OUT_OF_SCOPE, Route.MIXED_LEGAL_SCOPE)
+                    else Action.LEGAL_RETRIEVAL
+                )
+                self.assertEqual(decision.action, expected_action)
+
+    def test_consumed_v4_mismatch_patterns_are_regression_only(self):
+        # Week 10 v4 has been evaluated and is consumed. These paraphrased
+        # examples are regression checks only, never a fresh holdout score.
+        cases = (
+            ("Vợ chồng, một bên có thể ép người kia đổi theo tôn giáo của mình không?", Route.LEGAL_HNGD),
+            ("Cha mẹ có thể chuyển con sang trường học khác khi điều đó ảnh hưởng lịch sinh hoạt của trẻ?", Route.LEGAL_HNGD),
+            ("Công ty không còn khả năng trả các khoản nợ đến hạn, chủ nợ có thể yêu cầu mở thủ tục phá sản không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Công ty niêm yết công bố sai thông tin trước ngày chốt quyền nhận cổ tức thì xử lý thế nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Thực phẩm nhiễm khuẩn gây ngộ độc cho khách hàng, cơ sở sản xuất chịu trách nhiệm gì?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà thuốc bán thuốc kê đơn khi khách không xuất trình đơn thuốc hợp lệ có bị xử phạt không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà máy khai thác nước ngầm vượt lưu lượng trong giấy phép thì cơ quan quản lý xử lý ra sao?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Trong lúc ly hôn, tài sản chung mua cổ phiếu còn bị điều tra giao dịch nội gián; cần áp dụng luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ bất đồng trường học của con sau ly thân, trong khi trường ra quyết định đình chỉ học; thuộc lĩnh vực nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Vợ chồng thế chấp nhà chung để vay cho doanh nghiệp, sau đó doanh nghiệp yêu cầu mở thủ tục phá sản; cần xét luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ đưa con đi làm trong giờ học tại cơ sở sử dụng lao động chưa đủ tuổi; cần áp dụng những luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Sau ly hôn, cha mẹ tranh luận trách nhiệm với con bị tai nạn lao động do máy móc tại nơi làm việc; áp dụng quy định nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ tranh chấp quyền nuôi con, còn nhà trẻ bị phản ánh để trẻ ăn thực phẩm không bảo đảm an toàn; thuộc luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Lập cho tôi lịch tự học tiếng Hàn trong sáu tuần, dành khoảng nửa giờ mỗi ngày.", Route.NON_LEGAL),
+            ("Hướng dẫn tôi chọn khẩu độ và ISO để chụp ảnh chân dung ngoài trời.", Route.NON_LEGAL),
+            ("Giải thích vì sao mạng Wi-Fi mesh phù hợp với nhà nhiều tầng.", Route.NON_LEGAL),
+            ("Gợi ý cho người mới một chuỗi động tác yoga nhẹ để tập ở nhà.", Route.NON_LEGAL),
+            ("Hướng dẫn người mới đọc nốt nhạc và đếm nhịp 4/4 khi học guitar.", Route.NON_LEGAL),
+            ("Giúp tôi tạo bảng Excel ghi giờ ngủ và giờ thức mỗi ngày.", Route.NON_LEGAL),
+        )
+        for query, expected_route in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                expected_action = (
+                    Action.GENERAL_CHAT if expected_route == Route.NON_LEGAL
+                    else Action.POLICY_ABSTENTION
+                    if expected_route in (Route.LEGAL_OUT_OF_SCOPE, Route.MIXED_LEGAL_SCOPE)
+                    else Action.LEGAL_RETRIEVAL
+                )
+                self.assertEqual(decision.action, expected_action)
+
     def test_nonlegal_examples_go_to_general_chat(self):
         cases = (
             "Xin chào, bạn khỏe không?",
