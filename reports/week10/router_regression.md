@@ -37,15 +37,19 @@ Lệnh pre-freeze `python scripts/smoke_rule_router.py --skip-holdout` **PASS**.
 - Week 10 v1: kết quả lịch sử 22/36 route/action, 14 mismatch. Không dùng các mismatch này để tối ưu Router và không gọi đây là holdout độc lập sau freeze.
 - Week 10 v2: 36/36 câu đã được Dev3 review độc lập; validator exact-text pass trên sáu nguồn. **Chưa chạy** để giữ nguyên vai trò holdout chưa thấy.
 
-## Trạng thái freeze
+## Freeze record
 
-Các gate kỹ thuật trước freeze đã pass. Chưa ghi nhận freeze chính thức vì:
+`rule_router_v3` được project owner ủy quyền freeze ngày 2026-11-17 sau khi policy `NEG_DEV_026` được xác nhận và owner báo Dev2 đã review độc lập, Dev5 đã xác nhận contract. Không có thay đổi hành vi trong `agent/router/rule_router.py`, nên giữ nguyên version `rule_router_v3`. Xác nhận Dev2 chưa được gắn với SHA cụ thể của Negative Set; không dùng kết quả 26/26 này làm chứng nhận calibration cho đến khi đối chiếu SHA review.
 
-1. Policy `NEG_DEV_026` được project owner xác nhận ngày 2026-11-17 và ghi vào manifest. Project owner báo Dev2 đã review độc lập, nhưng chưa có SHA bản review; Tech Lead review toàn bộ Negative Set và sign-off cuối cho classifier/config/freeze SHA còn pending.
-2. Project owner báo Dev5/Orchestrator đã xác nhận contract route/action ngày 2026-11-17; cần lưu bằng chứng xác nhận vào handoff/PR.
-3. Các thay đổi smoke/test/tài liệu hiện chưa commit; cần commit, rồi ghi SHA commit Router, SHA-256 file Router và corpus SHA vào freeze record.
+- Router source commit: `f0c7c295f4804dc4a8e37f7a03b60c1519578af7`.
+- Commit ghi nhận pre-freeze harness, policy và bằng chứng: `10daaad7`.
+- Router source SHA-256: `41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d`.
+- Corpus SHA-256: `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`.
+- Canonical schema: `week10_v1.1`.
+- Lệnh freeze smoke: `python scripts/smoke_rule_router.py --skip-holdout` (5/5 gates PASS; không đọc holdout).
+- Kiểm thử tập trung: 127 passed, 84 subtests; Ruff all checks passed.
 
-Vì chưa có các xác nhận này, `rule_router_v3` hiện ở trạng thái **pre-freeze gates passed; sign-off pending**. Không chạy holdout v2 cho đến khi freeze SHA được ghi nhận.
+Manifest Negative Set vẫn để `review_status=pending_peer_review`: project owner báo Dev2 đã review nhưng chưa có SHA bản review; Tech Lead review đầy đủ dataset chưa được ghi nhận. Vì vậy 26/26 chỉ là smoke evidence cho Router, không chứng nhận dataset đã được duyệt để calibration. Holdout v2 vẫn chưa chạy; giữ riêng cho evaluation sau freeze và không chỉnh Router theo kết quả của nó.
 
 ## Công nghệ đã dùng
 

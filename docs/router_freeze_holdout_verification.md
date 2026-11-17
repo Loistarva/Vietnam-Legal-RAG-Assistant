@@ -1,6 +1,6 @@
 # Hướng dẫn xác minh freeze Router và holdout
 
-Tài liệu này quy định cách kiểm tra Router trước khi freeze và cách đánh giá holdout mà không dùng holdout để tinh chỉnh. Tình trạng cập nhật ngày 2026-11-17: các pre-freeze gates trên Official/Dev/Negative Set và regression tests đã pass tại working tree, nhưng chưa ghi nhận freeze vì policy/sign-off còn mâu thuẫn giữa tài liệu và manifest Negative Set v2, đồng thời chưa có xác nhận consumer Dev5. `router_holdout_week10_v1.jsonl` đã được chạy, đạt 22/36 route/action và có 14 mismatch; đây là kết quả lịch sử đã tiêu thụ, không dùng để chỉnh Router hay tuyên bố holdout mới.
+Tài liệu này quy định cách kiểm tra Router trước khi freeze và cách đánh giá holdout mà không dùng holdout để tinh chỉnh. Tình trạng cập nhật ngày 2026-11-17: `rule_router_v3` đã được freeze theo ủy quyền của project owner sau khi các pre-freeze gates đạt và owner xác nhận policy, Dev2 independent review, cùng Dev5 consumer approval. Negative Set vẫn giữ `review_status=pending_peer_review` do chưa có SHA của bản Dev2 đã xem và chưa có sign-off đầy đủ trên manifest; kết quả 26/26 được xem là smoke evidence, không phải chứng nhận calibration dataset. `router_holdout_week10_v1.jsonl` đã được chạy, đạt 22/36 route/action và có 14 mismatch; đây là kết quả lịch sử đã tiêu thụ, không dùng để chỉnh Router hay tuyên bố holdout mới.
 
 ## 1. Phân biệt hai việc cần xác minh
 
@@ -102,13 +102,14 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 ## 6. Checklist sign-off
 
 - [x] Policy `NEG_DEV_026` được project owner xác nhận ngày 2026-11-17 và ghi vào manifest/nhãn; review độc lập toàn bộ Negative Set vẫn `pending_peer_review`.
-- [ ] Tech Lead ghi nhận sign-off cuối cho classifier version, config/policy và freeze SHA.
+- [x] Project owner đã ủy quyền freeze `rule_router_v3` ngày 2026-11-17 sau khi chốt policy. Không ghi nhận danh tính Tech Lead riêng biệt trong artifact này.
 - [x] Regression/Dev pre-freeze gates đã pass tại working tree hiện tại: Official 30/30; Dev 270/270 retrieval; Negative Set 26/26 theo route và action Router-owned; 6/6 non-legal; không có legal negative sang `NON_LEGAL`/`GENERAL_CHAT`; test Router/holdout 127 passed, 84 subtests.
 - [x] Reviewer độc lập hoàn tất semantic/legal label review; identity, ngày và SHA được ghi (`Dev3`, `2026-11-17`, LF SHA-256 `d2cd4087b8d81048e63074b2fdb31aceadd3d18dedc678b956b801693c815e49`).
 - [x] Holdout v2 qua validator và semantic overlap review độc lập (`Dev3`, giữ nguyên 36/36 câu & nhãn kèm ghi chú overlap/ranh giới); không dùng v1 đã tiêu thụ để tuyên bố điểm mới.
-- [ ] Router/config/policy được commit; version, commit SHA, source SHA và corpus SHA đã ghi. Hiện `rule_router_v3`; không bump version nếu chưa đổi hành vi, ghi nhận frozen SHA sau commit.
+- [x] Router/config/policy được commit; ghi nhận classifier source commit `f0c7c295f4804dc4a8e37f7a03b60c1519578af7`, evidence commit `10daaad7`, `rule_router_v3`, Router SHA-256 `41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d`, corpus SHA-256 `7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023`, schema `week10_v1.1`.
 - [x] Project owner báo Dev5 đã xác nhận contract route/action ngày 2026-11-17; lưu bằng chứng xác nhận vào handoff/PR trước freeze.
-- [ ] Dev2/Tech Lead chốt review Negative Set v2 trên đúng SHA hiện tại; hiện Dev2 review được báo cáo nhưng SHA bản đã review chưa rõ, Tech Lead review còn pending.
+- [x] Project owner báo Dev2 đã review độc lập Negative Set v2.
+- [ ] Gắn xác nhận Dev2 với SHA của file đã review và hoàn tất Tech Lead review toàn bộ Negative Set trước khi dùng tập này làm gold/calibration chính thức.
 - [ ] Dev2 xác nhận format bàn giao nếu holdout v2 được dùng cho evaluation.
 - [ ] Holdout mới được chạy đúng một lần sau freeze; predictions/manifest được lưu và không bị ghi đè.
 
@@ -117,4 +118,4 @@ Lệnh không truyền `--report` in kết quả ra stdout; khi cần artifact c
 - `router_holdout_week10_v1.jsonl`: 36 câu, `reviewer_status=DEV4`; owner đã rà soát nhưng chưa có xác nhận reviewer độc lập. Đã tiêu thụ khi chạy (22/36 khớp, 14 mismatch), vì vậy chỉ dùng làm regression.
 - `router_holdout_week10_v2.jsonl`: 36 câu mới, đã hoàn tất review độc lập bởi `Dev3` (`2026-11-17`, `reviewer_status=INDEPENDENT_REVIEW_COMPLETE`, giữ nguyên 36/36 câu & nhãn); validator exact-text pass trên sáu nguồn. Chưa chạy Router trên v2.
 - Smoke v1: 22/36 route/action khớp, 14 mismatch; đã tiêu thụ.
-- Router freeze: pre-freeze gates pass; còn cần Tech Lead sign-off cuối, Dev5 xác nhận contract, commit Router/config/policy và ghi freeze SHA trước khi mở holdout v2.
+- Router freeze: `rule_router_v3` đã freeze theo owner authorization, evidence commit `10daaad7`; holdout v2 vẫn chưa chạy và chỉ được mở ở bước evaluation riêng sau freeze.
