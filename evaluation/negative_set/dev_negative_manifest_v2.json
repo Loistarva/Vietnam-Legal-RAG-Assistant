@@ -16,7 +16,7 @@
     "missing_corpus_evidence": 6,
     "insufficient_facts": 6
   },
-  "dataset_canonical_sha256": "f5cc13daa748fd238d2b44e314b39e7db4e2b6b35f8c2a39f01d938b0e3b8818",
+  "dataset_canonical_sha256": "401481e9db6c5a124c2f2ea3f989032d721709a3105e3850c387be6da92bb1af",
   "baseline_git_sha": "fc666421fb50d394d11df2368303031092a30578",
   "baseline_files_git_sha256": {
     "data/reference/document_versions.json": "3d8cc357107b3ed76d40e3ee5dadbbc8a4c07492dc19d41e9199725d8b452694",
