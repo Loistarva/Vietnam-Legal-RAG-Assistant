@@ -1,4 +1,4 @@
-> Corpus57 (17/11/2026): b? negative v2/v3 d??i ??y l? c?c snapshot l?ch s? corpus28/corpus41, ch?a ???c ph? duy?t ?? ch?m corpus57. NEG_DEV_013?018 c?a v2 ?? c? ngu?n, c?n duy?t l?i nh?n. Manifest Test corpus41 ???c l?u t?i `data/staging/corpus_v2/history/trial_corpus41/`; manifest Test hi?n h?nh gi? baseline corpus28, kh?ng d?ng ?? ch?y corpus57. Xem `reports/data/corpus_v2/test_fix_notes.md`.
+> B?n hi?n h?nh cho corpus57: **v4**, xem [validation_report_v4.md](validation_report_v4.md). C?c t?n file `*_v2` l? entrypoint t??ng th?ch v?i validator hi?n c?, n?i dung gi?ng `*_v4`; b?n v2 nguy?n g?c n?m trong `history/dev_negative_v2_corpus28_4106ff0/`. V3 v? ph?n m? t? ph?a d??i l? l?ch s?. Tr?ng th?i v?n `pending_peer_review`.
 
 # Bản bàn giao hiện tại: v3 cho corpus 41 văn bản
 

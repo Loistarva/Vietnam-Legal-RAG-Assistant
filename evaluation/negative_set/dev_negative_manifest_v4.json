@@ -1,0 +1,88 @@
+{
+  "dataset_version": "dev_negative_v2",
+  "created_on": "2026-11-17",
+  "as_of_date": "2026-10-15",
+  "purpose": "Development router, evidence-abstention and clarification calibration; not official A/B or Test",
+  "review_status": "pending_peer_review",
+  "reviewers_required": [
+    "Dev 2",
+    "Tech Lead"
+  ],
+  "authorship": "New synthetic scenarios authored for D1.5; not sampled or paraphrased from benchmark questions",
+  "question_count": 26,
+  "label_counts": {
+    "non_legal": 6,
+    "legal_out_of_scope": 8,
+    "missing_corpus_evidence": 6,
+    "insufficient_facts": 6
+  },
+  "dataset_canonical_sha256": "197e60d115dd1586c9b84d61e6caa88045fef7cf6afafea14d19b4f0018b0dda",
+  "baseline_git_sha": "4106ff0bd9d57e2436534b5fa7ab18c32d2db4aa",
+  "baseline_files_git_sha256": {
+    "data/reference/document_versions.json": "c3a3b640be98f9b1870345e78e8fc2b3a0499a600cb324f9cc5892e6667652eb",
+    "data/chunking_output/chunks.jsonl": "d6b71631113830a76858345460afd814823ae6fcab34cd907b64a352d77a7e2f"
+  },
+  "benchmark_query_sources": [
+    {
+      "git_sha": "4106ff0bd9d57e2436534b5fa7ab18c32d2db4aa",
+      "path": "data/benchmark/queries_dev.json",
+      "canonical_sha256": "69b583d9d9606e96e537c25f79425f21d9c12c4d1672fe8e41ad404da9b536e0"
+    },
+    {
+      "git_sha": "4106ff0bd9d57e2436534b5fa7ab18c32d2db4aa",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    },
+    {
+      "git_sha": "6288e8c7868c198d4c12c9b8e0f7a49d445facd2",
+      "path": "data/benchmark/queries_test.json",
+      "canonical_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876"
+    }
+  ],
+  "scope_review_required": [
+    "Child protection within the family and linked family civil-status procedures; reviewers must confirm scope and replacement scenarios."
+  ],
+  "reference_identity_sources": [
+    {
+      "document_number": "56/2017/NĐ-CP",
+      "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=189758"
+    },
+    {
+      "document_number": "05/2015/TTLT-BTP-BCA-BYT",
+      "url": "https://vanban.chinhphu.vn/default.aspx?docid=180308&pageid=27160"
+    }
+  ],
+  "supersedes": "dev_negative_v2 corpus28 and dev_negative_v3 corpus41; historical artifacts retained unchanged",
+  "boundary_review_ids": [
+    "NEG_DEV_025",
+    "NEG_DEV_026"
+  ],
+  "coverage_review": {
+    "date": "2026-11-17",
+    "registry_documents": 57,
+    "corpus_chunks": 4716,
+    "missing_primary_numbers": [
+      "56/2017/NĐ-CP",
+      "05/2015/TTLT-BTP-BCA-BYT"
+    ],
+    "note": "Checked registry and chunk root/metadata. ND17 remains held outside indexed corpus. Questions require exact primary-source chunks and make no claim about current legal validity. Peer review/calibration remain pending."
+  },
+  "artifact_version": "dev_negative_v4_corpus57",
+  "retired_query_ids": [
+    "NEG_DEV_013",
+    "NEG_DEV_014",
+    "NEG_DEV_015",
+    "NEG_DEV_016",
+    "NEG_DEV_017",
+    "NEG_DEV_018"
+  ],
+  "replacement_query_ids": [
+    "NEG_DEV_027",
+    "NEG_DEV_028",
+    "NEG_DEV_029",
+    "NEG_DEV_030",
+    "NEG_DEV_031",
+    "NEG_DEV_032"
+  ],
+  "schema_compatibility_note": "dataset_version=dev_negative_v2 identifies the supported schema. artifact_version identifies the corpus57 release. Default v2 filenames are compatibility entrypoints with identical v4 content. No runtime or workflow changes."
+}

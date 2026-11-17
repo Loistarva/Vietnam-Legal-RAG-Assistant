@@ -10,3 +10,5 @@ Runtime parser, cleaner, chunker and schemas are unchanged. Only four test modul
 The standalone historical negative validator is expected to reject NEG_DEV_013?018 on corpus v2: Laws 52/2010/QH12, 60/2014/QH13 and Resolution 326/2016/UBTVQH14 are now present. This is an evaluation data review requirement, not a parser failure. The evaluation owner must version/review the affected negative labels before using them to score corpus v2. No historical labels were rewritten just to get a passing suite.
 
 Full suite results: see full_suite_final.log and full_suite_final.xml. Passing unit tests do not imply a new live index or a completed legal effectivity review.
+
+Update: corpus57 negative v4 retires NEG_DEV_013?018 and replaces them with NEG_DEV_027?032 using confirmed absent primary sources. Default validator entrypoints now contain v4. See evaluation/negative_set/validation_report_v4.md; peer review remains pending.

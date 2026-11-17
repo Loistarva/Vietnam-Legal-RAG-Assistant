@@ -61,7 +61,17 @@
       "NEG_DEV_017",
       "NEG_DEV_018"
     ],
-    "status": "requires_evaluation_owner_review"
+    "status": "coverage_validated_pending_peer_review",
+    "active_artifact_version": "dev_negative_v4_corpus57",
+    "active_replacement_ids": [
+      "NEG_DEV_027",
+      "NEG_DEV_028",
+      "NEG_DEV_029",
+      "NEG_DEV_030",
+      "NEG_DEV_031",
+      "NEG_DEV_032"
+    ],
+    "historical_dataset_archive": "evaluation/negative_set/history/dev_negative_v2_corpus28_4106ff0"
   },
   "historical_test_freeze_preserved": true,
   "documents": [
@@ -464,5 +474,18 @@
     "subtests_passed": 206,
     "failures": 0,
     "runtime_parser_cleaner_chunker_schema_match_testing": true
+  },
+  "ci_negative57_fix": {
+    "validator_exit_code": 0,
+    "validator_issues": [],
+    "validator_warnings": [],
+    "pytest_passed": 1845,
+    "subtests_passed": 206,
+    "skipped": 1,
+    "ruff_version": "0.17.4",
+    "ruff_rules": "E9,F63,F7,F82",
+    "ruff_passed": true,
+    "compileall_passed": true,
+    "runtime_code_or_workflow_changed": false
   }
 }
