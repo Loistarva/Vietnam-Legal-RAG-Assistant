@@ -1,0 +1,23 @@
+{
+  "duplicate_original_files_removed": [
+    "data/source_pdfs/dispute_resolution_batch6/l_102_2025_qh15.part03.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/nd_158_2026_nd_cp.part03.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/tt_02_2020_tt_tandtc.part02.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/tt_03_2020_tt_tandtc.part02.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.part02.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_02_2016_ttlt_vksndtc_tandtc.part02.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.part02.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part02.pdf"
+  ],
+  "canonical_source_path_mapping": {
+    "data/source_pdfs/dispute_resolution_batch6/l_102_2025_qh15.part03.pdf": "data/source_pdfs/dispute_resolution_batch6/l_102_2025_qh15.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/nd_158_2026_nd_cp.part03.pdf": "data/source_pdfs/dispute_resolution_batch6/nd_158_2026_nd_cp.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/tt_02_2020_tt_tandtc.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/tt_02_2020_tt_tandtc.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/tt_03_2020_tt_tandtc.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/tt_03_2020_tt_tandtc.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_02_2016_ttlt_vksndtc_tandtc.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/ttlt_02_2016_ttlt_vksndtc_tandtc.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.part01.pdf",
+    "data/source_pdfs/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part02.pdf": "data/source_pdfs/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part01.pdf"
+  },
+  "official_bytes_not_modified": true
+}

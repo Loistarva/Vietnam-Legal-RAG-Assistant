@@ -1,0 +1,12 @@
+[
+  {
+    "document_id": "nq_04_2017_nq_hdtp",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/121554/04_2017_NQ-HDTP.doc",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "document_id": "tt_05_2025_tt_tandtc",
+    "source_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363847",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+  }
+]

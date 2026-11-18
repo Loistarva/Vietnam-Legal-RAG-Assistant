@@ -4411,5 +4411,343 @@
     "changes_documents": [
       "nd_282_2025_nd_cp"
     ]
+  },
+  {
+    "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+    "document_number": "13/2025/TTLT-BTP-BNG-TANDTC",
+    "file_code": "TTLT06",
+    "title": "sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2025-08-29",
+    "effective_date": "2025-09-01",
+    "issuing_body": "Bộ Tư Pháp - Bộ Ngoại Giao - Tòa Án Nhân Dân Tối Cao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2025-ttlt-btp-bng-tandtc-46209.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/8/46209/58968-1-20251381-138213-2025-ttlt-btp-bng-tandtc.pdf",
+        "sha256": "997065ea5756bf245d5f48a5036007b7edb998c447912080ec17737703acf701",
+        "bytes": 433966
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRyG2sWC7tcZIB7SPezzCinfayls38-KWjj4QV1Ng4Bwjlk1aINWccJWiJWc9En32z1VM1DTo9PPQ7zeyAGTsklQuGUIIo4WgwH1lfDMaBLd8~&file_name=2025_1381+%2b+1382_13-2025-TTLT-BTP-BNG-TANDTC.doc",
+        "sha256": "44e0bdfcd0b9ad66c15280a87f651cf458fe6d1cb9db7907224088bd21f77099",
+        "bytes": 593920
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2025-ttlt-btp-bng-tandtc-46209.htm",
+        "sha256": "6f9bdf358d1c5d28014a4925793cdb83759c8ca67b151d9ddf3d32b5281c3f3a",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "5f612f1cb892cc569e5126c8f913db1a3a3744db311a39bf7fdd95145428c422",
+    "normalized_source_text_sha256": "3a86995c8cfc20aeb9bf65ee6ceaa6cf3e8fc2c76722e3f3de8dab6682ebc0f6",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "a2a56a4e456578fcf6ddb4fd42e2b8dc9c71b34fe6da4e17e555188728c6d231",
+    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred."
+  },
+  {
+    "document_id": "tt_03_2020_tt_tandtc",
+    "document_number": "03/2020/TT-TANDTC",
+    "file_code": "TT41",
+    "title": "quy định chi tiết về trình tự nhận, xử lý đơn khởi kiện, đơn yêu cầu tại Tòa án và chỉ định Hòa giải viên",
+    "document_type": "Thông tư",
+    "issue_date": "2020-11-16",
+    "effective_date": "2021-01-01",
+    "issuing_body": "Tòa Án Nhân Dân Tối Cao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-03-2020-tt-tandtc-32688.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/tt_03_2020_tt_tandtc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32688/33724-1-20201179-118003-2020-tt-tandtc.pdf",
+        "sha256": "df1192bdaacae9d5fd481623b31b017244ccde22747d81598387257f19afaf08",
+        "bytes": 712835
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRMZLwm1C8z1iWRu770ToRkOAYtbvb41jdd5n6npvZyLQlHHgXvUqGC8oXAIEXC52zOtXh30CAqupcuANhiuIDNA~~&file_name=2020_1179+%2b+1180_03-2020-TT-TANDTC.doc",
+        "sha256": "fb70c244c269a94a7612c87b68360ac7c46c41f0652f0d62cf40d6fc7088ba9d",
+        "bytes": 557056
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-03-2020-tt-tandtc-32688.htm",
+        "sha256": "0eca3b05e3010fa1ad824ffb95eba1c60508d4530f9d309167039838f55fe88d",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_03_2020_tt_tandtc.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "a1026fd6336e65794e7d3f0d13bafdc9115058df90ec2435062c731edf253071",
+    "normalized_source_text_sha256": "2178d027bf9e13dd085f4dd29aa58d207a4d9e37866f8cb6373a5da0faae0a22",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "4c41044b354b1baef9dff27e3003e35b1e6c692812d6f019f5c986368ca19f47",
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+  },
+  {
+    "document_id": "tt_02_2020_tt_tandtc",
+    "document_number": "02/2020/TT-TANDTC",
+    "file_code": "TT42",
+    "title": "quy định chi tiết về trách nhiệm của Tòa án nhân dân trong hoạt động hòa giải, đối thoại tại Tòa án",
+    "document_type": "Thông tư",
+    "issue_date": "2020-11-16",
+    "effective_date": "2021-01-01",
+    "issuing_body": "Tòa Án Nhân Dân Tối Cao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-02-2020-tt-tandtc-32630.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/tt_02_2020_tt_tandtc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32630/33636-1-20201177-117802-2020-tt-tandtc.pdf",
+        "sha256": "82733e5345548ef08cdd27860a0b364d688880971ceda752bee5e19032e38b39",
+        "bytes": 666085
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRJkWSdfrh8px36anNGrLnBiUgTrNCpQN-v2IpbwQqM9FLdB5E_6BMSLx7e8M3F0ofNAES5nXLb4_QBh_CqKmOxQ~~&file_name=2020_1177+%2b+1178_02-2020-TT-TANDTC.doc",
+        "sha256": "941a7d72127ac332a1f48d22e81f8d56e2daa37fd96b33b08a95d59b5496f8a6",
+        "bytes": 917504
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-02-2020-tt-tandtc-32630.htm",
+        "sha256": "6319b9206de8a45b568aac248736e96407ba09b2f12c4d5346601690c7a1b182",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "dc13feb0dbd1d71efd9a6e8507afb6cf6f9ca2b11986a815fac7fcecf6e6f416",
+    "normalized_source_text_sha256": "7d93f3a4140b5f61c0a352e1a00abdd71b6e4e9302a78a9eedede2ad1aeafbce",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "d57e17a6fa26d17d0a14a884125929700aeb778789f535fdf63da9b1eeec6099",
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+  },
+  {
+    "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+    "document_number": "01/2019/TTLT-TANDTC-BNG",
+    "file_code": "TTLT07",
+    "title": "quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2019-12-05",
+    "effective_date": "2020-02-03",
+    "issuing_body": "Tòa Án Nhân Dân Tối Cao - Bộ Ngoại Giao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2019/12/30202/29014-1-2019981-98201-2019-ttlt-tandtc-bng.pdf",
+        "sha256": "04aa8ba561a4d9d2c8f0dee554e4d8e8a0258624fa923ee8db090352b361aa18",
+        "bytes": 622287
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRbAbfqlsZWwU0x7-_l5jQ8MSw1TeDlOv7TZmeskaP4hk9Bs0qZqAT7pdSVwlkE-P5iuMFxOdm1nTAZ-Ju8WDwLg~~&file_name=2019_981+%2b+982_01-2019-TTLT-TANDTC-BNG.doc",
+        "sha256": "ee3ec5eac16d60c61a63f4dd949cd88854a6f86a2a668e9682577c0ee2d87df0",
+        "bytes": 786432
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
+        "sha256": "a8f9d932a220285976da4d1bcd373d51bb57ab25dce9c46527a37274741ec635",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_01_2019_ttlt_tandtc_bng.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "fbd73c2e0ad5d6695f700d3d95f951798668f2c5411480ab21265f9a13c7e3ed",
+    "normalized_source_text_sha256": "ed9e67c74342a898f05f56ac805c0c61703cc33c081e1f51f2b1474ad9e5cd1f",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "e3b0f92c5baec63b5e556050a3c79d184a69cd15ce1b599cb6878897aab64a45"
+  },
+  {
+    "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
+    "document_number": "12/2016/TTLT-BTP-BNG-TANDTC",
+    "file_code": "TTLT08",
+    "title": "quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-10-19",
+    "effective_date": "2016-12-06",
+    "issuing_body": "Bộ Tư Pháp - Bộ Ngoại Giao - Tòa Án Nhân Dân Tối Cao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-12-2016-ttlt-btp-bng-tandtc-21302.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/10/21302/15751-1-122016ttlt-btp-bng-tandtc15817pdf",
+        "sha256": "fb3e288a92761168c2f5314f780881b7ce289015e695534eba689ee4118e8c53",
+        "bytes": 515433
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-12-2016-ttlt-btp-bng-tandtc-21302.htm",
+        "sha256": "7f7410c854f01f743a546221f891a40a1cdcaf71713fa3cfd9da02e8e97f4cde",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json",
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "8c8a70513fda11798b1cb5eaa719de7a38069630fa24189d8c42881a8d38ab0c",
+    "normalized_source_text_sha256": "7e18a2a62d4c339a7f43cdd2afd007f555008f40b3a09cedafa36a16eb4000c3",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "a73232e4d6367b6b9407a258d7aa4a4d4095a8f9b4755bcdc98e35d9aa235412",
+    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
+    "known_amended_by": [
+      "ttlt_13_2025_ttlt_btp_bng_tandtc"
+    ]
+  },
+  {
+    "document_id": "l_102_2025_qh15",
+    "document_number": "102/2025/QH15",
+    "file_code": "L15",
+    "title": "Luật Tương trợ tư pháp dân sự",
+    "document_type": "Luật",
+    "issue_date": "2025-11-26",
+    "effective_date": "2026-07-01",
+    "issuing_body": "Quốc Hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2025-qh15-468664.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/l_102_2025_qh15.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/1/23/102signed-17691367675942091905392.pdf",
+        "sha256": "22cc913f9848eb54e5313cfe64bafc6da824f39ca2bd760b64b137af3bb67696",
+        "bytes": 444723
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/l_102_2025_qh15.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwHIq09JHMnM-_yeFsnBSzSdyjbgYT8QCG0B12I1cez_iLhTjcOBqYzv51IxBUACHg&file_name=2026_31_102%2f2025%2fQH15.docx",
+        "sha256": "84952240f94cd06bf39d945b1efc8eaa3c56a886af8e5121d15b7b6ae67d9634",
+        "bytes": 59853
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/l_102_2025_qh15.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2025-qh15-468664.htm",
+        "sha256": "7d73255dfbaaa555230c99091f799a0fa469ec48f2a10f2298a4b166922ff41d",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/l_102_2025_qh15.pdf",
+    "parsed_json_path": "parser/parsed_jsons/l_102_2025_qh15.json",
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "9b43a7aeab6d73fa2c34aee86028808c905dd174d9db4d32d84a0f38917995a7",
+    "normalized_source_text_sha256": "0b27709a18f1c9e3b2326a1f30469cfc5d18fa3137ce54b15266a0fc04fc5f95",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "31bfabf4cc04fd2a3635d2ed2171345fecd9e330cc693ed0ab6cca38c536ecf5",
+    "effectivity_evidence": {
+      "provision": "37.1;38",
+      "note": "Initial effective2026-07-01 verified in original law; historical requests have explicit transitional treatment."
+    }
+  },
+  {
+    "document_id": "nd_158_2026_nd_cp",
+    "document_number": "158/2026/NĐ-CP",
+    "file_code": "ND40",
+    "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự",
+    "document_type": "Nghị định",
+    "issue_date": "2026-05-15",
+    "effective_date": "2026-07-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-158-2026-nd-cp-469548.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/nd_158_2026_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/5/29/469548-1779940848_v1_1780042058_signed.pdf",
+        "sha256": "6e6544f29ab42a5ed33e0b9dfa9f29564eee371d4343a811d779c77a0f89b31c",
+        "bytes": 644010
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwBx7XWa7y_nOIC0hZ6SXWs3M1Rs-Osa251-_cn1VSN_CKEbRi6f9vAPwdBK0VXojG1xN_DAcLc6eFtnOhGGBukg~~&file_name=2026_292_158%2f2026%2fN%c4%90-CP.docx",
+        "sha256": "764a14373e2f421288308beb08e5fcd6367b562f64723fdc27df77cc31526eb7",
+        "bytes": 59686
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-158-2026-nd-cp-469548.htm",
+        "sha256": "86296342f14b01963046c0848fa62a9121d6931b1cc03eeb445271dd4300bc3a",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_158_2026_nd_cp.json",
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes. Restored displayed automatic list number1 at Article24.1 from the official Gazette PDF; original DOCX w:t extraction omitted it. Word/Gazette statutory word counts verified equal after restoration.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "5de0e6f9daa678c89facffe256d850eaafa79a8a8da1cfc2936d94560b58fb49",
+    "normalized_source_text_sha256": "68291cbc1dfd8aa5c223dee74148e92e01fc49126311ab545933ead9205ad296",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "b6d62755a1f302bccb8d67e96dccf7c78bb5dff42b82d540a21c188319c6b8d9",
+    "effectivity_evidence": {
+      "provision": "24",
+      "note": "Effective2026-07-01; previous ND92/2008 stops applying to civil assistance except statutory transitional cases."
+    }
   }
 ]

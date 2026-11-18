@@ -2,7 +2,7 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "3d8f7974b9344c35665731cc9e76d55d1a57773146373d947197268f13a3d346",
+  "registry_canonical_sha256": "ea287f23573967384b2a59139096c841792459eed557ef2d84a5dda1c911fb29",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
     "bl_91_2015_qh13": {
@@ -50,6 +50,19 @@
       "document_type": "Luật",
       "issue_year": "2016",
       "effective_from": "2017-06-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "l_102_2025_qh15": {
+      "document_number": "102/2025/QH15",
+      "title": "Luật Tương trợ tư pháp dân sự",
+      "document_type": "Luật",
+      "issue_year": "2025",
+      "effective_from": "2026-07-01",
       "effective_to": null,
       "temporal_scope": "requires_review",
       "source_fields": {
@@ -382,6 +395,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "nd_158_2026_nd_cp": {
+      "document_number": "158/2026/NĐ-CP",
+      "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự",
+      "document_type": "Nghị định",
+      "issue_year": "2026",
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "nd_15_2014_nd_cp": {
       "document_number": "15/2014/NĐ-CP",
       "title": "Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở",
@@ -655,6 +681,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "tt_02_2020_tt_tandtc": {
+      "document_number": "02/2020/TT-TANDTC",
+      "title": "quy định chi tiết về trách nhiệm của Tòa án nhân dân trong hoạt động hòa giải, đối thoại tại Tòa án",
+      "document_type": "Thông tư",
+      "issue_year": "2020",
+      "effective_from": "2021-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "tt_02a_2015_tt_btp": {
       "document_number": "02a/2015/TT-BTP",
       "title": "Hướng dẫn thi hành một số điều của Nghị định số 126/2014/NĐ-CP ngày 31 tháng 12 năm 2014 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hôn nhân và gia đình về quan hệ hôn nhân và gia đình có yếu tố nước ngoài",
@@ -663,6 +702,19 @@
       "effective_from": "2015-04-10",
       "effective_to": "2016-01-02",
       "temporal_scope": "document_level_only",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "tt_03_2020_tt_tandtc": {
+      "document_number": "03/2020/TT-TANDTC",
+      "title": "quy định chi tiết về trình tự nhận, xử lý đơn khởi kiện, đơn yêu cầu tại Tòa án và chỉ định Hòa giải viên",
+      "document_type": "Thông tư",
+      "issue_year": "2020",
+      "effective_from": "2021-01-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -1071,6 +1123,19 @@
         "effective_to": "expiry_date"
       }
     },
+    "ttlt_01_2019_ttlt_tandtc_bng": {
+      "document_number": "01/2019/TTLT-TANDTC-BNG",
+      "title": "quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài",
+      "document_type": "Thông tư liên tịch",
+      "issue_year": "2019",
+      "effective_from": "2020-02-03",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh": {
       "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
       "title": "hướng dẫn việc theo dõi tình hình phát triển của trẻ em Việt Nam được cho làm con nuôi nước ngoài và bảo vệ trẻ em trong trường hợp cần thiết",
@@ -1097,12 +1162,38 @@
         "effective_to": "expiry_date"
       }
     },
+    "ttlt_12_2016_ttlt_btp_bng_tandtc": {
+      "document_number": "12/2016/TTLT-BTP-BNG-TANDTC",
+      "title": "quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+      "document_type": "Thông tư liên tịch",
+      "issue_year": "2016",
+      "effective_from": "2016-12-06",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
     "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca": {
       "document_number": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
       "title": "hướng dẫn thực hiện giáo dục chuyển đổi hành vi về xây dựng gia đình và phòng, chống bạo lực gia đình trong các cơ sở giáo dục thuộc hệ thống giáo dục quốc dân",
       "document_type": "Thông tư liên tịch",
       "issue_year": "2016",
       "effective_from": "2016-06-21",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "ttlt_13_2025_ttlt_btp_bng_tandtc": {
+      "document_number": "13/2025/TTLT-BTP-BNG-TANDTC",
+      "title": "sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+      "document_type": "Thông tư liên tịch",
+      "issue_year": "2025",
+      "effective_from": "2025-09-01",
       "effective_to": null,
       "temporal_scope": "requires_review",
       "source_fields": {
@@ -1144,6 +1235,33 @@
       ],
       "forms": [
         "01/2016/TTLT-TANDTC-VKSNDTC-BTP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "01/2019"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "01/2019/TTLT-TANDTC-BNG"
       ],
       "kinds": [
         "document_number",
@@ -1260,6 +1378,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "02/2020"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -1306,6 +1451,33 @@
       ],
       "forms": [
         "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "03/2020"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "03/2020/TT-TANDTC"
       ],
       "kinds": [
         "document_number",
@@ -1709,6 +1881,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "1/2019"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "1 2022": {
       "document_ids": [
         "tt_01_2022_tt_btp"
@@ -1887,6 +2085,33 @@
       ],
       "forms": [
         "102/2016/QH13"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "102/2025"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "102/2025/QH15"
       ],
       "kinds": [
         "document_number",
@@ -2111,6 +2336,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "12/2016"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "120 2025": {
       "document_ids": [
         "nd_120_2025_nd_cp"
@@ -2246,6 +2498,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "13/2025"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "13/2025/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "143 2011": {
       "document_ids": [
         "ttlt_143_2011_ttlt_btc_bvhttdl"
@@ -2361,6 +2640,33 @@
       ],
       "forms": [
         "158/2005/NĐ-CP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "158/2026"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "158/2026/NĐ-CP"
       ],
       "kinds": [
         "document_number",
@@ -2495,6 +2801,32 @@
       ],
       "forms": [
         "2/2007/QH12"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "2/2020"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "2/2020/TT-TANDTC"
       ],
       "kinds": [
         "number_variant"
@@ -2693,6 +3025,7 @@
         "tt_32_2016_tt_byt",
         "ttlt_01_2016_ttlt_tandtc",
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+        "ttlt_12_2016_ttlt_btp_bng_tandtc",
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
       ],
       "forms": [
@@ -2720,7 +3053,8 @@
     "2019": {
       "document_ids": [
         "nd_24_2019_nd_cp",
-        "tt_30_2019_tt_byt"
+        "tt_30_2019_tt_byt",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "2019"
@@ -2735,6 +3069,8 @@
       "document_ids": [
         "l_58_2020_qh14",
         "nd_87_2020_nd_cp",
+        "tt_02_2020_tt_tandtc",
+        "tt_03_2020_tt_tandtc",
         "tt_04_2020_tt_btp",
         "tt_10_2020_tt_btp"
       ],
@@ -2811,6 +3147,7 @@
     },
     "2025": {
       "document_ids": [
+        "l_102_2025_qh15",
         "l_81_2025_qh15",
         "l_85_2025_qh15",
         "nd_06_2025_nd_cp",
@@ -2824,7 +3161,8 @@
         "tt_08_2025_tt_btp",
         "tt_10_2025_tt_btp",
         "tt_38_2025_tt_byt",
-        "tt_66_2025_tt_bca"
+        "tt_66_2025_tt_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "2025"
@@ -2837,6 +3175,7 @@
     },
     "2026": {
       "document_ids": [
+        "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
         "nd_347_2026_nd_cp"
@@ -3179,6 +3518,32 @@
       ],
       "forms": [
         "3/2016/TTLT-BTP-BNG-BCA-BLĐTBXH"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "3/2020"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "3/2020/TT-TANDTC"
       ],
       "kinds": [
         "number_variant"
@@ -4864,7 +5229,8 @@
     },
     "l 102": {
       "document_ids": [
-        "l_102_2016_qh13"
+        "l_102_2016_qh13",
+        "l_102_2025_qh15"
       ],
       "forms": [
         "L 102"
@@ -4872,7 +5238,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "l 102 2016": {
@@ -4895,6 +5261,34 @@
       "forms": [
         "L 102/2016/QH13",
         "l_102_2016_qh13"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L 102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l 102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L 102/2025/QH15",
+        "l_102_2025_qh15"
       ],
       "kinds": [
         "canonical_id",
@@ -5130,6 +5524,7 @@
     },
     "l 2025": {
       "document_ids": [
+        "l_102_2025_qh15",
         "l_81_2025_qh15",
         "l_85_2025_qh15"
       ],
@@ -5620,7 +6015,8 @@
     },
     "l so 102": {
       "document_ids": [
-        "l_102_2016_qh13"
+        "l_102_2016_qh13",
+        "l_102_2025_qh15"
       ],
       "forms": [
         "L số 102"
@@ -5628,7 +6024,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "l so 102 2016": {
@@ -5650,6 +6046,32 @@
       ],
       "forms": [
         "L số 102/2016/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L số 102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l so 102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L số 102/2025/QH15"
       ],
       "kinds": [
         "type_number"
@@ -6334,6 +6756,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "l102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L102/2025/QH15"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "l11": {
       "document_ids": [
         "l_34_2024_qh15"
@@ -6405,6 +6853,19 @@
       ],
       "forms": [
         "L14"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "l15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "L15"
       ],
       "kinds": [
         "file_code"
@@ -6765,7 +7226,8 @@
     },
     "luat 102": {
       "document_ids": [
-        "l_102_2016_qh13"
+        "l_102_2016_qh13",
+        "l_102_2025_qh15"
       ],
       "forms": [
         "Luật 102"
@@ -6773,7 +7235,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "luat 102 2016": {
@@ -6795,6 +7257,32 @@
       ],
       "forms": [
         "Luật 102/2016/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật 102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat 102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật 102/2025/QH15"
       ],
       "kinds": [
         "type_number"
@@ -7027,6 +7515,7 @@
     },
     "luat 2025": {
       "document_ids": [
+        "l_102_2025_qh15",
         "l_81_2025_qh15",
         "l_85_2025_qh15"
       ],
@@ -7933,7 +8422,8 @@
     },
     "luat so 102": {
       "document_ids": [
-        "l_102_2016_qh13"
+        "l_102_2016_qh13",
+        "l_102_2025_qh15"
       ],
       "forms": [
         "Luật số 102"
@@ -7941,7 +8431,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "luat so 102 2016": {
@@ -7963,6 +8453,32 @@
       ],
       "forms": [
         "Luật số 102/2016/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật số 102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat so 102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật số 102/2025/QH15"
       ],
       "kinds": [
         "type_number"
@@ -8586,6 +9102,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "luat tuong tro tu phap dan su": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật Tương trợ tư pháp dân sự"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat tuong tro tu phap dan su nam 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật Tương trợ tư pháp dân sự năm 2025"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "luat02 2007": {
       "document_ids": [
         "l_02_2007_qh12"
@@ -8631,6 +9174,32 @@
       ],
       "forms": [
         "Luật102/2016/QH13"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat102 2025": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật102/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "luat102 2025 qh15": {
+      "document_ids": [
+        "l_102_2025_qh15"
+      ],
+      "forms": [
+        "Luật102/2025/QH15"
       ],
       "kinds": [
         "type_number"
@@ -9206,6 +9775,7 @@
         "tt_32_2016_tt_byt",
         "ttlt_01_2016_ttlt_tandtc",
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+        "ttlt_12_2016_ttlt_btp_bng_tandtc",
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
       ],
       "forms": [
@@ -9233,7 +9803,8 @@
     "nam 2019": {
       "document_ids": [
         "nd_24_2019_nd_cp",
-        "tt_30_2019_tt_byt"
+        "tt_30_2019_tt_byt",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "năm 2019"
@@ -9248,6 +9819,8 @@
       "document_ids": [
         "l_58_2020_qh14",
         "nd_87_2020_nd_cp",
+        "tt_02_2020_tt_tandtc",
+        "tt_03_2020_tt_tandtc",
         "tt_04_2020_tt_btp",
         "tt_10_2020_tt_btp"
       ],
@@ -9324,6 +9897,7 @@
     },
     "nam 2025": {
       "document_ids": [
+        "l_102_2025_qh15",
         "l_81_2025_qh15",
         "l_85_2025_qh15",
         "nd_06_2025_nd_cp",
@@ -9337,7 +9911,8 @@
         "tt_08_2025_tt_btp",
         "tt_10_2025_tt_btp",
         "tt_38_2025_tt_byt",
-        "tt_66_2025_tt_bca"
+        "tt_66_2025_tt_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "năm 2025"
@@ -9350,6 +9925,7 @@
     },
     "nam 2026": {
       "document_ids": [
+        "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
         "nd_347_2026_nd_cp"
@@ -9899,7 +10475,8 @@
     },
     "nd 158": {
       "document_ids": [
-        "nd_158_2005_nd_cp"
+        "nd_158_2005_nd_cp",
+        "nd_158_2026_nd_cp"
       ],
       "forms": [
         "ND 158",
@@ -9908,7 +10485,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nd 158 2005": {
@@ -9933,6 +10510,36 @@
         "ND 158/2005/NĐ-CP",
         "NĐ 158/2005/NĐ-CP",
         "nd_158_2005_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND 158/2026",
+        "NĐ 158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND 158/2026/NĐ-CP",
+        "NĐ 158/2026/NĐ-CP",
+        "nd_158_2026_nd_cp"
       ],
       "kinds": [
         "canonical_id",
@@ -10280,6 +10887,7 @@
     },
     "nd 2026": {
       "document_ids": [
+        "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
         "nd_347_2026_nd_cp"
@@ -11560,7 +12168,8 @@
     },
     "nd so 158": {
       "document_ids": [
-        "nd_158_2005_nd_cp"
+        "nd_158_2005_nd_cp",
+        "nd_158_2026_nd_cp"
       ],
       "forms": [
         "ND số 158",
@@ -11569,7 +12178,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nd so 158 2005": {
@@ -11593,6 +12202,34 @@
       "forms": [
         "ND số 158/2005/NĐ-CP",
         "NĐ số 158/2005/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND số 158/2026",
+        "NĐ số 158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND số 158/2026/NĐ-CP",
+        "NĐ số 158/2026/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -12990,6 +13627,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND158/2026",
+        "NĐ158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND158/2026/NĐ-CP",
+        "NĐ158/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd16": {
       "document_ids": [
         "nd_19_2011_nd_cp"
@@ -13495,6 +14160,19 @@
       ],
       "forms": [
         "ND39"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd40": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "ND40"
       ],
       "kinds": [
         "file_code"
@@ -14282,7 +14960,8 @@
     },
     "nghi dinh 158": {
       "document_ids": [
-        "nd_158_2005_nd_cp"
+        "nd_158_2005_nd_cp",
+        "nd_158_2026_nd_cp"
       ],
       "forms": [
         "Nghị định 158"
@@ -14290,7 +14969,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nghi dinh 158 2005": {
@@ -14312,6 +14991,32 @@
       ],
       "forms": [
         "Nghị định 158/2005/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 158/2026/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -14631,6 +15336,7 @@
     },
     "nghi dinh 2026": {
       "document_ids": [
+        "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
         "nd_347_2026_nd_cp"
@@ -15794,7 +16500,8 @@
     },
     "nghi dinh so 158": {
       "document_ids": [
-        "nd_158_2005_nd_cp"
+        "nd_158_2005_nd_cp",
+        "nd_158_2026_nd_cp"
       ],
       "forms": [
         "Nghị định số 158"
@@ -15802,7 +16509,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "nghi dinh so 158 2005": {
@@ -15824,6 +16531,32 @@
       ],
       "forms": [
         "Nghị định số 158/2005/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 158/2026/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -16970,6 +17703,32 @@
       ],
       "forms": [
         "Nghị định158/2005/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh158 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định158/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh158 2026 nd cp": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Nghị định158/2026/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -18354,6 +19113,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "quy dinh chi tiet mot so dieu va bien phap thi hanh luat tuong tro tu phap ve dan su": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet mot so dieu va bien phap thi hanh luat tuong tro tu phap ve dan su nam 2026": {
+      "document_ids": [
+        "nd_158_2026_nd_cp"
+      ],
+      "forms": [
+        "Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự năm 2026"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "quy dinh chi tiet mot so dieu va bien phap thi hanh nghi dinh so 87 2020 nd cp ngay 28 thang 7 nam 2020 cua chinh phu quy dinh ve co so du lieu ho tich dien tu dang ky ho tich truc tuyen": {
       "document_ids": [
         "tt_01_2022_tt_btp"
@@ -18592,6 +19378,60 @@
       ],
       "forms": [
         "Quy định chi tiết về đăng ký kết hôn theo Nghị quyết số 35/2000/QH10 của Quốc hội về việc thi hành Luật Hôn nhân và gia đình năm 2001"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet ve trach nhiem cua toa an nhan dan trong hoat dong hoa giai doi thoai tai toa an": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "quy định chi tiết về trách nhiệm của Tòa án nhân dân trong hoạt động hòa giải, đối thoại tại Tòa án"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet ve trach nhiem cua toa an nhan dan trong hoat dong hoa giai doi thoai tai toa an nam 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "quy định chi tiết về trách nhiệm của Tòa án nhân dân trong hoạt động hòa giải, đối thoại tại Tòa án năm 2020"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet ve trinh tu nhan xu ly don khoi kien don yeu cau tai toa an va chi dinh hoa giai vien": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "quy định chi tiết về trình tự nhận, xử lý đơn khởi kiện, đơn yêu cầu tại Tòa án và chỉ định Hòa giải viên"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh chi tiet ve trinh tu nhan xu ly don khoi kien don yeu cau tai toa an va chi dinh hoa giai vien nam 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "quy định chi tiết về trình tự nhận, xử lý đơn khởi kiện, đơn yêu cầu tại Tòa án và chỉ định Hòa giải viên năm 2020"
       ],
       "kinds": [
         "title_with_issue_year"
@@ -18862,6 +19702,60 @@
       ],
       "forms": [
         "quy định về tiêu chuẩn, điều kiện khen thưởng cá nhân, tập thể tham gia phòng, chống bạo lực gia đình; đối tượng, điều kiện, cơ quan hoàn trả thiệt hại về giá trị tài sản cho người trực tiếp tham gia phòng, chống bạo lực gia đình năm 2011"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh ve trinh tu thu tuc phoi hop giua toa an nhan dan va co quan dai dien nuoc cong hoa xa hoi chu nghia viet nam o nuoc ngoai de thuc hien mot so hoat dong to tung dan su va to tung hanh chinh o nuoc ngoai": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh ve trinh tu thu tuc phoi hop giua toa an nhan dan va co quan dai dien nuoc cong hoa xa hoi chu nghia viet nam o nuoc ngoai de thuc hien mot so hoat dong to tung dan su va to tung hanh chinh o nuoc ngoai nam 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài năm 2019"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh ve trinh tu thu tuc tuong tro tu phap trong linh vuc dan su": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh ve trinh tu thu tuc tuong tro tu phap trong linh vuc dan su nam 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự năm 2016"
       ],
       "kinds": [
         "title_with_issue_year"
@@ -19220,6 +20114,33 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "sua doi bo sung mot so dieu cua thong tu lien tich so 12 2016 ttlt btp bng tandtc ngay 19 thang 10 nam 2016 cua bo truong bo tu phap bo truong bo ngoai giao va chanh an toa an nhan dan toi cao quy dinh ve trinh tu thu tuc tuong tro tu phap trong linh vuc dan su": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "sua doi bo sung mot so dieu cua thong tu lien tich so 12 2016 ttlt btp bng tandtc ngay 19 thang 10 nam 2016 cua bo truong bo tu phap bo truong bo ngoai giao va chanh an toa an nhan dan toi cao quy dinh ve trinh tu thu tuc tuong tro tu phap trong linh vuc dan su nam 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự năm 2025"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "sua doi bo sung mot so dieu cua thong tu so 02 2020 tt btp ngay 08 4 2020 cua bo truong bo tu phap ban hanh huong dan su dung quan ly mau so quoc tich va mau giay to ve quoc tich va thong tu so 04 2020 tt btp ngay 28 5 2020 cua bo truong bo tu phap quy dinh chi tiet thi hanh mot so dieu cua luat ho tich va nghi dinh so 123 2015 nd cp ngay 15 11 2015 cua chinh phu quy dinh chi tiet mot so dieu va bien phap thi hanh luat ho tich": {
       "document_ids": [
         "tt_04_2024_tt_btp"
@@ -19569,6 +20490,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu 02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu 02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -19588,6 +20535,32 @@
       ],
       "forms": [
         "Thông tư 02a/2015/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 03/2020/TT-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -20185,6 +21158,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu 2": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 2"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu 2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu 2001": {
       "document_ids": [
         "tt_07_2001_tt_btp"
@@ -20324,6 +21336,8 @@
     },
     "thong tu 2020": {
       "document_ids": [
+        "tt_02_2020_tt_tandtc",
+        "tt_03_2020_tt_tandtc",
         "tt_04_2020_tt_btp",
         "tt_10_2020_tt_btp"
       ],
@@ -20634,6 +21648,7 @@
     },
     "thong tu 3": {
       "document_ids": [
+        "tt_03_2020_tt_tandtc",
         "tt_03_2023_tt_btp"
       ],
       "forms": [
@@ -20642,8 +21657,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "thong tu 3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu 3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư 3/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "thong tu 3 2023": {
       "document_ids": [
@@ -21249,6 +22290,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich 01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch 01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch 01/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich 03 2016": {
       "document_ids": [
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
@@ -21303,7 +22370,8 @@
     },
     "thong tu lien tich 1": {
       "document_ids": [
-        "ttlt_01_2016_ttlt_tandtc"
+        "ttlt_01_2016_ttlt_tandtc",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "Thông tư liên tịch 1"
@@ -21311,7 +22379,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "thong tu lien tich 1 2016": {
@@ -21340,9 +22408,75 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich 1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch 1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch 1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 12": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 12"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu lien tich 12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich 13": {
       "document_ids": [
-        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
+        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "Thông tư liên tịch 13"
@@ -21350,7 +22484,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "thong tu lien tich 13 2016": {
@@ -21372,6 +22506,32 @@
       ],
       "forms": [
         "Thông tư liên tịch 13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich 13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 13/2025/TTLT-BTP-BNG-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -21448,6 +22608,7 @@
       "document_ids": [
         "ttlt_01_2016_ttlt_tandtc",
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+        "ttlt_12_2016_ttlt_btp_bng_tandtc",
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
       ],
       "forms": [
@@ -21457,6 +22618,32 @@
         "type_year"
       ],
       "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "thong tu lien tich 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch 2019"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu lien tich 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch 2025"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
       "requires_identity_context": true
     },
     "thong tu lien tich 3": {
@@ -21563,6 +22750,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich so 01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 01/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich so 03 2016": {
       "document_ids": [
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
@@ -21617,7 +22830,8 @@
     },
     "thong tu lien tich so 1": {
       "document_ids": [
-        "ttlt_01_2016_ttlt_tandtc"
+        "ttlt_01_2016_ttlt_tandtc",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "Thông tư liên tịch số 1"
@@ -21625,7 +22839,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "thong tu lien tich so 1 2016": {
@@ -21654,9 +22868,75 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich so 1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 12": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 12"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu lien tich so 12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich so 13": {
       "document_ids": [
-        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
+        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "Thông tư liên tịch số 13"
@@ -21664,7 +22944,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "thong tu lien tich so 13 2016": {
@@ -21686,6 +22966,32 @@
       ],
       "forms": [
         "Thông tư liên tịch số 13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich so 13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch số 13/2025/TTLT-BTP-BNG-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -21836,6 +23142,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch01/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich03 2016": {
       "document_ids": [
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
@@ -21914,6 +23246,58 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu lien tich1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "Thông tư liên tịch1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu lien tich13 2016": {
       "document_ids": [
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
@@ -21933,6 +23317,32 @@
       ],
       "forms": [
         "Thông tư liên tịch13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu lien tich13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "Thông tư liên tịch13/2025/TTLT-BTP-BNG-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -22070,6 +23480,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu so 02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu so 02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -22089,6 +23525,32 @@
       ],
       "forms": [
         "Thông tư số 02a/2015/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 03/2020/TT-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -22686,6 +24148,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu so 2": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 2"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "thong tu so 2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu so 21": {
       "document_ids": [
         "tt_21_2011_tt_btp"
@@ -22910,6 +24411,7 @@
     },
     "thong tu so 3": {
       "document_ids": [
+        "tt_03_2020_tt_tandtc",
         "tt_03_2023_tt_btp"
       ],
       "forms": [
@@ -22918,8 +24420,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "thong tu so 3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu so 3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư số 3/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "thong tu so 3 2023": {
       "document_ids": [
@@ -23551,6 +25079,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -23570,6 +25124,32 @@
       ],
       "forms": [
         "Thông tư02a/2015/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư03/2020/TT-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -24085,6 +25665,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "thong tu2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "thong tu21 2011": {
       "document_ids": [
         "tt_21_2011_tt_btp"
@@ -24234,6 +25840,32 @@
       ],
       "forms": [
         "Thông tư2a/2015/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "thong tu3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "Thông tư3/2020/TT-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -24727,6 +26359,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt 02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 02/2020/TT-TANDTC",
+        "tt_02_2020_tt_tandtc"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt 02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -24747,6 +26407,34 @@
       "forms": [
         "TT 02a/2015/TT-BTP",
         "tt_02a_2015_tt_btp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 03/2020/TT-TANDTC",
+        "tt_03_2020_tt_tandtc"
       ],
       "kinds": [
         "canonical_id",
@@ -25381,6 +27069,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt 2": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 2"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "tt 2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt 2001": {
       "document_ids": [
         "tt_07_2001_tt_btp"
@@ -25520,6 +27247,8 @@
     },
     "tt 2020": {
       "document_ids": [
+        "tt_02_2020_tt_tandtc",
+        "tt_03_2020_tt_tandtc",
         "tt_04_2020_tt_btp",
         "tt_10_2020_tt_btp"
       ],
@@ -25840,6 +27569,7 @@
     },
     "tt 3": {
       "document_ids": [
+        "tt_03_2020_tt_tandtc",
         "tt_03_2023_tt_btp"
       ],
       "forms": [
@@ -25848,8 +27578,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "tt 3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt 3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT 3/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "tt 3 2023": {
       "document_ids": [
@@ -26495,6 +28251,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt so 02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt so 02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -26514,6 +28296,32 @@
       ],
       "forms": [
         "TT số 02a/2015/TT-BTP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 03/2020/TT-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -27111,6 +28919,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt so 2": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 2"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "tt so 2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt so 21": {
       "document_ids": [
         "tt_21_2011_tt_btp"
@@ -27335,6 +29182,7 @@
     },
     "tt so 3": {
       "document_ids": [
+        "tt_03_2020_tt_tandtc",
         "tt_03_2023_tt_btp"
       ],
       "forms": [
@@ -27343,8 +29191,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "tt so 3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt so 3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT số 3/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "tt so 3 2023": {
       "document_ids": [
@@ -28002,6 +29876,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt02 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT02/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt02 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT02/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt02a 2015": {
       "document_ids": [
         "tt_02a_2015_tt_btp"
@@ -28037,6 +29937,32 @@
       ],
       "kinds": [
         "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt03 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT03/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt03 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT03/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -28744,6 +30670,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt2 2020": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT2/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt2 2020 tt tandtc": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT2/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt20": {
       "document_ids": [
         "tt_07_2023_tt_bng"
@@ -29017,6 +30969,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "tt3 2020": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT3/2020"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt3 2020 tt tandtc": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT3/2020/TT-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "tt3 2023": {
       "document_ids": [
         "tt_03_2023_tt_btp"
@@ -29283,6 +31261,32 @@
       ],
       "forms": [
         "TT40"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt41": {
+      "document_ids": [
+        "tt_03_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT41"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "tt42": {
+      "document_ids": [
+        "tt_02_2020_tt_tandtc"
+      ],
+      "forms": [
+        "TT42"
       ],
       "kinds": [
         "file_code"
@@ -29577,6 +31581,34 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt 01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT 01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT 01/2019/TTLT-TANDTC-BNG",
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt 03 2016": {
       "document_ids": [
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
@@ -29635,7 +31667,8 @@
     },
     "ttlt 1": {
       "document_ids": [
-        "ttlt_01_2016_ttlt_tandtc"
+        "ttlt_01_2016_ttlt_tandtc",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "TTLT 1"
@@ -29643,7 +31676,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "ttlt 1 2016": {
@@ -29672,9 +31705,77 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt 1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT 1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT 1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 12": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 12"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "ttlt 12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 12/2016/TTLT-BTP-BNG-TANDTC",
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt 13": {
       "document_ids": [
-        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
+        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "TTLT 13"
@@ -29682,7 +31783,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "ttlt 13 2016": {
@@ -29705,6 +31806,34 @@
       "forms": [
         "TTLT 13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt 13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 13/2025/TTLT-BTP-BNG-TANDTC",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "kinds": [
         "canonical_id",
@@ -29784,6 +31913,7 @@
       "document_ids": [
         "ttlt_01_2016_ttlt_tandtc",
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+        "ttlt_12_2016_ttlt_btp_bng_tandtc",
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
       ],
       "forms": [
@@ -29793,6 +31923,32 @@
         "type_year"
       ],
       "ambiguous": true,
+      "requires_identity_context": true
+    },
+    "ttlt 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT 2019"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "ttlt 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT 2025"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
       "requires_identity_context": true
     },
     "ttlt 3": {
@@ -29899,6 +32055,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt so 01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT số 01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT số 01/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt so 03 2016": {
       "document_ids": [
         "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
@@ -29953,7 +32135,8 @@
     },
     "ttlt so 1": {
       "document_ids": [
-        "ttlt_01_2016_ttlt_tandtc"
+        "ttlt_01_2016_ttlt_tandtc",
+        "ttlt_01_2019_ttlt_tandtc_bng"
       ],
       "forms": [
         "TTLT số 1"
@@ -29961,7 +32144,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "ttlt so 1 2016": {
@@ -29990,9 +32173,75 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt so 1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT số 1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT số 1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 12": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT số 12"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "ttlt so 12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT số 12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT số 12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt so 13": {
       "document_ids": [
-        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
+        "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
       ],
       "forms": [
         "TTLT số 13"
@@ -30000,7 +32249,7 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
     },
     "ttlt so 13 2016": {
@@ -30022,6 +32271,32 @@
       ],
       "forms": [
         "TTLT số 13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT số 13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt so 13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT số 13/2025/TTLT-BTP-BNG-TANDTC"
       ],
       "kinds": [
         "type_number"
@@ -30185,6 +32460,32 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt01 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT01/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt01 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT01/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt03": {
       "document_ids": [
         "ttlt_06_2012_ttlt_btp_bng"
@@ -30250,6 +32551,19 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt06": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT06"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt06 2012": {
       "document_ids": [
         "ttlt_06_2012_ttlt_btp_bng"
@@ -30272,6 +32586,32 @@
       ],
       "kinds": [
         "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt07": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT07"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt08": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT08"
+      ],
+      "kinds": [
+        "file_code"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -30302,6 +32642,58 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "ttlt1 2019": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT1/2019"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt1 2019 ttlt tandtc bng": {
+      "document_ids": [
+        "ttlt_01_2019_ttlt_tandtc_bng"
+      ],
+      "forms": [
+        "TTLT1/2019/TTLT-TANDTC-BNG"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt12 2016": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT12/2016"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt12 2016 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_12_2016_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT12/2016/TTLT-BTP-BNG-TANDTC"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "ttlt13 2016": {
       "document_ids": [
         "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca"
@@ -30321,6 +32713,32 @@
       ],
       "forms": [
         "TTLT13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt13 2025": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT13/2025"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "ttlt13 2025 ttlt btp bng tandtc": {
+      "document_ids": [
+        "ttlt_13_2025_ttlt_btp_bng_tandtc"
+      ],
+      "forms": [
+        "TTLT13/2025/TTLT-BTP-BNG-TANDTC"
       ],
       "kinds": [
         "type_number"

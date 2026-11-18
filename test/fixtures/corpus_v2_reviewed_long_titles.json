@@ -778,6 +778,32 @@
         }
       ],
       "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+      "article_number": "1",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2025-ttlt-btp-bng-tandtc-46209.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part03.doc",
+          "sha256": "44e0bdfcd0b9ad66c15280a87f651cf458fe6d1cb9db7907224088bd21f77099"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+      "article_number": "2",
+      "expected_title": "Sửa đổi, bổ sung một số biểu mẫu ban hành kèm theo Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2025-ttlt-btp-bng-tandtc-46209.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.part03.doc",
+          "sha256": "44e0bdfcd0b9ad66c15280a87f651cf458fe6d1cb9db7907224088bd21f77099"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
     }
   ]
 }

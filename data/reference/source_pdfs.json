@@ -390,6 +390,55 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/l_102_2025_qh15.pdf",
+      "document_id": "l_102_2025_qh15",
+      "sha256": "9b43a7aeab6d73fa2c34aee86028808c905dd174d9db4d32d84a0f38917995a7",
+      "bytes": 78771,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.pdf",
+      "document_id": "nd_158_2026_nd_cp",
+      "sha256": "5de0e6f9daa678c89facffe256d850eaafa79a8a8da1cfc2936d94560b58fb49",
+      "bytes": 76648,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
+      "document_id": "tt_02_2020_tt_tandtc",
+      "sha256": "dc13feb0dbd1d71efd9a6e8507afb6cf6f9ca2b11986a815fac7fcecf6e6f416",
+      "bytes": 69318,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
+      "document_id": "tt_03_2020_tt_tandtc",
+      "sha256": "a1026fd6336e65794e7d3f0d13bafdc9115058df90ec2435062c731edf253071",
+      "bytes": 63724,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.pdf",
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "sha256": "fbd73c2e0ad5d6695f700d3d95f951798668f2c5411480ab21265f9a13c7e3ed",
+      "bytes": 77359,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
+      "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
+      "sha256": "8c8a70513fda11798b1cb5eaa719de7a38069630fa24189d8c42881a8d38ab0c",
+      "bytes": 82421,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
+      "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+      "sha256": "5f612f1cb892cc569e5126c8f913db1a3a3744db311a39bf7fdd95145428c422",
+      "bytes": 61626,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_282_2025_nd_cp.pdf",
       "document_id": "nd_282_2025_nd_cp",
       "sha256": "5c365e82a35911b5b7f26d29d860147f4d27c122c10ee6658f7afbe1ca64791c",

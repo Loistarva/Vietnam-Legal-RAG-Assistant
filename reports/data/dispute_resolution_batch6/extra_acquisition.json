@@ -1,0 +1,26 @@
+[
+  {
+    "document_id": "tt_07_2026_tt_btp",
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=218261&pageid=27160",
+    "html_path": "data/source_documents/dispute_resolution_batch6/tt_07_2026_tt_btp.html",
+    "properties": {
+      "Số ký hiệu": "07/2026/TT-BTP",
+      "Ngày ban hành": "16-05-2026",
+      "Ngày có hiệu lực": "01-07-2026",
+      "Loại văn bản": "Thông tư",
+      "Cơ quan ban hành": "Bộ Tư pháp",
+      "Người ký": "Hoàng Thanh Tùng",
+      "Trích yếu": "Về trình tự, thủ tục thu, nộp chi phí thực tế, thực hiện tống đạt giấy tờ của nước ngoài và các mẫu văn bản trong tương trợ tư pháp về dân sự",
+      "Tài liệu đính kèm": "07-btp.pdf"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/tt_07_2026_tt_btp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/5/07-btp.pdf",
+        "sha256": "590a221d438e0acc6a875931b37b2d7a85c67c06572d742f70a8c9ea27d5610b",
+        "bytes": 6054145
+      }
+    ],
+    "errors": []
+  }
+]

@@ -50,3 +50,28 @@ parser/extracted_texts_qwen/nd_282_2025_nd_cp.txt text eol=lf
 parser/parsed_jsons/nd_347_2026_nd_cp.json text eol=lf
 parser/cleaned_texts/nd_347_2026_nd_cp.txt text eol=lf
 parser/extracted_texts_qwen/nd_347_2026_nd_cp.txt text eol=lf
+
+# Preserve dispute resolution source bytes and normalized text hashes.
+data/source_documents/dispute_resolution_batch6/* -text
+data/staging/dispute_resolution_batch6/**/*.txt text eol=lf
+parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json text eol=lf
+parser/cleaned_texts/ttlt_13_2025_ttlt_btp_bng_tandtc.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_13_2025_ttlt_btp_bng_tandtc.txt text eol=lf
+parser/parsed_jsons/tt_03_2020_tt_tandtc.json text eol=lf
+parser/cleaned_texts/tt_03_2020_tt_tandtc.txt text eol=lf
+parser/extracted_texts_qwen/tt_03_2020_tt_tandtc.txt text eol=lf
+parser/parsed_jsons/tt_02_2020_tt_tandtc.json text eol=lf
+parser/cleaned_texts/tt_02_2020_tt_tandtc.txt text eol=lf
+parser/extracted_texts_qwen/tt_02_2020_tt_tandtc.txt text eol=lf
+parser/parsed_jsons/ttlt_01_2019_ttlt_tandtc_bng.json text eol=lf
+parser/cleaned_texts/ttlt_01_2019_ttlt_tandtc_bng.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_01_2019_ttlt_tandtc_bng.txt text eol=lf
+parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json text eol=lf
+parser/cleaned_texts/ttlt_12_2016_ttlt_btp_bng_tandtc.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_12_2016_ttlt_btp_bng_tandtc.txt text eol=lf
+parser/parsed_jsons/l_102_2025_qh15.json text eol=lf
+parser/cleaned_texts/l_102_2025_qh15.txt text eol=lf
+parser/extracted_texts_qwen/l_102_2025_qh15.txt text eol=lf
+parser/parsed_jsons/nd_158_2026_nd_cp.json text eol=lf
+parser/cleaned_texts/nd_158_2026_nd_cp.txt text eol=lf
+parser/extracted_texts_qwen/nd_158_2026_nd_cp.txt text eol=lf

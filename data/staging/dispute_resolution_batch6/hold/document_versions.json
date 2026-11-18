@@ -1,0 +1,114 @@
+[
+  {
+    "document_id": "ttlt_02_2016_ttlt_vksndtc_tandtc",
+    "document_number": "02/2016/TTLT-VKSNDTC-TANDTC",
+    "file_code": "TTLT09",
+    "title": "quy định việc phối hợp giữa Viện kiểm sát nhân dân và Tòa án nhân dân trong việc thi hành một số quy định của Bộ luật tố tụng dân sự",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-08-31",
+    "effective_date": "2016-10-18",
+    "issuing_body": "Viện Kiểm Sát Nhân Dân Tối Cao - Tòa Án Nhân Dân Tối Cao",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-vksndtc-tandtc-21045.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/ttlt_02_2016_ttlt_vksndtc_tandtc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/8/21045/15518-1-022016ttlt-vksndtc-tandtc15575pdf",
+        "sha256": "315a9424faa9dd269d2a8f486e8fd3e639a1444775af7a1cc5a6ade34702f8f8",
+        "bytes": 448202
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/ttlt_02_2016_ttlt_vksndtc_tandtc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-vksndtc-tandtc-21045.htm",
+        "sha256": "b5df3286f6fd82056eaf317a3926c5c0b5603dd8d44337a1388d413d12c41705",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "candidate_normalized_pdf_path": "data/staging/dispute_resolution_batch6/compatibility/normalized_pdf/ttlt_02_2016_ttlt_vksndtc_tandtc.pdf",
+    "hold_reason": "Original Article18 heading is81 words, beyond current parser MAX_TITLE_WORDS80; parser truncates title to Gửi quyết định của. Preserve full original/normalized PDF, do not change parser or mislabel the heading."
+  },
+  {
+    "document_id": "nd_16_2021_nd_cp",
+    "document_number": "16/2021/NĐ-CP",
+    "file_code": "ND41",
+    "title": "Quy định chi tiết mức thu, trình tự, thủ tục thu, nộp, việc quản lý, sử dụng chi phí hòa giải, đối thoại tại Tòa án và thù lao Hòa giải viên tại Tòa án",
+    "document_type": "Nghị định",
+    "issue_date": "2021-03-03",
+    "effective_date": "2021-03-03",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=202743&pageid=27160",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/nd_16_2021_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2021/03/16.signed.pdf",
+        "sha256": "2c28de519056e65de980b80b2e65e0950062a0868187cb3cb2b7ab1c4f90f3e6",
+        "bytes": 373874
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/nd_16_2021_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=202743&pageid=27160",
+        "sha256": "96e5daa1d376f2b359a0c8c2f791c8b0a2b73987ab2df65c313b2f4d290d93c4",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Official source lacks complete native text or has footnotes/revisions requiring review; preserve original, do not ingest incomplete text."
+  },
+  {
+    "document_id": "tt_07_2026_tt_btp",
+    "document_number": "07/2026/TT-BTP",
+    "file_code": "TT43",
+    "title": "Về trình tự, thủ tục thu, nộp chi phí thực tế, thực hiện tống đạt giấy tờ của nước ngoài và các mẫu văn bản trong tương trợ tư pháp về dân sự",
+    "document_type": "Thông tư",
+    "issue_date": "2026-05-16",
+    "effective_date": "2026-07-01",
+    "issuing_body": "Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=218261&pageid=27160",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/dispute_resolution_batch6/tt_07_2026_tt_btp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/5/07-btp.pdf",
+        "sha256": "590a221d438e0acc6a875931b37b2d7a85c67c06572d742f70a8c9ea27d5610b",
+        "bytes": 6054145
+      },
+      {
+        "source_path": "data/source_documents/dispute_resolution_batch6/tt_07_2026_tt_btp.html",
+        "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=218261&pageid=27160",
+        "sha256": "14acba232ca7322451e4e3dffac471da20fb82d86d5a33011df051a19e4ab103",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "dispute_resolution_batch6",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Official source lacks complete native text or has footnotes/revisions requiring review; preserve original, do not ingest incomplete text."
+  }
+]

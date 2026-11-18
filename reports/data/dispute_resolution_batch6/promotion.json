@@ -1,0 +1,20 @@
+{
+  "active_before": 86,
+  "new_active": 7,
+  "active_after": 93,
+  "held_reviewed": 3,
+  "active_ids": [
+    "ttlt_13_2025_ttlt_btp_bng_tandtc",
+    "tt_03_2020_tt_tandtc",
+    "tt_02_2020_tt_tandtc",
+    "ttlt_01_2019_ttlt_tandtc_bng",
+    "ttlt_12_2016_ttlt_btp_bng_tandtc",
+    "l_102_2025_qh15",
+    "nd_158_2026_nd_cp"
+  ],
+  "held_ids": [
+    "ttlt_02_2016_ttlt_vksndtc_tandtc",
+    "nd_16_2021_nd_cp",
+    "tt_07_2026_tt_btp"
+  ]
+}
