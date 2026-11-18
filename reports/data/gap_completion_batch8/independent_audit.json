@@ -1,0 +1,15 @@
+{
+  "baseline": "8d0af49",
+  "registry_before": 94,
+  "registry_after": 99,
+  "old_registry_records_unchanged": true,
+  "old_children_unchanged": 6406,
+  "children_after": 6549,
+  "new_children": 143,
+  "old_parents_unchanged": 2760,
+  "parents_after": 2814,
+  "new_parents": 54,
+  "held_isolated": true,
+  "new_scope_articles_exact": true,
+  "parser_replay": "PASS"
+}

@@ -82,3 +82,25 @@ data/staging/local_documents_batch7/**/*.txt text eol=lf
 parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json text eol=lf
 parser/cleaned_texts/nq_38_2026_nq_hdnd_ho_chi_minh.txt text eol=lf
 parser/extracted_texts_qwen/nq_38_2026_nq_hdnd_ho_chi_minh.txt text eol=lf
+
+# Preserve gap-completion official source bytes and normalized text hashes.
+data/source_documents/gap_completion_batch8/* -text -diff
+data/staging/gap_completion_batch8/**/*.txt text eol=lf
+parser/parsed_jsons/l_73_2006_qh11.json text eol=lf
+parser/cleaned_texts/l_73_2006_qh11.txt text eol=lf
+parser/extracted_texts_qwen/l_73_2006_qh11.txt text eol=lf
+parser/parsed_jsons/l_24_2008_qh12.json text eol=lf
+parser/cleaned_texts/l_24_2008_qh12.txt text eol=lf
+parser/extracted_texts_qwen/l_24_2008_qh12.txt text eol=lf
+parser/parsed_jsons/ttlt_05_2015_ttlt_btp_bca_byt.json text eol=lf
+parser/cleaned_texts/ttlt_05_2015_ttlt_btp_bca_byt.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_05_2015_ttlt_btp_bca_byt.txt text eol=lf
+parser/parsed_jsons/l_68_2020_qh14.json text eol=lf
+parser/cleaned_texts/l_68_2020_qh14.txt text eol=lf
+parser/extracted_texts_qwen/l_68_2020_qh14.txt text eol=lf
+parser/parsed_jsons/l_11_2017_qh14.json text eol=lf
+parser/cleaned_texts/l_11_2017_qh14.txt text eol=lf
+parser/extracted_texts_qwen/l_11_2017_qh14.txt text eol=lf
+
+# Preserve the retired negative-set snapshot byte-for-byte.
+evaluation/negative_set/history/dev_negative_v4_corpus94_8d0af49/* -text -diff

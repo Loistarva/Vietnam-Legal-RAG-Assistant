@@ -1,3 +1,5 @@
+Bản hiện tại: **v5 cho corpus99**, xem `dev_negative_manifest_v5.json`. Giữ26 câu; thay NEG_DEV_030–032 bằng033–035. Bản v4 gốc đã lưu nguyên byte trong `history/dev_negative_v4_corpus94_8d0af49/`. Tên v2 và v4 là alias tương thích chứa cùng nội dung v5, không sửa code/test logic. Các ca nghỉ ở `review/retired_missing_sources_corpus99.json`; vẫn chờ Dev2 và Tech Lead duyệt.
+
 > B?n hi?n h?nh cho corpus57: **v4**, xem [validation_report_v4.md](validation_report_v4.md). C?c t?n file `*_v2` l? entrypoint t??ng th?ch v?i validator hi?n c?, n?i dung gi?ng `*_v4`; b?n v2 nguy?n g?c n?m trong `history/dev_negative_v2_corpus28_4106ff0/`. V3 v? ph?n m? t? ph?a d??i l? l?ch s?. Tr?ng th?i v?n `pending_peer_review`.
 
 # Bản bàn giao hiện tại: v3 cho corpus 41 văn bản

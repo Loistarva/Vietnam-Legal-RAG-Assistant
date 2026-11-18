@@ -1,0 +1,68 @@
+[
+  {
+    "group": "P0-A",
+    "item": "35/2000/QH10",
+    "status": "held",
+    "reason": "Original numbered sections are not Article structure; do not invent Articles."
+  },
+  {
+    "group": "P1-nationality",
+    "item": "24/2008/QH12",
+    "status": "partially_filled",
+    "reason": "Only9,10,15,17,18 chunked;16,35–37 and nationality procedure chain still require reviewed amendment scope."
+  },
+  {
+    "group": "P1-nationality",
+    "item": "56/2014/QH13;79/2025/QH15;191/2025/NĐ-CP;12/2025/TT-BTP",
+    "status": "open_chain_review",
+    "reason": "First two originals held this batch; implementing regime and family-specific amendments not fully prepared. Do not count as current-law closure."
+  },
+  {
+    "group": "P1-enforcement",
+    "item": "26/2008/QH12 and amendments;62/2015/NĐ-CP and amendments",
+    "status": "open",
+    "reason": "Need verified current child-delivery and maintenance-enforcement provisions; no full out-of-domain law ingestion."
+  },
+  {
+    "group": "P1-health",
+    "item": "15/2023/QH15;75/2006/QH11",
+    "status": "open",
+    "reason": "Select only reproductive-support and donor-related family provisions after source/scope review."
+  },
+  {
+    "group": "P1-residence",
+    "item": "68/2020/QH14;118/2025/QH15",
+    "status": "partially_filled",
+    "reason": "Only13,14,18,38 of original residence law chunked; amended child residence and registration withheld."
+  },
+  {
+    "group": "P2-criminal",
+    "item": "100/2015/QH13 and amendments",
+    "status": "open",
+    "reason": "Only HNGD crimes181–187 intended; no general criminal-law expansion."
+  },
+  {
+    "group": "P2-property",
+    "item": "31/2024/QH15;27/2023/QH15",
+    "status": "open",
+    "reason": "Only family common-property/certificate rules intended; detailed scope/current amendments still need review."
+  },
+  {
+    "group": "P2-equality",
+    "item": "73/2006/QH11",
+    "status": "filled_selected_scope",
+    "reason": "Family equality18 and family responsibility33 plus necessary general/implementation Articles."
+  },
+  {
+    "group": "P2-legal-aid",
+    "item": "11/2017/QH14;53/2024/QH15;59/2024/QH15;05/2026/QH16",
+    "status": "partially_filled",
+    "reason": "Rights and forms added; eligibility7 withheld pending amendment review.05/2026 starts2027-01-01, held as future."
+  },
+  {
+    "group": "parser_blockers",
+    "item": "Existing held inventory",
+    "status": "external_code_or_review_dependency",
+    "reason": "Yearless/lettered IDs, duplicate Article namespaces, missing titles, long titles, tables/scans and unsupported document types remain. See remaining_held_inventory.json."
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "document_id": "l_73_2006_qh11",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "l_24_2008_qh12",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "l_68_2020_qh14",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "l_11_2017_qh14",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  }
+]

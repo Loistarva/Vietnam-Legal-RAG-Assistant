@@ -1,0 +1,168 @@
+[
+  {
+    "document_id": "l_79_2025_qh15",
+    "document_number": "79/2025/QH15",
+    "file_code": "L18",
+    "title": "luật sửa đổi, bổ sung một số điều của Luật Quốc tịch Việt Nam",
+    "document_type": "Luật",
+    "issue_date": "2025-06-24",
+    "effective_date": "2025-07-01",
+    "issuing_body": "Quốc Hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-79-2025-qh15-45509.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/gap_completion_batch8/l_79_2025_qh15.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45509/57576-1-2025951-95279-2025-qh15.pdf",
+        "sha256": "c3325e44100d1afe1399ecba78ab2431b3f7c212640d6fe9b3584daefa8c1825",
+        "bytes": 362877
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_79_2025_qh15.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRi_nsuN5SdM2IhDDkOnlC3cHHW04YT6M95mtLJNYnrQF16UPSyzaPgt2R8FkraPM1qQ0OUrQOTERt1Kkvvk5KiQ~~&file_name=2025_951+%2b+952_79-2025-QH15.doc",
+        "sha256": "6c0a829023f97a1c889579eb6a73ab2f0fba454c1e73eb3207e82bd44f8301bb",
+        "bytes": 531968
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_79_2025_qh15.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-79-2025-qh15-45509.htm",
+        "sha256": "047a7d7e72bfd5c72a8b2029b2fc8928adc1e2d152dd26b3650bc90195bf454d",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "gap_completion_batch8",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Article1 mixes amendments to nationality acquisition, loss, public office and family matters. Existing scope supports whole Articles only; preserve original and full archive PDF, do not index unrelated amendments as HNGD."
+  },
+  {
+    "document_id": "l_05_2026_qh16",
+    "document_number": "05/2026/QH16",
+    "file_code": "L21",
+    "title": "Luật sửa đổi, bổ sung một số điều của Luật Trợ giúp pháp lý",
+    "document_type": "Luật",
+    "issue_date": "2026-04-23",
+    "effective_date": "2027-01-01",
+    "issuing_body": "Quốc Hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-05-2026-qh16-469532.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/gap_completion_batch8/l_05_2026_qh16.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/5/27/469532-1779268207_v1_1779843062_signed.pdf",
+        "sha256": "a236d2c3dd263902c8056b9506f2ed7ad4deaee6b325d52051168a9de28ef25e",
+        "bytes": 629763
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_05_2026_qh16.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwHrDeggv8ecu2g23wsbYpL2GVtpC-lyGAKhO-siqCNvHGwKoy68BXUw96N_CDOCty-PlgPBA09VnTIHAiooC27Q~~&file_name=2026_285_05%2f2026%2fQH16.docx",
+        "sha256": "c9f97c152da63c95a3efbcd2a2881529cbf70c89b08038464888ad09effd0376",
+        "bytes": 72698
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_05_2026_qh16.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-05-2026-qh16-469532.htm",
+        "sha256": "43bd95ae885e07cffc668413d18902a1598eee99bbc094736c1f06a4cb080945",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "gap_completion_batch8",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Effective2027-01-01 per Article3 and Gazette metadata; future law held outside current active registry. No early application of expanded legal-aid eligibility."
+  },
+  {
+    "document_id": "l_56_2014_qh13",
+    "document_number": "56/2014/QH13",
+    "file_code": "L22",
+    "title": "LUẬT SỬA ĐỔI, BỔ SUNG MỘT SỐ ĐIỀU CỦA LUẬT QUỐC TỊCH VIỆT NAM",
+    "document_type": "Luật",
+    "issue_date": "2014-06-24",
+    "effective_date": "2014-06-26",
+    "issuing_body": "Quốc Hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?docid=175354&pageid=27160",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/gap_completion_batch8/l_56_2014_qh13.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2014/08/56_sua_quoctich.signed.pdf",
+        "sha256": "b4f4b1aa5ce3c40806d1b8cf406d65dc857aed7dfbb077191b450fbe3a04a8d1",
+        "bytes": 170427
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_56_2014_qh13.html",
+        "source_url": "https://vanban.chinhphu.vn/?docid=175354&pageid=27160",
+        "sha256": "cbbce8dba5bf6deda9f5ecc86b59659da368c1717ed383d084cd5e7f2a4a4d03",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "gap_completion_batch8",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Signed original has no complete native text. Preserve PDF; no unverified OCR ingestion."
+  },
+  {
+    "document_id": "l_118_2025_qh15",
+    "document_number": "118/2025/QH15",
+    "file_code": "L23",
+    "title": "Luật sửa đổi, bổ sung một số điều của 10 Luật có liên quan đến an ninh, trật tự",
+    "document_type": "Luật",
+    "issue_date": "2025-12-10",
+    "effective_date": "2026-07-01",
+    "issuing_body": "Quốc Hội",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-118-2025-qh15-468680.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/gap_completion_batch8/l_118_2025_qh15.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/1/23/118signed-17691635738211760822134.pdf",
+        "sha256": "5f8d088496958e23d8f86b91876a4a932f92187ef970f176e07869be97d0ad1d",
+        "bytes": 584142
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_118_2025_qh15.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwE9HGhPbAjrwnKKRqigs_whPfR9Np-x4LFQugqhay2uUmW9HrAzbL66i6D8WSd8rY&file_name=2026_35_118%2f2025%2fQH15.docx",
+        "sha256": "1ac1d3341302353e1160c162282459f3d6e32f6c256f463151ce628cc27e3c4f",
+        "bytes": 85787
+      },
+      {
+        "source_path": "data/source_documents/gap_completion_batch8/l_118_2025_qh15.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-118-2025-qh15-468680.htm",
+        "sha256": "a2a4bdb9cd290ff943ce894d5b7296705ea48309d1e3e33e6b8b1855b03a0e4b",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "gap_completion_batch8",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Omnibus law changes10 laws. Preserve as amendment evidence; only whole-Article scoping is supported. Base residence Articles12,20 and related procedures withheld pending precise current family-rule review."
+  }
+]

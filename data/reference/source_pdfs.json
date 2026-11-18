@@ -502,6 +502,41 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_11_2017_qh14.pdf",
+      "document_id": "l_11_2017_qh14",
+      "sha256": "23c8ce4cc2665f29a319ea67fdc034bd23e6c2d2eb996434a9ac15acfca569e7",
+      "bytes": 94032,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_24_2008_qh12.pdf",
+      "document_id": "l_24_2008_qh12",
+      "sha256": "0823beac5a297b1f38e18ec754af03dbabc54ea5a381a8e34e5d455a8475c841",
+      "bytes": 82952,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_68_2020_qh14.pdf",
+      "document_id": "l_68_2020_qh14",
+      "sha256": "4f781987f6db709067bce5ffd4d27ab9446a94633c7dab7e2745acad8c6f9c40",
+      "bytes": 98886,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_73_2006_qh11.pdf",
+      "document_id": "l_73_2006_qh11",
+      "sha256": "3521f97e2518c7aaec2f68805714f78a8c079adae09025c346d83b96f7322c5a",
+      "bytes": 82924,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/ttlt_05_2015_ttlt_btp_bca_byt.pdf",
+      "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+      "sha256": "049dce795754fceda12d68578410ca328dffed07adeca93a46784bde5dc5620f",
+      "bytes": 73565,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/history_batch2/l_02_2007_qh12.pdf",
       "document_id": "l_02_2007_qh12",
       "sha256": "e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",

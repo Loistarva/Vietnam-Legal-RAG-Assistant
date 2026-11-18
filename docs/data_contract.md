@@ -363,3 +363,8 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **L15** | `l_102_2025_qh15` | 102/2025/QH15 | Không xác định | Luật Tương trợ tư pháp dân sự |
 | **ND40** | `nd_158_2026_nd_cp` | 158/2026/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự |
 | **NQ03** | `nq_38_2026_nq_hdnd_ho_chi_minh` | 38/2026/NQ-HĐND | Còn hiệu lực | Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh |
+| **L16** | `l_73_2006_qh11` | 73/2006/QH11 | Không xác định | Luật Bình đẳng giới |
+| **L17** | `l_24_2008_qh12` | 24/2008/QH12 | Không xác định | LUẬT QUỐC TỊCH VIỆT NAM |
+| **TTLT09** | `ttlt_05_2015_ttlt_btp_bca_byt` | 05/2015/TTLT-BTP-BCA-BYT | Không xác định | hướng dẫn thực hiện liên thông các thủ tục hành chính về đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi |
+| **L19** | `l_68_2020_qh14` | 68/2020/QH14 | Không xác định | luật Cư trú |
+| **L20** | `l_11_2017_qh14` | 11/2017/QH14 | Không xác định | luật Trợ giúp pháp lý |

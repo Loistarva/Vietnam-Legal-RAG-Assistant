@@ -1,0 +1,670 @@
+{
+  "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+  "metadata": {
+    "title": "hướng dẫn thực hiện liên thông các thủ tục hành chính về đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi",
+    "document_type": "Thông tư liên tịch",
+    "document_number": "05/2015/TTLT-BTP-BCA-BYT",
+    "issue_date": "2015-05-15",
+    "effective_date": "2015-07-01",
+    "issuing_body": "Bộ Y Tế - Bộ Công An - Bộ Tư Pháp",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-05-2015-ttlt-btp-bca-byt-12725.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review"
+  },
+  "articles": [
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_1",
+      "article_number": "1",
+      "article_title": "Phạm vi điều chỉnh",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_1_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_1",
+          "clause_number": "1",
+          "clause_text": "Thông tư liên tịch này hướng dẫn về nguyên tắc, hồ sơ, quy trình và trách nhiệm của các cơ quan nhà nước, cán bộ, công chức, viên chức có liên quan đến việc tiếp nhận, chuyển giao, giải quyết hồ sơ và trả kết quả trong quá trình thực hiện liên thông các thủ tục hành chính về đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi hoặc đăng ký khai sinh, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi (sau đây gọi chung là liên thông các thủ tục hành chính) khi việc đăng ký khai sinh cho trẻ em dưới 6 tuổi thuộc thẩm quyền giải quyết của Ủy ban nhân dân xã, phường, thị trấn (sau đây gọi chung là Ủy ban nhân dân cấp xã).",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2",
+      "article_number": "2",
+      "article_title": "Đối tượng áp dụng",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": "Thông tư liên tịch này áp dụng đối với:",
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2",
+          "clause_number": "1",
+          "clause_text": "1. Cơ quan đăng ký khai sinh, đăng ký cư trú, cấp thẻ bảo hiểm y tế.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2",
+          "clause_number": "2",
+          "clause_text": "2. Cá nhân có yêu cầu thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_2",
+          "clause_number": "3",
+          "clause_text": "3. Các cơ quan, tổ chức, cá nhân có liên quan trong quá trình thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3",
+      "article_number": "3",
+      "article_title": "Nguyên tắc thực hiện liên thông các thủ tục hành chính",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3",
+          "clause_number": "1",
+          "clause_text": "1. Tuân thủ quy định của Thông tư liên tịch này và các văn bản pháp luật khác có liên quan.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3",
+          "clause_number": "2",
+          "clause_text": "2. Cá nhân có yêu cầu thực hiện liên thông các thủ tục hành chính có quyền lựa chọn áp dụng hoặc không áp dụng thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3",
+          "clause_number": "3",
+          "clause_text": "3. Tạo điều kiện thuận lợi, giảm thiểu chi phí cho cá nhân trong việc thực hiện đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_3",
+          "clause_number": "4",
+          "clause_text": "4. Bảo đảm kịp thời, đúng thời hạn theo quy định của pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4",
+      "article_number": "4",
+      "article_title": "Cơ quan thực hiện liên thông các thủ tục hành chính",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp xã thực hiện đăng ký khai sinh cho trẻ em dưới 6 tuổi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4",
+          "clause_number": "2",
+          "clause_text": "2. Cơ quan đăng ký cư trú cho trẻ em dưới 6 tuổi, cụ thể như sau: a) Công an xã, thị trấn thuộc huyện thuộc tỉnh đăng ký thường trú cho trẻ em dưới 6 tuổi trên địa bàn xã, thị trấn của huyện thuộc tỉnh; b) Công an thị xã, thành phố thuộc tỉnh đăng ký thường trú cho trẻ em dưới 6 tuổi trên địa bàn thị xã, thành phố thuộc tỉnh; c) Công an quận, huyện, thị xã thuộc thành phố trực thuộc Trung ương đăng ký thường trú cho trẻ em dưới 6 tuổi trên địa bàn quận, huyện, thị xã thuộc thành phố trực thuộc Trung ương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4",
+          "clause_number": "3",
+          "clause_text": "3. Bảo hiểm xã hội huyện, thị xã, thành phố thuộc tỉnh, Bảo hiểm xã hội huyện, quận, thị xã thuộc thành phố trực thuộc Trung ương (sau đây gọi chung là Bảo hiểm xã hội cấp huyện) cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_4",
+          "clause_number": "4",
+          "clause_text": "4. Các cơ quan có thẩm quyền thực hiện liên thông các thủ tục hành chính quy định tại các khoản 1, 2, 3 Điều này phải cùng thuộc địa bàn một huyện, thị xã, thành phố thuộc tỉnh hoặc cùng thuộc địa bàn một quận, huyện, thị xã thuộc thành phố trực thuộc Trung ương.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_5",
+      "article_number": "5",
+      "article_title": "Trách nhiệm của cơ quan thực hiện liên thông các thủ tục hành chính",
+      "chapter": "Chương I QUY ĐỊNH CHUNG",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_5_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_5",
+          "clause_number": "1",
+          "clause_text": "1. Ủy ban nhân dân cấp xã là đầu mối tiếp nhận hồ sơ, trả kết quả giải quyết liên thông các thủ tục hành chính; chịu trách nhiệm về tính đầy đủ và hợp lệ của hồ sơ thực hiện liên thông các thủ tục hành chính; đăng ký khai sinh cho trẻ em dưới 6 tuổi; lập và chuyển hồ sơ cho cơ quan có thẩm quyền đăng ký thường trú và Bảo hiểm xã hội cấp huyện để cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_5_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_5",
+          "clause_number": "2",
+          "clause_text": "2. Cơ quan đăng ký cư trú quy định tại khoản 2 Điều 4 Thông tư liên tịch này và Bảo hiểm xã hội cấp huyện chịu trách nhiệm giải quyết thủ tục hành chính thuộc thẩm quyền của cơ quan mình.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+      "article_number": "6",
+      "article_title": "Hồ sơ thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": "Hồ sơ thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi gồm các giấy tờ sau đây:",
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+          "clause_number": "1",
+          "clause_text": "1. Tờ khai đăng ký khai sinh theo mẫu quy định.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+          "clause_number": "2",
+          "clause_text": "2. Giấy chứng sinh do cơ sở y tế nơi trẻ em sinh ra cấp; nếu trẻ em sinh ra ngoài cơ sở y tế thì giấy chứng sinh được thay bằng văn bản xác nhận của người làm chứng; trường hợp không có người làm chứng thì người đi khai sinh phải làm giấy cam đoan về việc sinh là có thực. Đối với trường hợp trẻ em bị bỏ rơi thì nộp biên bản về việc trẻ em bị bỏ rơi thay cho giấy chứng sinh. Trường hợp đăng ký khai sinh cho trẻ em sinh ra do mang thai hộ thì nộp thêm văn bản chứng minh việc mang thai hộ theo quy định của pháp luật.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+          "clause_number": "3",
+          "clause_text": "3. Phiếu báo thay đổi hộ khẩu, nhân khẩu (theo mẫu quy định).",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+          "clause_number": "4",
+          "clause_text": "4. Sổ hộ khẩu. Trường hợp trẻ em có cha, mẹ nhưng không đăng ký thường trú cùng cha, mẹ mà đăng ký thường trú cùng với người khác thì phải có ý kiến bằng văn bản của cha, mẹ, có xác nhận của Ủy ban nhân dân cấp xã; ý kiến đồng ý của chủ hộ và Sổ hộ khẩu của chủ hộ.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6_clause_5",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_6",
+          "clause_number": "5",
+          "clause_text": "5. Tờ khai tham gia bảo hiểm y tế theo mẫu quy định.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_7",
+      "article_number": "7",
+      "article_title": "Hồ sơ thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, cấp thẻ bảo hiểm y tế",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_7_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_7",
+          "clause_number": "1",
+          "clause_text": "Người có yêu cầu thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi phải nộp các loại giấy tờ quy định tại các khoản 1, 2, 5 Điều 6 Thông tư liên tịch này.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_8",
+      "article_number": "8",
+      "article_title": "Nộp hồ sơ thực hiện liên thông các thủ tục hành chính",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_8_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_8",
+          "clause_number": "1",
+          "clause_text": "1. Cá nhân có yêu cầu thực hiện liên thông các thủ tục hành chính nộp 01 bộ hồ sơ theo quy định tại Điều 6, Điều 7 Thông tư liên tịch này tại Ủy ban nhân dân cấp xã.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_8_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_8",
+          "clause_number": "2",
+          "clause_text": "2. Cá nhân có yêu cầu thực hiện liên thông các thủ tục hành chính không có điều kiện trực tiếp đến Ủy ban nhân dân cấp xã để nộp hồ sơ thì có thể ủy quyền cho người khác làm thay. Việc ủy quyền thực hiện theo quy định của pháp luật hiện hành.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9",
+      "article_number": "9",
+      "article_title": "Tiếp nhận hồ sơ",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9",
+          "clause_number": "1",
+          "clause_text": "1. Công chức tư pháp - hộ tịch của Ủy ban nhân dân cấp xã khi tiếp nhận hồ sơ có trách nhiệm kiểm tra hồ sơ; trên cơ sở danh sách cơ sở khám chữa bệnh ban đầu do cơ quan Bảo hiểm xã hội cung cấp được niêm yết tại Ủy ban nhân dân cấp xã, hướng dẫn người dân lựa chọn, đăng ký nơi khám chữa bệnh ban đầu. Việc hướng dẫn phải chính xác, đầy đủ và rõ ràng.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp người dân chưa có Tờ khai đăng ký khai sinh, Phiếu báo thay đổi hộ khẩu, nhân khẩu, Tờ khai tham gia bảo hiểm y tế thì công chức tư pháp - hộ tịch cấp cho người dân các mẫu giấy tờ đó theo quy định.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9",
+          "clause_number": "3",
+          "clause_text": "3. Trường hợp hồ sơ của người dân đầy đủ, đúng quy định tại Điều 6, Điều 7 Thông tư liên tịch này thì công chức tư pháp - hộ tịch có trách nhiệm tiếp nhận hồ sơ và tạm thu lệ phí để đăng ký thường trú cho trẻ em (nếu có); viết giấy nhận hồ sơ và hẹn trả kết quả cho người dân. Trong giấy hẹn trả kết quả phải ghi rõ yêu cầu của người dân, giấy tờ nộp trong hồ sơ và thời gian trả kết quả thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_9",
+          "clause_number": "4",
+          "clause_text": "4. Trường hợp yêu cầu thực hiện liên thông các thủ tục hành chính không thuộc thẩm quyền tiếp nhận, giải quyết của cơ quan mình theo quy định tại Thông tư liên tịch này thì công chức tư pháp - hộ tịch có trách nhiệm giải thích, hướng dẫn cụ thể để người dân đến đúng cơ quan có thẩm quyền giải quyết theo quy định của pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10",
+      "article_number": "10",
+      "article_title": "Thực hiện đăng ký khai sinh, lập và chuyển hồ sơ giải quyết đăng ký thường trú, cấp thẻ bảo hiểm y tế tại Ủy ban nhân dân cấp xã",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10",
+          "clause_number": "1",
+          "clause_text": "1. Ngay sau khi tiếp nhận hồ sơ, công chức tư pháp - hộ tịch của Ủy ban nhân dân cấp xã thực hiện đăng ký khai sinh ngay trong ngày; trường hợp hồ sơ tiếp nhận sau 15 giờ mà không giải quyết được ngay trong ngày thì tiến hành giải quyết trong ngày làm việc tiếp theo.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10",
+          "clause_number": "2",
+          "clause_text": "2. Sau khi đăng ký khai sinh xong, công chức tư pháp - hộ tịch của Ủy ban nhân dân cấp xã có trách nhiệm: a) Lập hồ sơ đăng ký thường trú cho trẻ em dưới 6 tuổi gồm các loại giấy tờ quy định tại các khoản 3, 4 Điều 6 Thông tư liên tịch này và bản sao Giấy khai sinh; b) Lập hồ sơ cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi gồm: Tờ khai tham gia bảo hiểm y tế, danh sách đề nghị cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi của Ủy ban nhân dân cấp xã theo mẫu quy định.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_10",
+          "clause_number": "3",
+          "clause_text": "3. Ủy ban nhân dân cấp xã có trách nhiệm chuyển hồ sơ và lệ phí đăng ký thường trú cho cơ quan có thẩm quyền đăng ký cư trú theo quy định tại khoản 2 Điều 4 Thông tư liên tịch này và chuyển hồ sơ cấp thẻ bảo hiểm y tế cho Bảo hiểm xã hội cấp huyện. Tùy thuộc điều kiện thực tế, Ủy ban nhân dân cấp xã có thể chuyển trước thông tin của người tham gia bảo hiểm y tế đến cơ quan Bảo hiểm xã hội cấp huyện thông qua mạng điện tử.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11",
+      "article_number": "11",
+      "article_title": "Giải quyết đăng ký thường trú cho trẻ em dưới 6 tuổi",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11",
+          "clause_number": "1",
+          "clause_text": "1. Ngay sau khi nhận được hồ sơ và lệ phí đăng ký thường trú (nếu có) do Ủy ban nhân dân cấp xã chuyển đến, cơ quan có thẩm quyền đăng ký cư trú kiểm tra tính hợp pháp, đầy đủ của hồ sơ. Trường hợp hồ sơ, lệ phí đầy đủ, đúng quy định thì trong thời hạn 15 ngày, kể từ ngày nhận đủ hồ sơ, cơ quan đăng ký cư trú thực hiện đăng ký thường trú cho trẻ em và trả kết quả đăng ký thường trú cùng biên lai thu lệ phí đăng ký thường trú (nếu có) cho Ủy ban nhân dân cấp xã để trả cho người dân. Người được giao chuyển hồ sơ của Ủy ban nhân dân cấp xã có trách nhiệm kiểm tra các thông tin được ghi trong Sổ hộ khẩu và ký nhận vào sổ theo dõi giải quyết hộ khẩu.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11",
+          "clause_number": "2",
+          "clause_text": "2. Trường hợp hồ sơ chưa đúng quy định thì ngay sau khi tiếp nhận hồ sơ, cơ quan đăng ký cư trú thông báo cho Ủy ban nhân dân cấp xã biết để hoàn thiện hồ sơ theo quy định và gửi lại cho cơ quan đăng ký cư trú để đăng ký thường trú cho trẻ em.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_11",
+          "clause_number": "3",
+          "clause_text": "3. Trường hợp hồ sơ không đủ điều kiện đăng ký thường trú thì cơ quan đăng ký cư trú có văn bản trả lời kèm theo hồ sơ trả lại cho Ủy ban nhân dân cấp xã biết để xử lý theo quy định.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12",
+      "article_number": "12",
+      "article_title": "Thực hiện cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi tại Bảo hiểm xã hội cấp huyện",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12",
+          "clause_number": "1",
+          "clause_text": "1. Bảo hiểm xã hội cấp huyện có trách nhiệm cung cấp danh sách cơ sở khám chữa bệnh ban đầu để niêm yết công khai tại Ủy ban nhân dân cấp xã.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12",
+          "clause_number": "2",
+          "clause_text": "2. Ngay sau khi nhận được hồ sơ do Ủy ban nhân dân cấp xã chuyển đến, Bảo hiểm xã hội cấp huyện có trách nhiệm kiểm tra hồ sơ đã nhận được. Trường hợp hồ sơ đầy đủ, đúng quy định thì trong thời hạn 10 ngày làm việc, kể từ ngày nhận đủ hồ sơ, Bảo hiểm xã hội cấp huyện thực hiện cấp thẻ bảo hiểm y tế cho trẻ em và chuyển cho Ủy ban nhân dân cấp xã tại Bộ phận một cửa của Bảo hiểm xã hội cấp huyện. Tùy điều kiện và tình hình thực tế, các địa phương có thể lựa chọn việc chuyển trả thẻ bảo hiểm y tế cho Ủy ban nhân dân cấp xã bằng các hình thức khác phù hợp.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_12",
+          "clause_number": "3",
+          "clause_text": "3. Trường hợp hồ sơ chưa đầy đủ hoặc chưa đúng quy định thì ngay sau khi nhận được hồ sơ, cơ quan Bảo hiểm xã hội cấp huyện thông báo cho Ủy ban nhân dân cấp xã biết để hoàn thiện hồ sơ và gửi lại cho cơ quan Bảo hiểm xã hội cấp huyện để cấp thẻ bảo hiểm y tế cho trẻ em. Trường hợp nhận hồ sơ sau 15 giờ thì thực hiện việc thông báo trong ngày làm việc tiếp theo.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_13",
+      "article_number": "13",
+      "article_title": "Thời hạn hoàn thiện hồ sơ",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_13_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_13",
+          "clause_number": "1",
+          "clause_text": "Sau khi nhận được thông báo của cơ quan đăng ký cư trú, cơ quan Bảo hiểm xã hội về việc hồ sơ chưa đầy đủ hoặc chưa đúng quy định, trong thời hạn chậm nhất là 02 ngày làm việc, công chức tư pháp - hộ tịch của Ủy ban nhân dân cấp xã có trách nhiệm kiểm tra, xem xét, tự hoàn thiện hồ sơ hoặc liên hệ với người dân để yêu cầu hoàn thiện hồ sơ; sau đó, chuyển lại hồ sơ cho cơ quan có thẩm quyền để đăng ký thường trú, chuyển lại hồ sơ cho Bảo hiểm xã hội cấp huyện để cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14",
+      "article_number": "14",
+      "article_title": "Thời hạn thực hiện liên thông các thủ tục hành chính và nhận kết quả",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14",
+          "clause_number": "1",
+          "clause_text": "1. Thời hạn thực hiên liên thông các thủ tục hành chính được tính từ ngày Ủy ban nhân dân cấp xã tiếp nhận hồ sơ, giao giấy nhận hồ sơ và hẹn trả kết quả cho người dân; trường hợp chưa có kết quả giải quyết đúng ngày hẹn do phải hoàn thiện hồ sơ, Ủy ban nhân dân cấp xã có trách nhiệm thông báo cho người dân biết và hẹn lại ngày trả kết quả.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14",
+          "clause_number": "2",
+          "clause_text": "2. Thời hạn thực hiện liên thông các thủ tục hành chính cụ thể như sau: a) Thời hạn thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi tối đa không quá 20 ngày làm việc, kể từ ngày nộp đủ hồ sơ theo quy định; b) Thời hạn thực hiện liên thông các thủ tục hành chính đăng ký khai sinh, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi tối đa không quá 15 ngày làm việc, kể từ ngày nộp đủ hồ sơ theo quy định; c) Trường hợp hồ sơ chưa đầy đủ hoặc chưa đúng quy định mà Ủy ban nhân dân cấp xã phải hoàn thiện hồ sơ theo yêu cầu của cơ quan đăng ký cư trú, cơ quan Bảo hiểm xã hội thì thời hạn giải quyết được kéo dài thêm không quá 02 ngày làm việc; d) Đối với các xã cách xa trụ sở cơ quan Bảo hiểm xã hội cấp huyện hoặc cơ quan đăng ký cư trú từ 50 km trở lên, giao thông đi lại khó khăn, chưa được kết nối Internet thì thời hạn trả kết quả được kéo dài thêm nhưng không quá 05 ngày làm việc; đ) Căn cứ vào tình hình thực tế, các địa phương có thể quy định cụ thể thời hạn thực hiện liên thông các thủ tục hành chính ngắn hơn thời hạn tối đa quy định tại các điểm a, b, c, d Khoản này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14",
+          "clause_number": "3",
+          "clause_text": "3. Người nộp hồ sơ đến Ủy ban nhân dân cấp xã, nơi đã nộp hồ sơ để nhận kết quả liên thông các thủ tục hành chính. Nếu người nộp hồ sơ có yêu cầu nhận kết quả thực hiện liên thông các thủ tục hành chính qua dịch vụ chuyển phát thì đăng ký với Ủy ban nhân dân cấp xã và phải trả phí dịch vụ chuyển phát.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_14",
+          "clause_number": "4",
+          "clause_text": "4. Trường hợp người nộp hồ sơ có yêu cầu nhận kết quả từng loại thủ tục trực tiếp tại cơ quan có thẩm quyền giải quyết thì khi nộp hồ sơ tại Ủy ban nhân dân cấp xã phải yêu cầu cụ thể để ghi vào phiếu hẹn và người nộp hồ sơ sẽ được trực tiếp nhận kết quả theo yêu cầu tại các cơ quan có thẩm quyền giải quyết.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_15",
+      "article_number": "15",
+      "article_title": "Kinh phí thực hiện liên thông các thủ tục hành chính",
+      "chapter": "Chương II HỒ SƠ, QUY TRÌNH TIẾP NHẬN, CHUYỂN GIAO, GIẢI QUYẾT VÀ TRẢ KẾT QUẢ THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_15_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_15",
+          "clause_number": "1",
+          "clause_text": "1. Kinh phí thực hiện liên thông các thủ tục hành chính do ngân sách nhà nước bảo đảm theo quy định hiện hành về phân cấp ngân sách nhà nước và các nguồn kinh phí hợp pháp khác.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_15_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_15",
+          "clause_number": "2",
+          "clause_text": "2. Hàng năm, căn cứ nhiệm vụ được giao tại Thông tư liên tịch này, các cơ quan, đơn vị xây dựng dự toán kinh phí thực hiện liên thông các thủ tục hành chính để tổng hợp chung vào dự toán kinh phí của cơ quan, đơn vị mình gửi cơ quan tài chính tổng hợp, trình cấp có thẩm quyền bố trí kinh phí thực hiện; đồng thời, có thể huy động nguồn tài trợ của các tổ chức, cá nhân trong và ngoài nước theo quy định của pháp luật.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16",
+      "article_number": "16",
+      "article_title": "Trách nhiệm của Bộ Tư pháp",
+      "chapter": "Chương III TRÁCH NHIỆM THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16",
+          "clause_number": "1",
+          "clause_text": "1. Chỉ đạo, kiểm tra, hướng dẫn triển khai thực hiện liên thông các thủ tục hành chính trong phạm vi quản lý nhà nước của ngành mình.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16",
+          "clause_number": "2",
+          "clause_text": "2. Chủ trì, phối hợp với Bộ Công an, Bộ Y tế, Bảo hiểm xã hội Việt Nam sơ kết, tổng kết việc thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_16",
+          "clause_number": "3",
+          "clause_text": "3. Báo cáo định kỳ, đột xuất theo yêu cầu của cơ quan có thẩm quyền.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17",
+      "article_number": "17",
+      "article_title": "Trách nhiệm của Bộ Công an, Bộ Y tế, Bảo hiểm xã hội Việt Nam",
+      "chapter": "Chương III TRÁCH NHIỆM THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17",
+          "clause_number": "1",
+          "clause_text": "1. Chỉ đạo, kiểm tra, hướng dẫn triển khai thực hiện liên thông các thủ tục hành chính trong phạm vi quản lý nhà nước của ngành mình.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17",
+          "clause_number": "2",
+          "clause_text": "2. Phối hợp với Bộ Tư pháp và các Bộ, ngành liên quan sơ kết, tổng kết việc thực hiện liên thông các thủ tục hành chính.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_17",
+          "clause_number": "3",
+          "clause_text": "3. Báo cáo định kỳ, đột xuất theo yêu cầu của cơ quan có thẩm quyền.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+      "article_number": "18",
+      "article_title": "Trách nhiệm của Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương, Ủy ban nhân dân huyện, quận, thị xã, thành phố thuộc tỉnh",
+      "chapter": "Chương III TRÁCH NHIỆM THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+          "clause_number": "1",
+          "clause_text": "1. Tổ chức triển khai thực hiện liên thông các thủ tục hành chính tại địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+          "clause_number": "2",
+          "clause_text": "2. Tổ chức tập huấn, hướng dẫn nghiệp vụ cho cán bộ, công chức, viên chức thực hiện liên thông các thủ tục hành chính trên địa bàn.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+          "clause_number": "3",
+          "clause_text": "3. Kiểm tra, xem xét giải quyết kịp thời các khó khăn, vướng mắc phát sinh trong quá trình triển khai thực hiện liên thông các thủ tục hành chính ở địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+          "clause_number": "4",
+          "clause_text": "4. Tạo điều kiện về kinh phí, cơ sở vật chất để thực hiện liên thông các thủ tục hành chính phù hợp với điều kiện ngân sách của địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18_clause_5",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_18",
+          "clause_number": "5",
+          "clause_text": "5. Báo cáo định kỳ hoặc đột xuất theo yêu cầu của cơ quan có thẩm quyền.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+      "article_number": "19",
+      "article_title": "Trách nhiệm của Ủy ban nhân dân cấp xã",
+      "chapter": "Chương III TRÁCH NHIỆM THỰC HIỆN LIÊN THÔNG CÁC THỦ TỤC HÀNH CHÍNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "1",
+          "clause_text": "1. Tổ chức triển khai thực hiện liên thông các thủ tục hành chính tại địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "2",
+          "clause_text": "2. Bố trí người có đủ trình độ, năng lực thực hiện liên thông các thủ tục hành chính tại địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_3",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "3",
+          "clause_text": "3. Tạo điều kiện đầu tư trang thiết bị, cơ sở vật chất, hỗ trợ cho cán bộ, công chức thực hiện liên thông các thủ tục hành chính phù hợp với điều kiện ngân sách của địa phương.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_4",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "4",
+          "clause_text": "4. Niêm yết công khai quy trình thực hiện liên thông các thủ tục hành chính tại Ủy ban nhân dân cấp xã, lệ phí, danh sách cơ sở khám chữa bệnh ban đầu do cơ quan Bảo hiểm xã hội cung cấp.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_5",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "5",
+          "clause_text": "5. Kịp thời phản ánh với Ủy ban nhân dân cấp trên về các khó khăn, vướng mắc phát sinh trong quá trình thực hiện liên thông các thủ tục hành chính để được xem xét, hướng dẫn giải quyết.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_6",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "6",
+          "clause_text": "6. Hàng năm, căn cứ hướng dẫn của Ủy ban nhân dân cấp trên, xây dựng dự toán kinh phí thực hiện liên thông các thủ tục hành chính, tổng hợp chung vào dự toán kinh phí của cơ quan mình, gửi cơ quan tài chính tổng hợp trình cấp có thẩm quyền bố trí kinh phí thực hiện.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19_clause_7",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_19",
+          "clause_number": "7",
+          "clause_text": "7. Báo cáo định kỳ hoặc đột xuất theo yêu cầu của cơ quan có thẩm quyền.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_20",
+      "article_number": "20",
+      "article_title": "Hiệu lực thi hành",
+      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_20_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_20",
+          "clause_number": "1",
+          "clause_text": "Thông tư liên tịch này có hiệu lực thi hành kể từ ngày 01 tháng 7 năm 2015.",
+          "chunks": null
+        }
+      ]
+    },
+    {
+      "article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_21",
+      "article_number": "21",
+      "article_title": "Trách nhiệm thi hành",
+      "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
+      "section": null,
+      "intro": null,
+      "clauses": [
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_21_clause_1",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_21",
+          "clause_number": "1",
+          "clause_text": "1. Thủ trưởng các cơ quan, đơn vị trực thuộc Bộ Tư pháp, Bộ Công an, Bộ Y tế; Giám đốc Sở Tư pháp, Giám đốc Sở Y tế, Giám đốc Công an tỉnh, thành phố trực thuộc Trung ương và các cơ quan, tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Thông tư liên tịch này.",
+          "chunks": null
+        },
+        {
+          "clause_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_21_clause_2",
+          "parent_article_id": "ttlt_05_2015_ttlt_btp_bca_byt_art_21",
+          "clause_number": "2",
+          "clause_text": "2. Trong quá trình thực hiện, nếu có khó khăn, vướng mắc, các cơ quan, tổ chức, cá nhân báo cáo về Bộ Tư pháp (qua Cục Kiểm soát thủ tục hành chính), Bộ Công an (qua Tổng cục Cảnh sát), Bộ Y tế (qua Vụ Pháp chế) để kịp thời hướng dẫn",
+          "chunks": null
+        }
+      ]
+    }
+  ],
+  "footnotes": []
+}

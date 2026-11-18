@@ -1,0 +1,16 @@
+{
+  "retired": [
+    "NEG_DEV_030",
+    "NEG_DEV_031",
+    "NEG_DEV_032"
+  ],
+  "replacement": [
+    "NEG_DEV_033",
+    "NEG_DEV_034",
+    "NEG_DEV_035"
+  ],
+  "count": 26,
+  "historical_bytes_preserved": true,
+  "benchmark_unchanged": true,
+  "review_status": "pending_peer_review"
+}
