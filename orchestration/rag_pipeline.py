@@ -41,6 +41,7 @@ from generation.prompt_builder import (
     map_evidence_indices_to_citations,
 )
 from grounding.citation_validator import validate_citations
+from orchestration.events import StageEmitter
 from reranking.confidence import (
     DEFAULT_CONFIDENCE_CONFIG,
     ConfidenceConfig,
@@ -63,6 +64,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RETRIEVAL_CONFIG = ROOT / "retrieval" / "config.yaml"
 DEFAULT_RERANK_CONFIG = ROOT / "reranking" / "config.yaml"
 RUN_MODE = "B_controlled_rag"
+RAG_RUN_MODES = frozenset({"B_controlled_rag", "C_production_rag"})
 NOT_GENERATED = "not_generated"
 
 ABSTAIN_MESSAGE = ("Không tìm thấy đủ căn cứ trong cơ sở dữ liệu pháp luật Hôn nhân và gia đình hiện có "
@@ -91,10 +93,13 @@ class CandidateSource(Protocol):
 
 
 class Generator(Protocol):
+    """Dev 3's ``model_gateway.llm_gateway.QwenGateway`` or a fake with the same signature."""
+
     config: Any
 
     def generate(self, prompt: str, query_id: str, run_mode: str, prompt_version: str,
-                 structured_output: bool = False, schema: dict[str, Any] | None = None) -> LLMResponse: ...
+                 structured_output: bool = False, schema: dict[str, Any] | None = None,
+                 max_evidence_index: int | None = None) -> LLMResponse: ...
 
 
 # ---------------------------------------------------------------------------
@@ -259,6 +264,10 @@ def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> Grounding
     if llm.context_truncated:
         return _gate_result("FAIL", "PROMPT_CONTEXT_TRUNCATED")
     if llm.rejected_evidence_values:
+        # The gateway also rejects integers outside [1, max_evidence_index] (week 10, PR #49).
+        outside = [int(v) for v in llm.rejected_evidence_values if re.fullmatch(r"-?\d+", v)]
+        if len(outside) == len(llm.rejected_evidence_values):
+            return _gate_result("FAIL", "EVIDENCE_INDEX_OUTSIDE_CONTEXT", outside)
         return _gate_result("FAIL", "NON_INTEGER_EVIDENCE_INDEX")
     if llm.abstained:
         return _gate_result("ABSTAIN", "MODEL_ABSTAINED")
@@ -373,11 +382,19 @@ class RAGRunResult:
 
 
 class RAGPipeline:
+    """The one RAG pipeline. Batch (``run_rag``), CLI and API all go through ``run``.
+
+    ``run_mode`` is ``B_controlled_rag`` for the official A/B run (default, unchanged) and
+    ``C_production_rag`` for the CLI/API; prompt, threshold and Gate are the same."""
+
     def __init__(self, source: CandidateSource, generator: Generator, *, versions: RunVersions,
                  confidence: ConfidenceConfig, rerank_top_k: int, max_context_chars: int,
-                 parent_resolver: ParentContextResolver | None = None):
+                 parent_resolver: ParentContextResolver | None = None, run_mode: str = RUN_MODE):
         if not 1 <= rerank_top_k <= MAX_EVIDENCE_ITEMS:
             raise ValueError(f"rerank_top_k phải trong [1, {MAX_EVIDENCE_ITEMS}]")
+        if run_mode not in RAG_RUN_MODES:
+            raise ValueError(f"run_mode {run_mode!r} không hợp lệ, cần một trong {sorted(RAG_RUN_MODES)}")
+        self.run_mode = run_mode
         self.source = source
         self.generator = generator
         self.versions = versions
@@ -401,20 +418,36 @@ class RAGPipeline:
             raise ValueError(f"{query_id}: results phải có rank nguyên tăng dần")
         return rows[:self.rerank_top_k]
 
-    def run(self, *, query_id: str, query: str, as_of_date: str, as_of_date_source: str) -> RAGRunResult:
+    def run(self, *, query_id: str, query: str, as_of_date: str, as_of_date_source: str,
+            events: StageEmitter | None = None) -> RAGRunResult:
+        """``events`` receives one LogEvent per stage (retrieval, rerank, context, llm,
+        citation, gate) with the same ``query_id``; it never gets query, prompt or answer text."""
         if not isinstance(query_id, str) or not query_id.strip():
             raise ValueError("query_id không được rỗng")
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query không được rỗng")
         query_id, query = query_id.strip(), query.strip()
         as_of_date = normalize_as_of_date(as_of_date)
+        events = events or StageEmitter(query_id)
+        if events.query_id != query_id:
+            raise ValueError(f"StageEmitter của {events.query_id!r} không dùng được cho {query_id!r}")
         started = time.perf_counter()
 
+        events.emit("retrieval", "retrieval_started", "started", candidate_source=self.source.name,
+                    as_of_date=as_of_date, as_of_date_source=as_of_date_source)
         envelope = self.source.fetch(query_id=query_id, query=query, as_of_date=as_of_date)
         retrieval_ms = (round((time.perf_counter() - started) * 1000.0, 2)
                         if getattr(self.source, "measures_retrieval", False) else None)
         rows = self._rows(envelope, query_id)
+        events.emit("retrieval", "retrieval_finished", "ok", duration_ms=retrieval_ms,
+                    candidate_source=self.source.name, candidate_count=len(rows),
+                    corpus_version=self.versions.corpus_version,
+                    retrieval_config_version=self.versions.retrieval_config_version)
         decision = apply_confidence_threshold(rows, self.confidence)
+        described = decision.describe()
+        events.emit("rerank", "confidence_checked", decision.status, kept_count=len(decision.kept),
+                    top1_score=described.get("top1_score"),
+                    threshold_config_version=self.versions.threshold_config_version)
         trace: dict[str, Any] = {
             "candidate_source": self.source.name,
             "retriever": envelope.get("retriever"),
@@ -422,14 +455,14 @@ class RAGPipeline:
             "rerank_top_k": self.rerank_top_k,
             "candidates": [{"rank": r.get("rank"), "chunk_id": r.get("chunk_id"),
                             "reranker_score": r.get("reranker_score")} for r in rows],
-            "confidence": {**decision.describe(), **self.confidence.describe()},
+            "confidence": {**described, **self.confidence.describe()},
         }
         if decision.status != "ok":
             reason = "EMPTY_RETRIEVAL" if decision.status == "empty" else "LOW_CONFIDENCE"
             grounding = _gate_result("ABSTAIN", reason)
             return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
                                 grounding=grounding, payload=None, llm=None, prompt=None,
-                                retrieval_ms=retrieval_ms)
+                                retrieval_ms=retrieval_ms, events=events)
 
         kept = decision.kept
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
@@ -439,20 +472,41 @@ class RAGPipeline:
             kept, query_id=query_id, query=query, as_of_date=as_of_date, as_of_date_source=as_of_date_source,
             max_context_chars=self.max_context_chars, max_items=self.rerank_top_k)
         trace["context"] = context_trace
+        events.emit("context", "context_built", "ok", evidence_count=len(payload.evidence_items),
+                    total_chars=payload.total_chars)
 
         prompt = build_controlled_rag_prompt(payload)
         trace["prompt_sha256"] = get_prompt_hash(prompt)
-        llm = self.generator.generate(prompt, query_id, RUN_MODE, PROMPT_B_VERSION, structured_output=True)
+        events.emit("llm", "generation_started", "started", run_mode=self.run_mode,
+                    prompt_version=PROMPT_B_VERSION)
+        # Production mode lets the gateway reject indices outside [1, n] (CITATION_INVALID).
+        # Run B keeps every integer the model returned in evidence_indices: Dev 2's Citation
+        # Validity metric counts out-of-context attempts from that list (evaluation/metrics.py).
+        bound = len(payload.evidence_items) if self.run_mode == "C_production_rag" else None
+        llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
+                                      max_evidence_index=bound)
+        events.emit("llm", "generation_finished", llm.parse_status, duration_ms=llm.latency_ms,
+                    error_code=llm.error_code, model=llm.model, model_digest=llm.model_digest,
+                    prompt_version=llm.prompt_version, done_reason=llm.done_reason, truncated=llm.truncated,
+                    parse_status=llm.parse_status, token_input=llm.token_usage.input,
+                    token_output=llm.token_usage.output)
         grounding = apply_grounding_gate(payload, llm)
         return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
                             grounding=grounding, payload=payload, llm=llm, prompt=prompt,
-                            retrieval_ms=retrieval_ms)
+                            retrieval_ms=retrieval_ms, events=events)
 
     def _finish(self, query_id: str, query: str, as_of_date: str, as_of_date_source: str, started: float,
                 trace: dict[str, Any], *, grounding: GroundingResult, payload: ContextPayload | None,
-                llm: LLMResponse | None, prompt: str | None, retrieval_ms: float | None) -> RAGRunResult:
+                llm: LLMResponse | None, prompt: str | None, retrieval_ms: float | None,
+                events: StageEmitter) -> RAGRunResult:
         status = grounding.grounding_status
         abs_fields = abstention_fields(grounding, llm_called=llm is not None)
+        if llm is not None:
+            events.emit("citation", "citations_checked", "ok" if status == "PASS" else status,
+                        citation_count=len(grounding.valid_citations) if status == "PASS" else 0,
+                        invalid_indices=list(grounding.invalid_indices) or None)
+        events.emit("gate", "gate_decided", status, grounding_status=status, reason=grounding.reason,
+                    llm_calls=1 if llm is not None else 0)
         trace["gate"] = {
             "status": status,
             "reason": grounding.reason,
@@ -517,8 +571,12 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
                    rerank_config: str | Path = DEFAULT_RERANK_CONFIG,
                    retrieval_config: str | Path = DEFAULT_RETRIEVAL_CONFIG,
                    confidence_config: str | Path = DEFAULT_CONFIDENCE_CONFIG,
-                   elasticsearch_url: str | None = None, qdrant_path: str | None = None) -> RAGPipeline:
-    """Precomputed artifact when given (official Run B), else live Hybrid + Cross-Encoder."""
+                   elasticsearch_url: str | None = None, qdrant_path: str | None = None,
+                   qdrant_url: str | None = None, run_mode: str = RUN_MODE) -> RAGPipeline:
+    """Precomputed artifact when given (official Run B), else live Hybrid + Cross-Encoder.
+
+    ``qdrant_url`` (Qdrant server) lets the API and a batch run share the index; an embedded
+    ``qdrant_path`` must not be opened by two processes at once."""
     from reranking.pipeline import RetrievalPipeline, build_hybrid_retriever, load_retrieval_settings
     from reranking.reranker import build_reranker, load_reranker_config
 
@@ -539,7 +597,8 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
                 "reranker": {"model": reranker_config.model, "max_candidates": reranker_config.max_candidates},
             })
     else:
-        retriever = build_hybrid_retriever(settings, elasticsearch_url=elasticsearch_url, qdrant_path=qdrant_path)
+        retriever = build_hybrid_retriever(settings, elasticsearch_url=elasticsearch_url, qdrant_path=qdrant_path,
+                                           qdrant_url=qdrant_url)
         live = RetrievalPipeline(retriever, build_reranker(reranker_config),
                                  retrieval_top_k=settings["retrieval_top_k"], parent_resolver=resolver)
         source = LivePipelineSource(live)
@@ -549,7 +608,8 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
         generator = QwenGateway()
     return RAGPipeline(source, generator, versions=versions, confidence=confidence,
                        rerank_top_k=reranker_config.rerank_top_k,
-                       max_context_chars=parent_config.max_context_chars, parent_resolver=resolver)
+                       max_context_chars=parent_config.max_context_chars, parent_resolver=resolver,
+                       run_mode=run_mode)
 
 
 _DEFAULT_PIPELINE: RAGPipeline | None = None
