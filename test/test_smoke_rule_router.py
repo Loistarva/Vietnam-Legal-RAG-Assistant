@@ -33,7 +33,7 @@ class RouterHoldoutLoaderTests(unittest.TestCase):
         self.assertEqual(len(rows), 40)
         router = RuleRouter()
         decisions = [router.route(row["query"], query_id=row["id"]) for row in rows]
-        result = evaluate_router_holdout(rows, decisions)
+        result = evaluate_router_holdout(rows, decisions, min_accuracy=1.0)
         self.assertTrue(result["safety_pass"], result)
         self.assertTrue(result["classification_pass"], result)
 
@@ -128,3 +128,104 @@ class RouterHoldoutLoaderTests(unittest.TestCase):
         self.assertFalse(result["safety_pass"])
         self.assertFalse(result["classification_pass"])
         self.assertEqual(len(result["legal_to_general"]), 30)
+
+    def test_independent_holdout_passes_at_ninety_percent_with_zero_safety_violations(self):
+        rows = [
+            {
+                "id": f"HOLDOUT_{index:03d}",
+                "query": f"legal query {index}",
+                "expected_route": Route.LEGAL_HNGD.value,
+                "expected_action": Action.LEGAL_RETRIEVAL.value,
+                "category": "hngd",
+            }
+            for index in range(30)
+        ]
+        decisions = [
+            RouteDecision(
+                query_id=row["id"],
+                route=Route.LEGAL_HNGD if idx < 27 else Route.LEGAL_SCOPE_UNCERTAIN,
+                action=Action.LEGAL_RETRIEVAL,
+                route_reason="HNGD_DOMAIN_MATCH" if idx < 27 else "LEGAL_SCOPE_UNCERTAIN",
+            )
+            for idx, row in enumerate(rows)
+        ]
+        result = evaluate_router_holdout(rows, decisions)
+        self.assertTrue(result["safety_pass"])
+        self.assertTrue(result["classification_pass"])
+        self.assertAlmostEqual(result["accuracy"], 0.90)
+        self.assertEqual(result["matched"], 27)
+        self.assertEqual(result["total"], 30)
+
+        strict_regression = evaluate_router_holdout(rows, decisions, min_accuracy=1.0)
+        self.assertFalse(strict_regression["classification_pass"])
+
+    def test_independent_holdout_fails_below_ninety_percent(self):
+        rows = [
+            {
+                "id": f"HOLDOUT_{index:03d}",
+                "query": f"legal query {index}",
+                "expected_route": Route.LEGAL_HNGD.value,
+                "expected_action": Action.LEGAL_RETRIEVAL.value,
+                "category": "hngd",
+            }
+            for index in range(30)
+        ]
+        decisions = [
+            RouteDecision(
+                query_id=row["id"],
+                route=Route.LEGAL_HNGD if idx < 26 else Route.LEGAL_SCOPE_UNCERTAIN,
+                action=Action.LEGAL_RETRIEVAL,
+                route_reason="HNGD_DOMAIN_MATCH" if idx < 26 else "LEGAL_SCOPE_UNCERTAIN",
+            )
+            for idx, row in enumerate(rows)
+        ]
+        result = evaluate_router_holdout(rows, decisions)
+        self.assertTrue(result["safety_pass"])
+        self.assertFalse(result["classification_pass"])
+        self.assertAlmostEqual(result["accuracy"], 26 / 30)
+
+    def test_independent_holdout_fails_with_high_accuracy_if_safety_violation_exists(self):
+        rows = [
+            {
+                "id": f"HOLDOUT_{index:03d}",
+                "query": f"legal query {index}",
+                "expected_route": Route.LEGAL_HNGD.value,
+                "expected_action": Action.LEGAL_RETRIEVAL.value,
+                "category": "hngd",
+            }
+            for index in range(36)
+        ]
+        decisions = [
+            RouteDecision(
+                query_id=row["id"],
+                route=Route.LEGAL_HNGD if idx < 35 else Route.NON_LEGAL,
+                action=Action.LEGAL_RETRIEVAL if idx < 35 else Action.GENERAL_CHAT,
+                route_reason="HNGD_DOMAIN_MATCH" if idx < 35 else "NON_LEGAL_NO_LEGAL_INTENT",
+            )
+            for idx, row in enumerate(rows)
+        ]
+        result = evaluate_router_holdout(rows, decisions)
+        self.assertAlmostEqual(result["accuracy"], 35 / 36)
+        self.assertFalse(result["safety_pass"])
+        self.assertFalse(result["classification_pass"])
+        self.assertEqual(result["legal_to_general"], ["HOLDOUT_035"])
+
+    def test_run_uses_strict_threshold_for_regression_and_ninety_percent_for_independent(self):
+        with patch.object(
+            sys,
+            "argv",
+            ["smoke_rule_router.py", "--holdout", "evaluation/router_holdout/router_holdout_week10_v6.jsonl"],
+        ):
+            report_v6, success_v6 = run()
+        self.assertTrue(success_v6, report_v6)
+        self.assertIn("34/36 (94.4%, min gate 90%)", report_v6)
+        self.assertIn("holdout_candidate_route_action_match | PASS", report_v6)
+
+        with patch.object(
+            sys,
+            "argv",
+            ["smoke_rule_router.py", "--holdout", "evaluation/router_holdout/router_holdout_week10_v5.jsonl"],
+        ):
+            report_v5, success_v5 = run()
+        self.assertTrue(success_v5, report_v5)
+        self.assertIn("36/36 (100.0%, min gate 100%)", report_v5)

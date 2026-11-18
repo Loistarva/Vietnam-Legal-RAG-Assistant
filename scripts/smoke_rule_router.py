@@ -12,6 +12,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HOLDOUT = ROOT / "test/agent/data/router_holdout.jsonl"
+REGRESSION_HOLDOUT_PATHS = {
+    (ROOT / "test/agent/data/router_holdout.jsonl").resolve(),
+    (ROOT / "test/agent/data/router_holdout_independent_v1.jsonl").resolve(),
+    (ROOT / "evaluation/router_holdout/router_holdout_week10_v1.jsonl").resolve(),
+    (ROOT / "evaluation/router_holdout/router_holdout_week10_v2.jsonl").resolve(),
+    (ROOT / "evaluation/router_holdout/router_holdout_week10_v3.jsonl").resolve(),
+    (ROOT / "evaluation/router_holdout/router_holdout_week10_v4.jsonl").resolve(),
+    (ROOT / "evaluation/router_holdout/router_holdout_week10_v5.jsonl").resolve(),
+}
+INDEPENDENT_HOLDOUT_MIN_ACCURACY = 0.90
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -53,7 +63,11 @@ def read_router_holdout(path: Path) -> tuple[list[dict], str | None]:
 
 
 def evaluate_router_holdout(
-    rows: list[dict], decisions: list[object], validation_error: str | None = None
+    rows: list[dict],
+    decisions: list[object],
+    validation_error: str | None = None,
+    *,
+    min_accuracy: float = INDEPENDENT_HOLDOUT_MIN_ACCURACY,
 ) -> dict[str, object]:
     """Separate the safety invariant from exact classification quality."""
     valid_set = validation_error is None and 30 <= len(rows) <= 40 and len(rows) == len(decisions)
@@ -67,12 +81,20 @@ def evaluate_router_holdout(
         if decision.route.value != row["expected_route"]
         or decision.action.value != row["expected_action"]
     ]
+    total = len(rows)
+    matched = total - len(mismatches)
+    accuracy = (matched / total) if total else 0.0
+    safety_pass = valid_set and not legal_to_general
     return {
         "valid_set": valid_set,
+        "total": total,
+        "matched": matched,
+        "accuracy": accuracy,
+        "min_accuracy": min_accuracy,
         "legal_to_general": legal_to_general,
         "mismatches": mismatches,
-        "safety_pass": valid_set and not legal_to_general,
-        "classification_pass": valid_set and not mismatches,
+        "safety_pass": safety_pass,
+        "classification_pass": safety_pass and accuracy >= min_accuracy,
     }
 
 
@@ -167,8 +189,16 @@ def run() -> tuple[str, bool]:
         if decision.route.value != expected_route or decision.action.value != expected_action:
             negative_route_action_mismatches.append(row["id"])
     negative_route_action_pass = len(negative_rows) == 26 and not negative_route_action_mismatches
+    holdout_min_accuracy = (
+        1.0
+        if holdout_path is not None and holdout_path.resolve() in REGRESSION_HOLDOUT_PATHS
+        else INDEPENDENT_HOLDOUT_MIN_ACCURACY
+    )
     holdout_evaluation = evaluate_router_holdout(
-        holdout, [decision for _, decision in holdout_results], holdout_error
+        holdout,
+        [decision for _, decision in holdout_results],
+        holdout_error,
+        min_accuracy=holdout_min_accuracy,
     ) if not args.skip_holdout else None
     holdout_legal_to_general = (
         holdout_evaluation["legal_to_general"] if holdout_evaluation is not None else []
@@ -232,7 +262,10 @@ def run() -> tuple[str, bool]:
         f"- Negative route/action mismatches (Router-owned mapping): {len(negative_route_action_mismatches)}; IDs: `{negative_route_action_mismatches}`",
         f"- Legal negative-to-NON_LEGAL/GENERAL_CHAT: {len(legal_safety_violations)}; IDs: `{legal_safety_violations}`",
         *( [] if holdout_evaluation is None else [
-            f"- Holdout legal-to-GENERAL_CHAT: {len(holdout_legal_to_general)}; exact route/action mismatches: {len(holdout_mismatches)}"
+            f"- Holdout legal-to-GENERAL_CHAT: {len(holdout_legal_to_general)}; "
+            f"exact route/action mismatches: {len(holdout_mismatches)}; "
+            f"accuracy: {holdout_evaluation['matched']}/{holdout_evaluation['total']} "
+            f"({holdout_evaluation['accuracy']:.1%}, min gate {holdout_evaluation['min_accuracy']:.0%})"
         ]),
         "",
         "## Gate results",
