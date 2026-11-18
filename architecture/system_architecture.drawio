@@ -140,9 +140,10 @@
             <mxPoint x="1100" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="92-1StGmne9POsEHWyz6-11" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="4edSwrvAsH0tXO1XSngV-29" value="">
+        <mxCell id="92-1StGmne9POsEHWyz6-11" edge="1" parent="1" source="92-1StGmne9POsEHWyz6-9" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4edSwrvAsH0tXO1XSngV-29" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <Array as="points">
+              <mxPoint x="985" y="1390" />
               <mxPoint x="877.5" y="1390" />
             </Array>
             <mxPoint x="990" y="1390" as="sourcePoint" />
@@ -161,8 +162,8 @@
         <mxCell id="92-1StGmne9POsEHWyz6-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Session &amp;amp; History Manager&lt;br&gt;(PostgreSQL)" vertex="1">
           <mxGeometry height="60" width="180" x="1340" y="1900" as="geometry" />
         </mxCell>
-        <mxCell id="92-1StGmne9POsEHWyz6-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;startArrow=none;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="92-1StGmne9POsEHWyz6-21" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
+        <mxCell id="92-1StGmne9POsEHWyz6-17" edge="1" parent="1" source="4edSwrvAsH0tXO1XSngV-20" style="endArrow=classic;html=1;rounded=0;startArrow=none;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="92-1StGmne9POsEHWyz6-21" value="">
+          <mxGeometry height="50" relative="1" width="50" x="0.0858" as="geometry">
             <Array as="points">
               <mxPoint x="1430" y="1730" />
               <mxPoint x="1650.5" y="1730" />
@@ -172,7 +173,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="vOi13LtulVXFbOAuTG_X-1" connectable="0" parent="92-1StGmne9POsEHWyz6-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Cache Hit / Miss" vertex="1">
-          <mxGeometry relative="1" x="0.005" y="-1" as="geometry">
+          <mxGeometry relative="1" x="0.0928" y="-1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -378,7 +379,7 @@
             <mxPoint x="1120" y="990" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4KIIIR_HitpdeySSOqxH-3" connectable="0" parent="uIMAbFet7gUnOvkkKzJU-47" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Vectore Embeddings" vertex="1">
+        <mxCell id="4KIIIR_HitpdeySSOqxH-3" connectable="0" parent="uIMAbFet7gUnOvkkKzJU-47" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Vector Embeddings" vertex="1">
           <mxGeometry relative="1" x="0.195" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -386,9 +387,10 @@
         <mxCell id="uIMAbFet7gUnOvkkKzJU-48" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="4edSwrvAsH0tXO1XSngV-46" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <Array as="points">
+              <mxPoint x="990" y="1030" />
               <mxPoint x="880" y="1030" />
             </Array>
-            <mxPoint x="990" y="1030" as="sourcePoint" />
+            <mxPoint x="990" y="970" as="sourcePoint" />
             <mxPoint x="1120" y="990" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -568,7 +570,7 @@
         <mxCell id="-XyIUty4vGpHtgXUJJNO-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;dashed=1;verticalAlign=top;" value="External Foundation Models" vertex="1">
           <mxGeometry height="384.5" width="360" x="2590" y="1010" as="geometry" />
         </mxCell>
-        <mxCell id="-XyIUty4vGpHtgXUJJNO-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Primary Models(Claude 5.5 Sonnet / Deepseek-V3)" vertex="1">
+        <mxCell id="-XyIUty4vGpHtgXUJJNO-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Primary Models(Claude 3.5 Sonnet / Deepseek-V3)" vertex="1">
           <mxGeometry height="60" width="280" x="2630" y="1052" as="geometry" />
         </mxCell>
         <mxCell id="-XyIUty4vGpHtgXUJJNO-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="Fallback Models (Qwen-2.5, GPT-4o, Llama-3.3)" vertex="1">
@@ -700,7 +702,7 @@
             <mxPoint x="2270.0000000000005" y="1490" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Wm4SnhMDasD5bEOlV3Qo-32" connectable="0" parent="Wm4SnhMDasD5bEOlV3Qo-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Steam Tokens Response" vertex="1">
+        <mxCell id="Wm4SnhMDasD5bEOlV3Qo-32" connectable="0" parent="Wm4SnhMDasD5bEOlV3Qo-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Stream Tokens Response" vertex="1">
           <mxGeometry relative="1" x="0.0857" y="-1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
