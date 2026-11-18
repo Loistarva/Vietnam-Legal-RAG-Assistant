@@ -1,0 +1,40 @@
+[
+  {
+    "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+    "articles": 5,
+    "pages": 2,
+    "article_titles": [
+      "Phạm vi điều chỉnh và đối tượng áp dụng",
+      "Mức chi",
+      "Nguồn kinh phí thực hiện",
+      "Tổ chức thực hiện",
+      "Hiệu lực thi hành"
+    ],
+    "source_hashes": "PASS",
+    "body_word_coverage": "PASS",
+    "pdf_layout": "PASS"
+  },
+  {
+    "document_id": "qd_17_2026_qd_ubnd_ho_chi_minh",
+    "articles": 13,
+    "pages": 6,
+    "article_titles": [
+      "Phạm vi điều chỉnh, đối tượng áp dụng",
+      "Mức chi hoạt động thông tin, truyền thông, giáo dục",
+      "Mức chi tổ chức thi tìm hiểu về phòng, chống bạo lực gia đình",
+      "Mức chi xây dựng, triển khai mô hình phòng, chống bạo lực gia đình",
+      "Mức chi hoạt động tư vấn về phòng, chống bạo lực gia đình",
+      "Chi giáo dục, hỗ trợ chuyển đổi hành vi bạo lực gia đình",
+      "Chi hỗ trợ cho người bị bạo lực gia đình",
+      "Chi hỗ trợ bù đắp tổn hại về sức khỏe, tính mạng và thiệt hại về tài sản cho cá nhân tham gia phòng, chống bạo lực gia đình",
+      "Chi phát triển mạng lưới cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng",
+      "Chi hoạt động phối hợp liên ngành, sơ kết, tổng kết",
+      "Nguồn kinh phí thực hiện",
+      "Điều khoản thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "source_hashes": "PASS",
+    "body_word_coverage": "PASS",
+    "pdf_layout": "PASS"
+  }
+]

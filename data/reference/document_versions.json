@@ -4749,5 +4749,57 @@
       "provision": "24",
       "note": "Effective2026-07-01; previous ND92/2008 stops applying to civil assistance except statutory transitional cases."
     }
+  },
+  {
+    "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+    "document_number": "38/2026/NQ-HĐND",
+    "file_code": "NQ03",
+    "title": "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh",
+    "document_type": "Nghị quyết",
+    "issue_date": "2026-08-27",
+    "effective_date": "2026-10-01",
+    "issuing_body": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Còn hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+    "source_status": "Còn hiệu lực",
+    "source_original_status": "Đang hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_nq_38_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/tai-ve/50053",
+        "sha256": "dbcf73caa9fdff4088b1cf33bec9bdf14c3072a8437a0cc62ee07086afefac93",
+        "bytes": 224422
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_nq_38_2026.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+        "sha256": "3cb6bafba5063d0a96648477648d87d156e37f837670583318889f290e1074a1",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
+    "normalized_source_text_sha256": "d2a350568e0af9657e68d5fc10caebc33baf49fd15c5292792fb3d265267e356",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official Gazette PDF acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "69454d3d8966226a08b13b0e5a1907f4a8d08b54f9087164f644b1f867ba630c",
+    "effectivity_evidence": {
+      "provision": "5",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+      "note": "Initial effectivity checked in original; official metadata active on2026-11-18. Conditional allowance termination in QD17 Article12.4 still requires provision-level review."
+    }
   }
 ]

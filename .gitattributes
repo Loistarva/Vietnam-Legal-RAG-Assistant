@@ -75,3 +75,10 @@ parser/extracted_texts_qwen/l_102_2025_qh15.txt text eol=lf
 parser/parsed_jsons/nd_158_2026_nd_cp.json text eol=lf
 parser/cleaned_texts/nd_158_2026_nd_cp.txt text eol=lf
 parser/extracted_texts_qwen/nd_158_2026_nd_cp.txt text eol=lf
+
+# Preserve local source bytes and normalized text hashes.
+data/source_documents/local_documents_batch7/* -text -diff
+data/staging/local_documents_batch7/**/*.txt text eol=lf
+parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json text eol=lf
+parser/cleaned_texts/nq_38_2026_nq_hdnd_ho_chi_minh.txt text eol=lf
+parser/extracted_texts_qwen/nq_38_2026_nq_hdnd_ho_chi_minh.txt text eol=lf

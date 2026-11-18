@@ -1,0 +1,59 @@
+[
+  {
+    "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+    "pages": 2,
+    "status": "passed",
+    "articles": 5,
+    "article_titles": [
+      "Phạm vi điều chỉnh và đối tượng áp dụng",
+      "Mức chi",
+      "Nguồn kinh phí thực hiện",
+      "Tổ chức thực hiện",
+      "Hiệu lực thi hành"
+    ],
+    "source_token_roundtrip": "PASS"
+  },
+  {
+    "document_id": "qd_17_2026_qd_ubnd_ho_chi_minh",
+    "pages": 6,
+    "status": "held_after_parser_pass",
+    "articles": 13,
+    "article_titles": [
+      "Phạm vi điều chỉnh, đối tượng áp dụng",
+      "Mức chi hoạt động thông tin, truyền thông, giáo dục",
+      "Mức chi tổ chức thi tìm hiểu về phòng, chống bạo lực gia đình",
+      "Mức chi xây dựng, triển khai mô hình phòng, chống bạo lực gia đình",
+      "Mức chi hoạt động tư vấn về phòng, chống bạo lực gia đình",
+      "Chi giáo dục, hỗ trợ chuyển đổi hành vi bạo lực gia đình",
+      "Chi hỗ trợ cho người bị bạo lực gia đình",
+      "Chi hỗ trợ bù đắp tổn hại về sức khỏe, tính mạng và thiệt hại về tài sản cho cá nhân tham gia phòng, chống bạo lực gia đình",
+      "Chi phát triển mạng lưới cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng",
+      "Chi hoạt động phối hợp liên ngành, sơ kết, tổng kết",
+      "Nguồn kinh phí thực hiện",
+      "Điều khoản thi hành",
+      "Trách nhiệm thi hành"
+    ],
+    "source_token_roundtrip": "PASS",
+    "reason": "Cleaner/parser/schema passed13 Articles, but existing document_aliases.validate_registry rejects document_type Quyết định. Keep full normalized PDF and parsed candidate in staging; no code change or type mislabeling."
+  },
+  {
+    "document_id": "hcm_18_2026_nq_hdnd",
+    "status": "held",
+    "reason": "Fee amounts are in an attached table outside Article structure. Do not publish cover Articles without the substantive fee schedule; preserve full official PDF pending supported table representation."
+  },
+  {
+    "document_id": "hcm_1990_qd_ubnd",
+    "status": "held",
+    "reason": "Yearless administrative decision number and repeal-only administrative-procedure content; preserve for reference without inventing a year in the identifier."
+  },
+  {
+    "document_id": "hcm_72_2011_qd_ubnd",
+    "status": "held",
+    "reason": "Cover Articles1–3 then attached regulation restarts Articles1–12. Current parser cannot preserve both namespaces without code changes."
+  },
+  {
+    "document_id": "hcm_93_2006_qd_ubnd",
+    "status": "held",
+    "reason": "Historical general mediation expenditure, no express marriage/family restriction. Preserve as supporting reference rather than broaden this local family-law tranche."
+  }
+]

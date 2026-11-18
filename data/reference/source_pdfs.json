@@ -537,6 +537,13 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
+      "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+      "sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
+      "bytes": 60275,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
       "document_id": "nd_07_2025_nd_cp",
       "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",

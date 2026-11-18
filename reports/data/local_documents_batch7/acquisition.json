@@ -1,0 +1,79 @@
+[
+  {
+    "candidate_id": "hcm_nq_38_2026",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_nq_38_2026.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Nghị quyết",
+      "Ngày ban hành": "27/08/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "01/10/2026",
+      "Số, ký hiệu": "38/2026/NQ-HĐND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "",
+      "Người ký": "Võ Văn Minh",
+      "Công báo": "Số 318 + 319 - năm 2026"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_nq_38_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/tai-ve/50053",
+        "sha256": "dbcf73caa9fdff4088b1cf33bec9bdf14c3072a8437a0cc62ee07086afefac93",
+        "bytes": 224422
+      }
+    ]
+  },
+  {
+    "candidate_id": "hcm_qd_17_2026",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/49185",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_qd_17_2026.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Quyết định",
+      "Ngày ban hành": "06/04/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "06/04/2026",
+      "Số, ký hiệu": "17/2026/QĐ-UBND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Quy định mức chi cho hoạt động phòng, chống bạo lực gia đình trên địa bàn Thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "Tư pháp",
+      "Người ký": "Nguyễn Mạnh Cường",
+      "Công báo": "Số 157 + 158 - năm 2026",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Số hiệu: 41/2025/QĐ-UBND Ngày ban hành: 03/04/2025 Ngày có hiệu lực:"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_qd_17_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/tai-ve/49185",
+        "sha256": "052d7f014d2f11266d410d9363c94a33603d0e17e0eca24bb7ad9f033280a36b",
+        "bytes": 247802
+      }
+    ]
+  },
+  {
+    "candidate_id": "lang_son_nq_36_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/183682/VanBanGoc_NQ%2036.2025.NQ.HDND.pdf",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "candidate_id": "candidate_qd_07_2026",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/186841/VanBanGoc_07.2026.Q%C4%90-UBND.pdf",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "candidate_id": "candidate_qd_51_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/185932/VanBanGoc_051_2025_QD-UBND_30122025-signed_03.pdf",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "candidate_id": "candidate_qd_41_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/176817/VanBanGoc_QD%2041.2025.pdf",
+    "error": "<urlopen error timed out>"
+  }
+]

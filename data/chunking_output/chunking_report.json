@@ -1,7 +1,7 @@
 {
-  "num_documents": 93,
-  "num_parents": 2755,
-  "num_children": 6398,
+  "num_documents": 94,
+  "num_parents": 2760,
+  "num_children": 6406,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -66,6 +66,7 @@
     "parser/parsed_jsons/nd_87_2020_nd_cp.json",
     "parser/parsed_jsons/nq_01_2024_nq_hdtp.json",
     "parser/parsed_jsons/nq_326_2016_ubtvqh14.json",
+    "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
     "parser/parsed_jsons/tt_01_2022_tt_btp.json",
     "parser/parsed_jsons/tt_01_2025_tt_btp.json",
     "parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
@@ -561,6 +562,15 @@
       "num_articles": 18,
       "num_parents": 29,
       "num_children": 80
+    },
+    {
+      "source": "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
+      "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+      "document_number": "38/2026/NQ-HĐND",
+      "validity_status": "Còn hiệu lực",
+      "num_articles": 5,
+      "num_parents": 5,
+      "num_children": 8
     },
     {
       "source": "parser/parsed_jsons/tt_01_2022_tt_btp.json",

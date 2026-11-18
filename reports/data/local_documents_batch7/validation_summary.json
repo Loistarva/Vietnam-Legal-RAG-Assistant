@@ -1,0 +1,31 @@
+{
+  "pytest": {
+    "tests": 2621,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "pytest_summary": "2377 passed, 1 skipped, 243 subtests passed in 124.98s (0:02:04)",
+  "metadata_errors": 0,
+  "metadata_warnings": 93,
+  "ambiguous_aliases": 165,
+  "ruff": "PASS",
+  "source_pdf_manifest": "PASS",
+  "negative_set": "PASS; two baseline warnings",
+  "baseline": {
+    "baseline": "6616d74",
+    "registry_before": 93,
+    "registry_after": 94,
+    "old_registry_records_unchanged": true,
+    "old_children_unchanged": 6398,
+    "children_after": 6406,
+    "new_children": 8,
+    "old_parents_unchanged": 2755,
+    "parents_after": 2760,
+    "new_parents": 5,
+    "held_isolated": true,
+    "new_scope_articles_exact": true,
+    "parser_replay": "PASS"
+  },
+  "scope": "Trial data; local jurisdiction review required. No production reindex or RunA/B. No code changes."
+}

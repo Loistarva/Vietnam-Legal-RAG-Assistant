@@ -1,0 +1,273 @@
+[
+  {
+    "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+    "document_number": "38/2026/NQ-HĐND",
+    "file_code": "NQ03",
+    "title": "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh",
+    "document_type": "Nghị quyết",
+    "issue_date": "2026-08-27",
+    "effective_date": "2026-10-01",
+    "issuing_body": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Còn hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+    "source_status": "Còn hiệu lực",
+    "source_original_status": "Đang hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_nq_38_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/tai-ve/50053",
+        "sha256": "dbcf73caa9fdff4088b1cf33bec9bdf14c3072a8437a0cc62ee07086afefac93",
+        "bytes": 224422
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_nq_38_2026.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+        "sha256": "3cb6bafba5063d0a96648477648d87d156e37f837670583318889f290e1074a1",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
+    "normalized_source_text_sha256": "d2a350568e0af9657e68d5fc10caebc33baf49fd15c5292792fb3d265267e356",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official Gazette PDF acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "69454d3d8966226a08b13b0e5a1907f4a8d08b54f9087164f644b1f867ba630c",
+    "effectivity_evidence": {
+      "provision": "5",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+      "note": "Initial effectivity checked in original; official metadata active on2026-11-18. Conditional allowance termination in QD17 Article12.4 still requires provision-level review."
+    }
+  },
+  {
+    "document_id": "qd_17_2026_qd_ubnd_ho_chi_minh",
+    "document_number": "17/2026/QĐ-UBND",
+    "file_code": "QD01",
+    "title": "Quy định mức chi cho hoạt động phòng, chống bạo lực gia đình trên địa bàn Thành phố Hồ Chí Minh",
+    "document_type": "Quyết định",
+    "issue_date": "2026-04-06",
+    "effective_date": "2026-04-06",
+    "issuing_body": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Còn hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/49185",
+    "source_status": "Còn hiệu lực",
+    "source_original_status": "Đang hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_qd_17_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/tai-ve/49185",
+        "sha256": "052d7f014d2f11266d410d9363c94a33603d0e17e0eca24bb7ad9f033280a36b",
+        "bytes": 247802
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_qd_17_2026.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/49185",
+        "sha256": "050092db4841bc6431872b7b7df8b0a1046d06f741e3bc1627db9a2bda4491ce",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": false,
+    "ingest_pdf_sha256": "940f70186c13efaaf239b5c6034bd1eb51ecafec698e01aba4c1f2d60e9ac60b",
+    "normalized_source_text_sha256": "f55e5ed8bca322a96b0f73aa234c387d576ac045df7db1d65bac5fe3c32643ba",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official Gazette PDF acquired and normalized 2026-11-18",
+    "hold_reason": "Cleaner/parser/schema passed13 Articles, but existing document_aliases.validate_registry rejects document_type Quyết định. Keep full normalized PDF and parsed candidate in staging; no code change or type mislabeling."
+  },
+  {
+    "document_id": "hcm_18_2026_nq_hdnd",
+    "document_number": "18/2026/NQ-HĐND",
+    "file_code": "NQ04",
+    "title": "Quy định lệ phí hộ tịch trên địa bàn Thành phố Hồ Chí Minh",
+    "document_type": "Nghị quyết",
+    "issue_date": "2026-06-19",
+    "effective_date": "2026-06-19",
+    "issuing_body": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Còn hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/49517",
+    "source_status": "Còn hiệu lực",
+    "source_original_status": "Đang hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_18_2026_nq_hdnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/tai-ve/49517",
+        "sha256": "20a62de9bf1167c7fa266ebd6d4b2d5a7bdd7639603608f46d150669d0f418e7",
+        "bytes": 260579
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_18_2026_nq_hdnd.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/49517",
+        "sha256": "a52331f10ef3d6a79eeeeaea6bb67c77c43bd70e43f5f86ff101f74a583305fc",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Fee amounts are in an attached table outside Article structure. Do not publish cover Articles without the substantive fee schedule; preserve full official PDF pending supported table representation."
+  },
+  {
+    "document_id": "hcm_1990_qd_ubnd",
+    "document_number": "1990/QĐ-UBND",
+    "file_code": "QD02",
+    "title": "Về bãi bỏ Quyết định số 42/2010/QĐ-UBND ngày 13 tháng 7 năm 2010 của Ủy ban nhân dân Thành phố Hồ Chí Mỉnh về việc thay thế thủ tục hành chính áp dụng tại Ủy ban nhân dân quận - huyện trong lĩnh vực hộ tịch",
+    "document_type": "Quyết định",
+    "issue_date": "2026-04-03",
+    "effective_date": "2026-04-03",
+    "issuing_body": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Còn hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/49356",
+    "source_status": "Còn hiệu lực",
+    "source_original_status": "Đang hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_1990_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/tai-ve/49356",
+        "sha256": "142453c68d5eca0d1efe07d189568f2767bbb51f3c75871bdc6a85e6480a3955",
+        "bytes": 213739
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_1990_qd_ubnd.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/49356",
+        "sha256": "a45823ea9758deba525771a82127fba147ba52f7d6bf02a358451bc16a5c1ae0",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Yearless administrative decision number and repeal-only administrative-procedure content; preserve for reference without inventing a year in the identifier."
+  },
+  {
+    "document_id": "hcm_72_2011_qd_ubnd",
+    "document_number": "72/2011/QĐ-UBND",
+    "file_code": "QD03",
+    "title": "Ban hành Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh",
+    "document_type": "Quyết định",
+    "issue_date": "2011-11-10",
+    "effective_date": "2011-11-20",
+    "issuing_body": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2016-02-11",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/31836",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "source_original_status": "Đã hết hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_72_2011_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/tai-ve/31836",
+        "sha256": "59f68e16b95c4bcd26bf792a43515cacf5b3da1402143af085f3c006117886b7",
+        "bytes": 133303
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_72_2011_qd_ubnd.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/31836",
+        "sha256": "a3f37e016823abc84ceeeb978e8d559a305cd3054bbfe6c7759d22ef353641c6",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Cover Articles1–3 then attached regulation restarts Articles1–12. Current parser cannot preserve both namespaces without code changes."
+  },
+  {
+    "document_id": "hcm_93_2006_qd_ubnd",
+    "document_number": "93/2006/QĐ-UBND",
+    "file_code": "QD04",
+    "title": "Về Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh",
+    "document_type": "Quyết định",
+    "issue_date": "2006-06-29",
+    "effective_date": "2006-07-09",
+    "issuing_body": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2011-11-20",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/29088",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "source_original_status": "Đã hết hiệu lực",
+    "status_checked_date": "2026-11-18",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_93_2006_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/tai-ve/29088",
+        "sha256": "1b45bc2eb70c8967423c0375e4b238ccb0190fa2fed7f520a4962571d85f3322",
+        "bytes": 129344
+      },
+      {
+        "source_path": "data/source_documents/local_documents_batch7/hcm_93_2006_qd_ubnd.html",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/29088",
+        "sha256": "7cd569be35e0a4676923cebf3ebdd23ee0037656df790222ef87c49f80d6f8fc",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "local_documents_batch7",
+    "source_kind": "pdf",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "territorial_scope": {
+      "jurisdiction_name": "Thành phố Hồ Chí Minh",
+      "applies_nationally": false,
+      "boundary_basis": "Territory at issue date; historical pre-merger territory must not be extended automatically."
+    },
+    "jurisdiction_review_required": true,
+    "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Historical general mediation expenditure, no express marriage/family restriction. Preserve as supporting reference rather than broaden this local family-law tranche."
+  }
+]

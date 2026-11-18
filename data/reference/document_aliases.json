@@ -2,7 +2,7 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "ea287f23573967384b2a59139096c841792459eed557ef2d84a5dda1c911fb29",
+  "registry_canonical_sha256": "2adc43ff60f78547ad72d05edebecac2c1667adc40922011e10560843ec3fd1c",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
     "bl_91_2015_qh13": {
@@ -650,6 +650,19 @@
       "effective_from": "2017-01-01",
       "effective_to": null,
       "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nq_38_2026_nq_hdnd_ho_chi_minh": {
+      "document_number": "38/2026/NQ-HĐND",
+      "title": "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh",
+      "document_type": "Nghị quyết",
+      "issue_year": "2026",
+      "effective_from": "2026-10-01",
+      "effective_to": null,
+      "temporal_scope": "document_level_only",
       "source_fields": {
         "effective_from": "effective_date",
         "effective_to": "expiry_date"
@@ -3178,7 +3191,8 @@
         "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
-        "nd_347_2026_nd_cp"
+        "nd_347_2026_nd_cp",
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
       ],
       "forms": [
         "2026"
@@ -3839,6 +3853,33 @@
       ],
       "forms": [
         "38/2025/TT-BYT"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "38/2026"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "38/2026/NQ-HĐND"
       ],
       "kinds": [
         "document_number",
@@ -9928,7 +9969,8 @@
         "nd_158_2026_nd_cp",
         "nd_18_2026_nd_cp",
         "nd_301_2026_nd_cp",
-        "nd_347_2026_nd_cp"
+        "nd_347_2026_nd_cp",
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
       ],
       "forms": [
         "năm 2026"
@@ -18347,6 +18389,19 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "nghi quyet 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết 2026"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nghi quyet 326": {
       "document_ids": [
         "nq_326_2016_ubtvqh14"
@@ -18379,6 +18434,45 @@
       ],
       "forms": [
         "Nghị quyết 326/2016/UBTVQH14"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi quyet 38": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết 38"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi quyet 38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết 38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi quyet 38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết 38/2026/NQ-HĐND"
       ],
       "kinds": [
         "type_number"
@@ -18490,6 +18584,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nghi quyet so 38": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết số 38"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nghi quyet so 38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết số 38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi quyet so 38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết số 38/2026/NQ-HĐND"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nghi quyet01 2024": {
       "document_ids": [
         "nq_01_2024_nq_hdtp"
@@ -18561,6 +18694,32 @@
       ],
       "forms": [
         "Nghị quyết326/2016/UBTVQH14"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi quyet38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi quyet38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Nghị quyết38/2026/NQ-HĐND"
       ],
       "kinds": [
         "type_number"
@@ -18661,6 +18820,19 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "nq 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ 2026"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nq 326": {
       "document_ids": [
         "nq_326_2016_ubtvqh14"
@@ -18698,6 +18870,58 @@
       "kinds": [
         "canonical_id",
         "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq 38": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ 38"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nq 38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ 38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq 38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ 38/2026/NQ-HĐND"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq 38 2026 nq hdnd ho chi minh": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "kinds": [
+        "canonical_id"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -18806,6 +19030,45 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nq so 38": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ số 38"
+      ],
+      "kinds": [
+        "type_number_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
+    "nq so 38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ số 38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq so 38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ số 38/2026/NQ-HĐND"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nq01 2024": {
       "document_ids": [
         "nq_01_2024_nq_hdtp"
@@ -18838,6 +19101,19 @@
       ],
       "forms": [
         "NQ02"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq03": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ03"
       ],
       "kinds": [
         "file_code"
@@ -18893,6 +19169,59 @@
       ],
       "kinds": [
         "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq38 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ38/2026"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nq38 2026 nq hdnd": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "NQ38/2026/NQ-HĐND"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh che do boi duong hang thang cho cong tac vien dan so tham gia cong tac gia dinh phong chong bao luc gia dinh o cong dong tren dia ban thanh pho ho chi minh": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "quy dinh che do boi duong hang thang cho cong tac vien dan so tham gia cong tac gia dinh phong chong bao luc gia dinh o cong dong tren dia ban thanh pho ho chi minh nam 2026": {
+      "document_ids": [
+        "nq_38_2026_nq_hdnd_ho_chi_minh"
+      ],
+      "forms": [
+        "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh năm 2026"
+      ],
+      "kinds": [
+        "title_with_issue_year"
       ],
       "ambiguous": false,
       "requires_identity_context": false

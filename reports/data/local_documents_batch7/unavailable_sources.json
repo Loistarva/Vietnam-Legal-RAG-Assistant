@@ -1,0 +1,22 @@
+[
+  {
+    "candidate_id": "lang_son_nq_36_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/183682/VanBanGoc_NQ%2036.2025.NQ.HDND.pdf",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "candidate_id": "candidate_qd_07_2026",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/186841/VanBanGoc_07.2026.Q%C4%90-UBND.pdf",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "candidate_id": "candidate_qd_51_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/185932/VanBanGoc_051_2025_QD-UBND_30122025-signed_03.pdf",
+    "error": "<urlopen error timed out>"
+  },
+  {
+    "candidate_id": "candidate_qd_41_2025",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/176817/VanBanGoc_QD%2041.2025.pdf",
+    "error": "<urlopen error timed out>"
+  }
+]

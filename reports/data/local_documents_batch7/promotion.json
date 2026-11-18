@@ -1,0 +1,16 @@
+{
+  "active_before": 93,
+  "new_active": 1,
+  "active_after": 94,
+  "held_reviewed": 5,
+  "active_ids": [
+    "nq_38_2026_nq_hdnd_ho_chi_minh"
+  ],
+  "held_ids": [
+    "qd_17_2026_qd_ubnd_ho_chi_minh",
+    "hcm_18_2026_nq_hdnd",
+    "hcm_1990_qd_ubnd",
+    "hcm_72_2011_qd_ubnd",
+    "hcm_93_2006_qd_ubnd"
+  ]
+}

@@ -1,0 +1,250 @@
+[
+  {
+    "candidate_id": "hcm_nq_38_2026",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_nq_38_2026.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Nghị quyết",
+      "Ngày ban hành": "27/08/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "01/10/2026",
+      "Số, ký hiệu": "38/2026/NQ-HĐND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "",
+      "Người ký": "Võ Văn Minh",
+      "Công báo": "Số 318 + 319 - năm 2026"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_nq_38_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/tai-ve/50053",
+        "sha256": "dbcf73caa9fdff4088b1cf33bec9bdf14c3072a8437a0cc62ee07086afefac93",
+        "bytes": 224422
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_nq_38_2026.txt",
+    "original_article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "pages": 3
+  },
+  {
+    "candidate_id": "hcm_qd_17_2026",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/49185",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_qd_17_2026.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Quyết định",
+      "Ngày ban hành": "06/04/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "06/04/2026",
+      "Số, ký hiệu": "17/2026/QĐ-UBND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Quy định mức chi cho hoạt động phòng, chống bạo lực gia đình trên địa bàn Thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "Tư pháp",
+      "Người ký": "Nguyễn Mạnh Cường",
+      "Công báo": "Số 157 + 158 - năm 2026",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Số hiệu: 41/2025/QĐ-UBND Ngày ban hành: 03/04/2025 Ngày có hiệu lực:"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_qd_17_2026.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/tai-ve/49185",
+        "sha256": "052d7f014d2f11266d410d9363c94a33603d0e17e0eca24bb7ad9f033280a36b",
+        "bytes": 247802
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_qd_17_2026.txt",
+    "original_article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "pages": 8
+  },
+  {
+    "candidate_id": "hcm_18_2026_nq_hdnd",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/49517",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_18_2026_nq_hdnd.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Nghị quyết",
+      "Ngày ban hành": "19/06/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "19/06/2026",
+      "Số, ký hiệu": "18/2026/NQ-HĐND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Hội đồng nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Quy định lệ phí hộ tịch trên địa bàn Thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "",
+      "Người ký": "Võ Văn Minh",
+      "Công báo": "Số 225 + 226 - năm 2026",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Số hiệu: 76/2016/NQ-HĐND Ngày ban hành: 09/12/2016 Ngày có hiệu lực:",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ một phần": "Nghị quyết về ban hành các loại phí, lệ phí thuộc thấm quyền của Hội đồng nhân dân thành phố. [Thuộc tính] [ Sơ đồ ] Số hiệu: 124/2016/NQ-HĐND Ngày ban hành: 09/12/2016 Ngày có hiệu lực: 01/01/2017"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_18_2026_nq_hdnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/tai-ve/49517",
+        "sha256": "20a62de9bf1167c7fa266ebd6d4b2d5a7bdd7639603608f46d150669d0f418e7",
+        "bytes": 260579
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_18_2026_nq_hdnd.txt",
+    "original_article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "pages": 5
+  },
+  {
+    "candidate_id": "hcm_1990_qd_ubnd",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/49356",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_1990_qd_ubnd.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Quyết định",
+      "Ngày ban hành": "03/04/2026",
+      "Tình trạng hiệu lực": "Đang hiệu lực",
+      "Ngày hiệu lực": "03/04/2026",
+      "Số, ký hiệu": "1990/QĐ-UBND",
+      "Ngày hết hiệu lực": "",
+      "Cơ quan ban hành": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Về bãi bỏ Quyết định số 42/2010/QĐ-UBND ngày 13 tháng 7 năm 2010 của Ủy ban nhân dân Thành phố Hồ Chí Mỉnh về việc thay thế thủ tục hành chính áp dụng tại Ủy ban nhân dân quận - huyện trong lĩnh vực hộ tịch.",
+      "Lĩnh vực": "",
+      "Người ký": "Trần Văn Bảy",
+      "Công báo": "Số 195 + 196 - năm 2026",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Quyết định về việc thay thế thủ tục hành chính áp dụng tại Ủy ban nhân dân quận - huyện trong lĩnh vực hộ tịch. [Thuộc tính] [ Sơ đồ ] Số hiệu: 42/2010/QĐ-UBND Ngày ban hành: 13/07/2010 Ngày có hiệu lực: 23/07/2010",
+      "Văn bản căn cứ": "Nghị định Quy định chi tiết một số điều và biện pháp để tổ chức, hướng dẫn thi hành Luật Ban hành văn bản quy phạm pháp luật [Thuộc tính] [ Sơ đồ ] Số hiệu: 78/2025/NĐ-CP Ngày ban hành: 01/04/2025 Ngày có hiệu lực:"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_1990_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/tai-ve/49356",
+        "sha256": "142453c68d5eca0d1efe07d189568f2767bbb51f3c75871bdc6a85e6480a3955",
+        "bytes": 213739
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_1990_qd_ubnd.txt",
+    "original_article_numbers": [
+      "1",
+      "2"
+    ],
+    "pages": 2
+  },
+  {
+    "candidate_id": "hcm_72_2011_qd_ubnd",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/31836",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_72_2011_qd_ubnd.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Quyết định",
+      "Ngày ban hành": "10/11/2011",
+      "Tình trạng hiệu lực": "Đã hết hiệu lực",
+      "Ngày hiệu lực": "20/11/2011",
+      "Số, ký hiệu": "72/2011/QĐ-UBND",
+      "Ngày hết hiệu lực": "11/02/2016",
+      "Cơ quan ban hành": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Ban hành Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "Tư pháp",
+      "Người ký": "",
+      "Công báo": "Số 70 - năm 2011",
+      "Văn bản bị thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Quyết định về Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh. [Thuộc tính] [ Sơ đồ ] Số hiệu: 93/2006/QĐ-UBND Ngày ban hành: 29/06/2006 Ngày có hiệu lực: 09/07/2006",
+      "Văn bản căn cứ": "Luật tổ chức Hội đồng nhân dân và Ủy ban nhân dân [Thuộc tính] [ Sơ đồ ] Số hiệu: 11/2003/QH11 Ngày ban hành: 26/11/2003 Ngày có hiệu lực: 10/01/2004",
+      "Văn bản thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Quyết định ban hành Quy định một số mức chi cụ thể cho hoạt động hòa giải ở cơ sở trên địa bàn Thành phố Hồ Chí Minh. [Thuộc tính] [ Sơ đồ ] Số hiệu: 02/2016/QĐ-UBND Ngày ban hành: 01/02/2016 Ngày có hiệu lực: 11/02/2016"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_72_2011_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/tai-ve/31836",
+        "sha256": "59f68e16b95c4bcd26bf792a43515cacf5b3da1402143af085f3c006117886b7",
+        "bytes": 133303
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_72_2011_qd_ubnd.txt",
+    "original_article_numbers": [
+      "1",
+      "2",
+      "3",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "pages": 7
+  },
+  {
+    "candidate_id": "hcm_93_2006_qd_ubnd",
+    "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/29088",
+    "html_path": "data/source_documents/local_documents_batch7/hcm_93_2006_qd_ubnd.html",
+    "properties": {
+      "Số lượt đang online": "",
+      "Số lượt truy cập": "",
+      "Loại văn bản": "Quyết định",
+      "Ngày ban hành": "29/06/2006",
+      "Tình trạng hiệu lực": "Đã hết hiệu lực",
+      "Ngày hiệu lực": "09/07/2006",
+      "Số, ký hiệu": "93/2006/QĐ-UBND",
+      "Ngày hết hiệu lực": "20/11/2011",
+      "Cơ quan ban hành": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "Trích yếu": "Về Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh.",
+      "Lĩnh vực": "Khiếu nại - Tố cáo",
+      "Người ký": "",
+      "Công báo": "Số 06 - năm 2006",
+      "Văn bản thay thế/ bãi bỏ/ hủy bỏ/ đình chỉ": "Quyết định ban hành Quy định việc quản lý và sử dụng kinh phí đảm bảo cho công tác hòa giải ở cơ sở trên địa bàn thành phố Hồ Chí Minh. [Thuộc tính] [ Sơ đồ ] Số hiệu: 72/2011/QĐ-UBND Ngày ban hành: 10/11/2011 Ngày có hiệu lực: 20/11/2011"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/local_documents_batch7/hcm_93_2006_qd_ubnd.part01.pdf",
+        "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/tai-ve/29088",
+        "sha256": "1b45bc2eb70c8967423c0375e4b238ccb0190fa2fed7f520a4962571d85f3322",
+        "bytes": 129344
+      }
+    ],
+    "source_text_path": "data/staging/local_documents_batch7/source_text/hcm_93_2006_qd_ubnd.txt",
+    "original_article_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "pages": 6
+  }
+]

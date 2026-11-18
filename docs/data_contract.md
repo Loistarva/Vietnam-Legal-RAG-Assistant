@@ -362,3 +362,4 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **TTLT08** | `ttlt_12_2016_ttlt_btp_bng_tandtc` | 12/2016/TTLT-BTP-BNG-TANDTC | Không xác định | quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự |
 | **L15** | `l_102_2025_qh15` | 102/2025/QH15 | Không xác định | Luật Tương trợ tư pháp dân sự |
 | **ND40** | `nd_158_2026_nd_cp` | 158/2026/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự |
+| **NQ03** | `nq_38_2026_nq_hdnd_ho_chi_minh` | 38/2026/NQ-HĐND | Còn hiệu lực | Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh |
