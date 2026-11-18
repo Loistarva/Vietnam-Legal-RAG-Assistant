@@ -1,0 +1,133 @@
+[
+  {
+    "document_id": "tt_27_2026_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "27/2026/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "03/11/2026",
+      "Trích yếu": "Sửa đổi, bổ sung một số điều của các Thông tư trong lĩnh vực văn hóa và gia đình",
+      "Người ký": "Lâm Thị Phương Thanh",
+      "Ngày hiệu lực": "01/01/2027",
+      "Công báo": "577"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/11/12/470917-1794283147_v1_1794445198_signed.pdf",
+        "sha256": "b3f3d833fecbdd99dfe67e6bd7a63a3a4bc89aef14a0c4bd20285f7637eb6a9e",
+        "bytes": 581165
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izww-fqmAlFbONSx715O1Dxk-sqR27b4k0FIpufKmg5g1G_nFrEm0PI3ppf3OyInl2LvdDs61uTlEB82aKsPl6lXg~~&file_name=2026_577_27%2f2026%2fTT-BVHTTDL.docx",
+        "sha256": "ff3bfef93ec044982fae8a6f5597c55968384e0d6184f91d691d6524492dd077",
+        "bytes": 58198
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izww-fqmAlFbONSx715O1Dxk-3GF8SI0rRs19CoYYE2LULQtsefCAWGboYyDGe84sndoWiB3Uzad7ihhuQuRHx60A~~&file_name=2026_577_27%2f2026%2fTT-BVHTTDL.pdf",
+        "sha256": "b3f3d833fecbdd99dfe67e6bd7a63a3a4bc89aef14a0c4bd20285f7637eb6a9e",
+        "bytes": 581165
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2016-ttlt-bgddt-bvhttdl-bldtbxh-bca-19861.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.html",
+    "properties": {
+      "Loại văn bản": "Thông tư liên tịch",
+      "Số, ký hiệu": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
+      "Cơ quan ban hành": "BỘ LAO ĐỘNG - THƯƠNG BINH VÀ XÃ HỘI - BỘ GIÁO DỤC VÀ ĐÀO TẠO - BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH - BỘ CÔNG AN",
+      "Ngày ban hành": "05/05/2016",
+      "Trích yếu": "hướng dẫn thực hiện giáo dục chuyển đổi hành vi về xây dựng gia đình và phòng, chống bạo lực gia đình trong các cơ sở giáo dục thuộc hệ thống giáo dục quốc dân.",
+      "Người ký": "HUỲNH VĂN TÍ - BÙI VĂN NAM - NGUYỄN THỊ NGHĨA - HUỲNH VĨNH ÁI",
+      "Ngày hiệu lực": "21/06/2016",
+      "Công báo": "369 + 370"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/5/19861/14262-1-132016ttlt-bgddt-bvhttdl-bldtbxh-bca14329pdf",
+        "sha256": "76bcd55824b2fefe7b2c527400b2d06c94fd485f3f8997306c6b9d267622e3e7",
+        "bytes": 383630
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRPgH6U9z2K0LhIuENiOWSkPmF5hkitddCs9L_MrM8Gs-vVQiJvrU-dlkPTr-U809EJsIdrafU-qTRxdcvtJ7PV1bT0ZHaLSUQGaA4degZukw~&file_name=13_2016_TTLT-BGD%c4%90T-BVHTTDL-BL%c4%90TBXH-BCA(14329).pdf",
+        "sha256": "76bcd55824b2fefe7b2c527400b2d06c94fd485f3f8997306c6b9d267622e3e7",
+        "bytes": 383630
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "tt_12_2013_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2013-tt-bvhttdl-1708.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "12/2013/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "17/12/2013",
+      "Trích yếu": "quy định chi tiết hoạt động hỗ trợ xây dựng gia đình hạnh phúc, phát triển bền vững tại cộng đồng",
+      "Người ký": "HOÀNG TUẤN ANH",
+      "Ngày hiệu lực": "03/02/2014",
+      "Công báo": "67 + 68"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/12/1708/603-1-201467-68-122013tt-bvhttdlpdf",
+        "sha256": "08d64245b53d39e90f91925d488530fb6637e51e2e2eb35e25211d51d4abc8e1",
+        "bytes": 303509
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRuFSlAekS8ULHm16fiRNmWKxKh-l_P4-XzzV-qqUlIdbrPIX50IjW5V_Qo0STtTMBprWUmhwl7g4S_-ZofJhtQA~~&file_name=2014_67+%2b+68-12_2013_TT-BVHTTDL.pdf",
+        "sha256": "08d64245b53d39e90f91925d488530fb6637e51e2e2eb35e25211d51d4abc8e1",
+        "bytes": 303509
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "tt_23_2011_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-23-2011-tt-bvhttdl-14203.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "23/2011/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "30/12/2011",
+      "Trích yếu": "quy định thu thập, xử lý thông tin về gia đình và phòng, chống bạo lực gia đình.",
+      "Người ký": "HOÀNG TUẤN ANH",
+      "Ngày hiệu lực": "14/02/2012",
+      "Công báo": "133 + 134"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/12/14203/9289-1-2012133-134-232011tt-bvhttdlpdf",
+        "sha256": "c8a0934f407c405213355cbe5e6f82eee39fd92585c01deb9579277a3c932aa5",
+        "bytes": 711835
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRJrPF1cfYDpaBrj6aBQzc0R6PPTc2FX2ob4xHQmc-YjlG4qePq2jof9onsVdoh3bP4zpJTDKMd3SFpXkeNFk5Lg~~&file_name=2012_133+%2b+134-23_2011_TT-BVHTTDL.pdf",
+        "sha256": "c8a0934f407c405213355cbe5e6f82eee39fd92585c01deb9579277a3c932aa5",
+        "bytes": 711835
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-144-2021-nd-cp-37170.htm",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

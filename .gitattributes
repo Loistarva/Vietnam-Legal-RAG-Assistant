@@ -22,3 +22,31 @@ parser/cleaned_texts/tt_08_2025_tt_btp.txt text eol=lf
 parser/cleaned_texts/ttlt_06_2012_ttlt_btp_bng.txt text eol=lf
 parser/extracted_texts_qwen/tt_08_2025_tt_btp.txt text eol=lf
 parser/extracted_texts_qwen/ttlt_06_2012_ttlt_btp_bng.txt text eol=lf
+
+# Preserve domestic violence official originals and normalized text hashes.
+data/source_documents/domestic_violence_batch5/* -text
+data/staging/domestic_violence_batch5/**/*.txt text eol=lf
+parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json text eol=lf
+parser/cleaned_texts/ttlt_143_2011_ttlt_btc_bvhttdl.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_143_2011_ttlt_btc_bvhttdl.txt text eol=lf
+parser/parsed_jsons/tt_58_2024_tt_btc.json text eol=lf
+parser/cleaned_texts/tt_58_2024_tt_btc.txt text eol=lf
+parser/extracted_texts_qwen/tt_58_2024_tt_btc.txt text eol=lf
+parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json text eol=lf
+parser/cleaned_texts/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.txt text eol=lf
+parser/extracted_texts_qwen/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.txt text eol=lf
+parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json text eol=lf
+parser/cleaned_texts/tt_12_2013_tt_bvhttdl.txt text eol=lf
+parser/extracted_texts_qwen/tt_12_2013_tt_bvhttdl.txt text eol=lf
+parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json text eol=lf
+parser/cleaned_texts/tt_23_2011_tt_bvhttdl.txt text eol=lf
+parser/extracted_texts_qwen/tt_23_2011_tt_bvhttdl.txt text eol=lf
+parser/parsed_jsons/tt_27_2026_tt_bvhttdl.json text eol=lf
+parser/cleaned_texts/tt_27_2026_tt_bvhttdl.txt text eol=lf
+parser/extracted_texts_qwen/tt_27_2026_tt_bvhttdl.txt text eol=lf
+parser/parsed_jsons/nd_282_2025_nd_cp.json text eol=lf
+parser/cleaned_texts/nd_282_2025_nd_cp.txt text eol=lf
+parser/extracted_texts_qwen/nd_282_2025_nd_cp.txt text eol=lf
+parser/parsed_jsons/nd_347_2026_nd_cp.json text eol=lf
+parser/cleaned_texts/nd_347_2026_nd_cp.txt text eol=lf
+parser/extracted_texts_qwen/nd_347_2026_nd_cp.txt text eol=lf

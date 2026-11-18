@@ -1,0 +1,204 @@
+[
+  {
+    "document_id": "tt_27_2026_tt_bvhttdl",
+    "document_number": "27/2026/TT-BVHTTDL",
+    "file_code": "TT41",
+    "title": "Sửa đổi, bổ sung một số điều của các Thông tư trong lĩnh vực văn hóa và gia đình",
+    "document_type": "Thông tư",
+    "issue_date": "2026-11-03",
+    "effective_date": "2027-01-01",
+    "issuing_body": "Bộ Văn Hóa, Thể Thao Và Du Lịch",
+    "validity_status": "Sắp có hiệu lực",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm",
+    "source_status": "Ngày hiệu lực 2027-01-01 theo Điều12.1; chưa có hiệu lực tại ngày chuẩn bị 2026-11-18",
+    "provision_status": "requires_review",
+    "temporal_scope": "future",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/11/12/470917-1794283147_v1_1794445198_signed.pdf",
+        "sha256": "b3f3d833fecbdd99dfe67e6bd7a63a3a4bc89aef14a0c4bd20285f7637eb6a9e",
+        "bytes": 581165
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izww-fqmAlFbONSx715O1Dxk-sqR27b4k0FIpufKmg5g1G_nFrEm0PI3ppf3OyInl2LvdDs61uTlEB82aKsPl6lXg~~&file_name=2026_577_27%2f2026%2fTT-BVHTTDL.docx",
+        "sha256": "ff3bfef93ec044982fae8a6f5597c55968384e0d6184f91d691d6524492dd077",
+        "bytes": 58198
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm",
+        "sha256": "dff5c68996c142e7396461bbd81653dc24511a9678515f5b7ede13b6b864bcea",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "effectivity_evidence": {
+      "provision": "12.1",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm"
+    },
+    "production_ingest_allowed": false,
+    "ingest_pdf_sha256": "5e0b699fdc01e5a2629898a07bf917724b332c0f4728cdccace65ff675f2fc3e",
+    "normalized_source_text_sha256": "6c8c06de7c6d05c1163bba946e98993ae5a1103699e29cc68dcf2946c5991a54",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "91ca7d90a55447b5464478ab6aeee79b10e4650284e9290cd997e75b48e8043d",
+    "hold_reason": "Final PDF/parser/schema verified and effective2027-01-01. Current registry source_status mapping does not support Sắp có hiệu lực (test/schema_test.py); stage until effective date or owner-supported status mapping. Do not mislabel as currently effective or change test/code.",
+    "candidate_normalized_pdf_path": "data/staging/domestic_violence_batch5/compatibility/normalized_pdf/tt_27_2026_tt_bvhttdl.pdf"
+  },
+  {
+    "document_id": "tt_23_2014_tt_bvhttdl",
+    "document_number": "23/2014/TT-BVHTTDL",
+    "file_code": "TT38",
+    "title": "Sửa đổi, bổ sung một số điều của Thông tư số 02/2010/TT-BVHTTDL ngày 16 tháng 3 năm 2010 của Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch quy định chi tiết về thủ tục đăng ký hoạt động, giải thể cơ sở hỗ trợ nạn nhân bạo lực gia đình; cơ sở tư vấn về phòng",
+    "document_type": "Thông tư",
+    "issue_date": "2014-12-22",
+    "effective_date": "2015-02-20",
+    "issuing_body": "Bộ Văn Hóa - Thể Thao Và Du Lịch",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://tthc.hue.gov.vn/Content/Vanban/chitiet?iVanBan=1389",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.part01.doc",
+        "source_url": "https://tthc.hue.gov.vn/upload/images/SVHTT/23-2014-TT-BVHTTDL.doc",
+        "sha256": "0223a114b13527916363c1d5d8a1510733b094b6c60b91a28d860aeb196ec233",
+        "bytes": 68096
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.html",
+        "source_url": "https://tthc.hue.gov.vn/Content/Vanban/chitiet?iVanBan=1389",
+        "sha256": "1ae00f288deee5faf2a91e490c4d0c4e859e1c9325d3454cdec084cefcc6e1bd",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Provincial official attachment has Dự thảo 11 (09/2/3/2010) in its header. Do not treat as verified final promulgated text; needs a final signed/Gazette source."
+  },
+  {
+    "document_id": "tt_24_2017_tt_byt",
+    "document_number": "24/2017/TT-BYT",
+    "file_code": null,
+    "title": "Quy định quy trình tiếp nhận, chăm sóc y tế và thống kê, báo cáo đối với người bệnh là nạn nhân bạo lực gia đình tại cơ sở khám bệnh, chữa bệnh",
+    "document_type": "Thông tư",
+    "issue_date": "2017-05-17",
+    "effective_date": "2017-07-07",
+    "issuing_body": "Bộ Y Tế",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/tt_24_2017_tt_byt.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2017/07/24-byt.signed.pdf",
+        "sha256": "8e45a0f6186a86bb9b3dc6dbd519685075ca54981f74681f56ed1978b32b0b58",
+        "bytes": 536999
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/tt_24_2017_tt_byt.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+        "sha256": "3226daf6e33c5a474416eb45a609af86d2ece1475b5987faa577bd61ccaf6a0d",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Official signed PDF pp8–9 and Gazette both repeat Article16; attached Word has draft/revision concatenations such as Article56/67/910. Original preserved; no renumbering or unverified OCR ingest.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/tt_24_2017_tt_byt.pdf"
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp",
+    "document_number": "144/2021/NĐ-CP",
+    "file_code": null,
+    "title": "Quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng cháy, chữa cháy; cứu nạn, cứu hộ; phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2021-12-31",
+    "effective_date": "2022-01-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_144_2021_nd_cp.part01.pdf",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2022/01/144.signed.pdf",
+        "sha256": "7baad192cc56050a3d07e1261ab04642e5ff873cd9f1969ca29234ac432e7d96",
+        "bytes": 4541775
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_144_2021_nd_cp.html",
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+        "sha256": "e2bea3b4186d2e33190740fd23d188b241888720a2f8f52d24bdef35159dc077",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "production_ingest_allowed": false,
+    "hold_reason": "Existing official signed source is scanned; no complete native text or verified compatible derivative recovered. NĐ282/2025 replaces it; do not fabricate historical content.",
+    "technical_pipeline_status": "held_not_in_default_inputs",
+    "candidate_normalized_pdf_path": "data/staging/central_batch1/rejected_derivatives/nd_144_2021_nd_cp.pdf"
+  },
+  {
+    "document_id": "tt_02_2010_tt_bvhttdl",
+    "document_number": "02/2010/TT-BVHTTDL",
+    "file_code": null,
+    "title": "02/2010/TT-BVHTTDL",
+    "source_url": "https://bvhttdl.gov.vn/van-ban-quan-ly/309.htm",
+    "production_ingest_allowed": false,
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "hold_reason": "Legacy ministry URL now returns no document; not a usable official attachment. Need final original.",
+    "origin": "domestic_violence_batch5"
+  },
+  {
+    "document_id": "tt_07_2017_tt_bvhttdl",
+    "document_number": "07/2017/TT-BVHTTDL",
+    "file_code": null,
+    "title": "07/2017/TT-BVHTTDL",
+    "source_url": "https://sovhtt.hanoi.gov.vn/wp-content/uploads/2019/01/07.pdf",
+    "production_ingest_allowed": false,
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "hold_reason": "Official Hanoi host DNS unavailable after permitted retry; ministry article has no complete downloadable legal original.",
+    "origin": "domestic_violence_batch5"
+  },
+  {
+    "document_id": "tt_16_2009_tt_byt",
+    "document_number": "16/2009/TT-BYT",
+    "file_code": null,
+    "title": "16/2009/TT-BYT",
+    "source_url": "https://giadinh.bvhttdl.gov.vn/van-ban/huong-dan-viec-tiep-nhan-cham-soc-y-te-va-thong-ke-bao-cao-doi-voi-nguoi-benh-la-nan-nhan-bao-luc-gia-dinh-tai-co-so-kham-benh-chua-benh/",
+    "production_ingest_allowed": false,
+    "ingest_pdf_path": null,
+    "parsed_json_path": null,
+    "hold_reason": "Official article page found, but no complete downloadable legal original; no guessed text.",
+    "origin": "domestic_violence_batch5"
+  }
+]

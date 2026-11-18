@@ -390,6 +390,55 @@
       "added_in": null
     },
     {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_282_2025_nd_cp.pdf",
+      "document_id": "nd_282_2025_nd_cp",
+      "sha256": "5c365e82a35911b5b7f26d29d860147f4d27c122c10ee6658f7afbe1ca64791c",
+      "bytes": 185577,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_347_2026_nd_cp.pdf",
+      "document_id": "nd_347_2026_nd_cp",
+      "sha256": "4b3903b69077aa52a15eac23f40ff27bb84cce799e78d5efd8d3486025c3df21",
+      "bytes": 91766,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
+      "document_id": "tt_12_2013_tt_bvhttdl",
+      "sha256": "d083b3c0ec26a627d859b8717792ad6e1edf05c831ab5fe4cca8fb61eb10a9b6",
+      "bytes": 63302,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
+      "document_id": "tt_23_2011_tt_bvhttdl",
+      "sha256": "caa0423b592127affd3f35780a4d5fcc3e0db821ee2b4f2e8e8ec0a6a8a51693",
+      "bytes": 65321,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
+      "document_id": "tt_58_2024_tt_btc",
+      "sha256": "a4ae3322bcbbed8949482da6c9bd66bb03e704fe96f7154c678b8130375b5928",
+      "bytes": 59998,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
+      "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+      "sha256": "c47bf9960020c8d7eaa24694bc70a633bb598a57261eb9ad5dfeee55eca9fbdb",
+      "bytes": 68043,
+      "added_in": null
+    },
+    {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
+      "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
+      "sha256": "fb0fee94806228dc5966dd8e7c8fc5049129e4fe9dcbecba4140dc1ba6aa2cd5",
+      "bytes": 72580,
+      "added_in": null
+    },
+    {
       "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
       "document_id": "tt_08_2025_tt_btp",
       "sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",

@@ -1,0 +1,25 @@
+{
+  "active_before": 79,
+  "new_active": 7,
+  "active_after": 86,
+  "held_reviewed": 7,
+  "held_preexisting": 2,
+  "active_ids": [
+    "ttlt_143_2011_ttlt_btc_bvhttdl",
+    "tt_58_2024_tt_btc",
+    "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+    "tt_12_2013_tt_bvhttdl",
+    "tt_23_2011_tt_bvhttdl",
+    "nd_282_2025_nd_cp",
+    "nd_347_2026_nd_cp"
+  ],
+  "held_ids": [
+    "tt_27_2026_tt_bvhttdl",
+    "tt_23_2014_tt_bvhttdl",
+    "tt_24_2017_tt_byt",
+    "nd_144_2021_nd_cp",
+    "tt_02_2010_tt_bvhttdl",
+    "tt_07_2017_tt_bvhttdl",
+    "tt_16_2009_tt_byt"
+  ]
+}

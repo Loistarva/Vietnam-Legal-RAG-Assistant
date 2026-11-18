@@ -506,6 +506,49 @@
         "22"
       ],
       "reason": "Tạm cách ly khối parsed Điều23 vì chứa lẫn Điều25–41. Cả bản Công báo trang53 (PDF trang13) và bản ký chính thức PDF trang12–13 đều nhảy Điều23 sang25; parser hiện tại không hỗ trợ chuỗi có khoảng trống. Giữ nguyên nguồn/parsed và số Điều; chỉ truy xuất Điều1–22 cho tới khi có đính chính chính thức hoặc parser hỗ trợ. Không tự tạo Điều24. Đối chiếu tại reports/data/foreign_civil_registration_batch3/preexisting_review_findings.json."
+    },
+    "nd_282_2025_nd_cp": {
+      "articles": [
+        "1",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "64",
+        "65",
+        "69",
+        "70",
+        "71"
+      ],
+      "reason": "Chỉ nạp quy định chung phục vụ PCBLGĐ, hành vi và xử phạt BLGĐ (37–53), thẩm quyền UBND/Công an (54–55), phân định/lập biên bản (64–65), thi hành/chuyển tiếp (69–71). Không nạp an ninh, cư trú, ma túy, mại dâm, cờ bạc hay hàng không. Tạm loại toàn Điều3 bản gốc vì khoản6 đã sửa bởi Điều33 NĐ347/2026, chờ rà soát thời gian áp dụng cấp Khoản; không coi bản gốc là hợp nhất."
+    },
+    "nd_347_2026_nd_cp": {
+      "articles": [
+        "33",
+        "41",
+        "42"
+      ],
+      "reason": "Điều33 sửa nguyên tắc xử phạt nhiều lần tại khoản6 Điều3 NĐ282/2025, dùng cho xử phạt BLGĐ; Điều41–42 là hiệu lực và thi hành. Loại các sửa đổi về dữ liệu, PCCC, an ninh trật tự và lĩnh vực khác. Không sửa/hợp nhất ngầm nội dung ND282."
     }
   }
 }

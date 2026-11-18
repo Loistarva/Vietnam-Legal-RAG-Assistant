@@ -1,0 +1,6 @@
+{
+  "hyphen_split_whitespace_fixed": true,
+  "validity_status_mapping_fixed": true,
+  "future_document_staged_without_falsifying_status": true,
+  "parser_chunker_schema_tests_unchanged": true
+}

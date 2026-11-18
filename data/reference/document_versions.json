@@ -4092,5 +4092,324 @@
     "source_kind": "official_word_binary_attachment",
     "parsed_json_sha256": "f5dec9ac03e7084ed2f016c242b508a142dcbc4f5add2e5481686d9eb5b442a4",
     "effectivity_note": "Article 23.1 verifies 2025-07-01. Article 23.2 states conditional sunset 2027-03-01 with exceptions and possible earlier provision-level replacement. Do not encode as unconditional expiry; latest status remains unverified."
+  },
+  {
+    "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
+    "document_number": "143/2011/TTLT-BTC-BVHTTDL",
+    "file_code": "TTLT04",
+    "title": "Quy định chế độ quản lý và sử dụng kinh phí ngân sách Nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách Nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2011-10-21",
+    "effective_date": "2011-12-10",
+    "issuing_body": "Bộ Tài Chính, Bộ Văn Hóa, Thể Thao Và Du Lịch",
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2024-09-25",
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=153769&pageid=27160",
+    "source_status": "Hết hiệu lực toàn bộ",
+    "provision_status": "requires_review",
+    "temporal_scope": "historical",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.part01.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2012/01/ttlt-143.doc",
+        "sha256": "78a0b2d62cecdbd2c1ab3494d1a306e3a0e6251ad7c1b6c878878cb1b7c8be3b",
+        "bytes": 101888
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.html",
+        "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=153769&pageid=27160",
+        "sha256": "7c8805f34bb39c287448713ff4c0aa9be46e03334bd98184ae74697be7dd0a41",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "source_document_number": "143/2011/TTLT/BTC-BVHTTDL",
+    "effectivity_evidence": {
+      "changed_by": "tt_58_2024_tt_btc",
+      "provision": "1; 2.1",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm"
+    },
+    "normalization_identity_note": "Official Word uses slash after TTLT; canonical identifier uses hyphen as cited by the official repealing TT58/2024. Original identifier preserved in source_document_number.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "fb0fee94806228dc5966dd8e7c8fc5049129e4fe9dcbecba4140dc1ba6aa2cd5",
+    "normalized_source_text_sha256": "1ed5e30692fd589815da223d9ee64bbafa5d4210e2f0fbb68949695da87e1c5b",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "8bcf780f579465036bf112cd120104a0a6c30a818fca7253c7cd89d0eec93f12"
+  },
+  {
+    "document_id": "tt_58_2024_tt_btc",
+    "document_number": "58/2024/TT-BTC",
+    "file_code": "TT37",
+    "title": "bãi bỏ Thông tư liên tịch số 143/2011/TTLT-BTC-BVHTTDL ngày 21 tháng 10 năm 2011 của Bộ trưởng Bộ Tài chính và Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch quy định chế độ quản lý và sử dụng kinh phí ngân sách nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập",
+    "document_type": "Thông tư",
+    "issue_date": "2024-08-06",
+    "effective_date": "2024-09-25",
+    "issuing_body": "Bộ Tài Chính",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_58_2024_tt_btc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/8/42636/51598-1-20241023-102458-2024-tt-btc.pdf",
+        "sha256": "7e2d3e664afe0b18bbbda2c7255411c600c55cdd9f65a3d5fa0c3368905dcca9",
+        "bytes": 294571
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_58_2024_tt_btc.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRalQbRPDCheRoPJT5iGTtr2n-J3k-FmePWrKdf-71FiWQG8gdFsOty7_W6qcxWj10F7dEM94y9FXpFiTSEPi64A~~&file_name=2024_1023+%2b+1024_58-2024-TT-BTC.doc",
+        "sha256": "fb2b849e95269d7bcf8ceacb134e1a05f67ce4f719930d99b3b50f302cf12210",
+        "bytes": 81920
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_58_2024_tt_btc.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm",
+        "sha256": "346bfa6f81c5324d8d5756b559e7c23e3a6c5022569993589cfa2a28392ed8a9",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_58_2024_tt_btc.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "a4ae3322bcbbed8949482da6c9bd66bb03e704fe96f7154c678b8130375b5928",
+    "normalized_source_text_sha256": "ff6eb79f4c3f07bcaa5c2ed4881c0cf7da22a71ed51525fa51107adc4a6f7155",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "87f805d9c4eb941943c48f0e3411d2e85fb5646f939ee01ececfbf38972622d8"
+  },
+  {
+    "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+    "document_number": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
+    "file_code": "TTLT05",
+    "title": "hướng dẫn thực hiện giáo dục chuyển đổi hành vi về xây dựng gia đình và phòng, chống bạo lực gia đình trong các cơ sở giáo dục thuộc hệ thống giáo dục quốc dân",
+    "document_type": "Thông tư liên tịch",
+    "issue_date": "2016-05-05",
+    "effective_date": "2016-06-21",
+    "issuing_body": "Bộ Lao Động - Thương Binh Và Xã Hội - Bộ Giáo Dục Và Đào Tạo - Bộ Văn Hóa, Thể Thao Và Du Lịch - Bộ Công An",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2016-ttlt-bgddt-bvhttdl-bldtbxh-bca-19861.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/5/19861/14262-1-132016ttlt-bgddt-bvhttdl-bldtbxh-bca14329pdf",
+        "sha256": "76bcd55824b2fefe7b2c527400b2d06c94fd485f3f8997306c6b9d267622e3e7",
+        "bytes": 383630
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2016-ttlt-bgddt-bvhttdl-bldtbxh-bca-19861.htm",
+        "sha256": "e714bedf145702e21a6459e10e4b6817d371b0f85aaedd93a29db8d5e51f5f56",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
+    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json",
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "c47bf9960020c8d7eaa24694bc70a633bb598a57261eb9ad5dfeee55eca9fbdb",
+    "normalized_source_text_sha256": "f7e641da017926eb3c43c7beff4eaf9645ed7ef214e12442821865a37531c737",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3"
+  },
+  {
+    "document_id": "tt_12_2013_tt_bvhttdl",
+    "document_number": "12/2013/TT-BVHTTDL",
+    "file_code": "TT39",
+    "title": "quy định chi tiết hoạt động hỗ trợ xây dựng gia đình hạnh phúc, phát triển bền vững tại cộng đồng",
+    "document_type": "Thông tư",
+    "issue_date": "2013-12-17",
+    "effective_date": "2014-02-03",
+    "issuing_body": "Bộ Văn Hóa, Thể Thao Và Du Lịch",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2013-tt-bvhttdl-1708.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/12/1708/603-1-201467-68-122013tt-bvhttdlpdf",
+        "sha256": "08d64245b53d39e90f91925d488530fb6637e51e2e2eb35e25211d51d4abc8e1",
+        "bytes": 303509
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2013-tt-bvhttdl-1708.htm",
+        "sha256": "26cd6ee98d31db98e657f1cdf1d92e11166b690fface4104ee942de9e5c45bf5",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json",
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "d083b3c0ec26a627d859b8717792ad6e1edf05c831ab5fe4cca8fb61eb10a9b6",
+    "normalized_source_text_sha256": "1e2bc7f0dbd63b0fb637c203d8681233ce36a51dc88809fa4244e2cc62a2d513",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb"
+  },
+  {
+    "document_id": "tt_23_2011_tt_bvhttdl",
+    "document_number": "23/2011/TT-BVHTTDL",
+    "file_code": "TT40",
+    "title": "quy định thu thập, xử lý thông tin về gia đình và phòng, chống bạo lực gia đình",
+    "document_type": "Thông tư",
+    "issue_date": "2011-12-30",
+    "effective_date": "2012-02-14",
+    "issuing_body": "Bộ Văn Hóa, Thể Thao Và Du Lịch",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-23-2011-tt-bvhttdl-14203.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/12/14203/9289-1-2012133-134-232011tt-bvhttdlpdf",
+        "sha256": "c8a0934f407c405213355cbe5e6f82eee39fd92585c01deb9579277a3c932aa5",
+        "bytes": 711835
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-23-2011-tt-bvhttdl-14203.htm",
+        "sha256": "bd1e7f5be9ac75d76849da53b97d8075b4dd5f4e9571df5ca596de0357ad56e3",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
+    "parsed_json_path": "parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json",
+    "source_kind": "pdf",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "caa0423b592127affd3f35780a4d5fcc3e0db821ee2b4f2e8e8ec0a6a8a51693",
+    "normalized_source_text_sha256": "59d4696e3897603ef73dd31a0a645dfe447bd90b5c16e8cced705152771c8349",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e"
+  },
+  {
+    "document_id": "nd_282_2025_nd_cp",
+    "document_number": "282/2025/NĐ-CP",
+    "file_code": "ND38",
+    "title": "quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2025-10-30",
+    "effective_date": "2025-12-15",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/10/46543/59667-1-20251583-1584282-2025-nd-cp.pdf",
+        "sha256": "39e1946d465f5d9f8ef9a8baea8992d46e92fffbcc0cf529b7e08b7bcda4f2dd",
+        "bytes": 1154533
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRfIy3OaWmMFnkZ5CdeXoBDcVYebpqHws-uAggYFnzGoqBwYPo40qvQxwOOcBvHOfNGmwOB6j6jRceH33Z8Q9Eag~~&file_name=2025_1583+%2b+1584_282-2025-N%c4%90-CP.doc",
+        "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92",
+        "bytes": 613376
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+        "sha256": "a87914b38560035775de202a75f74fb26ce67aa8ac3379632c7d70b88b751a1b",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_282_2025_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_282_2025_nd_cp.json",
+    "source_kind": "doc",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "5c365e82a35911b5b7f26d29d860147f4d27c122c10ee6658f7afbe1ca64791c",
+    "normalized_source_text_sha256": "3554ede2624494c4f4a402a405270642aa26c70d3a9b24236aa38382e33f973f",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "d84043918e7a059c7fb4b706fc395e83470877a1da1605a7a8a538097c2a3e5c",
+    "known_amended_by": [
+      "nd_347_2026_nd_cp"
+    ],
+    "effectivity_note": "Original Article3.6 amended by Article33 NĐ347/2026 effective2026-09-15. Exclude whole original Article3 from chunk scope until clause-level historical temporal review. Article69.4 replaces NĐ144/2021; Article70 preserves transitional application."
+  },
+  {
+    "document_id": "nd_347_2026_nd_cp",
+    "document_number": "347/2026/NĐ-CP",
+    "file_code": "ND39",
+    "title": "Sửa đổi, bổ sung một số điều của Nghị định số 169/2025/NĐ-CP ngày 30 tháng 6 năm 2025 của Chính phủ quy định hoạt động khoa học, công nghệ, đổi mới sáng tạo và sản phẩm, dịch vụ về dữ liệu; Nghị định số 105/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 106/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 282/2025/NĐ-CP ngày 30 tháng 10 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình",
+    "document_type": "Nghị định",
+    "issue_date": "2026-09-08",
+    "effective_date": "2026-09-15",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Không xác định",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/9/18/470418-1789641294_v1_1789725260_signed.pdf",
+        "sha256": "fa2c19f075274ed1dbaf638dc5ad0f47279459b57a05ae86c7b2fe67800a1bb0",
+        "bytes": 1315993
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwzvidWXcCrlzhmFuPbXeRzTpddo2mZmQOQIee7FdHvy1JanwRWBaMQnwWTqfXgVW9bdS3jWN_J9X-tWQ7LhMkTQ~~&file_name=2026_516_347%2f2026%2fN%c4%90-CP.docx",
+        "sha256": "499201c8ea9dd8ae5cd043095789f07f21dd80625410fc9813a314990b865189",
+        "bytes": 122912
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+        "sha256": "ce272a685c3b4dd6b4bea68233e0aafbb629a33de6aa7b40e8495d1fd83dfc13",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "domestic_violence_batch5",
+    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_347_2026_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_347_2026_nd_cp.json",
+    "source_kind": "docx",
+    "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
+    "production_ingest_allowed": true,
+    "ingest_pdf_sha256": "4b3903b69077aa52a15eac23f40ff27bb84cce799e78d5efd8d3486025c3df21",
+    "normalized_source_text_sha256": "36d23e72b5e47db887be1c9639d8bbab94b1b0db2bc87f9738cc74d68ffaa48c",
+    "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
+    "download_status": "Official sources acquired and normalized 2026-11-18",
+    "parsed_json_sha256": "73acd04c253006c35d0f351e7fd5da2ee32e4a79ca05198a451d346f708a7401",
+    "changes_documents": [
+      "nd_282_2025_nd_cp"
+    ]
   }
 ]

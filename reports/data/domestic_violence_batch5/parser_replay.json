@@ -1,0 +1,51 @@
+[
+  {
+    "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "tt_58_2024_tt_btc",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "tt_12_2013_tt_bvhttdl",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "tt_23_2011_tt_bvhttdl",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "nd_282_2025_nd_cp",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  },
+  {
+    "document_id": "nd_347_2026_nd_cp",
+    "current_registry_replay": "PASS",
+    "normalization_report_current": "PASS",
+    "staging_active_identical": "PASS",
+    "source_ingest_parsed_normalized_text_sha256": "PASS"
+  }
+]

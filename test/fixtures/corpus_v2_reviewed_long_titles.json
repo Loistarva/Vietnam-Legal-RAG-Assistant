@@ -648,6 +648,136 @@
         }
       ],
       "reason": "Exact Article heading checked against original official Word and Gazette PDF; no clause text included."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "3",
+      "expected_title": "Hình thức xử phạt vi phạm hành chính, biện pháp khắc phục hậu quả, quy định về vi phạm hành chính đã kết thúc, vi phạm hành chính đang được thực hiện và xử phạt vi phạm hành chính đối với trường hợp vi phạm nhiều lần",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "7",
+      "expected_title": "Xử phạt vi phạm hành chính đối với người đã ly hôn; người chung sống như vợ chồng; người là cha, mẹ, con riêng, anh, chị, em của người đã ly hôn, của người chung sống như vợ chồng; người đã từng có quan hệ cha mẹ nuôi và con nuôi với nhau thực hiện hành vi bạo lực gia đình",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "27",
+      "expected_title": "Vi phạm quy định về xây dựng, quản lý, sử dụng Cơ sở dữ liệu quốc gia về dân cư, Cơ sở dữ liệu về cư trú, Cơ sở dữ liệu căn cước, hệ thống định danh và xác thực điện tử",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "35",
+      "expected_title": "Hành vi sử dụng việc mua dâm, bán dâm và các hoạt động tình dục khác làm phương thức kinh doanh hoặc hành vi thiếu trách nhiệm để xảy ra hoạt động mua dâm, bán dâm, khiêu dâm, kích dục ở cơ sở kinh doanh, dịch vụ",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "38",
+      "expected_title": "Hành vi bỏ mặc, không quan tâm; không nuôi dưỡng, không chăm sóc thành viên gia đình là phụ nữ mang thai, phụ nữ đang nuôi con dưới 36 tháng tuổi, người khuyết tật, người già yếu, người cao tuổi, người không có khả năng tự chăm sóc; không giáo dục thành viên gia đình là trẻ em",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "50",
+      "expected_title": "Vi phạm quy định về tiết lộ, phát tán thông tin về người bị bạo lực gia đình, người báo tin, tố giác hành vi bạo lực gia đình và không công khai bảng giá dịch vụ trợ giúp phòng, chống bạo lực gia đình có thu phí theo quy định của pháp luật",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "52",
+      "expected_title": "Vi phạm quy định về đăng ký nội dung, phạm vi hoạt động với cơ quan quản lý nhà nước về phòng, chống bạo lực gia đình đối với cơ sở cung cấp dịch vụ trợ giúp phòng, chống bạo lực gia đình",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "66",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Nghị định số 142/2021/NĐ-CP ngày 31 tháng 12 năm 2021 của Chính phủ quy định hình thức xử phạt trục xuất, biện pháp tạm giữ người, áp giải người vi phạm theo thủ tục hành chính và quản lý người nước ngoài vi phạm pháp luật Việt Nam trong thời gian làm thủ tục trục xuất",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "67",
+      "expected_title": "Sửa đổi, bổ sung Điều 34 của Nghị định số 162/2018/NĐ-CP ngày 30 tháng 11 năm 2018 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực hàng không dân dụng (đã được sửa đổi, bổ sung tại Nghị định số 123/2021/NĐ-CP ngày 28 tháng 12 năm 2021 của Chính phủ)",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
+    },
+    {
+      "txt_stem": "nd_282_2025_nd_cp",
+      "article_number": "68",
+      "expected_title": "Sửa đổi, bổ sung một số điều của Nghị định số 189/2025/NĐ-CP ngày 01 tháng 7 năm 2025 của Chính phủ quy định chi tiết Luật Xử lý vi phạm hành chính về thẩm quyền xử phạt vi phạm hành chính",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "source_artifacts": [
+        {
+          "path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+          "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92"
+        }
+      ],
+      "reason": "Exact long title checked in official source, no normative clause text included; unchanged common heuristic."
     }
   ]
 }

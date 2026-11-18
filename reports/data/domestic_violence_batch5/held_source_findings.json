@@ -1,0 +1,13 @@
+{
+  "tt_24_2017_tt_byt": {
+    "signed_pdf": "data/source_pdfs/central_batch1/tt_24_2017_tt_byt.part01.pdf",
+    "sha256": "8e45a0f6186a86bb9b3dc6dbd519685075ca54981f74681f56ed1978b32b0b58",
+    "gazette_pdf": "data/source_pdfs/domestic_violence_batch5/tt_24_2017_tt_byt.part01.pdf",
+    "finding": "Two Article16 headings in signed original pp8–9 and Gazette; Word contains unaccepted revisions/concatenated numbers. Do not renumber."
+  },
+  "tt_23_2014_tt_bvhttdl": {
+    "official_attachment": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.part01.doc",
+    "sha256": "0223a114b13527916363c1d5d8a1510733b094b6c60b91a28d860aeb196ec233",
+    "finding": "Header contains Dự thảo11(09/2/3/2010); final promulgated version not verified."
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "document_id": "nd_282_2025_nd_cp_gazette",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "282/2025/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "30/10/2025",
+      "Trích yếu": "quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình.",
+      "Người ký": "Phạm Minh Chính",
+      "Ngày hiệu lực": "15/12/2025",
+      "Công báo": "1583 + 1584"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/10/46543/59667-1-20251583-1584282-2025-nd-cp.pdf",
+        "sha256": "39e1946d465f5d9f8ef9a8baea8992d46e92fffbcc0cf529b7e08b7bcda4f2dd",
+        "bytes": 1154533
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRfIy3OaWmMFnkZ5CdeXoBDZ4CXCseSaXkhuUaRJKv672Wx1jfVeAWSrpDNblFHeJU8Qkv4ZHtNmidt0r3MUnClw~~&file_name=2025_1583+%2b+1584_282-2025-N%c4%90-CP.pdf",
+        "sha256": "39e1946d465f5d9f8ef9a8baea8992d46e92fffbcc0cf529b7e08b7bcda4f2dd",
+        "bytes": 1154533
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRfIy3OaWmMFnkZ5CdeXoBDcVYebpqHws-uAggYFnzGoqBwYPo40qvQxwOOcBvHOfNGmwOB6j6jRceH33Z8Q9Eag~~&file_name=2025_1583+%2b+1584_282-2025-N%c4%90-CP.doc",
+        "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92",
+        "bytes": 613376
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "nd_347_2026_nd_cp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "347/2026/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "08/09/2026",
+      "Trích yếu": "Sửa đổi, bổ sung một số điều của Nghị định số 169/2025/NĐ-CP ngày 30 tháng 6 năm 2025 của Chính phủ quy định hoạt động khoa học, công nghệ, đổi mới sáng tạo và sản phẩm, dịch vụ về dữ liệu; Nghị định số 105/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 106/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 282/2025/NĐ-CP ngày 30 tháng 10 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình",
+      "Người ký": "Phạm Gia Túc",
+      "Ngày hiệu lực": "15/09/2026",
+      "Công báo": "516"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/9/18/470418-1789641294_v1_1789725260_signed.pdf",
+        "sha256": "fa2c19f075274ed1dbaf638dc5ad0f47279459b57a05ae86c7b2fe67800a1bb0",
+        "bytes": 1315993
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwzvidWXcCrlzhmFuPbXeRzTpddo2mZmQOQIee7FdHvy1JanwRWBaMQnwWTqfXgVW9bdS3jWN_J9X-tWQ7LhMkTQ~~&file_name=2026_516_347%2f2026%2fN%c4%90-CP.docx",
+        "sha256": "499201c8ea9dd8ae5cd043095789f07f21dd80625410fc9813a314990b865189",
+        "bytes": 122912
+      },
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwzvidWXcCrlzhmFuPbXeRzYFghoz_c3pO_3Dr85MwR3U7vQtBEcW2jcW1SdNLD_1wbm4-LCw85HWpeqMTK_voxw~~&file_name=2026_516_347%2f2026%2fN%c4%90-CP.pdf",
+        "sha256": "fa2c19f075274ed1dbaf638dc5ad0f47279459b57a05ae86c7b2fe67800a1bb0",
+        "bytes": 1315993
+      }
+    ],
+    "errors": []
+  },
+  {
+    "document_id": "nd_144_2021_nd_cp_gazette",
+    "source_url": "https://congbao.chinhphu.vn/category/view?id=37170",
+    "html_path": "data/source_documents/domestic_violence_batch5/nd_144_2021_nd_cp_gazette.html",
+    "properties": {},
+    "source_artifacts": [],
+    "errors": [
+      "<urlopen error timed out>"
+    ]
+  },
+  {
+    "document_id": "tt_07_2017_tt_bvhttdl_ministry",
+    "source_url": "https://giadinh.bvhttdl.gov.vn/quy-dinh-viec-thu-thap-bao-cao-thong-tin-ve-gia-dinh-va-phong-chong-bao-luc-gia-dinh/",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_07_2017_tt_bvhttdl_ministry.html",
+    "properties": {
+      "Tổng:": "1714003",
+      "Hôm nay:": "1051",
+      "Hôm qua:": "2084",
+      "Trong tuần:": "25043",
+      "Trong tháng:": "60242",
+      "Đang online:": "25"
+    },
+    "source_artifacts": [],
+    "errors": []
+  },
+  {
+    "document_id": "tt_16_2009_tt_byt",
+    "source_url": "https://giadinh.bvhttdl.gov.vn/van-ban/huong-dan-viec-tiep-nhan-cham-soc-y-te-va-thong-ke-bao-cao-doi-voi-nguoi-benh-la-nan-nhan-bao-luc-gia-dinh-tai-co-so-kham-benh-chua-benh/",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_16_2009_tt_byt.html",
+    "properties": {},
+    "source_artifacts": [],
+    "errors": []
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "duplicate_original_files_removed": [
+    "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part02.pdf",
+    "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part03.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part02.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part02.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_24_2017_tt_byt.part02.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part03.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_58_2024_tt_btc.part02.pdf",
+    "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part02.pdf"
+  ],
+  "canonical_source_path_mapping": {
+    "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part02.pdf": "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part03.pdf": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part02.pdf": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part02.pdf": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_24_2017_tt_byt.part02.pdf": "data/source_pdfs/domestic_violence_batch5/tt_24_2017_tt_byt.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part03.pdf": "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/tt_58_2024_tt_btc.part02.pdf": "data/source_pdfs/domestic_violence_batch5/tt_58_2024_tt_btc.part01.pdf",
+    "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part02.pdf": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf"
+  },
+  "official_bytes_not_modified": true
+}

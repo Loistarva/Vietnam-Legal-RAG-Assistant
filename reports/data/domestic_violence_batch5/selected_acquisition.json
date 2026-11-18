@@ -1,0 +1,259 @@
+[
+  {
+    "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
+    "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=153769&pageid=27160",
+    "html_path": "data/source_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.html",
+    "properties": {
+      "Số ký hiệu": "143/2011/TTLT/BTC-BVHTTDL",
+      "Ngày ban hành": "21-10-2011",
+      "Ngày có hiệu lực": "10-12-2011",
+      "Loại văn bản": "Thông tư liên tịch",
+      "Cơ quan ban hành": "Bộ Tài chính, Bộ Văn hóa, Thể thao và Du lịch",
+      "Người ký": "Nguyễn Thị Minh, Huỳnh Vĩnh Ái",
+      "Trích yếu": "Quy định chế độ quản lý và sử dụng kinh phí ngân sách Nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách Nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập",
+      "Tài liệu đính kèm": "ttlt-143.doc"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.part01.doc",
+        "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2012/01/ttlt-143.doc",
+        "sha256": "78a0b2d62cecdbd2c1ab3494d1a306e3a0e6251ad7c1b6c878878cb1b7c8be3b",
+        "bytes": 101888
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.part01.doc",
+    "selected_source_kind": "doc"
+  },
+  {
+    "document_id": "tt_58_2024_tt_btc",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_58_2024_tt_btc.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "58/2024/TT-BTC",
+      "Cơ quan ban hành": "BỘ TÀI CHÍNH",
+      "Ngày ban hành": "06/08/2024",
+      "Trích yếu": "bãi bỏ Thông tư liên tịch số 143/2011/TTLT-BTC-BVHTTDL ngày 21 tháng 10 năm 2011 của Bộ trưởng Bộ Tài chính và Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch quy định chế độ quản lý và sử dụng kinh phí ngân sách nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập.",
+      "Người ký": "Võ Thành Hưng",
+      "Ngày hiệu lực": "25/09/2024",
+      "Công báo": "1023 + 1024"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_58_2024_tt_btc.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/8/42636/51598-1-20241023-102458-2024-tt-btc.pdf",
+        "sha256": "7e2d3e664afe0b18bbbda2c7255411c600c55cdd9f65a3d5fa0c3368905dcca9",
+        "bytes": 294571
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_58_2024_tt_btc.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRalQbRPDCheRoPJT5iGTtr2n-J3k-FmePWrKdf-71FiWQG8gdFsOty7_W6qcxWj10F7dEM94y9FXpFiTSEPi64A~~&file_name=2024_1023+%2b+1024_58-2024-TT-BTC.doc",
+        "sha256": "fb2b849e95269d7bcf8ceacb134e1a05f67ce4f719930d99b3b50f302cf12210",
+        "bytes": 81920
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/tt_58_2024_tt_btc.part03.doc",
+    "selected_source_kind": "doc"
+  },
+  {
+    "document_id": "tt_23_2014_tt_bvhttdl",
+    "source_url": "https://tthc.hue.gov.vn/Content/Vanban/chitiet?iVanBan=1389",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản:": "Thông tư",
+      "Số văn bản:": "23/2014/TT-BVHTTDL",
+      "Cơ quan ban hành:": "Bộ Văn hóa - Thể thao và Du lịch",
+      "Ban hành ngày:": "22/12/2014",
+      "Lĩnh vực:": "Văn hóa",
+      "Trích yếu:": "Sửa đổi, bổ sung một số điều của Thông tư số 02/2010/TT-BVHTTDL ngày 16 tháng 3 năm 2010 của Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch quy định chi tiết về thủ tục đăng ký hoạt động, giải thể cơ sở hỗ trợ nạn nhân bạo lực gia đình; cơ sở tư vấn về phòng",
+      "Văn bản đính kèm:": ""
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.part01.doc",
+        "source_url": "https://tthc.hue.gov.vn/upload/images/SVHTT/23-2014-TT-BVHTTDL.doc",
+        "sha256": "0223a114b13527916363c1d5d8a1510733b094b6c60b91a28d860aeb196ec233",
+        "bytes": 68096
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/tt_23_2014_tt_bvhttdl.part01.doc",
+    "selected_source_kind": "doc"
+  },
+  {
+    "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-13-2016-ttlt-bgddt-bvhttdl-bldtbxh-bca-19861.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.html",
+    "properties": {
+      "Loại văn bản": "Thông tư liên tịch",
+      "Số, ký hiệu": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
+      "Cơ quan ban hành": "BỘ LAO ĐỘNG - THƯƠNG BINH VÀ XÃ HỘI - BỘ GIÁO DỤC VÀ ĐÀO TẠO - BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH - BỘ CÔNG AN",
+      "Ngày ban hành": "05/05/2016",
+      "Trích yếu": "hướng dẫn thực hiện giáo dục chuyển đổi hành vi về xây dựng gia đình và phòng, chống bạo lực gia đình trong các cơ sở giáo dục thuộc hệ thống giáo dục quốc dân.",
+      "Người ký": "HUỲNH VĂN TÍ - BÙI VĂN NAM - NGUYỄN THỊ NGHĨA - HUỲNH VĨNH ÁI",
+      "Ngày hiệu lực": "21/06/2016",
+      "Công báo": "369 + 370"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/5/19861/14262-1-132016ttlt-bgddt-bvhttdl-bldtbxh-bca14329pdf",
+        "sha256": "76bcd55824b2fefe7b2c527400b2d06c94fd485f3f8997306c6b9d267622e3e7",
+        "bytes": 383630
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_pdfs/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca_correct.part01.pdf",
+    "selected_source_kind": "pdf"
+  },
+  {
+    "document_id": "tt_12_2013_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2013-tt-bvhttdl-1708.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "12/2013/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "17/12/2013",
+      "Trích yếu": "quy định chi tiết hoạt động hỗ trợ xây dựng gia đình hạnh phúc, phát triển bền vững tại cộng đồng",
+      "Người ký": "HOÀNG TUẤN ANH",
+      "Ngày hiệu lực": "03/02/2014",
+      "Công báo": "67 + 68"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/12/1708/603-1-201467-68-122013tt-bvhttdlpdf",
+        "sha256": "08d64245b53d39e90f91925d488530fb6637e51e2e2eb35e25211d51d4abc8e1",
+        "bytes": 303509
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_pdfs/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.part01.pdf",
+    "selected_source_kind": "pdf"
+  },
+  {
+    "document_id": "tt_23_2011_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-23-2011-tt-bvhttdl-14203.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "23/2011/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "30/12/2011",
+      "Trích yếu": "quy định thu thập, xử lý thông tin về gia đình và phòng, chống bạo lực gia đình.",
+      "Người ký": "HOÀNG TUẤN ANH",
+      "Ngày hiệu lực": "14/02/2012",
+      "Công báo": "133 + 134"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/12/14203/9289-1-2012133-134-232011tt-bvhttdlpdf",
+        "sha256": "c8a0934f407c405213355cbe5e6f82eee39fd92585c01deb9579277a3c932aa5",
+        "bytes": 711835
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_pdfs/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.part01.pdf",
+    "selected_source_kind": "pdf"
+  },
+  {
+    "document_id": "tt_27_2026_tt_bvhttdl",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.html",
+    "properties": {
+      "Loại văn bản": "Thông tư",
+      "Số, ký hiệu": "27/2026/TT-BVHTTDL",
+      "Cơ quan ban hành": "BỘ VĂN HÓA, THỂ THAO VÀ DU LỊCH",
+      "Ngày ban hành": "03/11/2026",
+      "Trích yếu": "Sửa đổi, bổ sung một số điều của các Thông tư trong lĩnh vực văn hóa và gia đình",
+      "Người ký": "Lâm Thị Phương Thanh",
+      "Ngày hiệu lực": "01/01/2027",
+      "Công báo": "577"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/11/12/470917-1794283147_v1_1794445198_signed.pdf",
+        "sha256": "b3f3d833fecbdd99dfe67e6bd7a63a3a4bc89aef14a0c4bd20285f7637eb6a9e",
+        "bytes": 581165
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izww-fqmAlFbONSx715O1Dxk-sqR27b4k0FIpufKmg5g1G_nFrEm0PI3ppf3OyInl2LvdDs61uTlEB82aKsPl6lXg~~&file_name=2026_577_27%2f2026%2fTT-BVHTTDL.docx",
+        "sha256": "ff3bfef93ec044982fae8a6f5597c55968384e0d6184f91d691d6524492dd077",
+        "bytes": 58198
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/tt_27_2026_tt_bvhttdl.part02.docx",
+    "selected_source_kind": "docx"
+  },
+  {
+    "document_id": "nd_282_2025_nd_cp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "282/2025/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "30/10/2025",
+      "Trích yếu": "quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình.",
+      "Người ký": "Phạm Minh Chính",
+      "Ngày hiệu lực": "15/12/2025",
+      "Công báo": "1583 + 1584"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/10/46543/59667-1-20251583-1584282-2025-nd-cp.pdf",
+        "sha256": "39e1946d465f5d9f8ef9a8baea8992d46e92fffbcc0cf529b7e08b7bcda4f2dd",
+        "bytes": 1154533
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAQWsKg3tuqaY0aWypnY78U6M2BY68Ekp0Gvvr483flbRfIy3OaWmMFnkZ5CdeXoBDcVYebpqHws-uAggYFnzGoqBwYPo40qvQxwOOcBvHOfNGmwOB6j6jRceH33Z8Q9Eag~~&file_name=2025_1583+%2b+1584_282-2025-N%c4%90-CP.doc",
+        "sha256": "e42ca4bff62595938ae98020336007d162a97473ae15d3e584f7dec64bcfbb92",
+        "bytes": 613376
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/nd_282_2025_nd_cp_gazette.part03.doc",
+    "selected_source_kind": "doc"
+  },
+  {
+    "document_id": "nd_347_2026_nd_cp",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+    "html_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.html",
+    "properties": {
+      "Loại văn bản": "Nghị định",
+      "Số, ký hiệu": "347/2026/NĐ-CP",
+      "Cơ quan ban hành": "CHÍNH PHỦ",
+      "Ngày ban hành": "08/09/2026",
+      "Trích yếu": "Sửa đổi, bổ sung một số điều của Nghị định số 169/2025/NĐ-CP ngày 30 tháng 6 năm 2025 của Chính phủ quy định hoạt động khoa học, công nghệ, đổi mới sáng tạo và sản phẩm, dịch vụ về dữ liệu; Nghị định số 105/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 106/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 282/2025/NĐ-CP ngày 30 tháng 10 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình",
+      "Người ký": "Phạm Gia Túc",
+      "Ngày hiệu lực": "15/09/2026",
+      "Công báo": "516"
+    },
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/9/18/470418-1789641294_v1_1789725260_signed.pdf",
+        "sha256": "fa2c19f075274ed1dbaf638dc5ad0f47279459b57a05ae86c7b2fe67800a1bb0",
+        "bytes": 1315993
+      },
+      {
+        "source_path": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.part02.docx",
+        "source_url": "https://g7.cdnchinhphu.vn/api/download/stream?Url=tm-8mq6BhNw0NbrKRhTDAaHMpvrqWaeHuYm7lW3HNfzTzww8Myg35dDL_fJB4izwzvidWXcCrlzhmFuPbXeRzTpddo2mZmQOQIee7FdHvy1JanwRWBaMQnwWTqfXgVW9bdS3jWN_J9X-tWQ7LhMkTQ~~&file_name=2026_516_347%2f2026%2fN%c4%90-CP.docx",
+        "sha256": "499201c8ea9dd8ae5cd043095789f07f21dd80625410fc9813a314990b865189",
+        "bytes": 122912
+      }
+    ],
+    "errors": [],
+    "selected_text_artifact": "data/source_documents/domestic_violence_batch5/nd_347_2026_nd_cp.part02.docx",
+    "selected_source_kind": "docx"
+  }
+]
