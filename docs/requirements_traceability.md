@@ -24,8 +24,8 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | BO-01 Recall@5 sau rerank (theo dõi) | Dev (75) | 0,7335 | như trên | — |
 | BO-01 MRR@5 sau rerank | Test | 0,8694 | như trên | Đạt ≥ 0,80 |
 | BO-01 Temporal Violation | Dev + Test | 0/750, 0/300 | như trên | Đạt |
-| BO-02 Legal Correctness, Hallucination, Faithfulness | Dev30 A/B (theo dõi; tập kết luận theo SRS D-12, chờ duyệt) | Chưa có | Chấm mù chưa xong (`evaluation/results/dev/blinded_ab_scoring_v1.csv` chưa có điểm) | — |
-| BO-03 Citation Precision / Recall (Run B) | Dev30 (theo dõi, D-12) | 0,7056 / 0,7356 | `evaluation/results/metrics_A_B_results/results_metrics.json` (prompt v1.2) | Chưa đạt 0,80 |
+| BO-02 Legal Correctness, Hallucination, Faithfulness | Dev30 A/B (theo dõi; tập kết luận là Test 30 theo SRS D-12, chưa chạy) | Chưa có | Chấm mù chưa xong (`evaluation/results/dev/blinded_ab_scoring_v1.csv` chưa có điểm) | — |
+| BO-03 Citation Precision / Recall (Run B) | Dev30 (theo dõi; Test 30 theo D-12 chưa chạy) | 0,7056 / 0,7356 | `evaluation/results/metrics_A_B_results/results_metrics.json` (prompt v1.2) | Chưa đạt 0,80 |
 | BO-03 Citation Validity trước Gate | Dev30 | 52/52 | như trên | Đạt |
 | BO-03 Câu không phải tiếng Việt | Dev30 A / B | 0/30 / 0/30 | `…/20261115_zero_shot_qwen25_dev30_metrics.json`, `results_metrics.json` | Đạt |
 | BO-04 Tập câu âm, toàn hệ thống | 26 câu | Chưa đo | Router chưa nối vào pipeline | — |
@@ -46,7 +46,7 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `EvidenceItem.point_ref` | `week10_v1.1` | Chưa | 272/2.322 chunk có `point_ref`. |
 | `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
 | `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
-| `StructuredRAGOutput.missing_facts`, `LLMResponse.missing_facts` | `week10_v1.1` | Proposed (D-11) | Chỉ khi D-11 chọn phương án A. |
+| `StructuredRAGOutput.missing_facts`, `LLMResponse.missing_facts` | `week10_v1.1` | Chưa | D-11 duyệt 20/11/2026 (phương án A); owner contract thêm vào `v1.1`. |
 | `RouteDecision.router_route`, `RouteDecision.action` có kiểu `Literal` | `week10_v1.1` | Proposed | Hiện `action` là `str \| None`. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
@@ -90,7 +90,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR3.1 | Một phần | `test/test_confidence.py`, `test/orchestration/test_grounding_gate.py` | Phần ngưỡng (GĐ1) có; LLM Judge (GĐ3) chưa. |
 | FR3.2 | Chưa | — | Chưa có MMR. |
 | FR3.3 | Có | `test/orchestration/test_record_abstention_latency.py` | Mã chi tiết `EMPTY_RETRIEVAL` → `error_code = RETRIEVAL_EMPTY` (SRS 5.3.5). Code đã từ chối như câu chữ 2.1.2. |
-| FR3.4 | Chưa | — | Hiện luôn từ chối, không hỏi lại. Chờ D-11. |
+| FR3.4 | Chưa | — | Hiện luôn từ chối, không hỏi lại. D-11 duyệt (phương án A); cần `missing_facts` ở `v1.1`, prompt mới và danh mục trong cấu hình. |
 | FR3.5 | Chưa | — | |
 | FR3.6 | Có | `test/orchestration/test_grounding_gate.py` | Thông báo làm rõ cố định. |
 | FR3.7 | Có | `test/test_calibrate_confidence_threshold.py`; báo cáo calibration | |
