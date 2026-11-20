@@ -47,7 +47,7 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
 | `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
 | `StructuredRAGOutput.missing_facts`, `LLMResponse.missing_facts` | `week10_v1.1` | Chưa | D-11 duyệt 20/11/2026 (phương án A); owner contract thêm vào `v1.1`. |
-| `RouteDecision.router_route`, `RouteDecision.action` có kiểu `Literal` | `week10_v1.1` | Proposed | Hiện `action` là `str \| None`. |
+| `RouteDecision.router_route`, `RouteDecision.action` có kiểu `Literal` | `week10_v1.1` | Chưa | Duyệt 20/11/2026; hiện `action` là `str \| None`. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 
