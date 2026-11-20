@@ -1,6 +1,6 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49); code không đổi tới `27c51eb` (20/11/2026, chỉ thêm tài liệu). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.2](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
@@ -10,7 +10,7 @@ Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nh
 
 | Giai đoạn | Có | Một phần | Chưa | Nhận xét |
 | --- | ---: | ---: | ---: | --- |
-| GĐ1 | 39 | 21 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker, vài tiêu chí truy vết (FR2.4-AC4, FR2.11, FR4.1-AC2). |
+| GĐ1 | 38 | 22 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker, vài tiêu chí truy vết (FR2.4-AC4, FR2.11, FR4.1-AC2), nhãn hiệu lực tại `as_of_date` (FR4.3-AC2, hạ từ Có ở bản 2.1.2). |
 | GĐ2 | 1 | 8 | 25 | Contract API có (`week10_v1.0`); router chưa nối (FR1.9); chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
 | GĐ3 | 0 | 0 | 18 | Chưa bắt đầu; mỗi khối cần feature spec trước (SRS mục 11). |
 
@@ -24,8 +24,8 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | BO-01 Recall@5 sau rerank (theo dõi) | Dev (75) | 0,7335 | như trên | — |
 | BO-01 MRR@5 sau rerank | Test | 0,8694 | như trên | Đạt ≥ 0,80 |
 | BO-01 Temporal Violation | Dev + Test | 0/750, 0/300 | như trên | Đạt |
-| BO-02 Legal Correctness, Hallucination, Faithfulness | Dev30 A/B | Chưa có | Chấm mù chưa xong (`evaluation/results/dev/blinded_ab_scoring_v1.csv` chưa có điểm) | — |
-| BO-03 Citation Precision / Recall (Run B) | Dev30 | 0,7056 / 0,7356 | `evaluation/results/metrics_A_B_results/results_metrics.json` (prompt v1.2) | Chưa đạt 0,80 |
+| BO-02 Legal Correctness, Hallucination, Faithfulness | Dev30 A/B (theo dõi; tập kết luận theo SRS D-12, chờ duyệt) | Chưa có | Chấm mù chưa xong (`evaluation/results/dev/blinded_ab_scoring_v1.csv` chưa có điểm) | — |
+| BO-03 Citation Precision / Recall (Run B) | Dev30 (theo dõi, D-12) | 0,7056 / 0,7356 | `evaluation/results/metrics_A_B_results/results_metrics.json` (prompt v1.2) | Chưa đạt 0,80 |
 | BO-03 Citation Validity trước Gate | Dev30 | 52/52 | như trên | Đạt |
 | BO-03 Câu không phải tiếng Việt | Dev30 A / B | 0/30 / 0/30 | `…/20261115_zero_shot_qwen25_dev30_metrics.json`, `results_metrics.json` | Đạt |
 | BO-04 Tập câu âm, toàn hệ thống | 26 câu | Chưa đo | Router chưa nối vào pipeline | — |
@@ -46,10 +46,12 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `EvidenceItem.point_ref` | `week10_v1.1` | Chưa | 272/2.322 chunk có `point_ref`. |
 | `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
 | `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
+| `StructuredRAGOutput.missing_facts`, `LLMResponse.missing_facts` | `week10_v1.1` | Proposed (D-11) | Chỉ khi D-11 chọn phương án A. |
+| `RouteDecision.router_route`, `RouteDecision.action` có kiểu `Literal` | `week10_v1.1` | Proposed | Hiện `action` là `str \| None`. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 
-Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`). Lớp API cần kiểm tra giới hạn 2.000 ký tự trước pipeline (FR1.7) và trả body `ApiError` cho 401/422, gồm cả lỗi validation của FastAPI (IR2.1-AC2, IR2.2-AC1); các AC này chưa được xác nhận trên ảnh chụp `testing`.
+Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`). Lớp API cần kiểm tra giới hạn 2.000 ký tự trước pipeline (FR1.7) và trả body `ApiError` cho 401/422, gồm cả lỗi validation của FastAPI (IR2.1-AC2, IR2.2-AC1); các AC này chưa được xác nhận trên ảnh chụp `testing`. Bảng mã chi tiết → `error_code` (SRS 5.3.5) xếp `LLM_OUTPUT_TRUNCATED` và `LLM_OUTPUT_RAW_TEXT` vào `JSON_INVALID`; PR #55 đang xếp hai mã này vào `GROUNDING_FAIL`.
 
 ## FR1. Định tuyến
 
@@ -76,7 +78,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR2.5 | Có | `test/test_bm25_retrieval.py` | |
 | FR2.6 | Có | `test/test_dense_retriever.py` | |
 | FR2.7 | Có | `test/test_hybrid_retriever.py` | `retrieval_top_k = 50`, `rrf_k = 60`. |
-| FR2.8 | Một phần | `test/test_reranker.py` | Reranker đang giữ Top-5 (`rerank_top_k = 5`), sơ đồ là Top-10 (D-04). |
+| FR2.8 | Một phần | `test/test_reranker.py` | Reranker đang giữ Top-5 (`rerank_top_k = 5`), sơ đồ là Top-10 (D-04). Một tham số dùng cho cả số đầu ra reranker và `max_evidence`; `reranking/config.yaml` bị khóa trong manifest Test. |
 | FR2.9 | Chưa | — | |
 | FR2.10 | Có | `test/orchestration/test_evidence_index_mapping.py` | |
 | FR2.11 | Một phần | như trên | `retrieval_trace` chưa ghi bộ lọc đã áp dụng (`as_of_date` chỉ ở cấp bản ghi). |
@@ -87,8 +89,8 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | --- | --- | --- | --- |
 | FR3.1 | Một phần | `test/test_confidence.py`, `test/orchestration/test_grounding_gate.py` | Phần ngưỡng (GĐ1) có; LLM Judge (GĐ3) chưa. |
 | FR3.2 | Chưa | — | Chưa có MMR. |
-| FR3.3 | Có | `test/orchestration/test_record_abstention_latency.py` | Mã trong code là `EMPTY_RETRIEVAL`. |
-| FR3.4 | Chưa | — | Hiện luôn từ chối, không hỏi lại. |
+| FR3.3 | Có | `test/orchestration/test_record_abstention_latency.py` | Mã chi tiết `EMPTY_RETRIEVAL` → `error_code = RETRIEVAL_EMPTY` (SRS 5.3.5). Code đã từ chối như câu chữ 2.1.2. |
+| FR3.4 | Chưa | — | Hiện luôn từ chối, không hỏi lại. Chờ D-11. |
 | FR3.5 | Chưa | — | |
 | FR3.6 | Có | `test/orchestration/test_grounding_gate.py` | Thông báo làm rõ cố định. |
 | FR3.7 | Có | `test/test_calibrate_confidence_threshold.py`; báo cáo calibration | |
@@ -99,7 +101,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | --- | --- | --- | --- |
 | FR4.1 | Một phần | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2: thiếu parent mới chỉ ghi cảnh báo vào log, chưa vào `retrieval_trace`. |
 | FR4.2 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schema_test.py` | |
-| FR4.3 | Có | `test/schema_test.py` | |
+| FR4.3 | Một phần | `test/schema_test.py` | AC1 có. AC2 chưa: nhãn evidence trong `generation/prompt_builder.py` ghi `validity_status` tĩnh (văn bản 1986 hiện "Hết hiệu lực" với câu hỏi năm 1995). |
 | FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py` | Prompt v1.2. |
 | FR4.5 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/orchestration/test_grounding_gate.py` | |
 | FR4.6 | Có | `test/test_p45_prompt_gateway.py` | Hash ở `retrieval_trace.prompt_sha256`. |
@@ -115,7 +117,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR5.4 | Một phần | `test/orchestration/test_grounding_gate.py` | Citations Map có; Evidence Panel chưa. |
 | FR5.5 | Có | `test/orchestration/test_grounding_gate.py` | |
 | FR5.6 | Chưa | — | |
-| FR5.7 | Một phần | `test/orchestration/test_record_abstention_latency.py` | Nguồn `router` và `clarification` chưa dùng. |
+| FR5.7 | Một phần | `test/orchestration/test_record_abstention_latency.py` | Code khớp câu chữ 2.1.2; nguồn `router` chưa dùng vì router chưa nối vào pipeline. |
 | FR5.8 | Một phần | `test/orchestration/test_grounding_gate.py` | Nhánh xã giao và API chưa có. |
 
 ## FR6. Model Gateway
