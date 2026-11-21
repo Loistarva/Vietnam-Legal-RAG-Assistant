@@ -58,6 +58,10 @@ class ZeroShotManifestTest(unittest.TestCase):
             self.assertEqual(manifest["experiment"], "A_zero_shot")
             self.assertEqual(manifest["split"], "dev")
             self.assertEqual(manifest["dataset_ids_hash"], expected_ids_hash)
+            self.assertEqual(
+                manifest["results_sha256"],
+                hashlib.sha256(output_path.read_bytes()).hexdigest(),
+            )
             self.assertEqual(manifest["as_of_date_source"], "benchmark")
             self.assertEqual(manifest["prompt_version"], "v1.2_zero_shot")
             self.assertEqual(manifest["runtime"]["model"], gateway.config.model)
