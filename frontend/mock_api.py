@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import date
 from typing import Any
 from uuid import uuid4
+
+import requests
 
 from schemas.models import AskResponse, SCHEMA_VERSION
 
@@ -32,6 +35,46 @@ _MOCK_EVIDENCE = {
     "breadcrumb": "Văn bản giả lập > Điều giả lập > Khoản giả lập",
     "provision_status": "mock",
 }
+
+
+def _mock_evidence(
+    evidence_index: int,
+    *,
+    content: str | None = None,
+) -> dict[str, Any]:
+    """Create clearly synthetic evidence for exercising the UI layout."""
+    evidence = deepcopy(_MOCK_EVIDENCE)
+    evidence.update(
+        {
+            "evidence_index": evidence_index,
+            "chunk_id": f"mock_chunk_{evidence_index:03d}",
+            "parent_clause_id": f"mock_clause_{evidence_index:03d}",
+            "document_id": f"mock_document_{evidence_index:03d}",
+            "article_id": f"mock_article_{evidence_index:03d}",
+            "clause_id": f"mock_clause_{evidence_index:03d}",
+            "document_number": f"MOCK-{evidence_index:03d}",
+            "document_title": f"Tài liệu giả lập {evidence_index} (không phải văn bản pháp luật)",
+            "article_number": str(evidence_index),
+            "clause_number": "1",
+            "breadcrumb": f"Tài liệu giả lập > Điều {evidence_index} > Khoản 1",
+            "content": content or f"[Nội dung căn cứ giả lập số {evidence_index}.]",
+        }
+    )
+    return evidence
+
+
+def _mock_citation(evidence: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: evidence[key]
+        for key in (
+            "evidence_index",
+            "chunk_id",
+            "document_id",
+            "article_id",
+            "clause_id",
+            "parent_clause_id",
+        )
+    }
 
 
 def _response(
@@ -75,8 +118,11 @@ def ask(
 
     Add one marker to the question to preview a specific UI state:
     ``[mock:clarify]``, ``[mock:abstain]``, ``[mock:empty]``,
-    ``[mock:low]``, ``[mock:gate_fail]``, ``[mock:bad_json]`` or
-    ``[mock:timeout]``. A greeting previews the non-legal fast path.
+    ``[mock:low]``, ``[mock:gate_fail]``, ``[mock:bad_json]``,
+    ``[mock:timeout]``, ``[mock:network_timeout]``, ``[mock:out_of_scope]``,
+    ``[mock:many_evidence]`` or ``[mock:long_evidence]``.
+    The latter two contain synthetic display text only. A greeting previews the
+    non-legal fast path.
     """
     normalized = question.casefold()
     common = {
@@ -91,6 +137,22 @@ def ask(
             grounding_status="NOT_RUN",
             error_code="LLM_TIMEOUT",
             error={"message": "Mô phỏng Qwen timeout.", "retryable": True},
+            **common,
+        )
+
+    if "[mock:network_timeout]" in normalized:
+        raise requests.Timeout("Mock network timeout for frontend QA.")
+
+    if "[mock:out_of_scope]" in normalized:
+        return _response(
+            status="ABSTAIN",
+            route="LEGAL_OUT_OF_SCOPE",
+            grounding_status="NOT_RUN",
+            abstention_message=(
+                "Câu hỏi giả lập nằm ngoài phạm vi pháp luật Hôn nhân và gia đình."
+            ),
+            abstention_reason="OUT_OF_SCOPE",
+            error_code="ROUTE_POLICY",
             **common,
         )
 
@@ -151,6 +213,40 @@ def ask(
             route="NON_LEGAL",
             grounding_status="NOT_RUN",
             answer=answer,
+            **common,
+        )
+
+    if "[mock:many_evidence]" in normalized:
+        evidence = [_mock_evidence(index) for index in range(1, 4)]
+        return _response(
+            status="SUCCESS",
+            route="LEGAL_IN_SCOPE",
+            grounding_status="PASS",
+            answer=(
+                "Phản hồi giả lập có ba căn cứ để kiểm tra liên kết citation: "
+                "[1] [2] [3]. Nội dung này không phải thông tin pháp lý."
+            ),
+            citations=[_mock_citation(item) for item in evidence],
+            evidence=evidence,
+            **common,
+        )
+
+    if "[mock:long_evidence]" in normalized:
+        long_content = (
+            "[NỘI DUNG GIẢ LẬP DÀI — KHÔNG PHẢI VĂN BẢN PHÁP LUẬT]\n\n"
+            + ("Đoạn văn mẫu để kiểm tra cuộn và hiển thị nội dung dài. " * 180)
+        )
+        evidence = [_mock_evidence(1, content=long_content)]
+        return _response(
+            status="SUCCESS",
+            route="LEGAL_IN_SCOPE",
+            grounding_status="PASS",
+            answer=(
+                "Phản hồi giả lập có một căn cứ dài để kiểm tra Evidence Panel. "
+                "Nội dung này không phải thông tin pháp lý. [1]"
+            ),
+            citations=[_mock_citation(evidence[0])],
+            evidence=evidence,
             **common,
         )
 

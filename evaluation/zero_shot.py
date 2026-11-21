@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import platform
 import subprocess
 import sys
@@ -65,8 +64,8 @@ def _canonical_sha256(value: Any) -> str:
 
 
 def _sha256_text_file_content(text: str) -> str:
-    encoded = text.replace("\n", os.linesep).encode("utf-8")
-    return hashlib.sha256(encoded).hexdigest()
+    """Hash the exact UTF-8 bytes that are written, independent of OS newlines."""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
 def _manifest_path(path: Path) -> str:
@@ -364,16 +363,18 @@ def run_benchmark(
         split=split,
     )
     manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+    output_bytes = output_text.encode("utf-8")
+    manifest_bytes = manifest_text.encode("utf-8")
     if overwrite:
-        output_path.write_text(output_text, encoding="utf-8")
+        output_path.write_bytes(output_bytes)
     else:
-        with output_path.open("x", encoding="utf-8") as file:
-            file.write(output_text)
+        with output_path.open("xb") as file:
+            file.write(output_bytes)
     if overwrite:
-        manifest_path.write_text(manifest_text, encoding="utf-8")
+        manifest_path.write_bytes(manifest_bytes)
     else:
-        with manifest_path.open("x", encoding="utf-8") as file:
-            file.write(manifest_text)
+        with manifest_path.open("xb") as file:
+            file.write(manifest_bytes)
 
     print("-" * 60)
     print(

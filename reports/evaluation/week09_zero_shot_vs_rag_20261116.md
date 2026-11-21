@@ -31,6 +31,8 @@ CI là percentile bootstrap của trung bình chênh lệch theo câu, 10.000 l�
 
 Run B từ chối một câu có đáp án trong Gold (HN_035), nên metric code ghi một false abstention trên 30 câu trả lời được. Context Faithfulness chỉ áp dụng cho B; HN_035 được ghi N/A vì run không sinh câu trả lời có căn cứ để chấm mức hỗ trợ từ context.
 
+Ước lượng Hallucination Rate kèm CI95% Wilson: Run A **83.3% [66.4%, 92.7%]** (25/30); Run B **13.3% [5.3%, 29.7%]** (4/30). Đây là khoảng tin cậy nhị thức trên 30 câu, không điều chỉnh theo thiết kế chọn mẫu Dev Gold.
+
 ### Độ đồng thuận người chấm trước khi tổng hợp
 
 Hai bộ phiếu Dev3 và Dev4 đều có điểm cho 60 câu trả lời. Tính trên điểm gốc trước khi chọn điểm thấp hơn:
@@ -66,6 +68,8 @@ Tính trên danh sách rerank Top-5 của 30 câu, so khớp nghiêm ngặt `chu
 
 Run A không có context/evidence được cấp cho model; Citation Validity vì vậy không áp dụng. Citation Precision/Recall bằng 0 trong metric này và không đồng nghĩa với Legal Correctness bằng 0. Với Run B, Precision/Recall là điểm tổng hợp từ metric JSON; số citation đếm được báo riêng.
 
+Đối chiếu JSONL hiện có, tổng citation sinh/đúng theo metric là **Run A 29/0** và **Run B 52/37**. Trạng thái Grounding Gate của Run B trong 30 bản ghi JSONL là **29 PASS, 1 ABSTAIN, 0 FAIL, 0 NEEDS_CLARIFICATION**; HN_035 abstain ở confidence filter nên Gate không đánh giá câu đó. Run A là zero-shot, không chạy Grounding Gate.
+
 ### Runtime, token, truncation và chi phí
 
 | Metric | Run A | Run B |
@@ -78,6 +82,19 @@ Run A không có context/evidence được cấp cho model; Citation Validity v�
 | Chi phí suy luận | $0.00 | $0.00 |
 
 Run A có một lượt khởi động nguội HN_001 (`load_ms` = 14.23 s). Sau khi loại câu này, p50/p95 của Run A là 6.74 s / 12.46 s (n=29). Run B là chế độ precomputed: `latency_ms` không gồm retrieval và rerank, nên không thể dùng trực tiếp để kết luận Run B chậm hơn nếu so với thời gian end-to-end của một lần chạy live. Cả hai run dùng suy luận local Ollama; chi phí USD bằng 0 theo manifest metric.
+
+#### Latency theo stage của Run B (JSONL, n=29 câu có gọi LLM)
+
+| Stage | p50 | p95 | Phạm vi |
+|---|---:|---:|---|
+| Retrieval | N/A | N/A | Kết quả retrieval được nạp precomputed; `retrieval_ms` null |
+| Load model | 11.97 ms | 20.86 ms | `load_ms` |
+| Prompt evaluation | 2,900.25 ms | 3,695.92 ms | `prompt_eval_ms` |
+| Sinh output | 28,603.21 ms | 46,638.21 ms | `eval_ms` |
+| LLM tổng | 31,833.33 ms | 50,247.00 ms | `llm_total_ms` |
+| Đến token đầu (TTFT) | 2,914.97 ms | 3,711.05 ms | `ttft_model_ms` |
+
+Các p95 stage dùng percentile tuyến tính (95th percentile) trên giá trị khác null; p50 dùng median. Stage là thời gian Ollama ghi trong JSONL, không cộng thành end-to-end vì các mốc có thể lồng nhau.
 
 Metric tự động phụ trợ: Exact Match = 0.000 cho cả hai; Token F1 = 0.273 (A) và 0.376 (B). Các metric lexical này đo trùng khớp văn bản, không thay thế các rubric pháp lý hoặc Context Faithfulness.
 
