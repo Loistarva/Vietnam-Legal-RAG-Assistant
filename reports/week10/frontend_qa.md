@@ -28,8 +28,8 @@ Chọn **Demo (mock)** ở sidebar và gửi các prompt/marker như bảng bên
 | D2.5-10 | Evidence dài | `[mock:long_evidence]` | Phần nội dung dài có vùng cuộn riêng trong Evidence Panel. | PASS (mock) |
 | D2.5-11 | Không citation | `Xin chào` | Evidence Panel hiện “Không có căn cứ trích dẫn.” | PASS (mock) |
 | D2.5-12 | Tiếng Việt và disclaimer | Các tình huống trên | Nội dung tiếng Việt có dấu hiển thị; disclaimer xuất hiện trong các response chụp được. | PASS (mock) |
-| D2.5-13 | Legal ngoài phạm vi | `[mock:out_of_scope]` | Mock trả `ABSTAIN`, route `LEGAL_OUT_OF_SCOPE`, grounding `NOT_RUN`, không có answer/citation. Đã kiểm tra contract bằng unit test. | PASS (unit test mock) |
-| D2.5-14 | Transport timeout | `[mock:network_timeout]`; API client được mock ném `requests.Timeout` | Mock phát sinh timeout; API client truyền exception để UI xử lý. Unit test xác nhận timeout và timeout value được chuyển qua request. | PASS (unit test mock) |
+| D2.5-13 | Legal ngoài phạm vi | `[mock:out_of_scope]` | UI hiện `ABSTAIN`, route `LEGAL_OUT_OF_SCOPE`, grounding `NOT_RUN`, không có answer/citation. Contract cũng được kiểm tra bằng unit test. | PASS (mock UI + unit test) |
+| D2.5-14 | Transport timeout | `[mock:network_timeout]`; API client được mock ném `requests.Timeout` | UI hiện thông báo timeout thân thiện; unit test xác nhận API client chuyển tiếp timeout exception và timeout value. | PASS (mock UI + unit test) |
 
 **Kết quả test tự động:** `python -m pytest -q test/frontend/test_api_client.py test/frontend/test_mock_api.py` → **9 passed**. Pytest có một cảnh báo cache directory đã tồn tại; các test vẫn hoàn tất thành công.
 
@@ -71,15 +71,19 @@ Chọn **Demo (mock)** ở sidebar và gửi các prompt/marker như bảng bên
 
 ![Nội dung tiếng Việt và ngày được chọn](screenshots/12-vietnamese-selected-date.png)
 
+![Legal ngoài phạm vi](screenshots/13-out-of-scope.png)
+
+![Thông báo transport timeout](screenshots/14-network-timeout.png)
+
 ## Giới hạn và việc cần xác nhận khi tích hợp API
 
 - Các ảnh và kết quả trên đều thuộc **Demo (mock)**; chưa phải E2E với FastAPI hoặc dữ liệu luật thật.
-- `[mock:timeout]` trả về response `ERROR`; timeout transport được kiểm tra riêng bằng unit test và marker `[mock:network_timeout]`, chưa có ảnh UI cho thông báo timeout hoặc một HTTP server thực sự phản hồi chậm.
-- Route `LEGAL_OUT_OF_SCOPE` hiện có fixture `[mock:out_of_scope]` và unit test; chưa có ảnh UI hoặc kiểm tra với Router thật.
+- `[mock:timeout]` trả về response `ERROR`; `[mock:network_timeout]` ném `requests.Timeout` và ảnh xác nhận UI hiển thị thông báo thân thiện. Chưa thử một HTTP server thật cố tình phản hồi chậm.
+- Route `LEGAL_OUT_OF_SCOPE` có fixture, unit test và ảnh UI; chưa kiểm tra với Router thật.
 - Ảnh nhiều evidence xác nhận ba mục được render; chưa có ảnh chứng minh thao tác bấm `[2]` làm nổi bật đúng căn cứ thứ hai.
 - Ngày được chọn xác nhận việc truyền/hiển thị ngày trong mock; không xác nhận tính đúng đắn pháp lý của hiệu lực văn bản. Corpus hiện có thể không bao phủ toàn bộ các ngày trong date picker.
 - Tài liệu `Test streamlit.docx` không có kết quả pytest hoặc lần gọi API thật; các unit test bổ sung nêu trên đã chạy cục bộ, nhưng chưa có E2E với API thật.
 
 ## Tóm tắt
 
-Các trạng thái UI, disclaimer, không citation, ba evidence và vùng cuộn cho evidence dài đã được quan sát hoạt động với mock. D2.5 cần thêm một vòng kiểm tra với API tích hợp để xác nhận timeout mạng, route ngoài phạm vi, metadata hiệu lực và dữ liệu evidence thực tế.
+Các trạng thái UI, disclaimer, không citation, ba evidence, vùng cuộn evidence dài, route ngoài phạm vi và thông báo timeout đã được quan sát hoạt động với mock. D2.5 vẫn cần một vòng kiểm tra với API tích hợp để xác nhận route thực, timeout mạng thật, metadata hiệu lực và dữ liệu evidence thực tế.

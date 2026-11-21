@@ -100,7 +100,8 @@ Metric tự động phụ trợ: Exact Match = 0.000 cho cả hai; Token F1 = 0.
 
 ## Phân tích lỗi tiêu biểu
 
-- **Zero-shot thêm claim pháp lý ngoài căn cứ:** HN_007-A gắn hành vi bị cấm với “vi phạm nghiêm trọng quy định về trung thành”; HN_016-B diễn đạt ngoại lệ Điều 40 rộng hơn nguồn. Cả hai được phân xử Hallucination = Yes.
+- **Zero-shot thêm claim pháp lý ngoài căn cứ:** HN_007-A gắn hành vi bị cấm với “vi phạm nghiêm trọng quy định về trung thành”; trường hợp này được phân xử Hallucination = Yes.
+- **Controlled RAG diễn đạt ngoại lệ quá rộng:** HN_016-B mở rộng ngoại lệ tại Điều 40 vượt quá nội dung nguồn; được phân xử Hallucination = Yes.
 - **Kết luận pháp lý sai dù câu trả lời có vẻ trôi chảy:** HN_035-A hiểu sai tình trạng pháp luật năm 2026. Điểm Legal Correctness thấp kéo kết quả Run A xuống.
 - **RAG không đảm bảo câu trả lời luôn đúng:** HN_299-B đưa thông tin sai về chủ thể và cách xác định mức cấp dưỡng; Legal Correctness tổng hợp là 1.
 - **Citation cần được xem cùng phạm vi áp dụng:** một số citation trong B có thể kém liên quan dù là evidence hợp lệ; Citation Validity cao không đồng nghĩa Citation Precision hoặc Legal Correctness cao.
