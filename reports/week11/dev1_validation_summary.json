@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-22",
+  "branch": "feature/sprint11-dev1-hardening",
+  "baseline_testing": "03a498924d0d134d2abc861599db94920f7291db",
+  "api_compatibility_baseline": "9a0e9436f5f0316e7c4870a38c0ce00cc71473dc",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "full_pytest": {
+    "tests": 1671,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2
+  },
+  "full_summary": "1490 passed, 2 skipped, 179 subtests passed in 70.45s (0:01:10)",
+  "api_pytest": {
+    "tests": 353,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "api_summary": "353 passed, 1 warning in 2.91s",
+  "api_environment": {
+    "fastapi": "0.115.14",
+    "starlette": "0.46.2",
+    "mode": "Real HTTP TestClient, fake backend services, Dev1 overlay only plus corrected historical test fixture"
+  },
+  "ruff": "PASS: ruff check .",
+  "openapi": "PASS: python -m api.export_openapi --check on API compatibility baseline",
+  "git_diff_whitespace": "PASS",
+  "protected_tracked_paths_unchanged": [
+    "data",
+    "schemas",
+    "generation",
+    "model_gateway",
+    "retrieval",
+    "agent",
+    "orchestration",
+    "api",
+    "evaluation/negative_set",
+    "evaluation/results"
+  ],
+  "synthetic_cases": 18,
+  "overlap_input_snapshots": 13,
+  "sample_events": 9,
+  "sample_sha256": "ccecf7e284536dfa81ee30172c482ffd6c12d26661075cb969ce2acc392bf067",
+  "pending": [
+    "Dev5 production DI/shutdown wiring and deployment privacy settings",
+    "Live UI/API/Retrieval/Qwen E2E and integration sign-off",
+    "Peer review of synthetic expected labels"
+  ],
+  "limitations": [
+    "Undated evidence gets structural validation only; missing legal dates are not inferred",
+    "Pattern redaction is not universal PII detection; actual secret values must be configured",
+    "Top5 canonical schema unchanged; no Top10 contract expansion",
+    "Optional real-API tests skip on testing baseline because Dev5 API is not merged"
+  ]
+}
