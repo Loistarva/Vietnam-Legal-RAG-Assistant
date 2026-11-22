@@ -7,10 +7,12 @@
   "git_sha": "420458beaa5c915aa2f9962d84905c0917627044",
   "working_tree_dirty": true,
   "questions_path": "E:/nhom AI/Vietnam-Legal-RAG-Assistant/evaluation/datasets/dev_gold_30_queries_v1.json",
-  "questions_sha256": "b9e290a7697acddc3af2ff97bc9a8357f02dc95564d63ce90c8aca323e9ad9b4",
+  "questions_sha256": "da08c76de467288c8b5faa2870ef741e92a62f301f59bdbb1dac0e6a15702f93",
   "dataset_ids_hash": "fc97ecadf369ba33bd43bc8f2374d077ee991af4a8532085c250e04cb271afb2",
   "dataset_question_count": 30,
   "results_path": "E:/nhom AI/Vietnam-Legal-RAG-Assistant/evaluation/results/dev/20261115_zero_shot_qwen25_dev30.jsonl",
+  "results_sha256": "fd0f9f7f1f4014a72dec1edb3c96ecdd9e06a3c8fd93d0f64931598966dda9a5",
+  "checksum_note": "2026-11-22: questions_sha256 recomputed and results_sha256 added on LF content as stored in Git (the old questions value hashed a CRLF copy); the run was not re-executed.",
   "as_of_date_source": "benchmark",
   "as_of_date_policy": {
     "source": "benchmark"

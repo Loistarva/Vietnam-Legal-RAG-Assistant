@@ -55,7 +55,8 @@ def count_cjk_chars(text: str) -> int:
 
 
 def _sha256_file(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """Hash text with LF newlines so a CRLF checkout gives the same value as the Git blob."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def _canonical_sha256(value: Any) -> str:
@@ -64,8 +65,8 @@ def _canonical_sha256(value: Any) -> str:
 
 
 def _sha256_text_file_content(text: str) -> str:
-    """Hash the exact UTF-8 bytes that are written, independent of OS newlines."""
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+    """Hash written text the same way ``_sha256_file`` hashes the file on disk."""
+    return hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest()
 
 
 def _manifest_path(path: Path) -> str:
