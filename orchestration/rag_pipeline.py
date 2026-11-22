@@ -441,12 +441,13 @@ class RAGPipeline:
         rows = self._rows(envelope, query_id)
         events.emit("retrieval", "retrieval_finished", "ok", duration_ms=retrieval_ms,
                     candidate_source=self.source.name, candidate_count=len(rows),
-                    corpus_version=self.versions.corpus_version,
+                    corpus_version=self.versions.corpus_version, corpus_hash=self.versions.corpus_version,
                     retrieval_config_version=self.versions.retrieval_config_version)
         decision = apply_confidence_threshold(rows, self.confidence)
         described = decision.describe()
         events.emit("rerank", "confidence_checked", decision.status, kept_count=len(decision.kept),
-                    top1_score=described.get("top1_score"),
+                    top1_score=described.get("top1_score"), min_top1_score=self.confidence.min_top1_score,
+                    min_evidence_score=self.confidence.min_evidence_score,
                     threshold_config_version=self.versions.threshold_config_version)
         trace: dict[str, Any] = {
             "candidate_source": self.source.name,
@@ -494,7 +495,7 @@ class RAGPipeline:
                     error_code=llm.error_code, model=llm.model, model_digest=llm.model_digest,
                     prompt_version=llm.prompt_version, done_reason=llm.done_reason, truncated=llm.truncated,
                     parse_status=llm.parse_status, token_input=llm.token_usage.input,
-                    token_output=llm.token_usage.output)
+                    token_output=llm.token_usage.output, ttft_model_ms=llm.ttft_model_ms)
         grounding = apply_grounding_gate(payload, llm)
         return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
                             grounding=grounding, payload=payload, llm=llm, prompt=prompt,
@@ -511,7 +512,7 @@ class RAGPipeline:
                         citation_count=len(grounding.valid_citations) if status == "PASS" else 0,
                         invalid_indices=list(grounding.invalid_indices) or None)
             events.emit("gate", "gate_decided", status, grounding_status=status, reason=grounding.reason,
-                        llm_calls=1)
+                        violation_codes=[] if status == "PASS" else [grounding.reason], llm_calls=1)
         trace["gate"] = {
             "status": status,
             "reason": grounding.reason,

@@ -23,11 +23,13 @@ from schemas.models import ErrorCode, EventStage, LogEvent
 
 SAFE_METADATA_KEYS = frozenset({
     "action", "as_of_date", "as_of_date_source", "candidate_count", "candidate_source", "citation_count",
-    "corpus_version", "done_reason", "error_type", "evidence_count", "fast_path", "grounding_status",
-    "http_status", "invalid_indices", "kept_count", "llm_calls", "matched_rule_id", "model", "model_digest",
+    "corpus_hash", "corpus_version", "done_reason", "error_type", "evidence_count", "fast_path", "grounding_status",
+    "http_status", "invalid_indices", "kept_count", "llm_calls", "matched_rule_id", "min_evidence_score",
+    "min_top1_score", "model", "model_digest",
     "parse_status", "policy_version", "prompt_version", "reason", "reason_code", "request_id",
     "retrieval_config_version", "retryable", "route", "run_mode", "session_id", "status", "threshold_config_version",
-    "token_input", "token_output", "top1_score", "total_chars", "transport", "truncated",
+    "token_input", "token_output", "top1_score", "total_chars", "total_ms", "transport", "truncated",
+    "ttft_model_ms", "violation_codes",
 })
 
 

@@ -318,3 +318,28 @@ def test_every_response_is_a_valid_contract_object():
                    "[mock:bad_json]", "[mock:timeout]"):
         response = ask(service, f"{LEGAL} {marker}").response
         AskResponse.model_validate(response.model_dump(mode="json"))
+
+
+# SRS 5.4: minimum masked_metadata per stage (confidence goes to stage ``rerank`` before v1.1).
+MIN_METADATA = {
+    ("router", "route_decided"): {"route", "action", "reason_code", "policy_version"},
+    ("retrieval", "retrieval_finished"): {"corpus_version", "corpus_hash", "retrieval_config_version",
+                                          "candidate_count"},
+    ("rerank", "confidence_checked"): {"top1_score", "min_top1_score", "threshold_config_version"},
+    ("llm", "generation_finished"): {"model", "prompt_version", "token_input", "token_output"},
+    ("gate", "gate_decided"): {"grounding_status", "violation_codes"},
+    ("response", "response_built"): {"grounding_status", "total_ms", "citation_count", "evidence_count"},
+}
+
+
+@pytest.mark.parametrize("marker", ["", "[mock:gate_fail]"])
+def test_stage_events_carry_srs_minimum_metadata(marker):
+    service, _, _, sink = make_service()
+    response = ask(service, f"{LEGAL} {marker}").response
+    seen = {(e.stage, e.event_type): e for e in sink.events}
+    for key, fields in MIN_METADATA.items():
+        assert fields <= set(seen[key].masked_metadata), key
+    gate = seen[("gate", "gate_decided")].masked_metadata
+    assert gate["violation_codes"] == ([] if response.grounding_status == "PASS" else [response.abstention_reason])
+    built = seen[("response", "response_built")]
+    assert built.status == response.status and built.error_code == response.error_code

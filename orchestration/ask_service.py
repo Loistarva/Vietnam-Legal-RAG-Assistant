@@ -236,7 +236,8 @@ class AskService:
                                as_of_date_source=as_of_date_source, route=route.route,
                                disclaimer=STANDARD_DISCLAIMER, timings=AskTimings(**breakdown, total_ms=total_ms),
                                **fields)
-        events.emit("response", "response_built", response.status, duration_ms=total_ms, route=response.route,
+        events.emit("response", "response_built", response.status, duration_ms=total_ms,
+                    error_code=response.error_code, total_ms=total_ms, route=response.route,
                     grounding_status=response.grounding_status, citation_count=len(response.citations),
                     evidence_count=len(response.evidence), llm_calls=sum(e.event_type == "generation_started" for e in collector.events))
         return AskOutcome(response=response, route=route, rag=rag, total_ms=total_ms, events=collector.events)
