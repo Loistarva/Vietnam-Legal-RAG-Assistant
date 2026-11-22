@@ -6,6 +6,7 @@ import json
 import pytest
 
 from orchestration.fakes import MOCK_ANSWER
+from schemas.models import SCHEMA_VERSION
 
 LEGAL = "Nam phải đủ bao nhiêu tuổi để kết hôn?"
 
@@ -32,7 +33,7 @@ def test_status_events_then_final_response(api):
     phases = [data["phase"] for name, data in events if name == "status"]
     assert phases == ["accepted", "routing", "retrieving", "reranking", "generating", "validating"]
     assert all(data["sse_version"] == "sse_v2" for _, data in events[:-1])
-    assert events[0][1]["schema_version"] == "week10_v1.0"
+    assert events[0][1]["schema_version"] == SCHEMA_VERSION
     final = events[-1][1]
     assert final["status"] == "SUCCESS" and final["answer"] == MOCK_ANSWER and final["query_id"] == query_id
     elapsed = [data["elapsed_ms"] for _, data in events[:-1]]

@@ -6,7 +6,7 @@ import json
 import pytest
 
 from orchestration.fakes import MOCK_ANSWER
-from schemas.models import AskResponse
+from schemas.models import SCHEMA_VERSION, AskResponse
 
 LEGAL = "Nam phải đủ bao nhiêu tuổi để kết hôn?"
 
@@ -18,7 +18,7 @@ def post(api, body, **kwargs):
 def test_health_needs_no_key_and_no_pipeline_call(api):
     response = api.client.get("/api/v1/health")
     assert response.status_code == 200
-    assert response.json() == {"status": "ok", "schema_version": "week10_v1.0", "pipeline_ready": True}
+    assert response.json() == {"status": "ok", "schema_version": SCHEMA_VERSION, "pipeline_ready": True}
     assert (api.source.calls, api.generator.calls) == (0, 0)
 
 
