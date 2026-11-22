@@ -13,8 +13,10 @@ Every stage emits a ``LogEvent`` with the same ``query_id`` (orchestration/event
 ``RAGPipeline`` stays the only RAG pipeline: this module adds routing and the response
 mapping around it, the batch runner keeps calling ``run_rag``.
 
-Errors after routing become ``status=ERROR`` with a stable ``error_code`` and a message
-that never carries the exception text, prompt or query.
+Router input errors (``INVALID_*``) raise ``InvalidAskRequest`` (API: 422 ``INVALID_REQUEST``);
+a router failure or a missing/unknown ``action`` raises ``RoutingFailed`` (API: 500
+``INTERNAL_ERROR``). Errors after routing become ``status=ERROR`` with a stable ``error_code``.
+No message carries the exception text, prompt or query.
 """
 from __future__ import annotations
 
@@ -72,8 +74,34 @@ CITATION_REASONS = frozenset({
     "MISSING_CITATIONS", "INVALID_CITATION_INDEX", "DUPLICATE_CITATION_INDEX", "CITATION_INDEX_SET_MISMATCH",
     "CITATION_OUTSIDE_CONTEXT", "CITATION_PROVENANCE_MISMATCH",
 })
-JSON_REASONS = frozenset({"LLM_OUTPUT_INVALID_JSON", "LLM_OUTPUT_TRUNCATED_JSON", "LLM_OUTPUT_TRUNCATED"})
+# SRS 5.3.5: CITATION_*, INVALID_CITATION_*, SOURCE_MAP_* of grounding/citation_validator.py
+CITATION_PREFIXES = ("CITATION_", "INVALID_CITATION_", "SOURCE_MAP_")
+JSON_REASONS = frozenset({"LLM_OUTPUT_INVALID_JSON", "LLM_OUTPUT_TRUNCATED_JSON", "LLM_OUTPUT_RAW_TEXT",
+                          "LLM_OUTPUT_TRUNCATED"})
 SKIP_ACTIONS = {"GENERAL_CHAT": "general_chat", "POLICY_ABSTENTION": "policy_abstention"}
+# Router input reason codes -> ApiError INVALID_REQUEST (HTTP 422), SRS 5.3.5
+INVALID_INPUT_REASONS = frozenset({"INVALID_EMPTY_QUERY", "INVALID_QUERY_TYPE", "INVALID_AS_OF_DATE"})
+
+
+class InvalidAskRequest(ValueError):
+    """The router rejected the input (``INVALID_*``); the API answers 422 ``INVALID_REQUEST``."""
+
+    def __init__(self, reason_code: str):
+        super().__init__(reason_code)
+        self.reason_code = reason_code
+
+
+class RoutingFailed(RuntimeError):
+    """The router failed or returned an unsupported ``action``; the API answers 500 ``INTERNAL_ERROR``."""
+
+
+def gate_fail_error_code(reason: str) -> ErrorCode:
+    """Gate FAIL reason -> ``error_code`` (SRS 5.3.5); codes not in the table -> ``GROUNDING_FAIL``."""
+    if reason in JSON_REASONS:
+        return "JSON_INVALID"
+    if reason in CITATION_REASONS or reason.startswith(CITATION_PREFIXES):
+        return "CITATION_INVALID"
+    return "GROUNDING_FAIL"
 
 
 class Router(Protocol):
@@ -114,16 +142,14 @@ class RuleRouterAdapter:
 def next_action(decision: RouteDecision) -> str:
     """``rag``, ``general_chat`` or ``policy_abstention``.
 
-    The router's ``action`` decides. ``FAST_PATH`` has no approved responder yet, so it goes
-    through RAG instead of answering from a template. A router without ``action`` is read by
-    route, and ``MIXED_REVIEW`` / ``LEGAL_OUT_OF_SCOPE`` abstain (plan Sprint 10, section 3.2)."""
+    Only the router's ``action`` decides (SRS 5.3.3). ``FAST_PATH`` has no approved responder
+    yet, so it goes through RAG instead of answering from a template. A missing or unknown
+    ``action`` is not read from ``route``: it raises ``ValueError`` (-> ``INTERNAL_ERROR``)."""
     if decision.action in ("LEGAL_RETRIEVAL", "FAST_PATH"):
         return "rag"
     if decision.action in SKIP_ACTIONS:
         return SKIP_ACTIONS[decision.action]
-    if decision.action is not None:
-        raise ValueError(f"Router trả action không hỗ trợ: {decision.action!r}")
-    return {"LEGAL_IN_SCOPE": "rag", "NON_LEGAL": "general_chat"}.get(decision.route, "policy_abstention")
+    raise ValueError(f"Router trả action không hỗ trợ: {decision.action!r}")
 
 
 def new_query_id(now: datetime | None = None) -> str:
@@ -166,8 +192,17 @@ class AskService:
         events = StageEmitter(query_id, FanOutSink([self.sink, sink, collector]))
         as_of_date, as_of_date_source = self._resolve_date(request)
 
-        route = self.router.route(query=request.query, query_id=query_id, as_of_date=as_of_date)
-        action = next_action(route)
+        try:
+            route = self.router.route(query=request.query, query_id=query_id, as_of_date=as_of_date)
+            action = next_action(route)
+        except Exception as exc:  # noqa: BLE001 - typed for the caller, details only in the log
+            reason = getattr(getattr(exc, "reason_code", None), "value", getattr(exc, "reason_code", None))
+            if reason in INVALID_INPUT_REASONS:
+                events.emit("router", "route_rejected", "error", error_code="INVALID_REQUEST", reason_code=reason)
+                raise InvalidAskRequest(reason) from None
+            events.emit("router", "route_failed", "error", error_code="INTERNAL_ERROR",
+                        error_type=type(exc).__name__)
+            raise RoutingFailed("router failed") from None
         events.emit("router", "route_decided", "ok", route=route.route, reason_code=route.reason_code,
                     action=route.action, fast_path=route.fast_path, matched_rule_id=route.matched_rule_id,
                     policy_version=route.policy_version, as_of_date=as_of_date,
@@ -227,17 +262,12 @@ class AskService:
                     "abstention_message": ABSTAIN_MESSAGE.format(as_of_date=as_of_date),
                     "abstention_reason": reason, "error_code": code}
         # Gate FAIL: the draft stays in the record trace, the user gets the no-conclusion message.
-        if reason in JSON_REASONS:
-            fail_code: ErrorCode = "JSON_INVALID"
-        elif reason in CITATION_REASONS:
-            fail_code = "CITATION_INVALID"
-        else:
-            fail_code = "GROUNDING_FAIL"
         return {"status": "ABSTAIN", "grounding_status": "FAIL", "abstention_message": FAIL_MESSAGE,
-                "abstention_reason": reason, "error_code": fail_code}
+                "abstention_reason": reason, "error_code": gate_fail_error_code(reason)}
 
 
 __all__ = [
-    "AskOutcome", "AskService", "GENERAL_CHAT_MESSAGE", "MIXED_SCOPE_MESSAGE", "OUT_OF_SCOPE_MESSAGE", "Router",
-    "RuleRouterAdapter", "new_query_id", "next_action",
+    "AskOutcome", "AskService", "GENERAL_CHAT_MESSAGE", "InvalidAskRequest", "MIXED_SCOPE_MESSAGE",
+    "OUT_OF_SCOPE_MESSAGE", "Router", "RoutingFailed", "RuleRouterAdapter", "gate_fail_error_code", "new_query_id",
+    "next_action",
 ]

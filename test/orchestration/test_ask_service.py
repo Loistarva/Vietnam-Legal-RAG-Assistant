@@ -12,7 +12,10 @@ from orchestration.ask_service import (
     MIXED_SCOPE_MESSAGE,
     OUT_OF_SCOPE_MESSAGE,
     AskService,
+    InvalidAskRequest,
+    RoutingFailed,
     RuleRouterAdapter,
+    gate_fail_error_code,
     next_action,
 )
 from orchestration.events import ListEventSink
@@ -198,21 +201,103 @@ def test_as_of_date_order_question_then_user_then_today(query, as_of_date, expec
     ("LEGAL_IN_SCOPE", "FAST_PATH", "rag"),
     ("NON_LEGAL", "GENERAL_CHAT", "general_chat"),
     ("LEGAL_OUT_OF_SCOPE", "POLICY_ABSTENTION", "policy_abstention"),
-    ("LEGAL_IN_SCOPE", None, "rag"),
-    ("NON_LEGAL", None, "general_chat"),
-    ("MIXED_REVIEW", None, "policy_abstention"),
-    ("LEGAL_OUT_OF_SCOPE", None, "policy_abstention"),
 ])
 def test_next_action(route, action, expected):
     decision = RouteDecision(route=route, reason_code="R", explanation="e", policy_version="v", action=action)
     assert next_action(decision) == expected
 
 
-def test_next_action_rejects_unknown_action():
-    decision = RouteDecision(route="LEGAL_IN_SCOPE", reason_code="R", explanation="e", policy_version="v",
-                             action="SOMETHING_NEW")
+@pytest.mark.parametrize("route", ["LEGAL_IN_SCOPE", "NON_LEGAL", "MIXED_REVIEW", "LEGAL_OUT_OF_SCOPE"])
+@pytest.mark.parametrize("action", [None, "SOMETHING_NEW"])
+def test_next_action_rejects_missing_or_unknown_action(route, action):
+    """SRS 5.3.3: the orchestrator reads only ``action``; it never infers one from ``route``."""
+    decision = RouteDecision(route=route, reason_code="R", explanation="e", policy_version="v", action=action)
     with pytest.raises(ValueError):
         next_action(decision)
+
+
+@pytest.mark.parametrize("action", [None, "SOMETHING_NEW"])
+def test_router_without_supported_action_is_an_internal_error(action):
+    service, source, generator, sink = make_service(FixedRouter("LEGAL_IN_SCOPE", action))
+    with pytest.raises(RoutingFailed):
+        ask(service)
+    assert (source.calls, generator.calls) == (0, 0)
+    failed = [e for e in sink.events if e.event_type == "route_failed"]
+    assert len(failed) == 1 and (failed[0].stage, failed[0].error_code) == ("router", "INTERNAL_ERROR")
+
+
+class RaisingRouter:
+    def __init__(self, exc: Exception):
+        self.exc = exc
+
+    def route(self, *, query: str, query_id: str, as_of_date: str) -> RouteDecision:
+        raise self.exc
+
+
+@pytest.mark.parametrize("reason", ["INVALID_EMPTY_QUERY", "INVALID_QUERY_TYPE", "INVALID_AS_OF_DATE"])
+def test_router_input_error_is_an_invalid_request(reason):
+    from agent.router.rule_router import RouteReason, RouterInputError
+
+    exc = RouterInputError("bad input", reason_code=RouteReason(reason))
+    service, source, generator, sink = make_service(RaisingRouter(exc))
+    with pytest.raises(InvalidAskRequest) as err:
+        ask(service)
+    assert err.value.reason_code == reason
+    assert (source.calls, generator.calls) == (0, 0)
+    rejected = [e for e in sink.events if e.event_type == "route_rejected"]
+    assert len(rejected) == 1 and rejected[0].error_code == "INVALID_REQUEST"
+
+
+def test_router_crash_is_an_internal_error_without_details():
+    service, source, _, sink = make_service(RaisingRouter(RuntimeError("secret detail")))
+    with pytest.raises(RoutingFailed) as err:
+        ask(service)
+    assert "secret detail" not in str(err.value) and err.value.__cause__ is None
+    assert source.calls == 0
+    assert "secret detail" not in json.dumps([e.model_dump(mode="json") for e in sink.events], ensure_ascii=False)
+
+
+# SRS 5.3.5: one case per row of the Gate FAIL part of the table.
+@pytest.mark.parametrize(("reason", "code"), [
+    *[(r, "JSON_INVALID") for r in ("LLM_OUTPUT_INVALID_JSON", "LLM_OUTPUT_TRUNCATED_JSON", "LLM_OUTPUT_RAW_TEXT",
+                                    "LLM_OUTPUT_TRUNCATED")],
+    *[(r, "CITATION_INVALID") for r in (
+        "NON_INTEGER_EVIDENCE_INDEX", "ANSWER_CONTAINS_CHUNK_ID", "ANSWER_MARKER_OUTSIDE_CONTEXT",
+        "ANSWER_MARKER_NOT_IN_EVIDENCE_INDICES", "CITATION_OUTSIDE_CONTEXT",
+        "CITATION_PROVENANCE_MISMATCH", "INVALID_CITATION_INDEX", "INVALID_CITATION_TYPE", "INVALID_EVIDENCE_INDEX",
+        "SOURCE_MAP_INDEX_MISMATCH", "SOURCE_MAP_PROVENANCE_MISMATCH")],
+    *[(r, "GROUNDING_FAIL") for r in ("EMPTY_ANSWER", "ANSWER_NOT_VIETNAMESE", "PROMPT_CONTEXT_TRUNCATED",
+                                      "QUERY_ID_MISMATCH", "SOME_NEW_GATE_CODE")],
+])
+def test_gate_fail_reason_maps_to_error_code(reason, code):
+    assert gate_fail_error_code(reason) == code
+
+
+class ReshapedGenerator(ScriptedGenerator):
+    """Scripted output, then overrides fields of the LLMResponse (raw text, truncation)."""
+
+    def __init__(self, **update):
+        super().__init__()
+        self.update = update
+
+    def generate(self, *args, **kwargs):
+        return super().generate(*args, **kwargs).model_copy(update=self.update)
+
+
+@pytest.mark.parametrize(("update", "reason"), [
+    ({"parse_status": "raw_text"}, "LLM_OUTPUT_RAW_TEXT"),
+    ({"done_reason": "length"}, "LLM_OUTPUT_TRUNCATED"),
+    ({"truncated": True}, "LLM_OUTPUT_TRUNCATED"),
+])
+def test_raw_or_truncated_model_output_is_json_invalid(update, reason):
+    source, sink = FixtureSource(), ListEventSink()
+    service = AskService(FixedRouter("LEGAL_IN_SCOPE", "LEGAL_RETRIEVAL"),
+                         build_mock_pipeline(source=source, generator=ReshapedGenerator(**update)), sink=sink,
+                         today=lambda: date(2026, 11, 16))
+    response = ask(service).response
+    assert (response.status, response.grounding_status) == ("ABSTAIN", "FAIL")
+    assert (response.abstention_reason, response.error_code) == (reason, "JSON_INVALID")
+    assert response.answer is None
 
 
 @pytest.mark.parametrize(("query", "route"), [
