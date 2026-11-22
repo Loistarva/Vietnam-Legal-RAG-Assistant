@@ -45,6 +45,8 @@ Chỉ bước "UI → API" chưa làm, vì cần PR #51 của Dev 2. Các nhánh
 | SSE "Điều kiện để được nhận con nuôi là gì?" | 200 | ABSTAIN | `LOW_CONFIDENCE` | first byte 115 ms, final 20,3 s | top-1 0.485 |
 | SSE "Nữ phải đủ bao nhiêu tuổi thì được kết hôn?" | 200 | SUCCESS | – | first byte 17 ms, `verified_answer` 85,8 s | answer chỉ có ở event cuối |
 
+Bảng trên là lần chạy ngày 16/11 ở `29d3b70`. Từ `03b54bc` (22/11, theo SRS 2.1.2): key sai trả 401 thay vì 403; câu bị Confidence Filter từ chối (HN_035, câu nuôi con nuôi) có `grounding_status = NOT_RUN`; SSE dùng `sse_v2`, event cuối là `final` thay cho `verified_answer` + `done`. Chưa chạy live lại sau các thay đổi này; test tự động đã phủ.
+
 Thời gian là số đo của một lần chạy trên máy GPU 4 GB, không phải số đo NFR. Kế hoạch yêu cầu không tuyên bố đạt NFR khi chưa đo trên môi trường đích. Thời gian LLM dao động 15–70 s cho cùng một loại câu, vì Qwen chạy chung GPU với BGE-M3 và reranker trong cùng tiến trình API.
 
 Log (`LEGAL_RAG_EVENT_LOG`): 74 event, parse JSON được, không chứa API key và không chứa nội dung câu hỏi. Ví dụ chuỗi stage của một câu legal: `api router retrieval retrieval rerank context llm llm citation gate response api`.
@@ -72,7 +74,7 @@ uvicorn api.main:app --host 127.0.0.1 --port 8000
 | --- | --- | --- | --- |
 | K1 | UI chưa nối vào API live; client Streamlit gọi `raise_for_status()` (mất body 504/500) và timeout 60 s < thời gian một câu live | W10-07 chưa có live E2E | Dev 2, sau khi PR này merge (docs/api.md mục 4) |
 | K2 | Logger chính thức (Dev 1, D1.2) chưa có trên `testing`; hiện dùng `JsonlEventSink` tạm, có allow-list key metadata | W10-08 cần logger + PII masker của Dev 1 | Dev 1: implement `emit(LogEvent)` rồi gắn vào `orchestration.wiring.build_event_sink` |
-| K3 | Request bị 401/403/422 không sinh `LogEvent` (chỉ có access log của uvicorn) | Thiếu số liệu "unauthorized rejection" trong JSONL | Dev 5, P1 |
+| K3 | ~~Request bị 401/403/422 không sinh `LogEvent`~~ | Đã xong ở `03b54bc`: 401/422/500 trước pipeline ghi event `api` / `request_rejected` có `http_status`, `error_code` | – |
 | K4 | Router v3 chưa merge; live chạy `rule_router_v2` | Định tuyến có thể khác sau khi merge | Dev 4; chạy lại bảng mục 3 sau khi merge |
 | K5 | Request đầu tiên nạp model mất khoảng 57 s; LLM 15–70 s trên GPU 4 GB | Latency, timeout phía UI | Dev 5: warm-up ở lifespan (P1); triển khai trên máy đủ VRAM |
 | K6 | Qdrant embedded chỉ cho một tiến trình | API và batch không chạy song song được | Dùng `QDRANT_URL` (Qdrant server, Dev 4) |
