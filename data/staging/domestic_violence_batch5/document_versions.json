@@ -29,8 +29,8 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
     "source_document_number": "143/2011/TTLT/BTC-BVHTTDL",
@@ -40,12 +40,14 @@
       "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm"
     },
     "normalization_identity_note": "Official Word uses slash after TTLT; canonical identifier uses hyphen as cited by the official repealing TT58/2024. Original identifier preserved in source_document_number.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "fb0fee94806228dc5966dd8e7c8fc5049129e4fe9dcbecba4140dc1ba6aa2cd5",
     "normalized_source_text_sha256": "1ed5e30692fd589815da223d9ee64bbafa5d4210e2f0fbb68949695da87e1c5b",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "8bcf780f579465036bf112cd120104a0a6c30a818fca7253c7cd89d0eec93f12"
+    "parsed_json_sha256": "8bcf780f579465036bf112cd120104a0a6c30a818fca7253c7cd89d0eec93f12",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Quản lý kinh phí ngân sách; loại khỏi phạm vi retrieval HNGĐ. Giữ nguồn phục vụ truy vết."
   },
   {
     "document_id": "tt_58_2024_tt_btc",
@@ -83,16 +85,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_58_2024_tt_btc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_58_2024_tt_btc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "a4ae3322bcbbed8949482da6c9bd66bb03e704fe96f7154c678b8130375b5928",
     "normalized_source_text_sha256": "ff6eb79f4c3f07bcaa5c2ed4881c0cf7da22a71ed51525fa51107adc4a6f7155",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "87f805d9c4eb941943c48f0e3411d2e85fb5646f939ee01ececfbf38972622d8"
+    "parsed_json_sha256": "87f805d9c4eb941943c48f0e3411d2e85fb5646f939ee01ececfbf38972622d8",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Bãi bỏ văn bản về kinh phí ngân sách; giữ làm căn cứ truy vết ngoài retrieval HNGĐ."
   },
   {
     "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
@@ -124,16 +128,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "c47bf9960020c8d7eaa24694bc70a633bb598a57261eb9ad5dfeee55eca9fbdb",
     "normalized_source_text_sha256": "f7e641da017926eb3c43c7beff4eaf9645ed7ef214e12442821865a37531c737",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3"
+    "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và phạm vi áp dụng theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_12_2013_tt_bvhttdl",
@@ -165,16 +171,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "d083b3c0ec26a627d859b8717792ad6e1edf05c831ab5fe4cca8fb61eb10a9b6",
     "normalized_source_text_sha256": "1e2bc7f0dbd63b0fb637c203d8681233ce36a51dc88809fa4244e2cc62a2d513",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb"
+    "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_23_2011_tt_bvhttdl",
@@ -206,16 +214,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "caa0423b592127affd3f35780a4d5fcc3e0db821ee2b4f2e8e8ec0a6a8a51693",
     "normalized_source_text_sha256": "59d4696e3897603ef73dd31a0a645dfe447bd90b5c16e8cced705152771c8349",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e"
+    "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_27_2026_tt_bvhttdl",

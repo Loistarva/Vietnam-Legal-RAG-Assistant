@@ -35,17 +35,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "5f612f1cb892cc569e5126c8f913db1a3a3744db311a39bf7fdd95145428c422",
     "normalized_source_text_sha256": "3a86995c8cfc20aeb9bf65ee6ceaa6cf3e8fc2c76722e3f3de8dab6682ebc0f6",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "a2a56a4e456578fcf6ddb4fd42e2b8dc9c71b34fe6da4e17e555188728c6d231",
-    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred."
+    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần đối chiếu chuỗi tố tụng, hòa giải và hướng dẫn mới trước duyệt phạm vi."
   },
   {
     "document_id": "tt_03_2020_tt_tandtc",
@@ -83,17 +85,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_03_2020_tt_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_03_2020_tt_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "a1026fd6336e65794e7d3f0d13bafdc9115058df90ec2435062c731edf253071",
     "normalized_source_text_sha256": "2178d027bf9e13dd085f4dd29aa58d207a4d9e37866f8cb6373a5da0faae0a22",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "4c41044b354b1baef9dff27e3003e35b1e6c692812d6f019f5c986368ca19f47",
-    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
   },
   {
     "document_id": "tt_02_2020_tt_tandtc",
@@ -131,17 +135,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "dc13feb0dbd1d71efd9a6e8507afb6cf6f9ca2b11986a815fac7fcecf6e6f416",
     "normalized_source_text_sha256": "7d93f3a4140b5f61c0a352e1a00abdd71b6e4e9302a78a9eedede2ad1aeafbce",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "d57e17a6fa26d17d0a14a884125929700aeb778789f535fdf63da9b1eeec6099",
-    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
   },
   {
     "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
@@ -220,11 +226,11 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "8c8a70513fda11798b1cb5eaa719de7a38069630fa24189d8c42881a8d38ab0c",
     "normalized_source_text_sha256": "7e18a2a62d4c339a7f43cdd2afd007f555008f40b3a09cedafa36a16eb4000c3",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
@@ -233,7 +239,9 @@
     "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
     "known_amended_by": [
       "ttlt_13_2025_ttlt_btp_bng_tandtc"
-    ]
+    ],
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Thiếu luật mẹ 08/2007 trong active và cần rà chuyển tiếp sang luật tương trợ tư pháp mới."
   },
   {
     "document_id": "l_102_2025_qh15",

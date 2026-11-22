@@ -1,0 +1,19 @@
+{
+  "active_documents": 84,
+  "parents": 2632,
+  "children": 6135,
+  "article_index_rows": 3841,
+  "archived_artifacts_verified": 60,
+  "quarantined_documents": 15,
+  "removed_chunks": 414,
+  "retained_chunk_text_and_ids_unchanged": true,
+  "chunks_with_intended_metadata_changes": {
+    "nd_19_2011_nd_cp": 152,
+    "tt_01_2022_tt_btp": 1,
+    "tt_10_2020_tt_btp": 33,
+    "tt_21_2011_tt_btp": 42
+  },
+  "production_index_rows": 6135,
+  "production_index_quarantined_rows_removed": 414,
+  "code_changes": []
+}

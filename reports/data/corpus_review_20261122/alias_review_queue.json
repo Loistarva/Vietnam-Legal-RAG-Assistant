@@ -1,0 +1,637 @@
+{
+  "review_status": "pending_peer_review",
+  "policy": "Giữ danh tính ứng viên cho alias năm/số yếu; không xóa ứng viên hợp lệ hoặc tự chọn luật mới nhất để giảm cảnh báo.",
+  "ambiguous_aliases": {
+    "07 2025": [
+      "nd_07_2025_nd_cp",
+      "tt_07_2025_tt_bng"
+    ],
+    "15 2014": [
+      "nd_15_2014_nd_cp",
+      "tt_15_2014_tt_btp"
+    ],
+    "2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "2009": [
+      "nd_08_2009_nd_cp",
+      "nd_110_2009_nd_cp"
+    ],
+    "2010": [
+      "l_52_2010_qh12",
+      "tt_16_2010_tt_btp"
+    ],
+    "2011": [
+      "nd_19_2011_nd_cp",
+      "tt_12_2011_tt_btp",
+      "tt_21_2011_tt_btp"
+    ],
+    "2013": [
+      "l_35_2013_qh13",
+      "nd_110_2013_nd_cp",
+      "nd_24_2013_nd_cp",
+      "tt_22_2013_tt_btp"
+    ],
+    "2014": [
+      "l_52_2014_qh13",
+      "l_60_2014_qh13",
+      "nd_126_2014_nd_cp",
+      "nd_15_2014_nd_cp",
+      "tt_15_2014_tt_btp",
+      "tt_24_2014_tt_btp"
+    ],
+    "2015": [
+      "bl_91_2015_qh13",
+      "bl_92_2015_qh13",
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "2016": [
+      "l_102_2016_qh13",
+      "nd_114_2016_nd_cp",
+      "nq_326_2016_ubtvqh14",
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
+    ],
+    "2017": [
+      "l_11_2017_qh14",
+      "tt_34_2017_tt_byt"
+    ],
+    "2019": [
+      "nd_24_2019_nd_cp",
+      "tt_30_2019_tt_byt",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ],
+    "2020": [
+      "l_58_2020_qh14",
+      "l_68_2020_qh14",
+      "nd_87_2020_nd_cp",
+      "tt_04_2020_tt_btp",
+      "tt_10_2020_tt_btp"
+    ],
+    "2022": [
+      "l_13_2022_qh15",
+      "nd_104_2022_nd_cp",
+      "tt_01_2022_tt_btp",
+      "tt_09_2022_tt_btp"
+    ],
+    "2023": [
+      "nd_76_2023_nd_cp",
+      "tt_03_2023_tt_btp",
+      "tt_07_2023_tt_btp"
+    ],
+    "2024": [
+      "l_34_2024_qh15",
+      "nd_63_2024_nd_cp",
+      "nq_01_2024_nq_hdtp",
+      "tt_04_2024_tt_btp"
+    ],
+    "2025": [
+      "l_102_2025_qh15",
+      "l_81_2025_qh15",
+      "l_85_2025_qh15",
+      "nd_06_2025_nd_cp",
+      "nd_07_2025_nd_cp",
+      "nd_110_2025_nd_cp",
+      "nd_120_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "nd_282_2025_nd_cp",
+      "tt_01_2025_tt_btp",
+      "tt_07_2025_tt_bng",
+      "tt_08_2025_tt_btp",
+      "tt_10_2025_tt_btp",
+      "tt_38_2025_tt_byt",
+      "tt_66_2025_tt_bca"
+    ],
+    "2026": [
+      "nd_158_2026_nd_cp",
+      "nd_18_2026_nd_cp",
+      "nd_301_2026_nd_cp",
+      "nd_347_2026_nd_cp"
+    ],
+    "7 2025": [
+      "nd_07_2025_nd_cp",
+      "tt_07_2025_tt_bng"
+    ],
+    "l 102": [
+      "l_102_2016_qh13",
+      "l_102_2025_qh15"
+    ],
+    "l 2014": [
+      "l_52_2014_qh13",
+      "l_60_2014_qh13"
+    ],
+    "l 2015": [
+      "bl_91_2015_qh13",
+      "bl_92_2015_qh13"
+    ],
+    "l 2020": [
+      "l_58_2020_qh14",
+      "l_68_2020_qh14"
+    ],
+    "l 2025": [
+      "l_102_2025_qh15",
+      "l_81_2025_qh15",
+      "l_85_2025_qh15"
+    ],
+    "l 52": [
+      "l_52_2010_qh12",
+      "l_52_2014_qh13"
+    ],
+    "l so 102": [
+      "l_102_2016_qh13",
+      "l_102_2025_qh15"
+    ],
+    "l so 52": [
+      "l_52_2010_qh12",
+      "l_52_2014_qh13"
+    ],
+    "luat 102": [
+      "l_102_2016_qh13",
+      "l_102_2025_qh15"
+    ],
+    "luat 2014": [
+      "l_52_2014_qh13",
+      "l_60_2014_qh13"
+    ],
+    "luat 2015": [
+      "bl_91_2015_qh13",
+      "bl_92_2015_qh13"
+    ],
+    "luat 2020": [
+      "l_58_2020_qh14",
+      "l_68_2020_qh14"
+    ],
+    "luat 2025": [
+      "l_102_2025_qh15",
+      "l_81_2025_qh15",
+      "l_85_2025_qh15"
+    ],
+    "luat 52": [
+      "l_52_2010_qh12",
+      "l_52_2014_qh13"
+    ],
+    "luat hn gd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hngd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hon nhan va gia dinh": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat phong chong bao luc gia dinh": [
+      "l_02_2007_qh12",
+      "l_13_2022_qh15"
+    ],
+    "luat so 102": [
+      "l_102_2016_qh13",
+      "l_102_2025_qh15"
+    ],
+    "luat so 52": [
+      "l_52_2010_qh12",
+      "l_52_2014_qh13"
+    ],
+    "nam 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "nam 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "nam 2009": [
+      "nd_08_2009_nd_cp",
+      "nd_110_2009_nd_cp"
+    ],
+    "nam 2010": [
+      "l_52_2010_qh12",
+      "tt_16_2010_tt_btp"
+    ],
+    "nam 2011": [
+      "nd_19_2011_nd_cp",
+      "tt_12_2011_tt_btp",
+      "tt_21_2011_tt_btp"
+    ],
+    "nam 2013": [
+      "l_35_2013_qh13",
+      "nd_110_2013_nd_cp",
+      "nd_24_2013_nd_cp",
+      "tt_22_2013_tt_btp"
+    ],
+    "nam 2014": [
+      "l_52_2014_qh13",
+      "l_60_2014_qh13",
+      "nd_126_2014_nd_cp",
+      "nd_15_2014_nd_cp",
+      "tt_15_2014_tt_btp",
+      "tt_24_2014_tt_btp"
+    ],
+    "nam 2015": [
+      "bl_91_2015_qh13",
+      "bl_92_2015_qh13",
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "nam 2016": [
+      "l_102_2016_qh13",
+      "nd_114_2016_nd_cp",
+      "nq_326_2016_ubtvqh14",
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
+    ],
+    "nam 2017": [
+      "l_11_2017_qh14",
+      "tt_34_2017_tt_byt"
+    ],
+    "nam 2019": [
+      "nd_24_2019_nd_cp",
+      "tt_30_2019_tt_byt",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ],
+    "nam 2020": [
+      "l_58_2020_qh14",
+      "l_68_2020_qh14",
+      "nd_87_2020_nd_cp",
+      "tt_04_2020_tt_btp",
+      "tt_10_2020_tt_btp"
+    ],
+    "nam 2022": [
+      "l_13_2022_qh15",
+      "nd_104_2022_nd_cp",
+      "tt_01_2022_tt_btp",
+      "tt_09_2022_tt_btp"
+    ],
+    "nam 2023": [
+      "nd_76_2023_nd_cp",
+      "tt_03_2023_tt_btp",
+      "tt_07_2023_tt_btp"
+    ],
+    "nam 2024": [
+      "l_34_2024_qh15",
+      "nd_63_2024_nd_cp",
+      "nq_01_2024_nq_hdtp",
+      "tt_04_2024_tt_btp"
+    ],
+    "nam 2025": [
+      "l_102_2025_qh15",
+      "l_81_2025_qh15",
+      "l_85_2025_qh15",
+      "nd_06_2025_nd_cp",
+      "nd_07_2025_nd_cp",
+      "nd_110_2025_nd_cp",
+      "nd_120_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "nd_282_2025_nd_cp",
+      "tt_01_2025_tt_btp",
+      "tt_07_2025_tt_bng",
+      "tt_08_2025_tt_btp",
+      "tt_10_2025_tt_btp",
+      "tt_38_2025_tt_byt",
+      "tt_66_2025_tt_bca"
+    ],
+    "nam 2026": [
+      "nd_158_2026_nd_cp",
+      "nd_18_2026_nd_cp",
+      "nd_301_2026_nd_cp",
+      "nd_347_2026_nd_cp"
+    ],
+    "nd 110": [
+      "nd_110_2009_nd_cp",
+      "nd_110_2013_nd_cp",
+      "nd_110_2025_nd_cp"
+    ],
+    "nd 158": [
+      "nd_158_2005_nd_cp",
+      "nd_158_2026_nd_cp"
+    ],
+    "nd 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nd 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nd 2009": [
+      "nd_08_2009_nd_cp",
+      "nd_110_2009_nd_cp"
+    ],
+    "nd 2013": [
+      "nd_110_2013_nd_cp",
+      "nd_24_2013_nd_cp"
+    ],
+    "nd 2014": [
+      "nd_126_2014_nd_cp",
+      "nd_15_2014_nd_cp"
+    ],
+    "nd 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "nd 2025": [
+      "nd_06_2025_nd_cp",
+      "nd_07_2025_nd_cp",
+      "nd_110_2025_nd_cp",
+      "nd_120_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "nd_282_2025_nd_cp"
+    ],
+    "nd 2026": [
+      "nd_158_2026_nd_cp",
+      "nd_18_2026_nd_cp",
+      "nd_301_2026_nd_cp",
+      "nd_347_2026_nd_cp"
+    ],
+    "nd 24": [
+      "nd_24_2013_nd_cp",
+      "nd_24_2019_nd_cp"
+    ],
+    "nd so 110": [
+      "nd_110_2009_nd_cp",
+      "nd_110_2013_nd_cp",
+      "nd_110_2025_nd_cp"
+    ],
+    "nd so 158": [
+      "nd_158_2005_nd_cp",
+      "nd_158_2026_nd_cp"
+    ],
+    "nd so 24": [
+      "nd_24_2013_nd_cp",
+      "nd_24_2019_nd_cp"
+    ],
+    "nghi dinh 110": [
+      "nd_110_2009_nd_cp",
+      "nd_110_2013_nd_cp",
+      "nd_110_2025_nd_cp"
+    ],
+    "nghi dinh 158": [
+      "nd_158_2005_nd_cp",
+      "nd_158_2026_nd_cp"
+    ],
+    "nghi dinh 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nghi dinh 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nghi dinh 2009": [
+      "nd_08_2009_nd_cp",
+      "nd_110_2009_nd_cp"
+    ],
+    "nghi dinh 2013": [
+      "nd_110_2013_nd_cp",
+      "nd_24_2013_nd_cp"
+    ],
+    "nghi dinh 2014": [
+      "nd_126_2014_nd_cp",
+      "nd_15_2014_nd_cp"
+    ],
+    "nghi dinh 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "nghi dinh 2025": [
+      "nd_06_2025_nd_cp",
+      "nd_07_2025_nd_cp",
+      "nd_110_2025_nd_cp",
+      "nd_120_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "nd_282_2025_nd_cp"
+    ],
+    "nghi dinh 2026": [
+      "nd_158_2026_nd_cp",
+      "nd_18_2026_nd_cp",
+      "nd_301_2026_nd_cp",
+      "nd_347_2026_nd_cp"
+    ],
+    "nghi dinh 24": [
+      "nd_24_2013_nd_cp",
+      "nd_24_2019_nd_cp"
+    ],
+    "nghi dinh so 110": [
+      "nd_110_2009_nd_cp",
+      "nd_110_2013_nd_cp",
+      "nd_110_2025_nd_cp"
+    ],
+    "nghi dinh so 158": [
+      "nd_158_2005_nd_cp",
+      "nd_158_2026_nd_cp"
+    ],
+    "nghi dinh so 24": [
+      "nd_24_2013_nd_cp",
+      "nd_24_2019_nd_cp"
+    ],
+    "quy dinh chi tiet thi hanh mot so dieu cua luat ho tich va nghi dinh so 123 2015 nd cp ngay 15 thang 11 nam 2015 cua chinh phu quy dinh chi tiet mot so dieu va bien phap thi hanh luat ho tich": [
+      "tt_04_2020_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "quy dinh chi tiet thi hanh mot so dieu cua luat hon nhan va gia dinh ve quan he hon nhan va gia dinh co yeu to nuoc ngoai": [
+      "nd_24_2013_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "thong tu 1": [
+      "tt_01_2022_tt_btp",
+      "tt_01_2025_tt_btp"
+    ],
+    "thong tu 10": [
+      "tt_10_2020_tt_btp",
+      "tt_10_2025_tt_btp"
+    ],
+    "thong tu 15": [
+      "tt_15_2014_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "thong tu 2011": [
+      "tt_12_2011_tt_btp",
+      "tt_21_2011_tt_btp"
+    ],
+    "thong tu 2014": [
+      "tt_15_2014_tt_btp",
+      "tt_24_2014_tt_btp"
+    ],
+    "thong tu 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "thong tu 2020": [
+      "tt_04_2020_tt_btp",
+      "tt_10_2020_tt_btp"
+    ],
+    "thong tu 2022": [
+      "tt_01_2022_tt_btp",
+      "tt_09_2022_tt_btp"
+    ],
+    "thong tu 2023": [
+      "tt_03_2023_tt_btp",
+      "tt_07_2023_tt_btp"
+    ],
+    "thong tu 2025": [
+      "tt_01_2025_tt_btp",
+      "tt_07_2025_tt_bng",
+      "tt_08_2025_tt_btp",
+      "tt_10_2025_tt_btp",
+      "tt_38_2025_tt_byt",
+      "tt_66_2025_tt_bca"
+    ],
+    "thong tu 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "thong tu 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp",
+      "tt_07_2023_tt_btp",
+      "tt_07_2025_tt_bng"
+    ],
+    "thong tu lien tich 1": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ],
+    "thong tu lien tich 2016": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
+    ],
+    "thong tu lien tich so 1": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ],
+    "thong tu so 1": [
+      "tt_01_2022_tt_btp",
+      "tt_01_2025_tt_btp"
+    ],
+    "thong tu so 10": [
+      "tt_10_2020_tt_btp",
+      "tt_10_2025_tt_btp"
+    ],
+    "thong tu so 15": [
+      "tt_15_2014_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "thong tu so 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "thong tu so 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp",
+      "tt_07_2023_tt_btp",
+      "tt_07_2025_tt_bng"
+    ],
+    "tt 1": [
+      "tt_01_2022_tt_btp",
+      "tt_01_2025_tt_btp"
+    ],
+    "tt 10": [
+      "tt_10_2020_tt_btp",
+      "tt_10_2025_tt_btp"
+    ],
+    "tt 15": [
+      "tt_15_2014_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "tt 2011": [
+      "tt_12_2011_tt_btp",
+      "tt_21_2011_tt_btp"
+    ],
+    "tt 2014": [
+      "tt_15_2014_tt_btp",
+      "tt_24_2014_tt_btp"
+    ],
+    "tt 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "tt 2020": [
+      "tt_04_2020_tt_btp",
+      "tt_10_2020_tt_btp"
+    ],
+    "tt 2022": [
+      "tt_01_2022_tt_btp",
+      "tt_09_2022_tt_btp"
+    ],
+    "tt 2023": [
+      "tt_03_2023_tt_btp",
+      "tt_07_2023_tt_btp"
+    ],
+    "tt 2025": [
+      "tt_01_2025_tt_btp",
+      "tt_07_2025_tt_bng",
+      "tt_08_2025_tt_btp",
+      "tt_10_2025_tt_btp",
+      "tt_38_2025_tt_byt",
+      "tt_66_2025_tt_bca"
+    ],
+    "tt 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "tt 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp",
+      "tt_07_2023_tt_btp",
+      "tt_07_2025_tt_bng"
+    ],
+    "tt so 1": [
+      "tt_01_2022_tt_btp",
+      "tt_01_2025_tt_btp"
+    ],
+    "tt so 10": [
+      "tt_10_2020_tt_btp",
+      "tt_10_2025_tt_btp"
+    ],
+    "tt so 15": [
+      "tt_15_2014_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "tt so 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "tt so 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp",
+      "tt_07_2023_tt_btp",
+      "tt_07_2025_tt_bng"
+    ],
+    "ttlt 1": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ],
+    "ttlt 2016": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh"
+    ],
+    "ttlt so 1": [
+      "ttlt_01_2016_ttlt_tandtc",
+      "ttlt_01_2019_ttlt_tandtc_bng"
+    ]
+  }
+}

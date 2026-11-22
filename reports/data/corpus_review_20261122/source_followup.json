@@ -1,0 +1,32 @@
+{
+  "checked_on": "2026-11-23",
+  "policy": "Do not ingest unofficial mirrors or infer current validity from search snippets.",
+  "items": [
+    {
+      "document_number": "05/2025/TT-TANDTC",
+      "official_related_evidence_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND384323",
+      "status": "Official related status-list located; full original circular not acquired in this review. Keep affected documents on hold.",
+      "next_action": "Obtain full official original and compare relevant amendment/repeal provisions before restoring TT02/2020 and TT03/2020."
+    },
+    {
+      "document_number": "11/2008/TTLT-BTP-BNG",
+      "official_url": "https://vanban.chinhphu.vn/default.aspx?docid=82911&pageid=27160",
+      "existing_source": "data/source_pdfs/foreign_civil_registration_batch3/ttlt_11_2008_ttlt_btp_bng.part01.pdf",
+      "status": "Original already downloaded and retained; missing ingest-ready source, not missing file.",
+      "next_action": "Review image/text extraction and original section-based structure; no unverified OCR ingestion."
+    },
+    {
+      "document_number": "82/2020/NĐ-CP",
+      "official_url": "https://vbpl.moj.gov.vn/botuphap/Pages/vbpq-vanbanlienquan.aspx?ItemID=143024",
+      "existing_source": "data/source_pdfs/central_batch1/nd_82_2020_nd_cp.part01.pdf",
+      "status": "Original already retained outside active corpus. Official relation metadata and third-party current labels differ in freshness; no current-validity update inferred.",
+      "next_action": "Check original 109/2026 replacement/repeal and transitional provisions; retain 82/2020 as historical evidence if normalized."
+    },
+    {
+      "document_number": "56/2014/QH13",
+      "existing_source": "data/source_pdfs/gap_completion_batch8/l_56_2014_qh13.part01.pdf",
+      "status": "Original already retained outside active corpus; complete verified native text still required.",
+      "next_action": "Obtain official text-bearing original or independently verified transcription before ingestion."
+    }
+  ]
+}

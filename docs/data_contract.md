@@ -311,14 +311,13 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **L13** | `l_58_2020_qh14` | 58/2020/QH14 | Sửa đổi bổ sung | Luật Hòa giải, đối thoại tại tòa án |
 | **TT18** | `tt_01_2022_tt_btp` | 01/2022/TT-BTP | Sửa đổi bổ sung | Quy định chi tiết một số điều và biện pháp thi hành Nghị định số 87/2020/NĐ-CP ngày 28 tháng 7 năm 2020 của Chính phủ quy định về Cơ sở dữ liệu hộ tịch điện tử, đăng ký hộ tịch trực tuyến |
 | **TT19** | `tt_03_2023_tt_btp` | 03/2023/TT-BTP | Không xác định | Sửa đổi Thông tư 01/2022 về hộ tịch điện tử |
-| **TT20** | `tt_07_2023_tt_bng` | 07/2023/TT-BNG | Sửa đổi bổ sung | Hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài |
 | **TT21** | `tt_07_2025_tt_bng` | 07/2025/TT-BNG | Không xác định | Sửa đổi, bổ sung một số điều của Thông tư số 07/2023/TT-BNG ngày 29 tháng 12 năm 2023 của Bộ trưởng Bộ Ngoại giao hướng dẫn việc đăng ký và quản lý hộ tịch tại Cơ quan đại diện ngoại giao, Cơ quan đại diện lãnh sự của Việt Nam ở nước ngoài |
 | **L05** | `l_60_2014_qh13` | 60/2014/QH13 | Không xác định | LUẬT HỘ TỊCH |
 | **L06** | `l_52_2010_qh12` | 52/2010/QH12 | Không xác định | LUẬT NUÔI CON NUÔI |
 | **L07** | `l_13_2022_qh15` | 13/2022/QH15 | Không xác định | Luật phòng, chống bạo lực gia đình |
-| **TT14** | `tt_10_2020_tt_btp` | 10/2020/TT-BTP | Không xác định | ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi |
+| **TT14** | `tt_10_2020_tt_btp` | 10/2020/TT-BTP | Sửa đổi bổ sung | ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi |
 | **L08** | `l_35_2013_qh13` | 35/2013/QH13 | Không xác định | Luật Hòa giải ở cơ sở |
-| **ND16** | `nd_19_2011_nd_cp` | 19/2011/NĐ-CP | Không xác định | Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi |
+| **ND16** | `nd_19_2011_nd_cp` | 19/2011/NĐ-CP | Sửa đổi bổ sung | Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi |
 | **ND18** | `nd_76_2023_nd_cp` | 76/2023/NĐ-CP | Không xác định | Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình |
 | **ND19** | `nd_114_2016_nd_cp` | 114/2016/NĐ-CP | Không xác định | Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài |
 | **ND20** | `nd_15_2014_nd_cp` | 15/2014/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật hòa giải ở cơ sở |
@@ -333,38 +332,24 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **ND29** | `nd_110_2013_nd_cp` | 110/2013/NĐ-CP | Hết hiệu lực | quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã |
 | **TT24** | `tt_66_2025_tt_bca` | 66/2025/TT-BCA | Không xác định | quy định công tác giám sát việc thực hiện quyết định cấm tiếp xúc theo quy định của Luật Phòng, chống bạo lực gia đình |
 | **ND30** | `nd_110_2025_nd_cp` | 110/2025/NĐ-CP | Không xác định | quy định Cơ sở dữ liệu về phòng, chống bạo lực gia đình |
-| **TT25** | `tt_24_2011_tt_bvhttdl` | 24/2011/TT-BVHTTDL | Không xác định | quy định về tiêu chuẩn, điều kiện khen thưởng cá nhân, tập thể tham gia phòng, chống bạo lực gia đình; đối tượng, điều kiện, cơ quan hoàn trả thiệt hại về giá trị tài sản cho người trực tiếp tham gia phòng, chống bạo lực gia đình |
 | **TT26** | `tt_11_2021_tt_btp` | 11/2021/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
 | **TT27** | `tt_01_2025_tt_btp` | 01/2025/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp |
 | **TT28** | `tt_24_2014_tt_btp` | 24/2014/TT-BTP | Hết hiệu lực | sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
-| **ND31** | `nd_06_2012_nd_cp` | 06/2012/NĐ-CP | Không xác định | sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực |
 | **TT32** | `tt_12_2011_tt_btp` | 12/2011/TT-BTP | Hết hiệu lực | về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
 | **TT34** | `tt_15_2014_tt_btp` | 15/2014/TT-BTP | Không xác định | hướng dẫn tìm gia đình thay thế ở nước ngoài cho trẻ em khuyết tật, trẻ em mắc bệnh hiểm nghèo, trẻ em từ 5 tuổi trở lên, hai trẻ em trở lên là anh chị em ruột cần tìm gia đình thay thế |
-| **TT35** | `tt_21_2011_tt_btp` | 21/2011/TT-BTP | Không xác định | về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
+| **TT35** | `tt_21_2011_tt_btp` | 21/2011/TT-BTP | Sửa đổi bổ sung | về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
 | **ND33** | `nd_158_2005_nd_cp` | 158/2005/NĐ-CP | Hết hiệu lực | Về đăng ký và quản lý hộ tịch |
 | **ND34** | `nd_83_1998_nd_cp` | 83/1998/NĐ-CP | Hết hiệu lực | Đăng ký hộ tịch |
 | **L14** | `l_02_2007_qh12` | 02/2007/QH12 | Hết hiệu lực | LUẬT PHÒNG, CHỐNG BẠO LỰC GIA ĐÌNH |
 | **ND35** | `nd_08_2009_nd_cp` | 08/2009/NĐ-CP | Hết hiệu lực | Quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống bạo lực gia đình |
 | **ND37** | `nd_110_2009_nd_cp` | 110/2009/NĐ-CP | Hết hiệu lực | Quy định xử phạt vi phạm hành chính trong lĩnh vực phòng, chống bạo lực gia đình |
-| **TTLT03** | `ttlt_06_2012_ttlt_btp_bng` | 06/2012/TTLT-BTP-BNG | Không xác định | sửa đổi, bổ sung một số quy định của Thông tư liên tịch số 11/2008/TTLT-BTP-BNG ngày 31/12/2008 của Bộ Tư pháp và Bộ Ngoại giao hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện Ngoại giao, Cơ quan Lãnh sự của Việt Nam ở nước ngoài |
 | **TT36** | `tt_08_2025_tt_btp` | 08/2025/TT-BTP | Không xác định | quy định về phân định thẩm quyền của chính quyền địa phương 02 cấp và phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp |
-| **TTLT04** | `ttlt_143_2011_ttlt_btc_bvhttdl` | 143/2011/TTLT-BTC-BVHTTDL | Hết hiệu lực | Quy định chế độ quản lý và sử dụng kinh phí ngân sách Nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách Nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập |
-| **TT37** | `tt_58_2024_tt_btc` | 58/2024/TT-BTC | Không xác định | bãi bỏ Thông tư liên tịch số 143/2011/TTLT-BTC-BVHTTDL ngày 21 tháng 10 năm 2011 của Bộ trưởng Bộ Tài chính và Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch quy định chế độ quản lý và sử dụng kinh phí ngân sách nhà nước chi cho công tác phòng, chống bạo lực gia đình; kinh phí ngân sách nhà nước hỗ trợ các cơ sở hỗ trợ nạn nhân bạo lực gia đình, cơ sở tư vấn về phòng, chống bạo lực gia đình ngoài công lập |
-| **TTLT05** | `ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca` | 13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA | Không xác định | hướng dẫn thực hiện giáo dục chuyển đổi hành vi về xây dựng gia đình và phòng, chống bạo lực gia đình trong các cơ sở giáo dục thuộc hệ thống giáo dục quốc dân |
-| **TT39** | `tt_12_2013_tt_bvhttdl` | 12/2013/TT-BVHTTDL | Không xác định | quy định chi tiết hoạt động hỗ trợ xây dựng gia đình hạnh phúc, phát triển bền vững tại cộng đồng |
-| **TT40** | `tt_23_2011_tt_bvhttdl` | 23/2011/TT-BVHTTDL | Không xác định | quy định thu thập, xử lý thông tin về gia đình và phòng, chống bạo lực gia đình |
 | **ND38** | `nd_282_2025_nd_cp` | 282/2025/NĐ-CP | Không xác định | quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình |
 | **ND39** | `nd_347_2026_nd_cp` | 347/2026/NĐ-CP | Không xác định | Sửa đổi, bổ sung một số điều của Nghị định số 169/2025/NĐ-CP ngày 30 tháng 6 năm 2025 của Chính phủ quy định hoạt động khoa học, công nghệ, đổi mới sáng tạo và sản phẩm, dịch vụ về dữ liệu; Nghị định số 105/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 106/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực phòng cháy, chữa cháy và cứu nạn, cứu hộ; Nghị định số 282/2025/NĐ-CP ngày 30 tháng 10 năm 2025 của Chính phủ quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh, trật tự, an toàn xã hội; phòng, chống tệ nạn xã hội; phòng, chống bạo lực gia đình |
-| **TTLT06** | `ttlt_13_2025_ttlt_btp_bng_tandtc` | 13/2025/TTLT-BTP-BNG-TANDTC | Không xác định | sửa đổi, bổ sung một số điều của Thông tư liên tịch số 12/2016/TTLT-BTP-BNG-TANDTC ngày 19 tháng 10 năm 2016 của Bộ trưởng Bộ Tư pháp, Bộ trưởng Bộ Ngoại giao và Chánh án Tòa án nhân dân tối cao quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự |
-| **TT41** | `tt_03_2020_tt_tandtc` | 03/2020/TT-TANDTC | Không xác định | quy định chi tiết về trình tự nhận, xử lý đơn khởi kiện, đơn yêu cầu tại Tòa án và chỉ định Hòa giải viên |
-| **TT42** | `tt_02_2020_tt_tandtc` | 02/2020/TT-TANDTC | Không xác định | quy định chi tiết về trách nhiệm của Tòa án nhân dân trong hoạt động hòa giải, đối thoại tại Tòa án |
 | **TTLT07** | `ttlt_01_2019_ttlt_tandtc_bng` | 01/2019/TTLT-TANDTC-BNG | Không xác định | quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài |
-| **TTLT08** | `ttlt_12_2016_ttlt_btp_bng_tandtc` | 12/2016/TTLT-BTP-BNG-TANDTC | Không xác định | quy định về trình tự, thủ tục tương trợ tư pháp trong lĩnh vực dân sự |
 | **L15** | `l_102_2025_qh15` | 102/2025/QH15 | Không xác định | Luật Tương trợ tư pháp dân sự |
 | **ND40** | `nd_158_2026_nd_cp` | 158/2026/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự |
-| **NQ03** | `nq_38_2026_nq_hdnd_ho_chi_minh` | 38/2026/NQ-HĐND | Còn hiệu lực | Quy định chế độ bồi dưỡng hàng tháng cho cộng tác viên dân số tham gia công tác gia đình, phòng, chống bạo lực gia đình ở cộng đồng trên địa bàn Thành phố Hồ Chí Minh |
 | **L16** | `l_73_2006_qh11` | 73/2006/QH11 | Không xác định | Luật Bình đẳng giới |
 | **L17** | `l_24_2008_qh12` | 24/2008/QH12 | Không xác định | LUẬT QUỐC TỊCH VIỆT NAM |
-| **TTLT09** | `ttlt_05_2015_ttlt_btp_bca_byt` | 05/2015/TTLT-BTP-BCA-BYT | Không xác định | hướng dẫn thực hiện liên thông các thủ tục hành chính về đăng ký khai sinh, đăng ký thường trú, cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi |
 | **L19** | `l_68_2020_qh14` | 68/2020/QH14 | Không xác định | luật Cư trú |
 | **L20** | `l_11_2017_qh14` | 11/2017/QH14 | Không xác định | luật Trợ giúp pháp lý |

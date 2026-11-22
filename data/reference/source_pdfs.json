@@ -82,13 +82,6 @@
       }
     },
     {
-      "path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
-      "document_id": "nd_06_2012_nd_cp",
-      "sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
-      "bytes": 73168,
-      "added_in": null
-    },
-    {
       "path": "data/raw_data/additional_documents/central_batch1/nd_110_2013_nd_cp.pdf",
       "document_id": "nd_110_2013_nd_cp",
       "sha256": "732f66a277d457d6b0ec045b742d7bfe63fbb54cdc900d533ab225051821df8c",
@@ -135,13 +128,6 @@
       "document_id": "tt_21_2011_tt_btp",
       "sha256": "3472b357c470b30bb91a434ccdf11e9bc20f38c5591d758d9ff843e03b44a215",
       "bytes": 73082,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/central_batch1/tt_24_2011_tt_bvhttdl.pdf",
-      "document_id": "tt_24_2011_tt_bvhttdl",
-      "sha256": "e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
-      "bytes": 68710,
       "added_in": null
     },
     {
@@ -320,13 +306,6 @@
       "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
-      "document_id": "tt_07_2023_tt_bng",
-      "sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
-      "bytes": 94828,
-      "added_in": null
-    },
-    {
       "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_btp.pdf",
       "document_id": "tt_07_2023_tt_btp",
       "sha256": "fb4bbe2ab5113d30bf8007e1bda14c7390c95ae7c13635c357bd50d42a6908e9",
@@ -404,38 +383,10 @@
       "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
-      "document_id": "tt_02_2020_tt_tandtc",
-      "sha256": "dc13feb0dbd1d71efd9a6e8507afb6cf6f9ca2b11986a815fac7fcecf6e6f416",
-      "bytes": 69318,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
-      "document_id": "tt_03_2020_tt_tandtc",
-      "sha256": "a1026fd6336e65794e7d3f0d13bafdc9115058df90ec2435062c731edf253071",
-      "bytes": 63724,
-      "added_in": null
-    },
-    {
       "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.pdf",
       "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
       "sha256": "fbd73c2e0ad5d6695f700d3d95f951798668f2c5411480ab21265f9a13c7e3ed",
       "bytes": 77359,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
-      "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
-      "sha256": "8c8a70513fda11798b1cb5eaa719de7a38069630fa24189d8c42881a8d38ab0c",
-      "bytes": 82421,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
-      "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
-      "sha256": "5f612f1cb892cc569e5126c8f913db1a3a3744db311a39bf7fdd95145428c422",
-      "bytes": 61626,
       "added_in": null
     },
     {
@@ -453,52 +404,10 @@
       "added_in": null
     },
     {
-      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
-      "document_id": "tt_12_2013_tt_bvhttdl",
-      "sha256": "d083b3c0ec26a627d859b8717792ad6e1edf05c831ab5fe4cca8fb61eb10a9b6",
-      "bytes": 63302,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
-      "document_id": "tt_23_2011_tt_bvhttdl",
-      "sha256": "caa0423b592127affd3f35780a4d5fcc3e0db821ee2b4f2e8e8ec0a6a8a51693",
-      "bytes": 65321,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
-      "document_id": "tt_58_2024_tt_btc",
-      "sha256": "a4ae3322bcbbed8949482da6c9bd66bb03e704fe96f7154c678b8130375b5928",
-      "bytes": 59998,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
-      "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
-      "sha256": "c47bf9960020c8d7eaa24694bc70a633bb598a57261eb9ad5dfeee55eca9fbdb",
-      "bytes": 68043,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
-      "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
-      "sha256": "fb0fee94806228dc5966dd8e7c8fc5049129e4fe9dcbecba4140dc1ba6aa2cd5",
-      "bytes": 72580,
-      "added_in": null
-    },
-    {
       "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
       "document_id": "tt_08_2025_tt_btp",
       "sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",
       "bytes": 82476,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
-      "document_id": "ttlt_06_2012_ttlt_btp_bng",
-      "sha256": "e5ef759817353106f0b66246f64de585b526de35cd0935870e1b3fc7495256c5",
-      "bytes": 71644,
       "added_in": null
     },
     {
@@ -527,13 +436,6 @@
       "document_id": "l_73_2006_qh11",
       "sha256": "3521f97e2518c7aaec2f68805714f78a8c079adae09025c346d83b96f7322c5a",
       "bytes": 82924,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/gap_completion_batch8/ttlt_05_2015_ttlt_btp_bca_byt.pdf",
-      "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
-      "sha256": "049dce795754fceda12d68578410ca328dffed07adeca93a46784bde5dc5620f",
-      "bytes": 73565,
       "added_in": null
     },
     {
@@ -569,13 +471,6 @@
       "document_id": "nd_83_1998_nd_cp",
       "sha256": "46b097b1951fb762fc9e18f469d475e4168d04238f3b590aeb74aa5727518e85",
       "bytes": 106459,
-      "added_in": null
-    },
-    {
-      "path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
-      "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
-      "sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
-      "bytes": 60275,
       "added_in": null
     },
     {

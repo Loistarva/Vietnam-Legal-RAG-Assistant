@@ -2,13 +2,13 @@
 
 Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `eaff78b1d5c0ee753ebfcc598a02a1cca0b706bc`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `2438a76c5744ef9c9fe440b600583b4256a295a5`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
-- Registry: 28 văn bản; corpus: 2322 chunks / 28 văn bản; article index: 851 dòng.
-- Structural errors: **0**; warnings: 28. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
-- Alias keys: 766; ambiguous keys: 38. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
+- Registry: 84 văn bản; corpus: 6135 chunks / 84 văn bản; article index: 3841 dòng.
+- Structural errors: **0**; warnings: 84. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
+- Alias keys: 2143; ambiguous keys: 127. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
 ## Kiểm tra đã làm
 
@@ -24,12 +24,68 @@ Cờ requires_review trong nguồn:
 - `tt_04_2020_tt_btp`
 - `tt_57_2015_tt_byt`
 - `nd_123_2015_nd_cp`
+- `l_102_2016_qh13`
+- `bl_92_2015_qh13`
+- `l_34_2024_qh15`
+- `nd_24_2019_nd_cp`
+- `nd_06_2025_nd_cp`
+- `tt_07_2023_tt_btp`
+- `nd_104_2022_nd_cp`
+- `nd_120_2025_nd_cp`
+- `l_85_2025_qh15`
+- `tt_10_2025_tt_btp`
+- `nd_63_2024_nd_cp`
+- `l_58_2020_qh14`
+- `tt_01_2022_tt_btp`
+- `tt_03_2023_tt_btp`
+- `tt_07_2025_tt_bng`
+- `l_60_2014_qh13`
+- `l_52_2010_qh12`
+- `l_13_2022_qh15`
+- `tt_10_2020_tt_btp`
+- `l_35_2013_qh13`
+- `nd_19_2011_nd_cp`
+- `nd_76_2023_nd_cp`
+- `nd_114_2016_nd_cp`
+- `nd_15_2014_nd_cp`
+- `nq_326_2016_ubtvqh14`
+- `bl_91_2015_qh13`
+- `tt_09_2022_tt_btp`
+- `nd_301_2026_nd_cp`
+- `nd_24_2013_nd_cp`
+- `tt_22_2013_tt_btp`
+- `tt_16_2010_tt_btp`
+- `ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh`
+- `nd_110_2013_nd_cp`
+- `tt_66_2025_tt_bca`
+- `nd_110_2025_nd_cp`
+- `tt_11_2021_tt_btp`
+- `tt_01_2025_tt_btp`
+- `tt_24_2014_tt_btp`
+- `tt_12_2011_tt_btp`
+- `tt_15_2014_tt_btp`
+- `tt_21_2011_tt_btp`
+- `nd_158_2005_nd_cp`
+- `nd_83_1998_nd_cp`
+- `l_02_2007_qh12`
+- `nd_08_2009_nd_cp`
+- `nd_110_2009_nd_cp`
+- `tt_08_2025_tt_btp`
+- `nd_282_2025_nd_cp`
+- `nd_347_2026_nd_cp`
+- `ttlt_01_2019_ttlt_tandtc_bng`
+- `l_102_2025_qh15`
+- `nd_158_2026_nd_cp`
+- `l_73_2006_qh11`
+- `l_24_2008_qh12`
+- `l_68_2020_qh14`
+- `l_11_2017_qh14`
 
 Các cờ này đã có trong registry; không trình bày thành lỗi mới và không tự điền ngày hết hiệu lực cho điều khoản chỉ dựa vào trạng thái cấp văn bản. End=null có thể chưa mô hình hóa đầy đủ sửa đổi/bãi bỏ; không phải chứng minh mọi điều còn hiệu lực.
 
 Warning counts:
 
-- provision_effectivity_not_independently_verified: 28
+- provision_effectivity_not_independently_verified: 84
 
 ## Alias mơ hồ tiêu biểu
 
@@ -37,13 +93,28 @@ Warning counts:
 {
   "2014": [
     "l_52_2014_qh13",
-    "nd_126_2014_nd_cp"
+    "l_60_2014_qh13",
+    "nd_126_2014_nd_cp",
+    "nd_15_2014_nd_cp",
+    "tt_15_2014_tt_btp",
+    "tt_24_2014_tt_btp"
   ],
   "2025": [
+    "l_102_2025_qh15",
     "l_81_2025_qh15",
+    "l_85_2025_qh15",
+    "nd_06_2025_nd_cp",
     "nd_07_2025_nd_cp",
+    "nd_110_2025_nd_cp",
+    "nd_120_2025_nd_cp",
     "nd_207_2025_nd_cp",
-    "tt_38_2025_tt_byt"
+    "nd_282_2025_nd_cp",
+    "tt_01_2025_tt_btp",
+    "tt_07_2025_tt_bng",
+    "tt_08_2025_tt_btp",
+    "tt_10_2025_tt_btp",
+    "tt_38_2025_tt_byt",
+    "tt_66_2025_tt_bca"
   ],
   "luat hngd": [
     "l_21_lct_hdnn7",
@@ -64,17 +135,17 @@ Warning counts:
 
 ## Nguồn và giới hạn
 
-Registry canonical SHA-256: `67424ec6c5cc10408d22277d514f6b5280edeedac1fbd0cb3051d4d0785a5010`.
-- data/reference/document_versions.json: raw file SHA-256 `1e453a58d1d83fd145694d88bc2f81a2aa26c8669676aad7ce4885417aa6babf`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `81c72a08bbfa41f2cb190faebb16d02beb4d505c8bb56b2072acada719c0d578`
-- data/reference/article_index.json: raw file SHA-256 `868f890a9e4c10d718b5ab515b4f27f78a695b01edb5bb79ca8c01c4e4fc2d2f`
-- data/reference/provision_periods.json: raw file SHA-256 `b51bd299a26cac561c47ba15c40bed7a5110a600dcc93e2f175c0c2bcdb6ddb9`
+Registry canonical SHA-256: `2a196b1bd3c98878ddd4ea190221b18b3df21b26f2b45f6fdaf08381d2166c8f`.
+- data/reference/document_versions.json: raw file SHA-256 `cd3d6be634a0e607472dbfcecaf23b4cb8fad1858d235f98250b93427602e257`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `2bdfe32111757e96defd0d5deb84e69a6af3bd6acd90b067a2479003a5d22785`
+- data/reference/article_index.json: raw file SHA-256 `0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e`
+- data/reference/provision_periods.json: raw file SHA-256 `9446f70d147129169756ec54a280fb71cfc2232d349a696feb08c08b132db185`
 
 Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
 
 Remote context:
 
-origin/testing snapshot fc666421fb50d394d11df2368303031092a30578; differing tracked input paths vs HEAD: []. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review.
+origin/testing snapshot 03a498924d0d134d2abc861599db94920f7291db; differing tracked input paths vs HEAD: ['data/chunking_output/chunks.jsonl', 'data/reference/article_index.json', 'data/reference/document_versions.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review.
 
 ## Cách tái lập và bàn giao
 

@@ -2141,7 +2141,7 @@
     "pdf_path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_bng.part01.pdf",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
     "pdf_sha256": "5eafcf6f0f4d442cd90fa629beb4ab32eb12b645138989b459f87cc0279677c8",
-    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
     "ingest_pdf_sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
     "download_status": "downloaded_normalized_roundtrip_verified",
     "verified_at": "2026-11-16",
@@ -2171,9 +2171,11 @@
     "normalized_source_text_path": "data/staging/corpus_v2/compatibility/normalized_source/tt_07_2023_tt_bng.txt",
     "normalized_source_text_sha256": "72dbb2f8ca849ce546d9b50d068fe21c0e4e718ee6116cb560661c971cf15d95",
     "normalized_at": "2026-11-17",
-    "parsed_json_path": "parser/parsed_jsons/tt_07_2023_tt_bng.json",
-    "cleaned_text_path": "parser/cleaned_texts/tt_07_2023_tt_bng.txt",
-    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de"
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_07_2023_tt_bng.json",
+    "cleaned_text_path": "data/staging/corpus_review_20261122/archive/parser/cleaned_texts/tt_07_2023_tt_bng.txt",
+    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại."
   },
   {
     "document_id": "tt_07_2025_tt_bng",
@@ -2382,8 +2384,8 @@
     "effective_date": "2021-02-26",
     "expiry_date": null,
     "issuing_body": "Bộ Tư pháp",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/12/33164/34634-1-2021281-28210-2020-tt-btp.pdf",
@@ -2392,8 +2394,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/tt_10_2020_tt_btp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-22",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
     "trial_only": true,
     "file_code": "TT14",
     "production_ingest_allowed": false,
@@ -2409,7 +2411,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_10_2020_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_10_2020_tt_btp.txt",
-    "parsed_json_sha256": "612c2c671daff603244f866eff51f8671a4fe7c822b5e124dd4765150eb5de8c"
+    "parsed_json_sha256": "fd897e276750c69f06e97018516b02802b36489b015054228c8748285b61d212",
+    "known_amended_by": [
+      "07/2023/TT-BTP",
+      "10/2025/TT-BTP"
+    ]
   },
   {
     "document_id": "l_35_2013_qh13",
@@ -2458,8 +2464,8 @@
     "effective_date": "2011-05-08",
     "expiry_date": null,
     "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/3/4925/5109-1-2011171-172-192011nd-cppdf",
@@ -2468,8 +2474,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_19_2011_nd_cp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-22",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
     "trial_only": true,
     "file_code": "ND16",
     "production_ingest_allowed": false,
@@ -2485,7 +2491,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_19_2011_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_19_2011_nd_cp.txt",
-    "parsed_json_sha256": "89022ab8facd172d9fe2521442f93f2539a6bee8fc28233a76cbd6b1cb7b2b73"
+    "parsed_json_sha256": "bed2aa6cb77ddb3ed4299e70b61089d8a111982646dc9fb43341b05c19c92df4",
+    "known_amended_by": [
+      "06/2025/NĐ-CP",
+      "24/2019/NĐ-CP"
+    ]
   },
   {
     "document_id": "nd_76_2023_nd_cp",

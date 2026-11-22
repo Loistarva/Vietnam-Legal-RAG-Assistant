@@ -29,16 +29,18 @@
       }
     ],
     "origin": "foreign_civil_registration_batch3",
-    "ingest_pdf_path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json",
     "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "e5ef759817353106f0b66246f64de585b526de35cd0935870e1b3fc7495256c5",
     "normalized_source_text_sha256": "c30dc30fa465f82735a5b8d2d7474541da6c57387ce1e8f2f017edff5b6d835b",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official originals downloaded; normalized derivative prepared 2026-11-18",
     "source_kind": "official_gazette_pdf",
-    "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123"
+    "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Văn bản sửa đổi thiếu nguồn gốc TTLT 11/2008 có chất lượng ingest đạt yêu cầu."
   },
   {
     "document_id": "tt_08_2025_tt_btp",

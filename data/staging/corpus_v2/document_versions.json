@@ -1553,7 +1553,7 @@
     "pdf_path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_bng.part01.pdf",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
     "pdf_sha256": "5eafcf6f0f4d442cd90fa629beb4ab32eb12b645138989b459f87cc0279677c8",
-    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
     "ingest_pdf_sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
     "download_status": "downloaded_normalized_roundtrip_verified",
     "verified_at": "2026-11-16",
@@ -1583,9 +1583,11 @@
     "normalized_source_text_path": "data/staging/corpus_v2/compatibility/normalized_source/tt_07_2023_tt_bng.txt",
     "normalized_source_text_sha256": "72dbb2f8ca849ce546d9b50d068fe21c0e4e718ee6116cb560661c971cf15d95",
     "normalized_at": "2026-11-17",
-    "parsed_json_path": "parser/parsed_jsons/tt_07_2023_tt_bng.json",
-    "cleaned_text_path": "parser/cleaned_texts/tt_07_2023_tt_bng.txt",
-    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de"
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_07_2023_tt_bng.json",
+    "cleaned_text_path": "data/staging/corpus_review_20261122/archive/parser/cleaned_texts/tt_07_2023_tt_bng.txt",
+    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại."
   },
   {
     "document_id": "tt_07_2025_tt_bng",

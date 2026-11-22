@@ -129,11 +129,11 @@
       }
     ],
     "origin": "gap_completion_batch8",
-    "ingest_pdf_path": "data/raw_data/additional_documents/gap_completion_batch8/ttlt_05_2015_ttlt_btp_bca_byt.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_05_2015_ttlt_btp_bca_byt.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/gap_completion_batch8/ttlt_05_2015_ttlt_btp_bca_byt.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_05_2015_ttlt_btp_bca_byt.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "049dce795754fceda12d68578410ca328dffed07adeca93a46784bde5dc5620f",
     "normalized_source_text_sha256": "6654a88811a29f4952dba10c4e52d28a36d21e8d0465ca8e4027d69cdba3f3be",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
@@ -144,7 +144,9 @@
       "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-05-2015-ttlt-btp-bca-byt-12725.htm",
       "note": "Initial effective date checked in original text; current/provision status requires full amendment-chain review. Original is not consolidated current law."
     },
-    "effectivity_note": "Historical original of paper-era joint birth/residence/health-insurance registration. ND63/2024 and ND301/2026 provide electronic regime already in corpus. Current expiry date not confirmed in this batch; do not use as default current procedure."
+    "effectivity_note": "Historical original of paper-era joint birth/residence/health-insurance registration. ND63/2024 and ND301/2026 provide electronic regime already in corpus. Current expiry date not confirmed in this batch; do not use as default current procedure.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Thủ tục giấy lịch sử; chưa xác minh đầy đủ quan hệ với ND63/2024 và ND301/2026. Không dùng làm thủ tục hiện hành."
   },
   {
     "document_id": "l_68_2020_qh14",

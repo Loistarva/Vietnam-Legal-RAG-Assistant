@@ -2141,7 +2141,7 @@
     "pdf_path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_bng.part01.pdf",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/12/41066/48454-1-2024163-16407-2023-tt-bng.pdf",
     "pdf_sha256": "5eafcf6f0f4d442cd90fa629beb4ab32eb12b645138989b459f87cc0279677c8",
-    "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_bng.pdf",
     "ingest_pdf_sha256": "e7811a677629b8161cc3a59db08c9e0256aba18ccd15dcf957e2edbed890d618",
     "download_status": "downloaded_normalized_roundtrip_verified",
     "verified_at": "2026-11-16",
@@ -2171,9 +2171,11 @@
     "normalized_source_text_path": "data/staging/corpus_v2/compatibility/normalized_source/tt_07_2023_tt_bng.txt",
     "normalized_source_text_sha256": "72dbb2f8ca849ce546d9b50d068fe21c0e4e718ee6116cb560661c971cf15d95",
     "normalized_at": "2026-11-17",
-    "parsed_json_path": "parser/parsed_jsons/tt_07_2023_tt_bng.json",
-    "cleaned_text_path": "parser/cleaned_texts/tt_07_2023_tt_bng.txt",
-    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de"
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_07_2023_tt_bng.json",
+    "cleaned_text_path": "data/staging/corpus_review_20261122/archive/parser/cleaned_texts/tt_07_2023_tt_bng.txt",
+    "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại."
   },
   {
     "document_id": "tt_07_2025_tt_bng",
@@ -2382,8 +2384,8 @@
     "effective_date": "2021-02-26",
     "expiry_date": null,
     "issuing_body": "Bộ Tư pháp",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/12/33164/34634-1-2021281-28210-2020-tt-btp.pdf",
@@ -2392,8 +2394,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/tt_10_2020_tt_btp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-22",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
     "trial_only": true,
     "file_code": "TT14",
     "production_ingest_allowed": false,
@@ -2409,7 +2411,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_10_2020_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_10_2020_tt_btp.txt",
-    "parsed_json_sha256": "612c2c671daff603244f866eff51f8671a4fe7c822b5e124dd4765150eb5de8c"
+    "parsed_json_sha256": "fd897e276750c69f06e97018516b02802b36489b015054228c8748285b61d212",
+    "known_amended_by": [
+      "07/2023/TT-BTP",
+      "10/2025/TT-BTP"
+    ]
   },
   {
     "document_id": "l_35_2013_qh13",
@@ -2458,8 +2464,8 @@
     "effective_date": "2011-05-08",
     "expiry_date": null,
     "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2011/3/4925/5109-1-2011171-172-192011nd-cppdf",
@@ -2468,8 +2474,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_19_2011_nd_cp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-22",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
     "trial_only": true,
     "file_code": "ND16",
     "production_ingest_allowed": false,
@@ -2485,7 +2491,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_19_2011_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_19_2011_nd_cp.txt",
-    "parsed_json_sha256": "89022ab8facd172d9fe2521442f93f2539a6bee8fc28233a76cbd6b1cb7b2b73"
+    "parsed_json_sha256": "bed2aa6cb77ddb3ed4299e70b61089d8a111982646dc9fb43341b05c19c92df4",
+    "known_amended_by": [
+      "06/2025/NĐ-CP",
+      "24/2019/NĐ-CP"
+    ]
   },
   {
     "document_id": "nd_76_2023_nd_cp",
@@ -3435,16 +3445,18 @@
       }
     ],
     "origin": "central_batch1",
-    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/tt_24_2011_tt_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_24_2011_tt_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/central_batch1/tt_24_2011_tt_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_24_2011_tt_bvhttdl.json",
     "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
     "ingest_pdf_sha256": "e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
     "download_status": "Official PDF normalized on 2026-11-17; sha256:e964012971740bf9d4c3a93bdc0f79a2bc70cd5db9b81b33d9e0e6aef342371e",
     "normalized_source_text_sha256": "4bb3e54f2cc0d430c01a3921b585f5c2943234a5cd8be1f84010345fd77b6bf8",
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "2c8e70d5d7fb9bda11404b5cfd357576b71fa75a9f67669381acdcbbce961cf9"
+    "parsed_json_sha256": "2c8e70d5d7fb9bda11404b5cfd357576b71fa75a9f67669381acdcbbce961cf9",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa xác minh đầy đủ quan hệ với khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_11_2021_tt_btp",
@@ -3605,16 +3617,18 @@
       }
     ],
     "origin": "central_batch1",
-    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
-    "parsed_json_path": "parser/parsed_jsons/nd_06_2012_nd_cp.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/nd_06_2012_nd_cp.json",
     "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
     "ingest_pdf_sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
     "download_status": "Official PDF normalized on 2026-11-17; sha256:202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
     "normalized_source_text_sha256": "66d0c5ef567e431188160ece988516430a1a03d8da011925d7f5c4c41d562438",
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "7c139dc099710a6f30369074b8cb8e4a9ca569cc1b151a0296c80570fbdf5c33"
+    "parsed_json_sha256": "7c139dc099710a6f30369074b8cb8e4a9ca569cc1b151a0296c80570fbdf5c33",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa xác minh đầy đủ hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_12_2011_tt_btp",
@@ -3713,10 +3727,10 @@
     "issue_date": "2011-11-21",
     "effective_date": "2012-01-05",
     "issuing_body": "Bộ Tư Pháp",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -3743,7 +3757,13 @@
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
     "production_ingest_allowed": true,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "ff7bc2aab11ae90424c943d26db18164fdaf4975db6ef926b297ca86ca7f097d"
+    "parsed_json_sha256": "4ae4dfe0f893068fcd2fc710ba93b8960f177a4284c78d547bd9e7d5f2f23f2c",
+    "verified_at": "2026-11-22",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
+    "known_amended_by": [
+      "01/2025/TT-BTP",
+      "11/2021/TT-BTP"
+    ]
   },
   {
     "document_id": "nd_158_2005_nd_cp",
@@ -4022,16 +4042,18 @@
       }
     ],
     "origin": "foreign_civil_registration_batch3",
-    "ingest_pdf_path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/foreign_civil_registration_batch3/ttlt_06_2012_ttlt_btp_bng.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_06_2012_ttlt_btp_bng.json",
     "normalization_note": "Unsigned normalized derivative, Letter 612x792, Times New Roman 12pt; original official attachments retained byte-for-byte. No parser/chunker changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "e5ef759817353106f0b66246f64de585b526de35cd0935870e1b3fc7495256c5",
     "normalized_source_text_sha256": "c30dc30fa465f82735a5b8d2d7474541da6c57387ce1e8f2f017edff5b6d835b",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official originals downloaded; normalized derivative prepared 2026-11-18",
     "source_kind": "official_gazette_pdf",
-    "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123"
+    "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Văn bản sửa đổi thiếu nguồn gốc TTLT 11/2008 có chất lượng ingest đạt yêu cầu."
   },
   {
     "document_id": "tt_08_2025_tt_btp",
@@ -4123,8 +4145,8 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/ttlt_143_2011_ttlt_btc_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_143_2011_ttlt_btc_bvhttdl.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
     "source_document_number": "143/2011/TTLT/BTC-BVHTTDL",
@@ -4134,12 +4156,14 @@
       "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-58-2024-tt-btc-42636.htm"
     },
     "normalization_identity_note": "Official Word uses slash after TTLT; canonical identifier uses hyphen as cited by the official repealing TT58/2024. Original identifier preserved in source_document_number.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "fb0fee94806228dc5966dd8e7c8fc5049129e4fe9dcbecba4140dc1ba6aa2cd5",
     "normalized_source_text_sha256": "1ed5e30692fd589815da223d9ee64bbafa5d4210e2f0fbb68949695da87e1c5b",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "8bcf780f579465036bf112cd120104a0a6c30a818fca7253c7cd89d0eec93f12"
+    "parsed_json_sha256": "8bcf780f579465036bf112cd120104a0a6c30a818fca7253c7cd89d0eec93f12",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Quản lý kinh phí ngân sách; loại khỏi phạm vi retrieval HNGĐ. Giữ nguồn phục vụ truy vết."
   },
   {
     "document_id": "tt_58_2024_tt_btc",
@@ -4177,16 +4201,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_58_2024_tt_btc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_58_2024_tt_btc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_58_2024_tt_btc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "a4ae3322bcbbed8949482da6c9bd66bb03e704fe96f7154c678b8130375b5928",
     "normalized_source_text_sha256": "ff6eb79f4c3f07bcaa5c2ed4881c0cf7da22a71ed51525fa51107adc4a6f7155",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "87f805d9c4eb941943c48f0e3411d2e85fb5646f939ee01ececfbf38972622d8"
+    "parsed_json_sha256": "87f805d9c4eb941943c48f0e3411d2e85fb5646f939ee01ececfbf38972622d8",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Bãi bỏ văn bản về kinh phí ngân sách; giữ làm căn cứ truy vết ngoài retrieval HNGĐ."
   },
   {
     "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
@@ -4218,16 +4244,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "c47bf9960020c8d7eaa24694bc70a633bb598a57261eb9ad5dfeee55eca9fbdb",
     "normalized_source_text_sha256": "f7e641da017926eb3c43c7beff4eaf9645ed7ef214e12442821865a37531c737",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3"
+    "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và phạm vi áp dụng theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_12_2013_tt_bvhttdl",
@@ -4259,16 +4287,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_12_2013_tt_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_12_2013_tt_bvhttdl.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "d083b3c0ec26a627d859b8717792ad6e1edf05c831ab5fe4cca8fb61eb10a9b6",
     "normalized_source_text_sha256": "1e2bc7f0dbd63b0fb637c203d8681233ce36a51dc88809fa4244e2cc62a2d513",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb"
+    "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "tt_23_2011_tt_bvhttdl",
@@ -4300,16 +4330,18 @@
       }
     ],
     "origin": "domestic_violence_batch5",
-    "ingest_pdf_path": "data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/domestic_violence_batch5/tt_23_2011_tt_bvhttdl.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_23_2011_tt_bvhttdl.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "caa0423b592127affd3f35780a4d5fcc3e0db821ee2b4f2e8e8ec0a6a8a51693",
     "normalized_source_text_sha256": "59d4696e3897603ef73dd31a0a645dfe447bd90b5c16e8cced705152771c8349",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e"
+    "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
   },
   {
     "document_id": "nd_282_2025_nd_cp",
@@ -4448,17 +4480,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_13_2025_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_13_2025_ttlt_btp_bng_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "5f612f1cb892cc569e5126c8f913db1a3a3744db311a39bf7fdd95145428c422",
     "normalized_source_text_sha256": "3a86995c8cfc20aeb9bf65ee6ceaa6cf3e8fc2c76722e3f3de8dab6682ebc0f6",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "a2a56a4e456578fcf6ddb4fd42e2b8dc9c71b34fe6da4e17e555188728c6d231",
-    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred."
+    "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Cần đối chiếu chuỗi tố tụng, hòa giải và hướng dẫn mới trước duyệt phạm vi."
   },
   {
     "document_id": "tt_03_2020_tt_tandtc",
@@ -4496,17 +4530,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_03_2020_tt_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/tt_03_2020_tt_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_03_2020_tt_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "a1026fd6336e65794e7d3f0d13bafdc9115058df90ec2435062c731edf253071",
     "normalized_source_text_sha256": "2178d027bf9e13dd085f4dd29aa58d207a4d9e37866f8cb6373a5da0faae0a22",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "4c41044b354b1baef9dff27e3003e35b1e6c692812d6f019f5c986368ca19f47",
-    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
   },
   {
     "document_id": "tt_02_2020_tt_tandtc",
@@ -4544,17 +4580,19 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/tt_02_2020_tt_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/tt_02_2020_tt_tandtc.json",
     "source_kind": "doc",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "dc13feb0dbd1d71efd9a6e8507afb6cf6f9ca2b11986a815fac7fcecf6e6f416",
     "normalized_source_text_sha256": "7d93f3a4140b5f61c0a352e1a00abdd71b6e4e9302a78a9eedede2ad1aeafbce",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "d57e17a6fa26d17d0a14a884125929700aeb778789f535fdf63da9b1eeec6099",
-    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review."
+    "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
   },
   {
     "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
@@ -4633,11 +4671,11 @@
       }
     ],
     "origin": "dispute_resolution_batch6",
-    "ingest_pdf_path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
-    "parsed_json_path": "parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_12_2016_ttlt_btp_bng_tandtc.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/ttlt_12_2016_ttlt_btp_bng_tandtc.json",
     "source_kind": "pdf",
     "normalization_note": "Unsigned ingest derivative, Letter 612x792 pt, Times New Roman 12pt. Official original retained byte-for-byte; only whitespace/header identifier normalization. Annex/signature preserved separately; no parser/chunker/schema changes.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "8c8a70513fda11798b1cb5eaa719de7a38069630fa24189d8c42881a8d38ab0c",
     "normalized_source_text_sha256": "7e18a2a62d4c339a7f43cdd2afd007f555008f40b3a09cedafa36a16eb4000c3",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
@@ -4646,7 +4684,9 @@
     "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
     "known_amended_by": [
       "ttlt_13_2025_ttlt_btp_bng_tandtc"
-    ]
+    ],
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Thiếu luật mẹ 08/2007 trong active và cần rà chuyển tiếp sang luật tương trợ tư pháp mới."
   },
   {
     "document_id": "l_102_2025_qh15",
@@ -4781,8 +4821,8 @@
     ],
     "origin": "local_documents_batch7",
     "source_kind": "pdf",
-    "ingest_pdf_path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
-    "parsed_json_path": "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
     "territorial_scope": {
       "jurisdiction_name": "Thành phố Hồ Chí Minh",
       "applies_nationally": false,
@@ -4790,7 +4830,7 @@
     },
     "jurisdiction_review_required": true,
     "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
     "normalized_source_text_sha256": "d2a350568e0af9657e68d5fc10caebc33baf49fd15c5292792fb3d265267e356",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
@@ -4800,6 +4840,8 @@
       "provision": "5",
       "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
       "note": "Initial effectivity checked in original; official metadata active on2026-11-18. Conditional allowance termination in QD17 Article12.4 still requires provision-level review."
-    }
+    },
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Phạm vi TP.HCM, chủ yếu chế độ cộng tác viên; pipeline hiện chưa có bộ lọc địa bàn."
   }
 ]

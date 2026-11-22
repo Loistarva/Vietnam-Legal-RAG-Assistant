@@ -1,6 +1,6 @@
 {
   "description": "Khoảng hiệu lực cấp Điều/Khoản/Điểm của văn bản hết hiệu lực một phần. chunking/export_legal_chunks.py ghi effective_to và provision_status của từng bản ghi vào mọi chunk thuộc phạm vi đó; chunk khác của văn bản giữ khoảng hiệu lực cấp văn bản. Bản ghi cấp Điểm (points) làm Khoản đó được tách theo Điểm khi export. Chỉ ghi các thay đổi có văn bản gốc trong corpus: evidence_chunk_id là chunk chứa quy định bãi bỏ hoặc sửa đổi (với sửa đổi, chunk này chứa luôn nội dung mới), effective_to là ngày văn bản đó có hiệu lực. Kiểm bởi test/test_provision_periods.py. quoted_clauses chọn Khoản được trích dẫn bên trong Khoản sửa đổi (metadata.quoted_clause_number), không thay số Khoản nguồn. evidence_context_ids ghi đủ nhóm chunk cần đọc theo thứ tự; evidence_chunk_id giữ vai trò định danh chính, không thay thế toàn bộ nhóm dẫn chứng.",
-  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong phạm vi corpus chỉ sửa NĐ 123/2015 (Điều 13); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1).",
+  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong phạm vi corpus chỉ sửa NĐ 123/2015 (Điều 13); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1). Rà bổ sung 22/11/2026: thêm các phạm vi thay thế toàn Điều/Khoản và bãi bỏ của chuỗi nuôi con nuôi, hộ tịch điện tử, tố tụng và tổ chức Tòa án; giữ riêng các sửa cụm từ và chuỗi chưa đủ căn cứ. Không xác nhận mọi Điều chưa ghi override là hiện hành.",
   "overrides": [
     {
       "id": "nd_126_2014_art_19_50_repealed",
@@ -72,7 +72,12 @@
     {
       "id": "nd_126_2014_art_63_clause_2_amended",
       "document_id": "nd_126_2014_nd_cp",
-      "clauses": [{"article": "63", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "63",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2016-01-01",
       "changed_by": "nd_123_2015_nd_cp",
@@ -82,7 +87,16 @@
     {
       "id": "tt_34_2017_art_2_clauses_2_3_repealed",
       "document_id": "tt_34_2017_tt_byt",
-      "clauses": [{"article": "2", "clause": "2"}, {"article": "2", "clause": "3"}],
+      "clauses": [
+        {
+          "article": "2",
+          "clause": "2"
+        },
+        {
+          "article": "2",
+          "clause": "3"
+        }
+      ],
       "provision_status": "repealed",
       "effective_to": "2020-02-01",
       "changed_by": "tt_30_2019_tt_byt",
@@ -93,8 +107,24 @@
     {
       "id": "tt_57_2015_chapters_1_2_5_6_repealed",
       "document_id": "tt_57_2015_tt_byt",
-      "chapters": ["I", "II", "V", "VI"],
-      "articles": ["1", "2", "3", "4", "5", "6", "30", "31", "32", "33"],
+      "chapters": [
+        "I",
+        "II",
+        "V",
+        "VI"
+      ],
+      "articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "30",
+        "31",
+        "32",
+        "33"
+      ],
       "provision_status": "repealed",
       "effective_to": "2025-10-01",
       "changed_by": "tt_38_2025_tt_byt",
@@ -104,7 +134,16 @@
     {
       "id": "nd_123_2015_art_12_clauses_1_2_repealed",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "12", "clause": "1"}, {"article": "12", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "12",
+          "clause": "1"
+        },
+        {
+          "article": "12",
+          "clause": "2"
+        }
+      ],
       "provision_status": "repealed",
       "effective_to": "2020-09-15",
       "changed_by": "nd_87_2020_nd_cp",
@@ -153,7 +192,12 @@
     {
       "id": "nd_123_2015_art_3_clause_1_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "3", "clause": "1"}],
+      "clauses": [
+        {
+          "article": "3",
+          "clause": "1"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -163,7 +207,13 @@
     {
       "id": "nd_123_2015_art_4_clause_1_point_c_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "points": [{"article": "4", "clause": "1", "point": "c"}],
+      "points": [
+        {
+          "article": "4",
+          "clause": "1",
+          "point": "c"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -173,7 +223,12 @@
     {
       "id": "nd_123_2015_art_9_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "9", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "9",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -183,7 +238,12 @@
     {
       "id": "nd_123_2015_art_10_clause_1_repealed",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "10", "clause": "1"}],
+      "clauses": [
+        {
+          "article": "10",
+          "clause": "1"
+        }
+      ],
       "provision_status": "repealed",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -193,7 +253,12 @@
     {
       "id": "nd_123_2015_art_22_clause_4_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "22", "clause": "4"}],
+      "clauses": [
+        {
+          "article": "22",
+          "clause": "4"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -203,7 +268,12 @@
     {
       "id": "nd_123_2015_art_23_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "23", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "23",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -232,7 +302,12 @@
     {
       "id": "nd_123_2015_art_22_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "22", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "22",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -242,7 +317,12 @@
     {
       "id": "nd_123_2015_art_24_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "24", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "24",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -252,7 +332,13 @@
     {
       "id": "nd_123_2015_art_26_clause_1_point_c_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "points": [{"article": "26", "clause": "1", "point": "c"}],
+      "points": [
+        {
+          "article": "26",
+          "clause": "1",
+          "point": "c"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -262,7 +348,12 @@
     {
       "id": "nd_123_2015_art_26_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "26", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "26",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -272,7 +363,12 @@
     {
       "id": "nd_123_2015_art_27_clause_2_amended",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "27", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "27",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -282,7 +378,16 @@
     {
       "id": "nd_123_2015_art_26_27_clause_3_repealed",
       "document_id": "nd_123_2015_nd_cp",
-      "clauses": [{"article": "26", "clause": "3"}, {"article": "27", "clause": "3"}],
+      "clauses": [
+        {
+          "article": "26",
+          "clause": "3"
+        },
+        {
+          "article": "27",
+          "clause": "3"
+        }
+      ],
       "provision_status": "repealed",
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
@@ -311,7 +416,12 @@
     {
       "id": "nd_87_2020_art_8_clause_2_amended",
       "document_id": "nd_87_2020_nd_cp",
-      "clauses": [{"article": "8", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "8",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -321,7 +431,13 @@
     {
       "id": "nd_87_2020_art_12_clause_3_point_c_amended",
       "document_id": "nd_87_2020_nd_cp",
-      "points": [{"article": "12", "clause": "3", "point": "c"}],
+      "points": [
+        {
+          "article": "12",
+          "clause": "3",
+          "point": "c"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -331,7 +447,16 @@
     {
       "id": "nd_87_2020_art_13_clauses_1_2_amended",
       "document_id": "nd_87_2020_nd_cp",
-      "clauses": [{"article": "13", "clause": "1"}, {"article": "13", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "13",
+          "clause": "1"
+        },
+        {
+          "article": "13",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -341,7 +466,12 @@
     {
       "id": "nd_87_2020_art_19_clause_7_amended",
       "document_id": "nd_87_2020_nd_cp",
-      "clauses": [{"article": "19", "clause": "7"}],
+      "clauses": [
+        {
+          "article": "19",
+          "clause": "7"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
@@ -351,7 +481,12 @@
     {
       "id": "tt_04_2020_art_3_clause_2_amended",
       "document_id": "tt_04_2020_tt_btp",
-      "clauses": [{"article": "3", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "3",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2024-06-06",
       "changed_by": "tt_04_2024_tt_btp",
@@ -361,7 +496,12 @@
     {
       "id": "tt_04_2020_art_18_clause_2_amended",
       "document_id": "tt_04_2020_tt_btp",
-      "clauses": [{"article": "18", "clause": "2"}],
+      "clauses": [
+        {
+          "article": "18",
+          "clause": "2"
+        }
+      ],
       "provision_status": "amended",
       "effective_to": "2024-06-06",
       "changed_by": "tt_04_2024_tt_btp",
@@ -444,6 +584,343 @@
         "nd_126_2014_nd_cp_art_65_clause_1_chunk_1",
         "nd_126_2014_nd_cp_art_65_clause_2_chunk_2"
       ]
+    },
+    {
+      "id": "review_20261122_nd_19_2011_nd_cp_1",
+      "document_id": "nd_19_2011_nd_cp",
+      "provision_status": "amended",
+      "effective_to": "2019-04-25",
+      "changed_by": "nd_24_2019_nd_cp",
+      "provision": "Điều 1 văn bản 24/2019/NĐ-CP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "nd_24_2019_nd_cp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_1_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_2_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_3_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_3",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_4",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_5",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_6",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_7",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_8",
+        "nd_24_2019_nd_cp_art_1_clause_5_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_6_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_6_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_3",
+        "nd_24_2019_nd_cp_art_1_clause_8_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_8_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_9_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_9_chunk_2"
+      ],
+      "clauses": [
+        {
+          "article": "2",
+          "clause": "1"
+        },
+        {
+          "article": "3",
+          "clause": "1"
+        },
+        {
+          "article": "10",
+          "clause": "2"
+        },
+        {
+          "article": "10",
+          "clause": "3"
+        },
+        {
+          "article": "14",
+          "clause": "2"
+        },
+        {
+          "article": "20",
+          "clause": "3"
+        }
+      ],
+      "articles": [
+        "4",
+        "16",
+        "30"
+      ]
+    },
+    {
+      "id": "review_20261122_nd_19_2011_nd_cp_2",
+      "document_id": "nd_19_2011_nd_cp",
+      "provision_status": "repealed",
+      "effective_to": "2019-04-25",
+      "changed_by": "nd_24_2019_nd_cp",
+      "provision": "Điều 2 văn bản 24/2019/NĐ-CP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "nd_24_2019_nd_cp_art_2_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "nd_24_2019_nd_cp_art_2_clause_1_chunk_1",
+        "nd_24_2019_nd_cp_art_2_clause_2_chunk_1",
+        "nd_24_2019_nd_cp_art_2_clause_3_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "3",
+          "clause": "3"
+        }
+      ],
+      "articles": [
+        "11"
+      ]
+    },
+    {
+      "id": "review_20261122_nd_19_2011_nd_cp_3",
+      "document_id": "nd_19_2011_nd_cp",
+      "provision_status": "amended",
+      "effective_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "provision": "Điều 1 văn bản 06/2025/NĐ-CP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_2_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_2_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_3_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_4",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_5",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_6",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_7",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_8",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_9",
+        "nd_06_2025_nd_cp_art_1_clause_5_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_5_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_6_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_7_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_8_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_8_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_4",
+        "nd_06_2025_nd_cp_art_1_clause_10_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_10_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_11_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_11_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_11_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_12_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_12_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_13_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_13_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_14_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_14_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_15_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_16_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_16_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_16_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_17_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_17_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_19_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_19_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_19_chunk_3"
+      ],
+      "clauses": [
+        {
+          "article": "3",
+          "clause": "2"
+        },
+        {
+          "article": "10",
+          "clause": "1"
+        },
+        {
+          "article": "13",
+          "clause": "5"
+        },
+        {
+          "article": "15",
+          "clause": "1"
+        },
+        {
+          "article": "17",
+          "clause": "1"
+        },
+        {
+          "article": "17",
+          "clause": "2"
+        },
+        {
+          "article": "26",
+          "clause": "1"
+        },
+        {
+          "article": "27",
+          "clause": "1"
+        },
+        {
+          "article": "29",
+          "clause": "3"
+        },
+        {
+          "article": "29",
+          "clause": "4"
+        }
+      ],
+      "articles": [
+        "5",
+        "19",
+        "22",
+        "35"
+      ]
+    },
+    {
+      "id": "review_20261122_nd_19_2011_nd_cp_4",
+      "document_id": "nd_19_2011_nd_cp",
+      "provision_status": "repealed",
+      "effective_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "provision": "Điều 2 văn bản 06/2025/NĐ-CP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2",
+        "nd_06_2025_nd_cp_art_2_clause_2_chunk_1"
+      ],
+      "articles": [
+        "12"
+      ]
+    },
+    {
+      "id": "review_20261122_tt_10_2020_tt_btp_5",
+      "document_id": "tt_10_2020_tt_btp",
+      "provision_status": "amended",
+      "effective_to": "2023-11-30",
+      "changed_by": "tt_07_2023_tt_btp",
+      "provision": "Điều 1 văn bản 07/2023/TT-BTP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "tt_07_2023_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_07_2023_tt_btp_art_1_clause_1_chunk_1",
+        "tt_07_2023_tt_btp_art_1_clause_2_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "4",
+          "clause": "2"
+        }
+      ]
+    },
+    {
+      "id": "review_20261122_tt_10_2020_tt_btp_6",
+      "document_id": "tt_10_2020_tt_btp",
+      "provision_status": "amended",
+      "effective_to": "2025-08-04",
+      "changed_by": "tt_10_2025_tt_btp",
+      "provision": "Điều 1 văn bản 10/2025/TT-BTP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "tt_10_2025_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_10_2025_tt_btp_art_1_clause_1_chunk_1",
+        "tt_10_2025_tt_btp_art_1_clause_2_chunk_1",
+        "tt_10_2025_tt_btp_art_1_clause_3_chunk_1",
+        "tt_10_2025_tt_btp_art_1_clause_4_chunk_1",
+        "tt_10_2025_tt_btp_art_1_clause_5_chunk_1",
+        "tt_10_2025_tt_btp_art_1_clause_5_chunk_2",
+        "tt_10_2025_tt_btp_art_1_clause_5_chunk_3",
+        "tt_10_2025_tt_btp_art_1_clause_5_chunk_4"
+      ],
+      "articles": [
+        "5"
+      ]
+    },
+    {
+      "id": "review_20261122_tt_21_2011_tt_btp_7",
+      "document_id": "tt_21_2011_tt_btp",
+      "provision_status": "amended",
+      "effective_to": "2022-02-11",
+      "changed_by": "tt_11_2021_tt_btp",
+      "provision": "Điều 1 văn bản 11/2021/TT-BTP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "tt_11_2021_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_2",
+        "tt_11_2021_tt_btp_art_1_clause_2_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_3_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_4_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_5_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "9",
+          "clause": "2"
+        },
+        {
+          "article": "10",
+          "clause": "1"
+        }
+      ]
+    },
+    {
+      "id": "review_20261122_tt_21_2011_tt_btp_9",
+      "document_id": "tt_21_2011_tt_btp",
+      "provision_status": "amended",
+      "effective_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "provision": "Điều 1 văn bản 01/2025/TT-BTP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "tt_01_2025_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_01_2025_tt_btp_art_1_clause_1_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_2_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_3_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_4_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_5_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_6_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_7_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_8_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_9_chunk_1",
+        "tt_01_2025_tt_btp_art_1_clause_10_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "2",
+          "clause": "1"
+        },
+        {
+          "article": "11",
+          "clause": "1"
+        },
+        {
+          "article": "13",
+          "clause": "4"
+        },
+        {
+          "article": "15",
+          "clause": "1"
+        }
+      ],
+      "articles": [
+        "3",
+        "18"
+      ]
+    },
+    {
+      "id": "review_20261122_tt_01_2022_tt_btp_10",
+      "document_id": "tt_01_2022_tt_btp",
+      "provision_status": "amended",
+      "effective_to": "2023-08-02",
+      "changed_by": "tt_03_2023_tt_btp",
+      "provision": "Điều 1 văn bản 03/2023/TT-BTP; chỉ các Điều/Khoản thay thế toàn bộ hoặc bãi bỏ đã đối chiếu. Không áp dụng mốc này cho phần thay cụm từ hoặc bổ sung mới.",
+      "evidence_chunk_id": "tt_03_2023_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_03_2023_tt_btp_art_1_clause_1_chunk_1",
+        "tt_03_2023_tt_btp_art_1_clause_2_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "9",
+          "clause": "1"
+        }
+      ]
     }
   ],
   "not_applied": [
@@ -455,12 +932,12 @@
     {
       "document_id": "nd_123_2015_nd_cp",
       "provision": "cụm từ về giấy tờ chứng minh nơi cư trú tại Điều 2 (bãi bỏ từ 2023-01-01 theo khoản 2 Điều 13 Nghị định 104/2022/NĐ-CP)",
-      "reason": "Chỉ bãi bỏ cụm từ trong Khoản (và Khoản đó đã được sửa lại toàn bộ từ 2025-01-09); Nghị định 104/2022/NĐ-CP chưa có trong corpus."
+      "reason": "Chỉ bãi bỏ cụm từ trong Khoản (và Khoản đó đã được sửa lại toàn bộ từ 2025-01-09); Nghị định 104/2022/NĐ-CP đã có trong active corpus; căn cứ khoản 2 Điều 13. Cơ chế hiện tại chưa biểu diễn riêng thay cụm từ trong Khoản, không được coi toàn bộ Khoản đã hết hiệu lực."
     },
     {
       "document_id": "tt_04_2020_tt_btp",
       "provision": "cụm từ “Sổ hộ khẩu, Sổ tạm trú” (bãi bỏ từ 2023-01-01 theo Điều 2 Thông tư 09/2022/TT-BTP)",
-      "reason": "Chỉ bãi bỏ cụm từ trong Khoản; Thông tư 09/2022/TT-BTP chưa có trong corpus."
+      "reason": "Thông tư 09/2022/TT-BTP đã có trong active corpus, Điều 2 bãi bỏ cụm từ tại khoản 1 Điều 8 và điểm b khoản 3 Điều 9. Không ghi hết hiệu lực toàn Khoản vì chỉ thay cụm từ; cần đọc kèm văn bản bãi bỏ, chưa có bản hợp nhất quy phạm trong corpus."
     },
     {
       "document_id": "tt_04_2020_tt_btp",
@@ -475,7 +952,7 @@
     {
       "document_id": "nd_123_2015_nd_cp",
       "provision": "thẩm quyền và thủ tục đăng ký hộ tịch của Ủy ban nhân dân cấp huyện (Luật Hộ tịch khoản 2 Điều 7, Chương III; Nghị định 123/2015/NĐ-CP Điều 1, 29, 31, 32, 33, 35, 36, 38, 39, 41; Nghị định 87/2020/NĐ-CP Điều 8) chuyển cho Ủy ban nhân dân cấp xã từ 2025-07-01 đến hết 2027-02-28 theo Điều 4, Điều 23 và Phụ lục mục I Nghị định 120/2025/NĐ-CP",
-      "reason": "Nghị định 120/2025/NĐ-CP không sửa chữ của Nghị định 123/2015/NĐ-CP mà phân định lại thẩm quyền trong thời gian áp dụng (khoản 3 Điều 23: quy định khác với văn bản liên quan thì theo Nghị định này; khoản 2 Điều 23: hết hiệu lực từ 2027-03-01 hoặc sớm hơn khi văn bản mới cùng nội dung có hiệu lực), và đổi thời hạn giải quyết (đăng ký kết hôn có yếu tố nước ngoài 05 ngày làm việc). Chưa có trong corpus: bản chính thức datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/120-cp.signed.pdf là bản scan (SHA-256 cec002f9…), cần OCR hoặc bản Công báo có lớp chữ. Chưa có câu benchmark nào dùng các Điều này (gold hoặc candidate). Cách đưa vào corpus (văn bản phân định thẩm quyền có thời hạn, không phải sửa đổi) chờ nhóm quyết."
+      "reason": "Nghị định 120/2025/NĐ-CP đã có PDF chuẩn hóa và chunks trong active corpus. Đây là phân định thẩm quyền có thời hạn, không phải sửa chữ toàn bộ Điều. Không gán ngày hết hiệu lực toàn Điều/Khoản chỉ từ sự chuyển thẩm quyền. Cần đọc Điều 4, Điều 23 và quy định chuyển tiếp; hạn áp dụng phải xét cùng văn bản mới cùng nội dung nếu có."
     }
   ]
 }

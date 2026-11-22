@@ -30,8 +30,8 @@
     ],
     "origin": "local_documents_batch7",
     "source_kind": "pdf",
-    "ingest_pdf_path": "data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
-    "parsed_json_path": "parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
+    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/local_documents_batch7/nq_38_2026_nq_hdnd_ho_chi_minh.pdf",
+    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/nq_38_2026_nq_hdnd_ho_chi_minh.json",
     "territorial_scope": {
       "jurisdiction_name": "Thành phố Hồ Chí Minh",
       "applies_nationally": false,
@@ -39,7 +39,7 @@
     },
     "jurisdiction_review_required": true,
     "normalization_note": "Unsigned Letter612x792 Times New Roman12pt derivative. Official PDF unchanged. Legacy font character mapping ð→Đ, ñ→đ, Ð→Đ only; Gazette headers/signature excluded from ingest and retained in sidecar. No parser/chunker/schema changes. Locality retained in title and issuing body; no runtime geographic filter introduced.",
-    "production_ingest_allowed": true,
+    "production_ingest_allowed": false,
     "ingest_pdf_sha256": "1ed48b42f686a080045ca4bd137496020ca3eb45fd0ec9daa7eec0115ce36527",
     "normalized_source_text_sha256": "d2a350568e0af9657e68d5fc10caebc33baf49fd15c5292792fb3d265267e356",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
@@ -49,7 +49,9 @@
       "provision": "5",
       "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/38-2026-nq-hdnd/ngay/27-08-2026/50053",
       "note": "Initial effectivity checked in original; official metadata active on2026-11-18. Conditional allowance termination in QD17 Article12.4 still requires provision-level review."
-    }
+    },
+    "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
+    "hold_reason": "Phạm vi TP.HCM, chủ yếu chế độ cộng tác viên; pipeline hiện chưa có bộ lọc địa bàn."
   },
   {
     "document_id": "qd_17_2026_qd_ubnd_ho_chi_minh",

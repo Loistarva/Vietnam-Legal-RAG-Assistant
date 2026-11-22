@@ -2,6 +2,13 @@
 *.pdf binary
 *.zip binary
 
+# Preserve the exact pre-review bytes of quarantined data artifacts.
+data/staging/corpus_review_20261122/archive/** -text
+parser/parsed_jsons/nd_19_2011_nd_cp.json text eol=lf
+parser/parsed_jsons/tt_10_2020_tt_btp.json text eol=lf
+parser/parsed_jsons/tt_21_2011_tt_btp.json text eol=lf
+data/staging/central_batch1/compatibility/parsed/tt_21_2011_tt_btp.json text eol=lf
+
 # Preserve archived official source bytes used by corpus-v3 SHA-256 provenance.
 data/source_documents/corpus_v3/*.html -text
 data/source_documents/corpus_v3/*.DOC binary
