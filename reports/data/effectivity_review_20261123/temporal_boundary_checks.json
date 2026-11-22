@@ -1,0 +1,8 @@
+{
+  "general_interval_boundary": "PASS",
+  "checked_chunks": 103,
+  "day_before": "2027-02-28",
+  "exclusive_end": "2027-03-01",
+  "transition_exception": "NOT_MODELLED_BY_RUNTIME; see registry transition_note and original Article35.2",
+  "parsed_sha256": "PASS"
+}

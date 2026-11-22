@@ -8,6 +8,10 @@ parser/parsed_jsons/nd_19_2011_nd_cp.json text eol=lf
 parser/parsed_jsons/tt_10_2020_tt_btp.json text eol=lf
 parser/parsed_jsons/tt_21_2011_tt_btp.json text eol=lf
 data/staging/central_batch1/compatibility/parsed/tt_21_2011_tt_btp.json text eol=lf
+parser/parsed_jsons/l_35_2013_qh13.json text eol=lf
+parser/parsed_jsons/l_73_2006_qh11.json text eol=lf
+data/staging/central_batch1/compatibility/parsed/l_35_2013_qh13.json text eol=lf
+data/staging/gap_completion_batch8/compatibility/parsed/l_73_2006_qh11.json text eol=lf
 
 # Preserve archived official source bytes used by corpus-v3 SHA-256 provenance.
 data/source_documents/corpus_v3/*.html -text

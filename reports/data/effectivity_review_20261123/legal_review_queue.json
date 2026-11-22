@@ -1,0 +1,938 @@
+{
+  "as_of_date": "2026-11-23",
+  "active_count": 84,
+  "unknown_validity_count": 33,
+  "documents": [
+    {
+      "document_id": "l_52_2014_qh13",
+      "document_number": "52/2014/QH13",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_126_2014_nd_cp",
+      "document_number": "126/2014/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "nd_126_2014_art_19_50_repealed",
+        "nd_126_2014_art_63_clause_1_point_a_repealed",
+        "nd_126_2014_art_63_clause_2_amended"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_207_2025_nd_cp",
+      "document_number": "207/2025/NĐ-CP",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=179714",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nq_01_2024_nq_hdtp",
+      "document_number": "01/2024/NQ-HĐTP",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=167692",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=97615",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_02a_2015_tt_btp",
+      "document_number": "02a/2015/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=59908",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_32_2016_tt_byt",
+      "document_number": "32/2016/TT-BYT",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=179312",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_34_2017_tt_byt",
+      "document_number": "34/2017/TT-BYT",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-34-2017-tt-byt-huong-dan-tu-van-sang-loc-chan-doan-dieu-tri-truoc-sinh-va-so-sinh--132220",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "tt_34_2017_art_2_clauses_2_3_repealed"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_30_2019_tt_byt",
+      "document_number": "30/2019/TT-BYT",
+      "validity_status": "Không xác định",
+      "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/141539/VanBanGoc_430399.pdf",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_22_2000_qh10",
+      "document_number": "22/2000/QH10",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_21_lct_hdnn7",
+      "document_number": "21-LCT/HĐNN7",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=2798",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_70_2001_nd_cp",
+      "document_number": "70/2001/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=23101",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_32_2002_nd_cp",
+      "document_number": "32/2002/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-toanvan.aspx?ItemID=22572",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_68_2002_nd_cp",
+      "document_number": "68/2002/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=22363",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_77_2001_nd_cp",
+      "document_number": "77/2001/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_07_2001_tt_btp",
+      "document_number": "07/2001/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-toanvan.aspx?ItemID=22902",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_07_2002_tt_btp",
+      "document_number": "07/2002/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=25124",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_15_2015_tt_btp",
+      "document_number": "15/2015/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/phuyen/Pages/vbpq-lichsu.aspx?ItemID=94691",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_10_2015_nd_cp",
+      "document_number": "10/2015/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=49308",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_04_2020_tt_btp",
+      "document_number": "04/2020/TT-BTP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "tt_04_2020_art_3_clause_2_amended",
+        "tt_04_2020_art_18_clause_2_amended"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_57_2015_tt_byt",
+      "document_number": "57/2015/TT-BYT",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=97365",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "tt_57_2015_chapters_1_2_5_6_repealed"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_38_2025_tt_byt",
+      "document_number": "38/2025/TT-BYT",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=181195",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_123_2015_nd_cp",
+      "document_number": "123/2015/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "nd_123_2015_art_12_clauses_1_2_repealed",
+        "nd_123_2015_art_1_amended",
+        "nd_123_2015_art_2_clauses_1_2_amended",
+        "nd_123_2015_art_3_clause_1_amended",
+        "nd_123_2015_art_4_clause_1_point_c_amended",
+        "nd_123_2015_art_9_clause_2_amended",
+        "nd_123_2015_art_10_clause_1_repealed",
+        "nd_123_2015_art_22_clause_4_amended",
+        "nd_123_2015_art_23_clause_2_amended",
+        "nd_123_2015_art_30_clause_3_amended",
+        "nd_123_2015_art_22_clause_2_amended",
+        "nd_123_2015_art_24_clause_2_amended",
+        "nd_123_2015_art_26_clause_1_point_c_amended",
+        "nd_123_2015_art_26_clause_2_amended",
+        "nd_123_2015_art_27_clause_2_amended",
+        "nd_123_2015_art_26_27_clause_3_repealed"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_81_2025_qh15",
+      "document_number": "81/2025/QH15",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-81-2025-qh15-45513.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_87_2020_nd_cp",
+      "document_number": "87/2020/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-87-2020-nd-cp-31814.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "nd_87_2020_art_2_clause_2_amended",
+        "nd_87_2020_art_8_clause_2_amended",
+        "nd_87_2020_art_12_clause_3_point_c_amended",
+        "nd_87_2020_art_13_clauses_1_2_amended",
+        "nd_87_2020_art_19_clause_7_amended"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_07_2025_nd_cp",
+      "document_number": "07/2025/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "nd_07_2025_art_2_clause_2_quoted_clause_1_amended"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_18_2026_nd_cp",
+      "document_number": "18/2026/NĐ-CP",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_04_2024_tt_btp",
+      "document_number": "04/2024/TT-BTP",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_102_2016_qh13",
+      "document_number": "102/2016/QH13",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=184566",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "28/2018/QH14"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "document_number": "92/2015/QH13",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "l_85_2025_qh15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_34_2024_qh15",
+      "document_number": "34/2024/QH15",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "l_81_2025_qh15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_24_2019_nd_cp",
+      "document_number": "24/2019/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "nd_06_2025_nd_cp"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_06_2025_nd_cp",
+      "document_number": "06/2025/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_07_2023_tt_btp",
+      "document_number": "07/2023/TT-BTP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "tt_10_2025_tt_btp"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_104_2022_nd_cp",
+      "document_number": "104/2022/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_120_2025_nd_cp",
+      "document_number": "120/2025/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=213894",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_85_2025_qh15",
+      "document_number": "85/2025/QH15",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214582",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_10_2025_tt_btp",
+      "document_number": "10/2025/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_63_2024_nd_cp",
+      "document_number": "63/2024/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210359",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "nd_301_2026_nd_cp"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_58_2020_qh14",
+      "document_number": "58/2020/QH14",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200446",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "l_85_2025_qh15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_01_2022_tt_btp",
+      "document_number": "01/2022/TT-BTP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "tt_03_2023_tt_btp"
+      ],
+      "implemented_override_ids": [
+        "review_20261122_tt_01_2022_tt_btp_10"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_03_2023_tt_btp",
+      "document_number": "03/2023/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_07_2025_tt_bng",
+      "document_number": "07/2025/TT-BNG",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_60_2014_qh13",
+      "document_number": "60/2014/QH13",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=178129",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_52_2010_qh12",
+      "document_number": "52/2010/QH12",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=96052",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_13_2022_qh15",
+      "document_number": "13/2022/QH15",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207711",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_10_2020_tt_btp",
+      "document_number": "10/2020/TT-BTP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "07/2023/TT-BTP",
+        "10/2025/TT-BTP"
+      ],
+      "implemented_override_ids": [
+        "review_20261122_tt_10_2020_tt_btp_5",
+        "review_20261122_tt_10_2020_tt_btp_6"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_35_2013_qh13",
+      "document_number": "35/2013/QH13",
+      "validity_status": "Còn hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=169373",
+      "review_status": "document_effectivity_evidence_checked_pending_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành.",
+      "verification_scope": "Điều34,35 Luật16/2026/QH16: ngày thay thế chung; ngoại lệ chuyển tiếp cho vụ việc chưa hòa giải xong. Chưa xác nhận toàn bộ chuỗi sửa đổi trước đó.",
+      "expiry_date": "2027-03-01"
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "document_number": "19/2011/NĐ-CP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "06/2025/NĐ-CP",
+        "24/2019/NĐ-CP"
+      ],
+      "implemented_override_ids": [
+        "review_20261122_nd_19_2011_nd_cp_1",
+        "review_20261122_nd_19_2011_nd_cp_2",
+        "review_20261122_nd_19_2011_nd_cp_3",
+        "review_20261122_nd_19_2011_nd_cp_4"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_76_2023_nd_cp",
+      "document_number": "76/2023/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=208906",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_114_2016_nd_cp",
+      "document_number": "114/2016/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=185624",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_15_2014_nd_cp",
+      "document_number": "15/2014/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=172588",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nq_326_2016_ubtvqh14",
+      "document_number": "326/2016/UBTVQH14",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191/16544.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "document_number": "91/2015/QH13",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_09_2022_tt_btp",
+      "document_number": "09/2022/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_301_2026_nd_cp",
+      "document_number": "301/2026/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=219043",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_24_2013_nd_cp",
+      "document_number": "24/2013/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2013-nd-cp-2851/1740.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [
+        "nd24_2013_repealed_by_nd126_2014"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_22_2013_tt_btp",
+      "document_number": "22/2013/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_16_2010_tt_btp",
+      "document_number": "16/2010/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-16-2010-tt-btp-3751/1617.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_110_2013_nd_cp",
+      "document_number": "110/2013/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_66_2025_tt_bca",
+      "document_number": "66/2025/TT-BCA",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_110_2025_nd_cp",
+      "document_number": "110/2025/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_11_2021_tt_btp",
+      "document_number": "11/2021/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_01_2025_tt_btp",
+      "document_number": "01/2025/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_24_2014_tt_btp",
+      "document_number": "24/2014/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2014-tt-btp-5150.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_12_2011_tt_btp",
+      "document_number": "12/2011/TT-BTP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2011-tt-btp-5149.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_15_2014_tt_btp",
+      "document_number": "15/2014/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_21_2011_tt_btp",
+      "document_number": "21/2011/TT-BTP",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "01/2025/TT-BTP",
+        "11/2021/TT-BTP"
+      ],
+      "implemented_override_ids": [
+        "review_20261122_tt_21_2011_tt_btp_7",
+        "review_20261122_tt_21_2011_tt_btp_9"
+      ],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_158_2005_nd_cp",
+      "document_number": "158/2005/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_83_1998_nd_cp",
+      "document_number": "83/1998/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_02_2007_qh12",
+      "document_number": "02/2007/QH12",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_08_2009_nd_cp",
+      "document_number": "08/2009/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_110_2009_nd_cp",
+      "document_number": "110/2009/NĐ-CP",
+      "validity_status": "Hết hiệu lực",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "tt_08_2025_tt_btp",
+      "document_number": "08/2025/TT-BTP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_282_2025_nd_cp",
+      "document_number": "282/2025/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "nd_347_2026_nd_cp"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_347_2026_nd_cp",
+      "document_number": "347/2026/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "document_number": "01/2019/TTLT-TANDTC-BNG",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_102_2025_qh15",
+      "document_number": "102/2025/QH15",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2025-qh15-468664.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "nd_158_2026_nd_cp",
+      "document_number": "158/2026/NĐ-CP",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-158-2026-nd-cp-469548.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_73_2006_qh11",
+      "document_number": "73/2006/QH11",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_url": "https://vanban.chinhphu.vn/?docid=28975&pageid=27160",
+      "review_status": "document_effectivity_evidence_checked_pending_legal_peer_review",
+      "known_amended_by": [],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành.",
+      "verification_scope": "VBHN45/VBHN-VPQH: trang1 và6, khoản3 Điều17 bị bãi bỏ bởi khoản5 Điều29 Luật113/2025, hiệu lực01/07/2026. Điều17 ngoài whitelist active; không sửa chính văn hoặc suy override cho các Điều khác.",
+      "expiry_date": null
+    },
+    {
+      "document_id": "l_24_2008_qh12",
+      "document_number": "24/2008/QH12",
+      "validity_status": "Không xác định",
+      "source_url": "https://vanban.chinhphu.vn/?docid=81141&pageid=27160",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "56/2014/QH13",
+        "79/2025/QH15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_68_2020_qh14",
+      "document_number": "68/2020/QH14",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "59/2024/QH15",
+        "118/2025/QH15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    },
+    {
+      "document_id": "l_11_2017_qh14",
+      "document_number": "11/2017/QH14",
+      "validity_status": "Không xác định",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-11-2017-qh14-24282/18525.htm",
+      "review_status": "requires_legal_peer_review",
+      "known_amended_by": [
+        "53/2024/QH15",
+        "59/2024/QH15"
+      ],
+      "implemented_override_ids": [],
+      "next_action": "Xác minh trạng thái hiện tại và toàn bộ chuỗi sửa đổi từ nguồn chính thức; end=null không chứng minh hiện hành."
+    }
+  ]
+}

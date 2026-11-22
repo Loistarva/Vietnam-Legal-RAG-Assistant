@@ -8,10 +8,10 @@
     "issue_date": "2006-11-29",
     "effective_date": "2007-07-01",
     "issuing_body": "Quốc Hội",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://vanban.chinhphu.vn/?docid=28975&pageid=27160",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -39,13 +39,30 @@
     "normalized_source_text_sha256": "3460e1176e26c764d0200e81b59cae4f2de6e91ea19d2054f7d71c9a34c5563b",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "f896649649b09e2485ad2b385102bda963fa4aecfd4af4d672a7f415985c7d72",
+    "parsed_json_sha256": "f2ab4fa61d6364bf91e2af2862f8a050871188f538ec29d6ccd68a98932acff4",
     "effectivity_evidence": {
       "provision": "43",
       "source_url": "https://vanban.chinhphu.vn/?docid=28975&pageid=27160",
       "note": "Initial effective date checked in original text; current/provision status requires full amendment-chain review. Original is not consolidated current law."
     },
-    "effectivity_note": "Do not infer every provision is current. Only whitelist Articles are chunked; check as-of date before legal use."
+    "effectivity_note": "Do not infer every provision is current. Only whitelist Articles are chunked; check as-of date before legal use.",
+    "verified_at": "2026-11-23",
+    "known_amended_by": [
+      "113/2025/QH15"
+    ],
+    "verification_scope": "VBHN45/VBHN-VPQH: trang1 và6, khoản3 Điều17 bị bãi bỏ bởi khoản5 Điều29 Luật113/2025, hiệu lực01/07/2026. Điều17 ngoài whitelist active; không sửa chính văn hoặc suy override cho các Điều khác.",
+    "effectivity_review_evidence": {
+      "source_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/45-vbhn-vpqh.pdf",
+      "source_path": "data/source_documents/effectivity_review_20261123/gender_consolidated_45_2026.pdf",
+      "pages": [
+        1,
+        6
+      ],
+      "provisions": [
+        "17.3",
+        "footnote2"
+      ]
+    }
   },
   {
     "document_id": "l_24_2008_qh12",

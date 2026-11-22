@@ -2,7 +2,7 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "2a196b1bd3c98878ddd4ea190221b18b3df21b26f2b45f6fdaf08381d2166c8f",
+  "registry_canonical_sha256": "b2a7d51a00c68ecd33d781630e0ede6821e7655bc9de41b14b399544dd980e4b",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
     "bl_91_2015_qh13": {
@@ -154,7 +154,7 @@
       "document_type": "Luật",
       "issue_year": "2013",
       "effective_from": "2014-01-01",
-      "effective_to": null,
+      "effective_to": "2027-03-01",
       "temporal_scope": "requires_review",
       "source_fields": {
         "effective_from": "effective_date",

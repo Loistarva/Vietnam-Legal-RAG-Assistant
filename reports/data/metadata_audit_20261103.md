@@ -2,7 +2,7 @@
 
 Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `2438a76c5744ef9c9fe440b600583b4256a295a5`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `86bd45c85856e06f309fe64e9ffcbab604bf7edd`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
@@ -135,9 +135,9 @@ Warning counts:
 
 ## Nguồn và giới hạn
 
-Registry canonical SHA-256: `2a196b1bd3c98878ddd4ea190221b18b3df21b26f2b45f6fdaf08381d2166c8f`.
-- data/reference/document_versions.json: raw file SHA-256 `cd3d6be634a0e607472dbfcecaf23b4cb8fad1858d235f98250b93427602e257`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `2bdfe32111757e96defd0d5deb84e69a6af3bd6acd90b067a2479003a5d22785`
+Registry canonical SHA-256: `b2a7d51a00c68ecd33d781630e0ede6821e7655bc9de41b14b399544dd980e4b`.
+- data/reference/document_versions.json: raw file SHA-256 `2882e70fcb10ee499974a331549838b6c513ae4ad3625df7fa174ea03e50382c`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `cd79588f468160782535a7fea90128d1762735bb2fbeff49d37fa8dfaf268cf5`
 - data/reference/article_index.json: raw file SHA-256 `0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e`
 - data/reference/provision_periods.json: raw file SHA-256 `9446f70d147129169756ec54a280fb71cfc2232d349a696feb08c08b132db185`
 

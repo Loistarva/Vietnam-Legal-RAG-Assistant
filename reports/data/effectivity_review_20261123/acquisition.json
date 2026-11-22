@@ -1,0 +1,18 @@
+[
+  {
+    "name": "gender_consolidated_45_2026",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/45-vbhn-vpqh.pdf",
+    "path": "data/source_documents/effectivity_review_20261123/gender_consolidated_45_2026.pdf",
+    "sha256": "54212293bb1e7ae6353229ca3c672e732681e1ca3fa85ddbbafee54233ffe4bf",
+    "pages": 16,
+    "text_chars": 23
+  },
+  {
+    "name": "mediation_replacement_gazette",
+    "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/9/22/470451-1789729815_v1_1790039408_signed.pdf",
+    "path": "data/source_documents/effectivity_review_20261123/mediation_replacement_gazette.pdf",
+    "sha256": "8b9358c0348975002eaffff74efb216521f62ff772f84a231ae3727e4d8439ab",
+    "pages": 15,
+    "text_chars": 32685
+  }
+]

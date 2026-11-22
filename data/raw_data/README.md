@@ -1,6 +1,6 @@
 # DATA - Legal RAG Assistant
 
-> Cập nhật thẩm định 23/11/2026: active84 văn bản; 12 bản hoãn và 3 bản ngoài phạm vi chuyển sang data/staging/corpus_review_20261122. Xem reports/data/corpus_review_20261122/README.md và all_data_inventory.json để dùng đúng danh mục hiện tại. Các ZIP/báo cáo đợt cũ là snapshot lịch sử.
+> Cập nhật thẩm định 23/11/2026: active84 văn bản; 12 bản hoãn và 3 bản ngoài phạm vi chuyển sang data/staging/corpus_review_20261122. Rà tiếp hiệu lực tại reports/data/effectivity_review_20261123/README.md; kiểm kê mới nhất tại thư mục đó ghi133 văn bản có tệp,136 mục theo dõi. Các ZIP/báo cáo đợt cũ là snapshot lịch sử.
 
 ## 1. Giới thiệu
 
@@ -106,7 +106,7 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **L06** | `l_52_2010_qh12` | 52/2010/QH12 | Không xác định | LUẬT NUÔI CON NUÔI |
 | **L07** | `l_13_2022_qh15` | 13/2022/QH15 | Không xác định | Luật phòng, chống bạo lực gia đình |
 | **TT14** | `tt_10_2020_tt_btp` | 10/2020/TT-BTP | Sửa đổi bổ sung | ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi |
-| **L08** | `l_35_2013_qh13` | 35/2013/QH13 | Không xác định | Luật Hòa giải ở cơ sở |
+| **L08** | `l_35_2013_qh13` | 35/2013/QH13 | Còn hiệu lực | Luật Hòa giải ở cơ sở |
 | **ND16** | `nd_19_2011_nd_cp` | 19/2011/NĐ-CP | Sửa đổi bổ sung | Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi |
 | **ND18** | `nd_76_2023_nd_cp` | 76/2023/NĐ-CP | Không xác định | Quy định chi tiết một số điều của Luật Phòng, chống bạo lực gia đình |
 | **ND19** | `nd_114_2016_nd_cp` | 114/2016/NĐ-CP | Không xác định | Quy định lệ phí đăng ký nuôi con nuôi, lệ phí cấp giấy phép hoạt động của tổ chức con nuôi nước ngoài |
@@ -139,7 +139,7 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **TTLT07** | `ttlt_01_2019_ttlt_tandtc_bng` | 01/2019/TTLT-TANDTC-BNG | Không xác định | quy định về trình tự, thủ tục phối hợp giữa Tòa án nhân dân và Cơ quan đại diện nước Cộng hòa xã hội chủ nghĩa Việt Nam ở nước ngoài để thực hiện một số hoạt động tố tụng dân sự và tố tụng hành chính ở nước ngoài |
 | **L15** | `l_102_2025_qh15` | 102/2025/QH15 | Không xác định | Luật Tương trợ tư pháp dân sự |
 | **ND40** | `nd_158_2026_nd_cp` | 158/2026/NĐ-CP | Không xác định | Quy định chi tiết một số điều và biện pháp thi hành Luật Tương trợ tư pháp về dân sự |
-| **L16** | `l_73_2006_qh11` | 73/2006/QH11 | Không xác định | Luật Bình đẳng giới |
+| **L16** | `l_73_2006_qh11` | 73/2006/QH11 | Sửa đổi bổ sung | Luật Bình đẳng giới |
 | **L17** | `l_24_2008_qh12` | 24/2008/QH12 | Không xác định | LUẬT QUỐC TỊCH VIỆT NAM |
 | **L19** | `l_68_2020_qh14` | 68/2020/QH14 | Không xác định | luật Cư trú |
 | **L20** | `l_11_2017_qh14` | 11/2017/QH14 | Không xác định | luật Trợ giúp pháp lý |

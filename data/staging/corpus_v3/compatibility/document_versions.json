@@ -2424,10 +2424,10 @@
     "title": "Luật Hòa giải ở cơ sở",
     "issue_date": "2013-06-20",
     "effective_date": "2014-01-01",
-    "expiry_date": null,
+    "expiry_date": "2027-03-01",
     "issuing_body": "Quốc hội",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Còn hiệu lực",
+    "source_status": "Còn hiệu lực",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=169373",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2013/6/6398/3284-1-2013407-408-352013qh13pdf",
@@ -2436,8 +2436,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/l_35_2013_qh13.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Điều34,35 Luật16/2026/QH16: ngày thay thế chung; ngoại lệ chuyển tiếp cho vụ việc chưa hòa giải xong. Chưa xác nhận toàn bộ chuỗi sửa đổi trước đó.",
     "trial_only": true,
     "file_code": "L08",
     "production_ingest_allowed": false,
@@ -2453,7 +2453,19 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_35_2013_qh13.json",
     "cleaned_text_path": "parser/cleaned_texts/l_35_2013_qh13.txt",
-    "parsed_json_sha256": "c9054889373897d65794104a07b556630e6c1665e9f1f9b927bc06dead746c18"
+    "parsed_json_sha256": "7008a20cf73e418f2f2ce0386ca04a1ac169c09d756e7eaf26232fe28b74ea98",
+    "known_future_replacement": "16/2026/QH16 effective 2027-03-01",
+    "transition_note": "Khoản2 Điều35 Luật16/2026/QH16 cho phép vụ việc hòa giải chưa kết thúc trước01/03/2027 tiếp tục theo Luật35/2013. Khoảng hiệu lực chung trong runtime không biểu diễn ngoại lệ theo trạng thái vụ việc; cần duyệt riêng khi áp dụng sau mốc này.",
+    "effectivity_review_evidence": {
+      "source_url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/9/22/470451-1789729815_v1_1790039408_signed.pdf",
+      "source_path": "data/source_documents/effectivity_review_20261123/mediation_replacement_gazette.pdf",
+      "gazette_page": 50,
+      "provisions": [
+        "34.1",
+        "34.2",
+        "35.2"
+      ]
+    }
   },
   {
     "document_id": "nd_19_2011_nd_cp",
