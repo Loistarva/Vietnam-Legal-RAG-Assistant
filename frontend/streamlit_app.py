@@ -17,13 +17,13 @@ REPOSITORY_ROOT = str(Path(__file__).resolve().parents[1])
 if REPOSITORY_ROOT not in sys.path:
     sys.path.insert(0, REPOSITORY_ROOT)
 
-from frontend.api_client import ask as api_ask
-from frontend.components.evidence_panel import (
+from frontend.api_client import ask as api_ask  # noqa: E402
+from frontend.components.evidence_panel import (  # noqa: E402
     render_answer_with_citations,
     render_evidence_panel,
 )
-from frontend.config import MAX_AS_OF_DATE, MIN_AS_OF_DATE, load_config
-from frontend.mock_api import ask as mock_ask
+from frontend.config import MAX_AS_OF_DATE, MIN_AS_OF_DATE, load_config  # noqa: E402
+from frontend.mock_api import ask as mock_ask  # noqa: E402
 
 
 STATUS_LABELS = {
