@@ -69,8 +69,15 @@ class FanOutSink:
         self.sinks = [sink for sink in sinks if sink is not None]
 
     def emit(self, event: LogEvent) -> None:
+        first_error = None
         for sink in self.sinks:
-            sink.emit(event)
+            try:
+                sink.emit(event)
+            except Exception as exc:
+                if first_error is None:
+                    first_error = exc
+        if first_error is not None:
+            raise first_error
 
 
 def _now_utc() -> str:

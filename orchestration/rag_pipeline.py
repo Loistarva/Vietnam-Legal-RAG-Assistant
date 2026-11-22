@@ -482,9 +482,14 @@ class RAGPipeline:
         # Production mode lets the gateway reject indices outside [1, n] (CITATION_INVALID).
         # Run B keeps every integer the model returned in evidence_indices: Dev 2's Citation
         # Validity metric counts out-of-context attempts from that list (evaluation/metrics.py).
-        bound = len(payload.evidence_items) if self.run_mode == "C_production_rag" else None
-        llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
-                                      max_evidence_index=bound)
+        bounds = {"max_evidence_index": len(payload.evidence_items)} if self.run_mode == "C_production_rag" else {}
+        try:
+            llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
+                                          **bounds)
+        except Exception as exc:
+            code = "LLM_TIMEOUT" if getattr(exc, "error_code", None) == "LLM_TIMEOUT" else "INTERNAL_ERROR"
+            events.emit("llm", "generation_failed", "error", error_code=code)
+            raise
         events.emit("llm", "generation_finished", llm.parse_status, duration_ms=llm.latency_ms,
                     error_code=llm.error_code, model=llm.model, model_digest=llm.model_digest,
                     prompt_version=llm.prompt_version, done_reason=llm.done_reason, truncated=llm.truncated,
@@ -505,8 +510,8 @@ class RAGPipeline:
             events.emit("citation", "citations_checked", "ok" if status == "PASS" else status,
                         citation_count=len(grounding.valid_citations) if status == "PASS" else 0,
                         invalid_indices=list(grounding.invalid_indices) or None)
-        events.emit("gate", "gate_decided", status, grounding_status=status, reason=grounding.reason,
-                    llm_calls=1 if llm is not None else 0)
+            events.emit("gate", "gate_decided", status, grounding_status=status, reason=grounding.reason,
+                        llm_calls=1)
         trace["gate"] = {
             "status": status,
             "reason": grounding.reason,

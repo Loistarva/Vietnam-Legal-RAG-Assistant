@@ -24,8 +24,8 @@ def _no_live_env(monkeypatch):
 @pytest.mark.parametrize(("query", "code", "expected"), [
     (LEGAL, 0, "status: SUCCESS"),
     ("Hôm nay thời tiết Hà Nội thế nào?", 0, "route: NON_LEGAL"),
-    ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", 4, "route: LEGAL_OUT_OF_SCOPE"),
-    (f"{LEGAL} [mock:empty]", 4, "error_code: RETRIEVAL_EMPTY"),
+    ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", 3, "route: LEGAL_OUT_OF_SCOPE"),
+    (f"{LEGAL} [mock:empty]", 3, "error_code: RETRIEVAL_EMPTY"),
     (f"{LEGAL} [mock:clarify]", 3, "Cần làm rõ:"),
     (f"{LEGAL} [mock:timeout]", 1, "Lỗi LLM_TIMEOUT"),
 ])
@@ -43,7 +43,7 @@ def test_success_prints_answer_citations_and_evidence(capsys):
 
 
 def test_gate_fail_does_not_print_the_draft(capsys):
-    assert cli.main(["--mock", f"{LEGAL} [mock:gate_fail]"]) == 4
+    assert cli.main(["--mock", f"{LEGAL} [mock:gate_fail]"]) == 3
     out = capsys.readouterr().out
     assert "grounding: FAIL" in out and "Bản nháp" not in out
 

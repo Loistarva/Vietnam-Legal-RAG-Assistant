@@ -1,14 +1,14 @@
 """``POST /api/v1/ask/stream``: SSE status events, then the verified response (Sprint 10 D5.5, P1).
 
-Same body, API key and pipeline as ``POST /api/v1/ask``. Event order (``sse_v1``)::
+Same body, API key and pipeline as ``POST /api/v1/ask``. Event order (``sse_v2``)::
 
     status (accepted) -> status (routing, retrieving, reranking, generating, validating, ...)
-      -> one of verified_answer | clarification | abstention | error -> done
+      -> final (AskResponse) | error
 
 * Status events come from the stage ``LogEvent``s, which never carry query, prompt or
   answer text, so nothing of the draft can reach the client before the Gate.
 * The answer is only in the final event, i.e. after the Gate decided (buffer -> Gate -> emit).
-* Every event has ``elapsed_ms`` since the request was accepted; the server logs the first
+* Every status event has ``elapsed_ms`` since the request was accepted; the server logs the first
   status byte and the final event time separately (``stream_first_status``, ``stream_final``).
 * If the client disconnects, the stream stops and ``client_disconnected`` is logged. The
   pipeline call already running (a local Qwen request) cannot be interrupted; it finishes in
@@ -24,26 +24,24 @@ import threading
 import time
 from collections.abc import AsyncIterator
 from typing import Any
+from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, Request
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import StreamingResponse
 
-from api.dependencies import get_service, get_settings, get_slots
-from api.errors import ValidationDetail, error_response
+from api.dependencies import get_service, get_slots, validated_ask_request
+from api.errors import ApiError
 from api.routes.ask import ASK_RESPONSES
 from api.security.api_key_guard import require_api_key
-from api.settings import ApiSettings
-from orchestration.ask_service import AskService, new_query_id
+from orchestration.ask_service import AskService
 from orchestration.events import StageEmitter
 from schemas.models import SCHEMA_VERSION, AskRequest, LogEvent
 
 router = APIRouter(prefix="/api/v1")
 
-SSE_VERSION = "sse_v1"
+SSE_VERSION = "sse_v2"
 PHASES = {"router": "routing", "retrieval": "retrieving", "rerank": "reranking", "context": "generating",
           "llm": "generating", "citation": "validating", "gate": "validating"}
-FINAL_EVENTS = {"SUCCESS": "verified_answer", "NEEDS_CLARIFICATION": "clarification", "ABSTAIN": "abstention",
-                "ERROR": "error"}
 
 
 def format_sse(event: str, seq: int, data: dict[str, Any]) -> str:
@@ -63,21 +61,16 @@ class _QueueSink:
             pass
 
 
-@router.post("/ask/stream", tags=["ask"], dependencies=[Depends(require_api_key)], response_model=None,
+@router.post("/ask/stream", tags=["ask"], dependencies=[Depends(require_api_key)],
+             response_class=StreamingResponse, response_model=None,
              responses={200: {"content": {"text/event-stream": {}},
-                              "description": "Chuỗi SSE `sse_v1` (docs/api/sse_events.md)."},
-                        **{k: v for k, v in ASK_RESPONSES.items() if k in (401, 403, 422)}},
+                              "description": "Chuỗi SSE `sse_v2` (docs/api/sse_events.md)."},
+                        **{k: v for k, v in ASK_RESPONSES.items() if k in (401, 422)}},
              summary="Hỏi đáp qua SSE: trạng thái trước, câu trả lời sau Grounding Gate")
-async def ask_stream(body: AskRequest, request: Request, service: AskService = Depends(get_service),
-                     settings: ApiSettings = Depends(get_settings),
-                     slots: threading.BoundedSemaphore = Depends(get_slots)) -> StreamingResponse | JSONResponse:
-    if len(body.query) > settings.max_query_chars:
-        detail = ValidationDetail(loc=["body", "query"], msg=f"query dài hơn {settings.max_query_chars} ký tự",
-                                  type="string_too_long")
-        return error_response(422, "INVALID_REQUEST", "Request không hợp lệ", details=[detail])
-
-    query_id = body.query_id or new_query_id()
-    request.state.query_id = query_id
+async def ask_stream(request: Request, body: AskRequest = Depends(validated_ask_request),
+                     service: AskService = Depends(get_service),
+                     slots: threading.BoundedSemaphore = Depends(get_slots)) -> StreamingResponse:
+    query_id = request.state.query_id
     log = StageEmitter(query_id, service.sink)
     started = time.perf_counter()
     loop = asyncio.get_running_loop()
@@ -122,30 +115,27 @@ async def ask_stream(body: AskRequest, request: Request, service: AskService = D
                     continue
                 seq += 1
                 if item is None:
-                    data = {"sse_version": SSE_VERSION, "query_id": query_id, "status": "ERROR",
-                            "error_code": "INTERNAL_ERROR", "message": "Hệ thống gặp lỗi khi xử lý request",
-                            "elapsed_ms": elapsed()}
-                    yield format_sse("error", seq, data)
+                    data = ApiError(query_id=query_id, error_code="INTERNAL_ERROR",
+                                    message="Hệ thống gặp lỗi khi xử lý request").model_dump(mode="json")
                     final_status = "ERROR"
                 else:
                     response = item.response
-                    yield format_sse(FINAL_EVENTS[response.status], seq,
-                                     {"sse_version": SSE_VERSION, "elapsed_ms": elapsed(),
-                                      "response": response.model_dump(mode="json")})
+                    data = response.model_dump(mode="json")
                     final_status = response.status
-                log.emit("api", "stream_final", final_status, duration_ms=elapsed(), transport="sse")
-                seq += 1
-                yield format_sse("done", seq, {"sse_version": SSE_VERSION, "query_id": query_id,
-                                               "status": final_status, "elapsed_ms": elapsed()})
+                    if response.error is not None:
+                        data = {"query_id": query_id, "error_code": response.error_code,
+                                "message": response.error.message, "response": data}
                 finished = True
+                log.emit("api", "stream_final", final_status, duration_ms=elapsed(), transport="sse")
+                yield format_sse("error" if final_status == "ERROR" else "final", seq, data)
                 return
         finally:
             if not finished:
                 log.emit("api", "client_disconnected", "cancelled", duration_ms=elapsed(), transport="sse")
 
     return StreamingResponse(events(), media_type="text/event-stream",
-                             headers={"Cache-Control": "no-cache", "X-Query-ID": query_id,
+                             headers={"Cache-Control": "no-cache", "X-Query-ID": quote(query_id, safe=""),
                                       "X-Accel-Buffering": "no"})
 
 
-__all__ = ["FINAL_EVENTS", "PHASES", "SSE_VERSION", "format_sse", "router"]
+__all__ = ["PHASES", "SSE_VERSION", "format_sse", "router"]

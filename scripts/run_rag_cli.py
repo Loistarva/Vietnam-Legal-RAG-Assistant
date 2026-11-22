@@ -12,7 +12,7 @@ and Ollama from model_gateway/config/local_qwen.yaml; ``--mock`` needs none of t
 Date: a date stated in the question wins, then ``--as-of-date``, then today.
 The model draft is never printed: a Gate FAIL prints the no-conclusion message.
 
-Exit codes: 0 SUCCESS, 3 NEEDS_CLARIFICATION, 4 ABSTAIN, 1 ERROR, 2 invalid input.
+Exit codes: 0 SUCCESS, 3 NEEDS_CLARIFICATION/ABSTAIN, 1 ERROR, 2 invalid input.
 """
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ from orchestration.events import JsonlEventSink, NullEventSink  # noqa: E402
 from orchestration.wiring import ServiceSettings, build_ask_service  # noqa: E402
 from schemas.models import AskRequest, AskResponse  # noqa: E402
 
-EXIT_CODES = {"SUCCESS": 0, "NEEDS_CLARIFICATION": 3, "ABSTAIN": 4, "ERROR": 1}
+EXIT_CODES = {"SUCCESS": 0, "NEEDS_CLARIFICATION": 3, "ABSTAIN": 3, "ERROR": 1}
 EXIT_INVALID_INPUT = 2
 
 

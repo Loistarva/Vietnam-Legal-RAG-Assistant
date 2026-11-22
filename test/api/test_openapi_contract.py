@@ -21,8 +21,13 @@ def test_paths_methods_and_security():
         "description": "API key cấp cho client (biến môi trường LEGAL_RAG_API_KEYS ở server)."}
     ask = spec["paths"]["/api/v1/ask"]["post"]
     assert ask["security"] == [{"APIKeyHeader": []}]
+    stream = spec["paths"]["/api/v1/ask/stream"]["post"]
+    assert set(stream["responses"]["200"]["content"]) == {"text/event-stream"}
+    for operation in [stream, ask]:
+        for status in ["401", "422"]:
+            assert operation["responses"][status]["content"]["application/json"]["schema"]["$ref"].endswith("/ApiError")
     assert "security" not in spec["paths"]["/api/v1/health"]["get"]
-    assert {"200", "401", "403", "422", "500", "504"} <= set(ask["responses"])
+    assert {"200", "401", "422", "500", "504"} == set(ask["responses"])
 
 
 def test_request_and_response_use_shared_contract_models():

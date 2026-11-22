@@ -72,7 +72,7 @@ CITATION_REASONS = frozenset({
     "MISSING_CITATIONS", "INVALID_CITATION_INDEX", "DUPLICATE_CITATION_INDEX", "CITATION_INDEX_SET_MISMATCH",
     "CITATION_OUTSIDE_CONTEXT", "CITATION_PROVENANCE_MISMATCH",
 })
-JSON_REASONS = frozenset({"LLM_OUTPUT_INVALID_JSON", "LLM_OUTPUT_TRUNCATED_JSON"})
+JSON_REASONS = frozenset({"LLM_OUTPUT_INVALID_JSON", "LLM_OUTPUT_TRUNCATED_JSON", "LLM_OUTPUT_TRUNCATED"})
 SKIP_ACTIONS = {"GENERAL_CHAT": "general_chat", "POLICY_ABSTENTION": "policy_abstention"}
 
 
@@ -128,7 +128,7 @@ def next_action(decision: RouteDecision) -> str:
 
 def new_query_id(now: datetime | None = None) -> str:
     now = now or datetime.now(UTC)
-    return f"q_{now:%Y%m%dT%H%M%S}_{uuid.uuid4().hex[:8]}"
+    return f"q_{now:%Y%m%dT%H%M%S}_{uuid.uuid4().hex}"
 
 
 @dataclass
@@ -203,7 +203,7 @@ class AskService:
                                **fields)
         events.emit("response", "response_built", response.status, duration_ms=total_ms, route=response.route,
                     grounding_status=response.grounding_status, citation_count=len(response.citations),
-                    evidence_count=len(response.evidence), llm_calls=0 if rag is None else rag.record.llm_calls)
+                    evidence_count=len(response.evidence), llm_calls=sum(e.event_type == "generation_started" for e in collector.events))
         return AskOutcome(response=response, route=route, rag=rag, total_ms=total_ms, events=collector.events)
 
     @staticmethod
@@ -223,7 +223,7 @@ class AskService:
         if status == "ABSTAIN":
             code: ErrorCode | None = {"EMPTY_RETRIEVAL": "RETRIEVAL_EMPTY",
                                       "LOW_CONFIDENCE": "LOW_CONFIDENCE"}.get(reason)
-            return {"status": "ABSTAIN", "grounding_status": "ABSTAIN",
+            return {"status": "ABSTAIN", "grounding_status": "NOT_RUN" if code else "ABSTAIN",
                     "abstention_message": ABSTAIN_MESSAGE.format(as_of_date=as_of_date),
                     "abstention_reason": reason, "error_code": code}
         # Gate FAIL: the draft stays in the record trace, the user gets the no-conclusion message.

@@ -5,7 +5,7 @@ import json
 
 import pytest
 
-from orchestration.events import JsonlEventSink, ListEventSink, StageEmitter, mask_metadata
+from orchestration.events import FanOutSink, JsonlEventSink, ListEventSink, StageEmitter, mask_metadata
 from schemas.models import LogEvent
 
 
@@ -29,9 +29,11 @@ def test_broken_sink_does_not_break_the_request():
         def emit(self, event):
             raise OSError("disk full")
 
-    emitter = StageEmitter("q1", Broken())
+    collector = ListEventSink()
+    emitter = StageEmitter("q1", FanOutSink([Broken(), collector]))
     emitter.emit("api", "request_received", "accepted")
     assert emitter.sink_errors == 1
+    assert [e.event_type for e in collector.events] == ["request_received"]
 
 
 def test_jsonl_sink_writes_one_parsable_line_per_event(tmp_path):
@@ -67,6 +69,15 @@ def test_run_b_default_keeps_unbounded_evidence_indices(rag):
     pipeline, gen = rag.make_pipeline([rag.make_row(1)])
     rag.run(pipeline)
     assert gen.run_modes == ["B_controlled_rag"] and gen.max_evidence_indices == [None]
+
+
+def test_run_b_supports_generators_with_the_original_signature(rag):
+    class BatchGenerator(rag.FakeGenerator):
+        def generate(self, prompt, query_id, run_mode, prompt_version, structured_output=False, schema=None):
+            return super().generate(prompt, query_id, run_mode, prompt_version, structured_output, schema)
+
+    pipeline, _ = rag.make_pipeline([rag.make_row(1)], BatchGenerator())
+    assert rag.run(pipeline).record.grounding_status == "PASS"
 
 
 def test_production_mode_bounds_evidence_indices(rag):

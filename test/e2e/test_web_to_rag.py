@@ -32,13 +32,14 @@ class OllamaStub:
         self.reply: dict | Exception = {"answer": GROUNDED, "evidence_indices": [1], "abstained": False,
                                         "abstention_reason": None, "needs_clarification": False}
         self.calls = 0
+        self.done_reason = "stop"
 
     def __call__(self, url, payload, timeout):
         self.calls += 1
         if isinstance(self.reply, Exception):
             raise self.reply
         return {"model": "qwen2.5:7b", "response": json.dumps(self.reply, ensure_ascii=False), "done": True,
-                "done_reason": "stop", "prompt_eval_count": 900, "eval_count": 40,
+                "done_reason": self.done_reason, "prompt_eval_count": 900, "eval_count": 40,
                 "total_duration": 2_000_000_000, "load_duration": 100_000_000,
                 "prompt_eval_duration": 900_000_000, "eval_duration": 1_000_000_000}
 
@@ -106,7 +107,7 @@ def test_empty_or_low_confidence_evidence_does_not_call_generation(e2e, marker, 
     assert status == 200 and (body["status"], body["error_code"]) == ("ABSTAIN", code)
     assert e2e.stub.calls == 0
     stages = [row["stage"] for row in e2e.events(body["query_id"])]
-    assert "llm" not in stages and "gate" in stages
+    assert "llm" not in stages and "gate" not in stages
 
 
 @pytest.mark.parametrize("indices", [[1, 7], [3]])
@@ -130,11 +131,24 @@ def test_inline_marker_outside_context_fails_gate(e2e):
     assert (body["grounding_status"], body["abstention_reason"]) == ("FAIL", "ANSWER_MARKER_OUTSIDE_CONTEXT")
 
 
+def test_truncated_generation_with_parseable_json_is_withheld(e2e):
+    e2e.stub.done_reason = "length"
+    status, body = e2e.ask(LEGAL)
+    assert status == 200
+    assert (body["status"], body["grounding_status"], body["error_code"]) == ("ABSTAIN", "FAIL", "JSON_INVALID")
+    assert body["answer"] is None
+
+
 def test_llm_timeout_returns_typed_error(e2e):
     e2e.stub.reply = TimeoutError("read timed out")
     status, body = e2e.ask(LEGAL)
     assert status == 504 and (body["status"], body["error_code"]) == ("ERROR", "LLM_TIMEOUT")
     assert "timed out" not in json.dumps(body)
+    rows = e2e.events(body["query_id"])
+    failed = next(row for row in rows if row["event_type"] == "generation_failed")
+    assert (failed["stage"], failed["error_code"]) == ("llm", "LLM_TIMEOUT")
+    response = next(row for row in rows if row["event_type"] == "response_built")
+    assert response["masked_metadata"]["llm_calls"] == 1
 
 
 def test_logs_follow_one_query_id_and_contain_no_question_or_key(e2e):

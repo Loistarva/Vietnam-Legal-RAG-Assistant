@@ -10,9 +10,9 @@ from orchestration.fakes import MOCK_ANSWER
 LEGAL = "Nam phải đủ bao nhiêu tuổi để kết hôn?"
 
 
-def read_stream(api, query):
+def read_stream(api, query, **fields):
     events = []
-    with api.client.stream("POST", "/api/v1/ask/stream", json={"query": query}, headers=api.auth) as response:
+    with api.client.stream("POST", "/api/v1/ask/stream", json={"query": query, **fields}, headers=api.auth) as response:
         assert response.status_code == 200
         assert response.headers["content-type"].startswith("text/event-stream")
         query_id = response.headers["X-Query-ID"]
@@ -25,18 +25,17 @@ def read_stream(api, query):
     return query_id, events
 
 
-def test_status_events_then_verified_answer_then_done(api):
+def test_status_events_then_final_response(api):
     query_id, events = read_stream(api, LEGAL)
     names = [name for name, _ in events]
-    assert names[0] == "status" and names[-2:] == ["verified_answer", "done"]
+    assert names[:-1] == ["status"] * 6 and names[-1] == "final"
     phases = [data["phase"] for name, data in events if name == "status"]
     assert phases == ["accepted", "routing", "retrieving", "reranking", "generating", "validating"]
-    assert all(data["sse_version"] == "sse_v1" for _, data in events)
+    assert all(data["sse_version"] == "sse_v2" for _, data in events[:-1])
     assert events[0][1]["schema_version"] == "week10_v1.0"
-    final = events[-2][1]["response"]
+    final = events[-1][1]
     assert final["status"] == "SUCCESS" and final["answer"] == MOCK_ANSWER and final["query_id"] == query_id
-    assert events[-1][1]["status"] == "SUCCESS"
-    elapsed = [data["elapsed_ms"] for _, data in events]
+    elapsed = [data["elapsed_ms"] for _, data in events[:-1]]
     assert elapsed == sorted(elapsed)
 
 
@@ -46,25 +45,33 @@ def test_no_answer_text_before_the_final_event(api):
     assert MOCK_ANSWER not in before_final and "answer" not in before_final
 
 
-@pytest.mark.parametrize(("query", "final"), [
-    ("Hôm nay thời tiết Hà Nội thế nào?", "verified_answer"),
-    ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", "abstention"),
-    (f"{LEGAL} [mock:clarify]", "clarification"),
-    (f"{LEGAL} [mock:gate_fail]", "abstention"),
-    (f"{LEGAL} [mock:timeout]", "error"),
+@pytest.mark.parametrize("query", [
+    LEGAL, "Hôm nay thời tiết Hà Nội thế nào?", "Thủ tục thành lập doanh nghiệp tư nhân thế nào?",
+    f"{LEGAL} [mock:clarify]", f"{LEGAL} [mock:low]", f"{LEGAL} [mock:gate_fail]", f"{LEGAL} [mock:timeout]",
 ])
-def test_each_branch_ends_with_one_final_event(api, query, final):
-    _, events = read_stream(api, query)
+def test_terminal_event_matches_json_endpoint(api, query):
+    query_id, events = read_stream(api, query, query_id="stream-1")
+    response = api.client.post("/api/v1/ask", json={"query": query, "query_id": query_id}, headers=api.auth).json()
     names = [name for name, _ in events]
-    assert names[-1] == "done" and names[-2] == final
-    assert sum(name in ("verified_answer", "clarification", "abstention", "error") for name in names) == 1
+    assert set(names[:-1]) == {"status"}
+    assert names[-1] == ("error" if response["status"] == "ERROR" else "final")
+    terminal = events[-1][1]
+    if response["status"] == "ERROR":
+        assert terminal["message"] == response["error"]["message"]
+        assert terminal["error_code"] == response["error_code"]
+        terminal = terminal["response"]
+    assert terminal.keys() == response.keys()
+    assert {k: v for k, v in terminal.items() if k != "timings"} == {
+        k: v for k, v in response.items() if k != "timings"}
+    if "[mock:low]" in query:
+        assert [data["phase"] for _, data in events[:-1]] == ["accepted", "routing", "retrieving", "reranking"]
 
 
 def test_gate_fail_stream_never_contains_the_draft(api):
     _, events = read_stream(api, f"{LEGAL} [mock:gate_fail]")
     text = json.dumps(events, ensure_ascii=False)
     assert "Bản nháp" not in text
-    assert events[-2][1]["response"]["grounding_status"] == "FAIL"
+    assert events[-1][1]["grounding_status"] == "FAIL"
 
 
 def test_stream_logs_first_status_and_final_separately(api):

@@ -92,7 +92,7 @@ def test_empty_or_low_confidence_retrieval_stops_before_generation(marker, reaso
     service, source, generator, _ = make_service()
     response = ask(service, f"{LEGAL} {marker}").response
     assert (source.calls, generator.calls) == (1, 0)
-    assert (response.status, response.grounding_status) == ("ABSTAIN", "ABSTAIN")
+    assert (response.status, response.grounding_status) == ("ABSTAIN", "NOT_RUN")
     assert (response.abstention_reason, response.error_code) == (reason, code)
     assert response.answer is None and "2026-11-16" in response.abstention_message
 

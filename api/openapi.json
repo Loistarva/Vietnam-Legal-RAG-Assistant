@@ -695,7 +695,7 @@
   "paths": {
     "/api/v1/ask": {
       "post": {
-        "description": "Định tuyến → (Retrieval → Context → Qwen → Grounding Gate) → AskResponse. `answer` chỉ có khi `status=SUCCESS`, tức là sau khi Gate PASS.",
+        "description": "Định tuyến → (Retrieval → Context → Qwen → Grounding Gate) → AskResponse. `answer` chỉ có khi `status=SUCCESS`, sau Gate PASS cho câu hỏi pháp lý hoặc qua kịch bản tĩnh cho câu xã giao.",
         "operationId": "ask_api_v1_ask_post",
         "requestBody": {
           "content": {
@@ -726,17 +726,7 @@
                 }
               }
             },
-            "description": "Thiếu header X-API-Key (`AUTH_REQUIRED`)."
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "API key sai (`AUTH_REQUIRED`)."
+            "description": "Thiếu hoặc sai X-API-Key (`AUTH_REQUIRED`)."
           },
           "422": {
             "content": {
@@ -752,7 +742,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AskResponse"
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/AskResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ApiError"
+                    }
+                  ],
+                  "title": "Response 500 Ask Api V1 Ask Post"
                 }
               }
             },
@@ -796,12 +794,9 @@
         "responses": {
           "200": {
             "content": {
-              "application/json": {
-                "schema": {}
-              },
               "text/event-stream": {}
             },
-            "description": "Chuỗi SSE `sse_v1` (docs/api/sse_events.md)."
+            "description": "Chuỗi SSE `sse_v2` (docs/api/sse_events.md)."
           },
           "401": {
             "content": {
@@ -811,17 +806,7 @@
                 }
               }
             },
-            "description": "Thiếu header X-API-Key (`AUTH_REQUIRED`)."
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiError"
-                }
-              }
-            },
-            "description": "API key sai (`AUTH_REQUIRED`)."
+            "description": "Thiếu hoặc sai X-API-Key (`AUTH_REQUIRED`)."
           },
           "422": {
             "content": {

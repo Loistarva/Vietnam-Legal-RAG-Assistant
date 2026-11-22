@@ -50,7 +50,7 @@ python scripts/run_rag_cli.py --mock "Nam phải đủ bao nhiêu tuổi thì đ
 # CLI live: cần Elasticsearch, Qdrant và Ollama (qwen2.5:7b)
 $env:ELASTICSEARCH_URL = "http://localhost:9200"; $env:QDRANT_PATH = "data/indexes/qdrant_storage"
 python scripts/run_rag_cli.py --as-of-date 2026-11-16 "Nam phải đủ bao nhiêu tuổi thì được kết hôn?"
-# Exit code: 0 SUCCESS, 3 NEEDS_CLARIFICATION, 4 ABSTAIN, 1 ERROR, 2 input sai; --json in AskResponse
+# Exit code: 0 SUCCESS, 3 NEEDS_CLARIFICATION/ABSTAIN, 1 ERROR, 2 input sai; --json in AskResponse
 
 # API: POST /api/v1/ask, POST /api/v1/ask/stream (SSE), GET /api/v1/health; Swagger ở /docs
 $env:LEGAL_RAG_API_KEYS = "<key>"; $env:LEGAL_RAG_PIPELINE_MODE = "mock"   # bỏ mock để chạy live

@@ -63,7 +63,7 @@ def test_client_query_id_is_kept(api):
 @pytest.mark.parametrize(("query", "status", "route", "grounding"), [
     ("Hôm nay thời tiết Hà Nội thế nào?", "SUCCESS", "NON_LEGAL", "NOT_RUN"),
     ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", "ABSTAIN", "LEGAL_OUT_OF_SCOPE", "NOT_RUN"),
-    (f"{LEGAL} [mock:low]", "ABSTAIN", "LEGAL_IN_SCOPE", "ABSTAIN"),
+    (f"{LEGAL} [mock:low]", "ABSTAIN", "LEGAL_IN_SCOPE", "NOT_RUN"),
     (f"{LEGAL} [mock:clarify]", "NEEDS_CLARIFICATION", "LEGAL_IN_SCOPE", "NEEDS_CLARIFICATION"),
     (f"{LEGAL} [mock:gate_fail]", "ABSTAIN", "LEGAL_IN_SCOPE", "FAIL"),
 ])
@@ -126,6 +126,33 @@ def test_too_long_query_is_rejected_before_pipeline(make_api):
     response = post(api, {"query": "kết hôn " * 20})
     assert response.status_code == 422 and response.json()["details"][0]["type"] == "string_too_long"
     assert api.source.calls == 0
+
+
+@pytest.mark.parametrize("path", ["/api/v1/ask", "/api/v1/ask/stream"])
+@pytest.mark.parametrize(("query", "status"), [("x" * 2000, 200), ("x" * 2001, 422), (123, 422)])
+def test_query_validation_at_default_limit(api, path, query, status):
+    response = api.client.post(path, json={"query": query}, headers=api.auth)
+    assert response.status_code == status
+    if status == 422:
+        body = response.json()
+        assert body["error_code"] == "INVALID_REQUEST" and body["details"]
+        assert body["query_id"] == response.headers["X-Query-ID"]
+        assert [(e.stage, e.event_type, e.query_id) for e in api.sink.events] == [
+            ("api", "request_rejected", body["query_id"])]
+        assert (api.source.calls, api.generator.calls) == (0, 0)
+    else:
+        assert any(e.stage == "router" for e in api.sink.events)
+
+
+@pytest.mark.parametrize("path", ["/api/v1/ask", "/api/v1/ask/stream"])
+def test_unicode_query_id_is_transportable_in_response_headers(api, path):
+    from urllib.parse import unquote
+
+    query_id = "yêu-cầu%01"
+    response = api.client.post(path, json={"query": LEGAL, "query_id": query_id}, headers=api.auth)
+    assert response.status_code == 200
+    assert unquote(response.headers["X-Query-ID"]) == query_id
+    assert all(e.query_id == query_id for e in api.sink.events)
 
 
 def test_response_has_no_prompt_or_trace(api):

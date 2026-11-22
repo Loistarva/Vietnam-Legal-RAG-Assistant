@@ -26,9 +26,13 @@ def test_missing_key_is_401_before_pipeline(api):
 @pytest.mark.parametrize("key", ["wrong-key-0123456789abc", "", "   ", API_KEY[:-1]])
 def test_wrong_or_empty_key_is_rejected_before_pipeline(api, key):
     response = api.client.post("/api/v1/ask", json=BODY, headers={"X-API-Key": key})
-    assert response.status_code in (401, 403)
+    assert response.status_code == 401
+    assert response.headers["WWW-Authenticate"] == "ApiKey"
     assert response.json()["error_code"] == "AUTH_REQUIRED"
-    assert api.source.calls == 0
+    query_id = response.json()["query_id"]
+    assert query_id == response.headers["X-Query-ID"]
+    assert [(e.stage, e.query_id, e.error_code) for e in api.sink.events] == [("api", query_id, "AUTH_REQUIRED")]
+    assert (api.source.calls, api.generator.calls) == (0, 0)
 
 
 def test_stream_route_is_guarded_too(api):
@@ -54,7 +58,7 @@ def test_several_keys_and_rotation():
     guard.check("second-key-0123456789")
     with pytest.raises(AuthError) as err:
         guard.check("third-key-0123456789x")
-    assert err.value.status_code == 403
+    assert err.value.status_code == 401
     assert API_KEY not in repr(guard)
 
 

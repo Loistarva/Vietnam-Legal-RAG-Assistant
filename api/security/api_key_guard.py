@@ -3,7 +3,7 @@
 * Keys come from ``LEGAL_RAG_API_KEYS`` (comma-separated) in the environment or a secret
   store; nothing is hardcoded and ``.env.example`` only has a placeholder.
 * Clients send ``X-API-Key`` (the header Dev 2's Streamlit client already uses).
-* Missing key -> 401 ``AUTH_REQUIRED``; wrong key -> 403 ``AUTH_REQUIRED``. Both happen in
+* Missing key -> 401 ``AUTH_REQUIRED``; wrong key -> 401 ``AUTH_REQUIRED``. Both happen in
   a dependency, before the pipeline runs.
 * Only SHA-256 digests are kept in memory and compared with ``hmac.compare_digest``; the key
   never goes into a response, a log event or an exception message.
@@ -60,7 +60,7 @@ class ApiKeyGuard:
         for digest in self._digests:
             matched |= hmac.compare_digest(candidate, digest)
         if not matched:
-            raise AuthError(403, "API key không hợp lệ")
+            raise AuthError(401, "API key không hợp lệ")
 
     def __repr__(self) -> str:  # never print key material
         return f"ApiKeyGuard(keys={len(self._digests)})"

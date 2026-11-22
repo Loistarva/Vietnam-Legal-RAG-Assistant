@@ -6,7 +6,7 @@ exception text, traceback, header or request body.
 """
 from __future__ import annotations
 
-from typing import Any
+from urllib.parse import quote
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -14,6 +14,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
 from api.security.api_key_guard import AuthError
+from orchestration.ask_service import new_query_id
+from orchestration.events import StageEmitter
 from schemas.models import SCHEMA_VERSION, ErrorCode, SchemaVersionType
 
 # AskResponse.status=ERROR -> HTTP status
@@ -49,20 +51,31 @@ def _validation_details(exc: RequestValidationError) -> list[ValidationDetail]:
             for err in exc.errors()]
 
 
+def _rejection(request: Request, status_code: int, code: ErrorCode, message: str, *,
+               details: list[ValidationDetail] | None = None) -> JSONResponse:
+    query_id = getattr(request.state, "query_id", None) or new_query_id()
+    service = request.app.state.ask_service
+    if service is not None:
+        StageEmitter(query_id, service.sink).emit("api", "request_rejected", "error", http_status=status_code,
+                                                error_code=code)
+    headers = {"X-Query-ID": quote(query_id, safe="")}
+    if status_code == 401:
+        headers["WWW-Authenticate"] = "ApiKey"
+    return error_response(status_code, code, message, query_id=query_id, details=details, headers=headers)
+
+
 def install_error_handlers(app: FastAPI) -> None:
     @app.exception_handler(AuthError)
     async def _auth(request: Request, exc: AuthError) -> JSONResponse:
-        headers = {"WWW-Authenticate": "ApiKey"} if exc.status_code == 401 else None
-        return error_response(exc.status_code, "AUTH_REQUIRED", exc.message, headers=headers)
+        return _rejection(request, exc.status_code, "AUTH_REQUIRED", exc.message)
 
     @app.exception_handler(RequestValidationError)
     async def _invalid(request: Request, exc: RequestValidationError) -> JSONResponse:
-        return error_response(422, "INVALID_REQUEST", "Request không hợp lệ", details=_validation_details(exc))
+        return _rejection(request, 422, "INVALID_REQUEST", "Request không hợp lệ", details=_validation_details(exc))
 
     @app.exception_handler(Exception)
     async def _internal(request: Request, exc: Exception) -> JSONResponse:
-        query_id: Any = getattr(request.state, "query_id", None)
-        return error_response(500, "INTERNAL_ERROR", "Hệ thống gặp lỗi khi xử lý request", query_id=query_id)
+        return _rejection(request, 500, "INTERNAL_ERROR", "Hệ thống gặp lỗi khi xử lý request")
 
 
 __all__ = ["ApiError", "ERROR_HTTP_STATUS", "ValidationDetail", "error_response", "install_error_handlers"]

@@ -56,7 +56,9 @@ Server không khởi động nếu thiếu `LEGAL_RAG_API_KEYS` hoặc có key n
 
 - Chỉ `query` là bắt buộc. Gửi field lạ (ví dụ `run_mode`, `top_k`) sẽ bị trả 422: cấu hình retrieval và model do server khóa.
 - **Ngày tra cứu** được chọn theo thứ tự: ngày nêu trong câu hỏi ("tại ngày 01/01/2015…") → `as_of_date` → ngày hiện tại.
-- `query_id` không bắt buộc. Nếu không gửi, server tự sinh (`q_<UTC>_<hex>`). Giá trị này được trả lại trong body và header `X-Query-ID`, và là khóa để tra log.
+- `query_id` không bắt buộc. Nếu không gửi, server tự sinh (`q_<UTC>_<hex>`). Giá trị này được trả lại trong body và header `X-Query-ID`, và là khóa để tra log. Header dùng percent-encoding UTF-8 cho các ký tự ngoài nhóm unreserved. Client dùng ID gốc trong JSON để tra log.
+
+Với lỗi 401/422, server cũng trả mã truy vết trong body và header. Event `request_rejected` ghi mã lỗi và HTTP status để đếm các request bị chặn trước pipeline.
 
 ### Response: `AskResponse`
 
@@ -82,22 +84,22 @@ Server không khởi động nếu thiếu `LEGAL_RAG_API_KEYS` hoặc có key n
 | Legal HNGĐ, Gate PASS | 200 | `SUCCESS` | `PASS` | – |
 | Non-legal (fast-path, không gọi Retrieval/LLM) | 200 | `SUCCESS` | `NOT_RUN` | – |
 | Legal ngoài phạm vi / mixed (Policy Abstention) | 200 | `ABSTAIN` | `NOT_RUN` | `ROUTE_POLICY` |
-| Không có evidence | 200 | `ABSTAIN` | `ABSTAIN` | `RETRIEVAL_EMPTY` |
-| Top-1 dưới ngưỡng confidence (không gọi LLM) | 200 | `ABSTAIN` | `ABSTAIN` | `LOW_CONFIDENCE` |
+| Không có evidence | 200 | `ABSTAIN` | `NOT_RUN` | `RETRIEVAL_EMPTY` |
+| Top-1 dưới ngưỡng confidence (không gọi LLM) | 200 | `ABSTAIN` | `NOT_RUN` | `LOW_CONFIDENCE` |
 | Model hỏi lại | 200 | `NEEDS_CLARIFICATION` | `NEEDS_CLARIFICATION` | – |
 | Model từ chối | 200 | `ABSTAIN` | `ABSTAIN` | – |
 | Gate FAIL: citation ngoài context | 200 | `ABSTAIN` | `FAIL` | `CITATION_INVALID` |
-| Gate FAIL: JSON model hỏng | 200 | `ABSTAIN` | `FAIL` | `JSON_INVALID` |
-| Gate FAIL khác (tiếng Trung, truncated…) | 200 | `ABSTAIN` | `FAIL` | `GROUNDING_FAIL` |
+| Gate FAIL: JSON model hỏng hoặc đầu ra bị cắt | 200 | `ABSTAIN` | `FAIL` | `JSON_INVALID` |
+| Gate FAIL khác (ví dụ câu trả lời chứa ký tự CJK) | 200 | `ABSTAIN` | `FAIL` | `GROUNDING_FAIL` |
 | Qwen timeout | 504 | `ERROR` | `NOT_RUN` | `LLM_TIMEOUT` |
 | Lỗi nội bộ | 500 | `ERROR` | `NOT_RUN` | `INTERNAL_ERROR` |
 | Thiếu `X-API-Key` | 401 | – (`ApiError`) | – | `AUTH_REQUIRED` |
-| Key sai | 403 | – (`ApiError`) | – | `AUTH_REQUIRED` |
+| Key sai | 401 | – (`ApiError`) | – | `AUTH_REQUIRED` |
 | Body sai schema, câu hỏi quá dài | 422 | – (`ApiError`) | – | `INVALID_REQUEST` |
 
 Khi Gate FAIL, bản nháp của model không bao giờ được trả về: response chỉ có `abstention_message`, còn bản nháp chỉ nằm trong record nội bộ để phục vụ đánh giá.
 
-`ApiError` (401/403/422/500 trước pipeline):
+`ApiError` (401/422/500 trước pipeline):
 
 ```json
 {"schema_version": "week10_v1.0", "error_code": "INVALID_REQUEST", "message": "Request không hợp lệ", "query_id": null,
@@ -158,11 +160,7 @@ Response mẫu (live, rút gọn; xem [reports/week10/e2e_report.md](../reports/
 
 Câu non-legal và câu ngoài phạm vi đi qua router thật, nên vẫn cho ra `NON_LEGAL` / `LEGAL_OUT_OF_SCOPE`.
 
-Ghi chú cho client Streamlit (`frontend/streamlit_app.py` trên nhánh `sprint10/UI`):
-- Endpoint và header đang dùng (`/api/v1/ask`, `X-API-Key`, body `{"query": ...}`) đã khớp.
-- Hiện client gọi `raise_for_status()`, nên khi gặp 504/500 sẽ mất body `AskResponse` (có `error.message`). Nên đọc body trước khi raise.
-- Timeout của client là 60 s, nhưng một câu live trên máy có GPU 4 GB mất 30–85 s (xem báo cáo E2E). Đề xuất tăng lên 180 s.
-- Trạng thái lấy từ `status` (chữ in hoa); `answered`/`needs_clarification` của mock cũ không còn dùng. Lời nhắn nằm ở `clarification` / `abstention_message`; nội dung evidence nằm ở `evidence[].content`.
+Client Streamlit trên nhánh `testing` dùng timeout mặc định 180 giây. Khi nhận HTTP 500 hoặc 504 từ pipeline, client đọc `error.message` trong `AskResponse`. Khi dùng endpoint SSE, client đọc `AskResponse` ngay trong event `final` và hiển thị `message` của event `error`.
 
 ## 5. Thay đổi contract
 

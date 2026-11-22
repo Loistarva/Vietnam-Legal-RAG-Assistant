@@ -1,50 +1,23 @@
-# SSE events – `POST /api/v1/ask/stream` (`sse_v1`)
+# SSE cho `POST /api/v1/ask/stream`
 
-Body, API key, pipeline và lỗi 401/403/422 giống `POST /api/v1/ask` ([docs/api.md](../api.md)). Response là `text/event-stream`, header `X-Query-ID`.
+Client gửi cùng body và API key như khi gọi `POST /api/v1/ask`. Request bị từ chối trả JSON với HTTP 401 hoặc 422. Request hợp lệ trả HTTP 200, `Content-Type: text/event-stream` và header `X-Query-ID`. [Contract HTTP](../api.md)
 
-## Thứ tự event
-
-```
-status(accepted) → status(routing) → status(retrieving) → status(reranking)
-  → status(generating) → status(validating) → <final> → done
-```
-
-`<final>` là đúng **một** trong các event sau:
-
-| Event | Khi nào | `data` |
+| Event | Khi nào | JSON trong trường `data` |
 | --- | --- | --- |
-| `verified_answer` | `status=SUCCESS` (Gate PASS, hoặc non-legal) | `{"sse_version", "elapsed_ms", "response": AskResponse}` |
-| `clarification` | `NEEDS_CLARIFICATION` | như trên |
-| `abstention` | `ABSTAIN` (policy, confidence, Gate FAIL, model từ chối) | như trên |
-| `error` | `ERROR` (`LLM_TIMEOUT`, `INTERNAL_ERROR`) | như trên; nếu không dựng được AskResponse: `{"status": "ERROR", "error_code", "message"}` |
+| `status` | Server nhận request hoặc pipeline chuyển giai đoạn | `sse_version`, `query_id`, `phase` và `elapsed_ms`. Event đầu còn có `schema_version`. |
+| `final` | Pipeline hoàn tất với `SUCCESS`, `NEEDS_CLARIFICATION` hoặc `ABSTAIN` | Toàn bộ `AskResponse`, cùng cấu trúc với endpoint JSON. Khi Gate FAIL, `answer` là `null`. |
+| `error` | Pipeline hoặc server gặp lỗi | `query_id`, `error_code`, `message` cho client và `response` chứa `AskResponse` khi pipeline trả về `ERROR`. Lỗi xảy ra trước khi dựng được `AskResponse` dùng `ApiError`. |
 
-Các phase không chạy thì không được phát. Ví dụ: non-legal chỉ có `accepted, routing`; low confidence không có `generating`. Mỗi phase phát tối đa một lần.
+Mỗi event có `id` tăng dần. Ở phiên bản `sse_v2`, client đọc các event `status` đến khi gặp đúng một `final` hoặc `error`. Kết nối đóng ngay sau event này. Client đọc trực tiếp JSON của event cuối và dùng `status` để hiển thị câu trả lời, yêu cầu làm rõ, thông báo từ chối hoặc lỗi.
 
-Ví dụ từ lần chạy live (rút gọn):
+Ví dụ event đầu tiên
 
-```
+```text
 event: status
 id: 0
-data: {"schema_version": "week10_v1.0", "sse_version": "sse_v1", "query_id": "q_…", "phase": "accepted", "elapsed_ms": 2.48}
-
-event: status
-id: 5
-data: {"sse_version": "sse_v1", "query_id": "q_…", "phase": "validating", "elapsed_ms": 85777.66}
-
-event: verified_answer
-id: 6
-data: {"sse_version": "sse_v1", "elapsed_ms": 85787.9, "response": {"status": "SUCCESS", "answer": "…", "citations": […], "evidence": […], …}}
-
-event: done
-id: 7
-data: {"sse_version": "sse_v1", "query_id": "q_…", "status": "SUCCESS", "elapsed_ms": 85791.4}
+data: {"schema_version":"week10_v1.0","sse_version":"sse_v2","query_id":"q_1","phase":"accepted","elapsed_ms":1.5}
 ```
 
-## Quy tắc an toàn
+Luồng pháp lý có đủ evidence đi qua `accepted → routing → retrieving → reranking → generating → validating`. Mỗi phase xuất hiện tối đa một lần. Câu xã giao kết thúc sau `routing`. Nếu thiếu evidence, luồng dừng sau `reranking`. Event trạng thái chỉ chứa tiến độ. Nội dung câu trả lời pháp lý xuất hiện sau khi Gate duyệt.
 
-- Status event được dựng từ stage `LogEvent`, vốn không bao giờ chứa câu hỏi, prompt hay câu trả lời. Vì vậy client không nhận được gì của bản nháp trước khi Gate quyết định.
-- Câu trả lời chỉ có trong event cuối, tức là sau Gate (buffer → Gate → phát). Hiện **không** stream từng token; nếu sau này stream token thì cũng chỉ được stream sau Gate PASS.
-- `elapsed_ms` tính từ lúc nhận request. Server log riêng `stream_first_status` (byte trạng thái đầu tiên) và `stream_final` (event cuối), để không trộn TTFB trạng thái với thời gian ra câu trả lời đã kiểm chứng.
-- Client ngắt kết nối: stream dừng và server ghi `client_disconnected`. Lời gọi pipeline đang chạy (request tới Qwen local) không hủy được; nó chạy xong trong worker thread rồi trả slot.
-
-Client đọc stream: mỗi event là các dòng `event:`, `id:`, `data:` (JSON một dòng), phân tách bằng một dòng trống. Kết thúc khi nhận `done`.
+Server ghi `stream_first_status` và `stream_final` để đo riêng thời điểm phát trạng thái đầu và kết quả cuối. Khi client ngắt kết nối sớm, server ghi `client_disconnected`. Lời gọi Qwen đang chạy hoàn tất trong worker rồi trả slot.
