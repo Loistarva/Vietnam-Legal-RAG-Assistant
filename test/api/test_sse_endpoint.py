@@ -81,3 +81,18 @@ def test_stream_logs_first_status_and_final_separately(api):
     assert all(e.query_id == query_id for e in api.sink.events)
     first, final = api_events[1], api_events[2]
     assert first.duration_ms is not None and final.duration_ms >= first.duration_ms
+
+
+def test_router_input_error_ends_stream_with_invalid_request(api):
+    from agent.router.rule_router import RouteReason, RouterInputError
+
+    class Rejecting:
+        def route(self, *, query, query_id, as_of_date):
+            raise RouterInputError("bad", reason_code=RouteReason.INVALID_EMPTY_QUERY)
+
+    api.client.app.state.ask_service.router = Rejecting()
+    _, events = read_stream(api, LEGAL)
+    name, data = events[-1]
+    assert name == "error" and data["error_code"] == "INVALID_REQUEST"
+    assert data["details"][0]["type"] == "INVALID_EMPTY_QUERY"
+    assert api.source.calls == 0

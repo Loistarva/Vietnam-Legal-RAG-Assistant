@@ -30,10 +30,10 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.responses import StreamingResponse
 
 from api.dependencies import get_service, get_slots, validated_ask_request
-from api.errors import ApiError
+from api.errors import ApiError, router_input_details
 from api.routes.ask import ASK_RESPONSES
 from api.security.api_key_guard import require_api_key
-from orchestration.ask_service import AskService
+from orchestration.ask_service import AskService, InvalidAskRequest
 from orchestration.events import StageEmitter
 from schemas.models import SCHEMA_VERSION, AskRequest, LogEvent
 
@@ -81,6 +81,9 @@ async def ask_stream(request: Request, body: AskRequest = Depends(validated_ask_
         try:
             with slots:
                 outcome = service.run(body, query_id=query_id, sink=_QueueSink(loop, queue))
+        except InvalidAskRequest as exc:
+            outcome = exc
+            log.emit("api", "stream_failed", "error", error_code="INVALID_REQUEST", reason_code=exc.reason_code)
         except Exception as exc:  # noqa: BLE001 - reported as an error event without details
             log.emit("api", "stream_failed", "error", error_code="INTERNAL_ERROR", error_type=type(exc).__name__)
         try:
@@ -114,7 +117,11 @@ async def ask_stream(request: Request, body: AskRequest = Depends(validated_ask_
                                                      "phase": phase, "elapsed_ms": elapsed()})
                     continue
                 seq += 1
-                if item is None:
+                if isinstance(item, InvalidAskRequest):
+                    data = ApiError(query_id=query_id, error_code="INVALID_REQUEST", message="Request không hợp lệ",
+                                    details=router_input_details(item)).model_dump(mode="json")
+                    final_status = "ERROR"
+                elif item is None:
                     data = ApiError(query_id=query_id, error_code="INTERNAL_ERROR",
                                     message="Hệ thống gặp lỗi khi xử lý request").model_dump(mode="json")
                     final_status = "ERROR"

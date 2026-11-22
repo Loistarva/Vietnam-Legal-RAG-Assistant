@@ -14,7 +14,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
 from api.security.api_key_guard import AuthError
-from orchestration.ask_service import new_query_id
+from orchestration.ask_service import InvalidAskRequest, RoutingFailed, new_query_id
 from orchestration.events import StageEmitter
 from schemas.models import SCHEMA_VERSION, ErrorCode, SchemaVersionType
 
@@ -51,6 +51,12 @@ def _validation_details(exc: RequestValidationError) -> list[ValidationDetail]:
             for err in exc.errors()]
 
 
+def router_input_details(exc: InvalidAskRequest) -> list[ValidationDetail]:
+    """Router ``INVALID_*`` reason -> one 422 detail; the message never echoes the input."""
+    field = "as_of_date" if exc.reason_code == "INVALID_AS_OF_DATE" else "query"
+    return [ValidationDetail(loc=["body", field], msg="Router từ chối đầu vào", type=exc.reason_code)]
+
+
 def _rejection(request: Request, status_code: int, code: ErrorCode, message: str, *,
                details: list[ValidationDetail] | None = None) -> JSONResponse:
     query_id = getattr(request.state, "query_id", None) or new_query_id()
@@ -73,9 +79,19 @@ def install_error_handlers(app: FastAPI) -> None:
     async def _invalid(request: Request, exc: RequestValidationError) -> JSONResponse:
         return _rejection(request, 422, "INVALID_REQUEST", "Request không hợp lệ", details=_validation_details(exc))
 
+    @app.exception_handler(InvalidAskRequest)
+    async def _router_invalid(request: Request, exc: InvalidAskRequest) -> JSONResponse:
+        return _rejection(request, 422, "INVALID_REQUEST", "Request không hợp lệ",
+                          details=router_input_details(exc))
+
+    @app.exception_handler(RoutingFailed)
+    async def _routing_failed(request: Request, exc: RoutingFailed) -> JSONResponse:
+        return _rejection(request, 500, "INTERNAL_ERROR", "Hệ thống gặp lỗi khi xử lý request")
+
     @app.exception_handler(Exception)
     async def _internal(request: Request, exc: Exception) -> JSONResponse:
         return _rejection(request, 500, "INTERNAL_ERROR", "Hệ thống gặp lỗi khi xử lý request")
 
 
-__all__ = ["ApiError", "ERROR_HTTP_STATUS", "ValidationDetail", "error_response", "install_error_handlers"]
+__all__ = ["ApiError", "ERROR_HTTP_STATUS", "ValidationDetail", "error_response", "install_error_handlers",
+           "router_input_details"]

@@ -171,3 +171,49 @@ def test_api_events_wrap_pipeline_events_with_one_query_id(api):
     assert {"router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"} <= set(stages)
     assert {e.query_id for e in api.sink.events} == {query_id}
     assert api.sink.events[-1].masked_metadata["http_status"] == 200
+
+
+class _BrokenRouter:
+    """Router stand-in: raises ``exc`` or returns a decision without ``action``."""
+
+    def __init__(self, exc=None):
+        self.exc = exc
+
+    def route(self, *, query, query_id, as_of_date):
+        from schemas.models import RouteDecision
+
+        if self.exc is not None:
+            raise self.exc
+        return RouteDecision(route="LEGAL_IN_SCOPE", reason_code="R", explanation="e", policy_version="v",
+                             query_id=query_id, action=None, as_of_date=as_of_date)
+
+
+def _invalid_input(reason):
+    from agent.router.rule_router import RouteReason, RouterInputError
+
+    return RouterInputError("bad input", reason_code=RouteReason(reason))
+
+
+@pytest.mark.parametrize(("reason", "field"), [("INVALID_EMPTY_QUERY", "query"), ("INVALID_QUERY_TYPE", "query"),
+                                               ("INVALID_AS_OF_DATE", "as_of_date")])
+def test_router_input_error_is_422_api_error(api, reason, field):
+    api.client.app.state.ask_service.router = _BrokenRouter(_invalid_input(reason))
+    response = api.client.post("/api/v1/ask", json={"query": LEGAL}, headers=api.auth)
+    assert response.status_code == 422
+    body = response.json()
+    assert set(body) == {"schema_version", "error_code", "message", "query_id", "details"}
+    assert body["error_code"] == "INVALID_REQUEST"
+    assert body["details"] == [{"loc": ["body", field], "msg": "Router từ chối đầu vào", "type": reason}]
+    assert (api.source.calls, api.generator.calls) == (0, 0)
+
+
+@pytest.mark.parametrize("router", [_BrokenRouter(), _BrokenRouter(RuntimeError("secret detail"))])
+def test_router_failure_or_missing_action_is_500_api_error(api, router):
+    api.client.app.state.ask_service.router = router
+    response = api.client.post("/api/v1/ask", json={"query": LEGAL}, headers=api.auth)
+    assert response.status_code == 500
+    body = response.json()
+    assert body["error_code"] == "INTERNAL_ERROR" and "secret detail" not in response.text
+    assert body["query_id"] == response.headers["X-Query-ID"]
+    assert api.source.calls == 0
+    assert [e.event_type for e in api.sink.events if e.error_code] == ["route_failed", "request_rejected"]
