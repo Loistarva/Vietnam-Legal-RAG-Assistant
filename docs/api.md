@@ -89,13 +89,17 @@ Với lỗi 401/422, server cũng trả mã truy vết trong body và header. Ev
 | Model hỏi lại | 200 | `NEEDS_CLARIFICATION` | `NEEDS_CLARIFICATION` | – |
 | Model từ chối | 200 | `ABSTAIN` | `ABSTAIN` | – |
 | Gate FAIL: citation ngoài context | 200 | `ABSTAIN` | `FAIL` | `CITATION_INVALID` |
-| Gate FAIL: JSON model hỏng hoặc đầu ra bị cắt | 200 | `ABSTAIN` | `FAIL` | `JSON_INVALID` |
+| Gate FAIL: JSON model hỏng, đầu ra không phải JSON (`LLM_OUTPUT_RAW_TEXT`) hoặc bị cắt | 200 | `ABSTAIN` | `FAIL` | `JSON_INVALID` |
 | Gate FAIL khác (ví dụ câu trả lời chứa ký tự CJK) | 200 | `ABSTAIN` | `FAIL` | `GROUNDING_FAIL` |
 | Qwen timeout | 504 | `ERROR` | `NOT_RUN` | `LLM_TIMEOUT` |
-| Lỗi nội bộ | 500 | `ERROR` | `NOT_RUN` | `INTERNAL_ERROR` |
+| Lỗi nội bộ sau định tuyến | 500 | `ERROR` | `NOT_RUN` | `INTERNAL_ERROR` |
+| Router lỗi hoặc trả `action` rỗng/không hỗ trợ | 500 | – (`ApiError`) | – | `INTERNAL_ERROR` |
 | Thiếu `X-API-Key` | 401 | – (`ApiError`) | – | `AUTH_REQUIRED` |
 | Key sai | 401 | – (`ApiError`) | – | `AUTH_REQUIRED` |
 | Body sai schema, câu hỏi quá dài | 422 | – (`ApiError`) | – | `INVALID_REQUEST` |
+| Router từ chối đầu vào (`INVALID_EMPTY_QUERY`, `INVALID_QUERY_TYPE`, `INVALID_AS_OF_DATE`) | 422 | – (`ApiError`, mã ở `details[].type`) | – | `INVALID_REQUEST` |
+
+Ánh xạ mã chi tiết → `error_code` theo bảng SRS 5.3.5 (`orchestration/ask_service.py`, `gate_fail_error_code`). Mã FAIL chưa có trong bảng thuộc `GROUNDING_FAIL`.
 
 Khi Gate FAIL, bản nháp của model không bao giờ được trả về: response chỉ có `abstention_message`, còn bản nháp chỉ nằm trong record nội bộ để phục vụ đánh giá.
 
