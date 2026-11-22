@@ -76,3 +76,19 @@ def test_event_log_written_with_one_query_id(tmp_path, capsys):
     rows = [json.loads(line) for line in log.read_text(encoding="utf-8").splitlines()]
     assert rows and {row["query_id"] for row in rows} == {"cli-log"}
     assert rows[0]["stage"] == "router" and rows[-1]["stage"] == "response"
+
+
+@pytest.mark.parametrize(("exc", "code", "message"), [
+    ("invalid", 2, "INVALID_EMPTY_QUERY"),
+    ("crash", 1, "INTERNAL_ERROR"),
+])
+def test_router_errors_exit_without_traceback(monkeypatch, capsys, exc, code, message):
+    from orchestration.ask_service import InvalidAskRequest, RoutingFailed
+
+    class Service:
+        def run(self, request):
+            raise InvalidAskRequest("INVALID_EMPTY_QUERY") if exc == "invalid" else RoutingFailed("router failed")
+
+    monkeypatch.setattr(cli, "build_ask_service", lambda settings, sink: Service())
+    assert cli.main(["--mock", LEGAL]) == code
+    assert message in capsys.readouterr().err

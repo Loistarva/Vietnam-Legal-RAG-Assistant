@@ -28,6 +28,7 @@ if str(ROOT) not in sys.path:
 
 from pydantic import ValidationError  # noqa: E402
 
+from orchestration.ask_service import InvalidAskRequest, RoutingFailed  # noqa: E402
 from orchestration.events import JsonlEventSink, NullEventSink  # noqa: E402
 from orchestration.wiring import ServiceSettings, build_ask_service  # noqa: E402
 from schemas.models import AskRequest, AskResponse  # noqa: E402
@@ -118,7 +119,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     settings = settings_from_args(args)
     sink = JsonlEventSink(settings.event_log) if settings.event_log else NullEventSink()
     service = build_ask_service(settings, sink=sink)
-    response = service.run(request).response
+    try:
+        response = service.run(request).response
+    except InvalidAskRequest as exc:
+        print(f"Input không hợp lệ: router từ chối ({exc.reason_code})", file=sys.stderr)
+        return EXIT_INVALID_INPUT
+    except RoutingFailed:
+        print("Lỗi INTERNAL_ERROR: hệ thống gặp lỗi khi định tuyến câu hỏi", file=sys.stderr)
+        return EXIT_CODES["ERROR"]
     if args.json:
         print(json.dumps(response.model_dump(mode="json"), ensure_ascii=False, indent=2))
     else:
