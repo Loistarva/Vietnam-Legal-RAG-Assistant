@@ -2,7 +2,7 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "b2a7d51a00c68ecd33d781630e0ede6821e7655bc9de41b14b399544dd980e4b",
+  "registry_canonical_sha256": "a8bb12391d74e2a94d3a1fd5890d4a8030b3302a347007318e2f576da4832d5b",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
     "bl_91_2015_qh13": {

@@ -12,6 +12,15 @@ parser/parsed_jsons/l_35_2013_qh13.json text eol=lf
 parser/parsed_jsons/l_73_2006_qh11.json text eol=lf
 data/staging/central_batch1/compatibility/parsed/l_35_2013_qh13.json text eol=lf
 data/staging/gap_completion_batch8/compatibility/parsed/l_73_2006_qh11.json text eol=lf
+# Archive exact pre-normalization bytes, including original CRLF text.
+data/staging/adoption_effectivity_20261123/archive/** -text -diff
+parser/parsed_jsons/nd_18_2026_nd_cp.json text eol=lf
+parser/parsed_jsons/tt_11_2021_tt_btp.json text eol=lf
+parser/cleaned_texts/nd_18_2026_nd_cp_congbao_61.txt text eol=lf
+parser/extracted_texts_qwen/nd_18_2026_nd_cp_congbao_61.txt text eol=lf
+data/staging/adoption_effectivity_20261123/candidate/*.txt text eol=lf
+data/staging/adoption_effectivity_20261123/candidate/parsed.json text eol=lf
+data/staging/central_batch1/compatibility/parsed/tt_11_2021_tt_btp.json text eol=lf
 
 # Preserve archived official source bytes used by corpus-v3 SHA-256 provenance.
 data/source_documents/corpus_v3/*.html -text

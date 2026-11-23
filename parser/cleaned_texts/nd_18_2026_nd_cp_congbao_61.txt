@@ -1053,15 +1053,15 @@ quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi
 đổi, bổ sung bởi Nghị định số 114/2016/NĐ-CP, Nghị định số 24/2019/NĐ-CP,
 Nghị định số 06/2025/NĐ-CP
 1. Sửa đổi, bổ sung Điều 7 như sau:
-“Điều 7. Hồ sơ đăng ký nuôi con nuôi
+“Điều 7 . Hồ sơ đăng ký nuôi con nuôi
 Hồ sơ của người nhận con nuôi và người được nhận làm con nuôi được
 lập thành 01 bộ, gồm các giấy tờ quy định tại Điều 17 và khoản 1 Điều 18 của
 Luật Nuôi con nuôi và được thực hiện như sau:
-1. Người nhận con nuôi nộp hồ sơ cho Ủy ban nhân dân cấp xã nơi có
+1 . Người nhận con nuôi nộp hồ sơ cho Ủy ban nhân dân cấp xã nơi có
 thẩm quyền giải quyết việc nuôi con nuôi thông qua hình thức nộp trực tiếp,
 gửi hồ sơ qua dịch vụ bưu chính hoặc nộp trực tuyến theo quy định của pháp
 luật về thực hiện thủ tục hành chính trên môi trường điện tử.
-2. Trường hợp Ủy ban nhân dân cấp xã nơi có thẩm quyền giải quyết việc
+2 . Trường hợp Ủy ban nhân dân cấp xã nơi có thẩm quyền giải quyết việc
 nuôi con nuôi khai thác được thông tin từ Cơ sở dữ liệu quốc gia về dân cư, cơ
 sở dữ liệu khác thì người nhận con nuôi không phải nộp thành phần hồ sơ là
 Hộ chiếu, Thẻ căn cước, Căn cước công dân, Phiếu lý lịch tư pháp, Văn bản
@@ -1073,7 +1073,7 @@ không đầy đủ, không chính xác thì Ủy ban nhân dân cấp xã nơi 
 giải quyết việc nuôi con nuôi yêu cầu người nhận con nuôi bổ sung thành phần
 hồ sơ; đồng thời đề nghị người nhận con nuôi cập nhật, điều chỉnh thông tin
 trong các cơ sở dữ liệu theo quy định của pháp luật.
-3. Đối với Văn bản xác nhận hoàn cảnh gia đình, tình trạng chỗ ở, điều
+3 . Đối với Văn bản xác nhận hoàn cảnh gia đình, tình trạng chỗ ở, điều
 kiện kinh tế của người nhận con nuôi quy định tại khoản 5 Điều 17 của Luật
 Nuôi con nuôi: Trường hợp người nhận con nuôi có nơi thường trú và nơi tạm
 trú khác nhau, trong 02 ngày làm việc kể từ ngày nhận được đề nghị của người
@@ -1281,8 +1281,10 @@ CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
 Độc lập - Tự do - Hạnh phúc
 ___________________________________
 SỔ ĐĂNG KÝ THẾ CHẤP1
-Áp dụng đối với biện pháp bảo đảm bằng tài sản gắn liền với đất không thuộc trường hợp đăng ký tài sản gắn liền với đất
-theo quy định của pháp luật về đất đai hoặc thuộc trường hợp đăng ký tài sản gắn liền với đất theo quy định của
+Áp dụng đối với biện pháp bảo đảm bằng tài sản gắn liền với đất không thuộc trường hợp đăng ký tài sản
+gắn liền với đất
+theo quy định của pháp luật về đất đai hoặc thuộc trường hợp đăng ký tài sản gắn liền với đất theo quy định
+của
 pháp luật về đất đai mà không phải là nhà ở nhưng chưa được đăng ký quyền sở hữu theo yêu cầu
 TÊN CƠ QUAN ĐĂNG KÝ:…………………………………………………
 Quyển số …….………………../……………………/
@@ -1291,17 +1293,22 @@ Khóa sổ ngày ….. tháng ….. năm …..
 1 Thông tin ghi vào Sổ đăng ký này phải thống nhất với thông tin trên Phiếu yêu cầu đăng ký.
 Thời điểm có hiệu lực của việc Số hồ sơ
 Số hồ sơ Tài sản thế chấp Người thực Số đăng ký3 đăng ký Bên thế Bên nhận Ghi đăng ký hiện đăng ký6
-TT2 thế chấp Loại tài chấp thế chấp chú7 Giờ, phút Ngày, tháng, năm biến động4 Địa chỉ9 (ký tên) lần đầu5 sản8
+TT2 thế chấp Loại tài chấp thế chấp chú7 Giờ, phút Ngày, tháng, năm biến động4 Địa chỉ9 (ký tên) lần đầu5
+sản8
 1 2 3 4 5 6 7 8 9 10 11
 Trang số ………./tổng số ………trang
 2 Ghi số thứ tự vào Sổ đăng ký.
 3 Thời điểm thông tin được ghi, cập nhật vào sổ này.
-4 Ghi mã số hồ sơ đăng ký tương ứng với mỗi Phiếu yêu cầu đăng ký cho từng trường hợp đăng ký lần đầu, đăng ký thay đổi, xóa đăng ký, đăng
+4 Ghi mã số hồ sơ đăng ký tương ứng với mỗi Phiếu yêu cầu đăng ký cho từng trường hợp đăng ký lần đầu,
+đăng ký thay đổi, xóa đăng ký, đăng
 ký thông báo xử lý tài sản bảo đảm và chuyển tiếp đăng ký thế chấp.
-5 Ghi mã số hồ sơ đăng ký lần đầu đối với một hợp đồng thế chấp có liên quan đến mỗi hồ sơ đăng ký nêu ở cột 4. Đối với trường hợp đăng ký thế
-chấp lần đầu thì mã số ghi ở cột 4 và cột 5 trùng nhau. Mã số của bộ hồ sơ thế chấp lấy theo mã số hồ sơ đăng ký lần đầu.
+5 Ghi mã số hồ sơ đăng ký lần đầu đối với một hợp đồng thế chấp có liên quan đến mỗi hồ sơ đăng ký nêu ở
+cột 4. Đối với trường hợp đăng ký thế
+chấp lần đầu thì mã số ghi ở cột 4 và cột 5 trùng nhau. Mã số của bộ hồ sơ thế chấp lấy theo mã số hồ sơ
+đăng ký lần đầu.
 6 Dành cho nhân viên của cơ quan đăng ký ký tên sau khi ghi đầy đủ thông tin vào Sổ đăng ký.
-7 Dành cho nhân viên của cơ quan đăng ký ghi chú nội dung cần thiết khác không thể hiện ở các cột tương ứng để làm rõ hơn thông tin ở các cột
+7 Dành cho nhân viên của cơ quan đăng ký ghi chú nội dung cần thiết khác không thể hiện ở các cột tương
+ứng để làm rõ hơn thông tin ở các cột
 này (ví dụ: ghi chú trường hợp đăng ký thông báo xử lý tài sản bảo đảm).
 8 Ghi tên loại tài sản thế chấp.
 9 Ghi vị trí và địa chỉ của tài sản thế chấp.

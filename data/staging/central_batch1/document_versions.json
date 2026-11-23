@@ -178,10 +178,10 @@
     "issue_date": "2021-12-28",
     "effective_date": "2022-02-11",
     "issuing_body": "Bộ Tư Pháp",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -208,7 +208,12 @@
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
     "production_ingest_allowed": true,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "69869b717a5c51c6662d6bf8cc457f656c63fc6d69b2a1c899f7e20d2a3058f3"
+    "parsed_json_sha256": "0c69f975f0c67daf32740bb3aafaa62fac7d1c177bfc5b52d550621a79fdaae9",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Khoản5,6 Điều1 và khoản2 Điều2 TT01/2025 dẫn rõ phần sửa đổi TT11/2021. Chỉ xác nhận có sửa đổi; chưa xác nhận hiện hành toàn văn hoặc toàn bộ khoảng hiệu lực bản trung gian.",
+    "known_amended_by": [
+      "01/2025/TT-BTP"
+    ]
   },
   {
     "document_id": "tt_01_2025_tt_btp",

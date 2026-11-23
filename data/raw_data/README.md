@@ -1,6 +1,6 @@
 # DATA - Legal RAG Assistant
 
-> Cập nhật thẩm định 23/11/2026: active84 văn bản; 12 bản hoãn và 3 bản ngoài phạm vi chuyển sang data/staging/corpus_review_20261122. Rà tiếp hiệu lực tại reports/data/effectivity_review_20261123/README.md; kiểm kê mới nhất tại thư mục đó ghi133 văn bản có tệp,136 mục theo dõi. Các ZIP/báo cáo đợt cũ là snapshot lịch sử.
+> Cập nhật thẩm định 23/11/2026: active84 văn bản,6.144 child; 12 bản hoãn và 3 bản ngoài phạm vi chuyển sang data/staging/corpus_review_20261122. Lượt rà mới nhất tại reports/data/adoption_effectivity_20261123/README.md; kiểm kê tại thư mục đó ghi133 văn bản có tệp,136 mục theo dõi. Các ZIP/báo cáo đợt cũ là snapshot lịch sử.
 
 ## 1. Giới thiệu
 
@@ -122,7 +122,7 @@ Hệ thống sử dụng bảng ánh xạ chuẩn hóa chính thức giữa mã 
 | **ND29** | `nd_110_2013_nd_cp` | 110/2013/NĐ-CP | Hết hiệu lực | quy định xử phạt vi phạm hành chính trong lĩnh vực bổ trợ tư pháp, hành chính tư pháp, hôn nhân và gia đình, thi hành án dân sự, phá sản doanh nghiệp, hợp tác xã |
 | **TT24** | `tt_66_2025_tt_bca` | 66/2025/TT-BCA | Không xác định | quy định công tác giám sát việc thực hiện quyết định cấm tiếp xúc theo quy định của Luật Phòng, chống bạo lực gia đình |
 | **ND30** | `nd_110_2025_nd_cp` | 110/2025/NĐ-CP | Không xác định | quy định Cơ sở dữ liệu về phòng, chống bạo lực gia đình |
-| **TT26** | `tt_11_2021_tt_btp` | 11/2021/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
+| **TT26** | `tt_11_2021_tt_btp` | 11/2021/TT-BTP | Sửa đổi bổ sung | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam |
 | **TT27** | `tt_01_2025_tt_btp` | 01/2025/TT-BTP | Không xác định | sửa đổi, bổ sung một số điều của Thông tư số 21/2011/TT-BTP ngày 21 tháng 11 năm 2011 của Bộ trưởng Bộ Tư pháp về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam đã được sửa đổi, bổ sung một số điều theo Thông tư số 11/2021/TT-BTP ngày 28 tháng 12 năm 2021 của Bộ trưởng Bộ Tư pháp |
 | **TT28** | `tt_24_2014_tt_btp` | 24/2014/TT-BTP | Hết hiệu lực | sửa đổi, bổ sung một số điều của Thông tư số 12/2011/TT-BTP ngày 27 tháng 6 năm 2011 của Bộ Tư pháp về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |
 | **TT32** | `tt_12_2011_tt_btp` | 12/2011/TT-BTP | Hết hiệu lực | về việc ban hành và hướng dẫn việc ghi chép, lưu trữ, sử dụng biểu mẫu nuôi con nuôi |

@@ -1,0 +1,22 @@
+[
+  {
+    "previous_path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+    "archive_path": "data/staging/adoption_effectivity_20261123/archive/data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+    "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134"
+  },
+  {
+    "previous_path": "parser/cleaned_texts/nd_18_2026_nd_cp_congbao_61.txt",
+    "archive_path": "data/staging/adoption_effectivity_20261123/archive/parser/cleaned_texts/nd_18_2026_nd_cp_congbao_61.txt",
+    "sha256": "b01c3c7e87af5364cc7e952fdefc663cb42c3ab41ac688c952df75d52a15001d"
+  },
+  {
+    "previous_path": "parser/extracted_texts_qwen/nd_18_2026_nd_cp_congbao_61.txt",
+    "archive_path": "data/staging/adoption_effectivity_20261123/archive/parser/extracted_texts_qwen/nd_18_2026_nd_cp_congbao_61.txt",
+    "sha256": "373cba5c2904e6d90893c7750c3debf050cdcd22b137fccc914a023042f0df6f"
+  },
+  {
+    "previous_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+    "archive_path": "data/staging/adoption_effectivity_20261123/archive/parser/parsed_jsons/nd_18_2026_nd_cp.json",
+    "sha256": "d84fa9c6de47f8401202c37b0c708bd81d9b516ecf2b6085f863df88b519ea67"
+  }
+]

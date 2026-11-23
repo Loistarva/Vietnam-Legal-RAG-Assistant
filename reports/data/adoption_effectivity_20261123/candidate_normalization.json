@@ -1,0 +1,32 @@
+{
+  "changed_articles": [
+    "14"
+  ],
+  "clause_heads": [
+    [
+      "1",
+      "1. Sửa đổi, bổ sung Điều 7 như sau: “Điều 7 . Hồ sơ đăng ký nuôi con nuôi Hồ sơ của người nhận con nuôi và người được nh"
+    ],
+    [
+      "2",
+      "2. Sửa đổi, bổ sung điểm g khoản 1 Điều 31 như sau: “g) Sơ yếu lý lịch tự thuật, phiếu lý lịch tư pháp, bản sao văn bằng"
+    ],
+    [
+      "3",
+      "3. Sửa đổi, bổ sung khoản 2 Điều 31 như sau: “2. Giấy tờ quy định tại khoản 1 Điều này được lập thành 01 bộ hồ sơ và nộp"
+    ],
+    [
+      "4",
+      "4. Sửa đổi, bổ sung khoản 2 Điều 35 như sau: “2. Trường hợp thay đổi người đứng đầu Văn phòng con nuôi nước ngoài tại Vi"
+    ],
+    [
+      "5",
+      "5. Thay thế một số cụm từ tại Nghị định số 19/2011/NĐ-CP quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi đ"
+    ]
+  ],
+  "candidate_pdf": "data/staging/adoption_effectivity_20261123/candidate/nd_18_2026_nd_cp_normalized.pdf",
+  "non_whitespace_character_stream_preserved": true,
+  "character_stream_sha256": "ba243bb1b483c85e6bf0fafe1f4eca7da9cac373e2219c4dd8ba39c36f39add3",
+  "active_basename": "nd_18_2026_nd_cp_congbao_61",
+  "title_fixture_and_test_logic_unchanged": true
+}

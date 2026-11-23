@@ -1,0 +1,16 @@
+[
+  {
+    "override_id": "nd_19_2011_fees_repealed_by_nd_114_2016",
+    "checked_chunks": 25,
+    "day_before": "2016-12-31",
+    "exclusive_end": "2017-01-01",
+    "result": "PASS"
+  },
+  {
+    "override_id": "nd_19_2011_art7_and_31_2_amended_2026",
+    "checked_chunks": 3,
+    "day_before": "2026-01-14",
+    "exclusive_end": "2026-01-15",
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "completed_on": "2026-11-23",
+  "base_commit": "45b012c",
+  "pytest": {
+    "passed": 2247,
+    "skipped": 1,
+    "subtests_passed": 233,
+    "seconds": 122.31
+  },
+  "source_pdf_manifest": "PASS",
+  "metadata_audit": {
+    "errors": 0,
+    "warnings": 84,
+    "ambiguous_aliases": 127
+  },
+  "negative_set": "PASS with2 pinned-baseline difference warnings",
+  "temporal_boundaries": "PASS;28 old chunks",
+  "active_documents": 84,
+  "active_parents": 2638,
+  "active_children": 6144,
+  "added_children": 9,
+  "unknown_validity_before": 33,
+  "unknown_validity_after": 32,
+  "code_changes": [],
+  "files_sha256": {
+    "data/reference/document_versions.json": "9f3b6c018cdc9ad4239823955fc2b5b75861e5a1f248e0983218a0db0115841c",
+    "data/reference/source_pdfs.json": "54e45539be430231ba7f0637a5c566a049cb9560e4955f061f72af5fec6546dd",
+    "data/reference/corpus_scope.json": "d0478f0052ee21bd0c4f2f125ae23a1db839c5f0b2ecdf86e2d746c75bbef7b4",
+    "data/reference/provision_periods.json": "fa8900d23a03736336cc8d1ac1ce2ca400bcd977bc4d9ae182b1aa754a01c934",
+    "data/reference/article_index.json": "0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e",
+    "data/reference/document_aliases.json": "da609fca442e12e5c8fdb98c3e7fd5c031034569937e4b5f8fa80eb93cd30116",
+    "data/reference/production_chunk_index.json": "2aabe27578277d955c79f5333ffba5551775552639015b632a51346d9d5f627c",
+    "data/chunking_output/chunks.jsonl": "a12bffc24ecce1d1d62eb99d1c106572b88a2167b42d5fd533a0c4fce4420f19",
+    "data/chunking_output/parents.json": "af2d24ef9bbd2cb715a5ec0988c0826ab5355387f4ac31c53893b8fd992b9b51"
+  }
+}

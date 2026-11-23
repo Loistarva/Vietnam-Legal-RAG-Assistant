@@ -12,9 +12,10 @@
     "nd_18_2026_nd_cp": {
       "articles": [
         "13",
+        "14",
         "17"
       ],
-      "reason": "Điều 13 sửa Nghị định 123/2015/NĐ-CP (hộ tịch), Điều 17 là điều khoản thi hành. Bỏ các Điều sửa nghị định về trọng tài, luật sư, công chứng, thi hành án, thừa phát lại, đăng ký biện pháp bảo đảm, nuôi con nuôi và các nghị định khác ngoài phạm vi corpus."
+      "reason": "Điều13 sửa hộ tịch, Điều14 sửa nuôi con nuôi (NĐ19/2011 và các văn bản sửa đổi), Điều17 thi hành. Điều14 đã đối chiếu nguồn và bảo vệ số Khoản bên trong đoạn trích bằng khoảng trắng, để parser giữ đúng5 Khoản sửa đổi bên ngoài. Không nhận các lĩnh vực khác."
     },
     "tt_04_2024_tt_btp": {
       "articles": [

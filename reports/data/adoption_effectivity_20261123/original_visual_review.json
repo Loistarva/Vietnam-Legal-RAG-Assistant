@@ -1,0 +1,17 @@
+[
+  {
+    "source_path": "data/source_documents/adoption_effectivity_20261123/nd_18_2026_nd_cp_original.pdf",
+    "page": 31,
+    "render": "reports/data/adoption_effectivity_20261123/nd18_original_page31.png"
+  },
+  {
+    "source_path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+    "page": 3,
+    "render": "reports/data/adoption_effectivity_20261123/tt01_original_page3.png"
+  },
+  {
+    "source_path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+    "page": 4,
+    "render": "reports/data/adoption_effectivity_20261123/tt01_original_page4.png"
+  }
+]

@@ -1,0 +1,894 @@
+{
+  "summary": {
+    "counting_unit": "Unique document; original/normalized/staging copies are not additional documents.",
+    "counts": {
+      "technical_pass_in_active_corpus": 84,
+      "held_scope_temporal_review": 23,
+      "excluded_out_of_scope_archived": 6,
+      "held_technical_or_source_verification": 20,
+      "not_downloaded": 3
+    },
+    "documents_with_files": 133,
+    "tracked_candidates_including_missing_files": 136,
+    "note": "Adds future Law16/2026 original; consolidated45 is evidence for existing Law73/2006, not counted as another corpus law.",
+    "review_date": "2026-11-23"
+  },
+  "documents": [
+    {
+      "document_id": "l_52_2014_qh13",
+      "document_number": "52/2014/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_126_2014_nd_cp",
+      "document_number": "126/2014/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_207_2025_nd_cp",
+      "document_number": "207/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nq_01_2024_nq_hdtp",
+      "document_number": "01/2024/NQ-HĐTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_02a_2015_tt_btp",
+      "document_number": "02a/2015/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_32_2016_tt_byt",
+      "document_number": "32/2016/TT-BYT",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_34_2017_tt_byt",
+      "document_number": "34/2017/TT-BYT",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_30_2019_tt_byt",
+      "document_number": "30/2019/TT-BYT",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_22_2000_qh10",
+      "document_number": "22/2000/QH10",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_21_lct_hdnn7",
+      "document_number": "21-LCT/HĐNN7",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_70_2001_nd_cp",
+      "document_number": "70/2001/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_32_2002_nd_cp",
+      "document_number": "32/2002/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_68_2002_nd_cp",
+      "document_number": "68/2002/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_77_2001_nd_cp",
+      "document_number": "77/2001/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_07_2001_tt_btp",
+      "document_number": "07/2001/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_07_2002_tt_btp",
+      "document_number": "07/2002/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_15_2015_tt_btp",
+      "document_number": "15/2015/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_10_2015_nd_cp",
+      "document_number": "10/2015/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_04_2020_tt_btp",
+      "document_number": "04/2020/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_57_2015_tt_byt",
+      "document_number": "57/2015/TT-BYT",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_38_2025_tt_byt",
+      "document_number": "38/2025/TT-BYT",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_123_2015_nd_cp",
+      "document_number": "123/2015/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_81_2025_qh15",
+      "document_number": "81/2025/QH15",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_87_2020_nd_cp",
+      "document_number": "87/2020/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_07_2025_nd_cp",
+      "document_number": "07/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_18_2026_nd_cp",
+      "document_number": "18/2026/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_04_2024_tt_btp",
+      "document_number": "04/2024/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_102_2016_qh13",
+      "document_number": "102/2016/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "bl_92_2015_qh13",
+      "document_number": "92/2015/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_34_2024_qh15",
+      "document_number": "34/2024/QH15",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_24_2019_nd_cp",
+      "document_number": "24/2019/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_06_2025_nd_cp",
+      "document_number": "06/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_07_2023_tt_btp",
+      "document_number": "07/2023/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_104_2022_nd_cp",
+      "document_number": "104/2022/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_120_2025_nd_cp",
+      "document_number": "120/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_85_2025_qh15",
+      "document_number": "85/2025/QH15",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_10_2025_tt_btp",
+      "document_number": "10/2025/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_63_2024_nd_cp",
+      "document_number": "63/2024/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_58_2020_qh14",
+      "document_number": "58/2020/QH14",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_01_2022_tt_btp",
+      "document_number": "01/2022/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_03_2023_tt_btp",
+      "document_number": "03/2023/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_07_2023_tt_bng",
+      "document_number": "07/2023/TT-BNG",
+      "category": "held_scope_temporal_review",
+      "reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_07_2025_tt_bng",
+      "document_number": "07/2025/TT-BNG",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_60_2014_qh13",
+      "document_number": "60/2014/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_52_2010_qh12",
+      "document_number": "52/2010/QH12",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_13_2022_qh15",
+      "document_number": "13/2022/QH15",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_10_2020_tt_btp",
+      "document_number": "10/2020/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_35_2013_qh13",
+      "document_number": "35/2013/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "document_number": "19/2011/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_76_2023_nd_cp",
+      "document_number": "76/2023/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_114_2016_nd_cp",
+      "document_number": "114/2016/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_15_2014_nd_cp",
+      "document_number": "15/2014/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nq_326_2016_ubtvqh14",
+      "document_number": "326/2016/UBTVQH14",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "document_number": "91/2015/QH13",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_09_2022_tt_btp",
+      "document_number": "09/2022/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_301_2026_nd_cp",
+      "document_number": "301/2026/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_24_2013_nd_cp",
+      "document_number": "24/2013/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_22_2013_tt_btp",
+      "document_number": "22/2013/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_16_2010_tt_btp",
+      "document_number": "16/2010/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_110_2013_nd_cp",
+      "document_number": "110/2013/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_66_2025_tt_bca",
+      "document_number": "66/2025/TT-BCA",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_110_2025_nd_cp",
+      "document_number": "110/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_24_2011_tt_bvhttdl",
+      "document_number": "24/2011/TT-BVHTTDL",
+      "category": "held_scope_temporal_review",
+      "reason": "Chưa xác minh đầy đủ quan hệ với khung pháp luật phòng chống bạo lực gia đình mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_11_2021_tt_btp",
+      "document_number": "11/2021/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_01_2025_tt_btp",
+      "document_number": "01/2025/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_24_2014_tt_btp",
+      "document_number": "24/2014/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_06_2012_nd_cp",
+      "document_number": "06/2012/NĐ-CP",
+      "category": "held_scope_temporal_review",
+      "reason": "Chưa xác minh đầy đủ hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_12_2011_tt_btp",
+      "document_number": "12/2011/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_15_2014_tt_btp",
+      "document_number": "15/2014/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_21_2011_tt_btp",
+      "document_number": "21/2011/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_158_2005_nd_cp",
+      "document_number": "158/2005/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_83_1998_nd_cp",
+      "document_number": "83/1998/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_02_2007_qh12",
+      "document_number": "02/2007/QH12",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_08_2009_nd_cp",
+      "document_number": "08/2009/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_110_2009_nd_cp",
+      "document_number": "110/2009/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_06_2012_ttlt_btp_bng",
+      "document_number": "06/2012/TTLT-BTP-BNG",
+      "category": "held_scope_temporal_review",
+      "reason": "Văn bản sửa đổi thiếu nguồn gốc TTLT 11/2008 có chất lượng ingest đạt yêu cầu.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_08_2025_tt_btp",
+      "document_number": "08/2025/TT-BTP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_143_2011_ttlt_btc_bvhttdl",
+      "document_number": "143/2011/TTLT-BTC-BVHTTDL",
+      "category": "excluded_out_of_scope_archived",
+      "reason": "Quản lý kinh phí ngân sách; loại khỏi phạm vi retrieval HNGĐ. Giữ nguồn phục vụ truy vết.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_58_2024_tt_btc",
+      "document_number": "58/2024/TT-BTC",
+      "category": "excluded_out_of_scope_archived",
+      "reason": "Bãi bỏ văn bản về kinh phí ngân sách; giữ làm căn cứ truy vết ngoài retrieval HNGĐ.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+      "document_number": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
+      "category": "held_scope_temporal_review",
+      "reason": "Cần xác minh hiệu lực và phạm vi áp dụng theo khung pháp luật phòng chống bạo lực gia đình mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_12_2013_tt_bvhttdl",
+      "document_number": "12/2013/TT-BVHTTDL",
+      "category": "held_scope_temporal_review",
+      "reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_23_2011_tt_bvhttdl",
+      "document_number": "23/2011/TT-BVHTTDL",
+      "category": "held_scope_temporal_review",
+      "reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "nd_282_2025_nd_cp",
+      "document_number": "282/2025/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_347_2026_nd_cp",
+      "document_number": "347/2026/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+      "document_number": "13/2025/TTLT-BTP-BNG-TANDTC",
+      "category": "held_scope_temporal_review",
+      "reason": "Cần đối chiếu chuỗi tố tụng, hòa giải và hướng dẫn mới trước duyệt phạm vi.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_03_2020_tt_tandtc",
+      "document_number": "03/2020/TT-TANDTC",
+      "category": "held_scope_temporal_review",
+      "reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "tt_02_2020_tt_tandtc",
+      "document_number": "02/2020/TT-TANDTC",
+      "category": "held_scope_temporal_review",
+      "reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "document_number": "01/2019/TTLT-TANDTC-BNG",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
+      "document_number": "12/2016/TTLT-BTP-BNG-TANDTC",
+      "category": "held_scope_temporal_review",
+      "reason": "Thiếu luật mẹ 08/2007 trong active và cần rà chuyển tiếp sang luật tương trợ tư pháp mới.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "l_102_2025_qh15",
+      "document_number": "102/2025/QH15",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nd_158_2026_nd_cp",
+      "document_number": "158/2026/NĐ-CP",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "nq_38_2026_nq_hdnd_ho_chi_minh",
+      "document_number": "38/2026/NQ-HĐND",
+      "category": "excluded_out_of_scope_archived",
+      "reason": "Phạm vi TP.HCM, chủ yếu chế độ cộng tác viên; pipeline hiện chưa có bộ lọc địa bàn.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "l_73_2006_qh11",
+      "document_number": "73/2006/QH11",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_24_2008_qh12",
+      "document_number": "24/2008/QH12",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+      "document_number": "05/2015/TTLT-BTP-BCA-BYT",
+      "category": "held_scope_temporal_review",
+      "reason": "Thủ tục giấy lịch sử; chưa xác minh đầy đủ quan hệ với ND63/2024 và ND301/2026. Không dùng làm thủ tục hiện hành.",
+      "review_manifest": "data/staging/corpus_review_20261122/review_decisions.json"
+    },
+    {
+      "document_id": "l_68_2020_qh14",
+      "document_number": "68/2020/QH14",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "l_11_2017_qh14",
+      "document_number": "11/2017/QH14",
+      "category": "technical_pass_in_active_corpus"
+    },
+    {
+      "document_id": "tt_08a_2010_tt_btp",
+      "document_number": "08a/2010/TT-BTP",
+      "batch": "central_batch1",
+      "status": "held_outside_active_corpus",
+      "reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08a-2010-tt-btp-264.htm",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_24_2017_tt_byt",
+      "document_number": "24/2017/TT-BYT",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Official signed PDF pp8–9 and Gazette both repeat Article16; attached Word has draft/revision concatenations such as Article56/67/910. Original preserved; no renumbering or unverified OCR ingest.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=190310",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_09b_2013_tt_btp",
+      "document_number": "09b/2013/TT-BTP",
+      "batch": "central_batch1",
+      "status": "held_outside_active_corpus",
+      "reason": "Sửa đổi biểu mẫu hộ tịch nhiều loại việc; chưa duyệt phạm vi chi tiết.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-09b-2013-tt-btp-6923.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "nd_82_2020_nd_cp",
+      "document_number": "82/2020/NĐ-CP",
+      "batch": "central_batch1",
+      "status": "held_outside_active_corpus",
+      "reason": "PDF nguồn quét/thiếu lớp chữ hoặc số hiệu kiểu cũ chưa tương thích parser; giữ bản nguồn, chưa có bản nạp được xác nhận.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200523",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nd_144_2021_nd_cp",
+      "document_number": "144/2021/NĐ-CP",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Existing official signed source is scanned; no complete native text or verified compatible derivative recovered. NĐ282/2025 replaces it; do not fabricate historical content.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=204979",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nd_67_2015_nd_cp",
+      "document_number": "67/2015/NĐ-CP",
+      "batch": "central_batch1",
+      "status": "held_outside_active_corpus",
+      "reason": "Điều 1 trộn sửa đổi nhiều lĩnh vực; allowlist hiện tại chỉ theo Điều nên chưa đưa vào corpus.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-67-2015-nd-cp-16138.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "tt_05_2012_tt_btp",
+      "document_number": "05/2012/TT-BTP",
+      "batch": "central_batch1",
+      "status": "held_outside_active_corpus",
+      "reason": "Sửa đổi biểu mẫu hộ tịch nhiều loại việc; chưa duyệt phạm vi chi tiết.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-05-2012-tt-btp-6922.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "ttlt_02_2016_ttlt_bng_btp",
+      "document_number": "02/2016/TTLT-BNG-BTP",
+      "batch": "foreign_civil_registration_batch3",
+      "status": "held_outside_active_corpus",
+      "reason": "Official PDF is scanned; no complete text layer. Do not ingest guessed or incomplete Articles.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-bng-btp-20442.htm",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nd_69_2006_nd_cp",
+      "document_number": "69/2006/NĐ-CP",
+      "batch": "corpus_v3",
+      "status": "held_outside_active_corpus",
+      "reason": "NĐ19/2011 Điều51.2 dẫn Khoản8–13 Điều2 NĐ69/2006, trong khi bản Word chính thức và toàn văn CSDL trình bày sửa đổi ở Điều1. Không tự sửa nội dung hoặc tự gán phạm vi bãi bỏ. Cần rà soát cấp Khoản và các giai đoạn áp dụng trước khi index.",
+      "source_url": "https://moit.gov.vn/van-ban-phap-luat/van-ban-phap-quy/-nghi-dinh-cua-chinh-phu-ve-viec-sua-doi-bo-sung-mot-so-dieu4.html",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "ttlt_02_2016_ttlt_vksndtc_tandtc",
+      "document_number": "02/2016/TTLT-VKSNDTC-TANDTC",
+      "batch": "dispute_resolution_batch6",
+      "status": "held_outside_active_corpus",
+      "reason": "Original Article18 heading is81 words, beyond current parser MAX_TITLE_WORDS80; parser truncates title to Gửi quyết định của. Preserve full original/normalized PDF, do not change parser or mislabel the heading.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-02-2016-ttlt-vksndtc-tandtc-21045.htm",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nd_16_2021_nd_cp",
+      "document_number": "16/2021/NĐ-CP",
+      "batch": "dispute_resolution_batch6",
+      "status": "held_outside_active_corpus",
+      "reason": "Official source lacks complete native text or has footnotes/revisions requiring review; preserve original, do not ingest incomplete text.",
+      "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=202743&pageid=27160",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_07_2026_tt_btp",
+      "document_number": "07/2026/TT-BTP",
+      "batch": "dispute_resolution_batch6",
+      "status": "held_outside_active_corpus",
+      "reason": "Official source lacks complete native text or has footnotes/revisions requiring review; preserve original, do not ingest incomplete text.",
+      "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=218261&pageid=27160",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_27_2026_tt_bvhttdl",
+      "document_number": "27/2026/TT-BVHTTDL",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Final PDF/parser/schema verified and effective2027-01-01. Current registry source_status mapping does not support Sắp có hiệu lực (test/schema_test.py); stage until effective date or owner-supported status mapping. Do not mislabel as currently effective or change test/code.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-27-2026-tt-bvhttdl-470917.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "tt_23_2014_tt_bvhttdl",
+      "document_number": "23/2014/TT-BVHTTDL",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Provincial official attachment has Dự thảo 11 (09/2/3/2010) in its header. Do not treat as verified final promulgated text; needs a final signed/Gazette source.",
+      "source_url": "https://tthc.hue.gov.vn/Content/Vanban/chitiet?iVanBan=1389",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_02_2010_tt_bvhttdl",
+      "document_number": "02/2010/TT-BVHTTDL",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Legacy ministry URL now returns no document; not a usable official attachment. Need final original.",
+      "source_url": "https://bvhttdl.gov.vn/van-ban-quan-ly/309.htm",
+      "has_source_file": false,
+      "category": "not_downloaded"
+    },
+    {
+      "document_id": "tt_07_2017_tt_bvhttdl",
+      "document_number": "07/2017/TT-BVHTTDL",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Official Hanoi host DNS unavailable after permitted retry; ministry article has no complete downloadable legal original.",
+      "source_url": "https://sovhtt.hanoi.gov.vn/wp-content/uploads/2019/01/07.pdf",
+      "has_source_file": false,
+      "category": "not_downloaded"
+    },
+    {
+      "document_id": "tt_16_2009_tt_byt",
+      "document_number": "16/2009/TT-BYT",
+      "batch": "domestic_violence_batch5",
+      "status": "held_outside_active_corpus",
+      "reason": "Official article page found, but no complete downloadable legal original; no guessed text.",
+      "source_url": "https://giadinh.bvhttdl.gov.vn/van-ban/huong-dan-viec-tiep-nhan-cham-soc-y-te-va-thong-ke-bao-cao-doi-voi-nguoi-benh-la-nan-nhan-bao-luc-gia-dinh-tai-co-so-kham-benh-chua-benh/",
+      "has_source_file": false,
+      "category": "not_downloaded"
+    },
+    {
+      "document_id": "ttlt_11_2008_ttlt_btp_bng",
+      "document_number": "11/2008/TTLT-BTP-BNG",
+      "batch": "foreign_civil_registration_batch3",
+      "status": "held_outside_active_corpus",
+      "reason": "Official PDF is scanned; no complete text layer. Do not ingest guessed or incomplete Articles.",
+      "source_url": "https://vanban.chinhphu.vn/default.aspx?docid=82911&pageid=27160",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "l_79_2025_qh15",
+      "document_number": "79/2025/QH15",
+      "batch": "gap_completion_batch8",
+      "status": "held_outside_active_corpus",
+      "reason": "Article1 mixes amendments to nationality acquisition, loss, public office and family matters. Existing scope supports whole Articles only; preserve original and full archive PDF, do not index unrelated amendments as HNGD.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-79-2025-qh15-45509.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "l_05_2026_qh16",
+      "document_number": "05/2026/QH16",
+      "batch": "gap_completion_batch8",
+      "status": "held_outside_active_corpus",
+      "reason": "Effective2027-01-01 per Article3 and Gazette metadata; future law held outside current active registry. No early application of expanded legal-aid eligibility.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-05-2026-qh16-469532.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "l_56_2014_qh13",
+      "document_number": "56/2014/QH13",
+      "batch": "gap_completion_batch8",
+      "status": "held_outside_active_corpus",
+      "reason": "Signed original has no complete native text. Preserve PDF; no unverified OCR ingestion.",
+      "source_url": "https://vanban.chinhphu.vn/?docid=175354&pageid=27160",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "l_118_2025_qh15",
+      "document_number": "118/2025/QH15",
+      "batch": "gap_completion_batch8",
+      "status": "held_outside_active_corpus",
+      "reason": "Omnibus law changes10 laws. Preserve as amendment evidence; only whole-Article scoping is supported. Base residence Articles12,20 and related procedures withheld pending precise current family-rule review.",
+      "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-118-2025-qh15-468680.htm",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "nd_87_2001_nd_cp",
+      "document_number": "87/2001/NĐ-CP",
+      "batch": "history_batch2",
+      "status": "held_outside_active_corpus",
+      "reason": "(23, 25)",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9910",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nq_35_2000_qh10",
+      "document_number": "35/2000/QH10",
+      "batch": "history_batch2",
+      "status": "held_outside_active_corpus",
+      "reason": "Original numbered sections or unsupported legal type/identifier. Do not invent Articles or map a Pháp lệnh to another type.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=9622",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "pl_28_l_ctn",
+      "document_number": "28/L/CTN",
+      "batch": "history_batch2",
+      "status": "held_outside_active_corpus",
+      "reason": "Official attachment contains Lệnh 28-L/CTN promulgating a separate Pháp lệnh. Do not treat the promulgating order number as the ordinance number; legal type/identity and body boundary require review.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=1822",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "nd_12_2003_nd_cp",
+      "document_number": "12/2003/NĐ-CP",
+      "batch": "history_batch2",
+      "status": "held_outside_active_corpus",
+      "reason": "(4, 26)",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=11538",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "tt_01_2008_tt_btp",
+      "document_number": "01/2008/TT-BTP",
+      "batch": "history_batch2",
+      "status": "held_outside_active_corpus",
+      "reason": "Original numbered sections or unsupported legal type/identifier. Do not invent Articles or map a Pháp lệnh to another type.",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=71820",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "qd_17_2026_qd_ubnd_ho_chi_minh",
+      "document_number": "17/2026/QĐ-UBND",
+      "batch": "local_documents_batch7",
+      "status": "held_outside_active_corpus",
+      "reason": "Cleaner/parser/schema passed13 Articles, but existing document_aliases.validate_registry rejects document_type Quyết định. Keep full normalized PDF and parsed candidate in staging; no code change or type mislabeling.",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/17-2026-qd-ubnd/ngay/06-04-2026/49185",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "hcm_18_2026_nq_hdnd",
+      "document_number": "18/2026/NQ-HĐND",
+      "batch": "local_documents_batch7",
+      "status": "held_outside_active_corpus",
+      "reason": "Fee amounts are in an attached table outside Article structure. Do not publish cover Articles without the substantive fee schedule; preserve full official PDF pending supported table representation.",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/nghi-quyet/so/18-2026-nq-hdnd/ngay/19-06-2026/49517",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "hcm_1990_qd_ubnd",
+      "document_number": "1990/QĐ-UBND",
+      "batch": "local_documents_batch7",
+      "status": "held_outside_active_corpus",
+      "reason": "Yearless administrative decision number and repeal-only administrative-procedure content; preserve for reference without inventing a year in the identifier.",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/1990-qd-ubnd/ngay/03-04-2026/49356",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "hcm_72_2011_qd_ubnd",
+      "document_number": "72/2011/QĐ-UBND",
+      "batch": "local_documents_batch7",
+      "status": "held_outside_active_corpus",
+      "reason": "Cover Articles1–3 then attached regulation restarts Articles1–12. Current parser cannot preserve both namespaces without code changes.",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/72-2011-qd-ubnd/ngay/10-11-2011/31836",
+      "has_source_file": true,
+      "category": "held_technical_or_source_verification"
+    },
+    {
+      "document_id": "hcm_93_2006_qd_ubnd",
+      "document_number": "93/2006/QĐ-UBND",
+      "batch": "local_documents_batch7",
+      "status": "held_outside_active_corpus",
+      "reason": "Historical general mediation expenditure, no express marriage/family restriction. Preserve as supporting reference rather than broaden this local family-law tranche.",
+      "source_url": "https://congbao.hochiminhcity.gov.vn/cong-bao/van-ban/quyet-dinh/so/93-2006-qd-ubnd/ngay/29-06-2006/29088",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "nd_56_2017_nd_cp",
+      "document_number": "56/2017/NĐ-CP",
+      "batch": "corpus_v2",
+      "status": "held_outside_active_corpus",
+      "reason": "Technical or legal review outstanding; see originating batch report",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=189758",
+      "has_source_file": true,
+      "category": "held_scope_temporal_review"
+    },
+    {
+      "document_id": "nd_06_2011_nd_cp",
+      "document_number": "06/2011/NĐ-CP",
+      "category": "excluded_out_of_scope_archived"
+    },
+    {
+      "document_id": "nd_28_2012_nd_cp",
+      "document_number": "28/2012/NĐ-CP",
+      "category": "excluded_out_of_scope_archived"
+    },
+    {
+      "document_id": "l_51_2010_qh12",
+      "document_number": "51/2010/QH12",
+      "category": "excluded_out_of_scope_archived"
+    },
+    {
+      "document_id": "l_16_2026_qh16",
+      "document_number": "16/2026/QH16",
+      "category": "held_scope_temporal_review",
+      "reason": "Future replacement with transitional exception; full original acquired as effectivity evidence, not normalized or ingested as current law."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "num_documents": 84,
-  "num_parents": 2632,
-  "num_children": 6135,
+  "num_parents": 2638,
+  "num_children": 6144,
   "num_duplicate_child_ids": 0,
   "chunker": "chunking/chunking_rules.py::chunk_parsed_file",
   "chunking_config": {
@@ -423,9 +423,9 @@
       "document_id": "nd_18_2026_nd_cp",
       "document_number": "18/2026/NĐ-CP",
       "validity_status": "Còn hiệu lực",
-      "num_articles": 2,
-      "num_parents": 7,
-      "num_children": 12
+      "num_articles": 3,
+      "num_parents": 13,
+      "num_children": 21
     },
     {
       "source": "parser/parsed_jsons/nd_19_2011_nd_cp.json",
@@ -710,7 +710,7 @@
       "source": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
       "document_id": "tt_11_2021_tt_btp",
       "document_number": "11/2021/TT-BTP",
-      "validity_status": "Không xác định",
+      "validity_status": "Sửa đổi bổ sung",
       "num_articles": 3,
       "num_parents": 5,
       "num_children": 13
@@ -2902,6 +2902,7 @@
     "nd_18_2026_nd_cp": {
       "included": [
         "13",
+        "14",
         "17"
       ],
       "excluded": [
@@ -2917,7 +2918,6 @@
         "10",
         "11",
         "12",
-        "14",
         "15",
         "16",
         "18"
@@ -3385,11 +3385,13 @@
     "review_20261122_tt_10_2020_tt_btp_6": 7,
     "review_20261122_tt_21_2011_tt_btp_7": 3,
     "review_20261122_tt_21_2011_tt_btp_9": 7,
-    "review_20261122_tt_01_2022_tt_btp_10": 1
+    "review_20261122_tt_01_2022_tt_btp_10": 1,
+    "nd_19_2011_fees_repealed_by_nd_114_2016": 25,
+    "nd_19_2011_art7_and_31_2_amended_2026": 3
   },
   "warnings": [
     "Các kiểm tra chunk xác nhận bảo toàn nội dung parser, không thay thế đối chiếu pháp lý với văn bản chính thức.",
-    "validity_status 'Không xác định' ở 33 văn bản: ['bl_91_2015_qh13.json', 'l_102_2025_qh15.json', 'l_11_2017_qh14.json', 'l_13_2022_qh15.json', 'l_24_2008_qh12.json', 'l_52_2010_qh12.json', 'l_60_2014_qh13.json', 'l_68_2020_qh14.json', 'l_85_2025_qh15.json', 'nd_06_2025_nd_cp.json', 'nd_104_2022_nd_cp.json', 'nd_110_2025_nd_cp.json', 'nd_114_2016_nd_cp.json', 'nd_120_2025_nd_cp.json', 'nd_158_2026_nd_cp.json', 'nd_15_2014_nd_cp.json', 'nd_282_2025_nd_cp.json', 'nd_301_2026_nd_cp.json', 'nd_347_2026_nd_cp.json', 'nd_76_2023_nd_cp.json', 'nq_326_2016_ubtvqh14.json', 'tt_01_2025_tt_btp.json', 'tt_03_2023_tt_btp.json', 'tt_07_2025_tt_bng.json', 'tt_08_2025_tt_btp.json', 'tt_09_2022_tt_btp.json', 'tt_10_2025_tt_btp.json', 'tt_11_2021_tt_btp.json', 'tt_15_2014_tt_btp.json', 'tt_30_2019_tt_byt.json', 'tt_66_2025_tt_bca.json', 'ttlt_01_2019_ttlt_tandtc_bng.json', 'ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json']",
+    "validity_status 'Không xác định' ở 32 văn bản: ['bl_91_2015_qh13.json', 'l_102_2025_qh15.json', 'l_11_2017_qh14.json', 'l_13_2022_qh15.json', 'l_24_2008_qh12.json', 'l_52_2010_qh12.json', 'l_60_2014_qh13.json', 'l_68_2020_qh14.json', 'l_85_2025_qh15.json', 'nd_06_2025_nd_cp.json', 'nd_104_2022_nd_cp.json', 'nd_110_2025_nd_cp.json', 'nd_114_2016_nd_cp.json', 'nd_120_2025_nd_cp.json', 'nd_158_2026_nd_cp.json', 'nd_15_2014_nd_cp.json', 'nd_282_2025_nd_cp.json', 'nd_301_2026_nd_cp.json', 'nd_347_2026_nd_cp.json', 'nd_76_2023_nd_cp.json', 'nq_326_2016_ubtvqh14.json', 'tt_01_2025_tt_btp.json', 'tt_03_2023_tt_btp.json', 'tt_07_2025_tt_bng.json', 'tt_08_2025_tt_btp.json', 'tt_09_2022_tt_btp.json', 'tt_10_2025_tt_btp.json', 'tt_15_2014_tt_btp.json', 'tt_30_2019_tt_byt.json', 'tt_66_2025_tt_bca.json', 'ttlt_01_2019_ttlt_tandtc_bng.json', 'ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.json']",
     "6 mảnh dưới 20 từ của Khoản bị tách, không gộp được trong giới hạn: ['l_81_2025_qh15_art_2_clause_11_chunk_20', 'nd_123_2015_nd_cp_art_4_clause_1_chunk_3', 'nd_123_2015_nd_cp_art_26_clause_1_chunk_1', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_3', 'nd_126_2014_nd_cp_art_63_clause_1_chunk_7', 'nd_18_2026_nd_cp_art_13_clause_4_chunk_1']",
     "Intro bị cắt bớt trong embed_text (giới hạn 60 từ / 256 token) ở 12 Điều: ['nd_120_2025_nd_cp.json Điều 10', 'nd_123_2015_nd_cp.json Điều 10', 'nd_158_2026_nd_cp.json Điều 7', 'nd_19_2011_nd_cp.json Điều 7', 'nd_19_2011_nd_cp.json Điều 13', 'nd_24_2013_nd_cp.json Điều 42', 'nd_32_2002_nd_cp.json Điều 3', 'nq_01_2024_nq_hdtp.json Điều 10', 'tt_01_2022_tt_btp.json Điều 3', 'tt_07_2002_tt_btp.json Điều 2', 'tt_15_2015_tt_btp.json Điều 6', 'tt_22_2013_tt_btp.json Điều 9']"
   ]

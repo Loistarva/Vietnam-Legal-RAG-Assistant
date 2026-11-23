@@ -1,0 +1,15 @@
+{
+  "count": 26,
+  "labels": {
+    "non_legal": 6,
+    "legal_out_of_scope": 8,
+    "missing_corpus_evidence": 6,
+    "insufficient_facts": 6
+  },
+  "issues": [],
+  "warnings": [
+    "Working dataset differs from pinned baseline: data/reference/document_versions.json; coverage re-checked on current checkout",
+    "Working dataset differs from pinned baseline: data/chunking_output/chunks.jsonl; coverage re-checked on current checkout"
+  ],
+  "review_status": "pending_peer_review"
+}

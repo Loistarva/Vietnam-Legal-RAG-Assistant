@@ -556,15 +556,19 @@
     "source_url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
     "priority": "P1",
     "reason": "Điều 13 sửa đổi, bổ sung, bãi bỏ một số điều của Nghị định 123/2015/NĐ-CP từ 15/01/2026 (D1).",
-    "download_status": "Đã tải PDF chính thức ngày 2026-11-07 từ https://congbaocdn.chinhphu.vn/180507251028987904/2026/1/29/18signed-1769674108244123996285.pdf; lưu tại data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf (SHA-256 c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134); có lớp chữ, cleaner trích bằng PyMuPDF, không OCR.",
-    "verified_at": "2026-11-07",
+    "download_status": "Normalized unsigned ingest derivative from official Gazette; data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf; SHA-256 c36725c7df3c5e70f75fc844633d8344de7b6e8d3dedda62bd5cdacda9c4e241. Original retained separately; no OCR.",
+    "verified_at": "2026-11-23",
     "verification_scope": "Ngày ban hành, ngày hiệu lực đối chiếu với văn bản gốc; trạng thái hiệu lực của chính văn bản này chưa kiểm cấp điều/khoản",
     "title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
     "provision_status": "document_level_only",
     "issuing_body": "Chính phủ",
     "document_id": "nd_18_2026_nd_cp",
     "file_code": "ND13",
-    "source_status": "Còn hiệu lực"
+    "source_status": "Còn hiệu lực",
+    "original_source_path": "data/source_documents/adoption_effectivity_20261123/nd_18_2026_nd_cp_original.pdf",
+    "original_source_sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
+    "normalization_note": "Only whitespace within quoted Article14 numbering changed. Full non-whitespace character stream preserved; all other parsed Articles identical. Correct5 outer amendment Clauses verified. Legacy basename retained for the existing reviewed-title fixture; file is explicitly an unsigned normalized derivative, original signed PDF retained separately.",
+    "parsed_json_sha256": "9c991006f5c90584219fba409513d611c6612762f552d0b99f744f2d5e219e39"
   },
   {
     "document_number": "04/2024/TT-BTP",
@@ -2402,7 +2406,7 @@
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
     "verified_at": "2026-11-22",
-    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn.",
+    "verification_scope": "Các phạm vi ghi ở provision_periods.json, đối chiếu văn bản gốc sửa đổi trong corpus; không xác nhận hiện hành toàn văn. Rà23/11/2026: Điều10.2 NĐ114/2016 bãi bỏ khoản1 Điều38 và Điều39–46; Điều14 NĐ18/2026 sửa nuôi con nuôi. Sửa cụm từ/bản trung gian chưa mô hình hóa đầy đủ.",
     "trial_only": true,
     "file_code": "ND16",
     "production_ingest_allowed": false,
@@ -2421,6 +2425,8 @@
     "parsed_json_sha256": "bed2aa6cb77ddb3ed4299e70b61089d8a111982646dc9fb43341b05c19c92df4",
     "known_amended_by": [
       "06/2025/NĐ-CP",
+      "114/2016/NĐ-CP",
+      "18/2026/NĐ-CP",
       "24/2019/NĐ-CP"
     ]
   },
@@ -3351,10 +3357,10 @@
     "issue_date": "2021-12-28",
     "effective_date": "2022-02-11",
     "issuing_body": "Bộ Tư Pháp",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -3381,7 +3387,12 @@
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
     "production_ingest_allowed": true,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "69869b717a5c51c6662d6bf8cc457f656c63fc6d69b2a1c899f7e20d2a3058f3"
+    "parsed_json_sha256": "0c69f975f0c67daf32740bb3aafaa62fac7d1c177bfc5b52d550621a79fdaae9",
+    "known_amended_by": [
+      "01/2025/TT-BTP"
+    ],
+    "verified_at": "2026-11-23",
+    "verification_scope": "Khoản5,6 Điều1 và khoản2 Điều2 TT01/2025 dẫn rõ phần sửa đổi TT11/2021. Chỉ xác nhận có sửa đổi; chưa xác nhận hiện hành toàn văn hoặc toàn bộ khoảng hiệu lực bản trung gian."
   },
   {
     "document_id": "tt_01_2025_tt_btp",

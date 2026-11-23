@@ -1,0 +1,15 @@
+[
+  {
+    "pages": 30,
+    "all_text_inside_page": true,
+    "rendered_pages": [
+      "reports/data/adoption_effectivity_20261123/nd18_normalized_page24.png",
+      "reports/data/adoption_effectivity_20261123/nd18_normalized_page25.png",
+      "reports/data/adoption_effectivity_20261123/nd18_normalized_page26.png",
+      "reports/data/adoption_effectivity_20261123/nd18_normalized_page29.png"
+    ],
+    "annex_checkbox_characters_preserved": 5,
+    "statutory_body_font": "Times New Roman12pt",
+    "annex_symbol_fallback": "Segoe UI Symbol12pt"
+  }
+]

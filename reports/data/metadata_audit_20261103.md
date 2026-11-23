@@ -2,11 +2,11 @@
 
 Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `86bd45c85856e06f309fe64e9ffcbab604bf7edd`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `45b012ce30db083e776484d7c94129a193dbf4f5`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
-- Registry: 84 văn bản; corpus: 6135 chunks / 84 văn bản; article index: 3841 dòng.
+- Registry: 84 văn bản; corpus: 6144 chunks / 84 văn bản; article index: 3841 dòng.
 - Structural errors: **0**; warnings: 84. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
 - Alias keys: 2143; ambiguous keys: 127. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
@@ -135,11 +135,11 @@ Warning counts:
 
 ## Nguồn và giới hạn
 
-Registry canonical SHA-256: `b2a7d51a00c68ecd33d781630e0ede6821e7655bc9de41b14b399544dd980e4b`.
-- data/reference/document_versions.json: raw file SHA-256 `2882e70fcb10ee499974a331549838b6c513ae4ad3625df7fa174ea03e50382c`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `cd79588f468160782535a7fea90128d1762735bb2fbeff49d37fa8dfaf268cf5`
+Registry canonical SHA-256: `a8bb12391d74e2a94d3a1fd5890d4a8030b3302a347007318e2f576da4832d5b`.
+- data/reference/document_versions.json: raw file SHA-256 `9f3b6c018cdc9ad4239823955fc2b5b75861e5a1f248e0983218a0db0115841c`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `a12bffc24ecce1d1d62eb99d1c106572b88a2167b42d5fd533a0c4fce4420f19`
 - data/reference/article_index.json: raw file SHA-256 `0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e`
-- data/reference/provision_periods.json: raw file SHA-256 `9446f70d147129169756ec54a280fb71cfc2232d349a696feb08c08b132db185`
+- data/reference/provision_periods.json: raw file SHA-256 `fa8900d23a03736336cc8d1ac1ce2ca400bcd977bc4d9ae182b1aa754a01c934`
 
 Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
 

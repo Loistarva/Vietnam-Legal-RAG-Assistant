@@ -423,7 +423,7 @@
     }
   ],
   "registry_document_count": 84,
-  "corpus_chunk_count": 6135,
+  "corpus_chunk_count": 6144,
   "corpus_document_count": 84,
   "article_count": 3841,
   "chunks_by_document": {
@@ -462,7 +462,7 @@
     "nd_158_2005_nd_cp": 36,
     "nd_158_2026_nd_cp": 83,
     "nd_15_2014_nd_cp": 54,
-    "nd_18_2026_nd_cp": 12,
+    "nd_18_2026_nd_cp": 21,
     "nd_19_2011_nd_cp": 152,
     "nd_207_2025_nd_cp": 57,
     "nd_24_2013_nd_cp": 149,
@@ -577,13 +577,13 @@
   "audit_date": "2026-11-08",
   "review_status": "pending_peer_review",
   "source": {
-    "git_sha": "86bd45c85856e06f309fe64e9ffcbab604bf7edd",
+    "git_sha": "45b012ce30db083e776484d7c94129a193dbf4f5",
     "remote_testing_sha": "03a498924d0d134d2abc861599db94920f7291db",
     "file_sha256": {
-      "data/reference/document_versions.json": "2882e70fcb10ee499974a331549838b6c513ae4ad3625df7fa174ea03e50382c",
-      "data/chunking_output/chunks.jsonl": "cd79588f468160782535a7fea90128d1762735bb2fbeff49d37fa8dfaf268cf5",
+      "data/reference/document_versions.json": "9f3b6c018cdc9ad4239823955fc2b5b75861e5a1f248e0983218a0db0115841c",
+      "data/chunking_output/chunks.jsonl": "a12bffc24ecce1d1d62eb99d1c106572b88a2167b42d5fd533a0c4fce4420f19",
       "data/reference/article_index.json": "0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e",
-      "data/reference/provision_periods.json": "9446f70d147129169756ec54a280fb71cfc2232d349a696feb08c08b132db185"
+      "data/reference/provision_periods.json": "fa8900d23a03736336cc8d1ac1ce2ca400bcd977bc4d9ae182b1aa754a01c934"
     },
     "remote_note": "origin/testing snapshot 03a498924d0d134d2abc861599db94920f7291db; differing tracked input paths vs HEAD: ['data/chunking_output/chunks.jsonl', 'data/reference/article_index.json', 'data/reference/document_versions.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review."
   },
@@ -1221,5 +1221,5 @@
       "ttlt_01_2019_ttlt_tandtc_bng"
     ]
   },
-  "alias_registry_canonical_sha256": "b2a7d51a00c68ecd33d781630e0ede6821e7655bc9de41b14b399544dd980e4b"
+  "alias_registry_canonical_sha256": "a8bb12391d74e2a94d3a1fd5890d4a8030b3302a347007318e2f576da4832d5b"
 }

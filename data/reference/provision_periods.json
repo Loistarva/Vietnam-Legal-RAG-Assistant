@@ -1,6 +1,6 @@
 {
   "description": "Khoảng hiệu lực cấp Điều/Khoản/Điểm của văn bản hết hiệu lực một phần. chunking/export_legal_chunks.py ghi effective_to và provision_status của từng bản ghi vào mọi chunk thuộc phạm vi đó; chunk khác của văn bản giữ khoảng hiệu lực cấp văn bản. Bản ghi cấp Điểm (points) làm Khoản đó được tách theo Điểm khi export. Chỉ ghi các thay đổi có văn bản gốc trong corpus: evidence_chunk_id là chunk chứa quy định bãi bỏ hoặc sửa đổi (với sửa đổi, chunk này chứa luôn nội dung mới), effective_to là ngày văn bản đó có hiệu lực. Kiểm bởi test/test_provision_periods.py. quoted_clauses chọn Khoản được trích dẫn bên trong Khoản sửa đổi (metadata.quoted_clause_number), không thay số Khoản nguồn. evidence_context_ids ghi đủ nhóm chunk cần đọc theo thứ tự; evidence_chunk_id giữ vai trò định danh chính, không thay thế toàn bộ nhóm dẫn chứng.",
-  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong phạm vi corpus chỉ sửa NĐ 123/2015 (Điều 13); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1). Rà bổ sung 22/11/2026: thêm các phạm vi thay thế toàn Điều/Khoản và bãi bỏ của chuỗi nuôi con nuôi, hộ tịch điện tử, tố tụng và tổ chức Tòa án; giữ riêng các sửa cụm từ và chuỗi chưa đủ căn cứ. Không xác nhận mọi Điều chưa ghi override là hiện hành.",
+  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong corpus sửa NĐ 123/2015 (Điều 13) và NĐ 19/2011 (Điều 14, nhận sau rà23/11/2026); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1). Rà bổ sung 22/11/2026: thêm các phạm vi thay thế toàn Điều/Khoản và bãi bỏ của chuỗi nuôi con nuôi, hộ tịch điện tử, tố tụng và tổ chức Tòa án; giữ riêng các sửa cụm từ và chuỗi chưa đủ căn cứ. Không xác nhận mọi Điều chưa ghi override là hiện hành.",
   "overrides": [
     {
       "id": "nd_126_2014_art_19_50_repealed",
@@ -921,6 +921,59 @@
           "clause": "1"
         }
       ]
+    },
+    {
+      "id": "nd_19_2011_fees_repealed_by_nd_114_2016",
+      "document_id": "nd_19_2011_nd_cp",
+      "articles": [
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "clauses": [
+        {
+          "article": "38",
+          "clause": "1"
+        }
+      ],
+      "provision_status": "repealed",
+      "effective_to": "2017-01-01",
+      "changed_by": "nd_114_2016_nd_cp",
+      "provision": "Khoản2 Điều10 NĐ114/2016 bãi bỏ khoản1 Điều38 và các Điều39–46 NĐ19/2011 từ01/01/2017. Phần bỏ cụm từ tại Điều1.1,38.3 ghi riêng, không gán hết hiệu lực toàn Khoản.",
+      "evidence_chunk_id": "nd_114_2016_nd_cp_art_10_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "nd_114_2016_nd_cp_art_10_clause_2_chunk_1"
+      ]
+    },
+    {
+      "id": "nd_19_2011_art7_and_31_2_amended_2026",
+      "document_id": "nd_19_2011_nd_cp",
+      "articles": [
+        "7"
+      ],
+      "clauses": [
+        {
+          "article": "31",
+          "clause": "2"
+        }
+      ],
+      "provision_status": "amended",
+      "effective_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "provision": "Khoản1,3 Điều14 NĐ18/2026 sửa toàn Điều7 và khoản2 Điều31 NĐ19/2011. Không áp dụng mốc này cho bản sửa đổi trung gian hoặc Điểm khác.",
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_14_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_1",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_2",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_3",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_4",
+        "nd_18_2026_nd_cp_art_14_clause_3_chunk_1"
+      ]
     }
   ],
   "not_applied": [
@@ -953,6 +1006,16 @@
       "document_id": "nd_123_2015_nd_cp",
       "provision": "thẩm quyền và thủ tục đăng ký hộ tịch của Ủy ban nhân dân cấp huyện (Luật Hộ tịch khoản 2 Điều 7, Chương III; Nghị định 123/2015/NĐ-CP Điều 1, 29, 31, 32, 33, 35, 36, 38, 39, 41; Nghị định 87/2020/NĐ-CP Điều 8) chuyển cho Ủy ban nhân dân cấp xã từ 2025-07-01 đến hết 2027-02-28 theo Điều 4, Điều 23 và Phụ lục mục I Nghị định 120/2025/NĐ-CP",
       "reason": "Nghị định 120/2025/NĐ-CP đã có PDF chuẩn hóa và chunks trong active corpus. Đây là phân định thẩm quyền có thời hạn, không phải sửa chữ toàn bộ Điều. Không gán ngày hết hiệu lực toàn Điều/Khoản chỉ từ sự chuyển thẩm quyền. Cần đọc Điều 4, Điều 23 và quy định chuyển tiếp; hạn áp dụng phải xét cùng văn bản mới cùng nội dung nếu có."
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "provision": "Cụm từ tại khoản1 Điều1, khoản3 Điều38 bị bỏ theo khoản2 Điều10 NĐ114/2016.",
+      "reason": "Chỉ bỏ cụm từ, không gán hết hiệu lực toàn Khoản. Căn cứ NĐ114 và VBHN410/2026 đã lưu."
+    },
+    {
+      "document_id": "nd_19_2011_nd_cp",
+      "provision": "Điểm g khoản1 Điều31, khoản2 Điều35 và các cụm từ thời hạn theo khoản2,4,5 Điều14 NĐ18/2026.",
+      "reason": "Điểm g cần tách chính xác; khoản2 Điều35 thuộc bản sửa đổi trung gian NĐ06/2025 đã có, không được gán lại ngày cho toàn Điều35 nguyên bản. Giữ chờ mô hình hóa riêng; bản sửa đổi mới đã trong active scope."
     }
   ]
 }

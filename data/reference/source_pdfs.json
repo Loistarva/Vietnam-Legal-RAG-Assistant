@@ -483,9 +483,10 @@
     {
       "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
       "document_id": "nd_18_2026_nd_cp",
-      "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
-      "bytes": 713137,
-      "added_in": null
+      "sha256": "c36725c7df3c5e70f75fc844633d8344de7b6e8d3dedda62bd5cdacda9c4e241",
+      "bytes": 143000,
+      "added_in": null,
+      "normalization_review": "reports/data/adoption_effectivity_20261123/candidate_normalization.json"
     },
     {
       "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
