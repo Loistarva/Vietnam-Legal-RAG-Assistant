@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "$defs": {
     "AskTimings": {
       "additionalProperties": false,
@@ -244,6 +244,18 @@
           "default": null,
           "title": "Clause Number"
         },
+        "point_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Point Ref"
+        },
         "breadcrumb": {
           "anyOf": [
             {
@@ -336,8 +348,11 @@
   "description": "Đầu ra API chuẩn hóa tách bạch rạch ròi SUCCESS / ABSTAIN / NEEDS_CLARIFICATION / ERROR.",
   "properties": {
     "schema_version": {
-      "const": "week10_v1.0",
-      "default": "week10_v1.0",
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
       "title": "Schema Version",
       "type": "string"
     },
@@ -483,6 +498,7 @@
             "RETRIEVAL_EMPTY",
             "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
+            "LLM_UNAVAILABLE",
             "JSON_INVALID",
             "CITATION_INVALID",
             "GROUNDING_FAIL",

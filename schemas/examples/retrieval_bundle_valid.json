@@ -1,5 +1,5 @@
 {
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "query_id": "HN_003",
   "as_of_date": "2026-10-15",
   "candidates": [
@@ -10,7 +10,10 @@
       "score": 0.9412,
       "rank": 1,
       "retrieval_source": "hybrid_reranker",
-      "retrieval_sources": ["bm25", "dense"],
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
       "validity_status": "Còn hiệu lực",
       "effective_from": "2015-01-01",
       "effective_to": null,
@@ -24,8 +27,14 @@
       "parent_text": "Điều 8. Điều kiện kết hôn: 1. Nam, nữ kết hôn với nhau phải tuân theo các điều kiện sau đây: a) Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên; b) Việc kết hôn do nam và nữ tự nguyện quyết định...",
       "rrf_score": 0.0321,
       "reranker_score": 0.9412,
-      "source_ranks": {"bm25": 2, "dense": 1},
-      "source_scores": {"bm25": 14.2, "dense": 0.87},
+      "source_ranks": {
+        "bm25": 2,
+        "dense": 1
+      },
+      "source_scores": {
+        "bm25": 14.2,
+        "dense": 0.87
+      },
       "evidence_index": 2,
       "vector_ref": null,
       "metadata": {

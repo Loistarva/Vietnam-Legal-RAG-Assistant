@@ -16,11 +16,25 @@ from typing import Any, Literal
 
 import requests
 import yaml
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, field_validator
 
 from schemas.models import ErrorCode, LLMResponse, StructuredRAGOutput, TokenUsage
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "local_qwen.yaml"
+REQUIRED_CONFIG_KEYS: tuple[str, ...] = (
+    "config_version",
+    "provider",
+    "base_url",
+    "model",
+    "temperature",
+    "repeat_penalty",
+    "num_predict",
+    "num_ctx",
+    "timeout_seconds",
+    "max_retries",
+    "cache_enabled",
+    "fallback_locked",
+)
 _MARKDOWN_FENCE_RE = re.compile(
     r"^\s*```(?:[a-zA-Z0-9_-]+)?\s*\r?\n?(.*?)\r?\n?```\s*$",
     re.DOTALL,
@@ -51,12 +65,43 @@ def _optional_non_negative_int(value: Any) -> int | None:
     return None
 
 
-class GatewayExecutionError(Exception):
-    """Ngoại lệ khi không thể kết nối hoặc thực thi gọi mô hình qua Gateway."""
+def _classify_transport_error(error: Exception | None) -> ErrorCode:
+    """Phân loại lỗi vận chuyển sang LLM_TIMEOUT (504), LLM_UNAVAILABLE (503) hoặc INTERNAL_ERROR."""
+    if error is None:
+        return "INTERNAL_ERROR"
+    if isinstance(error, (TimeoutError, requests.Timeout)):
+        return "LLM_TIMEOUT"
+    if isinstance(error, requests.HTTPError) and error.response is not None:
+        status = getattr(error.response, "status_code", None)
+        if status == 504:
+            return "LLM_TIMEOUT"
+        if status in (502, 503):
+            return "LLM_UNAVAILABLE"
+    msg = str(error).lower()
+    if "timeout" in msg or "timed out" in msg:
+        return "LLM_TIMEOUT"
+    if isinstance(error, (ConnectionError, requests.ConnectionError, OSError)):
+        return "LLM_UNAVAILABLE"
+    if any(token in msg for token in ("connection refused", "unreachable", "unavailable", "name or service not known")):
+        return "LLM_UNAVAILABLE"
+    return "INTERNAL_ERROR"
 
-    def __init__(self, message: str, error_code: ErrorCode = "INTERNAL_ERROR"):
+
+class GatewayExecutionError(Exception):
+    """Ngoại lệ tầng vận chuyển hoặc cấu hình khi gọi mô hình qua Gateway."""
+
+    def __init__(
+        self,
+        message: str,
+        error_code: ErrorCode = "INTERNAL_ERROR",
+        *,
+        retryable: bool | None = None,
+    ):
         super().__init__(message)
         self.error_code: ErrorCode = error_code
+        if retryable is None:
+            retryable = error_code in ("LLM_TIMEOUT", "LLM_UNAVAILABLE")
+        self.retryable: bool = retryable
 
 
 def normalize_model_name(name: str) -> str:
@@ -66,7 +111,10 @@ def normalize_model_name(name: str) -> str:
 
 
 class QwenGatewayConfig(BaseModel):
-    provider: str = "ollama"
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    config_version: str = "local_qwen_v1.1"
+    provider: Literal["ollama"] = "ollama"
     base_url: str = "http://localhost:11434"
     model: str = "qwen2.5:7b"
     temperature: float = 0.0
@@ -77,6 +125,48 @@ class QwenGatewayConfig(BaseModel):
     max_retries: int = 1
     cache_enabled: bool = False
     fallback_locked: bool = True
+
+    @field_validator("config_version", "base_url", "model")
+    @classmethod
+    def validate_non_empty_strings(cls, v: Any, info) -> str:
+        if not isinstance(v, str) or not v.strip():
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là chuỗi không rỗng")
+        cleaned = v.strip()
+        if info.field_name == "base_url" and not cleaned.startswith(("http://", "https://")):
+            raise ValueError("Trường cấu hình 'base_url' phải bắt đầu bằng http:// hoặc https://")
+        return cleaned
+
+    @field_validator("num_predict", "num_ctx", "max_retries", mode="before")
+    @classmethod
+    def validate_strict_int(cls, v: Any, info) -> int:
+        if type(v) is not int:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số nguyên (int)")
+        if info.field_name == "max_retries":
+            if v < 0:
+                raise ValueError("Trường cấu hình 'max_retries' phải >= 0")
+        elif v <= 0:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải > 0")
+        return v
+
+    @field_validator("temperature", "repeat_penalty", "timeout_seconds", mode="before")
+    @classmethod
+    def validate_strict_float(cls, v: Any, info) -> float:
+        if isinstance(v, bool) or not isinstance(v, (int, float)):
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số thực")
+        val = float(v)
+        if info.field_name == "temperature":
+            if not 0.0 <= val <= 2.0:
+                raise ValueError("Trường cấu hình 'temperature' phải nằm trong [0.0, 2.0]")
+        elif val <= 0.0:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải > 0")
+        return val
+
+    @field_validator("cache_enabled", "fallback_locked", mode="before")
+    @classmethod
+    def validate_strict_bool(cls, v: Any, info) -> bool:
+        if type(v) is not bool:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là boolean")
+        return v
 
 
 class QwenGateway:
@@ -120,8 +210,16 @@ class QwenGateway:
         if not path.exists():
             raise FileNotFoundError(f"Không tìm thấy file cấu hình gateway: {path}")
         with open(path, encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
-        return QwenGatewayConfig(**data)
+            data = yaml.safe_load(f)
+        if not isinstance(data, dict):
+            raise GatewayExecutionError(f"File cấu hình gateway không phải mapping YAML hợp lệ: {path}")
+        missing = [key for key in REQUIRED_CONFIG_KEYS if key not in data]
+        if missing:
+            raise GatewayExecutionError(f"Cấu hình gateway thiếu khóa bắt buộc: {missing}")
+        try:
+            return QwenGatewayConfig(**data)
+        except Exception as exc:
+            raise GatewayExecutionError(f"Cấu hình gateway không hợp lệ trong {path}: {exc}") from exc
 
     def _probe_ollama_metadata(self) -> None:
         """Lấy ollama_version (/api/version) và model_digest (/api/tags, models[].digest).
@@ -164,16 +262,14 @@ class QwenGateway:
                 if attempts < total_attempts:
                     time.sleep(0.1 * attempts)
 
-        # Fail-fast, tuyệt đối không silently fallback sang model khác
-        is_timeout = (
-            isinstance(last_error, (TimeoutError, requests.Timeout))
-            or "timeout" in str(last_error).lower()
-            or "timed out" in str(last_error).lower()
-        )
-        error_code: ErrorCode = "LLM_TIMEOUT" if is_timeout else "INTERNAL_ERROR"
+        # Phân loại rạch ròi lỗi vận chuyển: timeout -> LLM_TIMEOUT (504),
+        # mất kết nối / provider không sẵn sàng -> LLM_UNAVAILABLE (503).
+        # Tuyệt đối không silently fallback sang model khác.
+        error_code: ErrorCode = _classify_transport_error(last_error)
         raise GatewayExecutionError(
             f"Không thể kết nối đến Ollama model gateway ({self.config.base_url}) sau {total_attempts} lần thử: {last_error}",
             error_code=error_code,
+            retryable=error_code in ("LLM_TIMEOUT", "LLM_UNAVAILABLE"),
         ) from last_error
 
     def generate(
@@ -271,6 +367,7 @@ class QwenGateway:
         abstained = False
         abstention_reason: str | None = None
         needs_clarification = False
+        missing_facts: list[str] = []
 
         try:
             candidate_json_text = _strip_markdown_fences(raw_text)
@@ -303,6 +400,7 @@ class QwenGateway:
             reason = validated_struct.abstention_reason
             abstention_reason = reason if reason else None
             needs_clarification = validated_struct.needs_clarification
+            missing_facts = list(validated_struct.missing_facts)
             parse_status = "ok"
             if rejected_evidence_values:
                 error_code = "CITATION_INVALID"
@@ -318,6 +416,7 @@ class QwenGateway:
             abstained = False
             abstention_reason = None
             needs_clarification = False
+            missing_facts = []
 
         truncated = (done_reason == "length") or (parse_status == "truncated_json")
 
@@ -330,6 +429,7 @@ class QwenGateway:
             abstained=abstained,
             abstention_reason=abstention_reason,
             needs_clarification=needs_clarification,
+            missing_facts=missing_facts,
             model=self.config.model,
             prompt_version=prompt_version,
             num_ctx=self.config.num_ctx,
