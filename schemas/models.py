@@ -25,8 +25,8 @@ from pydantic import (
     model_validator,
 )
 
-SchemaVersionType = Literal["week10_v1.0"]
-SCHEMA_VERSION: SchemaVersionType = "week10_v1.0"
+SchemaVersionType = Literal["week10_v1.0", "week10_v1.1"]
+SCHEMA_VERSION: SchemaVersionType = "week10_v1.1"
 JSON_SCHEMA_DRAFT = "https://json-schema.org/draft/2020-12/schema"
 
 AsOfDateSource = Literal["benchmark", "query_text", "user_input", "system_today"]
@@ -47,7 +47,7 @@ ErrorCode = Literal[
     "INTERNAL_ERROR",
 ]
 _ABSTAIN_ERROR_CODES = {"ROUTE_POLICY", "RETRIEVAL_EMPTY", "LOW_CONFIDENCE", "GROUNDING_FAIL"}
-# Gate FAIL vì JSON hỏng / citation sai vẫn abstain (Sprint 10 mục 4), giữ mã cụ thể.
+# Gate FAIL vì JSON hỏng / citation sai vẫn abstain, nhưng giữ mã lỗi cụ thể.
 _GATE_FAIL_ERROR_CODES = {"JSON_INVALID", "CITATION_INVALID"}
 
 _ROUTER_ROUTE_MAP: dict[str, RouteType] = {
@@ -329,6 +329,34 @@ class RouteDecision(StrictBaseModel):
         return _check_iso_date(v, "as_of_date", required=False)
 
 
+class MetadataFilters(StrictBaseModel):
+    """Serializable exact-match filters shared by BM25 and Dense retrieval."""
+    document_type: str | None = None
+    document_number: str | None = None
+    document_id: str | None = None
+    article_id: str | None = None
+    clause_id: str | None = None
+    validity_status: str | None = None
+
+    @field_validator(
+        "document_type", "document_number", "document_id", "article_id", "clause_id", "validity_status",
+    )
+    @classmethod
+    def validate_filter_values(cls, value: str | None, info) -> str | None:
+        if value is None:
+            return None
+        return _non_empty_field(value, info.field_name)
+
+class RetrievalLatencyBreakdown(StrictBaseModel):
+    """Stage timings measured by retrieval; null means that a stage was not measured."""
+    bm25_ms: float | None = Field(default=None, ge=0.0)
+    dense_ms: float | None = Field(default=None, ge=0.0)
+    rrf_ms: float | None = Field(default=None, ge=0.0)
+    reranking_ms: float | None = Field(default=None, ge=0.0)
+    parent_context_ms: float | None = Field(default=None, ge=0.0)
+    total_retrieval_ms: float | None = Field(default=None, ge=0.0)
+
+
 class RetrievalBundle(StrictBaseModel):
     """Gói kết quả truy xuất ứng viên trước khi xây ContextPayload (D3.1)."""
     schema_version: SchemaVersionType = SCHEMA_VERSION
@@ -342,6 +370,8 @@ class RetrievalBundle(StrictBaseModel):
     query: str | None = None
     retriever: str | None = None
     top_k: int | None = Field(default=None, ge=1)
+    metadata_filters: MetadataFilters | None = None
+    latency_breakdown: RetrievalLatencyBreakdown | None = None
 
     @field_validator("query_id", "retrieval_config_version", "corpus_hash")
     @classmethod
@@ -651,6 +681,7 @@ class RAGOutputRecord(StrictBaseModel):
     query: str
     as_of_date: str
     as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"]
+    route: RouteType | None = None
     answer: str
     evidence_indices: list[int] = Field(default_factory=list)
     citations: list[MappedCitation] = Field(default_factory=list)

@@ -1,9 +1,9 @@
-# Canonical Contracts Specification (`week10_v1.0`)
+# Canonical Contracts Specification (`week10_v1.1`)
 
 **Phạm vi:** Task `D3.1` (Kế hoạch Tuần 10)  
 **Single Source of Truth:** [schemas/models.py](../schemas/models.py)  
 **JSON Schema Draft:** `https://json-schema.org/draft/2020-12/schema`  
-**Schema Version:** `SchemaVersionType = Literal["week10_v1.0"]` (`SCHEMA_VERSION = "week10_v1.0"`)
+**Schema Version:** `SchemaVersionType = Literal["week10_v1.0", "week10_v1.1"]` (`SCHEMA_VERSION = "week10_v1.1"`). Bộ model chấp nhận payload v1.0 cũ; payload mới mặc định dùng v1.1.
 
 Tài liệu này mô tả bộ hợp đồng dữ liệu chuẩn hóa (Pydantic v2 + JSON Schema) dùng chung giữa Router, Retrieval/Reranker, Context/Prompt Builder, Model Gateway, Grounding Gate, API và Monitoring.
 
@@ -13,7 +13,7 @@ Tài liệu này mô tả bộ hợp đồng dữ liệu chuẩn hóa (Pydantic 
 
 | Tên kiểu | Giá trị hợp lệ | Mục đích |
 | :--- | :--- | :--- |
-| `SchemaVersionType` | `"week10_v1.0"` | Khóa cứng phiên bản schema ở mọi canonical model có `schema_version` |
+| `SchemaVersionType` | `"week10_v1.0"`, `"week10_v1.1"` | Giữ tương thích khi đọc v1.0; producer mới phát v1.1 |
 | `RouteType` | `"LEGAL_IN_SCOPE"`, `"NON_LEGAL"`, `"LEGAL_OUT_OF_SCOPE"`, `"MIXED_REVIEW"` | Phân luồng câu hỏi chuẩn hóa ở `RouteDecision` và `AskResponse` |
 | `ResponseStatus` | `"SUCCESS"`, `"NEEDS_CLARIFICATION"`, `"ABSTAIN"`, `"ERROR"` | Trạng thái phản hồi chuẩn hóa ở API và `AskResponse` |
 | `GroundingStatus` | `"PASS"`, `"FAIL"`, `"NOT_RUN"`, `"ABSTAIN"`, `"NEEDS_CLARIFICATION"` | Trạng thái kiểm định căn cứ ở `GroundingResult` và `AskResponse` |
@@ -26,7 +26,7 @@ Tài liệu này mô tả bộ hợp đồng dữ liệu chuẩn hóa (Pydantic 
 
 `RuleRouter` ([agent/router/rule_router.py](../agent/router/rule_router.py)) sử dụng enum nội bộ `Route`. Để thống nhất đầu ra qua contract Week 10, `schemas/models.py` cung cấp hàm `map_router_route_to_canonical(router_route: str) -> RouteType`:
 
-| `Route` trong `RuleRouter` | `RouteType` chuẩn (`week10_v1.0`) | Ghi chú |
+| `Route` trong `RuleRouter` | `RouteType` chuẩn (`week10_v1.1`) | Ghi chú |
 | :--- | :--- | :--- |
 | `Route.LEGAL_HNGD` | `"LEGAL_IN_SCOPE"` | Truy vấn pháp luật HNGĐ thuộc phạm vi trả lời RAG |
 | `Route.NON_LEGAL` | `"NON_LEGAL"` | Câu hỏi ngoài pháp luật / giao tiếp thông thường (không cần retrieval/grounding) |
@@ -41,7 +41,7 @@ Tất cả model đều kế thừa `StrictBaseModel` (`extra="forbid"`, `str_st
 
 ### 3.1. JSON Schemas chuẩn hóa (`schemas/generated/*.schema.json`)
 
-Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_schemas()`), mỗi tệp đều gắn `"$schema"` và `"schema_version": "week10_v1.0"`:
+Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_schemas()`), mỗi tệp đều gắn `"$schema"` và `"schema_version": "week10_v1.1"`:
 
 | STT | Model (`schemas/models.py`) | Tệp JSON Schema (`schemas/generated/`) | Vai trò |
 | :-: | :--- | :--- | :--- |
@@ -49,7 +49,7 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 | 2 | `AskResponse` | `ask_response.schema.json` | Phản hồi API tách bạch `SUCCESS` / `ABSTAIN` / `NEEDS_CLARIFICATION` / `ERROR` |
 | 3 | `RouteDecision` | `route_decision.schema.json` | Quyết định phân luồng (`route`, `reason_code`, `explanation`, `policy_version`) |
 | 4 | `Candidate` (`CandidateChunk`) | `candidate.schema.json` | Chunk ứng viên từ Retrieval/Reranker kèm hiệu lực và provenance |
-| 5 | `RetrievalBundle` | `retrieval_bundle.schema.json` | Gói kết quả truy xuất (`candidates`, `retrieval_config_version`, `corpus_hash`, `latency_ms`) |
+| 5 | `RetrievalBundle` | `retrieval_bundle.schema.json` | Gói kết quả truy xuất, gồm `metadata_filters` và `latency_breakdown` bên cạnh candidates, provenance và latency tổng |
 | 6 | `EvidenceItem` | `evidence_item.schema.json` | Mảnh bằng chứng đánh số `[1]..[5]` sau Parent Resolver |
 | 7 | `ContextPayload` | `context_payload.schema.json` | Gói ngữ cảnh đầy đủ truyền vào Prompt Builder & Citation Validator |
 | 8 | `LLMResponse` | `llm_response.schema.json` | Kết quả từ Model Gateway + metadata thời gian Ollama & provenance |
@@ -127,13 +127,13 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 
 ---
 
-## 7. Migration Note (Cập nhật Contract Tuần 10 cho Dev 1, Dev 2, Dev 4, Dev 5)
+## 7. Migration Note (Cập nhật Contract Tuần 10 v1.1 cho Dev 1, Dev 2, Dev 4, Dev 5)
 
-| Thành viên | Điểm cần đồng bộ sang Contract `week10_v1.0` |
+| Thành viên | Điểm cần đồng bộ sang Contract `week10_v1.1` |
 | :--- | :--- |
 | **Dev 1 (Grounding & Validator)** | `GroundingResult` giữ tạm các trường **deprecated** (`grounding_status`, `valid_citations`, `invalid_indices`, `reason`) để tương thích với `citation_validator.py`; khi nâng cấp tuần 10 chuyển sang `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (mã `"GROUNDING_FAIL"` thay cho `"GATE_FAIL"`, lưu ý `abstention_reason` chỉ dùng ở nhánh `ABSTAIN`). |
 | **Dev 2 (Evaluation & Monitoring)** | Đọc/ghi log theo `LogEvent` mới: dùng `event_id`, `event_type`, `duration_ms`, `masked_metadata` và 9 `EventStage` (`api`, `router`, `retrieval`, `rerank`, `context`, `llm`, `citation`, `gate`, `response`); xử lý `TokenUsage.input`/`output` có thể là `null`. |
-| **Dev 4 (Router & Retrieval)** | Khi xuất `RouteDecision` ra API/Pipeline dùng `map_router_route_to_canonical()` để chuyển `Route` (`LEGAL_HNGD`, `MIXED_LEGAL_SCOPE`, `LEGAL_SCOPE_UNCERTAIN`...) sang `RouteType` (`LEGAL_IN_SCOPE`, `NON_LEGAL`, `LEGAL_OUT_OF_SCOPE`, `MIXED_REVIEW`) kèm `reason_code`, `explanation`, `policy_version`. Gói truy xuất dùng `RetrievalBundle` mới (`retrieval_config_version`, `corpus_hash`, `precomputed`, `latency_ms`). |
+| **Dev 4 (Router & Retrieval)** | Khi xuất `RouteDecision` ra API/Pipeline dùng `map_router_route_to_canonical()` để chuyển `Route` (`LEGAL_HNGD`, `MIXED_LEGAL_SCOPE`, `LEGAL_SCOPE_UNCERTAIN`...) sang `RouteType` (`LEGAL_IN_SCOPE`, `NON_LEGAL`, `LEGAL_OUT_OF_SCOPE`, `MIXED_REVIEW`) kèm `reason_code`, `explanation`, `policy_version`. `RetrievalBundle` v1.1 thêm `metadata_filters` (các field exact-match được hỗ trợ) và `latency_breakdown` (giá trị chưa đo là `null`); `corpus_hash` vẫn là SHA của corpus, tách biệt với `retrieval_config_version`. |
 | **Dev 5 (API Gateway & Orchestration)** | Nhận `AskRequest` đã khóa (`query`, `as_of_date`, `session_id`, `request_id`, `query_id`; không nhận `run_mode`/`top_k`/`metadata`). Sinh `query_id` nếu thiếu. Trả `AskResponse` dùng `status="SUCCESS"`, điền `as_of_date`, `as_of_date_source`, `disclaimer`, `timings.total_ms`, `error: ErrorDetail`, `error_code` bắt buộc khi `ERROR`; để `answer=None` ở mọi nhánh `ABSTAIN`/`NEEDS_CLARIFICATION`/`ERROR`; luồng legal `SUCCESS` phải có `citations` trỏ vào `evidence`, còn `NON_LEGAL` phải có `grounding_status="NOT_RUN"` và `evidence=[]`. |
 
 ---

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "additionalProperties": false,
   "description": "Đại diện cho một chunk ứng viên từ pipeline retrieval/rerank.",
   "properties": {
