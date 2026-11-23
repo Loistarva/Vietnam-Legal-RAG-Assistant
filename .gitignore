@@ -27,6 +27,8 @@ __pycache__/
 # Office lock files (created while a document is open)
 ~$*
 
-# Local secrets and API event logs
+# Local secrets
 .env
+
+# Runtime logs are private; only the explicitly staged synthetic sample is versioned.
 /logs/

@@ -1,0 +1,20 @@
+{
+  "query_id": "S11_SYNTHETIC_QUERY",
+  "query": "Kiểm thử kỹ thuật riêng của validator Sprint 11; không phải tình huống tư vấn.",
+  "as_of_date": "2026-11-22",
+  "as_of_date_source": "benchmark",
+  "evidence_items": [
+    {
+      "evidence_index": 1,
+      "chunk_id": "S11_SYNTHETIC_CHILD",
+      "parent_clause_id": "S11_SYNTHETIC_PARENT",
+      "document_id": "S11_SYNTHETIC_DOC",
+      "article_id": "S11_SYNTHETIC_ARTICLE",
+      "clause_id": "S11_SYNTHETIC_CLAUSE",
+      "content": "Nội dung giả lập để kiểm tra ánh xạ; không phải văn bản pháp luật.",
+      "validity_status": "valid",
+      "effective_from": "2020-01-01",
+      "effective_to": "2027-01-01"
+    }
+  ]
+}
