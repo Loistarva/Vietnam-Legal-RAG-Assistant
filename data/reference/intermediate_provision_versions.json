@@ -1,0 +1,92 @@
+{
+  "as_of_date": "2026-11-23",
+  "offset_unit": "Unicode code points in exact parser clause_text",
+  "runtime_integration": false,
+  "versions": [
+    {
+      "id": "intermediate_version_1",
+      "document_id": "nd_24_2019_nd_cp",
+      "source_clause_id": "nd_24_2019_nd_cp_art_1_clause_4",
+      "source_clause_sha256": "4cf9685b9ab8f4419e88f70137fecb3d200dd3d72f7b8ff81288d8a21d65a4fd",
+      "start": 1861,
+      "end": 4777,
+      "old_version_text": "4. Sửa đổi, bổ sung Điều 6 như sau: “Điều 6. Rà soát, tìm người nhận trẻ em làm con nuôi 1. Trường hợp trẻ em bị bỏ rơi, trẻ em mồ côi cả cha và mẹ, trẻ em không nơi nương tựa đang được cá nhân, gia đình, tổ chức tạm thời nuôi dưỡng hoặc chăm sóc thay thế theo quy định của pháp luật, Ủy ban nhân dân cấp xã hàng tháng rà soát, đánh giá việc trẻ em cần được nhận làm con nuôi. Nếu có công dân Việt Nam thường trú ở trong nước nhận trẻ em làm con nuôi thì Ủy ban nhân dân cấp xã xem xét, giải quyết hoặc hướng dẫn giải quyết việc nuôi con nuôi theo quy định của pháp luật. 2. Trường hợp tiếp nhận trẻ em bị bỏ rơi, trẻ em mồ côi cả cha và mẹ, trẻ em không nơi nương tựa vào sống ở cơ sở nuôi dưỡng, cơ sở nuôi dưỡng đánh giá việc trẻ em cần được nhận làm con nuôi. Nếu có công dân Việt Nam thường trú ở trong nước nhận trẻ em làm con nuôi thì cơ sở nuôi dưỡng giao 01 bộ hồ sơ trẻ em cho người nhận con nuôi để thực hiện đăng ký việc nuôi con nuôi. Nếu không có công dân Việt Nam thường trú ở trong nước nhận trẻ em làm con nuôi thì cơ sở nuôi dưỡng lập hồ sơ trẻ em bao gồm các giấy tờ, tài liệu theo quy định tại điểm a và điểm b khoản 1 Điều 32 của Luật nuôi con nuôi, xin ý kiến của cơ quan chủ quản. Trong thời hạn 05 ngày làm việc kể từ ngày nhận được đầy đủ hồ sơ, cơ quan chủ quản có ý kiến gửi Sở Tư pháp kèm theo hồ sơ trẻ em để thông báo tìm người nhận con nuôi. 3. Việc tìm người nhận trẻ em làm con nuôi được thực hiện như sau: a) Khi tiếp nhận hồ sơ trẻ em theo quy định tại khoản 2 Điều này, nếu có công dân Việt Nam thường trú ở trong nước đăng ký nhu cầu nhận con nuôi theo quy định tại Điều 16 của Luật nuôi con nuôi thì Sở Tư pháp giao 01 bộ hồ sơ trẻ em cho người nhận con nuôi và giới thiệu người nhận con nuôi đến Ủy ban nhân dân cấp xã nơi có trụ sở của cơ sở nuôi dưỡng để xem xét, giải quyết theo quy định của pháp luật; b) Trường hợp không có công dân Việt Nam thường trú ở trong nước đăng ký nhu cầu nhận con nuôi, đối với trẻ em không thuộc diện quy định tại khoản 1 Điều 3 của Nghị định này thì Sở Tư pháp thông báo tìm người nhận trẻ em làm con nuôi. Sau khi hết thời hạn thông báo theo quy định tại điểm c khoản 2 Điều 15 của Luật nuôi con nuôi, nếu không có công dân Việt Nam thường trú ở trong nước nhận trẻ em làm con nuôi thì Sở Tư pháp gửi 01 bộ hồ sơ trẻ em bao gồm các giấy tờ, tài liệu theo quy định tại khoản 1 Điều 32 của Luật nuôi con nuôi cho Cục Con nuôi để thông báo tìm người nhận con nuôi theo quy định tại điểm d khoản 2 Điều 15 của Luật nuôi con nuôi. Đối với trẻ em thuộc diện quy định tại khoản 1 Điều 3 của Nghị định này thì Sở Tư pháp xác nhận trẻ em đủ điều kiện được cho làm con nuôi và gửi Cục Con nuôi 01 bộ hồ sơ trẻ em bao gồm các giấy tờ, tài liệu theo quy định tại điểm a và điểm b khoản 1 Điều 32 của Luật nuôi con nuôi và khoản 3 Điều 16 của Nghị định này để tìm người nhận con nuôi đích danh có điều kiện phù hợp với việc chăm sóc và nuôi dưỡng trẻ em.”",
+      "effective_from": "2019-04-25",
+      "effective_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_1_clause_4",
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_4",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_5",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_6",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_7",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_8",
+        "nd_06_2025_nd_cp_art_1_clause_4_chunk_9"
+      ],
+      "runtime_application": "NOT_APPLIED_TO_FULL_CHUNK; SELECTOR_REQUIRED",
+      "note": "Chỉ phần Điều6 trong đoạn đang gộp Điều4 và6 kết thúc2025; giữ Điều4 trừ các cụm từ được sửa riêng. Parser Khoản nguồn đang gộp, không đóng toàn nguồn."
+    },
+    {
+      "id": "intermediate_version_2",
+      "document_id": "nd_06_2025_nd_cp",
+      "source_clause_id": "nd_06_2025_nd_cp_art_1_clause_4",
+      "source_clause_sha256": "fbed15a9756e6ea2df3bd471765419703d0e3a7f2924a374a632b3c37393b8fb",
+      "start": 4761,
+      "end": 7039,
+      "old_version_text": "4. Sửa đổi, bổ sung Điều 7 của Nghị định số 19/2011/NĐ-CP như sau: “Điều 7. Hồ sơ của người nhận con nuôi Hồ sơ của người nhận con nuôi trong nước được lập thành 01 bộ, gồm các giấy tờ quy định tại Điều 17 của Luật Nuôi con nuôi và được thực hiện như sau: 1. Người nhận con nuôi nộp hồ sơ cho Ủy ban nhân dân cấp xã nơi có thẩm quyền giải quyết việc nuôi con nuôi thông qua hình thức nộp trực tiếp, gửi hồ sơ qua hệ thống bưu chính hoặc nộp trực tuyến theo quy định của pháp luật về thực hiện thủ tục hành chính trên môi trường điện tử. Đối với Phiếu lý lịch tư pháp quy định tại khoản 3 Điều 17 của Luật Nuôi con nuôi, người nhận con nuôi nộp Phiếu lý lịch tư pháp số 1. 2. Trường hợp người nhận con nuôi nộp Phiếu lý lịch tư pháp điện tử, Ủy ban nhân dân cấp xã nơi có thẩm quyền giải quyết việc nuôi con nuôi tra cứu được thông tin, dữ liệu về nhân thân, về tình trạng hôn nhân của người nhận con nuôi từ Cơ sở dữ liệu quốc gia về dân cư, cơ sở dữ liệu chuyên ngành thì người nhận con nuôi không phải nộp bản giấy của giấy tờ quy định tại khoản 2, khoản 3 và khoản 4 Điều 17 của Luật Nuôi con nuôi. Kết quả tra cứu được Ủy ban nhân dân cấp xã lưu trữ dưới dạng điện tử hoặc bản giấy, phản ánh đầy đủ, chính xác thông tin tại thời điểm tra cứu và đính kèm hồ sơ của người nhận con nuôi. 3. Đối với Văn bản xác nhận hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh tế của người nhận con nuôi quy định tại khoản 5 Điều 17 của Luật Nuôi con nuôi: Trường hợp người nhận con nuôi có nơi thường trú và nơi ở hiện tại khác nhau, trong 02 ngày làm việc kể từ ngày nhận được đề nghị của người nhận con nuôi, Ủy ban nhân dân cấp xã nơi người nhận con nuôi thường trú trực tiếp xác minh trong 05 ngày làm việc hoặc có văn bản đề nghị Ủy ban nhân dân cấp xã nơi ở hiện tại của người nhận con nuôi thực hiện xác minh, đánh giá hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh tế của người nhận con nuôi. Trong thời hạn 05 ngày làm việc, kể từ ngày nhận được văn bản đề nghị, Ủy ban nhân dân cấp xã nơi ở hiện tại của người nhận con nuôi thực hiện xác minh, đánh giá theo nội dung Văn bản xác nhận hoàn cảnh gia đình, tình trạng chỗ ở, điều kiện kinh tế của người nhận con nuôi và có văn bản thông báo kết quả đánh giá cho Ủy ban nhân dân cấp xã nơi người nhận con nuôi thường trú.”",
+      "effective_from": "2025-01-08",
+      "effective_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_1",
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_1",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_2",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_3",
+        "nd_18_2026_nd_cp_art_14_clause_1_chunk_4"
+      ],
+      "runtime_application": "NOT_APPLIED_TO_FULL_CHUNK; SELECTOR_REQUIRED",
+      "note": "Chỉ bản Điều7; đoạn nguồn còn chứa Điều5.4 và bản Điều6. Không đóng toàn khoản4 parser."
+    },
+    {
+      "id": "intermediate_version_3",
+      "document_id": "nd_06_2025_nd_cp",
+      "source_clause_id": "nd_06_2025_nd_cp_art_1_clause_19",
+      "source_clause_sha256": "dfc9fc608d615975ad41a44be294ccba6e1249be219c6e349484988d4511ccfd",
+      "start": 683,
+      "end": 1761,
+      "old_version_text": "2. Trường hợp thay đổi người đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam, tổ chức con nuôi nước ngoài phải có đơn gửi Bộ Tư pháp, kèm theo đơn phải có Giấy phép và 02 bộ giấy tờ của người dự kiến đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam theo quy định tại điểm g khoản 1 Điều 31 của Nghị định này. Trong thời hạn 15 ngày, kể từ ngày nhận đủ hồ sơ hợp lệ, Bộ Tư pháp thẩm định hồ sơ, đề nghị Bộ Công an cho ý kiến, kèm theo 01 bộ hồ sơ của người dự kiến đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam. Trong thời hạn 15 ngày, kể từ ngày nhận được đề nghị của Bộ Tư pháp, Bộ Công an trả lời bằng văn bản cho Bộ Tư pháp. Trong thời hạn 05 ngày làm việc, kể từ ngày nhận được văn bản trả lời của Bộ Công an, Bộ Tư pháp xem xét, quyết định cho phép thay đổi người đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam và thông báo cho Bộ Công an, cơ quan thuế có thẩm quyền để phối hợp quản lý. Trường hợp không chấp nhận người dự kiến đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam, Bộ Tư pháp thông báo lý do bằng văn bản cho tổ chức con nuôi nước ngoài.”",
+      "effective_from": "2025-01-08",
+      "effective_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_4",
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_4_chunk_1",
+        "nd_18_2026_nd_cp_art_14_clause_4_chunk_2"
+      ],
+      "runtime_application": "NOT_APPLIED_TO_FULL_CHUNK; SELECTOR_REQUIRED",
+      "note": "Chỉ khoản2 Điều35 trích dẫn; giữ khoản1 Điều35. Bộ chọn quoted_clauses hiện chỉ nhận đoạn bắt đầu bằng “1., không nhận “Điều35....1....2....”."
+    },
+    {
+      "id": "intermediate_version_4",
+      "document_id": "tt_11_2021_tt_btp",
+      "source_clause_id": "tt_11_2021_tt_btp_art_1_clause_3",
+      "source_clause_sha256": "e29fef8cb214550f521df6345d82e6dc0dcaa745c003ea7b5ada3cd5a513f268",
+      "start": 64,
+      "end": 477,
+      "old_version_text": "“1. Văn phòng con nuôi nước ngoài có trách nhiệm gửi Cục Con nuôi báo cáo 6 tháng và báo cáo hằng năm về tình hình hoạt động theo biểu mẫu Báo cáo tình hình hoạt động của tổ chức con nuôi nước ngoài tại Việt Nam được ban hành kèm theo Thông tư số 10/2020/TT-BTP ngày 28 tháng 12 năm 2020 của Bộ trưởng Bộ Tư pháp ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi.",
+      "effective_from": "2022-02-11",
+      "effective_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_1_clause_6",
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_1_clause_6_chunk_1"
+      ],
+      "runtime_application": "NOT_APPLIED_TO_FULL_CHUNK; SELECTOR_REQUIRED",
+      "note": "Chỉ khoản1 Điều10 trích dẫn bị thay; giữ khoản3 được bổ sung. Bộ tách hiện tại yêu cầu dãy1..N liên tiếp, trong nguồn chỉ có1 và3 nên chưa biểu diễn được.",
+      "retained_tail_text": " 3. Văn phòng con nuôi nước ngoài gửi báo cáo bằng văn bản giấy hoặc văn bản điện tử dưới định dạng pdf của báo cáo giấy theo quy định tại khoản 1 Điều này.”."
+    }
+  ]
+}

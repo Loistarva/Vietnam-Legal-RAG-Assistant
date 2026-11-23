@@ -1,0 +1,93 @@
+{
+  "base_commit": "790eeaa",
+  "old_children": 6144,
+  "new_children": 6165,
+  "net_new_children": 21,
+  "clauses": [
+    {
+      "clause_id": "nd_19_2011_nd_cp_art_31_clause_1",
+      "old_chunk_ids": [
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_2"
+      ],
+      "new_chunk_ids": [
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_2",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_3",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_4",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_5",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_6",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_7",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_8"
+      ],
+      "reused_ids_with_changed_text": [
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_2"
+      ],
+      "non_whitespace_source_text_preserved": true
+    },
+    {
+      "clause_id": "nd_24_2019_nd_cp_art_1_clause_7",
+      "old_chunk_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_3"
+      ],
+      "new_chunk_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_3",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_4"
+      ],
+      "reused_ids_with_changed_text": [
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_3"
+      ],
+      "non_whitespace_source_text_preserved": true
+    },
+    {
+      "clause_id": "tt_10_2020_tt_btp_art_3_clause_1",
+      "old_chunk_ids": [
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_1"
+      ],
+      "new_chunk_ids": [
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_1",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_2",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_3",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_4",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_5"
+      ],
+      "reused_ids_with_changed_text": [
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_1"
+      ],
+      "non_whitespace_source_text_preserved": true
+    },
+    {
+      "clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "old_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2"
+      ],
+      "new_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "reused_ids_with_changed_text": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2"
+      ],
+      "non_whitespace_source_text_preserved": true
+    }
+  ],
+  "warning": "Do not reuse an old vector/index under a reused ID when its text changed. Rebuild from current chunks; Gold labels are frozen and require peer revalidation if these IDs were referenced."
+}

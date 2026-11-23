@@ -1,0 +1,20 @@
+{
+  "as_of_date": "2026-11-23",
+  "active_documents": 84,
+  "parents": 2639,
+  "children": 6165,
+  "finite_end_children": 2328,
+  "null_end_children": 3837,
+  "null_end_means": "End not established; NOT legally approved as current.",
+  "automatically_approved_current_children": 0,
+  "applied_overrides": 54,
+  "new_overrides": 13,
+  "new_override_children": 26,
+  "new_phrase_change_rows": 56,
+  "phrase_spans": 58,
+  "phrase_runtime_integration": false,
+  "exact_intermediate_ranges": 4,
+  "mixed_date_parents": 48,
+  "code_changes": [],
+  "remaining_work_manifest": "reports/data/provision_review_20261123/technical_handoff.json"
+}

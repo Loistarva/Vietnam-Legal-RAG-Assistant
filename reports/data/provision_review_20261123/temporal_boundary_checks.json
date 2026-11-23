@@ -1,0 +1,145 @@
+[
+  {
+    "override_id": "temporal_20261123_nd_19_2011_nd_cp_1",
+    "matching_children": 3,
+    "effective_to": "2019-04-25",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_19_2011_nd_cp_art_6_clause_1_chunk_1",
+      "nd_19_2011_nd_cp_art_6_clause_2_chunk_1",
+      "nd_19_2011_nd_cp_art_6_clause_3_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_19_2011_nd_cp_2",
+    "matching_children": 2,
+    "effective_to": "2019-04-25",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_6",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_7"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_19_2011_nd_cp_3",
+    "matching_children": 1,
+    "effective_to": "2026-01-15",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_8"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_24_2019_nd_cp_4",
+    "matching_children": 3,
+    "effective_to": "2025-01-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_4"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_24_2019_nd_cp_5",
+    "matching_children": 2,
+    "effective_to": "2025-01-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_24_2019_nd_cp_art_1_clause_8_chunk_1",
+      "nd_24_2019_nd_cp_art_1_clause_8_chunk_2"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_19_2011_nd_cp_6",
+    "matching_children": 2,
+    "effective_to": "2025-01-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_19_2011_nd_cp_art_33_clause_1_chunk_1",
+      "nd_19_2011_nd_cp_art_33_clause_3_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_nd_19_2011_nd_cp_7",
+    "matching_children": 3,
+    "effective_to": "2025-01-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "nd_19_2011_nd_cp_art_34_clause_2_chunk_1",
+      "nd_19_2011_nd_cp_art_34_clause_3_chunk_1",
+      "nd_19_2011_nd_cp_art_34_clause_5_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_21_2011_tt_btp_8",
+    "matching_children": 2,
+    "effective_to": "2022-02-11",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_6"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_21_2011_tt_btp_9",
+    "matching_children": 1,
+    "effective_to": "2025-04-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_21_2011_tt_btp_art_4_clause_2_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_21_2011_tt_btp_10",
+    "matching_children": 1,
+    "effective_to": "2025-04-08",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_21_2011_tt_btp_art_9_clause_3_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_10_2020_tt_btp_11",
+    "matching_children": 1,
+    "effective_to": "2023-11-30",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_4"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_10_2020_tt_btp_12",
+    "matching_children": 4,
+    "effective_to": "2025-08-04",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_2",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_3",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_5",
+      "tt_10_2020_tt_btp_art_3_clause_2_chunk_1"
+    ]
+  },
+  {
+    "override_id": "temporal_20261123_tt_07_2023_tt_btp_13",
+    "matching_children": 1,
+    "effective_to": "2025-08-04",
+    "day_before_included": true,
+    "on_end_excluded": true,
+    "chunk_ids": [
+      "tt_07_2023_tt_btp_art_1_clause_1_chunk_1"
+    ]
+  }
+]

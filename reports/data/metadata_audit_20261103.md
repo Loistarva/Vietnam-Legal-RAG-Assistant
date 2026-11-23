@@ -2,11 +2,11 @@
 
 Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `3a49000d4a15aaabd9392c3d7de1b16bc74bfff8`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `790eeaa406e070b4f31f513e0c8d78e6972790da`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
-- Registry: 84 văn bản; corpus: 6144 chunks / 84 văn bản; article index: 3841 dòng.
+- Registry: 84 văn bản; corpus: 6165 chunks / 84 văn bản; article index: 3841 dòng.
 - Structural errors: **0**; warnings: 84. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
 - Alias keys: 2143; ambiguous keys: 127. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
@@ -137,9 +137,9 @@ Warning counts:
 
 Registry canonical SHA-256: `b231f27c52c48f4a5f4b9dfa814410e5009447912a48762599e82e3021b2298d`.
 - data/reference/document_versions.json: raw file SHA-256 `382b8b6198ab5f5b8821d953b79b1f189021bbfc54ad48381bf175cacb4a880e`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `495700dc714f2bebd1b66f0aa54c39f92d4563413fc5f689745ec06a6b118e26`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `90bb120257352e46fe4e6d440c50e0288b4123494cbbae9522b7d71012491073`
 - data/reference/article_index.json: raw file SHA-256 `0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e`
-- data/reference/provision_periods.json: raw file SHA-256 `fa8900d23a03736336cc8d1ac1ce2ca400bcd977bc4d9ae182b1aa754a01c934`
+- data/reference/provision_periods.json: raw file SHA-256 `bf1f71e62bc3f7efc44bc6d5f5f12338b2ad1fd290af4b0acee5a72c740444e2`
 
 Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
 

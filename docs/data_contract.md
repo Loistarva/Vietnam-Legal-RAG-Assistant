@@ -269,6 +269,10 @@ $$\text{effective\_from} \le \text{as\_of\_date} < \text{effective\_to}$$
 
 ---
 
+### Dữ liệu hiệu lực chi tiết bổ sung ngày 23/11/2026
+
+`effective_to=null` chỉ biểu thị chưa xác định mốc kết thúc, không chứng minh hiện hành. Ngoài `provision_periods.json` đang được exporter áp dụng, `data/reference/provision_text_changes.json` lưu thay/bỏ câu chữ theo vị trí Unicode trong đúng đoạn parser và `data/reference/intermediate_provision_versions.json` lưu phạm vi phiên bản trung gian chưa biểu diễn bằng selector hiện tại. Hai tệp này là dữ liệu bàn giao, **chưa được chunker hoặc retrieval tự nạp**; không dùng chúng để kết luận phần còn lại của Khoản đã hết hiệu lực. Chi tiết giới hạn, căn cứ và parent có child khác khoảng hiệu lực: `reports/data/provision_review_20261123/README.md`. Rebuild index khi các Khoản được tách theo Điểm; không dùng lại vector cũ chỉ theo ID.
+
 ## 6. Bảng Ánh xạ Định danh Văn bản (Document ID Mapping Registry)
 
 Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_code`), định danh hệ thống slug (`document_id`), số hiệu văn bản pháp luật, tên văn bản và trạng thái hiệu lực:

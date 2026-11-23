@@ -1,0 +1,38 @@
+{
+  "as_of_date": "2026-11-23",
+  "base_commit": "790eeaa",
+  "pytest": {
+    "passed": 2260,
+    "skipped": 1,
+    "seconds": 108.58
+  },
+  "focused_provision_tests": 70,
+  "metadata_audit": {
+    "errors": 0,
+    "warnings": 84,
+    "ambiguous_aliases": 127
+  },
+  "source_pdf_manifest": "PASS",
+  "ruff": "PASS E9,F63,F7,F82",
+  "negative_set": "PASS; existing baseline warnings retained",
+  "new_overrides": 13,
+  "new_override_children": 26,
+  "phrase_rows": 56,
+  "phrase_spans": 58,
+  "exact_intermediate_ranges": 4,
+  "active_documents": 84,
+  "parents": 2639,
+  "children": 6165,
+  "parser_code_changes": false,
+  "parser_json_statutory_changes": false,
+  "benchmark_gold_changes": false,
+  "runtime_complete": false,
+  "files_sha256": {
+    "data/reference/provision_periods.json": "bf1f71e62bc3f7efc44bc6d5f5f12338b2ad1fd290af4b0acee5a72c740444e2",
+    "data/reference/provision_text_changes.json": "54a1dfde7dac61a577e3a3705fa2482886e21d69d18e89df04ac243bdc5c778d",
+    "data/reference/intermediate_provision_versions.json": "d38518d8eb0eaf99f01cd73ce3f1d7b897c3512eafcf955c5a3f20c53d9aa457",
+    "data/chunking_output/chunks.jsonl": "90bb120257352e46fe4e6d440c50e0288b4123494cbbae9522b7d71012491073",
+    "data/chunking_output/parents.json": "1846c492db540666c1f40c9e659a8e08771b1500a593ff11cc4c20b3dfacd9cb",
+    "data/reference/production_chunk_index.json": "9e6f42f4b94aafee9032a9103ef67a68e5e9e03af94278dda7683f0aa248b6ab"
+  }
+}

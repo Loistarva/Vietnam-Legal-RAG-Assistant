@@ -49093,12 +49093,12 @@
       "issue_date": "2011-03-21",
       "effective_date": "2011-05-08",
       "effective_from": "2011-05-08",
-      "effective_to": null,
+      "effective_to": "2019-04-25",
       "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
       "issuing_body": "Chính phủ",
       "validity_status": "Sửa đổi bổ sung",
       "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
-      "provision_status": "requires_review",
+      "provision_status": "amended",
       "chapter": "Chương II QUY ĐỊNH CỤ THỂ VỀ MỘT SỐ THỦ TỤC GIẢI QUYẾT VIỆC NUÔI CON NUÔI",
       "section": "Mục 1 NUÔI CON NUÔI TRONG NƯỚC",
       "article_number": "6"
@@ -50077,13 +50077,19 @@
     "parent_id": "nd_19_2011_nd_cp_art_31_p1",
     "doc_id": "nd_19_2011_nd_cp",
     "title": "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi",
-    "text": "[Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam]\n1. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam phải có các giấy tờ sau đây: a) Đơn của tổ chức con nuôi nước ngoài xin phép hoạt động tại Việt Nam; b) Bản sao Điều lệ, Quy chế hoạt động hoặc văn bản thành lập tổ chức con nuôi nước ngoài; c) Bản sao giấy phép do cơ quan có thẩm quyền của nước nơi tổ chức được thành lập cấp, cho phép tổ chức được hoạt động trong lĩnh vực nuôi con nuôi nước ngoài tại Việt Nam; d) Báo cáo tình hình hoạt động trong lĩnh vực con nuôi quốc tế trong 03 năm gần nhất, bao gồm cả tình hình thu, chi tài chính về con nuôi quốc tế, không vi phạm pháp luật và được cơ quan có thẩm quyền của nước nơi tổ chức được thành lập xác nhận; trường hợp đã hoạt động trong lĩnh vực nuôi con nuôi nước ngoài tại Việt Nam, thì phải có báo cáo về tình hình hoạt động tại Việt Nam;",
+    "text": "[Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam]\n1. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam phải có các giấy tờ sau đây:\na) Đơn của tổ chức con nuôi nước ngoài xin phép hoạt động tại Việt Nam;\nb) Bản sao Điều lệ, Quy chế hoạt động hoặc văn bản thành lập tổ chức con nuôi nước ngoài;\nc) Bản sao giấy phép do cơ quan có thẩm quyền của nước nơi tổ chức được thành lập cấp, cho phép tổ chức được hoạt động trong lĩnh vực nuôi con nuôi nước ngoài tại Việt Nam;\nd) Báo cáo tình hình hoạt động trong lĩnh vực con nuôi quốc tế trong 03 năm gần nhất, bao gồm cả tình hình thu, chi tài chính về con nuôi quốc tế, không vi phạm pháp luật và được cơ quan có thẩm quyền của nước nơi tổ chức được thành lập xác nhận; trường hợp đã hoạt động trong lĩnh vực nuôi con nuôi nước ngoài tại Việt Nam, thì phải có báo cáo về tình hình hoạt động tại Việt Nam;\nđ) Báo cáo đánh giá về sự hiểu biết của các nhân viên xã hội và nhân viên pháp lý làm việc tại tổ chức con nuôi nước ngoài về các lĩnh vực pháp luật, văn hóa, xã hội của Việt Nam và pháp luật quốc tế về nuôi con nuôi;\ne) Lý lịch cá nhân, phiếu lý lịch tư pháp, bản sao văn bằng, chứng chỉ về trình độ chuyên môn của người đứng đầu tổ chức con nuôi nước ngoài;",
     "breadcrumb": "Chương III THỦ TỤC CẤP, GIA HẠN, SỬA ĐỔI, THU HỒI GIẤY PHÉP HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI TẠI VIỆT NAM > Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam > Khoản 1",
     "article_ref": "Điều 31",
     "clause_refs": "Khoản 1",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "nd_19_2011_nd_cp_art_31_clause_1_chunk_1"
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_2",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_3",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_4",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_5",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_6",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_7"
     ],
     "metadata": {
       "doc_id": "nd_19_2011_nd_cp",
@@ -50108,13 +50114,13 @@
     "parent_id": "nd_19_2011_nd_cp_art_31_p2",
     "doc_id": "nd_19_2011_nd_cp",
     "title": "Quy định chi tiết thi hành một số điều của Luật Nuôi con nuôi",
-    "text": "[Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam]\nđ) Báo cáo đánh giá về sự hiểu biết của các nhân viên xã hội và nhân viên pháp lý làm việc tại tổ chức con nuôi nước ngoài về các lĩnh vực pháp luật, văn hóa, xã hội của Việt Nam và pháp luật quốc tế về nuôi con nuôi; e) Lý lịch cá nhân, phiếu lý lịch tư pháp, bản sao văn bằng, chứng chỉ về trình độ chuyên môn của người đứng đầu tổ chức con nuôi nước ngoài; g) Lý lịch cá nhân, phiếu lý lịch tư pháp, bản sao văn bằng, chứng chỉ về trình độ chuyên môn của người dự kiến đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam và văn bản của tổ chức chấp thuận cử người đó làm người đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam.\n2. Giấy tờ quy định tại khoản 1 Điều này được lập thành 02 bộ hồ sơ và nộp tại Cục Con nuôi.",
+    "text": "[Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam]\ng) Lý lịch cá nhân, phiếu lý lịch tư pháp, bản sao văn bằng, chứng chỉ về trình độ chuyên môn của người dự kiến đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam và văn bản của tổ chức chấp thuận cử người đó làm người đứng đầu Văn phòng con nuôi nước ngoài tại Việt Nam.\n2. Giấy tờ quy định tại khoản 1 Điều này được lập thành 02 bộ hồ sơ và nộp tại Cục Con nuôi.",
     "breadcrumb": "Chương III THỦ TỤC CẤP, GIA HẠN, SỬA ĐỔI, THU HỒI GIẤY PHÉP HOẠT ĐỘNG CỦA TỔ CHỨC CON NUÔI NƯỚC NGOÀI TẠI VIỆT NAM > Điều 31. Hồ sơ của tổ chức con nuôi nước ngoài xin cấp phép hoạt động tại Việt Nam > Khoản 1-2",
     "article_ref": "Điều 31",
     "clause_refs": "Khoản 1-2",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "nd_19_2011_nd_cp_art_31_clause_1_chunk_2",
+      "nd_19_2011_nd_cp_art_31_clause_1_chunk_8",
       "nd_19_2011_nd_cp_art_31_clause_2_chunk_1"
     ],
     "metadata": {
@@ -53872,13 +53878,14 @@
     "parent_id": "nd_24_2019_nd_cp_art_1_p8",
     "doc_id": "nd_24_2019_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
-    "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n7. Sửa đổi, bổ sung Điều 16 như sau: “1. Trước khi xác nhận trẻ em có đủ điều kiện làm con nuôi ở nước ngoài theo quy định tại khoản 2 Điều 33 của Luật nuôi con nuôi, Sở Tư pháp kiểm tra, thẩm định hồ sơ trẻ em và đối chiếu với các quy định về đối tượng, độ tuổi của trẻ em được nhận làm con nuôi, trường hợp được nhận đích danh, trường hợp phải thông qua thủ tục giới thiệu. Trường hợp trẻ em bị bỏ rơi được cho làm con nuôi ở nước ngoài, thì phải có văn bản xác minh và kết luận rõ ràng của Công an cấp tỉnh về nguồn gốc trẻ em bị bỏ rơi, không xác định được cha mẹ đẻ. Trường hợp trẻ em bị bỏ rơi mà Công an cấp tỉnh xác minh được thông tin về cha, mẹ đẻ và Sở Tư pháp liên hệ được với cha, mẹ đẻ thì Sở Tư pháp tiến hành lấy ý kiến của cha, mẹ đẻ trước khi xác nhận trẻ em đủ điều kiện làm con nuôi.",
+    "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n7. Sửa đổi, bổ sung Điều 16 như sau: “1. Trước khi xác nhận trẻ em có đủ điều kiện làm con nuôi ở nước ngoài theo quy định tại khoản 2 Điều 33 của Luật nuôi con nuôi, Sở Tư pháp kiểm tra, thẩm định hồ sơ trẻ em và đối chiếu với các quy định về đối tượng, độ tuổi của trẻ em được nhận làm con nuôi, trường hợp được nhận đích danh, trường hợp phải thông qua thủ tục giới thiệu. Trường hợp trẻ em bị bỏ rơi được cho làm con nuôi ở nước ngoài, thì phải có văn bản xác minh và kết luận rõ ràng của Công an cấp tỉnh về nguồn gốc trẻ em bị bỏ rơi, không xác định được cha mẹ đẻ. Trường hợp trẻ em bị bỏ rơi mà Công an cấp tỉnh xác minh được thông tin về cha, mẹ đẻ và Sở Tư pháp liên hệ được với cha, mẹ đẻ thì Sở Tư pháp tiến hành lấy ý kiến của cha, mẹ đẻ trước khi xác nhận trẻ em đủ điều kiện làm con nuôi.\nTrường hợp không thể liên hệ được với cha, mẹ đẻ, Sở Tư pháp niêm yết tại trụ sở Sở Tư pháp trong thời hạn 60 ngày kể từ ngày nhận được kết quả xác minh, đồng thời có văn bản đề nghị Ủy ban nhân dân cấp xã nơi cư trú cuối cùng của cha, mẹ đẻ niêm yết tại trụ sở Ủy ban nhân dân cấp xã về việc cho trẻ em làm con nuôi. Thời hạn niêm yết là 60 ngày kể từ ngày Ủy ban nhân dân cấp xã nhận được văn bản đề nghị của Sở Tư pháp.",
     "breadcrumb": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết... > Khoản 7",
     "article_ref": "Điều 1",
     "clause_refs": "Khoản 7",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "nd_24_2019_nd_cp_art_1_clause_7_chunk_1"
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_2"
     ],
     "metadata": {
       "doc_id": "nd_24_2019_nd_cp",
@@ -53888,12 +53895,12 @@
       "issue_date": "2019-03-05",
       "effective_date": "2019-04-25",
       "effective_from": "2019-04-25",
-      "effective_to": null,
+      "effective_to": "2025-01-08",
       "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
       "issuing_body": "Chính phủ",
       "validity_status": "Sửa đổi bổ sung",
       "source_status": "Hết hiệu lực một phần",
-      "provision_status": "requires_review",
+      "provision_status": "amended",
       "chapter": null,
       "section": null,
       "article_number": "1"
@@ -53903,13 +53910,12 @@
     "parent_id": "nd_24_2019_nd_cp_art_1_p9",
     "doc_id": "nd_24_2019_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
-    "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\nTrường hợp không thể liên hệ được với cha, mẹ đẻ, Sở Tư pháp niêm yết tại trụ sở Sở Tư pháp trong thời hạn 60 ngày kể từ ngày nhận được kết quả xác minh, đồng thời có văn bản đề nghị Ủy ban nhân dân cấp xã nơi cư trú cuối cùng của cha, mẹ đẻ niêm yết tại trụ sở Ủy ban nhân dân cấp xã về việc cho trẻ em làm con nuôi. Thời hạn niêm yết là 60 ngày kể từ ngày Ủy ban nhân dân cấp xã nhận được văn bản đề nghị của Sở Tư pháp. 2. Việc xác nhận trẻ em có đủ điều kiện làm con nuôi phải bảo đảm trẻ em đáp ứng đủ các yêu cầu về độ tuổi, đối tượng được nhận đích danh, đối tượng phải thông qua thủ tục giới thiệu; hồ sơ phải có đủ các giấy tờ hợp lệ. Trường hợp trẻ em có đủ điều kiện làm con nuôi, Sở Tư pháp phải có văn bản xác nhận đối với từng trường hợp cụ thể. 3.\nSau khi xác nhận trẻ em đủ điều kiện được cho làm con nuôi ở nước ngoài, Sở Tư pháp gửi Cục Con nuôi văn bản xác nhận trẻ em đủ điều kiện được cho làm con nuôi, văn bản xác minh của Công an cấp tỉnh đối với trường hợp trẻ em bị bỏ rơi, văn bản lấy ý kiến của cha, mẹ đẻ hoặc người giám hộ và ý kiến của trẻ em từ đủ chín tuổi trở lên về việc đồng ý cho trẻ em làm con nuôi; trường hợp trẻ em đang sống tại cơ sở nuôi dưỡng thì phải có văn bản lấy ý kiến của Giám đốc cơ sở nuôi dưỡng về việc cho trẻ em làm con nuôi.”",
+    "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n2. Việc xác nhận trẻ em có đủ điều kiện làm con nuôi phải bảo đảm trẻ em đáp ứng đủ các yêu cầu về độ tuổi, đối tượng được nhận đích danh, đối tượng phải thông qua thủ tục giới thiệu; hồ sơ phải có đủ các giấy tờ hợp lệ. Trường hợp trẻ em có đủ điều kiện làm con nuôi, Sở Tư pháp phải có văn bản xác nhận đối với từng trường hợp cụ thể.",
     "breadcrumb": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết... > Khoản 7",
     "article_ref": "Điều 1",
     "clause_refs": "Khoản 7",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
       "nd_24_2019_nd_cp_art_1_clause_7_chunk_3"
     ],
     "metadata": {
@@ -53935,6 +53941,37 @@
     "parent_id": "nd_24_2019_nd_cp_art_1_p10",
     "doc_id": "nd_24_2019_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
+    "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n3. Sau khi xác nhận trẻ em đủ điều kiện được cho làm con nuôi ở nước ngoài, Sở Tư pháp gửi Cục Con nuôi văn bản xác nhận trẻ em đủ điều kiện được cho làm con nuôi, văn bản xác minh của Công an cấp tỉnh đối với trường hợp trẻ em bị bỏ rơi, văn bản lấy ý kiến của cha, mẹ đẻ hoặc người giám hộ và ý kiến của trẻ em từ đủ chín tuổi trở lên về việc đồng ý cho trẻ em làm con nuôi; trường hợp trẻ em đang sống tại cơ sở nuôi dưỡng thì phải có văn bản lấy ý kiến của Giám đốc cơ sở nuôi dưỡng về việc cho trẻ em làm con nuôi.”",
+    "breadcrumb": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết... > Khoản 7",
+    "article_ref": "Điều 1",
+    "clause_refs": "Khoản 7",
+    "chunk_type": "ARTICLE",
+    "child_ids": [
+      "nd_24_2019_nd_cp_art_1_clause_7_chunk_4"
+    ],
+    "metadata": {
+      "doc_id": "nd_24_2019_nd_cp",
+      "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
+      "document_type": "Nghị định",
+      "document_number": "24/2019/NĐ-CP",
+      "issue_date": "2019-03-05",
+      "effective_date": "2019-04-25",
+      "effective_from": "2019-04-25",
+      "effective_to": "2025-01-08",
+      "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+      "issuing_body": "Chính phủ",
+      "validity_status": "Sửa đổi bổ sung",
+      "source_status": "Hết hiệu lực một phần",
+      "provision_status": "amended",
+      "chapter": null,
+      "section": null,
+      "article_number": "1"
+    }
+  },
+  {
+    "parent_id": "nd_24_2019_nd_cp_art_1_p11",
+    "doc_id": "nd_24_2019_nd_cp",
+    "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
     "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n8. Sửa đổi, bổ sung khoản 3 Điều 20 như sau: “3. Trong khi kiểm tra kết quả giải quyết việc nuôi con nuôi theo quy định tại khoản 2 Điều 28 và khoản 2 Điều 36 của Luật nuôi con nuôi, Cục Con nuôi có thể lấy ý kiến của chuyên gia tâm lý, y tế, gia đình, xã hội. Nếu trẻ em có đủ điều kiện để cho làm con nuôi ở nước ngoài, việc giải quyết cho trẻ em làm con nuôi bảo đảm đúng trình tự, thủ tục quy định và đáp ứng lợi ích tốt nhất của trẻ em, thì Cục Con nuôi thông báo bằng văn bản cho người nhận con nuôi, Cơ quan Trung ương về nuôi con nuôi của nước ngoài hữu quan kèm theo báo cáo đánh giá về trẻ em đủ điều kiện cho làm con nuôi ở nước ngoài và văn bản lấy ý kiến của cha, mẹ đẻ hoặc người giám hộ và ý kiến của trẻ em từ đủ chín tuổi trở lên về việc đồng ý cho trẻ em làm con nuôi;\ntrường hợp trẻ em đang sống tại cơ sở nuôi dưỡng thì phải có văn bản lấy ý kiến của Giám đốc cơ sở nuôi dưỡng về việc cho trẻ em làm con nuôi. Trường hợp trẻ em không đủ điều kiện để cho làm con nuôi, việc giải quyết cho trẻ em làm con nuôi không bảo đảm đúng trình tự, thủ tục quy định và không đáp ứng lợi ích tốt nhất của trẻ em, thì Cục Con nuôi thông báo cho Sở Tư pháp.”",
     "breadcrumb": "Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết... > Khoản 8",
     "article_ref": "Điều 1",
@@ -53952,19 +53989,19 @@
       "issue_date": "2019-03-05",
       "effective_date": "2019-04-25",
       "effective_from": "2019-04-25",
-      "effective_to": null,
+      "effective_to": "2025-01-08",
       "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
       "issuing_body": "Chính phủ",
       "validity_status": "Sửa đổi bổ sung",
       "source_status": "Hết hiệu lực một phần",
-      "provision_status": "requires_review",
+      "provision_status": "amended",
       "chapter": null,
       "section": null,
       "article_number": "1"
     }
   },
   {
-    "parent_id": "nd_24_2019_nd_cp_art_1_p11",
+    "parent_id": "nd_24_2019_nd_cp_art_1_p12",
     "doc_id": "nd_24_2019_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
     "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\n9. Sửa đổi Điều 30 như sau: “Điều 30. Ghi vào Sổ đăng ký nuôi con nuôi việc nuôi con nuôi đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài 1. Việc nuôi con nuôi giữa công dân Việt Nam với nhau hoặc giữa công dân Việt Nam với người nước ngoài đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài thì được ghi vào Sổ đăng ký nuôi con nuôi trong các trường hợp sau: a) Việc nuôi con nuôi đã được giải quyết theo quy định của điều ước quốc tế mà Việt Nam và nước nơi giải quyết việc nuôi con nuôi cùng là thành viên;",
@@ -53995,7 +54032,7 @@
     }
   },
   {
-    "parent_id": "nd_24_2019_nd_cp_art_1_p12",
+    "parent_id": "nd_24_2019_nd_cp_art_1_p13",
     "doc_id": "nd_24_2019_nd_cp",
     "title": "Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi",
     "text": "[Điều 1. Sửa đổi, bổ sung một số điều của Nghị định số 19/2011/NĐ-CP ngày 21 tháng 3 năm 2011 của Chính phủ quy định chi tiết thi hành một số điều của Luật nuôi con nuôi]\nb) Việc nuôi con nuôi đã được giải quyết theo quy định pháp luật của nước ngoài, trừ trường hợp vi phạm những nguyên tắc cơ bản của pháp luật nước Cộng hòa xã hội chủ nghĩa Việt Nam. 2. Thẩm quyền, thủ tục ghi vào Sổ đăng ký nuôi con nuôi việc nuôi con nuôi đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài được thực hiện theo quy định của pháp luật về hộ tịch. Đối với trường hợp nuôi con nuôi được giải quyết theo quy định tại điểm a khoản 1 Điều này, thì ngoài các giấy tờ quy định tại khoản 1 Điều 49 của Luật hộ tịch, hồ sơ còn phải có văn bản chứng nhận việc nuôi con nuôi đã được thực hiện phù hợp với điều ước quốc tế của cơ quan có thẩm quyền của nước ngoài. 3. Cục Con nuôi đăng tải trên Cổng thông tin điện tử của Bộ Tư pháp danh sách các nước có quan hệ hợp tác với Việt Nam theo điều ước quốc tế về nuôi con nuôi.”",
@@ -74467,13 +74504,17 @@
     "parent_id": "tt_10_2020_tt_btp_art_3",
     "doc_id": "tt_10_2020_tt_btp",
     "title": "ban hành, hướng dẫn việc ghi chép, sử dụng, quản lý và lưu trữ Sổ, mẫu giấy tờ, hồ sơ nuôi con nuôi",
-    "text": "[Điều 3. Ban hành mẫu Sổ, mẫu giấy tờ]\n1. Ban hành kèm theo Thông tư này: a) 02 mẫu Sổ (Phụ lục 1); b) 07 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi trong nước (Phụ lục 2); c) 14 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi có yếu tố nước ngoài (Phụ lục 3); d) 06 mẫu giấy tờ dùng chung cho việc đăng ký nuôi con nuôi trong nước và nuôi con nuôi có yếu tố nước ngoài (Phụ lục 4).\n2. Tiêu chuẩn về kích thước, màu sắc, chi tiết kỹ thuật của mẫu Sổ và mẫu giấy tờ được mô tả cụ thể trong các Phụ lục ban hành kèm theo Thông tư này.",
+    "text": "[Điều 3. Ban hành mẫu Sổ, mẫu giấy tờ]\n1. Ban hành kèm theo Thông tư này:\na) 02 mẫu Sổ (Phụ lục 1);\nb) 07 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi trong nước (Phụ lục 2);\nc) 14 mẫu giấy tờ dùng cho việc đăng ký nuôi con nuôi có yếu tố nước ngoài (Phụ lục 3);\nd) 06 mẫu giấy tờ dùng chung cho việc đăng ký nuôi con nuôi trong nước và nuôi con nuôi có yếu tố nước ngoài (Phụ lục 4).\n2. Tiêu chuẩn về kích thước, màu sắc, chi tiết kỹ thuật của mẫu Sổ và mẫu giấy tờ được mô tả cụ thể trong các Phụ lục ban hành kèm theo Thông tư này.",
     "breadcrumb": "Điều 3. Ban hành mẫu Sổ, mẫu giấy tờ",
     "article_ref": "Điều 3",
     "clause_refs": "Khoản 1-2",
     "chunk_type": "ARTICLE",
     "child_ids": [
       "tt_10_2020_tt_btp_art_3_clause_1_chunk_1",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_2",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_3",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_4",
+      "tt_10_2020_tt_btp_art_3_clause_1_chunk_5",
       "tt_10_2020_tt_btp_art_3_clause_2_chunk_1"
     ],
     "metadata": {
@@ -78521,13 +78562,22 @@
     "parent_id": "tt_21_2011_tt_btp_art_6_p1",
     "doc_id": "tt_21_2011_tt_btp",
     "title": "về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam",
-    "text": "[Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam]\n1. Theo quy định tại điểm b khoản 2 Điều 43 của Luật Nuôi con nuôi, Văn phòng con nuôi nước ngoài được thay mặt người nhận con nuôi tiến hành các hoạt động sau đây nhằm thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam: a) Hoàn thiện hồ sơ của người nhận con nuôi theo quy định của pháp luật Việt Nam; b) Nộp hồ sơ của người nhận con nuôi cho Cục Con nuôi và nộp lệ phí đăng ký nuôi con nuôi nước ngoài theo quy định; c) Bổ sung tài liệu, giấy tờ trong hồ sơ của người nhận con nuôi theo yêu cầu của Cục Con nuôi; d) Gửi ảnh và thông tin về trẻ em cho người nhận con nuôi sau khi được cơ quan có thẩm quyền của Việt Nam đồng ý giới thiệu trẻ em làm con nuôi; đ) Đưa trẻ em được giới thiệu làm con nuôi đi kiểm tra hoặc khám sức khỏe bổ sung sau khi có sự đồng ý của người đứng đầu cơ sở nuôi dưỡng trẻ em đó;",
+    "text": "[Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam]\n1. Theo quy định tại điểm b khoản 2 Điều 43 của Luật Nuôi con nuôi, Văn phòng con nuôi nước ngoài được thay mặt người nhận con nuôi tiến hành các hoạt động sau đây nhằm thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam:\na) Hoàn thiện hồ sơ của người nhận con nuôi theo quy định của pháp luật Việt Nam;\nb) Nộp hồ sơ của người nhận con nuôi cho Cục Con nuôi và nộp lệ phí đăng ký nuôi con nuôi nước ngoài theo quy định;\nc) Bổ sung tài liệu, giấy tờ trong hồ sơ của người nhận con nuôi theo yêu cầu của Cục Con nuôi;\nd) Gửi ảnh và thông tin về trẻ em cho người nhận con nuôi sau khi được cơ quan có thẩm quyền của Việt Nam đồng ý giới thiệu trẻ em làm con nuôi;\nđ) Đưa trẻ em được giới thiệu làm con nuôi đi kiểm tra hoặc khám sức khỏe bổ sung sau khi có sự đồng ý của người đứng đầu cơ sở nuôi dưỡng trẻ em đó;\ne) Gửi Cục Con nuôi văn bản đồng ý của người nhận con nuôi về trẻ em được giới thiệu và văn bản đồng ý của cơ quan có thẩm quyền nước ngoài hữu quan cho tiếp tục hoàn thiện thủ tục nuôi con nuôi;\ng) Nộp chi phí giải quyết nuôi con nuôi nước ngoài theo quy định;\nh) Hỗ trợ người nhận con nuôi trong các thủ tục về xuất nhập cảnh, đi lại, cư trú, phiên dịch khi họ đến Việt Nam để hoàn tất các thủ tục xin nhận trẻ em làm con nuôi;\ni) Phối hợp với cơ sở nuôi dưỡng trẻ em tổ chức cho người nhận con nuôi làm quen, tiếp xúc với trẻ em đã được giới thiệu làm con nuôi;",
     "breadcrumb": "Chương III QUYỀN, NGHĨA VỤ CỦA VĂN PHÒNG CON NUÔI NƯỚC NGOÀI > Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam > Khoản 1",
     "article_ref": "Điều 6",
     "clause_refs": "Khoản 1",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "tt_21_2011_tt_btp_art_6_clause_1_chunk_1"
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_10"
     ],
     "metadata": {
       "doc_id": "tt_21_2011_tt_btp",
@@ -78552,13 +78602,14 @@
     "parent_id": "tt_21_2011_tt_btp_art_6_p2",
     "doc_id": "tt_21_2011_tt_btp",
     "title": "về việc quản lý Văn phòng con nuôi nước ngoài tại Việt Nam",
-    "text": "[Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam]\ne) Gửi Cục Con nuôi văn bản đồng ý của người nhận con nuôi về trẻ em được giới thiệu và văn bản đồng ý của cơ quan có thẩm quyền nước ngoài hữu quan cho tiếp tục hoàn thiện thủ tục nuôi con nuôi; g) Nộp chi phí giải quyết nuôi con nuôi nước ngoài theo quy định; h) Hỗ trợ người nhận con nuôi trong các thủ tục về xuất nhập cảnh, đi lại, cư trú, phiên dịch khi họ đến Việt Nam để hoàn tất các thủ tục xin nhận trẻ em làm con nuôi; i) Phối hợp với cơ sở nuôi dưỡng trẻ em tổ chức cho người nhận con nuôi làm quen, tiếp xúc với trẻ em đã được giới thiệu làm con nuôi; k) Hỗ trợ người nhận con nuôi trong lễ giao nhận con nuôi; l) Hỗ trợ người nhận con nuôi trong các thủ tục về hộ chiếu, thị thực cho trẻ em xuất cảnh Việt Nam, nhập cảnh và định cư tại nước ngoài hữu quan.\n2. Văn phòng con nuôi nước ngoài không được đại diện về mặt pháp lý cho cha mẹ nuôi nước ngoài.",
+    "text": "[Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam]\nk) Hỗ trợ người nhận con nuôi trong lễ giao nhận con nuôi;\nl) Hỗ trợ người nhận con nuôi trong các thủ tục về hộ chiếu, thị thực cho trẻ em xuất cảnh Việt Nam, nhập cảnh và định cư tại nước ngoài hữu quan.\n2. Văn phòng con nuôi nước ngoài không được đại diện về mặt pháp lý cho cha mẹ nuôi nước ngoài.",
     "breadcrumb": "Chương III QUYỀN, NGHĨA VỤ CỦA VĂN PHÒNG CON NUÔI NƯỚC NGOÀI > Điều 6. Thay mặt người nhận con nuôi thực hiện các thủ tục giải quyết việc nuôi con nuôi ở Việt Nam > Khoản 1-2",
     "article_ref": "Điều 6",
     "clause_refs": "Khoản 1-2",
     "chunk_type": "ARTICLE",
     "child_ids": [
-      "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+      "tt_21_2011_tt_btp_art_6_clause_1_chunk_12",
       "tt_21_2011_tt_btp_art_6_clause_2_chunk_1"
     ],
     "metadata": {

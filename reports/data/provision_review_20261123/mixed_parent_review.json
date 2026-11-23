@@ -1,0 +1,708 @@
+{
+  "as_of_date": "2026-11-23",
+  "parents": [
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_2_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_2_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_2_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_2_clause_3_chunk_1",
+        "nd_123_2015_nd_cp_art_2_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_3_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_3_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_3_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_3_clause_2_chunk_2"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_4_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_2",
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_3",
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_4",
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_5",
+        "nd_123_2015_nd_cp_art_4_clause_1_chunk_6"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_9",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_9_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_9_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_10",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_10_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_10_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_12",
+      "parent_end": null,
+      "child_end_dates": [
+        "2020-09-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_12_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_12_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_12_clause_3_chunk_1",
+        "nd_123_2015_nd_cp_art_12_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_22_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2026-01-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_22_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_22_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_22_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_22_p2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_22_clause_4_chunk_1",
+        "nd_123_2015_nd_cp_art_22_clause_5_chunk_1",
+        "nd_123_2015_nd_cp_art_22_clause_6_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_23",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_23_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_23_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_23_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_24",
+      "parent_end": null,
+      "child_end_dates": [
+        "2026-01-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_24_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_24_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_24_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_26_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2026-01-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_26_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_26_clause_1_chunk_2",
+        "nd_123_2015_nd_cp_art_26_clause_1_chunk_3",
+        "nd_123_2015_nd_cp_art_26_clause_1_chunk_4"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_26_p2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2026-01-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_26_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_26_clause_2_chunk_2",
+        "nd_123_2015_nd_cp_art_26_clause_3_chunk_1",
+        "nd_123_2015_nd_cp_art_26_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_123_2015_nd_cp_art_27_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2026-01-15",
+        null
+      ],
+      "child_ids": [
+        "nd_123_2015_nd_cp_art_27_clause_1_chunk_1",
+        "nd_123_2015_nd_cp_art_27_clause_2_chunk_1",
+        "nd_123_2015_nd_cp_art_27_clause_2_chunk_2",
+        "nd_123_2015_nd_cp_art_27_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_126_2014_nd_cp_art_63",
+      "parent_end": null,
+      "child_end_dates": [
+        "2016-01-01",
+        null
+      ],
+      "child_ids": [
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_3",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_4",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_5",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_6",
+        "nd_126_2014_nd_cp_art_63_clause_1_chunk_7",
+        "nd_126_2014_nd_cp_art_63_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_3",
+      "parent_end": null,
+      "child_end_dates": [
+        "2019-04-25",
+        "2025-01-08"
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_3_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_3_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_3_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_10",
+      "parent_end": null,
+      "child_end_dates": [
+        "2019-04-25",
+        "2025-01-08"
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_10_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_10_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_10_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_13",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_13_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_13_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_13_clause_3_chunk_1",
+        "nd_19_2011_nd_cp_art_13_clause_4_chunk_1",
+        "nd_19_2011_nd_cp_art_13_clause_5_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_14",
+      "parent_end": null,
+      "child_end_dates": [
+        "2019-04-25",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_14_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_14_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_15",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_15_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_15_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_17",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_17_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_17_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_17_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_26",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_26_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_26_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_27_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_27_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_27_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_29_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_29_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_29_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_29_clause_3_chunk_1",
+        "nd_19_2011_nd_cp_art_29_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_31_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2019-04-25",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_2",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_3",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_4",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_5",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_6",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_7"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_33",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_33_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_33_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_33_clause_3_chunk_1",
+        "nd_19_2011_nd_cp_art_33_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_34",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-08",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_34_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_34_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_34_clause_3_chunk_1",
+        "nd_19_2011_nd_cp_art_34_clause_4_chunk_1",
+        "nd_19_2011_nd_cp_art_34_clause_5_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_19_2011_nd_cp_art_38",
+      "parent_end": null,
+      "child_end_dates": [
+        "2017-01-01",
+        null
+      ],
+      "child_ids": [
+        "nd_19_2011_nd_cp_art_38_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_38_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_38_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_87_2020_nd_cp_art_2_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_87_2020_nd_cp_art_2_clause_1_chunk_1",
+        "nd_87_2020_nd_cp_art_2_clause_2_chunk_1",
+        "nd_87_2020_nd_cp_art_2_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_87_2020_nd_cp_art_8_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_87_2020_nd_cp_art_8_clause_1_chunk_1",
+        "nd_87_2020_nd_cp_art_8_clause_2_chunk_1",
+        "nd_87_2020_nd_cp_art_8_clause_3_chunk_1",
+        "nd_87_2020_nd_cp_art_8_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_87_2020_nd_cp_art_12_p2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_87_2020_nd_cp_art_12_clause_3_chunk_4",
+        "nd_87_2020_nd_cp_art_12_clause_3_chunk_5"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_87_2020_nd_cp_art_13_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_87_2020_nd_cp_art_13_clause_1_chunk_1",
+        "nd_87_2020_nd_cp_art_13_clause_2_chunk_1",
+        "nd_87_2020_nd_cp_art_13_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "nd_87_2020_nd_cp_art_19_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-01-09",
+        null
+      ],
+      "child_ids": [
+        "nd_87_2020_nd_cp_art_19_clause_1_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_2_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_3_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_4_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_5_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_6_chunk_1",
+        "nd_87_2020_nd_cp_art_19_clause_7_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_01_2022_tt_btp_art_9",
+      "parent_end": null,
+      "child_end_dates": [
+        "2023-08-02",
+        null
+      ],
+      "child_ids": [
+        "tt_01_2022_tt_btp_art_9_clause_1_chunk_1",
+        "tt_01_2022_tt_btp_art_9_clause_2_chunk_1",
+        "tt_01_2022_tt_btp_art_9_clause_2_chunk_2"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_04_2020_tt_btp_art_3_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2024-06-06",
+        null
+      ],
+      "child_ids": [
+        "tt_04_2020_tt_btp_art_3_clause_1_chunk_1",
+        "tt_04_2020_tt_btp_art_3_clause_2_chunk_1",
+        "tt_04_2020_tt_btp_art_3_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_04_2020_tt_btp_art_18_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2024-06-06",
+        null
+      ],
+      "child_ids": [
+        "tt_04_2020_tt_btp_art_18_clause_1_chunk_1",
+        "tt_04_2020_tt_btp_art_18_clause_2_chunk_1",
+        "tt_04_2020_tt_btp_art_18_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_07_2023_tt_btp_art_1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-08-04",
+        null
+      ],
+      "child_ids": [
+        "tt_07_2023_tt_btp_art_1_clause_1_chunk_1",
+        "tt_07_2023_tt_btp_art_1_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_10_2020_tt_btp_art_3",
+      "parent_end": null,
+      "child_end_dates": [
+        "2023-11-30",
+        "2025-08-04",
+        null
+      ],
+      "child_ids": [
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_1",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_2",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_3",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_4",
+        "tt_10_2020_tt_btp_art_3_clause_1_chunk_5",
+        "tt_10_2020_tt_btp_art_3_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_10_2020_tt_btp_art_4_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2023-11-30",
+        null
+      ],
+      "child_ids": [
+        "tt_10_2020_tt_btp_art_4_clause_1_chunk_1",
+        "tt_10_2020_tt_btp_art_4_clause_2_chunk_1",
+        "tt_10_2020_tt_btp_art_4_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_2_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_2_clause_2_chunk_1",
+        "tt_21_2011_tt_btp_art_2_clause_3_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_4",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_4_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_4_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_6_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2022-02-11",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_9_p1",
+      "parent_end": null,
+      "child_end_dates": [
+        "2022-02-11",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_9_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_9_clause_2_chunk_1",
+        "tt_21_2011_tt_btp_art_9_clause_2_chunk_2"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_9_p2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_9_clause_3_chunk_1",
+        "tt_21_2011_tt_btp_art_9_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_10",
+      "parent_end": null,
+      "child_end_dates": [
+        "2022-02-11",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_10_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_10_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_11",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_11_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_11_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_13",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_13_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_13_clause_2_chunk_1",
+        "tt_21_2011_tt_btp_art_13_clause_3_chunk_1",
+        "tt_21_2011_tt_btp_art_13_clause_4_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_21_2011_tt_btp_art_15",
+      "parent_end": null,
+      "child_end_dates": [
+        "2025-04-08",
+        null
+      ],
+      "child_ids": [
+        "tt_21_2011_tt_btp_art_15_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_15_clause_2_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    },
+    {
+      "parent_id": "tt_34_2017_tt_byt_art_2",
+      "parent_end": null,
+      "child_end_dates": [
+        "2020-02-01",
+        null
+      ],
+      "child_ids": [
+        "tt_34_2017_tt_byt_art_2_clause_1_chunk_1",
+        "tt_34_2017_tt_byt_art_2_clause_2_chunk_1",
+        "tt_34_2017_tt_byt_art_2_clause_3_chunk_1",
+        "tt_34_2017_tt_byt_art_2_clause_4_chunk_1",
+        "tt_34_2017_tt_byt_art_2_clause_5_chunk_1"
+      ],
+      "required_behavior": "Build dated context from eligible children; parent-wide null end is not proof all its sentences are current. Existing code not changed."
+    }
+  ],
+  "review_required": true
+}

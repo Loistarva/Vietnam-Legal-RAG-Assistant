@@ -423,7 +423,7 @@
     }
   ],
   "registry_document_count": 84,
-  "corpus_chunk_count": 6144,
+  "corpus_chunk_count": 6165,
   "corpus_document_count": 84,
   "article_count": 3841,
   "chunks_by_document": {
@@ -463,10 +463,10 @@
     "nd_158_2026_nd_cp": 83,
     "nd_15_2014_nd_cp": 54,
     "nd_18_2026_nd_cp": 21,
-    "nd_19_2011_nd_cp": 152,
+    "nd_19_2011_nd_cp": 158,
     "nd_207_2025_nd_cp": 57,
     "nd_24_2013_nd_cp": 149,
-    "nd_24_2019_nd_cp": 26,
+    "nd_24_2019_nd_cp": 27,
     "nd_282_2025_nd_cp": 108,
     "nd_301_2026_nd_cp": 25,
     "nd_32_2002_nd_cp": 50,
@@ -492,14 +492,14 @@
     "tt_07_2025_tt_bng": 10,
     "tt_08_2025_tt_btp": 16,
     "tt_09_2022_tt_btp": 5,
-    "tt_10_2020_tt_btp": 33,
+    "tt_10_2020_tt_btp": 37,
     "tt_10_2025_tt_btp": 12,
     "tt_11_2021_tt_btp": 13,
     "tt_12_2011_tt_btp": 41,
     "tt_15_2014_tt_btp": 40,
     "tt_15_2015_tt_btp": 110,
     "tt_16_2010_tt_btp": 23,
-    "tt_21_2011_tt_btp": 42,
+    "tt_21_2011_tt_btp": 52,
     "tt_22_2013_tt_btp": 55,
     "tt_24_2014_tt_btp": 10,
     "tt_30_2019_tt_byt": 7,
@@ -577,13 +577,13 @@
   "audit_date": "2026-11-08",
   "review_status": "pending_peer_review",
   "source": {
-    "git_sha": "3a49000d4a15aaabd9392c3d7de1b16bc74bfff8",
+    "git_sha": "790eeaa406e070b4f31f513e0c8d78e6972790da",
     "remote_testing_sha": "03a498924d0d134d2abc861599db94920f7291db",
     "file_sha256": {
       "data/reference/document_versions.json": "382b8b6198ab5f5b8821d953b79b1f189021bbfc54ad48381bf175cacb4a880e",
-      "data/chunking_output/chunks.jsonl": "495700dc714f2bebd1b66f0aa54c39f92d4563413fc5f689745ec06a6b118e26",
+      "data/chunking_output/chunks.jsonl": "90bb120257352e46fe4e6d440c50e0288b4123494cbbae9522b7d71012491073",
       "data/reference/article_index.json": "0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e",
-      "data/reference/provision_periods.json": "fa8900d23a03736336cc8d1ac1ce2ca400bcd977bc4d9ae182b1aa754a01c934"
+      "data/reference/provision_periods.json": "bf1f71e62bc3f7efc44bc6d5f5f12338b2ad1fd290af4b0acee5a72c740444e2"
     },
     "remote_note": "origin/testing snapshot 03a498924d0d134d2abc861599db94920f7291db; differing tracked input paths vs HEAD: ['data/chunking_output/chunks.jsonl', 'data/reference/article_index.json', 'data/reference/document_versions.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review."
   },

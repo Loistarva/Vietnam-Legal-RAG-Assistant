@@ -1,0 +1,2166 @@
+{
+  "version": "provision_text_changes_v1",
+  "as_of_date": "2026-11-23",
+  "description": "Data-only span-level ledger. Existing chunker/retrieval do not load this file. NOT a synthesized consolidated law and NOT an allowlist of current provisions.",
+  "policy": "No null effective_to inference. Old span dates never extend earlier document/provision expiry. Keep unchanged words and transitional rules. Offsets refer to exact parsed source clause, not byte offsets or chunk text.",
+  "changes": [
+    {
+      "id": "text_change_20261123_001",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "1",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_1_clause_1",
+      "source_clause_sha256": "f5b8aa26632cf50fa6b7d8815608435a979f47c3b9e4a6654e41780cfcd543a5",
+      "old_text": "lệ phí đăng ký nuôi con nuôi",
+      "new_text": "",
+      "old_text_valid_to": "2017-01-01",
+      "changed_by": "nd_114_2016_nd_cp",
+      "evidence_source_clause_id": "nd_114_2016_nd_cp_art_10_clause_2",
+      "evidence_article": "10",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 226,
+          "end": 254,
+          "text": "lệ phí đăng ký nuôi con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_114_2016_nd_cp_art_10_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_002",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "1",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_1_clause_1",
+      "source_clause_sha256": "f5b8aa26632cf50fa6b7d8815608435a979f47c3b9e4a6654e41780cfcd543a5",
+      "old_text": "mức thu, chế độ quản lý, sử dụng lệ phí",
+      "new_text": "",
+      "old_text_valid_to": "2017-01-01",
+      "changed_by": "nd_114_2016_nd_cp",
+      "evidence_source_clause_id": "nd_114_2016_nd_cp_art_10_clause_2",
+      "evidence_article": "10",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 453,
+          "end": 492,
+          "text": "mức thu, chế độ quản lý, sử dụng lệ phí"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_1_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_114_2016_nd_cp_art_10_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_003",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "38",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_38_clause_3",
+      "source_clause_sha256": "6ca3e4db4e002515673577608e71174ec9fecb26f1609ddbff4cfe5db6c76853",
+      "old_text": "khoản 1 và",
+      "new_text": "",
+      "old_text_valid_to": "2017-01-01",
+      "changed_by": "nd_114_2016_nd_cp",
+      "evidence_source_clause_id": "nd_114_2016_nd_cp_art_10_clause_2",
+      "evidence_article": "10",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 46,
+          "end": 56,
+          "text": "khoản 1 và"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_38_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_114_2016_nd_cp_art_10_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_004",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "5",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_5_clause_3",
+      "source_clause_sha256": "0978bf1ecc0cac41bffe3d2e86ddc2fbd9212fca3787a671c1a6f9ec22ce4e00",
+      "old_text": "của người đứng đầu tổ chức con nuôi nước ngoài theo quy định tại điểm e và",
+      "new_text": "",
+      "old_text_valid_to": "2019-04-25",
+      "changed_by": "nd_24_2019_nd_cp",
+      "evidence_source_clause_id": "nd_24_2019_nd_cp_art_2_clause_2",
+      "evidence_article": "2",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 25,
+          "end": 99,
+          "text": "của người đứng đầu tổ chức con nuôi nước ngoài theo quy định tại điểm e và"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Bản gốc Điều5 tiếp tục được thay toàn bộ năm2025; mốc2019 chỉ áp dụng cụm từ.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_5_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_24_2019_nd_cp_art_2_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_24_2019_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2025-01-08"
+    },
+    {
+      "id": "text_change_20261123_005",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "31",
+      "clause": "1",
+      "point": "g",
+      "source_clause_id": "nd_19_2011_nd_cp_art_31_clause_1",
+      "source_clause_sha256": "e835db082fc546a72051cd7b51ccbae79bce4e2db6b1b5b2f3e74f56489620af",
+      "old_text": "Lý lịch cá nhân",
+      "new_text": "Sơ yếu lý lịch tự thuật",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 1186,
+          "end": 1201,
+          "text": "Lý lịch cá nhân"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Toàn điểm g sửa tiếp từ15/01/2026; không áp dụng mốc2025 cho các chữ còn lại trong Điểm.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_1",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_2",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_3",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_4",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_5",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_6",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_7",
+        "nd_19_2011_nd_cp_art_31_clause_1_chunk_8"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2026-01-15"
+    },
+    {
+      "id": "text_change_20261123_006",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "17",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_17_clause_3",
+      "source_clause_sha256": "6c8d9c5026d2cd8d18e642f37d55dcba68ccbf80cc992bd474c7b76d268ac570",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 3,
+          "end": 15,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_17_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_007",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "18",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_18_clause_1",
+      "source_clause_sha256": "639c1cdccdf0eaa496f39a64bf99ba24a5f400b8a64eae0e0423004aaf36226c",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 50,
+          "end": 62,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_18_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_008",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "18",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_18_clause_2",
+      "source_clause_sha256": "38b4d13b004580a951fcb8fc5b3629828d19d038431f753d5ed88db8928fe706",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 44,
+          "end": 56,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_18_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_009",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "18",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_18_clause_3",
+      "source_clause_sha256": "48c06e64971d27cc4178222cb6953feba396f01589912f491c7cedf1bc6e1908",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 144,
+          "end": 156,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_18_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_010",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "20",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_20_clause_2",
+      "source_clause_sha256": "78e2b590afd1c37ffcd73049e483d0b6a68e4502fb56f18dba6b38302a1a7851",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 290,
+          "end": 302,
+          "text": "Cục Con nuôi"
+        },
+        {
+          "start": 701,
+          "end": 713,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_20_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_011",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "27",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_27_clause_3",
+      "source_clause_sha256": "14a76d940312b15ee3d353b5a25aca477482b3169167fffcc0ca8dce92734c4c",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 459,
+          "end": 471,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_012",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "27",
+      "clause": "4",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_27_clause_4",
+      "source_clause_sha256": "d8656506534b98bd5bf68d248fdeb8b66ae40baf54a6e201e03e51fdb0faf35c",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 151,
+          "end": 163,
+          "text": "Cục Con nuôi"
+        },
+        {
+          "start": 267,
+          "end": 279,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_4_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_013",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "31",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_31_clause_2",
+      "source_clause_sha256": "912878a9f5208551a9f047e597f6fc969537a276fed7d3023af0190f8f2885ac",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 79,
+          "end": 91,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_31_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2026-01-15"
+    },
+    {
+      "id": "text_change_20261123_014",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "36",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_36_clause_2",
+      "source_clause_sha256": "b90e249bf391579f4bf5c64b072f9c53c82ac69d2b44aa4adb012e5523600020",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 58,
+          "end": 70,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_36_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_015",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "36",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_36_clause_3",
+      "source_clause_sha256": "b336854c09ae97fb78ff2ed91f5651cd3db428d171b972bee5d76ec01ea0f938",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 3,
+          "end": 15,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_36_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_016",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "47",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_47_clause_2",
+      "source_clause_sha256": "60196cac9f33ff6d1aa20b393450f8d8ed9da309ccf6d236390ffd54ecf022e9",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 3,
+          "end": 15,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ các vị trí được điểm a khoản1 Điều2 NĐ06 nêu. Nếu bản gốc đã được sửa toàn bộ trước mốc này, span là liên hệ lịch sử, không khôi phục hiệu lực bản gốc.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_47_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_017",
+      "document_id": "nd_114_2016_nd_cp",
+      "article": "3",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_114_2016_nd_cp_art_3_clause_2",
+      "source_clause_sha256": "737f93ffd30160b041b2dfa47b328759b10d9dc64cccbf19ad1dab8140b68328",
+      "old_text": "Cục Con nuôi (Bộ Tư pháp)",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 255,
+          "end": 280,
+          "text": "Cục Con nuôi (Bộ Tư pháp)"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_114_2016_nd_cp_art_3_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_018",
+      "document_id": "nd_114_2016_nd_cp",
+      "article": "3",
+      "clause": "6",
+      "point": null,
+      "source_clause_id": "nd_114_2016_nd_cp_art_3_clause_6",
+      "source_clause_sha256": "5f05f589af1e69af1a54baf395fc90028f3aba904ba5080550c36a37e9c1f6f0",
+      "old_text": "Cục Con nuôi (Bộ Tư pháp)",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 167,
+          "end": 192,
+          "text": "Cục Con nuôi (Bộ Tư pháp)"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_114_2016_nd_cp_art_3_clause_6_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_019",
+      "document_id": "nd_114_2016_nd_cp",
+      "article": "5",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_114_2016_nd_cp_art_5_clause_3",
+      "source_clause_sha256": "bce846a31669f9f5b826d0da7b6d0f8701c9b66adba32c5743a6a47c28479aec",
+      "old_text": "Cục Con nuôi (Bộ Tư pháp)",
+      "new_text": "Văn phòng Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 3,
+          "end": 28,
+          "text": "Cục Con nuôi (Bộ Tư pháp)"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_114_2016_nd_cp_art_5_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_020",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "8",
+      "clause": "2",
+      "point": "b",
+      "source_clause_id": "nd_19_2011_nd_cp_art_8_clause_2",
+      "source_clause_sha256": "f4ddb59d769a445d7752bf13cf01d76c3ab9eb03f25be4d8a94739c88aaf47e4",
+      "old_text": "trong thời hạn 10 ngày",
+      "new_text": "trong thời hạn 08 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 825,
+          "end": 847,
+          "text": "Trong thời hạn 10 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_8_clause_2_chunk_1",
+        "nd_19_2011_nd_cp_art_8_clause_2_chunk_2"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_021",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "21",
+      "clause": "4",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_21_clause_4",
+      "source_clause_sha256": "bdea176b9ccd780db8c0867a15b0ff4018f6b656558f58c0187d5d9c995c87b9",
+      "old_text": "trong thời hạn 10 ngày",
+      "new_text": "trong thời hạn 08 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 10 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_21_clause_4_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_022",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "27",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_27_clause_2",
+      "source_clause_sha256": "abe555469d2cb84b5adbb1a0e5bc740deac825de18da94942ce0c1d7309bb93c",
+      "old_text": "trong thời hạn 10 ngày",
+      "new_text": "trong thời hạn 08 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 10 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_023",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "9",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_9_clause_3",
+      "source_clause_sha256": "d3f986ce19569cb79e0e6b6df73cf5f2c3097249051439fa62cffa16f9492181",
+      "old_text": "trong thời hạn 15 ngày",
+      "new_text": "trong thời hạn 10 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 223,
+          "end": 245,
+          "text": "trong thời hạn 15 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_9_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_024",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "21",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_21_clause_3",
+      "source_clause_sha256": "76c0cdb4d9b610e8ba086bb544d9fed1eb6166714540a7a47bc7ad24bec13d62",
+      "old_text": "trong thời hạn 15 ngày",
+      "new_text": "trong thời hạn 10 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 15 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_21_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_025",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "25",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_25_clause_1",
+      "source_clause_sha256": "998018c00af24c666ed0e481e9573739974f7508ab92d2f0dc4b9cbd5fab5aa4",
+      "old_text": "trong thời hạn 15 ngày",
+      "new_text": "trong thời hạn 10 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 15 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_25_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_026",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "34",
+      "clause": "4",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_34_clause_4",
+      "source_clause_sha256": "80fb7aca22fa2ec5376565d74d5236ee14d510a564ca58977ee1c342ba5673cb",
+      "old_text": "trong thời hạn 15 ngày",
+      "new_text": "trong thời hạn 10 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 15 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_34_clause_4_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_027",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "27",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_27_clause_3",
+      "source_clause_sha256": "14a76d940312b15ee3d353b5a25aca477482b3169167fffcc0ca8dce92734c4c",
+      "old_text": "trong thời hạn 20 ngày",
+      "new_text": "trong thời hạn 15 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 94,
+          "end": 116,
+          "text": "trong thời hạn 20 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_028",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "15",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_15_clause_2",
+      "source_clause_sha256": "5f903a4d493d3dba798ad1ae17f752e40e4f98575b288daa83080a176ef0afbb",
+      "old_text": "trong thời hạn 30 ngày",
+      "new_text": "trong thời hạn 22 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 340,
+          "end": 362,
+          "text": "trong thời hạn 30 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Nếu Khoản bản gốc đã kết thúc sớm hơn, không tái áp dụng; cần xem span bản trung gian tương ứng.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_15_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_029",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "27",
+      "clause": "4",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_27_clause_4",
+      "source_clause_sha256": "d8656506534b98bd5bf68d248fdeb8b66ae40baf54a6e201e03e51fdb0faf35c",
+      "old_text": "trong thời hạn 30 ngày",
+      "new_text": "trong thời hạn 22 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 205,
+          "end": 227,
+          "text": "Trong thời hạn 30 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Nếu Khoản bản gốc đã kết thúc sớm hơn, không tái áp dụng; cần xem span bản trung gian tương ứng.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_27_clause_4_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_030",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "33",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_33_clause_2",
+      "source_clause_sha256": "8a2a9a16f100cec4af465709e2e15107024218cd7631afb698cd453f95dabbe4",
+      "old_text": "trong thời hạn 30 ngày",
+      "new_text": "trong thời hạn 22 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 30 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Nếu Khoản bản gốc đã kết thúc sớm hơn, không tái áp dụng; cần xem span bản trung gian tương ứng.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_33_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_031",
+      "document_id": "nd_19_2011_nd_cp",
+      "article": "34",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "nd_19_2011_nd_cp_art_34_clause_3",
+      "source_clause_sha256": "43520cc587225bf3083846cb59e474b1b4c5724e2faf9a3987983101e12cbb54",
+      "old_text": "trong thời hạn 30 ngày",
+      "new_text": "trong thời hạn 22 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 3,
+          "end": 25,
+          "text": "Trong thời hạn 30 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Nếu Khoản bản gốc đã kết thúc sớm hơn, không tái áp dụng; cần xem span bản trung gian tương ứng.",
+      "candidate_source_chunk_ids": [
+        "nd_19_2011_nd_cp_art_34_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "historical_source_only_do_not_reactivate",
+      "enclosing_end_if_known": "2025-01-08"
+    },
+    {
+      "id": "text_change_20261123_032",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "6",
+      "clause": "1",
+      "point": "b",
+      "source_clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "source_clause_sha256": "17f4dbfd4b745fc3f706c9a41830927eb8514cf5fbd606c6bb1b25e9e3a5dc3a",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 356,
+          "end": 368,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_033",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "6",
+      "clause": "1",
+      "point": "c",
+      "source_clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "source_clause_sha256": "17f4dbfd4b745fc3f706c9a41830927eb8514cf5fbd606c6bb1b25e9e3a5dc3a",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 513,
+          "end": 525,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_034",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "6",
+      "clause": "1",
+      "point": "e",
+      "source_clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "source_clause_sha256": "17f4dbfd4b745fc3f706c9a41830927eb8514cf5fbd606c6bb1b25e9e3a5dc3a",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 829,
+          "end": 841,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_035",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "8",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_8_clause_1",
+      "source_clause_sha256": "7d11751a3207daab56da22d14313d4cf31ddb05c0b7a93af4ca4553dd52f99eb",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 44,
+          "end": 56,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_8_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_036",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "8",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_8_clause_2",
+      "source_clause_sha256": "30d4da54100d29b9e233f3dc6d4cf24ef7a15071e32cbf678b77a92f5544946f",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 207,
+          "end": 219,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_8_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_037",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "9",
+      "clause": "4",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_9_clause_4",
+      "source_clause_sha256": "2530438ecde0b1217b9cd80bfc622cf1487ba140a59549b45e1677d36b58c242",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 152,
+          "end": 164,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_9_clause_4_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_038",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "13",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_13_clause_2",
+      "source_clause_sha256": "647bbf70f2a11e4e7c1568894ac7c66d75eeaee9076eaf97ad0834adc9a122f7",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 43,
+          "end": 55,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_13_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_039",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "6",
+      "clause": "1",
+      "point": "e",
+      "source_clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "source_clause_sha256": "17f4dbfd4b745fc3f706c9a41830927eb8514cf5fbd606c6bb1b25e9e3a5dc3a",
+      "old_text": "được giới thiệu",
+      "new_text": "được giải quyết cho làm con nuôi nước ngoài",
+      "old_text_valid_to": "2022-02-11",
+      "changed_by": "tt_11_2021_tt_btp",
+      "evidence_source_clause_id": "tt_11_2021_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 891,
+          "end": 906,
+          "text": "được giới thiệu"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "evidence_chunk_ids": [
+        "tt_11_2021_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_040",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "6",
+      "clause": "1",
+      "point": "i",
+      "source_clause_id": "tt_21_2011_tt_btp_art_6_clause_1",
+      "source_clause_sha256": "17f4dbfd4b745fc3f706c9a41830927eb8514cf5fbd606c6bb1b25e9e3a5dc3a",
+      "old_text": "đã được giới thiệu làm con nuôi",
+      "new_text": "được giải quyết cho làm con nuôi nước ngoài",
+      "old_text_valid_to": "2022-02-11",
+      "changed_by": "tt_11_2021_tt_btp",
+      "evidence_source_clause_id": "tt_11_2021_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 1354,
+          "end": 1385,
+          "text": "đã được giới thiệu làm con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_1",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_2",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_3",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_4",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_5",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_6",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_7",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_8",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_9",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_10",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_11",
+        "tt_21_2011_tt_btp_art_6_clause_1_chunk_12"
+      ],
+      "evidence_chunk_ids": [
+        "tt_11_2021_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_041",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "9",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_9_clause_1",
+      "source_clause_sha256": "ce56e7506230bd2571a4ccbec51ff26025e2c056de07bc4038a4330a01ec5605",
+      "old_text": "Hạn báo cáo được tính như sau:",
+      "new_text": "",
+      "old_text_valid_to": "2022-02-11",
+      "changed_by": "tt_11_2021_tt_btp",
+      "evidence_source_clause_id": "tt_11_2021_tt_btp_art_2_clause_3",
+      "evidence_article": "2",
+      "evidence_clause": "3",
+      "spans": [
+        {
+          "start": 255,
+          "end": 285,
+          "text": "Hạn báo cáo được tính như sau:"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_9_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_11_2021_tt_btp_art_2_clause_3_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_042",
+      "document_id": "tt_21_2011_tt_btp",
+      "article": "9",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "tt_21_2011_tt_btp_art_9_clause_3",
+      "source_clause_sha256": "179f4e364d19941b966c20b1d31271858043e9f0be27cb6b071c56f18dba6bf1",
+      "old_text": "gửi Tổng hợp",
+      "new_text": "",
+      "old_text_valid_to": "2022-02-11",
+      "changed_by": "tt_11_2021_tt_btp",
+      "evidence_source_clause_id": "tt_11_2021_tt_btp_art_2_clause_5",
+      "evidence_article": "2",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 14,
+          "end": 26,
+          "text": "gửi Tổng hợp"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_21_2011_tt_btp_art_9_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_11_2021_tt_btp_art_2_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_11_2021_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2025-04-08"
+    },
+    {
+      "id": "text_change_20261123_043",
+      "document_id": "tt_04_2020_tt_btp",
+      "article": "8",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "tt_04_2020_tt_btp_art_8_clause_1",
+      "source_clause_sha256": "2b2eeac927ba7368ccb1f6fd4e4fe305fcd1d1ecc4860d933e118cd18b13cd9e",
+      "old_text": "Sổ hộ khẩu",
+      "new_text": "",
+      "old_text_valid_to": "2023-01-01",
+      "changed_by": "tt_09_2022_tt_btp",
+      "evidence_source_clause_id": "tt_09_2022_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 332,
+          "end": 342,
+          "text": "Sổ hộ khẩu"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Văn bản sửa liệt kê bằng dấu phẩy; bản gốc dùng dấu chấm phẩy. Chỉ ghi hai tên giấy tờ; không tự tạo bản hợp nhất hoặc xóa dấu câu.",
+      "candidate_source_chunk_ids": [
+        "tt_04_2020_tt_btp_art_8_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_09_2022_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_044",
+      "document_id": "tt_04_2020_tt_btp",
+      "article": "8",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "tt_04_2020_tt_btp_art_8_clause_1",
+      "source_clause_sha256": "2b2eeac927ba7368ccb1f6fd4e4fe305fcd1d1ecc4860d933e118cd18b13cd9e",
+      "old_text": "Sổ tạm trú",
+      "new_text": "",
+      "old_text_valid_to": "2023-01-01",
+      "changed_by": "tt_09_2022_tt_btp",
+      "evidence_source_clause_id": "tt_09_2022_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 344,
+          "end": 354,
+          "text": "Sổ tạm trú"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Văn bản sửa liệt kê bằng dấu phẩy; bản gốc dùng dấu chấm phẩy. Chỉ ghi hai tên giấy tờ; không tự tạo bản hợp nhất hoặc xóa dấu câu.",
+      "candidate_source_chunk_ids": [
+        "tt_04_2020_tt_btp_art_8_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_09_2022_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_045",
+      "document_id": "tt_04_2020_tt_btp",
+      "article": "9",
+      "clause": "3",
+      "point": "b",
+      "source_clause_id": "tt_04_2020_tt_btp_art_9_clause_3",
+      "source_clause_sha256": "e3414f4f56b3730d44df911a66978f9aa5621dea58666414504ae23052909f37",
+      "old_text": "sổ hộ khẩu, sổ tạm trú",
+      "new_text": "",
+      "old_text_valid_to": "2023-01-01",
+      "changed_by": "tt_09_2022_tt_btp",
+      "evidence_source_clause_id": "tt_09_2022_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 308,
+          "end": 330,
+          "text": "Sổ hộ khẩu, Sổ tạm trú"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_04_2020_tt_btp_art_9_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_09_2022_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_046",
+      "document_id": "nd_123_2015_nd_cp",
+      "article": "2",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "nd_123_2015_nd_cp_art_2_clause_1",
+      "source_clause_sha256": "4d6015abba346e679f676f924cfcbc060eceb05743a447e5e25dfbb6365849d0",
+      "old_text": "trong giai đoạn chuyển tiếp, người yêu cầu đăng ký hộ tịch phải xuất trình giấy tờ chứng minh nơi cư trú",
+      "new_text": "",
+      "old_text_valid_to": "2023-01-01",
+      "changed_by": "nd_104_2022_nd_cp",
+      "evidence_source_clause_id": "nd_104_2022_nd_cp_art_13_clause_2",
+      "evidence_article": "13",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 325,
+          "end": 429,
+          "text": "Trong giai đoạn chuyển tiếp, người yêu cầu đăng ký hộ tịch phải xuất trình giấy tờ chứng minh nơi cư trú"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Căn cứ nằm ngoài scope chunk của NĐ104. Dẫn theo source_clause_id trong parser; không giả tạo evidence_chunk_id đang active.",
+      "candidate_source_chunk_ids": [
+        "nd_123_2015_nd_cp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_104_2022_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2025-01-09"
+    },
+    {
+      "id": "text_change_20261123_047",
+      "document_id": "l_52_2014_qh13",
+      "article": "123",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "l_52_2014_qh13_art_123_clause_3",
+      "source_clause_sha256": "61a3453dac7eef7b290b44697ddbc8cb1fea43be5e15cfe5e3560120cb3cb076",
+      "old_text": "Tòa án nhân dân cấp huyện",
+      "new_text": "Tòa án nhân dân khu vực",
+      "old_text_valid_to": "2025-07-01",
+      "changed_by": "l_81_2025_qh15",
+      "evidence_source_clause_id": "l_81_2025_qh15_art_2_clause_13",
+      "evidence_article": "2",
+      "evidence_clause": "13",
+      "spans": [
+        {
+          "start": 3,
+          "end": 28,
+          "text": "Tòa án nhân dân cấp huyện"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "l_52_2014_qh13_art_123_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "l_81_2025_qh15_art_2_clause_13_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/l_81_2025_qh15.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_048",
+      "document_id": "tt_10_2020_tt_btp",
+      "article": "7",
+      "clause": "3",
+      "point": null,
+      "source_clause_id": "tt_10_2020_tt_btp_art_7_clause_3",
+      "source_clause_sha256": "be0375e15fa3fb82fd64549d94c76435afd50e93d7aac3c2a38a4fdeb430bd63",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2023-11-30",
+      "changed_by": "tt_07_2023_tt_btp",
+      "evidence_source_clause_id": "tt_07_2023_tt_btp_art_2_clause_2",
+      "evidence_article": "2",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 3,
+          "end": 15,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Sửa tiếp bởi TT10/2025: Bộ Tư pháp -> Cục Hành chính tư pháp thuộc Bộ Tư pháp; không suy ra bản năm2023 hiện hành vô thời hạn.",
+      "candidate_source_chunk_ids": [
+        "tt_10_2020_tt_btp_art_7_clause_3_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_07_2023_tt_btp_art_2_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_07_2023_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_049",
+      "document_id": "tt_10_2020_tt_btp",
+      "article": "2",
+      "clause": "5",
+      "point": null,
+      "source_clause_id": "tt_10_2020_tt_btp_art_2_clause_5",
+      "source_clause_sha256": "63272499098ba751b62ade09e9f8996fc8a6bc2ecb477334b5ea98906893e4bb",
+      "old_text": "Cục Con nuôi,",
+      "new_text": "",
+      "old_text_valid_to": "2023-11-30",
+      "changed_by": "tt_07_2023_tt_btp",
+      "evidence_source_clause_id": "tt_07_2023_tt_btp_art_2_clause_4",
+      "evidence_article": "2",
+      "evidence_clause": "4",
+      "spans": [
+        {
+          "start": 3,
+          "end": 16,
+          "text": "Cục Con nuôi,"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_10_2020_tt_btp_art_2_clause_5_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_07_2023_tt_btp_art_2_clause_4_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_07_2023_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_050",
+      "document_id": "tt_10_2020_tt_btp",
+      "article": "5",
+      "clause": "1",
+      "point": null,
+      "source_clause_id": "tt_10_2020_tt_btp_art_5_clause_1",
+      "source_clause_sha256": "89efe49b36cfcb0a8feee59480194ca94df5327733e912e7535200459a0ca6bb",
+      "old_text": "Cục Con nuôi,",
+      "new_text": "",
+      "old_text_valid_to": "2023-11-30",
+      "changed_by": "tt_07_2023_tt_btp",
+      "evidence_source_clause_id": "tt_07_2023_tt_btp_art_2_clause_4",
+      "evidence_article": "2",
+      "evidence_clause": "4",
+      "spans": [
+        {
+          "start": 158,
+          "end": 171,
+          "text": "Cục Con nuôi,"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "",
+      "candidate_source_chunk_ids": [
+        "tt_10_2020_tt_btp_art_5_clause_1_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_07_2023_tt_btp_art_2_clause_4_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_07_2023_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": "2025-08-04"
+    },
+    {
+      "id": "text_change_20261123_051",
+      "document_id": "tt_11_2021_tt_btp",
+      "article": "1",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "tt_11_2021_tt_btp_art_1_clause_2",
+      "source_clause_sha256": "bc4fb6ff5963aa2f39df13fe74e1b7462c40497aefd7308a96a024fffca398bb",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_2",
+      "evidence_article": "2",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 133,
+          "end": 145,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Khoản2 Điều9 mới được trích trong khoản2 Điều1 TT11/2021; các chữ khác còn giữ, không đóng toàn Khoản sửa đổi.",
+      "candidate_source_chunk_ids": [
+        "tt_11_2021_tt_btp_art_1_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_052",
+      "document_id": "tt_11_2021_tt_btp",
+      "article": "1",
+      "clause": "1",
+      "point": "d",
+      "source_clause_id": "tt_11_2021_tt_btp_art_1_clause_1",
+      "source_clause_sha256": "5b1a5f3c53e0bd9d319c744a726fb955487fcf26c97899a4bf544dd11b230b97",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-04-08",
+      "changed_by": "tt_01_2025_tt_btp",
+      "evidence_source_clause_id": "tt_01_2025_tt_btp_art_2_clause_2",
+      "evidence_article": "2",
+      "evidence_clause": "2",
+      "spans": [
+        {
+          "start": 332,
+          "end": 344,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ điểm d khoản1 Điều6 được trích; không áp dụng cho điểm đ,m hoặc khoản3 Điều6.",
+      "candidate_source_chunk_ids": [
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_2"
+      ],
+      "evidence_chunk_ids": [
+        "tt_01_2025_tt_btp_art_2_clause_2_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_01_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_053",
+      "document_id": "tt_07_2023_tt_btp",
+      "article": "2",
+      "clause": "2",
+      "point": null,
+      "source_clause_id": "tt_07_2023_tt_btp_art_2_clause_2",
+      "source_clause_sha256": "07a065a44b6f5662388e30170872edfd67a5d5450fb25c2ed5bf6e9c2a0a41f8",
+      "old_text": "Bộ Tư pháp",
+      "new_text": "Cục Hành chính tư pháp thuộc Bộ Tư pháp",
+      "old_text_valid_to": "2025-08-04",
+      "changed_by": "tt_10_2025_tt_btp",
+      "evidence_source_clause_id": "tt_10_2025_tt_btp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 66,
+          "end": 76,
+          "text": "Bộ Tư pháp"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Đây là đích câu chữ của phép thay thế2023; chỉ span mới được thay tiếp2025. Không diễn giải việc sửa lịch sử thành bãi bỏ hành vi sửa đổi cũ.",
+      "candidate_source_chunk_ids": [
+        "tt_07_2023_tt_btp_art_2_clause_2_chunk_1"
+      ],
+      "evidence_chunk_ids": [
+        "tt_10_2025_tt_btp_art_2_clause_1_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/tt_10_2025_tt_btp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_054",
+      "document_id": "nd_24_2019_nd_cp",
+      "article": "1",
+      "clause": "6",
+      "point": null,
+      "source_clause_id": "nd_24_2019_nd_cp_art_1_clause_6",
+      "source_clause_sha256": "0bb5c52c2ee0e575aeaec06e9d8dd8a89e809e3fcca28670a0a34ea76b458c6b",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 355,
+          "end": 367,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Điểm b khoản2 Điều14 trích trong khoản6 Điều1 NĐ24; cần đối chiếu từng span trong nhóm trích2,3.",
+      "candidate_source_chunk_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_6_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_6_chunk_2"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_055",
+      "document_id": "nd_24_2019_nd_cp",
+      "article": "1",
+      "clause": "9",
+      "point": null,
+      "source_clause_id": "nd_24_2019_nd_cp_art_1_clause_9",
+      "source_clause_sha256": "d8bcad720d080984fd8b18046faefc946cae808605afa84610ae6242fafb30a1",
+      "old_text": "Cục Con nuôi",
+      "new_text": "Bộ Tư pháp",
+      "old_text_valid_to": "2025-01-08",
+      "changed_by": "nd_06_2025_nd_cp",
+      "evidence_source_clause_id": "nd_06_2025_nd_cp_art_2_clause_1",
+      "evidence_article": "2",
+      "evidence_clause": "1",
+      "spans": [
+        {
+          "start": 1213,
+          "end": 1225,
+          "text": "Cục Con nuôi"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Khoản3 Điều30 bản sửa đổi trung gian; target Khoản3 là vùng chứa duy nhất literal này trong khoản9 nguồn.",
+      "candidate_source_chunk_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_9_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_9_chunk_2"
+      ],
+      "evidence_chunk_ids": [
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_1",
+        "nd_06_2025_nd_cp_art_2_clause_1_chunk_2"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    },
+    {
+      "id": "text_change_20261123_056",
+      "document_id": "nd_06_2025_nd_cp",
+      "article": "1",
+      "clause": "18",
+      "point": null,
+      "source_clause_id": "nd_06_2025_nd_cp_art_1_clause_18",
+      "source_clause_sha256": "f7950a61fb41db2e22f24c1ae1d56dcd1c90b75a33c8ed289a2b2e64a6d1eb6f",
+      "old_text": "Trong thời hạn 30 ngày",
+      "new_text": "trong thời hạn 22 ngày làm việc",
+      "old_text_valid_to": "2026-01-15",
+      "changed_by": "nd_18_2026_nd_cp",
+      "evidence_source_clause_id": "nd_18_2026_nd_cp_art_14_clause_5",
+      "evidence_article": "14",
+      "evidence_clause": "5",
+      "spans": [
+        {
+          "start": 464,
+          "end": 486,
+          "text": "Trong thời hạn 30 ngày"
+        }
+      ],
+      "offset_unit": "Unicode code points; start inclusive, end exclusive in exact parser clause_text",
+      "scope_semantics": "Only these source-version text spans change; the remaining provision is not declared repealed.",
+      "verification_status": "literal_and_cited_scope_checked",
+      "runtime_application": "NOT_APPLIED_BY_EXISTING_CHUNKER_OR_RETRIEVAL",
+      "note": "Chỉ khoản3 Điều34 được trích trong điểm a khoản18 Điều1 NĐ06; bản gốc khoản3 Điều34 đã kết thúc2025.",
+      "candidate_source_chunk_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_2"
+      ],
+      "evidence_chunk_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_5_chunk_1"
+      ],
+      "evidence_parsed_path": "parser/parsed_jsons/nd_18_2026_nd_cp.json",
+      "superseded_version_guard": "span_end_only_remaining_words_require_review",
+      "enclosing_end_if_known": null
+    }
+  ]
+}

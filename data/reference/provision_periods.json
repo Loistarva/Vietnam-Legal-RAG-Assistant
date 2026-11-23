@@ -1,6 +1,6 @@
 {
   "description": "Khoảng hiệu lực cấp Điều/Khoản/Điểm của văn bản hết hiệu lực một phần. chunking/export_legal_chunks.py ghi effective_to và provision_status của từng bản ghi vào mọi chunk thuộc phạm vi đó; chunk khác của văn bản giữ khoảng hiệu lực cấp văn bản. Bản ghi cấp Điểm (points) làm Khoản đó được tách theo Điểm khi export. Chỉ ghi các thay đổi có văn bản gốc trong corpus: evidence_chunk_id là chunk chứa quy định bãi bỏ hoặc sửa đổi (với sửa đổi, chunk này chứa luôn nội dung mới), effective_to là ngày văn bản đó có hiệu lực. Kiểm bởi test/test_provision_periods.py. quoted_clauses chọn Khoản được trích dẫn bên trong Khoản sửa đổi (metadata.quoted_clause_number), không thay số Khoản nguồn. evidence_context_ids ghi đủ nhóm chunk cần đọc theo thứ tự; evidence_chunk_id giữ vai trò định danh chính, không thay thế toàn bộ nhóm dẫn chứng.",
-  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong corpus sửa NĐ 123/2015 (Điều 13) và NĐ 19/2011 (Điều 14, nhận sau rà23/11/2026); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1). Rà bổ sung 22/11/2026: thêm các phạm vi thay thế toàn Điều/Khoản và bãi bỏ của chuỗi nuôi con nuôi, hộ tịch điện tử, tố tụng và tổ chức Tòa án; giữ riêng các sửa cụm từ và chuỗi chưa đủ căn cứ. Không xác nhận mọi Điều chưa ghi override là hiện hành.",
+  "scope_note": "Tra ngày 2026-11-07 từ văn bản gốc (Công báo, vanban.chinhphu.vn, datafiles.chinhphu.vn) và văn bản hợp nhất 1069/VBHN-BTP (28/02/2025, NĐ 123/2015), 1844/VBHN-BTP (11/05/2023, TT 04/2020). NĐ 123/2015: NĐ 87/2020, 104/2022, 07/2025, 18/2026 (tiêu đề Điều 13 NĐ 18/2026 liệt kê đúng chuỗi trước đó). TT 04/2020: TT 09/2022, 04/2024. Rà thêm ngày 2026-11-07 các văn bản còn hiệu lực của corpus qua trang tổng hợp (thuvienphapluat.vn, luatvietnam.vn) và toàn văn NĐ 07/2025, NĐ 18/2026 trong parser/parsed_jsons: không thấy văn bản sửa đổi nào ban hành sau NĐ 18/2026 (NĐ 123/2015) hoặc sau TT 04/2024 (TT 04/2020); NĐ 18/2026 trong corpus sửa NĐ 123/2015 (Điều 13) và NĐ 19/2011 (Điều 14, nhận sau rà23/11/2026); NĐ 87/2020 chỉ bị sửa bởi NĐ 07/2025; TT 34/2017 chỉ bị sửa bởi TT 30/2019; Luật 52/2014 bị thay cụm từ bởi Luật 81/2025 (ghi ở not_applied); chưa thấy văn bản sửa NĐ 126/2014 sau NĐ 123/2015, NĐ 207/2025, TT 38/2025. Chưa xác nhận được tình trạng TT 32/2016/TT-BYT và TTLT 01/2016/TTLT-TANDTC-VKSNDTC-BTP. NĐ 120/2025/NĐ-CP (phân định thẩm quyền, không sửa chữ của văn bản nào) ghi ở not_applied. Phần rà bằng trang tổng hợp chưa đối chiếu Công báo; chưa có người duyệt pháp lý (Dev 1). Rà bổ sung 22/11/2026: thêm các phạm vi thay thế toàn Điều/Khoản và bãi bỏ của chuỗi nuôi con nuôi, hộ tịch điện tử, tố tụng và tổ chức Tòa án; giữ riêng các sửa cụm từ và chuỗi chưa đủ căn cứ. Không xác nhận mọi Điều chưa ghi override là hiện hành. Rà23/11/2026 lượt2: bổ sung phạm vi cấp Điểm, bản trung gian NĐ24/2019 và TT07/2023. Thay cụm từ được lập dữ liệu phạm vi câu chữ riêng; chưa được code hiện tại áp dụng vào temporal filter. effective_to=null chỉ nghĩa chưa biết mốc kết thúc, không xác nhận hiện hành.",
   "overrides": [
     {
       "id": "nd_126_2014_art_19_50_repealed",
@@ -82,7 +82,10 @@
       "effective_to": "2016-01-01",
       "changed_by": "nd_123_2015_nd_cp",
       "provision": "khoản 3 Điều 45 Nghị định 123/2015/NĐ-CP: sửa đổi khoản 2 Điều 63; nội dung mới nằm ở chunk của Nghị định 123/2015",
-      "evidence_chunk_id": "nd_123_2015_nd_cp_art_45_clause_3_chunk_1"
+      "evidence_chunk_id": "nd_123_2015_nd_cp_art_45_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "nd_123_2015_nd_cp_art_45_clause_3_chunk_1"
+      ]
     },
     {
       "id": "tt_34_2017_art_2_clauses_2_3_repealed",
@@ -102,7 +105,10 @@
       "changed_by": "tt_30_2019_tt_byt",
       "provision": "khoản 2 Điều 2 Thông tư 30/2019/TT-BYT: bãi bỏ khoản 2, khoản 3 Điều 2",
       "evidence_chunk_id": "tt_30_2019_tt_byt_art_2_clause_2_chunk_1",
-      "review_notes": "Đối chiếu 2026-11-08: giữ repealed cho nội dung phiên bản gốc theo Điều 2 khoản 2 TT 30/2019 và danh mục Bộ Y tế mục 53 (2024). Nội dung thay thế nằm ở tt_30_2019_tt_byt_art_1_clause_1_chunk_1 và tt_30_2019_tt_byt_art_1_clause_2_chunk_1, được văn bản hợp nhất trên vbpl.vn (Attachments/141540) giữ tại Điều 2 khoản 2-3, chú thích 2-3. Không hiểu trạng thái này là loại bỏ các định nghĩa mới. Xem docs/reviews/pr35_f4_tt30_verification.md; chưa ký duyệt pháp lý thay Dev 1."
+      "review_notes": "Đối chiếu 2026-11-08: giữ repealed cho nội dung phiên bản gốc theo Điều 2 khoản 2 TT 30/2019 và danh mục Bộ Y tế mục 53 (2024). Nội dung thay thế nằm ở tt_30_2019_tt_byt_art_1_clause_1_chunk_1 và tt_30_2019_tt_byt_art_1_clause_2_chunk_1, được văn bản hợp nhất trên vbpl.vn (Attachments/141540) giữ tại Điều 2 khoản 2-3, chú thích 2-3. Không hiểu trạng thái này là loại bỏ các định nghĩa mới. Xem docs/reviews/pr35_f4_tt30_verification.md; chưa ký duyệt pháp lý thay Dev 1.",
+      "evidence_context_ids": [
+        "tt_30_2019_tt_byt_art_2_clause_2_chunk_1"
+      ]
     },
     {
       "id": "tt_57_2015_chapters_1_2_5_6_repealed",
@@ -129,7 +135,10 @@
       "effective_to": "2025-10-01",
       "changed_by": "tt_38_2025_tt_byt",
       "provision": "khoản 2 Điều 7 Thông tư 38/2025/TT-BYT: bãi bỏ Chương I, Chương II, Chương V và Chương VI",
-      "evidence_chunk_id": "tt_38_2025_tt_byt_art_7_clause_2_chunk_1"
+      "evidence_chunk_id": "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "tt_38_2025_tt_byt_art_7_clause_2_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_12_clauses_1_2_repealed",
@@ -148,7 +157,10 @@
       "effective_to": "2020-09-15",
       "changed_by": "nd_87_2020_nd_cp",
       "provision": "khoản 2 Điều 25 Nghị định 87/2020/NĐ-CP: bãi bỏ khoản 1, khoản 2 Điều 12 Nghị định 123/2015/NĐ-CP",
-      "evidence_chunk_id": "nd_87_2020_nd_cp_art_25_clause_2_chunk_1"
+      "evidence_chunk_id": "nd_87_2020_nd_cp_art_25_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "nd_87_2020_nd_cp_art_25_clause_2_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_1_amended",
@@ -202,7 +214,12 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "điểm b khoản 3 Điều 2 Nghị định 07/2025/NĐ-CP: sửa đổi, bổ sung khoản 1 Điều 3",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_3_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_3_chunk_1",
+        "nd_07_2025_nd_cp_art_2_clause_3_chunk_2",
+        "nd_07_2025_nd_cp_art_2_clause_3_chunk_3"
+      ]
     },
     {
       "id": "nd_123_2015_art_4_clause_1_point_c_amended",
@@ -218,7 +235,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 4 Điều 2 Nghị định 07/2025/NĐ-CP: sửa đổi điểm c khoản 1 Điều 4",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_4_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_4_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_4_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_9_clause_2_amended",
@@ -233,7 +253,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 5 Điều 2 Nghị định 07/2025/NĐ-CP: sửa đổi khoản 2 Điều 9",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_5_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_5_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_5_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_10_clause_1_repealed",
@@ -248,7 +271,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 10 Điều 2 Nghị định 07/2025/NĐ-CP: bãi bỏ khoản 1 Điều 10",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_10_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_10_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_10_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_22_clause_4_amended",
@@ -263,7 +289,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 6 Điều 2 Nghị định 07/2025/NĐ-CP: sửa đổi, bổ sung khoản 4 Điều 22",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_6_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_6_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_6_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_23_clause_2_amended",
@@ -278,7 +307,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 7 Điều 2 Nghị định 07/2025/NĐ-CP: sửa đổi khoản 2 Điều 23",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_7_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_2_clause_7_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_2_clause_7_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_30_clause_3_amended",
@@ -312,7 +344,10 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "khoản 2 Điều 13 Nghị định 18/2026/NĐ-CP: sửa đổi, bổ sung khoản 2 Điều 22",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_2_chunk_1"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_2_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_24_clause_2_amended",
@@ -327,7 +362,10 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "khoản 3 Điều 13 Nghị định 18/2026/NĐ-CP: sửa đổi, bổ sung khoản 2 Điều 24",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_3_chunk_1"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_3_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_26_clause_1_point_c_amended",
@@ -343,7 +381,12 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "điểm a khoản 4 Điều 13 Nghị định 18/2026/NĐ-CP: sửa đổi, bổ sung điểm c khoản 1 Điều 26",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_4_chunk_2"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_4_chunk_2",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_1",
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_2",
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_3"
+      ]
     },
     {
       "id": "nd_123_2015_art_26_clause_2_amended",
@@ -358,7 +401,12 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "điểm b khoản 4 Điều 13 Nghị định 18/2026/NĐ-CP: sửa đổi, bổ sung khoản 2 Điều 26",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_4_chunk_3"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_4_chunk_3",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_1",
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_2",
+        "nd_18_2026_nd_cp_art_13_clause_4_chunk_3"
+      ]
     },
     {
       "id": "nd_123_2015_art_27_clause_2_amended",
@@ -373,7 +421,10 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "khoản 5 Điều 13 Nghị định 18/2026/NĐ-CP: sửa đổi, bổ sung khoản 2 Điều 27",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_5_chunk_1"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_5_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_5_chunk_1"
+      ]
     },
     {
       "id": "nd_123_2015_art_26_27_clause_3_repealed",
@@ -392,7 +443,10 @@
       "effective_to": "2026-01-15",
       "changed_by": "nd_18_2026_nd_cp",
       "provision": "khoản 6 Điều 13 Nghị định 18/2026/NĐ-CP: bãi bỏ khoản 3 Điều 26, khoản 3 Điều 27",
-      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_6_chunk_1"
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_13_clause_6_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_13_clause_6_chunk_1"
+      ]
     },
     {
       "id": "nd_87_2020_art_2_clause_2_amended",
@@ -426,7 +480,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 2 Điều 3 Nghị định 07/2025/NĐ-CP: sửa đổi khoản 2 Điều 8",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_2_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_3_clause_2_chunk_1"
+      ]
     },
     {
       "id": "nd_87_2020_art_12_clause_3_point_c_amended",
@@ -442,7 +499,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 3 Điều 3 Nghị định 07/2025/NĐ-CP: sửa đổi điểm c khoản 3 Điều 12",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_3_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_3_clause_3_chunk_1"
+      ]
     },
     {
       "id": "nd_87_2020_art_13_clauses_1_2_amended",
@@ -461,7 +521,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 4 Điều 3 Nghị định 07/2025/NĐ-CP: sửa đổi khoản 1, khoản 2 Điều 13",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_4_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_4_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_3_clause_4_chunk_1"
+      ]
     },
     {
       "id": "nd_87_2020_art_19_clause_7_amended",
@@ -476,7 +539,10 @@
       "effective_to": "2025-01-09",
       "changed_by": "nd_07_2025_nd_cp",
       "provision": "khoản 5 Điều 3 Nghị định 07/2025/NĐ-CP: sửa đổi khoản 7 Điều 19",
-      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_5_chunk_1"
+      "evidence_chunk_id": "nd_07_2025_nd_cp_art_3_clause_5_chunk_1",
+      "evidence_context_ids": [
+        "nd_07_2025_nd_cp_art_3_clause_5_chunk_1"
+      ]
     },
     {
       "id": "tt_04_2020_art_3_clause_2_amended",
@@ -491,7 +557,11 @@
       "effective_to": "2024-06-06",
       "changed_by": "tt_04_2024_tt_btp",
       "provision": "điểm a khoản 1 Điều 2 Thông tư 04/2024/TT-BTP: sửa đổi, bổ sung khoản 2 Điều 3",
-      "evidence_chunk_id": "tt_04_2024_tt_btp_art_2_clause_1_chunk_1"
+      "evidence_chunk_id": "tt_04_2024_tt_btp_art_2_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_04_2024_tt_btp_art_2_clause_1_chunk_1",
+        "tt_04_2024_tt_btp_art_2_clause_1_chunk_2"
+      ]
     },
     {
       "id": "tt_04_2020_art_18_clause_2_amended",
@@ -506,7 +576,10 @@
       "effective_to": "2024-06-06",
       "changed_by": "tt_04_2024_tt_btp",
       "provision": "khoản 3 Điều 2 Thông tư 04/2024/TT-BTP: sửa đổi khoản 2 Điều 18",
-      "evidence_chunk_id": "tt_04_2024_tt_btp_art_2_clause_3_chunk_1"
+      "evidence_chunk_id": "tt_04_2024_tt_btp_art_2_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "tt_04_2024_tt_btp_art_2_clause_3_chunk_1"
+      ]
     },
     {
       "id": "nd_07_2025_art_2_clause_2_quoted_clause_1_amended",
@@ -582,6 +655,7 @@
       "evidence_chunk_id": "nd_126_2014_nd_cp_art_65_clause_2_chunk_2",
       "evidence_context_ids": [
         "nd_126_2014_nd_cp_art_65_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
         "nd_126_2014_nd_cp_art_65_clause_2_chunk_2"
       ]
     },
@@ -611,6 +685,7 @@
         "nd_24_2019_nd_cp_art_1_clause_7_chunk_1",
         "nd_24_2019_nd_cp_art_1_clause_7_chunk_2",
         "nd_24_2019_nd_cp_art_1_clause_7_chunk_3",
+        "nd_24_2019_nd_cp_art_1_clause_7_chunk_4",
         "nd_24_2019_nd_cp_art_1_clause_8_chunk_1",
         "nd_24_2019_nd_cp_art_1_clause_8_chunk_2",
         "nd_24_2019_nd_cp_art_1_clause_9_chunk_1",
@@ -974,6 +1049,300 @@
         "nd_18_2026_nd_cp_art_14_clause_1_chunk_4",
         "nd_18_2026_nd_cp_art_14_clause_3_chunk_1"
       ]
+    },
+    {
+      "id": "temporal_20261123_nd_19_2011_nd_cp_1",
+      "document_id": "nd_19_2011_nd_cp",
+      "changed_by": "nd_24_2019_nd_cp",
+      "effective_to": "2019-04-25",
+      "provision_status": "amended",
+      "provision": "Khoản4 Điều1 NĐ24/2019 thay toàn Điều6 NĐ19/2011, hiệu lực25/04/2019. Không đóng ngày2025 cho bản gốc đã bị thay từ2019; bản trung gian đang gộp với Điều4 phải xử lý riêng.",
+      "evidence_chunk_id": "nd_24_2019_nd_cp_art_1_clause_4_chunk_1",
+      "evidence_context_ids": [
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_1",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_2",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_3",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_4",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_5",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_6",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_7",
+        "nd_24_2019_nd_cp_art_1_clause_4_chunk_8"
+      ],
+      "articles": [
+        "6"
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_19_2011_nd_cp_2",
+      "document_id": "nd_19_2011_nd_cp",
+      "changed_by": "nd_24_2019_nd_cp",
+      "effective_to": "2019-04-25",
+      "provision_status": "repealed",
+      "provision": "Khoản3 Điều2 NĐ24/2019 bãi bỏ riêng điểm đ,e khoản1 Điều31; giữ câu dẫn và các Điểm khác.",
+      "evidence_chunk_id": "nd_24_2019_nd_cp_art_2_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "nd_24_2019_nd_cp_art_2_clause_3_chunk_1"
+      ],
+      "points": [
+        {
+          "article": "31",
+          "clause": "1",
+          "point": "đ"
+        },
+        {
+          "article": "31",
+          "clause": "1",
+          "point": "e"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_19_2011_nd_cp_3",
+      "document_id": "nd_19_2011_nd_cp",
+      "changed_by": "nd_18_2026_nd_cp",
+      "effective_to": "2026-01-15",
+      "provision_status": "amended",
+      "provision": "Khoản2 Điều14 NĐ18/2026 thay toàn điểm g khoản1 Điều31; không đóng cả khoản1.",
+      "evidence_chunk_id": "nd_18_2026_nd_cp_art_14_clause_2_chunk_1",
+      "evidence_context_ids": [
+        "nd_18_2026_nd_cp_art_14_clause_2_chunk_1"
+      ],
+      "points": [
+        {
+          "article": "31",
+          "clause": "1",
+          "point": "g"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_24_2019_nd_cp_4",
+      "document_id": "nd_24_2019_nd_cp",
+      "changed_by": "nd_06_2025_nd_cp",
+      "effective_to": "2025-01-08",
+      "provision_status": "amended",
+      "provision": "Khoản9 Điều1 NĐ06/2025 chỉ thay khoản1 và3 Điều16 (bản tại khoản7 Điều1 NĐ24/2019). Giữ khoản2 trích dẫn; không đóng toàn khoản7 nguồn.",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_1_clause_9_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_2",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_3",
+        "nd_06_2025_nd_cp_art_1_clause_9_chunk_4"
+      ],
+      "quoted_clauses": [
+        {
+          "article": "1",
+          "clause": "7",
+          "quoted_clause": "1"
+        },
+        {
+          "article": "1",
+          "clause": "7",
+          "quoted_clause": "3"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_24_2019_nd_cp_5",
+      "document_id": "nd_24_2019_nd_cp",
+      "changed_by": "nd_06_2025_nd_cp",
+      "effective_to": "2025-01-08",
+      "provision_status": "amended",
+      "provision": "Khoản12 Điều1 NĐ06/2025 thay toàn khoản3 Điều20 đã sửa tại khoản8 Điều1 NĐ24/2019; bản trung gian hết khoảng áp dụng chung từ08/01/2025.",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_1_clause_12_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_12_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_12_chunk_2"
+      ],
+      "clauses": [
+        {
+          "article": "1",
+          "clause": "8"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_19_2011_nd_cp_6",
+      "document_id": "nd_19_2011_nd_cp",
+      "changed_by": "nd_06_2025_nd_cp",
+      "effective_to": "2025-01-08",
+      "provision_status": "amended",
+      "provision": "Khoản17 Điều1 NĐ06/2025 thay toàn khoản1 và3 Điều33. Khoản2 chỉ thay cụm từ thời hạn từ2026, ghi riêng; không đóng cả Điều33.",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_1_clause_17_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_17_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_17_chunk_2"
+      ],
+      "clauses": [
+        {
+          "article": "33",
+          "clause": "1"
+        },
+        {
+          "article": "33",
+          "clause": "3"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_nd_19_2011_nd_cp_7",
+      "document_id": "nd_19_2011_nd_cp",
+      "changed_by": "nd_06_2025_nd_cp",
+      "effective_to": "2025-01-08",
+      "provision_status": "amended",
+      "provision": "Khoản18 Điều1 NĐ06/2025 thay toàn khoản2,3 và5 Điều34; không đóng khoản4 (chỉ đổi thời hạn năm2026).",
+      "evidence_chunk_id": "nd_06_2025_nd_cp_art_1_clause_18_chunk_1",
+      "evidence_context_ids": [
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_1",
+        "nd_06_2025_nd_cp_art_1_clause_18_chunk_2"
+      ],
+      "clauses": [
+        {
+          "article": "34",
+          "clause": "2"
+        },
+        {
+          "article": "34",
+          "clause": "3"
+        },
+        {
+          "article": "34",
+          "clause": "5"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_21_2011_tt_btp_8",
+      "document_id": "tt_21_2011_tt_btp",
+      "changed_by": "tt_11_2021_tt_btp",
+      "effective_to": "2022-02-11",
+      "provision_status": "amended",
+      "provision": "Khoản1 Điều1 TT11/2021 thay riêng điểm d,đ khoản1 Điều6; điểm m/khoản3 được bổ sung mới không nằm trong bản gốc.",
+      "evidence_chunk_id": "tt_11_2021_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_1",
+        "tt_11_2021_tt_btp_art_1_clause_1_chunk_2"
+      ],
+      "points": [
+        {
+          "article": "6",
+          "clause": "1",
+          "point": "d"
+        },
+        {
+          "article": "6",
+          "clause": "1",
+          "point": "đ"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_21_2011_tt_btp_9",
+      "document_id": "tt_21_2011_tt_btp",
+      "changed_by": "tt_01_2025_tt_btp",
+      "effective_to": "2025-04-08",
+      "provision_status": "amended",
+      "provision": "Khoản3 Điều1 TT01/2025 thay toàn khoản2 Điều4; không dùng chỉ số Khoản parser của văn bản sửa để suy ra Khoản pháp lý.",
+      "evidence_chunk_id": "tt_01_2025_tt_btp_art_1_clause_3_chunk_1",
+      "evidence_context_ids": [
+        "tt_01_2025_tt_btp_art_1_clause_3_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "4",
+          "clause": "2"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_21_2011_tt_btp_10",
+      "document_id": "tt_21_2011_tt_btp",
+      "changed_by": "tt_01_2025_tt_btp",
+      "effective_to": "2025-04-08",
+      "provision_status": "amended",
+      "provision": "Khoản5 Điều1 TT01/2025 thay toàn khoản3 Điều9 (sau thay cụm từ tại khoản5 Điều2 TT11/2021). Mốc thay cụm từ2022 ghi riêng, bản đầy đủ kết thúc08/04/2025.",
+      "evidence_chunk_id": "tt_01_2025_tt_btp_art_1_clause_5_chunk_1",
+      "evidence_context_ids": [
+        "tt_01_2025_tt_btp_art_1_clause_5_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "9",
+          "clause": "3"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_10_2020_tt_btp_11",
+      "document_id": "tt_10_2020_tt_btp",
+      "changed_by": "tt_07_2023_tt_btp",
+      "effective_to": "2023-11-30",
+      "provision_status": "amended",
+      "provision": "Khoản1 Điều1 TT07/2023 thay riêng điểm c khoản1 Điều3 từ30/11/2023; không đẩy mốc điểm c đến2025 khi cả Điều3 được sửa tiếp.",
+      "evidence_chunk_id": "tt_07_2023_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_07_2023_tt_btp_art_1_clause_1_chunk_1"
+      ],
+      "points": [
+        {
+          "article": "3",
+          "clause": "1",
+          "point": "c"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_10_2020_tt_btp_12",
+      "document_id": "tt_10_2020_tt_btp",
+      "changed_by": "tt_10_2025_tt_btp",
+      "effective_to": "2025-08-04",
+      "provision_status": "amended",
+      "provision": "Khoản1 Điều1 TT10/2025 thay toàn Điều3; các Điểm a,b,d và khoản2 bản gốc kết thúc04/08/2025. Điểm c bản gốc đã kết thúc2023 ở bản ghi khác; câu dẫn chung không tự gán hết hiệu lực.",
+      "evidence_chunk_id": "tt_10_2025_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_10_2025_tt_btp_art_1_clause_1_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "3",
+          "clause": "2"
+        }
+      ],
+      "points": [
+        {
+          "article": "3",
+          "clause": "1",
+          "point": "a"
+        },
+        {
+          "article": "3",
+          "clause": "1",
+          "point": "b"
+        },
+        {
+          "article": "3",
+          "clause": "1",
+          "point": "d"
+        }
+      ]
+    },
+    {
+      "id": "temporal_20261123_tt_07_2023_tt_btp_13",
+      "document_id": "tt_07_2023_tt_btp",
+      "changed_by": "tt_10_2025_tt_btp",
+      "effective_to": "2025-08-04",
+      "provision_status": "amended",
+      "provision": "Toàn bộ nội dung điểm c,đ,e được sửa/bổ sung tại khoản1 Điều1 TT07/2023 thuộc Điều3 TT10/2020 đã được thay toàn Điều từ04/08/2025 theo khoản1 Điều1 TT10/2025. Không áp dụng mốc này cho khoản2 Điều1 TT07/2023.",
+      "evidence_chunk_id": "tt_10_2025_tt_btp_art_1_clause_1_chunk_1",
+      "evidence_context_ids": [
+        "tt_10_2025_tt_btp_art_1_clause_1_chunk_1"
+      ],
+      "clauses": [
+        {
+          "article": "1",
+          "clause": "1"
+        }
+      ]
     }
   ],
   "not_applied": [
@@ -1015,7 +1384,7 @@
     {
       "document_id": "nd_19_2011_nd_cp",
       "provision": "Điểm g khoản1 Điều31, khoản2 Điều35 và các cụm từ thời hạn theo khoản2,4,5 Điều14 NĐ18/2026.",
-      "reason": "Điểm g cần tách chính xác; khoản2 Điều35 thuộc bản sửa đổi trung gian NĐ06/2025 đã có, không được gán lại ngày cho toàn Điều35 nguyên bản. Giữ chờ mô hình hóa riêng; bản sửa đổi mới đã trong active scope."
+      "reason": "Điểm g khoản1 Điều31 đã áp dụng riêng bằng points trong lượt provision_review_20261123. Khoản2 Điều35 bản trung gian NĐ06/2025 còn chờ bộ chọn Khoản trích dẫn có tên Điều; các thay cụm từ chỉ lưu span, không gán hết hiệu lực toàn Khoản."
     }
   ]
 }

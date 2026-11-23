@@ -1,0 +1,67 @@
+[
+  {
+    "document_id": "nd_24_2019_nd_cp",
+    "path": "data/source_pdfs/corpus_v2/nd_24_2019_nd_cp.part01.pdf",
+    "sha256": "f4ad3ed7773d303aca44645676ebd8860f0879092ca5632394513b0d3ce13b49",
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2019/3/28598/26122-1-2019301-30224-2019-nd-cp.pdf",
+    "rendered_pdf_pages": [
+      2,
+      6
+    ]
+  },
+  {
+    "document_id": "nd_06_2025_nd_cp",
+    "path": "data/source_pdfs/corpus_v2/nd_06_2025_nd_cp.part01.pdf",
+    "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985",
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+    "rendered_pdf_pages": [
+      6,
+      11
+    ]
+  },
+  {
+    "document_id": "tt_11_2021_tt_btp",
+    "path": "data/source_pdfs/central_batch1/tt_11_2021_tt_btp.part01.pdf",
+    "sha256": "7a8ced8ceb560e9fa0003f078c77ff14e3d085f52f89dd6cacad4deff158366c",
+    "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+    "rendered_pdf_pages": [
+      1
+    ]
+  },
+  {
+    "document_id": "tt_07_2023_tt_btp",
+    "path": "data/source_pdfs/corpus_v2/tt_07_2023_tt_btp.part01.pdf",
+    "sha256": "d3d95e81c761e4ff0d86391c18a8c214a5edac64bbe5c2c5853a2256e01380ee",
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/9/40334/46870-1-20231125-112607-2023-tt-btp.pdf",
+    "rendered_pdf_pages": [
+      1
+    ]
+  },
+  {
+    "document_id": "tt_10_2025_tt_btp",
+    "path": "data/source_pdfs/corpus_v2/tt_10_2025_tt_btp.part01.pdf",
+    "sha256": "e8687415f5a3a2a0921bf74ae6f4a1f509ec475a0cacd498214ac6a548d14d14",
+    "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57234-1-2025863-86410-2025-tt-btp.pdf",
+    "rendered_pdf_pages": [
+      2
+    ]
+  },
+  {
+    "document_id": "tt_01_2025_tt_btp",
+    "path": "data/source_pdfs/central_batch1/tt_01_2025_tt_btp.part01.pdf",
+    "sha256": "713dbfd0ccf007d01aa5fe404be5002aa9ab34c7d2aa1f482509a3d8e3d7bf60",
+    "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+    "rendered_pdf_pages": [
+      2
+    ]
+  },
+  {
+    "document_id": "nd_18_2026_nd_cp",
+    "path": "data/source_documents/adoption_effectivity_20261123/nd_18_2026_nd_cp_original.pdf",
+    "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
+    "url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+    "rendered_pdf_pages": [
+      32
+    ]
+  }
+]
