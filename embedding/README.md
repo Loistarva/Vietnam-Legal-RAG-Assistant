@@ -1,206 +1,130 @@
 # Thử nghiệm Embedding và Qdrant
 
-Thử nghiệm này chuyển các child chunk pháp luật cố định thành vector, lưu
-vector cùng payload vào Qdrant local và chạy truy vấn Top-K cho từng model.
-Quy trình dùng parser và thuật toán chunking đã có trong repo, không viết
-lại parser hoặc chunker.
+## BM25 lexical retrieval
 
-Ba model ID được cấu hình:
-
-- `AITeamVN/Vietnamese_Embedding`
-- `bkai-foundation-models/vietnamese-bi-encoder`
-- `BAAI/bge-m3`
-
-`BAAI/bge-vi-base` xuất hiện trong ghi chú nghiên cứu cũ nhưng không nằm
-trong danh sách model chạy của thử nghiệm này.
-
-## 1. Chuẩn bị Python và cài dependencies
-
-Trên Windows, dùng Python 3.12. Mở PowerShell tại thư mục gốc repo. Nếu
-đã có `.venv312` thì bỏ qua lệnh tạo môi trường:
+BM25 dùng thuật toán của Elasticsearch. Để nạp bộ corpus chunks chuẩn (`data/chunking_output/chunks.jsonl`) vào index, chạy từ thư mục gốc repo. Tên index, corpus và tokenizer lấy từ `bm25` và `retrieval.corpus_path` trong `retrieval/config.yaml`:
 
 ```powershell
-py -3.12 -m venv .venv312
-.\.venv312\Scripts\Activate.ps1
-python --version
-python -m pip install --upgrade pip
-python -m pip install -r .\embedding\requirements.txt
+$env:ELASTICSEARCH_URL = "http://localhost:9200"
+python -m retrieval.build_bm25_index            # thêm --recreate để thay index cũ
 ```
 
-Các dependencies cơ bản cài Sentence-Transformers và Qdrant client. Model
-BKAI cần thêm bộ phân đoạn từ tiếng Việt:
+Lệnh này đọc trực tiếp file chunk làm dữ liệu đầu vào; không tự parse PDF hay
+chạy chunking lại. Có thể truyền file khác qua `--chunks`, index khác qua `--index`.
+Mặc định không xóa index đang có; khi corpus đổi, chạy với `--recreate` sau khi đã
+xác nhận có thể thay index đích. Index ghi SHA-256 của corpus; retriever báo lỗi
+nếu hash này lệch corpus đang dùng. Index dùng trường `content_segmented` cùng các
+trường tham chiếu điều/khoản.
+
+## Hybrid retrieval với RRF
+
+Hybrid gọi BM25 và Dense retrieval với cùng `candidate_k` (`retrieval.retrieval_top_k`),
+sau đó hợp nhất theo thứ hạng (RRF, `hybrid.rrf_k`).
+Dense search yêu cầu collection Qdrant đã được nạp bằng cùng bộ chunk và
+embedding model. Ví dụ gọi từ Python:
+
+```python
+import os
+from reranking.pipeline import build_hybrid_retriever, load_retrieval_settings
+
+# Index BM25, collection Qdrant, model, candidate_k, rrf_k đều lấy từ retrieval/config.yaml;
+# trả về Top-retrieval_top_k ứng viên sau RRF (chưa rerank).
+settings = load_retrieval_settings("retrieval/config.yaml")
+hybrid = build_hybrid_retriever(settings, elasticsearch_url=os.environ["ELASTICSEARCH_URL"])
+for hit in hybrid.search("Điều kiện ly hôn đơn phương theo Điều 56"):
+    print(hit["rank"], hit["chunk_id"], hit["rrf_score"], hit["source_ranks"])
+```
+
+`DenseRetriever` truyền thẳng vào `HybridRetriever`; `hybrid_search` chỉ dành cho
+embedding service có `embed_query`, không nhận `DenseRetriever`.
+Kết quả có `rrf_score`, `source_ranks`, `source_scores`, `retrieval_sources`,
+cùng `chunk_id`, `chunk_text` và `metadata`. Có thể kiểm thử gộp mà không cần model
+hay Qdrant bằng `pytest test/test_hybrid_retriever.py -v`.
+
+## Dev set retrieval
+
+Chạy BM25, Dense và Hybrid trên tập Dev queries. Model, index, collection, `--top-k`,
+`--candidate-k`, `--rrf-k` mặc định lấy từ `retrieval/config.yaml`; chỉ truyền khi cần thử
+giá trị khác:
 
 ```powershell
-python -m pip install -r .\embedding\requirements-bkai.txt
+python -m retrieval.run_dev_retrieval --queries data/benchmark/queries_dev.json
 ```
 
-Nếu PowerShell chặn kích hoạt môi trường, chỉ cho phép trong terminal hiện
-tại rồi kích hoạt lại:
+## Tạo và quản lý Vector Index (`scripts/build_index.py`)
+
+Chạy lệnh sau từ thư mục gốc của repository để lập chỉ mục từ `data/chunking_output/chunks.jsonl` vào Qdrant:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv312\Scripts\Activate.ps1
+# Model mặc định là dense.model trong retrieval/config.yaml (BAAI/bge-m3)
+python scripts/build_index.py
+
+# Hoặc chạy kiểm thử nhanh bằng chế độ Mock
+python scripts/build_index.py --mock
 ```
 
-Xác nhận dấu nhắc có `(.venv312)` và `python --version` trả về Python
-3.12. Nếu không muốn kích hoạt môi trường, thay `python` trong các lệnh
-bên dưới bằng `.\.venv312\Scripts\python.exe`.
+Collection đã có điểm thì script dừng, trừ khi truyền `--recreate` (xóa và dựng lại toàn bộ
+collection, cần khi corpus hoặc model đổi). Vector lưu tại `data/indexes/qdrant_storage/`,
+metadata của collection (model, số chiều, cờ tách từ, SHA-256 corpus) tại
+`data/indexes/{collection}_metadata.json`; khi mở collection để truy vấn, `DenseRetriever`
+kiểm file này và báo lỗi nếu lệch cấu hình.
 
-## 2. Kiểm tra đầu vào parser và chunking
+## Kiểm thử khói Dense Retrieval (`embedding/retrieval_smoke_test.py`)
 
-Script tạo fixture cần hai file sau:
-
-- `parser\parsed_jsons\L01.json`
-- `chunking\chunking_rules.py`
-
-Script gọi hàm `chunk_legal_document` từ thuật toán chunking hiện có. Nếu
-thiếu một trong các file trên sau khi clone, hãy kiểm tra repo đã được clone
-đầy đủ và terminal đang ở thư mục gốc:
+Kiểm tra nhanh luồng truy vấn Dense vector search:
 
 ```powershell
-Get-Location
-Test-Path .\parser\parsed_jsons\L01.json
-Test-Path .\chunking\chunking_rules.py
+# Xem trợ giúp CLI
+python embedding/retrieval_smoke_test.py --help
+
+# Chạy thử nghiệm khói ở chế độ Mock
+python embedding/retrieval_smoke_test.py --mock
 ```
 
-## 3. Tạo tập chunk mẫu cố định
+## Hợp đồng bàn giao Embedding Model (Dev 3 Ownership -> Dev 4 Consumer)
 
-Chạy:
+Trong Sprint 9 (Kế hoạch V3), phân hệ **Dev 3** chịu trách nhiệm Model Ownership (đặc tả, tiền xử lý và kiểm định vector), bàn giao cho **Dev 4** (vận hành Qdrant Server & Indexing Pipeline).
 
-```powershell
-python .\embedding\prepare_chunk_dataset.py
+### 1. Đặc tả mô hình sản xuất (Production Model Specification)
+Nguồn sự thật cấu hình duy nhất là file `retrieval/config.yaml`:
+- **Mô hình chuẩn**: `dense.model` trong `retrieval/config.yaml` (`BAAI/bge-m3`)
+- **Số chiều vector (Dimension)**: `1024` (từ `dense.supported_models.<model>.dimension`)
+- **Khoảng cách vector**: Cosine Similarity
+- **Trường văn bản đầu vào**: `dense.supported_models.<model>.text_field` (`embed_text_raw`, trích xuất từ `chunks.jsonl`)
+- **Tách từ tiếng Việt (`use_word_segmentation`)**: `False` (bge-m3 nhận chuỗi văn bản tự nhiên, không qua underthesea)
+- **Tên collection duy nhất**: `dense.collection` (`vietnam_legal_chunks`)
+
+### 2. Giao diện lập trình (API Handoff Interface)
+Dev 4 gọi trực tiếp các tiện ích từ `embedding/model_registry.py`:
+
+```python
+from embedding.model_registry import (
+    get_embedding_spec,
+    validate_collection_dimension,
+    prepare_text_for_embedding,
+    get_index_spec,
+)
+from embedding.vector_store import read_index_metadata
+
+# 1. Lấy thông số cấu hình model từ retrieval/config.yaml
+spec = get_embedding_spec("BAAI/bge-m3")
+# Output: {"name": "BAAI/bge-m3", "dimension": 1024, "use_word_segmentation": False, "text_field": "embed_text_raw", "collection_name": "vietnam_legal_chunks"}
+
+# 2. Đặc tả collection theo config, dùng khi tạo collection trên Qdrant Server
+index_spec = get_index_spec()
+# Output: {"collection_name": "vietnam_legal_chunks", "vector_size": 1024, "dimension": 1024, "model_name": "BAAI/bge-m3", ...}
+
+# 2b. Metadata của index ĐÃ dựng (model, dimension, SHA-256 corpus lúc build), dùng để
+#     xác nhận collection khớp corpus hiện tại; None nếu collection chưa có metadata
+built = read_index_metadata("data/indexes/qdrant_storage", index_spec["collection_name"])
+
+# 3. Kiểm tra tính tương thích trước khi nạp Qdrant
+validate_collection_dimension("BAAI/bge-m3", actual_dimension=1024)  # Trả về True; ném ValueError nếu sai lệch
+
+# 4. Tiền xử lý đối xứng trước khi embed (cho cả batch index và realtime query)
+clean_text = prepare_text_for_embedding("Điều kiện ly hôn theo Luật Hôn nhân 2014", "BAAI/bge-m3")
 ```
 
-Script ghi kết quả vào
-`embedding\data\han_gia_dinh_smoke_chunks.json`, sử dụng chunker hiện có
-với Config A (`parent_max_chars=1500`, `child_max_tokens=256`,
-`child_max_units=200`, `child_min_words=20`). Script in ra số lượng chunk
-và SHA-256. Fixture của thử nghiệm hiện có 321 child chunk.
-
-Hãy tạo fixture một lần trước khi so sánh, sau đó dùng cùng file cho cả ba
-model. Nếu dữ liệu parser, chunker, cấu hình hoặc bộ phân đoạn từ thay đổi,
-việc tạo lại fixture có thể làm hash thay đổi. Mỗi kết quả đều ghi hash để
-đối chiếu các lượt chạy có dùng cùng dữ liệu hay không.
-
-## 4. Cấu hình Qdrant local
-
-Smoke test dùng Qdrant embedded local nên không cần chạy riêng Qdrant
-server hoặc Docker. Chọn một thư mục lưu dữ liệu lâu dài trong repo:
-
-```powershell
-$env:QDRANT_PATH = "$PWD\qdrant_data"
-```
-
-Giữ biến môi trường này trong terminal cho tất cả các lượt chạy. Qdrant tự
-tạo thư mục khi mở cơ sở dữ liệu lần đầu. Script dùng collection riêng cho
-từng model và hash fixture; sau khi nạp sẽ kiểm tra số point. Script không
-xóa collection hoặc dữ liệu cũ.
-
-## 5. Chạy một model rồi chạy cả ba
-
-Nên chạy một model trước để xác nhận việc tải model, embedding, lưu vector
-và truy hồi:
-
-```powershell
-python .\embedding\retrieval_smoke_test.py --model AITeamVN/Vietnamese_Embedding --results .\embedding\results\aiteamvn.json
-```
-
-Sau đó chạy hai model còn lại với cùng fixture và cùng Qdrant:
-
-```powershell
-python .\embedding\retrieval_smoke_test.py --model bkai-foundation-models/vietnamese-bi-encoder --results .\embedding\results\bkai.json
-python .\embedding\retrieval_smoke_test.py --model BAAI/bge-m3 --results .\embedding\results\bge-m3.json
-```
-
-Mỗi lượt embedding toàn bộ chunk, lưu vector cùng `chunk_id`, nội dung và
-metadata vào Qdrant, rồi in Top-5 cho truy vấn mặc định:
-“Điều kiện về độ tuổi kết hôn được quy định như thế nào?”
-
-Các tùy chọn khác gồm `--chunks`, `--query`, `--top-k`, `--batch-size`,
-`--device`, `--collection`, `--ground-truth` và `--results`. Xem danh sách
-tùy chọn hiện hành bằng lệnh:
-
-```powershell
-python .\embedding\retrieval_smoke_test.py --help
-```
-
-Lần chạy đầu tải model từ Hugging Face nên có thể mất vài phút, đặc biệt
-khi chỉ dùng CPU. Cần Internet cho đến khi model được lưu vào cache. Cảnh
-báo về giới hạn tải ẩn danh từ Hugging Face không nhất thiết là lỗi.
-
-## 6. Kiểm tra kết quả và xử lý lỗi thường gặp
-
-File JSON trong `embedding\results` ghi model ID, tên collection, hash và
-số lượng chunk, dimension, thời gian tải model và embedding tài liệu,
-throughput, thời gian mã hóa query, thời gian tìm kiếm Qdrant, độ trễ truy
-vấn, cùng Top-K gồm ID, điểm, nội dung và metadata. Độ trễ truy vấn chỉ là
-thời gian query embedding cộng Qdrant vector search; không gồm tải model,
-embedding tài liệu, reranking hoặc LLM.
-
-Đối chiếu `chunk_file_sha256` và `chunk_count` giữa kết quả của ba model.
-Lượt chạy thành công sẽ báo 321 points và trả Top-K có nội dung cùng
-metadata.
-
-Một số lỗi thường gặp:
-
-- **`Could not open requirements file`:** kiểm tra thư mục hiện tại bằng
-  `Get-Location` và xác nhận file tồn tại bằng
-  `Test-Path .\embedding\requirements.txt`. Chạy lệnh cài từ thư mục gốc
-  repo hoặc cung cấp đường dẫn đầy đủ tới file.
-- **`Cần cài ... sentence-transformers` hoặc `qdrant-client`:** Python
-  đang chạy không phải môi trường đã cài dependencies. Kích hoạt `.venv312`
-  hoặc gọi trực tiếp `.\.venv312\Scripts\python.exe`.
-- **Thiếu `underthesea` khi chạy BKAI:** cài
-  `.\embedding\requirements-bkai.txt` vào cùng môi trường Python. Trên
-  Windows nên dùng Python 3.12 vì tokenizer core có wheel dựng sẵn cho
-  phiên bản này.
-- **Lỗi tải model từ Hugging Face:** kiểm tra kết nối Internet và thử lại;
-  lần đầu phải tải trọng số model.
-- **Số point trong collection không bằng số chunk:** không xóa collection
-  có thể chứa dữ liệu đang dùng. Kiểm tra tên collection, hash fixture và
-  tùy chọn `--collection`. Tên mặc định đã bao gồm một phần hash fixture.
-
-## 7. Ground truth cho Recall@5 và MRR@10
-
-Chạy Top-K smoke test không cần ground truth, nhưng muốn tính Recall@5 và
-MRR@10 thì cần nhãn. Các ví dụ chunking và bảng đánh giá chunking trong
-repo mô tả ID chunk, cấu hình và thống kê chunk; chúng không phải nhãn
-đánh giá câu hỏi nào liên quan tới chunk nào.
-
-Tạo file JSON UTF-8 gồm các đánh giá đã được người đọc kiểm tra. Mỗi
-`relevant_chunk_ids` phải chứa ID có trong chính fixture dùng cho cả ba
-lượt chạy:
-
-```json
-[
-  {
-    "query": "Nam và nữ phải bao nhiêu tuổi mới được kết hôn?",
-    "relevant_chunk_ids": ["l01_art_8_chunk_1"]
-  },
-  {
-    "query": "Những hành vi nào bị cấm trong hôn nhân và gia đình?",
-    "relevant_chunk_ids": ["l01_art_5_p1_chunk_2_1", "l01_art_5_p1_chunk_2_2"]
-  }
-]
-```
-
-Đây chỉ là ví dụ cấu trúc. Hãy xác minh ID trong
-`embedding\data\han_gia_dinh_smoke_chunks.json` và tự đánh giá mức độ liên
-quan dựa trên nội dung pháp luật. Không lấy kết quả Top-K do chính model
-tạo ra làm ground truth.
-
-Chạy cùng bộ câu hỏi đã gán nhãn cho từng model:
-
-```powershell
-python .\embedding\retrieval_smoke_test.py --model AITeamVN/Vietnamese_Embedding --ground-truth .\embedding\data\retrieval_ground_truth.json --results .\embedding\results\aiteamvn.json
-python .\embedding\retrieval_smoke_test.py --model bkai-foundation-models/vietnamese-bi-encoder --ground-truth .\embedding\data\retrieval_ground_truth.json --results .\embedding\results\bkai.json
-python .\embedding\retrieval_smoke_test.py --model BAAI/bge-m3 --ground-truth .\embedding\data\retrieval_ground_truth.json --results .\embedding\results\bge-m3.json
-```
-
-Script tính Recall@5 cho mỗi query bằng số chunk liên quan được tìm thấy
-trong Top-5 chia cho tổng số chunk liên quan đã gán nhãn cho query đó, rồi
-lấy trung bình trên các query. MRR@10 là trung bình nghịch đảo thứ hạng
-của kết quả liên quan đầu tiên trong Top-10 (bằng 0 nếu không tìm thấy).
-Nếu ground truth tham chiếu ID không tồn tại trong fixture, script báo
-lỗi. Cần dùng đủ câu hỏi đa dạng đã được kiểm tra trước khi kết luận hoặc
-chọn model thắng cuộc.
+### 3. Nguyên tắc vận hành
+- **Fail-Fast**: Bất kỳ sự lệch pha nào giữa vector dimension lưu trong collection metadata và cấu hình model spec đều phải ném ngoại lệ dừng pipeline ngay lập tức.
+- **Tính đối xứng (Symmetry)**: Vector hóa tập chunk dữ liệu (precompute) và vector hóa câu hỏi người dùng (inference) phải sử dụng cùng hàm `prepare_text_for_embedding`.

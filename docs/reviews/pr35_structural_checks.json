@@ -1,0 +1,300 @@
+{
+  "checks": [
+    {
+      "n": 1,
+      "id": "nd_126_2014_art_19_50_repealed",
+      "matched": 101,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 2,
+      "id": "nd_126_2014_art_63_clause_1_point_a_repealed",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 3,
+      "id": "nd_126_2014_art_63_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 4,
+      "id": "tt_34_2017_art_2_clauses_2_3_repealed",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 5,
+      "id": "tt_57_2015_chapters_1_2_5_6_repealed",
+      "matched": 27,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 6,
+      "id": "nd_123_2015_art_12_clauses_1_2_repealed",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 7,
+      "id": "nd_123_2015_art_1_amended",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 8,
+      "id": "nd_123_2015_art_2_clauses_1_2_amended",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 9,
+      "id": "nd_123_2015_art_3_clause_1_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 10,
+      "id": "nd_123_2015_art_4_clause_1_point_c_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 11,
+      "id": "nd_123_2015_art_9_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 12,
+      "id": "nd_123_2015_art_10_clause_1_repealed",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 13,
+      "id": "nd_123_2015_art_22_clause_4_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 14,
+      "id": "nd_123_2015_art_23_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 15,
+      "id": "nd_123_2015_art_30_clause_3_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 16,
+      "id": "nd_123_2015_art_22_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 17,
+      "id": "nd_123_2015_art_24_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 18,
+      "id": "nd_123_2015_art_26_clause_1_point_c_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 19,
+      "id": "nd_123_2015_art_26_clause_2_amended",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 20,
+      "id": "nd_123_2015_art_27_clause_2_amended",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 21,
+      "id": "nd_123_2015_art_26_27_clause_3_repealed",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 22,
+      "id": "nd_87_2020_art_2_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 23,
+      "id": "nd_87_2020_art_8_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 24,
+      "id": "nd_87_2020_art_12_clause_3_point_c_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 25,
+      "id": "nd_87_2020_art_13_clauses_1_2_amended",
+      "matched": 2,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 26,
+      "id": "nd_87_2020_art_19_clause_7_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 27,
+      "id": "tt_04_2020_art_3_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    },
+    {
+      "n": 28,
+      "id": "tt_04_2020_art_18_clause_2_amended",
+      "matched": 1,
+      "mismatches": [],
+      "evidence_exists": true,
+      "evidence_document_ok": true,
+      "date_matches_registry": true
+    }
+  ],
+  "hashes": [
+    {
+      "document_id": "nd_123_2015_nd_cp",
+      "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
+      "sha256": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376",
+      "expected": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376"
+    },
+    {
+      "document_id": "tt_30_2019_tt_byt",
+      "path": "data/raw_data/additional_documents/TT_30_2019_BYT.pdf",
+      "sha256": "30fbf0b68424527f695cca0361644785327bbb540350479c12fad2d8fb7bd808",
+      "expected": "30fbf0b68424527f695cca0361644785327bbb540350479c12fad2d8fb7bd808"
+    },
+    {
+      "document_id": "tt_38_2025_tt_byt",
+      "path": "data/raw_data/additional_documents/38_2025_TT-BYT_669119.pdf",
+      "sha256": "b1e46cb699d0dad5c8e9bf66f9bf0089fe467eae8f1050da5f797f0bd9d97251",
+      "expected": "b1e46cb699d0dad5c8e9bf66f9bf0089fe467eae8f1050da5f797f0bd9d97251"
+    },
+    {
+      "document_id": "nd_87_2020_nd_cp",
+      "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
+      "sha256": "7c168f73e39170476d97a6fc51607a56b86b560484a4fb64c63b108206e50a55",
+      "expected": "7c168f73e39170476d97a6fc51607a56b86b560484a4fb64c63b108206e50a55"
+    },
+    {
+      "document_id": "nd_07_2025_nd_cp",
+      "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
+      "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",
+      "expected": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5"
+    },
+    {
+      "document_id": "nd_18_2026_nd_cp",
+      "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+      "sha256": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134",
+      "expected": "c75d72ff811a794004f71c7246aa989c335c3522eaa28e91eedfb5538374c134"
+    },
+    {
+      "document_id": "tt_04_2024_tt_btp",
+      "path": "data/raw_data/additional_documents/tt_04_2024_tt_btp.pdf",
+      "sha256": "58e05dae781e2032054de6674072e9076248d6e97b1e753ab97a47cc2b335d57",
+      "expected": "58e05dae781e2032054de6674072e9076248d6e97b1e753ab97a47cc2b335d57"
+    }
+  ]
+}

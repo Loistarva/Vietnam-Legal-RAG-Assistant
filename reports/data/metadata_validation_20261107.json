@@ -1,0 +1,81 @@
+{
+  "observed_at": "2026-11-07T04:00:44.799983+00:00",
+  "git_sha": "6eff7c2a6db34202b5b3ffad6c5ee14ef5902366",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "input_sha256_before": {
+    "data/reference/document_versions.json": "af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283",
+    "data/chunking_output/chunks.jsonl": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "data/benchmark/ground_truth.json": "5b94104354d688ef0160aef5e1d049340d7680cbe9908b5a983d7387e7edaea3",
+    "data/benchmark/queries_dev.json": "f38b32a147a47d2bdf494a73e9484b143eb60bd0662ddf912658f86c3ee4ae04",
+    "data/benchmark/queries_test.json": "0974198ebdbf38d6aba0a0249846df41fb805544c4706422662240905fd264d6",
+    "docs/test_questions_freeze.json": "d908106c7e37bd22cc27063da8955db03d4d10fcb82f1bd86ce3860f4b36b9b2",
+    "docs/test_gold_freeze.json": "20ce322eb38040cf715177c0ab7f6a9cdc4e19028f9bb98a217e47307cb2fd45"
+  },
+  "checks": [
+    {
+      "args": [
+        "scripts/audit_document_metadata.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"registry_document_count\": 24, \"corpus_chunk_count\": 2164, \"article_count\": 799, \"alias_count\": 562, \"review_status\": \"pending_peer_review\"}\nPASS: errors=0; warnings=24; ambiguous_aliases=24\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "test/test_document_aliases.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "..........................................................               [100%]\n58 passed in 2.46s\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/validate_benchmark.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Dev=270; Test=30; total=300; mode=handoff; issues=0\nPASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [  9%]\n...........................................s............................ [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 47%]\n........................................................................ [ 56%]\n........................................................................ [ 66%]\n........................................................................ [ 75%]\n........................................................................ [ 85%]\n........................................................................ [ 94%]\n..........................................                               [100%]\n761 passed, 1 skipped in 58.17s\n",
+      "stderr": ""
+    }
+  ],
+  "input_sha256_after": {
+    "data/reference/document_versions.json": "af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283",
+    "data/chunking_output/chunks.jsonl": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "data/benchmark/ground_truth.json": "5b94104354d688ef0160aef5e1d049340d7680cbe9908b5a983d7387e7edaea3",
+    "data/benchmark/queries_dev.json": "f38b32a147a47d2bdf494a73e9484b143eb60bd0662ddf912658f86c3ee4ae04",
+    "data/benchmark/queries_test.json": "0974198ebdbf38d6aba0a0249846df41fb805544c4706422662240905fd264d6",
+    "docs/test_questions_freeze.json": "d908106c7e37bd22cc27063da8955db03d4d10fcb82f1bd86ce3860f4b36b9b2",
+    "docs/test_gold_freeze.json": "20ce322eb38040cf715177c0ab7f6a9cdc4e19028f9bb98a217e47307cb2fd45"
+  },
+  "protected_inputs_unchanged": true
+}

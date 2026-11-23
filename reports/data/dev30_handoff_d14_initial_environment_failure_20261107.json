@@ -1,0 +1,118 @@
+{
+  "observed_at": "2026-11-07T04:30:49.457441+00:00",
+  "git_sha": "191faefafd410c9c54d4e5429abfe33a25b537e9",
+  "testing_sha": "d203ed5b4e8925d63742d897bd8a9879b1a04c34",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "handoff_check": {
+    "status": "PASS",
+    "selected_count": 30,
+    "source_checked_count": 30,
+    "selected_unique_clauses": 44,
+    "selected_unique_chunks": 45,
+    "test_unique_clauses": 58,
+    "test_id_overlap": 0,
+    "test_clause_overlap": 0,
+    "test_chunk_overlap": 0,
+    "test_question_overlap": 0,
+    "query_canonical_sha256": "7f413e19934b6b216c71c90482c27cd9a29e8556842a10fa7c22b505c1340421",
+    "dataset_ids_hash": "fc97ecadf369ba33bd43bc8f2374d077ee991af4a8532085c250e04cb271afb2",
+    "manifest_status": "proposed_pending_user_and_dev2_review",
+    "confirmation_status": "confirmed_for_zero_shot_baseline",
+    "handoff_scope": "zero_shot_baseline; does not authorize official A/B or retuning",
+    "test_freeze_verified": true
+  },
+  "input_sha256_before": {
+    "evaluation/manifests/dev_gold_30_manifest.json": "53f00da80a4c53d466d6e56dfcde7c1ad063084d02d61c1a5b77faaa69cce60f",
+    "evaluation/datasets/dev_gold_30_queries_v1.json": "b9e290a7697acddc3af2ff97bc9a8357f02dc95564d63ce90c8aca323e9ad9b4",
+    "evaluation/rubrics/dev_gold_30_ids_v1.txt": "18931d3efb7aa302005a23189656174bae587fe5b830673da2954f0859a313ee",
+    "evaluation/review/dev30_confirmation_v1.json": "0cc6a267b4dc49520b95db84d6ee09464a8bbafc1454bf74c95cd1680926395e",
+    "data/benchmark/queries_dev.json": "f38b32a147a47d2bdf494a73e9484b143eb60bd0662ddf912658f86c3ee4ae04",
+    "data/benchmark/queries_test.json": "e72372d624a3728228fa153fc571ff41e4328fda726c7d361369c5feae081d88",
+    "data/benchmark/ground_truth.json": "6163a666f8826b262025edf5ab68d9dab619fa6c6b58c2f5ee11f277266ff579",
+    "data/chunking_output/chunks.jsonl": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "docs/test_questions_freeze.json": "7da1a5e1864bc17c2838b1332890d741367be5fea34d589d59b589f364ec0f9e",
+    "docs/test_gold_freeze.json": "40a3cd468469aa554ed8d53f60150eb1b6e69d5b8eb22cd44b14a14eefbbbe77",
+    "data/reference/document_versions.json": "af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283",
+    "data/reference/document_aliases.json": "eef4392a243e6b42168d4eb15ed3a695599ff8576a2546141fa6b87b195c1ee5"
+  },
+  "checks": [
+    {
+      "args": [
+        "scripts/check_dev30_handoff.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"selected_count\": 30,\n  \"source_checked_count\": 30,\n  \"selected_unique_clauses\": 44,\n  \"selected_unique_chunks\": 45,\n  \"test_unique_clauses\": 58,\n  \"test_id_overlap\": 0,\n  \"test_clause_overlap\": 0,\n  \"test_chunk_overlap\": 0,\n  \"test_question_overlap\": 0,\n  \"query_canonical_sha256\": \"7f413e19934b6b216c71c90482c27cd9a29e8556842a10fa7c22b505c1340421\",\n  \"dataset_ids_hash\": \"fc97ecadf369ba33bd43bc8f2374d077ee991af4a8532085c250e04cb271afb2\",\n  \"manifest_status\": \"proposed_pending_user_and_dev2_review\",\n  \"confirmation_status\": \"confirmed_for_zero_shot_baseline\",\n  \"handoff_scope\": \"zero_shot_baseline; does not authorize official A/B or retuning\",\n  \"test_freeze_verified\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "test/evaluation/test_dev30_no_test_leakage.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "..........................................                               [100%]\n42 passed in 5.54s\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/validate_negative_set.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 24,\n  \"labels\": {\n    \"non_legal\": 6,\n    \"legal_out_of_scope\": 6,\n    \"missing_corpus_evidence\": 6,\n    \"insufficient_facts\": 6\n  },\n  \"issues\": [],\n  \"review_status\": \"pending_peer_review\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/audit_document_metadata.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"registry_document_count\": 24, \"corpus_chunk_count\": 2164, \"article_count\": 799, \"alias_count\": 562, \"review_status\": \"pending_peer_review\"}\nPASS: errors=0; warnings=24; ambiguous_aliases=24\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 2,
+      "stdout": "\n=================================== ERRORS ====================================\n_______________ ERROR collecting test/test_run_zero_shot_dev.py _______________\nImportError while importing test module 'D:\\GitHubProjects\\Vietnam-Legal-RAG-Assistant-week09-dev1\\test\\test_run_zero_shot_dev.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\ntest\\test_run_zero_shot_dev.py:6: in <module>\n    from scripts.run_zero_shot_dev import (\nscripts\\run_zero_shot_dev.py:10: in <module>\n    from evaluation.zero_shot import run_benchmark\nevaluation\\zero_shot.py:17: in <module>\n    import ollama\nE   ModuleNotFoundError: No module named 'ollama'\n=========================== short test summary info ===========================\nERROR test/test_run_zero_shot_dev.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 4.66s\n",
+      "stderr": ""
+    }
+  ],
+  "input_sha256_after": {
+    "evaluation/manifests/dev_gold_30_manifest.json": "53f00da80a4c53d466d6e56dfcde7c1ad063084d02d61c1a5b77faaa69cce60f",
+    "evaluation/datasets/dev_gold_30_queries_v1.json": "b9e290a7697acddc3af2ff97bc9a8357f02dc95564d63ce90c8aca323e9ad9b4",
+    "evaluation/rubrics/dev_gold_30_ids_v1.txt": "18931d3efb7aa302005a23189656174bae587fe5b830673da2954f0859a313ee",
+    "evaluation/review/dev30_confirmation_v1.json": "0cc6a267b4dc49520b95db84d6ee09464a8bbafc1454bf74c95cd1680926395e",
+    "data/benchmark/queries_dev.json": "f38b32a147a47d2bdf494a73e9484b143eb60bd0662ddf912658f86c3ee4ae04",
+    "data/benchmark/queries_test.json": "e72372d624a3728228fa153fc571ff41e4328fda726c7d361369c5feae081d88",
+    "data/benchmark/ground_truth.json": "6163a666f8826b262025edf5ab68d9dab619fa6c6b58c2f5ee11f277266ff579",
+    "data/chunking_output/chunks.jsonl": "9a72a35e532f03447b348afe11e4d718ba7f3697f8f6b4d2108f1d28747c01bb",
+    "docs/test_questions_freeze.json": "7da1a5e1864bc17c2838b1332890d741367be5fea34d589d59b589f364ec0f9e",
+    "docs/test_gold_freeze.json": "40a3cd468469aa554ed8d53f60150eb1b6e69d5b8eb22cd44b14a14eefbbbe77",
+    "data/reference/document_versions.json": "af7fcf530b53907250840fc06fbd19e2eba25170e4757a7103d77df01092c283",
+    "data/reference/document_aliases.json": "eef4392a243e6b42168d4eb15ed3a695599ff8576a2546141fa6b87b195c1ee5"
+  },
+  "protected_inputs_unchanged": true
+}

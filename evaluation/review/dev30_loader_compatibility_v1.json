@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "source_git_sha": "aadb20420cecada28a5a03e0c31a11b88bd7cc84",
+  "source_file_sha256": "2f9a2966b064c6fef32d1b558a432c9a1389571ecb44faefaa0fbeae161b5ec0",
+  "function": "evaluation.zero_shot.load_questions",
+  "query_count": 30,
+  "real_model_calls": 0,
+  "query_canonical_sha256": "7f413e19934b6b216c71c90482c27cd9a29e8556842a10fa7c22b505c1340421"
+}

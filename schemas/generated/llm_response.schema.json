@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.1",
+  "$defs": {
+    "TokenUsage": {
+      "additionalProperties": false,
+      "description": "Số lượng token sử dụng (input prompt eval, output generation eval). null = không có số liệu.",
+      "properties": {
+        "input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input"
+        },
+        "output": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output"
+        }
+      },
+      "title": "TokenUsage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Runtime Provenance và kết quả gọi Model Gateway (Task D3.4).",
+  "properties": {
+    "query_id": {
+      "title": "Query Id",
+      "type": "string"
+    },
+    "run_mode": {
+      "enum": [
+        "A_zero_shot",
+        "B_controlled_rag",
+        "C_production_rag"
+      ],
+      "title": "Run Mode",
+      "type": "string"
+    },
+    "answer": {
+      "title": "Answer",
+      "type": "string"
+    },
+    "evidence_indices": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Evidence Indices",
+      "type": "array"
+    },
+    "rejected_evidence_values": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Rejected Evidence Values",
+      "type": "array"
+    },
+    "abstained": {
+      "default": false,
+      "title": "Abstained",
+      "type": "boolean"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
+    "needs_clarification": {
+      "default": false,
+      "title": "Needs Clarification",
+      "type": "boolean"
+    },
+    "missing_facts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Facts",
+      "type": "array"
+    },
+    "model": {
+      "default": "qwen2.5:7b",
+      "title": "Model",
+      "type": "string"
+    },
+    "prompt_version": {
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "num_ctx": {
+      "default": 8192,
+      "title": "Num Ctx",
+      "type": "integer"
+    },
+    "num_predict": {
+      "default": 1024,
+      "title": "Num Predict",
+      "type": "integer"
+    },
+    "temperature": {
+      "default": 0.0,
+      "title": "Temperature",
+      "type": "number"
+    },
+    "repeat_penalty": {
+      "default": 1.0,
+      "title": "Repeat Penalty",
+      "type": "number"
+    },
+    "done_reason": {
+      "title": "Done Reason",
+      "type": "string"
+    },
+    "truncated": {
+      "default": false,
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "context_truncated": {
+      "default": false,
+      "title": "Context Truncated",
+      "type": "boolean"
+    },
+    "parse_status": {
+      "default": "ok",
+      "enum": [
+        "ok",
+        "truncated_json",
+        "invalid_json",
+        "raw_text"
+      ],
+      "title": "Parse Status",
+      "type": "string"
+    },
+    "latency_ms": {
+      "default": 0.0,
+      "title": "Latency Ms",
+      "type": "number"
+    },
+    "load_duration_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Duration Ms"
+    },
+    "prompt_eval_duration_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Prompt Eval Duration Ms"
+    },
+    "eval_duration_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Eval Duration Ms"
+    },
+    "total_duration_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Total Duration Ms"
+    },
+    "ttft_model_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ttft Model Ms"
+    },
+    "token_usage": {
+      "$ref": "#/$defs/TokenUsage"
+    },
+    "fallback_status": {
+      "default": "none",
+      "title": "Fallback Status",
+      "type": "string"
+    },
+    "raw_response": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Raw Response"
+    },
+    "raw_response_reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Raw Response Reference"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "AUTH_REQUIRED",
+            "INVALID_REQUEST",
+            "ROUTE_POLICY",
+            "RETRIEVAL_EMPTY",
+            "LOW_CONFIDENCE",
+            "LLM_TIMEOUT",
+            "LLM_UNAVAILABLE",
+            "JSON_INVALID",
+            "CITATION_INVALID",
+            "GROUNDING_FAIL",
+            "INTERNAL_ERROR"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "ollama_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ollama Version"
+    },
+    "model_digest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Digest"
+    },
+    "schema_version": {
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "query_id",
+    "run_mode",
+    "answer",
+    "prompt_version",
+    "done_reason"
+  ],
+  "title": "LLMResponse",
+  "type": "object"
+}

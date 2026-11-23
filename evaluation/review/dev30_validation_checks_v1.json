@@ -1,0 +1,63 @@
+{
+  "observed_at": "2026-11-06T14:20:15.514472+00:00",
+  "baseline_sha": "0f8a6a7b019a593a1f4d29cea850ec7fbd6465cc",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "query_canonical_sha256": "7f413e19934b6b216c71c90482c27cd9a29e8556842a10fa7c22b505c1340421",
+  "checks": [
+    {
+      "args": [
+        "scripts/prepare_dev30.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"count\": 30,\n  \"excluded_user_ids\": 195,\n  \"added_chunks_excluded\": 9,\n  \"query_hash\": \"7f413e19934b6b216c71c90482c27cd9a29e8556842a10fa7c22b505c1340421\",\n  \"distribution\": {\n    \"category\": {\n      \"ket_hon\": 7,\n      \"vo_chong\": 2,\n      \"tai_san\": 5,\n      \"ly_hon\": 3,\n      \"con_cai\": 3,\n      \"cap_duong\": 5,\n      \"nguyen_tac_quy_dinh\": 3,\n      \"mang_thai_ho\": 2\n    },\n    \"question_type\": {\n      \"fact\": 13,\n      \"situation\": 14,\n      \"multi_hop\": 3\n    },\n    \"difficulty\": {\n      \"easy\": 13,\n      \"medium\": 12,\n      \"hard\": 5\n    },\n    \"test_type\": {\n      \"current_law\": 29,\n      \"outdated_law_trap\": 1\n    }\n  },\n  \"review_status\": \"proposed_pending_user_and_dev2_review\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "test/test_dev30_selection.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "................................                                         [100%]\n32 passed in 2.04s\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/validate_benchmark.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Dev=270; Test=30; total=300; mode=handoff; issues=0\nPASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 10%]\n...........................................s............................ [ 21%]\n........................................................................ [ 32%]\n........................................................................ [ 42%]\n........................................................................ [ 53%]\n........................................................................ [ 64%]\n........................................................................ [ 74%]\n........................................................................ [ 85%]\n........................................................................ [ 96%]\n...........................                                              [100%]\n674 passed, 1 skipped in 26.50s\n",
+      "stderr": ""
+    }
+  ]
+}

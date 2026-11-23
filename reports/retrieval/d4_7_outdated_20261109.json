@@ -1,0 +1,312 @@
+{
+  "query_id": "D47_OUTDATED",
+  "query": "Tại ngày 15 tháng 10 năm 2026, Nghị định 10/2015/NĐ-CP còn hiệu lực không?",
+  "retriever": "hybrid_reranker",
+  "results": [
+    {
+      "chunk_id": "nd_207_2025_nd_cp_art_15_clause_2_chunk_1",
+      "document_id": "nd_207_2025_nd_cp",
+      "article_id": "nd_207_2025_nd_cp_art_15",
+      "clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
+      "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_2",
+      "rank": 1,
+      "score": 0.9853675961494446,
+      "chunk_text": "2. Các quy định và văn bản sau đây hết hiệu lực kể từ ngày Nghị định này có hiệu lực thi hành: a) Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; b) Nghị định số 98/2016/NĐ-CP ngày 01 tháng 7 năm 2016 của Chính phủ sửa đổi bổ sung một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; c) Khoản 2 Điều 19 Nghị định số 155/2018/NĐ-CP ngày 12 tháng 11 năm 2018 của Chính phủ sửa đổi bổ sung một số quy định liên quan đến điều kiện đầu tư kinh doanh thuộc phạm vi quản lý nhà nước của Bộ Y tế.",
+      "metadata": {
+        "doc_id": "nd_207_2025_nd_cp",
+        "title": "Quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "document_type": "Nghị định",
+        "document_number": "207/2025/NĐ-CP",
+        "issue_date": "2025-07-15",
+        "effective_date": "2025-10-01",
+        "effective_from": "2025-10-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=179714",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
+        "section": null,
+        "article_number": "15",
+        "document_title": "Quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "clause_number": "2",
+        "document_id": "nd_207_2025_nd_cp",
+        "breadcrumb": "Chương IV ĐIỀU KHOẢN THI HÀNH > Điều 15. Hiệu lực thi hành > Khoản 2 > Điểm a-c"
+      },
+      "parent_id": "nd_207_2025_nd_cp_art_15",
+      "rrf_score": 0.030017921146953404,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 2,
+        "dense": 12,
+        "retrieval": 6
+      },
+      "source_scores": {
+        "bm25": 95.44184,
+        "dense": 0.520874,
+        "retrieval": 0.030017921146953404
+      },
+      "reranker_score": 0.9853675961494446,
+      "parent_text": "[Điều 15. Hiệu lực thi hành]\n1. Nghị định này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.\n2. Các quy định và văn bản sau đây hết hiệu lực kể từ ngày Nghị định này có hiệu lực thi hành: a) Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; b) Nghị định số 98/2016/NĐ-CP ngày 01 tháng 7 năm 2016 của Chính phủ sửa đổi bổ sung một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật thụ tinh trong ống nghiệm và điều kiện mang thai hộ vì mục đích nhân đạo; c) Khoản 2 Điều 19 Nghị định số 155/2018/NĐ-CP ngày 12 tháng 11 năm 2018 của Chính phủ sửa đổi bổ sung một số quy định liên quan đến điều kiện đầu tư kinh doanh thuộc phạm vi quản lý nhà nước của Bộ Y tế.\nd) Khoản 9 Điều 40 Nghị định số 96/2023/NĐ-CP ngày 30 tháng 12 năm 2023 của Chính phủ quy định chi tiết một số điều của Luật Khám bệnh, chữa bệnh."
+    },
+    {
+      "chunk_id": "tt_38_2025_tt_byt_art_7_clause_2_chunk_1",
+      "document_id": "tt_38_2025_tt_byt",
+      "article_id": "tt_38_2025_tt_byt_art_7",
+      "clause_id": "tt_38_2025_tt_byt_art_7_clause_2",
+      "parent_clause_id": "tt_38_2025_tt_byt_art_7_clause_2",
+      "rank": 2,
+      "score": 0.8109066486358643,
+      "chunk_text": "2. Bãi bỏ Chương I, Chương II, Chương V và Chương VI Thông tư số 57/2015/TT-BYT ngày 30 tháng 12 năm 2015 của Bộ trưởng Bộ Y tế quy định chi tiết một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo.",
+      "metadata": {
+        "doc_id": "tt_38_2025_tt_byt",
+        "title": "Quy định chi tiết một số điều của Nghị định số 207/2025/NĐ-CP ngày 15 tháng 7 năm 2025 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "document_type": "Thông tư",
+        "document_number": "38/2025/TT-BYT",
+        "issue_date": "2025-08-13",
+        "effective_date": "2025-10-01",
+        "effective_from": "2025-10-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=181195",
+        "issuing_body": "Bộ Y tế",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
+        "section": null,
+        "article_number": "7",
+        "document_title": "Quy định chi tiết một số điều của Nghị định số 207/2025/NĐ-CP ngày 15 tháng 7 năm 2025 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "clause_number": "2",
+        "document_id": "tt_38_2025_tt_byt",
+        "breadcrumb": "Chương IV ĐIỀU KHOẢN THI HÀNH > Điều 7. Hiệu lực thi hành > Khoản 2"
+      },
+      "parent_id": "tt_38_2025_tt_byt_art_7",
+      "rrf_score": 0.028125,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 4,
+        "dense": 20,
+        "retrieval": 9
+      },
+      "source_scores": {
+        "bm25": 74.73984,
+        "dense": 0.505487,
+        "retrieval": 0.028125
+      },
+      "reranker_score": 0.8109066486358643,
+      "parent_text": "[Điều 7. Hiệu lực thi hành]\n1. Thông tư này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.\n2. Bãi bỏ Chương I, Chương II, Chương V và Chương VI Thông tư số 57/2015/TT-BYT ngày 30 tháng 12 năm 2015 của Bộ trưởng Bộ Y tế quy định chi tiết một số điều của Nghị định số 10/2015/NĐ-CP ngày 28 tháng 01 năm 2015 của Chính phủ quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo.\n3. Trường hợp các văn bản được dẫn chiếu tại Thông tư này được sửa đổi, bổ sung hoặc thay thế thì áp dụng theo văn bản mới."
+    },
+    {
+      "chunk_id": "nd_207_2025_nd_cp_art_15_clause_1_chunk_1",
+      "document_id": "nd_207_2025_nd_cp",
+      "article_id": "nd_207_2025_nd_cp_art_15",
+      "clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
+      "parent_clause_id": "nd_207_2025_nd_cp_art_15_clause_1",
+      "rank": 3,
+      "score": 0.7554501295089722,
+      "chunk_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2025.",
+      "metadata": {
+        "doc_id": "nd_207_2025_nd_cp",
+        "title": "Quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "document_type": "Nghị định",
+        "document_number": "207/2025/NĐ-CP",
+        "issue_date": "2025-07-15",
+        "effective_date": "2025-10-01",
+        "effective_from": "2025-10-01",
+        "effective_to": null,
+        "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=179714",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương IV ĐIỀU KHOẢN THI HÀNH",
+        "section": null,
+        "article_number": "15",
+        "document_title": "Quy định về sinh con bằng kỹ thuật hỗ trợ sinh sản và điều kiện mang thai hộ vì mục đích nhân đạo",
+        "clause_number": "1",
+        "document_id": "nd_207_2025_nd_cp",
+        "breadcrumb": "Chương IV ĐIỀU KHOẢN THI HÀNH > Điều 15. Hiệu lực thi hành > Khoản 1"
+      },
+      "parent_id": "nd_207_2025_nd_cp_art_15",
+      "rrf_score": 0.03125763125763126,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 3,
+        "dense": 5,
+        "retrieval": 2
+      },
+      "source_scores": {
+        "bm25": 77.77326,
+        "dense": 0.572726,
+        "retrieval": 0.03125763125763126
+      },
+      "reranker_score": 0.7554501295089722,
+      "parent_text": null
+    },
+    {
+      "chunk_id": "nd_18_2026_nd_cp_art_17_clause_1_chunk_1",
+      "document_id": "nd_18_2026_nd_cp",
+      "article_id": "nd_18_2026_nd_cp_art_17",
+      "clause_id": "nd_18_2026_nd_cp_art_17_clause_1",
+      "parent_clause_id": "nd_18_2026_nd_cp_art_17_clause_1",
+      "rank": 4,
+      "score": 0.3070004880428314,
+      "chunk_text": "1. Nghị định này có hiệu lực thi hành kể từ ngày 15 tháng 01 năm 2026.",
+      "metadata": {
+        "doc_id": "nd_18_2026_nd_cp",
+        "title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
+        "document_type": "Nghị định",
+        "document_number": "18/2026/NĐ-CP",
+        "issue_date": "2026-01-14",
+        "effective_date": "2026-01-15",
+        "effective_from": "2026-01-15",
+        "effective_to": null,
+        "source_url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Còn hiệu lực",
+        "source_status": "Còn hiệu lực",
+        "provision_status": "document_level_only",
+        "chapter": "Chương VI TỔ CHỨC THI HÀNH",
+        "section": null,
+        "article_number": "17",
+        "document_title": "Sửa đổi, bổ sung một số nghị định để cắt giảm, đơn giản hóa thủ tục hành chính, điều kiện kinh doanh thuộc phạm vi quản lý của Bộ Tư pháp",
+        "clause_number": "1",
+        "document_id": "nd_18_2026_nd_cp",
+        "breadcrumb": "Chương VI TỔ CHỨC THI HÀNH > Điều 17. Điều khoản thi hành > Khoản 1"
+      },
+      "parent_id": "nd_18_2026_nd_cp_art_17",
+      "rrf_score": 0.031054405392392875,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 7,
+        "dense": 2,
+        "retrieval": 3
+      },
+      "source_scores": {
+        "bm25": 68.77028,
+        "dense": 0.594084,
+        "retrieval": 0.031054405392392875
+      },
+      "reranker_score": 0.3070004880428314,
+      "parent_text": "[Điều 17. Điều khoản thi hành]\n1. Nghị định này có hiệu lực thi hành kể từ ngày 15 tháng 01 năm 2026.\n2. Thay thế một số từ, cụm từ, bãi bỏ một số điều khoản của Nghị định số 121/2025/NĐ-CP quy định về phân quyền, phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp. a) Thay thế cụm từ “khoản 4 Điều 2a của Luật Luật sư” thành “khoản 4 Điều 2a của Nghị định số 123/2025/NĐ-CP được sửa đổi, bổ sung bởi Nghị định số 137/2018/NĐ-CP” tại khoản 3 Điều 9; b) Thay thế từ “khoản 1” thành “khoản 2” tại Điều 26; c) Bãi bỏ điểm b khoản 1 mục I Phụ lục III; điểm c khoản 2 mục IV Phụ lục III ban hành kèm theo Nghị định số 121/2025/NĐ-CP quy định về phân quyền, phân cấp trong lĩnh vực quản lý nhà nước của Bộ Tư pháp.\n3. Bãi bỏ điểm c khoản 1 Điều 16 Nghị định số 144/2017/NĐ-CP quy định chi tiết một số điều của Luật Trợ giúp pháp lý."
+    },
+    {
+      "chunk_id": "nd_07_2025_nd_cp_art_2_clause_10_chunk_1",
+      "document_id": "nd_07_2025_nd_cp",
+      "article_id": "nd_07_2025_nd_cp_art_2",
+      "clause_id": "nd_07_2025_nd_cp_art_2_clause_10",
+      "parent_clause_id": "nd_07_2025_nd_cp_art_2_clause_10",
+      "rank": 5,
+      "score": 0.30083417892456055,
+      "chunk_text": "10. Bãi bỏ khoản 1 Điều 10 Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch.",
+      "metadata": {
+        "doc_id": "nd_07_2025_nd_cp",
+        "title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+        "document_type": "Nghị định",
+        "document_number": "07/2025/NĐ-CP",
+        "issue_date": "2025-01-09",
+        "effective_date": "2025-01-09",
+        "effective_from": "2025-01-09",
+        "effective_to": null,
+        "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+        "issuing_body": "Chính phủ",
+        "validity_status": "Sửa đổi bổ sung",
+        "source_status": "Hết hiệu lực một phần",
+        "provision_status": "document_level_only",
+        "chapter": null,
+        "section": null,
+        "article_number": "2",
+        "document_title": "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực",
+        "clause_number": "10",
+        "document_id": "nd_07_2025_nd_cp",
+        "breadcrumb": "Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi... > Khoản 10"
+      },
+      "parent_id": "nd_07_2025_nd_cp_art_2_p9",
+      "rrf_score": 0.03278688524590164,
+      "retrieval_sources": [
+        "bm25",
+        "dense"
+      ],
+      "source_ranks": {
+        "bm25": 1,
+        "dense": 1,
+        "retrieval": 1
+      },
+      "source_scores": {
+        "bm25": 146.96677,
+        "dense": 0.603331,
+        "retrieval": 0.03278688524590164
+      },
+      "reranker_score": 0.30083417892456055,
+      "parent_text": "[Điều 2. Sửa đổi, bổ sung một số điều, mục của Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch]\n9. Sửa đổi khoản 3 Điều 30 như sau: “3. Ngoài giấy tờ quy định tại khoản 1 Điều này, nếu bên kết hôn là công dân Việt Nam đã ly hôn hoặc hủy việc kết hôn tại cơ quan có thẩm quyền nước ngoài nhưng qua tra cứu thông tin trong Cơ sở dữ liệu hộ tịch điện tử; thông qua kết nối giữa Hệ thống thông tin giải quyết thủ tục hành chính cấp tỉnh với Cơ sở dữ liệu hộ tịch điện tử, Cơ sở dữ liệu quốc gia về dân cư không thể hiện thông tin về việc đã ghi chú ly hôn, hủy việc kết hôn thì cơ quan đăng ký hộ tịch hướng dẫn công dân thực hiện thủ tục ghi vào sổ hộ tịch việc ly hôn/hủy việc kết hôn tại cơ quan nhà nước có thẩm quyền trước khi giải quyết việc đăng ký kết hôn;\nnếu người có yêu cầu đăng ký kết hôn là công chức, viên chức hoặc đang phục vụ trong lực lượng vũ trang thì phải nộp văn bản của cơ quan, đơn vị quản lý xác nhận việc người đó kết hôn với người nước ngoài không trái với quy định của ngành đó.”\n10. Bãi bỏ khoản 1 Điều 10 Nghị định số 123/2015/NĐ-CP ngày 15 tháng 11 năm 2015 quy định chi tiết một số điều và biện pháp thi hành Luật Hộ tịch."
+    }
+  ],
+  "latency_ms": 111834.505,
+  "top_k": 5,
+  "config": {
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "bm25_index": "bm25-e6-verified-20261101",
+      "collection": "vietnam_legal_chunks",
+      "qdrant_storage_path": "data/indexes/qdrant_storage",
+      "qdrant_url": "http://127.0.0.1:6333",
+      "corpus_path": "data/chunking_output/chunks.jsonl",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "fusion": "rrf"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    },
+    "parent_context": {
+      "parents_file": "data/chunking_output/parents.json",
+      "max_context_chars": 6000
+    },
+    "as_of_date": "2026-10-15",
+    "temporal_filter": "retriever",
+    "top_k": 5,
+    "as_of_date_source": "question"
+  },
+  "stats": {
+    "retrieved_candidates": 50,
+    "input_candidates": 50,
+    "duplicates_removed": 0,
+    "truncated_candidates": 0,
+    "scored_candidates": 50,
+    "output_candidates": 5,
+    "rerank_latency_ms": 83719.361,
+    "model_load_ms": 14839.012,
+    "parent_context": {
+      "parents_attached": 4,
+      "parents_shared": 1,
+      "parents_missing": 0,
+      "parents_over_budget": 0,
+      "upstream_parent_id_replaced": 0,
+      "context_chars": 3618
+    },
+    "returned": 5,
+    "retrieval_latency_ms": 13244.089,
+    "total_latency_ms": 111834.505
+  }
+}

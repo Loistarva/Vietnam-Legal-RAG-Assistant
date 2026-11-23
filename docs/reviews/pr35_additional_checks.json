@@ -1,0 +1,29 @@
+{
+  "metadata_status_mismatches": [],
+  "source_hash_mismatches": [],
+  "continuations": {
+    "nd_123_2015_art_1_amended": [
+      "nd_07_2025_nd_cp_art_2_clause_1_chunk_1",
+      "nd_07_2025_nd_cp_art_2_clause_1_chunk_2"
+    ],
+    "nd_123_2015_art_2_clauses_1_2_amended": [
+      "nd_07_2025_nd_cp_art_2_clause_2_chunk_1",
+      "nd_07_2025_nd_cp_art_2_clause_2_chunk_2"
+    ],
+    "nd_123_2015_art_30_clause_3_amended": [
+      "nd_07_2025_nd_cp_art_2_clause_9_chunk_1",
+      "nd_07_2025_nd_cp_art_2_clause_9_chunk_2"
+    ],
+    "nd_87_2020_art_2_clause_2_amended": [
+      "nd_07_2025_nd_cp_art_3_clause_1_chunk_1",
+      "nd_07_2025_nd_cp_art_3_clause_1_chunk_2"
+    ]
+  },
+  "temporal_reproduction": {
+    "chunk_id": "nd_07_2025_nd_cp_art_2_clause_2_chunk_1",
+    "as_of_date": "2026-01-15",
+    "effective_from": "2025-01-09",
+    "effective_to": null,
+    "passes_filter": true
+  }
+}

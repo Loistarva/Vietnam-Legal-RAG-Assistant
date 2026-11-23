@@ -1,0 +1,476 @@
+{
+  "observed_at": "2026-11-06T11:56:05.4605034Z",
+  "source": "https://api.github.com/repos/Loistarva/Vietnam-Legal-RAG-Assistant",
+  "scope": "Historical 06/11 GitHub summary, not current status; at most one recorded workflow result per relevant PR/testing head",
+  "pulls": [
+    {
+      "number": 32,
+      "title": "Fix/metrics",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/32",
+      "head_sha": "1700f912aa02084f26ba27df0de9f53e8e72ee7c",
+      "head_ref": "fix/metrics",
+      "base_ref": "testing"
+    },
+    {
+      "number": 31,
+      "title": "Fix/metrics",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/31",
+      "head_sha": "d43bfd6ae0b10e556a09c3108a88eb15d295dab7",
+      "head_ref": "fix/metrics",
+      "base_ref": "testing"
+    },
+    {
+      "number": 30,
+      "title": "Fix/metrics",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/30",
+      "head_sha": "06d0784bc9a2017a98d6b279f25365e3b6a17205",
+      "head_ref": "fix/metrics",
+      "base_ref": "testing"
+    },
+    {
+      "number": 29,
+      "title": "Docs/data contract",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/29",
+      "head_sha": "89906f80961c74ee85791247373dcd7e8237488b",
+      "head_ref": "docs/data-contract",
+      "base_ref": "testing"
+    },
+    {
+      "number": 28,
+      "title": "Fix/metrics",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/28",
+      "head_sha": "6e69d0451212f2941feb4717a15329515f5cfb98",
+      "head_ref": "fix/metrics",
+      "base_ref": "testing"
+    },
+    {
+      "number": 27,
+      "title": "Fix: D1",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/27",
+      "head_sha": "6288e8c7868c198d4c12c9b8e0f7a49d445facd2",
+      "head_ref": "fix/d1-draft-check",
+      "base_ref": "testing"
+    },
+    {
+      "number": 26,
+      "title": "Fix: E8, G5",
+      "state": "closed",
+      "merged_at": "2026-11-02T21:28:10Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/26",
+      "head_sha": "49aea00121adacd8e6caff0bd6cff153cab616c5",
+      "head_ref": "fix/rerank-runs",
+      "base_ref": "testing"
+    },
+    {
+      "number": 25,
+      "title": "Complete benchmark context mappings and mark six synthetic placeholders",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/25",
+      "head_sha": "54c0e37f5f913f179628d152297b126c1fda2189",
+      "head_ref": "fix/benchmark-gold-context-300",
+      "base_ref": "testing"
+    },
+    {
+      "number": 24,
+      "title": "Docs/data contract",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/24",
+      "head_sha": "91b4419f5b726fe0b9324735b53b36628704a229",
+      "head_ref": "docs/data-contract",
+      "base_ref": "testing"
+    },
+    {
+      "number": 23,
+      "title": "Docs/data contract",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/23",
+      "head_sha": "416714f4d5ffb24e65694200b46d14e88a789728",
+      "head_ref": "docs/data-contract",
+      "base_ref": "main"
+    },
+    {
+      "number": 22,
+      "title": "Fix: followup from retrieval-config",
+      "state": "closed",
+      "merged_at": "2026-11-01T20:57:43Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/22",
+      "head_sha": "0e7a06b502bc50fc91a88600f21bda1d6656dd68",
+      "head_ref": "fix/retrieval-config-rrf-followup",
+      "base_ref": "testing"
+    },
+    {
+      "number": 21,
+      "title": "docs(contract): specify temporal filtering contract (E1) and empty qu…",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/21",
+      "head_sha": "416714f4d5ffb24e65694200b46d14e88a789728",
+      "head_ref": "docs/data-contract",
+      "base_ref": "testing"
+    },
+    {
+      "number": 20,
+      "title": "Docs/data contract",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/20",
+      "head_sha": "0cd71f5d2bfb2124758246ded82d5c6ccf9cd895",
+      "head_ref": "docs/data-contract",
+      "base_ref": "testing"
+    },
+    {
+      "number": 19,
+      "title": "Fix/retrieval config Dev 4: chọn rrf_k (10 hay 60) trên 75 câu Dev đã duyệt: python retrieval/retrieval_evaluation.py --dev-set data/benchmark/queries_dev.json --ground-truth data/benchmark/ground_truth.json --results-dir <thư mục kết quả>",
+      "state": "closed",
+      "merged_at": "2026-11-01T17:39:14Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/19",
+      "head_sha": "4fe51b92201366a2350e7cd732d1883acb225a80",
+      "head_ref": "fix/retrieval-config",
+      "base_ref": "testing"
+    },
+    {
+      "number": 18,
+      "title": "Fix: Continue on E8, E2, H4 + new error on E11",
+      "state": "closed",
+      "merged_at": "2026-11-01T06:00:14Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/18",
+      "head_sha": "609a7adbc4fde32ba8a0980eeff12116cd79010a",
+      "head_ref": "fix/retrieval-config-followup",
+      "base_ref": "testing"
+    },
+    {
+      "number": 17,
+      "title": "Fix E8, E11, E2, H4 ",
+      "state": "closed",
+      "merged_at": "2026-10-31T16:39:55Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/17",
+      "head_sha": "8000bd932bce5954d200c449f601fb8ce77c0a39",
+      "head_ref": "fix/retrieval-config",
+      "base_ref": "testing"
+    },
+    {
+      "number": 16,
+      "title": "Fix: H8",
+      "state": "closed",
+      "merged_at": "2026-11-01T18:08:31Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/16",
+      "head_sha": "5c8536deaaf141bfbdcfd797ee5fbc10a5be708f",
+      "head_ref": "fix/parser-h8",
+      "base_ref": "testing"
+    },
+    {
+      "number": 15,
+      "title": "Fix: E8",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/15",
+      "head_sha": "68e24dc8575c39ab955a9276bc48eacff4a05812",
+      "head_ref": "fix/rerank-runs",
+      "base_ref": "main"
+    },
+    {
+      "number": 14,
+      "title": "Fix: H8",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/14",
+      "head_sha": "fde698c5546777baba658eaa5ee4b625a11aeb7c",
+      "head_ref": "fix/parser-h8",
+      "base_ref": "main"
+    },
+    {
+      "number": 13,
+      "title": "Fix/gold followup",
+      "state": "closed",
+      "merged_at": "2026-10-31T08:20:57Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/13",
+      "head_sha": "558e692808f44e262f45b638a0d9fbe02410d12c",
+      "head_ref": "fix/gold-followup",
+      "base_ref": "testing"
+    },
+    {
+      "number": 12,
+      "title": "feat(benchmark): complete 100 verified clause-level gold, B5 duplicates & 270/30 stratified split (C4, C5, B5, D1, D2)",
+      "state": "closed",
+      "merged_at": "2026-10-31T02:58:25Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/12",
+      "head_sha": "77b1b9d4f0a7a0decdad14618dcff62a30ab7b38",
+      "head_ref": "data/gold",
+      "base_ref": "testing"
+    },
+    {
+      "number": 11,
+      "title": "fix E1, B2, E6",
+      "state": "closed",
+      "merged_at": "2026-10-30T13:14:03Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/11",
+      "head_sha": "5cf3d8d1708a31fdb1e3b03a01ce31f112c8d576",
+      "head_ref": "fix/bm25",
+      "base_ref": "testing"
+    },
+    {
+      "number": 10,
+      "title": "Fix: Continue on E1, E2, E4, E6, E12, E14, F5, F6, H4, H8",
+      "state": "closed",
+      "merged_at": "2026-10-29T15:43:44Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/10",
+      "head_sha": "149bb7135b8ea732825c0231e469d83b2c23f58b",
+      "head_ref": "fix/dense_qrant",
+      "base_ref": "testing"
+    },
+    {
+      "number": 9,
+      "title": "Ctm",
+      "state": "closed",
+      "merged_at": "2026-10-29T15:43:46Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/9",
+      "head_sha": "5452be691a769a489e9fa8ff876f831f2293379a",
+      "head_ref": "CTM",
+      "base_ref": "testing"
+    },
+    {
+      "number": 8,
+      "title": "Fix/refix a6a26a16",
+      "state": "closed",
+      "merged_at": "2026-10-29T11:04:29Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/8",
+      "head_sha": "8c9dae0571b9183b3f1c1129de778e96636301bb",
+      "head_ref": "fix/refix-a6a26a16",
+      "base_ref": "testing"
+    },
+    {
+      "number": 7,
+      "title": "Fix/reference and parser",
+      "state": "closed",
+      "merged_at": "2026-10-29T04:00:36Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/7",
+      "head_sha": "4114cfe2d043da43558209269d0fb5e573b77e31",
+      "head_ref": "fix/reference_and_parser",
+      "base_ref": "testing"
+    },
+    {
+      "number": 6,
+      "title": "Fix/reference and parser",
+      "state": "closed",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/6",
+      "head_sha": "fbe6249d1f822730aadde745de804d389c618af3",
+      "head_ref": "fix/reference_and_parser",
+      "base_ref": "main"
+    },
+    {
+      "number": 5,
+      "title": "Lỗi: B4, H7",
+      "state": "closed",
+      "merged_at": "2026-10-28T13:56:11Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/5",
+      "head_sha": "886826830c3340ffb09f7a4a7abaa91835845804",
+      "head_ref": "fix/cleanup",
+      "base_ref": "testing"
+    },
+    {
+      "number": 4,
+      "title": "Complete legal chunking for 11 documents with benchmark-compatible IDs",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/4",
+      "head_sha": "6a37c57e39c8a47fb5f2582c4910c4850017e07d",
+      "head_ref": "feature/complete-legal-chunking",
+      "base_ref": "main"
+    },
+    {
+      "number": 3,
+      "title": "feat: add Sprint 6 benchmark with 300 legal QA questions",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/3",
+      "head_sha": "bb63740a4ba11226b606dc2b4b397fe41f5eca4a",
+      "head_ref": "feature/sprint6-benchmark",
+      "base_ref": "main"
+    },
+    {
+      "number": 2,
+      "title": "feat: Update legal dataset, metadata and parser",
+      "state": "open",
+      "merged_at": null,
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/2",
+      "head_sha": "eab4bf9e18b0d716fdb3e36c27ce19a5e209d6e6",
+      "head_ref": "feature/legal-data-chunking",
+      "base_ref": "main"
+    },
+    {
+      "number": 1,
+      "title": "Embedding",
+      "state": "closed",
+      "merged_at": "2026-10-11T13:51:25Z",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/pull/1",
+      "head_sha": "cb24618a91ec9bea1027e2adc2127715a7b2c203",
+      "head_ref": "embedding",
+      "base_ref": "main"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "id": 42209553954,
+      "head_sha": "6288e8c7868c198d4c12c9b8e0f7a49d445facd2",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/42209553954"
+    },
+    {
+      "id": 41865914023,
+      "head_sha": "1700f912aa02084f26ba27df0de9f53e8e72ee7c",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41865914023"
+    },
+    {
+      "id": 41651850275,
+      "head_sha": "d43bfd6ae0b10e556a09c3108a88eb15d295dab7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41651850275"
+    },
+    {
+      "id": 41635510031,
+      "head_sha": "06d0784bc9a2017a98d6b279f25365e3b6a17205",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41635510031"
+    },
+    {
+      "id": 41633425007,
+      "head_sha": "6e69d0451212f2941feb4717a15329515f5cfb98",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41633425007"
+    },
+    {
+      "id": 41570032622,
+      "head_sha": "89906f80961c74ee85791247373dcd7e8237488b",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41570032622"
+    },
+    {
+      "id": 41570003593,
+      "head_sha": "91b4419f5b726fe0b9324735b53b36628704a229",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41570003593"
+    },
+    {
+      "id": 41528621760,
+      "head_sha": "f89ef8372a06102802349bb9ea0cf04fcc0a4646",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41528621760"
+    },
+    {
+      "id": 41528008030,
+      "head_sha": "49aea00121adacd8e6caff0bd6cff153cab616c5",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41528008030"
+    },
+    {
+      "id": 41475573144,
+      "head_sha": "54c0e37f5f913f179628d152297b126c1fda2189",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41475573144"
+    },
+    {
+      "id": 41470941623,
+      "head_sha": "558e692808f44e262f45b638a0d9fbe02410d12c",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41470941623"
+    },
+    {
+      "id": 41430768347,
+      "head_sha": "416714f4d5ffb24e65694200b46d14e88a789728",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41430768347"
+    },
+    {
+      "id": 41335352554,
+      "head_sha": "0e7a06b502bc50fc91a88600f21bda1d6656dd68",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41335352554"
+    },
+    {
+      "id": 41332815000,
+      "head_sha": "5c8536deaaf141bfbdcfd797ee5fbc10a5be708f",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41332815000"
+    },
+    {
+      "id": 41331218199,
+      "head_sha": "4fe51b92201366a2350e7cd732d1883acb225a80",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41331218199"
+    },
+    {
+      "id": 41313110657,
+      "head_sha": "0cd71f5d2bfb2124758246ded82d5c6ccf9cd895",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41313110657"
+    },
+    {
+      "id": 41221264509,
+      "head_sha": "609a7adbc4fde32ba8a0980eeff12116cd79010a",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41221264509"
+    },
+    {
+      "id": 41211468829,
+      "head_sha": "8000bd932bce5954d200c449f601fb8ce77c0a39",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41211468829"
+    },
+    {
+      "id": 41178292662,
+      "head_sha": "fde698c5546777baba658eaa5ee4b625a11aeb7c",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41178292662"
+    },
+    {
+      "id": 41178012383,
+      "head_sha": "68e24dc8575c39ab955a9276bc48eacff4a05812",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41178012383"
+    },
+    {
+      "id": 41106557320,
+      "head_sha": "77b1b9d4f0a7a0decdad14618dcff62a30ab7b38",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Loistarva/Vietnam-Legal-RAG-Assistant/actions/runs/41106557320"
+    }
+  ]
+}

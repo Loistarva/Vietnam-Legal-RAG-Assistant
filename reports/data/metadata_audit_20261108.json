@@ -1,0 +1,373 @@
+{
+  "errors": [],
+  "warnings": [
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_52_2014_qh13",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_126_2014_nd_cp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_207_2025_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nq_01_2024_nq_hdtp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_02a_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_32_2016_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_34_2017_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_30_2019_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_22_2000_qh10",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_21_lct_hdnn7",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_70_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_32_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_68_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_77_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2001_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2002_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_15_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_10_2015_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_04_2020_tt_btp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_57_2015_tt_byt",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_38_2025_tt_byt",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_123_2015_nd_cp",
+      "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_81_2025_qh15",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_87_2020_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_07_2025_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_18_2026_nd_cp",
+      "source_status": "document_level_only"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_04_2024_tt_btp",
+      "source_status": "document_level_only"
+    }
+  ],
+  "registry_document_count": 28,
+  "corpus_chunk_count": 2322,
+  "corpus_document_count": 28,
+  "article_count": 851,
+  "chunks_by_document": {
+    "l_21_lct_hdnn7": 58,
+    "l_22_2000_qh10": 235,
+    "l_52_2014_qh13": 336,
+    "l_81_2025_qh15": 94,
+    "nd_07_2025_nd_cp": 27,
+    "nd_10_2015_nd_cp": 79,
+    "nd_123_2015_nd_cp": 150,
+    "nd_126_2014_nd_cp": 196,
+    "nd_18_2026_nd_cp": 12,
+    "nd_207_2025_nd_cp": 57,
+    "nd_32_2002_nd_cp": 50,
+    "nd_68_2002_nd_cp": 231,
+    "nd_70_2001_nd_cp": 82,
+    "nd_77_2001_nd_cp": 18,
+    "nd_87_2020_nd_cp": 99,
+    "nq_01_2024_nq_hdtp": 41,
+    "tt_02a_2015_tt_btp": 49,
+    "tt_04_2020_tt_btp": 130,
+    "tt_04_2024_tt_btp": 8,
+    "tt_07_2001_tt_btp": 9,
+    "tt_07_2002_tt_btp": 50,
+    "tt_15_2015_tt_btp": 110,
+    "tt_30_2019_tt_byt": 7,
+    "tt_32_2016_tt_byt": 20,
+    "tt_34_2017_tt_byt": 25,
+    "tt_38_2025_tt_byt": 20,
+    "tt_57_2015_tt_byt": 84,
+    "ttlt_01_2016_ttlt_tandtc": 45
+  },
+  "requires_provision_review_ids": [
+    "nd_126_2014_nd_cp",
+    "tt_04_2020_tt_btp",
+    "tt_57_2015_tt_byt",
+    "nd_123_2015_nd_cp"
+  ],
+  "audit_date": "2026-11-08",
+  "review_status": "pending_peer_review",
+  "source": {
+    "git_sha": "eaff78b1d5c0ee753ebfcc598a02a1cca0b706bc",
+    "remote_testing_sha": "fc666421fb50d394d11df2368303031092a30578",
+    "file_sha256": {
+      "data/reference/document_versions.json": "1e453a58d1d83fd145694d88bc2f81a2aa26c8669676aad7ce4885417aa6babf",
+      "data/chunking_output/chunks.jsonl": "81c72a08bbfa41f2cb190faebb16d02beb4d505c8bb56b2072acada719c0d578",
+      "data/reference/article_index.json": "868f890a9e4c10d718b5ab515b4f27f78a695b01edb5bb79ca8c01c4e4fc2d2f",
+      "data/reference/provision_periods.json": "b51bd299a26cac561c47ba15c40bed7a5110a600dcc93e2f175c0c2bcdb6ddb9"
+    },
+    "remote_note": "origin/testing snapshot fc666421fb50d394d11df2368303031092a30578; differing tracked input paths vs HEAD: []. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review."
+  },
+  "alias_count": 766,
+  "ambiguous_aliases": {
+    "2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "2014": [
+      "l_52_2014_qh13",
+      "nd_126_2014_nd_cp"
+    ],
+    "2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "2016": [
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc"
+    ],
+    "2020": [
+      "nd_87_2020_nd_cp",
+      "tt_04_2020_tt_btp"
+    ],
+    "2024": [
+      "nq_01_2024_nq_hdtp",
+      "tt_04_2024_tt_btp"
+    ],
+    "2025": [
+      "l_81_2025_qh15",
+      "nd_07_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "tt_38_2025_tt_byt"
+    ],
+    "luat hn gd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hngd": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "luat hon nhan va gia dinh": [
+      "l_21_lct_hdnn7",
+      "l_22_2000_qh10",
+      "l_52_2014_qh13"
+    ],
+    "nam 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp",
+      "tt_07_2001_tt_btp"
+    ],
+    "nam 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp",
+      "tt_07_2002_tt_btp"
+    ],
+    "nam 2014": [
+      "l_52_2014_qh13",
+      "nd_126_2014_nd_cp"
+    ],
+    "nam 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp",
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "nam 2016": [
+      "tt_32_2016_tt_byt",
+      "ttlt_01_2016_ttlt_tandtc"
+    ],
+    "nam 2020": [
+      "nd_87_2020_nd_cp",
+      "tt_04_2020_tt_btp"
+    ],
+    "nam 2024": [
+      "nq_01_2024_nq_hdtp",
+      "tt_04_2024_tt_btp"
+    ],
+    "nam 2025": [
+      "l_81_2025_qh15",
+      "nd_07_2025_nd_cp",
+      "nd_207_2025_nd_cp",
+      "tt_38_2025_tt_byt"
+    ],
+    "nd 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nd 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nd 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "nd 2025": [
+      "nd_07_2025_nd_cp",
+      "nd_207_2025_nd_cp"
+    ],
+    "nghi dinh 2001": [
+      "nd_70_2001_nd_cp",
+      "nd_77_2001_nd_cp"
+    ],
+    "nghi dinh 2002": [
+      "nd_32_2002_nd_cp",
+      "nd_68_2002_nd_cp"
+    ],
+    "nghi dinh 2015": [
+      "nd_10_2015_nd_cp",
+      "nd_123_2015_nd_cp"
+    ],
+    "nghi dinh 2025": [
+      "nd_07_2025_nd_cp",
+      "nd_207_2025_nd_cp"
+    ],
+    "quy dinh chi tiet thi hanh mot so dieu cua luat ho tich va nghi dinh so 123 2015 nd cp ngay 15 thang 11 nam 2015 cua chinh phu quy dinh chi tiet mot so dieu va bien phap thi hanh luat ho tich": [
+      "tt_04_2020_tt_btp",
+      "tt_15_2015_tt_btp"
+    ],
+    "thong tu 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "thong tu 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "thong tu 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp"
+    ],
+    "thong tu so 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "thong tu so 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp"
+    ],
+    "tt 2015": [
+      "tt_02a_2015_tt_btp",
+      "tt_15_2015_tt_btp",
+      "tt_57_2015_tt_byt"
+    ],
+    "tt 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "tt 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp"
+    ],
+    "tt so 4": [
+      "tt_04_2020_tt_btp",
+      "tt_04_2024_tt_btp"
+    ],
+    "tt so 7": [
+      "tt_07_2001_tt_btp",
+      "tt_07_2002_tt_btp"
+    ]
+  },
+  "alias_registry_canonical_sha256": "67424ec6c5cc10408d22277d514f6b5280edeedac1fbd0cb3051d4d0785a5010"
+}

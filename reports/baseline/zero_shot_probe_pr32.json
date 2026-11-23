@@ -1,0 +1,25 @@
+{
+  "source_sha": "1700f912aa02084f26ba27df0de9f53e8e72ee7c",
+  "tracked_status_after": "",
+  "synthetic_test_split_accepted_by_loader": true,
+  "mock_generation_options": {
+    "temperature": 0,
+    "num_predict": 512,
+    "repeat_penalty": 1.15,
+    "repeat_last_n": 64
+  },
+  "mock_generation_messages": [
+    {
+      "role": "system",
+      "content": "Bạn là trợ lý trả lời câu hỏi pháp luật Việt Nam. Trả lời bằng tiếng Việt, rõ ràng và trực tiếp. Không bịa số điều, khoản hoặc điểm pháp luật. Nếu không chắc chắn, hãy nói rõ giới hạn kiến thức."
+    },
+    {
+      "role": "user",
+      "content": "Synthetic guard probe"
+    }
+  ],
+  "answer_return_type": "str",
+  "done_reason_preserved": false,
+  "real_model_calls": 0,
+  "real_test_queries_read": 0
+}

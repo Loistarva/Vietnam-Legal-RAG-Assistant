@@ -1,0 +1,320 @@
+﻿query_id,category,question,prediction,expected_answer,exact_match,token_f1,rubric_source,answer_relevance_score,faithfulness_score,lexical_relevance_score,lexical_faithfulness_score,rubric_grader,rubric_rationale
+HN_001,ket_hon,"Theo Luật Hôn nhân và gia đình 2014, nam phải đủ bao nhiêu tuổi để kết hôn?","Theo quy định tại Điều 6 của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), nam giới phải đủ 20 tuổi mới có thể kết hôn.",Nam từ đủ 20 tuổi trở lên.,0.0,0.20512820512820512,manual,5,4,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng: nam từ đủ 20 tuổi (điểm a khoản 1 Điều 8). Dẫn sai Điều 6 và nêu “sửa đổi, bổ sung năm 2017” không có thật."
+HN_002,ket_hon,"Theo Luật Hôn nhân và gia đình 2014, nữ phải đủ bao nhiêu tuổi để kết hôn?","Theo quy định tại Điều 9 của Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), nữ phải đủ 18 tuổi mới có thể kết hôn.",Nữ từ đủ 18 tuổi trở lên.,0.0,0.2105263157894737,manual,5,4,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng: nữ từ đủ 18 tuổi (điểm a khoản 1 Điều 8). Dẫn sai Điều 9 và nêu “sửa đổi, bổ sung năm 2017” không có thật."
+HN_004,ket_hon,Người bị mất năng lực hành vi dân sự có đáp ứng điều kiện kết hôn theo Luật 2014 không?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014, người bị mất hoặc hạn chế năng lực hành vi dân sự không đáp ứng được điều kiện để kết hôn.
+
+Cụ thể:
+
+- Điều 57 Luật Hôn nhân và Gia đình năm 2014 quy định về điều kiện kết hôn:
+""Người có đủ tuổi thành niên, tự do trong việc kết hôn; có sức khỏe tốt; không thuộc trường hợp bị cấm kết hôn theo pháp luật.""
+
+- Theo Điều 63 của cùng Luật, người mất hoặc hạn chế năng lực hành vi dân sự được coi là chưa đủ tuổi thành niên.
+
+Vì vậy, người bị mất năng lực hành vi dân sự không đáp ứng điều kiện để kết hôn theo quy định hiện hành.",Không. Người kết hôn phải không bị mất năng lực hành vi dân sự.,0.0,0.18309859154929575,manual,5,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (không đủ điều kiện, điểm c khoản 1 Điều 8) nhưng thêm người bị hạn chế năng lực hành vi dân sự cũng không được kết hôn, trái luật; trích dẫn bịa Điều 57 và Điều 63 (người mất năng lực hành vi “được coi là chưa đủ tuổi thành niên”)."
+HN_007,ket_hon,Pháp luật hôn nhân và gia đình có cho phép người đang có vợ hoặc chồng kết hôn với người khác không?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, việc một người đã có vợ hoặc chồng lại kết hôn với người khác là vi phạm nghiêm trọng pháp luật. Cụ thể:
+
+- Điều 57 quy định về tội gian dối trong đăng ký kết hôn: ""Ai gian dối để được đăng ký kết hôn khi biết mình không đủ điều kiện, hoặc ai kết hôn giả mạo, lừa dối thì bị phạt tù từ ba tháng đến năm năm"".
+
+- Điều 102 quy định về tội vi phạm chế độ một vợ - một chồng: ""Người đã có vợ mà lại lập gia đình với người khác; người đã có chồng mà lại lập gia đình với người khác sẽ bị xử lý hình sự theo quy định của pháp luật"".
+
+Như vậy, pháp luật Việt Nam nghiêm cấm việc kết hôn đồng thời hoặc liên tục. Người đang có vợ hoặc chồng không được phép kết hôn với người thứ ba dưới bất kỳ hình thức nào.
+
+Nếu phát hiện trường hợp này, cơ quan chức năng sẽ tiến hành điều tra và xử lý theo quy định của pháp luật về tội vi phạm chế độ một vợ - một chồng.",Không. Hành vi kết hôn hoặc chung sống như vợ chồng với người khác khi đang có vợ hoặc chồng thuộc trường hợp bị cấm.,0.0,0.19047619047619047,manual,5,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (bị cấm, điểm c khoản 2 Điều 5) nhưng trích dẫn bịa Điều 57, Điều 102 với hình phạt tù gán cho Luật Hôn nhân và gia đình; chế tài hình sự thuộc Bộ luật Hình sự."
+HN_009,ket_hon,Nam nữ đủ điều kiện nhưng chung sống như vợ chồng mà không đăng ký kết hôn thì có phát sinh quyền nghĩa vụ giữa vợ chồng không?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014, nếu nam nữ đủ tuổi thành niên (từ 18 tuổi trở lên) chung sống với nhau như vợ chồng mà chưa đăng ký kết hôn thì sẽ phát sinh một số quyền nghĩa vụ nhất định:
+
+1. Về tài sản: Tài sản được tạo lập trong thời gian chung sống như vợ chồng không phân biệt có nguồn gốc từ trước hay sau khi chung sống, nếu không chứng minh được là do riêng một bên sở hữu thì được coi là tài sản chung.
+
+2. Quyền thừa kế: Người chung sống như vợ chồng sẽ được hưởng quyền thừa kế theo quy định của pháp luật về thừa kế đối với người thân thích.
+
+3. Nghĩa vụ nuôi con, chăm sóc và hỗ trợ nhau trong trường hợp ly hôn hoặc một bên mất tích.
+
+Tuy nhiên, cần lưu ý rằng mặc dù phát sinh các quyền nghĩa vụ trên nhưng không có mối quan hệ vợ chồng theo pháp luật. Điều này có nghĩa là họ không được hưởng những lợi ích đặc biệt của người vợ/chồng như quyền thừa kế ưu tiên, quyền nuôi con khi ly hôn...
+
+Nếu muốn xác lập mối quan hệ vợ chồng và đảm bảo các quyền lợi đầy đủ, hai bên nên đăng ký kết hôn theo quy định pháp luật.","Không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng theo Luật Hôn nhân và gia đình; quyền con cái, tài sản được giải quyết theo quy định riêng.",0.0,0.19011406844106465,manual,4,1,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận sai: nói chung sống không đăng ký “sẽ phát sinh một số quyền nghĩa vụ”; khoản 1 Điều 14 quy định không làm phát sinh quyền, nghĩa vụ giữa vợ và chồng. Phần tài sản, thừa kế là bịa."
+HN_010,ket_hon,Nếu cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân được xác lập từ thời điểm nào?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014, hôn nhân được xác lập kể từ thời điểm đăng ký kết hôn. Trong trường hợp cặp đôi chung sống không đăng ký kết hôn sau đó mới đăng ký thì hôn nhân sẽ được xác lập kể từ thời điểm họ tiến hành đăng ký kết hôn.
+
+Theo Điều 5 Luật Hôn nhân và Gia đình năm 2014:
+
+""1. Hôn nhân được xác lập bằng việc đăng ký kết hôn hoặc tổ chức lễ cưới theo quy định của pháp luật.""
+
+Tuy nhiên, nếu cặp đôi đã chung sống trước khi đăng ký kết hôn thì thời điểm xác lập quyền và nghĩa vụ vợ chồng sẽ bắt đầu từ thời điểm họ tiến hành đăng ký kết hôn.
+
+Nên lưu ý rằng trong trường hợp này, các quyền và nghĩa vụ gia đình có thể được xác định dựa trên thực tế cuộc sống chung của cặp đôi trước khi đăng ký.",Từ thời điểm đăng ký kết hôn theo quy định pháp luật.,0.0,0.1348314606741573,manual,5,3,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (từ thời điểm đăng ký, khoản 2 Điều 14). Trích dẫn bịa “Điều 5: hôn nhân được xác lập bằng việc đăng ký kết hôn hoặc tổ chức lễ cưới”; câu cuối gợi ý quyền, nghĩa vụ tính theo thời gian chung sống trước khi đăng ký, trái khoản 2 Điều 14."
+HN_013,vo_chong,Vợ chồng có bình đẳng về quyền và nghĩa vụ trong gia đình không?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, vợ chồng được coi là có sự bình đẳng về quyền và nghĩa vụ. Cụ thể:
+
+1. Về quyền:
+- Vợ chồng đều có quyền tự do trong việc tham gia các hoạt động kinh tế, xã hội.
+- Có quyền tự do lựa chọn nghề nghiệp, công việc phù hợp với khả năng của mình.
+- Được bảo vệ bình đẳng về mặt tước đoạt tài sản.
+
+2. Về nghĩa vụ:
+- Vợ chồng đều có trách nhiệm chăm sóc, nuôi dưỡng con cái; hỗ trợ nhau trong cuộc sống hàng ngày và khi gặp khó khăn.
+- Có nghĩa vụ chia sẻ công việc gia đình một cách công bằng.
+- Đều phải tuân thủ pháp luật về hôn nhân và gia đình.
+
+Tuy nhiên, bình đẳng này không đồng nghĩa với sự đồng nhất hoàn toàn giữa vợ chồng. Mỗi người vẫn có quyền tự do cá nhân của mình trong phạm vi cho phép bởi pháp luật.
+
+Ngoài ra, Luật Hôn nhân và Gia đình cũng quy định một số trường hợp cụ thể về quyền và nghĩa vụ như việc chia tài sản khi ly hôn, nhưng nguyên tắc cơ bản là bình đẳng.","Có. Vợ chồng bình đẳng và có quyền, nghĩa vụ ngang nhau trong gia đình.",0.0,0.12556053811659193,manual,5,4,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (bình đẳng, quyền và nghĩa vụ ngang nhau, Điều 17). Phần liệt kê quyền, nghĩa vụ là diễn giải chung, có ý khó hiểu (“bảo vệ bình đẳng về mặt tước đoạt tài sản”), không dẫn căn cứ."
+HN_016,tai_san,Thu nhập do lao động trong thời kỳ hôn nhân thường là tài sản chung hay riêng?,"Trong thời kỳ hôn nhân ở Việt Nam, thu nhập do lao động của một hoặc cả hai vợ chồng được coi là tài sản chung trừ những trường hợp cụ thể. Cụ thể hơn:
+
+1. Thu nhập từ công việc chính thức (lương, thưởng...) đều thuộc sở hữu chung.
+
+2. Thu nhập từ kinh doanh cá nhân cũng được xem như tài sản chung của vợ chồng.
+
+3. Tuy nhiên, nếu có thỏa thuận bằng văn bản giữa hai bên về việc một trong hai người giữ lại toàn bộ thu nhập cho riêng mình thì đó sẽ là tài sản riêng.
+
+4. Ngoài ra, những khoản tiền mà một trong hai bên nhận được từ thừa kế hoặc quà tặng không phải do lao động cũng thuộc sở hữu cá nhân của người nhận.
+
+Tóm lại, trừ các trường hợp trên, hầu hết thu nhập do lao động trong thời kỳ hôn nhân đều là tài sản chung.","Về nguyên tắc là tài sản chung của vợ chồng, trừ trường hợp pháp luật có quy định khác.",0.0,0.1340782122905028,manual,5,4,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (tài sản chung, trừ trường hợp luật định, khoản 1 Điều 33). Ý “thỏa thuận bằng văn bản giữ lại thu nhập thì thành tài sản riêng” chỉ đúng khi chia tài sản chung theo Điều 38–40, nêu chưa chính xác."
+HN_017,tai_san,Tài sản vợ chồng được tặng cho chung trong thời kỳ hôn nhân là loại tài sản gì?,"Trong thời kỳ hôn nhân, nếu một bên nhận được món quà từ người thứ ba và quyết định tặng cho cả hai vợ chồng thì món quà đó sẽ trở thành tài sản chung của vợ chồng. Theo quy định tại Điều 873 Bộ luật Dân sự năm 2015 (sửa đổi, bổ sung năm 2017), tài sản được tặng cho chung trong thời kỳ hôn nhân là một dạng của tài sản chung.
+
+Tuy nhiên, cần lưu ý rằng để trở thành tài sản chung, món quà phải thỏa mãn các điều kiện sau:
+
+1. Được tặng cho cả hai vợ chồng.
+2. Được tặng trong thời kỳ hôn nhân.
+
+Nếu chỉ một bên nhận được món quà và không có sự đồng ý của cả hai vợ chồng về việc tặng cho chung thì món quà đó vẫn thuộc sở hữu riêng của người nhận, trừ khi đã chuyển nhượng quyền sở hữu cho đối tác hôn nhân theo quy định pháp luật.",Là tài sản chung của vợ chồng.,0.0,0.08139534883720931,manual,5,3,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (tài sản chung, khoản 1 Điều 33). Dẫn bịa “Điều 873 Bộ luật Dân sự năm 2015 (sửa đổi, bổ sung năm 2017)”; không dẫn Luật Hôn nhân và gia đình."
+HN_018,tai_san,Tài sản có trước khi kết hôn mặc nhiên là tài sản chung không?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014, tài sản có trước khi kết hôn vẫn được coi là tài sản riêng của mỗi bên trừ trường hợp thỏa thuận khác. Cụ thể:
+
+- Tài sản mà một trong hai bên đã sở hữu trước thời điểm kết hôn sẽ thuộc về người đó (tài sản riêng).
+- Tuy nhiên, nếu vợ chồng cùng đồng ý chuyển nhượng hoặc tặng cho tài sản này thì sau khi kết hôn, tài sản đó được coi là tài sản chung.
+
+Vì vậy, mặc nhiên tài sản có trước khi kết hôn không phải là tài sản chung. Để trở thành tài sản chung, cần sự thỏa thuận của cả hai bên vợ chồng.","Không. Tài sản mỗi người có trước khi kết hôn về nguyên tắc là tài sản riêng, trừ khi nhập vào tài sản chung.",0.0,0.272108843537415,manual,5,4,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (tài sản có trước khi kết hôn là tài sản riêng, khoản 1 Điều 43; nhập vào tài sản chung theo thỏa thuận, khoản 1 Điều 46). Diễn đạt “chuyển nhượng hoặc tặng cho” thay cho việc nhập tài sản riêng chưa chuẩn."
+HN_020,tai_san,Vợ chồng có thể thỏa thuận chia tài sản chung ngay trong thời kỳ hôn nhân không?,"Có, vợ chồng có quyền thỏa thuận chia tài sản chung giữa hai bên trong thời kỳ hôn nhân theo Điều 108 Luật Hôn nhân và Gia đình năm 2014. Tuy nhiên, việc này cần tuân thủ các quy định của pháp luật về hợp đồng dân sự và phải đảm bảo không vi phạm quyền lợi của người thứ ba nếu có.
+
+Thỏa thuận chia tài sản giữa vợ chồng trong thời kỳ hôn nhân thường được thực hiện thông qua Hợp đồng hoặc Di chúc. Việc thỏa thuận này cần ghi rõ nội dung, mục đích và các điều kiện liên quan để đảm bảo tính hợp pháp và hiệu lực của thỏa thuận.","Có. Vợ chồng có quyền thỏa thuận chia một phần hoặc toàn bộ tài sản chung trong thời kỳ hôn nhân, trừ trường hợp luật hạn chế.",0.0,0.26573426573426573,manual,5,3,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (có quyền thỏa thuận chia, khoản 1 Điều 38). Dẫn sai Điều 108; nói thực hiện qua “Hợp đồng hoặc Di chúc” là sai; thiếu ngoại lệ Điều 42 và quyền yêu cầu Tòa án khi không thỏa thuận được."
+HN_021,ly_hon,Chồng có quyền tự yêu cầu ly hôn khi vợ đang mang thai không?,"Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, trong trường hợp vợ đang mang thai từ ba tháng cuối trở lên hoặc sau khi sinh con dưới sáu tháng thì chồng không được yêu cầu ly hôn mà phải thông qua tòa án. Tuy nhiên, nếu có lý do cấp bách bảo vệ quyền và lợi ích hợp pháp của mình, chồng vẫn có thể đề nghị tòa án xem xét.
+
+Cụ thể:
+
+1. Khoản 2 Điều 57 Luật Hôn nhân và Gia đình năm 2014 quy định: ""Trong trường hợp vợ đang mang thai từ ba tháng cuối trở lên hoặc sau khi sinh con dưới sáu tháng, chồng không được yêu cầu ly hôn mà phải thông qua tòa án.""
+
+2. Tuy nhiên, Điều này có ngoại lệ cho các trường hợp đặc biệt:
+
+   - Khoản 3 Điều 57 quy định: ""Trường hợp có lý do cấp bách bảo vệ quyền và lợi ích hợp pháp của mình, chồng được yêu cầu ly hôn mà không thông qua tòa án.""
+
+Vì vậy, chồng có thể tự yêu cầu ly hôn khi vợ đang mang thai từ ba tháng cuối trở lên hoặc sau sinh dưới sáu tháng nhưng phải thông qua tòa án. Trong trường hợp có lý do cấp bách bảo vệ quyền và lợi ích của mình thì chồng vẫn có quyền yêu cầu ly hôn mà không cần thông qua tòa án, song điều này rất hiếm gặp và thường được giải quyết theo từng vụ việc cụ thể.",Không. Khoản 3 Điều 51 hạn chế quyền yêu cầu ly hôn của chồng khi vợ đang mang thai.,0.0,0.11594202898550725,manual,4,1,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận sai: nói chồng vẫn yêu cầu ly hôn được qua Tòa án; các mốc “ba tháng cuối”, “dưới sáu tháng” và ngoại lệ “lý do cấp bách” đều bịa. Khoản 3 Điều 51: chồng không có quyền yêu cầu ly hôn khi vợ đang có thai, sinh con hoặc nuôi con dưới 12 tháng tuổi."
+HN_023,ly_hon,Hai vợ chồng có thể cùng yêu cầu Tòa án giải quyết ly hôn không?,"Có, hai vợ chồng đều có quyền và tự do đề nghị tòa án giải quyết thủ tục ly hôn mà không cần sự đồng ý của nhau. Trong quá trình tố tụng, cả hai bên đều được xem là đương sự và có thể đưa ra các yêu cầu của mình về việc chia tài sản, nuôi dưỡng con cái (nếu có) hoặc vấn đề khác liên quan đến quyền lợi cá nhân.
+
+Tuy nhiên, trong một số trường hợp cụ thể, tòa án cũng có thể quyết định chỉ chấp nhận đơn xin ly hôn từ một bên nếu bên kia không xuất hiện và yêu cầu giải trình.","Có. Vợ, chồng hoặc cả hai đều có quyền yêu cầu Tòa án giải quyết ly hôn.",0.0,0.265625,manual,4,3,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (có, khoản 1 Điều 51) nhưng nói về quyền của từng bên, không nói rõ hai người cùng yêu cầu; thêm ý “Tòa án chỉ chấp nhận đơn của một bên nếu bên kia không xuất hiện” không có căn cứ."
+HN_025,ly_hon,Một bên có thể được Tòa án giải quyết cho ly hôn khi có bạo lực gia đình nghiêm trọng không?,"Trong trường hợp có bạo lực gia đình nghiêm trọng, một trong hai bên có quyền yêu cầu tòa án giải quyết việc ly hôn theo quy định tại Điều 53 Luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017).
+
+Cụ thể, theo quy định này, nếu vợ hoặc chồng bị bạo lực gia đình nghiêm trọng mà không khắc phục được tình trạng đó sau một thời gian dài cố gắng hòa giải, thì tòa án có thể chấp nhận yêu cầu ly hôn của bên kia.
+
+Tuy nhiên, việc xác định ""bạo lực gia đình nghiêm trọng"" và quá trình hòa giải cần tuân theo các quy định cụ thể của pháp luật để đảm bảo tính công bằng và khách quan.","Có thể, nếu đáp ứng căn cứ tại khoản 1 Điều 56 và hòa giải tại Tòa án không thành.",0.0,0.14765100671140938,manual,5,4,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (có thể, khi hòa giải tại Tòa án không thành, khoản 1 Điều 56). Dẫn sai Điều 53 và “sửa đổi, bổ sung năm 2017” không có thật; điều kiện hòa giải nêu chưa chính xác."
+HN_028,con_cai,Con từ đủ 7 tuổi trở lên thì Tòa án có phải xem xét nguyện vọng của con khi quyết định người trực tiếp nuôi không?,"Theo quy định tại Điều 86 Bộ luật Hôn nhân và Gia đình năm 2014 (sửa đổi, bổ sung năm 2017), trong quá trình giải quyết tranh chấp về việc xác định người trực tiếp nuôi con khi chấm dứt hôn nhân hoặc quan hệ tình cảm giữa cha mẹ, Tòa án sẽ xem xét nguyện vọng của con từ đủ 7 tuổi trở lên.
+
+Tuy nhiên, cần lưu ý rằng đây chỉ là một trong những yếu tố mà Tòa án cân nhắc. Các yếu tố khác cũng được coi trọng như hoàn cảnh sống, điều kiện kinh tế, sức khỏe và khả năng nuôi dưỡng của mỗi bên; mối quan hệ giữa con với cha mẹ và người thân; lợi ích tối đa cho sự phát triển toàn diện của trẻ em.
+
+Nếu bạn có thêm thông tin cụ thể về trường hợp cụ thể, tôi sẽ cố gắng hỗ trợ tư vấn chi tiết hơn.",Có. Tòa án phải xem xét nguyện vọng của con từ đủ 7 tuổi trở lên.,0.0,0.17241379310344826,manual,5,4,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (phải xem xét nguyện vọng của con từ đủ 07 tuổi, khoản 2 Điều 81). Dẫn sai “Điều 86 Bộ luật Hôn nhân và Gia đình” và “sửa đổi, bổ sung năm 2017”."
+HN_029,con_cai,"Sau ly hôn, con dưới 36 tháng tuổi có đương nhiên luôn phải giao mẹ nuôi không?","Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, sau khi ly hôn, việc quyết định người trực tiếp nuôi dưỡng con cái là một vấn đề cần xem xét cụ thể. Con dưới 36 tháng tuổi thường được giao cho mẹ trực tiếp nuôi dưỡng vì lợi ích tối đa của trẻ nhỏ, nhưng điều này không phải là quy định bắt buộc.
+
+Theo Điều 92 Luật Hôn nhân và Gia đình năm 2014:
+
+""Trong trường hợp ly hôn, người có quyền quyết định việc trực tiếp nuôi con cái sau khi ly hôn là mẹ hoặc cha. Việc quyết định cụ thể do các bên thỏa thuận; nếu không thỏa thuận được thì Tòa án xem xét, quyết định theo quy định của pháp luật.""
+
+Ngoài ra, Điều 93 cũng nêu rõ:
+
+""Nếu một trong hai bên có quyền nuôi con nhưng từ chối hoặc không đủ điều kiện để trực tiếp nuôi dưỡng con, người còn lại có quyền yêu cầu tòa án giao cho mình trực tiếp nuôi dưỡng con. Tòa án xem xét quyết định theo quy định của pháp luật.""
+
+Vì vậy, mặc dù thường xuyên được ưu tiên, việc giao con dưới 36 tháng tuổi cho mẹ nuôi không phải là điều kiện bắt buộc mà phụ thuộc vào nhiều yếu tố khác như tình trạng sức khỏe, tâm lý và khả năng chăm sóc của cả hai bên.","Không tuyệt đối. Nguyên tắc giao mẹ trực tiếp nuôi, trừ khi mẹ không đủ điều kiện hoặc cha mẹ có thỏa thuận khác phù hợp lợi ích của con.",0.0,0.17843866171003717,manual,5,3,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (không tuyệt đối) nhưng trích dẫn bịa Điều 92, Điều 93; không nêu hai ngoại lệ của khoản 3 Điều 81 (mẹ không đủ điều kiện, cha mẹ có thỏa thuận khác phù hợp lợi ích của con) mà nói chung chung."
+HN_030,cap_duong,Cha hoặc mẹ không trực tiếp nuôi con sau ly hôn có nghĩa vụ cấp dưỡng không?,"Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, cha hoặc mẹ không trực tiếp nuôi con vẫn phải thực hiện nghĩa vụ cấp dưỡng cho con. Cụ thể:
+
+- Điều 93 quy định về quyền và nghĩa vụ của cha, mẹ đối với con:
+""Cha, mẹ có trách nhiệm chăm sóc, giáo dục con; hỗ trợ kinh phí nuôi dưỡng, học hành, y tế cho con.""
+
+- Theo đó, dù không trực tiếp nuôi con nhưng vẫn phải cấp dưỡng.
+
+- Mức độ cụ thể về việc cấp dưỡng sẽ được xác định dựa trên khả năng tài chính của người có nghĩa vụ cấp dưỡng và nhu cầu thực tế của con.
+
+Vì vậy, cha hoặc mẹ không trực tiếp nuôi con sau ly hôn vẫn có nghĩa vụ cấp dưỡng cho con.",Có. Cha hoặc mẹ không trực tiếp nuôi con có nghĩa vụ cấp dưỡng cho con.,0.0,0.21192052980132453,manual,5,3,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (có nghĩa vụ cấp dưỡng, khoản 2 Điều 82) nhưng trích dẫn bịa Điều 93."
+HN_031,con_cai,Cha mẹ không trực tiếp nuôi con có quyền thăm nom con sau ly hôn không?,"Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, cha hoặc mẹ đều có quyền được chăm sóc, giáo dục và trông nom con chưa thành niên. Điều này bao gồm cả quyền thăm nom con.
+
+Cụ thể:
+
+- Theo Điều 87 Luật Hôn nhân và Gia đình: ""Cha, mẹ cùng là người trực tiếp nuôi dưỡng, giáo dục con; nếu không trực tiếp nuôi dưỡng thì có trách nhiệm cấp dưỡng cho con.""
+
+- Theo Điều 102: ""Trong trường hợp cha hoặc mẹ không trực tiếp nuôi con, phải được quyền thăm nom con theo thỏa thuận của hai bên hoặc quyết định của Tòa án. Việc thăm nom con là nghĩa vụ và quyền lợi của cha, mẹ đối với con.""
+
+Do đó, dù không trực tiếp nuôi dưỡng, cha hoặc mẹ vẫn có quyền thăm nom con sau ly hôn. Quyền này cần được xác lập trong thỏa thuận giữa các bên hoặc do tòa án quyết định.
+
+Tuy nhiên, nội dung cụ thể về thời gian, địa điểm và hình thức thăm nom sẽ phụ thuộc vào thỏa thuận của hai bên hoặc quyết định của Tòa án.","Có quyền và nghĩa vụ thăm nom con, không ai được cản trở; việc thăm nom bị hạn chế nếu lạm dụng gây ảnh hưởng xấu theo quy định.",0.0,0.14414414414414417,manual,5,3,5,2,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (có quyền thăm nom, khoản 3 Điều 82) nhưng trích dẫn bịa Điều 87, Điều 102; thiếu ý “không ai được cản trở” và việc hạn chế quyền thăm nom khi lạm dụng."
+HN_032,cap_duong,Mức cấp dưỡng cho con có bắt buộc là một số tiền cố định do luật ấn định không?,"Trong Luật Hôn nhân và gia đình năm 2014 của Việt Nam, mức cấp dưỡng cho con không phải là một số tiền cố định được quy định cụ thể bởi pháp luật. Mức cấp dưỡng thực tế phụ thuộc vào nhiều yếu tố như thu nhập của người cha/mẹ có nghĩa vụ cấp dưỡng, khả năng tài chính và nhu cầu sống thực tế của trẻ em.
+
+Theo Điều 124 Luật Hôn nhân và gia đình năm 2014:
+
+""Người có nghĩa vụ cấp dưỡng cho con phải cấp dưỡng theo mức tối thiểu là lương cơ bản hiện hành. Mức cấp dưỡng cao hơn hoặc thấp hơn so với mức này do người có nghĩa vụ cấp dưỡng đề nghị, được người nhận cấp dưỡng đồng ý và Tòa án quyết định.""
+
+Do đó, mặc dù pháp luật quy định mức tối thiểu là 1 lần lương cơ bản nhưng không bắt buộc phải là một số tiền cố định. Mức cụ thể cần được xác định dựa trên tình hình thực tế của từng trường hợp cụ thể.
+
+Nếu có bất kỳ thắc mắc nào về chi tiết hoặc áp dụng cụ thể, bạn nên tham khảo ý kiến từ các chuyên gia pháp lý hoặc tòa án địa phương.","Không. Mức cấp dưỡng do các bên thỏa thuận theo thu nhập, khả năng thực tế và nhu cầu thiết yếu; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",0.0,0.1869918699186992,manual,5,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận đúng (không phải số tiền cố định) nhưng bịa “Điều 124: mức tối thiểu là lương cơ bản hiện hành”, trái khoản 1 Điều 116 (mức do các bên thỏa thuận theo thu nhập, khả năng thực tế và nhu cầu thiết yếu; không thỏa thuận được thì Tòa án giải quyết)."
+HN_033,cap_duong,Cấp dưỡng có thể thực hiện một lần thay vì hằng tháng không?,"Trong nhiều trường hợp, cấp dưỡng có thể được thỏa thuận giữa các bên để thực hiện một lần trong năm hoặc theo thời gian nhất định khác thay vì hằng tháng. Tuy nhiên, điều này phụ thuộc vào thỏa thuận của cả hai bên và quy định cụ thể trong hợp đồng cấp dưỡng.
+
+Nếu không có thỏa thuận rõ ràng, theo Luật Hôn nhân và gia đình 2014 (sửa đổi năm 2022), cấp dưỡng thường được thực hiện hằng tháng. Điều này nhằm đảm bảo rằng người nhận cấp dưỡng luôn có nguồn thu nhập ổn định để duy trì cuộc sống.
+
+Nếu bạn muốn thay đổi phương thức thanh toán, tốt nhất là nên thảo luận và lập lại thỏa thuận với bên kia hoặc tham khảo ý kiến của một luật sư chuyên về pháp lý gia đình.","Có. Phương thức cấp dưỡng có thể theo tháng, quý, nửa năm, năm hoặc một lần.",0.0,0.17721518987341772,manual,4,3,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần: nói có thể cấp dưỡng một lần nếu các bên thỏa thuận, trong khi Điều 117 liệt kê thẳng phương thức một lần; thêm “không thỏa thuận thì thường hằng tháng” và “sửa đổi năm 2022” không có căn cứ."
+HN_035,ket_hon,"Theo quy định HNGĐ hiện hành năm 2026, kết hôn cùng giới vẫn là hành vi bị cấm theo Luật 2000 đúng không?","Dựa trên thông tin pháp luật Việt Nam đến thời điểm hiện tại (năm 2023), tôi xin trích dẫn như sau:
+
+Theo quy định của Luật Hôn nhân và Gia đình năm 2014, hôn nhân đồng giới vẫn bị cấm. Cụ thể, Điều 5 của Luật này quy định về điều kiện kết hôn, trong đó không chấp nhận việc kết hôn giữa người cùng giới.
+
+Tuy nhiên, thông tin bạn đưa ra là ""Luật Hôn nhân và Gia đình năm 2026"", nhưng đến thời điểm hiện tại (năm 2023), chưa có Luật mới này được ban hành. Do vậy, tôi không thể xác nhận nội dung của quy định mà bạn nêu.
+
+Nếu có thay đổi về vấn đề này trong tương lai, Chính phủ và Quốc hội Việt Nam sẽ thông báo chính thức qua các văn bản pháp luật mới.","Không. Luật 2000 đã hết hiệu lực; Luật 2014 quy định Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính, không liệt kê đây là một trường hợp cấm kết hôn như Luật 2000.",0.0,0.22099447513812154,manual,2,1,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Hiểu sai câu hỏi (cho là hỏi về một luật năm 2026) và kết luận sai: nói Luật 2014 vẫn cấm hôn nhân đồng giới; khoản 2 Điều 8 chỉ quy định Nhà nước không thừa nhận, việc cấm là quy định của Luật 2000 đã hết hiệu lực. Không nhận ra bẫy văn bản cũ."
+HN_061,nguyen_tac_quy_dinh,Phạm vi điều chỉnh của Luật Hôn nhân và gia đình 2014 bao gồm những nhóm quan hệ và vấn đề nào?,"Luật Hôn Nhân và Gia Đình năm 2014 của Việt Nam quy định về các nhóm quan hệ và vấn đề chính sau:
+
+1. Quan hệ hôn nhân: Bao gồm việc kết hôn, ly hôn, đơn phương chấm dứt hôn nhân bằng cách tách biệt vợ chồng.
+
+2. Quan hệ gia đình: Gồm quyền và nghĩa vụ của cha mẹ với con; quyền và nghĩa vụ của người thân trong gia đình đối với nhau.
+
+3. Bảo vệ trẻ em: Nêu các quy định về bảo vệ, chăm sóc và giáo dục trẻ em.
+
+4. Bảo hộ người yếu thế trong quan hệ hôn nhân - gia đình như nạn nhân bạo lực gia đình, phụ nữ có thai ngoài ý muốn...
+
+5. Quyền của con cái khi cha mẹ ly thân hoặc ly dị: Bao gồm quyền nuôi dưỡng, chăm sóc, giáo dục con; quyền thăm nom con.
+
+6. Vấn đề thừa kế liên quan đến tài sản trong gia đình.
+
+7. Bảo vệ người yếu thế khác như người già, người khuyết tật có liên quan đến hôn nhân - gia đình.
+
+Luật này không quy định về các vấn đề ngoài phạm vi nêu trên mà chỉ điều chỉnh những quan hệ và vấn đề thuộc lĩnh vực hôn nhân - gia đình theo đúng tên gọi của nó.","Luật Hôn nhân và gia đình năm 2014 điều chỉnh chế độ hôn nhân và gia đình, quy định chuẩn mực pháp lý cho cách ứng xử giữa các thành viên gia đình, đồng thời xác định trách nhiệm của cá nhân, tổ chức, Nhà nước và xã hội trong việc xây dựng, củng cố chế độ hôn nhân và gia đình.",0.0,0.2277580071174377,manual,4,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần (có nhắc quan hệ hôn nhân, gia đình) nhưng thiếu chuẩn mực pháp lý cho cách ứng xử giữa các thành viên và trách nhiệm của cá nhân, tổ chức, Nhà nước, xã hội (Điều 1); liệt kê thêm nội dung bịa (“đơn phương chấm dứt hôn nhân bằng cách tách biệt vợ chồng”, thừa kế, phụ nữ có thai ngoài ý muốn)."
+HN_062,nguyen_tac_quy_dinh,Luật Hôn nhân và gia đình 2014 đặt ra những nguyên tắc nào đối với vấn đề chế độ hôn nhân và gia đình?,"Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, có một số nguyên tắc chính được áp dụng trong việc xác định chế độ hôn nhân và gia đình:
+
+1. Nguyên tắc tự do: Người lớn có quyền tự do kết hôn hoặc ly hôn theo quy định của pháp luật.
+
+2. Nguyên tắc bình đẳng giới: Trong quan hệ hôn nhân và gia đình, nam nữ phải được đối xử bình đẳng về mọi mặt.
+
+3. Nguyên tắc bảo vệ lợi ích hợp pháp của các bên liên quan: Bao gồm cả vợ chồng lẫn con cái trong gia đình.
+
+4. Nguyên tắc công bằng: Chia sẻ tài sản chung một cách công bằng giữa hai bên khi ly hôn hoặc chấm dứt quan hệ hôn nhân khác.
+
+5. Nguyên tắc bảo vệ quyền và lợi ích hợp pháp của trẻ em: Trẻ em được coi là đối tượng ưu tiên trong các quyết định liên quan đến gia đình.
+
+6. Nguyên tắc tôn trọng sự riêng tư, bí mật cá nhân: Việc chia sẻ thông tin cá nhân giữa vợ chồng phải tuân theo quy định của pháp luật về bảo vệ quyền con người và quyền công dân.
+
+7. Nguyên tắc phù hợp với điều kiện kinh tế - xã hội Việt Nam hiện nay: Chế độ hôn nhân gia đình cần đảm bảo vừa đáp ứng nhu cầu tinh thần, vật chất cho các bên liên quan, đồng thời không gây gánh nặng quá lớn lên nền kinh tế quốc dân.
+
+Những nguyên tắc này nhằm mục đích tạo ra một môi trường pháp lý phù hợp để duy trì và phát triển mối quan hệ hôn nhân gia đình một cách ổn định.","Chế độ hôn nhân và gia đình theo Luật năm 2014 dựa trên 5 nguyên tắc cơ bản: (1) hôn nhân tự nguyện, tiến bộ, một vợ một chồng, vợ chồng bình đẳng; (2) tôn trọng và bảo vệ hôn nhân không phân biệt dân tộc, tôn giáo, tín ngưỡng hoặc giữa công dân Việt Nam với người nước ngoài; (3) xây dựng gia đình ấm no, tiến bộ, hạnh phúc, các thành viên tôn trọng, chăm sóc nhau và không phân biệt đối xử giữa các con; (4) Nhà nước, xã hội và gia đình bảo vệ trẻ em, người cao tuổi, người khuyết tật, hỗ trợ người mẹ và kế hoạch hóa gia đình; (5) kế thừa, phát huy truyền thống văn hóa, đạo đức tốt đẹp của dân tộc.",0.0,0.33175355450236965,manual,4,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần (bình đẳng, bảo vệ trẻ em) nhưng thiếu một vợ một chồng, hôn nhân giữa các dân tộc, tôn giáo và với người nước ngoài, truyền thống văn hóa (Điều 2); thêm các nguyên tắc bịa (riêng tư, gánh nặng kinh tế quốc dân, chia tài sản công bằng)."
+HN_067,nguyen_tac_quy_dinh,"Khi gặp tình huống liên quan đến tập quán về hôn nhân và gia đình, phải chọn căn cứ pháp luật như thế nào theo Luật Hôn nhân và gia đình 2014?","Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, khi có tranh chấp liên quan đến tập quán về hôn nhân và gia đình, việc xác định căn cứ pháp luật sẽ dựa trên các quy tắc sau:
+
+1. Nếu tập quán không vi phạm Hiến pháp, pháp luật của nước Cộng hòa xã hội chủ nghĩa Việt Nam (đặc biệt là Luật Hôn nhân và Gia đình 2014), thì có thể áp dụng.
+
+2. Tập quán được áp dụng khi phù hợp với mục đích cơ bản của Luật Hôn nhân và Gia đình; đồng thời không vi phạm các nguyên tắc chung về hôn nhân, gia đình và bảo vệ quyền con người, quyền công dân theo Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam.
+
+3. Trong trường hợp tập quán mâu thuẫn với quy định của Luật Hôn nhân và Gia đình 2014 hoặc các văn bản luật khác có liên quan, thì phải áp dụng quy định của Luật Hôn nhân và Gia đình 2014.
+
+Tóm lại, khi giải quyết tranh chấp hôn nhân gia đình dựa trên tập quán, cần đảm bảo rằng tập quán đó không vi phạm pháp luật hiện hành và phù hợp với mục đích cơ bản của Luật.","Tập quán về hôn nhân và gia đình chỉ được áp dụng khi pháp luật không có quy định và các bên không có thỏa thuận, với điều kiện đó là tập quán tốt đẹp thể hiện bản sắc của mỗi dân tộc, không trái với các nguyên tắc cơ bản tại Điều 2 và không vi phạm điều cấm của Luật Hôn nhân và gia đình năm 2014; việc áp dụng thực hiện theo quy định chi tiết của Chính phủ.",0.0,0.39864864864864863,manual,4,3,5,4,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần: tập quán không trái pháp luật thì được áp dụng, nhưng thiếu điều kiện chính của khoản 1 Điều 7 (pháp luật không quy định và các bên không có thỏa thuận; tập quán tốt đẹp, không trái nguyên tắc Điều 2, không vi phạm điều cấm) và khoản 2 (Chính phủ quy định chi tiết)."
+HN_087,vo_chong,"Đối với trách nhiệm liên đới của vợ, chồng, Luật Hôn nhân và gia đình 2014 quy định ai phải thực hiện nghĩa vụ hoặc trách nhiệm tương ứng?","Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, về nguyên tắc không có quy định cụ thể về trách nhiệm liên đới giữa vợ chồng đối với việc thực hiện nghĩa vụ hay trách nhiệm nào đó. Tuy nhiên, nếu một trong hai bên vi phạm pháp luật hoặc gây thiệt hại cho người thứ ba, thì cả hai vợ chồng đều có thể bị xử lý theo quy định của pháp luật.
+
+Nếu cần xác định cụ thể về trách nhiệm liên đới giữa vợ và chồng đối với việc thực hiện nghĩa vụ hay trách nhiệm nào đó, cần xem xét từng trường hợp cụ thể:
+
+1. Nếu một bên vi phạm nghĩa vụ dân sự hoặc hành chính: Theo Điều 527 Bộ Luật Dân Sự năm 2015 (sau khi có hiệu lực), nếu vợ chồng chung sống và cùng sở hữu tài sản thì cả hai đều phải chịu trách nhiệm liên đới về các khoản nợ, nghĩa vụ khác phát sinh từ việc thực hiện quyền và nghĩa vụ của mình.
+
+2. Trong một số trường hợp cụ thể: Ví dụ như trong giao dịch dân sự, nếu vợ chồng đã thỏa thuận chung hoặc có hành vi đồng lõa thì cả hai đều phải chịu trách nhiệm liên đới về nghĩa vụ đó (nhưng điều này không được quy định rõ ràng tại Luật Hôn nhân và Gia đình).
+
+3. Trong một số trường hợp khác: Ví dụ như trong việc thực hiện quyền sở hữu, sử dụng tài sản chung hoặc riêng của vợ chồng.
+
+Tuy nhiên, cần lưu ý rằng các quy định cụ thể về trách nhiệm liên đới giữa vợ chồng thường phụ thuộc vào tính chất và nội dung của nghĩa vụ hay trách nhiệm được đề cập. Để có câu trả lời chính xác nhất cho từng trường hợp cụ thể, nên tham khảo ý kiến của luật sư hoặc chuyên gia pháp lý.","Vợ, chồng phải chịu trách nhiệm liên đới đối với giao dịch do một bên thực hiện nhằm đáp ứng nhu cầu thiết yếu của gia đình theo khoản 1 Điều 30 hoặc giao dịch khác phù hợp với quy định về đại diện giữa vợ chồng tại các Điều 24, 25 và 26, đồng thời chịu trách nhiệm liên đới đối với các nghĩa vụ chung về tài sản quy định tại Điều 37 Luật Hôn nhân và gia đình năm 2014.",0.0,0.2961165048543689,manual,3,1,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận sai: nói Luật 2014 không quy định cụ thể về trách nhiệm liên đới; Điều 27 quy định vợ chồng liên đới với giao dịch theo khoản 1 Điều 30, các Điều 24–26 và với nghĩa vụ tại Điều 37. Dẫn bịa Điều 527 Bộ luật Dân sự."
+HN_104,tai_san,"Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản riêng dựa trên nguyên tắc nào?","Theo Luật Hôn nhân và Gia đình năm 2014 của Việt Nam, về việc xác định hoặc xử lý chiếm hữu, sử dụng, định đoạt tài sản riêng được quy định theo nguyên tắc tự do dân sự. Cụ thể:
+
+- Theo Điều 37 Luật Hôn nhân và Gia đình 2014: ""Tài sản riêng của vợ, chồng không thuộc chung gia đình là tài sản mà mỗi bên giữ trước hôn phối hoặc nhận thừa kế, tặng cho sau khi kết hôn nhưng chưa phân chia.""
+
+Nguyên tắc tự do dân sự trong trường hợp này có nghĩa là:
+
+- Vợ và chồng đều được quyền chiếm hữu, sử dụng, định đoạt tài sản riêng của mình theo ý chí tự chủ của bản thân.
+
+- Việc xử lý tài sản riêng không cần phải thông qua hoặc xin phép đối tác hôn nhân khác.
+
+Tuy nhiên, nguyên tắc này cũng có một số hạn chế:
+
+- Vợ chồng vẫn có nghĩa vụ bảo vệ và giữ gìn tài sản riêng.
+- Nếu xảy ra tranh chấp về quyền sử dụng, định đoạt tài sản riêng thì tòa án sẽ giải quyết theo quy định của pháp luật dân sự.
+
+Như vậy, nguyên tắc chính là tự do dân sự nhưng cũng cần tuân thủ các nghĩa vụ pháp lý liên quan.","Vợ, chồng có quyền chiếm hữu, sử dụng, định đoạt tài sản riêng và quyết định nhập hoặc không nhập vào tài sản chung. Nếu một bên không thể tự quản lý và không ủy quyền thì bên kia được quản lý vì lợi ích của chủ sở hữu. Nghĩa vụ riêng về tài sản của mỗi người được thanh toán từ tài sản riêng của người đó; riêng trường hợp hoa lợi, lợi tức từ tài sản riêng là nguồn sống duy nhất của gia đình thì việc định đoạt tài sản riêng đó phải có sự đồng ý của chồng, vợ.",0.0,0.45,manual,4,2,5,4,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần (có quyền chiếm hữu, sử dụng, định đoạt tài sản riêng, khoản 1 Điều 44) nhưng nói xử lý tài sản riêng “không cần xin phép”, trái khoản 4 Điều 44; thiếu quản lý thay (khoản 2), nghĩa vụ riêng (khoản 3); trích dẫn bịa Điều 37."
+HN_155,mang_thai_ho,"Theo Luật Hôn nhân và gia đình 2014, cần đáp ứng những yêu cầu cụ thể nào về điều kiện mang thai hộ vì mục đích nhân đạo?","Theo quy định tại Điều 97 của Luật Hôn Nhân và Gia Đình năm 2014 (sửa đổi, bổ sung năm 2018), việc thực hiện hợp đồng mang thai hộ phải đáp ứng một số điều kiện cụ thể như sau:
+
+1. Hai bên tham gia vào hợp đồng đều là người có năng lực hành vi dân sự đầy đủ.
+
+2. Người mang thai hộ không được nhận tiền thù lao từ việc mang thai hộ, ngoại trừ chi phí y tế và các khoản chi phí khác liên quan đến quá trình mang thai, sinh nở.
+
+3. Hợp đồng phải tuân thủ quy định của pháp luật về bảo vệ sức khỏe người mẹ và sự phát triển toàn diện của trẻ em.
+
+4. Người nhận con (cặp vợ chồng) không được có con đẻ hoặc con nuôi; trong trường hợp cặp vợ chồng đã có con, thì số lượng con đẻ hoặc con nuôi phải phù hợp với quy định của pháp luật về kế hoạch hóa gia đình.
+
+5. Hợp đồng mang thai hộ chỉ được thực hiện giữa người nhận con và người mang thai hộ, không được chuyển nhượng hay giao dịch cho bên thứ ba khác.
+
+6. Việc thực hiện hợp đồng mang thai hộ phải tuân thủ các quy định của pháp luật về bảo vệ quyền lợi của trẻ sơ sinh sau khi chào đời.
+
+7. Hợp đồng mang thai hộ chỉ có hiệu lực nếu đã được cơ quan nhà nước có thẩm quyền cấp giấy chứng nhận đủ điều kiện để thực hiện việc mang thai hộ.
+
+Ngoài ra, cần lưu ý rằng Luật Hôn nhân và Gia đình 2014 không quy định chi tiết về các yêu cầu cụ thể khác như độ tuổi của người mang thai hộ hay thời điểm ký kết hợp đồng. Các quy định này thường được nêu trong văn bản pháp luật chuyên ngành hoặc thông qua các hướng dẫn thực hiện do cơ quan nhà nước có thẩm quyền ban hành.
+
+Nếu cần thêm thông tin chi tiết về một yêu cầu cụ thể nào đó, bạn nên tham khảo trực tiếp từ văn bản của Luật Hôn nhân và Gia đình 2014 (sửa đổi, bổ sung năm 2018) hoặc liên hệ với cơ quan nhà nước có thẩm quyền để được tư vấn chính xác.","Việc mang thai hộ vì mục đích nhân đạo phải tự nguyện, lập thành văn bản và không trái pháp luật về hỗ trợ sinh sản. Vợ chồng nhờ mang thai hộ phải có xác nhận của tổ chức y tế có thẩm quyền về việc người vợ không thể mang thai và sinh con ngay cả khi áp dụng kỹ thuật hỗ trợ sinh sản, đang không có con chung và đã được tư vấn y tế, pháp lý, tâm lý. Người được nhờ mang thai hộ phải là người thân thích cùng hàng của bên vợ hoặc bên chồng, đã từng sinh con và chỉ được mang thai hộ một lần, ở độ tuổi phù hợp có xác nhận y tế, có sự đồng ý bằng văn bản của chồng (nếu có chồng) và đã được tư vấn đầy đủ.",0.0,0.3395522388059702,manual,4,1,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Sai gần hết: liệt kê điều kiện bịa (Điều 97 sửa đổi 2018, giấy chứng nhận của cơ quan nhà nước, kế hoạch hóa gia đình) và nói luật không quy định độ tuổi người mang thai hộ, trái Điều 95 (xác nhận y tế, không có con chung, người thân thích cùng hàng, đã từng sinh con, đồng ý bằng văn bản của chồng, tư vấn)."
+HN_297,mang_thai_ho,"Khi sinh con bằng kỹ thuật hỗ trợ sinh sản, việc xác định cha mẹ có khác trường hợp mang thai hộ như thế nào?","Trong trường hợp sử dụng kỹ thuật hỗ trợ sinh sản (như thụ tinh trong ống nghiệm), việc xác định cha và mẹ của đứa trẻ thường dựa trên các quy định cụ thể của pháp luật về hôn nhân, gia đình Việt Nam.
+
+1. **Cha đẻ**: Trong hầu hết các trường hợp, người cung cấp tinh trùng sẽ được coi là cha đẻ theo quy định của Luật Hôn Nhân và Gia Đình 2014 (đã có sửa đổi). Tuy nhiên, nếu có thỏa thuận khác giữa vợ chồng hoặc giữa bên cung cấp tinh trùng với vợ chồng nhận nuôi con, thì việc xác định cha đẻ sẽ dựa trên thỏa thuận đó.
+
+2. **Mẹ đẻ**: Người phụ nữ mang thai và sinh con luôn được coi là mẹ đẻ của đứa trẻ theo quy định pháp luật hiện hành.
+
+3. **Cha nuôi**: Nếu có sự đồng ý giữa các bên liên quan, cha đẻ có thể ký đơn xin nhận làm cha nuôi với vợ chồng nhận nuôi (nếu họ không phải là cha đẻ). Trường hợp này cần tuân thủ theo quy trình đăng ký và xác nhận của cơ quan nhà nước có thẩm quyền.
+
+4. **Trường hợp mang thai hộ**: Trong trường hợp mang thai hộ, Luật Hôn Nhân và Gia Đình 2014 (sửa đổi năm 2023) không công nhận hình thức này. Do đó, việc xác định cha mẹ của đứa trẻ trong kỹ thuật hỗ trợ sinh sản khác với trường hợp mang thai hộ.
+
+Tóm lại, khi sử dụng kỹ thuật hỗ trợ sinh sản như thụ tinh trong ống nghiệm, quy định về cha và mẹ đẻ dựa trên người cung cấp tinh trùng (nếu không có thỏa thuận khác) và người phụ nữ mang thai. Trong khi đó, trường hợp mang thai hộ là không được công nhận theo pháp luật Việt Nam hiện hành.
+
+Nếu cần thông tin chi tiết hơn hoặc có bất kỳ thắc mắc cụ thể nào, bạn nên tham khảo ý kiến của các chuyên gia tư vấn pháp lý hoặc cơ quan nhà nước có thẩm quyền.","Theo Điều 93 Luật Hôn nhân và gia đình năm 2014, khi sinh con bằng kỹ thuật hỗ trợ sinh sản thông thường, việc xác định cha mẹ đối với cặp vợ chồng được áp dụng theo Điều 88 (xác định cha, mẹ trong thời kỳ hôn nhân), đối với phụ nữ độc thân thì người phụ nữ đó là mẹ của con được sinh ra, và không phát sinh quan hệ cha mẹ - con với người cho tinh trùng, noãn, phôi. Ngược lại, trong trường hợp mang thai hộ vì mục đích nhân đạo (khoản 4 Điều 93 và Điều 94), con sinh ra được xác định là con chung của vợ chồng nhờ mang thai hộ kể từ thời điểm con được sinh ra (chứ không phải của người phụ nữ mang thai hộ).",0.0,0.36809815950920244,manual,4,1,5,4,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Kết luận sai: nói người cho tinh trùng là cha đẻ (trái khoản 3 Điều 93) và mang thai hộ không được pháp luật công nhận (trái khoản 4 Điều 93, Điều 94: con là con chung của vợ chồng nhờ mang thai hộ từ khi sinh ra)."
+HN_299,cap_duong,Nghĩa vụ cấp dưỡng cho con khi cha mẹ ly hôn được xác định về chủ thể và mức cấp dưỡng như thế nào?,"Theo quy định của Luật Hôn nhân và Gia đình năm 2014, nghĩa vụ cấp dưỡng cho con sau khi cha mẹ ly hôn được xác định như sau:
+
+1. Chủ thể:
+- Cha hoặc mẹ trực tiếp nuôi con (thường là người giữ quyền trông nom, chăm sóc, giáo dục con).
+- Trường hợp không có người trực tiếp nuôi con thì cả hai bên đều phải thực hiện nghĩa vụ cấp dưỡng.
+
+2. Mức cấp dưỡng:
+Mức cấp dưỡng được xác định dựa trên khả năng tài chính của cha mẹ và nhu cầu sinh hoạt thực tế của con. Cụ thể:
+
+- Theo Điều 107 Luật Hôn nhân và Gia đình: ""Cấp dưỡng cho con sau ly hôn do người trực tiếp nuôi con nhận, trừ trường hợp có thỏa thuận khác giữa các bên.""
+
+- Mức cấp dưỡng được xác định theo quy định tại Điều 123 của Luật này:
+
+""1. Cấp dưỡng hàng tháng:
+a) Đối với trẻ em dưới 6 tuổi: từ 0,5 đến 0,75 lần mức lương cơ bản;
+b) Đối với trẻ em từ đủ 6 tuổi đến chưa tròn 18 tuổi: từ 0,3 đến 0,45 lần mức lương cơ bản.""
+
+- Mức cấp dưỡng có thể thay đổi theo quy định tại Điều 124:
+
+""Người trực tiếp nuôi con được yêu cầu tăng hoặc giảm số tiền cấp dưỡng khi có sự thay đổi về khả năng tài chính của người phải cấp dưỡng và nhu cầu thực tế của con.""
+
+3. Thời gian thực hiện:
+- Cấp dưỡng cho con đến khi con đủ 18 tuổi (trừ trường hợp con còn đang học tập ở các cơ sở giáo dục mầm non, phổ thông hoặc đã được công nhận là sinh viên chính quy).
+
+4. Hình thức cấp dưỡng:
+Có thể bằng tiền mặt hoặc hàng hóa tùy thuộc vào thỏa thuận giữa cha mẹ.
+
+5. Quyền và nghĩa vụ của người trực tiếp nuôi con:
+
+- Có quyền yêu cầu thực hiện nghĩa vụ cấp dưỡng.
+- Có trách nhiệm quản lý, sử dụng số tiền cấp dưỡng cho lợi ích của con.
+
+6. Trường hợp đặc biệt:
+Nếu có thỏa thuận khác hoặc cần thiết vì lý do sức khỏe hay giáo dục của con thì mức và thời gian cấp dưỡng có thể được điều chỉnh phù hợp.
+
+Như vậy, nghĩa vụ cấp dưỡng cho con sau ly hôn","Theo Điều 110 Luật Hôn nhân và gia đình năm 2014, cha, mẹ có nghĩa vụ cấp dưỡng cho con chưa thành niên hoặc con đã thành niên không có khả năng lao động và không có tài sản để tự nuôi mình khi không sống chung với con (như sau khi ly hôn) hoặc sống chung nhưng vi phạm nghĩa vụ nuôi dưỡng. Theo Điều 116, mức cấp dưỡng do các bên thỏa thuận căn cứ vào thu nhập, khả năng thực tế của người có nghĩa vụ cấp dưỡng và nhu cầu thiết yếu của con; khi có lý do chính đáng, mức cấp dưỡng có thể thay đổi theo thỏa thuận hoặc theo quyết định của Tòa án nếu không thỏa thuận được.",0.0,0.3625954198473283,manual,4,1,5,4,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Sai chủ thể: nói người trực tiếp nuôi con có nghĩa vụ cấp dưỡng, trong khi Điều 110 quy định cha, mẹ không sống chung với con; mức cấp dưỡng bịa theo “Điều 123” với hệ số lương cơ bản, trái Điều 116; câu trả lời bị cắt giữa chừng."
+HN_300,cap_duong,Việc cấp dưỡng cho con được xác định theo mức cấp dưỡng và phương thức thực hiện ra sao?,"Việc cấp dưỡng cho con trong trường hợp ly hôn hay chia tài sản sau khi kết hôn thường được quy định như sau:
+
+1. Mức cấp dưỡng: 
+- Mức cấp dưỡng được xác định dựa trên khả năng tài chính của người cha, mẹ có nghĩa vụ cấp dưỡng.
+- Theo Nghị quyết số 06/2015/NQ-HĐTP ngày 30 tháng 4 năm 2015 của Hội đồng thẩm phán Tòa án nhân dân tối cao, mức cấp dưỡng cho con dưới 18 tuổi thường được xác định từ 20% đến 30% thu nhập hàng tháng của người có nghĩa vụ cấp dưỡng.
+- Đối với trẻ em trên 18 tuổi nhưng chưa kết hôn và đang theo học tại các cơ sở giáo dục nghề nghiệp hoặc đại học, mức cấp dưỡng không vượt quá 50% nhu cầu thực tế.
+
+2. Phương thức thực hiện:
+- Có thể là việc chuyển tiền hàng tháng vào tài khoản ngân hàng của người được cấp dưỡng.
+- Hoặc có thể là việc cung cấp trực tiếp các nhu yếu phẩm cần thiết cho con như gạo, sữa, thuốc men...
+- Trong một số trường hợp đặc biệt, nếu hai bên đồng ý hoặc tòa án quyết định, có thể cấp dưỡng bằng cách mua sắm hàng hóa và giao cho người được cấp dưỡng.
+
+3. Thời hạn:
+- Mức cấp dưỡng thường kéo dài đến khi con đủ 18 tuổi (trừ trường hợp con đang theo học).
+- Nếu con bị bệnh tật hoặc khuyết tật, mức cấp dưỡng có thể kéo dài hơn.
+
+4. Điều chỉnh:
+- Trong quá trình thực hiện, nếu người được cấp dưỡng tăng lên nhu cầu về chi phí sinh hoạt do thay đổi điều kiện sống (như chuyển đến thành phố mới), thì mức cấp dưỡng cũng cần được điều chỉnh theo.
+
+Nếu bạn cần thông tin cụ thể hơn hoặc có trường hợp cụ thể để tư vấn, vui lòng cung cấp thêm thông tin.","Theo Điều 116 Luật Hôn nhân và gia đình năm 2014, mức cấp dưỡng do người có nghĩa vụ và người được cấp dưỡng (hoặc người giám hộ) thỏa thuận dựa trên thu nhập, khả năng thực tế của người cấp dưỡng và nhu cầu thiết yếu của người được cấp dưỡng, và có thể thay đổi khi có lý do chính đáng. Theo Điều 117, việc cấp dưỡng có thể thực hiện định kỳ hàng tháng, hàng quý, nửa năm, hàng năm hoặc một lần; các bên có thể thỏa thuận thay đổi phương thức hoặc tạm ngừng cấp dưỡng nếu người có nghĩa vụ lâm vào tình trạng khó khăn về kinh tế không có khả năng thực hiện; nếu không thỏa thuận được thì yêu cầu Tòa án giải quyết.",0.0,0.3991228070175438,manual,4,2,5,3,"Dev 5 (Tuna-ble), Claude hỗ trợ đối chiếu chunk gold","Đúng một phần (mức dựa trên khả năng tài chính, có thể điều chỉnh) nhưng bịa tỷ lệ 20–30% thu nhập theo “Nghị quyết 06/2015/NQ-HĐTP”; phương thức nêu chuyển khoản, nhu yếu phẩm thay vì định kỳ hàng tháng, quý, nửa năm, năm hoặc một lần (Điều 117); thiếu việc thỏa thuận và Tòa án giải quyết."

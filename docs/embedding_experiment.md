@@ -263,36 +263,38 @@ python -m pip install -r embedding/requirements-bkai.txt
 ```
 
 ### 10.2. Tạo và lưu Vector Index (`scripts/build_index.py`)
-Chạy lệnh sau từ thư mục gốc của repository để bóc tách chunks từ `parser/parsed_jsons/` (hoặc `data/processed/`), tạo embedding và lưu Qdrant index vào `data/indexes/`:
+`build_index.py` chỉ đọc corpus đã chunk sẵn (`data/chunking_output/chunks.jsonl`, đổi bằng `--input`); thiếu file thì dừng với mã 1, không chunk lại từ `parser/parsed_jsons/`. Corpus chỉ sinh bằng `chunking/export_legal_chunks.py`. Model mặc định là `dense.model` trong `retrieval/config.yaml` (hiện là `BAAI/bge-m3`); số chiều, cờ tách từ và trường văn bản của từng model lấy từ `dense.supported_models`, model không có trong bảng thì báo lỗi. Chạy từ thư mục gốc của repository:
 
 ```bash
-# Chạy với model mặc định (bkai-foundation-models/vietnamese-bi-encoder)
-python scripts/build_index.py --model bkai-foundation-models/vietnamese-bi-encoder
+# Model mặc định trong retrieval/config.yaml
+python scripts/build_index.py
 
-# Hoặc chạy với AITeamVN/Vietnamese_Embedding
-python scripts/build_index.py --model AITeamVN/Vietnamese_Embedding
+# Model khác trong dense.supported_models, collection riêng
+python scripts/build_index.py --model AITeamVN/Vietnamese_Embedding --collection legal_aiteamvn
 
 # Chạy chế độ Mock (không cần tải model nặng) để kiểm tra luồng tích hợp nhanh
 python scripts/build_index.py --mock
 ```
 
-Sau khi chạy xong, toàn bộ dữ liệu chỉ mục được lưu tại:
+Mỗi lần chạy dựng lại toàn bộ collection (xoá point cũ, kể cả collection khác số chiều). Sau khi chạy xong:
 - `data/indexes/qdrant_storage/`: Dữ liệu Vector DB của Qdrant.
-- `data/indexes/index_metadata.json`: Lưu tên model, số chiều vector, số lượng chunks, throughput và thời gian chạy.
+- `data/indexes/{collection}_metadata.json`: tên model, số chiều, cờ tách từ, trường văn bản, phiên bản underthesea (model cần tách từ), SHA-256 của file chunk, số chunk, throughput và thời gian chạy. `DenseRetriever` đọc lại file này khi mở collection để truy vấn và báo lỗi nếu model, số chiều hoặc cờ tách từ lệch cấu hình.
+- Chế độ `--mock` ghi `data/indexes/index_snapshot.json` và `index_snapshot_metadata.json`, không đụng tới Qdrant.
 
 ### 10.3. Sử dụng `DenseRetriever` trong Code (Phục vụ Dev 2 & Dev 4)
 ```python
 from embedding.vector_store import LegalVectorStore
-from embedding.dense_retriever import DenseRetriever
+from embedding.dense_retriever import DEFAULT_MODEL_NAME, DenseRetriever, get_model_spec
 
+# Mở collection đã dựng bằng build_index.py; tên sai hoặc metadata lệch model thì báo lỗi
 store = LegalVectorStore(
     collection_name="vietnam_legal_chunks",
-    dimension=768,
+    dimension=get_model_spec(DEFAULT_MODEL_NAME)["dimension"],
     storage_path="data/indexes/qdrant_storage",
 )
 retriever = DenseRetriever(
     vector_store=store,
-    model_name="bkai-foundation-models/vietnamese-bi-encoder",
+    model_name=DEFAULT_MODEL_NAME,
 )
 
 # 1. Lấy danh sách kết quả cho Hybrid Fusion (Dev 4)

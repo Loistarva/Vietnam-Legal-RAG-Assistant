@@ -1,0 +1,40 @@
+{"id":"RH_HNGD_001","query":"Chồng tôi ngoại tình, tôi muốn đơn phương ly dị thì làm sao?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_divorce"}
+{"id":"RH_HNGD_002","query":"Vợ tôi bỏ đi 3 năm không liên lạc, tôi có thể ly dị được không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_divorce"}
+{"id":"RH_HNGD_003","query":"Tuổi tối thiểu để lấy vợ là bao nhiêu?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_marriage"}
+{"id":"RH_HNGD_004","query":"Hai người đồng giới có được cưới nhau không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_marriage"}
+{"id":"RH_HNGD_005","query":"Bố mẹ ly thân thì con 10 tuổi ở với ai?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_children"}
+{"id":"RH_HNGD_006","query":"Tiền lương của chồng có phải là của chung không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_property"}
+{"id":"RH_HNGD_007","query":"Anh em họ trong phạm vi ba đời có được lấy nhau không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_marriage"}
+{"id":"RH_HNGD_008","query":"ly hon thi chia tai san the nao","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_unaccented"}
+{"id":"RH_HNGD_009","query":"Lao động của vợ trong gia đình có được coi như lao động có thu nhập khi chia tài sản chung không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_property"}
+{"id":"RH_HNGD_010","query":"Vốn góp vào doanh nghiệp bằng tài sản chung của vợ chồng có cần chồng đồng ý không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_property"}
+{"id":"RH_HNGD_011","query":"Tài sản chung là quyền sử dụng đất thì khi chia phải làm sao?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_property"}
+{"id":"RH_HNGD_012","query":"Con nuôi có được hưởng thừa kế như con đẻ không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_parentage"}
+{"id":"RH_HNGD_013","query":"Sau khi ly thân, một bên có quyền yêu cầu cấp dưỡng cho con không?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_children"}
+{"id":"RH_HNGD_014","query":"Vợ chồng muốn đăng ký kết hôn thì cần giấy tờ gì?","expected_route":"LEGAL_HNGD","expected_action":"LEGAL_RETRIEVAL","category":"hngd_marriage"}
+{"id":"RH_OUT_001","query":"Công ty nợ lương 3 tháng thì tôi làm gì?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"employment"}
+{"id":"RH_OUT_002","query":"Hàng xóm xây nhà lấn sang đất nhà tôi thì kiện ở đâu?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"land"}
+{"id":"RH_OUT_003","query":"Cho vay tiền không có giấy tờ có đòi được không?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"civil_debt"}
+{"id":"RH_OUT_004","query":"Mua hàng online bị lừa thì báo công an thế nào?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"consumer_crime"}
+{"id":"RH_OUT_005","query":"Tranh chấp ranh giới đất giữa hai nhà giải quyết ra sao?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"land"}
+{"id":"RH_OUT_006","query":"Người lao động bị sa thải trái luật thì khiếu nại ở đâu?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"employment"}
+{"id":"RH_OUT_007","query":"Đi xe máy vượt đèn đỏ bị phạt thế nào?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"traffic"}
+{"id":"RH_OUT_008","query":"Lập di chúc để lại nhà đất cần điều kiện gì?","expected_route":"LEGAL_OUT_OF_SCOPE","expected_action":"POLICY_ABSTENTION","category":"inheritance"}
+{"id":"RH_MIXED_001","query":"Ly hôn, chia tài sản và tranh chấp đất đai thì giải quyết thế nào?","expected_route":"MIXED_LEGAL_SCOPE","expected_action":"POLICY_ABSTENTION","category":"mixed_family_land"}
+{"id":"RH_MIXED_002","query":"Ly hôn chia tài sản và phân chia di sản theo thừa kế thì sao?","expected_route":"MIXED_LEGAL_SCOPE","expected_action":"POLICY_ABSTENTION","category":"mixed_family_inheritance"}
+{"id":"RH_MIXED_003","query":"Chia tài sản khi ly hôn, đồng thời giải quyết tranh chấp thừa kế riêng thì sao?","expected_route":"MIXED_LEGAL_SCOPE","expected_action":"POLICY_ABSTENTION","category":"mixed_family_inheritance"}
+{"id":"RH_MIXED_004","query":"Vợ chồng ly hôn và có thêm tranh chấp đất đai với hàng xóm thì xử lý thế nào?","expected_route":"MIXED_LEGAL_SCOPE","expected_action":"POLICY_ABSTENTION","category":"mixed_family_land"}
+{"id":"RH_NONLEGAL_001","query":"Xin chào, hôm nay bạn thế nào?","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"greeting"}
+{"id":"RH_NONLEGAL_002","query":"Thời tiết Hà Nội hôm nay thế nào?","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"weather"}
+{"id":"RH_NONLEGAL_003","query":"Tôi cần hồ sơ xin việc gồm những gì?","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"employment_paperwork_nonlegal"}
+{"id":"RH_NONLEGAL_004","query":"Hướng dẫn thủ tục nhập học đại học","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"education_admin_nonlegal"}
+{"id":"RH_NONLEGAL_005","query":"Viết một bài thơ về mùa thu","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"creative_writing"}
+{"id":"RH_NONLEGAL_006","query":"Viết lời chúc sinh nhật cho bạn thân","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"creative_writing"}
+{"id":"RH_NONLEGAL_007","query":"Viết giúp tôi email xin nghỉ phép","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"workplace_writing"}
+{"id":"RH_NONLEGAL_008","query":"Gợi ý mua quà sinh nhật cho mẹ","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"shopping"}
+{"id":"RH_NONLEGAL_009","query":"Giải thích thuật toán Binary Search","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"technology"}
+{"id":"RH_NONLEGAL_010","query":"Hướng dẫn học Python cơ bản","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"technology"}
+{"id":"RH_NONLEGAL_011","query":"Cho tôi công thức nấu phở bò","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"cooking"}
+{"id":"RH_NONLEGAL_012","query":"Kể một câu chuyện vui về chú mèo","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"entertainment"}
+{"id":"RH_NONLEGAL_013","query":"Gợi ý lịch trình du lịch Đà Lạt ba ngày","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"travel"}
+{"id":"RH_NONLEGAL_014","query":"Dịch câu good morning sang tiếng Việt","expected_route":"NON_LEGAL","expected_action":"GENERAL_CHAT","category":"translation"}

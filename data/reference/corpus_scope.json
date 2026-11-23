@@ -1,0 +1,17 @@
+{
+  "description": "Văn bản sửa đổi nhiều văn bản chỉ có một phần thuộc phạm vi corpus (Luật Hôn nhân và gia đình, hộ tịch và văn bản hướng dẫn). chunking/export_legal_chunks.py chỉ chunk các Điều liệt kê ở đây; parser/parsed_jsons vẫn giữ toàn văn. Văn bản không có trong file được đưa vào toàn bộ. Kiểm bởi test/test_corpus_scope.py.",
+  "documents": {
+    "nd_07_2025_nd_cp": {
+      "articles": ["2", "3", "5"],
+      "reason": "Điều 2 sửa Nghị định 123/2015/NĐ-CP (hộ tịch), Điều 3 sửa Nghị định 87/2020/NĐ-CP (Cơ sở dữ liệu hộ tịch điện tử), Điều 5 là điều khoản thi hành. Bỏ Điều 1 (Nghị định 23/2015/NĐ-CP, chứng thực) và Điều 4 (Nghị định 16/2020/NĐ-CP, quốc tịch)."
+    },
+    "nd_18_2026_nd_cp": {
+      "articles": ["13", "17"],
+      "reason": "Điều 13 sửa Nghị định 123/2015/NĐ-CP (hộ tịch), Điều 17 là điều khoản thi hành. Bỏ các Điều sửa nghị định về trọng tài, luật sư, công chứng, thi hành án, thừa phát lại, đăng ký biện pháp bảo đảm, nuôi con nuôi và các nghị định khác ngoài phạm vi corpus."
+    },
+    "tt_04_2024_tt_btp": {
+      "articles": ["2", "3", "4"],
+      "reason": "Điều 2 sửa Thông tư 04/2020/TT-BTP (hộ tịch), Điều 3 quy định chuyển tiếp, Điều 4 là hiệu lực thi hành. Bỏ Điều 1 (Thông tư 02/2020/TT-BTP, mẫu sổ và giấy tờ quốc tịch)."
+    }
+  }
+}

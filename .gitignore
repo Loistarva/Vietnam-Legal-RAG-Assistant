@@ -1,10 +1,28 @@
 # Python virtual environments
 /.venv*/
 
+# IDE
+.idea/
+
 # Python-generated files
 __pycache__/
+**/__pycache__/
 *.py[cod]
+*.pyo
 .pytest_cache/
 
-# Local embedded Qdrant database
+# Local embedded Qdrant database and index artifacts
 /qdrant_data/
+/data/indexes/*
+!/data/indexes/README.md
+
+# Automatic benchmark backups
+/data/benchmark/backups/
+*.bak
+
+# Keep the blind-score unblinding key local to the coordinator
+/evaluation/results/dev/blinded_ab_scoring_key_v1.csv
+/evaluation/results/dev/blind_key_local_backup/
+
+# Office lock files (created while a document is open)
+~$*

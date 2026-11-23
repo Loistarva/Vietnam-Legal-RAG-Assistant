@@ -1,0 +1,803 @@
+{
+  "review_date": "2026-11-08",
+  "base_commit": "2b0c043",
+  "count": 26,
+  "decision": "Explicit historical questions at 2015-12-31; retain all draft/unconfirmed flags",
+  "source": "https://vanban.chinhphu.vn/?pageid=27160&docid=182158",
+  "legal_basis": "NĐ 123/2015, Điều 45 khoản 1 và khoản 2 điểm đ",
+  "records": [
+    {
+      "id": "HN_209",
+      "before": {
+        "id": "HN_209",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ đăng ký kết hôn cần chuẩn bị giấy tờ nào và nộp đến đâu?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_209",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ đăng ký kết hôn cần chuẩn bị giấy tờ nào và nộp đến đâu?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 4,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_20_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_20_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_20_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_20_clause_2_chunk_2"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_211",
+      "before": {
+        "id": "HN_211",
+        "question": "Khi xác định thời hạn giải quyết việc đăng ký kết hôn, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_211",
+        "question": "Tại thời điểm 31/12/2015, khi xác định thời hạn giải quyết việc đăng ký kết hôn, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 2,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_22_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_22_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_212",
+      "before": {
+        "id": "HN_212",
+        "question": "Nếu thực hiện trình tự giải quyết việc đăng ký kết hôn tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_212",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự giải quyết việc đăng ký kết hôn tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 5,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_23_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_23_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_23_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_23_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_23_clause_4_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_213",
+      "before": {
+        "id": "HN_213",
+        "question": "Một trường hợp liên quan đến lễ đăng ký kết hôn tại Việt Nam sẽ được xử lý thế nào theo Nghị định 126/2014/NĐ-CP?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_213",
+        "question": "Tại thời điểm 31/12/2015, một trường hợp liên quan đến lễ đăng ký kết hôn tại Việt Nam sẽ được xử lý thế nào theo Nghị định 126/2014/NĐ-CP?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 4,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_24_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_24_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_24_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_24_clause_4_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_214",
+      "before": {
+        "id": "HN_214",
+        "question": "Nếu thực hiện trình tự đăng ký kết hôn tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_214",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự đăng ký kết hôn tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 6,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_25_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_25_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_25_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_25_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_25_clause_4_chunk_1",
+        "nd_126_2014_nd_cp_art_25_clause_5_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_216",
+      "before": {
+        "id": "HN_216",
+        "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền cấp giấy xác nhận tình trạng hôn nhân và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_216",
+        "question": "Tại thời điểm 31/12/2015, cơ quan nào có thẩm quyền đối với thẩm quyền cấp giấy xác nhận tình trạng hôn nhân và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 1,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_27_clause_1_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_217",
+      "before": {
+        "id": "HN_217",
+        "question": "Nếu thực hiện thủ tục cấp giấy xác nhận tình trạng hôn nhân, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_217",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện thủ tục cấp giấy xác nhận tình trạng hôn nhân, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 7,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_28_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_28_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_28_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_28_clause_4_chunk_1",
+        "nd_126_2014_nd_cp_art_28_clause_4_chunk_2",
+        "nd_126_2014_nd_cp_art_28_clause_4_chunk_3",
+        "nd_126_2014_nd_cp_art_28_clause_5_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_218",
+      "before": {
+        "id": "HN_218",
+        "question": "Cơ quan nào có thẩm quyền đối với từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_218",
+        "question": "Tại thời điểm 31/12/2015, cơ quan nào có thẩm quyền đối với từ chối cấp giấy xác nhận tình trạng hôn nhân cho công dân Việt Nam cư trú trong nước để kết hôn với người nước ngoài tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "ket_hon",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 4,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_29_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_29_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_29_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_29_clause_4_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_222",
+      "before": {
+        "id": "HN_222",
+        "question": "Khi xác định thời hạn giải quyết việc nhận cha, mẹ, con, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_222",
+        "question": "Tại thời điểm 31/12/2015, khi xác định thời hạn giải quyết việc nhận cha, mẹ, con, mốc thời gian pháp lý cần dựa vào quy định nào của Nghị định 126/2014/NĐ-CP?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 1,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_33_clause_1_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_223",
+      "before": {
+        "id": "HN_223",
+        "question": "Nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_223",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Việt Nam, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 5,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_34_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_34_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_34_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_34_clause_4_chunk_1",
+        "nd_126_2014_nd_cp_art_34_clause_5_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_224",
+      "before": {
+        "id": "HN_224",
+        "question": "Nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_224",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự giải quyết việc nhận cha, mẹ, con tại Cơ quan đại diện, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 2,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_35_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_35_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_225",
+      "before": {
+        "id": "HN_225",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện, hình thức công nhận việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_225",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, cần đáp ứng những yêu cầu cụ thể nào về điều kiện, hình thức công nhận việc kết hôn của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài ở nước ngoài?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 2,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_36_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_36_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_226",
+      "before": {
+        "id": "HN_226",
+        "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ đăng ký kết hôn việc kết hôn, ghi vào sổ hộ tịch việc nhận cha, mẹ, con của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_226",
+        "question": "Tại thời điểm 31/12/2015, cơ quan nào có thẩm quyền đối với thẩm quyền ghi vào sổ đăng ký kết hôn việc kết hôn, ghi vào sổ hộ tịch việc nhận cha, mẹ, con của công dân Việt Nam đã được giải quyết tại cơ quan có thẩm quyền của nước ngoài và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 2,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_37_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_37_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_227",
+      "before": {
+        "id": "HN_227",
+        "question": "Nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_227",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 4,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_38_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_38_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_38_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_38_clause_4_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_228",
+      "before": {
+        "id": "HN_228",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối ghi vào sổ việc kết hôn và người yêu cầu được thông báo thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_228",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, khi nào phát sinh căn cứ để từ chối ghi vào sổ việc kết hôn và người yêu cầu được thông báo thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 3,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_39_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_39_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_39_clause_3_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_229",
+      "before": {
+        "id": "HN_229",
+        "question": "Nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_229",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện hồ sơ, trình tự, thủ tục ghi vào sổ việc nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 3,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_40_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_40_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_40_clause_3_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_232",
+      "before": {
+        "id": "HN_232",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_232",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến các trường hợp phải ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 3,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_43_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_43_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_43_clause_3_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_233",
+      "before": {
+        "id": "HN_233",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài cần chuẩn bị giấy tờ nào và nộp đến đâu?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_233",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, khi thực hiện hồ sơ ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài cần chuẩn bị giấy tờ nào và nộp đến đâu?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 2,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_44_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_44_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_234",
+      "before": {
+        "id": "HN_234",
+        "question": "Nếu thực hiện trình tự, thủ tục ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_234",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự, thủ tục ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 3,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_45_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_45_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_45_clause_3_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_235",
+      "before": {
+        "id": "HN_235",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến cách ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_235",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến cách ghi vào sổ hộ tịch việc ly hôn đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ly_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 3,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_46_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_46_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_46_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_236",
+      "before": {
+        "id": "HN_236",
+        "question": "Theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến ghi vào sổ hộ tịch việc hủy kết hôn trái pháp luật đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_236",
+        "question": "Tại thời điểm 31/12/2015, theo Nghị định 126/2014/NĐ-CP, trường hợp liên quan đến ghi vào sổ hộ tịch việc hủy kết hôn trái pháp luật đã được giải quyết ở nước ngoài được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 1,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_47_clause_1_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_237",
+      "before": {
+        "id": "HN_237",
+        "question": "Cơ quan nào có thẩm quyền đối với thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_237",
+        "question": "Tại thời điểm 31/12/2015, cơ quan nào có thẩm quyền đối với thẩm quyền đăng ký kết hôn, nhận cha, mẹ, con và căn cứ xác định theo Nghị định 126/2014/NĐ-CP là gì?",
+        "category": "con_cai",
+        "question_type": "fact",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 1,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_48_clause_1_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_238",
+      "before": {
+        "id": "HN_238",
+        "question": "Nếu thực hiện trình tự, thủ tục đăng ký kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_238",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự, thủ tục đăng ký kết hôn, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "ket_hon",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 7,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_49_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_4_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_5_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_6_chunk_1",
+        "nd_126_2014_nd_cp_art_49_clause_7_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_239",
+      "before": {
+        "id": "HN_239",
+        "question": "Nếu thực hiện trình tự, thủ tục đăng ký nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2026-10-15",
+        "test_type": "partially_expired",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_239",
+        "question": "Tại thời điểm 31/12/2015, nếu thực hiện trình tự, thủ tục đăng ký nhận cha, mẹ, con, hồ sơ và các bước xử lý theo Nghị định 126/2014/NĐ-CP được xác định như thế nào?",
+        "category": "con_cai",
+        "question_type": "situation",
+        "difficulty": "medium",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 6,
+      "candidate_context_ids": [
+        "nd_126_2014_nd_cp_art_50_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_50_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_50_clause_3_chunk_1",
+        "nd_126_2014_nd_cp_art_50_clause_4_chunk_1",
+        "nd_126_2014_nd_cp_art_50_clause_5_chunk_1",
+        "nd_126_2014_nd_cp_art_50_clause_6_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_276",
+      "before": {
+        "id": "HN_276",
+        "question": "Người muốn kết hôn có yếu tố nước ngoài cần đối chiếu điều kiện kết hôn với hồ sơ đăng ký như thế nào?",
+        "category": "ket_hon",
+        "question_type": "multi_hop",
+        "difficulty": "hard",
+        "as_of_date": "2026-10-15",
+        "test_type": "current_law",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_276",
+        "question": "Tại thời điểm 31/12/2015, người muốn kết hôn có yếu tố nước ngoài cần đối chiếu điều kiện kết hôn với hồ sơ đăng ký như thế nào?",
+        "category": "ket_hon",
+        "question_type": "multi_hop",
+        "difficulty": "hard",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 6,
+      "candidate_context_ids": [
+        "l_52_2014_qh13_art_8_clause_1_chunk_1",
+        "l_52_2014_qh13_art_8_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_20_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_20_clause_1_chunk_2",
+        "nd_126_2014_nd_cp_art_20_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_20_clause_2_chunk_2"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    },
+    {
+      "id": "HN_277",
+      "before": {
+        "id": "HN_277",
+        "question": "Nếu hồ sơ đăng ký kết hôn bị từ chối, cần phân biệt điều kiện kết hôn và căn cứ từ chối theo hai văn bản nào?",
+        "category": "ket_hon",
+        "question_type": "multi_hop",
+        "difficulty": "hard",
+        "as_of_date": "2026-10-15",
+        "test_type": "current_law",
+        "split": "dev"
+      },
+      "after": {
+        "id": "HN_277",
+        "question": "Tại thời điểm 31/12/2015, nếu hồ sơ đăng ký kết hôn bị từ chối, cần phân biệt điều kiện kết hôn và căn cứ từ chối theo hai văn bản nào?",
+        "category": "ket_hon",
+        "question_type": "multi_hop",
+        "difficulty": "hard",
+        "as_of_date": "2015-12-31",
+        "test_type": "historical_law",
+        "split": "dev"
+      },
+      "candidate_count": 4,
+      "candidate_context_ids": [
+        "l_52_2014_qh13_art_8_clause_1_chunk_1",
+        "l_52_2014_qh13_art_8_clause_2_chunk_1",
+        "nd_126_2014_nd_cp_art_26_clause_1_chunk_1",
+        "nd_126_2014_nd_cp_art_26_clause_2_chunk_1"
+      ],
+      "decision": "historical_candidate_temporally_consistent_not_gold"
+    }
+  ]
+}

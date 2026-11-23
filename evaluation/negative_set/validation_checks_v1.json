@@ -1,0 +1,63 @@
+{
+  "observed_at": "2026-11-06T13:25:45.365551+00:00",
+  "baseline_sha": "f89ef8372a06102802349bb9ea0cf04fcc0a4646",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "dataset_canonical_sha256": "d859ba230231adf4e212a5de3b499c13a35e47744f60a712029a6ce9821b4bb5",
+  "checks": [
+    {
+      "args": [
+        "scripts/validate_negative_set.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"count\": 24,\n  \"labels\": {\n    \"non_legal\": 6,\n    \"legal_out_of_scope\": 6,\n    \"missing_corpus_evidence\": 6,\n    \"insufficient_facts\": 6\n  },\n  \"issues\": [],\n  \"review_status\": \"pending_peer_review\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "test/test_negative_set.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "...........................................................              [100%]\n59 passed in 5.31s\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/validate_benchmark.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Dev=270; Test=30; total=300; mode=handoff; issues=0\nPASS. Handoff check chỉ chứng minh cấu trúc, chưa phải xác nhận gold pháp lý/production.\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_test.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 30 câu Test chưa bị thay đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "scripts/freeze_gold.py",
+        "--verify"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: Test Gold (30 câu) không đổi\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 10%]\n...........................................s............................ [ 20%]\n........................................................................ [ 30%]\n........................................................................ [ 41%]\n........................................................................ [ 51%]\n........................................................................ [ 61%]\n........................................................................ [ 71%]\n........................................................................ [ 82%]\n........................................................................ [ 92%]\n......................................................                   [100%]\n701 passed, 1 skipped in 30.60s\n",
+      "stderr": ""
+    }
+  ]
+}
