@@ -18,6 +18,7 @@
 | 2.1.1 | 17/11/2026 | Ghi nhận Owner Contract đồng ý gộp các trường bổ sung của `RetrievalBundle` và `RAGOutputRecord.route` vào `week10_v1.1` (5.6). Làm rõ API kiểm tra giới hạn 2.000 ký tự trước pipeline; bổ sung kiểm tra biên FR1.7-AC2 và body `ApiError` trong FR1.7-AC1, IR2.1-AC2, IR2.2-AC1. Giữ contract hiện hành `week10_v1.0`; trạng thái triển khai tiếp tục theo ảnh chụp `testing` trong ma trận truy vết. |
 | 2.1.2 | 20/11/2026 | Sửa các chỗ SRS mâu thuẫn với contract `week10_v1.0` hoặc với số đo, để nhóm và AI làm theo câu chữ không phá contract. FR5.7 tách theo `status`, bỏ nguồn `clarification` không có trong contract. FR3.3, FR3.4 theo quyết định mới D-11: không đủ tin cậy thì từ chối; thiếu dữ kiện do model báo bằng danh mục `missing_facts`, hệ thống dựng câu hỏi làm rõ. FR4.3-AC2: nhãn evidence ghi hiệu lực tại `as_of_date`; FR8.6 định nghĩa `validity_status`. FR9.6: kết luận KPI trên tập A/B held-out theo quyết định mới D-12. FR2.8, D-04: tách số đầu ra của reranker khỏi `max_evidence`. Thêm: quy ước đếm lời gọi (1.3), vị trí code (2.3), bảng mã chi tiết → `error_code` (5.3.5), chữ ký interface (5.5), hai dòng contract đề xuất (5.6), quy tắc cho cấu hình đã khóa (12.1), tính năng chưa nhận (11.1). Sửa FR1.1-AC1, FR4.4-AC2, FR5.8-AC1. Tech Lead duyệt D-11, D-12 theo phương án A ngày 20/11/2026: FR3.3, FR3.4, phần `missing_facts` của FR4.4, phần tập held-out của FR9.6 và dòng `missing_facts` ở 5.6 chuyển `Approved`. Cùng ngày Tech Lead duyệt FR5.7, chữ ký interface 5.5 và dòng `RouteDecision` ở 5.6; bản 2.1.2 không còn yêu cầu `Proposed`. |
 | 2.1.2 (sửa) | 23/11/2026 | Mục 5.5 sửa chữ ký cho khớp code khi tạo `orchestration/interfaces.py` (đợt 0): tham số của Prompt Builder là `context_payload`; Model Gateway ghi tham số tùy chọn `max_evidence_index` mà orchestrator dùng ở `C_production_rag`; Gate ghi validator truyền được qua tham số khởi tạo (IR4.1-AC1); Prompt Builder và Gate nhận tham số theo vị trí. Không đổi hành vi, contract hay mã yêu cầu. Chờ Tech Lead xác nhận, vì chữ ký 5.5 đã duyệt ngày 20/11/2026. |
+| 2.1.2 (sửa) | 24/11/2026 | Mục 5.3.4 bỏ dòng "Thiếu dữ kiện, hỏi lại (FR3.4)" ghi `grounding_status = NOT_RUN`, còn sót từ trước D-11, và gộp với dòng "Model xin làm rõ". Theo D-11 phương án A, thiếu dữ kiện do model báo nên Gate có chạy: `status = NEEDS_CLARIFICATION`, `grounding_status = NEEDS_CLARIFICATION`, khớp mục 5.3.5 (`MODEL_NEEDS_CLARIFICATION`) và code (`orchestration/ask_service.py`). Không đổi contract (validator của `AskResponse` vẫn nhận `NOT_RUN` cho `NEEDS_CLARIFICATION`) và không đổi mã yêu cầu. Chờ Tech Lead xác nhận, vì bảng 5.3.4 đã duyệt (D-02). |
 
 ---
 
@@ -608,9 +609,8 @@ Phản hồi có body `AskResponse`:
 | Ngoài phạm vi / lẫn phạm vi | ABSTAIN | NOT_RUN | `ROUTE_POLICY` | 200 |
 | Không có ứng viên | ABSTAIN | NOT_RUN | `RETRIEVAL_EMPTY` | 200 |
 | Dưới ngưỡng tin cậy | ABSTAIN | NOT_RUN | `LOW_CONFIDENCE` | 200 |
-| Thiếu dữ kiện, hỏi lại (FR3.4) | NEEDS_CLARIFICATION | NOT_RUN | — | 200 |
 | Model từ chối | ABSTAIN | ABSTAIN | — | 200 |
-| Model xin làm rõ | NEEDS_CLARIFICATION | NEEDS_CLARIFICATION | — | 200 |
+| Model báo thiếu dữ kiện, hệ thống hỏi lại (FR3.4, D-11) | NEEDS_CLARIFICATION | NEEDS_CLARIFICATION | — | 200 |
 | Đầu ra lỗi / bị cắt | ABSTAIN | FAIL | `JSON_INVALID` | 200 |
 | Trích dẫn sai | ABSTAIN | FAIL | `CITATION_INVALID` | 200 |
 | Vi phạm Gate khác | ABSTAIN | FAIL | `GROUNDING_FAIL` | 200 |
