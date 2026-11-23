@@ -1,0 +1,3141 @@
+[
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_52_2014_qh13",
+      "source_status": "document_level_only"
+    },
+    "document_number": "52/2014/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2015-01-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=36870",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/L01.pdf",
+      "document_id": "l_52_2014_qh13",
+      "sha256": "d912966294e26b883e6fe55c6666d00afbcb30bea4e8e811d1e1c3b768b9fc07",
+      "bytes": 301172,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 336,
+    "chunk_provision_status_counts": {
+      "document_level_only": 336
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 336,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_126_2014_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "126/2014/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2015-02-15",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/ND01.pdf",
+      "document_id": "nd_126_2014_nd_cp",
+      "sha256": "f33d8f49d96adb13dca0f4e1077b8893d290954d14017aa291e14d2c5ae91b82",
+      "bytes": 259978,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 196,
+    "chunk_provision_status_counts": {
+      "requires_review": 93,
+      "repealed": 102,
+      "amended": 1
+    },
+    "chunks_with_end": 103,
+    "chunks_without_end": 93,
+    "override_ids": [
+      "nd_126_2014_art_19_50_repealed",
+      "nd_126_2014_art_63_clause_1_point_a_repealed",
+      "nd_126_2014_art_63_clause_2_amended"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_207_2025_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "207/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2025-10-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=179714",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/ND02.pdf",
+      "document_id": "nd_207_2025_nd_cp",
+      "sha256": "8a5788d202b7691a721ea28f5d2ce9f8eef3dc0c05e6d60a0a7d1b22d5d0979c",
+      "bytes": 188424,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 57,
+    "chunk_provision_status_counts": {
+      "document_level_only": 57
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 57,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nq_01_2024_nq_hdtp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "01/2024/NQ-HĐTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2024-07-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=167692",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/ND03.pdf",
+      "document_id": "nq_01_2024_nq_hdtp",
+      "sha256": "36f2f1e322d01b1f6439f26e51b5fed7bc2d5d5b5dec44250a025e6303b0b8de",
+      "bytes": 199256,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 41,
+    "chunk_provision_status_counts": {
+      "document_level_only": 41
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 41,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "source_status": "document_level_only"
+    },
+    "document_number": "01/2016/TTLT-TANDTC-VKSNDTC-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2016-03-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=97615",
+    "source_pdf": {
+      "path": "data/raw_data/circulars/TT01.pdf",
+      "document_id": "ttlt_01_2016_ttlt_tandtc",
+      "sha256": "90340a3c4e98556444484c950e73015e8cdb588998b2e593cca6ab2df2deeac7",
+      "bytes": 190184,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 45,
+    "chunk_provision_status_counts": {
+      "document_level_only": 45
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 45,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_02a_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "02a/2015/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2015-04-10",
+      "end": "2016-01-02"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=59908",
+    "source_pdf": {
+      "path": "data/raw_data/circulars/TT02.pdf",
+      "document_id": "tt_02a_2015_tt_btp",
+      "sha256": "f9bc18beaa285ee80aaaa0c9461c1195e766091cc169bb993628f24fee5dd8a4",
+      "bytes": 189314,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 49,
+    "chunk_provision_status_counts": {
+      "document_level_only": 49
+    },
+    "chunks_with_end": 49,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_32_2016_tt_byt",
+      "source_status": "document_level_only"
+    },
+    "document_number": "32/2016/TT-BYT",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2016-11-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=179312",
+    "source_pdf": {
+      "path": "data/raw_data/circulars/TT03.pdf",
+      "document_id": "tt_32_2016_tt_byt",
+      "sha256": "07cb22bcecf02fffe9beccbab1316ab708676d2ebb7851e74183d428a553e6cc",
+      "bytes": 158984,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 20,
+    "chunk_provision_status_counts": {
+      "document_level_only": 20
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 20,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_34_2017_tt_byt",
+      "source_status": "document_level_only"
+    },
+    "document_number": "34/2017/TT-BYT",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2017-10-02",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-34-2017-tt-byt-huong-dan-tu-van-sang-loc-chan-doan-dieu-tri-truoc-sinh-va-so-sinh--132220",
+    "source_pdf": {
+      "path": "data/raw_data/circulars/TT04.pdf",
+      "document_id": "tt_34_2017_tt_byt",
+      "sha256": "d897b3738e310ebfbe1469930a53273da1d2959fc6b48cf1efbb52d10c0a22ae",
+      "bytes": 166634,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 25,
+    "chunk_provision_status_counts": {
+      "document_level_only": 23,
+      "repealed": 2
+    },
+    "chunks_with_end": 2,
+    "chunks_without_end": 23,
+    "override_ids": [
+      "tt_34_2017_art_2_clauses_2_3_repealed"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_30_2019_tt_byt",
+      "source_status": "document_level_only"
+    },
+    "document_number": "30/2019/TT-BYT",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2020-02-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/141539/VanBanGoc_430399.pdf",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/TT_30_2019_BYT.pdf",
+      "document_id": "tt_30_2019_tt_byt",
+      "sha256": "30fbf0b68424527f695cca0361644785327bbb540350479c12fad2d8fb7bd808",
+      "bytes": 60799,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 7,
+    "chunk_provision_status_counts": {
+      "document_level_only": 7
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 7,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_22_2000_qh10",
+      "source_status": "document_level_only"
+    },
+    "document_number": "22/2000/QH10",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2001-01-01",
+      "end": "2015-01-01"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/bocongan/Pages/vbpq-thuoctinh.aspx?ItemID=6117",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/L02.pdf",
+      "document_id": "l_22_2000_qh10",
+      "sha256": "7fd8dddd9c5492a2df0b323c8ac810e60d6a8a369e12ccc21cdb635f9b7a86fc",
+      "bytes": 259733,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 235,
+    "chunk_provision_status_counts": {
+      "document_level_only": 235
+    },
+    "chunks_with_end": 235,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_21_lct_hdnn7",
+      "source_status": "document_level_only"
+    },
+    "document_number": "21-LCT/HĐNN7",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "1987-01-03",
+      "end": "2001-01-01"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=2798",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/21-LCT_HDNN7_37246.pdf",
+      "document_id": "l_21_lct_hdnn7",
+      "sha256": "55454385af38da65b66007e594bbd04e685f8d9a863d5ed1975f9a0db21e3a52",
+      "bytes": 180314,
+      "added_in": {
+        "commit": "5a310c2",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 58,
+    "chunk_provision_status_counts": {
+      "document_level_only": 58
+    },
+    "chunks_with_end": 58,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_70_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "70/2001/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2001-10-18",
+      "end": "2015-02-15"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=23101",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/ND05.pdf",
+      "document_id": "nd_70_2001_nd_cp",
+      "sha256": "0e58fce21376b92966d6413748586fba55940ef47e48f31585450610c85db11b",
+      "bytes": 176935,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 82,
+    "chunk_provision_status_counts": {
+      "document_level_only": 82
+    },
+    "chunks_with_end": 82,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_32_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "32/2002/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2002-04-11",
+      "end": "2015-02-15"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-toanvan.aspx?ItemID=22572",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/32_2002_ND-CP_49194.pdf",
+      "document_id": "nd_32_2002_nd_cp",
+      "sha256": "ee98dc8ca6b55b553357e4cbb3435540927408295d54499108241d796f93bf82",
+      "bytes": 207086,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 50,
+    "chunk_provision_status_counts": {
+      "document_level_only": 50
+    },
+    "chunks_with_end": 50,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_68_2002_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "68/2002/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2003-01-02",
+      "end": "2013-05-15"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-thuoctinh.aspx?ItemID=22363",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/68_2002_ND-CP_49747.pdf",
+      "document_id": "nd_68_2002_nd_cp",
+      "sha256": "189ab932d4221d0168c74cbdb7cbcd7cb12cf85483e39ae5ff132f89c7b57303",
+      "bytes": 278991,
+      "added_in": {
+        "commit": "5a310c2",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 231,
+    "chunk_provision_status_counts": {
+      "document_level_only": 231
+    },
+    "chunks_with_end": 231,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_77_2001_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "77/2001/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2001-11-06",
+      "end": "2016-01-01"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=22950",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/77_2001_ND-CP_48447.pdf",
+      "document_id": "nd_77_2001_nd_cp",
+      "sha256": "c8296b7f36a371ba5214f69c3caa0d90a52bee8384bcb2de5e69257ef4b4b568",
+      "bytes": 156681,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 18,
+    "chunk_provision_status_counts": {
+      "document_level_only": 18
+    },
+    "chunks_with_end": 18,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2001_tt_btp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "07/2001/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2001-12-25",
+      "end": "2016-01-02"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-toanvan.aspx?ItemID=22902",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/07_2001_TT-BTP_48707.pdf",
+      "document_id": "tt_07_2001_tt_btp",
+      "sha256": "f24fa84d1877933df252aa2fb1adc879a06e1ab4714c2effdef53b59b1b087df",
+      "bytes": 699606,
+      "added_in": {
+        "commit": "e9e5a28",
+        "date": "2026-10-29"
+      }
+    },
+    "chunk_count": 9,
+    "chunk_provision_status_counts": {
+      "document_level_only": 9
+    },
+    "chunks_with_end": 9,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2002_tt_btp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "07/2002/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2003-01-02",
+      "end": "2018-03-20"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=25124",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/07_2002_TT-BTP_50377.pdf",
+      "document_id": "tt_07_2002_tt_btp",
+      "sha256": "1733cc0d86363aa152333874e63080563f65e2b4165adffb3006eb12285521b9",
+      "bytes": 887229,
+      "added_in": {
+        "commit": "e9e5a28",
+        "date": "2026-10-29"
+      }
+    },
+    "chunk_count": 50,
+    "chunk_provision_status_counts": {
+      "document_level_only": 50
+    },
+    "chunks_with_end": 50,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_15_2015_tt_btp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "15/2015/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2016-01-02",
+      "end": "2020-07-16"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/phuyen/Pages/vbpq-lichsu.aspx?ItemID=94691",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/TT_15_2015_BTP.pdf",
+      "document_id": "tt_15_2015_tt_btp",
+      "sha256": "5c527d726436fd1779d986c911a57eeb2902189024822d5f24eabb34f1a5a65e",
+      "bytes": 339253,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 110,
+    "chunk_provision_status_counts": {
+      "document_level_only": 110
+    },
+    "chunks_with_end": 110,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_10_2015_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "10/2015/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2015-03-15",
+      "end": "2025-10-01"
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=49308",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/ND04.pdf",
+      "document_id": "nd_10_2015_nd_cp",
+      "sha256": "7909d1733d16a5a011a5d23511a038cf938b9769b4646ce081d3059113d70886",
+      "bytes": 197401,
+      "added_in": {
+        "commit": "1260ed8",
+        "date": "2026-10-24"
+      }
+    },
+    "chunk_count": 79,
+    "chunk_provision_status_counts": {
+      "document_level_only": 79
+    },
+    "chunks_with_end": 79,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_04_2020_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "04/2020/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2020-07-16",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vbpl.vn/botuphap/Pages/vbpq-thuoctinh.aspx?ItemID=142805",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/TT_04_2020_BTP.pdf",
+      "document_id": "tt_04_2020_tt_btp",
+      "sha256": "e3f4d52e327c93a0a624c4b1128e18f0ef1c130067d0ec9ce5a50f29d4c516cc",
+      "bytes": 185243,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 130,
+    "chunk_provision_status_counts": {
+      "requires_review": 128,
+      "amended": 2
+    },
+    "chunks_with_end": 2,
+    "chunks_without_end": 128,
+    "override_ids": [
+      "tt_04_2020_art_3_clause_2_amended",
+      "tt_04_2020_art_18_clause_2_amended"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_57_2015_tt_byt",
+      "source_status": "requires_review"
+    },
+    "document_number": "57/2015/TT-BYT",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2016-02-15",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=97365",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/57.2015.TT.BYT.pdf",
+      "document_id": "tt_57_2015_tt_byt",
+      "sha256": "20a2abf192550ee5fb1b009548f7d8edb9ad2616fce12b6089d9bed0ccc94d5a",
+      "bytes": 505724,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 84,
+    "chunk_provision_status_counts": {
+      "repealed": 27,
+      "requires_review": 57
+    },
+    "chunks_with_end": 27,
+    "chunks_without_end": 57,
+    "override_ids": [
+      "tt_57_2015_chapters_1_2_5_6_repealed"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_38_2025_tt_byt",
+      "source_status": "document_level_only"
+    },
+    "document_number": "38/2025/TT-BYT",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2025-10-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vbpl.vn/boyte/Pages/vbpq-toanvan.aspx?ItemID=181195",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/38_2025_TT-BYT_669119.pdf",
+      "document_id": "tt_38_2025_tt_byt",
+      "sha256": "b1e46cb699d0dad5c8e9bf66f9bf0089fe467eae8f1050da5f797f0bd9d97251",
+      "bytes": 346815,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 20,
+    "chunk_provision_status_counts": {
+      "document_level_only": 20
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 20,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_123_2015_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "123/2015/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2016-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
+      "document_id": "nd_123_2015_nd_cp",
+      "sha256": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376",
+      "bytes": 467971,
+      "added_in": {
+        "commit": "72a7377",
+        "date": "2026-10-23"
+      }
+    },
+    "chunk_count": 150,
+    "chunk_provision_status_counts": {
+      "amended": 17,
+      "requires_review": 128,
+      "repealed": 5
+    },
+    "chunks_with_end": 22,
+    "chunks_without_end": 128,
+    "override_ids": [
+      "nd_123_2015_art_12_clauses_1_2_repealed",
+      "nd_123_2015_art_1_amended",
+      "nd_123_2015_art_2_clauses_1_2_amended",
+      "nd_123_2015_art_3_clause_1_amended",
+      "nd_123_2015_art_4_clause_1_point_c_amended",
+      "nd_123_2015_art_9_clause_2_amended",
+      "nd_123_2015_art_10_clause_1_repealed",
+      "nd_123_2015_art_22_clause_4_amended",
+      "nd_123_2015_art_23_clause_2_amended",
+      "nd_123_2015_art_30_clause_3_amended",
+      "nd_123_2015_art_22_clause_2_amended",
+      "nd_123_2015_art_24_clause_2_amended",
+      "nd_123_2015_art_26_clause_1_point_c_amended",
+      "nd_123_2015_art_26_clause_2_amended",
+      "nd_123_2015_art_27_clause_2_amended",
+      "nd_123_2015_art_26_27_clause_3_repealed"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_81_2025_qh15",
+      "source_status": "document_level_only"
+    },
+    "document_number": "81/2025/QH15",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2025-07-01",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-81-2025-qh15-45513.htm",
+    "source_pdf": {
+      "path": "data/raw_data/laws_and_decrees/L04.pdf",
+      "document_id": "l_81_2025_qh15",
+      "sha256": "7ddf7ea9738451d48f2ab3328251b96f5db13f08e1e2a5419a10b465bf7a13a2",
+      "bytes": 410111,
+      "added_in": {
+        "commit": "ba14708",
+        "date": "2026-10-29"
+      }
+    },
+    "chunk_count": 94,
+    "chunk_provision_status_counts": {
+      "document_level_only": 94
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 94,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_87_2020_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "87/2020/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2020-09-15",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-87-2020-nd-cp-31814.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/nd_87_2020_nd_cp_congbao_823_824.pdf",
+      "document_id": "nd_87_2020_nd_cp",
+      "sha256": "7c168f73e39170476d97a6fc51607a56b86b560484a4fb64c63b108206e50a55",
+      "bytes": 472094,
+      "added_in": null
+    },
+    "chunk_count": 99,
+    "chunk_provision_status_counts": {
+      "document_level_only": 93,
+      "amended": 6
+    },
+    "chunks_with_end": 6,
+    "chunks_without_end": 93,
+    "override_ids": [
+      "nd_87_2020_art_2_clause_2_amended",
+      "nd_87_2020_art_8_clause_2_amended",
+      "nd_87_2020_art_12_clause_3_point_c_amended",
+      "nd_87_2020_art_13_clauses_1_2_amended",
+      "nd_87_2020_art_19_clause_7_amended"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_07_2025_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "07/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2025-01-09",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212416",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/nd_07_2025_nd_cp_congbao_191_192.pdf",
+      "document_id": "nd_07_2025_nd_cp",
+      "sha256": "0cc9c4f1347dadf93f43022414ffd31f790e4afe8bcd071d1dbf342334cbe0b5",
+      "bytes": 528291,
+      "added_in": null
+    },
+    "chunk_count": 27,
+    "chunk_provision_status_counts": {
+      "document_level_only": 26,
+      "amended": 1
+    },
+    "chunks_with_end": 1,
+    "chunks_without_end": 26,
+    "override_ids": [
+      "nd_07_2025_art_2_clause_2_quoted_clause_1_amended"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_18_2026_nd_cp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "18/2026/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2026-01-15",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+      "document_id": "nd_18_2026_nd_cp",
+      "sha256": "c36725c7df3c5e70f75fc844633d8344de7b6e8d3dedda62bd5cdacda9c4e241",
+      "bytes": 143000,
+      "added_in": null,
+      "normalization_review": "reports/data/adoption_effectivity_20261123/candidate_normalization.json"
+    },
+    "chunk_count": 21,
+    "chunk_provision_status_counts": {
+      "document_level_only": 21
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 21,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_04_2024_tt_btp",
+      "source_status": "document_level_only"
+    },
+    "document_number": "04/2024/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_document_level_caution",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2024-06-06",
+      "end": null
+    },
+    "provision_status": "document_level_only",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210403",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/tt_04_2024_tt_btp.pdf",
+      "document_id": "tt_04_2024_tt_btp",
+      "sha256": "58e05dae781e2032054de6674072e9076248d6e97b1e753ab97a47cc2b335d57",
+      "bytes": 633279,
+      "added_in": null
+    },
+    "chunk_count": 8,
+    "chunk_provision_status_counts": {
+      "document_level_only": 8
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 8,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_102_2016_qh13",
+      "source_status": "requires_review"
+    },
+    "document_number": "102/2016/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2017-06-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=184566",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_102_2016_qh13.pdf",
+      "document_id": "l_102_2016_qh13",
+      "sha256": "5bc0a6a03cfec393909c11b37f4242099effae792a87122f93439b85ae7e27a3",
+      "bytes": 135210,
+      "added_in": null
+    },
+    "chunk_count": 217,
+    "chunk_provision_status_counts": {
+      "requires_review": 217
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 217,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "bl_92_2015_qh13",
+      "source_status": "requires_review"
+    },
+    "document_number": "92/2015/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2016-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183189",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/bl_92_2015_qh13.pdf",
+      "document_id": "bl_92_2015_qh13",
+      "sha256": "26702c8db6aa9662578f01ea0465d7b1ae1fd2e3a5917749df8b50c84ec08fe6",
+      "bytes": 435612,
+      "added_in": null
+    },
+    "chunk_count": 175,
+    "chunk_provision_status_counts": {
+      "requires_review": 175
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 175,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_34_2024_qh15",
+      "source_status": "requires_review"
+    },
+    "document_number": "34/2024/QH15",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2025-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=211192",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_34_2024_qh15.pdf",
+      "document_id": "l_34_2024_qh15",
+      "sha256": "51969743e6030c20bf948705fc47285246f37ab67326e729fe07b762eec8dedc",
+      "bytes": 159976,
+      "added_in": null
+    },
+    "chunk_count": 23,
+    "chunk_provision_status_counts": {
+      "requires_review": 23
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 23,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_24_2019_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "24/2019/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2019-04-25",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=196393",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_24_2019_nd_cp.pdf",
+      "document_id": "nd_24_2019_nd_cp",
+      "sha256": "9f81fd713a068b2485110a13c2d2bc1fae1653f7e77677b8cf60dd3bed5c9028",
+      "bytes": 69355,
+      "added_in": null
+    },
+    "chunk_count": 27,
+    "chunk_provision_status_counts": {
+      "requires_review": 22,
+      "amended": 5
+    },
+    "chunks_with_end": 5,
+    "chunks_without_end": 22,
+    "override_ids": [
+      "temporal_20261123_nd_24_2019_nd_cp_4",
+      "temporal_20261123_nd_24_2019_nd_cp_5"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_06_2025_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "06/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2025-01-08",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=212318",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_06_2025_nd_cp.pdf",
+      "document_id": "nd_06_2025_nd_cp",
+      "sha256": "8311d646c0d31866875fc94f85460b0061069ffda1257721bedfcdde3ca63ce4",
+      "bytes": 81014,
+      "added_in": null
+    },
+    "chunk_count": 51,
+    "chunk_provision_status_counts": {
+      "requires_review": 51
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 51,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2023_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "07/2023/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2023-11-30",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-07-2023-tt-btp-40334/46870.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2023_tt_btp.pdf",
+      "document_id": "tt_07_2023_tt_btp",
+      "sha256": "fb4bbe2ab5113d30bf8007e1bda14c7390c95ae7c13635c357bd50d42a6908e9",
+      "bytes": 60806,
+      "added_in": null
+    },
+    "chunk_count": 8,
+    "chunk_provision_status_counts": {
+      "amended": 1,
+      "requires_review": 7
+    },
+    "chunks_with_end": 1,
+    "chunks_without_end": 7,
+    "override_ids": [
+      "temporal_20261123_tt_07_2023_tt_btp_13"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_104_2022_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "104/2022/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2023-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207048",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_104_2022_nd_cp.pdf",
+      "document_id": "nd_104_2022_nd_cp",
+      "sha256": "32ee3a7ca1d275a175719c84fef84a3679086a7776a6024698785bea9169ea58",
+      "bytes": 73640,
+      "added_in": null
+    },
+    "chunk_count": 9,
+    "chunk_provision_status_counts": {
+      "requires_review": 9
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 9,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_120_2025_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "120/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2025-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=213894",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_120_2025_nd_cp.pdf",
+      "document_id": "nd_120_2025_nd_cp",
+      "sha256": "5b64f7951ea6763f88fe428e666f44ee5f0b92e6fb7f2e444988b412bc15f464",
+      "bytes": 78477,
+      "added_in": null
+    },
+    "chunk_count": 29,
+    "chunk_provision_status_counts": {
+      "requires_review": 29
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 29,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_85_2025_qh15",
+      "source_status": "requires_review"
+    },
+    "document_number": "85/2025/QH15",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214582",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_85_2025_qh15.pdf",
+      "document_id": "l_85_2025_qh15",
+      "sha256": "47c33c75637953e77c54b534e01f1ed6ba8405abf0d7e6d0d6372ce37525445d",
+      "bytes": 92653,
+      "added_in": null
+    },
+    "chunk_count": 47,
+    "chunk_provision_status_counts": {
+      "requires_review": 47
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 47,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_10_2025_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "10/2025/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-08-04",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214348",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_10_2025_tt_btp.pdf",
+      "document_id": "tt_10_2025_tt_btp",
+      "sha256": "0a43fb9452a1c16cc0abeec60a674d6786df83efbad677ef3e5f030c7d31313a",
+      "bytes": 65045,
+      "added_in": null
+    },
+    "chunk_count": 12,
+    "chunk_provision_status_counts": {
+      "requires_review": 12
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 12,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_63_2024_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "63/2024/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2024-06-10",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=210359",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_63_2024_nd_cp.pdf",
+      "document_id": "nd_63_2024_nd_cp",
+      "sha256": "d6e894144c71c45d1c7611194868b561ea71d56b0d7d167e06bc1ca5a46ddfa2",
+      "bytes": 97860,
+      "added_in": null
+    },
+    "chunk_count": 41,
+    "chunk_provision_status_counts": {
+      "requires_review": 41
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 41,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_58_2020_qh14",
+      "source_status": "requires_review"
+    },
+    "document_number": "58/2020/QH14",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2021-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200446",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_58_2020_qh14.pdf",
+      "document_id": "l_58_2020_qh14",
+      "sha256": "97192aa62be899987c463175959d8269c7c89964cc89cbdc131d8a4b43d24013",
+      "bytes": 99057,
+      "added_in": null
+    },
+    "chunk_count": 158,
+    "chunk_provision_status_counts": {
+      "requires_review": 158
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 158,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_01_2022_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "01/2022/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2022-02-18",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=205317",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_01_2022_tt_btp.pdf",
+      "document_id": "tt_01_2022_tt_btp",
+      "sha256": "dddb5ad5e37d2887e1cf5087aefafcfb30bc6b29566d902dda86e3b57253b835",
+      "bytes": 82606,
+      "added_in": null
+    },
+    "chunk_count": 59,
+    "chunk_provision_status_counts": {
+      "requires_review": 58,
+      "amended": 1
+    },
+    "chunks_with_end": 1,
+    "chunks_without_end": 58,
+    "override_ids": [
+      "review_20261122_tt_01_2022_tt_btp_10"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_03_2023_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "03/2023/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2023-08-02",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://hctp.moj.gov.vn/legal/detail?legalDocumentId=2801",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_03_2023_tt_btp.pdf",
+      "document_id": "tt_03_2023_tt_btp",
+      "sha256": "80032cbd691cdfaf738fc732e51c33f9f70771fd651db7acc1a0a6b7f510088f",
+      "bytes": 60874,
+      "added_in": null
+    },
+    "chunk_count": 5,
+    "chunk_provision_status_counts": {
+      "requires_review": 5
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 5,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_07_2025_tt_bng",
+      "source_status": "requires_review"
+    },
+    "document_number": "07/2025/TT-BNG",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-07-13",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=214171",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_07_2025_tt_bng.pdf",
+      "document_id": "tt_07_2025_tt_bng",
+      "sha256": "afaa08d46105abb934b384e92545d4630184099b8c2b77e0aec7e15741654dce",
+      "bytes": 64457,
+      "added_in": null
+    },
+    "chunk_count": 10,
+    "chunk_provision_status_counts": {
+      "requires_review": 10
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 10,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_60_2014_qh13",
+      "source_status": "requires_review"
+    },
+    "document_number": "60/2014/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2016-01-01",
+      "end": "2027-03-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=178129",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_60_2014_qh13.pdf",
+      "document_id": "l_60_2014_qh13",
+      "sha256": "a90a917d5c44a15d8ad9d98128f3bded1c941d3d2b1e3e7452ed0ba92a98ba3c",
+      "bytes": 105405,
+      "added_in": null
+    },
+    "chunk_count": 195,
+    "chunk_provision_status_counts": {
+      "requires_review": 195
+    },
+    "chunks_with_end": 195,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_52_2010_qh12",
+      "source_status": "requires_review"
+    },
+    "document_number": "52/2010/QH12",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2011-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=96052",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_52_2010_qh12.pdf",
+      "document_id": "l_52_2010_qh12",
+      "sha256": "9066dee114c6a716614e614b928f3eb3c2a36a0cc4e266f233e2499776ae0c61",
+      "bytes": 92082,
+      "added_in": null
+    },
+    "chunk_count": 158,
+    "chunk_provision_status_counts": {
+      "requires_review": 158
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 158,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_13_2022_qh15",
+      "source_status": "requires_review"
+    },
+    "document_number": "13/2022/QH15",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2023-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207711",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_13_2022_qh15.pdf",
+      "document_id": "l_13_2022_qh15",
+      "sha256": "cdc3975366f8610c98273b40aceb8ceb81102021ccc7f1cb30163981ec412ba1",
+      "bytes": 105478,
+      "added_in": null
+    },
+    "chunk_count": 212,
+    "chunk_provision_status_counts": {
+      "requires_review": 212
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 212,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_10_2020_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "10/2020/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2021-02-26",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-10-2020-tt-btp-33164.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_10_2020_tt_btp.pdf",
+      "document_id": "tt_10_2020_tt_btp",
+      "sha256": "26ddbb6e4a833bbf90d487f87b73475b0b1c14ae9e8a765b0a8f4d6b4ee4f835",
+      "bytes": 68422,
+      "added_in": null
+    },
+    "chunk_count": 37,
+    "chunk_provision_status_counts": {
+      "requires_review": 24,
+      "amended": 13
+    },
+    "chunks_with_end": 13,
+    "chunks_without_end": 24,
+    "override_ids": [
+      "review_20261122_tt_10_2020_tt_btp_5",
+      "review_20261122_tt_10_2020_tt_btp_6",
+      "temporal_20261123_tt_10_2020_tt_btp_11",
+      "temporal_20261123_tt_10_2020_tt_btp_12"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_35_2013_qh13",
+      "source_status": "requires_review"
+    },
+    "document_number": "35/2013/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Còn hiệu lực",
+    "document_period": {
+      "start": "2014-01-01",
+      "end": "2027-03-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=169373",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/l_35_2013_qh13.pdf",
+      "document_id": "l_35_2013_qh13",
+      "sha256": "68678ddeaeae8800d1ef4fac5ed7c2b5eb5ffe806a7fd00e0b41f3236ed21e2d",
+      "bytes": 77283,
+      "added_in": null
+    },
+    "chunk_count": 103,
+    "chunk_provision_status_counts": {
+      "requires_review": 103
+    },
+    "chunks_with_end": 103,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_19_2011_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "19/2011/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2011-05-08",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=99538",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_19_2011_nd_cp.pdf",
+      "document_id": "nd_19_2011_nd_cp",
+      "sha256": "fa223aca558c1477810d2eb4c4d078733c73535169869063178a7c7f9db038d6",
+      "bytes": 104754,
+      "added_in": null
+    },
+    "chunk_count": 158,
+    "chunk_provision_status_counts": {
+      "requires_review": 76,
+      "amended": 50,
+      "repealed": 32
+    },
+    "chunks_with_end": 82,
+    "chunks_without_end": 76,
+    "override_ids": [
+      "review_20261122_nd_19_2011_nd_cp_1",
+      "review_20261122_nd_19_2011_nd_cp_2",
+      "review_20261122_nd_19_2011_nd_cp_3",
+      "review_20261122_nd_19_2011_nd_cp_4",
+      "nd_19_2011_fees_repealed_by_nd_114_2016",
+      "nd_19_2011_art7_and_31_2_amended_2026",
+      "temporal_20261123_nd_19_2011_nd_cp_1",
+      "temporal_20261123_nd_19_2011_nd_cp_2",
+      "temporal_20261123_nd_19_2011_nd_cp_3",
+      "temporal_20261123_nd_19_2011_nd_cp_6",
+      "temporal_20261123_nd_19_2011_nd_cp_7"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_76_2023_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "76/2023/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2023-12-25",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=208906",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_76_2023_nd_cp.pdf",
+      "document_id": "nd_76_2023_nd_cp",
+      "sha256": "7b3f9d43d2ef2dc1388055c536a390aa9c959801b94324c01adfeaf8fc298608",
+      "bytes": 104049,
+      "added_in": null
+    },
+    "chunk_count": 179,
+    "chunk_provision_status_counts": {
+      "requires_review": 179
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 179,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_114_2016_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "114/2016/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2017-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=185624",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_114_2016_nd_cp.pdf",
+      "document_id": "nd_114_2016_nd_cp",
+      "sha256": "bf916dc5da3e22e3bfefd2d3b4a61698d62eb8b2eed67ce31e4ea5d011450d96",
+      "bytes": 67821,
+      "added_in": null
+    },
+    "chunk_count": 31,
+    "chunk_provision_status_counts": {
+      "requires_review": 31
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 31,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_15_2014_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "15/2014/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2014-04-25",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=172588",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_15_2014_nd_cp.pdf",
+      "document_id": "nd_15_2014_nd_cp",
+      "sha256": "084a90b5c01589d533c3d651533f32b980d520e3d7820142ca531a378ac902c4",
+      "bytes": 76035,
+      "added_in": null
+    },
+    "chunk_count": 54,
+    "chunk_provision_status_counts": {
+      "requires_review": 54
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 54,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nq_326_2016_ubtvqh14",
+      "source_status": "requires_review"
+    },
+    "document_number": "326/2016/UBTVQH14",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2017-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-quyet-so-326-2016-ubtvqh14-22191/16544.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nq_326_2016_ubtvqh14.pdf",
+      "document_id": "nq_326_2016_ubtvqh14",
+      "sha256": "9c5fc06fe6be7b54ac92abad8acf59823a9af4f07cb47353751f27a157c734b7",
+      "bytes": 96835,
+      "added_in": null
+    },
+    "chunk_count": 80,
+    "chunk_provision_status_counts": {
+      "requires_review": 80
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 80,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "bl_91_2015_qh13",
+      "source_status": "requires_review"
+    },
+    "document_number": "91/2015/QH13",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2017-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=183188",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/bl_91_2015_qh13.pdf",
+      "document_id": "bl_91_2015_qh13",
+      "sha256": "6db2e6a2c47639e9db54d5e6d0299c494a1d9f86f25e08985fc9b9a2873d3edf",
+      "bytes": 347362,
+      "added_in": null
+    },
+    "chunk_count": 217,
+    "chunk_provision_status_counts": {
+      "requires_review": 217
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 217,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_09_2022_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "09/2022/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2023-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=207246",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/tt_09_2022_tt_btp.pdf",
+      "document_id": "tt_09_2022_tt_btp",
+      "sha256": "0b69da02e5b5b5b7b055d013326b5f0e81d478b14553794a8617ef184ff0a250",
+      "bytes": 61243,
+      "added_in": null
+    },
+    "chunk_count": 5,
+    "chunk_provision_status_counts": {
+      "requires_review": 5
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 5,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_301_2026_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "301/2026/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2026-09-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=219043",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v2/nd_301_2026_nd_cp.pdf",
+      "document_id": "nd_301_2026_nd_cp",
+      "sha256": "5a682f705d248e3d8feac93701691e33984467535ca7fa45dc9b36db8f9933e4",
+      "bytes": 88017,
+      "added_in": null
+    },
+    "chunk_count": 25,
+    "chunk_provision_status_counts": {
+      "requires_review": 25
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 25,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_24_2013_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "24/2013/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2013-05-15",
+      "end": "2016-01-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-24-2013-nd-cp-2851/1740.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v3/nd_24_2013_nd_cp.pdf",
+      "document_id": "nd_24_2013_nd_cp",
+      "sha256": "8a41561eb3bf3934d1302760d8e906b96e5687999b67ff9efed225963b916235",
+      "bytes": 105215,
+      "added_in": null
+    },
+    "chunk_count": 149,
+    "chunk_provision_status_counts": {
+      "repealed": 142,
+      "requires_review": 7
+    },
+    "chunks_with_end": 149,
+    "chunks_without_end": 0,
+    "override_ids": [
+      "nd24_2013_repealed_by_nd126_2014"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_22_2013_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "22/2013/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2014-02-17",
+      "end": "2015-04-10"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-22-2013-tt-btp-2852/1122.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v3/tt_22_2013_tt_btp.pdf",
+      "document_id": "tt_22_2013_tt_btp",
+      "sha256": "a9876a8f1ac9b7ec4845b03d9a8518da0870ff6984de2a08ef189e30481bd3e2",
+      "bytes": 80021,
+      "added_in": null
+    },
+    "chunk_count": 55,
+    "chunk_provision_status_counts": {
+      "requires_review": 55
+    },
+    "chunks_with_end": 55,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_16_2010_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "16/2010/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2010-12-01",
+      "end": "2015-04-10"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-16-2010-tt-btp-3751/1617.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v3/tt_16_2010_tt_btp.pdf",
+      "document_id": "tt_16_2010_tt_btp",
+      "sha256": "6c7afaee161851ea907d4e68c32ea7a35bbd0d8daf7d388996b59fd6bf3e02e1",
+      "bytes": 66035,
+      "added_in": null
+    },
+    "chunk_count": 23,
+    "chunk_provision_status_counts": {
+      "requires_review": 23
+    },
+    "chunks_with_end": 23,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "source_status": "requires_review"
+    },
+    "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2016-04-06",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "sha256": "17630b71f7b084977d67f89009b8b358a7ba8cb3713c1a4865e9f4e01f0fc03c",
+      "bytes": 70889,
+      "added_in": null
+    },
+    "chunk_count": 52,
+    "chunk_provision_status_counts": {
+      "requires_review": 52
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 52,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_110_2013_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "110/2013/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2013-11-11",
+      "end": "2020-09-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2013-nd-cp-3794.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_110_2013_nd_cp.pdf",
+      "document_id": "nd_110_2013_nd_cp",
+      "sha256": "732f66a277d457d6b0ec045b742d7bfe63fbb54cdc900d533ab225051821df8c",
+      "bytes": 143849,
+      "added_in": null
+    },
+    "chunk_count": 60,
+    "chunk_provision_status_counts": {
+      "requires_review": 60
+    },
+    "chunks_with_end": 60,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_66_2025_tt_bca",
+      "source_status": "requires_review"
+    },
+    "document_number": "66/2025/TT-BCA",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-09-04",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_66_2025_tt_bca.pdf",
+      "document_id": "tt_66_2025_tt_bca",
+      "sha256": "2004f0426ef578438842ffb0f85c7d0106325f9033e46971c4f5dd8e7ecece89",
+      "bytes": 71830,
+      "added_in": null
+    },
+    "chunk_count": 52,
+    "chunk_provision_status_counts": {
+      "requires_review": 52
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 52,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_110_2025_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "110/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-07-10",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_110_2025_nd_cp.pdf",
+      "document_id": "nd_110_2025_nd_cp",
+      "sha256": "a7eb1877ff0dcdb9796240c000fc18a83d69164b725e070921a48eda1df641bd",
+      "bytes": 87460,
+      "added_in": null
+    },
+    "chunk_count": 88,
+    "chunk_provision_status_counts": {
+      "requires_review": 88
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 88,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_11_2021_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "11/2021/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2022-02-11",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-11-2021-tt-btp-36449.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_11_2021_tt_btp.pdf",
+      "document_id": "tt_11_2021_tt_btp",
+      "sha256": "66938061927b8679c80204e393f4745fc1750b4cfd12418100fa304323d76868",
+      "bytes": 61980,
+      "added_in": null
+    },
+    "chunk_count": 13,
+    "chunk_provision_status_counts": {
+      "requires_review": 13
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 13,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_01_2025_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "01/2025/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-04-08",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_01_2025_tt_btp.pdf",
+      "document_id": "tt_01_2025_tt_btp",
+      "sha256": "7da493aa1d095c6922b8684072a99454b80e15e255111e3c15a92e653245f053",
+      "bytes": 64042,
+      "added_in": null
+    },
+    "chunk_count": 13,
+    "chunk_provision_status_counts": {
+      "requires_review": 13
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 13,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_24_2014_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "24/2014/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2015-02-11",
+      "end": "2021-02-26"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-24-2014-tt-btp-5150.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_24_2014_tt_btp.pdf",
+      "document_id": "tt_24_2014_tt_btp",
+      "sha256": "ceb7533dc636810ffaba756efd396f6987fbf6351a09d17dbcb17ac28073aacd",
+      "bytes": 64715,
+      "added_in": null
+    },
+    "chunk_count": 10,
+    "chunk_provision_status_counts": {
+      "requires_review": 10
+    },
+    "chunks_with_end": 10,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_12_2011_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "12/2011/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2011-08-15",
+      "end": "2021-02-26"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-12-2011-tt-btp-5149.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_12_2011_tt_btp.pdf",
+      "document_id": "tt_12_2011_tt_btp",
+      "sha256": "eda0b4e098476cdece3f1d2a269816149c5acb90ef0bc52e3ec558197e9e3d03",
+      "bytes": 73090,
+      "added_in": null
+    },
+    "chunk_count": 41,
+    "chunk_provision_status_counts": {
+      "requires_review": 41
+    },
+    "chunks_with_end": 41,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_15_2014_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "15/2014/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2014-07-05",
+      "end": "2020-01-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_15_2014_tt_btp.pdf",
+      "document_id": "tt_15_2014_tt_btp",
+      "sha256": "5498b67ee81a0a3c04d15d8d63dbd997dd9381fef25aadfbad44f4df399608e0",
+      "bytes": 71651,
+      "added_in": null
+    },
+    "chunk_count": 40,
+    "chunk_provision_status_counts": {
+      "requires_review": 40
+    },
+    "chunks_with_end": 40,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_21_2011_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "21/2011/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2012-01-05",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-21-2011-tt-btp-13530.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/tt_21_2011_tt_btp.pdf",
+      "document_id": "tt_21_2011_tt_btp",
+      "sha256": "3472b357c470b30bb91a434ccdf11e9bc20f38c5591d758d9ff843e03b44a215",
+      "bytes": 73082,
+      "added_in": null
+    },
+    "chunk_count": 52,
+    "chunk_provision_status_counts": {
+      "requires_review": 38,
+      "amended": 14
+    },
+    "chunks_with_end": 14,
+    "chunks_without_end": 38,
+    "override_ids": [
+      "review_20261122_tt_21_2011_tt_btp_7",
+      "review_20261122_tt_21_2011_tt_btp_9",
+      "temporal_20261123_tt_21_2011_tt_btp_8",
+      "temporal_20261123_tt_21_2011_tt_btp_9",
+      "temporal_20261123_tt_21_2011_tt_btp_10"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_158_2005_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "158/2005/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2006-04-01",
+      "end": "2016-01-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=82898",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_158_2005_nd_cp.pdf",
+      "document_id": "nd_158_2005_nd_cp",
+      "sha256": "7a01164edcad601fead1cdb67a0e7689037456ec4ba942baff0f3c855faab82a",
+      "bytes": 123088,
+      "added_in": null
+    },
+    "chunk_count": 36,
+    "chunk_provision_status_counts": {
+      "requires_review": 36
+    },
+    "chunks_with_end": 36,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_83_1998_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "83/1998/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "1998-10-25",
+      "end": "2006-04-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=7001",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_83_1998_nd_cp.pdf",
+      "document_id": "nd_83_1998_nd_cp",
+      "sha256": "46b097b1951fb762fc9e18f469d475e4168d04238f3b590aeb74aa5727518e85",
+      "bytes": 106459,
+      "added_in": null
+    },
+    "chunk_count": 54,
+    "chunk_provision_status_counts": {
+      "requires_review": 54
+    },
+    "chunks_with_end": 54,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_02_2007_qh12",
+      "source_status": "requires_review"
+    },
+    "document_number": "02/2007/QH12",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2008-07-01",
+      "end": "2023-07-01"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=51256",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/history_batch2/l_02_2007_qh12.pdf",
+      "document_id": "l_02_2007_qh12",
+      "sha256": "e47510eb2bcde7e6f833474c2dc6df558839fc4bcc062794965e36a005db39e8",
+      "bytes": 84092,
+      "added_in": null
+    },
+    "chunk_count": 145,
+    "chunk_provision_status_counts": {
+      "requires_review": 145
+    },
+    "chunks_with_end": 145,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_08_2009_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "08/2009/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2009-03-21",
+      "end": "2023-12-25"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=83305",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_08_2009_nd_cp.pdf",
+      "document_id": "nd_08_2009_nd_cp",
+      "sha256": "d865f0e2ac4df63cac5e3b65bc8c811319724eef061345b0c710794ebf1faab4",
+      "bytes": 78534,
+      "added_in": null
+    },
+    "chunk_count": 68,
+    "chunk_provision_status_counts": {
+      "requires_review": 68
+    },
+    "chunks_with_end": 68,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_110_2009_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "110/2009/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Hết hiệu lực",
+    "document_period": {
+      "start": "2010-01-27",
+      "end": "2013-12-28"
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=92149",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/history_batch2/nd_110_2009_nd_cp.pdf",
+      "document_id": "nd_110_2009_nd_cp",
+      "sha256": "cfe39b25e63986a7a05baf52b31d80b2c1c29d1e6040e31bd639e44827e4be86",
+      "bytes": 80523,
+      "added_in": null
+    },
+    "chunk_count": 99,
+    "chunk_provision_status_counts": {
+      "requires_review": 99
+    },
+    "chunks_with_end": 99,
+    "chunks_without_end": 0,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "tt_08_2025_tt_btp",
+      "source_status": "requires_review"
+    },
+    "document_number": "08/2025/TT-BTP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2025-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
+      "document_id": "tt_08_2025_tt_btp",
+      "sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",
+      "bytes": 82476,
+      "added_in": null
+    },
+    "chunk_count": 16,
+    "chunk_provision_status_counts": {
+      "requires_review": 16
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 16,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_282_2025_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "282/2025/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2025-12-15",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_282_2025_nd_cp.pdf",
+      "document_id": "nd_282_2025_nd_cp",
+      "sha256": "5c365e82a35911b5b7f26d29d860147f4d27c122c10ee6658f7afbe1ca64791c",
+      "bytes": 185577,
+      "added_in": null
+    },
+    "chunk_count": 108,
+    "chunk_provision_status_counts": {
+      "requires_review": 108
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 108,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_347_2026_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "347/2026/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2026-09-15",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_347_2026_nd_cp.pdf",
+      "document_id": "nd_347_2026_nd_cp",
+      "sha256": "4b3903b69077aa52a15eac23f40ff27bb84cce799e78d5efd8d3486025c3df21",
+      "bytes": 91766,
+      "added_in": null
+    },
+    "chunk_count": 5,
+    "chunk_provision_status_counts": {
+      "requires_review": 5
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 5,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "source_status": "requires_review"
+    },
+    "document_number": "01/2019/TTLT-TANDTC-BNG",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2020-02-03",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.pdf",
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "sha256": "fbd73c2e0ad5d6695f700d3d95f951798668f2c5411480ab21265f9a13c7e3ed",
+      "bytes": 77359,
+      "added_in": null
+    },
+    "chunk_count": 64,
+    "chunk_provision_status_counts": {
+      "requires_review": 64
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 64,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_102_2025_qh15",
+      "source_status": "requires_review"
+    },
+    "document_number": "102/2025/QH15",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2026-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2025-qh15-468664.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/l_102_2025_qh15.pdf",
+      "document_id": "l_102_2025_qh15",
+      "sha256": "9b43a7aeab6d73fa2c34aee86028808c905dd174d9db4d32d84a0f38917995a7",
+      "bytes": 78771,
+      "added_in": null
+    },
+    "chunk_count": 104,
+    "chunk_provision_status_counts": {
+      "requires_review": 104
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 104,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_158_2026_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "158/2026/NĐ-CP",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Không xác định",
+    "document_period": {
+      "start": "2026-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-158-2026-nd-cp-469548.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.pdf",
+      "document_id": "nd_158_2026_nd_cp",
+      "sha256": "5de0e6f9daa678c89facffe256d850eaafa79a8a8da1cfc2936d94560b58fb49",
+      "bytes": 76648,
+      "added_in": null
+    },
+    "chunk_count": 83,
+    "chunk_provision_status_counts": {
+      "requires_review": 83
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 83,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_73_2006_qh11",
+      "source_status": "requires_review"
+    },
+    "document_number": "73/2006/QH11",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2007-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?docid=28975&pageid=27160",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_73_2006_qh11.pdf",
+      "document_id": "l_73_2006_qh11",
+      "sha256": "3521f97e2518c7aaec2f68805714f78a8c079adae09025c346d83b96f7322c5a",
+      "bytes": 82924,
+      "added_in": null
+    },
+    "chunk_count": 31,
+    "chunk_provision_status_counts": {
+      "requires_review": 31
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 31,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_24_2008_qh12",
+      "source_status": "requires_review"
+    },
+    "document_number": "24/2008/QH12",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2009-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://vanban.chinhphu.vn/?docid=81141&pageid=27160",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_24_2008_qh12.pdf",
+      "document_id": "l_24_2008_qh12",
+      "sha256": "0823beac5a297b1f38e18ec754af03dbabc54ea5a381a8e34e5d455a8475c841",
+      "bytes": 82952,
+      "added_in": null
+    },
+    "chunk_count": 7,
+    "chunk_provision_status_counts": {
+      "requires_review": 7
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 7,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_68_2020_qh14",
+      "source_status": "requires_review"
+    },
+    "document_number": "68/2020/QH14",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2021-07-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_68_2020_qh14.pdf",
+      "document_id": "l_68_2020_qh14",
+      "sha256": "4f781987f6db709067bce5ffd4d27ab9446a94633c7dab7e2745acad8c6f9c40",
+      "bytes": 98886,
+      "added_in": null
+    },
+    "chunk_count": 10,
+    "chunk_provision_status_counts": {
+      "requires_review": 10
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 10,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "l_11_2017_qh14",
+      "source_status": "requires_review"
+    },
+    "document_number": "11/2017/QH14",
+    "baseline_84": true,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2018-01-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-11-2017-qh14-24282/18525.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/gap_completion_batch8/l_11_2017_qh14.pdf",
+      "document_id": "l_11_2017_qh14",
+      "sha256": "23c8ce4cc2665f29a319ea67fdc034bd23e6c2d2eb996434a9ac15acfca569e7",
+      "bytes": 94032,
+      "added_in": null
+    },
+    "chunk_count": 31,
+    "chunk_provision_status_counts": {
+      "requires_review": 31
+    },
+    "chunks_with_end": 0,
+    "chunks_without_end": 31,
+    "override_ids": [],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  },
+  {
+    "warning": {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_06_2012_nd_cp",
+      "source_status": "requires_review"
+    },
+    "document_number": "06/2012/NĐ-CP",
+    "baseline_84": false,
+    "review_decision": "retain_provision_review_required",
+    "data_review_completed": true,
+    "legal_provision_certification": false,
+    "reason": "Cảnh báo phạm vi xác minh, không phải lỗi cấu trúc. Trạng thái cấp văn bản và ngày kết thúc không chứng minh mọi Điều/Khoản đã được xác minh độc lập.",
+    "document_validity_status": "Sửa đổi bổ sung",
+    "document_period": {
+      "start": "2012-04-01",
+      "end": null
+    },
+    "provision_status": "requires_review",
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+    "source_pdf": {
+      "path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+      "document_id": "nd_06_2012_nd_cp",
+      "sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+      "bytes": 73168,
+      "added_in": {
+        "commit": "86bd45c",
+        "date": "2026-11-23"
+      }
+    },
+    "chunk_count": 3,
+    "chunk_provision_status_counts": {
+      "repealed": 3
+    },
+    "chunks_with_end": 3,
+    "chunks_without_end": 0,
+    "override_ids": [
+      "readmit_nd_06_2012_art_2",
+      "readmit_nd_06_2012_art_3"
+    ],
+    "follow_up": "Đối chiếu đầy đủ chuỗi sửa đổi/bãi bỏ, thay cụm từ, bản trung gian và điều kiện chuyển tiếp trước khi chứng nhận hiệu lực từng provision. Giữ nguyên cờ runtime hiện có."
+  }
+]

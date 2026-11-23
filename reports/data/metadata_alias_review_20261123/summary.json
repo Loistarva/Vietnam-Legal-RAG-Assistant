@@ -1,0 +1,54 @@
+{
+  "review_date": "2026-11-23",
+  "review_scope": "data QA triage; not legal certification or Dev2/Dev3 peer signoff",
+  "data_review_status": "completed",
+  "baseline": {
+    "commit": "05bc4ed",
+    "warnings": 84,
+    "ambiguous_aliases": 127
+  },
+  "current": {
+    "documents": 85,
+    "warnings": 85,
+    "ambiguous_aliases": 131,
+    "metadata_errors": 0,
+    "alias_count": 2178
+  },
+  "metadata_dispositions": {
+    "retain_document_level_caution": 24,
+    "retain_provision_review_required": 61
+  },
+  "alias_categories": {
+    "short_number_cross_authority": 3,
+    "year_only": 34,
+    "type_and_number_without_year": 48,
+    "type_and_year": 40,
+    "shared_title_or_short_title": 6
+  },
+  "new_warning_documents": [
+    "nd_06_2012_nd_cp"
+  ],
+  "new_ambiguous_keys": [
+    "nd 6",
+    "nd so 6",
+    "nghi dinh 6",
+    "nghi dinh so 6"
+  ],
+  "changed_existing_candidates": [],
+  "resolver_validation": {
+    "unhinted_ambiguities_checked": 131,
+    "candidate_hint_checks": 385,
+    "full_identity_checks": 1155
+  },
+  "source_fingerprints": {
+    "data/reference/document_versions.json": "301792ce56f42af95d4ee1454ec530a516c1ccef64dc491a507c84dd66104d6e",
+    "data/reference/document_aliases.json": "fcc054b0d52473b11f0cddcf452978b03cfdf2a619531d594a80c8611f64b0e2",
+    "data/reference/provision_periods.json": "d347d2e8902083e4f1305dfaf6fc41d9e6087a6cf569e9d5715ba8e23f69a92e",
+    "data/chunking_output/chunks.jsonl": "89a2751ad46d8090ece08cb3d1e403e95cf84b833510b374018352f5e0b8ee93"
+  },
+  "registry_canonical_sha256": "f316adbae35034e7c63f64323ae2119e1cd40e70b71b233224cf13f3fc585f7b",
+  "removed_warnings": 0,
+  "removed_aliases": 0,
+  "code_changed": false,
+  "production_data_changed": false
+}

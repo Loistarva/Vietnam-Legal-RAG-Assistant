@@ -1,0 +1,9 @@
+{
+  "pytest": "60 passed in 4.00s; test/test_document_aliases.py",
+  "metadata_audit": "PASS: errors=0; warnings=85; ambiguous_aliases=131",
+  "review_scope": "All 85 current warning records and 131 ambiguous aliases, including all 84/127 baseline items",
+  "candidate_hint_status_assertions": 385,
+  "weak_singleton_hint_results_retained": 48,
+  "input_fingerprints_match": true,
+  "data_changes": "Review ledgers and documentation only; no runtime or legal metadata changes"
+}

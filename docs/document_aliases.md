@@ -1,5 +1,11 @@
 # D1.1 — Bàn giao document aliases cho citation parser
 
+## Kết quả data review ngày 23/11/2026
+
+Đã rà toàn bộ 84 cảnh báo metadata và 127 alias nhập nhằng của snapshot `05bc4ed`, cùng phần tăng sau khi nhận lại NĐ 06/2012: hiện 85 cảnh báo và 131 alias. Giữ các cảnh báo phạm vi hiệu lực và mọi ứng viên alias hợp lệ. Không coi review dữ liệu là chứng nhận pháp lý cấp Điều/Khoản hoặc xác nhận của Dev 2/Dev 3; artifact sinh tự động tiếp tục giữ `pending_peer_review` theo hợp đồng builder/loader.
+
+Quyết định từng văn bản, từng alias, kết quả kiểm tra resolver và fingerprint snapshot nằm trong [báo cáo review](../reports/data/metadata_alias_review_20261123/README.md). Khi registry hoặc alias map thay đổi, cần đối chiếu fingerprint và rà lại các mục thay đổi.
+
 Ngày thực hiện: **07/11/2026**. Nhánh chung: `feature/week09-dev1-planning`. Trạng thái: **pending_peer_review** bởi Dev 2 + Dev 3.
 
 ## Files và nguồn chuẩn

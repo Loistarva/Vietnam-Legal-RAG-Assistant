@@ -146,3 +146,4 @@ reports/data/readmission12_20261123/** text eol=lf
 parser/cleaned_texts/nd_06_2012_nd_cp.txt -text -diff -whitespace
 parser/extracted_texts_qwen/nd_06_2012_nd_cp.txt -text -diff -whitespace
 reports/data/readmission12_20261123/*extract.txt -whitespace
+reports/data/metadata_alias_review_20261123/** text eol=lf
