@@ -26,7 +26,7 @@ from api.routes import ask, ask_stream
 from api.security.api_key_guard import API_KEY_HEADER, ApiKeyGuard
 from api.settings import ApiSettings
 from orchestration.ask_service import AskService
-from orchestration.wiring import ServiceSettings, build_ask_service
+from orchestration.wiring import ServiceSettings, build_ask_service, parse_api_keys
 from schemas.models import SCHEMA_VERSION
 
 API_TITLE = "Vietnam Legal RAG Assistant API"
@@ -45,9 +45,18 @@ def create_app(*, settings: ApiSettings | None = None, service: AskService | Non
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-        if app.state.ask_service is None:
-            app.state.ask_service = build_ask_service(service_settings or ServiceSettings.from_env())
-        yield
+        if app.state.ask_service is not None:
+            yield
+            return
+        app.state.ask_service = build_ask_service(service_settings, secret_values=parse_api_keys(settings.api_keys))
+        sink = app.state.ask_service.sink
+        try:
+            yield
+        finally:
+            app.state.ask_service = None
+            close = getattr(sink, "close", None)
+            if close is not None:
+                close(timeout=2.0)
 
     app = FastAPI(title=API_TITLE, version=API_VERSION, description=API_DESCRIPTION, lifespan=lifespan)
     app.state.api_settings = settings

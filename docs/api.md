@@ -38,7 +38,7 @@ Server không khởi động nếu thiếu `LEGAL_RAG_API_KEYS` hoặc có key n
 | `LEGAL_RAG_MAX_CONCURRENCY` | `1` | Số câu xử lý đồng thời (một Qwen local, Qdrant embedded) |
 | `LEGAL_RAG_PIPELINE_MODE` | `live` | `live` hoặc `mock` |
 | `RAG_PRECOMPUTED` | rỗng | Artifact reranked thay cho retrieval live (chỉ dùng cho câu benchmark) |
-| `LEGAL_RAG_EVENT_LOG` | rỗng | File JSONL ghi stage event (local; logger của Dev 1 sẽ thay) |
+| `LEGAL_RAG_EVENT_LOG` | rỗng | Đường dẫn tệp JSONL. `monitoring.StructuredLogger` che thông tin định danh cá nhân và các API key đã cấu hình trước khi ghi sự kiện của từng giai đoạn. |
 
 ## 2. Endpoint
 
