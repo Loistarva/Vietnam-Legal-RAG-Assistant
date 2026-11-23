@@ -289,10 +289,10 @@
     "issue_date": "2025-10-30",
     "effective_date": "2025-12-15",
     "issuing_body": "Chính Phủ",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -325,11 +325,15 @@
     "normalized_source_text_sha256": "3554ede2624494c4f4a402a405270642aa26c70d3a9b24236aa38382e33f973f",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "d84043918e7a059c7fb4b706fc395e83470877a1da1605a7a8a538097c2a3e5c",
+    "parsed_json_sha256": "e64b581fa414e69228fda7d7a9c0c0ccbabb703763c1ddc2260167e6e2870f6b",
     "known_amended_by": [
-      "nd_347_2026_nd_cp"
+      "nd_347_2026_nd_cp",
+      "347/2026/NĐ-CP"
     ],
-    "effectivity_note": "Original Article3.6 amended by Article33 NĐ347/2026 effective2026-09-15. Exclude whole original Article3 from chunk scope until clause-level historical temporal review. Article69.4 replaces NĐ144/2021; Article70 preserves transitional application."
+    "effectivity_note": "Original Article3.6 amended by Article33 NĐ347/2026 effective2026-09-15. Exclude whole original Article3 from chunk scope until clause-level historical temporal review. Article69.4 replaces NĐ144/2021; Article70 preserves transitional application.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: ChươngIV NĐ347 sửa NĐ282; Điều33 thay khoản6 Điều3 và các Điều34–39 sửa/bãi bỏ thêm phạm vi khác. Mốc Điều41.1; không gán hết hiệu lực toàn văn. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "nd_347_2026_nd_cp",

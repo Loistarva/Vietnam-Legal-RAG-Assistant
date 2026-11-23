@@ -1,0 +1,27 @@
+{
+  "as_of_date": "2026-11-23",
+  "base_commit": "3a49000",
+  "pytest": {
+    "passed": 2247,
+    "skipped": 1,
+    "seconds": 180.22
+  },
+  "metadata_audit": {
+    "errors": 0,
+    "warnings": 84,
+    "ambiguous_aliases": 127
+  },
+  "source_pdf_manifest": "PASS",
+  "ruff": "PASS E9,F63,F7,F82",
+  "negative_set": "PASS; existing baseline warnings retained",
+  "active_documents": 84,
+  "parents": 2638,
+  "children": 6144,
+  "reviewed_candidates": 32,
+  "document_level_classified": 11,
+  "unknown_before": 32,
+  "unknown_after": 21,
+  "legal_peer_approval": false,
+  "code_changes": [],
+  "statutory_text_changes": false
+}

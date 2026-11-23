@@ -73,10 +73,10 @@
     "issue_date": "2008-11-13",
     "effective_date": "2009-07-01",
     "issuing_body": "Quốc Hội",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://vanban.chinhphu.vn/?docid=81141&pageid=27160",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -104,7 +104,7 @@
     "normalized_source_text_sha256": "3344911bd065c5bb0b94043891c09ba2719fa5d27a51e5127d9f1a1a1555b5cd",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "b4ec254b5adfd021fa269d5264d55e62beb778179a2f2f4d201148f10de724fb",
+    "parsed_json_sha256": "12ec228943d1f5abe000d639dc098f877b806efe9c7812bdab4826fa9d2c1682",
     "effectivity_evidence": {
       "provision": "43",
       "source_url": "https://vanban.chinhphu.vn/?docid=81141&pageid=27160",
@@ -114,7 +114,10 @@
     "known_amended_by": [
       "56/2014/QH13",
       "79/2025/QH15"
-    ]
+    ],
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Luật79/2025 Điều1 sửa Luật Quốc tịch24/2008 đã sửa bởi56/2014; Điều2.1 hiệu lực01/07/2025, Điều3 chuyển tiếp. Chưa hoàn thành temporal từng điều. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
@@ -174,10 +177,10 @@
     "issue_date": "2020-11-13",
     "effective_date": "2021-07-01",
     "issuing_body": "Quốc Hội",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -210,7 +213,7 @@
     "normalized_source_text_sha256": "88409fe52c9af6bebdfcd25657063a112645d8ec5cdc65d2281db624ce91c8a7",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "49b46b5d61942c19fd94f168e2666aa7d697281eb771b4becae69cade2433490",
+    "parsed_json_sha256": "2a228ff816af0fae0773a10514ec694c48e821c6301ef900f50a214cdf3ead6d",
     "effectivity_evidence": {
       "provision": "38.1",
       "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684.htm",
@@ -220,7 +223,10 @@
     "known_amended_by": [
       "59/2024/QH15",
       "118/2025/QH15"
-    ]
+    ],
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Luật118/2025 Điều4 sửa Luật Cư trú68/2020 đã sửa bởi59/2024, có nội dung nơi cư trú của người chưa thành niên. Điều11.1 hiệu lực01/07/2026; ngoại lệ01/01/2026 tại11.2 là điểm a khoản20 Điều7, không phải Điều4. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "l_11_2017_qh14",
@@ -231,10 +237,10 @@
     "issue_date": "2017-06-20",
     "effective_date": "2018-01-01",
     "issuing_body": "Quốc Hội",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-11-2017-qh14-24282/18525.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -267,7 +273,7 @@
     "normalized_source_text_sha256": "6b5bca4e7725b0717d854f3a439d35c57b677f2d802b7989c372269c234c6a77",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "2e0f7b09718807b64eb98025215bacb3676b3630f5ce243400f1e7c503f7cfbe",
+    "parsed_json_sha256": "bac82cf435c25cbce01376f7aa73e4d90b75a5c42650a09dfebf75d1c79b46f1",
     "effectivity_evidence": {
       "provision": "47.1",
       "source_url": "https://congbao.chinhphu.vn/van-ban/luat-so-11-2017-qh14-24282/18525.htm",
@@ -278,7 +284,10 @@
       "53/2024/QH15",
       "59/2024/QH15"
     ],
-    "known_future_amendment": "05/2026/QH16 effective2027-01-01"
+    "known_future_amendment": "05/2026/QH16 effective2027-01-01",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Luật53/2024 bãi bỏ điểm g khoản7 Điều7 từ01/07/2025; Luật59/2024 bổ sung từ01/01/2026 (lời dẫn VBHN). Luật05/2026 đã ban hành nhưng chỉ hiệu lực01/01/2027, chưa áp dụng sớm. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "l_79_2025_qh15",

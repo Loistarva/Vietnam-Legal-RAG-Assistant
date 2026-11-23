@@ -1,0 +1,21 @@
+[
+  {
+    "name": "repealed_2025_393",
+    "url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/2/24/393signed-1771902610647855041802.pdf",
+    "resolved_url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/2/24/393signed-1771902610647855041802.pdf",
+    "path": "data/source_documents/effectivity32_20261123/repealed_2025_393.pdf",
+    "sha256": "7733b253aad9860b78ee4cd8de2535bdf86752a99b549dd3cc55a545b4f44d3e",
+    "pages": 87,
+    "text_chars": 124443
+  },
+  {
+    "name": "repealed_2020_70",
+    "url": "https://congbao.chinhphu.vn/tai-ve-van-ban-so-70-qd-btp-33081-34472?format=pdf",
+    "error": ""
+  },
+  {
+    "name": "repealed_2025_partial",
+    "url": "https://thads.moj.gov.vn/thuathienhue/noidung/thongbao/Lists/ThongBao/Attachments/520/DMVB%20cong%20bo%20het%20hieu%20luc%20mot%20phan%20nam%202025.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

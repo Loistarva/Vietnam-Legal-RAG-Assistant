@@ -1,0 +1,23 @@
+[
+  {
+    "name": "court_inventory_2026",
+    "url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND384323",
+    "resolved_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND384323",
+    "path": "data/source_documents/effectivity32_20261123/court_inventory_2026.pdf",
+    "sha256": "06365cba98ff32161d8b55458f467db9a61c887e946511e558231dfe27b5e691",
+    "pages": 69
+  },
+  {
+    "name": "nd116_original",
+    "url": "https://vbpl.moj.gov.vn/FileData/TW/Lists/vbpq/Attachments/187830/VanBanGoc_116-ndcp.signed.pdf",
+    "error": "URLError(gaierror(11001, 'getaddrinfo failed'))"
+  },
+  {
+    "name": "ttlt01_2026_original_0",
+    "url": "https://hue.gov.vn/Portals/0/Uploads/VBPL/Nam2026/Thang7/01-ttlt-tand.pdf",
+    "resolved_url": "https://hue.gov.vn/Portals/0/Uploads/VBPL/Nam2026/Thang7/01-ttlt-tand.pdf",
+    "path": "data/source_documents/effectivity32_20261123/ttlt01_2026_original_0.pdf",
+    "sha256": "1d73a693f1f9cbec2aab527f1e58059b9ee663d9c9d91e23a7a15f175c3584d3",
+    "pages": 41
+  }
+]

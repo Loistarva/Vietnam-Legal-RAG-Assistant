@@ -1,0 +1,34 @@
+[
+  {
+    "name": "tt15_annual_repeal",
+    "url": "https://qppl.dienbien.gov.vn/qlvb/vbpq.nsf/3d0f058120469ad34725726600365420/271982ECF29F506547258ACA00281708/%24file/3dmvbhethieuluctoanbo.pdf",
+    "resolved_url": "https://qppl.dienbien.gov.vn/qlvb/vbpq.nsf/3d0f058120469ad34725726600365420/271982ECF29F506547258ACA00281708/%24file/3dmvbhethieuluctoanbo.pdf",
+    "path": "data/source_documents/effectivity32_20261123/tt15_annual_repeal.pdf",
+    "sha256": "d41297a463dbc92e4572a9e47681f76b066e89af0b92efc5c0a12cb967a95de3",
+    "pages": 21
+  },
+  {
+    "name": "l03_2026_original",
+    "url": "https://hctp.moj.gov.vn/documents/37829/0/Lua%CC%A3%CC%82t%2BHo%CC%A3%CC%82%2Bti%CC%A3ch%2Bso%CC%82%CC%81%2B03.2026_23586391086189965.pdf/1c487d92-cd85-e427-f5ea-875e4e2c46d0?download=true&t=1778220220838&version=1.0",
+    "resolved_url": "https://hctp.moj.gov.vn/documents/37829/0/Lua%CC%A3%CC%82t%2BHo%CC%A3%CC%82%2Bti%CC%A3ch%2Bso%CC%82%CC%81%2B03.2026_23586391086189965.pdf/1c487d92-cd85-e427-f5ea-875e4e2c46d0?download=true&t=1778220220838&version=1.0",
+    "path": "data/source_documents/effectivity32_20261123/l03_2026_original.pdf",
+    "sha256": "27cb12cf85d016c8a536a3d9777bec47870aec2276ccb00816bc5a882f5299f5",
+    "pages": 18
+  },
+  {
+    "name": "tgpl_consolidated",
+    "url": "https://khodulieu.sohoa.tuyenquang.gov.vn/congthongtin/media/cc14d0234dcb8c3e53b9a40347447695.pdf",
+    "resolved_url": "https://khodulieu.sohoa.tuyenquang.gov.vn/congthongtin/media/cc14d0234dcb8c3e53b9a40347447695.pdf",
+    "path": "data/source_documents/effectivity32_20261123/tgpl_consolidated.pdf",
+    "sha256": "ee0f5a88216fe3400dbe839b392ed07a73c74f6201ba58fef970bc5ec083dcdd",
+    "pages": 24
+  },
+  {
+    "name": "l05_2026_original",
+    "url": "https://quaito.dienbien.gov.vn/laws/detail/KH-Truyen-thong-ve-tro-giup-phap-ly-nam-2026-tren-dia-ban-xa-Quai-To-9918/?download=1&id=3",
+    "resolved_url": "https://quaito.dienbien.gov.vn/laws/detail/KH-Truyen-thong-ve-tro-giup-phap-ly-nam-2026-tren-dia-ban-xa-Quai-To-9918/?download=1&id=3",
+    "path": "data/source_documents/effectivity32_20261123/l05_2026_original.pdf",
+    "sha256": "bff44c4afd61d29420c982d0ae7c60871a6b4afdfebad0c3f58faccd73ca9100",
+    "pages": 10
+  }
+]

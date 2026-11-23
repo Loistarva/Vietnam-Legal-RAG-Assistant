@@ -1,0 +1,15 @@
+[
+  {
+    "name": "nd116_gov_original",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/116-ndcp.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/116-ndcp.signed.pdf",
+    "path": "data/source_documents/effectivity32_20261123/nd116_gov_original.pdf",
+    "sha256": "ca455c119cb90dbe4cc082ff1d5bde28dcb71651139795bec3e198b719569d6a",
+    "pages": 27
+  },
+  {
+    "name": "tt05_2019_original",
+    "url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/138861/VanBanGoc_TT05.2019.TT.BTP.pdf",
+    "error": "<HTTPError 403: 'Forbidden'>"
+  }
+]

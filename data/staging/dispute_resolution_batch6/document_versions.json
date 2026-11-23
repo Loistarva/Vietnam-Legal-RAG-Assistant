@@ -158,10 +158,10 @@
     "issue_date": "2019-12-05",
     "effective_date": "2020-02-03",
     "issuing_body": "Tòa Án Nhân Dân Tối Cao - Bộ Ngoại Giao",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -194,7 +194,13 @@
     "normalized_source_text_sha256": "ed9e67c74342a898f05f56ac805c0c61703cc33c081e1f51f2b1474ad9e5cd1f",
     "technical_pipeline_status": "pdf_cleaner_parser_schema_complete_article_count_passed",
     "download_status": "Official sources acquired and normalized 2026-11-18",
-    "parsed_json_sha256": "e3b0f92c5baec63b5e556050a3c79d184a69cd15ce1b599cb6878897aab64a45"
+    "parsed_json_sha256": "41c9ab16022cba938a924d4cb2daf5b368b5374aad56ff3bbccff36faf65db68",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Điều1–3 TTLT01/2026 sửa Điều3,7,17, thay cụm từ, bãi bỏ biểu mẫu và đổi hướng dẫn; khoản2 Điều4 bảo lưu hồ sơ gửi trước ngày hiệu lực. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "known_amended_by": [
+      "01/2026/TTLT-TANDTC-BNG"
+    ],
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",

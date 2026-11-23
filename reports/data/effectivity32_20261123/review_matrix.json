@@ -1,0 +1,932 @@
+{
+  "as_of_date": "2026-11-23",
+  "active_documents": 84,
+  "reviewed_candidates": 32,
+  "document_level_classified": 11,
+  "remaining_unknown": 21,
+  "legal_peer_approval": false,
+  "documents": [
+    {
+      "document_id": "tt_30_2019_tt_byt",
+      "document_number": "30/2019/TT-BYT",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2020-02-01",
+      "original_source": {
+        "name": "tt_30_2019_tt_byt",
+        "path": "data/raw_data/additional_documents/TT_30_2019_BYT.pdf",
+        "sha256": "30fbf0b68424527f695cca0361644785327bbb540350479c12fad2d8fb7bd808",
+        "url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/141539/VanBanGoc_430399.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        1
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Không nhầm việc TT30 bãi bỏ một phần TT34 với TT30 bị bãi bỏ. Cần bản thuộc tính/lịch sử hiện tại của chính TT30."
+    },
+    {
+      "document_id": "nd_06_2025_nd_cp",
+      "document_number": "06/2025/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-01-08",
+      "original_source": {
+        "name": "nd_06_2025_nd_cp",
+        "path": "data/source_pdfs/corpus_v2/nd_06_2025_nd_cp.part01.pdf",
+        "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        14
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2026-01-15",
+      "expiry_date": null,
+      "grounds": "NĐ18/2026 Điều14 thay thế quy định NĐ19/2011 đã được sửa bởi NĐ06/2025; đây là chuỗi quy định sửa đổi, không bãi bỏ toàn bộ NĐ06.",
+      "amending_or_repealing_documents": [
+        "18/2026/NĐ-CP"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw_data/additional_documents/nd_18_2026_nd_cp_congbao_61.pdf",
+          "sha256": "c36725c7df3c5e70f75fc844633d8344de7b6e8d3dedda62bd5cdacda9c4e241",
+          "url": "https://vanban.chinhphu.vn/?docid=216651&pageid=27160",
+          "pdf_pages": [
+            31,
+            32,
+            33,
+            35
+          ],
+          "locator": "Điều14 và khoản1 Điều17; cần đọc toàn Điều14 để phân biệt phiên bản trung gian."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "nd_104_2022_nd_cp",
+      "document_number": "104/2022/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2023-01-01",
+      "original_source": {
+        "name": "nd_104_2022_nd_cp",
+        "path": "data/source_pdfs/corpus_v2/nd_104_2022_nd_cp.part01.pdf",
+        "sha256": "15b057dabc31b8f3379b32be352ea3abde4306c4e52c51c38ace9d9f2e9681a0",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38392/42711-1-2022965-966104-2022-nd-cp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        11
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "CSDL lưu cũ báo hết hiệu lực một phần; cần thu văn bản gốc bãi bỏ Điều9 và ngày hiệu lực. Không suy ra scope nuôi con nuôi/hộ tịch cũng hết hiệu lực."
+    },
+    {
+      "document_id": "nd_120_2025_nd_cp",
+      "document_number": "120/2025/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-07-01",
+      "original_source": {
+        "name": "nd_120_2025_nd_cp",
+        "path": "data/source_pdfs/corpus_v2/nd_120_2025_nd_cp.part01.pdf",
+        "sha256": "0f3039356343432aad1f0b081b3ce3cb24d8c320ffbcc004a7b59e88b1f5acad",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45062/56730-1-2025777-778120-2025-nd-cp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        10,
+        12
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2025-11-01",
+      "expiry_date": null,
+      "grounds": "Bãi bỏ Điều13–17 và khoản2 Điều24. Phần này ngoài scope đang chunk; không kết luận toàn văn hết hiệu lực. Hạn01/03/2027 tại Điều23 có ngoại lệ kéo dài/thay thế sớm.",
+      "amending_or_repealing_documents": [
+        "280/2025/NĐ-CP"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/repealed_2025_393.pdf",
+          "sha256": "7733b253aad9860b78ee4cd8de2535bdf86752a99b549dd3cc55a545b4f44d3e",
+          "url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/2/24/393signed-1771902610647855041802.pdf",
+          "pdf_pages": [
+            15
+          ],
+          "locator": "Danh mục hết hiệu lực một phần, mục9; Công báo trang39."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "l_85_2025_qh15",
+      "document_number": "85/2025/QH15",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-07-01",
+      "original_source": {
+        "name": "l_85_2025_qh15",
+        "path": "data/source_pdfs/corpus_v2/l_85_2025_qh15.part01.pdf",
+        "sha256": "4ec802f21b8949ec66b9eeb312a8ad19657a288980d91d94439f369285a8911e",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45520/57597-1-2025953-95485-2025-qh15.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        5,
+        22
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "CSDL lưu cũ báo hết hiệu lực một phần; cần chốt văn bản bãi bỏ/sửa từng nhóm luật, đặc biệt phá sản và tư pháp người chưa thành niên."
+    },
+    {
+      "document_id": "tt_10_2025_tt_btp",
+      "document_number": "10/2025/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-08-04",
+      "original_source": {
+        "name": "tt_10_2025_tt_btp",
+        "path": "data/source_pdfs/corpus_v2/tt_10_2025_tt_btp.part01.pdf",
+        "sha256": "e8687415f5a3a2a0921bf74ae6f4a1f509ec475a0cacd498214ac6a548d14d14",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45321/57234-1-2025863-86410-2025-tt-btp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        4
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Nguồn CSDL lưu cũ báo còn hiệu lực từ04/08/2025; chưa có bản thuộc tính hiện tại truy xuất được. Không đồng nhất việc sửa TT10/2020 với TT10/2025 bị sửa."
+    },
+    {
+      "document_id": "tt_03_2023_tt_btp",
+      "document_number": "03/2023/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2023-08-02",
+      "original_source": {
+        "name": "tt_03_2023_tt_btp",
+        "path": "data/source_pdfs/corpus_v2/tt_03_2023_tt_btp.part01.pdf",
+        "sha256": "2e76ae0abe2baed7926e19da31adceb86bde924157bdf340cad3622ee1deba30",
+        "url": "https://hctp.moj.gov.vn/documents/37829/0/TT_03.2023.TT.BTP_18153878665282983.pdf/bc09a6d8-7108-94e2-df6f-2e6e51885949?version=1.0&t=1772787708589&download=true",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        2
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Đã có trong danh mục còn hiệu lực kỳ2021–2023; chưa đủ để xác nhận đến23/11/2026. Đối chiếu TT01/2022 và các văn bản sửa tiếp sau2025."
+    },
+    {
+      "document_id": "tt_07_2025_tt_bng",
+      "document_number": "07/2025/TT-BNG",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-07-13",
+      "original_source": {
+        "name": "tt_07_2025_tt_bng",
+        "path": "data/source_pdfs/corpus_v2/tt_07_2025_tt_bng.part01.pdf",
+        "sha256": "20e19b58a90a12306d696b3fb18d8dd24d586c8612b7c8c6d14d8ed5ff31bada",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45298/57182-1-2025857-85807-2025-tt-bng.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        3
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Cần rà chuỗi sửa đổi đăng ký hộ tịch tại cơ quan đại diện sau2025; chưa có quyết định hiệu lực hiện tại được lưu."
+    },
+    {
+      "document_id": "l_60_2014_qh13",
+      "document_number": "60/2014/QH13",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2016-01-01",
+      "original_source": {
+        "name": "l_60_2014_qh13",
+        "path": "data/source_pdfs/trial13/l_60_2014_qh13.pdf",
+        "sha256": "0fcaae3feaa15b873847ed7d5c25879e453cb95d4ccd8e077bc4aad0f478a359",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/11/5264/10513-1-201411651166-602014qh13pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        26
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Còn hiệu lực",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2027-03-01",
+      "expiry_date": "2027-03-01",
+      "grounds": "Còn hiệu lực cấp văn bản tại23/11/2026, được Luật03/2026/QH16 Điều29.1–2 ấn định thay thế từ01/03/2027. Điều30 giữ quy định cũ cho hồ sơ nhận trước mốc đó; không coi mốc này xóa toàn bộ áp dụng chuyển tiếp.",
+      "amending_or_repealing_documents": [],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/l03_2026_original.pdf",
+          "sha256": "27cb12cf85d016c8a536a3d9777bec47870aec2276ccb00816bc5a882f5299f5",
+          "url": "https://hctp.moj.gov.vn/documents/37829/0/Lua%CC%A3%CC%82t%2BHo%CC%A3%CC%82%2Bti%CC%A3ch%2Bso%CC%82%CC%81%2B03.2026_23586391086189965.pdf/1c487d92-cd85-e427-f5ea-875e4e2c46d0?download=true&t=1778220220838&version=1.0",
+          "pdf_pages": [
+            1,
+            16,
+            17
+          ],
+          "locator": "Khoản1,2 Điều29 và Điều30, đọc trực tiếp bản quét ký."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "l_52_2010_qh12",
+      "document_number": "52/2010/QH12",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2011-01-01",
+      "original_source": {
+        "name": "l_52_2010_qh12",
+        "path": "data/source_pdfs/trial13/l_52_2010_qh12.pdf",
+        "sha256": "28908d0ed78ce60fccca407f3edbd9702dddd8f3ada84d1fb24446cfe1d61113",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2010/6/2961/1192-1-2010562-563-522010qh12pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        21
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Tin Bộ Tư pháp20/11/2026 còn dùng từ dự thảo và nêu lịch01/03/2027; chưa có luật ký/số hiệu thay thế, không ghi expiry từ tin này."
+    },
+    {
+      "document_id": "l_13_2022_qh15",
+      "document_number": "13/2022/QH15",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2023-07-01",
+      "original_source": {
+        "name": "l_13_2022_qh15",
+        "path": "data/source_pdfs/trial13/l_13_2022_qh15.pdf",
+        "sha256": "0307e1d0215584ed5df73ac68bfb20b560c318a7a6021ec7a3a6802cc353ff38",
+        "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2023/4/luat13.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        33
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "CSDL lưu cũ báo còn hiệu lực, chưa xác nhận chuỗi thay đổi đến23/11/2026. Không dùng việc luật này sửa BLTTDS làm chứng cứ chính luật này bị sửa."
+    },
+    {
+      "document_id": "nd_76_2023_nd_cp",
+      "document_number": "76/2023/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2023-12-25",
+      "original_source": {
+        "name": "nd_76_2023_nd_cp",
+        "path": "data/source_pdfs/trial13/nd_76_2023_nd_cp.pdf",
+        "sha256": "d860b49935b45ed4d5194a98528c70842ce24780a11c684b4217a7c55c3fed4e",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/11/40354/46907-1-20231133-113476-2023-nd-cp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        26,
+        27,
+        44,
+        46,
+        51
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2026-04-08",
+      "expiry_date": null,
+      "grounds": "Điều16 NĐ116 sửa điểm d khoản1 Điều28, bãi bỏ điểm c,đ khoản1 và thay thời hạn tại điểm b khoản2 Điều28; chuyển tiếp tại Điều31 NĐ116.",
+      "amending_or_repealing_documents": [
+        "116/2026/NĐ-CP"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/nd116_gov_original.pdf",
+          "sha256": "ca455c119cb90dbe4cc082ff1d5bde28dcb71651139795bec3e198b719569d6a",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/4/116-ndcp.signed.pdf",
+          "pdf_pages": [
+            1,
+            8,
+            13
+          ],
+          "locator": "ChươngV/Điều16 và khoản1 Điều31; bản ký chính thức."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "nd_114_2016_nd_cp",
+      "document_number": "114/2016/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2017-01-01",
+      "original_source": {
+        "name": "nd_114_2016_nd_cp",
+        "path": "data/source_pdfs/trial13/nd_114_2016_nd_cp.pdf",
+        "sha256": "e503737ba62744c149c3f340137faec283146a886757b4f4ca16a7e70aaebde1",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/7/20467/14937-1-1142016nd-cp15018pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        6
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2025-01-08",
+      "expiry_date": null,
+      "grounds": "Thay cụm từ tại khoản2,6 Điều3 và khoản3 Điều5 theo điểm g,h khoản1 Điều2 NĐ06; không hết hiệu lực toàn Điều/Khoản.",
+      "amending_or_repealing_documents": [
+        "06/2025/NĐ-CP"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_pdfs/corpus_v2/nd_06_2025_nd_cp.part01.pdf",
+          "sha256": "dff089ba5b2ab8128c730fad4c02a56fb16f2aadff630b4294fae35dd89e4985",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/1/43808/54180-1-2025135-13606-2025-nd-cp.pdf",
+          "pdf_pages": [
+            14
+          ],
+          "locator": "Điểm g,h khoản1 Điều2; khoản1 Điều3."
+        },
+        {
+          "path": "data/source_documents/effectivity32_20261123/repealed_2025_393.pdf",
+          "sha256": "7733b253aad9860b78ee4cd8de2535bdf86752a99b549dd3cc55a545b4f44d3e",
+          "url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/2/24/393signed-1771902610647855041802.pdf",
+          "pdf_pages": [
+            29
+          ],
+          "locator": "Mục27, Công báo trang53."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "nd_15_2014_nd_cp",
+      "document_number": "15/2014/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2014-04-25",
+      "original_source": {
+        "name": "nd_15_2014_nd_cp",
+        "path": "data/source_pdfs/trial13/nd_15_2014_nd_cp.pdf",
+        "sha256": "76f4c09dec9250881d8bb9a74ac96a2fa8031597b1961db5b5a35db608066f87",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/2/6628/3438-1-2014317-318-152014nd-cppdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        9
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Phải tách hiệu lực NĐ15 khỏi Luật Hòa giải cơ sở35/2013 đã được rà ở lượt trước; chưa đủ nguồn hiện tại để kết luận."
+    },
+    {
+      "document_id": "nq_326_2016_ubtvqh14",
+      "document_number": "326/2016/UBTVQH14",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2017-01-01",
+      "original_source": {
+        "name": "nq_326_2016_ubtvqh14",
+        "path": "data/source_pdfs/corpus_v2/nq_326_2016_ubtvqh14.part01.pdf",
+        "sha256": "25b7fa97779eb34fbb8b32cc04d5a980a22d23280ae308a0f485ccfb4aa101f8",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/12/22191/16544-1-3262016ubtvqh1416723pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Cần danh mục hiện tại và văn bản sửa/bãi bỏ án phí, lệ phí. Báo cáo TAND tải về là DỰ THẢO, không dùng chốt hiệu lực."
+    },
+    {
+      "document_id": "bl_91_2015_qh13",
+      "document_number": "91/2015/QH13",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2017-01-01",
+      "original_source": {
+        "name": "bl_91_2015_qh13",
+        "path": "data/source_pdfs/corpus_v2/bl_91_2015_qh13.part01.pdf",
+        "sha256": "e8a97fb2f060f944a7d87716176de06e9fbd1d8049006797fea8185f253b5a6e",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2015/11/18397/12965-1-912015qh1313017pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Cần thuộc tính/lịch sử hiện tại của Bộ luật Dân sự91/2015; không nhầm với BLTTDS92/2015 và các luật sửa nó."
+    },
+    {
+      "document_id": "tt_09_2022_tt_btp",
+      "document_number": "09/2022/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2023-01-01",
+      "original_source": {
+        "name": "tt_09_2022_tt_btp",
+        "path": "data/source_pdfs/corpus_v2/tt_09_2022_tt_btp.part01.pdf",
+        "sha256": "a87e66710eaf77cd0bbb06abf0a1d39ca9d09c59e6169d46cc563821667a149b",
+        "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/12/38657/43277-1-2023217-21809-2022-tt-btp.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        2
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "TT bãi bỏ một số nội dung, không lấy trạng thái văn bản bị bãi bỏ làm trạng thái TT09. Danh mục2023 chưa đủ xác nhận2026."
+    },
+    {
+      "document_id": "nd_301_2026_nd_cp",
+      "document_number": "301/2026/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2026-09-01",
+      "original_source": {
+        "name": "nd_301_2026_nd_cp",
+        "path": "data/source_pdfs/corpus_v2/nd_301_2026_nd_cp.part01.pdf",
+        "sha256": "d3f1f82222565ccdfa9e3d36b09f633501cbb2eceb05e965622d2f4a3c3bc61a",
+        "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/8/12/470197-1786434405_v1_1786526065_signed.pdf",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        15,
+        16
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Nguồn gốc xác nhận ngày hiệu lực01/09/2026; chưa đủ chứng minh không bị sửa/thay tiếp sau. Cần thuộc tính/lịch sử hiện tại."
+    },
+    {
+      "document_id": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+      "document_number": "03/2016/TTLT-BTP-BNG-BCA-BLĐTBXH",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2016-04-06",
+      "original_source": {
+        "name": "ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh",
+        "path": "data/raw_data/additional_documents/corpus_v3/ttlt_03_2016_ttlt_btp_bng_bca_bldtbxh.pdf",
+        "sha256": "17630b71f7b084977d67f89009b8b358a7ba8cb3713c1a4865e9f4e01f0fc03c",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-03-2016-ttlt-btp-bng-bca-bldtbxh-19228.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        6
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Cần rà theo dõi con nuôi ở nước ngoài và thay đổi cơ cấu cơ quan; chưa có căn cứ thay thế/bãi bỏ trực tiếp đủ để chốt."
+    },
+    {
+      "document_id": "tt_66_2025_tt_bca",
+      "document_number": "66/2025/TT-BCA",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-09-04",
+      "original_source": {
+        "name": "tt_66_2025_tt_bca",
+        "path": "data/raw_data/additional_documents/central_batch1/tt_66_2025_tt_bca.pdf",
+        "sha256": "2004f0426ef578438842ffb0f85c7d0106325f9033e46971c4f5dd8e7ecece89",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-66-2025-tt-bca-45888.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        7
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Nguồn Bộ Công an xác nhận bắt đầu hiệu lực, chưa xác nhận lịch sử sau đó. Cần tra chính TT66, không lấy trạng thái Luật13/2022 thay thế."
+    },
+    {
+      "document_id": "nd_110_2025_nd_cp",
+      "document_number": "110/2025/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-07-10",
+      "original_source": {
+        "name": "nd_110_2025_nd_cp",
+        "path": "data/raw_data/additional_documents/central_batch1/nd_110_2025_nd_cp.pdf",
+        "sha256": "a7eb1877ff0dcdb9796240c000fc18a83d69164b725e070921a48eda1df641bd",
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-110-2025-nd-cp-44923.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        14
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Có dữ liệu nguồn khác ghi07/10/2025 trái ngày10/07/2025 trong corpus; không sửa theo danh mục thứ cấp. Cần đọc bản gốc và lịch sử hiện tại."
+    },
+    {
+      "document_id": "tt_01_2025_tt_btp",
+      "document_number": "01/2025/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-04-08",
+      "original_source": {
+        "name": "tt_01_2025_tt_btp",
+        "path": "data/raw_data/additional_documents/central_batch1/tt_01_2025_tt_btp.pdf",
+        "sha256": "7da493aa1d095c6922b8684072a99454b80e15e255111e3c15a92e653245f053",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-01-2025-tt-btp-44342.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        3
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "TT01 sửa TT21/2011; chưa có chứng cứ chính TT01 bị thay thế/bãi bỏ. Cần trạng thái cấp văn bản hiện tại."
+    },
+    {
+      "document_id": "tt_15_2014_tt_btp",
+      "document_number": "15/2014/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2014-07-05",
+      "original_source": {
+        "name": "tt_15_2014_tt_btp",
+        "path": "data/raw_data/additional_documents/central_batch1/tt_15_2014_tt_btp.pdf",
+        "sha256": "5498b67ee81a0a3c04d15d8d63dbd997dd9381fef25aadfbad44f4df399608e0",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        6
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Hết hiệu lực",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2020-01-01",
+      "expiry_date": "2020-01-01",
+      "grounds": "Bị bãi bỏ toàn bộ bởi TT05/2019; giữ trong active để tra cứu lịch sử, mọi chunk nhận effective_to=2020-01-01.",
+      "amending_or_repealing_documents": [
+        "05/2019/TT-BTP"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/tt15_annual_repeal.pdf",
+          "sha256": "d41297a463dbc92e4572a9e47681f76b066e89af0b92efc5c0a12cb967a95de3",
+          "url": "https://qppl.dienbien.gov.vn/qlvb/vbpq.nsf/3d0f058120469ad34725726600365420/271982ECF29F506547258ACA00281708/%24file/3dmvbhethieuluctoanbo.pdf",
+          "pdf_pages": [
+            11
+          ],
+          "locator": "Danh mục hết hiệu lực toàn bộ, dòng44."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "tt_08_2025_tt_btp",
+      "document_number": "08/2025/TT-BTP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-07-01",
+      "original_source": {
+        "name": "tt_08_2025_tt_btp",
+        "path": "data/raw_data/additional_documents/foreign_civil_registration_batch3/tt_08_2025_tt_btp.pdf",
+        "sha256": "3ce735df8d1845a9d8fdc5982385abc7d2a39c0b021182b3231a6d1faf9d3cb9",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-08-2025-tt-btp-45197.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        10
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Điều23 có hạn01/03/2027 với ngoại lệ kéo dài/thay thế sớm. Không ghi expiry cứng hay hết hiệu lực chỉ từ nhãn trang tổng hợp."
+    },
+    {
+      "document_id": "nd_282_2025_nd_cp",
+      "document_number": "282/2025/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2025-12-15",
+      "original_source": {
+        "name": "nd_282_2025_nd_cp",
+        "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_282_2025_nd_cp.pdf",
+        "sha256": "5c365e82a35911b5b7f26d29d860147f4d27c122c10ee6658f7afbe1ca64791c",
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-282-2025-nd-cp-46543.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        55
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2026-09-15",
+      "expiry_date": null,
+      "grounds": "ChươngIV NĐ347 sửa NĐ282; Điều33 thay khoản6 Điều3 và các Điều34–39 sửa/bãi bỏ thêm phạm vi khác. Mốc Điều41.1; không gán hết hiệu lực toàn văn.",
+      "amending_or_repealing_documents": [
+        "347/2026/NĐ-CP"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_347_2026_nd_cp.pdf",
+          "sha256": "4b3903b69077aa52a15eac23f40ff27bb84cce799e78d5efd8d3486025c3df21",
+          "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+          "pdf_pages": [
+            17,
+            18,
+            19,
+            21
+          ],
+          "locator": "ChươngIV, Điều33–39 và Điều41; ngoại lệ Điều41.2 thuộc nhóm PCCC, không áp dụng Điều33."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "nd_347_2026_nd_cp",
+      "document_number": "347/2026/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2026-09-15",
+      "original_source": {
+        "name": "nd_347_2026_nd_cp",
+        "path": "data/raw_data/additional_documents/domestic_violence_batch5/nd_347_2026_nd_cp.pdf",
+        "sha256": "4b3903b69077aa52a15eac23f40ff27bb84cce799e78d5efd8d3486025c3df21",
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-347-2026-nd-cp-470418.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        13
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Điều41.2 có nhóm quy định hiệu lực khác mốc15/09/2026; ngày đầu không chứng minh toàn bộ hiện hành. Giữ unknown, cần rà cấp điều."
+    },
+    {
+      "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
+      "document_number": "01/2019/TTLT-TANDTC-BNG",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2020-02-03",
+      "original_source": {
+        "name": "ttlt_01_2019_ttlt_tandtc_bng",
+        "path": "data/raw_data/additional_documents/dispute_resolution_batch6/ttlt_01_2019_ttlt_tandtc_bng.pdf",
+        "sha256": "fbd73c2e0ad5d6695f700d3d95f951798668f2c5411480ab21265f9a13c7e3ed",
+        "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-lien-tich-so-01-2019-ttlt-tandtc-bng-30202.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        8
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2026-06-01",
+      "expiry_date": null,
+      "grounds": "Điều1–3 TTLT01/2026 sửa Điều3,7,17, thay cụm từ, bãi bỏ biểu mẫu và đổi hướng dẫn; khoản2 Điều4 bảo lưu hồ sơ gửi trước ngày hiệu lực.",
+      "amending_or_repealing_documents": [
+        "01/2026/TTLT-TANDTC-BNG"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/ttlt01_2026_original_0.pdf",
+          "sha256": "1d73a693f1f9cbec2aab527f1e58059b9ee663d9c9d91e23a7a15f175c3584d3",
+          "url": "https://hue.gov.vn/Portals/0/Uploads/VBPL/Nam2026/Thang7/01-ttlt-tand.pdf",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "locator": "Bản ký TTLT01/2026 nằm trang1–9; phần hợp nhất tiếp sau không phải văn bản mới độc lập."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "l_102_2025_qh15",
+      "document_number": "102/2025/QH15",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2026-07-01",
+      "original_source": {
+        "name": "l_102_2025_qh15",
+        "path": "data/raw_data/additional_documents/dispute_resolution_batch6/l_102_2025_qh15.pdf",
+        "sha256": "9b43a7aeab6d73fa2c34aee86028808c905dd174d9db4d32d84a0f38917995a7",
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-102-2025-qh15-468664.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        9
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Luật tương trợ tư pháp dân sự hiệu lực01/07/2026; nguồn gốc chưa đủ chứng minh toàn bộ hiện tại. Cần lịch sử và quy định chuyển tiếp."
+    },
+    {
+      "document_id": "nd_158_2026_nd_cp",
+      "document_number": "158/2026/NĐ-CP",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2026-07-01",
+      "original_source": {
+        "name": "nd_158_2026_nd_cp",
+        "path": "data/raw_data/additional_documents/dispute_resolution_batch6/nd_158_2026_nd_cp.pdf",
+        "sha256": "5de0e6f9daa678c89facffe256d850eaafa79a8a8da1cfc2936d94560b58fb49",
+        "url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-158-2026-nd-cp-469548.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        8
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "unresolved",
+      "resulting_status": "Không xác định",
+      "next_action": "Nguồn cơ quan nhà nước ghi khác ngày ban hành15/05 và16/05/2026; cần ưu tiên bản ký, không đổi ngày theo danh sách. Chưa chốt hiệu lực hiện tại."
+    },
+    {
+      "document_id": "l_24_2008_qh12",
+      "document_number": "24/2008/QH12",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2009-07-01",
+      "original_source": {
+        "name": "l_24_2008_qh12",
+        "path": "data/raw_data/additional_documents/gap_completion_batch8/l_24_2008_qh12.pdf",
+        "sha256": "0823beac5a297b1f38e18ec754af03dbabc54ea5a381a8e34e5d455a8475c841",
+        "url": "https://vanban.chinhphu.vn/?docid=81141&pageid=27160",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        11
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2025-07-01",
+      "expiry_date": null,
+      "grounds": "Luật79/2025 Điều1 sửa Luật Quốc tịch24/2008 đã sửa bởi56/2014; Điều2.1 hiệu lực01/07/2025, Điều3 chuyển tiếp. Chưa hoàn thành temporal từng điều.",
+      "amending_or_repealing_documents": [
+        "56/2014/QH13",
+        "79/2025/QH15"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_pdfs/gap_completion_batch8/l_79_2025_qh15.part01.pdf",
+          "sha256": "c3325e44100d1afe1399ecba78ab2431b3f7c212640d6fe9b3584daefa8c1825",
+          "url": "https://congbao.chinhphu.vn/van-ban/luat-so-79-2025-qh15-45509.htm",
+          "pdf_pages": [
+            1,
+            10
+          ],
+          "locator": "Lời dẫn/Điều1 và khoản1 Điều2, Điều3."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "l_68_2020_qh14",
+      "document_number": "68/2020/QH14",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2021-07-01",
+      "original_source": {
+        "name": "l_68_2020_qh14",
+        "path": "data/raw_data/additional_documents/gap_completion_batch8/l_68_2020_qh14.pdf",
+        "sha256": "4f781987f6db709067bce5ffd4d27ab9446a94633c7dab7e2745acad8c6f9c40",
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-68-2020-qh14-32684.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        18
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2026-07-01",
+      "expiry_date": null,
+      "grounds": "Luật118/2025 Điều4 sửa Luật Cư trú68/2020 đã sửa bởi59/2024, có nội dung nơi cư trú của người chưa thành niên. Điều11.1 hiệu lực01/07/2026; ngoại lệ01/01/2026 tại11.2 là điểm a khoản20 Điều7, không phải Điều4.",
+      "amending_or_repealing_documents": [
+        "59/2024/QH15",
+        "118/2025/QH15"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_pdfs/gap_completion_batch8/l_118_2025_qh15.part01.pdf",
+          "sha256": "5f8d088496958e23d8f86b91876a4a932f92187ef970f176e07869be97d0ad1d",
+          "url": "https://congbao.chinhphu.vn/van-ban/luat-so-118-2025-qh15-468680.htm",
+          "pdf_pages": [
+            1,
+            10,
+            11,
+            12,
+            28
+          ],
+          "locator": "Lời dẫn, Điều4 và khoản1,2 Điều11."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    },
+    {
+      "document_id": "l_11_2017_qh14",
+      "document_number": "11/2017/QH14",
+      "as_of_date": "2026-11-23",
+      "previous_status": "Không xác định",
+      "initial_effective_date": "2018-01-01",
+      "original_source": {
+        "name": "l_11_2017_qh14",
+        "path": "data/raw_data/additional_documents/gap_completion_batch8/l_11_2017_qh14.pdf",
+        "sha256": "23c8ce4cc2665f29a319ea67fdc034bd23e6c2d2eb996434a9ac15acfca569e7",
+        "url": "https://congbao.chinhphu.vn/van-ban/luat-so-11-2017-qh14-24282/18525.htm",
+        "kind": "original_normative_document"
+      },
+      "initial_date_evidence_pages": [
+        16,
+        17
+      ],
+      "initial_date_review": "Text extraction candidates only; absence or a matching page is not a completed legal verification.",
+      "decision": "document_level_classified",
+      "resulting_status": "Sửa đổi bổ sung",
+      "next_action": "Rà cấp điều/khoản và toàn bộ chuỗi thay đổi tiếp theo; trạng thái cấp văn bản không phải phê duyệt pháp lý toàn corpus.",
+      "change_effective_date": "2025-07-01",
+      "expiry_date": null,
+      "grounds": "Luật53/2024 bãi bỏ điểm g khoản7 Điều7 từ01/07/2025; Luật59/2024 bổ sung từ01/01/2026 (lời dẫn VBHN). Luật05/2026 đã ban hành nhưng chỉ hiệu lực01/01/2027, chưa áp dụng sớm.",
+      "amending_or_repealing_documents": [
+        "53/2024/QH15",
+        "59/2024/QH15"
+      ],
+      "evidence": [
+        {
+          "path": "data/source_documents/effectivity32_20261123/repealed_2025_393.pdf",
+          "sha256": "7733b253aad9860b78ee4cd8de2535bdf86752a99b549dd3cc55a545b4f44d3e",
+          "url": "https://congbao.cdnchinhphu.vn/180507251028987904/2026/2/24/393signed-1771902610647855041802.pdf",
+          "pdf_pages": [
+            58
+          ],
+          "locator": "Mục43, Công báo trang82."
+        },
+        {
+          "path": "data/source_documents/effectivity32_20261123/tgpl_consolidated.pdf",
+          "sha256": "ee0f5a88216fe3400dbe839b392ed07a73c74f6201ba58fef970bc5ec083dcdd",
+          "url": "https://khodulieu.sohoa.tuyenquang.gov.vn/congthongtin/media/cc14d0234dcb8c3e53b9a40347447695.pdf",
+          "pdf_pages": [
+            1
+          ],
+          "locator": "Lời dẫn VBHN luật trợ giúp pháp lý; hai văn bản sửa đổi và ngày hiệu lực."
+        },
+        {
+          "path": "data/source_documents/effectivity32_20261123/l05_2026_original.pdf",
+          "sha256": "bff44c4afd61d29420c982d0ae7c60871a6b4afdfebad0c3f58faccd73ca9100",
+          "url": "https://quaito.dienbien.gov.vn/laws/detail/KH-Truyen-thong-ve-tro-giup-phap-ly-nam-2026-tren-dia-ban-xa-Quai-To-9918/?download=1&id=3",
+          "pdf_pages": [
+            1,
+            10
+          ],
+          "locator": "Điều3 của Luật05/2026: hiệu lực01/01/2027, xác nhận bằng bản quét."
+        }
+      ],
+      "provision_review": "pending; external evidence PDFs are not ingested/chunked automatically"
+    }
+  ]
+}

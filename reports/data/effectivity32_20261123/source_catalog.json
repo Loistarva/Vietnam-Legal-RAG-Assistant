@@ -1,0 +1,52 @@
+[
+  {
+    "path": "data/source_documents/effectivity32_20261123/court_inventory_2026.pdf",
+    "sha256": "06365cba98ff32161d8b55458f467db9a61c887e946511e558231dfe27b5e691",
+    "kind": "DRAFT_NOT_DECISION_EVIDENCE"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/l03_2026_original.pdf",
+    "sha256": "27cb12cf85d016c8a536a3d9777bec47870aec2276ccb00816bc5a882f5299f5",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/l05_2026_original.pdf",
+    "sha256": "bff44c4afd61d29420c982d0ae7c60871a6b4afdfebad0c3f58faccd73ca9100",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/l_52_2010_properties.html",
+    "sha256": "3dc4228bb977af76f1008b1ed4c41868b72016a31421623b6b3fb9dc0cd43637",
+    "kind": "retrieval_only_NOT_EFFECTIVITY_EVIDENCE"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/nd116_gov_original.pdf",
+    "sha256": "ca455c119cb90dbe4cc082ff1d5bde28dcb71651139795bec3e198b719569d6a",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/repealed_2025_393.pdf",
+    "sha256": "7733b253aad9860b78ee4cd8de2535bdf86752a99b549dd3cc55a545b4f44d3e",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/tgpl_consolidated.pdf",
+    "sha256": "ee0f5a88216fe3400dbe839b392ed07a73c74f6201ba58fef970bc5ec083dcdd",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/tt15_annual_repeal.pdf",
+    "sha256": "d41297a463dbc92e4572a9e47681f76b066e89af0b92efc5c0a12cb967a95de3",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/ttlt01_2026_original_0.pdf",
+    "sha256": "1d73a693f1f9cbec2aab527f1e58059b9ee663d9c9d91e23a7a15f175c3584d3",
+    "kind": "original_or_official_inventory_evidence"
+  },
+  {
+    "path": "data/source_documents/effectivity32_20261123/ttlt01_2026_page.html",
+    "sha256": "9da1dfc282623273ae96aaf8bb3b30f0ae00b26b205b2e8b7cdded614326ef42",
+    "kind": "retrieval_only_NOT_EFFECTIVITY_EVIDENCE"
+  }
+]

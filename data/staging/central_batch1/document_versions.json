@@ -402,10 +402,10 @@
     "issue_date": "2014-05-20",
     "effective_date": "2014-07-05",
     "issuing_body": "Bộ Tư Pháp",
-    "validity_status": "Không xác định",
-    "expiry_date": null,
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2020-01-01",
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Hết hiệu lực toàn bộ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -432,7 +432,13 @@
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
     "production_ingest_allowed": true,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "406b7707ff01d86a173e1f1fb240c50c2c22825cbbd5b81c324ebb297467fa33"
+    "parsed_json_sha256": "6ba892615d9bccf38a09e8f0ec43c56c36876e7b37cdb038ebbeaca135fb3060",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Bị bãi bỏ toàn bộ bởi TT05/2019; giữ trong active để tra cứu lịch sử, mọi chunk nhận effective_to=2020-01-01. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
+    "known_amended_by": [
+      "05/2019/TT-BTP"
+    ],
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "tt_21_2011_tt_btp",

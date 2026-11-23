@@ -1,0 +1,77 @@
+{
+  "method": "PyMuPDF page renders inspected with view_image; scanned laws read visually",
+  "reviewed": [
+    {
+      "source": "tt15_annual_repeal.pdf",
+      "pages": [
+        11
+      ]
+    },
+    {
+      "source": "repealed_2025_393.pdf",
+      "pages": [
+        15,
+        29,
+        58
+      ]
+    },
+    {
+      "source": "l03_2026_original.pdf",
+      "pages": [
+        1,
+        16,
+        17
+      ]
+    },
+    {
+      "source": "l05_2026_original.pdf",
+      "pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "source": "nd116_gov_original.pdf",
+      "pages": [
+        1,
+        8,
+        13
+      ]
+    },
+    {
+      "source": "ttlt01_2026_original_0.pdf",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "source": "tgpl_consolidated.pdf",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "source": "data/source_pdfs/gap_completion_batch8/l_79_2025_qh15.part01.pdf",
+      "pages": [
+        10
+      ]
+    },
+    {
+      "source": "data/source_pdfs/gap_completion_batch8/l_118_2025_qh15.part01.pdf",
+      "pages": [
+        28
+      ]
+    },
+    {
+      "source": "data/source_pdfs/domestic_violence_batch5/nd_347_2026_nd_cp.part01.pdf",
+      "pages": [
+        17
+      ]
+    }
+  ],
+  "limitation": "Page review verifies cited grounds, not every provision or every original effective date in all32 documents."
+}

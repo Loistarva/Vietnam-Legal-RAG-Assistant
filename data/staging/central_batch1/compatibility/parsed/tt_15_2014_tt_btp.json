@@ -7,10 +7,10 @@
     "issue_date": "2014-05-20",
     "effective_date": "2014-07-05",
     "issuing_body": "Bộ Tư Pháp",
-    "validity_status": "Không xác định",
-    "expiry_date": null,
+    "validity_status": "Hết hiệu lực",
+    "expiry_date": "2020-01-01",
     "source_url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-15-2014-tt-btp-10569.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Hết hiệu lực toàn bộ",
     "provision_status": "requires_review"
   },
   "articles": [

@@ -1143,10 +1143,12 @@
     "issue_date": "2025-01-08",
     "effective_date": "2025-01-08",
     "issuing_body": "Chính phủ",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
-    "validity_status": "Không xác định",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
-    "known_amended_by": [],
+    "known_amended_by": [
+      "18/2026/NĐ-CP"
+    ],
     "changes_documents": [
       "nd_19_2011_nd_cp",
       "nd_24_2019_nd_cp",
@@ -1170,8 +1172,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_06_2025_nd_cp.pdf",
     "ingest_pdf_sha256": "8311d646c0d31866875fc94f85460b0061069ffda1257721bedfcdde3ca63ce4",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-16",
-    "verification_scope": "Nguồn nhà nước, số hiệu, ngày ban hành/hiệu lực ban đầu và kiểm tra PDF. Chưa xác nhận toàn bộ lịch sử hiệu lực hiện tại hoặc cập nhật effective_to cấp điều/khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: NĐ18/2026 Điều14 thay thế quy định NĐ19/2011 đã được sửa bởi NĐ06/2025; đây là chuỗi quy định sửa đổi, không bãi bỏ toàn bộ NĐ06. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "trial_only": true,
     "production_ingest_allowed": false,
     "ingest_gate": [
@@ -1199,7 +1201,8 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_06_2025_nd_cp.txt",
-    "parsed_json_sha256": "8932c61eaee982b4eada079102d1830189635868ba50b05e8c8c8e111c5380d7"
+    "parsed_json_sha256": "89e6cd5cbcb448d8ed91d84ec1dc28f2a1cd9444610f8abc0a12f4574022ab71",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "tt_07_2023_tt_btp",
@@ -1410,10 +1413,12 @@
     "issue_date": "2025-06-11",
     "effective_date": "2025-07-01",
     "issuing_body": "Chính phủ",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
-    "validity_status": "Không xác định",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
-    "known_amended_by": [],
+    "known_amended_by": [
+      "280/2025/NĐ-CP"
+    ],
     "changes_documents": [],
     "source_artifacts": [
       {
@@ -1433,8 +1438,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_120_2025_nd_cp.pdf",
     "ingest_pdf_sha256": "5b64f7951ea6763f88fe428e666f44ee5f0b92e6fb7f2e444988b412bc15f464",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-16",
-    "verification_scope": "Nguồn nhà nước, số hiệu, ngày ban hành/hiệu lực ban đầu và kiểm tra PDF. Chưa xác nhận toàn bộ lịch sử hiệu lực hiện tại hoặc cập nhật effective_to cấp điều/khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Bãi bỏ Điều13–17 và khoản2 Điều24. Phần này ngoài scope đang chunk; không kết luận toàn văn hết hiệu lực. Hạn01/03/2027 tại Điều23 có ngoại lệ kéo dài/thay thế sớm. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "trial_only": true,
     "production_ingest_allowed": false,
     "ingest_gate": [
@@ -1477,7 +1482,8 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_120_2025_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_120_2025_nd_cp.txt",
-    "parsed_json_sha256": "322cdfaac10f40608d0619d0a815f3a23ac2d5fc53350e4442f2740cd9464970"
+    "parsed_json_sha256": "122184273c4f4b8867649c8742a0b39a161e4178a4d982235a25f557abeaabdb",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "l_85_2025_qh15",
@@ -2271,10 +2277,10 @@
     "title": "LUẬT HỘ TỊCH",
     "issue_date": "2014-11-20",
     "effective_date": "2016-01-01",
-    "expiry_date": null,
+    "expiry_date": "2027-03-01",
     "issuing_body": "Quốc hội",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Còn hiệu lực",
+    "source_status": "Còn hiệu lực",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=178129",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2014/11/5264/10513-1-201411651166-602014qh13pdf",
@@ -2283,8 +2289,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/l_60_2014_qh13.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Còn hiệu lực cấp văn bản tại23/11/2026, được Luật03/2026/QH16 Điều29.1–2 ấn định thay thế từ01/03/2027. Điều30 giữ quy định cũ cho hồ sơ nhận trước mốc đó; không coi mốc này xóa toàn bộ áp dụng chuyển tiếp. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "trial_only": true,
     "file_code": "L05",
     "production_ingest_allowed": false,
@@ -2300,7 +2306,8 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_60_2014_qh13.json",
     "cleaned_text_path": "parser/cleaned_texts/l_60_2014_qh13.txt",
-    "parsed_json_sha256": "16856843f477bb797c5ae2b1c3fbe28244cc968810984cde0953d40f513e45d7"
+    "parsed_json_sha256": "ca03bfb13205c4062f98dd6283e39d8a11ab6806438d2f4125487cabea481ee7",
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "l_52_2010_qh12",
@@ -2524,8 +2531,8 @@
     "effective_date": "2023-12-25",
     "expiry_date": null,
     "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=208906",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/11/40354/46907-1-20231133-113476-2023-nd-cp.pdf",
@@ -2534,8 +2541,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_76_2023_nd_cp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Điều16 NĐ116 sửa điểm d khoản1 Điều28, bãi bỏ điểm c,đ khoản1 và thay thời hạn tại điểm b khoản2 Điều28; chuyển tiếp tại Điều31 NĐ116. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "trial_only": true,
     "file_code": "ND18",
     "production_ingest_allowed": false,
@@ -2551,7 +2558,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_76_2023_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_76_2023_nd_cp.txt",
-    "parsed_json_sha256": "4f6d7bce3ae9f1540286b2a2326e653ea195e839cb9dbe2d7be277e13b786f92"
+    "parsed_json_sha256": "a8180615c09a5ec9e107acb529b000547f7f90611810ffafcc1508ff85bd9105",
+    "known_amended_by": [
+      "116/2026/NĐ-CP"
+    ],
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "nd_114_2016_nd_cp",
@@ -2562,8 +2573,8 @@
     "effective_date": "2017-01-01",
     "expiry_date": null,
     "issuing_body": "Chính phủ",
-    "validity_status": "Không xác định",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "validity_status": "Sửa đổi bổ sung",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "source_url": "https://vanban.chinhphu.vn/?pageid=27160&docid=185624",
     "pdf_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2016/7/20467/14937-1-1142016nd-cp15018pdf",
@@ -2572,8 +2583,8 @@
     "ingest_pdf_path": "data/raw_data/additional_documents/corpus_v2/nd_114_2016_nd_cp.pdf",
     "origin": "retained_trial13",
     "download_status": "downloaded_normalized_roundtrip_verified",
-    "verified_at": "2026-11-13",
-    "verification_scope": "Số hiệu, ngày ban hành/hiệu lực ban đầu, cấu trúc Điều. Chưa xác minh hiệu lực hiện tại và sửa đổi cấp Điều/Khoản.",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Đối chiếu nguồn chính thức: Thay cụm từ tại khoản2,6 Điều3 và khoản3 Điều5 theo điểm g,h khoản1 Điều2 NĐ06; không hết hiệu lực toàn Điều/Khoản. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "trial_only": true,
     "file_code": "ND19",
     "production_ingest_allowed": false,
@@ -2589,7 +2600,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_114_2016_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_114_2016_nd_cp.txt",
-    "parsed_json_sha256": "e5d9ccdd0b15c51b18e48f4a3def75e07ddacc5a479821f2794898115d02672d"
+    "parsed_json_sha256": "b9261211a0af730b09a403de4abe78988eeccbeda81b1d6b4480762e55a0452b",
+    "known_amended_by": [
+      "06/2025/NĐ-CP"
+    ],
+    "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
   },
   {
     "document_id": "nd_15_2014_nd_cp",

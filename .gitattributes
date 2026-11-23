@@ -2,6 +2,10 @@
 *.pdf binary
 *.zip binary
 
+# Preserve effectivity-review source bytes and reproducible report text.
+data/source_documents/effectivity32_20261123/* -text -diff
+reports/data/effectivity32_20261123/** text eol=lf
+
 # Derived JSON checksums use exact UTF-8 LF bytes on every platform.
 parser/parsed_jsons/*.json text eol=lf
 data/staging/*/compatibility/parsed/*.json text eol=lf

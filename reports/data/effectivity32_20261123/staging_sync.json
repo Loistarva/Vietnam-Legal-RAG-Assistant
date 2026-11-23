@@ -1,0 +1,21 @@
+[
+  "data/staging/central_batch1/document_versions.json",
+  "data/staging/corpus_v2/document_versions.json",
+  "data/staging/dispute_resolution_batch6/document_versions.json",
+  "data/staging/domestic_violence_batch5/document_versions.json",
+  "data/staging/gap_completion_batch8/document_versions.json",
+  "data/staging/central_batch1/compatibility/document_versions.json",
+  "data/staging/central_batch1/compatibility/parsed/tt_15_2014_tt_btp.json",
+  "data/staging/corpus_v3/compatibility/document_versions.json",
+  "data/staging/dispute_resolution_batch6/compatibility/document_versions.json",
+  "data/staging/dispute_resolution_batch6/compatibility/parsed/ttlt_01_2019_ttlt_tandtc_bng.json",
+  "data/staging/domestic_violence_batch5/compatibility/document_versions.json",
+  "data/staging/domestic_violence_batch5/compatibility/parsed/nd_282_2025_nd_cp.json",
+  "data/staging/foreign_civil_registration_batch3/compatibility/document_versions.json",
+  "data/staging/gap_completion_batch8/compatibility/document_versions.json",
+  "data/staging/gap_completion_batch8/compatibility/parsed/l_11_2017_qh14.json",
+  "data/staging/gap_completion_batch8/compatibility/parsed/l_24_2008_qh12.json",
+  "data/staging/gap_completion_batch8/compatibility/parsed/l_68_2020_qh14.json",
+  "data/staging/history_batch2/compatibility/document_versions.json",
+  "data/staging/local_documents_batch7/compatibility/document_versions.json"
+]
