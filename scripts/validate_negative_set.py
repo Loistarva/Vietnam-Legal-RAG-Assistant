@@ -71,8 +71,29 @@ def validate_manifest(manifest):
         raise ValueError("Baseline must be a full Git SHA")
     if not isinstance(manifest.get("dataset_canonical_sha256"), str) or not SHA256.fullmatch(manifest["dataset_canonical_sha256"]):
         raise ValueError("Invalid dataset hash")
-    if manifest.get("review_status") != "pending_peer_review" or manifest.get("reviewers_required") != ["Dev 2", "Tech Lead"]:
-        raise ValueError("This pre-review v1 artifact must not claim completed review")
+    if manifest.get("reviewers_required") != ["Dev 2", "Tech Lead"]:
+        raise ValueError("Required reviewers must remain Dev 2 and Tech Lead")
+    review_status = manifest.get("review_status")
+    progress = manifest.get("review_progress")
+    if review_status == "pending_peer_review":
+        if not isinstance(progress, dict) or progress.get("pending") != ["Dev 2", "Tech Lead final dataset review"]:
+            raise ValueError("Pending review status must list both outstanding reviewers")
+    elif review_status == "reviewed_by_dev2_pending_tech_lead":
+        if (not isinstance(progress, dict) or not progress.get("completed") or
+                progress.get("pending") != ["Tech Lead final dataset review"] or
+                progress.get("reviewed_dataset_sha256") != manifest["dataset_canonical_sha256"]):
+            raise ValueError("Dev 2 review must be tied to the current canonical dataset SHA; Tech Lead must remain pending")
+    elif review_status == "peer_reviewed":
+        completed = progress.get("completed", []) if isinstance(progress, dict) else []
+        if (not isinstance(progress, dict) or len(completed) < 2 or
+                not any(item.startswith("Dev 2 ") for item in completed) or
+                not any(item.startswith("Tech Lead ") for item in completed) or
+                progress.get("pending") != [] or
+                progress.get("reviewed_dataset_sha256") != manifest["dataset_canonical_sha256"] or
+                not valid_date(progress.get("signed_off_on"))):
+            raise ValueError("Peer review sign-off must include Dev 2 and Tech Lead on the current canonical dataset SHA")
+    else:
+        raise ValueError("Unsupported or prematurely completed review status")
     count, labels = manifest.get("question_count"), manifest.get("label_counts")
     if type(count) is not int or not 20 <= count <= 30 or not isinstance(labels, dict) or set(labels) != set(POLICIES):
         raise ValueError("Invalid manifest counts/groups")

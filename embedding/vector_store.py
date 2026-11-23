@@ -14,6 +14,7 @@ from typing import Any, Dict, List, Optional, Sequence
 
 from retrieval.temporal import is_effective_at as _is_effective_at
 from retrieval.temporal import normalize_as_of_date, normalize_date
+from retrieval.metadata_filters import metadata_matches, normalize_metadata_filters
 
 try:
     from qdrant_client import QdrantClient
@@ -489,13 +490,17 @@ class LegalVectorStore:
         # No explicit date means today's date; `exclude_expired` remains accepted for
         # backwards compatibility but is no longer the legal validity rule.
         as_of_str = normalize_as_of_date(as_of_date)
+        metadata_filters = normalize_metadata_filters(filters)
 
         if self.use_qdrant and self.client is not None:
             # Lọc trước trong Qdrant (E1) nên lấy đúng top_k; vòng lặp dưới chỉ kiểm lại
-            query_filter = (
-                self.build_active_legal_filter(as_of_date=as_of_str)
-                if as_of_str else None
-            )
+            temporal_filter = self.build_active_legal_filter(as_of_date=as_of_str) if as_of_str else None
+            metadata_conditions = []
+            for key, value in metadata_filters.items():
+                payload_key = key if key in {"document_id", "article_id", "clause_id"} else f"metadata.{key}"
+                metadata_conditions.append(FieldCondition(key=payload_key, match=MatchValue(value=value)))
+            query_filter = Filter(must=[*([temporal_filter] if temporal_filter is not None else []),
+                                        *metadata_conditions]) if (temporal_filter is not None or metadata_conditions) else None
             fetch_k = top_k
             if hasattr(self.client, "query_points"):
                 response = self.client.query_points(
@@ -518,7 +523,7 @@ class LegalVectorStore:
             filtered_hits = []
             for hit in hits:
                 payload = hit.payload or {}
-                if not is_effective_at(payload, as_of_str):
+                if not is_effective_at(payload, as_of_str) or not metadata_matches(payload, metadata_filters):
                     continue
 
                 filtered_hits.append(self._format_hit(payload, rank=len(filtered_hits) + 1, score=float(hit.score)))
@@ -530,7 +535,7 @@ class LegalVectorStore:
         candidates = []
         for item in self._memory_records:
             rec = item["record"]
-            if not is_effective_at(rec, as_of_str):
+            if not is_effective_at(rec, as_of_str) or not metadata_matches(rec, metadata_filters):
                 continue
 
             score = _cosine_similarity(query_vector, item["vector"])

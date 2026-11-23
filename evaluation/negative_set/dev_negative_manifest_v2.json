@@ -1,13 +1,28 @@
 {
   "dataset_version": "dev_negative_v2",
+  "active_selection": {
+    "selected_by": "project owner (user confirmation)",
+    "selected_on": "2026-11-17",
+    "note": "Selected as the active Negative Set version on 2026-11-17. Peer review/sign-off is recorded separately in review_progress."
+  },
   "created_on": "2026-11-08",
   "as_of_date": "2026-10-15",
   "purpose": "Development router, evidence-abstention and clarification calibration; not official A/B or Test",
-  "review_status": "pending_peer_review",
+  "review_status": "peer_reviewed",
   "reviewers_required": [
     "Dev 2",
     "Tech Lead"
   ],
+  "review_progress": {
+    "completed": [
+      "Dev 2 (reported by project owner on 2026-11-17; reviewed canonical dataset SHA 5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f)",
+      "Tech Lead (sign-off reported by project owner on 2026-11-17; approved canonical dataset SHA 5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f)"
+    ],
+    "pending": [],
+    "reviewed_dataset_sha256": "5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f",
+    "signed_off_on": "2026-11-17",
+    "note": "Project owner confirmed Dev 2's independent review and Tech Lead sign-off. Both approvals are tied to the canonical dataset SHA above."
+  },
   "authorship": "New synthetic scenarios authored for D1.5; not sampled or paraphrased from benchmark questions",
   "question_count": 26,
   "label_counts": {
@@ -16,7 +31,8 @@
     "missing_corpus_evidence": 6,
     "insufficient_facts": 6
   },
-  "dataset_canonical_sha256": "735f2bf172fc40dc682ed9cd608e46cc9e0ec1762a26356f81e8553142f19ff0",
+  "dataset_canonical_sha256": "5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f",
+  "dataset_hash_policy": "Canonical JSON SHA-256: parse JSONL records, serialize the full record list with ensure_ascii=false, sort_keys=true, separators=(',', ':'), append one LF, then hash UTF-8 bytes. Reviewers should identify the reviewed dataset by this canonical SHA, not by the raw-file SHA.",
   "baseline_git_sha": "fc666421fb50d394d11df2368303031092a30578",
   "baseline_files_git_sha256": {
     "data/reference/document_versions.json": "3d8cc357107b3ed76d40e3ee5dadbbc8a4c07492dc19d41e9199725d8b452694",
@@ -62,6 +78,16 @@
     "NEG_DEV_025",
     "NEG_DEV_026"
   ],
+  "policy_decisions": [
+    {
+      "id": "NEG_DEV_026",
+      "decision": "Chỉ hỏi cấu thành tội/khung hình phạt về bạo lực gia đình: legal_out_of_scope + policy_abstention; chỉ hỏi biện pháp/quyền/nghĩa vụ HNGĐ: legal_in_scope; hỏi cả hai: mixed_legal_scope.",
+      "confirmed_by": "project owner (user confirmation)",
+      "confirmed_on": "2026-11-17",
+      "independent_dataset_review": "peer_reviewed",
+      "reviewed_dataset_sha256": "5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f"
+    }
+  ],
   "coverage_review": {
     "date": "2026-11-08",
     "registry_documents": 28,
@@ -71,6 +97,6 @@
       "60/2014/QH13",
       "326/2016/UBTVQH14"
     ],
-    "note": "Checked registry and corpus primary document identities on pinned testing, not just hashes. New decrees ND87/2020, ND07/2025, ND18/2026 and TT04/2024 are related evidence, not the requested primary documents. Boundary labels remain proposals."
+    "note": "Checked registry and corpus primary document identities on pinned testing, not just hashes. New decrees ND87/2020, ND07/2025, ND18/2026 and TT04/2024 are related evidence, not the requested primary documents. Dev4 confirmed NEG_DEV_025 as civil inheritance out of scope. Project owner confirmed NEG_DEV_026 policy on 2026-11-17. Dev2 and Tech Lead reviewed/signed off the full v2 dataset against the canonical SHA recorded in this manifest."
   }
 }
