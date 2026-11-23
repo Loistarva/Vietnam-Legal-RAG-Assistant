@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from evaluation.zero_shot import manifest_path_for, run_benchmark
+from evaluation.zero_shot import ROOT, _sha256_file, manifest_path_for, run_benchmark
 from model_gateway.llm_gateway import QwenGatewayConfig
 from schemas.models import LLMResponse
 
@@ -58,6 +58,10 @@ class ZeroShotManifestTest(unittest.TestCase):
             self.assertEqual(manifest["experiment"], "A_zero_shot")
             self.assertEqual(manifest["split"], "dev")
             self.assertEqual(manifest["dataset_ids_hash"], expected_ids_hash)
+            self.assertEqual(
+                manifest["results_sha256"],
+                hashlib.sha256(output_path.read_bytes()).hexdigest(),
+            )
             self.assertEqual(manifest["as_of_date_source"], "benchmark")
             self.assertEqual(manifest["prompt_version"], "v1.2_zero_shot")
             self.assertEqual(manifest["runtime"]["model"], gateway.config.model)
@@ -94,6 +98,32 @@ class ZeroShotManifestTest(unittest.TestCase):
             self.assertEqual(gateway.calls, 0)
             self.assertFalse(output_path.exists())
             self.assertEqual(manifest_path.read_text(encoding="utf-8"), "existing manifest")
+
+
+class ZeroShotChecksumTest(unittest.TestCase):
+    def test_file_hash_ignores_crlf_checkout(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            lf_path = Path(temp_dir) / "lf.jsonl"
+            crlf_path = Path(temp_dir) / "crlf.jsonl"
+            lf_path.write_bytes(b'{"a": 1}\n{"b": 2}\n')
+            crlf_path.write_bytes(b'{"a": 1}\r\n{"b": 2}\r\n')
+
+            self.assertEqual(_sha256_file(crlf_path), _sha256_file(lf_path))
+            self.assertEqual(
+                _sha256_file(lf_path),
+                hashlib.sha256(lf_path.read_bytes()).hexdigest(),
+            )
+
+    def test_committed_run_a_manifests_match_checked_out_files(self):
+        manifests = sorted((ROOT / "evaluation" / "results" / "dev").glob(
+            "*_zero_shot_qwen25_dev30_manifest.json"
+        ))
+        self.assertTrue(manifests)
+        for manifest_path in manifests:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            results_path = manifest_path.with_name(f"{manifest['run_id']}.jsonl")
+            with self.subTest(manifest=manifest_path.name):
+                self.assertEqual(manifest["results_sha256"], _sha256_file(results_path))
 
 
 if __name__ == "__main__":

@@ -67,6 +67,11 @@ class Dev30ConfirmationTest(unittest.TestCase):
             self.assertTrue(row["grader"].strip())
             self.assertRegex(row["prediction_sha256"], r"^[0-9a-f]{64}$")
 
+    def test_committed_zero_shot_metrics_use_all_manual_scores(self):
+        metrics = read_json(ROOT / "evaluation/results/zero_shot_dev30_metrics.json")
+        self.assertEqual(metrics["rubric_scored_questions"], 30)
+        self.assertEqual(metrics["evaluated_questions"], 30)
+
     def test_latest_run_a_metrics_do_not_include_manual_scores(self):
         metrics_dir = ROOT / "evaluation/results/metrics_A_B_results"
         metrics_files = sorted(metrics_dir.glob("*_zero_shot_qwen25_dev30_metrics.json"))
