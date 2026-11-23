@@ -420,12 +420,17 @@
       "code": "provision_effectivity_not_independently_verified",
       "document_id": "l_11_2017_qh14",
       "source_status": "requires_review"
+    },
+    {
+      "code": "provision_effectivity_not_independently_verified",
+      "document_id": "nd_06_2012_nd_cp",
+      "source_status": "requires_review"
     }
   ],
-  "registry_document_count": 84,
-  "corpus_chunk_count": 6165,
-  "corpus_document_count": 84,
-  "article_count": 3841,
+  "registry_document_count": 85,
+  "corpus_chunk_count": 6168,
+  "corpus_document_count": 85,
+  "article_count": 3846,
   "chunks_by_document": {
     "bl_91_2015_qh13": 217,
     "bl_92_2015_qh13": 175,
@@ -447,6 +452,7 @@
     "l_73_2006_qh11": 31,
     "l_81_2025_qh15": 94,
     "l_85_2025_qh15": 47,
+    "nd_06_2012_nd_cp": 3,
     "nd_06_2025_nd_cp": 51,
     "nd_07_2025_nd_cp": 27,
     "nd_08_2009_nd_cp": 68,
@@ -572,22 +578,23 @@
     "l_73_2006_qh11",
     "l_24_2008_qh12",
     "l_68_2020_qh14",
-    "l_11_2017_qh14"
+    "l_11_2017_qh14",
+    "nd_06_2012_nd_cp"
   ],
   "audit_date": "2026-11-08",
   "review_status": "pending_peer_review",
   "source": {
-    "git_sha": "790eeaa406e070b4f31f513e0c8d78e6972790da",
+    "git_sha": "05bc4ed572c3e3a1452330fb8ce312055e44b8fb",
     "remote_testing_sha": "03a498924d0d134d2abc861599db94920f7291db",
     "file_sha256": {
-      "data/reference/document_versions.json": "382b8b6198ab5f5b8821d953b79b1f189021bbfc54ad48381bf175cacb4a880e",
-      "data/chunking_output/chunks.jsonl": "90bb120257352e46fe4e6d440c50e0288b4123494cbbae9522b7d71012491073",
-      "data/reference/article_index.json": "0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e",
-      "data/reference/provision_periods.json": "bf1f71e62bc3f7efc44bc6d5f5f12338b2ad1fd290af4b0acee5a72c740444e2"
+      "data/reference/document_versions.json": "301792ce56f42af95d4ee1454ec530a516c1ccef64dc491a507c84dd66104d6e",
+      "data/chunking_output/chunks.jsonl": "89a2751ad46d8090ece08cb3d1e403e95cf84b833510b374018352f5e0b8ee93",
+      "data/reference/article_index.json": "7bb72d7e501ca834be19a4bb2db00325838c622ab4954ba3f10c43194f26e781",
+      "data/reference/provision_periods.json": "d347d2e8902083e4f1305dfaf6fc41d9e6087a6cf569e9d5715ba8e23f69a92e"
     },
     "remote_note": "origin/testing snapshot 03a498924d0d134d2abc861599db94920f7291db; differing tracked input paths vs HEAD: ['data/chunking_output/chunks.jsonl', 'data/reference/article_index.json', 'data/reference/document_versions.json']. No automatic merge. Registry/corpus unchanged relative to this snapshot when absent from the list; article/source URL changes need integration review."
   },
-  "alias_count": 2143,
+  "alias_count": 2178,
   "ambiguous_aliases": {
     "07 2025": [
       "nd_07_2025_nd_cp",
@@ -957,6 +964,10 @@
       "nd_24_2013_nd_cp",
       "nd_24_2019_nd_cp"
     ],
+    "nd 6": [
+      "nd_06_2012_nd_cp",
+      "nd_06_2025_nd_cp"
+    ],
     "nd so 110": [
       "nd_110_2009_nd_cp",
       "nd_110_2013_nd_cp",
@@ -969,6 +980,10 @@
     "nd so 24": [
       "nd_24_2013_nd_cp",
       "nd_24_2019_nd_cp"
+    ],
+    "nd so 6": [
+      "nd_06_2012_nd_cp",
+      "nd_06_2025_nd_cp"
     ],
     "nghi dinh 110": [
       "nd_110_2009_nd_cp",
@@ -1021,6 +1036,10 @@
       "nd_24_2013_nd_cp",
       "nd_24_2019_nd_cp"
     ],
+    "nghi dinh 6": [
+      "nd_06_2012_nd_cp",
+      "nd_06_2025_nd_cp"
+    ],
     "nghi dinh so 110": [
       "nd_110_2009_nd_cp",
       "nd_110_2013_nd_cp",
@@ -1033,6 +1052,10 @@
     "nghi dinh so 24": [
       "nd_24_2013_nd_cp",
       "nd_24_2019_nd_cp"
+    ],
+    "nghi dinh so 6": [
+      "nd_06_2012_nd_cp",
+      "nd_06_2025_nd_cp"
     ],
     "quy dinh chi tiet thi hanh mot so dieu cua luat ho tich va nghi dinh so 123 2015 nd cp ngay 15 thang 11 nam 2015 cua chinh phu quy dinh chi tiet mot so dieu va bien phap thi hanh luat ho tich": [
       "tt_04_2020_tt_btp",
@@ -1221,5 +1244,5 @@
       "ttlt_01_2019_ttlt_tandtc_bng"
     ]
   },
-  "alias_registry_canonical_sha256": "b231f27c52c48f4a5f4b9dfa814410e5009447912a48762599e82e3021b2298d"
+  "alias_registry_canonical_sha256": "f316adbae35034e7c63f64323ae2119e1cd40e70b71b233224cf13f3fc585f7b"
 }

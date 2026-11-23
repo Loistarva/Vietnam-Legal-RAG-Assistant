@@ -1,0 +1,195 @@
+{
+  "as_of_date": "2026-11-23",
+  "supersedes_for_these_documents": "data/staging/corpus_review_20261122/review_decisions.json",
+  "reviewed": 12,
+  "accepted_historical_scoped": 1,
+  "still_hold": 11,
+  "decisions": [
+    {
+      "document_id": "nd_06_2012_nd_cp",
+      "document_number": "06/2012/NĐ-CP",
+      "old_decision": "hold",
+      "decision": "accepted_historical_scoped",
+      "reason": "Sửa lý do hoãn ghi nhầm bạo lực gia đình. Chỉ nhận Điều2,3 lịch sử; Điều2 kết thúc15/02/2015 theo khoản2 Điều65 NĐ126/2014, Điều3 kết thúc01/01/2016 theo điểm c khoản2 Điều45 NĐ123/2015. Không nhận Điều1,4,5 vào retrieval.",
+      "missing_conditions": [],
+      "transition_review": "Khoản1 Điều44 NĐ123/2015 bảo lưu hồ sơ hộ tịch nhận trước01/01/2016 theo NĐ158/2005 và NĐ126/2014. Không suy diễn ngoại lệ này thành Điều2,3 NĐ06 tiếp tục hiện hành; không xác nhận áp dụng cho mọi hồ sơ cũ.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_02_2020_tt_tandtc",
+      "document_number": "02/2020/TT-TANDTC",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Chưa có bản chính thức đầy đủ TT05/2025/TT-TANDTC để gắn từng phạm vi sửa đổi và biểu mẫu. VBHN08 đã tải là TT04/2020, VBHN06 là thi đua khen thưởng; không dùng nhầm để nhận TT02.",
+      "missing_conditions": [
+        "Bản chính thức TT05/2025, Điều3 và điều khoản thi hành/chuyển tiếp",
+        "Phân biệt chính văn8 Điều và phụ lục trong PDF61 trang",
+        "Khoảng hiệu lực các Điều/Khoản và mẫu thay thế từ01/07/2025"
+      ],
+      "transition_review": "Không nhận bản cũ như hướng dẫn hiện tại chỉ vì Luật58/2020 đang active; phải đối chiếu đúng sửa đổi của TT05 và hồ sơ hòa giải nhận trước mốc mới.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_03_2020_tt_tandtc",
+      "document_number": "03/2020/TT-TANDTC",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Chưa đủ nguồn chính thức TT05/2025, Điều4 để mô hình hóa thay tên/cấp Tòa án; PDF6 trang có trang cuối ít chữ cần xem là trang ký, không kết luận mất trang.",
+      "missing_conditions": [
+        "Bản chính thức TT05/2025 và Điều4",
+        "Ngày áp dụng từng thay đổi, hướng dẫn chuyển hồ sơ Tòa án cấp huyện sang khu vực"
+      ],
+      "transition_review": "Mốc tổ chức lại Tòa án01/07/2025 không tự cho phép sửa chữ TAND cấp huyện trong toàn bộ nguồn hoặc nhận bản cũ như hiện hành.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_07_2023_tt_bng",
+      "document_number": "07/2023/TT-BNG",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Đã xác nhận lỗi nguồn: PDF Công báo23 trang có40 tiêu đề Điều, thiếu số24; parser lưu23 Điều và không thể coi phần đến41 đã ingest đầy đủ. Không tự đổi số25 thành24.",
+      "missing_conditions": [
+        "Bản đính chính hoặc bản ký/nguồn chính thức giải quyết chỗ nhảy23→25",
+        "Bản chuẩn hóa tái chạy parser bảo toàn40 Điều thực có và kiểm tra Điều25–41",
+        "Chuỗi sửa đổi TT07/2025/TT-BNG"
+      ],
+      "transition_review": "Điều40 bản gốc bảo lưu hồ sơ đã nhận trước15/02/2024 theo TTLT02/2016. Điều41 hiệu lực15/02/2024; không lấy ngày14/02 từ danh mục tổng hợp để thay ngày gốc.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_12_2013_tt_bvhttdl",
+      "document_number": "12/2013/TT-BVHTTDL",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Đã bổ sung bản ký TT27/2026 và VBHN22/2026. Sửa Điều3,4 và cụm từ tại Điều2,4 nhưng chỉ hiệu lực01/01/2027. Chưa nhận do chưa có gói temporal cho phiên bản tương lai và căn cứ ở Chương.",
+      "missing_conditions": [
+        "Chuẩn bị phạm vi Điều3,4 bị thay và các cụm từ từ01/01/2027",
+        "Đưa đúng nguồn sửa vào ingest theo scope gia đình, không lấy Chương thư viện",
+        "Cơ chế căn cứ tại tên Chương và thay cụm từ chưa tích hợp"
+      ],
+      "transition_review": "TT27/2026 khoản1 Điều12 áp dụng01/01/2027; bản hợp nhất đưa sẵn câu chữ tương lai không được dùng cho23/11/2026. Chính văn không có điều khoản chuyển tiếp riêng, không suy ra sửa có hiệu lực sớm.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_23_2011_tt_bvhttdl",
+      "document_number": "23/2011/TT-BVHTTDL",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Đã xác minh công bố thay thế toàn bộ từ01/03/2018 bằng TT07/2017, dòng20 danh mục chính thức. Có thể chuẩn bị tra cứu lịch sử; chưa nhận vì chưa có bản TT07/2017 đầy đủ để kiểm tra điều khoản thi hành và chuyển tiếp.",
+      "missing_conditions": [
+        "Bản đầy đủ đúng TT07/2017/TT-BVHTTDL từ nguồn chính thức",
+        "Kiểm tra chuyển tiếp và chuỗi sửa đổi trước2018; hiện chỉ có danh mục hết hiệu lực"
+      ],
+      "transition_review": "Ngày hết hiệu lực01/03/2018 được công bố rõ; không còn dùng TT23 như quy trình báo cáo hiện hành. Chưa khẳng định có/không ngoại lệ chuyển tiếp từ danh mục.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "tt_24_2011_tt_bvhttdl",
+      "document_number": "24/2011/TT-BVHTTDL",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Danh mục hệ thống hóa2019–2023 vẫn liệt kê TT24; chưa có công bố hết hiệu lực trực tiếp trong bằng chứng tải được. Không tự kết luận hết hiệu lực chỉ vì NĐ08/2009 được thay.",
+      "missing_conditions": [
+        "Danh mục hiệu lực/hết hiệu lực mới có đúng TT24 và căn cứ",
+        "Đối chiếu chế độ hoàn trả/khen thưởng theo Luật13/2022 và NĐ76/2023",
+        "Tách điều khoản tài chính khỏi phạm vi retrieval"
+      ],
+      "transition_review": "Cần phân biệt ngày tiếp nhận, ngày phát sinh thiệt hại và điều kiện khen thưởng; không gán một expiry cấp văn bản từ giả định mất luật mẹ.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+      "document_number": "05/2015/TTLT-BTP-BCA-BYT",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Đã đọc NĐ63/2024 Điều28,29 và NĐ301/2026 Điều18. Khác biệt hồ sơ điện tử/đơn lẻ khiến không thể gán bãi bỏ toàn TTLT05 hoặc nhận lại toàn văn như thủ tục hiện tại.",
+      "missing_conditions": [
+        "Nguồn xác định trực tiếp hiệu lực toàn bộ/từng phần TTLT05",
+        "Phạm vi hồ sơ giấy/đơn lẻ so với liên thông điện tử",
+        "Điều kiện ngày nhận hồ sơ và lựa chọn áp dụng quy định mới"
+      ],
+      "transition_review": "NĐ63 Điều28.2 quy định liên thông điện tử từ01/07/2024; Điều29.2 giữ hồ sơ đơn lẻ theo pháp luật chuyên ngành. NĐ301 Điều18.1 giữ hồ sơ nhận trước ngày có hiệu lực theo NĐ63, trừ người nộp đề nghị quy định mới; còn các mốc2027 tại Điều18.2–3.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "ttlt_06_2012_ttlt_btp_bng",
+      "document_number": "06/2012/TTLT-BTP-BNG",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Nguồn TTLT11/2008 đã có PDF nhưng là bản quét, thiếu lớp chữ; HTML đã lưu là trang thuộc tính, không phải toàn văn. Điều kiện thiếu nguồn mẹ là thiếu chất lượng ingest, không phải chưa tải file.",
+      "missing_conditions": [
+        "Bản chữ/OCR được kiểm tra đủ của TTLT11/2008",
+        "Nguồn đầy đủ TTLT02/2016 và căn cứ thay thế TTLT06 từ15/08/2016",
+        "Gói lịch sử và các phụ lục tương ứng"
+      ],
+      "transition_review": "CSDL lưu cũ cho thấy TTLT02/2016 Điều23 thay TTLT11/2008 và06/2012 từ15/08/2016; cần bản gốc đọc được trước khi chốt metadata và nạp lại. Không nhận văn bản sửa đứng một mình khi chưa có văn bản gốc.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
+      "document_number": "12/2016/TTLT-BTP-BNG-TANDTC",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Luật mẹ08/2007 chưa có bản ingest đạt chuẩn trong active. Đã ghi rõ chuyển tiếp năm2025 và2026, nên không được loại mọi áp dụng cũ chỉ bằng ngày hết hiệu lực luật mẹ.",
+      "missing_conditions": [
+        "PDF/chính văn chuẩn của Luật08/2007 và phạm vi dân sự",
+        "Chuỗi TTLT13/2025 và văn bản hướng dẫn sau01/07/2026",
+        "Biểu diễn điều kiện ngày lập/tiếp nhận yêu cầu"
+      ],
+      "transition_review": "TTLT13/2025 Điều3.2 giữ TTLT12 cho ủy thác lập/nhận trước01/09/2025. Luật102/2025 Điều37.2,38.1 giữ yêu cầu dân sự Bộ Tư pháp nhận trước01/07/2026 theo Luật08/2007 đã sửa bởi81/2025; không coi expiry là hết mọi áp dụng.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+      "document_number": "13/2016/TTLT-BGDĐT-BVHTTDL-BLĐTBXH-BCA",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Nguồn chính văn đủ12 Điều; danh mục2019–2023 liệt kê nhưng không xác nhận hiện tại2026. Cần rà quan hệ Luật13/2022 và thay đổi cơ quan, không tự bãi bỏ hay sửa tên bộ.",
+      "missing_conditions": [
+        "Tình trạng hiện tại và căn cứ sửa/thay/bãi bỏ đúng TTLT13",
+        "Phạm vi giáo dục có liên hệ trực tiếp HNGĐ",
+        "Quy định chuyển tiếp với Luật13/2022 và cơ cấu mới"
+      ],
+      "transition_review": "Danh mục cũ không đủ khẳng định còn hiệu lực2026. Không suy ra vô hiệu toàn bộ từ việc luật căn cứ cũ hết hiệu lực khi chưa có đối chiếu công bố áp dụng.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    },
+    {
+      "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+      "document_number": "13/2025/TTLT-BTP-BNG-TANDTC",
+      "old_decision": "hold",
+      "decision": "hold",
+      "reason": "Đã chốt mốc01/09/2025 từ Điều3 bản gốc, không phải01/07/2025. Đây là văn bản sửa TTLT12; còn thiếu luật mẹ và kiểm tra chuỗi áp dụng sau luật mới2026.",
+      "missing_conditions": [
+        "Nhận lại văn bản gốc TTLT12 và Luật08/2007 theo chuỗi",
+        "Căn cứ thay thế/bãi bỏ và chuyển tiếp từ01/07/2026",
+        "Phạm vi tố tụng trong corpus sau sắp xếp Tòa án"
+      ],
+      "transition_review": "Khoản2 Điều3 bảo lưu TTLT12 cho ủy thác lập/tiếp nhận trước01/09/2025. Không áp dụng sớm TT13 hoặc tự kéo dài mọi quy định sau01/07/2026.",
+      "source_quality_manifest": "reports/data/readmission12_20261123/baseline_integrity.json",
+      "technical_approval": "candidate_prepared_not_production_approved",
+      "production_approved": false
+    }
+  ]
+}

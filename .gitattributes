@@ -136,3 +136,13 @@ parser/extracted_texts_qwen/l_11_2017_qh14.txt text eol=lf
 
 # Preserve the retired negative-set snapshot byte-for-byte.
 evaluation/negative_set/history/dev_negative_v4_corpus94_8d0af49/* -text -diff
+
+# Preserve readmission evidence and archived candidate bytes.
+data/source_documents/readmission12_20261123/* -text -diff
+data/staging/readmission12_20261123/candidates/** -text -diff -whitespace
+data/staging/readmission12_20261123/*.json text eol=lf
+data/staging/readmission12_20261123/compatibility/*.json text eol=lf
+reports/data/readmission12_20261123/** text eol=lf
+parser/cleaned_texts/nd_06_2012_nd_cp.txt -text -diff -whitespace
+parser/extracted_texts_qwen/nd_06_2012_nd_cp.txt -text -diff -whitespace
+reports/data/readmission12_20261123/*extract.txt -whitespace

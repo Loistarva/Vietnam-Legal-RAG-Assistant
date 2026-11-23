@@ -139,7 +139,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và phạm vi áp dụng theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Nguồn chính văn đủ12 Điều; danh mục2019–2023 liệt kê nhưng không xác nhận hiện tại2026. Cần rà quan hệ Luật13/2022 và thay đổi cơ quan, không tự bãi bỏ hay sửa tên bộ.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_12_2013_tt_bvhttdl",
@@ -182,7 +186,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Đã bổ sung bản ký TT27/2026 và VBHN22/2026. Sửa Điều3,4 và cụm từ tại Điều2,4 nhưng chỉ hiệu lực01/01/2027. Chưa nhận do chưa có gói temporal cho phiên bản tương lai và căn cứ ở Chương.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_23_2011_tt_bvhttdl",
@@ -225,7 +233,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Đã xác minh công bố thay thế toàn bộ từ01/03/2018 bằng TT07/2017, dòng20 danh mục chính thức. Có thể chuẩn bị tra cứu lịch sử; chưa nhận vì chưa có bản TT07/2017 đầy đủ để kiểm tra điều khoản thi hành và chuyển tiếp.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_27_2026_tt_bvhttdl",

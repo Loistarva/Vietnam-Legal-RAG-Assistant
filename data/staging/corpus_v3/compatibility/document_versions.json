@@ -2185,7 +2185,11 @@
     "cleaned_text_path": "data/staging/corpus_review_20261122/archive/parser/cleaned_texts/tt_07_2023_tt_bng.txt",
     "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại."
+    "hold_reason": "Đã xác nhận lỗi nguồn: PDF Công báo23 trang có40 tiêu đề Điều, thiếu số24; parser lưu23 Điều và không thể coi phần đến41 đã ingest đầy đủ. Không tự đổi số25 thành24.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_07_2025_tt_bng",

@@ -2185,7 +2185,11 @@
     "cleaned_text_path": "data/staging/corpus_review_20261122/archive/parser/cleaned_texts/tt_07_2023_tt_bng.txt",
     "parsed_json_sha256": "674b4d9a2eeafeb5a79fe4017258f18d84fcda249e8d09e429b52e41c2abf6de",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Nguồn chính thức nhảy Điều 23–25; toàn văn sau Điều 22 chưa bảo đảm parse đúng. Cần nguồn đính chính hoặc duyệt pháp lý trước nhận lại."
+    "hold_reason": "Đã xác nhận lỗi nguồn: PDF Công báo23 trang có40 tiêu đề Điều, thiếu số24; parser lưu23 Điều và không thể coi phần đến41 đã ingest đầy đủ. Không tự đổi số25 thành24.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_07_2025_tt_bng",
@@ -3489,7 +3493,11 @@
     "normalized_at": "2026-11-17",
     "parsed_json_sha256": "2c8e70d5d7fb9bda11404b5cfd357576b71fa75a9f67669381acdcbbce961cf9",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa xác minh đầy đủ quan hệ với khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Danh mục hệ thống hóa2019–2023 vẫn liệt kê TT24; chưa có công bố hết hiệu lực trực tiếp trong bằng chứng tải được. Không tự kết luận hết hiệu lực chỉ vì NĐ08/2009 được thay.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_11_2021_tt_btp",
@@ -3634,10 +3642,10 @@
     "issue_date": "2012-02-02",
     "effective_date": "2012-04-01",
     "issuing_body": "Chính Phủ",
-    "validity_status": "Không xác định",
+    "validity_status": "Sửa đổi bổ sung",
     "expiry_date": null,
     "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
-    "source_status": "Cần kiểm tra trạng thái mới nhất",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
     "provision_status": "requires_review",
     "temporal_scope": "requires_review",
     "source_artifacts": [
@@ -3655,8 +3663,8 @@
       }
     ],
     "origin": "central_batch1",
-    "ingest_pdf_path": "data/staging/corpus_review_20261122/archive/data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
-    "parsed_json_path": "data/staging/corpus_review_20261122/archive/parser/parsed_jsons/nd_06_2012_nd_cp.json",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_06_2012_nd_cp.json",
     "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
     "ingest_pdf_sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
     "download_status": "Official PDF normalized on 2026-11-17; sha256:202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
@@ -3664,9 +3672,24 @@
     "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
     "production_ingest_allowed": false,
     "normalized_at": "2026-11-17",
-    "parsed_json_sha256": "7c139dc099710a6f30369074b8cb8e4a9ca569cc1b151a0296c80570fbdf5c33",
+    "parsed_json_sha256": "89a0d3315b3c68c10af3a82bb14c9a207127ec4d97fcbf1b001b618899a23616",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa xác minh đầy đủ hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": null,
+    "active_ingest_allowed": true,
+    "readmission_decision": "accepted_historical_scoped",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23",
+    "verified_at": "2026-11-23",
+    "verification_scope": "Sửa lý do hoãn ghi nhầm bạo lực gia đình. Chỉ nhận Điều2,3 lịch sử; Điều2 kết thúc15/02/2015 theo khoản2 Điều65 NĐ126/2014, Điều3 kết thúc01/01/2016 theo điểm c khoản2 Điều45 NĐ123/2015. Không nhận Điều1,4,5 vào retrieval. Khoản1 Điều44 NĐ123/2015 bảo lưu hồ sơ hộ tịch nhận trước01/01/2016 theo NĐ158/2005 và NĐ126/2014. Không suy diễn ngoại lệ này thành Điều2,3 NĐ06 tiếp tục hiện hành; không xác nhận áp dụng cho mọi hồ sơ cũ.",
+    "known_amended_by": [
+      "126/2014/NĐ-CP",
+      "123/2015/NĐ-CP"
+    ],
+    "active_scope_articles": [
+      "2",
+      "3"
+    ],
+    "readmission_usage": "historical_scoped_only"
   },
   {
     "document_id": "tt_12_2011_tt_btp",
@@ -4097,7 +4120,11 @@
     "source_kind": "official_gazette_pdf",
     "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Văn bản sửa đổi thiếu nguồn gốc TTLT 11/2008 có chất lượng ingest đạt yêu cầu."
+    "hold_reason": "Nguồn TTLT11/2008 đã có PDF nhưng là bản quét, thiếu lớp chữ; HTML đã lưu là trang thuộc tính, không phải toàn văn. Điều kiện thiếu nguồn mẹ là thiếu chất lượng ingest, không phải chưa tải file.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_08_2025_tt_btp",
@@ -4299,7 +4326,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "a20a01c35e23bda54878764240132c63526761249650f0f50043ad8a918316b3",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và phạm vi áp dụng theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Nguồn chính văn đủ12 Điều; danh mục2019–2023 liệt kê nhưng không xác nhận hiện tại2026. Cần rà quan hệ Luật13/2022 và thay đổi cơ quan, không tự bãi bỏ hay sửa tên bộ.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_12_2013_tt_bvhttdl",
@@ -4342,7 +4373,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "c683f221d3e40da427f8a7f8052b30c0884bb8a95c33a1db86a261c2f9ea39eb",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Đã bổ sung bản ký TT27/2026 và VBHN22/2026. Sửa Điều3,4 và cụm từ tại Điều2,4 nhưng chỉ hiệu lực01/01/2027. Chưa nhận do chưa có gói temporal cho phiên bản tương lai và căn cứ ở Chương.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_23_2011_tt_bvhttdl",
@@ -4385,7 +4420,11 @@
     "download_status": "Official sources acquired and normalized 2026-11-18",
     "parsed_json_sha256": "4a111201747e21d34cd776ec19f599b0e68d8a411d2ef3a39a492f97f811bd9e",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần xác minh hiệu lực và chuyển tiếp theo khung pháp luật phòng chống bạo lực gia đình mới."
+    "hold_reason": "Đã xác minh công bố thay thế toàn bộ từ01/03/2018 bằng TT07/2017, dòng20 danh mục chính thức. Có thể chuẩn bị tra cứu lịch sử; chưa nhận vì chưa có bản TT07/2017 đầy đủ để kiểm tra điều khoản thi hành và chuyển tiếp.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "nd_282_2025_nd_cp",
@@ -4540,7 +4579,11 @@
     "parsed_json_sha256": "a2a56a4e456578fcf6ddb4fd42e2b8dc9c71b34fe6da4e17e555188728c6d231",
     "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần đối chiếu chuỗi tố tụng, hòa giải và hướng dẫn mới trước duyệt phạm vi."
+    "hold_reason": "Đã chốt mốc01/09/2025 từ Điều3 bản gốc, không phải01/07/2025. Đây là văn bản sửa TTLT12; còn thiếu luật mẹ và kiểm tra chuỗi áp dụng sau luật mới2026.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_03_2020_tt_tandtc",
@@ -4590,7 +4633,11 @@
     "parsed_json_sha256": "4c41044b354b1baef9dff27e3003e35b1e6c692812d6f019f5c986368ca19f47",
     "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
+    "hold_reason": "Chưa đủ nguồn chính thức TT05/2025, Điều4 để mô hình hóa thay tên/cấp Tòa án; PDF6 trang có trang cuối ít chữ cần xem là trang ký, không kết luận mất trang.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_02_2020_tt_tandtc",
@@ -4640,7 +4687,11 @@
     "parsed_json_sha256": "d57e17a6fa26d17d0a14a884125929700aeb778789f535fdf63da9b1eeec6099",
     "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
+    "hold_reason": "Chưa có bản chính thức đầy đủ TT05/2025/TT-TANDTC để gắn từng phạm vi sửa đổi và biểu mẫu. VBHN08 đã tải là TT04/2020, VBHN06 là thi đua khen thưởng; không dùng nhầm để nhận TT02.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
@@ -4740,7 +4791,11 @@
       "ttlt_13_2025_ttlt_btp_bng_tandtc"
     ],
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Thiếu luật mẹ 08/2007 trong active và cần rà chuyển tiếp sang luật tương trợ tư pháp mới."
+    "hold_reason": "Luật mẹ08/2007 chưa có bản ingest đạt chuẩn trong active. Đã ghi rõ chuyển tiếp năm2025 và2026, nên không được loại mọi áp dụng cũ chỉ bằng ngày hết hiệu lực luật mẹ.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "l_102_2025_qh15",

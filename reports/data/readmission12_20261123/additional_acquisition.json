@@ -1,0 +1,15 @@
+{
+  "pages": [
+    {
+      "url": "https://sovhtt.hanoi.gov.vn/van-ban/07-2017-tt-bvhttdl/",
+      "error": "URLError(gaierror(11001, 'getaddrinfo failed'))"
+    }
+  ],
+  "files": [
+    {
+      "name": "tt05_2025_mirror_NOT_OFFICIAL_HOST",
+      "url": "https://cdn.lawnet.vn/nhch-images/images/2025/NTKL/Thong-tu-05.pdf",
+      "error": "URLError(TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None))"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 5,
+    "candidate_pdf_native_chars": 20269
+  },
+  {
+    "document_id": "tt_02_2020_tt_tandtc",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 8,
+    "candidate_pdf_native_chars": 16339
+  },
+  {
+    "document_id": "tt_03_2020_tt_tandtc",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 10,
+    "candidate_pdf_native_chars": 9914
+  },
+  {
+    "document_id": "tt_07_2023_tt_bng",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 23,
+    "candidate_pdf_native_chars": 42583,
+    "original_heading_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39",
+      "40",
+      "41"
+    ],
+    "source_headings": 40,
+    "coverage_gate": "FAIL: source numbering gap and parsed23 vs source40; no renumbering performed"
+  },
+  {
+    "document_id": "tt_12_2013_tt_bvhttdl",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 7,
+    "candidate_pdf_native_chars": 6272
+  },
+  {
+    "document_id": "tt_23_2011_tt_bvhttdl",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 10,
+    "candidate_pdf_native_chars": 8133
+  },
+  {
+    "document_id": "tt_24_2011_tt_bvhttdl",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 11,
+    "candidate_pdf_native_chars": 11231
+  },
+  {
+    "document_id": "ttlt_05_2015_ttlt_btp_bca_byt",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 21,
+    "candidate_pdf_native_chars": 18707
+  },
+  {
+    "document_id": "ttlt_06_2012_ttlt_btp_bng",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 2,
+    "candidate_pdf_native_chars": 16319
+  },
+  {
+    "document_id": "ttlt_12_2016_ttlt_btp_bng_tandtc",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 27,
+    "candidate_pdf_native_chars": 33472
+  },
+  {
+    "document_id": "ttlt_13_2016_ttlt_bgddt_bvhttdl_bldtbxh_bca",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 12,
+    "candidate_pdf_native_chars": 12085
+  },
+  {
+    "document_id": "ttlt_13_2025_ttlt_btp_bng_tandtc",
+    "metadata_replay_matches": true,
+    "statutory_articles_match_archive": true,
+    "parsed_articles": 3,
+    "candidate_pdf_native_chars": 4044
+  }
+]

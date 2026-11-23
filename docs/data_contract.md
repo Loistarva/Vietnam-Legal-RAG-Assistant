@@ -363,3 +363,4 @@ Bảng ánh xạ chuẩn hóa chính thức giữa mã file quản lý (`file_co
 | **L17** | `l_24_2008_qh12` | 24/2008/QH12 | Sửa đổi bổ sung | LUẬT QUỐC TỊCH VIỆT NAM |
 | **L19** | `l_68_2020_qh14` | 68/2020/QH14 | Sửa đổi bổ sung | luật Cư trú |
 | **L20** | `l_11_2017_qh14` | 11/2017/QH14 | Sửa đổi bổ sung | luật Trợ giúp pháp lý |
+| **ND31** | `nd_06_2012_nd_cp` | 06/2012/NĐ-CP | Sửa đổi bổ sung | sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực |

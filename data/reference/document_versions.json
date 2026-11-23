@@ -4445,5 +4445,62 @@
     "verified_at": "2026-11-23",
     "verification_scope": "Đối chiếu nguồn chính thức: Luật53/2024 bãi bỏ điểm g khoản7 Điều7 từ01/07/2025; Luật59/2024 bổ sung từ01/01/2026 (lời dẫn VBHN). Luật05/2026 đã ban hành nhưng chỉ hiệu lực01/01/2027, chưa áp dụng sớm. Chỉ chốt cấp văn bản/mốc nêu rõ; chưa xác nhận toàn bộ chuỗi sửa đổi hoặc tất cả điều/khoản hiện hành.",
     "effectivity_review_manifest": "reports/data/effectivity32_20261123/review_matrix.json"
+  },
+  {
+    "document_id": "nd_06_2012_nd_cp",
+    "document_number": "06/2012/NĐ-CP",
+    "file_code": "ND31",
+    "title": "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực",
+    "document_type": "Nghị định",
+    "issue_date": "2012-02-02",
+    "effective_date": "2012-04-01",
+    "issuing_body": "Chính Phủ",
+    "validity_status": "Sửa đổi bổ sung",
+    "expiry_date": null,
+    "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+    "source_status": "Có điều khoản bị sửa đổi / bãi bỏ",
+    "provision_status": "requires_review",
+    "temporal_scope": "requires_review",
+    "source_artifacts": [
+      {
+        "source_path": "data/source_pdfs/central_batch1/nd_06_2012_nd_cp.part01.pdf",
+        "source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/2/3985/9424-1-2012149-150-062012nd-cppdf",
+        "sha256": "87d3370a25c242e3861fa70b783ca16e0340c06e92c773d9747b082a8d3db379",
+        "bytes": 267477
+      },
+      {
+        "source_path": "data/source_documents/central_batch1/nd_06_2012_nd_cp.html",
+        "source_url": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2012-nd-cp-3985.htm",
+        "sha256": "02579f31d38c2f10d7cecdf29f3f77e97ac6f8bff2676df828ae117fab36094c",
+        "role": "Official metadata snapshot"
+      }
+    ],
+    "origin": "central_batch1",
+    "ingest_pdf_path": "data/raw_data/additional_documents/central_batch1/nd_06_2012_nd_cp.pdf",
+    "parsed_json_path": "parser/parsed_jsons/nd_06_2012_nd_cp.json",
+    "normalization_note": "Native Unicode, Letter 612x792 pt, Times New Roman 12pt; original PDF retained. Annex/signature preserved in original and sidecar; not indexed as statutory Articles.",
+    "ingest_pdf_sha256": "202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+    "download_status": "Official PDF normalized on 2026-11-17; sha256:202576e25253795b1b276e9b0cab63ecb07d4f871ea12b81b8cc49033dcda03d",
+    "normalized_source_text_sha256": "66d0c5ef567e431188160ece988516430a1a03d8da011925d7f5c4c41d562438",
+    "technical_pipeline_status": "normalized_cleaner_parser_schema_passed",
+    "production_ingest_allowed": false,
+    "normalized_at": "2026-11-17",
+    "parsed_json_sha256": "89a0d3315b3c68c10af3a82bb14c9a207127ec4d97fcbf1b001b618899a23616",
+    "active_ingest_allowed": true,
+    "readmission_decision": "accepted_historical_scoped",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23",
+    "hold_reason": null,
+    "known_amended_by": [
+      "126/2014/NĐ-CP",
+      "123/2015/NĐ-CP"
+    ],
+    "verified_at": "2026-11-23",
+    "verification_scope": "Sửa lý do hoãn ghi nhầm bạo lực gia đình. Chỉ nhận Điều2,3 lịch sử; Điều2 kết thúc15/02/2015 theo khoản2 Điều65 NĐ126/2014, Điều3 kết thúc01/01/2016 theo điểm c khoản2 Điều45 NĐ123/2015. Không nhận Điều1,4,5 vào retrieval. Khoản1 Điều44 NĐ123/2015 bảo lưu hồ sơ hộ tịch nhận trước01/01/2016 theo NĐ158/2005 và NĐ126/2014. Không suy diễn ngoại lệ này thành Điều2,3 NĐ06 tiếp tục hiện hành; không xác nhận áp dụng cho mọi hồ sơ cũ.",
+    "active_scope_articles": [
+      "2",
+      "3"
+    ],
+    "readmission_usage": "historical_scoped_only"
   }
 ]

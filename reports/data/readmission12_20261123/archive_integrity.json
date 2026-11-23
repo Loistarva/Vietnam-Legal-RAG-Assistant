@@ -1,0 +1,8 @@
+{
+  "checked_artifacts": 60,
+  "all_sha256_match": true,
+  "historical_archive_unchanged": true,
+  "reviewed_candidates": 12,
+  "parser_replay_matches": 12,
+  "source_coverage_approval": "ND06 only; parser replay does not prove all12 source completeness."
+}

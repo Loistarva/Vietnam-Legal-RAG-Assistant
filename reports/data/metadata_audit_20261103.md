@@ -2,13 +2,13 @@
 
 Ngày thực hiện: **08/11/2026** (Asia/Saigon). Tên file 20261103 giữ theo đường dẫn bàn giao trong kế hoạch; không phải ngày đã thực hiện audit.
 
-Git SHA lúc audit: `790eeaa406e070b4f31f513e0c8d78e6972790da`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
+Git SHA lúc audit: `05bc4ed572c3e3a1452330fb8ce312055e44b8fb`; registry/corpus đọc từ working tree, fingerprints ở JSON evidence. Không đổi registry, corpus, benchmark hoặc Test.
 
 ## Kết quả cấu trúc
 
-- Registry: 84 văn bản; corpus: 6165 chunks / 84 văn bản; article index: 3841 dòng.
-- Structural errors: **0**; warnings: 84. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
-- Alias keys: 2143; ambiguous keys: 127. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
+- Registry: 85 văn bản; corpus: 6168 chunks / 85 văn bản; article index: 3846 dòng.
+- Structural errors: **0**; warnings: 85. Đây không phải xác nhận hiệu lực pháp lý độc lập hoặc xác nhận HTTP của nguồn.
+- Alias keys: 2178; ambiguous keys: 131. Mỗi key giữ toàn bộ candidate IDs, không overwrite ứng viên hoặc tự chọn năm mới nhất.
 
 ## Kiểm tra đã làm
 
@@ -80,12 +80,13 @@ Cờ requires_review trong nguồn:
 - `l_24_2008_qh12`
 - `l_68_2020_qh14`
 - `l_11_2017_qh14`
+- `nd_06_2012_nd_cp`
 
 Các cờ này đã có trong registry; không trình bày thành lỗi mới và không tự điền ngày hết hiệu lực cho điều khoản chỉ dựa vào trạng thái cấp văn bản. End=null có thể chưa mô hình hóa đầy đủ sửa đổi/bãi bỏ; không phải chứng minh mọi điều còn hiệu lực.
 
 Warning counts:
 
-- provision_effectivity_not_independently_verified: 84
+- provision_effectivity_not_independently_verified: 85
 
 ## Alias mơ hồ tiêu biểu
 
@@ -135,11 +136,11 @@ Warning counts:
 
 ## Nguồn và giới hạn
 
-Registry canonical SHA-256: `b231f27c52c48f4a5f4b9dfa814410e5009447912a48762599e82e3021b2298d`.
-- data/reference/document_versions.json: raw file SHA-256 `382b8b6198ab5f5b8821d953b79b1f189021bbfc54ad48381bf175cacb4a880e`
-- data/chunking_output/chunks.jsonl: raw file SHA-256 `90bb120257352e46fe4e6d440c50e0288b4123494cbbae9522b7d71012491073`
-- data/reference/article_index.json: raw file SHA-256 `0cd361c4c01e46115941ffce59d7082feaa24ec263b6416ebd8392ce17aa834e`
-- data/reference/provision_periods.json: raw file SHA-256 `bf1f71e62bc3f7efc44bc6d5f5f12338b2ad1fd290af4b0acee5a72c740444e2`
+Registry canonical SHA-256: `f316adbae35034e7c63f64323ae2119e1cd40e70b71b233224cf13f3fc585f7b`.
+- data/reference/document_versions.json: raw file SHA-256 `301792ce56f42af95d4ee1454ec530a516c1ccef64dc491a507c84dd66104d6e`
+- data/chunking_output/chunks.jsonl: raw file SHA-256 `89a2751ad46d8090ece08cb3d1e403e95cf84b833510b374018352f5e0b8ee93`
+- data/reference/article_index.json: raw file SHA-256 `7bb72d7e501ca834be19a4bb2db00325838c622ab4954ba3f10c43194f26e781`
+- data/reference/provision_periods.json: raw file SHA-256 `d347d2e8902083e4f1305dfaf6fc41d9e6087a6cf569e9d5715ba8e23f69a92e`
 
 Không kiểm HTTP/redirect hay tự sửa source_url. Không suy diễn thêm văn bản mới, điều khoản đang còn hiệu lực hoặc tình trạng pháp lý từ alias. Nếu metadata đổi phải rebuild/review artifact; load_alias_map từ chối bản stale/tampered. Reviewer: Dev 2 + Dev 3; tình trạng pending_peer_review.
 

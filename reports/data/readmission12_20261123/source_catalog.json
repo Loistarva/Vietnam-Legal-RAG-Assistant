@@ -1,0 +1,68 @@
+[
+  {
+    "name": "culture_2019_2023_full",
+    "url": "https://bvhttdl.gov.vn/uploads/vanban/2025/12/17/121305/tap-he-thong-hoa-ky-2019-2023-17223300742651940188158.pdf",
+    "resolved_url": "https://bvhttdl.gov.vn/uploads/vanban/2025/12/17/121305/tap-he-thong-hoa-ky-2019-2023-17223300742651940188158.pdf",
+    "path": "data/source_documents/readmission12_20261123/culture_2019_2023_full.pdf",
+    "sha256": "d7a5de7b37471ad330960b637f735e8c99ca1225aa0f51ded301dc03c92f59bb",
+    "pages": 66,
+    "chars": 109187,
+    "admission_role": "effectivity_inventory",
+    "added_to_active": false
+  },
+  {
+    "name": "culture_2018_expiry",
+    "url": "https://vhttdl.daklak.gov.vn/Upload/Images/Vien/VB%20chi%20dao/1739.pdf",
+    "resolved_url": "https://vhttdl.daklak.gov.vn/Upload/Images/Vien/VB%20chi%20dao/1739.pdf",
+    "path": "data/source_documents/readmission12_20261123/culture_2018_expiry.pdf",
+    "sha256": "204d5a6e4901775e21388c85fb043b8defd229b03585fea85407723d5106fc87",
+    "pages": 8,
+    "chars": 7,
+    "admission_role": "effectivity_inventory",
+    "added_to_active": false
+  },
+  {
+    "name": "court_08_vbhn_2025",
+    "url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363844",
+    "resolved_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363844",
+    "path": "data/source_documents/readmission12_20261123/court_08_vbhn_2025.pdf",
+    "sha256": "069aa350d066b55f21b25f54afad1730a25d42a7f45fcb9a6d688667f128ec8d",
+    "pages": 36,
+    "chars": 53894,
+    "admission_role": "identity_rejected_for_held_TT02_TT03_corroboration_only",
+    "added_to_active": false
+  },
+  {
+    "name": "court_06_vbhn_2025",
+    "url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363847",
+    "resolved_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363847",
+    "path": "data/source_documents/readmission12_20261123/court_06_vbhn_2025.pdf",
+    "sha256": "472b10481e2fc24788a1fca45157e537136da0e053ccc8a1dce744ec4d25f8ba",
+    "pages": 26,
+    "chars": 66859,
+    "admission_role": "identity_rejected_for_held_TT02_TT03_corroboration_only",
+    "added_to_active": false
+  },
+  {
+    "name": "tt27_2026_official",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/27-bvhttdl.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/27-bvhttdl.signed.pdf",
+    "path": "data/source_documents/readmission12_20261123/tt27_2026_official.pdf",
+    "sha256": "945b6130f1aad52fd854a88b266482b9402993a39424b318c3f4a2e568b3d594",
+    "pages": 5,
+    "chars": 7207,
+    "admission_role": "future_amendment_original",
+    "added_to_active": false
+  },
+  {
+    "name": "vbhn22_2026_official",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/22-vbhn-bvhttdl.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/22-vbhn-bvhttdl.signed.pdf",
+    "path": "data/source_documents/readmission12_20261123/vbhn22_2026_official.pdf",
+    "sha256": "8baac96e9df64c7459d963799fbaec21e050b550236c08d8e49aeda5a7264635",
+    "pages": 5,
+    "chars": 10989,
+    "admission_role": "future_consolidation_not_current_text",
+    "added_to_active": false
+  }
+]

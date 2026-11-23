@@ -1,0 +1,329 @@
+Thông tư liên tịch số 11/2008/TTLT-BTP-BNG của Bộ Tư pháp, Bộ Ngoại giao: Hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện ngoại giao, Cơ quan lãnh sự của Việt Nam ở nước ngoài
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4YC72F91YS');
+var _govaq = window._govaq || [];
+_govaq.push(['trackPageView']);
+_govaq.push(['enableLinkTracking']);
+(function () {
+_govaq.push(['setTrackerUrl', 'https://f-emc.ngsp.gov.vn/tracking']);
+_govaq.push(['setSiteId', '1914']);
+var d = document,
+g = d.createElement('script'),
+s = d.getElementsByTagName('script')[0];
+g.type = 'text/javascript';
+g.async = true;
+g.defer = true;
+g.src = 'https://f-emc.ngsp.gov.vn/embed/gov-tracking.min.js';
+s.parentNode.insertBefore(g, s);
+})();
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+theForm.__EVENTTARGET.value = eventTarget;
+theForm.__EVENTARGUMENT.value = eventArgument;
+theForm.submit();
+}
+}
+//]]>
+//<![CDATA[
+$(document).ready(function() {
+var self = $('#ctrl_192901_202_LinkSlide');
+self.attr('style','position:relative;overflow:hidden;min-height:25px');
+var wrap = self.find('.block-row');
+var items = $(wrap).children();
+$(items).attr('style','display:inline-block;padding:0 5px;width:auto');
+$(wrap).wrapAll('<marquee onmouseover=this.stop()  onmouseout=this.start() scrollamount =5 scrolldelay=5  direction =left></marquee>');
+});//]]>
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tctrl_190596_91$ctl00','ctrl_190596_91_ctl00'], [], [], 90, '');
+//]]>
+English
+中文
+li.LanguageMenu {
+cursor: pointer;
+}
+Trang chủChính phủCông dânDoanh nghiệpKiều bàoBáo điện tử chính phủVăn phòng chính phủ
+$(document).ready(function () {
+$('.language-button').on('click', function () {
+var language_code = $(this).data('language-code');
+document.cookie = "lang=" + language_code + "; path=/";
+location.href = "/";
+});
+var value = getCookie("lang");
+$('.language-button').each(function () {
+if ($(this).data('language-code') == value) {
+$(this).css({
+padding: "2px",
+borderBottom: "2px solid #ffeb3b"
+});
+}
+})
+});
+function getCookie(name) {
+const value = `; ${document.cookie}`;
+const parts = value.split(`; ${name}=`);
+if (parts.length === 2) return parts.pop().split(';').shift();
+}
+function redirectToSearch() {
+var txtSearch = document.getElementById('ctrl_190927_45_txtSearch');
+var searchText = txtSearch.value.trim();
+var link = txtSearch.getAttribute("data-link");
+if (searchText && link) {
+window.location.href = link + "&q=" + encodeURIComponent(searchText);
+}
+return false; // Ngăn chặn postback
+}
+document.getElementById('ctrl_190927_45_txtSearch').addEventListener("keypress", function (event) {
+if (event.key === "Enter") {
+event.preventDefault(); // Ngăn Enter gây postback
+redirectToSearch();
+}
+});
+$(document).ready(function () {
+var days = $(".hidDays>input").val().split(",");
+var months = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+setInterval(function () {
+var am_pm;
+var d = new Date();
+var s = d.getSeconds();
+var m = d.getMinutes();
+var h = d.getHours();
+var day = d.getDay();
+var date = d.getDate();
+var month = d.getMonth();
+var year = d.getFullYear();
+if (date < 10) { date = "0" + date }
+if (s < 10) { s = "0" + s }
+if (m < 10) { m = "0" + m }
+if (h > 12) { h -= 12; am_pm = "PM" } else { am_pm = "AM" }
+if (h < 10) { h = "0" + h }
+if ($(".UIClockSystem .clock").attr("type") == "1547")
+$(".UIClockSystem .clock").text(`${year} 年 ${months[month]} 月 ${date} 日，${days[day]}`);
+else
+$(".UIClockSystem .clock").text(days[day] + ', ' + date + "/" + months[month] + '/' + year);
+}, 1000);
+});
+Nước CHXHCN
+Việt Nam
+Giới thiệu
+Chính phủ
+Thư điện tử
+công vụ Chính phủ
+Hà Nội
+25° - 28°
+Lai Châu
+15° - 18°
+Điện Biên
+19° - 22°
+Sơn La
+17° - 20°
+Phú Thọ
+23° - 26°
+Lào Cai
+21° - 24°
+Tuyên Quang
+21° - 24°
+Thái Nguyên
+22° - 25°
+Cao Bằng
+20° - 23°
+Lạng Sơn
+21° - 24°
+Quảng Ninh
+25° - 28°
+Bắc Ninh
+26° - 29°
+Tp Hải Phòng
+25° - 28°
+Hà Nội
+25° - 28°
+Hưng Yên
+25° - 28°
+Ninh Bình
+26° - 29°
+Thanh Hóa
+26° - 29°
+Nghệ An
+24° - 27°
+Hà Tĩnh
+25° - 28°
+Quảng Trị
+25° - 28°
+Tp Huế
+24° - 27°
+Tp Đà Nẵng
+25° - 28°
+Quảng Ngãi
+24° - 27°
+Gia Lai
+26° - 29°
+Đắk Lắk
+27° - 30°
+Khánh Hòa
+26° - 29°
+Lâm Đồng
+27° - 30°
+Đồng Nai
+26° - 29°
+Tây Ninh
+25° - 28°
+Tp Hồ Chí Minh
+25° - 28°
+Đồng Tháp
+28° - 31°
+Vĩnh Long
+26° - 29°
+An Giang
+27° - 30°
+Tp Cần Thơ
+27° - 30°
+Cà Mau
+28° - 31°
+Thủ tướng Phạm Minh Chính dự Hội nghị Cấp cao Đặc biệt ASEAN-Hoa Kỳ, thăm và làm việc tại Hoa Kỳ, Liên Hợp Quốc
+SEA Games 31 - Việt Nam 2022
+Phục hồi và phát triển kinh tế: Những việc cần làm ngay
+Giải ngân vốn đầu tư công
+Chuyển đổi số
+Thích ứng an toàn, linh hoạt, kiểm soát hiệu quả dịch COVID-19
+Trang chủ
+Thông tư liên tịch số 11/2008/TTLT-BTP-BNG của Bộ Tư pháp, Bộ Ngoại giao: Hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện ngoại giao, Cơ quan lãnh sự của Việt Nam ở nước ngoài
+Số ký hiệu
+11/2008/TTLT-BTP-BNG
+Ngày ban hành
+31-12-2008
+Loại văn bản
+Thông tư liên tịch
+Cơ quan ban hành
+Bộ Tư pháp, Bộ Ngoại giao
+Người ký
+Nguyễn Thanh Sơn, Hoàng Thế Liên
+Trích yếu
+Hướng dẫn thực hiện quy định của Nghị định số 158/2005/NĐ-CP ngày 27/12/2005 của Chính phủ về đăng ký và quản lý hộ tịch tại các Cơ quan đại diện ngoại giao, Cơ quan lãnh sự của Việt Nam ở nước ngoài
+Tài liệu đính kèm
+85613_ttlt11btp.pdf
+if (!$("#block_detail").text().trim()) $("#block_detail").hide();
+var v = $(".preview-file"); var d = $('.detail-file');
+v.click(function (e) {
+e.preventDefault();
+var l = $(this).attr('href');
+var doc_path = encodeURI($(this).attr("href"));
+var extention = doc_path.split('.').pop().toLowerCase();
+var tai_ve = '<div class="nut-tai-ve"><a style="color: blue;" href="' + doc_path + '">Tải về</a><div>';
+if (extention == "pdf") {
+$(d).html(tai_ve + '<iframe loading="lazy"  src="' + "https://docs.google.com/viewer?&embedded=true&url=" + doc_path + '" width="100%" height="600px"  style="margin: 10px 0px;"></iframe>');
+}
+else onDownload(doc_path);
+});
+function onDownload(url) {
+var link = document.createElement('a');
+link.href = url;
+link.target = "_blank"
+link.download = url.split('/')[url.split('/').length - 1];
+link.dispatchEvent(new MouseEvent('click'));
+}
+.col1 {
+color: #62748D;
+}
+.Content table {
+border-collapse: collapse;
+}
+.Content table td {
+border: 1px solid #ccc;
+}
+.Content table tr td:first-child {
+background: #F9F9F9;
+vertical-align: top;
+width: 200px;
+padding: 10px 15px;
+color: #62748D;
+}
+.Content table tr td:last-child {
+color: #182940;
+padding: 10px 15px;
+}
+h4.title {
+font-family: Merriweather;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 27px;
+letter-spacing: 0em;
+text-align: left;
+color: #182940;
+margin-bottom: 24px
+}
+Các văn bản khác
+Sửa đổi, bổ sung một số điều của Nghị định số 104/2025/NĐ-CP ngày 15 tháng 5 năm 2025 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Công chứng
+Quy định tiêu chuẩn chất lượng cơ bản đối với cơ sở khám bệnh, chữa bệnh có hình thức tổ chức không phải là bệnh viện
+Sửa đổi, bổ sung một số điều của Nghị định số 113/2013/NĐ-CP ngày 02 tháng 10 năm 2013 của Chính phủ về hoạt động mỹ thuật
+Quy định chi tiết một số điều và biện pháp thi hành Luật Trợ giúp pháp lý
+Quy định cơ chế hoạt động, cơ chế quản lý tài chính đặc thù đối với Tập đoàn Điện lực Việt Nam
+Về quản lý, sử dụng số lượng người làm việc trong đơn vị sự nghiệp công lập
+Về quản lý, sử dụng biên chế công chức
+Quy định cơ chế hoạt động, cơ chế quản lý tài chính đặc thù đối với một số doanh nghiệp do Bộ Quốc phòng là cơ quan đại diện chủ sở hữu
+Sửa đổi, bổ sung một số điều của Nghị định số 52/2026/NĐ-CP ngày 02 tháng 02 năm 2026 của Chính phủ quy định việc quản lý, sử dụng tài sản tại cơ quan Đảng Cộng sản Việt Nam
+Sửa đổi, bổ sung một số điều của các thông tư của Bộ Giáo dục và Đào tạo ban hành quy định về việc xác định số lượng tuyển sinh, chương trình đào tạo, tuyển sinh và đào tạo cao đẳng ngành Giáo dục mầm non, đại học và sau đại học
+h4.title {
+font-family: Merriweather;
+font-style: normal;
+font-weight: bold;
+font-size: 17px;
+line-height: 21px;
+text-transform: uppercase;
+/* Grey 1 */
+color: #031739;
+}
+.content ul li {
+list-style-type: square;
+}
+.content ul {
+padding-left: 20px;
+}
+.similar-document-control {
+margin-top: 50px;
+}
+Tất cả văn bản
+Văn bản mới
+Văn bản quy phạm pháp luật
+Cơ quan ban hành
+Quốc hội Chính phủ Thủ tướng Chính phủ Bộ/Cơ quan ngang bộ Liên bộ UBND tỉnh/thành phố
+Loại văn bản
+Hiến pháp Sắc lệnh - Sắc luật Luật - Pháp lệnh Nghị định Quyết định Thông tư
+Văn bản hợp nhất
+Văn bản chỉ đạo điều hành
+Nghị quyết của Chính phủ
+Nghị quyết phiên họp của Chính phủ
+Báo cáo của Chính phủ
+Thủ tướng và thành viên Chính phủ trả lời chất vấn của ĐBQH
+© Cục Thông tin và Truyền thông Chính phủ
+Cục trưởng: Nguyễn Hồng Sâm
+Trụ sở: 16 Lê Hồng Phong - Ba Đình - Hà Nội.
+Điện thoại: Văn phòng: 080 43162; Fax: 080.48924
+Email: thongtinchinhphu@chinhphu.vn
+Giới thiệu
+Cục Thông tin
+và Truyền thông Chính phủ
+Thư điện tử công vụ Chính phủ
+Liên hệ
+Sơ đồ
+Cổng TTĐT
+Chính phủ
+Ghi rõ nguồn 'Cục Thông tin và Truyền thông Chính phủ' hoặc
+'www.chinhphu.vn'
+khi phát hành lại thông tin từ các nguồn này.
+//<![CDATA[
+jQuery(document).ready(function($){ $('.DropdownMenu').DropdownMenu({menushow:0})});jQuery(document).ready(function($){ $('#ctrl_190929_51_advertisement').showAdvertisement({displayType:'BottomRight'})});jQuery(document).ready(function($){ $('#ctrl_192045_51_advertisement').showAdvertisement({displayType:'BottomRight'})});
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+$(document).ready(function () {
+$('#form1').fadeIn(200);
+})

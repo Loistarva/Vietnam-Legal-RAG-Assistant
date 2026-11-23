@@ -1,0 +1,20 @@
+{
+  "pytest": {
+    "passed": 2277,
+    "skipped": 1,
+    "seconds": 166.79
+  },
+  "ruff": "PASS E9,F63,F7,F82",
+  "source_pdf_manifest": "PASS",
+  "metadata_audit": {
+    "errors": 0,
+    "warnings": 85,
+    "ambiguous_aliases": 131
+  },
+  "diff_check": "PASS",
+  "official_hanoi_retry": {
+    "url": "https://sovhtt.hanoi.gov.vn/van-ban/07-2017-tt-bvhttdl/",
+    "outside_sandbox": true,
+    "result": "DNS resolution failure; source remains unavailable; no admission granted"
+  }
+}

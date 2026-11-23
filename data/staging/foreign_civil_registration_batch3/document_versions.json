@@ -40,7 +40,11 @@
     "source_kind": "official_gazette_pdf",
     "parsed_json_sha256": "de606f9a36265dd1a23e74950738a23424ebd59845101383e6a96301246be123",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Văn bản sửa đổi thiếu nguồn gốc TTLT 11/2008 có chất lượng ingest đạt yêu cầu."
+    "hold_reason": "Nguồn TTLT11/2008 đã có PDF nhưng là bản quét, thiếu lớp chữ; HTML đã lưu là trang thuộc tính, không phải toàn văn. Điều kiện thiếu nguồn mẹ là thiếu chất lượng ingest, không phải chưa tải file.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_08_2025_tt_btp",

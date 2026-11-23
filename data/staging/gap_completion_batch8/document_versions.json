@@ -166,7 +166,11 @@
     },
     "effectivity_note": "Historical original of paper-era joint birth/residence/health-insurance registration. ND63/2024 and ND301/2026 provide electronic regime already in corpus. Current expiry date not confirmed in this batch; do not use as default current procedure.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Thủ tục giấy lịch sử; chưa xác minh đầy đủ quan hệ với ND63/2024 và ND301/2026. Không dùng làm thủ tục hiện hành."
+    "hold_reason": "Đã đọc NĐ63/2024 Điều28,29 và NĐ301/2026 Điều18. Khác biệt hồ sơ điện tử/đơn lẻ khiến không thể gán bãi bỏ toàn TTLT05 hoặc nhận lại toàn văn như thủ tục hiện tại.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "l_68_2020_qh14",

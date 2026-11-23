@@ -1,0 +1,11 @@
+[
+  "data/staging/central_batch1/document_versions.json",
+  "data/staging/central_batch1/compatibility/document_versions.json",
+  "data/staging/central_batch1/compatibility/parsed/nd_06_2012_nd_cp.json",
+  "data/staging/dispute_resolution_batch6/compatibility/document_versions.json",
+  "data/staging/domestic_violence_batch5/compatibility/document_versions.json",
+  "data/staging/foreign_civil_registration_batch3/compatibility/document_versions.json",
+  "data/staging/gap_completion_batch8/compatibility/document_versions.json",
+  "data/staging/history_batch2/compatibility/document_versions.json",
+  "data/staging/local_documents_batch7/compatibility/document_versions.json"
+]

@@ -1,0 +1,14 @@
+{
+  "active_documents": 85,
+  "held_in_this_review": 11,
+  "reviewed": 12,
+  "readmitted_historical_scoped": 1,
+  "parents": 2641,
+  "children": 6168,
+  "previous_children_unchanged": 6165,
+  "new_children": 3,
+  "archive_artifacts_verified": 60,
+  "source_pdf_hashes_verified": true,
+  "production_index_hash_verified": true,
+  "code_changed": false
+}

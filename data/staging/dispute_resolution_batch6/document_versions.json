@@ -47,7 +47,11 @@
     "parsed_json_sha256": "a2a56a4e456578fcf6ddb4fd42e2b8dc9c71b34fe6da4e17e555188728c6d231",
     "effectivity_note": "Do not treat historical TTTP rules as consolidated current rules. L102/2025 Articles37–38 and ND158/2026 Article24 introduce the 2026 regime with transitional exceptions. Latest document/provision-level temporal review remains required; no unconditional expiry inferred.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Cần đối chiếu chuỗi tố tụng, hòa giải và hướng dẫn mới trước duyệt phạm vi."
+    "hold_reason": "Đã chốt mốc01/09/2025 từ Điều3 bản gốc, không phải01/07/2025. Đây là văn bản sửa TTLT12; còn thiếu luật mẹ và kiểm tra chuỗi áp dụng sau luật mới2026.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_03_2020_tt_tandtc",
@@ -97,7 +101,11 @@
     "parsed_json_sha256": "4c41044b354b1baef9dff27e3003e35b1e6c692812d6f019f5c986368ca19f47",
     "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
+    "hold_reason": "Chưa đủ nguồn chính thức TT05/2025, Điều4 để mô hình hóa thay tên/cấp Tòa án; PDF6 trang có trang cuối ít chữ cần xem là trang ký, không kết luận mất trang.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "tt_02_2020_tt_tandtc",
@@ -147,7 +155,11 @@
     "parsed_json_sha256": "d57e17a6fa26d17d0a14a884125929700aeb778789f535fdf63da9b1eeec6099",
     "effectivity_note": "Official original2020, not consolidated. TT05/2025 amending original not yet recovered/verified; court-organization related Articles conservatively withheld from chunks pending source and temporal review.",
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Chưa có đầy đủ nguồn 05/2025/TT-TANDTC để xác minh phần bị sửa đổi."
+    "hold_reason": "Chưa có bản chính thức đầy đủ TT05/2025/TT-TANDTC để gắn từng phạm vi sửa đổi và biểu mẫu. VBHN08 đã tải là TT04/2020, VBHN06 là thi đua khen thưởng; không dùng nhầm để nhận TT02.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "ttlt_01_2019_ttlt_tandtc_bng",
@@ -247,7 +259,11 @@
       "ttlt_13_2025_ttlt_btp_bng_tandtc"
     ],
     "review_decision_manifest": "data/staging/corpus_review_20261122/review_decisions.json",
-    "hold_reason": "Thiếu luật mẹ 08/2007 trong active và cần rà chuyển tiếp sang luật tương trợ tư pháp mới."
+    "hold_reason": "Luật mẹ08/2007 chưa có bản ingest đạt chuẩn trong active. Đã ghi rõ chuyển tiếp năm2025 và2026, nên không được loại mọi áp dụng cũ chỉ bằng ngày hết hiệu lực luật mẹ.",
+    "active_ingest_allowed": false,
+    "readmission_decision": "hold",
+    "readmission_manifest": "data/staging/readmission12_20261123/decisions.json",
+    "readmission_reviewed_at": "2026-11-23"
   },
   {
     "document_id": "l_102_2025_qh15",

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "tt27_2026_official",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/27-bvhttdl.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/27-bvhttdl.signed.pdf",
+    "path": "data/source_documents/readmission12_20261123/tt27_2026_official.pdf",
+    "sha256": "945b6130f1aad52fd854a88b266482b9402993a39424b318c3f4a2e568b3d594",
+    "pages": 5,
+    "chars": 7207
+  },
+  {
+    "name": "vbhn22_2026_official",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/22-vbhn-bvhttdl.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/11/22-vbhn-bvhttdl.signed.pdf",
+    "path": "data/source_documents/readmission12_20261123/vbhn22_2026_official.pdf",
+    "sha256": "8baac96e9df64c7459d963799fbaec21e050b550236c08d8e49aeda5a7264635",
+    "pages": 5,
+    "chars": 10989
+  },
+  {
+    "name": "tt07_2017_candidate_a",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2018/01/07-bvhttdl.pdf",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "tt07_2017_candidate_b",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2018/01/07-bvhttdl.signed.pdf",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "tt07_2017_candidate_c",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2018/01/07.signed.pdf",
+    "resolved_url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2018/01/07.signed.pdf",
+    "sha256": "5ad91e7bc5b4d166ffc66e0c0a13e489be66eb59bbf33778d5e520be77e9841f",
+    "pages": 2,
+    "chars": 148,
+    "identity_status": "REJECTED_WRONG_DOCUMENT",
+    "detected_document": "07/QĐ-TTg,04/01/2018, tặng Bằng khen",
+    "retained_in_repository": false,
+    "reason": "Filename alone is not identity; first page inspected. Not TT07/2017/TT-BVHTTDL."
+  }
+]

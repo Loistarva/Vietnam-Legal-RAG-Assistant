@@ -1,0 +1,58 @@
+[
+  {
+    "name": "culture_2019_2023_full",
+    "url": "https://bvhttdl.gov.vn/uploads/vanban/2025/12/17/121305/tap-he-thong-hoa-ky-2019-2023-17223300742651940188158.pdf",
+    "resolved_url": "https://bvhttdl.gov.vn/uploads/vanban/2025/12/17/121305/tap-he-thong-hoa-ky-2019-2023-17223300742651940188158.pdf",
+    "path": "data/source_documents/readmission12_20261123/culture_2019_2023_full.pdf",
+    "sha256": "d7a5de7b37471ad330960b637f735e8c99ca1225aa0f51ded301dc03c92f59bb",
+    "pages": 66,
+    "chars": 109187
+  },
+  {
+    "name": "culture_2018_expiry",
+    "url": "https://vhttdl.daklak.gov.vn/Upload/Images/Vien/VB%20chi%20dao/1739.pdf",
+    "resolved_url": "https://vhttdl.daklak.gov.vn/Upload/Images/Vien/VB%20chi%20dao/1739.pdf",
+    "path": "data/source_documents/readmission12_20261123/culture_2018_expiry.pdf",
+    "sha256": "204d5a6e4901775e21388c85fb043b8defd229b03585fea85407723d5106fc87",
+    "pages": 8,
+    "chars": 7
+  },
+  {
+    "name": "culture_2019_2023_repealed",
+    "url": "https://vbpl.vn/FileData/TW/Lists/vbpq/Attachments/165833/VanBanGoc_danh%20muc%20HHL%20toan%20bo%20ky%202019%20-%202023%20.pdf",
+    "error": "<HTTPError 403: 'Forbidden'>"
+  },
+  {
+    "name": "court_08_vbhn_2025",
+    "url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363844",
+    "resolved_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363844",
+    "path": "data/source_documents/readmission12_20261123/court_08_vbhn_2025.pdf",
+    "sha256": "069aa350d066b55f21b25f54afad1730a25d42a7f45fcb9a6d688667f128ec8d",
+    "pages": 36,
+    "chars": 53894
+  },
+  {
+    "name": "court_06_vbhn_2025",
+    "url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363847",
+    "resolved_url": "https://vbpq.toaan.gov.vn/webcenter/ShowProperty?nodeId=%2FUCMServer%2FTAND363847",
+    "path": "data/source_documents/readmission12_20261123/court_06_vbhn_2025.pdf",
+    "sha256": "472b10481e2fc24788a1fca45157e537136da0e053ccc8a1dce744ec4d25f8ba",
+    "pages": 26,
+    "chars": 66859
+  },
+  {
+    "name": "tt05_2025_candidate_a",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/05-tt-tandtc.pdf",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "tt05_2025_candidate_b",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/05-tt-tandtc.signed.pdf",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "tt05_2025_candidate_c",
+    "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/6/05-tandtc.signed.pdf",
+    "error": "<HTTPError 404: 'Not Found'>"
+  }
+]

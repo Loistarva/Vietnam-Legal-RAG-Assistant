@@ -1,0 +1,20 @@
+[
+  {
+    "document_id": "nd_126_2014_nd_cp",
+    "path": "data/raw_data/laws_and_decrees/ND01.pdf",
+    "sha256": "f33d8f49d96adb13dca0f4e1077b8893d290954d14017aa291e14d2c5ae91b82",
+    "rendered_pages": [
+      30
+    ],
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-thuoctinh.aspx?ItemID=47412"
+  },
+  {
+    "document_id": "nd_123_2015_nd_cp",
+    "path": "data/raw_data/additional_documents/Nghị định 1232015NĐ-CP.pdf",
+    "sha256": "b39a37a54e3aec6431ed5c24dbd1f28275599bbd35c6d8478191d1bec24b7376",
+    "rendered_pages": [
+      22
+    ],
+    "source_url": "https://vbpl.vn/TW/Pages/vbpq-van-ban-goc.aspx?ItemID=92897"
+  }
+]

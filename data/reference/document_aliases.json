@@ -2,7 +2,7 @@
   "version": "document_aliases_v1",
   "normalization": "nfkd_casefold_alnum_v1",
   "review_status": "pending_peer_review",
-  "registry_canonical_sha256": "b231f27c52c48f4a5f4b9dfa814410e5009447912a48762599e82e3021b2298d",
+  "registry_canonical_sha256": "f316adbae35034e7c63f64323ae2119e1cd40e70b71b233224cf13f3fc585f7b",
   "temporal_policy": "Identity only; no newest/effective-date auto-selection; blank end is not proof of provision validity",
   "documents": {
     "bl_91_2015_qh13": {
@@ -258,6 +258,19 @@
       "document_type": "Luật",
       "issue_year": "2025",
       "effective_from": "2025-07-01",
+      "effective_to": null,
+      "temporal_scope": "requires_review",
+      "source_fields": {
+        "effective_from": "effective_date",
+        "effective_to": "expiry_date"
+      }
+    },
+    "nd_06_2012_nd_cp": {
+      "document_number": "06/2012/NĐ-CP",
+      "title": "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực",
+      "document_type": "Nghị định",
+      "issue_year": "2012",
+      "effective_from": "2012-04-01",
       "effective_to": null,
       "temporal_scope": "requires_review",
       "source_fields": {
@@ -1388,6 +1401,33 @@
       ],
       "forms": [
         "04/2024/TT-BTP"
+      ],
+      "kinds": [
+        "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "06/2012"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "06/2012/NĐ-CP"
       ],
       "kinds": [
         "document_number",
@@ -2610,6 +2650,19 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "2012"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "2013": {
       "document_ids": [
         "l_35_2013_qh13",
@@ -3590,6 +3643,32 @@
       ],
       "kinds": [
         "document_number",
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "6/2012"
+      ],
+      "kinds": [
+        "number_variant"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "6/2012/NĐ-CP"
+      ],
+      "kinds": [
         "number_variant"
       ],
       "ambiguous": false,
@@ -10282,6 +10361,19 @@
       "ambiguous": true,
       "requires_identity_context": true
     },
+    "nam 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "năm 2012"
+      ],
+      "kinds": [
+        "year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nam 2013": {
       "document_ids": [
         "l_35_2013_qh13",
@@ -10501,6 +10593,36 @@
       ],
       "ambiguous": true,
       "requires_identity_context": true
+    },
+    "nd 06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 06/2012",
+        "NĐ 06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 06/2012/NĐ-CP",
+        "NĐ 06/2012/NĐ-CP",
+        "nd_06_2012_nd_cp"
+      ],
+      "kinds": [
+        "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nd 06 2025": {
       "document_ids": [
@@ -11256,6 +11378,20 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "nd 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 2012",
+        "NĐ 2012"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nd 2013": {
       "document_ids": [
         "nd_110_2013_nd_cp",
@@ -11718,6 +11854,7 @@
     },
     "nd 6": {
       "document_ids": [
+        "nd_06_2012_nd_cp",
         "nd_06_2025_nd_cp"
       ],
       "forms": [
@@ -11727,8 +11864,36 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "nd 6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 6/2012",
+        "NĐ 6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd 6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND 6/2012/NĐ-CP",
+        "NĐ 6/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nd 6 2025": {
       "document_ids": [
@@ -12145,6 +12310,34 @@
       ],
       "kinds": [
         "canonical_id",
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 06/2012",
+        "NĐ số 06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 06/2012/NĐ-CP",
+        "NĐ số 06/2012/NĐ-CP"
+      ],
+      "kinds": [
         "type_number"
       ],
       "ambiguous": false,
@@ -13066,6 +13259,7 @@
     },
     "nd so 6": {
       "document_ids": [
+        "nd_06_2012_nd_cp",
         "nd_06_2025_nd_cp"
       ],
       "forms": [
@@ -13075,8 +13269,36 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "nd so 6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 6/2012",
+        "NĐ số 6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd so 6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND số 6/2012/NĐ-CP",
+        "NĐ số 6/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nd so 6 2025": {
       "document_ids": [
@@ -13558,6 +13780,34 @@
       ],
       "kinds": [
         "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND06/2012",
+        "NĐ06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND06/2012/NĐ-CP",
+        "NĐ06/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -14425,6 +14675,19 @@
       "ambiguous": false,
       "requires_identity_context": false
     },
+    "nd31": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND31"
+      ],
+      "kinds": [
+        "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
     "nd32 2002": {
       "document_ids": [
         "nd_32_2002_nd_cp"
@@ -14568,6 +14831,34 @@
       ],
       "kinds": [
         "file_code"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND6/2012",
+        "NĐ6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nd6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "ND6/2012/NĐ-CP",
+        "NĐ6/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
       ],
       "ambiguous": false,
       "requires_identity_context": false
@@ -14845,6 +15136,32 @@
       "forms": [
         "ND87/2020/NĐ-CP",
         "NĐ87/2020/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 06/2012/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -15521,6 +15838,19 @@
       "ambiguous": false,
       "requires_identity_context": true
     },
+    "nghi dinh 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 2012"
+      ],
+      "kinds": [
+        "type_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": true
+    },
     "nghi dinh 2013": {
       "document_ids": [
         "nd_110_2013_nd_cp",
@@ -15938,6 +16268,7 @@
     },
     "nghi dinh 6": {
       "document_ids": [
+        "nd_06_2012_nd_cp",
         "nd_06_2025_nd_cp"
       ],
       "forms": [
@@ -15946,8 +16277,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "nghi dinh 6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh 6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định 6/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nghi dinh 6 2025": {
       "document_ids": [
@@ -16319,6 +16676,32 @@
       ],
       "forms": [
         "Nghị định 87/2020/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 06/2012/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -17177,6 +17560,7 @@
     },
     "nghi dinh so 6": {
       "document_ids": [
+        "nd_06_2012_nd_cp",
         "nd_06_2025_nd_cp"
       ],
       "forms": [
@@ -17185,8 +17569,34 @@
       "kinds": [
         "type_number_without_year"
       ],
-      "ambiguous": false,
+      "ambiguous": true,
       "requires_identity_context": true
+    },
+    "nghi dinh so 6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh so 6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định số 6/2012/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
     },
     "nghi dinh so 6 2025": {
       "document_ids": [
@@ -17558,6 +17968,32 @@
       ],
       "forms": [
         "Nghị định số 87/2020/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh06 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định06/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh06 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định06/2012/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -18182,6 +18618,32 @@
       ],
       "forms": [
         "Nghị định347/2026/NĐ-CP"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh6 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định6/2012"
+      ],
+      "kinds": [
+        "type_number"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "nghi dinh6 2012 nd cp": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "Nghị định6/2012/NĐ-CP"
       ],
       "kinds": [
         "type_number"
@@ -19976,6 +20438,33 @@
       ],
       "forms": [
         "Sửa đổi, bổ sung một số điều của các Nghị định trong lĩnh vực hộ tịch, quốc tịch, chứng thực năm 2025"
+      ],
+      "kinds": [
+        "title_with_issue_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "sua doi bo sung mot so dieu cua cac nghi dinh ve ho tich hon nhan va gia dinh va chung thuc": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực"
+      ],
+      "kinds": [
+        "title",
+        "title_without_year"
+      ],
+      "ambiguous": false,
+      "requires_identity_context": false
+    },
+    "sua doi bo sung mot so dieu cua cac nghi dinh ve ho tich hon nhan va gia dinh va chung thuc nam 2012": {
+      "document_ids": [
+        "nd_06_2012_nd_cp"
+      ],
+      "forms": [
+        "sửa đổi, bổ sung một số điều của các Nghị định về hộ tịch, hôn nhân và gia đình và chứng thực năm 2012"
       ],
       "kinds": [
         "title_with_issue_year"

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "readmit_nd_06_2012_art_2",
+    "document_id": "nd_06_2012_nd_cp",
+    "articles": [
+      "2"
+    ],
+    "provision_status": "repealed",
+    "effective_to": "2015-02-15",
+    "changed_by": "nd_126_2014_nd_cp",
+    "provision": "Điều65 khoản2 126/2014/NĐ-CP bãi bỏ riêng Điều2 NĐ06/2012. Chỉ nhận phạm vi lịch sử; chuyển tiếp đọc riêng, không tự kéo dài mọi Điều.",
+    "evidence_chunk_id": "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
+    "evidence_context_ids": [
+      "nd_126_2014_nd_cp_art_65_clause_2_chunk_1",
+      "nd_126_2014_nd_cp_art_65_clause_2_chunk_2"
+    ]
+  },
+  {
+    "id": "readmit_nd_06_2012_art_3",
+    "document_id": "nd_06_2012_nd_cp",
+    "articles": [
+      "3"
+    ],
+    "provision_status": "repealed",
+    "effective_to": "2016-01-01",
+    "changed_by": "nd_123_2015_nd_cp",
+    "provision": "Điều45 khoản2 123/2015/NĐ-CP bãi bỏ riêng Điều3 NĐ06/2012. Chỉ nhận phạm vi lịch sử; chuyển tiếp đọc riêng, không tự kéo dài mọi Điều.",
+    "evidence_chunk_id": "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+    "evidence_context_ids": [
+      "nd_123_2015_nd_cp_art_45_clause_2_chunk_1",
+      "nd_123_2015_nd_cp_art_45_clause_2_chunk_2"
+    ]
+  }
+]
