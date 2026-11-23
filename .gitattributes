@@ -1,0 +1,5 @@
+# Keep synthetic evidence/log hashes reproducible on Windows and Linux.
+/logs/sample_request.jsonl text eol=lf
+/evaluation/quality/grounding_cases_sprint11.jsonl text eol=lf
+/test/fixtures/grounding/sprint11/*.json text eol=lf
+/reports/week11/*.log text eol=lf

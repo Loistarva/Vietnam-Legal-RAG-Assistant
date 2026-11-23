@@ -5,10 +5,42 @@ original model indices and the mapper's invalid indices. Never validate against
 the retrieval pool or silently discard mapper failures before calling here.
 """
 from collections.abc import Sequence
+from datetime import date
 
 from schemas.models import ContextPayload, EvidenceItem, GroundingResult, MappedCitation
 
 _FIELDS = ("chunk_id", "document_id", "article_id", "clause_id", "parent_clause_id")
+_TEMPORAL_FIELDS = ("effective_from", "effective_to")
+_SOURCE_METADATA_FIELDS = ("validity_status", "source_url", "document_number", "document_title",
+                           "article_number", "clause_number", "breadcrumb", "provision_status")
+
+
+def _date(value: object) -> date | None:
+    if value is None:
+        return None
+    if not isinstance(value, str) or date.fromisoformat(value).isoformat() != value:
+        raise ValueError("Invalid ISO date")
+    return date.fromisoformat(value)
+
+
+def _temporal_violation(item: EvidenceItem, as_of: date) -> str | None:
+    """Use the retrieval contract's [effective_from, effective_to) interval.
+
+    A current expiry label alone cannot invalidate a historical lookup. Missing
+    bounds are not fabricated; legacy undated evidence remains structurally
+    checkable, without asserting its legal validity.
+    """
+    try:
+        start, end = (_date(getattr(item, field)) for field in _TEMPORAL_FIELDS)
+    except (TypeError, ValueError):
+        return "INVALID_EFFECTIVE_DATE"
+    if start is not None and end is not None and start >= end:
+        return "INVALID_EFFECTIVE_INTERVAL"
+    if start is not None and as_of < start:
+        return "EVIDENCE_NOT_YET_EFFECTIVE"
+    if end is not None and as_of >= end:
+        return "EVIDENCE_EXPIRED_AS_OF_DATE"
+    return None
 
 
 def validate_citations(
@@ -62,6 +94,8 @@ def validate_citations(
         return fail("INVALID_CONTEXT_INDEX", indices)
     if len(set(indices)) != len(indices):
         return fail("DUPLICATE_CONTEXT_INDEX", indices)
+    if indices != list(range(1, len(items) + 1)):
+        return fail("NON_CONTIGUOUS_CONTEXT_INDEX", indices)
     if any(not isinstance(getattr(item, field), str) or not getattr(item, field).strip()
            for item in items for field in (*_FIELDS, "content")):
         return fail("EMPTY_EVIDENCE_FIELD")
@@ -74,6 +108,21 @@ def validate_citations(
         source = source_map[idx]
         if not isinstance(source, dict) or any(source.get(f) != getattr(item, f) for f in _FIELDS):
             return fail("SOURCE_MAP_PROVENANCE_MISMATCH", [idx])
+        if any(source.get(field) != getattr(item, field) for field in _TEMPORAL_FIELDS):
+            return fail("SOURCE_MAP_TEMPORAL_MISMATCH", [idx])
+        if any(source.get(field) != getattr(item, field) for field in _SOURCE_METADATA_FIELDS):
+            return fail("SOURCE_MAP_METADATA_MISMATCH", [idx])
+    try:
+        as_of = _date(context_payload.as_of_date)
+        if as_of is None:
+            raise ValueError("Missing date")
+    except (TypeError, ValueError):
+        return fail("INVALID_AS_OF_DATE")
+    # Check all evidence rendered in the prompt, not just the cited subset.
+    for idx, item in selected.items():
+        violation = _temporal_violation(item, as_of)
+        if violation:
+            return fail(violation, [idx])
     if not evidence_indices or not citations:
         return fail("MISSING_CITATIONS")
     citation_indices = [c.evidence_index for c in citations]
