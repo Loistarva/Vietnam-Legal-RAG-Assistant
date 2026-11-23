@@ -7,10 +7,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 import statistics
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Any, Literal
 
@@ -18,6 +19,7 @@ import requests
 import yaml
 from pydantic import BaseModel, ConfigDict, field_validator
 
+from generation.prompt_builder import MISSING_FACTS_TAXONOMY, PROMPT_B_V1_3_VERSION, validate_missing_facts
 from schemas.models import ErrorCode, LLMResponse, StructuredRAGOutput, TokenUsage
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "local_qwen.yaml"
@@ -154,6 +156,10 @@ class QwenGatewayConfig(BaseModel):
         if isinstance(v, bool) or not isinstance(v, (int, float)):
             raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số thực")
         val = float(v)
+        if not math.isfinite(val):
+            raise ValueError(
+                f"Trường cấu hình '{info.field_name}' phải là số thực hữu hạn (không nhận NaN/Infinity)"
+            )
         if info.field_name == "temperature":
             if not 0.0 <= val <= 2.0:
                 raise ValueError("Trường cấu hình 'temperature' phải nằm trong [0.0, 2.0]")
@@ -281,6 +287,7 @@ class QwenGateway:
         structured_output: bool = False,
         schema: dict[str, Any] | None = None,
         max_evidence_index: int | None = None,
+        allowed_missing_facts: Sequence[str] | None = None,
     ) -> LLMResponse:
         """
         Gọi mô hình Qwen qua Ollama API (/api/generate).
@@ -379,6 +386,16 @@ class QwenGateway:
 
             validated_struct = StructuredRAGOutput.model_validate({**parsed_json, "evidence_indices": []})
 
+            # Đối chiếu danh mục đóng missing_facts với prompt v1.3 hoặc taxonomy cấu hình kèm theo (FR4.4)
+            is_v1_3 = (
+                prompt_version.strip() == PROMPT_B_V1_3_VERSION
+                or prompt_version.strip().lower().startswith("v1.3")
+            )
+            if allowed_missing_facts is not None:
+                validate_missing_facts(validated_struct.missing_facts, allowed=allowed_missing_facts)
+            elif is_v1_3:
+                validate_missing_facts(validated_struct.missing_facts, allowed=MISSING_FACTS_TAXONOMY)
+
             # Khi không truyền max_evidence_index (legacy callers), số nguyên ngoài [1, 5] vẫn giữ ở
             # evidence_indices để Grounding Gate xử lý. Khi truyền max_evidence_index, chỉ số ngoài
             # [1, max_evidence_index] bị đưa vào rejected_evidence_values và gắn error_code CITATION_INVALID.
@@ -469,7 +486,12 @@ def ollama_durations_ms(raw_res: dict[str, Any]) -> dict[str, float | None]:
     out: dict[str, float | None] = {}
     for source, target in OLLAMA_DURATION_FIELDS.items():
         value = raw_res.get(source)
-        valid = isinstance(value, (int, float)) and not isinstance(value, bool) and value >= 0
+        valid = (
+            isinstance(value, (int, float))
+            and not isinstance(value, bool)
+            and math.isfinite(float(value))
+            and value >= 0
+        )
         out[target] = round(value / 1_000_000, 2) if valid else None
     load, prompt_eval = out["load_duration_ms"], out["prompt_eval_duration_ms"]
     out["ttft_model_ms"] = round(load + prompt_eval, 2) if load is not None and prompt_eval is not None else None

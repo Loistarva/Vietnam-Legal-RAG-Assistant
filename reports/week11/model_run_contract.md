@@ -38,3 +38,12 @@ Khi gọi `validate_run_manifest(manifest, official=True)` hoặc `assert_valid_
 - Fallback khóa (`fallback_locked == True` hoặc `fallback == "LOCKED"`).
 
 Khi vi phạm bất kỳ trường nào, validator trả về danh sách thông báo lỗi nêu rõ tên trường (hoặc ném `ManifestValidationError`).
+
+---
+
+## 4. Khắc phục hậu review Sprint 11 (Post-review fixes)
+
+- **[P2] Chặn `NaN` / `Infinity` / `-Infinity`:** Dùng `_is_finite_number` (`math.isfinite`) kiểm tra toàn bộ tham số số thực ở cả `validate_runtime_config` và `validate_run_manifest` (`runtime.temperature`, `runtime.repeat_penalty`, `runtime.timeout_seconds`) cho cả `official=True` và `official=False`.
+- **[P2] Nhất quán hash model config vs runtime hiệu lực (`NFR4.1`–`NFR4.3`):** `build_model_run_manifest` và `validate_run_manifest` đối chiếu các tham số sinh hiệu lực với cấu hình gốc được băm tại `config_hashes.model`. Khi `official=True`, mọi override/lệch trường bị từ chối với lỗi `model_config_hash_mismatch` chỉ rõ trường lệch; khi `official=False`, manifest ghi nhận tường minh `base_model_config`, `base_model_config_hash`, `runtime_overrides` và `effective_model_config_hash` (từ chối nếu ghi đè ngầm thiếu provenance).
+- **[P2] Phát hiện mâu thuẫn biểu diễn cache / fallback:** `_read_cache_disabled` và `_read_fallback_locked` kiểm tra chéo toàn bộ biểu diễn hiện diện (`cache_enabled` vs `cache`, `fallback_locked` vs `fallback` / `fallback_enabled`) trong cả `validate_runtime_config` và `validate_run_manifest`, từ chối ngay khi mâu thuẫn ở cả `official=True` và `official=False`.
+- **[P2] Xử lý an toàn file YAML lỗi cú pháp / lỗi đọc:** `_load_yaml_mapping` bắt `OSError`, `UnicodeDecodeError`, `yaml.YAMLError` và trả về lỗi có cấu trúc (`YAML_PARSE_ERROR` kèm `file_path` và `line`/`column` nếu có, hoặc `CONFIG_READ_ERROR` kèm `file_path`) thay vì ném exception thô. Đã bổ sung đầy đủ unit test trong `test/model_gateway/test_run_metadata.py`.

@@ -34,3 +34,10 @@
 
 - Đã quét toàn bộ mã nguồn bằng `git grep` và test tĩnh trong `test/model_gateway/test_structured_output.py`: các phân hệ runtime (`orchestration/`, `evaluation/`, `agent/`, `retrieval/`, `reranking/`, `grounding/`, `generation/`) đều không gọi HTTP trực tiếp tới Ollama/LLM provider mà đi qua `QwenGateway`.
 - **Ghi chú ngoài phạm vi sở hữu Dev 3:** `scripts/run_rag_batch.py` (`preflight_ollama`, dòng 415–450) hiện vẫn gọi trực tiếp `urllib.request` tới `/api/version`, `/api/tags`, `/api/generate` để warmup trước batch. Dev 3 giữ nguyên không sửa file ngoài phạm vi và ghi nhận để owner `scripts/` có thể chuyển sang dùng `QwenGateway` / `model_gateway/run_metadata.py` ở bước dọn kỹ thuật tiếp theo.
+
+---
+
+## 4. Khắc phục hậu review Sprint 11 (Post-review fixes)
+
+- **[P2] Chặn `NaN` / `Infinity` / `-Infinity` (`model_gateway/llm_gateway.py`):** Bổ sung kiểm tra `math.isfinite()` trước khi kiểm tra khoảng giá trị cho `temperature`, `repeat_penalty`, `timeout_seconds` trong `QwenGatewayConfig.validate_strict_float` và cho các trường thời lượng Ollama trong `ollama_durations_ms`. Đã thêm test `test_gateway_config_rejects_non_finite_floats`.
+- **[P2] Kiểm tra danh mục đóng `missing_facts` cho prompt `v1.3` (`FR4.4`):** Khi `prompt_version` thuộc nhánh `v1.3` (hoặc truyền `allowed_missing_facts`), `QwenGateway.generate` gọi `validate_missing_facts(...)` để đối chiếu `MISSING_FACTS_TAXONOMY`. Mã ngoài danh mục đóng bị xử lý đồng nhất theo policy lỗi schema đầu ra (`parse_status="invalid_json"` / `"truncated_json"`, `error_code="JSON_INVALID"`, xóa `answer`/`missing_facts`, không ném transport exception), giữ nguyên tương thích ngược cho `v1.2`. Đã thêm test `test_gateway_enforces_missing_facts_closed_taxonomy_for_v1_3_only`.

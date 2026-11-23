@@ -52,3 +52,9 @@ Toàn bộ các thay đổi dưới đây đều giữ tương thích ngược t
 
 - `AskResponse.session_id`, `LogEvent.session_id`, stage `session` (`FR7.1`, `FR7.2` — Dự kiến).
 - `ErrorCode.RATE_LIMITED` (HTTP 429, `NFR3.2` — Dự kiến).
+
+---
+
+## 5. Khắc phục hậu review Sprint 11 (Post-review fixes)
+
+- **[P1] Tương thích ngược `ContextPayload.source_map` (`schemas/models.py`):** Chuẩn hóa khóa tùy chọn `point_ref` bị thiếu về `None` trên bản sao đối chiếu của từng entry trong `source_map` khi đọc payload `week10_v1.0` cũ; vẫn từ chối (`ValidationError`) nếu `point_ref` sai giá trị, có khóa lạ ngoài schema entry, hoặc sai lệch bất kỳ metadata nguồn nào (`chunk_id`, `article_id`, v.v.). Đã bổ sung regression test `test_context_payload_source_map_backward_compatible_without_point_ref` trong `test/schemas/test_contracts.py` và kiểm tra khớp `schemas.models` + `api/openapi.json`.

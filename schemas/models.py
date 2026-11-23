@@ -527,9 +527,16 @@ class ContextPayload(StrictBaseModel):
                 "provision_status": item.provision_status,
             }
 
-        # source_map luôn dựng từ evidence_items; nếu truyền vào thì phải giống hệt
-        if self.source_map and self.source_map != built_map:
-            raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")
+        # source_map luôn dựng từ evidence_items; chuẩn hóa thiếu point_ref từ bản ghi week10_v1.0
+        # trước khi đối chiếu, nhưng vẫn từ chối nếu sai giá trị, thiếu trường khác hoặc dư khóa lạ.
+        if self.source_map:
+            normalized_source_map: dict[int, dict[str, Any]] = {}
+            for idx, entry in self.source_map.items():
+                entry_copy = dict(entry)
+                entry_copy.setdefault("point_ref", None)
+                normalized_source_map[idx] = entry_copy
+            if normalized_source_map != built_map:
+                raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")
         self.source_map = built_map
 
         return self

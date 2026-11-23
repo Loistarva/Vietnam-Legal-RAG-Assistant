@@ -326,3 +326,85 @@ def test_qwen_gateway_config_defaults_load_config_version():
     cfg = QwenGateway.load_config(DEFAULT_CONFIG_PATH)
     assert cfg.config_version == "local_qwen_v1.1"
     assert QwenGatewayConfig().config_version == "local_qwen_v1.1"
+
+
+@pytest.mark.req("FR6.2")
+@pytest.mark.req("NFR4.1")
+@pytest.mark.parametrize("field", ["temperature", "repeat_penalty", "timeout_seconds"])
+@pytest.mark.parametrize("bad_num", [float("nan"), float("inf"), float("-inf")])
+def test_gateway_config_rejects_non_finite_floats(field: str, bad_num: float):
+    with pytest.raises((ValidationError, ValueError)):
+        QwenGatewayConfig(**{field: bad_num})
+    with pytest.raises((GatewayExecutionError, ValidationError, ValueError)):
+        QwenGateway({field: bad_num}, transport=lambda url, payload, timeout: {})
+
+
+@pytest.mark.req("FR4.4")
+def test_gateway_enforces_missing_facts_closed_taxonomy_for_v1_3_only():
+    from generation.prompt_builder import MISSING_FACTS_TAXONOMY, PROMPT_A_VERSION, PROMPT_B_V1_3_VERSION
+
+    valid_code = MISSING_FACTS_TAXONOMY[0]
+    ok_payload = json.dumps(
+        {
+            "answer": "Cần thêm mốc thời gian [1].",
+            "evidence_indices": [1],
+            "abstained": False,
+            "needs_clarification": True,
+            "missing_facts": [valid_code],
+        }
+    )
+    resp_ok = _make_gateway(ok_payload).generate(
+        prompt="Prompt v1.3",
+        query_id="q_v13_ok",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_V1_3_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_ok.parse_status == "ok"
+    assert resp_ok.error_code is None
+    assert resp_ok.missing_facts == [valid_code]
+
+    bad_payload = json.dumps(
+        {
+            "answer": "Thiếu thông tin.",
+            "evidence_indices": [1],
+            "abstained": False,
+            "needs_clarification": True,
+            "missing_facts": ["MA_KHONG_HOP_LE"],
+        }
+    )
+    resp_bad = _make_gateway(bad_payload).generate(
+        prompt="Prompt v1.3",
+        query_id="q_v13_bad",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_V1_3_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_bad.parse_status == "invalid_json"
+    assert resp_bad.error_code == "JSON_INVALID"
+    assert resp_bad.answer == ""
+    assert resp_bad.missing_facts == []
+
+    # Tương thích ngược với v1.2 (v1.2_controlled_rag & v1.2_zero_shot)
+    resp_v12_rag = _make_gateway(bad_payload).generate(
+        prompt="Prompt v1.2",
+        query_id="q_v12_rag",
+        run_mode="B_controlled_rag",
+        prompt_version=PROMPT_B_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_v12_rag.parse_status == "ok"
+    assert resp_v12_rag.error_code is None
+
+    resp_v12_zs = _make_gateway("Nam đủ 20 tuổi.").generate(
+        prompt="Prompt v1.2 zero-shot",
+        query_id="q_v12_zs",
+        run_mode="A_zero_shot",
+        prompt_version=PROMPT_A_VERSION,
+        structured_output=False,
+    )
+    assert resp_v12_zs.parse_status == "raw_text"
+    assert resp_v12_zs.error_code is None

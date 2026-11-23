@@ -197,3 +197,132 @@ def test_precomputed_retrieval_requires_artifact_hash_and_builder_roundtrips(tmp
         hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
     )
     assert validate_run_manifest(built, official=False) == []
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.parametrize("field", ["temperature", "repeat_penalty", "timeout_seconds"])
+@pytest.mark.parametrize("bad_num", [float("nan"), float("inf"), float("-inf")])
+def test_runtime_config_and_manifest_reject_non_finite_numbers(field: str, bad_num: float):
+    base_cfg = QwenGatewayConfig().model_dump()
+    base_cfg[field] = bad_num
+    for is_official in (True, False):
+        cfg_errors = validate_runtime_config(base_cfg, official=is_official)
+        assert cfg_errors, f"Expected error for runtime config {field}={bad_num}"
+
+        manifest = _valid_manifest()
+        manifest["runtime"][field] = bad_num
+        mf_errors = validate_run_manifest(manifest, official=is_official)
+        assert any(field in err for err in mf_errors), mf_errors
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+@pytest.mark.req("NFR4.3")
+def test_manifest_detects_model_config_override_hash_mismatch(tmp_path: Path):
+    bench = tmp_path / "bench.json"
+    corpus = tmp_path / "chunks.jsonl"
+    ret_cfg = tmp_path / "ret.yaml"
+    rerank_cfg = tmp_path / "rerank.yaml"
+    thresh_cfg = tmp_path / "thresh.yaml"
+    model_cfg = tmp_path / "model_8192.yaml"
+    for p, content in [
+        (bench, "[]\n"),
+        (corpus, '{"chunk_id":"c1"}\n'),
+        (ret_cfg, "top_k: 50\n"),
+        (rerank_cfg, "top_k: 10\n"),
+        (thresh_cfg, "min_top1: 0.5\n"),
+        (model_cfg, DEFAULT_CONFIG_PATH.read_text(encoding="utf-8")),
+    ]:
+        p.write_text(content, encoding="utf-8")
+
+    # gateway_config ghi đè num_ctx=4096 trong khi file config băm có num_ctx=8192
+    override_cfg = QwenGatewayConfig(num_ctx=4096)
+    built = build_model_run_manifest(
+        benchmark_path=bench,
+        dataset_ids=["HN_001"],
+        corpus_path=corpus,
+        retrieval_config_path=ret_cfg,
+        rerank_config_path=rerank_cfg,
+        model_config_path=model_cfg,
+        threshold_config_path=thresh_cfg,
+        prompt_version="v1.2_controlled_rag",
+        model_digest="sha256:digest",
+        ollama_version="0.40.16",
+        gateway_config=override_cfg,
+        hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+    )
+    built["working_tree_clean"] = True
+
+    # Official run phải từ chối và chỉ rõ model_config_hash_mismatch + num_ctx
+    official_errors = validate_run_manifest(built, official=True)
+    assert any("model_config_hash_mismatch" in err and "num_ctx" in err for err in official_errors), official_errors
+
+    with pytest.raises(ManifestValidationError, match="model_config_hash_mismatch"):
+        build_model_run_manifest(
+            benchmark_path=bench,
+            dataset_ids=["HN_001"],
+            corpus_path=corpus,
+            retrieval_config_path=ret_cfg,
+            rerank_config_path=rerank_cfg,
+            model_config_path=model_cfg,
+            threshold_config_path=thresh_cfg,
+            prompt_version="v1.2_controlled_rag",
+            model_digest="sha256:digest",
+            ollama_version="0.40.16",
+            gateway_config=override_cfg,
+            hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+            official=True,
+        )
+
+    # Non-official cho phép khi có đầy đủ base_model_config, runtime_overrides & effective_model_config_hash
+    assert validate_run_manifest(built, official=False) == []
+    assert built["base_model_config"]["num_ctx"] == 8192
+    assert built["runtime_overrides"] == {"num_ctx": {"config": 8192, "runtime": 4096}}
+    assert built["effective_model_config_hash"] != built["base_model_config_hash"]
+
+    # Đối chiếu file config trực tiếp cũng chặn silent override khi thiếu override provenance
+    silent_mismatch = _valid_manifest()
+    from model_gateway.run_metadata import sha256_file
+
+    silent_mismatch["config_hashes"]["model"] = sha256_file(model_cfg)
+    silent_mismatch["runtime"]["num_ctx"] = 4096
+    silent_errors = validate_run_manifest(silent_mismatch, official=False, model_config_path=model_cfg)
+    assert any("model_config_hash_mismatch" in err and "num_ctx" in err for err in silent_errors), silent_errors
+
+
+@pytest.mark.req("NFR4.1")
+def test_runtime_and_manifest_reject_contradictory_cache_and_fallback_flags():
+    for is_official in (True, False):
+        bad_cache_manifest = _valid_manifest()
+        bad_cache_manifest["runtime"]["cache_enabled"] = False
+        bad_cache_manifest["runtime"]["cache"] = "ON"
+        cache_errs = validate_run_manifest(bad_cache_manifest, official=is_official)
+        assert any("cache" in err.lower() and "mâu thuẫn" in err.lower() for err in cache_errs), cache_errs
+
+        bad_fb_manifest = _valid_manifest()
+        bad_fb_manifest["runtime"]["fallback_locked"] = True
+        bad_fb_manifest["runtime"]["fallback"] = "UNLOCKED"
+        fb_errs = validate_run_manifest(bad_fb_manifest, official=is_official)
+        assert any("fallback" in err.lower() and "mâu thuẫn" in err.lower() for err in fb_errs), fb_errs
+
+        bad_cache_cfg = {**QwenGatewayConfig().model_dump(), "cache_enabled": False, "cache": "ON"}
+        assert any("cache" in err.lower() for err in validate_runtime_config(bad_cache_cfg, official=is_official))
+
+        bad_fb_cfg = {**QwenGatewayConfig().model_dump(), "fallback_locked": True, "fallback": "UNLOCKED"}
+        assert any("fallback" in err.lower() for err in validate_runtime_config(bad_fb_cfg, official=is_official))
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.3")
+def test_validate_runtime_config_handles_corrupt_yaml_without_raw_exception(tmp_path: Path):
+    broken_yaml = tmp_path / "broken_qwen.yaml"
+    broken_yaml.write_text("model: [\n", encoding="utf-8")
+
+    errors = validate_runtime_config(broken_yaml, official=True)
+    assert errors
+    assert any("YAML_PARSE_ERROR" in err and str(broken_yaml) in err for err in errors), errors
+
+    invalid_utf8 = tmp_path / "binary_qwen.yaml"
+    invalid_utf8.write_bytes(b"\xff\xfe\x00\x80")
+    read_errors = validate_runtime_config(invalid_utf8, official=False)
+    assert any("CONFIG_READ_ERROR" in err and str(invalid_utf8) in err for err in read_errors), read_errors

@@ -713,3 +713,49 @@ def test_retrieval_bundle_filters_latency_and_rag_record_route():
 
     with pytest.raises(ValidationError):
         RAGOutputRecord.model_validate({**base_record, "route": "LEGAL_HNGD"})
+
+
+@pytest.mark.req("FR4.7")
+@pytest.mark.req("IR1.4")
+def test_context_payload_source_map_backward_compatible_without_point_ref():
+    ev_without_point = _sample_evidence(1).model_copy(update={"point_ref": None})
+    built_ctx = ContextPayload(
+        query_id="Q_CTX_LEGACY",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_without_point],
+    )
+    legacy_source_entry = dict(built_ctx.source_map[1])
+    legacy_source_entry.pop("point_ref")
+
+    # 1. Payload week10_v1.0 thiếu khóa point_ref trong source_map -> hợp lệ và chuẩn hóa point_ref=None
+    legacy_payload = {
+        "query_id": "Q_CTX_LEGACY",
+        "query": "Tuổi kết hôn?",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "evidence_items": [ev_without_point.model_dump(exclude={"point_ref"})],
+        "source_map": {"1": legacy_source_entry},
+        "total_chars": len(ev_without_point.content),
+    }
+    parsed = ContextPayload.model_validate(legacy_payload)
+    assert parsed.source_map[1]["point_ref"] is None
+
+    # 2. Sai point_ref, có khóa lạ, hoặc sai chunk_id/article_id -> vẫn phải từ chối
+    with pytest.raises(ValidationError):
+        ContextPayload.model_validate(
+            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "point_ref": "Điểm a"}}}
+        )
+    with pytest.raises(ValidationError):
+        ContextPayload.model_validate(
+            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "unexpected_key": "x"}}}
+        )
+    with pytest.raises(ValidationError):
+        ContextPayload.model_validate(
+            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "chunk_id": "wrong_chunk"}}}
+        )
+    with pytest.raises(ValidationError):
+        ContextPayload.model_validate(
+            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "article_id": "art_999"}}}
+        )
