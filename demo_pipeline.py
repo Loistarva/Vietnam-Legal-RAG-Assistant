@@ -18,9 +18,9 @@ if sys.platform == "win32":
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE_DIR))
 
-# Nạp động LegalDocumentSchema từ test/schema_test.py để tránh xung đột với package 'test' của Python standard library
+# Nạp động LegalDocumentSchema từ tests/schema_test.py để tránh xung đột với module 'tests' của Python standard library
 schema_spec = importlib.util.spec_from_file_location(
-    "schema_test", BASE_DIR / "test" / "schema_test.py"
+    "schema_test", BASE_DIR / "tests" / "schema_test.py"
 )
 schema_mod = importlib.util.module_from_spec(schema_spec)
 schema_spec.loader.exec_module(schema_mod)
@@ -49,7 +49,7 @@ def run_pipeline():
         for file_path in parsed_files:
             with open(file_path, "r", encoding="utf-8") as f:
                 raw_json = json.load(f)
-            LegalDocumentSchema(**raw_json)
+            doc_obj = LegalDocumentSchema(**raw_json)
             validated_docs.append(raw_json)
         print(f"-> 100% ({len(validated_docs)}/{len(parsed_files)}) văn bản vượt qua Schema Validation!")
 
@@ -74,7 +74,7 @@ def run_pipeline():
         sample_payload = all_child_payloads[0]
         assert "embed_text" in sample_payload, "Payload thiếu trường embed_text!"
         assert "validity_status" in sample_payload, "Payload thiếu validity_status cho bộ lọc!"
-        print("-> Payload mẫu hợp lệ:")
+        print(f"-> Payload mẫu hợp lệ:")
         print(f"   + ID: {sample_payload.get('id')}")
         print(f"   + Breadcrumb: {sample_payload.get('breadcrumb')}")
         print(f"   + Validity Status: {sample_payload.get('validity_status')}")

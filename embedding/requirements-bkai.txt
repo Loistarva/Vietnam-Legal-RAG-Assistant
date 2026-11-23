@@ -1,2 +1,2 @@
 -r requirements.txt
-underthesea==9.5.0
+underthesea>=8.3,<9

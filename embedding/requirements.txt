@@ -1,3 +1,2 @@
 sentence-transformers>=3.4,<6
-qdrant-client==1.19.1
-elasticsearch>=8,<10
+qdrant-client>=1.13,<2
