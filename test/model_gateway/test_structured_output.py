@@ -408,3 +408,48 @@ def test_gateway_enforces_missing_facts_closed_taxonomy_for_v1_3_only():
     )
     assert resp_v12_zs.parse_status == "raw_text"
     assert resp_v12_zs.error_code is None
+
+    # Edge cases trên v1.3: short version "v1.3", abstained=True, needs_clarification=True, và sai kiểu missing_facts
+    for pv in ("v1.3", PROMPT_B_V1_3_VERSION):
+        for extra_flags in (
+            {"abstained": True, "abstention_reason": "INSUFFICIENT", "needs_clarification": False},
+            {"abstained": False, "needs_clarification": True},
+        ):
+            edge_bad = json.dumps(
+                {
+                    "answer": "Không kết luận được.",
+                    "evidence_indices": [1],
+                    **extra_flags,
+                    "missing_facts": ["MA_KHONG_HOP_LE"],
+                }
+            )
+            r_edge = _make_gateway(edge_bad).generate(
+                prompt="P",
+                query_id="q_edge_v13",
+                run_mode="C_production_rag",
+                prompt_version=pv,
+                structured_output=True,
+                max_evidence_index=1,
+            )
+            assert r_edge.parse_status == "invalid_json"
+            assert r_edge.error_code == "JSON_INVALID"
+
+    for malformed_mf in ("STRING_THAY_VI_LIST", [123], None):
+        malformed_payload = json.dumps(
+            {
+                "answer": "Nội dung",
+                "evidence_indices": [1],
+                "abstained": False,
+                "missing_facts": malformed_mf,
+            }
+        )
+        r_mal = _make_gateway(malformed_payload).generate(
+            prompt="P",
+            query_id="q_mal_mf",
+            run_mode="C_production_rag",
+            prompt_version=PROMPT_B_V1_3_VERSION,
+            structured_output=True,
+            max_evidence_index=1,
+        )
+        assert r_mal.parse_status == "invalid_json"
+        assert r_mal.error_code == "JSON_INVALID"

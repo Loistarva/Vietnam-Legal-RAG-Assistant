@@ -113,7 +113,7 @@ def normalize_model_name(name: str) -> str:
 
 
 class QwenGatewayConfig(BaseModel):
-    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True, allow_inf_nan=False)
 
     config_version: str = "local_qwen_v1.1"
     provider: Literal["ollama"] = "ollama"
@@ -387,9 +387,11 @@ class QwenGateway:
             validated_struct = StructuredRAGOutput.model_validate({**parsed_json, "evidence_indices": []})
 
             # Đối chiếu danh mục đóng missing_facts với prompt v1.3 hoặc taxonomy cấu hình kèm theo (FR4.4)
+            normalized_pv = prompt_version.strip().lower()
             is_v1_3 = (
                 prompt_version.strip() == PROMPT_B_V1_3_VERSION
-                or prompt_version.strip().lower().startswith("v1.3")
+                or normalized_pv == "v1.3"
+                or normalized_pv.startswith(("v1.3_", "v1.3-", "v1.3.", "v1.3 "))
             )
             if allowed_missing_facts is not None:
                 validate_missing_facts(validated_struct.missing_facts, allowed=allowed_missing_facts)

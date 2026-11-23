@@ -742,20 +742,68 @@ def test_context_payload_source_map_backward_compatible_without_point_ref():
     parsed = ContextPayload.model_validate(legacy_payload)
     assert parsed.source_map[1]["point_ref"] is None
 
-    # 2. Sai point_ref, có khóa lạ, hoặc sai chunk_id/article_id -> vẫn phải từ chối
-    with pytest.raises(ValidationError):
-        ContextPayload.model_validate(
-            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "point_ref": "Điểm a"}}}
-        )
-    with pytest.raises(ValidationError):
-        ContextPayload.model_validate(
-            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "unexpected_key": "x"}}}
-        )
-    with pytest.raises(ValidationError):
-        ContextPayload.model_validate(
-            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "chunk_id": "wrong_chunk"}}}
-        )
-    with pytest.raises(ValidationError):
-        ContextPayload.model_validate(
-            {**legacy_payload, "source_map": {"1": {**legacy_source_entry, "article_id": "art_999"}}}
-        )
+    # 1b. Deserialize từ JSON thô có key chuỗi "1", "2" và/hoặc exclude_none=True
+    ev_2 = _sample_evidence(2).model_copy(update={"point_ref": None, "effective_to": None, "document_title": None})
+    ev_1_min = ev_without_point.model_copy(update={"effective_to": None, "document_title": None})
+    ctx_two = ContextPayload(
+        query_id="Q_CTX_JSON",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_1_min, ev_2],
+    )
+    raw_dumped = ctx_two.model_dump(mode="json", exclude_none=True)
+    raw_dumped["source_map"]["1"].pop("point_ref", None)
+    raw_dumped["source_map"]["2"].pop("point_ref", None)
+    parsed_json = ContextPayload.model_validate_json(json.dumps(raw_dumped, ensure_ascii=False))
+    assert parsed_json.source_map[1]["point_ref"] is None
+    assert parsed_json.source_map[2]["point_ref"] is None
+
+    # 2. Sai point_ref, có khóa lạ, thiếu khóa bắt buộc, hoặc thừa key index "2" -> từ chối
+    for bad_map in (
+        {"1": {**legacy_source_entry, "point_ref": "Điểm a"}},
+        {"1": {**legacy_source_entry, "unexpected_key": "x"}},
+        {"1": {**legacy_source_entry, "section_title": "Mục I"}},
+        {"1": {**legacy_source_entry, "chunk_id": "wrong_chunk"}},
+        {"1": {**legacy_source_entry, "article_id": "art_999"}},
+        {"1": {k: v for k, v in legacy_source_entry.items() if k != "chunk_id"}},
+        {"1": legacy_source_entry, "2": legacy_source_entry},
+    ):
+        with pytest.raises(ValidationError):
+            ContextPayload.model_validate({**legacy_payload, "source_map": bad_map})
+
+    # Nếu EvidenceItem có effective_from hoặc point_ref thật (!= None) mà source_map bỏ thiếu -> từ chối
+    ev_dated = _sample_evidence(1).model_copy(update={"effective_from": "2015-01-01", "point_ref": "Điểm a"})
+    ctx_dated = ContextPayload(
+        query_id="Q_CTX_DATED",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_dated],
+    )
+    dated_entry = dict(ctx_dated.source_map[1])
+    for omit_key in ("effective_from", "point_ref"):
+        with pytest.raises(ValidationError):
+            ContextPayload.model_validate(
+                {
+                    "query_id": "Q_CTX_DATED",
+                    "query": "Tuổi kết hôn?",
+                    "as_of_date": "2026-10-15",
+                    "as_of_date_source": "benchmark",
+                    "evidence_items": [ev_dated.model_dump()],
+                    "source_map": {"1": {k: v for k, v in dated_entry.items() if k != omit_key}},
+                }
+            )
+
+    # 3. StrictBaseModel chặn NaN / Infinity trên các trường float
+    for bad_float in (float("nan"), float("inf"), float("-inf")):
+        with pytest.raises(ValidationError):
+            RetrievalBundle.model_validate(
+                {
+                    "query_id": "Q_INF",
+                    "as_of_date": "2026-11-16",
+                    "retrieval_config_version": "v1",
+                    "corpus_hash": "a" * 64,
+                    "latency_ms": bad_float,
+                }
+            )

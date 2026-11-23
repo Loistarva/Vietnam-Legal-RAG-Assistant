@@ -121,8 +121,8 @@ def _non_empty_field(value: str, field_name: str) -> str:
 
 
 class StrictBaseModel(BaseModel):
-    """Base model forbidding unknown fields and stripping string inputs."""
-    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+    """Base model forbidding unknown fields, stripping strings, and blocking NaN/Inf."""
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True, allow_inf_nan=False)
 
 
 class CandidateChunk(StrictBaseModel):
@@ -527,13 +527,27 @@ class ContextPayload(StrictBaseModel):
                 "provision_status": item.provision_status,
             }
 
-        # source_map luôn dựng từ evidence_items; chuẩn hóa thiếu point_ref từ bản ghi week10_v1.0
-        # trước khi đối chiếu, nhưng vẫn từ chối nếu sai giá trị, thiếu trường khác hoặc dư khóa lạ.
+        # source_map luôn dựng từ evidence_items; chuẩn hóa các khóa optional bị thiếu từ
+        # bản ghi week10_v1.0 hoặc payload dump(exclude_none=True) về None trước khi đối chiếu,
+        # nhưng vẫn từ chối nếu sai giá trị, thiếu trường nguồn bắt buộc, thừa entry hoặc dư khóa lạ.
+        optional_source_keys = (
+            "effective_from",
+            "effective_to",
+            "source_url",
+            "document_number",
+            "document_title",
+            "article_number",
+            "clause_number",
+            "point_ref",
+            "breadcrumb",
+            "provision_status",
+        )
         if self.source_map:
             normalized_source_map: dict[int, dict[str, Any]] = {}
             for idx, entry in self.source_map.items():
                 entry_copy = dict(entry)
-                entry_copy.setdefault("point_ref", None)
+                for opt_key in optional_source_keys:
+                    entry_copy.setdefault(opt_key, None)
                 normalized_source_map[idx] = entry_copy
             if normalized_source_map != built_map:
                 raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")

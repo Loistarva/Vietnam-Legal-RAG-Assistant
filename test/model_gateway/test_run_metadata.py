@@ -289,9 +289,43 @@ def test_manifest_detects_model_config_override_hash_mismatch(tmp_path: Path):
     silent_errors = validate_run_manifest(silent_mismatch, official=False, model_config_path=model_cfg)
     assert any("model_config_hash_mismatch" in err and "num_ctx" in err for err in silent_errors), silent_errors
 
+    # Ghi manifest có override ra đĩa và validate độc lập từ file JSON
+    manifest_json_path = tmp_path / "run_manifest.json"
+    manifest_json_path.write_text(json.dumps(built), encoding="utf-8")
+    disk_official_errors = validate_run_manifest(manifest_json_path, official=True)
+    assert any("model_config_hash_mismatch" in err and "num_ctx" in err for err in disk_official_errors)
+    assert validate_run_manifest(manifest_json_path, official=False) == []
+
+    # Kiểm tra các tham số runtime khác ngoài num_ctx bị override đều bị chặn ở official=True
+    for override_kwargs, expected_field in [
+        ({"model": "qwen2.5:14b"}, "model"),
+        ({"num_predict": 512}, "num_predict"),
+        ({"temperature": 0.1}, "temperature"),
+        ({"repeat_penalty": 1.2}, "repeat_penalty"),
+        ({"timeout_seconds": 60.0}, "timeout_seconds"),
+        ({"max_retries": 3}, "max_retries"),
+    ]:
+        ov_manifest = build_model_run_manifest(
+            benchmark_path=bench,
+            dataset_ids=["HN_001"],
+            corpus_path=corpus,
+            retrieval_config_path=ret_cfg,
+            rerank_config_path=rerank_cfg,
+            model_config_path=model_cfg,
+            threshold_config_path=thresh_cfg,
+            prompt_version="v1.2_controlled_rag",
+            model_digest="sha256:digest",
+            ollama_version="0.40.16",
+            gateway_config=QwenGatewayConfig(**override_kwargs),
+            hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+        )
+        ov_manifest["working_tree_clean"] = True
+        ov_errs = validate_run_manifest(ov_manifest, official=True)
+        assert any("model_config_hash_mismatch" in err and expected_field in err for err in ov_errs), ov_errs
+
 
 @pytest.mark.req("NFR4.1")
-def test_runtime_and_manifest_reject_contradictory_cache_and_fallback_flags():
+def test_runtime_and_manifest_reject_contradictory_cache_and_fallback_flags(tmp_path: Path):
     for is_official in (True, False):
         bad_cache_manifest = _valid_manifest()
         bad_cache_manifest["runtime"]["cache_enabled"] = False
@@ -305,11 +339,54 @@ def test_runtime_and_manifest_reject_contradictory_cache_and_fallback_flags():
         fb_errs = validate_run_manifest(bad_fb_manifest, official=is_official)
         assert any("fallback" in err.lower() and "mâu thuẫn" in err.lower() for err in fb_errs), fb_errs
 
+        # Cực tính fallback_locked=True tương đương fallback_enabled=False; fallback_enabled=True là mâu thuẫn
+        bad_fb_en_manifest = _valid_manifest()
+        bad_fb_en_manifest["runtime"]["fallback_locked"] = True
+        bad_fb_en_manifest["runtime"]["fallback_enabled"] = True
+        assert any("mâu thuẫn" in err.lower() for err in validate_run_manifest(bad_fb_en_manifest, official=is_official))
+
+        good_fb_en_manifest = _valid_manifest()
+        good_fb_en_manifest["runtime"]["fallback_locked"] = True
+        good_fb_en_manifest["runtime"]["fallback_enabled"] = False
+        assert validate_run_manifest(good_fb_en_manifest, official=is_official) == []
+
         bad_cache_cfg = {**QwenGatewayConfig().model_dump(), "cache_enabled": False, "cache": "ON"}
         assert any("cache" in err.lower() for err in validate_runtime_config(bad_cache_cfg, official=is_official))
 
         bad_fb_cfg = {**QwenGatewayConfig().model_dump(), "fallback_locked": True, "fallback": "UNLOCKED"}
         assert any("fallback" in err.lower() for err in validate_runtime_config(bad_fb_cfg, official=is_official))
+
+        # Khóa top-level vs lồng nhau (runtime/gateway) và chuỗi/kiểu lạ
+        nested_conflict = {**QwenGatewayConfig().model_dump(), "runtime": {"cache": "ON"}}
+        assert any("mâu thuẫn" in err.lower() for err in validate_runtime_config(nested_conflict, official=is_official))
+        gateway_conflict = {**QwenGatewayConfig().model_dump(), "gateway": {"fallback_enabled": True}}
+        assert any("mâu thuẫn" in err.lower() for err in validate_runtime_config(gateway_conflict, official=is_official))
+
+        for bad_val_cfg in (
+            {**QwenGatewayConfig().model_dump(), "cache": "MAYBE"},
+            {**QwenGatewayConfig().model_dump(), "fallback": "AUTO"},
+            {**QwenGatewayConfig().model_dump(), "cache_enabled": "false"},
+        ):
+            assert validate_runtime_config(bad_val_cfg, official=is_official)
+
+    # YAML chứa .nan / .inf / -.inf / "NaN" / "Infinity" trên file config phải bị chặn
+    base_yaml = DEFAULT_CONFIG_PATH.read_text(encoding="utf-8")
+    for line_rep in (
+        "timeout_seconds: .inf",
+        "timeout_seconds: .nan",
+        "repeat_penalty: .nan",
+        "temperature: -.inf",
+        'timeout_seconds: "Infinity"',
+        'repeat_penalty: "NaN"',
+    ):
+        cfg_file = tmp_path / f"bad_num_{abs(hash(line_rep))}.yaml"
+        field_name = line_rep.split(":")[0]
+        patched = "\n".join(
+            line_rep if line.startswith(f"{field_name}:") else line for line in base_yaml.splitlines()
+        )
+        cfg_file.write_text(patched + "\n", encoding="utf-8")
+        assert validate_runtime_config(cfg_file, official=True)
+        assert validate_runtime_config(cfg_file, official=False)
 
 
 @pytest.mark.req("NFR4.1")
@@ -321,6 +398,16 @@ def test_validate_runtime_config_handles_corrupt_yaml_without_raw_exception(tmp_
     errors = validate_runtime_config(broken_yaml, official=True)
     assert errors
     assert any("YAML_PARSE_ERROR" in err and str(broken_yaml) in err for err in errors), errors
+
+    for edge_name, edge_content in [
+        ("empty.yaml", ""),
+        ("comment_only.yaml", "# only comments\n"),
+        ("list_root.yaml", "- item1\n- item2\n"),
+    ]:
+        edge_file = tmp_path / edge_name
+        edge_file.write_text(edge_content, encoding="utf-8")
+        edge_errs = validate_runtime_config(edge_file, official=True)
+        assert any("YAML_PARSE_ERROR" in err and str(edge_file) in err for err in edge_errs), edge_errs
 
     invalid_utf8 = tmp_path / "binary_qwen.yaml"
     invalid_utf8.write_bytes(b"\xff\xfe\x00\x80")

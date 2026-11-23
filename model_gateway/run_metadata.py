@@ -178,47 +178,84 @@ def collect_hardware_profile() -> dict[str, str]:
     }
 
 
-def _read_cache_disabled(mapping: Mapping[str, Any], *, prefix: str = "runtime.") -> tuple[bool | None, str | None]:
+def _parse_bool_flag(mapping: Mapping[str, Any], key: str, prefix: str) -> tuple[bool | None, str | None]:
+    val = mapping[key]
+    if type(val) is not bool:
+        return None, f"{prefix}{key} phải là boolean"
+    return val, None
+
+
+def _parse_str_flag(
+    mapping: Mapping[str, Any],
+    key: str,
+    prefix: str,
+    true_token: str,
+    false_token: str,
+) -> tuple[bool | None, str | None]:
+    val = mapping[key]
+    if not isinstance(val, str) or val.strip().upper() not in (true_token, false_token):
+        return None, f"{prefix}{key} phải là '{true_token}' hoặc '{false_token}'"
+    return val.strip().upper() == true_token, None
+
+
+def _read_cache_disabled(
+    mapping: Mapping[str, Any],
+    *,
+    prefix: str = "runtime.",
+    extra_scopes: Sequence[tuple[str, Mapping[str, Any]]] = (),
+) -> tuple[bool | None, str | None]:
     parsed: list[tuple[str, bool]] = []
-    if "cache_enabled" in mapping:
-        val = mapping["cache_enabled"]
-        if type(val) is not bool:
-            return None, f"{prefix}cache_enabled phải là boolean"
-        parsed.append(("cache_enabled", val is False))
-    if "cache" in mapping:
-        val = mapping["cache"]
-        if not isinstance(val, str) or val.strip().upper() not in ("OFF", "ON"):
-            return None, f"{prefix}cache phải là 'OFF' hoặc 'ON'"
-        parsed.append(("cache", val.strip().upper() == "OFF"))
+    for scope_prefix, scope in [(prefix, mapping), *extra_scopes]:
+        if "cache_enabled" in scope:
+            val, err = _parse_bool_flag(scope, "cache_enabled", scope_prefix)
+            if err:
+                return None, err
+            assert val is not None
+            parsed.append((f"{scope_prefix}cache_enabled", val is False))
+        if "cache" in scope:
+            val, err = _parse_str_flag(scope, "cache", scope_prefix, "OFF", "ON")
+            if err:
+                return None, err
+            assert val is not None
+            parsed.append((f"{scope_prefix}cache", val))
     if not parsed:
         return None, f"Thiếu trường trạng thái cache ({prefix}cache_enabled hoặc {prefix}cache)"
     if len({state for _, state in parsed}) > 1:
-        names = ", ".join(f"{prefix}{name}" for name, _ in parsed)
+        names = ", ".join(name for name, _ in parsed)
         return None, f"Mâu thuẫn trạng thái cache giữa các trường: {names}"
     return parsed[0][1], None
 
 
-def _read_fallback_locked(mapping: Mapping[str, Any], *, prefix: str = "runtime.") -> tuple[bool | None, str | None]:
+def _read_fallback_locked(
+    mapping: Mapping[str, Any],
+    *,
+    prefix: str = "runtime.",
+    extra_scopes: Sequence[tuple[str, Mapping[str, Any]]] = (),
+) -> tuple[bool | None, str | None]:
     parsed: list[tuple[str, bool]] = []
-    if "fallback_locked" in mapping:
-        val = mapping["fallback_locked"]
-        if type(val) is not bool:
-            return None, f"{prefix}fallback_locked phải là boolean"
-        parsed.append(("fallback_locked", val is True))
-    if "fallback_enabled" in mapping:
-        val = mapping["fallback_enabled"]
-        if type(val) is not bool:
-            return None, f"{prefix}fallback_enabled phải là boolean"
-        parsed.append(("fallback_enabled", val is False))
-    if "fallback" in mapping:
-        val = mapping["fallback"]
-        if not isinstance(val, str) or val.strip().upper() not in ("LOCKED", "UNLOCKED"):
-            return None, f"{prefix}fallback phải là 'LOCKED' hoặc 'UNLOCKED'"
-        parsed.append(("fallback", val.strip().upper() == "LOCKED"))
+    for scope_prefix, scope in [(prefix, mapping), *extra_scopes]:
+        if "fallback_locked" in scope:
+            val, err = _parse_bool_flag(scope, "fallback_locked", scope_prefix)
+            if err:
+                return None, err
+            assert val is not None
+            parsed.append((f"{scope_prefix}fallback_locked", val is True))
+        if "fallback_enabled" in scope:
+            val, err = _parse_bool_flag(scope, "fallback_enabled", scope_prefix)
+            if err:
+                return None, err
+            assert val is not None
+            parsed.append((f"{scope_prefix}fallback_enabled", val is False))
+        if "fallback" in scope:
+            val, err = _parse_str_flag(scope, "fallback", scope_prefix, "LOCKED", "UNLOCKED")
+            if err:
+                return None, err
+            assert val is not None
+            parsed.append((f"{scope_prefix}fallback", val))
     if not parsed:
         return None, f"Thiếu trường khóa fallback ({prefix}fallback_locked hoặc {prefix}fallback)"
     if len({state for _, state in parsed}) > 1:
-        names = ", ".join(f"{prefix}{name}" for name, _ in parsed)
+        names = ", ".join(name for name, _ in parsed)
         return None, f"Mâu thuẫn trạng thái fallback giữa các trường: {names}"
     return parsed[0][1], None
 
@@ -235,6 +272,7 @@ def _compare_runtime_with_model_config(
         ("model_config_version", "config_version"),
         ("num_ctx", "num_ctx"),
         ("num_predict", "num_predict"),
+        ("max_retries", "max_retries"),
     ):
         if rt_key in runtime and cfg_key in base_cfg and runtime[rt_key] != base_cfg[cfg_key]:
             mismatches[rt_key] = {"config": base_cfg[cfg_key], "runtime": runtime[rt_key]}
@@ -284,12 +322,20 @@ def validate_runtime_config(
     else:
         return [f"config phải là QwenGatewayConfig, Mapping hoặc đường dẫn file, nhận được {type(config).__name__}"]
 
-    if "cache_enabled" in data or "cache" in data:
-        _, cache_err = _read_cache_disabled(data, prefix="")
+    extra_scopes = [
+        (f"{key}.", data[key])
+        for key in ("runtime", "gateway", "model_gateway")
+        if isinstance(data.get(key), Mapping)
+    ]
+    if any("cache_enabled" in scope or "cache" in scope for _, scope in [("", data), *extra_scopes]):
+        _, cache_err = _read_cache_disabled(data, prefix="", extra_scopes=extra_scopes)
         if cache_err:
             errors.append(cache_err)
-    if "fallback_locked" in data or "fallback_enabled" in data or "fallback" in data:
-        _, fb_err = _read_fallback_locked(data, prefix="")
+    if any(
+        "fallback_locked" in scope or "fallback_enabled" in scope or "fallback" in scope
+        for _, scope in [("", data), *extra_scopes]
+    ):
+        _, fb_err = _read_fallback_locked(data, prefix="", extra_scopes=extra_scopes)
         if fb_err:
             errors.append(fb_err)
 
@@ -405,18 +451,30 @@ def validate_run_manifest(
         if not _is_finite_number(penalty) or float(penalty) <= 0.0:
             errors.append("runtime.repeat_penalty phải là số thực hữu hạn > 0")
 
+        if "max_retries" in runtime:
+            retries_val = runtime.get("max_retries")
+            if type(retries_val) is not int or retries_val < 0:
+                errors.append("runtime.max_retries phải là số nguyên không âm (>= 0)")
+
         if "timeout_seconds" in runtime:
             timeout_val = runtime.get("timeout_seconds")
             if not _is_finite_number(timeout_val) or float(timeout_val) <= 0.0:
                 errors.append("runtime.timeout_seconds phải là số thực hữu hạn > 0")
 
-        cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+        manifest_extra_scopes = [("", data)] + [
+            (f"{key}.", data[key])
+            for key in ("gateway", "model_gateway")
+            if isinstance(data.get(key), Mapping)
+        ]
+        cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.", extra_scopes=manifest_extra_scopes)
         if cache_err:
             errors.append(cache_err)
         elif official and cache_off is not True:
             errors.append("Official run yêu cầu cache phải tắt (cache_enabled=False / cache='OFF')")
 
-        fallback_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+        fallback_locked, fb_err = _read_fallback_locked(
+            runtime, prefix="runtime.", extra_scopes=manifest_extra_scopes
+        )
         if fb_err:
             errors.append(fb_err)
         elif official and fallback_locked is not True:
@@ -461,6 +519,9 @@ def validate_run_manifest(
             errors.append("Sai định dạng SHA-256: base_model_config_hash")
         if eff_hash is not None and not _is_sha256(eff_hash):
             errors.append("Sai định dạng SHA-256: effective_model_config_hash")
+        if isinstance(base_model_cfg, Mapping) and _is_sha256(base_hash):
+            if _canonical_json_sha256(dict(base_model_cfg)) != str(base_hash).removeprefix("sha256:"):
+                errors.append("model_config_hash_mismatch: base_model_config không khớp base_model_config_hash")
 
         all_override_fields = set(runtime_mismatches.keys())
         if isinstance(declared_overrides, Mapping):
@@ -477,7 +538,8 @@ def validate_run_manifest(
             has_base = isinstance(base_model_cfg, Mapping)
             covered_fields = set(declared_overrides.keys()) if isinstance(declared_overrides, Mapping) else set()
             uncovered = set(runtime_mismatches.keys()) - covered_fields
-            if not (has_eff_hash and has_base and isinstance(declared_overrides, Mapping)) or uncovered:
+            same_hash_on_mismatch = bool(base_hash and eff_hash and base_hash == eff_hash)
+            if not (has_eff_hash and has_base and isinstance(declared_overrides, Mapping)) or uncovered or same_hash_on_mismatch:
                 missing_str = ", ".join(sorted(uncovered or runtime_mismatches.keys()))
                 errors.append(
                     f"model_config_hash_mismatch: runtime lệch khỏi model config ({missing_str}) "
@@ -598,6 +660,7 @@ def build_model_run_manifest(
             "temperature": cfg.temperature,
             "repeat_penalty": cfg.repeat_penalty,
             "timeout_seconds": cfg.timeout_seconds,
+            "max_retries": cfg.max_retries,
             "cache": "OFF" if not cfg.cache_enabled else "ON",
             "cache_enabled": cfg.cache_enabled,
             "fallback": "LOCKED" if cfg.fallback_locked else "UNLOCKED",
