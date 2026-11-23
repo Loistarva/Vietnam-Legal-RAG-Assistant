@@ -122,6 +122,18 @@
           "default": null,
           "title": "Clause Number"
         },
+        "point_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Point Ref"
+        },
         "breadcrumb": {
           "anyOf": [
             {

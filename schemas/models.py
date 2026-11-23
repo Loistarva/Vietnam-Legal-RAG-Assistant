@@ -25,15 +25,27 @@ from pydantic import (
     model_validator,
 )
 
-SchemaVersionType = Literal["week10_v1.0"]
-SCHEMA_VERSION: SchemaVersionType = "week10_v1.0"
+SchemaVersionType = Literal["week10_v1.0", "week10_v1.1"]
+SCHEMA_VERSION: SchemaVersionType = "week10_v1.1"
 JSON_SCHEMA_DRAFT = "https://json-schema.org/draft/2020-12/schema"
 
 AsOfDateSource = Literal["benchmark", "query_text", "user_input", "system_today"]
 RouteType = Literal["LEGAL_IN_SCOPE", "NON_LEGAL", "LEGAL_OUT_OF_SCOPE", "MIXED_REVIEW"]
+RouteAction = Literal["LEGAL_RETRIEVAL", "FAST_PATH", "POLICY_ABSTENTION", "GENERAL_CHAT"]
 ResponseStatus = Literal["SUCCESS", "NEEDS_CLARIFICATION", "ABSTAIN", "ERROR"]
 GroundingStatus = Literal["PASS", "FAIL", "NOT_RUN", "ABSTAIN", "NEEDS_CLARIFICATION"]
-EventStage = Literal["api", "router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"]
+EventStage = Literal[
+    "api",
+    "router",
+    "retrieval",
+    "rerank",
+    "confidence",
+    "context",
+    "llm",
+    "citation",
+    "gate",
+    "response",
+]
 ErrorCode = Literal[
     "AUTH_REQUIRED",
     "INVALID_REQUEST",
@@ -41,6 +53,7 @@ ErrorCode = Literal[
     "RETRIEVAL_EMPTY",
     "LOW_CONFIDENCE",
     "LLM_TIMEOUT",
+    "LLM_UNAVAILABLE",
     "JSON_INVALID",
     "CITATION_INVALID",
     "GROUNDING_FAIL",
@@ -302,11 +315,12 @@ class RouteDecision(StrictBaseModel):
     """Kết quả phân luồng câu hỏi trước retrieval/generation (D3.1)."""
     schema_version: SchemaVersionType = SCHEMA_VERSION
     route: RouteType
+    router_route: str | None = None
     reason_code: str = Field(..., min_length=1)
     explanation: str = Field(..., min_length=1)
     policy_version: str = Field(..., min_length=1)
     query_id: str | None = None
-    action: str | None = None
+    action: RouteAction | None = None
     matched_rule_id: str | None = None
     fast_path: bool = False
     as_of_date: str | None = None
@@ -316,7 +330,7 @@ class RouteDecision(StrictBaseModel):
     def validate_required_fields(cls, v: str, info) -> str:
         return _non_empty_field(v, info.field_name)
 
-    @field_validator("query_id", "action", "matched_rule_id")
+    @field_validator("query_id", "router_route", "matched_rule_id")
     @classmethod
     def validate_optional_fields(cls, v: str | None, info) -> str | None:
         if v is None:
@@ -382,6 +396,7 @@ class EvidenceItem(StrictBaseModel):
     document_title: str | None = None
     article_number: str | None = None
     clause_number: str | None = None
+    point_ref: str | None = None
     breadcrumb: str | None = None
     provision_status: str | None = None
 
@@ -391,6 +406,13 @@ class EvidenceItem(StrictBaseModel):
         if not v or not v.strip():
             raise ValueError(f"Trường '{info.field_name}' không được để trống")
         return v.strip()
+
+    @field_validator("point_ref")
+    @classmethod
+    def validate_optional_point_ref(cls, v: str | None) -> str | None:
+        if v is None:
+            return None
+        return _non_empty_field(v, "point_ref")
 
     @field_validator("effective_from", "effective_to")
     @classmethod
@@ -469,6 +491,7 @@ class ContextPayload(StrictBaseModel):
                 "document_title": item.document_title,
                 "article_number": item.article_number,
                 "clause_number": item.clause_number,
+                "point_ref": item.point_ref,
                 "breadcrumb": item.breadcrumb,
                 "provision_status": item.provision_status,
             }
@@ -492,6 +515,7 @@ class StructuredRAGOutput(StrictBaseModel):
     abstained: bool = False
     abstention_reason: str | None = None
     needs_clarification: bool = False
+    missing_facts: list[str] = Field(default_factory=list)
 
     @field_validator("evidence_indices", mode="before")
     @classmethod
@@ -503,6 +527,11 @@ class StructuredRAGOutput(StrictBaseModel):
                 if not isinstance(idx, int):
                     raise ValueError(f"Chỉ số evidence_indices phải là số nguyên, nhận được: {type(idx).__name__}")
         return v
+
+    @field_validator("missing_facts")
+    @classmethod
+    def validate_missing_facts(cls, v: list[str]) -> list[str]:
+        return [_non_empty_field(item, "missing_facts") for item in v]
 
 
 class TokenUsage(StrictBaseModel):
@@ -522,6 +551,7 @@ class LLMResponse(StrictBaseModel):
     abstained: bool = False
     abstention_reason: str | None = None
     needs_clarification: bool = False
+    missing_facts: list[str] = Field(default_factory=list)
 
     # Runtime metadata bắt buộc
     model: str = "qwen2.5:7b"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "additionalProperties": false,
   "description": "Đại diện cho từng mảnh bằng chứng đưa vào prompt sau Parent Resolver (Top 1..5).",
   "properties": {
@@ -121,6 +121,18 @@
       ],
       "default": null,
       "title": "Clause Number"
+    },
+    "point_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Point Ref"
     },
     "breadcrumb": {
       "anyOf": [
