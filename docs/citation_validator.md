@@ -1,5 +1,21 @@
 # D1.2 — bàn giao citation validator
 
+Sprint 11 (22/11/2026) extends the same interface on `feature/sprint11-dev1-hardening`.
+The interval check uses `[effective_from, effective_to)`, matching `retrieval/temporal.py`.
+Every evidence item rendered in the prompt is checked, including uncited items.
+At effective_from it is allowed; at effective_to it fails. A current expired label
+does not reject a historical lookup inside its dated interval. Undated legacy
+evidence remains structurally checkable; missing dates are not proof of legal validity.
+
+New stable codes: `NON_CONTIGUOUS_CONTEXT_INDEX`, `SOURCE_MAP_TEMPORAL_MISMATCH`,
+`SOURCE_MAP_METADATA_MISMATCH`, `INVALID_AS_OF_DATE`, `INVALID_EFFECTIVE_DATE`,
+`INVALID_EFFECTIVE_INTERVAL`, `EVIDENCE_NOT_YET_EFFECTIVE`, `EVIDENCE_EXPIRED_AS_OF_DATE`.
+Source-map dates and display metadata must match the evidence. Canonical/legacy
+GroundingResult fields remain synchronized through the existing Dev 3 schema.
+Top-5 contract limits remain unchanged; Top-10 needs the separately approved contract.
+The validator never releases answer_draft, repairs citations or performs semantic judging.
+Sprint 11 test/report entry points are in `reports/week11/validator_regression.md`.
+
 Triển khai trên `feature/week09-dev1-planning`, ngày 07/11/2026.
 Validator dùng `schemas/models.py` và `generation/prompt_builder.py` của Dev 3
 (PR #34, `feature/contracts-prompt-gateway`); không tạo schema song song,
