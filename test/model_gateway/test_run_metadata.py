@@ -10,9 +10,11 @@ import pytest
 from model_gateway.llm_gateway import DEFAULT_CONFIG_PATH, QwenGatewayConfig
 from model_gateway.run_metadata import (
     ManifestValidationError,
+    _canonical_json_sha256,
     assert_valid_run_manifest,
     build_model_run_manifest,
     collect_hardware_profile,
+    sha256_file,
     validate_run_manifest,
     validate_runtime_config,
 )
@@ -27,6 +29,8 @@ SHA_1 = "1" * 64
 
 
 def _valid_manifest() -> dict:
+    base_cfg = QwenGatewayConfig().model_dump(mode="json")
+    base_cfg_hash = _canonical_json_sha256(base_cfg)
     return {
         "manifest_version": "d3.4.run_manifest.v1",
         "git_branch": "feature/week11-dev3-contracts-gateway",
@@ -38,9 +42,13 @@ def _valid_manifest() -> dict:
         "config_hashes": {
             "retrieval": SHA_D,
             "rerank": SHA_E,
-            "model": SHA_F,
+            "model": sha256_file(DEFAULT_CONFIG_PATH),
             "threshold": SHA_1,
         },
+        "base_model_config": base_cfg,
+        "base_model_config_hash": base_cfg_hash,
+        "effective_model_config_hash": base_cfg_hash,
+        "runtime_overrides": {},
         "precomputed_retrieval": False,
         "precomputed_artifact": None,
         "runtime": {
@@ -54,6 +62,8 @@ def _valid_manifest() -> dict:
             "num_predict": 1024,
             "temperature": 0.0,
             "repeat_penalty": 1.0,
+            "timeout_seconds": 120.0,
+            "max_retries": 1,
             "cache": "OFF",
             "cache_enabled": False,
             "fallback": "LOCKED",
@@ -96,6 +106,10 @@ def test_official_mode_rejects_dirty_tree_nonzero_temp_cache_on_and_unlocked_fal
 
     warm_temp = deepcopy(base)
     warm_temp["runtime"]["temperature"] = 0.2
+    warm_temp["runtime_overrides"] = {"temperature": {"config": 0.0, "runtime": 0.2}}
+    warm_temp["effective_model_config_hash"] = _canonical_json_sha256(
+        QwenGatewayConfig(temperature=0.2).model_dump(mode="json")
+    )
     assert any("temperature" in err for err in validate_run_manifest(warm_temp, official=True))
     assert validate_run_manifest(warm_temp, official=False) == []
 
@@ -413,3 +427,109 @@ def test_validate_runtime_config_handles_corrupt_yaml_without_raw_exception(tmp_
     invalid_utf8.write_bytes(b"\xff\xfe\x00\x80")
     read_errors = validate_runtime_config(invalid_utf8, official=False)
     assert any("CONFIG_READ_ERROR" in err and str(invalid_utf8) in err for err in read_errors), read_errors
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_manifest_official_requires_model_config_source_when_read_standalone(tmp_path: Path):
+    standalone = _valid_manifest()
+    standalone["runtime"]["num_ctx"] = 4096
+    for key in ("base_model_config", "base_model_config_hash", "effective_model_config_hash", "runtime_overrides"):
+        standalone.pop(key, None)
+
+    manifest_path = tmp_path / "standalone_official_missing_source.json"
+    manifest_path.write_text(json.dumps(standalone), encoding="utf-8")
+
+    errors = validate_run_manifest(manifest_path, official=True)
+    assert any("missing_model_config_source" in err for err in errors), errors
+
+    # Empty dict base_model_config cũng phải bị từ chối ở official=True
+    standalone["base_model_config"] = {}
+    assert any("missing_model_config_source" in err for err in validate_run_manifest(standalone, official=True))
+
+    # Nếu truyền model_config_path hợp lệ kèm manifest không đổi, official=True chấp nhận; nếu lệch num_ctx thì chặn
+    assert any(
+        "model_config_hash_mismatch" in err and "num_ctx" in err
+        for err in validate_run_manifest(manifest_path, official=True, model_config_path=DEFAULT_CONFIG_PATH)
+    )
+    standalone_valid = _valid_manifest()
+    for key in ("base_model_config", "base_model_config_hash", "effective_model_config_hash", "runtime_overrides"):
+        standalone_valid.pop(key, None)
+    assert validate_run_manifest(standalone_valid, official=True, model_config_path=DEFAULT_CONFIG_PATH) == []
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_manifest_non_official_verifies_base_hash_override_values_and_effective_hash(tmp_path: Path):
+    bench = tmp_path / "bench.json"
+    corpus = tmp_path / "chunks.jsonl"
+    ret_cfg = tmp_path / "ret.yaml"
+    rerank_cfg = tmp_path / "rerank.yaml"
+    thresh_cfg = tmp_path / "thresh.yaml"
+    model_cfg = tmp_path / "model_8192.yaml"
+    for p, content in [
+        (bench, "[]\n"),
+        (corpus, '{"chunk_id":"c1"}\n'),
+        (ret_cfg, "top_k: 50\n"),
+        (rerank_cfg, "top_k: 10\n"),
+        (thresh_cfg, "min_top1: 0.5\n"),
+        (model_cfg, DEFAULT_CONFIG_PATH.read_text(encoding="utf-8")),
+    ]:
+        p.write_text(content, encoding="utf-8")
+
+    built_override = build_model_run_manifest(
+        benchmark_path=bench,
+        dataset_ids=["HN_001"],
+        corpus_path=corpus,
+        retrieval_config_path=ret_cfg,
+        rerank_config_path=rerank_cfg,
+        model_config_path=model_cfg,
+        threshold_config_path=thresh_cfg,
+        prompt_version="v1.2_controlled_rag",
+        model_digest="sha256:digest",
+        ollama_version="0.40.16",
+        gateway_config=QwenGatewayConfig(num_ctx=4096),
+        hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+    )
+    assert validate_run_manifest(built_override, official=False, model_config_path=model_cfg) == []
+    assert validate_run_manifest(built_override, official=False) == []
+
+    # 1. Khai báo sai giá trị cặp config/runtime trong runtime_overrides
+    bad_override_vals = deepcopy(built_override)
+    bad_override_vals["runtime_overrides"] = {"num_ctx": {"config": 123, "runtime": 456}}
+    errs_vals = validate_run_manifest(bad_override_vals, official=False, model_config_path=model_cfg)
+    assert any("runtime_overrides.num_ctx" in err for err in errs_vals), errs_vals
+
+    # 2. Khai báo thừa khóa không thực sự thay đổi trong runtime_overrides
+    extra_unchanged = deepcopy(built_override)
+    extra_unchanged["runtime_overrides"]["temperature"] = {"config": 0.0, "runtime": 0.0}
+    errs_extra = validate_run_manifest(extra_unchanged, official=False, model_config_path=model_cfg)
+    assert any("temperature" in err and "runtime_overrides" in err for err in errs_extra), errs_extra
+
+    # 3. effective_model_config_hash giả ("a" * 64)
+    bad_eff_hash = deepcopy(built_override)
+    bad_eff_hash["effective_model_config_hash"] = SHA_A
+    errs_eff = validate_run_manifest(bad_eff_hash, official=False, model_config_path=model_cfg)
+    assert any("effective_model_config_hash_mismatch" in err for err in errs_eff), errs_eff
+
+    # 4. Thiếu base_model_config_hash khi có override
+    missing_base_hash = deepcopy(built_override)
+    missing_base_hash.pop("base_model_config_hash")
+    errs_base = validate_run_manifest(missing_base_hash, official=False, model_config_path=model_cfg)
+    assert any("base_model_config_hash" in err for err in errs_base), errs_base
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.parametrize("field", ["temperature", "repeat_penalty", "timeout_seconds"])
+@pytest.mark.parametrize("huge_int", [10**1000, -(10**1000)])
+def test_validator_rejects_huge_integers_without_overflow_error(field: str, huge_int: int):
+    raw_cfg = QwenGatewayConfig().model_dump()
+    raw_cfg[field] = huge_int
+    for is_official in (True, False):
+        cfg_errors = validate_runtime_config(raw_cfg, official=is_official)
+        assert cfg_errors and all(isinstance(err, str) for err in cfg_errors)
+
+        manifest = _valid_manifest()
+        manifest["runtime"][field] = huge_int
+        mf_errors = validate_run_manifest(manifest, official=is_official)
+        assert any(field in err for err in mf_errors), mf_errors

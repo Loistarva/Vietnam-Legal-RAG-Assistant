@@ -49,8 +49,20 @@ def _is_non_empty_str(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
+def _safe_finite_float(value: Any) -> float | None:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    try:
+        numeric = float(value)
+    except (OverflowError, TypeError, ValueError):
+        return None
+    if not math.isfinite(numeric):
+        return None
+    return numeric
+
+
 def _is_finite_number(value: Any) -> bool:
-    return not isinstance(value, bool) and isinstance(value, (int, float)) and math.isfinite(float(value))
+    return _safe_finite_float(value) is not None
 
 
 def _canonical_json_sha256(payload: Any) -> str:
@@ -278,14 +290,11 @@ def _compare_runtime_with_model_config(
             mismatches[rt_key] = {"config": base_cfg[cfg_key], "runtime": runtime[rt_key]}
 
     for float_key in ("temperature", "repeat_penalty", "timeout_seconds"):
-        if (
-            float_key in runtime
-            and float_key in base_cfg
-            and _is_finite_number(runtime[float_key])
-            and _is_finite_number(base_cfg[float_key])
-            and float(runtime[float_key]) != float(base_cfg[float_key])
-        ):
-            mismatches[float_key] = {"config": base_cfg[float_key], "runtime": runtime[float_key]}
+        if float_key in runtime and float_key in base_cfg:
+            rt_num = _safe_finite_float(runtime[float_key])
+            cfg_num = _safe_finite_float(base_cfg[float_key])
+            if rt_num is not None and cfg_num is not None and rt_num != cfg_num:
+                mismatches[float_key] = {"config": base_cfg[float_key], "runtime": runtime[float_key]}
 
     cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
     if cache_err is None and cache_off is not None and "cache_enabled" in base_cfg:
@@ -299,6 +308,88 @@ def _compare_runtime_with_model_config(
             mismatches["fallback_locked"] = {"config": bool(base_cfg["fallback_locked"]), "runtime": fb_locked}
 
     return mismatches
+
+
+def _values_match(actual: Any, expected: Any) -> bool:
+    if type(actual) is bool or type(expected) is bool:
+        return type(actual) is type(expected) and actual is expected
+    act_num = _safe_finite_float(actual)
+    exp_num = _safe_finite_float(expected)
+    if act_num is not None and exp_num is not None and (isinstance(actual, float) or isinstance(expected, float)):
+        return act_num == exp_num
+    return type(actual) is type(expected) and actual == expected
+
+
+def _validate_runtime_overrides_entries(
+    declared_overrides: Mapping[str, Any],
+    mismatches: Mapping[str, Mapping[str, Any]],
+) -> list[str]:
+    errors: list[str] = []
+    for key in sorted(mismatches):
+        if key not in declared_overrides:
+            errors.append(f"model_config_hash_mismatch: runtime_overrides thiếu trường bị override '{key}'")
+
+    for raw_key, entry in declared_overrides.items():
+        key = str(raw_key)
+        if key not in mismatches:
+            errors.append(
+                f"model_config_hash_mismatch: runtime_overrides khai báo khóa không đổi hoặc không khớp '{key}'"
+            )
+            continue
+        expected = mismatches[key]
+        if not isinstance(entry, Mapping) or "config" not in entry or "runtime" not in entry:
+            errors.append(f"model_config_hash_mismatch: runtime_overrides.{key} phải là object có khóa 'config' và 'runtime'")
+            continue
+        if not _values_match(entry["config"], expected["config"]) or not _values_match(
+            entry["runtime"], expected["runtime"]
+        ):
+            errors.append(
+                f"model_config_hash_mismatch: runtime_overrides.{key} khai báo sai giá trị "
+                f"(expected config={expected['config']!r}, runtime={expected['runtime']!r}, "
+                f"got config={entry['config']!r}, runtime={entry['runtime']!r})"
+            )
+    return errors
+
+
+def _build_effective_model_config(
+    ref_cfg_dump: Mapping[str, Any],
+    runtime: Mapping[str, Any],
+) -> tuple[dict[str, Any] | None, str | None]:
+    raw: dict[str, Any] = dict(ref_cfg_dump)
+    for rt_key, cfg_key in (
+        ("provider", "provider"),
+        ("model", "model"),
+        ("model_config_version", "config_version"),
+        ("base_url", "base_url"),
+        ("num_ctx", "num_ctx"),
+        ("num_predict", "num_predict"),
+        ("max_retries", "max_retries"),
+    ):
+        if rt_key in runtime:
+            raw[cfg_key] = runtime[rt_key]
+
+    for float_key in ("temperature", "repeat_penalty", "timeout_seconds"):
+        if float_key in runtime:
+            numeric = _safe_finite_float(runtime[float_key])
+            if numeric is None:
+                return None, f"runtime.{float_key} không phải số thực hữu hạn để tái tính effective_model_config_hash"
+            raw[float_key] = numeric
+
+    cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+    if cache_err or cache_off is None:
+        return None, cache_err or "Không xác định được trạng thái cache để tái tính effective_model_config_hash"
+    raw["cache_enabled"] = not cache_off
+
+    fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+    if fb_err or fb_locked is None:
+        return None, fb_err or "Không xác định được trạng thái fallback để tái tính effective_model_config_hash"
+    raw["fallback_locked"] = fb_locked
+
+    try:
+        parsed = QwenGatewayConfig(**raw)
+    except Exception as exc:
+        return None, f"Cấu hình hiệu lực tái dựng từ runtime không hợp lệ: {exc}"
+    return parsed.model_dump(mode="json"), None
 
 
 def validate_runtime_config(
@@ -442,13 +533,15 @@ def validate_run_manifest(
                 errors.append(f"runtime.{int_key} phải là số nguyên dương (> 0)")
 
         temp = runtime.get("temperature")
-        if not _is_finite_number(temp) or not 0.0 <= float(temp) <= 2.0:
+        temp_num = _safe_finite_float(temp)
+        if temp_num is None or not 0.0 <= temp_num <= 2.0:
             errors.append("runtime.temperature phải là số thực hữu hạn trong [0.0, 2.0]")
-        elif official and float(temp) != 0.0:
+        elif official and temp_num != 0.0:
             errors.append(f"Official run yêu cầu runtime.temperature == 0, nhận được {temp}")
 
         penalty = runtime.get("repeat_penalty")
-        if not _is_finite_number(penalty) or float(penalty) <= 0.0:
+        penalty_num = _safe_finite_float(penalty)
+        if penalty_num is None or penalty_num <= 0.0:
             errors.append("runtime.repeat_penalty phải là số thực hữu hạn > 0")
 
         if "max_retries" in runtime:
@@ -458,7 +551,8 @@ def validate_run_manifest(
 
         if "timeout_seconds" in runtime:
             timeout_val = runtime.get("timeout_seconds")
-            if not _is_finite_number(timeout_val) or float(timeout_val) <= 0.0:
+            timeout_num = _safe_finite_float(timeout_val)
+            if timeout_num is None or timeout_num <= 0.0:
                 errors.append("runtime.timeout_seconds phải là số thực hữu hạn > 0")
 
         manifest_extra_scopes = [("", data)] + [
@@ -481,7 +575,7 @@ def validate_run_manifest(
             errors.append("Official run yêu cầu fallback phải khóa (fallback_locked=True / fallback='LOCKED')")
 
         # 4b. Đối chiếu model config đã băm với cấu hình runtime hiệu lực
-        runtime_mismatches: dict[str, dict[str, Any]] = {}
+        path_ref_dump: dict[str, Any] | None = None
         if model_config_path is not None:
             cfg_path = Path(model_config_path)
             loaded_cfg, load_err = _load_yaml_mapping(cfg_path)
@@ -498,16 +592,34 @@ def validate_run_manifest(
                 except Exception as exc:
                     errors.append(f"model_config_hash_mismatch: file config {cfg_path} không hợp lệ ({exc})")
                 else:
-                    runtime_mismatches.update(
-                        _compare_runtime_with_model_config(runtime, parsed_file_cfg.model_dump(mode="json"))
-                    )
+                    path_ref_dump = parsed_file_cfg.model_dump(mode="json")
 
         base_model_cfg = data.get("base_model_config")
+        snapshot_ref_dump: dict[str, Any] | None = None
         if base_model_cfg is not None:
-            if not isinstance(base_model_cfg, Mapping):
-                errors.append("base_model_config phải là object")
+            if not isinstance(base_model_cfg, Mapping) or len(base_model_cfg) == 0:
+                errors.append("base_model_config phải là object không rỗng")
             else:
-                runtime_mismatches.update(_compare_runtime_with_model_config(runtime, base_model_cfg))
+                try:
+                    parsed_snapshot_cfg = QwenGatewayConfig(**dict(base_model_cfg))
+                except Exception as exc:
+                    errors.append(f"base_model_config không hợp lệ: {exc}")
+                else:
+                    snapshot_ref_dump = parsed_snapshot_cfg.model_dump(mode="json")
+
+        if (
+            path_ref_dump is not None
+            and snapshot_ref_dump is not None
+            and _canonical_json_sha256(path_ref_dump) != _canonical_json_sha256(snapshot_ref_dump)
+        ):
+            errors.append("model_config_hash_mismatch: base_model_config không khớp với model_config_path")
+
+        ref_cfg_dump = path_ref_dump if path_ref_dump is not None else snapshot_ref_dump
+        if official and ref_cfg_dump is None:
+            errors.append(
+                "missing_model_config_source: official run bắt buộc phải truyền model_config_path "
+                "hoặc có snapshot base_model_config hợp lệ để đối chiếu"
+            )
 
         declared_overrides = data.get("runtime_overrides")
         if declared_overrides is not None and not isinstance(declared_overrides, Mapping):
@@ -519,32 +631,65 @@ def validate_run_manifest(
             errors.append("Sai định dạng SHA-256: base_model_config_hash")
         if eff_hash is not None and not _is_sha256(eff_hash):
             errors.append("Sai định dạng SHA-256: effective_model_config_hash")
-        if isinstance(base_model_cfg, Mapping) and _is_sha256(base_hash):
-            if _canonical_json_sha256(dict(base_model_cfg)) != str(base_hash).removeprefix("sha256:"):
-                errors.append("model_config_hash_mismatch: base_model_config không khớp base_model_config_hash")
 
-        all_override_fields = set(runtime_mismatches.keys())
-        if isinstance(declared_overrides, Mapping):
-            all_override_fields.update(str(k) for k in declared_overrides.keys())
-        hash_diverged = bool(base_hash and eff_hash and base_hash != eff_hash)
+        runtime_mismatches = (
+            _compare_runtime_with_model_config(runtime, ref_cfg_dump) if ref_cfg_dump is not None else {}
+        )
+        has_declared_overrides = isinstance(declared_overrides, Mapping) and len(declared_overrides) > 0
+        has_override_or_eff = bool(runtime_mismatches or has_declared_overrides or eff_hash is not None)
 
-        if official and (all_override_fields or hash_diverged):
-            field_list = ", ".join(sorted(all_override_fields)) or "effective_model_config_hash"
+        if (has_override_or_eff or base_hash is not None) and ref_cfg_dump is None:
             errors.append(
-                f"model_config_hash_mismatch: official run không cho phép override runtime khác file model config ({field_list})"
+                "missing_model_config_source: cần model_config_path hoặc base_model_config "
+                "để kiểm chứng base_model_config_hash / runtime_overrides / effective_model_config_hash"
             )
-        elif not official and runtime_mismatches:
-            has_eff_hash = _is_sha256(eff_hash)
-            has_base = isinstance(base_model_cfg, Mapping)
-            covered_fields = set(declared_overrides.keys()) if isinstance(declared_overrides, Mapping) else set()
-            uncovered = set(runtime_mismatches.keys()) - covered_fields
-            same_hash_on_mismatch = bool(base_hash and eff_hash and base_hash == eff_hash)
-            if not (has_eff_hash and has_base and isinstance(declared_overrides, Mapping)) or uncovered or same_hash_on_mismatch:
-                missing_str = ", ".join(sorted(uncovered or runtime_mismatches.keys()))
-                errors.append(
-                    f"model_config_hash_mismatch: runtime lệch khỏi model config ({missing_str}) "
-                    "nhưng thiếu base_model_config / runtime_overrides / effective_model_config_hash hợp lệ"
-                )
+        elif ref_cfg_dump is not None:
+            expected_base_hash = _canonical_json_sha256(ref_cfg_dump)
+            if has_override_or_eff or base_hash is not None:
+                if not _is_sha256(base_hash) or str(base_hash).removeprefix("sha256:") != expected_base_hash:
+                    errors.append(
+                        "model_config_hash_mismatch: thiếu hoặc sai base_model_config_hash "
+                        "(không khớp hash chuẩn hóa của cấu hình gốc)"
+                    )
+
+            all_override_fields = set(runtime_mismatches.keys())
+            if isinstance(declared_overrides, Mapping):
+                all_override_fields.update(str(k) for k in declared_overrides.keys())
+            hash_diverged = bool(_is_sha256(eff_hash) and str(eff_hash).removeprefix("sha256:") != expected_base_hash)
+
+            if official:
+                if all_override_fields or hash_diverged:
+                    field_list = ", ".join(sorted(all_override_fields)) or "effective_model_config_hash"
+                    errors.append(
+                        f"model_config_hash_mismatch: official run không cho phép override runtime khác file model config ({field_list})"
+                    )
+                elif eff_hash is not None:
+                    eff_cfg_dump, eff_build_err = _build_effective_model_config(ref_cfg_dump, runtime)
+                    if eff_build_err is not None or eff_cfg_dump is None:
+                        errors.append(eff_build_err or "effective_model_config_hash_mismatch")
+                    elif str(eff_hash).removeprefix("sha256:") != _canonical_json_sha256(eff_cfg_dump):
+                        errors.append(
+                            "effective_model_config_hash_mismatch: effective_model_config_hash không khớp cấu hình hiệu lực"
+                        )
+            elif has_override_or_eff:
+                if runtime_mismatches and not isinstance(declared_overrides, Mapping):
+                    errors.append(
+                        "model_config_hash_mismatch: runtime lệch khỏi model config nhưng thiếu runtime_overrides "
+                        f"({', '.join(sorted(runtime_mismatches.keys()))})"
+                    )
+                elif isinstance(declared_overrides, Mapping):
+                    errors.extend(_validate_runtime_overrides_entries(declared_overrides, runtime_mismatches))
+
+                eff_cfg_dump, eff_build_err = _build_effective_model_config(ref_cfg_dump, runtime)
+                if eff_build_err is not None or eff_cfg_dump is None:
+                    errors.append(eff_build_err or "effective_model_config_hash_mismatch")
+                else:
+                    expected_eff_hash = _canonical_json_sha256(eff_cfg_dump)
+                    if not _is_sha256(eff_hash) or str(eff_hash).removeprefix("sha256:") != expected_eff_hash:
+                        errors.append(
+                            "effective_model_config_hash_mismatch: effective_model_config_hash không khớp "
+                            "cấu hình hiệu lực tái tính từ cấu hình gốc và runtime"
+                        )
 
     # 5. Hardware profile (NFR2.3)
     hardware = data.get("hardware")

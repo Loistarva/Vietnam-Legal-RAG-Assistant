@@ -155,7 +155,12 @@ class QwenGatewayConfig(BaseModel):
     def validate_strict_float(cls, v: Any, info) -> float:
         if isinstance(v, bool) or not isinstance(v, (int, float)):
             raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số thực")
-        val = float(v)
+        try:
+            val = float(v)
+        except (OverflowError, TypeError, ValueError) as exc:
+            raise ValueError(
+                f"Trường cấu hình '{info.field_name}' phải là số thực hữu hạn (không nhận NaN/Infinity/tràn số)"
+            ) from exc
         if not math.isfinite(val):
             raise ValueError(
                 f"Trường cấu hình '{info.field_name}' phải là số thực hữu hạn (không nhận NaN/Infinity)"
@@ -488,13 +493,15 @@ def ollama_durations_ms(raw_res: dict[str, Any]) -> dict[str, float | None]:
     out: dict[str, float | None] = {}
     for source, target in OLLAMA_DURATION_FIELDS.items():
         value = raw_res.get(source)
-        valid = (
-            isinstance(value, (int, float))
-            and not isinstance(value, bool)
-            and math.isfinite(float(value))
-            and value >= 0
-        )
-        out[target] = round(value / 1_000_000, 2) if valid else None
+        numeric: float | None = None
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            try:
+                cand = float(value)
+            except (OverflowError, TypeError, ValueError):
+                cand = None
+            if cand is not None and math.isfinite(cand) and cand >= 0:
+                numeric = cand
+        out[target] = round(numeric / 1_000_000, 2) if numeric is not None else None
     load, prompt_eval = out["load_duration_ms"], out["prompt_eval_duration_ms"]
     out["ttft_model_ms"] = round(load + prompt_eval, 2) if load is not None and prompt_eval is not None else None
     return out
