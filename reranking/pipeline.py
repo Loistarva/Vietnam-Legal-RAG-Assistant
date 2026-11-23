@@ -25,6 +25,7 @@ from typing import Any, Protocol, Sequence
 
 from reranking.parent_context import ParentContextResolver
 from reranking.reranker import Reranker, deduplicate_candidates
+from retrieval.metadata_filters import metadata_matches, normalize_metadata_filters
 from retrieval.temporal import is_effective_at, normalize_as_of_date
 
 logger = logging.getLogger(__name__)
@@ -354,8 +355,11 @@ class PrecomputedRetriever:
             raise ValueError(f"Không đọc được file candidate {path}: {exc}") from exc
         return cls([data] if isinstance(data, dict) else data if isinstance(data, list) else [])
 
-    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str,
+               metadata_filters: Mapping[str, Any] | None = None) -> list[dict[str, Any]]:
         _require_positive_int("top_k", top_k)
+        filters = normalize_metadata_filters(metadata_filters)
+        as_of_date = normalize_as_of_date(as_of_date)
         envelope = self.envelopes.get(query_id)
         if envelope is None:
             raise ValueError(f"File candidate không có query_id {query_id}")
@@ -371,7 +375,11 @@ class PrecomputedRetriever:
         if isinstance(saved, int) and saved < top_k:
             raise ValueError(f"File candidate chỉ lưu top {saved} của {query_id}, cần {top_k} "
                              f"(chạy lần 1 với --top-k {top_k})")
-        return [dict(hit) for hit in envelope["results"][:top_k]]
+        # Recheck the saved pool before slicing. Filtering a previously truncated
+        # top-k would hide eligible lower-ranked chunks and differ from ES/Qdrant.
+        # This only searches the stored pool; it does not recover unsaved chunks.
+        return [dict(hit) for hit in envelope["results"]
+                if is_effective_at(hit, as_of_date) and metadata_matches(hit, filters)][:top_k]
 
 
 def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) -> dict[str, Any]:

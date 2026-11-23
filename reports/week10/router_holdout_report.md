@@ -57,7 +57,7 @@ Ba điểm chính cần xử lý nếu mở một phiên bản mới: (1) bỏ k
 
 ## Đánh giá một lần holdout v6 trên `rule_router_v5` (2026-11-17)
 
-- Holdout: [`evaluation/router_holdout/router_holdout_week10_v6.jsonl`](../../evaluation/router_holdout/router_holdout_week10_v6.jsonl) (36 câu mới hoàn toàn `W16RH_001`–`036`; LF SHA-256 `c1db665fd29e75ec6ef287642e5391a8401ef9167991e442c552f330f3a5127c`; `reviewer_status=DEV4` — do kỹ sư soạn sau khi khóa `rule_router_v5`, chưa qua reviewer độc lập Dev2/Dev3).
+- Holdout: [`evaluation/router_holdout/router_holdout_week10_v6.jsonl`](../../evaluation/router_holdout/router_holdout_week10_v6.jsonl), 36 câu `W16RH_001`–`036`. LF SHA-256 tại run gốc: `c1db665fd29e75ec6ef287642e5391a8401ef9167991e442c552f330f3a5127c`; trạng thái review lúc ghi báo cáo gốc là `DEV4`. Ngày 23/11/2026 đã đồng bộ xác nhận Dev3 review nhãn, không thay câu hỏi/nhãn hoặc kết quả. SHA sau cập nhật metadata: `b9eeb081552b0eaf87326fd86f9426818aee615c8e70b5fd96857c8effd670b8`.
 - Validator: **PASS** đối chiếu với **10 nguồn** trong repo (`validate_router_holdout.py`).
 - Router: `rule_router_v5` (LF SHA-256 `996bd6a0894aeaf964f188f032961329ec6cdecfe1575bcf80df685aa068f2f7`; raw Windows CRLF bytes lúc chạy `c65025165323212e0e13aa050342a3613dd8b27fbdd4688ae44cb1f886432a43`).
 - Lệnh chạy một lần: `python scripts/smoke_rule_router.py --holdout evaluation/router_holdout/router_holdout_week10_v6.jsonl`.
@@ -67,7 +67,7 @@ Ba điểm chính cần xử lý nếu mở một phiên bản mới: (1) bỏ k
   - `LEGAL_SCOPE_UNCERTAIN`: `6/6`
   - `LEGAL_OUT_OF_SCOPE`: `7/8` (lệch `W16RH_012` → `LEGAL_SCOPE_UNCERTAIN`, không gây mất an toàn)
   - `NON_LEGAL`: `5/6` (lệch `W16RH_029` → `LEGAL_SCOPE_UNCERTAIN`)
-- Trạng thái `v6`: `CONSUMED` (không sửa `agent/router/rule_router.py` sau lần chạy này). Chi tiết metadata tại [`evaluation/router_holdout/router_holdout_week10_v6.md`](../../evaluation/router_holdout/router_holdout_week10_v6.md).
+- Trạng thái `v6`: `CONSUMED`, đồng thời là **bản chốt holdout độc lập chính thức theo quyết định project owner ngày 23/11/2026**, sau xác nhận Dev3 review. Ngày 23/11/2026 refactor boundary/explanation/config không đổi luật phân loại; SHA source mới không thay SHA của kết quả lịch sử. Chi tiết metadata tại [`evaluation/router_holdout/router_holdout_week10_v6.md`](../../evaluation/router_holdout/router_holdout_week10_v6.md); quyết định nghiệm thu tại [báo cáo D4.2 Sprint 11](../../evaluation/router_holdout/router_holdout_report.md).
 
 ## Công nghệ đã dùng
 JSONL, Python validation script, Unicode/text normalization, exact duplicate checks, route/action contract.

@@ -8,6 +8,8 @@ from datetime import date
 from io import StringIO
 from pathlib import Path
 
+import pytest
+
 from agent.router.rule_router import (
     Action,
     FastPathRule,
@@ -704,6 +706,27 @@ class FastPathTest(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "pattern bị trùng"):
             RuleRouter([first, second])
+
+
+@pytest.mark.req("FR1.3-AC1")
+@pytest.mark.parametrize(("query", "raw_route", "action", "canonical_route"), [
+    ("Tuổi kết hôn của nữ là bao nhiêu?", "LEGAL_HNGD", "LEGAL_RETRIEVAL", "LEGAL_IN_SCOPE"),
+    ("Xin chào", "NON_LEGAL", "GENERAL_CHAT", "NON_LEGAL"),
+    ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", "LEGAL_OUT_OF_SCOPE", "POLICY_ABSTENTION", "LEGAL_OUT_OF_SCOPE"),
+    ("Tôi muốn ly hôn và thành lập doanh nghiệp tư nhân thì cần thủ tục gì?", "MIXED_LEGAL_SCOPE", "POLICY_ABSTENTION", "MIXED_REVIEW"),
+    ("Tôi cần tư vấn pháp luật", "LEGAL_SCOPE_UNCERTAIN", "LEGAL_RETRIEVAL", "MIXED_REVIEW"),
+])
+def test_public_router_boundary_preserves_raw_route_and_action(query, raw_route, action, canonical_route):
+    from agent.router import RuleRouterAdapter
+
+    raw = RuleRouter().route(query, query_id="boundary", as_of_date="2026-10-15")
+    converted = RuleRouterAdapter().route(query=query, query_id="boundary", as_of_date="2026-10-15")
+    assert (raw.route.value, raw.action.value) == (raw_route, action)
+    assert converted == raw.to_canonical()
+    assert converted.route == canonical_route and converted.action == action
+    assert f"{raw_route} -> {action}" in converted.explanation
+    assert converted.reason_code == raw.route_reason.value
+    assert converted.policy_version == raw.classifier_version == "rule_router_v5"
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 # Hướng dẫn xác minh freeze Router và holdout
 
+**Cập nhật 23/11/2026:** Hồ sơ bàn giao hiện tại là [freeze Router v5 — D4.1](router_freeze.md) và [review/nghiệm thu v6 — D4.2](../evaluation/router_holdout/router_holdout_report.md). Dev3 review nhãn v6 đã được ghi nhận; project owner chấp thuận v6 làm holdout độc lập chính thức, chốt kết quả lịch sử 34/36. Quyết định nghiệm thu không thay đổi bằng chứng/SHA hoặc bổ sung các mốc thời gian chưa xác định. Các mốc v3/v4.1 dưới đây là lịch sử; không thay thế snapshot/SHA trong hồ sơ v5.
+
 Tài liệu này quy định cách kiểm tra Router trước khi freeze và cách đánh giá holdout mà không dùng holdout để tinh chỉnh. Tình trạng cập nhật ngày 2026-11-17: `rule_router_v3` đã được freeze theo ủy quyền của project owner sau khi các pre-freeze gates đạt và policy/consumer contract được xác nhận. Negative Set v2 đã được Dev2 review độc lập và Tech Lead sign-off theo SHA canonical `5584795887e876f15febc05e7f04107b67862492d8a3d027840c01514d75223f`; manifest hiện ghi `review_status=peer_reviewed`. Kết quả 26/26 là smoke evidence theo phần route/action thuộc Router, không phải đánh giá độc lập trên holdout. `router_holdout_week10_v1.jsonl` đạt 22/36 với 14 mismatch, nhưng record lần chạy không lưu Git SHA/classifier version nên không thể gán chắc chắn điểm này cho v3; đây là kết quả lịch sử đã tiêu thụ, không dùng để chỉnh Router hay tuyên bố holdout mới.
 
 ## 1. Phân biệt hai việc cần xác minh

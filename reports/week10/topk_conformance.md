@@ -1,5 +1,7 @@
 # D4.5 – Thí nghiệm cutoff Top-5 và Top-10
 
+**Trạng thái Sprint 11 ngày 23/11/2026:** Task Top-50 input đang [BLOCKED chờ D-13](../Sprint11_Dev4_Report.md), chưa triển khai. Báo cáo này chỉ giữ phân tích cutoff lịch sử Week 10, không nghiệm thu thay task Sprint 11.
+
 ## Đầu vào
 - Ranking Hybrid/Reranker Top-10 đã lưu (`retrieval/results/dev_hybrid_reranker.json`).
 - 45 câu Dev source-checked, ngoài 30 ID official; config baseline Top-5 và metric evaluator của dự án.
@@ -20,7 +22,7 @@ Hybrid BM25 + Dense + RRF, Cross-Encoder ranking artifact, Python metric evaluat
 
 ## Thiết kế và kiểm tra đầu vào
 
-Thí nghiệm chỉ thay đổi cutoff đầu ra sau reranking. Cùng một danh sách xếp hạng, cùng điểm Cross-Encoder và cùng 50 candidate đã được chấm được tính metric tại Top-5 và Top-10. Script `scripts/evaluate_topk_cutoff.py` kiểm tra SHA-256 của artifact, corpus, cấu hình và từng query trước khi tính điểm.
+Thí nghiệm chỉ thay đổi cutoff đầu ra sau reranking. Cùng danh sách Top-10 đã lưu và cùng điểm Cross-Encoder được tính metric tại Top-5 và Top-10; chưa xác minh độc lập toàn bộ pool 50 candidate. Script `scripts/evaluate_topk_cutoff.py` kiểm tra SHA-256 của artifact, corpus, cấu hình và từng query trước khi tính điểm.
 
 Nguồn là `retrieval/results/dev_hybrid_reranker.json`: 270 query Dev; artifact SHA-256 `738a07c63bb4812bd3a2f9a5e6bb3a57fc5358515057def63d87fc6c2d764dc7`, khớp SHA trong precompute manifest. Trong từng record, `retrieval_top_k=50`, `stats.scored_candidates=50`, `stats.output_candidates=10`, `top_k=10`, và có 10 kết quả đã xếp hạng. Cấu hình repo hiện ghi `retrieval.result_top_k=10` và `reranker.rerank_top_k=5`; vì vậy ba giá trị không cùng một khái niệm: 50 là pool đầu vào; 5 là mặc định output của reranker; 10 là output cutoff cấu hình/quan sát trong artifact. `top_k=10` thực tế được lưu nhưng chưa có log CLI gốc để xác định cơ chế override `rerank_top_k=5`. Artifact chỉ giữ Top-10; file pool 50 được tham chiếu tại đường dẫn Temp bên ngoài repo và không có ở workspace. Do đó không xác minh độc lập được số 50 ứng với danh sách đã rerank nào. Manifest ghi riêng rõ phần đã quan sát và phần chưa thể kiểm chứng.
 
@@ -72,7 +74,7 @@ Số liệu cutoff hiện có ủng hộ recall cao hơn ở Top-10 nhưng cho t
 - Metric đầy đủ theo từng câu và bootstrap: `evaluation/results/dev/topk_cutoff_20261116_metrics.json`.
 - Có thể tái lập phép tính metric Top-5/Top-10 từ Top-10 đã lưu bằng `.venv/Scripts/python.exe scripts/evaluate_topk_cutoff.py`; không thể tái lập việc tạo pool 50 và rerank nếu thiếu artifact candidate 50 cùng lệnh/config hiệu lực.
 - Phép so sánh tái sử dụng ranking Top-10 đã lưu; không chạy lại Elasticsearch, Qdrant, Cross-Encoder hoặc Ollama. Do vậy đây là so sánh cutoff đầu ra có kiểm soát, không phải đo lại latency hay benchmark end-to-end mới.
-- Provenance SHA của Controlled RAG B đã được hiệu chỉnh và đối chiếu; xem `controlled_rag_b_validation.md`.
+- Provenance SHA của Controlled RAG B đã được đối chiếu và giải thích bằng LF/CRLF, không sửa manifest gốc; xem [audit/verdict Sprint 11](../Sprint11_Dev4_Report.md).
 
 ## Xác minh khả năng tái chạy candidate pool và downstream
 

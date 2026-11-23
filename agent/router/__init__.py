@@ -9,6 +9,7 @@ from .rule_router import (
     RouterInputError,
     RuleRouter,
 )
+from .adapter import RuleRouterAdapter
 
 __all__ = [
     "Action",
@@ -18,4 +19,5 @@ __all__ = [
     "RouteReason",
     "RouterInputError",
     "RuleRouter",
+    "RuleRouterAdapter",
 ]
