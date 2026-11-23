@@ -46,6 +46,27 @@ def make_service(router=None, *, today=date(2026, 11, 16)):
     return service, source, generator, sink
 
 
+@pytest.mark.req("FR1.2-AC1")
+@pytest.mark.req("FR1.2-AC2")
+def test_general_chat_uses_agent_config_without_retrieval_or_llm():
+    import re
+
+    from agent.config import GENERAL_CHAT_MESSAGE as configured_message
+    from agent.config import GENERAL_CHAT_RESPONSES
+    from agent.router import RuleRouterAdapter as PublicRouterAdapter
+
+    assert RuleRouterAdapter is PublicRouterAdapter  # legacy consumer import stays compatible
+    assert GENERAL_CHAT_MESSAGE == configured_message
+    for message in GENERAL_CHAT_RESPONSES:
+        assert not re.search(r"\bđiều\b|\b\d+/\d{4}/", message, re.IGNORECASE)
+    service, source, generator, _ = make_service(PublicRouterAdapter())
+    response = service.run(AskRequest(query="Xin chào")).response
+    assert response.answer == configured_message
+    assert (response.status, response.grounding_status) == ("SUCCESS", "NOT_RUN")
+    assert response.citations == [] and response.evidence == []
+    assert (source.calls, generator.calls) == (0, 0)
+
+
 def ask(service, query=LEGAL, **kwargs):
     return service.run(AskRequest(query=query, **kwargs))
 

@@ -18,7 +18,8 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Literal
 
-from orchestration.ask_service import AskService, RuleRouterAdapter
+from agent.router.adapter import RuleRouterAdapter
+from orchestration.ask_service import AskService
 from orchestration.events import EventSink, JsonlEventSink, NullEventSink
 
 PRODUCTION_RUN_MODE = "C_production_rag"
