@@ -28,8 +28,11 @@ from schemas.models import (
     LLMResponse,
     LogEvent,
     MappedCitation,
+    MetadataFilters,
+    RAGOutputRecord,
     ResponseStatus,
     RetrievalBundle,
+    RetrievalLatencyBreakdown,
     RouteAction,
     RouteDecision,
     RouteType,
@@ -635,3 +638,78 @@ def test_week10_v1_0_backward_compatibility():
     assert legacy_response.evidence[0].point_ref is None
     assert legacy_llm.missing_facts == []
     assert legacy_log.stage == "rerank"
+
+
+@pytest.mark.req("FR2.11")
+@pytest.mark.req("FR9.4")
+@pytest.mark.req("FR1.9")
+@pytest.mark.req("FR9.8")
+def test_retrieval_bundle_filters_latency_and_rag_record_route():
+    # 1. RetrievalBundle v1.1 example với metadata_filters & latency_breakdown
+    source = json.loads((EXAMPLES_DIR / "retrieval_bundle_valid.json").read_text(encoding="utf-8"))
+    bundle = RetrievalBundle.model_validate(source)
+    dumped = bundle.model_dump(mode="json")
+    assert dumped["schema_version"] == "week10_v1.1"
+    assert dumped["metadata_filters"] == {
+        "document_type": None,
+        "document_number": None,
+        "document_id": "l_52_2014_qh13",
+        "article_id": "art_8",
+        "clause_id": None,
+        "validity_status": None,
+    }
+    assert dumped["latency_breakdown"] == {
+        "bm25_ms": 11.4,
+        "dense_ms": 24.7,
+        "rrf_ms": 0.4,
+        "reranking_ms": 6.2,
+        "parent_context_ms": None,
+        "total_retrieval_ms": 45.2,
+    }
+
+    # Tương thích ngược week10_v1.0 thiếu metadata_filters và latency_breakdown
+    legacy_source = {
+        k: v for k, v in source.items() if k not in {"metadata_filters", "latency_breakdown"}
+    }
+    legacy_source["schema_version"] = "week10_v1.0"
+    legacy_bundle = RetrievalBundle.model_validate(legacy_source)
+    assert legacy_bundle.metadata_filters is None
+    assert legacy_bundle.latency_breakdown is None
+
+    # MetadataFilters và RetrievalLatencyBreakdown ràng buộc nghiêm ngặt
+    with pytest.raises(ValidationError):
+        MetadataFilters(document_id="   ")
+    with pytest.raises(ValidationError):
+        MetadataFilters(unknown_field="x")  # type: ignore[call-arg]
+    with pytest.raises(ValidationError):
+        RetrievalLatencyBreakdown(bm25_ms=-0.1)
+
+    # 2. RAGOutputRecord.route (optional để bản ghi cũ thiếu route vẫn hợp lệ)
+    base_record = {
+        "query_id": "Q_ROUTE_01",
+        "query": "Điều kiện kết hôn?",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "answer": "",
+        "grounding_status": "ABSTAIN",
+        "abstained": True,
+        "abstention_reason": "LOW_CONFIDENCE",
+        "abstention_source": "confidence_filter",
+        "needs_clarification": False,
+        "prompt_version": "v1.2_controlled_rag",
+        "done_reason": "not_generated",
+        "truncated": False,
+        "corpus_version": "sha256:" + "a" * 64,
+        "retrieval_config_version": "v1",
+        "threshold_config_version": "conf_v1",
+        "latency_ms": 1.5,
+        "llm_calls": 0,
+    }
+    legacy_rec = RAGOutputRecord.model_validate(base_record)
+    assert legacy_rec.route is None
+
+    enriched_rec = RAGOutputRecord.model_validate({**base_record, "route": "LEGAL_IN_SCOPE"})
+    assert enriched_rec.route == "LEGAL_IN_SCOPE"
+
+    with pytest.raises(ValidationError):
+        RAGOutputRecord.model_validate({**base_record, "route": "LEGAL_HNGD"})

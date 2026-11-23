@@ -51,5 +51,17 @@
   "latency_ms": 45.2,
   "query": "Việc kết hôn có bắt buộc do hai bên tự nguyện quyết định không?",
   "retriever": "hybrid_reranker",
-  "top_k": 5
+  "top_k": 5,
+  "metadata_filters": {
+    "document_id": "l_52_2014_qh13",
+    "article_id": "art_8"
+  },
+  "latency_breakdown": {
+    "bm25_ms": 11.4,
+    "dense_ms": 24.7,
+    "rrf_ms": 0.4,
+    "reranking_ms": 6.2,
+    "parent_context_ms": null,
+    "total_retrieval_ms": 45.2
+  }
 }
