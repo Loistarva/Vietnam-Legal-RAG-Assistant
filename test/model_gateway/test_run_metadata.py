@@ -6,6 +6,7 @@ from copy import deepcopy
 from pathlib import Path
 
 import pytest
+import yaml
 
 from model_gateway.llm_gateway import DEFAULT_CONFIG_PATH, QwenGatewayConfig
 from model_gateway.run_metadata import (
@@ -664,3 +665,132 @@ def test_manifest_official_standalone_roundtrip_from_builder_passes(tmp_path: Pa
     manifest_path = tmp_path / "official_standalone.json"
     manifest_path.write_text(json.dumps(built), encoding="utf-8")
     assert validate_run_manifest(manifest_path, official=True) == []
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_official_policy_allows_zero_or_one_retry_and_rejects_more(tmp_path: Path):
+    for ok_retries in (0, 1):
+        assert validate_runtime_config(QwenGatewayConfig(max_retries=ok_retries), official=True) == []
+
+        manifest_ok = _valid_manifest()
+        cfg_ok = QwenGatewayConfig(max_retries=ok_retries).model_dump(mode="json")
+        cfg_ok_hash = _canonical_json_sha256(cfg_ok)
+        manifest_ok["base_model_config"] = cfg_ok
+        manifest_ok["base_model_config_hash"] = cfg_ok_hash
+        manifest_ok["effective_model_config_hash"] = cfg_ok_hash
+        manifest_ok["runtime"]["max_retries"] = ok_retries
+
+        ok_path = tmp_path / f"manifest_retries_{ok_retries}.json"
+        ok_path.write_text(json.dumps(manifest_ok), encoding="utf-8")
+        assert validate_run_manifest(ok_path, official=True) == []
+
+    for bad_retries in (2, 3):
+        cfg_errors = validate_runtime_config(QwenGatewayConfig(max_retries=bad_retries), official=True)
+        assert any("official_max_retries_exceeded" in err and "max_retries" in err for err in cfg_errors), cfg_errors
+
+        manifest_bad = _valid_manifest()
+        cfg_bad = QwenGatewayConfig(max_retries=bad_retries).model_dump(mode="json")
+        cfg_bad_hash = _canonical_json_sha256(cfg_bad)
+        manifest_bad["base_model_config"] = cfg_bad
+        manifest_bad["base_model_config_hash"] = cfg_bad_hash
+        manifest_bad["effective_model_config_hash"] = cfg_bad_hash
+        manifest_bad["runtime"]["max_retries"] = bad_retries
+
+        bad_path = tmp_path / f"manifest_retries_{bad_retries}.json"
+        bad_path.write_text(json.dumps(manifest_bad), encoding="utf-8")
+        mf_errors = validate_run_manifest(bad_path, official=True)
+        assert any("official_max_retries_exceeded" in err and "max_retries" in err for err in mf_errors), mf_errors
+
+        # Non-official giữ nguyên cho phép max_retries >= 0
+        assert validate_run_manifest(bad_path, official=False) == []
+        assert validate_runtime_config(QwenGatewayConfig(max_retries=bad_retries), official=False) == []
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_official_manifest_blocks_extra_scopes_and_unapproved_base_config(tmp_path: Path):
+    base_bad_cfg = QwenGatewayConfig(cache_enabled=True, fallback_locked=False).model_dump(mode="json")
+    cfg_path = tmp_path / "bad_official_cfg.yaml"
+    cfg_path.write_text(yaml.safe_dump(base_bad_cfg, sort_keys=False), encoding="utf-8")
+
+    manifest = _valid_manifest()
+    manifest["config_hashes"]["model"] = sha256_file(cfg_path)
+    manifest["base_model_config"] = base_bad_cfg
+    bad_hash = _canonical_json_sha256(base_bad_cfg)
+    manifest["base_model_config_hash"] = bad_hash
+    manifest["effective_model_config_hash"] = bad_hash
+    # Cache/fallback được đặt ở top-level trong khi runtime giữ bản mặc định -> không thể bypass official policy
+    manifest["runtime"].pop("cache_enabled", None)
+    manifest["runtime"].pop("cache", None)
+    manifest["runtime"].pop("fallback_locked", None)
+    manifest["runtime"].pop("fallback", None)
+    manifest["cache"] = "OFF"
+    manifest["fallback"] = "LOCKED"
+
+    errors = validate_run_manifest(manifest, official=True, model_config_path=cfg_path)
+    assert errors, "Official run phải từ chối cấu hình gốc bật cache / mở khóa fallback dù extra_scopes ghi OFF/LOCKED"
+    assert any("cache_enabled" in err or "fallback_locked" in err for err in errors), errors
+
+    # extra_scopes ở top-level chứa cache='ON' dù runtime tắt phải bị phát hiện mâu thuẫn khi tái dựng hash
+    manifest_good_cfg = _valid_manifest()
+    manifest_good_cfg["runtime"].pop("cache_enabled", None)
+    manifest_good_cfg["runtime"].pop("cache", None)
+    manifest_good_cfg["gateway"] = {"cache_enabled": True}
+    errors_scope = validate_run_manifest(manifest_good_cfg, official=True)
+    assert errors_scope
+    assert any("cache" in err.lower() for err in errors_scope), errors_scope
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_manifest_and_builder_handle_boundary_inputs_without_raw_exceptions(tmp_path: Path):
+    huge = 10**5000
+
+    # Extreme ISO timestamp, invalid URLs, wrong model_config_path type, huge ints
+    bad = _valid_manifest()
+    bad["started_at"] = "9999-12-31T23:59:59-05:00"
+    bad["finished_at"] = "0001-01-01T00:00:00+05:00"
+    bad["runtime"]["num_ctx"] = huge
+    bad["runtime"]["max_retries"] = huge
+    bad["runtime"]["base_url"] = "http://"
+    bad["runtime_overrides"] = {"num_ctx": {"config": 8192, "runtime": huge}}
+
+    errors = validate_run_manifest(bad, official=True, model_config_path=123)  # type: ignore[arg-type]
+    assert any("started_at" in err for err in errors)
+    assert any("finished_at" in err for err in errors)
+    assert any("num_ctx" in err for err in errors)
+    assert any("max_retries" in err for err in errors)
+    assert any("base_url" in err for err in errors)
+    assert any("model_config_path" in err for err in errors)
+
+    ipv6_bad = _valid_manifest()
+    ipv6_bad["runtime"]["base_url"] = "http://[::1"
+    assert any("base_url" in err for err in validate_run_manifest(ipv6_bad, official=False))
+
+    rt_errors = validate_runtime_config(
+        {**QwenGatewayConfig().model_dump(), "max_retries": huge, "base_url": "http://"},
+        official=True,
+    )
+    assert rt_errors
+
+    # Directory passed as precomputed_artifact_path must not raise IsADirectoryError
+    dummy_file = tmp_path / "dummy.txt"
+    dummy_file.write_text("ok", encoding="utf-8")
+    dir_path = tmp_path / "artifact_dir"
+    dir_path.mkdir()
+    built = build_model_run_manifest(
+        benchmark_path=dummy_file,
+        dataset_ids=["q1"],
+        corpus_path=dummy_file,
+        retrieval_config_path=dummy_file,
+        rerank_config_path=dummy_file,
+        model_config_path=DEFAULT_CONFIG_PATH,
+        threshold_config_path=dummy_file,
+        prompt_version="v1.2_controlled_rag",
+        model_digest="a" * 64,
+        ollama_version="0.40.16",
+        precomputed_artifact_path=dir_path,
+        hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+    )
+    assert built["precomputed_artifact"] == {"path": dir_path.as_posix(), "status": "missing", "sha256": None}

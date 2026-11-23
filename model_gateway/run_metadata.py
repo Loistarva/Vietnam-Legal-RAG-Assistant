@@ -15,6 +15,7 @@ from collections.abc import Mapping, Sequence
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 import yaml
 
@@ -68,6 +69,25 @@ def _is_non_empty_str(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
+def _is_valid_http_url(value: Any) -> bool:
+    if not _is_non_empty_str(value):
+        return False
+    try:
+        parsed = urlsplit(str(value).strip())
+    except ValueError:
+        return False
+    return parsed.scheme.lower() in ("http", "https") and bool(parsed.netloc)
+
+
+def _safe_value_repr(value: Any) -> str:
+    if isinstance(value, int) and not isinstance(value, bool) and value.bit_length() > 128:
+        return f"<int~bits:{value.bit_length()}>"
+    try:
+        return repr(value)
+    except (ValueError, OverflowError):
+        return f"<{type(value).__name__}>"
+
+
 def _safe_finite_float(value: Any) -> float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
@@ -84,8 +104,19 @@ def _is_finite_number(value: Any) -> bool:
     return _safe_finite_float(value) is not None
 
 
+def _sanitize_json_for_hash(value: Any) -> Any:
+    if isinstance(value, Mapping):
+        return {str(k): _sanitize_json_for_hash(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_sanitize_json_for_hash(item) for item in value]
+    if isinstance(value, int) and not isinstance(value, bool) and value.bit_length() > 1024:
+        return f"<int:bitlen={value.bit_length()}>"
+    return value
+
+
 def _canonical_json_sha256(payload: Any) -> str:
-    raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    safe_payload = _sanitize_json_for_hash(payload)
+    raw = json.dumps(safe_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8", errors="replace")
     return hashlib.sha256(raw).hexdigest()
 
 
@@ -107,13 +138,19 @@ def _load_yaml_mapping(path: Path) -> tuple[dict[str, Any] | None, str | None]:
     return loaded, None
 
 
-def _is_sha256(value: Any) -> bool:
+def _normalize_sha256(value: Any) -> str | None:
     if not isinstance(value, str):
-        return False
+        return None
     cleaned = value.strip()
-    if cleaned.startswith("sha256:"):
-        cleaned = cleaned.removeprefix("sha256:")
-    return bool(_HEX_64_RE.match(cleaned))
+    if cleaned.lower().startswith("sha256:"):
+        cleaned = cleaned[7:].strip()
+    if not _HEX_64_RE.match(cleaned):
+        return None
+    return cleaned.lower()
+
+
+def _is_sha256(value: Any) -> bool:
+    return _normalize_sha256(value) is not None
 
 
 def _parse_utc_iso(value: Any) -> datetime | None:
@@ -128,12 +165,19 @@ def _parse_utc_iso(value: Any) -> datetime | None:
         return None
     if dt.tzinfo is None:
         return None
-    return dt.astimezone(timezone.utc)
+    try:
+        return dt.astimezone(timezone.utc)
+    except (OverflowError, ValueError):
+        return None
 
 
 def sha256_file(path: str | Path) -> str:
     """Compute platform-consistent SHA-256 on LF-normalized UTF-8 text or raw bytes."""
+    if not isinstance(path, (str, Path)):
+        raise TypeError(f"path phải là str hoặc Path, nhận được {type(path).__name__}")
     file_path = Path(path)
+    if file_path.is_dir():
+        raise IsADirectoryError(f"sha256_file yêu cầu tệp hợp lệ, nhận được thư mục: {file_path}")
     raw = file_path.read_bytes()
     try:
         text = raw.decode("utf-8").replace("\r\n", "\n")
@@ -152,6 +196,8 @@ def collect_git_state(repo_root: str | Path | None = None) -> dict[str, Any]:
             check=True,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
         ).stdout.strip()
         sha = subprocess.run(
             ["git", "rev-parse", "HEAD"],
@@ -159,6 +205,8 @@ def collect_git_state(repo_root: str | Path | None = None) -> dict[str, Any]:
             check=True,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
         ).stdout.strip()
         dirty = subprocess.run(
             ["git", "status", "--porcelain"],
@@ -166,13 +214,15 @@ def collect_git_state(repo_root: str | Path | None = None) -> dict[str, Any]:
             check=True,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
         ).stdout.strip()
         return {
             "git_branch": branch or "HEAD",
             "git_sha": sha,
             "working_tree_clean": not bool(dirty),
         }
-    except (OSError, subprocess.CalledProcessError):
+    except (OSError, subprocess.CalledProcessError, ValueError):
         return {
             "git_branch": "",
             "git_sha": "",
@@ -190,6 +240,8 @@ def collect_hardware_profile() -> dict[str, str]:
             check=True,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             timeout=2.0,
         )
         lines = [line.strip() for line in proc.stdout.splitlines() if line.strip()]
@@ -197,7 +249,7 @@ def collect_hardware_profile() -> dict[str, str]:
             parts = [part.strip() for part in lines[0].split(",")]
             gpu_name = parts[0] if parts else "unknown"
             vram = f"{parts[1]} MiB" if len(parts) > 1 and parts[1] else "unknown"
-    except (OSError, subprocess.SubprocessError, TimeoutError):
+    except (OSError, subprocess.SubprocessError, TimeoutError, ValueError):
         pass
 
     cpu = platform.processor().strip() or platform.machine().strip() or "unknown"
@@ -294,6 +346,8 @@ def _read_fallback_locked(
 def _compare_runtime_with_model_config(
     runtime: Mapping[str, Any],
     base_cfg: Mapping[str, Any],
+    *,
+    extra_scopes: Sequence[tuple[str, Mapping[str, Any]]] = (),
 ) -> dict[str, dict[str, Any]]:
     """Return fields where runtime parameters diverge from the hashed model config."""
     mismatches: dict[str, dict[str, Any]] = {}
@@ -301,13 +355,13 @@ def _compare_runtime_with_model_config(
         if cfg_key not in base_cfg:
             continue
         if cfg_key == "cache_enabled":
-            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.", extra_scopes=extra_scopes)
             if cache_err is None and cache_off is not None:
                 rt_cache_enabled = not cache_off
                 if rt_cache_enabled != bool(base_cfg[cfg_key]):
                     mismatches[rt_key] = {"config": bool(base_cfg[cfg_key]), "runtime": rt_cache_enabled}
         elif cfg_key == "fallback_locked":
-            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.", extra_scopes=extra_scopes)
             if fb_err is None and fb_locked is not None:
                 if fb_locked != bool(base_cfg[cfg_key]):
                     mismatches[rt_key] = {"config": bool(base_cfg[cfg_key]), "runtime": fb_locked}
@@ -359,8 +413,8 @@ def _validate_runtime_overrides_entries(
         ):
             errors.append(
                 f"model_config_hash_mismatch: runtime_overrides.{key} khai báo sai giá trị "
-                f"(expected config={expected['config']!r}, runtime={expected['runtime']!r}, "
-                f"got config={entry['config']!r}, runtime={entry['runtime']!r})"
+                f"(expected config={_safe_value_repr(expected['config'])}, runtime={_safe_value_repr(expected['runtime'])}, "
+                f"got config={_safe_value_repr(entry['config'])}, runtime={_safe_value_repr(entry['runtime'])})"
             )
     return errors
 
@@ -368,16 +422,18 @@ def _validate_runtime_overrides_entries(
 def _build_effective_model_config(
     ref_cfg_dump: Mapping[str, Any],
     runtime: Mapping[str, Any],
+    *,
+    extra_scopes: Sequence[tuple[str, Mapping[str, Any]]] = (),
 ) -> tuple[dict[str, Any] | None, str | None]:
     raw: dict[str, Any] = dict(ref_cfg_dump)
     for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items():
         if cfg_key == "cache_enabled":
-            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.", extra_scopes=extra_scopes)
             if cache_err or cache_off is None:
                 return None, cache_err or "Không xác định được trạng thái cache để tái tính effective_model_config_hash"
             raw[cfg_key] = not cache_off
         elif cfg_key == "fallback_locked":
-            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.", extra_scopes=extra_scopes)
             if fb_err or fb_locked is None:
                 return None, fb_err or "Không xác định được trạng thái fallback để tái tính effective_model_config_hash"
             raw[cfg_key] = fb_locked
@@ -451,6 +507,11 @@ def validate_runtime_config(
     if official:
         if parsed.temperature != 0.0:
             errors.append(f"Official run yêu cầu temperature == 0.0, nhận được {parsed.temperature}")
+        if parsed.max_retries > 1:
+            errors.append(
+                "official_max_retries_exceeded: official run chỉ cho phép tối đa 1 retry "
+                f"(0 <= max_retries <= 1), nhận được {_safe_value_repr(parsed.max_retries)}"
+            )
         if parsed.cache_enabled is not False:
             errors.append(f"Official run yêu cầu cache_enabled == False, nhận được {parsed.cache_enabled}")
         if parsed.fallback_locked is not True:
@@ -468,8 +529,8 @@ def validate_run_manifest(
     """Validate model-run manifest against NFR4.1, NFR4.2, NFR4.3 and NFR2.3."""
     if isinstance(manifest, (str, Path)):
         path = Path(manifest)
-        if not path.exists():
-            return [f"manifest_path không tồn tại: {path}"]
+        if not path.exists() or path.is_dir():
+            return [f"manifest_path không tồn tại hoặc không phải tệp: {path}"]
         try:
             loaded = json.loads(path.read_text(encoding="utf-8"))
         except Exception as exc:
@@ -519,7 +580,13 @@ def validate_run_manifest(
         if not isinstance(artifact, Mapping):
             errors.append("precomputed_retrieval=True yêu cầu object precomputed_artifact")
         else:
-            if not _is_non_empty_str(artifact.get("path")) and not _is_non_empty_str(artifact.get("status")):
+            art_path = artifact.get("path")
+            art_status = artifact.get("status")
+            if art_path is not None and not _is_non_empty_str(art_path):
+                errors.append("precomputed_artifact.path phải là chuỗi không rỗng")
+            if art_status is not None and not _is_non_empty_str(art_status):
+                errors.append("precomputed_artifact.status phải là chuỗi không rỗng")
+            if not _is_non_empty_str(art_path) and not _is_non_empty_str(art_status):
                 errors.append("precomputed_artifact thiếu trường 'path' hoặc 'status'")
             if not _is_sha256(artifact.get("sha256")):
                 errors.append("precomputed_artifact thiếu hoặc sai định dạng 'sha256'")
@@ -535,8 +602,8 @@ def validate_run_manifest(
 
         for int_key in ("num_ctx", "num_predict"):
             val = runtime.get(int_key)
-            if type(val) is not int or val <= 0:
-                errors.append(f"runtime.{int_key} phải là số nguyên dương (> 0)")
+            if type(val) is not int or val <= 0 or val.bit_length() > 64:
+                errors.append(f"runtime.{int_key} phải là số nguyên dương hợp lệ (1 <= val < 2^64)")
 
         temp = runtime.get("temperature")
         temp_num = _safe_finite_float(temp)
@@ -552,8 +619,24 @@ def validate_run_manifest(
 
         if "max_retries" in runtime:
             retries_val = runtime.get("max_retries")
-            if type(retries_val) is not int or retries_val < 0:
-                errors.append("runtime.max_retries phải là số nguyên không âm (>= 0)")
+            if type(retries_val) is not int or retries_val < 0 or retries_val.bit_length() > 64:
+                errors.append("runtime.max_retries phải là số nguyên không âm hợp lệ (0 <= val < 2^64)")
+            elif official and retries_val > 1:
+                errors.append(
+                    "official_max_retries_exceeded: official run chỉ cho phép tối đa 1 retry "
+                    f"(0 <= runtime.max_retries <= 1), nhận được {_safe_value_repr(retries_val)}"
+                )
+
+        if "provider" in runtime and runtime.get("provider") != "ollama":
+            errors.append("runtime.provider phải là 'ollama'")
+
+        if "base_url" in runtime:
+            base_url_val = runtime.get("base_url")
+            if not _is_valid_http_url(base_url_val):
+                errors.append("runtime.base_url phải là chuỗi URL HTTP/HTTPS hợp lệ có host")
+
+        if "model_config_version" in runtime and not _is_non_empty_str(runtime.get("model_config_version")):
+            errors.append("runtime.model_config_version phải là chuỗi không rỗng")
 
         if "timeout_seconds" in runtime:
             timeout_val = runtime.get("timeout_seconds")
@@ -583,28 +666,33 @@ def validate_run_manifest(
         # 4b. Đối chiếu model config đã băm với cấu hình runtime hiệu lực
         path_ref_dump: dict[str, Any] | None = None
         if model_config_path is not None:
-            cfg_path = Path(model_config_path)
-            loaded_cfg, load_err = _load_yaml_mapping(cfg_path)
-            if load_err is not None or loaded_cfg is None:
-                errors.append(load_err or f"CONFIG_READ_ERROR: file_path={cfg_path}")
+            if not isinstance(model_config_path, (str, Path)):
+                errors.append(
+                    f"model_config_path phải là đường dẫn chuỗi hoặc Path, nhận được {type(model_config_path).__name__}"
+                )
             else:
-                if isinstance(config_hashes, Mapping) and _is_sha256(config_hashes.get("model")):
-                    if sha256_file(cfg_path) != str(config_hashes["model"]).removeprefix("sha256:"):
+                cfg_path = Path(model_config_path)
+                loaded_cfg, load_err = _load_yaml_mapping(cfg_path)
+                if load_err is not None or loaded_cfg is None:
+                    errors.append(load_err or f"CONFIG_READ_ERROR: file_path={cfg_path}")
+                else:
+                    norm_model_hash = _normalize_sha256(config_hashes.get("model")) if isinstance(config_hashes, Mapping) else None
+                    if norm_model_hash is not None and sha256_file(cfg_path).lower() != norm_model_hash:
                         errors.append(
                             f"model_config_hash_mismatch: config_hashes.model không khớp SHA-256 của {cfg_path}"
                         )
-                missing_file_keys = [key for key in REQUIRED_BASE_MODEL_CONFIG_KEYS if key not in loaded_cfg]
-                if missing_file_keys:
-                    errors.append(
-                        f"incomplete_model_config_file: {cfg_path} thiếu khóa bắt buộc: {', '.join(missing_file_keys)}"
-                    )
-                else:
-                    try:
-                        parsed_file_cfg = QwenGatewayConfig(**loaded_cfg)
-                    except Exception as exc:
-                        errors.append(f"model_config_hash_mismatch: file config {cfg_path} không hợp lệ ({exc})")
+                    missing_file_keys = [key for key in REQUIRED_BASE_MODEL_CONFIG_KEYS if key not in loaded_cfg]
+                    if missing_file_keys:
+                        errors.append(
+                            f"incomplete_model_config_file: {cfg_path} thiếu khóa bắt buộc: {', '.join(missing_file_keys)}"
+                        )
                     else:
-                        path_ref_dump = parsed_file_cfg.model_dump(mode="json")
+                        try:
+                            parsed_file_cfg = QwenGatewayConfig(**loaded_cfg)
+                        except Exception as exc:
+                            errors.append(f"model_config_hash_mismatch: file config {cfg_path} không hợp lệ ({exc})")
+                        else:
+                            path_ref_dump = parsed_file_cfg.model_dump(mode="json")
 
         base_model_cfg = data.get("base_model_config")
         snapshot_ref_dump: dict[str, Any] | None = None
@@ -653,7 +741,9 @@ def validate_run_manifest(
             errors.append("Sai định dạng SHA-256: effective_model_config_hash")
 
         runtime_mismatches = (
-            _compare_runtime_with_model_config(runtime, ref_cfg_dump) if ref_cfg_dump is not None else {}
+            _compare_runtime_with_model_config(runtime, ref_cfg_dump, extra_scopes=manifest_extra_scopes)
+            if ref_cfg_dump is not None
+            else {}
         )
         has_declared_overrides = isinstance(declared_overrides, Mapping) and len(declared_overrides) > 0
         has_override_or_eff = bool(runtime_mismatches or has_declared_overrides or eff_hash is not None)
@@ -665,8 +755,10 @@ def validate_run_manifest(
             )
         elif ref_cfg_dump is not None:
             expected_base_hash = _canonical_json_sha256(ref_cfg_dump)
+            norm_base_hash = _normalize_sha256(base_hash)
+            norm_eff_hash = _normalize_sha256(eff_hash)
             if standalone_official or has_override_or_eff or base_hash is not None:
-                if not _is_sha256(base_hash) or str(base_hash).removeprefix("sha256:") != expected_base_hash:
+                if norm_base_hash is None or norm_base_hash != expected_base_hash:
                     errors.append(
                         "model_config_hash_mismatch: thiếu hoặc sai base_model_config_hash "
                         "(không khớp hash chuẩn hóa của cấu hình gốc)"
@@ -675,19 +767,38 @@ def validate_run_manifest(
             all_override_fields = set(runtime_mismatches.keys())
             if isinstance(declared_overrides, Mapping):
                 all_override_fields.update(str(k) for k in declared_overrides.keys())
-            hash_diverged = bool(_is_sha256(eff_hash) and str(eff_hash).removeprefix("sha256:") != expected_base_hash)
+            hash_diverged = bool(norm_eff_hash is not None and norm_eff_hash != expected_base_hash)
 
             if official:
+                if _safe_finite_float(ref_cfg_dump.get("temperature")) != 0.0:
+                    errors.append(
+                        f"Official run yêu cầu cấu hình gốc temperature == 0.0, nhận được {ref_cfg_dump.get('temperature')}"
+                    )
+                if type(ref_cfg_dump.get("max_retries")) is int and ref_cfg_dump["max_retries"] > 1:
+                    errors.append(
+                        "official_max_retries_exceeded: official run chỉ cho phép tối đa 1 retry "
+                        f"(0 <= max_retries <= 1), nhận được {_safe_value_repr(ref_cfg_dump['max_retries'])}"
+                    )
+                if ref_cfg_dump.get("cache_enabled") is not False:
+                    errors.append(
+                        f"Official run yêu cầu cấu hình gốc cache_enabled == False, nhận được {ref_cfg_dump.get('cache_enabled')}"
+                    )
+                if ref_cfg_dump.get("fallback_locked") is not True:
+                    errors.append(
+                        f"Official run yêu cầu cấu hình gốc fallback_locked == True, nhận được {ref_cfg_dump.get('fallback_locked')}"
+                    )
                 if all_override_fields or hash_diverged:
                     field_list = ", ".join(sorted(all_override_fields)) or "effective_model_config_hash"
                     errors.append(
                         f"model_config_hash_mismatch: official run không cho phép override runtime khác file model config ({field_list})"
                     )
                 if standalone_official or eff_hash is not None:
-                    eff_cfg_dump, eff_build_err = _build_effective_model_config(ref_cfg_dump, runtime)
+                    eff_cfg_dump, eff_build_err = _build_effective_model_config(
+                        ref_cfg_dump, runtime, extra_scopes=manifest_extra_scopes
+                    )
                     if eff_build_err is not None or eff_cfg_dump is None:
                         errors.append(eff_build_err or "effective_model_config_hash_mismatch")
-                    elif not _is_sha256(eff_hash) or str(eff_hash).removeprefix("sha256:") != _canonical_json_sha256(eff_cfg_dump):
+                    elif norm_eff_hash is None or norm_eff_hash != _canonical_json_sha256(eff_cfg_dump):
                         errors.append(
                             "effective_model_config_hash_mismatch: thiếu hoặc sai effective_model_config_hash "
                             "(không khớp cấu hình hiệu lực)"
@@ -701,12 +812,14 @@ def validate_run_manifest(
                 elif isinstance(declared_overrides, Mapping):
                     errors.extend(_validate_runtime_overrides_entries(declared_overrides, runtime_mismatches))
 
-                eff_cfg_dump, eff_build_err = _build_effective_model_config(ref_cfg_dump, runtime)
+                eff_cfg_dump, eff_build_err = _build_effective_model_config(
+                    ref_cfg_dump, runtime, extra_scopes=manifest_extra_scopes
+                )
                 if eff_build_err is not None or eff_cfg_dump is None:
                     errors.append(eff_build_err or "effective_model_config_hash_mismatch")
                 else:
                     expected_eff_hash = _canonical_json_sha256(eff_cfg_dump)
-                    if not _is_sha256(eff_hash) or str(eff_hash).removeprefix("sha256:") != expected_eff_hash:
+                    if norm_eff_hash is None or norm_eff_hash != expected_eff_hash:
                         errors.append(
                             "effective_model_config_hash_mismatch: effective_model_config_hash không khớp "
                             "cấu hình hiệu lực tái tính từ cấu hình gốc và runtime"
@@ -790,10 +903,11 @@ def build_model_run_manifest(
     precomputed_artifact: dict[str, Any] | None = None
     if precomputed_artifact_path is not None:
         art_path = Path(precomputed_artifact_path)
+        is_file = art_path.is_file()
         precomputed_artifact = {
             "path": art_path.as_posix(),
-            "status": "present" if art_path.exists() else "missing",
-            "sha256": sha256_file(art_path) if art_path.exists() else None,
+            "status": "present" if is_file else "missing",
+            "sha256": sha256_file(art_path) if is_file else None,
         }
 
     runtime_payload: dict[str, Any] = {
