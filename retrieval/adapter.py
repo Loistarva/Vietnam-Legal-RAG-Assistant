@@ -4,11 +4,12 @@ from __future__ import annotations
 import hashlib
 import re
 from pathlib import Path
-from typing import Any
+from typing import Any, get_args
 
 from retrieval.temporal import normalize_as_of_date
 from retrieval.metadata_filters import normalize_metadata_filters
 from schemas.models import (
+    AsOfDateSource,
     CandidateChunk,
     MetadataFilters,
     RetrievalBundle,
@@ -114,6 +115,58 @@ class RetrievalAdapter:
             metadata_filters=MetadataFilters(**normalized_filters) if normalized_filters else None,
             latency_breakdown=latency_breakdown,
         )
+
+    def retrieve_with_trace(
+        self, query: str, as_of_date: str, options: dict[str, Any] | None = None, *,
+        corpus_version: str, as_of_date_source: AsOfDateSource,
+        filters: dict[str, Any] | MetadataFilters | None = None,
+    ) -> tuple[RetrievalBundle, dict[str, Any]]:
+        """Return the canonical bundle and a request-local handoff trace.
+
+        The trace is a Dev4 sidecar, not an extension of the canonical schema.
+        It contains identifiers and measured timings, never query/chunk text.
+        Empty retrieval is not classified as low confidence: that is Dev5's gate.
+        """
+        if not isinstance(corpus_version, str) or not corpus_version.strip():
+            raise ValueError("corpus_version phải được cung cấp rõ ràng cho trace")
+        if as_of_date_source not in get_args(AsOfDateSource):
+            raise ValueError("as_of_date_source không thuộc canonical contract")
+        bundle = self.retrieve(query, as_of_date, options, filters=filters)
+        candidate_fields = {
+            "chunk_id", "document_id", "article_id", "clause_id", "parent_id",
+            "parent_clause_id", "rank", "score", "retrieval_source", "retrieval_sources",
+            "validity_status", "effective_from", "effective_to",
+            "source_ranks", "source_scores", "rrf_score", "reranker_score",
+        }
+        trace = {
+            "trace_version": "dev4_retrieval_trace_v1",
+            "query_id": bundle.query_id,
+            "as_of_date": bundle.as_of_date,
+            "as_of_date_source": as_of_date_source,
+            "schema_version": bundle.schema_version,
+            "retrieval_config_version": bundle.retrieval_config_version,
+            "corpus_hash": bundle.corpus_hash,
+            "corpus_version": corpus_version.strip(),
+            "retriever": bundle.retriever,
+            "precomputed": bundle.precomputed,
+            "metadata_filters": (
+                bundle.metadata_filters.model_dump(mode="json", exclude_none=True)
+                if bundle.metadata_filters is not None else {}
+            ),
+            "result_top_k": bundle.top_k,
+            "returned_candidate_count": len(bundle.candidates),
+            "outcome": "RETRIEVED" if bundle.candidates else "EMPTY",
+            "latency_ms": bundle.latency_ms,
+            "latency_breakdown": (
+                bundle.latency_breakdown.model_dump(mode="json")
+                if bundle.latency_breakdown is not None else None
+            ),
+            "candidates": [
+                candidate.model_dump(mode="json", include=candidate_fields)
+                for candidate in bundle.candidates
+            ],
+        }
+        return bundle, trace
 
 
 __all__ = ["RetrievalAdapter"]

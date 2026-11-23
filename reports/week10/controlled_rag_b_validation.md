@@ -1,5 +1,7 @@
 # Controlled RAG B – kiểm tra artifact hiện có
 
+**Đính chính ngày 23/11/2026:** Provenance **VERIFIED** theo [audit/verdict Sprint 11](../Sprint11_Dev4_Report.md). Hai SHA khác nhau do LF/CRLF của cùng Git blob; bốn run manifest vẫn giữ SHA CRLF và chữ ký gốc. Phần từng ghi đã sửa bốn manifest/tính lại chữ ký không đúng trạng thái artifact hiện tại và được rút lại. Không sửa manifest/output, không replay Dev30 theo D-12.
+
 ## Đầu vào
 - Run 30 câu: `evaluation/results/dev/20261114_controlled_rag_qwen25_dev30_prompt_v1_2/`.
 - Benchmark IDs/ngày trong `queries_dev.json`, retrieval precompute và manifest chạy.
@@ -10,7 +12,7 @@
 
 ## Kết quả
 - 30/30 ID đúng và duy nhất; ngày benchmark khớp; 29 PASS, 1 ABSTAIN; không có output bị cắt.
-- SHA precompute được đối chiếu và hiệu chỉnh trong manifest; kết quả mô hình/JSONL gốc không đổi.
+- SHA precompute được đối chiếu: LF khớp precompute manifest/Git blob, CRLF khớp cả bốn run manifest; không hiệu chỉnh manifest hoặc chữ ký gốc.
 - Route được tính hậu kỳ và đối chiếu 30/30 với Router ở commit nguồn; không phải trace route tại thời điểm generation.
 - Không chạy lại Ollama.
 
@@ -26,22 +28,15 @@ Shared RAG batch pipeline, Qwen2.5 qua Ollama (run đã lưu), JSONL, canonical 
 - Kết quả nghiệp vụ: 29 `PASS`, 1 `ABSTAIN`; không ghi nhận output bị cắt.
 - Mỗi kết quả đều có `ContextPayload`/candidate trace tương ứng với 30 query ID; ngày benchmark khớp nguồn.
 
-## Hiệu chỉnh nguồn gốc
+## Đính chính provenance
 
-SHA-256 thô hiện tại của artifact precompute là `6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353`. Giá trị cũ trong bốn manifest là `576065abe250393ee56130555a175345d5827628802df83f14bbe7aae38574a3`; sai lệch metadata đã được sửa. Đã đối chiếu bốn bộ kết quả với artifact hiện tại: query ID, `chunk_id` và `reranker_score` khớp 30/30 câu ở mỗi run. Cả bốn manifest hiện trỏ đến SHA hiện tại; chữ ký được tính lại và kiểm tra lại theo đúng các trường đầu vào của batch runner. Không thay đổi JSONL kết quả hay output mô hình; không chạy lại mô hình.
+- Artifact/Git blob dạng LF có SHA-256 `6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353`, khớp precompute manifest.
+- Chuyển cùng bytes sang CRLF cho SHA-256 `576065abe250393ee56130555a175345d5827628802df83f14bbe7aae38574a3`, khớp SHA precompute trong cả bốn run manifest.
+- Git commit chứa artifact: `cdca079ba63b5e3d48da690df269ff51bb47c887`; blob ID `d652635b70a6ff04d09cdbbdd6af7c611a60c460`.
+- Đối chiếu bốn run: query ID, query/ngày, chunk ID và reranker score khớp 30/30 ở mỗi run. Chữ ký gốc tái tính khớp 4/4; corpus/retrieval/rerank config và benchmark đối chiếu được theo Git SHA ghi trong từng manifest.
+- Không đổi manifest hoặc output gốc. Bảng “chữ ký sau hiệu chỉnh” trước đây được rút lại vì không phản ánh bốn manifest hiện có.
 
-**Kết luận provenance:** SHA hiện tại và SHA trong manifest đã khớp; kết quả Controlled RAG B được giữ nguyên và có thể truy vết theo các manifest đã hiệu chỉnh. Đây là sửa metadata kèm đối chiếu artifact, không phải một lần chạy mô hình mới.
-
-Chi tiết hiệu chỉnh bốn lần chạy:
-
-| Lần chạy | Chữ ký cũ | Chữ ký sau hiệu chỉnh | Số câu khớp |
-|---|---|---|---:|
-| `20261110_controlled_rag_qwen25_dev30` | `8e557ae17bb077a4ced421dd53983884e003decfec46e92e5e44b83d93b72635` | `9392382a6c50da4a2c68c4ad7cdbbcdd82076c716e66ebb2b41f4a43483efa6c` | 30/30 |
-| `20261113_controlled_rag_qwen25_dev30` | `1aade80583b0511bdd23891c3e36d06aeedfaa6ea7138047408df9a414a8beab` | `47865e633112ef5dc114a806d4651579dc17e9282b785baef95a9de5948f5c04` | 30/30 |
-| `20261113_controlled_rag_qwen25_dev30_post_fix` | `16000b8ab44bffa4c64b5e5794c7526a95f0e254a5e3b74124e56b9f3150ca10` | `c2a506a799dc674a719f2e0058c923a604df7c24780def91a143cc72651714cd` | 30/30 |
-| `20261114_controlled_rag_qwen25_dev30_prompt_v1_2` | `03a44ca71e01aedfc05d46553dd4e83add10ae42398775c872671c2211343516` | `dc0e8366caecc05895bfcc1adbeb1c80f1923191758203a66d7534a7357b4ea0` | 30/30 |
-
-Việc hiệu chỉnh chỉ cập nhật metadata nguồn gốc; không thay JSONL kết quả hoặc output mô hình.
+**Verdict: VERIFIED** trong phạm vi provenance của precompute và kết quả đã lưu; không xác minh mới toàn bộ raw pool 50 hoặc chất lượng câu trả lời. Bằng chứng chi tiết và quyết định không replay nằm trong [báo cáo D4.4 Sprint 11](../Sprint11_Dev4_Report.md).
 
 ## Bản bàn giao có route
 
@@ -49,4 +44,4 @@ JSONL gốc không ghi trường `route`. Đã tạo bản bàn giao dẫn xuấ
 
 - Kết quả: 30 record, 30 query ID duy nhất; route canonical: `LEGAL_IN_SCOPE` 30/30.
 - Manifest dẫn xuất lưu SHA của JSONL/manifest nguồn, SHA Router và SHA script. Output SHA-256: `d492c08d29b45009758ef2d9a703310b36d72b205ed77bcea6db6095ce5872f4`.
-- Đây là **route được tính hậu kỳ**, không phải route trace đã được ghi tại thời điểm generation. Đã chạy đối chiếu cùng 30 câu bằng code Router ở source-run commit `02b0a803` (SHA file `0807b542c2046a8e7e6f4038a9d421bcdba73300c45364702218a5f77153e01f`): kết quả route khớp 30/30 với Router hiện tại (SHA `41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d`). Manifest đánh dấu rõ cách tạo để Dev2 không nhầm provenance.
+- Đây là **route được tính hậu kỳ**, không phải route trace đã được ghi tại thời điểm generation. Theo kiểm tra lịch sử, đã đối chiếu cùng 30 câu bằng code Router ở source-run commit `02b0a803` (SHA file `0807b542c2046a8e7e6f4038a9d421bcdba73300c45364702218a5f77153e01f`): kết quả route khớp 30/30 với snapshot Router v3 khi tạo handoff (SHA `41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d`), không phải Router v5 hiện tại. Manifest đánh dấu rõ cách tạo để Dev2 không nhầm provenance.

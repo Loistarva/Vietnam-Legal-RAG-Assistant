@@ -1,5 +1,7 @@
 # D4.3 – Retrieval Adapter và contract Week 10
 
+**Cập nhật Sprint 11 ngày 23/11/2026:** Xem [báo cáo D4.3 hiện tại](../Sprint11_Dev4_Report.md) về trace bàn giao, kiểm thử ba nhánh và phần wiring còn phụ thuộc Dev5. Các số liệu kiểm thử bên dưới là lịch sử Week 10.
+
 ## Đầu vào
 - `AskRequest`/ngày `as_of_date`, tùy chọn metadata filters, cấu hình retrieval và kết quả Hybrid/Reranker hiện có.
 - Canonical `RetrievalBundle`/`CandidateChunk` từ `schemas.models`.
