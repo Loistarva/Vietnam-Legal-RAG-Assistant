@@ -9,6 +9,8 @@ import pytest
 
 from model_gateway.llm_gateway import DEFAULT_CONFIG_PATH, QwenGatewayConfig
 from model_gateway.run_metadata import (
+    CONFIG_TO_RUNTIME_FIELD_MAP,
+    RUNTIME_TO_CONFIG_FIELD_MAP,
     ManifestValidationError,
     _canonical_json_sha256,
     assert_valid_run_manifest,
@@ -53,6 +55,7 @@ def _valid_manifest() -> dict:
         "precomputed_artifact": None,
         "runtime": {
             "provider": "ollama",
+            "base_url": "http://localhost:11434",
             "model": "qwen2.5:7b",
             "model_config_version": "local_qwen_v1.1",
             "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
@@ -533,3 +536,131 @@ def test_validator_rejects_huge_integers_without_overflow_error(field: str, huge
         manifest["runtime"][field] = huge_int
         mf_errors = validate_run_manifest(manifest, official=is_official)
         assert any(field in err for err in mf_errors), mf_errors
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_manifest_official_standalone_rejects_partial_snapshot_with_default_filling(tmp_path: Path):
+    forged = _valid_manifest()
+    forged["runtime"]["num_ctx"] = 4096
+    forged["base_model_config"] = {"num_ctx": 4096}
+    for key in ("base_model_config_hash", "effective_model_config_hash", "runtime_overrides"):
+        forged.pop(key, None)
+
+    forged_path = tmp_path / "forged_partial_official.json"
+    forged_path.write_text(json.dumps(forged), encoding="utf-8")
+
+    errors = validate_run_manifest(forged_path, official=True)
+    assert errors
+    assert any("incomplete_base_model_config" in err for err in errors), errors
+    assert any("missing_model_config_source" in err for err in errors), errors
+
+    # Snapshot đầy đủ khóa nhưng thiếu base_model_config_hash hoặc effective_model_config_hash vẫn bị từ chối ở official=True
+    for missing_hash_key in ("base_model_config_hash", "effective_model_config_hash"):
+        missing_hash = _valid_manifest()
+        missing_hash.pop(missing_hash_key)
+        hash_errs = validate_run_manifest(missing_hash, official=True)
+        assert any(missing_hash_key in err for err in hash_errs), hash_errs
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+@pytest.mark.parametrize(
+    ("override_kwargs", "expected_override_key"),
+    [
+        ({"base_url": "http://127.0.0.1:11435"}, "base_url"),
+        ({"config_version": "local_qwen_custom"}, "model_config_version"),
+        ({"model": "qwen2.5:14b"}, "model"),
+        ({"num_ctx": 4096}, "num_ctx"),
+        ({"num_predict": 512}, "num_predict"),
+        ({"temperature": 0.2}, "temperature"),
+        ({"repeat_penalty": 1.2}, "repeat_penalty"),
+        ({"timeout_seconds": 60.0}, "timeout_seconds"),
+        ({"max_retries": 3}, "max_retries"),
+        ({"cache_enabled": True}, "cache_enabled"),
+        ({"fallback_locked": False}, "fallback_locked"),
+    ],
+)
+def test_manifest_builder_validator_roundtrip_all_gateway_config_fields(
+    tmp_path: Path,
+    override_kwargs: dict,
+    expected_override_key: str,
+):
+    assert set(CONFIG_TO_RUNTIME_FIELD_MAP) == set(QwenGatewayConfig.model_fields)
+    assert set(RUNTIME_TO_CONFIG_FIELD_MAP.values()) == set(QwenGatewayConfig.model_fields)
+
+    bench = tmp_path / "bench.json"
+    corpus = tmp_path / "chunks.jsonl"
+    ret_cfg = tmp_path / "ret.yaml"
+    rerank_cfg = tmp_path / "rerank.yaml"
+    thresh_cfg = tmp_path / "thresh.yaml"
+    model_cfg = tmp_path / "model.yaml"
+    for p, content in [
+        (bench, "[]\n"),
+        (corpus, '{"chunk_id":"c1"}\n'),
+        (ret_cfg, "top_k: 50\n"),
+        (rerank_cfg, "top_k: 10\n"),
+        (thresh_cfg, "min_top1: 0.5\n"),
+        (model_cfg, DEFAULT_CONFIG_PATH.read_text(encoding="utf-8")),
+    ]:
+        p.write_text(content, encoding="utf-8")
+
+    built = build_model_run_manifest(
+        benchmark_path=bench,
+        dataset_ids=["HN_001"],
+        corpus_path=corpus,
+        retrieval_config_path=ret_cfg,
+        rerank_config_path=rerank_cfg,
+        model_config_path=model_cfg,
+        threshold_config_path=thresh_cfg,
+        prompt_version="v1.2_controlled_rag",
+        model_digest="sha256:digest",
+        ollama_version="0.40.16",
+        gateway_config=QwenGatewayConfig(**override_kwargs),
+        hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+    )
+    assert expected_override_key in built["runtime_overrides"]
+
+    manifest_path = tmp_path / f"manifest_{expected_override_key}.json"
+    manifest_path.write_text(json.dumps(built), encoding="utf-8")
+    assert validate_run_manifest(manifest_path, official=False) == []
+    assert validate_run_manifest(manifest_path, official=False, model_config_path=model_cfg) == []
+
+
+@pytest.mark.req("NFR4.1")
+@pytest.mark.req("NFR4.2")
+def test_manifest_official_standalone_roundtrip_from_builder_passes(tmp_path: Path):
+    bench = tmp_path / "bench.json"
+    corpus = tmp_path / "chunks.jsonl"
+    ret_cfg = tmp_path / "ret.yaml"
+    rerank_cfg = tmp_path / "rerank.yaml"
+    thresh_cfg = tmp_path / "thresh.yaml"
+    model_cfg = tmp_path / "model.yaml"
+    for p, content in [
+        (bench, "[]\n"),
+        (corpus, '{"chunk_id":"c1"}\n'),
+        (ret_cfg, "top_k: 50\n"),
+        (rerank_cfg, "top_k: 10\n"),
+        (thresh_cfg, "min_top1: 0.5\n"),
+        (model_cfg, DEFAULT_CONFIG_PATH.read_text(encoding="utf-8")),
+    ]:
+        p.write_text(content, encoding="utf-8")
+
+    built = build_model_run_manifest(
+        benchmark_path=bench,
+        dataset_ids=["HN_001"],
+        corpus_path=corpus,
+        retrieval_config_path=ret_cfg,
+        rerank_config_path=rerank_cfg,
+        model_config_path=model_cfg,
+        threshold_config_path=thresh_cfg,
+        prompt_version="v1.2_controlled_rag",
+        model_digest="sha256:digest",
+        ollama_version="0.40.16",
+        hardware={"os": "Linux", "cpu": "x86_64", "gpu": "none", "vram": "none"},
+    )
+    built["working_tree_clean"] = True
+
+    manifest_path = tmp_path / "official_standalone.json"
+    manifest_path.write_text(json.dumps(built), encoding="utf-8")
+    assert validate_run_manifest(manifest_path, official=True) == []

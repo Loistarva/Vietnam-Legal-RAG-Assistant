@@ -35,6 +35,25 @@ REQUIRED_RUNTIME_MANIFEST_KEYS: tuple[str, ...] = (
     "temperature",
     "repeat_penalty",
 )
+REQUIRED_BASE_MODEL_CONFIG_KEYS: tuple[str, ...] = tuple(QwenGatewayConfig.model_fields.keys())
+CONFIG_TO_RUNTIME_FIELD_MAP: dict[str, str] = {
+    "config_version": "model_config_version",
+    "provider": "provider",
+    "base_url": "base_url",
+    "model": "model",
+    "temperature": "temperature",
+    "repeat_penalty": "repeat_penalty",
+    "num_predict": "num_predict",
+    "num_ctx": "num_ctx",
+    "timeout_seconds": "timeout_seconds",
+    "max_retries": "max_retries",
+    "cache_enabled": "cache_enabled",
+    "fallback_locked": "fallback_locked",
+}
+RUNTIME_TO_CONFIG_FIELD_MAP: dict[str, str] = {
+    rt_key: cfg_key for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items()
+}
+_FLOAT_CONFIG_FIELDS: frozenset[str] = frozenset({"temperature", "repeat_penalty", "timeout_seconds"})
 
 
 class ManifestValidationError(ValueError):
@@ -278,34 +297,29 @@ def _compare_runtime_with_model_config(
 ) -> dict[str, dict[str, Any]]:
     """Return fields where runtime parameters diverge from the hashed model config."""
     mismatches: dict[str, dict[str, Any]] = {}
-    for rt_key, cfg_key in (
-        ("provider", "provider"),
-        ("model", "model"),
-        ("model_config_version", "config_version"),
-        ("num_ctx", "num_ctx"),
-        ("num_predict", "num_predict"),
-        ("max_retries", "max_retries"),
-    ):
-        if rt_key in runtime and cfg_key in base_cfg and runtime[rt_key] != base_cfg[cfg_key]:
-            mismatches[rt_key] = {"config": base_cfg[cfg_key], "runtime": runtime[rt_key]}
-
-    for float_key in ("temperature", "repeat_penalty", "timeout_seconds"):
-        if float_key in runtime and float_key in base_cfg:
-            rt_num = _safe_finite_float(runtime[float_key])
-            cfg_num = _safe_finite_float(base_cfg[float_key])
-            if rt_num is not None and cfg_num is not None and rt_num != cfg_num:
-                mismatches[float_key] = {"config": base_cfg[float_key], "runtime": runtime[float_key]}
-
-    cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
-    if cache_err is None and cache_off is not None and "cache_enabled" in base_cfg:
-        rt_cache_enabled = not cache_off
-        if rt_cache_enabled != bool(base_cfg["cache_enabled"]):
-            mismatches["cache_enabled"] = {"config": bool(base_cfg["cache_enabled"]), "runtime": rt_cache_enabled}
-
-    fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
-    if fb_err is None and fb_locked is not None and "fallback_locked" in base_cfg:
-        if fb_locked != bool(base_cfg["fallback_locked"]):
-            mismatches["fallback_locked"] = {"config": bool(base_cfg["fallback_locked"]), "runtime": fb_locked}
+    for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items():
+        if cfg_key not in base_cfg:
+            continue
+        if cfg_key == "cache_enabled":
+            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+            if cache_err is None and cache_off is not None:
+                rt_cache_enabled = not cache_off
+                if rt_cache_enabled != bool(base_cfg[cfg_key]):
+                    mismatches[rt_key] = {"config": bool(base_cfg[cfg_key]), "runtime": rt_cache_enabled}
+        elif cfg_key == "fallback_locked":
+            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+            if fb_err is None and fb_locked is not None:
+                if fb_locked != bool(base_cfg[cfg_key]):
+                    mismatches[rt_key] = {"config": bool(base_cfg[cfg_key]), "runtime": fb_locked}
+        elif cfg_key in _FLOAT_CONFIG_FIELDS:
+            if rt_key in runtime:
+                rt_num = _safe_finite_float(runtime[rt_key])
+                cfg_num = _safe_finite_float(base_cfg[cfg_key])
+                if rt_num is not None and cfg_num is not None and rt_num != cfg_num:
+                    mismatches[rt_key] = {"config": base_cfg[cfg_key], "runtime": runtime[rt_key]}
+        else:
+            if rt_key in runtime and runtime[rt_key] != base_cfg[cfg_key]:
+                mismatches[rt_key] = {"config": base_cfg[cfg_key], "runtime": runtime[rt_key]}
 
     return mismatches
 
@@ -356,34 +370,26 @@ def _build_effective_model_config(
     runtime: Mapping[str, Any],
 ) -> tuple[dict[str, Any] | None, str | None]:
     raw: dict[str, Any] = dict(ref_cfg_dump)
-    for rt_key, cfg_key in (
-        ("provider", "provider"),
-        ("model", "model"),
-        ("model_config_version", "config_version"),
-        ("base_url", "base_url"),
-        ("num_ctx", "num_ctx"),
-        ("num_predict", "num_predict"),
-        ("max_retries", "max_retries"),
-    ):
-        if rt_key in runtime:
-            raw[cfg_key] = runtime[rt_key]
-
-    for float_key in ("temperature", "repeat_penalty", "timeout_seconds"):
-        if float_key in runtime:
-            numeric = _safe_finite_float(runtime[float_key])
-            if numeric is None:
-                return None, f"runtime.{float_key} không phải số thực hữu hạn để tái tính effective_model_config_hash"
-            raw[float_key] = numeric
-
-    cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
-    if cache_err or cache_off is None:
-        return None, cache_err or "Không xác định được trạng thái cache để tái tính effective_model_config_hash"
-    raw["cache_enabled"] = not cache_off
-
-    fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
-    if fb_err or fb_locked is None:
-        return None, fb_err or "Không xác định được trạng thái fallback để tái tính effective_model_config_hash"
-    raw["fallback_locked"] = fb_locked
+    for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items():
+        if cfg_key == "cache_enabled":
+            cache_off, cache_err = _read_cache_disabled(runtime, prefix="runtime.")
+            if cache_err or cache_off is None:
+                return None, cache_err or "Không xác định được trạng thái cache để tái tính effective_model_config_hash"
+            raw[cfg_key] = not cache_off
+        elif cfg_key == "fallback_locked":
+            fb_locked, fb_err = _read_fallback_locked(runtime, prefix="runtime.")
+            if fb_err or fb_locked is None:
+                return None, fb_err or "Không xác định được trạng thái fallback để tái tính effective_model_config_hash"
+            raw[cfg_key] = fb_locked
+        elif cfg_key in _FLOAT_CONFIG_FIELDS:
+            if rt_key in runtime:
+                numeric = _safe_finite_float(runtime[rt_key])
+                if numeric is None:
+                    return None, f"runtime.{rt_key} không phải số thực hữu hạn để tái tính effective_model_config_hash"
+                raw[cfg_key] = numeric
+        else:
+            if rt_key in runtime:
+                raw[cfg_key] = runtime[rt_key]
 
     try:
         parsed = QwenGatewayConfig(**raw)
@@ -587,25 +593,38 @@ def validate_run_manifest(
                         errors.append(
                             f"model_config_hash_mismatch: config_hashes.model không khớp SHA-256 của {cfg_path}"
                         )
-                try:
-                    parsed_file_cfg = QwenGatewayConfig(**loaded_cfg)
-                except Exception as exc:
-                    errors.append(f"model_config_hash_mismatch: file config {cfg_path} không hợp lệ ({exc})")
+                missing_file_keys = [key for key in REQUIRED_BASE_MODEL_CONFIG_KEYS if key not in loaded_cfg]
+                if missing_file_keys:
+                    errors.append(
+                        f"incomplete_model_config_file: {cfg_path} thiếu khóa bắt buộc: {', '.join(missing_file_keys)}"
+                    )
                 else:
-                    path_ref_dump = parsed_file_cfg.model_dump(mode="json")
+                    try:
+                        parsed_file_cfg = QwenGatewayConfig(**loaded_cfg)
+                    except Exception as exc:
+                        errors.append(f"model_config_hash_mismatch: file config {cfg_path} không hợp lệ ({exc})")
+                    else:
+                        path_ref_dump = parsed_file_cfg.model_dump(mode="json")
 
         base_model_cfg = data.get("base_model_config")
         snapshot_ref_dump: dict[str, Any] | None = None
         if base_model_cfg is not None:
             if not isinstance(base_model_cfg, Mapping) or len(base_model_cfg) == 0:
-                errors.append("base_model_config phải là object không rỗng")
+                errors.append("incomplete_base_model_config: base_model_config phải là object không rỗng")
             else:
-                try:
-                    parsed_snapshot_cfg = QwenGatewayConfig(**dict(base_model_cfg))
-                except Exception as exc:
-                    errors.append(f"base_model_config không hợp lệ: {exc}")
+                missing_snapshot_keys = [key for key in REQUIRED_BASE_MODEL_CONFIG_KEYS if key not in base_model_cfg]
+                if missing_snapshot_keys:
+                    errors.append(
+                        "incomplete_base_model_config: base_model_config thiếu khóa bắt buộc: "
+                        f"{', '.join(missing_snapshot_keys)}"
+                    )
                 else:
-                    snapshot_ref_dump = parsed_snapshot_cfg.model_dump(mode="json")
+                    try:
+                        parsed_snapshot_cfg = QwenGatewayConfig(**dict(base_model_cfg))
+                    except Exception as exc:
+                        errors.append(f"base_model_config không hợp lệ: {exc}")
+                    else:
+                        snapshot_ref_dump = parsed_snapshot_cfg.model_dump(mode="json")
 
         if (
             path_ref_dump is not None
@@ -615,10 +634,11 @@ def validate_run_manifest(
             errors.append("model_config_hash_mismatch: base_model_config không khớp với model_config_path")
 
         ref_cfg_dump = path_ref_dump if path_ref_dump is not None else snapshot_ref_dump
+        standalone_official = official and model_config_path is None
         if official and ref_cfg_dump is None:
             errors.append(
                 "missing_model_config_source: official run bắt buộc phải truyền model_config_path "
-                "hoặc có snapshot base_model_config hợp lệ để đối chiếu"
+                "hoặc có snapshot base_model_config đầy đủ khóa bắt buộc để đối chiếu"
             )
 
         declared_overrides = data.get("runtime_overrides")
@@ -645,7 +665,7 @@ def validate_run_manifest(
             )
         elif ref_cfg_dump is not None:
             expected_base_hash = _canonical_json_sha256(ref_cfg_dump)
-            if has_override_or_eff or base_hash is not None:
+            if standalone_official or has_override_or_eff or base_hash is not None:
                 if not _is_sha256(base_hash) or str(base_hash).removeprefix("sha256:") != expected_base_hash:
                     errors.append(
                         "model_config_hash_mismatch: thiếu hoặc sai base_model_config_hash "
@@ -663,13 +683,14 @@ def validate_run_manifest(
                     errors.append(
                         f"model_config_hash_mismatch: official run không cho phép override runtime khác file model config ({field_list})"
                     )
-                elif eff_hash is not None:
+                if standalone_official or eff_hash is not None:
                     eff_cfg_dump, eff_build_err = _build_effective_model_config(ref_cfg_dump, runtime)
                     if eff_build_err is not None or eff_cfg_dump is None:
                         errors.append(eff_build_err or "effective_model_config_hash_mismatch")
-                    elif str(eff_hash).removeprefix("sha256:") != _canonical_json_sha256(eff_cfg_dump):
+                    elif not _is_sha256(eff_hash) or str(eff_hash).removeprefix("sha256:") != _canonical_json_sha256(eff_cfg_dump):
                         errors.append(
-                            "effective_model_config_hash_mismatch: effective_model_config_hash không khớp cấu hình hiệu lực"
+                            "effective_model_config_hash_mismatch: thiếu hoặc sai effective_model_config_hash "
+                            "(không khớp cấu hình hiệu lực)"
                         )
             elif has_override_or_eff:
                 if runtime_mismatches and not isinstance(declared_overrides, Mapping):
@@ -754,9 +775,9 @@ def build_model_run_manifest(
     file_cfg_dump = file_cfg.model_dump(mode="json")
     eff_cfg_dump = cfg.model_dump(mode="json")
     runtime_overrides = {
-        field: {"config": file_cfg_dump[field], "runtime": eff_cfg_dump[field]}
-        for field in eff_cfg_dump
-        if file_cfg_dump.get(field) != eff_cfg_dump[field]
+        rt_key: {"config": file_cfg_dump[cfg_key], "runtime": eff_cfg_dump[cfg_key]}
+        for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items()
+        if file_cfg_dump.get(cfg_key) != eff_cfg_dump[cfg_key]
     }
     base_model_config_hash = _canonical_json_sha256(file_cfg_dump)
     effective_model_config_hash = _canonical_json_sha256(eff_cfg_dump)
@@ -774,6 +795,20 @@ def build_model_run_manifest(
             "status": "present" if art_path.exists() else "missing",
             "sha256": sha256_file(art_path) if art_path.exists() else None,
         }
+
+    runtime_payload: dict[str, Any] = {
+        rt_key: eff_cfg_dump[cfg_key]
+        for cfg_key, rt_key in CONFIG_TO_RUNTIME_FIELD_MAP.items()
+    }
+    runtime_payload.update(
+        {
+            "model_digest": model_digest,
+            "ollama_version": ollama_version,
+            "prompt_version": prompt_version,
+            "cache": "OFF" if not cfg.cache_enabled else "ON",
+            "fallback": "LOCKED" if cfg.fallback_locked else "UNLOCKED",
+        }
+    )
 
     manifest: dict[str, Any] = {
         "manifest_version": "d3.4.run_manifest.v1",
@@ -793,24 +828,7 @@ def build_model_run_manifest(
         "runtime_overrides": runtime_overrides,
         "precomputed_retrieval": precomputed_artifact_path is not None,
         "precomputed_artifact": precomputed_artifact,
-        "runtime": {
-            "provider": cfg.provider,
-            "model": cfg.model,
-            "model_config_version": cfg.config_version,
-            "model_digest": model_digest,
-            "ollama_version": ollama_version,
-            "prompt_version": prompt_version,
-            "num_ctx": cfg.num_ctx,
-            "num_predict": cfg.num_predict,
-            "temperature": cfg.temperature,
-            "repeat_penalty": cfg.repeat_penalty,
-            "timeout_seconds": cfg.timeout_seconds,
-            "max_retries": cfg.max_retries,
-            "cache": "OFF" if not cfg.cache_enabled else "ON",
-            "cache_enabled": cfg.cache_enabled,
-            "fallback": "LOCKED" if cfg.fallback_locked else "UNLOCKED",
-            "fallback_locked": cfg.fallback_locked,
-        },
+        "runtime": runtime_payload,
         "hardware": hw,
         "started_at": started_at or now_utc,
         "finished_at": finished_at or now_utc,
