@@ -1,0 +1,36 @@
+{
+  "manifest_version": "d4.4.route_enriched_handoff.v1",
+  "created_at_utc": "2026-11-16T15:30:13.261528+00:00",
+  "derivation": "deterministic_route_enrichment_no_llm_or_retrieval",
+  "source_run_manifest": "evaluation/results/dev/20261114_controlled_rag_qwen25_dev30_prompt_v1_2/run_manifest.json",
+  "source_run_manifest_sha256": "ffbf4fd3f789ff68988ed27f03a2eec0507d39226a0fcb336d2917d64a760afd",
+  "source_results": "evaluation/results/dev/20261114_controlled_rag_qwen25_dev30_prompt_v1_2/results.jsonl",
+  "source_results_sha256": "65dd0df47e307cbca4d1609d30eff55ba001e6fb99563ef96bb0358040fce59e",
+  "source_run_git_sha": "02b0a803237983a20741273a881e18ba4824717d",
+  "source_run_signature_sha256": "dc0e8366caecc05895bfcc1adbeb1c80f1923191758203a66d7534a7357b4ea0",
+  "source_precomputed_artifact": {
+    "path": "evaluation/results/precompute/20261110_dev30_retrieval.jsonl",
+    "sha256": "6eb200f3803dfe341299f092ae1be9723ec9236f501f7bb53ef47dc098dd1353"
+  },
+  "schema_version": "week10_v1.1",
+  "route_field": "result.route (canonical RouteType)",
+  "router_version": "rule_router_v3",
+  "router_source_sha256": "41b25945b8111ca38bbc3fa2aef302e3c924f23eb4d952eaf37e526073dd107d",
+  "source_run_router_source_sha256": "0807b542c2046a8e7e6f4038a9d421bcdba73300c45364702218a5f77153e01f",
+  "source_run_router_matches_handoff_routes": {
+    "source_run_git_sha": "02b0a803237983a20741273a881e18ba4824717d",
+    "route_agreement_count": 30,
+    "route_mismatch_count": 0
+  },
+  "enrichment_script_sha256": "56d7654b0768a8be74c9083ab2a8adf3afb49318f5529aeb4c10fa3f394ff29b",
+  "output_results": "evaluation/results/dev/20261114_controlled_rag_qwen25_dev30_prompt_v1_2_dev4_handoff/results.jsonl",
+  "record_count": 30,
+  "unique_query_id_count": 30,
+  "route_counts": {
+    "LEGAL_IN_SCOPE": 30
+  },
+  "output_sha256": "d492c08d29b45009758ef2d9a703310b36d72b205ed77bcea6db6095ce5872f4",
+  "ollama_called": false,
+  "retrieval_rerun": false,
+  "source_output_overwritten": false
+}

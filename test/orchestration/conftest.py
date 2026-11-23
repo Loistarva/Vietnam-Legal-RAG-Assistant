@@ -75,12 +75,17 @@ class FakeGenerator:
         self.response = response
         self.prompts: list[str] = []
         self.query_ids: list[str] = []
+        self.run_modes: list[str] = []
+        self.max_evidence_indices: list[int | None] = []
 
     def generate(self, prompt: str, query_id: str, run_mode: str, prompt_version: str,
-                 structured_output: bool = False, schema: dict[str, Any] | None = None) -> LLMResponse:
-        assert structured_output is True and run_mode == "B_controlled_rag"
+                 structured_output: bool = False, schema: dict[str, Any] | None = None,
+                 max_evidence_index: int | None = None) -> LLMResponse:
+        assert structured_output is True and run_mode in ("B_controlled_rag", "C_production_rag")
         self.prompts.append(prompt)
         self.query_ids.append(query_id)
+        self.run_modes.append(run_mode)
+        self.max_evidence_indices.append(max_evidence_index)
         values = {
             "query_id": query_id, "run_mode": run_mode, "answer": "Theo [1], nam từ đủ 20 tuổi.",
             "evidence_indices": [1], "prompt_version": prompt_version, "done_reason": "stop",
