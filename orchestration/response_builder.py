@@ -8,7 +8,13 @@ from typing import Any
 
 from agent.config import GENERAL_CHAT_MESSAGE
 from generation.prompt_builder import STANDARD_DISCLAIMER
-from orchestration.rag_pipeline import ABSTAIN_MESSAGE, CLARIFY_MESSAGE, FAIL_MESSAGE, RAGRunResult
+from orchestration.rag_pipeline import (
+    ABSTAIN_MESSAGE,
+    CLARIFY_MESSAGE,
+    FAIL_MESSAGE,
+    RETRYABLE_ERROR_CODES,
+    RAGRunResult,
+)
 from schemas.models import AskRequest, AskResponse, AskTimings, ErrorCode, ErrorDetail, RouteDecision
 
 OUT_OF_SCOPE_MESSAGE = (
@@ -21,6 +27,7 @@ MIXED_SCOPE_MESSAGE = (
 )
 ERROR_MESSAGES: dict[str, str] = {
     "LLM_TIMEOUT": "Mô hình ngôn ngữ không phản hồi kịp. Vui lòng thử lại sau.",
+    "LLM_UNAVAILABLE": "Không kết nối được mô hình ngôn ngữ. Vui lòng thử lại sau.",
     "INTERNAL_ERROR": "Hệ thống gặp lỗi khi xử lý câu hỏi. Vui lòng thử lại sau.",
 }
 # Gate reasons that are citation problems (CITATION_INVALID); other FAIL reasons -> GROUNDING_FAIL
@@ -61,7 +68,7 @@ def pipeline_error_fields(exc: BaseException) -> tuple[dict[str, Any], ErrorCode
     code: ErrorCode = getattr(exc, "error_code", None) or "INTERNAL_ERROR"
     if code not in ERROR_MESSAGES:
         code = "INTERNAL_ERROR"
-    error = ErrorDetail(message=ERROR_MESSAGES[code], retryable=code == "LLM_TIMEOUT")
+    error = ErrorDetail(message=ERROR_MESSAGES[code], retryable=code in RETRYABLE_ERROR_CODES)
     return {"status": "ERROR", "grounding_status": "NOT_RUN", "error_code": code, "error": error}, code
 
 

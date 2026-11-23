@@ -52,8 +52,8 @@ def test_rag_pipeline_emits_its_stages_with_run_query_id(rag):
     sink = ListEventSink()
     pipeline.run(query_id="HN_001", query="Câu hỏi?", as_of_date="2026-10-15", as_of_date_source="benchmark",
                  events=StageEmitter("HN_001", sink))
-    assert [e.stage for e in sink.events] == ["retrieval", "retrieval", "rerank", "context", "llm", "llm",
-                                             "citation", "gate"]
+    assert [e.stage for e in sink.events] == ["retrieval", "retrieval", "rerank", "confidence", "context", "llm",
+                                             "llm", "citation", "gate"]
     assert {e.query_id for e in sink.events} == {"HN_001"}
 
 

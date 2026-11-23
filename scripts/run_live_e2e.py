@@ -26,9 +26,9 @@ from typing import Any
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
-FULL_RAG = ["api", "router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"]
+FULL_RAG = ["api", "router", "retrieval", "rerank", "confidence", "context", "llm", "citation", "gate", "response"]
 SHORT = ["api", "router", "response"]
-CONFIDENCE_ABSTAIN = ["api", "router", "retrieval", "rerank", "response"]
+CONFIDENCE_ABSTAIN = ["api", "router", "retrieval", "rerank", "confidence", "response"]
 
 # (case, body, expected status, grounding_status, error_code, expected stage order)
 API_CASES: list[tuple[str, dict[str, Any], str, str, str | None, list[str]]] = [

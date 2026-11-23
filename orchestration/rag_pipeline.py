@@ -92,6 +92,10 @@ def count_cjk_chars(text: str) -> int:
     return len(CJK_CHARS.findall(text or ""))
 
 
+# Transport errors the client may retry (SRS 5.3.4, FR6.4-AC1)
+RETRYABLE_ERROR_CODES: frozenset[str] = frozenset({"LLM_TIMEOUT", "LLM_UNAVAILABLE"})
+
+
 class CandidateSource(RetrievalSource, Protocol):
     """``interfaces.RetrievalSource`` plus the ``name`` written to the trace."""
 
@@ -441,8 +445,8 @@ class RAGPipeline:
 
     def run(self, *, query_id: str, query: str, as_of_date: str, as_of_date_source: str,
             events: StageEmitter | None = None) -> RAGRunResult:
-        """``events`` receives one LogEvent per stage (retrieval, rerank, context, llm,
-        citation, gate) with the same ``query_id``; it never gets query, prompt or answer text."""
+        """``events`` receives one LogEvent per stage (retrieval, rerank, confidence, context,
+        llm, citation, gate) with the same ``query_id``; it never gets query, prompt or answer text."""
         if not isinstance(query_id, str) or not query_id.strip():
             raise ValueError("query_id không được rỗng")
         if not isinstance(query, str) or not query.strip():
@@ -464,9 +468,11 @@ class RAGPipeline:
                     candidate_source=self.source.name, candidate_count=len(rows),
                     corpus_version=self.versions.corpus_version, corpus_hash=self.versions.corpus_version,
                     retrieval_config_version=self.versions.retrieval_config_version)
+        events.emit("rerank", "rerank_selected", "ok", candidate_count=len(rows),
+                    rerank_top_k=self.rerank_top_k)
         decision = apply_confidence_threshold(rows, self.confidence)
         described = decision.describe()
-        events.emit("rerank", "confidence_checked", decision.status, kept_count=len(decision.kept),
+        events.emit("confidence", "confidence_checked", decision.status, kept_count=len(decision.kept),
                     top1_score=described.get("top1_score"), min_top1_score=self.confidence.min_top1_score,
                     min_evidence_score=self.confidence.min_evidence_score,
                     threshold_config_version=self.versions.threshold_config_version)
@@ -509,7 +515,8 @@ class RAGPipeline:
             llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
                                           **bounds)
         except Exception as exc:
-            code = "LLM_TIMEOUT" if getattr(exc, "error_code", None) == "LLM_TIMEOUT" else "INTERNAL_ERROR"
+            code = getattr(exc, "error_code", None)
+            code = code if code in RETRYABLE_ERROR_CODES else "INTERNAL_ERROR"
             events.emit("llm", "generation_failed", "error", error_code=code)
             raise
         events.emit("llm", "generation_finished", llm.parse_status, duration_ms=llm.latency_ms,

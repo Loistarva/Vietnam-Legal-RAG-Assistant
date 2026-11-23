@@ -1,6 +1,6 @@
 # Runbook – chạy hệ thống local (Web UI → API → RAG → Gate → Log)
 
-Owner: Dev 5 (API/orchestration). Áp dụng cho bản trên nhánh tích hợp Sprint 11, contract `week10_v1.0`. Logger: Dev 1 (`docs/operations/logging.md`). UI: Dev 2 (`frontend/`).
+Owner: Dev 5 (API/orchestration). Áp dụng cho bản trên nhánh tích hợp Sprint 11, contract `week10_v1.1`. Logger: Dev 1 (`docs/operations/logging.md`). UI: Dev 2 (`frontend/`).
 
 ## 1. Thành phần và cổng
 
@@ -73,7 +73,7 @@ python scripts/run_live_e2e.py --event-log logs\api_events.jsonl --out reports\w
 | 401 `AUTH_REQUIRED` | thiếu/sai `X-API-Key` | Kiểm `LEGAL_RAG_API_KEY` của UI trùng key server |
 | 422 `INVALID_REQUEST` | body sai, query rỗng hoặc dài hơn 2.000 ký tự | Sửa request; body lỗi là `ApiError`, có `details[]` |
 | 504 `LLM_TIMEOUT` | Qwen chạy quá `timeout_seconds` (`model_gateway/config/local_qwen.yaml`) | Thử lại; kiểm GPU/RAM. Không đổi model ngầm |
-| 500 `INTERNAL_ERROR` khi Ollama tắt | Bản `week10_v1.0` chưa có `LLM_UNAVAILABLE` (503, dòng `week10_v1.1` ở SRS 5.6) | Bật lại Ollama; khi v1.1 vào code, mã này thành 503 |
+| 503 `LLM_UNAVAILABLE` | Ollama tắt hoặc không kết nối được sau `max_retries` | Bật lại Ollama (`ollama serve`), kiểm `ollama list` có `qwen2.5:7b`; client thử lại (`retryable = true`) |
 | Lỗi khóa thư mục Qdrant | hai tiến trình cùng mở Qdrant embedded | Dừng tiến trình kia hoặc dùng `QDRANT_URL` |
 | UI báo "Không gọi được API" | API chưa chạy hoặc sai URL | `GET /api/v1/health`; kiểm `LEGAL_RAG_API_URL` |
 
