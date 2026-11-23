@@ -1,15 +1,13 @@
 """Public HTTP outcomes (SRS 5.3.4) and detail-code groups (SRS 5.3.5)."""
-from typing import get_args
 from unittest.mock import Mock
 
 import pytest
 
 from api.errors import ApiError
 from generation.prompt_builder import STANDARD_DISCLAIMER
-from model_gateway.llm_gateway import GatewayExecutionError
 from orchestration.fakes import build_mock_pipeline
 from orchestration.response_builder import gate_fail_error_code, rag_fields
-from schemas.models import AskResponse, ErrorCode
+from schemas.models import AskResponse
 
 pytestmark = pytest.mark.req("IR2.5-AC1")
 LEGAL = "Nam phải đủ bao nhiêu tuổi để kết hôn?"
@@ -84,16 +82,11 @@ def test_gate_rows_hide_model_draft(api, monkeypatch, marker, status, grounding,
 @pytest.mark.req("FR5.8-AC1")
 @pytest.mark.parametrize(("marker", "code", "http", "retryable"), [
     pytest.param("timeout", "LLM_TIMEOUT", 504, True, marks=pytest.mark.req("FR6.4-AC1")),
-    pytest.param("unavailable", "LLM_UNAVAILABLE", 503, True, marks=[
-        pytest.mark.req("FR6.4-AC1"),
-        pytest.mark.skipif("LLM_UNAVAILABLE" not in get_args(ErrorCode), reason="chờ week10_v1.1"),
-    ]),
+    pytest.param("unavailable", "LLM_UNAVAILABLE", 503, True, marks=pytest.mark.req("FR6.4-AC1")),
     pytest.param("internal", "INTERNAL_ERROR", 500, False, marks=pytest.mark.req("FR5.7")),
 ])
 def test_pipeline_error_rows(api, monkeypatch, marker, code, http, retryable):
-    if marker == "unavailable":
-        monkeypatch.setattr(api.generator, "generate", Mock(side_effect=GatewayExecutionError("offline", code)))
-    elif marker == "internal":
+    if marker == "internal":
         monkeypatch.setattr(api.source, "fetch", Mock(side_effect=RuntimeError("failed")))
     body, _ = assert_ask_row(api, f"{LEGAL} [mock:{marker}]", "ERROR", "NOT_RUN", code, http)
     assert body.error.retryable is retryable

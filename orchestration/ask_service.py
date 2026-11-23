@@ -33,6 +33,7 @@ from orchestration.response_builder import (
     GENERAL_CHAT_MESSAGE,
     MIXED_SCOPE_MESSAGE,
     OUT_OF_SCOPE_MESSAGE,
+    RETRYABLE_ERROR_CODES,
     build_ask_response,
     gate_fail_error_code,
     general_chat_fields,
@@ -90,6 +91,7 @@ class RuleRouterAdapter:
             explanation=f"{decision.route.value} -> {decision.action.value} ({reason})",
             policy_version=decision.classifier_version,
             query_id=query_id,
+            router_route=decision.route.value,
             action=decision.action.value,
             matched_rule_id=decision.matched_rule_id,
             fast_path=bool(decision.fast_path),
@@ -179,7 +181,7 @@ class AskService:
             except Exception as exc:  # noqa: BLE001 - mapped to a typed error, details only in the log
                 fields, code = pipeline_error_fields(exc)
                 events.emit("response", "pipeline_failed", "error", error_code=code, error_type=type(exc).__name__,
-                            retryable=code == "LLM_TIMEOUT")
+                            retryable=code in RETRYABLE_ERROR_CODES)
 
         total_ms = round((time.perf_counter() - started) * 1000.0, 2)
         response = build_ask_response(query_id=query_id, request=request, as_of_date=as_of_date,

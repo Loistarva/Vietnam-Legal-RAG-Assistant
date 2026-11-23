@@ -80,8 +80,8 @@ def test_legal_question_goes_through_every_stage_and_returns_verified_answer(e2e
     assert body["evidence"][0]["chunk_id"] == body["citations"][0]["chunk_id"]
     assert body["timings"]["llm_total_ms"] is not None and body["timings"]["ttft_model_ms"] == 1000.0
     stages = [row["stage"] for row in e2e.events(body["query_id"])]
-    assert stages == ["api", "router", "retrieval", "retrieval", "rerank", "context", "llm", "llm", "citation", "gate",
-                      "response", "api"]
+    assert stages == ["api", "router", "retrieval", "retrieval", "rerank", "confidence", "context", "llm", "llm",
+                      "citation", "gate", "response", "api"]
     assert (e2e.source.calls, e2e.stub.calls) == (1, 1)
 
 

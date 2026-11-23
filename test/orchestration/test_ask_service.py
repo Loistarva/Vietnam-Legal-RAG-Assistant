@@ -166,8 +166,8 @@ def test_one_query_id_through_every_stage_and_no_text_in_events():
     service, _, _, sink = make_service()
     outcome = ask(service, query_id="qid-fixed")
     assert outcome.response.query_id == "qid-fixed"
-    assert [e.stage for e in sink.events] == ["router", "retrieval", "retrieval", "rerank", "context", "llm", "llm",
-                                             "citation", "gate", "response"]
+    assert [e.stage for e in sink.events] == ["router", "retrieval", "retrieval", "rerank", "confidence", "context", "llm",
+                                             "llm", "citation", "gate", "response"]
     assert {e.query_id for e in sink.events} == {"qid-fixed"}
     assert outcome.events == sink.events
     dumped = json.dumps([e.model_dump(mode="json") for e in sink.events], ensure_ascii=False)
@@ -211,7 +211,9 @@ def test_next_action(route, action, expected):
 @pytest.mark.parametrize("action", [None, "SOMETHING_NEW"])
 def test_next_action_rejects_missing_or_unknown_action(route, action):
     """SRS 5.3.3: the orchestrator reads only ``action``; it never infers one from ``route``."""
-    decision = RouteDecision(route=route, reason_code="R", explanation="e", policy_version="v", action=action)
+    fields = {"route": route, "reason_code": "R", "explanation": "e", "policy_version": "v", "action": action}
+    # week10_v1.1 types ``action`` as RouteAction; model_construct mimics a router that bypasses validation.
+    decision = RouteDecision(**fields) if action is None else RouteDecision.model_construct(**fields)
     with pytest.raises(ValueError):
         next_action(decision)
 
@@ -325,7 +327,8 @@ MIN_METADATA = {
     ("router", "route_decided"): {"route", "action", "reason_code", "policy_version"},
     ("retrieval", "retrieval_finished"): {"corpus_version", "corpus_hash", "retrieval_config_version",
                                           "candidate_count"},
-    ("rerank", "confidence_checked"): {"top1_score", "min_top1_score", "threshold_config_version"},
+    ("rerank", "rerank_selected"): {"candidate_count", "rerank_top_k"},
+    ("confidence", "confidence_checked"): {"top1_score", "min_top1_score", "threshold_config_version"},
     ("llm", "generation_finished"): {"model", "prompt_version", "token_input", "token_output"},
     ("gate", "gate_decided"): {"grounding_status", "violation_codes"},
     ("response", "response_built"): {"grounding_status", "total_ms", "citation_count", "evidence_count"},

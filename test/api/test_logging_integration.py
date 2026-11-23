@@ -18,7 +18,7 @@ WRONG_KEY = "unconfigured-test-key"
 AUTH = {"X-API-Key": API_KEY}
 ASK = "/api/v1/ask"
 LEGAL = {"query": "Nam phải đủ bao nhiêu tuổi để kết hôn?", "as_of_date": "2026-01-01"}
-STAGES = ["api", "router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"]
+STAGES = ["api", "router", "retrieval", "rerank", "confidence", "context", "llm", "citation", "gate", "response"]
 
 
 def logging_app(path):

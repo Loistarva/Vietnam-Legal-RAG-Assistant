@@ -168,7 +168,7 @@ def test_api_events_wrap_pipeline_events_with_one_query_id(api):
     query_id = response.json()["query_id"]
     stages = [e.stage for e in api.sink.events]
     assert stages[0] == "api" and stages[-1] == "api"
-    assert {"router", "retrieval", "rerank", "context", "llm", "citation", "gate", "response"} <= set(stages)
+    assert {"router", "retrieval", "rerank", "confidence", "context", "llm", "citation", "gate", "response"} <= set(stages)
     assert {e.query_id for e in api.sink.events} == {query_id}
     assert api.sink.events[-1].masked_metadata["http_status"] == 200
 
