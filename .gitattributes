@@ -2,6 +2,11 @@
 *.pdf binary
 *.zip binary
 
+# Derived JSON checksums use exact UTF-8 LF bytes on every platform.
+parser/parsed_jsons/*.json text eol=lf
+data/staging/*/compatibility/parsed/*.json text eol=lf
+data/staging/corpus_v2/parsed_jsons/*.json text eol=lf
+
 # Preserve the exact pre-review bytes of quarantined data artifacts.
 data/staging/corpus_review_20261122/archive/** -text
 parser/parsed_jsons/nd_19_2011_nd_cp.json text eol=lf

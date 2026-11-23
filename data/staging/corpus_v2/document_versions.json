@@ -208,7 +208,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_102_2016_qh13.json",
     "cleaned_text_path": "parser/cleaned_texts/l_102_2016_qh13.txt",
-    "parsed_json_sha256": "48f424de2692ae97c2089b3dba9403566b6fdd988d206b1ed0c48f55424bab01"
+    "parsed_json_sha256": "73f2ffeb8a6d816725913881b19a905672f1e2485aac10e23232c83cc1982953"
   },
   {
     "document_id": "bl_92_2015_qh13",
@@ -359,7 +359,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/bl_92_2015_qh13.json",
     "cleaned_text_path": "parser/cleaned_texts/bl_92_2015_qh13.txt",
-    "parsed_json_sha256": "a9b7bf7bcf572b7281fe93cc3fc578008a478361dec2a6b4491d24259b2c4ad5"
+    "parsed_json_sha256": "be4608bd8d2b4a76bb07517910d42563e831f4d0223077a403872a1682cbd79d"
   },
   {
     "document_id": "l_34_2024_qh15",
@@ -437,7 +437,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_34_2024_qh15.json",
     "cleaned_text_path": "parser/cleaned_texts/l_34_2024_qh15.txt",
-    "parsed_json_sha256": "cb497177175a407d671060c17ad5f5c5ef6d43c5d8a1014485c991d9e3446e29"
+    "parsed_json_sha256": "985e4d3207e30c1419eb3e1bb9ab1849839a0f3f8d6dcb34725533cb9aab9866"
   },
   {
     "document_id": "nd_24_2019_nd_cp",
@@ -522,7 +522,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_24_2019_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_24_2019_nd_cp.txt",
-    "parsed_json_sha256": "0c74d9e65b321da7e0f5a6f192edd9de4418a88dc260f10fc7bc212b458eeaff"
+    "parsed_json_sha256": "a98b7dfcd0debe676d962bac20e100b6654861408ccfc4ee3b3e8dbc875081e4"
   },
   {
     "document_id": "nd_06_2025_nd_cp",
@@ -607,7 +607,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_06_2025_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_06_2025_nd_cp.txt",
-    "parsed_json_sha256": "c4589fb659fcd0150ddf548456b29c6f701d5b244b4373f6e9902a33a479adcf"
+    "parsed_json_sha256": "8932c61eaee982b4eada079102d1830189635868ba50b05e8c8c8e111c5380d7"
   },
   {
     "document_id": "tt_07_2023_tt_btp",
@@ -700,7 +700,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_07_2023_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_07_2023_tt_btp.txt",
-    "parsed_json_sha256": "d41a762493bddf7d0ba43bfa0b75bfc9f980a01cec546517556d6e2fcb6e779c"
+    "parsed_json_sha256": "66f3c4e46c4ef37fe8a62a9c329763080327dda8de5beed7b0d4f0031cfea1bd"
   },
   {
     "document_id": "nd_104_2022_nd_cp",
@@ -789,7 +789,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_104_2022_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_104_2022_nd_cp.txt",
-    "parsed_json_sha256": "d5f13495c8c33191d91aa7e7878f3218238554c82d03e15119f75be8802ec11a"
+    "parsed_json_sha256": "36c28f82d0287bc42eecf8d1e9a13159edc45ec60de66eb39f37955dbd2f3358"
   },
   {
     "document_id": "nd_120_2025_nd_cp",
@@ -885,7 +885,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_120_2025_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_120_2025_nd_cp.txt",
-    "parsed_json_sha256": "6d829624bdceaff8566e80509286b2c152a5cba56a42377054f08ba1e5598ecf"
+    "parsed_json_sha256": "322cdfaac10f40608d0619d0a815f3a23ac2d5fc53350e4442f2740cd9464970"
   },
   {
     "document_id": "l_85_2025_qh15",
@@ -975,7 +975,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_85_2025_qh15.json",
     "cleaned_text_path": "parser/cleaned_texts/l_85_2025_qh15.txt",
-    "parsed_json_sha256": "a5e8d1543ce15d7ef82b7b247cecb2e3aebc2b3cf8a6d9d375514a91b8c1b147"
+    "parsed_json_sha256": "cbab722772d96ebbe465e0710adce9501f37b197c8cc518188669fea6da80ec6"
   },
   {
     "document_id": "tt_10_2025_tt_btp",
@@ -1076,7 +1076,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_10_2025_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_10_2025_tt_btp.txt",
-    "parsed_json_sha256": "c84cc70e2be5c95c4d01f1e5c52e05141d00cec99938f07631c028c1591a8ac9"
+    "parsed_json_sha256": "6afc0981e32a9aebbcc2880eb1b3a0f509fc87b1292bc7664ab180206abb6a53"
   },
   {
     "document_id": "nd_63_2024_nd_cp",
@@ -1186,7 +1186,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_63_2024_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_63_2024_nd_cp.txt",
-    "parsed_json_sha256": "b2d8f041377842e8ddcc4bb26129630ed5045bb8b0c3b1927526043a09daead0"
+    "parsed_json_sha256": "ef41ab2692a02e43144f43f5d6b55dc1e1272b6a496c1742e1b3ea5eb79c109b"
   },
   {
     "document_id": "l_58_2020_qh14",
@@ -1309,7 +1309,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/l_58_2020_qh14.json",
     "cleaned_text_path": "parser/cleaned_texts/l_58_2020_qh14.txt",
-    "parsed_json_sha256": "4532cc789486435c31d60259dc9e5655663072162676c58980ae382d2dda158c"
+    "parsed_json_sha256": "0acf42eb9b61f15905d725b9ce764ffa6e05817280853d706b67bb53aeeca25f"
   },
   {
     "document_id": "tt_01_2022_tt_btp",
@@ -1394,7 +1394,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_01_2022_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_01_2022_tt_btp.txt",
-    "parsed_json_sha256": "3250e301481d1a9d6f62d081984a563a92ce6b355dfa23aaee10073e1bd6a3f1"
+    "parsed_json_sha256": "c3f693bc37db7e03bf17badb4877f1363c958ef2e3317d78fa835ec70973280b"
   },
   {
     "document_id": "tt_03_2023_tt_btp",
@@ -1502,7 +1502,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_03_2023_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_03_2023_tt_btp.txt",
-    "parsed_json_sha256": "1b27abe990ea7060b8f706bf4c63ca2f047c5ccaaeb2a2877b5dd2d1b4c6275b"
+    "parsed_json_sha256": "1876b451b1b26ce9e971a7ca5c8c1f4ab2f1ca3228cbc022bc3bf3490143d35f"
   },
   {
     "document_id": "tt_07_2023_tt_bng",
@@ -1670,7 +1670,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_07_2025_tt_bng.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_07_2025_tt_bng.txt",
-    "parsed_json_sha256": "2a04357350d10b4a5fd80bf6b115eb40f8657386ccfbc47d617803e4ab350eff"
+    "parsed_json_sha256": "2d5cf8eae4c39da7f339db439d892f2e57b35cc253b63251da97ffe8e7a1e14d"
   },
   {
     "document_id": "nq_326_2016_ubtvqh14",
@@ -1803,7 +1803,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nq_326_2016_ubtvqh14.json",
     "cleaned_text_path": "parser/cleaned_texts/nq_326_2016_ubtvqh14.txt",
-    "parsed_json_sha256": "844191b9df7ece48d3b4ad86714d814bdb58b5a3883abdf81743b819ae899301"
+    "parsed_json_sha256": "b03cdc3fcdfee7c4990cd4e5055b12603c7ee9c01c24de91f2f26d7fedd1f7a6"
   },
   {
     "document_id": "bl_91_2015_qh13",
@@ -1976,7 +1976,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/bl_91_2015_qh13.json",
     "cleaned_text_path": "parser/cleaned_texts/bl_91_2015_qh13.txt",
-    "parsed_json_sha256": "8fff48f9d62e979995563b54dcc58fc333b22d4ec9cf1216c191b8ad9b3a2606"
+    "parsed_json_sha256": "c19ccadbb7c63334a20845acfd43775a600bc02b79a7f8730cd9a90014794f72"
   },
   {
     "document_id": "tt_09_2022_tt_btp",
@@ -2064,7 +2064,7 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/tt_09_2022_tt_btp.json",
     "cleaned_text_path": "parser/cleaned_texts/tt_09_2022_tt_btp.txt",
-    "parsed_json_sha256": "e4826bcd1b36fdcf7c2d389b1ec6cd1f795b67ca0c145ee72aad407bcf6cb964"
+    "parsed_json_sha256": "3e0f96f7fd0f4aadea2954e35674387fff8ed81ef03dabe5f4a48b847453d2b4"
   },
   {
     "document_id": "nd_301_2026_nd_cp",
@@ -2163,6 +2163,6 @@
     "normalized_at": "2026-11-17",
     "parsed_json_path": "parser/parsed_jsons/nd_301_2026_nd_cp.json",
     "cleaned_text_path": "parser/cleaned_texts/nd_301_2026_nd_cp.txt",
-    "parsed_json_sha256": "18981c62c6d0ce356a3b9475b5703d8accee86f4b5a9bcc687714896616c87ef"
+    "parsed_json_sha256": "8eccd0ca7100c0decea5473f28e360c98d4b84dd7bd830114d85222076c20813"
   }
 ]

@@ -18,6 +18,12 @@ Tất cả các ID trong hệ thống đóng vai trò là Khóa chính/Khóa ngo
 - **Clause ID:** `[article_id]_clause_[số_khoản]` (VD: Khoản 2 `nd_100_2019_nd_cp_art_6_clause_2`).
 - **Chunk ID:** `[clause_id]_chunk_[số_thứ_tự_hoặc_điểm]` (VD: `nd_100_2019_nd_cp_art_6_clause_2_chunk_1`).
 
+### 2.1. Mã băm của JSON phái sinh
+
+`parsed_json_sha256`, khi có trong registry, là SHA-256 của **byte tệp UTF-8 không BOM, xuống dòng LF** tại `parsed_json_path`, hoặc `parser/parsed_jsons/{document_id}.json` nếu không ghi đường dẫn riêng. `.gitattributes` giữ LF cho JSON đã parse để Windows, Linux và Git cho cùng mã băm. Sau khi sửa hoặc ghi lại JSON phải tính lại mã băm, đồng bộ các bản registry staging đang dùng và sinh lại alias map theo registry mới.
+
+Quy ước LF này chỉ áp dụng JSON phái sinh; mã băm PDF và nguồn tải gốc tính trên byte nguyên bản, không đổi xuống dòng hay ghi lại nguồn ký để khớp mã băm. Mã băm xác nhận đúng phiên bản tệp, không xác nhận hiệu lực pháp lý.
+
 ---
 
 ## 3. Đặc tả Chi tiết Đối tượng (Entity Specifications)

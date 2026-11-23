@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-11-23",
+  "baseline_commit": "63223fba039ca94ac3c1ee4d828f1431d191d8e5",
+  "corrected_parsed_hashes": 25,
+  "parsed_hash_fields_verified": 57,
+  "all84_parsed_files_match_git_bytes": true,
+  "statutory_and_metadata_content_unchanged": true,
+  "corpus_artifact_bytes_unchanged": [
+    "data/reference/source_pdfs.json",
+    "data/reference/corpus_scope.json",
+    "data/reference/provision_periods.json",
+    "data/reference/article_index.json",
+    "data/reference/production_chunk_index.json",
+    "data/chunking_output/chunks.jsonl",
+    "data/chunking_output/parents.json"
+  ],
+  "pdf_hashes_verified": 84,
+  "archived_hashes_verified": 4,
+  "registry_pointers_verified": 113,
+  "current_staging_hash_mismatches": [],
+  "active_documents": 84,
+  "parents": 2638,
+  "children": 6144,
+  "unknown_validity_count": 32
+}
