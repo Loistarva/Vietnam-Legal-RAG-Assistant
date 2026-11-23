@@ -3,7 +3,7 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-SRS` |
-| Phiên bản | **2.1.2 — sửa sau rà soát 20/11/2026; Tech Lead duyệt toàn bộ ngày 20/11/2026 (D-11, D-12 theo phương án A). Kế thừa baseline 2.1 được Tech Lead duyệt 16/11/2026** |
+| Phiên bản | **2.1.3 — đề xuất 23/11/2026, chờ Tech Lead duyệt: danh sách phiên "Gần đây" (FR7.5, IR1.8, D-14). Phần còn lại giữ bản 2.1.2 được Tech Lead duyệt toàn bộ ngày 20/11/2026, kế thừa baseline 2.1 duyệt 16/11/2026** |
 | Thay thế | SRS 1.0. Giữ nghĩa của FR1–FR5 và NFR1–NFR3; thêm mã con và nhóm mới. |
 | Kiến trúc tham chiếu | [`architecture/system_architecture.drawio`](../architecture/system_architecture.drawio). Phần Retrieval và Knowledge Base của sơ đồ là **chuẩn bắt buộc**; các phần khác là kiến trúc mục tiêu, được làm rõ trong tài liệu này. |
 | Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · [Hướng dẫn cho AI viết code](../AGENTS.md) · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
@@ -18,6 +18,7 @@
 | 2.1.1 | 17/11/2026 | Ghi nhận Owner Contract đồng ý gộp các trường bổ sung của `RetrievalBundle` và `RAGOutputRecord.route` vào `week10_v1.1` (5.6). Làm rõ API kiểm tra giới hạn 2.000 ký tự trước pipeline; bổ sung kiểm tra biên FR1.7-AC2 và body `ApiError` trong FR1.7-AC1, IR2.1-AC2, IR2.2-AC1. Giữ contract hiện hành `week10_v1.0`; trạng thái triển khai tiếp tục theo ảnh chụp `testing` trong ma trận truy vết. |
 | 2.1.2 | 20/11/2026 | Sửa các chỗ SRS mâu thuẫn với contract `week10_v1.0` hoặc với số đo, để nhóm và AI làm theo câu chữ không phá contract. FR5.7 tách theo `status`, bỏ nguồn `clarification` không có trong contract. FR3.3, FR3.4 theo quyết định mới D-11: không đủ tin cậy thì từ chối; thiếu dữ kiện do model báo bằng danh mục `missing_facts`, hệ thống dựng câu hỏi làm rõ. FR4.3-AC2: nhãn evidence ghi hiệu lực tại `as_of_date`; FR8.6 định nghĩa `validity_status`. FR9.6: kết luận KPI trên tập A/B held-out theo quyết định mới D-12. FR2.8, D-04: tách số đầu ra của reranker khỏi `max_evidence`. Thêm: quy ước đếm lời gọi (1.3), vị trí code (2.3), bảng mã chi tiết → `error_code` (5.3.5), chữ ký interface (5.5), hai dòng contract đề xuất (5.6), quy tắc cho cấu hình đã khóa (12.1), tính năng chưa nhận (11.1). Sửa FR1.1-AC1, FR4.4-AC2, FR5.8-AC1. Tech Lead duyệt D-11, D-12 theo phương án A ngày 20/11/2026: FR3.3, FR3.4, phần `missing_facts` của FR4.4, phần tập held-out của FR9.6 và dòng `missing_facts` ở 5.6 chuyển `Approved`. Cùng ngày Tech Lead duyệt FR5.7, chữ ký interface 5.5 và dòng `RouteDecision` ở 5.6; bản 2.1.2 không còn yêu cầu `Proposed`. |
 | 2.1.2 (sửa) | 23/11/2026 | Mục 5.5 sửa chữ ký cho khớp code khi tạo `orchestration/interfaces.py` (đợt 0): tham số của Prompt Builder là `context_payload`; Model Gateway ghi tham số tùy chọn `max_evidence_index` mà orchestrator dùng ở `C_production_rag`; Gate ghi validator truyền được qua tham số khởi tạo (IR4.1-AC1); Prompt Builder và Gate nhận tham số theo vị trí. Không đổi hành vi, contract hay mã yêu cầu. Chờ Tech Lead xác nhận, vì chữ ký 5.5 đã duyệt ngày 20/11/2026. |
+| 2.1.3 | 23/11/2026 | Đề xuất danh sách phiên "Gần đây" để liệt kê, mở lại và xóa nhiều cuộc hội thoại; IR1.1 chỉ hiển thị lịch sử của phiên đang mở và FR7.2 chỉ lưu lượt hỏi đáp, chưa có cách đọc lại. Thêm FR7.5 (API đọc và xóa phiên, lưu kèm phần đã hiển thị), IR1.8 (thanh bên trên UI), quyết định D-14 (phiên thuộc về ai khi chưa có tài khoản người dùng), dòng contract ở 5.6, hai mã mới vào danh sách cần feature spec cùng các điểm feature spec phải chốt (mục 11). Tất cả ở trạng thái `Proposed`, GĐ3; không đổi yêu cầu đã duyệt. |
 
 ---
 
@@ -58,7 +59,7 @@ SRS là **nguồn yêu cầu duy nhất** của dự án. Code, test, kế hoạ
 
 Yêu cầu của giai đoạn sau không được làm hỏng yêu cầu đã đạt của giai đoạn trước. Yêu cầu ghi hai giai đoạn (ví dụ "GĐ1 / GĐ3") có phần cơ bản ở giai đoạn đầu và phần mở rộng ở giai đoạn sau; tiêu chí chấp nhận trong SRS là của phần giai đoạn đầu.
 
-**Trạng thái spec.** `Approved` đã được Tech Lead duyệt · `Proposed` yêu cầu mới hoặc thay đổi sau baseline, chờ duyệt · `Dropped` không làm nữa, có lý do. Toàn bộ yêu cầu của bản 2.1 được duyệt ngày 16/11/2026; ngoặc sau `Approved` ghi nguồn của yêu cầu (SRS 1.0, sơ đồ) hoặc "mới 2.1". Trạng thái **triển khai** không ghi ở đây mà ở [ma trận truy vết](requirements_traceability.md). Yêu cầu ghi `Proposed (2.1.2…)` đã đổi nghĩa so với baseline; nó chưa đạt Definition of Ready (mục 10) tới khi được duyệt, và trong lúc chờ, code giữ hành vi đang có.
+**Trạng thái spec.** `Approved` đã được Tech Lead duyệt · `Proposed` yêu cầu mới hoặc thay đổi sau baseline, chờ duyệt · `Dropped` không làm nữa, có lý do. Toàn bộ yêu cầu của bản 2.1 được duyệt ngày 16/11/2026; ngoặc sau `Approved` ghi nguồn của yêu cầu (SRS 1.0, sơ đồ) hoặc "mới 2.1". Trạng thái **triển khai** không ghi ở đây mà ở [ma trận truy vết](requirements_traceability.md). Yêu cầu ghi `Proposed (2.1.x…)` là yêu cầu mới hoặc đã đổi nghĩa so với baseline; nó chưa đạt Definition of Ready (mục 10) tới khi được duyệt, và trong lúc chờ, code giữ hành vi đang có.
 
 **Phụ thuộc.** Cột *Phụ thuộc* liệt kê yêu cầu, contract (mục 5) hoặc quyết định mở (mục 8) phải có trước. "—" là không phụ thuộc gì ngoài phần đã có của GĐ1.
 
@@ -361,6 +362,7 @@ Tiêu chí chấp nhận:
 | FR7.2 | Hệ thống phải lưu mỗi lượt hỏi đáp của phiên: câu hỏi đã che PII, `as_of_date`, route, status, trích dẫn, phiên bản cấu hình, thời điểm. | Session & History Manager (PostgreSQL) | GĐ3 | FR7.1, NFR3.4 | Approved (sơ đồ) | T |
 | FR7.3 | Lịch sử phiên chỉ dùng để hiểu câu hỏi tiếp theo (làm rõ, tham chiếu "trường hợp trên"); không được dùng làm căn cứ pháp lý thay cho evidence. | SuperRouter | GĐ3 | FR7.2 | Approved (mới 2.1) | T |
 | FR7.4 | Dữ liệu phiên có thời hạn lưu và quyền truy cập theo chính sách (NFR7). Người dùng có thể yêu cầu xóa phiên. | Session & History Manager | GĐ3 | FR7.2, NFR7.1 | Approved (mới 2.1) | T, I |
+| FR7.5 | Hệ thống phải cho client liệt kê các phiên của mình, lấy lại các lượt của một phiên và xóa một phiên (FR7.4). Để mở lại được, mỗi lượt lưu theo FR7.2 phải kèm phần đã hiển thị cho người dùng: các trường IR1.3 hiển thị theo `status`, evidence, `as_of_date` và `as_of_date_source`, `disclaimer`, tất cả đã che PII (NFR3.4). Mở lại phiên chỉ đọc dữ liệu đã lưu, không chạy lại pipeline và không gọi model. Phiên đã xóa hoặc hết hạn (NFR7.1) không được trả về. Phạm vi "phiên của mình" theo D-14. | Session & History Manager (PostgreSQL) | GĐ3 | FR7.1, FR7.2, FR7.4, NFR3.4, NFR7.1, D-14 | Proposed (2.1.3) | T |
 
 Tiêu chí chấp nhận:
 
@@ -443,6 +445,7 @@ Tiêu chí chấp nhận:
 | IR1.5 | Luôn hiển thị câu khuyến cáo. | GĐ2 | FR5.8 | Approved | T |
 | IR1.6 | UI chỉ gọi API; không truy cập trực tiếp cơ sở dữ liệu, Qdrant, Elasticsearch hoặc model. | GĐ2 | IR2.1 | Approved | I |
 | IR1.7 | Giao diện production dùng ReactJS theo sơ đồ; bản prototype có thể dùng framework khác nếu giữ nguyên contract API. | GĐ2 prototype / GĐ3 ReactJS | IR2.3 | Approved | I |
+| IR1.8 | Thanh bên "Gần đây" liệt kê các phiên, mới nhất ở trên; mỗi mục có tiêu đề (câu hỏi đầu đã che PII) và thời điểm lượt cuối. Chọn một phiên thì hiển thị lại các lượt như lúc trả lời (nội dung theo `status` của IR1.3, evidence của IR1.4, disclaimer của IR1.5; không có trạng thái xử lý SSE), kèm thời điểm hỏi và `as_of_date` đã áp dụng, và người dùng hỏi tiếp được trong phiên đó. Có nút "Cuộc trò chuyện mới" (request không gửi `session_id`) và nút xóa phiên (FR7.4). | GĐ3 | IR1.1, FR7.5, D-14 | Proposed (2.1.3) | T |
 
 Tiêu chí chấp nhận (chạy với API giả lập theo OpenAPI):
 
@@ -699,6 +702,7 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 | `RouteDecision.router_route: Literal[5 giá trị Route] \| None = None`; `RouteDecision.action` thành `Literal[4 giá trị Action] \| None` | FR1.3, FR1.8 | `week10_v1.1` | Duyệt 20/11/2026; `action` là thu hẹp kiểu, owner contract xác nhận không có bản ghi lưu trữ nào chứa `RouteDecision` trước khi đổi |
 | `AskResponse.session_id`, `LogEvent.session_id`, stage `session` | FR7.1, FR7.2 | Khi FR7.2 vào sprint | Dự kiến |
 | `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | NFR3.2 | Khi NFR3.2 vào sprint | Dự kiến |
+| Endpoint liệt kê phiên, lấy các lượt của một phiên, xóa phiên, cùng model kết quả (tóm tắt phiên, lượt đã lưu) và mã lỗi khi phiên không có, đã xóa hoặc hết hạn (thêm giá trị `ErrorCode` nếu cần); tên và schema chốt trong feature spec của FR7.5 | FR7.4, FR7.5, IR1.8 | Khi FR7.5 vào sprint | Proposed (2.1.3), chờ D-14 |
 
 ---
 
@@ -781,7 +785,7 @@ Các điểm cần lưu ý khi hiện thực sơ đồ. Đây không phải yêu
 
 ## 8. Quyết định còn mở
 
-Tech Lead đã duyệt cả 10 quyết định theo phương án đề xuất ngày 16/11/2026; D-01, D-02 sửa ngày 17/11/2026 cho khớp contract `week10_v1.0`. D-11, D-12 thêm và được duyệt theo phương án A ngày 20/11/2026. Quyết định mới phát sinh thêm vào bảng này với mã tiếp theo; yêu cầu phụ thuộc quyết định chưa chốt thì chưa đạt Definition of Ready (mục 10).
+Tech Lead đã duyệt cả 10 quyết định theo phương án đề xuất ngày 16/11/2026; D-01, D-02 sửa ngày 17/11/2026 cho khớp contract `week10_v1.0`. D-11, D-12 thêm và được duyệt theo phương án A ngày 20/11/2026. D-13 đã dành cho quyết định Top-k trong rà soát kế hoạch Sprint 11. D-14 thêm ngày 23/11/2026, chờ duyệt. Quyết định mới phát sinh thêm vào bảng này với mã tiếp theo; yêu cầu phụ thuộc quyết định chưa chốt thì chưa đạt Definition of Ready (mục 10).
 
 | Mã | Câu hỏi | Phương án | Chặn | Kết quả |
 | --- | --- | --- | --- | --- |
@@ -797,6 +801,7 @@ Tech Lead đã duyệt cả 10 quyết định theo phương án đề xuất ng
 | D-10 | Máy tham chiếu đo latency | Ghi cấu hình máy trong manifest; so sánh cùng máy | NFR2.3, NFR2.1 | Duyệt 16/11/2026. Máy tham chiếu cụ thể và ngưỡng p95 (BRD BO-05) chốt khi có lượt đo đầu tiên trên máy đó. |
 | D-11 | Thiếu dữ kiện được phát hiện ở đâu | **A (chọn):** model báo `needs_clarification` kèm `missing_facts` chọn từ danh mục đóng trong cấu hình (ví dụ thời điểm kết hôn, có đăng ký kết hôn không, tài sản có trước hay sau hôn nhân); hệ thống dựng câu hỏi từ mẫu; `abstention_source = model`; cần dòng `missing_facts` ở 5.6 và tăng phiên bản prompt. **B:** router kiểm dữ kiện bắt buộc theo chủ đề bằng luật, không gọi model, `abstention_source = router`, không đổi contract; luật theo chủ đề khó phủ hết. Cả hai phương án: không đủ tin cậy thì từ chối (FR3.3). | FR3.3, FR3.4, FR4.4 | Duyệt 20/11/2026: phương án A. Danh mục `missing_facts` và mẫu câu chốt trong cấu hình khi làm FR3.4. |
 | D-12 | Tập kết luận KPI BO-02, BO-03 | **A (chọn):** A/B trên Test 30 (đã đóng băng, có Gold), chạy một lần cho mỗi bộ prompt, model, ngưỡng đã đóng băng; sau khi chấm, muốn chỉnh tiếp thì cần tập held-out mới. **B:** tách 30 câu Dev Gold chưa dùng để chỉnh, đóng băng bằng hash. Cả hai: Dev30 chỉ để theo dõi, vì prompt v1.2 đã được sửa theo kết quả Dev30. | FR9.6, BRD BO-02, BO-03 | Duyệt 20/11/2026: phương án A. |
+| D-14 | Phiên thuộc về ai khi hệ thống chưa có tài khoản người dùng (API key là của ứng dụng, không phải của từng người) | **A (đề xuất):** trình duyệt giữ danh sách `session_id` của mình (chỉ lưu mã phiên, không lưu nội dung câu hỏi); server trả tiêu đề và các lượt theo các mã client gửi. Chỉ phiên do hệ thống sinh (FR7.1, mã ngẫu nhiên không đoán được) mới đọc lại được; `session_id` do client tự đặt chỉ dùng cho log. Ai có `session_id` và API key thì đọc được phiên, nên mã phiên không đặt trong URL. Không cần đăng nhập; đổi trình duyệt hoặc xóa dữ liệu trình duyệt thì mất danh sách, còn dữ liệu trên server vẫn hết hạn theo NFR7.1. **B:** thêm tài khoản người dùng; danh sách theo tài khoản, dùng được trên nhiều thiết bị; cần nhóm yêu cầu mới về đăng nhập, quản lý tài khoản và bảo mật, nằm ngoài phạm vi hiện tại. | FR7.5, IR1.8 | Chờ duyệt |
 
 ---
 
@@ -852,7 +857,9 @@ Yêu cầu GĐ3 trong SRS chỉ nói **cái gì** ở mức kiến trúc; SRS kh
 4. Feature spec không được làm yếu yêu cầu đã có của SRS. Nếu cần đổi câu yêu cầu SRS thì sửa SRS trong cùng PR.
 5. Khi khối đã xong, ma trận truy vết trỏ tới feature spec như một phần bằng chứng.
 
-Các yêu cầu GĐ3 cần feature spec: FR2.2, FR2.3, FR2.9, FR3.1 (phần LLM Judge), FR3.2, FR3.5, FR5.3, FR6.1 (phần nhiều provider), FR6.3, FR6.5, FR7.2–FR7.4, FR8.9 (phần tự động), FR8.10, FR9.11, IR1.7 (ReactJS), IR2.4 (WebSocket), NFR2.2, NFR3.2, NFR3.5, NFR7.1, NFR8.1.
+Các yêu cầu GĐ3 cần feature spec: FR2.2, FR2.3, FR2.9, FR3.1 (phần LLM Judge), FR3.2, FR3.5, FR5.3, FR6.1 (phần nhiều provider), FR6.3, FR6.5, FR7.2–FR7.5, FR8.9 (phần tự động), FR8.10, FR9.11, IR1.7 (ReactJS), IR1.8, IR2.4 (WebSocket), NFR2.2, NFR3.2, NFR3.5, NFR7.1, NFR8.1.
+
+Feature spec của FR7.5 và IR1.8 viết chung một file, sau khi D-14 được chốt, và phải nêu: phiên mở lại hiển thị câu trả lời theo kho và cấu hình tại lúc hỏi; UI ghi rõ thời điểm hỏi và `as_of_date` để người dùng biết câu trả lời có thể đã cũ nếu kho được cập nhật sau đó (FR8.9); độ dài tối đa của tiêu đề phiên; số phiên tối đa trong danh sách; cách xử lý mã phiên trong danh sách của client đã hết hạn hoặc đã bị xóa; request gửi `session_id` mà hệ thống chưa sinh thì tạo phiên mới hay chỉ ghi log; xóa phiên có xóa các sự kiện log mang `session_id` đó không (FR7.4, NFR7.1). Nếu chọn D-14 phương án A, `session_id` là khóa đọc phiên trong khi FR7.1 ghi nó vào mọi sự kiện log, nên feature spec phải nêu ai được đọc log và có ghi bản hash thay cho giá trị gốc không; đổi FR7.1-AC1 thì sửa SRS trong cùng PR.
 
 LLM Judge ở Confidence Filter (FR3.1, GĐ3) gọi model trước bước sinh. Contract `week10_v1.0` coi từ chối của `confidence_filter` là không gọi model (`llm_calls = 0`), nên feature spec của khối này phải kèm thay đổi contract ở mục 5.6.
 

@@ -1,6 +1,6 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49); code không đổi tới `27c51eb` (20/11/2026, chỉ thêm tài liệu). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.2](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49); code không đổi tới `27c51eb` (20/11/2026, chỉ thêm tài liệu). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.3](SRS.md) (FR7.5, IR1.8, D-14 còn `Proposed`) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
@@ -49,6 +49,7 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `StructuredRAGOutput.missing_facts`, `LLMResponse.missing_facts` | `week10_v1.1` | Chưa | D-11 duyệt 20/11/2026 (phương án A); owner contract thêm vào `v1.1`. |
 | `RouteDecision.router_route`, `RouteDecision.action` có kiểu `Literal` | `week10_v1.1` | Chưa | Duyệt 20/11/2026; hiện `action` là `str \| None`. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
+| Endpoint liệt kê, lấy, xóa phiên | khi FR7.5 | Proposed | SRS 2.1.3, chờ D-14. |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 
 Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`). Lớp API cần kiểm tra giới hạn 2.000 ký tự trước pipeline (FR1.7) và trả body `ApiError` cho 401/422, gồm cả lỗi validation của FastAPI (IR2.1-AC2, IR2.2-AC1); các AC này chưa được xác nhận trên ảnh chụp `testing`. Bảng mã chi tiết → `error_code` (SRS 5.3.5) xếp `LLM_OUTPUT_TRUNCATED` và `LLM_OUTPUT_RAW_TEXT` vào `JSON_INVALID`; PR #55 đang xếp hai mã này vào `GROUNDING_FAIL`.
@@ -138,6 +139,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | Mã | Trạng thái | Ghi chú |
 | --- | --- | --- |
 | FR7.1–FR7.4 | Chưa | Batch có `query_id`; `AskRequest` nhận `session_id` nhưng chưa có session; `AskResponse.session_id` để sau (SRS mục 5.6). |
+| FR7.5 | Chưa | `Proposed` ở SRS 2.1.3, chờ D-14; chưa tính vào tổng 113. |
 
 ## FR8. Knowledge Base
 
@@ -175,6 +177,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | Mã | Trạng thái | Ghi chú |
 | --- | --- | --- |
 | IR1.1–IR1.7 | Chưa | UI Streamlit ở PR #51 (`sprint10/UI`), chưa merge. |
+| IR1.8 | Chưa | `Proposed` ở SRS 2.1.3, chờ D-14; chưa tính vào tổng 113. |
 | IR2.1–IR2.5 | Chưa | `AskRequest`/`AskResponse` có (`test/schemas/test_contracts.py`); `api/` ở PR #55, chưa merge. |
 | IR3.1 | Chưa | Chưa có `scripts/run_rag_cli.py`. |
 | IR3.2 | Có | `scripts/run_rag_batch.py`, `test/evaluation/test_run_rag_batch.py` |
