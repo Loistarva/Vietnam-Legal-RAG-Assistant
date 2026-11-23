@@ -24,10 +24,11 @@ import time
 import uuid
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
-from typing import Any, Protocol
+from typing import Any
 
 from generation.prompt_builder import STANDARD_DISCLAIMER
 from orchestration.events import EventSink, FanOutSink, ListEventSink, NullEventSink, StageEmitter
+from orchestration.interfaces import Router
 from orchestration.rag_pipeline import (
     ABSTAIN_MESSAGE,
     CLARIFY_MESSAGE,
@@ -102,12 +103,6 @@ def gate_fail_error_code(reason: str) -> ErrorCode:
     if reason in CITATION_REASONS or reason.startswith(CITATION_PREFIXES):
         return "CITATION_INVALID"
     return "GROUNDING_FAIL"
-
-
-class Router(Protocol):
-    """Dev 4's router behind the shared contract."""
-
-    def route(self, *, query: str, query_id: str, as_of_date: str) -> RouteDecision: ...
 
 
 class RuleRouterAdapter:
