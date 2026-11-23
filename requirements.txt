@@ -24,3 +24,6 @@ ollama>=0.3
 
 # HTTP client for Model Gateway (model_gateway/llm_gateway.py)
 requests>=2.31
+
+# Web UI prototype (frontend/streamlit_app.py)
+streamlit>=1.40,<2
