@@ -193,6 +193,33 @@ def test_gateway_error_codes_for_timeout_unavailable_and_internal_error():
     assert exc_mismatch.value.retryable is False
 
 
+@pytest.mark.req("FR6.4")
+@pytest.mark.parametrize("status", [400, 401, 404, 429, 500])
+def test_gateway_does_not_classify_provider_http_errors_as_unavailable(status):
+    def transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+        response = requests.Response()
+        response.status_code = status
+        raise requests.HTTPError(response=response)
+
+    gateway = QwenGateway({"max_retries": 0}, transport=transport)
+    with pytest.raises(GatewayExecutionError) as exc:
+        gateway.generate("P", "q_http", "C_production_rag", PROMPT_B_VERSION, structured_output=True)
+    assert exc.value.error_code == "INTERNAL_ERROR"
+    assert exc.value.retryable is False
+
+
+@pytest.mark.req("FR6.4")
+def test_gateway_classifies_connect_timeout_as_timeout():
+    def transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+        raise requests.ConnectTimeout()
+
+    gateway = QwenGateway({"max_retries": 0}, transport=transport)
+    with pytest.raises(GatewayExecutionError) as exc:
+        gateway.generate("P", "q_connect", "C_production_rag", PROMPT_B_VERSION, structured_output=True)
+    assert exc.value.error_code == "LLM_TIMEOUT"
+    assert exc.value.retryable is True
+
+
 @pytest.mark.req("FR6.6")
 @pytest.mark.req("FR6.6-AC2")
 def test_gateway_preserves_none_tokens_and_summarizes_safely():
