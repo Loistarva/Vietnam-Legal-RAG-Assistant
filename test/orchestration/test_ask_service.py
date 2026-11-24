@@ -232,7 +232,7 @@ def test_next_action(route, action, expected):
 @pytest.mark.parametrize("action", [None, "SOMETHING_NEW"])
 def test_next_action_rejects_missing_or_unknown_action(route, action):
     """SRS 5.3.3: the orchestrator reads only ``action``; it never infers one from ``route``."""
-    decision = RouteDecision(route=route, reason_code="R", explanation="e", policy_version="v", action=action)
+    decision = RouteDecision.model_construct(route=route, reason_code="R", explanation="e", policy_version="v", action=action)
     with pytest.raises(ValueError):
         next_action(decision)
 

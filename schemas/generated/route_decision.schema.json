@@ -23,6 +23,18 @@
       "title": "Route",
       "type": "string"
     },
+    "router_route": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Router Route"
+    },
     "reason_code": {
       "minLength": 1,
       "title": "Reason Code",
@@ -53,6 +65,12 @@
     "action": {
       "anyOf": [
         {
+          "enum": [
+            "LEGAL_RETRIEVAL",
+            "FAST_PATH",
+            "POLICY_ABSTENTION",
+            "GENERAL_CHAT"
+          ],
           "type": "string"
         },
         {
