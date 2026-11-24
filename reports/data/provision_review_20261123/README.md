@@ -1,5 +1,7 @@
 # Hiệu lực cấp điều/khoản — rà ngày 23/11/2026
 
+Cập nhật bàn giao 24/11/2026: ba đề xuất vướng liên kết bằng chứng có [gói riêng cho người phụ trách code](../evidence_link_handoff_20261124/README.md), gồm vị trí nguồn/hash, lỗi tái hiện và tiêu chí nghiệm thu. Cả ba vẫn pending, chưa thêm vào override active.
+
 Đã áp dụng thêm 13 bản ghi vào `data/reference/provision_periods.json`, tác động 26 child. Tổng số bản ghi đang dùng là 54. Active vẫn 84 văn bản; sau tách đúng Điểm/Khoản trích dẫn có 2.639 parent và 6.165 child, tăng 21 child. Không thay quy phạm trong parser, code, schema, test, Gold hoặc kết quả A/B chính thức.
 
 Phần chạy được với code hiện tại:

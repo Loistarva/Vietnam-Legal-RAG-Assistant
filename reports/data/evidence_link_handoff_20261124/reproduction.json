@@ -1,0 +1,31 @@
+{
+  "base_commit": "c1ef448b5034d1c12341a61b8eb675ccb3aed4f2",
+  "pending_proposals": 3,
+  "reproduced_expected_contract_failures": 3,
+  "production_overrides_unchanged": true,
+  "source_and_code_fingerprints": {
+    "data/reference/provision_periods.json": "d347d2e8902083e4f1305dfaf6fc41d9e6087a6cf569e9d5715ba8e23f69a92e",
+    "data/reference/document_versions.json": "301792ce56f42af95d4ee1454ec530a516c1ccef64dc491a507c84dd66104d6e",
+    "data/chunking_output/chunks.jsonl": "89a2751ad46d8090ece08cb3d1e403e95cf84b833510b374018352f5e0b8ee93",
+    "data/chunking_output/parents.json": "89f90406428c9b376b294439c6958f978b7c4f9695c6d2d7d98b40857bc81f74",
+    "test/test_provision_periods.py": "5022235f4c58b09eaecd2c1d4fafe9d3adceafb4a5cee1c38b24fe82d57176ea",
+    "chunking/provision_periods.py": "c5b7c23222b6426cf0df2b9dccb7fbde0fdbaafd497610bdb22b6988c9fb6ead",
+    "parser/parsed_jsons/tt_11_2021_tt_btp.json": "0c69f975f0c67daf32740bb3aafaa62fac7d1c177bfc5b52d550621a79fdaae9",
+    "parser/parsed_jsons/l_85_2025_qh15.json": "cbab722772d96ebbe465e0710adce9501f37b197c8cc518188669fea6da80ec6",
+    "parser/parsed_jsons/l_81_2025_qh15.json": "72e3e19b4a1edd9e0afd24fa937beb17ef89d425adf5a6ca1459229a2cf00150"
+  },
+  "results": [
+    {
+      "ticket_id": "EVIDENCE-LINK-01",
+      "expected_failure": "tt_11_2021_tt_btp_art_2_clause_1_chunk_1 và tên Điều chứa nó không nêu 21/2011/TT-BTP"
+    },
+    {
+      "ticket_id": "EVIDENCE-LINK-02",
+      "expected_failure": "l_85_2025_qh15_art_1_clause_1_chunk_1 và tên Điều chứa nó không nêu 92/2015/QH13"
+    },
+    {
+      "ticket_id": "EVIDENCE-LINK-03",
+      "expected_failure": "l_81_2025_qh15_art_1_clause_1_chunk_1 và tên Điều chứa nó không nêu 34/2024/QH15"
+    }
+  ]
+}
