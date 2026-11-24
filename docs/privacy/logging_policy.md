@@ -12,6 +12,8 @@ Production logs record operational metadata rather than conversation content. Us
 
 The masker is deterministic pattern handling, not a general detector of names, addresses, every international phone format or arbitrary unconfigured credentials. Unknown sensitive values can escape pattern detection; omit raw text and pass actual secret values to the masker. A log cannot establish that source content is legally correct or that an answer is semantically grounded.
 
+Known false positives include non-sensitive standalone numeric references that match a phone or identity-number pattern. Known misses include names and addresses in free text, phone numbers outside the recognized formats, and credentials supplied in unfamiliar formats without a configured secret value. Keep free-text fields out of production metadata.
+
 ## Storage and incidents
 
 Use a restricted local destination, one process per path. Keep real runtime logs outside Git; `logs/` remains ignored. The only versioned exception is the explicitly staged synthetic `logs/sample_request.jsonl`, generated from fake metadata and checked against the canonical schema.

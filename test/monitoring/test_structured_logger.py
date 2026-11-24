@@ -2,6 +2,8 @@ import json
 import threading
 from copy import deepcopy
 
+import pytest
+
 from monitoring.pii_masker import PIIMasker
 from monitoring.structured_logger import StructuredLogger
 from schemas.models import LogEvent
@@ -12,6 +14,8 @@ def event(query_id="s11-q1", **metadata):
                     timestamp="2026-11-22T00:00:00Z", status="ok", masked_metadata=metadata)
 
 
+@pytest.mark.req("NFR3.4-AC1")
+@pytest.mark.req("NFR7.2-AC1")
 def test_jsonl_schema_privacy_and_input_immutability(tmp_path):
     path = tmp_path / "events.jsonl"
     raw = event(request_id="s11.person@example.test", reason="Call 0900000000; S11_OPAQUE_TEST_KEY",
