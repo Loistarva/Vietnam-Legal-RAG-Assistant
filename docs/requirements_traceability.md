@@ -64,7 +64,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR1.5 | Một phần | như trên | Như trên. |
 | FR1.6 | Một phần | như trên | Như trên. |
 | FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài; API cần kiểm tra trước pipeline, kiểm thử biên 2.000/2.001 ký tự và body `ApiError` 422 (AC1–AC2). |
-| FR1.8 | Một phần | `test/agent/data/router_holdout.jsonl` | Chưa xác nhận tính độc lập. |
+| FR1.8 | Một phần | [Audit holdout v6](../reports/week12/router_holdout_similarity.md), `44761ce` | AC1: 36 câu, 0 trùng nguyên văn, 1 cặp cần review độc lập. Bằng chứng freeze trước lượt v6 lịch sử chưa đầy đủ. |
 | FR1.9 | Chưa | — | Orchestrator gọi router ở PR #55, chưa merge. |
 
 ## FR2. Lọc trước và truy xuất
@@ -99,7 +99,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR4.1 | Một phần | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2: thiếu parent mới chỉ ghi cảnh báo vào log, chưa vào `retrieval_trace`. |
+| FR4.1 | Một phần | `test/test_pipeline_context.py`, `test/orchestration/test_evidence_index_mapping.py`, `5fd05f4` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2 đã qua fixture cục bộ: dùng nội dung chunk, cảnh báo và trace số lượng cùng ID chunk thiếu parent. Chờ review và CI trên `testing`. |
 | FR4.2 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schema_test.py` | |
 | FR4.3 | Một phần | `test/schema_test.py` | AC1 có. AC2 chưa: nhãn evidence trong `generation/prompt_builder.py` ghi `validity_status` tĩnh (văn bản 1986 hiện "Hết hiệu lực" với câu hỏi năm 1995). |
 | FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py` | Prompt v1.2. |
