@@ -485,6 +485,9 @@ class RAGPipeline:
                             "reranker_score": r.get("reranker_score")} for r in rows],
             "confidence": {**described, **self.confidence.describe()},
         }
+        parent_summary = (envelope.get("stats") or {}).get("parent_context")
+        if isinstance(parent_summary, Mapping):
+            trace["parent_context"] = dict(parent_summary)
         if decision.status != "ok":
             reason = "EMPTY_RETRIEVAL" if decision.status == "empty" else "LOW_CONFIDENCE"
             grounding = _gate_result("ABSTAIN", reason)
@@ -494,8 +497,7 @@ class RAGPipeline:
 
         kept = decision.kept
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
-            kept = self.parent_resolver.resolve(kept)
-            trace["parent_context"] = dict(self.parent_resolver.last_stats)
+            kept, trace["parent_context"] = self.parent_resolver.resolve_with_stats(kept)
         payload, context_trace = self.context_aggregator(
             kept, query_id=query_id, query=query, as_of_date=as_of_date, as_of_date_source=as_of_date_source,
             max_context_chars=self.max_context_chars, max_items=self.rerank_top_k)
