@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from datetime import date
 from typing import Any
 
 import streamlit as st
@@ -110,19 +111,30 @@ def render_evidence_panel(payload: dict[str, Any]) -> None:
                             st.write(content)
                     else:
                         st.write(content)
+                as_of_date = payload.get("as_of_date")
+                if as_of_date:
+                    st.caption(f"Hiệu lực tại {as_of_date}: {_effectivity_at(item, as_of_date)}")
                 validity = item.get("validity_status") or item.get("provision_status")
-                effective_from = item.get("effective_from")
-                effective_to = item.get("effective_to")
-                effective_range = " – ".join(
-                    str(value) for value in (effective_from, effective_to) if value
-                )
-                if validity or effective_range:
-                    details = " · ".join(
-                        str(value) for value in (validity, effective_range) if value
-                    )
-                    st.caption(f"Hiệu lực tại {payload.get('as_of_date', 'ngày tra cứu')}: {details}")
+                if validity:
+                    st.caption(f"Tình trạng hiện nay: {validity}")
                 source_url = item.get("source_url")
                 if source_url:
                     st.link_button("Mở nguồn văn bản", source_url)
                 if selected_index == evidence_index:
                     st.success("Căn cứ được chọn từ ký hiệu citation trong câu trả lời.")
+
+
+def _effectivity_at(item: dict[str, Any], as_of_date: str) -> str:
+    try:
+        target = date.fromisoformat(as_of_date)
+        start = date.fromisoformat(item["effective_from"]) if item.get("effective_from") else None
+        end = date.fromisoformat(item["effective_to"]) if item.get("effective_to") else None
+    except (TypeError, ValueError):
+        return "Chưa đủ dữ liệu"
+    if end is not None and target >= end:
+        return "Hết hiệu lực"
+    if start is None:
+        return "Chưa đủ dữ liệu"
+    if target < start:
+        return "Chưa có hiệu lực"
+    return "Còn hiệu lực"
