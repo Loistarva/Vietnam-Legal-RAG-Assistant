@@ -76,7 +76,7 @@ def render_evidence_panel(payload: dict[str, Any]) -> None:
 
     with st.expander("Căn cứ pháp lý (Evidence Panel)", expanded=True):
         if not cited_indices:
-            st.write("Không có căn cứ trích dẫn.")
+            st.write("Phản hồi này không có citation hoặc căn cứ evidence để hiển thị.")
             return
 
         for evidence_index in cited_indices:

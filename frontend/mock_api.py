@@ -117,7 +117,8 @@ def ask(
     """Return a contract-shaped mock response for one question.
 
     Add one marker to the question to preview a specific UI state:
-    ``[mock:clarify]``, ``[mock:abstain]``, ``[mock:empty]``,
+    ``[mock:success]``, ``[mock:clarify]``, ``[mock:abstain]``, ``[mock:error]``,
+    ``[mock:empty]``,
     ``[mock:low]``, ``[mock:gate_fail]``, ``[mock:bad_json]``,
     ``[mock:timeout]``, ``[mock:network_timeout]``, ``[mock:out_of_scope]``,
     ``[mock:many_evidence]`` or ``[mock:long_evidence]``.
@@ -137,6 +138,19 @@ def ask(
             grounding_status="NOT_RUN",
             error_code="LLM_TIMEOUT",
             error={"message": "Mô phỏng Qwen timeout.", "retryable": True},
+            **common,
+        )
+
+    if "[mock:error]" in normalized:
+        return _response(
+            status="ERROR",
+            route="LEGAL_IN_SCOPE",
+            grounding_status="NOT_RUN",
+            error_code="INTERNAL_ERROR",
+            error={
+                "message": "Hệ thống đang bận và chưa xử lý được câu hỏi. Vui lòng thử lại.",
+                "retryable": True,
+            },
             **common,
         )
 
