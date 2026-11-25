@@ -94,7 +94,10 @@ class RouteDecision:
         return CanonicalRouteDecision(
             route=map_router_route_to_canonical(self.route.value),
             reason_code=self.route_reason.value,
-            explanation=explanations[self.route_reason],
+            explanation=(
+                f"{self.route.value} -> {self.action.value} ({self.route_reason.value}): "
+                f"{explanations[self.route_reason]}"
+            ),
             policy_version=self.classifier_version,
             query_id=self.query_id,
             action=self.action.value,

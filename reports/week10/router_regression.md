@@ -75,7 +75,7 @@ Python rule-based classifier, canonical Pydantic route contract, JSONL, pytest/s
 - SHA-256 source `agent/router/rule_router.py`: `2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a`.
 - Pre-freeze smoke `--skip-holdout`: 5/5 gates PASS; Official 30/30, Dev retrieval 270/270, Negative Set v2 26/26, non-legal 6/6, legal-to-chat 0.
 - Kiểm thử: Router 53 passed/239 subtests; Negative Set 65 passed; Ruff và `git diff --check` pass.
-- Holdout Week 10 v3 đã được review độc lập bởi Dev3 và **chưa chạy**. Manifest SHA của code, holdout và bằng chứng freeze: [router_holdout_week10_v3_manifest.json](../evaluation/router_holdout/router_holdout_week10_v3_manifest.json).
+- Tại mốc freeze lịch sử v4.1, holdout Week 10 v3 đã được Dev3 review và chưa chạy; về sau đã tiêu thụ, hiện chỉ dùng làm regression. Manifest lịch sử: [router_holdout_week10_v3_manifest.json](../../evaluation/router_holdout/router_holdout_week10_v3_manifest.json).
 - Các thay đổi cục bộ khác trong working tree không nằm trong commit freeze Router.
 - SHA-256 dùng trong manifest là hash source đã chuẩn hóa LF; hash byte thô của checkout Windows cũng được lưu riêng để đối chiếu smoke output. Hai giá trị hiện cùng là `2d0ae791e2476afa33a49fc5207496a83faa17c2f22784b33ea3bb0dc8d26a5a`.
 
@@ -89,5 +89,5 @@ Dựa trên phân tích nguyên nhân gốc từ các bộ đã tiêu thụ (`v1
 - **Phiên bản:** `rule_router_v5` (`agent/router/rule_router.py`, LF SHA-256 `996bd6a0894aeaf964f188f032961329ec6cdecfe1575bcf80df685aa068f2f7`).
 - **Pre-freeze gates (`python scripts/smoke_rule_router.py --skip-holdout`):** `5/5 PASS` — Official Gold `30/30`, Dev benchmark `270/270`, Negative Set v2 `26/26`, Non-legal `6/6`, Legal-to-chat `0`.
 - **Kiểm tra trên các bộ chẩn đoán/regression đã tiêu thụ (chỉ mang tính regression, không phải điểm holdout mới):** `router_holdout.jsonl` `40/40`, `R4IH v1` `36/36`, `v1` `36/36`, `v2` `36/36`, `v3` `36/36`, `v4` `36/36`, `v5` `36/36`; tổng safety violations = `0`.
-- **Đánh giá một lần sau khóa trên holdout `v6` mới tạo (`DEV4`):** Xem chi tiết tại [router_holdout_report.md](router_holdout_report.md) (**34/36 = 94,4%**, `0` safety violations).
-- **Trạng thái:** Ứng viên `rule_router_v5` sẵn sàng để Dev 4 rà soát và thực hiện chu trình freeze + holdout độc lập do Dev2/Dev3 xác nhận nếu cần điểm độc lập ngoài nhóm tác giả.
+- **Kết quả lịch sử holdout `v6`:** Xem [router_holdout_report.md](router_holdout_report.md) (**34/36 = 94,4%**, legal → chat `0/30`). Review ban đầu ghi `DEV4`; xác nhận Dev3 review nhãn đã được đồng bộ ngày 23/11/2026, không chạy lại.
+- **Trạng thái cập nhật 23/11/2026:** Router v5 đã có [hồ sơ freeze D4.1](../../docs/router_freeze.md) theo xác nhận Dev3 và Tech Lead của project owner. Snapshot bàn giao có refactor boundary/explanation/config, không đổi luật phân loại. [D4.2](../../evaluation/router_holdout/router_holdout_report.md) đã chốt v6 làm holdout độc lập chính thức theo quyết định project owner; giữ kết quả lịch sử 34/36 và SHA của run gốc.

@@ -26,6 +26,8 @@ from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
 from typing import Any, Protocol
 
+from agent.config import GENERAL_CHAT_MESSAGE
+from agent.router.adapter import RuleRouterAdapter
 from generation.prompt_builder import STANDARD_DISCLAIMER
 from orchestration.events import EventSink, FanOutSink, ListEventSink, NullEventSink, StageEmitter
 from orchestration.rag_pipeline import (
@@ -44,13 +46,8 @@ from schemas.models import (
     ErrorDetail,
     LogEvent,
     RouteDecision,
-    map_router_route_to_canonical,
 )
 
-GENERAL_CHAT_MESSAGE = (
-    "Tôi là trợ lý tra cứu pháp luật Hôn nhân và gia đình Việt Nam nên không trả lời các câu hỏi ngoài pháp "
-    "luật. Bạn có thể hỏi về kết hôn, ly hôn, tài sản vợ chồng, nuôi con, cấp dưỡng hoặc quan hệ giữa cha mẹ và con."
-)
 OUT_OF_SCOPE_MESSAGE = (
     "Hệ thống hiện chỉ hỗ trợ câu hỏi về pháp luật Hôn nhân và gia đình. Câu hỏi này thuộc lĩnh vực pháp "
     "luật khác nên hệ thống không đưa ra kết luận; vui lòng tham khảo văn bản hoặc chuyên gia của lĩnh vực đó."
@@ -108,35 +105,6 @@ class Router(Protocol):
     """Dev 4's router behind the shared contract."""
 
     def route(self, *, query: str, query_id: str, as_of_date: str) -> RouteDecision: ...
-
-
-class RuleRouterAdapter:
-    """``agent.router.rule_router.RuleRouter`` -> contract ``RouteDecision``.
-
-    Only the public ``route()`` result is read; route labels go through
-    ``schemas.models.map_router_route_to_canonical`` (Dev 3's mapping table)."""
-
-    def __init__(self, router: Any | None = None):
-        if router is None:
-            from agent.router.rule_router import RuleRouter
-
-            router = RuleRouter()
-        self.router = router
-
-    def route(self, *, query: str, query_id: str, as_of_date: str) -> RouteDecision:
-        decision = self.router.route(query, query_id=query_id, as_of_date=as_of_date, source="ask_service")
-        reason = decision.route_reason.value
-        return RouteDecision(
-            route=map_router_route_to_canonical(decision.route.value),
-            reason_code=reason,
-            explanation=f"{decision.route.value} -> {decision.action.value} ({reason})",
-            policy_version=decision.classifier_version,
-            query_id=query_id,
-            action=decision.action.value,
-            matched_rule_id=decision.matched_rule_id,
-            fast_path=bool(decision.fast_path),
-            as_of_date=as_of_date,
-        )
 
 
 def next_action(decision: RouteDecision) -> str:
