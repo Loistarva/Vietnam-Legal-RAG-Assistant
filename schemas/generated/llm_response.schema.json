@@ -93,6 +93,13 @@
       "title": "Needs Clarification",
       "type": "boolean"
     },
+    "missing_facts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Facts",
+      "type": "array"
+    },
     "model": {
       "default": "qwen2.5:7b",
       "title": "Model",
@@ -259,6 +266,7 @@
             "RETRIEVAL_EMPTY",
             "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
+            "LLM_UNAVAILABLE",
             "JSON_INVALID",
             "CITATION_INVALID",
             "GROUNDING_FAIL",

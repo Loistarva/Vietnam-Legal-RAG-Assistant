@@ -36,6 +36,13 @@
       "default": false,
       "title": "Needs Clarification",
       "type": "boolean"
+    },
+    "missing_facts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Facts",
+      "type": "array"
     }
   },
   "required": [

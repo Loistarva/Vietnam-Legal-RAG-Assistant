@@ -7,20 +7,37 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 import statistics
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 from typing import Any, Literal
+from urllib.parse import urlsplit
 
 import requests
 import yaml
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, field_validator
 
+from generation.prompt_builder import MISSING_FACTS_TAXONOMY, PROMPT_B_V1_3_VERSION, validate_missing_facts
 from schemas.models import ErrorCode, LLMResponse, StructuredRAGOutput, TokenUsage
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config" / "local_qwen.yaml"
+REQUIRED_CONFIG_KEYS: tuple[str, ...] = (
+    "config_version",
+    "provider",
+    "base_url",
+    "model",
+    "temperature",
+    "repeat_penalty",
+    "num_predict",
+    "num_ctx",
+    "timeout_seconds",
+    "max_retries",
+    "cache_enabled",
+    "fallback_locked",
+)
 _MARKDOWN_FENCE_RE = re.compile(
     r"^\s*```(?:[a-zA-Z0-9_-]+)?\s*\r?\n?(.*?)\r?\n?```\s*$",
     re.DOTALL,
@@ -40,23 +57,64 @@ def _build_raw_response_reference(query_id: str, run_mode: str, raw_text: str | 
     """Tạo tham chiếu an toàn gắn hash SHA-256 rút gọn cho raw response."""
     if raw_text is None:
         return None
-    digest = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()[:12]
+    digest = hashlib.sha256(raw_text.encode("utf-8", errors="replace")).hexdigest()[:12]
     return f"ollama://{run_mode}/{query_id}#sha256:{digest}"
+
+
+def _safe_error_repr(value: Any) -> str:
+    """Biểu diễn giá trị lỗi an toàn, tránh tràn chuỗi số lớn hoặc surrogate."""
+    if isinstance(value, int) and not isinstance(value, bool) and value.bit_length() > 128:
+        return f"<int~bits:{value.bit_length()}>"
+    try:
+        return repr(value)
+    except (OverflowError, TypeError, ValueError):
+        return f"<{type(value).__name__}>"
 
 
 def _optional_non_negative_int(value: Any) -> int | None:
     """Chuyển số nguyên không âm; thiếu hoặc không hợp lệ giữ None (không bịa 0)."""
-    if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+    if isinstance(value, int) and not isinstance(value, bool) and 0 <= value and value.bit_length() <= 64:
         return value
     return None
 
 
-class GatewayExecutionError(Exception):
-    """Ngoại lệ khi không thể kết nối hoặc thực thi gọi mô hình qua Gateway."""
+def _classify_transport_error(error: Exception | None) -> ErrorCode:
+    """Phân loại lỗi vận chuyển sang LLM_TIMEOUT (504), LLM_UNAVAILABLE (503) hoặc INTERNAL_ERROR."""
+    if error is None:
+        return "INTERNAL_ERROR"
+    if isinstance(error, (TimeoutError, requests.Timeout)):
+        return "LLM_TIMEOUT"
+    if isinstance(error, requests.HTTPError) and error.response is not None:
+        status = getattr(error.response, "status_code", None)
+        if status == 504:
+            return "LLM_TIMEOUT"
+        if status in (502, 503):
+            return "LLM_UNAVAILABLE"
+    msg = str(error).lower()
+    if "timeout" in msg or "timed out" in msg:
+        return "LLM_TIMEOUT"
+    if isinstance(error, (ConnectionError, requests.ConnectionError, OSError)):
+        return "LLM_UNAVAILABLE"
+    if any(token in msg for token in ("connection refused", "unreachable", "unavailable", "name or service not known")):
+        return "LLM_UNAVAILABLE"
+    return "INTERNAL_ERROR"
 
-    def __init__(self, message: str, error_code: ErrorCode = "INTERNAL_ERROR"):
+
+class GatewayExecutionError(Exception):
+    """Ngoại lệ tầng vận chuyển hoặc cấu hình khi gọi mô hình qua Gateway."""
+
+    def __init__(
+        self,
+        message: str,
+        error_code: ErrorCode = "INTERNAL_ERROR",
+        *,
+        retryable: bool | None = None,
+    ):
         super().__init__(message)
         self.error_code: ErrorCode = error_code
+        if retryable is None:
+            retryable = error_code in ("LLM_TIMEOUT", "LLM_UNAVAILABLE")
+        self.retryable: bool = retryable
 
 
 def normalize_model_name(name: str) -> str:
@@ -65,8 +123,53 @@ def normalize_model_name(name: str) -> str:
     return clean if ":" in clean else f"{clean}:latest"
 
 
+def _sanitize_utf8(value: str) -> str:
+    """Thay thế lone surrogate bằng ký tự thay thế an toàn để tương thích UTF-8 và Pydantic."""
+    return value.encode("utf-8", errors="replace").decode("utf-8")
+
+
+def _validate_provider_envelope(raw_res: Any, *, expected_model: str) -> str:
+    """Validate provider HTTP response envelope structure and extract raw text response."""
+    if not isinstance(raw_res, Mapping):
+        raise GatewayExecutionError(
+            f"Phản hồi từ Ollama không phải JSON object (nhận được {type(raw_res).__name__})",
+            error_code="INTERNAL_ERROR",
+            retryable=False,
+        )
+    if raw_res.get("error") is not None:
+        raise GatewayExecutionError(
+            f"Ollama trả về lỗi trong envelope: {_safe_error_repr(raw_res.get('error'))}",
+            error_code="INTERNAL_ERROR",
+            retryable=False,
+        )
+    resp_model = raw_res.get("model")
+    if resp_model is not None:
+        if not isinstance(resp_model, str) or not resp_model.strip():
+            raise GatewayExecutionError(
+                f"Trường 'model' trong phản hồi Ollama phải là chuỗi không rỗng (nhận được {type(resp_model).__name__})",
+                error_code="INTERNAL_ERROR",
+                retryable=False,
+            )
+        if normalize_model_name(resp_model) != normalize_model_name(expected_model):
+            raise GatewayExecutionError(
+                f"Model phản hồi ({resp_model}) không khớp với model cấu hình ({expected_model})",
+                error_code="INTERNAL_ERROR",
+                retryable=False,
+            )
+    if "response" not in raw_res or not isinstance(raw_res.get("response"), str):
+        raise GatewayExecutionError(
+            f"Phản hồi từ Ollama thiếu trường bắt buộc 'response' dạng chuỗi (nhận được {type(raw_res.get('response')).__name__})",
+            error_code="INTERNAL_ERROR",
+            retryable=False,
+        )
+    return _sanitize_utf8(raw_res["response"])
+
+
 class QwenGatewayConfig(BaseModel):
-    provider: str = "ollama"
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True, allow_inf_nan=False)
+
+    config_version: str = "local_qwen_v1.1"
+    provider: Literal["ollama"] = "ollama"
     base_url: str = "http://localhost:11434"
     model: str = "qwen2.5:7b"
     temperature: float = 0.0
@@ -77,6 +180,62 @@ class QwenGatewayConfig(BaseModel):
     max_retries: int = 1
     cache_enabled: bool = False
     fallback_locked: bool = True
+
+    @field_validator("config_version", "base_url", "model", mode="before")
+    @classmethod
+    def validate_non_empty_strings(cls, v: Any, info) -> str:
+        if not isinstance(v, str) or not v.strip():
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là chuỗi không rỗng")
+        cleaned = v.strip()
+        if info.field_name == "base_url":
+            try:
+                parsed = urlsplit(cleaned)
+            except ValueError as exc:
+                raise ValueError("Trường cấu hình 'base_url' không phải URL HTTP/HTTPS hợp lệ") from exc
+            if parsed.scheme.lower() not in ("http", "https") or not parsed.netloc:
+                raise ValueError("Trường cấu hình 'base_url' phải là URL http:// hoặc https:// hợp lệ có host")
+        return cleaned
+
+    @field_validator("num_predict", "num_ctx", "max_retries", mode="before")
+    @classmethod
+    def validate_strict_int(cls, v: Any, info) -> int:
+        if type(v) is not int or v.bit_length() > 64:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số nguyên (int) hợp lệ (< 2^64)")
+        if info.field_name == "max_retries":
+            if v < 0:
+                raise ValueError("Trường cấu hình 'max_retries' phải >= 0")
+        elif v <= 0:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải > 0")
+        return v
+
+    @field_validator("temperature", "repeat_penalty", "timeout_seconds", mode="before")
+    @classmethod
+    def validate_strict_float(cls, v: Any, info) -> float:
+        if isinstance(v, bool) or not isinstance(v, (int, float)):
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là số thực")
+        try:
+            val = float(v)
+        except (OverflowError, TypeError, ValueError) as exc:
+            raise ValueError(
+                f"Trường cấu hình '{info.field_name}' phải là số thực hữu hạn (không nhận NaN/Infinity/tràn số)"
+            ) from exc
+        if not math.isfinite(val):
+            raise ValueError(
+                f"Trường cấu hình '{info.field_name}' phải là số thực hữu hạn (không nhận NaN/Infinity)"
+            )
+        if info.field_name == "temperature":
+            if not 0.0 <= val <= 2.0:
+                raise ValueError("Trường cấu hình 'temperature' phải nằm trong [0.0, 2.0]")
+        elif val <= 0.0:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải > 0")
+        return val
+
+    @field_validator("cache_enabled", "fallback_locked", mode="before")
+    @classmethod
+    def validate_strict_bool(cls, v: Any, info) -> bool:
+        if type(v) is not bool:
+            raise ValueError(f"Trường cấu hình '{info.field_name}' phải là boolean")
+        return v
 
 
 class QwenGateway:
@@ -95,6 +254,8 @@ class QwenGateway:
         elif isinstance(config, (str, Path)):
             self.config = self.load_config(config)
         elif isinstance(config, dict):
+            if any(not isinstance(k, str) for k in config):
+                raise ValueError("Khóa trong dict cấu hình phải là chuỗi (str)")
             self.config = QwenGatewayConfig(**config)
         elif isinstance(config, QwenGatewayConfig):
             self.config = config
@@ -116,12 +277,31 @@ class QwenGateway:
 
     @classmethod
     def load_config(cls, config_path: str | Path) -> QwenGatewayConfig:
+        if not isinstance(config_path, (str, Path)):
+            raise GatewayExecutionError(
+                f"Đường dẫn cấu hình gateway phải là str hoặc Path, nhận được {type(config_path).__name__}"
+            )
         path = Path(config_path)
         if not path.exists():
             raise FileNotFoundError(f"Không tìm thấy file cấu hình gateway: {path}")
-        with open(path, encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
-        return QwenGatewayConfig(**data)
+        if path.is_dir():
+            raise GatewayExecutionError(f"Đường dẫn cấu hình gateway là thư mục, không phải tệp: {path}")
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = yaml.safe_load(f)
+        except (OSError, UnicodeDecodeError, yaml.YAMLError) as exc:
+            raise GatewayExecutionError(
+                f"Không đọc hoặc phân tích được file cấu hình gateway {path}: {exc}"
+            ) from exc
+        if not isinstance(data, dict):
+            raise GatewayExecutionError(f"File cấu hình gateway không phải mapping YAML hợp lệ: {path}")
+        missing = [key for key in REQUIRED_CONFIG_KEYS if key not in data]
+        if missing:
+            raise GatewayExecutionError(f"Cấu hình gateway thiếu khóa bắt buộc: {missing}")
+        try:
+            return QwenGatewayConfig(**data)
+        except Exception as exc:
+            raise GatewayExecutionError(f"Cấu hình gateway không hợp lệ trong {path}: {exc}") from exc
 
     def _probe_ollama_metadata(self) -> None:
         """Lấy ollama_version (/api/version) và model_digest (/api/tags, models[].digest).
@@ -135,7 +315,11 @@ class QwenGateway:
         try:
             v_resp = self._session.get(f"{base}/api/version", timeout=2.0)
             if v_resp.status_code == 200:
-                self.ollama_version = v_resp.json().get("version")
+                v_json = v_resp.json()
+                if isinstance(v_json, Mapping):
+                    version_val = v_json.get("version")
+                    if isinstance(version_val, str) and version_val.strip():
+                        self.ollama_version = version_val.strip()
             t_resp = self._session.get(f"{base}/api/tags", timeout=2.0)
             if t_resp.status_code == 200:
                 self.model_digest = find_model_digest(t_resp.json(), self.config.model)
@@ -164,16 +348,14 @@ class QwenGateway:
                 if attempts < total_attempts:
                     time.sleep(0.1 * attempts)
 
-        # Fail-fast, tuyệt đối không silently fallback sang model khác
-        is_timeout = (
-            isinstance(last_error, (TimeoutError, requests.Timeout))
-            or "timeout" in str(last_error).lower()
-            or "timed out" in str(last_error).lower()
-        )
-        error_code: ErrorCode = "LLM_TIMEOUT" if is_timeout else "INTERNAL_ERROR"
+        # Phân loại rạch ròi lỗi vận chuyển: timeout -> LLM_TIMEOUT (504),
+        # mất kết nối / provider không sẵn sàng -> LLM_UNAVAILABLE (503).
+        # Tuyệt đối không silently fallback sang model khác.
+        error_code: ErrorCode = _classify_transport_error(last_error)
         raise GatewayExecutionError(
             f"Không thể kết nối đến Ollama model gateway ({self.config.base_url}) sau {total_attempts} lần thử: {last_error}",
             error_code=error_code,
+            retryable=error_code in ("LLM_TIMEOUT", "LLM_UNAVAILABLE"),
         ) from last_error
 
     def generate(
@@ -185,11 +367,36 @@ class QwenGateway:
         structured_output: bool = False,
         schema: dict[str, Any] | None = None,
         max_evidence_index: int | None = None,
+        allowed_missing_facts: Sequence[str] | None = None,
     ) -> LLMResponse:
         """
         Gọi mô hình Qwen qua Ollama API (/api/generate).
         Ghi nhận đầy đủ Runtime Provenance vào LLMResponse.
         """
+        if not isinstance(prompt, str):
+            raise TypeError(f"prompt phải là chuỗi (str), nhận được {type(prompt).__name__}")
+        if not isinstance(query_id, str) or not query_id.strip():
+            raise ValueError("query_id phải là chuỗi không rỗng")
+        if not isinstance(run_mode, str) or run_mode not in ("A_zero_shot", "B_controlled_rag", "C_production_rag"):
+            raise ValueError(
+                f"run_mode không hợp lệ: {_safe_error_repr(run_mode)}; "
+                "phải là A_zero_shot, B_controlled_rag hoặc C_production_rag"
+            )
+        if not isinstance(prompt_version, str) or not prompt_version.strip():
+            raise ValueError("prompt_version phải là chuỗi không rỗng")
+        if max_evidence_index is not None:
+            if isinstance(max_evidence_index, bool) or not isinstance(max_evidence_index, int):
+                raise TypeError(f"max_evidence_index phải là int hoặc None, nhận được {type(max_evidence_index).__name__}")
+            if max_evidence_index < 0 or max_evidence_index.bit_length() > 64:
+                raise ValueError("max_evidence_index phải là số nguyên không âm hợp lệ (< 2^64)")
+        if allowed_missing_facts is not None:
+            if isinstance(allowed_missing_facts, (str, bytes)) or not isinstance(allowed_missing_facts, Sequence):
+                raise TypeError(
+                    f"allowed_missing_facts phải là Sequence[str] hoặc None, nhận được {type(allowed_missing_facts).__name__}"
+                )
+            if any(not isinstance(item, str) for item in allowed_missing_facts):
+                raise TypeError("Mọi phần tử trong allowed_missing_facts phải là chuỗi (str)")
+
         url = f"{self.config.base_url.rstrip('/')}/api/generate"
 
         options = {
@@ -214,17 +421,16 @@ class QwenGateway:
         raw_res = self._execute_http_post(url, payload, self.config.timeout_seconds)
         latency_ms = (time.perf_counter() - t0) * 1000.0
 
-        # Kiểm tra model thực tế từ response: so đủ tên và tag (qwen2.5:3b khác qwen2.5:7b)
-        resp_model = raw_res.get("model")
-        if resp_model and normalize_model_name(resp_model) != normalize_model_name(self.config.model):
-            raise GatewayExecutionError(
-                f"Model phản hồi ({resp_model}) không khớp với model cấu hình ({self.config.model})"
-            )
-
-        # Trích xuất dữ liệu phản hồi
-        raw_text = raw_res.get("response", "")
+        # Kiểm tra cấu trúc envelope, error, model phản hồi và trích xuất response str an toàn
+        raw_text = _validate_provider_envelope(raw_res, expected_model=self.config.model)
         raw_ref = _build_raw_response_reference(query_id, run_mode, raw_text)
-        done_reason = str(raw_res.get("done_reason") or ("stop" if raw_res.get("done") else "unknown"))
+        is_done = raw_res.get("done") is True
+        raw_done_reason = raw_res.get("done_reason")
+        done_reason = (
+            _sanitize_utf8(raw_done_reason).strip()
+            if isinstance(raw_done_reason, str) and raw_done_reason.strip()
+            else ("stop" if is_done else "unknown")
+        )
         prompt_tokens = _optional_non_negative_int(raw_res.get("prompt_eval_count"))
         output_tokens = _optional_non_negative_int(raw_res.get("eval_count"))
         token_usage = TokenUsage(input=prompt_tokens, output=output_tokens)
@@ -271,6 +477,7 @@ class QwenGateway:
         abstained = False
         abstention_reason: str | None = None
         needs_clarification = False
+        missing_facts: list[str] = []
 
         try:
             candidate_json_text = _strip_markdown_fences(raw_text)
@@ -282,27 +489,43 @@ class QwenGateway:
 
             validated_struct = StructuredRAGOutput.model_validate({**parsed_json, "evidence_indices": []})
 
+            # Đối chiếu danh mục đóng missing_facts với prompt v1.3 hoặc taxonomy cấu hình kèm theo (FR4.4)
+            normalized_pv = prompt_version.strip().lower()
+            is_v1_3 = (
+                prompt_version.strip() == PROMPT_B_V1_3_VERSION
+                or normalized_pv == "v1.3"
+                or normalized_pv.startswith(("v1.3_", "v1.3-", "v1.3.", "v1.3 "))
+            )
+            if allowed_missing_facts is not None:
+                validate_missing_facts(validated_struct.missing_facts, allowed=allowed_missing_facts)
+            elif is_v1_3:
+                validate_missing_facts(validated_struct.missing_facts, allowed=MISSING_FACTS_TAXONOMY)
+
             # Khi không truyền max_evidence_index (legacy callers), số nguyên ngoài [1, 5] vẫn giữ ở
             # evidence_indices để Grounding Gate xử lý. Khi truyền max_evidence_index, chỉ số ngoài
             # [1, max_evidence_index] bị đưa vào rejected_evidence_values và gắn error_code CITATION_INVALID.
-            raw_indices = parsed_json.get("evidence_indices", [])
-            if isinstance(raw_indices, list):
-                for idx in raw_indices:
-                    if isinstance(idx, int) and not isinstance(idx, bool):
-                        if max_evidence_index is not None and (idx < 1 or idx > max_evidence_index):
-                            rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
+            if "evidence_indices" in parsed_json and parsed_json["evidence_indices"] is None:
+                rejected_evidence_values.append("null")
+            else:
+                raw_indices = parsed_json.get("evidence_indices", [])
+                if isinstance(raw_indices, list):
+                    for idx in raw_indices:
+                        if isinstance(idx, int) and not isinstance(idx, bool):
+                            if max_evidence_index is not None and (idx < 1 or idx > max_evidence_index):
+                                rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
+                            else:
+                                evidence_indices.append(idx)
                         else:
-                            evidence_indices.append(idx)
-                    else:
-                        rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
-            elif raw_indices is not None:
-                rejected_evidence_values.append(json.dumps(raw_indices, ensure_ascii=False))
+                            rejected_evidence_values.append(json.dumps(idx, ensure_ascii=False))
+                else:
+                    rejected_evidence_values.append(json.dumps(raw_indices, ensure_ascii=False))
 
             answer = validated_struct.answer
             abstained = validated_struct.abstained
             reason = validated_struct.abstention_reason
             abstention_reason = reason if reason else None
             needs_clarification = validated_struct.needs_clarification
+            missing_facts = list(validated_struct.missing_facts)
             parse_status = "ok"
             if rejected_evidence_values:
                 error_code = "CITATION_INVALID"
@@ -318,6 +541,7 @@ class QwenGateway:
             abstained = False
             abstention_reason = None
             needs_clarification = False
+            missing_facts = []
 
         truncated = (done_reason == "length") or (parse_status == "truncated_json")
 
@@ -330,6 +554,7 @@ class QwenGateway:
             abstained=abstained,
             abstention_reason=abstention_reason,
             needs_clarification=needs_clarification,
+            missing_facts=missing_facts,
             model=self.config.model,
             prompt_version=prompt_version,
             num_ctx=self.config.num_ctx,
@@ -360,29 +585,52 @@ OLLAMA_DURATION_FIELDS = {
 }
 
 
-def ollama_durations_ms(raw_res: dict[str, Any]) -> dict[str, float | None]:
+def ollama_durations_ms(raw_res: Any) -> dict[str, float | None]:
     """Đọc các trường thời gian (nano giây) Ollama trả cả khi stream=false, đổi sang ms.
 
     Thiếu trường hoặc giá trị không phải số không âm thì để None, không đặt 0.
     ``ttft_model_ms`` = load + prompt_eval, chỉ tính khi có đủ cả hai.
     """
-    out: dict[str, float | None] = {}
+    out: dict[str, float | None] = {target: None for target in OLLAMA_DURATION_FIELDS.values()}
+    if not isinstance(raw_res, Mapping):
+        out["ttft_model_ms"] = None
+        return out
     for source, target in OLLAMA_DURATION_FIELDS.items():
         value = raw_res.get(source)
-        valid = isinstance(value, (int, float)) and not isinstance(value, bool) and value >= 0
-        out[target] = round(value / 1_000_000, 2) if valid else None
+        numeric: float | None = None
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            try:
+                cand = float(value)
+            except (OverflowError, TypeError, ValueError):
+                cand = None
+            if cand is not None and math.isfinite(cand) and cand >= 0:
+                numeric = cand
+        out[target] = round(numeric / 1_000_000, 2) if numeric is not None else None
     load, prompt_eval = out["load_duration_ms"], out["prompt_eval_duration_ms"]
     out["ttft_model_ms"] = round(load + prompt_eval, 2) if load is not None and prompt_eval is not None else None
     return out
 
 
-def find_model_digest(tags_payload: dict[str, Any], model_name: str) -> str | None:
+def find_model_digest(tags_payload: Any, model_name: Any) -> str | None:
     """Tìm digest của model trong response /api/tags (``models[].name`` / ``models[].model``)."""
+    if not isinstance(tags_payload, Mapping) or not isinstance(model_name, str) or not model_name.strip():
+        return None
+    models = tags_payload.get("models")
+    if not isinstance(models, Sequence) or isinstance(models, (str, bytes)):
+        return None
     target = normalize_model_name(model_name)
-    for entry in tags_payload.get("models") or []:
-        names = {normalize_model_name(entry[key]) for key in ("name", "model") if entry.get(key)}
+    for entry in models:
+        if not isinstance(entry, Mapping):
+            continue
+        names = {
+            normalize_model_name(val)
+            for key in ("name", "model")
+            for val in (entry.get(key),)
+            if isinstance(val, str) and val.strip()
+        }
         if target in names:
-            return entry.get("digest")
+            digest = entry.get("digest")
+            return digest.strip() if isinstance(digest, str) and digest.strip() else None
     return None
 
 

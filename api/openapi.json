@@ -19,6 +19,7 @@
               "RETRIEVAL_EMPTY",
               "LOW_CONFIDENCE",
               "LLM_TIMEOUT",
+              "LLM_UNAVAILABLE",
               "JSON_INVALID",
               "CITATION_INVALID",
               "GROUNDING_FAIL",
@@ -223,6 +224,7 @@
                   "RETRIEVAL_EMPTY",
                   "LOW_CONFIDENCE",
                   "LLM_TIMEOUT",
+                  "LLM_UNAVAILABLE",
                   "JSON_INVALID",
                   "CITATION_INVALID",
                   "GROUNDING_FAIL",
@@ -538,6 +540,17 @@
           "parent_clause_id": {
             "title": "Parent Clause Id",
             "type": "string"
+          },
+          "point_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Point Ref"
           },
           "provision_status": {
             "anyOf": [

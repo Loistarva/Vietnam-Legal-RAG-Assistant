@@ -1,9 +1,9 @@
 # Canonical Contracts Specification (`week10_v1.1`)
 
-**Phạm vi:** Task `D3.1` (Kế hoạch Tuần 10)  
-**Single Source of Truth:** [schemas/models.py](../schemas/models.py)  
-**JSON Schema Draft:** `https://json-schema.org/draft/2020-12/schema`  
-**Schema Version:** `SchemaVersionType = Literal["week10_v1.0", "week10_v1.1"]` (`SCHEMA_VERSION = "week10_v1.1"`). Bộ model chấp nhận payload v1.0 cũ; payload mới mặc định dùng v1.1.
+**Phạm vi:** Task `D3.1` (Kế hoạch Tuần 10–11, bản thống nhất `week10_v1.1`)
+**Single Source of Truth:** [schemas/models.py](../schemas/models.py)
+**JSON Schema Draft:** `https://json-schema.org/draft/2020-12/schema`
+**Schema Version:** `SchemaVersionType = Literal["week10_v1.0", "week10_v1.1"]` (`SCHEMA_VERSION = "week10_v1.1"`). Bộ model chấp nhận payload `week10_v1.0` cũ; payload mới mặc định dùng `week10_v1.1`.
 
 Tài liệu này mô tả bộ hợp đồng dữ liệu chuẩn hóa (Pydantic v2 + JSON Schema) dùng chung giữa Router, Retrieval/Reranker, Context/Prompt Builder, Model Gateway, Grounding Gate, API và Monitoring.
 
@@ -13,12 +13,13 @@ Tài liệu này mô tả bộ hợp đồng dữ liệu chuẩn hóa (Pydantic 
 
 | Tên kiểu | Giá trị hợp lệ | Mục đích |
 | :--- | :--- | :--- |
-| `SchemaVersionType` | `"week10_v1.0"`, `"week10_v1.1"` | Giữ tương thích khi đọc v1.0; producer mới phát v1.1 |
+| `SchemaVersionType` | `"week10_v1.0"`, `"week10_v1.1"` | Giữ tương thích khi đọc `v1.0`; producer mới mặc định phát `v1.1` |
 | `RouteType` | `"LEGAL_IN_SCOPE"`, `"NON_LEGAL"`, `"LEGAL_OUT_OF_SCOPE"`, `"MIXED_REVIEW"` | Phân luồng câu hỏi chuẩn hóa ở `RouteDecision` và `AskResponse` |
+| `RouteAction` | `"LEGAL_RETRIEVAL"`, `"FAST_PATH"`, `"POLICY_ABSTENTION"`, `"GENERAL_CHAT"` | Hành vi xử lý chuẩn theo bảng SRS 5.3.3 trong `RouteDecision.action` |
 | `ResponseStatus` | `"SUCCESS"`, `"NEEDS_CLARIFICATION"`, `"ABSTAIN"`, `"ERROR"` | Trạng thái phản hồi chuẩn hóa ở API và `AskResponse` |
 | `GroundingStatus` | `"PASS"`, `"FAIL"`, `"NOT_RUN"`, `"ABSTAIN"`, `"NEEDS_CLARIFICATION"` | Trạng thái kiểm định căn cứ ở `GroundingResult` và `AskResponse` |
-| `EventStage` | `"api"`, `"router"`, `"retrieval"`, `"rerank"`, `"context"`, `"llm"`, `"citation"`, `"gate"`, `"response"` | 9 chặng phát sinh sự kiện trong `LogEvent` |
-| `ErrorCode` | `"AUTH_REQUIRED"`, `"INVALID_REQUEST"`, `"ROUTE_POLICY"`, `"RETRIEVAL_EMPTY"`, `"LOW_CONFIDENCE"`, `"LLM_TIMEOUT"`, `"JSON_INVALID"`, `"CITATION_INVALID"`, `"GROUNDING_FAIL"`, `"INTERNAL_ERROR"` | 10 mã lỗi chuẩn hóa xuyên suốt API, Router, Retrieval, Gateway và Gate |
+| `EventStage` | `"api"`, `"router"`, `"retrieval"`, `"rerank"`, `"confidence"`, `"context"`, `"llm"`, `"citation"`, `"gate"`, `"response"` | 10 chặng phát sinh sự kiện trong `LogEvent` (bổ sung `"confidence"` ở `v1.1`) |
+| `ErrorCode` | `"AUTH_REQUIRED"`, `"INVALID_REQUEST"`, `"ROUTE_POLICY"`, `"RETRIEVAL_EMPTY"`, `"LOW_CONFIDENCE"`, `"LLM_TIMEOUT"`, `"LLM_UNAVAILABLE"`, `"JSON_INVALID"`, `"CITATION_INVALID"`, `"GROUNDING_FAIL"`, `"INTERNAL_ERROR"` | 11 mã lỗi chuẩn hóa xuyên suốt API, Router, Retrieval, Gateway và Gate (bổ sung `"LLM_UNAVAILABLE"` ở `v1.1`) |
 
 ---
 
@@ -47,20 +48,20 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 | :-: | :--- | :--- | :--- |
 | 1 | `AskRequest` | `ask_request.schema.json` | Yêu cầu hỏi đáp đầu vào (`query`, `as_of_date`, `session_id`, `request_id`, `query_id`) |
 | 2 | `AskResponse` | `ask_response.schema.json` | Phản hồi API tách bạch `SUCCESS` / `ABSTAIN` / `NEEDS_CLARIFICATION` / `ERROR` |
-| 3 | `RouteDecision` | `route_decision.schema.json` | Quyết định phân luồng (`route`, `reason_code`, `explanation`, `policy_version`) |
+| 3 | `RouteDecision` | `route_decision.schema.json` | Quyết định phân luồng (`route`, `router_route?`, `action` theo `RouteAction`, `reason_code`, `explanation`, `policy_version`) |
 | 4 | `Candidate` (`CandidateChunk`) | `candidate.schema.json` | Chunk ứng viên từ Retrieval/Reranker kèm hiệu lực và provenance |
-| 5 | `RetrievalBundle` | `retrieval_bundle.schema.json` | Gói kết quả truy xuất, gồm `metadata_filters` và `latency_breakdown` bên cạnh candidates, provenance và latency tổng |
-| 6 | `EvidenceItem` | `evidence_item.schema.json` | Mảnh bằng chứng đánh số `[1]..[5]` sau Parent Resolver |
+| 5 | `RetrievalBundle` | `retrieval_bundle.schema.json` | Gói kết quả truy xuất, gồm `metadata_filters` (`MetadataFilters`) và `latency_breakdown` (`RetrievalLatencyBreakdown`) bên cạnh candidates, provenance và latency tổng |
+| 6 | `EvidenceItem` | `evidence_item.schema.json` | Mảnh bằng chứng đánh số `[1]..[5]` sau Parent Resolver (thêm `point_ref?` ở `v1.1`) |
 | 7 | `ContextPayload` | `context_payload.schema.json` | Gói ngữ cảnh đầy đủ truyền vào Prompt Builder & Citation Validator |
-| 8 | `LLMResponse` | `llm_response.schema.json` | Kết quả từ Model Gateway + metadata thời gian Ollama & provenance |
+| 8 | `LLMResponse` | `llm_response.schema.json` | Kết quả từ Model Gateway + metadata thời gian Ollama, `missing_facts[]` & provenance |
 | 9 | `GroundingResult` | `grounding_result.schema.json` | Kết quả kiểm định căn cứ (`status`, `validated_answer`, `citations`, `violation_codes`, `retryable`) |
-| 10 | `LogEvent` | `log_event.schema.json` | Sự kiện log có cấu trúc qua 9 `EventStage` kèm `event_id`, `event_type`, `masked_metadata` |
+| 10 | `LogEvent` | `log_event.schema.json` | Sự kiện log có cấu trúc qua 10 `EventStage` kèm `event_id`, `event_type`, `masked_metadata` |
 
 ### 3.2. Phân biệt `StructuredRAGOutput` vs `LLMResponse` ở JSON Schema gốc
 
 Để tránh nhầm lẫn giữa schema JSON đầu ra ngắn của Qwen và schema provenance đầy đủ của `LLMResponse`:
 
-- `schemas/structured_rag_output.schema.json`: schema tường minh của `StructuredRAGOutput` (5 trường dùng ép kiểu tham số `format` của Ollama cho Run B/C).
+- `schemas/structured_rag_output.schema.json`: schema tường minh của `StructuredRAGOutput` (dùng ép kiểu tham số `format` của Ollama cho Run B/C; thêm `missing_facts` tùy chọn ở `v1.1`).
 - `schemas/llm_response.schema.json`: bản legacy trỏ cùng `StructuredRAGOutput.model_json_schema()` được giữ lại để bảo toàn 100% tương thích ngược cho bộ test Sprint 9 (`test/schema_test.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py`).
 - `schemas/generated/llm_response.schema.json`: schema chuẩn Week 10 cho toàn bộ model `LLMResponse` của Gateway.
 - `schemas/candidate.schema.json` và `schemas/context_payload.schema.json`: hai tệp legacy thuần từ `CandidateChunk` và `ContextPayload`.
@@ -109,7 +110,7 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 3. **Kiểm tra phạm vi chỉ số trích dẫn (`max_evidence_index`):**
    - Nếu truyền `max_evidence_index`, mọi chỉ số nguyên ngoài `[1, max_evidence_index]` (cùng giá trị phi số nguyên) bị đưa vào `rejected_evidence_values` và gắn `error_code="CITATION_INVALID"`.
    - Khi không truyền `max_evidence_index`, giữ nguyên tương thích ngược cho Grounding Gate xử lý.
-4. **Mã lỗi vận chuyển (`GatewayExecutionError.error_code`):** Timeout kết thúc retry mang `error_code="LLM_TIMEOUT"`; các lỗi kết nối/HTTP/sai model mang `error_code="INTERNAL_ERROR"`.
+4. **Mã lỗi vận chuyển (`GatewayExecutionError.error_code`):** Timeout kết thúc retry mang `error_code="LLM_TIMEOUT"` (`retryable=True`); không kết nối được Ollama/HTTP 502–503 mang `error_code="LLM_UNAVAILABLE"` (`retryable=True`); sai model cấu hình mang `error_code="INTERNAL_ERROR"` (`retryable=False`).
 5. **Tham chiếu phản hồi gốc (`raw_response_reference`):** Chuỗi an toàn dạng `ollama://<run_mode>/<query_id>#sha256:<12-hex>`.
 
 ---
@@ -127,14 +128,14 @@ Sinh tự động bằng lệnh `python -m schemas.models` (hàm `export_json_sc
 
 ---
 
-## 7. Migration Note (Cập nhật Contract Tuần 10 v1.1 cho Dev 1, Dev 2, Dev 4, Dev 5)
+## 7. Migration Note (Cập nhật Contract `week10_v1.1` cho Dev 1, Dev 2, Dev 4, Dev 5)
 
 | Thành viên | Điểm cần đồng bộ sang Contract `week10_v1.1` |
 | :--- | :--- |
-| **Dev 1 (Grounding & Validator)** | `GroundingResult` giữ tạm các trường **deprecated** (`grounding_status`, `valid_citations`, `invalid_indices`, `reason`) để tương thích với `citation_validator.py`; khi nâng cấp tuần 10 chuyển sang `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (mã `"GROUNDING_FAIL"` thay cho `"GATE_FAIL"`, lưu ý `abstention_reason` chỉ dùng ở nhánh `ABSTAIN`). |
-| **Dev 2 (Evaluation & Monitoring)** | Đọc/ghi log theo `LogEvent` mới: dùng `event_id`, `event_type`, `duration_ms`, `masked_metadata` và 9 `EventStage` (`api`, `router`, `retrieval`, `rerank`, `context`, `llm`, `citation`, `gate`, `response`); xử lý `TokenUsage.input`/`output` có thể là `null`. |
-| **Dev 4 (Router & Retrieval)** | Khi xuất `RouteDecision` ra API/Pipeline dùng `map_router_route_to_canonical()` để chuyển `Route` (`LEGAL_HNGD`, `MIXED_LEGAL_SCOPE`, `LEGAL_SCOPE_UNCERTAIN`...) sang `RouteType` (`LEGAL_IN_SCOPE`, `NON_LEGAL`, `LEGAL_OUT_OF_SCOPE`, `MIXED_REVIEW`) kèm `reason_code`, `explanation`, `policy_version`. `RetrievalBundle` v1.1 thêm `metadata_filters` (các field exact-match được hỗ trợ) và `latency_breakdown` (giá trị chưa đo là `null`); `corpus_hash` vẫn là SHA của corpus, tách biệt với `retrieval_config_version`. |
-| **Dev 5 (API Gateway & Orchestration)** | Nhận `AskRequest` đã khóa (`query`, `as_of_date`, `session_id`, `request_id`, `query_id`; không nhận `run_mode`/`top_k`/`metadata`). Sinh `query_id` nếu thiếu. Trả `AskResponse` dùng `status="SUCCESS"`, điền `as_of_date`, `as_of_date_source`, `disclaimer`, `timings.total_ms`, `error: ErrorDetail`, `error_code` bắt buộc khi `ERROR`; để `answer=None` ở mọi nhánh `ABSTAIN`/`NEEDS_CLARIFICATION`/`ERROR`; luồng legal `SUCCESS` phải có `citations` trỏ vào `evidence`, còn `NON_LEGAL` phải có `grounding_status="NOT_RUN"` và `evidence=[]`. |
+| **Dev 1 (Grounding & Validator)** | `GroundingResult` giữ tạm các trường **deprecated** (`grounding_status`, `valid_citations`, `invalid_indices`, `reason`) để tương thích với `citation_validator.py`; khi nâng cấp chuyển sang `status`, `validated_answer`, `citations`, `violation_codes`, `retryable`, `abstention_reason` (mã `"GROUNDING_FAIL"` thay cho `"GATE_FAIL"`, lưu ý `abstention_reason` chỉ dùng ở nhánh `ABSTAIN`). |
+| **Dev 2 (Evaluation & Monitoring)** | Đọc/ghi log theo `LogEvent` mới: dùng `event_id`, `event_type`, `duration_ms`, `masked_metadata` và 10 `EventStage` (thêm `"confidence"`); xử lý `TokenUsage.input`/`output` có thể là `null`; `RAGOutputRecord.route` cho phép gán nhãn route chuẩn. |
+| **Dev 4 (Router & Retrieval)** | Khi xuất `RouteDecision` ra API/Pipeline dùng `map_router_route_to_canonical()` kèm `router_route?` và `action` thuộc `RouteAction` (`LEGAL_RETRIEVAL`, `FAST_PATH`, `POLICY_ABSTENTION`, `GENERAL_CHAT`). `RetrievalBundle` `v1.1` bổ sung `metadata_filters` (`MetadataFilters`) và `latency_breakdown` (`RetrievalLatencyBreakdown`, giá trị chưa đo là `null`). |
+| **Dev 5 (API Gateway & Orchestration)** | Nhận `AskRequest` đã khóa; ánh xạ `LLM_UNAVAILABLE` sang HTTP 503 (`retryable=True`); đồng bộ `stage="confidence"`, `EvidenceItem.point_ref`, `missing_facts`, và tái sinh `api/openapi.json` bằng `python -m api.export_openapi`. |
 
 ---
 
