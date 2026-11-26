@@ -84,12 +84,13 @@ def _classify_transport_error(error: Exception | None) -> ErrorCode:
         return "INTERNAL_ERROR"
     if isinstance(error, (TimeoutError, requests.Timeout)):
         return "LLM_TIMEOUT"
-    if isinstance(error, requests.HTTPError) and error.response is not None:
+    if isinstance(error, requests.HTTPError):
         status = getattr(error.response, "status_code", None)
         if status == 504:
             return "LLM_TIMEOUT"
         if status in (502, 503):
             return "LLM_UNAVAILABLE"
+        return "INTERNAL_ERROR"
     msg = str(error).lower()
     if "timeout" in msg or "timed out" in msg:
         return "LLM_TIMEOUT"
