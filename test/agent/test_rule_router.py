@@ -2,9 +2,13 @@
 from __future__ import annotations
 
 import logging
+import json
 import unittest
 from datetime import date
 from io import StringIO
+from pathlib import Path
+
+import pytest
 
 from agent.router.rule_router import (
     Action,
@@ -27,6 +31,18 @@ class RuleRouterTest(unittest.TestCase):
         self.assertEqual(decision.route, Route.LEGAL_HNGD)
         self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
         self.assertEqual(decision.route_reason, RouteReason.HNGD_DOMAIN_MATCH)
+
+    def test_router_decision_converts_to_canonical_dev3_contract(self):
+        canonical = self.router.route(
+            "Chồng mất không để lại di chúc. Di sản chia theo hàng thừa kế nào?",
+            query_id="NEG_DEV_025", as_of_date="2026-10-15",
+        ).to_canonical()
+        self.assertEqual(canonical.schema_version, "week10_v1.1")
+        self.assertEqual(canonical.route, "LEGAL_OUT_OF_SCOPE")
+        self.assertEqual(canonical.query_id, "NEG_DEV_025")
+        self.assertEqual(canonical.policy_version, "rule_router_v5")
+        self.assertTrue(canonical.reason_code)
+        self.assertTrue(canonical.explanation)
 
     def test_child_custody_after_divorce_is_hngd(self):
         decision = self.router.route("Sau ly hôn ai có quyền nuôi con?")
@@ -67,6 +83,23 @@ class RuleRouterTest(unittest.TestCase):
         decision = self.router.route("Xác định cha, mẹ, con theo pháp luật")
         self.assertEqual(decision.route, Route.LEGAL_HNGD)
 
+    def test_r4_additional_marriage_and_parentage_queries_are_hngd(self):
+        queries = (
+            "Bao nhiêu tuổi thì được cưới?",
+            "Xác định cha cho đứa bé sinh ngoài giá thú thế nào?",
+            "Tảo hôn bị xử lý ra sao?",
+            "Bố mẹ ly thân thì con 10 tuổi ở với ai?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+
+    def test_everyday_wedding_mention_does_not_match_hngd_context(self):
+        decision = self.router.route("Tôi đi dự đám cưới bạn.")
+        self.assertNotEqual(decision.route, Route.LEGAL_HNGD)
+
     def test_other_legal_domain_abstains(self):
         cases = (
             "Điều kiện cấp sổ đỏ là gì?",
@@ -97,6 +130,70 @@ class RuleRouterTest(unittest.TestCase):
             with self.subTest(query=query):
                 self.assertEqual(self.router.route(query).route, expected_route)
 
+    def test_consumed_v3_mismatches_regression_after_reviewed_router_change(self):
+        # These consumed holdout cases are regression evidence only; they must
+        # never be presented as a fresh independent evaluation of this edit.
+        cases = (
+            ("Một người muốn yêu cầu Tòa án xác định quan hệ cha con khi bên kia không phối hợp?", Route.LEGAL_HNGD),
+            ("Ngân hàng phong tỏa tài khoản thanh toán sau giao dịch bất thường theo pháp luật ngân hàng?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nền tảng chia sẻ dữ liệu vị trí người dùng cho quảng cáo khi chưa có đồng ý theo pháp luật?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Theo pháp luật xây dựng, cơi nới ban công và thay đổi kết cấu chịu lực có cần giấy phép?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Bệnh viện phẫu thuật không giải thích rủi ro, trách nhiệm cơ sở y tế theo quy định nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Sinh viên bị buộc thôi học không nêu căn cứ, có thể khiếu nại theo pháp luật giáo dục đại học không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà thầu bị loại do lỗi tải hồ sơ, pháp luật đấu thầu cho kiến nghị kết quả thế nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Vợ chồng vay vốn ngân hàng chữa bệnh cho con, ngân hàng yêu cầu cả hai trả dù một người ký; cần đối chiếu luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Xác định cha con theo Hôn nhân và Gia đình nhưng cơ quan hộ tịch từ chối cập nhật giấy khai sinh; thuộc những lĩnh vực nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Vợ chồng mang thai hộ, bệnh viện lưu trữ phôi sai quy trình; cần áp dụng Hôn nhân gia đình và khám chữa bệnh?", Route.MIXED_LEGAL_SCOPE),
+            ("Thủ tục nhận con nuôi có liên quan hồ sơ bệnh án trẻ bị tiết lộ; cần xét Hôn nhân gia đình và dữ liệu cá nhân?", Route.MIXED_LEGAL_SCOPE),
+            ("Áp dụng biện pháp cấm tiếp xúc theo pháp luật bạo lực gia đình, đồng thời tố giác chiếm quyền tài khoản mạng xã hội?", Route.MIXED_LEGAL_SCOPE),
+        )
+        for query, expected_route in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                expected_action = (
+                    Action.POLICY_ABSTENTION
+                    if expected_route in (Route.LEGAL_OUT_OF_SCOPE, Route.MIXED_LEGAL_SCOPE)
+                    else Action.LEGAL_RETRIEVAL
+                )
+                self.assertEqual(decision.action, expected_action)
+
+    def test_consumed_v4_mismatch_patterns_are_regression_only(self):
+        # Week 10 v4 has been evaluated and is consumed. These paraphrased
+        # examples are regression checks only, never a fresh holdout score.
+        cases = (
+            ("Vợ chồng, một bên có thể ép người kia đổi theo tôn giáo của mình không?", Route.LEGAL_HNGD),
+            ("Cha mẹ có thể chuyển con sang trường học khác khi điều đó ảnh hưởng lịch sinh hoạt của trẻ?", Route.LEGAL_HNGD),
+            ("Công ty không còn khả năng trả các khoản nợ đến hạn, chủ nợ có thể yêu cầu mở thủ tục phá sản không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Công ty niêm yết công bố sai thông tin trước ngày chốt quyền nhận cổ tức thì xử lý thế nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Thực phẩm nhiễm khuẩn gây ngộ độc cho khách hàng, cơ sở sản xuất chịu trách nhiệm gì?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà thuốc bán thuốc kê đơn khi khách không xuất trình đơn thuốc hợp lệ có bị xử phạt không?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà máy khai thác nước ngầm vượt lưu lượng trong giấy phép thì cơ quan quản lý xử lý ra sao?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Trong lúc ly hôn, tài sản chung mua cổ phiếu còn bị điều tra giao dịch nội gián; cần áp dụng luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ bất đồng trường học của con sau ly thân, trong khi trường ra quyết định đình chỉ học; thuộc lĩnh vực nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Vợ chồng thế chấp nhà chung để vay cho doanh nghiệp, sau đó doanh nghiệp yêu cầu mở thủ tục phá sản; cần xét luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ đưa con đi làm trong giờ học tại cơ sở sử dụng lao động chưa đủ tuổi; cần áp dụng những luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Sau ly hôn, cha mẹ tranh luận trách nhiệm với con bị tai nạn lao động do máy móc tại nơi làm việc; áp dụng quy định nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Cha mẹ tranh chấp quyền nuôi con, còn nhà trẻ bị phản ánh để trẻ ăn thực phẩm không bảo đảm an toàn; thuộc luật nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Lập cho tôi lịch tự học tiếng Hàn trong sáu tuần, dành khoảng nửa giờ mỗi ngày.", Route.NON_LEGAL),
+            ("Hướng dẫn tôi chọn khẩu độ và ISO để chụp ảnh chân dung ngoài trời.", Route.NON_LEGAL),
+            ("Giải thích vì sao mạng Wi-Fi mesh phù hợp với nhà nhiều tầng.", Route.NON_LEGAL),
+            ("Gợi ý cho người mới một chuỗi động tác yoga nhẹ để tập ở nhà.", Route.NON_LEGAL),
+            ("Hướng dẫn người mới đọc nốt nhạc và đếm nhịp 4/4 khi học guitar.", Route.NON_LEGAL),
+            ("Giúp tôi tạo bảng Excel ghi giờ ngủ và giờ thức mỗi ngày.", Route.NON_LEGAL),
+        )
+        for query, expected_route in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                expected_action = (
+                    Action.GENERAL_CHAT if expected_route == Route.NON_LEGAL
+                    else Action.POLICY_ABSTENTION
+                    if expected_route in (Route.LEGAL_OUT_OF_SCOPE, Route.MIXED_LEGAL_SCOPE)
+                    else Action.LEGAL_RETRIEVAL
+                )
+                self.assertEqual(decision.action, expected_action)
+
     def test_nonlegal_examples_go_to_general_chat(self):
         cases = (
             "Xin chào, bạn khỏe không?",
@@ -118,9 +215,9 @@ class RuleRouterTest(unittest.TestCase):
 
     def test_mixed_general_and_legal_requests_take_safe_abstention_route(self):
         queries = (
-            "Viết email xin nghỉ phép, công ty nợ lương 3 tháng thì xử lý thế nào?",
+            "Viết email xin nghỉ phép, đồng thời hỏi công ty nợ lương xử lý thế nào theo quy định?",
             "Tôi cần hồ sơ xin việc, nhưng công ty giữ lương trái pháp luật thì khiếu nại ở đâu?",
-            "Gợi ý mua quà sinh nhật cho mẹ; mẹ kế có được hưởng thừa kế không?",
+            "Gợi ý quà sinh nhật cho mẹ; hỏi thêm mẹ kế có được hưởng thừa kế không?",
             "Tôi muốn học Python, đồng thời hỏi vợ chồng có quyền chia tài sản chung thế nào?",
         )
         for query in queries:
@@ -130,9 +227,209 @@ class RuleRouterTest(unittest.TestCase):
                 self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
                 self.assertEqual(decision.route_reason, RouteReason.MIXED_LEGAL_SCOPE)
 
+    def test_r4_mixed_legal_request_is_never_overridden_by_nonlegal_signal(self):
+        queries = (
+            "Viết email xin nghỉ phép, đồng thời hỏi công ty nợ lương xử lý thế nào theo quy định?",
+            "Tôi cần hồ sơ xin việc, nhưng công ty giữ lương trái pháp luật thì khiếu nại ở đâu?",
+            "Gợi ý quà sinh nhật cho mẹ; hỏi thêm mẹ kế có được hưởng thừa kế không?",
+            "Tôi muốn học Python, đồng thời hỏi vợ chồng có quyền chia tài sản chung thế nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertNotEqual(decision.action, Action.GENERAL_CHAT)
+                self.assertEqual(decision.route, Route.MIXED_LEGAL_SCOPE)
+                self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+
+    def test_r4_criminal_and_civil_out_of_scope_queries_abstain(self):
+        queries = (
+            "Trộm cắp tài sản 5 triệu đi tù mấy năm?",
+            "Phạm tội cố ý gây thương tích bị phạt bao nhiêu năm?",
+            "Thuê nhà mà chủ nhà không trả tiền cọc thì làm sao?",
+            "Tôi bị lừa chuyển khoản 50 triệu, có lấy lại được không?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_OUT_OF_SCOPE)
+                self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+
+    def test_r4_hngd_support_queries_with_labor_capacity_are_not_mixed(self):
+        queries = (
+            "Con da thanh nien nhung mat kha nang lao dong va khong co tai san tu nuoi song co the yeu cau cha me tiep tuc cap duong khong?",
+            "Người con có phải thực hiện nghĩa vụ cấp dưỡng cho cha mẹ đã cao tuổi và không còn khả năng lao động trong trường hợp nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+
+    def test_r4_consumer_warranty_dispute_is_out_of_scope(self):
+        decision = self.router.route(
+            "Người mua xe điện phát hiện lỗi pin lặp lại nhưng nhà phân phối từ chối bảo hành, cơ quan nào có thể giải quyết tranh chấp?"
+        )
+        self.assertEqual(decision.route, Route.LEGAL_OUT_OF_SCOPE)
+        self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+
+    def test_r4_ordinary_bank_transfer_is_nonlegal_not_out_of_scope(self):
+        decision = self.router.route("Hướng dẫn chuyển khoản ngân hàng như thế nào?")
+        self.assertEqual(decision.route, Route.NON_LEGAL)
+        self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_r4_social_general_knowledge_and_entertainment_are_nonlegal(self):
+        queries = (
+            "Cảm ơn bạn nhé!",
+            "Chào buổi sáng.",
+            "Chào bạn, hôm nay bạn có thể trò chuyện với tôi một chút không?",
+            "Thủ đô của Úc là gì?",
+            "Kể chuyện cười đi.",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.NON_LEGAL)
+                self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_r4_social_phrase_inside_legal_query_does_not_override_intent(self):
+        decision = self.router.route(
+            "Cảm ơn bạn, nhưng vợ chồng có quyền chia tài sản thế nào?"
+        )
+        self.assertNotEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_creative_request_about_divorce_remains_nonlegal(self):
+        decision = self.router.route("Viết một bài thơ về ly hôn")
+        self.assertEqual(decision.route, Route.NON_LEGAL)
+        self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
     def test_classifier_version_is_incremented_for_router_precedence_change(self):
         decision = self.router.route("Chào bạn")
-        self.assertEqual(decision.classifier_version, "rule_router_v2")
+        self.assertEqual(decision.classifier_version, "rule_router_v5")
+
+    def test_v4_review_inspired_paraphrases_cover_domain_groups_and_precedence(self):
+        cases = (
+            # HNGD family relationships and less common family-law concepts.
+            ("Trong gia đình, khi cha mẹ không thể tự chăm sóc, các con có phải hỗ trợ nhau theo quy định không?", Route.LEGAL_HNGD),
+            ("Ông bà cần chu cấp cho cháu khi cha mẹ cháu không còn trong trường hợp nào?", Route.LEGAL_HNGD),
+            ("Cha mẹ có thể làm người giám hộ cho con chưa thành niên trong trường hợp nào?", Route.LEGAL_HNGD),
+            ("Việc xúc phạm danh dự, nhân phẩm của thành viên trong gia đình được pháp luật quy định ra sao?", Route.LEGAL_HNGD),
+            # Other legal domains covered by contextual groups.
+            ("Ai giải quyết việc sử dụng trái phép nhãn hiệu đã đăng ký?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Người nước ngoài cần thủ tục gì để xin thị thực nhập cảnh?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Giới hạn thời giờ làm thêm theo pháp luật lao động là bao nhiêu?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Hộ kinh doanh trực tuyến phải kê khai và nộp thuế thế nào?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Người đi xe máy bị phạt vì không đội mũ bảo hiểm thì khiếu nại ở đâu?", Route.LEGAL_OUT_OF_SCOPE),
+            ("Nhà máy gây tiếng ồn vượt quy chuẩn thì cơ quan nào xử lý?", Route.LEGAL_OUT_OF_SCOPE),
+            # HNGD plus another legal domain must abstain as mixed.
+            ("Khi chia tài sản sau ly hôn, phần vốn góp tại công ty TNHH và quyền biểu quyết được xử lý thế nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Sau khi cha mẹ ly hôn, họ bất đồng về việc cho con đi du học ở nước ngoài; cần áp dụng quy định nào?", Route.MIXED_LEGAL_SCOPE),
+            ("Chia căn nhà sau ly hôn khi căn nhà thuộc diện thu hồi đất thì cần xem xét luật nào?", Route.MIXED_LEGAL_SCOPE),
+            # Clear practical requests stay nonlegal.
+            ("Viết đoạn mã Python đảo ngược một chuỗi ký tự.", Route.NON_LEGAL),
+            ("Lên lịch hai ngày tham quan ở Đà Nẵng cho tôi.", Route.NON_LEGAL),
+            ("Vì sao sao băng phát sáng khi đi vào khí quyển?", Route.NON_LEGAL),
+            ("Cây trầu bà trong nhà bị vàng lá, có thể do nguyên nhân gì?", Route.NON_LEGAL),
+            # Accent-folding must not confuse a company legal phrase with a greeting.
+            ("Chào bạn!", Route.NON_LEGAL),
+            ("Chào bạn, tôi muốn hỏi về thủ tục ly hôn.", Route.LEGAL_HNGD),
+            ("Thành viên công ty TNHH muốn chào bán phần vốn góp cho ai trước?", Route.LEGAL_OUT_OF_SCOPE),
+        )
+        for query, expected_route in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                if expected_route in (Route.LEGAL_OUT_OF_SCOPE, Route.MIXED_LEGAL_SCOPE):
+                    self.assertEqual(decision.action, Action.POLICY_ABSTENTION)
+                elif expected_route in (Route.LEGAL_HNGD,):
+                    self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+                elif expected_route == Route.NON_LEGAL:
+                    self.assertEqual(decision.action, Action.GENERAL_CHAT)
+
+    def test_v5_generalized_domain_and_precedence_rules(self):
+        cases = (
+            # HNGD cases that must not trigger external civil-status or criminal sentencing false positives.
+            ("Hai người cùng giới tính muốn đăng ký kết hôn tại cơ quan hộ tịch có được công nhận không?", Route.LEGAL_HNGD, Action.LEGAL_RETRIEVAL),
+            ("Ly hôn với người phối ngẫu đang chấp hành án phạt tù được thụ lý theo nguyên tắc nào?", Route.LEGAL_HNGD, Action.LEGAL_RETRIEVAL),
+            ("Người cha muốn yêu cầu Tòa án xác định mình là cha của đứa trẻ khi mẹ không hợp tác?", Route.LEGAL_HNGD, Action.LEGAL_RETRIEVAL),
+            ("Con riêng của vợ có nghĩa vụ nuôi dưỡng cha dượng khi già yếu không?", Route.LEGAL_HNGD, Action.LEGAL_RETRIEVAL),
+            # Agricultural land-use terms ("trồng cây lâu năm") must not be confused with gardening chat.
+            ("Theo quy định đất đai, hộ gia đình chuyển đất trồng cây lâu năm sang đất ở phải xin phép cơ quan nào?", Route.LEGAL_OUT_OF_SCOPE, Action.POLICY_ABSTENTION),
+            # Unseen external legal domains (maritime, telecom, antitrust, commerce) abstain out of scope.
+            ("Tàu biển làm hư hỏng hàng hóa trên biển thì trách nhiệm hàng hải quy định ra sao?", Route.LEGAL_OUT_OF_SCOPE, Action.POLICY_ABSTENTION),
+            ("Nhà mạng viễn thông kích hoạt sim rác không chính chủ bị xử phạt theo quy định viễn thông nào?", Route.LEGAL_OUT_OF_SCOPE, Action.POLICY_ABSTENTION),
+            ("Doanh nghiệp vi phạm quy định về tập trung kinh tế và cạnh tranh không lành mạnh bị xử lý thế nào?", Route.LEGAL_OUT_OF_SCOPE, Action.POLICY_ABSTENTION),
+            # HNGD + external regulatory regime must route to MIXED_LEGAL_SCOPE.
+            ("Khi ly hôn, vợ chồng tranh chấp tàu biển đang bị cảng vụ giữ do vi phạm hàng hải; áp dụng luật nào?", Route.MIXED_LEGAL_SCOPE, Action.POLICY_ABSTENTION),
+            # Everyday non-legal hobbies / how-to queries with zero legal intent stay NON_LEGAL.
+            ("Món phở bò nấu thế nào cho nước dùng trong?", Route.NON_LEGAL, Action.GENERAL_CHAT),
+            ("Cách vệ sinh máy lạnh tại nhà an toàn mà hiệu quả?", Route.NON_LEGAL, Action.GENERAL_CHAT),
+            ("Giải thích định lý Pythagore một cách dễ hiểu.", Route.NON_LEGAL, Action.GENERAL_CHAT),
+            # Ambiguous legal queries naming generic organizations with missing legal basis remain UNCERTAIN.
+            ("Hồ sơ tại một cơ sở y tế ghi tôi từ chối điều trị dù tôi không nhớ đã ký xác nhận; giá trị pháp lý ra sao?", Route.LEGAL_SCOPE_UNCERTAIN, Action.LEGAL_RETRIEVAL),
+            ("Tôi nhận được văn bản yêu cầu chấm dứt một thỏa thuận nhưng chưa nêu rõ căn cứ; cần kiểm tra quy định nào?", Route.LEGAL_SCOPE_UNCERTAIN, Action.LEGAL_RETRIEVAL),
+        )
+        for query, expected_route, expected_action in cases:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, expected_route)
+                self.assertEqual(decision.action, expected_action)
+                canonical = decision.to_canonical()
+                expected_canonical = {
+                    Route.LEGAL_HNGD: "LEGAL_IN_SCOPE",
+                    Route.LEGAL_OUT_OF_SCOPE: "LEGAL_OUT_OF_SCOPE",
+                    Route.MIXED_LEGAL_SCOPE: "MIXED_REVIEW",
+                    Route.LEGAL_SCOPE_UNCERTAIN: "MIXED_REVIEW",
+                    Route.NON_LEGAL: "NON_LEGAL",
+                }[expected_route]
+                self.assertEqual(canonical.route, expected_canonical)
+
+    def test_consumed_week10_holdouts_are_regression_data_not_independent_holdouts(self):
+        root = Path(__file__).resolve().parents[2]
+        datasets = (
+            root / "evaluation/router_holdout/router_holdout_week10_v1.jsonl",
+            root / "evaluation/router_holdout/router_holdout_week10_v2.jsonl",
+            root / "evaluation/router_holdout/router_holdout_week10_v3.jsonl",
+            root / "evaluation/router_holdout/router_holdout_week10_v4.jsonl",
+            root / "evaluation/router_holdout/router_holdout_week10_v5.jsonl",
+        )
+        count = 0
+        for dataset in datasets:
+            with self.subTest(dataset=dataset.name):
+                rows = [
+                    json.loads(line)
+                    for line in dataset.read_text(encoding="utf-8-sig").splitlines()
+                    if line.strip()
+                ]
+                self.assertEqual(len(rows), 36)
+                for row in rows:
+                    with self.subTest(query_id=row["id"]):
+                        decision = self.router.route(row["query"], query_id=row["id"])
+                        self.assertEqual(decision.route.value, row["expected_route"])
+                        self.assertEqual(decision.action.value, row["expected_action"])
+                        if row["expected_route"] != Route.NON_LEGAL.value:
+                            self.assertNotEqual(decision.action, Action.GENERAL_CHAT)
+                        count += 1
+        self.assertEqual(count, 180)
+
+    def test_dev_hngd_property_queries_keep_hngd_retrieval(self):
+        root = Path(__file__).resolve().parents[2]
+        rows = json.loads(
+            (root / "data/benchmark/queries_dev.json").read_text(encoding="utf-8-sig")
+        )
+        property_terms = (
+            "tai_san", "tài sản", "lương", "của chung", "quyền sử dụng đất", "vốn góp"
+        )
+        property_rows = [
+            row for row in rows
+            if any(term in f"{row.get('category', '')} {row['question']}".casefold()
+                   for term in property_terms)
+        ]
+        self.assertEqual(len(property_rows), 60)
+        for row in property_rows:
+            with self.subTest(query_id=row["id"]):
+                decision = self.router.route(row["question"], query_id=row["id"])
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
 
     def test_generic_legal_request_enters_retrieval_for_confidence_gate(self):
         decision = self.router.route("Tôi cần tư vấn pháp luật")
@@ -179,6 +476,48 @@ class RuleRouterTest(unittest.TestCase):
         ):
             with self.subTest(query=query):
                 self.assertEqual(self.router.route(query).route, Route.LEGAL_HNGD)
+
+    def test_spouse_death_routes_by_the_actual_legal_issue(self):
+        decision = self.router.route(
+            "Chồng mất, nhà đứng tên chồng thì vợ có được ở tiếp không?"
+        )
+        self.assertEqual(decision.route, Route.LEGAL_HNGD)
+        self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
+
+        inheritance = self.router.route(
+            "Chồng mất không để lại di chúc. Phần di sản của chồng sẽ được chia theo hàng thừa kế nào?"
+        )
+        self.assertEqual(inheritance.route, Route.LEGAL_OUT_OF_SCOPE)
+        self.assertEqual(inheritance.action, Action.POLICY_ABSTENTION)
+
+        mixed_inheritance = self.router.route(
+            "Khi chồng mất, tài sản chung của vợ chồng được xác định thế nào trước khi chia thừa kế?"
+        )
+        self.assertEqual(mixed_inheritance.route, Route.MIXED_LEGAL_SCOPE)
+        self.assertEqual(mixed_inheritance.action, Action.POLICY_ABSTENTION)
+
+        marital_inheritance = self.router.route(
+            "Tài sản thừa kế trong thời kỳ hôn nhân có phải tài sản chung không?"
+        )
+        self.assertEqual(marital_inheritance.route, Route.LEGAL_HNGD)
+        self.assertEqual(marital_inheritance.action, Action.LEGAL_RETRIEVAL)
+
+        control = self.router.route(
+            "Tài sản thừa kế trong thời kỳ hôn nhân có phải tài sản chung không?"
+        )
+        self.assertEqual(control.route, Route.LEGAL_HNGD)
+        self.assertEqual(control.action, Action.LEGAL_RETRIEVAL)
+
+    def test_official_dev_queries_about_spouse_declared_dead_remain_hngd(self):
+        queries = (
+            "Theo Luật Hôn nhân và gia đình 2014, trường hợp liên quan đến giải quyết tài sản của vợ chồng trong trường hợp một bên chết hoặc bị Tòa án tuyên bố là đã chết được giải quyết theo căn cứ nào và phát sinh hậu quả gì?",
+            "Theo Luật Hôn nhân và gia đình 2014, việc xác định hoặc xử lý quan hệ nhân thân, tài sản khi vợ, chồng bị tuyên bố là đã chết mà trở về dựa trên nguyên tắc nào?",
+        )
+        for query in queries:
+            with self.subTest(query=query):
+                decision = self.router.route(query)
+                self.assertEqual(decision.route, Route.LEGAL_HNGD)
+                self.assertEqual(decision.action, Action.LEGAL_RETRIEVAL)
 
     def test_generic_employment_and_admission_paperwork_stays_nonlegal(self):
         for query in (
@@ -367,6 +706,27 @@ class FastPathTest(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "pattern bị trùng"):
             RuleRouter([first, second])
+
+
+@pytest.mark.req("FR1.3-AC1")
+@pytest.mark.parametrize(("query", "raw_route", "action", "canonical_route"), [
+    ("Tuổi kết hôn của nữ là bao nhiêu?", "LEGAL_HNGD", "LEGAL_RETRIEVAL", "LEGAL_IN_SCOPE"),
+    ("Xin chào", "NON_LEGAL", "GENERAL_CHAT", "NON_LEGAL"),
+    ("Thủ tục thành lập doanh nghiệp tư nhân thế nào?", "LEGAL_OUT_OF_SCOPE", "POLICY_ABSTENTION", "LEGAL_OUT_OF_SCOPE"),
+    ("Tôi muốn ly hôn và thành lập doanh nghiệp tư nhân thì cần thủ tục gì?", "MIXED_LEGAL_SCOPE", "POLICY_ABSTENTION", "MIXED_REVIEW"),
+    ("Tôi cần tư vấn pháp luật", "LEGAL_SCOPE_UNCERTAIN", "LEGAL_RETRIEVAL", "MIXED_REVIEW"),
+])
+def test_public_router_boundary_preserves_raw_route_and_action(query, raw_route, action, canonical_route):
+    from agent.router import RuleRouterAdapter
+
+    raw = RuleRouter().route(query, query_id="boundary", as_of_date="2026-10-15")
+    converted = RuleRouterAdapter().route(query=query, query_id="boundary", as_of_date="2026-10-15")
+    assert (raw.route.value, raw.action.value) == (raw_route, action)
+    assert converted == raw.to_canonical()
+    assert converted.route == canonical_route and converted.action == action
+    assert f"{raw_route} -> {action}" in converted.explanation
+    assert converted.reason_code == raw.route_reason.value
+    assert converted.policy_version == raw.classifier_version == "rule_router_v5"
 
 
 if __name__ == "__main__":

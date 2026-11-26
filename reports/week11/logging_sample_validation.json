@@ -1,0 +1,17 @@
+{
+  "path": "logs/sample_request.jsonl",
+  "sha256": "ccecf7e284536dfa81ee30172c482ffd6c12d26661075cb969ce2acc392bf067",
+  "events": 9,
+  "query_ids": [
+    "S11_SAMPLE_INVALID",
+    "S11_SAMPLE_QUERY",
+    "S11_SAMPLE_UNAUTHORIZED"
+  ],
+  "canonical_logevent_validation": "PASS",
+  "known_synthetic_sensitive_literals_absent": true,
+  "stats": {
+    "enqueued": 9,
+    "written": 9
+  },
+  "provenance": "Synthetic events only; duration and hashes are illustrative, not measured RAG performance or production artifact hashes."
+}

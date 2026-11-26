@@ -1,0 +1,403 @@
+{
+  "experiment_id": "d4_5_topk_output_cutoff_20261116",
+  "experiment_scope": "reranked_output_cutoff_only",
+  "selected_query_count": 45,
+  "selected_query_ids": [
+    "HN_003",
+    "HN_008",
+    "HN_019",
+    "HN_022",
+    "HN_051",
+    "HN_052",
+    "HN_054",
+    "HN_055",
+    "HN_056",
+    "HN_078",
+    "HN_082",
+    "HN_088",
+    "HN_114",
+    "HN_130",
+    "HN_169",
+    "HN_176",
+    "HN_177",
+    "HN_183",
+    "HN_187",
+    "HN_192",
+    "HN_196",
+    "HN_197",
+    "HN_208",
+    "HN_210",
+    "HN_215",
+    "HN_219",
+    "HN_220",
+    "HN_221",
+    "HN_230",
+    "HN_231",
+    "HN_242",
+    "HN_249",
+    "HN_250",
+    "HN_255",
+    "HN_256",
+    "HN_261",
+    "HN_271",
+    "HN_275",
+    "HN_282",
+    "HN_284",
+    "HN_288",
+    "HN_290",
+    "HN_294",
+    "HN_296",
+    "HN_298"
+  ],
+  "excluded_official_id_count": 30,
+  "selection_rule": "split=dev; review_status=source_checked; gold_context_ids_confirmed=true; non-empty gold_context_ids; exclude dev_gold_30_ids_v1.txt",
+  "source_artifact_path": "retrieval/results/dev_hybrid_reranker.json",
+  "source_artifact_sha256": "738a07c63bb4812bd3a2f9a5e6bb3a57fc5358515057def63d87fc6c2d764dc7",
+  "precompute_manifest_path": "reports/retrieval/precompute_manifest.json",
+  "precompute_manifest_sha256": "83204a468ecfa647d0b35224b38cddf9c008165998dfc2866fa5d48721491f8e",
+  "corpus_sha256_normalized": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+  "retrieval_config_sha256_normalized": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
+  "rerank_config_sha256_normalized": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471",
+  "retriever": "Hybrid BM25 + Dense BGE-M3 + RRF (rrf_k=60)",
+  "retrieval_top_k": 50,
+  "result_top_k": 10,
+  "rerank_top_k": 5,
+  "observed_result_top_k": 10,
+  "result_top_k_configured": 10,
+  "rerank_top_k_configured": 5,
+  "baseline_effective_output_top_k": 5,
+  "experiment_effective_output_top_k": 10,
+  "top_k_interpretation": {
+    "retrieval_top_k": "50 raw Hybrid candidates fetched before reranking",
+    "rerank_top_k_configured": "5 default output cutoff configured in reranking/config.yaml",
+    "result_top_k_configured": "10 output cutoff configured in retrieval/config.yaml; CLI/pipeline may override the reranker default",
+    "experiment_effective_output_top_k": "10 observed in each saved artifact row and in its 10 saved ranked results"
+  },
+  "candidate_pool_50_provenance": {
+    "reported_scored_candidates": 50,
+    "raw_candidate_artifact_available_for_all_selected_queries": false,
+    "verification_status": "NOT_INDEPENDENTLY_VERIFIABLE",
+    "note": "The saved artifact retains only 10 ranked outputs per query; candidate-pool count 50 is recorded in stats, while the configured source path is unavailable in this workspace."
+  },
+  "reranker": "BAAI/bge-reranker-v2-m3",
+  "candidate_text": "document_breadcrumb_chunk_text",
+  "cutoffs_compared": [
+    5,
+    10
+  ],
+  "controlled_variable": "post-reranking output cutoff only; Top-5 is a prefix of the same saved Top-10 ranking and scores",
+  "unchanged_variables": [
+    "query set",
+    "corpus",
+    "saved Top-10 ranking and scores",
+    "retriever metadata",
+    "reranker model metadata",
+    "temporal date",
+    "gold labels"
+  ],
+  "no_llm_inference": true,
+  "no_retrieval_or_reranking_rerun": true,
+  "per_query_validation": {
+    "HN_003": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_008": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_019": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_022": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_051": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_052": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_054": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_055": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_056": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_078": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_082": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_088": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_114": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_130": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_169": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_176": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_177": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_183": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_187": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_192": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_196": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_197": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_208": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_210": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_215": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_219": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_220": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_221": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_230": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_231": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_242": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_249": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_250": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_255": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_256": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_261": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_271": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_275": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_282": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_284": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_288": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_290": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_294": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_296": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    },
+    "HN_298": {
+      "candidate_pool_scored_reported": 50,
+      "raw_candidate_pool_available": false,
+      "saved_output_count": 10
+    }
+  },
+  "created_at_utc": "2026-11-16T15:32:30.852591+00:00",
+  "metrics_path": "evaluation/results/dev/topk_cutoff_20261116_metrics.json",
+  "metrics_sha256": "76cb6fb6b07bc0aa770827f81529a24dbbc1eafa751bef04aa3683eb7f6a7f82",
+  "metrics_average": {
+    "strict_match_recall@5": 0.6358730158730158,
+    "mrr@5": 0.7,
+    "ndcg@5": 0.6243919000767152,
+    "precision@5": 0.3377777777777778,
+    "strict_match_recall@10": 0.7105291005291006,
+    "mrr@10": 0.7,
+    "ndcg@10": 0.6559813435460284,
+    "precision@10": 0.2066666666666667,
+    "parent_match_recall@5": 0.8845238095238095,
+    "parent_match_recall@10": 0.9523809523809524
+  },
+  "paired_bootstrap_delta_top10_minus_top5": {
+    "strict_match_recall": {
+      "mean_delta_top10_minus_top5": 0.07465608465608466,
+      "ci95": {
+        "lower": 0.03888888888888889,
+        "upper": 0.11576719576719577
+      },
+      "n": 45
+    },
+    "mrr": {
+      "mean_delta_top10_minus_top5": 0.0,
+      "ci95": {
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "n": 45
+    },
+    "ndcg": {
+      "mean_delta_top10_minus_top5": 0.0315894434693132,
+      "ci95": {
+        "lower": 0.012032535030824576,
+        "upper": 0.053285805214935276
+      },
+      "n": 45
+    },
+    "precision": {
+      "mean_delta_top10_minus_top5": -0.13111111111111112,
+      "ci95": {
+        "lower": -0.17333333333333334,
+        "upper": -0.09111111111111113
+      },
+      "n": 45
+    },
+    "parent_match_recall": {
+      "mean_delta_top10_minus_top5": 0.06785714285714285,
+      "ci95": {
+        "lower": 0.02797619047619047,
+        "upper": 0.11488095238095239
+      },
+      "n": 28
+    }
+  },
+  "interpretation": "Chỉ đo thay đổi của cutoff Top-5 so với Top-10 trên cùng ranking đã lưu. Không đánh giá chất lượng câu trả lời, độ trễ end-to-end hoặc hiệu quả của lần chạy retrieval mới.",
+  "post_run_verification": {
+    "verified_date": "2026-11-16",
+    "artifact_rows": 270,
+    "rows_with_saved_top10_only": 270,
+    "rows_reporting_scored_candidates_50": 270,
+    "raw_candidate_pool_path_available": false,
+    "raw_candidate_pool_has_chunk_ids_and_scores_for_50": false,
+    "elasticsearch_url_configured": false,
+    "qdrant_url_configured": false,
+    "localhost_elasticsearch_9200_reachable": false,
+    "localhost_qdrant_6333_reachable": false,
+    "qdrant_local_storage_present": true,
+    "hybrid_retrieval_rerun": false,
+    "reranker_rerun": false,
+    "ollama_rerun": false,
+    "paired_downstream_grounding_or_citation_measured": false,
+    "verification_status": "SAVED_CUTOFF_METRICS_REPRODUCED; RAW_POOL_AND_DOWNSTREAM_NOT_VERIFIABLE_IN_CURRENT_ENVIRONMENT"
+  }
+}

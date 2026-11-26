@@ -1,0 +1,124 @@
+{
+  "fixture_count": 18,
+  "source": "synthetic_authored_sprint11",
+  "method": "Exact normalized text and ID comparison; no predictions or label edits; no semantic-independence claim.",
+  "inputs": [
+    {
+      "ref": "origin/testing",
+      "commit": "03a498924d0d134d2abc861599db94920f7291db",
+      "path": "data/benchmark/queries_dev.json",
+      "sha256": "556bb2975f893f913ce76be46fe520f46263999bbee1b2c6a86a08f1c2b2ad70",
+      "records": 270,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/testing",
+      "commit": "03a498924d0d134d2abc861599db94920f7291db",
+      "path": "data/benchmark/queries_test.json",
+      "sha256": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
+      "records": 30,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/testing",
+      "commit": "03a498924d0d134d2abc861599db94920f7291db",
+      "path": "evaluation/negative_set/dev_negative_queries_v1.jsonl",
+      "sha256": "5b0eb80dcdde2e8eee8d3d93b72fe684acd9196eac32be941dda29593b261640",
+      "records": 24,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/testing",
+      "commit": "03a498924d0d134d2abc861599db94920f7291db",
+      "path": "evaluation/negative_set/dev_negative_queries_v2.jsonl",
+      "sha256": "e571c583dc11117df1199aaec41b56e51eb461a7c0edc9b3a64bca616e78656f",
+      "records": 26,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "data/benchmark/queries_dev.json",
+      "sha256": "556bb2975f893f913ce76be46fe520f46263999bbee1b2c6a86a08f1c2b2ad70",
+      "records": 270,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "data/benchmark/queries_test.json",
+      "sha256": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
+      "records": 30,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/negative_set/dev_negative_queries_v2.jsonl",
+      "sha256": "0d42b21498b934af9496341ab7bea252ae3eb5eae7168649a522eb27d361988e",
+      "records": 26,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v1.jsonl",
+      "sha256": "30490808054ae620fbd4ebd43feb13d2d701a6eef046875fac821a931d6f402d",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v2.jsonl",
+      "sha256": "d2cd4087b8d81048e63074b2fdb31aceadd3d18dedc678b956b801693c815e49",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v3.jsonl",
+      "sha256": "22e1460d1b3ff85112fd51e588cfa8022ca062be9d8cc7988c9c861700b6603e",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v4.jsonl",
+      "sha256": "1048ea99b8f05a965cc552d138046e2ee2783e956dfa3bb880939e6824eb549c",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v5.jsonl",
+      "sha256": "e15b154336cf45b3a836a6521a44c9ea4ab8d3f7066a4676384c6f7f54fd33e3",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    },
+    {
+      "ref": "origin/sprint10_Dev4_Rule-Router_Retrieval-Adapter",
+      "commit": "23a821f7143c66b792cd5761870fbd95d07c0c6b",
+      "path": "evaluation/router_holdout/router_holdout_week10_v6.jsonl",
+      "sha256": "c1db665fd29e75ec6ef287642e5391a8401ef9167991e442c552f330f3a5127c",
+      "records": 36,
+      "exact_normalized_query_overlap": 0,
+      "id_overlap": 0
+    }
+  ]
+}

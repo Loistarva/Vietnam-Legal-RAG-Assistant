@@ -630,11 +630,11 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 
 | Thay đổi | Yêu cầu | Phiên bản | Trạng thái |
 | --- | --- | --- | --- |
-| `ErrorCode` thêm `LLM_UNAVAILABLE` (HTTP 503); Gateway trả mã này khi không kết nối được model | FR6.4 | `week10_v1.1` | Duyệt 17/11/2026 |
-| `EventStage` thêm `confidence` | FR9.9, FR3.1 | `week10_v1.1` | Duyệt 17/11/2026 |
-| `EvidenceItem.point_ref` (optional) | FR4.7, IR1.4 | `week10_v1.1` | Duyệt 17/11/2026 |
-| `RetrievalBundle.metadata_filters`, `RetrievalBundle.latency_breakdown` (optional) | FR2.11, FR9.4 | `week10_v1.1` | Owner Contract đồng ý 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản thống nhất |
-| `RAGOutputRecord.route: RouteType \| None = None` | FR1.9, FR9.8 | `week10_v1.1` | Owner Contract đồng ý 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản thống nhất; bản ghi cũ thiếu `route` vẫn hợp lệ |
+| `ErrorCode` thêm `LLM_UNAVAILABLE` (HTTP 503); Gateway trả mã này khi không kết nối được model | FR6.4 | `week10_v1.1` | Duyệt 17/11/2026; đã gộp vào `week10_v1.1` (PR #60) |
+| `EventStage` thêm `confidence` | FR9.9, FR3.1 | `week10_v1.1` | Duyệt 17/11/2026; đã gộp vào `week10_v1.1` (PR #60) |
+| `EvidenceItem.point_ref` (optional) | FR4.7, IR1.4 | `week10_v1.1` | Duyệt 17/11/2026; đã gộp vào `week10_v1.1` (PR #60) |
+| `RetrievalBundle.metadata_filters`, `RetrievalBundle.latency_breakdown` (optional) | FR2.11, FR9.4 | `week10_v1.1` | Đã duyệt và gộp vào bản `week10_v1.1` thống nhất (PR #56 + PR #60) |
+| `RAGOutputRecord.route: RouteType \| None = None` | FR1.9, FR9.8 | `week10_v1.1` | Đã duyệt và gộp vào bản `week10_v1.1` thống nhất (PR #56 + PR #60); bản ghi cũ thiếu `route` vẫn hợp lệ |
 | `AskResponse.session_id`, `LogEvent.session_id`, stage `session` | FR7.1, FR7.2 | Khi FR7.2 vào sprint | Dự kiến |
 | `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | NFR3.2 | Khi NFR3.2 vào sprint | Dự kiến |
 

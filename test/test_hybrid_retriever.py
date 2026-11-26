@@ -126,6 +126,66 @@ class HybridRetrieverTest(unittest.TestCase):
                 results = reciprocal_rank_fusion(result_lists)
                 self.assertEqual({row["chunk_id"] for row in results}, expected_ids)
 
+    def test_same_typed_metadata_filter_reaches_bm25_and_dense_and_records_stage_latency(self):
+        class Static:
+            def __init__(self):
+                self.received_filters = None
+
+            def search(self, query, top_k, *, as_of_date, metadata_filters):
+                self.received_filters = metadata_filters
+                return [{"chunk_id": "article-8", "document_id": "law-1", "article_id": "article-8",
+                         "metadata": {"document_number": "52/2014/QH13"}, "score": 1.0}]
+
+        bm25, dense = Static(), Static()
+        retriever = HybridRetriever(bm25, dense, HybridSearchConfig(top_k=1, candidate_k=2))
+        stage_latency = {}
+        filters = {"document_number": "52/2014/QH13", "article_id": "article-8"}
+        result = retriever.search("query", top_k=1, as_of_date="2026-10-15",
+                                  metadata_filters=filters, latency_trace=stage_latency)
+
+        self.assertEqual(bm25.received_filters, filters)
+        self.assertEqual(dense.received_filters, filters)
+        self.assertEqual([row["chunk_id"] for row in result], ["article-8"])
+        self.assertGreaterEqual(stage_latency["bm25"], 0)
+        self.assertGreaterEqual(stage_latency["dense"], 0)
+        self.assertGreaterEqual(stage_latency["rrf_ms"], 0)
+
+    def test_elasticsearch_bm25_metadata_filters_use_keyword_terms(self):
+        class ElasticsearchStub:
+            class Indices:
+                def get_mapping(self, index):
+                    return {index: {"mappings": {"_meta": {
+                        "bm25_tokenizer": "underthesea",
+                        "bm25_tokenizer_version": "9.5.0",
+                        "bm25_text_field": "content_segmented",
+                    }}}}
+
+            indices = Indices()
+
+            def search(self, **kwargs):
+                self.query = kwargs["query"]["bool"]
+                return {"hits": {"hits": [
+                    {"_id": "match", "_score": 2.0, "_source": {
+                        "chunk_id": "match", "content": "Điều 8", "document_id": "law-1",
+                        "article_id": "art-8", "clause_id": "clause-1",
+                        "metadata": {"document_number": "52/2014/QH13"},
+                    }},
+                    {"_id": "miss", "_score": 1.0, "_source": {
+                        "chunk_id": "miss", "content": "Điều 9", "document_id": "law-2",
+                        "article_id": "art-9", "clause_id": "clause-1",
+                        "metadata": {"document_number": "22/2000/QH10"},
+                    }},
+                ]}}
+
+        client = ElasticsearchStub()
+        rows = ElasticsearchBM25Retriever(client, "legal-chunks").search(
+            "query", 5, as_of_date="2026-10-15",
+            metadata_filters={"document_number": "52/2014/QH13", "article_id": "art-8"},
+        )
+        terms = [condition["term"] for condition in client.query["filter"] if "term" in condition]
+        self.assertEqual(terms, [{"metadata.document_number": "52/2014/QH13"}, {"article_id": "art-8"}])
+        self.assertEqual([row["chunk_id"] for row in rows], ["match"])
+
     def test_rrf_rejects_invalid_top_k_and_rrf_k(self):
         invalid_options = [
             ({"top_k": 0}, "top_k phải là số nguyên lớn hơn 0"),

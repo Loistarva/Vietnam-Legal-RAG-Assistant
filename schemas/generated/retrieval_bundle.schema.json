@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "$defs": {
     "CandidateChunk": {
       "additionalProperties": false,
@@ -211,14 +211,183 @@
       ],
       "title": "CandidateChunk",
       "type": "object"
+    },
+    "MetadataFilters": {
+      "additionalProperties": false,
+      "description": "Serializable exact-match filters shared by BM25 and Dense retrieval.",
+      "properties": {
+        "document_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Type"
+        },
+        "document_number": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Number"
+        },
+        "document_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Id"
+        },
+        "article_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Article Id"
+        },
+        "clause_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clause Id"
+        },
+        "validity_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Validity Status"
+        }
+      },
+      "title": "MetadataFilters",
+      "type": "object"
+    },
+    "RetrievalLatencyBreakdown": {
+      "additionalProperties": false,
+      "description": "Stage timings measured by retrieval; null means that a stage was not measured.",
+      "properties": {
+        "bm25_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bm25 Ms"
+        },
+        "dense_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dense Ms"
+        },
+        "rrf_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rrf Ms"
+        },
+        "reranking_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reranking Ms"
+        },
+        "parent_context_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Context Ms"
+        },
+        "total_retrieval_ms": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Retrieval Ms"
+        }
+      },
+      "title": "RetrievalLatencyBreakdown",
+      "type": "object"
     }
   },
   "additionalProperties": false,
   "description": "Gói kết quả truy xuất ứng viên trước khi xây ContextPayload (D3.1).",
   "properties": {
     "schema_version": {
-      "const": "week10_v1.0",
-      "default": "week10_v1.0",
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
       "title": "Schema Version",
       "type": "string"
     },
@@ -294,6 +463,28 @@
       ],
       "default": null,
       "title": "Top K"
+    },
+    "metadata_filters": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/MetadataFilters"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "latency_breakdown": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RetrievalLatencyBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     }
   },
   "required": [

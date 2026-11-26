@@ -160,6 +160,25 @@ def test_expired_documents_are_filtered_out(retriever_with_data):
         assert item["metadata"]["validity_status"] != "Hết hiệu lực"
 
 
+def test_dense_metadata_filters_apply_before_top_k_with_shared_exact_match(retriever_with_data):
+    hits = retriever_with_data.search(
+        "điều kiện kết hôn", top_k=5, as_of_date="2026-10-15",
+        filters={"document_number": "52/2014/QH13", "validity_status": "Còn hiệu lực"},
+    )
+    assert hits
+    assert all(hit["document_id"] == "l_52_2014_qh13" for hit in hits)
+    assert all(hit["metadata"]["validity_status"] == "Còn hiệu lực" for hit in hits)
+
+    no_match = retriever_with_data.search(
+        "điều kiện kết hôn", top_k=5, as_of_date="2026-10-15",
+        filters={"document_number": "22/2000/QH10"},
+    )
+    assert no_match == []
+
+    with pytest.raises(ValueError, match="không hỗ trợ"):
+        retriever_with_data.search("query", top_k=1, filters={"unknown": "x"})
+
+
 def test_empty_query_and_empty_store():
     """Store rỗng trả results: []; câu hỏi rỗng raise ValueError như BM25 và Hybrid (E14)."""
     empty_store = LegalVectorStore(collection_name="empty_col", dimension=64, storage_path=":memory:")
