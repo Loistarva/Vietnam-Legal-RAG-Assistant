@@ -94,8 +94,14 @@ class ParentContextResolver:
 
     def resolve(self, results: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
         """Return copies of ``results`` (already in final rank order) with parent_id/parent_text."""
+        resolved, _ = self.resolve_with_stats(results)
+        return resolved
+
+    def resolve_with_stats(self, results: Sequence[Mapping[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        """Return resolved rows and the summary for this call."""
         seen: set[str] = set()
         used_chars = 0
+        missing_chunk_ids: list[str] = []
         stats = {"parents_attached": 0, "parents_shared": 0, "parents_missing": 0,
                  "parents_over_budget": 0, "upstream_parent_id_replaced": 0, "context_chars": 0}
         resolved = []
@@ -111,6 +117,7 @@ class ParentContextResolver:
             row["parent_text"] = None
             if parent_id is None or parent_id not in self.parents:
                 stats["parents_missing"] += 1
+                missing_chunk_ids.append(row["chunk_id"])
             elif parent_id in seen:
                 stats["parents_shared"] += 1
             else:
@@ -127,7 +134,7 @@ class ParentContextResolver:
         if stats["parents_missing"]:
             logger.warning("Parent-Context Resolver: %d kết quả không tìm thấy parent", stats["parents_missing"])
         self.last_stats = stats
-        return resolved
+        return resolved, {**stats, "missing_chunk_ids": missing_chunk_ids}
 
 
 __all__ = ["ParentContextConfig", "ParentContextResolver", "load_parent_context_config"]
