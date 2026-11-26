@@ -175,7 +175,11 @@ def main() -> None:
                             api_url=config.mock_url,
                             as_of_date=selected_date_text,
                             request_id=request_id,
-                            timeout_seconds=config.request_timeout_seconds,
+                            timeout_seconds=(
+                                1
+                                if question.strip().casefold() == "[mock:network_timeout]"
+                                else config.request_timeout_seconds
+                            ),
                         )
                     else:
                         time.sleep(0.2)
