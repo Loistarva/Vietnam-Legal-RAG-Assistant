@@ -14,6 +14,7 @@ import re
 import sys
 from collections import Counter
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -29,6 +30,34 @@ WORD_RE = re.compile(r"\w+")
 def test_cleaner_imports_without_ocr_dependencies():
     assert "ollama" not in vars(cleaner)
     assert "pymupdf" not in vars(cleaner)
+
+
+@pytest.mark.req("FR6.1-AC1")
+def test_vision_ocr_sends_the_page_through_the_model_gateway(monkeypatch):
+    from model_gateway import llm_gateway
+
+    monkeypatch.setitem(sys.modules, "pymupdf", SimpleNamespace(Matrix=lambda *args: args))
+    image = b"synthetic-image"
+    pixmap = SimpleNamespace(width=1, height=1, samples=image, tobytes=lambda _: image)
+    page = SimpleNamespace(get_pixmap=lambda **_: pixmap)
+
+    def chat(**kwargs):
+        assert kwargs["model"] == cleaner.MODEL_NAME
+        assert kwargs["messages"][0]["images"] == [image]
+        assert kwargs["options"] == {"temperature": 0}
+        return SimpleNamespace(message=SimpleNamespace(content="Nội dung fixture."))
+
+    monkeypatch.setitem(sys.modules, "ollama", SimpleNamespace(chat=chat))
+    calls = []
+    transcribe = llm_gateway.transcribe_ollama_image
+
+    def gateway(**kwargs):
+        calls.append(kwargs)
+        return transcribe(**kwargs)
+
+    monkeypatch.setattr(llm_gateway, "transcribe_ollama_image", gateway)
+    assert cleaner.qwen_transcribe_page(page, 1, "fixture") == "Nội dung fixture."
+    assert len(calls) == 1
 
 
 @pytest.mark.parametrize("raw_path", RAW_FILES, ids=lambda p: p.name)

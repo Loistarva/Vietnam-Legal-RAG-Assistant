@@ -14,8 +14,6 @@ from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Iterable, Sequence
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -384,22 +382,12 @@ def _repo_path(path: Path) -> str:
         return str(path.resolve())
 
 
-def _read_json_url(url: str) -> dict[str, Any]:
-    try:
-        with urlopen(url, timeout=3) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-    except (OSError, HTTPError, URLError, json.JSONDecodeError) as exc:
-        raise BatchInputError(f"Ollama preflight thất bại tại {url}: {exc}") from exc
-    if not isinstance(payload, dict):
-        raise BatchInputError(f"Ollama trả dữ liệu không hợp lệ tại {url}.")
-    return payload
-
-
 def preflight_ollama() -> dict[str, Any]:
     """Fail before the batch if the configured local model gateway is unavailable."""
     import yaml
 
     from generation.prompt_builder import PROMPT_B_VERSION
+    from model_gateway.llm_gateway import OllamaPreflightError, preflight_ollama_model
 
     gateway_path = ROOT / "model_gateway/config/local_qwen.yaml"
     confidence_path = ROOT / "reranking/confidence.yaml"
@@ -412,62 +400,18 @@ def preflight_ollama() -> dict[str, Any]:
     provider = gateway.get("provider", "ollama")
     if provider != "ollama":
         raise BatchInputError(f"Batch adapter hiện chỉ preflight provider ollama, nhận {provider!r}.")
-    base_url = str(gateway.get("base_url", "http://localhost:11434")).rstrip("/")
-    model_name = str(gateway.get("model", "qwen2.5:7b"))
-    version_payload = _read_json_url(f"{base_url}/api/version")
-    tags_payload = _read_json_url(f"{base_url}/api/tags")
-    models = tags_payload.get("models") or []
-
-    def normalized(name: Any) -> str:
-        clean = str(name or "").strip().casefold()
-        return clean if ":" in clean else f"{clean}:latest"
-
-    model_entry = next((entry for entry in models if isinstance(entry, dict) and any(
-        normalized(entry.get(key)) == normalized(model_name) for key in ("name", "model")
-    )), None)
-    if model_entry is None:
-        raise BatchInputError(
-            f"Ollama đang chạy tại {base_url}, nhưng chưa có model {model_name!r}; "
-            "hãy pull model trước khi chạy batch."
-        )
-
-    warmup_payload = {
-        "model": model_name,
-        "prompt": "Trả lời bằng một từ: sẵn sàng",
-        "stream": False,
-        "keep_alive": "10m",
-        "options": {
-            "temperature": gateway.get("temperature", 0.0),
-            "repeat_penalty": gateway.get("repeat_penalty", 1.0),
-            "num_predict": 1,
-            "num_ctx": gateway.get("num_ctx", 8192),
-        },
-    }
     try:
-        request = Request(
-            f"{base_url}/api/generate",
-            data=json.dumps(warmup_payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        with urlopen(request, timeout=float(gateway.get("timeout_seconds", 120))) as response:
-            warmup = json.loads(response.read().decode("utf-8"))
-    except (OSError, HTTPError, URLError, json.JSONDecodeError) as exc:
-        raise BatchInputError(f"Ollama model warm-up thất bại trước batch: {exc}") from exc
-    if not isinstance(warmup, dict) or not isinstance(warmup.get("response"), str):
-        raise BatchInputError("Ollama model warm-up trả response không hợp lệ; batch chưa được bắt đầu.")
+        runtime = preflight_ollama_model(gateway)
+    except OllamaPreflightError as exc:
+        raise BatchInputError(str(exc)) from exc
 
     confidence_values = confidence.get("confidence") if isinstance(confidence, dict) else {}
     confidence_values = confidence_values if isinstance(confidence_values, dict) else {}
     return {
         "provider": provider,
-        "base_url": base_url,
-        "model": model_name,
+        **runtime,
         "model_config_path": _repo_path(gateway_path),
         "model_config_sha256": _sha256_file(gateway_path),
-        "model_digest": model_entry.get("digest"),
-        "ollama_version": version_payload.get("version"),
-        "model_preflight": "PASS",
         "temperature": gateway.get("temperature", 0.0),
         "repeat_penalty": gateway.get("repeat_penalty", 1.0),
         "num_predict": gateway.get("num_predict", 1024),

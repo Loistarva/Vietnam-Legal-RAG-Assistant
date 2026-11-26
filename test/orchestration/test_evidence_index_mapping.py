@@ -106,17 +106,62 @@ def test_unsorted_ranks_are_rejected(rag):
         rag.run(pipeline)
 
 
-def test_parent_resolver_runs_when_rows_have_no_parent_text(rag):
+@pytest.mark.req("FR4.1-AC2")
+@pytest.mark.parametrize("resolved_upstream", [False, True])
+def test_missing_parent_uses_chunk_and_records_trace(rag, caplog, resolved_upstream):
     rows = [rag.make_row(1), rag.make_row(2)]
     for row in rows:
         row.pop("parent_text")
     resolver = ParentContextResolver([{"parent_id": "doc_a_art_1", "text": "[Điều 1] cha.",
                                        "child_ids": [rows[0]["chunk_id"]]}])
-    pipeline, _ = rag.make_pipeline(rows, parent_resolver=resolver)
+    source = None
+    if resolved_upstream:
+        class ResolvedCandidatePipeline:
+            reranker = object()
+
+            def run(self, query, *, query_id, as_of_date):
+                resolved, stats = resolver.resolve_with_stats(rows)
+                return {**rag.envelope(query_id, resolved, query), "stats": {"parent_context": stats}}
+
+        source = rag_pipeline.LivePipelineSource(ResolvedCandidatePipeline())
+    pipeline, _ = rag.make_pipeline(rows, source=source, parent_resolver=resolver)
     result = rag.run(pipeline)
     assert result.payload.evidence_items[0].content == "[Điều 1] cha."
     assert result.payload.evidence_items[1].content == rows[1]["chunk_text"]
-    assert result.record.retrieval_trace["parent_context"]["parents_attached"] == 1
+    trace = result.record.retrieval_trace["parent_context"]
+    assert trace["parents_attached"] == 1
+    assert trace["parents_missing"] == 1
+    assert trace["missing_chunk_ids"] == [rows[1]["chunk_id"]]
+    assert any(record.name == "reranking.parent_context" and record.levelname == "WARNING"
+               for record in caplog.records)
+
+
+@pytest.mark.req("FR2.11-AC1")
+def test_retrieval_trace_records_candidates_versions_and_applied_filters(rag):
+    row = rag.make_row(1)
+
+    class FilteredSource:
+        name = "fixture"
+
+        def fetch(self, *, query_id, query, as_of_date):
+            return {
+                **rag.envelope(query_id, [row], query),
+                "config": {"temporal_filter": "retriever", "metadata_filters": {"document_id": "doc_a"}},
+            }
+
+    pipeline, _ = rag.make_pipeline([row], source=FilteredSource())
+    result = rag.run(pipeline)
+    trace = result.record.retrieval_trace
+    assert trace["corpus_version"] == result.record.corpus_version
+    assert trace["retrieval_config_version"] == result.record.retrieval_config_version
+    assert trace["candidates"] == [{key: row[key] for key in (
+        "chunk_id", "document_id", "article_id", "clause_id", "rank", "score", "reranker_score",
+    )}]
+    assert trace["filters"] == {
+        "as_of_date": "2026-10-15",
+        "temporal_filter": "retriever",
+        "metadata_filters": {"document_id": "doc_a"},
+    }
 
 
 def _g3_envelope(rag, **config_overrides):

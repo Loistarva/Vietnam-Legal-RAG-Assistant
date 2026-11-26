@@ -128,6 +128,7 @@ def test_empty_or_non_string_question_is_rejected():
             )
 
 
+@pytest.mark.req("FR6.1-AC1")
 def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch):
     class FakeResponse:
         def __init__(self, payload):
@@ -153,7 +154,7 @@ def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch)
             return FakeResponse({"version": "test-ollama"})
         return FakeResponse({"models": [{"name": "qwen2.5:7b", "digest": "test-digest"}]})
 
-    monkeypatch.setattr("scripts.run_rag_batch.urlopen", fake_urlopen)
+    monkeypatch.setattr("model_gateway.llm_gateway.urlopen", fake_urlopen)
     runtime = preflight_ollama()
     assert runtime["model"] == "qwen2.5:7b"
     assert runtime["model_digest"] == "test-digest"
@@ -172,7 +173,7 @@ def test_ollama_preflight_fails_before_batch_when_service_unavailable(monkeypatc
     def unavailable(_url, timeout):
         raise OSError("connection refused")
 
-    monkeypatch.setattr("scripts.run_rag_batch.urlopen", unavailable)
+    monkeypatch.setattr("model_gateway.llm_gateway.urlopen", unavailable)
     with pytest.raises(BatchInputError, match="Ollama preflight thất bại"):
         preflight_ollama()
 

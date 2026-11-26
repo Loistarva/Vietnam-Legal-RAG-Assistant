@@ -479,12 +479,28 @@ class RAGPipeline:
         trace: dict[str, Any] = {
             "candidate_source": self.source.name,
             "retriever": envelope.get("retriever"),
+            "corpus_version": self.versions.corpus_version,
+            "retrieval_config_version": self.versions.retrieval_config_version,
             "as_of_date_source": as_of_date_source,
             "rerank_top_k": self.rerank_top_k,
-            "candidates": [{"rank": r.get("rank"), "chunk_id": r.get("chunk_id"),
-                            "reranker_score": r.get("reranker_score")} for r in rows],
+            "candidates": [
+                {field: row.get(field) for field in (
+                    "chunk_id", "document_id", "article_id", "clause_id", "rank", "score", "reranker_score",
+                )}
+                for row in rows
+            ],
             "confidence": {**described, **self.confidence.describe()},
         }
+        retrieval_config = envelope.get("config")
+        if isinstance(retrieval_config, Mapping):
+            trace["filters"] = {
+                "as_of_date": as_of_date,
+                "temporal_filter": retrieval_config.get("temporal_filter"),
+                "metadata_filters": retrieval_config.get("metadata_filters"),
+            }
+        parent_summary = (envelope.get("stats") or {}).get("parent_context")
+        if isinstance(parent_summary, Mapping):
+            trace["parent_context"] = dict(parent_summary)
         if decision.status != "ok":
             reason = "EMPTY_RETRIEVAL" if decision.status == "empty" else "LOW_CONFIDENCE"
             grounding = _gate_result("ABSTAIN", reason)
@@ -494,8 +510,7 @@ class RAGPipeline:
 
         kept = decision.kept
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
-            kept = self.parent_resolver.resolve(kept)
-            trace["parent_context"] = dict(self.parent_resolver.last_stats)
+            kept, trace["parent_context"] = self.parent_resolver.resolve_with_stats(kept)
         payload, context_trace = self.context_aggregator(
             kept, query_id=query_id, query=query, as_of_date=as_of_date, as_of_date_source=as_of_date_source,
             max_context_chars=self.max_context_chars, max_items=self.rerank_top_k)

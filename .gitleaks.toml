@@ -1,0 +1,11 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Fixed synthetic credentials used by API authentication tests"
+condition = "AND"
+paths = ['''(?:^|[\\/])test[\\/](?:api[\\/](?:conftest|test_api_key_guard)|e2e[\\/]test_web_to_rag)\.py$''']
+regexes = ['''^(?:test-key-0123456789abcdef|e2e-key-0123456789abcdef|wrong-key-0123456789abc)$''']

@@ -268,8 +268,9 @@ def clean_extracted_text(text: str) -> tuple[str, dict[str, int]]:
 
 def qwen_transcribe_page(page: pymupdf.Page, page_number: int, pdf_stem: str) -> str:
     """Render a page and transcribe it with Qwen3-VL; save failed page images."""
-    import ollama
     import pymupdf
+
+    from model_gateway.llm_gateway import transcribe_ollama_image
 
     scale = RENDER_DPI / 72
     pix = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
@@ -287,19 +288,10 @@ def qwen_transcribe_page(page: pymupdf.Page, page_number: int, pdf_stem: str) ->
     # One initial attempt plus OCR_RETRIES retries.
     for attempt in range(OCR_RETRIES + 1):
         try:
-            response = ollama.chat(
+            response = transcribe_ollama_image(
                 model=MODEL_NAME,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": (
-                            f"Đây là trang {page_number} của một văn bản pháp luật.\n\n"
-                            f"{OCR_PROMPT}"
-                        ),
-                        "images": [image_bytes],
-                    }
-                ],
-                options={"temperature": 0},
+                prompt=f"Đây là trang {page_number} của một văn bản pháp luật.\n\n{OCR_PROMPT}",
+                image=image_bytes,
                 keep_alive=OLLAMA_KEEP_ALIVE,
             )
 
@@ -632,4 +624,6 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
+    if not __package__:
+        sys.path.insert(0, str(BASE_DIR))
     sys.exit(main())
