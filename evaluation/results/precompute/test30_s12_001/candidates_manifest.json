@@ -1,0 +1,401 @@
+{
+  "manifest_version": "sprint12.test30.precompute.v1",
+  "phase": "candidates",
+  "status": "COMPLETE",
+  "git": {
+    "branch": "feature/sprint12-dev4-Router-Retrieval-and-Knowledge-Base",
+    "sha": "9144dfddbc6a3610dab17271f1290216e30dbb8d",
+    "working_tree_clean_excluding_output": true
+  },
+  "inputs": {
+    "hashes": {
+      "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
+      "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471",
+      "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
+      "questions_freeze": "f814aff4c6108042475c504ba8bb3e9d880241cf4364fcdb0d6493ea9e43f9ac",
+      "config_freeze": "ae45c37577380e1e1c530db6be1d667e3d4e16e215078a3ad867ea861fdad6b3"
+    },
+    "query_ids": [
+      "HN_005",
+      "HN_006",
+      "HN_011",
+      "HN_012",
+      "HN_014",
+      "HN_015",
+      "HN_024",
+      "HN_026",
+      "HN_027",
+      "HN_034",
+      "HN_036",
+      "HN_066",
+      "HN_081",
+      "HN_112",
+      "HN_128",
+      "HN_156",
+      "HN_173",
+      "HN_181",
+      "HN_193",
+      "HN_194",
+      "HN_198",
+      "HN_240",
+      "HN_246",
+      "HN_251",
+      "HN_252",
+      "HN_268",
+      "HN_278",
+      "HN_281",
+      "HN_283",
+      "HN_292"
+    ],
+    "dates": {
+      "HN_005": "2026-10-15",
+      "HN_006": "2026-10-15",
+      "HN_011": "2026-10-15",
+      "HN_012": "2026-10-15",
+      "HN_014": "2026-10-15",
+      "HN_015": "2026-10-15",
+      "HN_024": "2026-10-15",
+      "HN_026": "2026-10-15",
+      "HN_027": "2026-10-15",
+      "HN_034": "2026-10-15",
+      "HN_036": "2026-10-15",
+      "HN_066": "2026-10-15",
+      "HN_081": "2026-10-15",
+      "HN_112": "2026-10-15",
+      "HN_128": "2026-10-15",
+      "HN_156": "2026-10-15",
+      "HN_173": "2026-10-15",
+      "HN_181": "2026-10-15",
+      "HN_193": "2026-10-15",
+      "HN_194": "2026-10-15",
+      "HN_198": "2026-10-15",
+      "HN_240": "2026-10-15",
+      "HN_246": "2026-10-15",
+      "HN_251": "2026-10-15",
+      "HN_252": "2026-10-15",
+      "HN_268": "2026-10-15",
+      "HN_278": "2026-10-15",
+      "HN_281": "2026-10-15",
+      "HN_283": "2026-10-15",
+      "HN_292": "2026-10-15"
+    },
+    "query_payload_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876",
+    "top_k": {
+      "retrieval_pool": 50,
+      "reranked_pool": 50,
+      "runtime_evidence": 5,
+      "retrieval_result_default": 10,
+      "legacy_evaluation": 10
+    },
+    "retriever": {
+      "backend": "hybrid",
+      "retrieval_top_k": 50,
+      "rrf_k": 60,
+      "fusion": "rrf",
+      "dense_model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "collection": "vietnam_legal_chunks",
+      "bm25_index": "bm25-e6-verified-20261101",
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023"
+    },
+    "reranker": {
+      "backend": "cross_encoder",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "rerank_top_k": 5,
+      "max_candidates": 50,
+      "candidate_text": "document_breadcrumb_chunk_text",
+      "dtype": "auto"
+    }
+  },
+  "models": {
+    "dense": {
+      "name": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "config_sha256": "26159e7ad065073448460117eb24b7a4572f6f4e78eadff65dc0a11c052449fa"
+    },
+    "reranker": {
+      "name": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "config_sha256": "13dcd6c31d9fec9d1d8e158702072f62d7fa7d312a64b9fe057bec9a08cfe41a"
+    }
+  },
+  "approval": {
+    "approved": true,
+    "scope": "test30_retrieval_precompute",
+    "approved_by": "project_user",
+    "approved_at": "2026-11-26T05:28:14.176705+00:00",
+    "reference": "Explicit user instruction in this conversation on 2026-11-26: approve matched conditions and run retrieval.",
+    "approval_source": "explicit_user_instruction_in_chat",
+    "git_sha": "9144dfddbc6a3610dab17271f1290216e30dbb8d",
+    "inputs": {
+      "hashes": {
+        "corpus": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+        "retrieval_config": "08df4180c8c47fe86592bb2a41d8b0e5f88cc0194160a7990990b3c139de8179",
+        "reranking_config": "b99cf7319ec93eeb49c241904eb89b5e3e6b41fbbc05b56e63347b25693c6471",
+        "queries": "521eff66a6a03b7149276e7775c45aa6d1dc21482b8e3b8a961d97a3bfdb8c3f",
+        "questions_freeze": "f814aff4c6108042475c504ba8bb3e9d880241cf4364fcdb0d6493ea9e43f9ac",
+        "config_freeze": "ae45c37577380e1e1c530db6be1d667e3d4e16e215078a3ad867ea861fdad6b3"
+      },
+      "query_ids": [
+        "HN_005",
+        "HN_006",
+        "HN_011",
+        "HN_012",
+        "HN_014",
+        "HN_015",
+        "HN_024",
+        "HN_026",
+        "HN_027",
+        "HN_034",
+        "HN_036",
+        "HN_066",
+        "HN_081",
+        "HN_112",
+        "HN_128",
+        "HN_156",
+        "HN_173",
+        "HN_181",
+        "HN_193",
+        "HN_194",
+        "HN_198",
+        "HN_240",
+        "HN_246",
+        "HN_251",
+        "HN_252",
+        "HN_268",
+        "HN_278",
+        "HN_281",
+        "HN_283",
+        "HN_292"
+      ],
+      "dates": {
+        "HN_005": "2026-10-15",
+        "HN_006": "2026-10-15",
+        "HN_011": "2026-10-15",
+        "HN_012": "2026-10-15",
+        "HN_014": "2026-10-15",
+        "HN_015": "2026-10-15",
+        "HN_024": "2026-10-15",
+        "HN_026": "2026-10-15",
+        "HN_027": "2026-10-15",
+        "HN_034": "2026-10-15",
+        "HN_036": "2026-10-15",
+        "HN_066": "2026-10-15",
+        "HN_081": "2026-10-15",
+        "HN_112": "2026-10-15",
+        "HN_128": "2026-10-15",
+        "HN_156": "2026-10-15",
+        "HN_173": "2026-10-15",
+        "HN_181": "2026-10-15",
+        "HN_193": "2026-10-15",
+        "HN_194": "2026-10-15",
+        "HN_198": "2026-10-15",
+        "HN_240": "2026-10-15",
+        "HN_246": "2026-10-15",
+        "HN_251": "2026-10-15",
+        "HN_252": "2026-10-15",
+        "HN_268": "2026-10-15",
+        "HN_278": "2026-10-15",
+        "HN_281": "2026-10-15",
+        "HN_283": "2026-10-15",
+        "HN_292": "2026-10-15"
+      },
+      "query_payload_sha256": "9dd472f569726d67951afb20bb059ea7cc282f8b7d6102cc44807769bfbc3876",
+      "top_k": {
+        "retrieval_pool": 50,
+        "reranked_pool": 50,
+        "runtime_evidence": 5,
+        "retrieval_result_default": 10,
+        "legacy_evaluation": 10
+      },
+      "retriever": {
+        "backend": "hybrid",
+        "retrieval_top_k": 50,
+        "rrf_k": 60,
+        "fusion": "rrf",
+        "dense_model": "BAAI/bge-m3",
+        "dimension": 1024,
+        "collection": "vietnam_legal_chunks",
+        "bm25_index": "bm25-e6-verified-20261101",
+        "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023"
+      },
+      "reranker": {
+        "backend": "cross_encoder",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "rerank_top_k": 5,
+        "max_candidates": 50,
+        "candidate_text": "document_breadcrumb_chunk_text",
+        "dtype": "auto"
+      }
+    },
+    "models": {
+      "dense": {
+        "name": "BAAI/bge-m3",
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "config_sha256": "26159e7ad065073448460117eb24b7a4572f6f4e78eadff65dc0a11c052449fa"
+      },
+      "reranker": {
+        "name": "BAAI/bge-reranker-v2-m3",
+        "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+        "config_sha256": "13dcd6c31d9fec9d1d8e158702072f62d7fa7d312a64b9fe057bec9a08cfe41a"
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.14.3",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+    "packages": {
+      "sentence-transformers": "5.7.0",
+      "transformers": "5.20.1",
+      "torch": "2.14.1",
+      "qdrant-client": "1.19.1",
+      "elasticsearch": "9.5.1",
+      "underthesea": "9.5.0"
+    },
+    "model_downloads": "disabled"
+  },
+  "services": {
+    "verified": true,
+    "queries_executed": 0,
+    "elasticsearch": {
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "bm25_tokenizer": "underthesea",
+      "bm25_tokenizer_version": "9.5.0",
+      "bm25_text_field": "content_segmented"
+    },
+    "qdrant": {
+      "model": "BAAI/bge-m3",
+      "dimension": 1024,
+      "corpus_sha256": "7105c484061399010b0f087c6c0d457cd688030b8184b0071f1291a036b6b023",
+      "chunk_count": 2322
+    }
+  },
+  "started_at": "2026-11-26T05:28:40.296468+00:00",
+  "finished_at": "2026-11-26T05:30:06.031271+00:00",
+  "artifact_sha256": "3e985fb6ce6148a5ed6119e735c9d48603e080d1270bae549ff2e9a7221971e7",
+  "pools": {
+    "HN_005": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_006": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_011": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_012": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_014": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_015": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_024": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_026": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_027": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_034": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_036": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_066": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_081": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_112": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_128": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_156": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_173": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_181": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_193": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_194": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_198": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_240": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_246": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_251": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_252": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_268": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_278": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_281": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_283": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    },
+    "HN_292": {
+      "candidate_count": 50,
+      "short_pool_reason": null
+    }
+  },
+  "note": "Retrieval-only manifest; not the A/B generation manifest required by NFR4.2."
+}

@@ -1,6 +1,6 @@
 # Kiểm tra gần trùng Router holdout v6
 
-**Yêu cầu: FR1.8-AC1. Trạng thái: đã kiểm tự động, chờ review độc lập.**
+**Yêu cầu: FR1.8-AC1. Trạng thái: đã kiểm tự động, chờ review độc lập.** Script và báo cáo đã commit tại `9144dfdd`; kiểm lại ngày 26/11/2026. Phiếu reviewer vẫn để trống, không tự điền kết luận. Xem [bảng bàn giao](dev4_handoff.md).
 
 Báo cáo cung cấp bằng chứng để reviewer đánh giá tính độc lập của holdout v6 so với các nguồn đã có trong repo. Kiểm tra xác nhận 36 bản ghi hợp lệ, không có câu trùng nguyên văn và có một cặp vượt ngưỡng rà soát gần trùng. Chưa kết luận holdout không chồng lặp ngữ nghĩa. Giữ nguyên dữ liệu v6, nhãn đã được chấp thuận và kết quả lịch sử 34/36; lần kiểm này không chạy Router để dự đoán lại.
 
@@ -121,7 +121,7 @@ Nếu kết luận **ĐỘC LẬP**, reviewer giải thích khác biệt có ý 
 - [x] Chọn đúng holdout v6, kiểm 36 bản ghi và đủ 5 nhóm route.
 - [x] Chạy kiểm trùng nguyên văn và gần trùng; ghi phương pháp, ngưỡng, phạm vi, cặp bị gắn cờ và hash.
 - [x] Giữ nguyên holdout, luật Router và kết quả lịch sử.
-- [ ] Commit báo cáo cùng script; ghi SHA được review vào phiếu.
+- [x] Commit báo cáo cùng script tại `9144dfdd`. Reviewer ghi SHA thực tế đã review vào phiếu khi ký.
 - [ ] Reviewer độc lập điền kết luận, lý do và bằng chứng.
 - [ ] Tech Lead xử lý các giới hạn về độc lập/freeze nếu còn; xác nhận điều kiện nghiệm thu FR1.8-AC1.
 - [ ] Cập nhật ma trận truy vết theo kết luận đã được xác nhận.

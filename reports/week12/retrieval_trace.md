@@ -1,6 +1,6 @@
 # Bàn giao kiểm thử Retrieval Sprint 12
 
-Ngày kiểm tra: 25/11/2026, múi giờ Asia/Saigon. Nhánh `feature/sprint12-dev4-Router-Retrieval-and-Knowledge-Base`, baseline `c266983c9a5b6d802f8ff87f5036c9637fd3a9ac`; thay đổi trong báo cáo đang ở working tree, chưa commit.
+Ngày kiểm tra ban đầu: 25/11/2026, cập nhật 26/11/2026, múi giờ Asia/Saigon. Nhánh `feature/sprint12-dev4-Router-Retrieval-and-Knowledge-Base`, baseline `c266983c9a5b6d802f8ff87f5036c9637fd3a9ac`; code và fixture đã commit tại `9144dfdd`. Xem [ma trận bằng chứng và bàn giao](dev4_handoff.md).
 
 Phần producer của Retrieval Adapter đã được rà soát theo FR2.11-AC1; test temporal ba nhánh được bổ sung theo FR2.4-AC4. Bản sửa parent thiếu từ commit `5fd05f42` được đưa vào các vị trí tương ứng của baseline hiện tại và kiểm theo FR4.1-AC2. Gói này cung cấp fixture giả lập để Dev 5 viết test consumer; chưa xác nhận luồng API live hoặc nghiệm thu cuối trên `testing`.
 
@@ -86,6 +86,7 @@ Các `tmp_path` ban đầu lỗi quyền truy cập thư mục Temp mặc địn
 - [ ] Dev 5 review phần thay đổi trong reranking/orchestration và dùng fixture cho consumer integration tests.
 - [ ] Dev 5 nối bộ lọc/điểm/provenance của adapter vào trace cuối của RAG; thay đổi này chưa thực hiện trong gói hiện tại.
 - [ ] Chạy API/E2E trên môi trường đủ dependencies và dịch vụ thật khi nghiệm thu.
-- [ ] Review, commit, CI và tích hợp lên `testing`; cập nhật ma trận truy vết bằng SHA nghiệm thu.
+- [x] Commit code/test/fixture local tại `9144dfdd`; ma trận bằng chứng local đã cập nhật.
+- [ ] Review, CI remote và tích hợp lên `testing`; ghi SHA nghiệm thu sau khi có kết quả.
 
 Không đánh dấu toàn bộ FR2.11 hoàn tất chỉ từ test adapter. Không thay đổi corpus, benchmark hoặc cấu hình đã khóa; không chạy A/B Test 30.

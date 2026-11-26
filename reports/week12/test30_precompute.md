@@ -1,8 +1,8 @@
-# Chuẩn bị precompute Test 30 Sprint 12
+# Precompute Test 30 Sprint 12 — kết quả và runbook
 
-Ngày đối chiếu: **26/11/2026**, múi giờ Asia/Saigon. Baseline: `c266983c9a5b6d802f8ff87f5036c9637fd3a9ac`, nhánh `feature/sprint12-dev4-Router-Retrieval-and-Knowledge-Base`. Wrapper, checker và test mới đang ở working tree, chưa thuộc baseline này.
+Ngày đối chiếu: **26/11/2026**, múi giờ Asia/Saigon. Baseline ban đầu: `c266983c9a5b6d802f8ff87f5036c9637fd3a9ac`, nhánh `feature/sprint12-dev4-Router-Retrieval-and-Knowledge-Base`. Producer đã commit tại `9144dfdd`; checker sửa tại `626d3705`.
 
-**Trạng thái: hoàn tất phần chuẩn bị code và kiểm thử bằng dữ liệu giả; chưa chạy retrieval/rerank thật trên Test 30.** Đầu vào local khớp freeze. Chưa có xác nhận cấu hình của Tech Lead; working tree còn thay đổi chưa commit. Không tạo thư mục official `evaluation/results/precompute/test30_s12_001` trong lần chuẩn bị này.
+**Trạng thái hiện tại: retrieval/rerank thật đã hoàn tất, đủ 30 × 50 ứng viên; kiểm lại ngày 26/11/2026 đạt `VERIFY PASSED`.** Output tại `evaluation/results/precompute/test30_s12_001`. Người giao việc cho phép chạy và được ghi là `project_user`; không thay chữ ký Tech Lead hoặc Dev 3. Chờ Dev 5 kiểm nhận; chưa chạy Qwen/A/B. Xem [bàn giao và ma trận bằng chứng](dev4_handoff.md). Các mục chuẩn bị và lỗi dịch vụ bên dưới là lịch sử trước lượt chạy; kết quả cuối ghi ở cuối báo cáo.
 
 **Cập nhật trước lượt chạy ngày 26/11/2026:** người giao việc đã xác nhận trong cuộc hội thoại: “Nếu tất cả đã khớp thì hãy phê duyệt các điều kiện kia và chạy retrieval đi.” Quyết định này cho phép ghi nhận cấu hình đã đối chiếu và thực hiện hai giai đoạn precompute. Người xác nhận được ghi là `project_user`, không tự gán tên hoặc chức danh Tech Lead. Kiểm tra dịch vụ lại sau xác nhận đã pass: ES/Qdrant cùng hash corpus `7105c484…6b023`; Qdrant đúng BGE-M3, 1024 chiều, 2.322 chunk. Chưa gửi câu hỏi trong bước kiểm metadata. Code sẽ được commit trước khi tạo bản ghi xác nhận gắn với SHA và chạy thật; kết quả thực thi nằm trong output mới, không thay số liệu chuẩn bị bên dưới.
 
@@ -42,7 +42,7 @@ Wrapper ghi tên model, revision snapshot và SHA-256 `config.json`; đây khôn
 
 ## Wrapper và các bước thực hiện
 
-Lần kiểm dịch vụ ngày 26/11/2026 tại `127.0.0.1:9200` bị từ chối kết nối (`ConnectionRefusedError`). Chưa xác minh được ES metadata; bước Qdrant chưa được thực hiện do preflight dừng tại ES. Cần khởi chạy dịch vụ đúng cấu hình hoặc cung cấp endpoint máy nghiệm thu. Không suy ra trạng thái Qdrant từ lỗi ES này.
+Lần kiểm dịch vụ ban đầu ngày 26/11/2026 tại `127.0.0.1:9200` bị từ chối kết nối (`ConnectionRefusedError`), dừng trước kiểm Qdrant. Lần kiểm lại trước thực thi đã pass cả ES/Qdrant; lỗi ban đầu được giữ như lịch sử, không phải trạng thái hiện tại.
 
 Code: [precompute_test30_retrieval.py](../../scripts/precompute_test30_retrieval.py). Test: [test_precompute_test30_retrieval.py](../../test/test_precompute_test30_retrieval.py).
 
@@ -134,7 +134,7 @@ source = PrecomputedRerankedSource.from_file(
 )
 ```
 
-Checker đã thử gọi consumer này và `fetch()` từng ID bằng dữ liệu giả, bao gồm kiểm ngày và nội dung câu hỏi. Dev 5 vẫn cần kiểm nhận artifact thật và chọn Top-5 cho RAG theo cấu hình đã khóa.
+Checker đã gọi consumer này và `fetch()` từng ID trên fixture lẫn artifact thật trong lượt verify, bao gồm kiểm ngày và nội dung câu hỏi. Dev 5 vẫn cần kiểm nhận trên môi trường consumer và chọn Top-5 cho RAG theo cấu hình đã khóa.
 
 ## Bằng chứng kiểm thử
 
@@ -147,17 +147,19 @@ Checker đã thử gọi consumer này và `fetch()` từng ID bằng dữ liệ
 python -m pytest test/test_precompute_test30_retrieval.py test/test_precompute_dev30_retrieval.py test/orchestration/test_evidence_index_mapping.py test/test_retrieval_adapter.py test/test_retrieval_filter_conformance.py -q -p no:cacheprovider --basetemp .venv/pytest_s12_precompute_review
 ```
 
-## Điều kiện trước khi chạy thật
+## Tình trạng điều kiện sau lượt chạy
 
 - [x] Kiểm ID, ngày và hash input local; phân biệt các mức Top-k.
 - [x] Wrapper/checker, manifest chain và test bằng fixture giả.
 - [x] Kiểm tương thích `PrecomputedRerankedSource` bằng dữ liệu giả.
-- [ ] Commit/review code và chạy CI trên SHA sẽ dùng.
-- [ ] Dev 3 xác nhận manifest/contract; Tech Lead xác nhận cấu hình và revision model.
-- [ ] Xác minh ES/Qdrant thật dùng đúng corpus/model/index trên máy chạy.
-- [ ] Chạy hai giai đoạn, checker pass và Dev 5 kiểm nhận artifact thật.
+- [x] Commit code producer và checker; kiểm thử local pass. Chưa xác nhận review/CI remote.
+- [x] Người giao việc xác nhận cho chạy; ghi đúng danh tính `project_user` và snapshot.
+- [x] Xác minh ES/Qdrant thật dùng đúng corpus/model/index trên máy chạy.
+- [x] Chạy hai giai đoạn, checker pass; giữ nguyên artifact khi sửa checker.
+- [ ] Dev 3 xác nhận manifest/contract; xác nhận nghiệm thu cấu hình theo quy trình nhóm.
+- [ ] Dev 5 kiểm nhận artifact thật và tích hợp consumer.
 
-FR2.10 và phần handoff Test 30 chưa được đánh dấu nghiệm thu toàn bộ chỉ từ gói chuẩn bị này.
+FR2.10 và phần handoff Test 30 chưa được đánh dấu nghiệm thu toàn bộ khi chưa có các xác nhận còn chờ.
 
 ## Ghi nhận lượt thực thi ngày 26 tháng 11 năm 2026
 
