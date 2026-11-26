@@ -15,6 +15,7 @@ from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 from typing import Any, Literal
 from urllib.parse import urlsplit
+from urllib.request import Request, urlopen
 
 import requests
 import yaml
@@ -610,6 +611,73 @@ def ollama_durations_ms(raw_res: Any) -> dict[str, float | None]:
     load, prompt_eval = out["load_duration_ms"], out["prompt_eval_duration_ms"]
     out["ttft_model_ms"] = round(load + prompt_eval, 2) if load is not None and prompt_eval is not None else None
     return out
+
+
+class OllamaPreflightError(RuntimeError):
+    """The configured model could not be checked before a batch."""
+
+
+def _read_json_url(url: str) -> dict[str, Any]:
+    try:
+        with urlopen(url, timeout=3) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise OllamaPreflightError(f"Ollama preflight thất bại tại {url}: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise OllamaPreflightError(f"Ollama trả dữ liệu không hợp lệ tại {url}.")
+    return payload
+
+
+def preflight_ollama_model(gateway: Mapping[str, Any]) -> dict[str, Any]:
+    """Check provider metadata and warm up the configured batch model."""
+    base_url = str(gateway.get("base_url", "http://localhost:11434")).rstrip("/")
+    model_name = str(gateway.get("model", "qwen2.5:7b"))
+    version_payload = _read_json_url(f"{base_url}/api/version")
+    tags_payload = _read_json_url(f"{base_url}/api/tags")
+    models = tags_payload.get("models") or []
+
+    model_entry = next((entry for entry in models if isinstance(entry, dict) and any(
+        isinstance(entry.get(key), str) and normalize_model_name(entry[key]) == normalize_model_name(model_name) for key in ("name", "model")
+    )), None)
+    if model_entry is None:
+        raise OllamaPreflightError(
+            f"Ollama đang chạy tại {base_url}, nhưng chưa có model {model_name!r}; "
+            "hãy pull model trước khi chạy batch."
+        )
+
+    warmup_payload = {
+        "model": model_name,
+        "prompt": "Trả lời bằng một từ: sẵn sàng",
+        "stream": False,
+        "keep_alive": "10m",
+        "options": {
+            "temperature": gateway.get("temperature", 0.0),
+            "repeat_penalty": gateway.get("repeat_penalty", 1.0),
+            "num_predict": 1,
+            "num_ctx": gateway.get("num_ctx", 8192),
+        },
+    }
+    try:
+        request = Request(
+            f"{base_url}/api/generate",
+            data=json.dumps(warmup_payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urlopen(request, timeout=float(gateway.get("timeout_seconds", 120))) as response:
+            warmup = json.loads(response.read().decode("utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise OllamaPreflightError(f"Ollama model warm-up thất bại trước batch: {exc}") from exc
+    if not isinstance(warmup, dict) or not isinstance(warmup.get("response"), str):
+        raise OllamaPreflightError("Ollama model warm-up trả response không hợp lệ; batch chưa được bắt đầu.")
+
+    return {
+        "base_url": base_url,
+        "model": model_name,
+        "model_digest": model_entry.get("digest"),
+        "ollama_version": version_payload.get("version"),
+        "model_preflight": "PASS",
+    }
 
 
 def find_model_digest(tags_payload: Any, model_name: Any) -> str | None:
