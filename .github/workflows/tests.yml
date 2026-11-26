@@ -30,6 +30,14 @@ jobs:
           snapshot="$(mktemp -d)"
           git -C "$GITHUB_WORKSPACE" archive HEAD | tar -x -C "$snapshot"
           "$RUNNER_TEMP/gitleaks" dir --redact=100 --no-banner "$snapshot"
+          fixture="$(mktemp -d)"
+          printf 'gh%s_%s\n' p "$(openssl rand -hex 18)" > "$fixture/synthetic.txt"
+          if "$RUNNER_TEMP/gitleaks" dir --config "$snapshot/.gitleaks.toml" --redact=100 --no-banner "$fixture"; then
+            echo "Gitleaks accepted a synthetic credential."
+            exit 1
+          else
+            test "$?" -eq 1
+          fi
 
       - uses: actions/setup-python@v5
         with:
