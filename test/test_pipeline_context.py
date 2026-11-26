@@ -70,6 +70,11 @@ class ParentContextResolverTest(unittest.TestCase):
         self.assertEqual([r["parent_id"] for r in output["results"]], ["p8", "p9"])
         self.assertEqual(output["stats"]["parent_context"]["parents_attached"], 2)
         self.assertEqual(output["config"]["parent_context"]["max_context_chars"], resolver.max_context_chars)
+        self.assertEqual(output["stats"]["latency_breakdown"]["total_retrieval_ms"],
+                         output["stats"]["total_latency_ms"])
+        self.assertGreaterEqual(output["stats"]["latency_breakdown"]["parent_context_ms"], 0)
+        self.assertIsNone(output["stats"]["latency_breakdown"]["bm25_ms"])
+        self.assertIsNone(output["stats"]["latency_breakdown"]["dense_ms"])
 
     def test_repo_parents_cover_every_corpus_chunk(self):
         resolver = ParentContextResolver.from_config(load_parent_context_config(ROOT / "reranking" / "config.yaml"))

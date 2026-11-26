@@ -222,7 +222,12 @@ def test_versions_must_match_threshold_config(rag):
 
 
 def test_run_rag_adapter_uses_benchmark_date(rag, monkeypatch):
-    pipeline, _ = rag.make_pipeline([rag.make_row(1)])
+    # Keep this date-propagation fixture temporally valid. The default row
+    # starts in 2015 and must not pass a 2010 lookup after temporal hardening.
+    row = rag.make_row(1)
+    row["metadata"].update(effective_from="2000-01-01",
+                           document_number="SYNTHETIC", document_title="Synthetic historical evidence")
+    pipeline, _ = rag.make_pipeline([row])
     monkeypatch.setattr(rag_pipeline, "_DEFAULT_PIPELINE", pipeline)
     record = rag_pipeline.run_rag({"query_id": "HN_007", "query": "Câu hỏi?", "as_of_date": "2010-06-01"})
     assert record["query_id"] == "HN_007" and record["as_of_date"] == "2010-06-01"

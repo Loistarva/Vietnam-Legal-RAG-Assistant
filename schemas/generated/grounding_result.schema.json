@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "week10_v1.1",
+  "$defs": {
+    "MappedCitation": {
+      "additionalProperties": false,
+      "description": "Căn cứ pháp lý đã được ánh xạ ngược từ evidence_index [1]..[5].",
+      "properties": {
+        "evidence_index": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Evidence Index",
+          "type": "integer"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "article_id": {
+          "title": "Article Id",
+          "type": "string"
+        },
+        "clause_id": {
+          "title": "Clause Id",
+          "type": "string"
+        },
+        "parent_clause_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Clause Id"
+        }
+      },
+      "required": [
+        "evidence_index",
+        "chunk_id",
+        "document_id",
+        "article_id",
+        "clause_id"
+      ],
+      "title": "MappedCitation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Kết quả kiểm định căn cứ từ Dev 1 / Dev 5 (D3.1 + tương thích Sprint 9).",
+  "properties": {
+    "schema_version": {
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_RUN",
+        "ABSTAIN",
+        "NEEDS_CLARIFICATION"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "grounding_status": {
+      "anyOf": [
+        {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN",
+            "ABSTAIN",
+            "NEEDS_CLARIFICATION"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "deprecated": true,
+      "title": "Grounding Status"
+    },
+    "is_grounded": {
+      "default": false,
+      "title": "Is Grounded",
+      "type": "boolean"
+    },
+    "validated_answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Validated Answer"
+    },
+    "citations": {
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Citations",
+      "type": "array"
+    },
+    "valid_citations": {
+      "deprecated": true,
+      "items": {
+        "$ref": "#/$defs/MappedCitation"
+      },
+      "title": "Valid Citations",
+      "type": "array"
+    },
+    "violation_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Violation Codes",
+      "type": "array"
+    },
+    "invalid_indices": {
+      "deprecated": true,
+      "items": {
+        "type": "integer"
+      },
+      "title": "Invalid Indices",
+      "type": "array"
+    },
+    "unsupported_claims": {
+      "deprecated": true,
+      "items": {
+        "type": "string"
+      },
+      "title": "Unsupported Claims",
+      "type": "array"
+    },
+    "retryable": {
+      "default": false,
+      "title": "Retryable",
+      "type": "boolean"
+    },
+    "abstention_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Abstention Reason"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "deprecated": true,
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "GroundingResult",
+  "type": "object"
+}

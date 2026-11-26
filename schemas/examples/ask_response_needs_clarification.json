@@ -1,0 +1,28 @@
+{
+  "schema_version": "week10_v1.1",
+  "query_id": "Q_AMB_001",
+  "request_id": "req_20261116_amb_001",
+  "as_of_date": "2026-11-16",
+  "as_of_date_source": "system_today",
+  "status": "NEEDS_CLARIFICATION",
+  "route": "MIXED_REVIEW",
+  "answer": null,
+  "clarification": "Vui lòng nêu rõ bạn đang hỏi về chia tài sản khi ly hôn hay tranh chấp thừa kế/hợp đồng dân sự khác để hệ thống tra cứu chính xác.",
+  "abstention_message": null,
+  "abstention_reason": null,
+  "citations": [],
+  "evidence": [],
+  "grounding_status": "NOT_RUN",
+  "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+  "timings": {
+    "retrieval_ms": null,
+    "llm_total_ms": null,
+    "ttft_model_ms": null,
+    "load_ms": null,
+    "prompt_eval_ms": null,
+    "eval_ms": null,
+    "total_ms": 2.1
+  },
+  "error_code": null,
+  "error": null
+}

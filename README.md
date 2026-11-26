@@ -12,6 +12,7 @@ Dự án RAG hỗ trợ truy xuất và hỏi đáp trên văn bản pháp luậ
 | `embedding/`, `scripts/build_index.py` | Dense retriever, vector store Qdrant, tạo index | Dev 3 |
 | `retrieval/` | BM25 Elasticsearch, RRF, `HybridRetriever` | Dev 4 |
 | `reranking/`, `scripts/run_retrieval.py` | Reranker, pipeline Hybrid + Reranker, CLI | Dev 5 |
+| `orchestration/`, `api/`, `scripts/run_rag_cli.py` | Pipeline RAG + Grounding Gate dùng chung, FastAPI, CLI hỏi đáp (Sprint 10) | Dev 5 |
 | `test/` | Unit test và integration test | Từng owner |
 | `docs/` | Báo cáo và hướng dẫn | Từng owner |
 
@@ -38,6 +39,25 @@ python scripts/run_retrieval.py --query "Điều kiện kết hôn theo quy đ�
 ```
 
 Lệnh in JSON theo contract Retrieval result (`query_id`, `retriever`, `results` có `chunk_id`, `rank`, `score`, `chunk_text`, `parent_clause_id`, `document_id`, `metadata.validity_status`, …). Lần chạy dùng mock scorer mang nhãn `<retriever>_mock_reranker`. Cách chạy hai bước khi máy không đủ bộ nhớ cho cả model dense và reranker: xem [docs/sprint6_integration.md](docs/sprint6_integration.md).
+
+## Hỏi đáp qua CLI và API (Sprint 10)
+
+CLI và API gọi cùng một pipeline: Router → Hybrid + Reranker → Confidence → Context → Qwen → Grounding Gate. Câu trả lời chỉ được trả khi Gate PASS.
+
+```powershell
+# CLI, không cần dịch vụ (pipeline giả lập; thêm [mock:low], [mock:gate_fail]... để thử từng nhánh)
+python scripts/run_rag_cli.py --mock "Nam phải đủ bao nhiêu tuổi thì được kết hôn?"
+# CLI live: cần Elasticsearch, Qdrant và Ollama (qwen2.5:7b)
+$env:ELASTICSEARCH_URL = "http://localhost:9200"; $env:QDRANT_PATH = "data/indexes/qdrant_storage"
+python scripts/run_rag_cli.py --as-of-date 2026-11-16 "Nam phải đủ bao nhiêu tuổi thì được kết hôn?"
+# Exit code: 0 SUCCESS, 3 NEEDS_CLARIFICATION/ABSTAIN, 1 ERROR, 2 input sai; --json in AskResponse
+
+# API: POST /api/v1/ask, POST /api/v1/ask/stream (SSE), GET /api/v1/health; Swagger ở /docs
+$env:LEGAL_RAG_API_KEYS = "<key>"; $env:LEGAL_RAG_PIPELINE_MODE = "mock"   # bỏ mock để chạy live
+uvicorn api.main:app --host 127.0.0.1 --port 8000
+```
+
+Chi tiết request/response, mã lỗi, curl mẫu và mock server cho UI: [docs/api.md](docs/api.md). SSE: [docs/api/sse_events.md](docs/api/sse_events.md). Kết quả E2E và known issues: [reports/week10/e2e_report.md](reports/week10/e2e_report.md).
 
 ## Quy trình đầy đủ
 

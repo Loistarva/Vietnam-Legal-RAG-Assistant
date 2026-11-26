@@ -22,6 +22,13 @@ __pycache__/
 
 # Keep the blind-score unblinding key local to the coordinator
 /evaluation/results/dev/blinded_ab_scoring_key_v1.csv
+/evaluation/results/dev/blind_key_local_backup/
 
 # Office lock files (created while a document is open)
 ~$*
+
+# Local secrets
+.env
+
+# Runtime logs are private; only the explicitly staged synthetic sample is versioned.
+/logs/
