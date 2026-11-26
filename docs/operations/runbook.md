@@ -20,6 +20,7 @@ Qdrant embedded khóa thư mục: chỉ một tiến trình mở được. Muố
 | --- | --- | --- |
 | `LEGAL_RAG_API_KEYS` | có (API) | Danh sách key, cách nhau bằng dấu phẩy. Không có giá trị mặc định; thiếu thì API không khởi động. Không commit, không ghi vào log. |
 | `LEGAL_RAG_PIPELINE_MODE` | không | `live` (mặc định) hoặc `mock` (không cần ES/Qdrant/Ollama, dùng cho UI) |
+| `LEGAL_RAG_REGENERATION` | không | `on` (mặc định) cho phép sinh lại tối đa một lần khi câu trả lời bị cắt hoặc dùng ký hiệu căn cứ chưa khai báo. Đặt `off` để tắt. Chế độ đánh giá chính thức luôn tắt sinh lại. |
 | `ELASTICSEARCH_URL` | live | URL Elasticsearch |
 | `QDRANT_PATH` / `QDRANT_URL` | live | Qdrant embedded hoặc server |
 | `HF_HUB_OFFLINE=1` | nên đặt | Dùng model BGE-M3 và reranker đã cache, không tải lại |

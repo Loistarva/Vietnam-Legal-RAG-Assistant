@@ -23,6 +23,7 @@ from orchestration.interfaces import EventSink
 from schemas.models import ErrorCode, EventStage, LogEvent
 
 SAFE_METADATA_KEYS = frozenset({
+    "attempt", "regeneration_reason", "repair_notes_version",
     "action", "as_of_date", "as_of_date_source", "candidate_count", "candidate_source", "citation_count",
     "corpus_hash", "corpus_version", "done_reason", "error_type", "evidence_count", "fast_path", "grounding_status",
     "http_status", "invalid_indices", "kept_count", "llm_calls", "matched_rule_id", "min_evidence_score",
