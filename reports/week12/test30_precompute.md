@@ -158,3 +158,15 @@ python -m pytest test/test_precompute_test30_retrieval.py test/test_precompute_d
 - [ ] Chạy hai giai đoạn, checker pass và Dev 5 kiểm nhận artifact thật.
 
 FR2.10 và phần handoff Test 30 chưa được đánh dấu nghiệm thu toàn bộ chỉ từ gói chuẩn bị này.
+
+## Ghi nhận lượt thực thi ngày 26 tháng 11 năm 2026
+
+Theo xác nhận trực tiếp của người giao việc, code producer được commit tại `9144dfddbc6a3610dab17271f1290216e30dbb8d` trước khi chạy. Pool retrieval thật đã hoàn tất: 30 câu, mỗi câu 50 ứng viên, tổng 1.500 ứng viên. Cross-Encoder đã tính xong 1.500 điểm bằng PyTorch CPU (`2.14.1+cpu`), giữ nguyên pool và nội dung evidence.
+
+Checker ban đầu chặn nhầm output rerank vì so sánh hai dict `source_ranks`/`source_scores` bằng nhau tuyệt đối. Trong pipeline hiện hữu, `to_contract_result()` chủ đích bổ sung khóa `retrieval` để giữ rank/score trước rerank. Kiểm đối chiếu output thật xác nhận chỉ hai map này có phần bổ sung; giá trị BM25/dense, chunk text và các trường evidence gốc không đổi.
+
+Bản sửa checker giữ nguyên mọi giá trị nhánh cũ, chỉ cho phép thêm khóa `retrieval` có đúng rank/score gốc; mọi sửa evidence, sửa nhánh cũ hoặc thêm nguồn tùy ý vẫn bị từ chối. Test mới dùng serializer production thật trên dữ liệu giả để kiểm hành vi này. Regression sau sửa: **135 passed**, Ruff đạt.
+
+Hai artifact thật được bảo toàn byte-for-byte trong `evaluation/results/precompute/test30_s12_001/`; không chạy lại retrieval hoặc model để xử lý lỗi checker. `rerank_checker_failure_receipt.json` ghi lại hash, môi trường, input/model snapshot và trạng thái sạch của producer tại lúc phát hiện lỗi. Manifest hoàn tất được bổ sung từ bằng chứng thực thi này sau khi checker được sửa; trường `git` vẫn là SHA producer `9144dfdd`, trường verification ghi riêng SHA checker mới. Mốc kết thúc khi phục hồi được ghi rõ lấy từ thời gian ghi xong artifact, không giả làm timestamp của manifest gốc chưa được tạo.
+
+Dev 5 cần chạy `verify` bằng checker đã sửa và đọc cả manifest lẫn receipt phục hồi trước khi kiểm nhận artifact. Lượt này chưa gọi Qwen hoặc sinh kết quả A/B.

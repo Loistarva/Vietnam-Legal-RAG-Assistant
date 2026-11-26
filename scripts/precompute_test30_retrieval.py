@@ -201,10 +201,25 @@ def validate_same_pool(raw: list[dict], ranked: list[dict]) -> None:
         after = {row["chunk_id"]: row for row in reranked["results"]}
         require(set(before) == set(after), f"{qid}: reranker changed candidate pool")
         for chunk_id, row in before.items():
+            result = after[chunk_id]
+            # to_contract_result stores pre-rerank placement/score under the
+            # canonical "retrieval" source entry. Preserve every existing
+            # branch value and allow only that exact, verifiable addition.
+            for field, expected in (("source_ranks", row["rank"]), ("source_scores", row["score"])):
+                original = row.get(field) or {}
+                current = result.get(field) or {}
+                require(isinstance(original, dict) and isinstance(current, dict), f"{qid}: invalid {field}")
+                require(all(current.get(key) == value for key, value in original.items()),
+                        f"{qid}: reranker changed evidence field {field}")
+                additions = set(current) - set(original)
+                require(additions <= {"retrieval"}, f"{qid}: unexpected source in {field}")
+                if "retrieval" in additions:
+                    require(current["retrieval"] == expected, f"{qid}: incorrect pre-rerank {field}")
             # Reranking may change only placement/scoring fields, never evidence.
             for key, value in row.items():
-                if key not in {"rank", "score", "reranker_score", "retrieval_rank", "retrieval_score"}:
-                    require(after[chunk_id].get(key) == value, f"{qid}: reranker changed evidence field {key}")
+                if key not in {"rank", "score", "reranker_score", "retrieval_rank", "retrieval_score",
+                               "source_ranks", "source_scores"}:
+                    require(result.get(key) == value, f"{qid}: reranker changed evidence field {key}")
 
 
 def git_state(output: Path | None = None) -> dict:

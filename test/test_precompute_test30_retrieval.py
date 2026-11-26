@@ -195,6 +195,40 @@ def test_reranking_must_preserve_evidence_and_candidate_set(synthetic):
         precompute.validate_same_pool(synthetic.raw, ranked)
 
 
+def test_same_pool_accepts_actual_production_serializer_provenance(synthetic):
+    from reranking.pipeline import to_contract_result
+
+    raw = copy.deepcopy(synthetic.raw)
+    for record in raw:
+        record["results"] = [to_contract_result({**row, "source_ranks": {"bm25": row["rank"]},
+                                                "source_scores": {"bm25": row["score"]}})
+                             for row in record["results"]]
+    ranked = copy.deepcopy(raw)
+    for record in ranked:
+        record["results"] = [to_contract_result({**row, "retrieval_rank": row["rank"],
+                                                "retrieval_score": row["score"], "score": 0.9 / row["rank"]})
+                             for row in record["results"]]
+    assert ranked[0]["results"][0]["source_ranks"] == {"bm25": 1, "retrieval": 1}
+    precompute.validate_same_pool(raw, ranked)
+
+
+@pytest.mark.parametrize("field", ["source_ranks", "source_scores"])
+@pytest.mark.parametrize("damage", ["original_branch", "wrong_retrieval", "unknown_source"])
+def test_provenance_extension_cannot_rewrite_existing_branch_or_invent_values(synthetic, field, damage):
+    raw = copy.deepcopy(synthetic.raw)
+    raw[0]["results"][0][field] = {"bm25": 1}
+    ranked = copy.deepcopy(raw)
+    result = ranked[0]["results"][0]
+    if damage == "original_branch":
+        result[field]["bm25"] = 2
+    elif damage == "wrong_retrieval":
+        result[field]["retrieval"] = 999
+    else:
+        result[field]["invented"] = 1
+    with pytest.raises(precompute.PrecomputeError):
+        precompute.validate_same_pool(raw, ranked)
+
+
 @pytest.mark.parametrize("damage", ["pending", "scope", "sha", "inputs", "reviewer", "timezone", "dirty"])
 def test_run_requires_recorded_approval_for_exact_inputs(synthetic, damage):
     approval = copy.deepcopy(synthetic.approval)
