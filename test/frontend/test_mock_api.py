@@ -25,14 +25,18 @@ def test_status_fixtures_follow_ask_response_contract(marker, status, required_f
     assert response["disclaimer"]
 
 
-def test_success_fixture_has_citations_and_evidence_without_point_field():
-    response = ask("[mock:success]")
+@pytest.mark.parametrize(
+    ("marker", "point_ref"),
+    [("[mock:success]", "Điểm a"), ("[mock:long_evidence]", None)],
+)
+def test_success_fixture_has_citations_and_evidence_with_optional_point_ref(marker, point_ref):
+    response = ask(marker)
 
     assert response["citations"][0]["evidence_index"] == 1
     assert response["evidence"][0]["evidence_index"] == 1
     assert response["evidence"][0]["article_number"]
     assert response["evidence"][0]["clause_number"]
-    assert "point_ref" not in response["evidence"][0]
+    assert response["evidence"][0]["point_ref"] == point_ref
 
 
 @pytest.mark.req("IR1.3-AC1")

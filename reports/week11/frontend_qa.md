@@ -20,6 +20,15 @@ UI hiện dùng cùng một thông báo chung cho 401 và 422. Mã HTTP trong b�
 
 Các ảnh bằng chứng không hiển thị giá trị API key. Chế độ Demo không gửi API key, nên kiểm tra UI và log với key thử trong chế độ API vẫn chưa thực hiện.
 
+## Kiểm tra điểm trích dẫn trên UI
+
+Hai ca dưới đây được chạy ở chế độ **Demo (mock)** nội bộ.
+
+| Ca kiểm thử | Kết quả | Bằng chứng |
+|---|---|---|
+| `[mock:success]` với `point_ref` | **PASS.** Evidence Panel hiển thị **Điểm a** sau điều và khoản, đồng thời hiển thị điểm trong đường dẫn căn cứ. | [Ảnh có điểm](screenshots/success-point-ref.png) |
+| `[mock:long_evidence]` với `point_ref: null` | **PASS.** Evidence Panel hiển thị điều và khoản, không có nhãn điểm rỗng. Nội dung dài hiển thị trong vùng cuộn. | [Ảnh căn cứ dài](screenshots/long-evidence-no-point-ref.png) |
+
 ## Cách chạy lại
 
 Khởi động mock server từ thư mục gốc repo.
@@ -43,6 +52,6 @@ Chọn **Demo (mock)**. Gửi từng marker trong bảng và đối chiếu mã 
 .\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider test/frontend
 ```
 
-**Kết quả test frontend:** 17 passed.
+**Kết quả test frontend:** 19 passed.
 
 **Live E2E:** Chờ endpoint Sprint 11 từ Dev 5. Khi có endpoint, xác nhận ít nhất một ca pháp lý có Grounding Gate PASS và một ca `ABSTAIN` hoặc `NEEDS_CLARIFICATION`. Lưu ảnh và `query_id` cho từng ca.

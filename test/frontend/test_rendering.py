@@ -5,6 +5,8 @@ from __future__ import annotations
 from contextlib import nullcontext
 from unittest.mock import Mock
 
+import pytest
+
 import frontend.components.evidence_panel as evidence_panel
 
 
@@ -72,13 +74,14 @@ def test_citation_markers_link_to_matching_evidence(monkeypatch):
     ]
 
 
-def test_evidence_panel_shows_metadata_date_and_scrolls_long_content(monkeypatch):
+@pytest.mark.parametrize("point_ref", ["Điểm a", None])
+def test_evidence_panel_shows_metadata_date_and_scrolls_long_content(monkeypatch, point_ref):
     markdown, _, writes, captions, containers = _patch_streamlit(monkeypatch)
     payload = {
         "query_id": "q-long",
         "as_of_date": "2026-11-23",
         "citations": [{"evidence_index": 1}],
-        "evidence": [_evidence(1, content="Nội dung dài. " * 100)],
+        "evidence": [{**_evidence(1, content="Nội dung dài. " * 100), "point_ref": point_ref}],
     }
 
     evidence_panel.render_evidence_panel(payload)
@@ -87,6 +90,7 @@ def test_evidence_panel_shows_metadata_date_and_scrolls_long_content(monkeypatch
     headings = " ".join(call.args[0] for call in markdown.call_args_list)
     assert "Luật giả lập 1" in headings
     assert "1/2026/QH15" in headings
+    assert ("Điểm a" in headings) == (point_ref is not None)
     assert "Nội dung dài." in rendered
     assert any("Hiệu lực tại 2026-11-23" in caption for caption in captions)
     assert any(container.get("height") == 260 for container in containers)

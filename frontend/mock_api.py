@@ -32,7 +32,8 @@ _MOCK_EVIDENCE = {
     "document_title": "Văn bản giả lập (không phải nguồn pháp luật)",
     "article_number": "Điều giả lập",
     "clause_number": "Khoản giả lập",
-    "breadcrumb": "Văn bản giả lập > Điều giả lập > Khoản giả lập",
+    "point_ref": "Điểm a",
+    "breadcrumb": "Văn bản giả lập > Điều giả lập > Khoản giả lập > Điểm a",
     "provision_status": "mock",
 }
 
@@ -56,6 +57,7 @@ def _mock_evidence(
             "document_title": f"Tài liệu giả lập {evidence_index} (không phải văn bản pháp luật)",
             "article_number": str(evidence_index),
             "clause_number": "1",
+            "point_ref": None,
             "breadcrumb": f"Tài liệu giả lập > Điều {evidence_index} > Khoản 1",
             "content": content or f"[Nội dung căn cứ giả lập số {evidence_index}.]",
         }
