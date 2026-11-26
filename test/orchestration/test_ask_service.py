@@ -203,8 +203,12 @@ def test_generated_query_ids_are_unique():
 
 
 @pytest.mark.parametrize(("query", "as_of_date", "expected", "source"), [
-    ("Nam bao nhiêu tuổi được kết hôn?", None, "2026-11-16", "system_today"),
-    ("Nam bao nhiêu tuổi được kết hôn?", "2020-05-01", "2020-05-01", "user_input"),
+    pytest.param("Nam bao nhiêu tuổi được kết hôn?", None, "2026-11-16", "system_today",
+                 marks=pytest.mark.req("FR2.1-AC3")),
+    pytest.param("Nam bao nhiêu tuổi được kết hôn?", "2015-06-01", "2015-06-01", "user_input",
+                 marks=pytest.mark.req("FR2.1-AC2")),
+    pytest.param("Năm 2010 kết hôn cần điều kiện gì?", None, "2010-12-31", "query_text",
+                 marks=pytest.mark.req("FR2.1-AC1")),
     ("Tại ngày 01/01/2015 nam bao nhiêu tuổi được kết hôn?", "2020-05-01", "2015-01-01", "query_text"),
 ])
 def test_as_of_date_order_question_then_user_then_today(query, as_of_date, expected, source):
