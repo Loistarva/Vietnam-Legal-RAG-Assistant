@@ -23,12 +23,13 @@ errors instead of turning them into abstentions.
 """
 from __future__ import annotations
 
+import functools
 import hashlib
 import json
 import os
 import re
 import time
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol
@@ -42,6 +43,13 @@ from generation.prompt_builder import (
 )
 from grounding.citation_validator import validate_citations
 from orchestration.events import StageEmitter
+from orchestration.interfaces import (
+    ContextAggregator,
+    GroundingGate,
+    ModelGateway,
+    PromptBuilder,
+    RetrievalSource,
+)
 from reranking.confidence import (
     DEFAULT_CONFIDENCE_CONFIG,
     ConfidenceConfig,
@@ -84,16 +92,19 @@ def count_cjk_chars(text: str) -> int:
     return len(CJK_CHARS.findall(text or ""))
 
 
-class CandidateSource(Protocol):
-    """Gives the reranked envelope for one question (results sorted by rank)."""
+# Transport errors the client may retry (SRS 5.3.4, FR6.4-AC1)
+RETRYABLE_ERROR_CODES: frozenset[str] = frozenset({"LLM_TIMEOUT", "LLM_UNAVAILABLE"})
+
+
+class CandidateSource(RetrievalSource, Protocol):
+    """``interfaces.RetrievalSource`` plus the ``name`` written to the trace."""
 
     name: str
 
-    def fetch(self, *, query_id: str, query: str, as_of_date: str) -> Mapping[str, Any]: ...
 
-
-class Generator(Protocol):
-    """Dev 3's ``model_gateway.llm_gateway.QwenGateway`` or a fake with the same signature."""
+class Generator(ModelGateway, Protocol):
+    """``interfaces.ModelGateway`` plus ``config`` and the optional ``max_evidence_index`` bound of
+    Dev 3's ``QwenGateway.generate`` (production mode only)."""
 
     config: Any
 
@@ -248,10 +259,13 @@ def _gate_result(status: str, reason: str, invalid: Sequence[int] = ()) -> Groun
                            invalid_indices=sorted({i for i in invalid if type(i) is int}), reason=reason)
 
 
-def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> GroundingResult:
+def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse, *,
+                         validator: Callable[..., GroundingResult] = validate_citations) -> GroundingResult:
     """Deterministic Gate. PASS only when the output parsed cleanly, was not truncated,
     did not abstain, has no CJK characters (``ANSWER_NOT_VIETNAMESE``), and every cited
     index (structured and inline ``[n]``) maps to the payload rendered into the prompt.
+
+    ``validator`` is Dev 1's ``validate_citations``; tests pass a fake with the same call.
 
     No check on words such as "nước ngoài": a correct answer may say "công dân Việt Nam
     với người nước ngoài" (HN_062)."""
@@ -278,8 +292,7 @@ def apply_grounding_gate(payload: ContextPayload, llm: LLMResponse) -> Grounding
     if count_cjk_chars(llm.answer):
         return _gate_result("FAIL", "ANSWER_NOT_VIETNAMESE")
     citations, invalid = map_evidence_indices_to_citations(llm.evidence_indices, payload)
-    result = validate_citations(payload, citations, evidence_indices=llm.evidence_indices,
-                                invalid_indices=invalid)
+    result = validator(payload, citations, evidence_indices=llm.evidence_indices, invalid_indices=invalid)
     if result.grounding_status != "PASS":
         return result
     if any(item.chunk_id in llm.answer for item in payload.evidence_items):
@@ -389,7 +402,11 @@ class RAGPipeline:
 
     def __init__(self, source: CandidateSource, generator: Generator, *, versions: RunVersions,
                  confidence: ConfidenceConfig, rerank_top_k: int, max_context_chars: int,
-                 parent_resolver: ParentContextResolver | None = None, run_mode: str = RUN_MODE):
+                 parent_resolver: ParentContextResolver | None = None, run_mode: str = RUN_MODE,
+                 context_aggregator: ContextAggregator = build_context_payload,
+                 prompt_builder: PromptBuilder = build_controlled_rag_prompt,
+                 gate: GroundingGate = apply_grounding_gate,
+                 validator: Callable[..., GroundingResult] | None = None):
         if not 1 <= rerank_top_k <= MAX_EVIDENCE_ITEMS:
             raise ValueError(f"rerank_top_k phải trong [1, {MAX_EVIDENCE_ITEMS}]")
         if run_mode not in RAG_RUN_MODES:
@@ -402,6 +419,14 @@ class RAGPipeline:
         self.rerank_top_k = rerank_top_k
         self.max_context_chars = max_context_chars
         self.parent_resolver = parent_resolver
+        # SRS 5.5 seams; the defaults are the real modules, tests inject fakes (IR4.1-AC1).
+        self.context_aggregator = context_aggregator
+        self.prompt_builder = prompt_builder
+        if validator is not None:
+            if gate is not apply_grounding_gate:
+                raise ValueError("validator chỉ dùng với Gate mặc định apply_grounding_gate")
+            gate = functools.partial(apply_grounding_gate, validator=validator)
+        self.gate = gate
         if versions.threshold_config_version != confidence.threshold_config_version:
             raise ValueError("threshold_config_version của versions khác cấu hình confidence")
 
@@ -420,8 +445,8 @@ class RAGPipeline:
 
     def run(self, *, query_id: str, query: str, as_of_date: str, as_of_date_source: str,
             events: StageEmitter | None = None) -> RAGRunResult:
-        """``events`` receives one LogEvent per stage (retrieval, rerank, context, llm,
-        citation, gate) with the same ``query_id``; it never gets query, prompt or answer text."""
+        """``events`` receives one LogEvent per stage (retrieval, rerank, confidence, context,
+        llm, citation, gate) with the same ``query_id``; it never gets query, prompt or answer text."""
         if not isinstance(query_id, str) or not query_id.strip():
             raise ValueError("query_id không được rỗng")
         if not isinstance(query, str) or not query.strip():
@@ -443,9 +468,11 @@ class RAGPipeline:
                     candidate_source=self.source.name, candidate_count=len(rows),
                     corpus_version=self.versions.corpus_version, corpus_hash=self.versions.corpus_version,
                     retrieval_config_version=self.versions.retrieval_config_version)
+        events.emit("rerank", "rerank_selected", "ok", candidate_count=len(rows),
+                    rerank_top_k=self.rerank_top_k)
         decision = apply_confidence_threshold(rows, self.confidence)
         described = decision.describe()
-        events.emit("rerank", "confidence_checked", decision.status, kept_count=len(decision.kept),
+        events.emit("confidence", "confidence_checked", decision.status, kept_count=len(decision.kept),
                     top1_score=described.get("top1_score"), min_top1_score=self.confidence.min_top1_score,
                     min_evidence_score=self.confidence.min_evidence_score,
                     threshold_config_version=self.versions.threshold_config_version)
@@ -469,14 +496,14 @@ class RAGPipeline:
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
             kept = self.parent_resolver.resolve(kept)
             trace["parent_context"] = dict(self.parent_resolver.last_stats)
-        payload, context_trace = build_context_payload(
+        payload, context_trace = self.context_aggregator(
             kept, query_id=query_id, query=query, as_of_date=as_of_date, as_of_date_source=as_of_date_source,
             max_context_chars=self.max_context_chars, max_items=self.rerank_top_k)
         trace["context"] = context_trace
         events.emit("context", "context_built", "ok", evidence_count=len(payload.evidence_items),
                     total_chars=payload.total_chars)
 
-        prompt = build_controlled_rag_prompt(payload)
+        prompt = self.prompt_builder(payload)
         trace["prompt_sha256"] = get_prompt_hash(prompt)
         events.emit("llm", "generation_started", "started", run_mode=self.run_mode,
                     prompt_version=PROMPT_B_VERSION)
@@ -488,7 +515,8 @@ class RAGPipeline:
             llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
                                           **bounds)
         except Exception as exc:
-            code = "LLM_TIMEOUT" if getattr(exc, "error_code", None) == "LLM_TIMEOUT" else "INTERNAL_ERROR"
+            code = getattr(exc, "error_code", None)
+            code = code if code in RETRYABLE_ERROR_CODES else "INTERNAL_ERROR"
             events.emit("llm", "generation_failed", "error", error_code=code)
             raise
         events.emit("llm", "generation_finished", llm.parse_status, duration_ms=llm.latency_ms,
@@ -496,7 +524,7 @@ class RAGPipeline:
                     prompt_version=llm.prompt_version, done_reason=llm.done_reason, truncated=llm.truncated,
                     parse_status=llm.parse_status, token_input=llm.token_usage.input,
                     token_output=llm.token_usage.output, ttft_model_ms=llm.ttft_model_ms)
-        grounding = apply_grounding_gate(payload, llm)
+        grounding = self.gate(payload, llm)
         return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
                             grounding=grounding, payload=payload, llm=llm, prompt=prompt,
                             retrieval_ms=retrieval_ms, events=events)

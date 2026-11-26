@@ -4,7 +4,7 @@ The route only validates, authenticates, assigns ``query_id`` and maps the statu
 routing, retrieval, generation and the Gate run in the shared ``AskService``.
 
 HTTP status: SUCCESS / NEEDS_CLARIFICATION / ABSTAIN -> 200 (the body says which);
-ERROR -> 504 for ``LLM_TIMEOUT``, 500 otherwise, still with an ``AskResponse`` body.
+ERROR -> 504 for ``LLM_TIMEOUT``, 503 for ``LLM_UNAVAILABLE``, 500 otherwise, still with an ``AskResponse`` body.
 401/422 bodies are ``ApiError``.
 """
 from __future__ import annotations
@@ -31,6 +31,7 @@ ASK_RESPONSES = {
     401: {"model": ApiError, "description": "Thiếu hoặc sai X-API-Key (`AUTH_REQUIRED`)."},
     422: {"model": ApiError, "description": "Body không đúng AskRequest (`INVALID_REQUEST`)."},
     500: {"model": AskResponse | ApiError, "description": "`status=ERROR`, `error_code=INTERNAL_ERROR`."},
+    503: {"model": AskResponse, "description": "`status=ERROR`, `error_code=LLM_UNAVAILABLE`."},
     504: {"model": AskResponse, "description": "`status=ERROR`, `error_code=LLM_TIMEOUT`."},
 }
 

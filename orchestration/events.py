@@ -17,8 +17,9 @@ import uuid
 from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any
 
+from orchestration.interfaces import EventSink
 from schemas.models import ErrorCode, EventStage, LogEvent
 
 SAFE_METADATA_KEYS = frozenset({
@@ -26,15 +27,11 @@ SAFE_METADATA_KEYS = frozenset({
     "corpus_hash", "corpus_version", "done_reason", "error_type", "evidence_count", "fast_path", "grounding_status",
     "http_status", "invalid_indices", "kept_count", "llm_calls", "matched_rule_id", "min_evidence_score",
     "min_top1_score", "model", "model_digest",
-    "parse_status", "policy_version", "prompt_version", "reason", "reason_code", "request_id",
+    "parse_status", "policy_version", "prompt_version", "reason", "reason_code", "request_id", "rerank_top_k",
     "retrieval_config_version", "retryable", "route", "run_mode", "session_id", "status", "threshold_config_version",
     "token_input", "token_output", "top1_score", "total_chars", "total_ms", "transport", "truncated",
     "ttft_model_ms", "violation_codes",
 })
-
-
-class EventSink(Protocol):
-    def emit(self, event: LogEvent) -> None: ...
 
 
 class NullEventSink:

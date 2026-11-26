@@ -1,0 +1,516 @@
+{
+  "health": {
+    "status": "ok",
+    "schema_version": "week10_v1.0",
+    "pipeline_ready": true
+  },
+  "log": {
+    "events": 130,
+    "all_lines_json": true,
+    "api_key_in_log": false,
+    "wrong_key_in_log": false
+  },
+  "ok": true,
+  "cases": [
+    {
+      "case": "auth_missing",
+      "http": 401,
+      "wall_ms": 5,
+      "error_code": "AUTH_REQUIRED",
+      "query_id": "q_20261123T083152_4d9406b2f15646e899488ca348f04087",
+      "no_detail_body": true,
+      "ok": true,
+      "expected_stages": [
+        "api"
+      ],
+      "log_stages": [
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "auth_wrong",
+      "http": 401,
+      "wall_ms": 2,
+      "error_code": "AUTH_REQUIRED",
+      "query_id": "q_20261123T083152_f12ed10a531542789c991560fa1ecaee",
+      "no_detail_body": true,
+      "ok": true,
+      "expected_stages": [
+        "api"
+      ],
+      "log_stages": [
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "invalid_empty_query",
+      "http": 422,
+      "wall_ms": 25,
+      "error_code": "INVALID_REQUEST",
+      "query_id": "q_20261123T083152_4f379dce47a7497db9cb3a5adac16cb5",
+      "no_detail_body": true,
+      "ok": true,
+      "expected_stages": [
+        "api"
+      ],
+      "log_stages": [
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "query_over_2000",
+      "http": 422,
+      "wall_ms": 3,
+      "error_code": "INVALID_REQUEST",
+      "query_id": "q_20261123T083152_135f1690b52d49f4a9915621dc57b0fb",
+      "no_detail_body": true,
+      "ok": true,
+      "expected_stages": [
+        "api"
+      ],
+      "log_stages": [
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "legal_marriage_age",
+      "http": 200,
+      "wall_ms": 16988,
+      "status": "SUCCESS",
+      "route": "LEGAL_IN_SCOPE",
+      "grounding": "PASS",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083152_9558805767364223a97d33fb5e6d88eb",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "user_input",
+      "citations": [
+        "|l_52_2014_qh13_art_8_clause_1_chunk_1"
+      ],
+      "evidence": 4,
+      "timings": {
+        "retrieval_ms": 1489.82,
+        "llm_total_ms": 15463.74,
+        "ttft_model_ms": 153.26,
+        "load_ms": 12.51,
+        "prompt_eval_ms": 140.75,
+        "eval_ms": 12962.43,
+        "total_ms": 16981.2
+      },
+      "answer_head": "Theo quy định có hiệu lực tại ngày 2026-11-23, nam phải đủ 20 tuổi trở lên để kết hôn theo Điều 8, Khoản 1, Điểm a của Luật Hôn nhân và gia đình 2014.",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "citation",
+        "gate",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "llm",
+        "citation",
+        "gate",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "legal_common_property",
+      "http": 200,
+      "wall_ms": 33859,
+      "status": "SUCCESS",
+      "route": "LEGAL_IN_SCOPE",
+      "grounding": "PASS",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083209_20e4cee7bd004cb8b91e7d38194d5814",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "user_input",
+      "citations": [
+        "|l_52_2014_qh13_art_29_clause_1_chunk_1",
+        "|l_52_2014_qh13_art_30_clause_2_chunk_1"
+      ],
+      "evidence": 5,
+      "timings": {
+        "retrieval_ms": 2355.97,
+        "llm_total_ms": 31481.68,
+        "ttft_model_ms": 147.76,
+        "load_ms": 20.29,
+        "prompt_eval_ms": 127.47,
+        "eval_ms": 29898.0,
+        "total_ms": 33847.35
+      },
+      "answer_head": "Theo quy định có hiệu lực tại ngày 2026-11-23, vợ, chồng có quyền và nghĩa vụ đối với tài sản chung như sau: Theo Điều 29 của Luật Hôn nhân và gia đình 2014, vợ, chồng bình đẳng với nhau về quyền, nghĩa vụ trong việc tạo lập, chiếm hữu, sử dụng, định đoạt tài sản chung; không phân biệt giữa lao động",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "citation",
+        "gate",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "llm",
+        "citation",
+        "gate",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "legal_date_in_question",
+      "http": 200,
+      "wall_ms": 18115,
+      "status": "SUCCESS",
+      "route": "LEGAL_IN_SCOPE",
+      "grounding": "PASS",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083243_4e3ca844a6cc4eba987d7fed0f3834a7",
+      "as_of_date": "2015-01-01",
+      "as_of_date_source": "query_text",
+      "citations": [
+        "|l_52_2014_qh13_art_8_clause_1_chunk_1"
+      ],
+      "evidence": 4,
+      "timings": {
+        "retrieval_ms": 2770.87,
+        "llm_total_ms": 15308.31,
+        "ttft_model_ms": 153.12,
+        "load_ms": 25.8,
+        "prompt_eval_ms": 127.32,
+        "eval_ms": 13542.77,
+        "total_ms": 18085.94
+      },
+      "answer_head": "Theo quy định có hiệu lực tại ngày 2015-01-01, nam phải từ đủ 20 tuổi trở lên và nữ phải từ đủ 18 tuổi trở lên để kết hôn. Điều này được quy định tại Điều 8 của Luật Hôn nhân và gia đình 2014.",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "citation",
+        "gate",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "llm",
+        "citation",
+        "gate",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "non_legal",
+      "http": 200,
+      "wall_ms": 7,
+      "status": "SUCCESS",
+      "route": "NON_LEGAL",
+      "grounding": "NOT_RUN",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083301_98bf7aef43cb40788cae87e77ab269d7",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "system_today",
+      "citations": [],
+      "evidence": 0,
+      "timings": {
+        "retrieval_ms": null,
+        "llm_total_ms": null,
+        "ttft_model_ms": null,
+        "load_ms": null,
+        "prompt_eval_ms": null,
+        "eval_ms": null,
+        "total_ms": 1.89
+      },
+      "answer_head": "Tôi là trợ lý tra cứu pháp luật Hôn nhân và gia đình Việt Nam nên không trả lời các câu hỏi ngoài pháp luật. Bạn có thể hỏi về kết hôn, ly hôn, tài sản vợ chồng, nuôi con, cấp dưỡng hoặc quan hệ giữa cha mẹ và con.",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "out_of_scope",
+      "http": 200,
+      "wall_ms": 23,
+      "status": "ABSTAIN",
+      "route": "LEGAL_OUT_OF_SCOPE",
+      "grounding": "NOT_RUN",
+      "error_code": "ROUTE_POLICY",
+      "reason": "LEGAL_OUT_OF_SCOPE_MATCH",
+      "query_id": "q_20261123T083301_a26ac55222d94a87949833104ce0a575",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "system_today",
+      "citations": [],
+      "evidence": 0,
+      "timings": {
+        "retrieval_ms": null,
+        "llm_total_ms": null,
+        "ttft_model_ms": null,
+        "load_ms": null,
+        "prompt_eval_ms": null,
+        "eval_ms": null,
+        "total_ms": 1.99
+      },
+      "answer_head": "",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "low_confidence_HN_035",
+      "http": 200,
+      "wall_ms": 2621,
+      "status": "ABSTAIN",
+      "route": "LEGAL_IN_SCOPE",
+      "grounding": "NOT_RUN",
+      "error_code": "LOW_CONFIDENCE",
+      "reason": "LOW_CONFIDENCE",
+      "query_id": "q_20261123T083301_b746152106874cacb8185f1b691b8dcc",
+      "as_of_date": "2026-10-15",
+      "as_of_date_source": "user_input",
+      "citations": [],
+      "evidence": 0,
+      "timings": {
+        "retrieval_ms": 2613.15,
+        "llm_total_ms": null,
+        "ttft_model_ms": null,
+        "load_ms": null,
+        "prompt_eval_ms": null,
+        "eval_ms": null,
+        "total_ms": 2616.68
+      },
+      "answer_head": "",
+      "disclaimer_once": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
+        "response"
+      ],
+      "header_query_id_matches": true,
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "retrieval",
+        "rerank",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "ui_legal",
+      "wall_ms": 17534,
+      "status": "SUCCESS",
+      "route": "LEGAL_IN_SCOPE",
+      "grounding": "PASS",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083305_0bd70a1c479c4877bd86f76b14a0ba13",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "system_today",
+      "citations": [
+        "|l_52_2014_qh13_art_8_clause_1_chunk_1"
+      ],
+      "evidence": 4,
+      "timings": {
+        "retrieval_ms": 1320.18,
+        "llm_total_ms": 16136.48,
+        "ttft_model_ms": 577.4,
+        "load_ms": 13.67,
+        "prompt_eval_ms": 563.73,
+        "eval_ms": 14081.13,
+        "total_ms": 17461.37
+      },
+      "answer_head": "Theo quy định có hiệu lực tại ngày 2026-11-23, nữ phải đủ 18 tuổi trở lên để được kết hôn. Điều 8 của Luật Hôn nhân và gia đình 2014 quy định rằng nữ từ đủ 18 tuổi trở lên là một trong những điều kiện để kết hôn.",
+      "disclaimer_once": true,
+      "ui_errors": [],
+      "history_len": 2,
+      "disclaimer_rendered": 1,
+      "answer_rendered": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "citation",
+        "gate",
+        "response"
+      ],
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "retrieval",
+        "retrieval",
+        "rerank",
+        "context",
+        "llm",
+        "llm",
+        "citation",
+        "gate",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "ui_non_legal",
+      "wall_ms": 86,
+      "status": "SUCCESS",
+      "route": "NON_LEGAL",
+      "grounding": "NOT_RUN",
+      "error_code": null,
+      "reason": null,
+      "query_id": "q_20261123T083322_f1cac869de414956b6ed2cb713374c39",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "system_today",
+      "citations": [],
+      "evidence": 0,
+      "timings": {
+        "retrieval_ms": null,
+        "llm_total_ms": null,
+        "ttft_model_ms": null,
+        "load_ms": null,
+        "prompt_eval_ms": null,
+        "eval_ms": null,
+        "total_ms": 1.71
+      },
+      "answer_head": "Tôi là trợ lý tra cứu pháp luật Hôn nhân và gia đình Việt Nam nên không trả lời các câu hỏi ngoài pháp luật. Bạn có thể hỏi về kết hôn, ly hôn, tài sản vợ chồng, nuôi con, cấp dưỡng hoặc quan hệ giữa cha mẹ và con.",
+      "disclaimer_once": true,
+      "ui_errors": [],
+      "history_len": 4,
+      "disclaimer_rendered": 2,
+      "answer_rendered": true,
+      "expected_stages": [
+        "api",
+        "router",
+        "response"
+      ],
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    },
+    {
+      "case": "ui_out_of_scope",
+      "wall_ms": 78,
+      "status": "ABSTAIN",
+      "route": "LEGAL_OUT_OF_SCOPE",
+      "grounding": "NOT_RUN",
+      "error_code": "ROUTE_POLICY",
+      "reason": "LEGAL_OUT_OF_SCOPE_MATCH",
+      "query_id": "q_20261123T083322_8157069562cc4a0ba42f6207e44a4dc7",
+      "as_of_date": "2026-11-23",
+      "as_of_date_source": "system_today",
+      "citations": [],
+      "evidence": 0,
+      "timings": {
+        "retrieval_ms": null,
+        "llm_total_ms": null,
+        "ttft_model_ms": null,
+        "load_ms": null,
+        "prompt_eval_ms": null,
+        "eval_ms": null,
+        "total_ms": 1.83
+      },
+      "answer_head": "",
+      "disclaimer_once": true,
+      "ui_errors": [],
+      "history_len": 6,
+      "disclaimer_rendered": 3,
+      "answer_rendered": false,
+      "expected_stages": [
+        "api",
+        "router",
+        "response"
+      ],
+      "ok": true,
+      "log_stages": [
+        "api",
+        "router",
+        "response",
+        "api"
+      ],
+      "log_order_ok": true
+    }
+  ]
+}

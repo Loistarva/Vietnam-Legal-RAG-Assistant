@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from collections.abc import Sequence
 from pathlib import Path
@@ -29,8 +30,7 @@ if str(ROOT) not in sys.path:
 from pydantic import ValidationError  # noqa: E402
 
 from orchestration.ask_service import InvalidAskRequest, RoutingFailed  # noqa: E402
-from orchestration.events import JsonlEventSink, NullEventSink  # noqa: E402
-from orchestration.wiring import ServiceSettings, build_ask_service  # noqa: E402
+from orchestration.wiring import ServiceSettings, build_ask_service, build_event_sink, parse_api_keys  # noqa: E402
 from schemas.models import AskRequest, AskResponse  # noqa: E402
 
 EXIT_CODES = {"SUCCESS": 0, "NEEDS_CLARIFICATION": 3, "ABSTAIN": 3, "ERROR": 1}
@@ -117,9 +117,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                                                 for e in exc.errors()), file=sys.stderr)
         return EXIT_INVALID_INPUT
     settings = settings_from_args(args)
-    sink = JsonlEventSink(settings.event_log) if settings.event_log else NullEventSink()
-    service = build_ask_service(settings, sink=sink)
+    sink = build_event_sink(settings, secret_values=parse_api_keys(os.environ.get("LEGAL_RAG_API_KEYS", "")))
     try:
+        service = build_ask_service(settings, sink=sink)
         response = service.run(request).response
     except InvalidAskRequest as exc:
         print(f"Input không hợp lệ: router từ chối ({exc.reason_code})", file=sys.stderr)
@@ -127,6 +127,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     except RoutingFailed:
         print("Lỗi INTERNAL_ERROR: hệ thống gặp lỗi khi định tuyến câu hỏi", file=sys.stderr)
         return EXIT_CODES["ERROR"]
+    finally:
+        close = getattr(sink, "close", None)
+        if close is not None:
+            close(timeout=2.0)
     if args.json:
         print(json.dumps(response.model_dump(mode="json"), ensure_ascii=False, indent=2))
     else:

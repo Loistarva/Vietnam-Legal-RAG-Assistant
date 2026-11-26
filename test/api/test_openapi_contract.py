@@ -27,7 +27,7 @@ def test_paths_methods_and_security():
         for status in ["401", "422"]:
             assert operation["responses"][status]["content"]["application/json"]["schema"]["$ref"].endswith("/ApiError")
     assert "security" not in spec["paths"]["/api/v1/health"]["get"]
-    assert {"200", "401", "422", "500", "504"} == set(ask["responses"])
+    assert {"200", "401", "422", "500", "503", "504"} == set(ask["responses"])
 
 
 def test_request_and_response_use_shared_contract_models():
