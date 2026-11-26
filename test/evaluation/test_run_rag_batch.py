@@ -128,6 +128,8 @@ def test_empty_or_non_string_question_is_rejected():
             )
 
 
+@pytest.mark.req("FR5.6")
+@pytest.mark.req("FR5.6-AC3")
 def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch):
     class FakeResponse:
         def __init__(self, payload):
@@ -155,6 +157,7 @@ def test_ollama_preflight_records_runtime_and_generation_provenance(monkeypatch)
 
     monkeypatch.setattr("scripts.run_rag_batch.urlopen", fake_urlopen)
     runtime = preflight_ollama()
+    assert runtime["regeneration_enabled"] is False
     assert runtime["model"] == "qwen2.5:7b"
     assert runtime["model_digest"] == "test-digest"
     assert runtime["ollama_version"] == "test-ollama"

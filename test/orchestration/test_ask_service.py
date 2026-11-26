@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -20,6 +21,8 @@ from orchestration.ask_service import (
 )
 from orchestration.events import ListEventSink
 from orchestration.fakes import MOCK_ANSWER, FixtureSource, ScriptedGenerator, build_mock_pipeline
+from orchestration.rag_pipeline import CLARIFY_MESSAGE
+from orchestration.wiring import ServiceSettings, build_ask_service
 from schemas.models import AskRequest, AskResponse, RouteDecision
 
 LEGAL = "Nam phải đủ bao nhiêu tuổi để kết hôn?"
@@ -142,10 +145,34 @@ def test_model_clarification_and_abstention():
     service, *_ = make_service()
     clarify = ask(service, f"{LEGAL} [mock:clarify]").response
     assert (clarify.status, clarify.grounding_status) == ("NEEDS_CLARIFICATION", "NEEDS_CLARIFICATION")
-    assert clarify.clarification and clarify.answer is None
+    assert clarify.clarification == CLARIFY_MESSAGE and clarify.answer is None
     abstain = ask(service, f"{LEGAL} [mock:abstain]").response
     assert (abstain.status, abstain.grounding_status, abstain.abstention_reason) == ("ABSTAIN", "ABSTAIN",
                                                                                      "MODEL_ABSTAINED")
+
+
+@pytest.mark.req("FR3.4")
+@pytest.mark.req("FR3.4-AC3")
+@pytest.mark.req("FR3.4-AC4")
+def test_model_clarification_uses_catalog_and_logs_only_kept_codes():
+    path = Path(__file__).parents[1] / "fixtures/sprint12/clarification_catalog_test.yaml"
+    settings = ServiceSettings.from_env({"LEGAL_RAG_PIPELINE_MODE": "mock", "LEGAL_RAG_CLARIFICATION_CATALOG": str(path)})
+    outcome = ask(build_ask_service(settings), f"{LEGAL} [mock:clarify_facts]")
+    response = outcome.response
+    assert response.status == response.grounding_status == "NEEDS_CLARIFICATION"
+    assert response.answer is None and response.citations == [] and response.disclaimer
+    assert response.clarification.splitlines() == [
+        "Để xác định quy định áp dụng, vui lòng cho biết thêm:",
+        "- Sự kiện xảy ra vào ngày nào?",
+        "- Hai bên đã đăng ký kết hôn chưa?",
+    ]
+    event, = (event for event in outcome.events if event.event_type == "clarification_built")
+    assert (event.stage, event.status) == ("response", "NEEDS_CLARIFICATION")
+    assert event.masked_metadata == {
+        "missing_facts": ["ngay_su_kien", "tinh_trang_dang_ky_ket_hon"], "kept_count": 2,
+        "dropped_count": 1, "catalog_version": "test_fixture_v0", "generic_clarification": False,
+    }
+    assert all("ma_la" not in event.model_dump_json() for event in outcome.events)
 
 
 def test_gateway_timeout_is_typed_error_without_exception_text():
@@ -187,8 +214,8 @@ def test_one_query_id_through_every_stage_and_no_text_in_events():
     service, _, _, sink = make_service()
     outcome = ask(service, query_id="qid-fixed")
     assert outcome.response.query_id == "qid-fixed"
-    assert [e.stage for e in sink.events] == ["router", "retrieval", "retrieval", "rerank", "context", "llm", "llm",
-                                             "citation", "gate", "response"]
+    assert [e.stage for e in sink.events] == ["router", "retrieval", "retrieval", "rerank", "confidence", "context", "llm",
+                                             "llm", "citation", "gate", "response"]
     assert {e.query_id for e in sink.events} == {"qid-fixed"}
     assert outcome.events == sink.events
     dumped = json.dumps([e.model_dump(mode="json") for e in sink.events], ensure_ascii=False)
@@ -346,7 +373,8 @@ MIN_METADATA = {
     ("router", "route_decided"): {"route", "action", "reason_code", "policy_version"},
     ("retrieval", "retrieval_finished"): {"corpus_version", "corpus_hash", "retrieval_config_version",
                                           "candidate_count"},
-    ("rerank", "confidence_checked"): {"top1_score", "min_top1_score", "threshold_config_version"},
+    ("rerank", "rerank_selected"): {"candidate_count", "rerank_top_k"},
+    ("confidence", "confidence_checked"): {"top1_score", "min_top1_score", "threshold_config_version"},
     ("llm", "generation_finished"): {"model", "prompt_version", "token_input", "token_output"},
     ("gate", "gate_decided"): {"grounding_status", "violation_codes"},
     ("response", "response_built"): {"grounding_status", "total_ms", "citation_count", "evidence_count"},

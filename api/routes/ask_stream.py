@@ -40,7 +40,8 @@ from schemas.models import SCHEMA_VERSION, AskRequest, LogEvent
 router = APIRouter(prefix="/api/v1")
 
 SSE_VERSION = "sse_v2"
-PHASES = {"router": "routing", "retrieval": "retrieving", "rerank": "reranking", "context": "generating",
+PHASES = {"router": "routing", "retrieval": "retrieving", "rerank": "reranking", "confidence": "reranking",
+          "context": "generating",
           "llm": "generating", "citation": "validating", "gate": "validating"}
 
 

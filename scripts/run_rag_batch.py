@@ -483,6 +483,7 @@ def preflight_ollama() -> dict[str, Any]:
         "threshold_config_sha256": _sha256_file(confidence_path),
         "hyde_enabled": False,
         "judge_enabled": False,
+        "regeneration_enabled": False,
         "python_version": sys.version.split()[0],
         "python_implementation": platform.python_implementation(),
         "platform": platform.platform(),

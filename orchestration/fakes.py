@@ -10,10 +10,15 @@ Markers in the question pick a branch (the router still runs on the real text):
 * ``[mock:empty]``      no candidate            -> ABSTAIN, RETRIEVAL_EMPTY, no LLM call
 * ``[mock:low]``        top-1 score 0.2         -> ABSTAIN, LOW_CONFIDENCE, no LLM call
 * ``[mock:clarify]``    model asks for details  -> NEEDS_CLARIFICATION
+* ``[mock:clarify_facts]`` model supplies missing fact codes -> NEEDS_CLARIFICATION
 * ``[mock:abstain]``    model abstains          -> ABSTAIN (model)
 * ``[mock:gate_fail]``  model cites [6] of 2    -> Gate FAIL, CITATION_INVALID, no draft returned
 * ``[mock:bad_json]``   unparsable model output -> Gate FAIL, JSON_INVALID
+* ``[mock:truncated]``   every answer reaches the length limit
+* ``[mock:truncated_once]`` truncated until the repair note is present
+* ``[mock:undeclared_once]`` inline [2] is undeclared until the repair note is present
 * ``[mock:timeout]``    gateway timeout         -> ERROR, LLM_TIMEOUT
+* ``[mock:unavailable]`` model not reachable   -> ERROR, LLM_UNAVAILABLE
 
 Every evidence text and title says it is mock data; nothing here is a real legal source.
 """
@@ -25,6 +30,7 @@ from typing import Any
 
 from model_gateway.llm_gateway import GatewayExecutionError
 from orchestration.rag_pipeline import RAGPipeline, RunVersions
+from orchestration.regeneration import RegenerationPolicy
 from reranking.confidence import load_confidence_config
 from schemas.models import LLMResponse, TokenUsage
 
@@ -108,18 +114,26 @@ class ScriptedGenerator:
                  max_evidence_index: int | None = None) -> LLMResponse:
         self.calls += 1
         markers = mock_markers(prompt)
+        repaired = "LƯU Ý SỬA LỖI" in prompt
+        truncated = "truncated" in markers or ("truncated_once" in markers and not repaired)
         if "timeout" in markers:
             raise GatewayExecutionError("mock gateway timeout", error_code="LLM_TIMEOUT")
+        if "unavailable" in markers:
+            raise GatewayExecutionError("mock gateway unavailable", error_code="LLM_UNAVAILABLE")
         body: dict[str, Any] = {"answer": MOCK_ANSWER, "evidence_indices": [1, 2], "abstained": False,
                                 "abstention_reason": None, "needs_clarification": False}
         parse_status, error_code = "ok", None
-        if "clarify" in markers:
+        if markers & {"clarify", "clarify_facts"}:
             body.update(answer="", evidence_indices=[], needs_clarification=True)
+            if "clarify_facts" in markers:
+                body["missing_facts"] = ["ngay_su_kien", "tinh_trang_dang_ky_ket_hon", "ngay_su_kien", "ma_la"]
         elif "abstain" in markers:
             body.update(answer="", evidence_indices=[], abstained=True, abstention_reason="mock")
         elif "gate_fail" in markers:
             body.update(answer="[Dữ liệu giả lập] Bản nháp trích căn cứ [6] không có trong ngữ cảnh.",
                         evidence_indices=[6])
+        elif "undeclared_once" in markers and not repaired:
+            body["evidence_indices"] = [1]
         indices, rejected = [], []
         for idx in body["evidence_indices"]:
             if max_evidence_index is not None and not 1 <= idx <= max_evidence_index:
@@ -134,22 +148,25 @@ class ScriptedGenerator:
         return LLMResponse(
             query_id=query_id, run_mode=run_mode, answer=body["answer"], evidence_indices=indices,
             rejected_evidence_values=rejected, abstained=body["abstained"],
+            missing_facts=body.get("missing_facts", []),
             abstention_reason=body["abstention_reason"], needs_clarification=body["needs_clarification"],
-            prompt_version=prompt_version, done_reason="stop", parse_status=parse_status, latency_ms=5.0,
+            prompt_version=prompt_version, done_reason="length" if truncated else "stop", truncated=truncated,
+            parse_status=parse_status, latency_ms=5.0,
             token_usage=TokenUsage(input=800, output=60), raw_response=json.dumps(body, ensure_ascii=False),
             error_code=error_code, model_digest="mock",
         )
 
 
 def build_mock_pipeline(*, run_mode: str = "C_production_rag", generator: ScriptedGenerator | None = None,
-                        source: FixtureSource | None = None) -> RAGPipeline:
+                        source: FixtureSource | None = None, regeneration: RegenerationPolicy | None = None) -> RAGPipeline:
     """Real orchestrator and Gate with fixture retrieval and a scripted model; the real
     confidence thresholds (reranking/confidence.yaml) apply."""
     confidence = load_confidence_config()
     versions = RunVersions(corpus_version="mock:corpus", retrieval_config_version="mock:retrieval",
                            threshold_config_version=confidence.threshold_config_version)
     return RAGPipeline(source or FixtureSource(), generator or ScriptedGenerator(), versions=versions,
-                       confidence=confidence, rerank_top_k=5, max_context_chars=6000, run_mode=run_mode)
+                       confidence=confidence, rerank_top_k=5, max_context_chars=6000, run_mode=run_mode,
+                       regeneration=regeneration)
 
 
 __all__ = ["FixtureSource", "MOCK_TITLE", "ScriptedGenerator", "build_mock_pipeline", "mock_markers", "mock_row"]

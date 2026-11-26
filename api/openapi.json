@@ -781,6 +781,16 @@
             },
             "description": "`status=ERROR`, `error_code=INTERNAL_ERROR`."
           },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskResponse"
+                }
+              }
+            },
+            "description": "`status=ERROR`, `error_code=LLM_UNAVAILABLE`."
+          },
           "504": {
             "content": {
               "application/json": {
