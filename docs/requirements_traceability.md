@@ -64,17 +64,17 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR1.5 | Một phần | như trên | Như trên. |
 | FR1.6 | Một phần | như trên | Như trên. |
 | FR1.7 | Một phần | `test/agent/test_rule_router.py`, `test/evaluation/test_run_rag_batch.py` | Chưa có giới hạn độ dài; API cần kiểm tra trước pipeline, kiểm thử biên 2.000/2.001 ký tự và body `ApiError` 422 (AC1–AC2). |
-| FR1.8 | Một phần | `test/agent/data/router_holdout.jsonl` | Chưa xác nhận tính độc lập. |
+| FR1.8 | Một phần | [Audit v6](../reports/week12/router_holdout_similarity.md), `ad6890a` | Một cặp cần review độc lập. Bằng chứng freeze trước lượt v6 lịch sử chưa đầy đủ. |
 | FR1.9 | Chưa | — | Orchestrator gọi router ở PR #55, chưa merge. |
 
 ## FR2. Lọc trước và truy xuất
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR2.1 | Một phần | `retrieval/temporal.py`, `test/test_pipeline_context.py` | Hàm có; pipeline chưa có chế độ tương tác; nhãn `question/ui/today` chưa ánh xạ sang `query_text/user_input/system_today`. |
+| FR2.1 | Một phần | `test/orchestration/test_ask_service.py`, `e8c8119` | AC1–AC3 kiểm ngày và nhãn nguồn qua AskService. Chờ CI trên testing. |
 | FR2.2 | Chưa | — | Metadata có sẵn trong chunk (`document_number`, `document_type`, `issuing_body`, `issue_date`). |
 | FR2.3 | Chưa | — | |
-| FR2.4 | Một phần | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py` | AC1–AC3 có; AC4 chưa có test so sánh ba nhánh (Elasticsearch, Qdrant, precomputed). |
+| FR2.4 | Một phần | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py`, `test/test_retrieval_filter_conformance.py` | AC4 có marker và fixture đối chiếu Elasticsearch, Qdrant và precomputed. Chờ CI trên testing. |
 | FR2.5 | Có | `test/test_bm25_retrieval.py` | |
 | FR2.6 | Có | `test/test_dense_retriever.py` | |
 | FR2.7 | Có | `test/test_hybrid_retriever.py` | `retrieval_top_k = 50`, `rrf_k = 60`. |
@@ -99,9 +99,9 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR4.1 | Một phần | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2: thiếu parent mới chỉ ghi cảnh báo vào log, chưa vào `retrieval_trace`. |
+| FR4.1 | Một phần | `test/test_pipeline_context.py`, `test/orchestration/test_evidence_index_mapping.py`, `7ddc6c6` | AC2 đã qua fixture: chunk fallback, cảnh báo, đếm và ghi ID chunk khi thiếu parent. Chờ CI trên testing. |
 | FR4.2 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schema_test.py` | |
-| FR4.3 | Có | `test/schema_test.py`, `test/generation/test_prompt_builder.py` | Prompt `v1.3` render thêm nhãn hiệu lực tại `as_of_date` (`FR4.3`). |
+| FR4.3 | Một phần | `test/generation/test_prompt_builder.py`, `test/frontend/test_evidence_panel.py`, `b74439e` | AC2 có fixture cho prompt và UI. Chờ xác nhận live trên testing. |
 | FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py`, `test/generation/test_prompt_builder.py`, `test/schemas/test_contracts.py` | Prompt official `v1.2`; `v1.3` thêm `missing_facts` danh mục đóng. |
 | FR4.5 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/orchestration/test_grounding_gate.py`, `test/generation/test_prompt_builder.py` | |
 | FR4.6 | Có | `test/test_p45_prompt_gateway.py`, `test/generation/test_prompt_builder.py` | Hash ở `retrieval_trace.prompt_sha256`; thêm `verify_prompt_template_integrity` chặn sửa template không tăng version (`AC2`). |
@@ -192,7 +192,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | NFR2.3 | Một phần | `results_metrics.json`, `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Manifest validator đã bắt buộc `hardware.{os,cpu,gpu,vram}`; các manifest lịch sử cũ chỉ có `platform`, chờ lượt đo mới trên máy tham chiếu. |
 | NFR3.1 | Chưa | — | |
 | NFR3.2 | Chưa | — | |
-| NFR3.3 | Một phần | — | Chưa có quét secret tự động. |
+| NFR3.3 | Một phần | `.github/workflows/tests.yml`, `.gitleaks.toml` | AC1: kiểm cục bộ xác nhận snapshot sạch qua và mẫu giả bị chặn. Chờ CI và PR kiểm chứng nhánh đỏ. |
 | NFR3.4 | Chưa | — | |
 | NFR3.5 | Chưa | — | |
 | NFR4.1 | Có | `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Kiểm tra `working_tree_clean`, `temperature == 0`, cache tắt, fallback khóa khi `official=True`. |
