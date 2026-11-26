@@ -96,6 +96,12 @@ Hash bên dưới dùng SHA-256 trên bytes sau chuẩn hóa CRLF → LF. Đây 
 
 Theo [hồ sơ v6](../../evaluation/router_holdout/router_holdout_week10_v6.md), source Router tại lượt đánh giá lịch sử có hash LF `996bd6a0894aeaf964f188f032961329ec6cdecfe1575bcf80df685aa068f2f7`, khác source hiện tại. Không gán lại kết quả 34/36 cho source hiện tại. Metadata `INDEPENDENT_REVIEW_COMPLETE` của v6 ghi nhận review nhãn trước đây theo xác nhận của project owner; không thay thế review gần trùng trong báo cáo này. Hồ sơ vẫn ghi `review_date=null` và `review_before_prediction=null`.
 
+## Kiểm lại sau bổ sung router_route ngày 26/11/2026
+
+Các bảng hash/phạm vi phía trên giữ nguyên mốc kiểm tra ban đầu. Bản sửa `to_canonical()` chỉ bổ sung route gốc vào canonical output; không đổi quy tắc hoặc chạy dự đoán lại. Hash LF source mới: `8726623547d48252a0821d25c89fb7323d7f16ec091f48811892e250aa616681`; test Router mới: `af67825e638abfc50b97432d7eae69d30534d802192d2603025013ea4ac67c88`.
+
+Audit chạy lại có 36 câu, 0 exact match, 0 validation error; vẫn chỉ cặp `W16RH_011` với test dòng 360 (0,865 / 0,567). Test Python tăng từ 286 lên 288 hằng chuỗi, tổng nguồn từ 1.595 lên 1.597 mục (57.492 cặp). Holdout và hash của nó không đổi. Không sửa snapshot freeze hoặc tự điền sign-off; reviewer cần đối chiếu bản bổ sung khi kết luận.
+
 ## Phiếu kết luận review độc lập
 
 **Reviewer điền trực tiếp phần này. Các ô hiện để trống, chưa có sign-off.**

@@ -3,3 +3,7 @@
 /evaluation/quality/grounding_cases_sprint11.jsonl text eol=lf
 /test/fixtures/grounding/sprint11/*.json text eol=lf
 /reports/week11/*.log text eol=lf
+# Preserve the producer's exact checkout bytes for the sealed Test30 hash chain.
+/evaluation/results/precompute/test30_s12_001/*.json text eol=lf
+/evaluation/results/precompute/test30_s12_001/candidates.json text eol=crlf
+/evaluation/results/precompute/test30_s12_001/reranked.json text eol=crlf

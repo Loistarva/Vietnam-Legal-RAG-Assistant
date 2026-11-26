@@ -1,5 +1,7 @@
 # Bàn giao Dev 4 — Sprint 12
 
+**Bổ sung 26/11:** đã sửa `router_route`, kiểm thử bản tích hợp với Dev 5 tại `19cdfc7e` (142 test, 395 subtest), sửa checkout line endings để bảo toàn hash artifact. Tám JSON output đã được track trong commit `7648603a` của PR #67. Manifest/receipt dùng LF, candidates/reranked dùng CRLF theo byte producer gốc; checker hiện đạt `VERIFY PASSED`. ZIP `001` giữ nguyên snapshot bàn giao trước bản bổ sung này. Cách giải conflict giữ cả parent trace, regeneration và `self.context_aggregator` injection; không cần báo cáo hoặc patch riêng.
+
 Cập nhật ngày 26/11/2026 (Asia/Saigon). Producer Test 30: `9144dfddbc6a3610dab17271f1290216e30dbb8d`; checker đã sửa: `626d3705c9e9e9e2e9449e451066f7edf742746f`. Các commit hiện có ở local; chưa xác nhận push, CI remote hoặc merge PR.
 
 ## Kết quả bàn giao

@@ -724,6 +724,8 @@ def test_public_router_boundary_preserves_raw_route_and_action(query, raw_route,
     assert (raw.route.value, raw.action.value) == (raw_route, action)
     assert converted == raw.to_canonical()
     assert converted.route == canonical_route and converted.action == action
+    assert converted.router_route == raw_route
+    assert converted.model_dump(mode="json")["router_route"] == raw_route
     assert f"{raw_route} -> {action}" in converted.explanation
     assert converted.reason_code == raw.route_reason.value
     assert converted.policy_version == raw.classifier_version == "rule_router_v5"
