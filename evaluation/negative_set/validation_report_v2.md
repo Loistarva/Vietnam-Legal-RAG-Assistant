@@ -1,8 +1,8 @@
 # D1.5 v2 - coverage review sau PR #35-#40
 
 Ngày rà: 08/11/2026. Baseline là `testing` fc66642 (full SHA trong manifest).
-Registry 28 văn bản, corpus 2.322 chunk. V1 giữ nguyên như hồ sơ lịch sử; v2 là
-bản bàn giao hiện tại. Validator mặc định dùng v2, không đổi dữ liệu Test.
+Registry 28 văn bản, corpus 2.322 chunk. V2 là bản Negative Set đang dùng và
+đã được peer review; validator mặc định dùng v2, không đổi dữ liệu Test.
 
 ## Coverage, không chỉ hash
 
@@ -18,15 +18,20 @@ bản bàn giao hiện tại. Validator mặc định dùng v2, không đổi d�
   cần đối chiếu; giữ 3 case yêu cầu nguồn trực tiếp làm control.
 - Viết lại 6 case thiếu dữ kiện theo cách hỏi tự nhiên, không tự nêu toàn bộ
   phần thiếu. Clarification fields vẫn ghi riêng cho evaluator/router.
-- Thêm hai case ranh giới (thừa kế và hình phạt bạo lực gia đình). Nhãn đề xuất
-  legal_out_of_scope chỉ áp dụng câu cụ thể, chưa phải quyết định phạm vi cho
-  toàn bộ chủ đề. Tech Lead cần chốt NEG_DEV_025/026; trạng thái pending_peer_review.
+- Thêm hai case ranh giới (thừa kế và hình phạt bạo lực gia đình). Nhãn
+  `NEG_DEV_025` (`legal_out_of_scope`) được Dev4 xác nhận: câu chỉ hỏi hàng thừa
+  kế theo luật dân sự, không hỏi chế độ tài sản HNGĐ. Policy `NEG_DEV_026` được
+  project owner xác nhận ngày 2026-11-17. Dev2 đã review độc lập và Tech Lead
+  đã sign-off v2 theo SHA canonical trong manifest; trạng thái là
+  `peer_reviewed`. Sign-off này chỉ áp dụng cho Negative Set, không tự động
+  freeze Router.
 
 ## Bàn giao
 
 26 câu: 6 non_legal, 8 legal_out_of_scope, 6 missing_corpus_evidence,
 6 insufficient_facts. Manifest pin baseline, hashes và nguồn kiểm trùng mới.
-Dev 4 nhận JSONL cho router; Dev 5 nhận để calibration; Dev 2 + Tech Lead duyệt.
+Dev 4 nhận JSONL cho router; Dev 5 nhận để calibration. Dev 2 + Tech Lead đã
+review/sign-off theo SHA canonical ghi trong manifest.
 Chưa có số đo threshold, chưa khẳng định router đạt yêu cầu và không dùng làm Test.
 
 ```powershell

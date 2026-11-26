@@ -6,7 +6,7 @@ the existing modules satisfy them without a rewrite:
 =========================  ==========================================================  ===============
 Protocol                   Implementation on ``testing``                               Owner
 =========================  ==========================================================  ===============
-``Router``                 ``orchestration.ask_service.RuleRouterAdapter``             Dev 4 (adapter: Dev 5)
+``Router``                 ``agent.router.adapter.RuleRouterAdapter``                  Dev 4
                            (wraps ``agent.router.rule_router.RuleRouter``, SRS 5.3.3)
 ``RetrievalSource``        ``rag_pipeline.LivePipelineSource``,                        Dev 4 / Dev 5
                            ``rag_pipeline.PrecomputedRerankedSource``

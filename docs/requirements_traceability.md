@@ -46,8 +46,8 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `EvidenceItem.point_ref` | `week10_v1.1` | Có | Đã thêm vào `EvidenceItem` và `ContextPayload.source_map` (`test/schemas/test_contracts.py`); 272/2.322 chunk có `point_ref`. |
 | `StructuredRAGOutput.missing_facts` / `LLMResponse.missing_facts` | `week10_v1.1` | Có | Đã thêm vào `schemas/models.py` (mặc định `[]`, tương thích `v1.2`) và prompt `v1.3` (`test/generation/test_prompt_builder.py`). |
 | `RouteDecision.router_route` & `RouteAction` | `week10_v1.1` | Có | Khóa 4 giá trị chuẩn theo SRS 5.3.3 (`test/schemas/test_contracts.py`). |
-| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
-| `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
+| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Có | Đã gộp `MetadataFilters` và `RetrievalLatencyBreakdown` từ PR #56 vào bản `week10_v1.1` thống nhất trên nhánh Dev 3 (PR #60); bản ghi cũ không có 2 trường này vẫn hợp lệ. |
+| `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Có | Đã gộp từ PR #56 vào bản `week10_v1.1` thống nhất trên nhánh Dev 3 (PR #60); bản ghi cũ thiếu `route` vẫn hợp lệ. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 

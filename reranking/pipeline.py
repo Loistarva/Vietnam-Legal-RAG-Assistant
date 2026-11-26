@@ -25,6 +25,7 @@ from typing import Any, Protocol, Sequence
 
 from reranking.parent_context import ParentContextResolver
 from reranking.reranker import Reranker, deduplicate_candidates
+from retrieval.metadata_filters import metadata_matches, normalize_metadata_filters
 from retrieval.temporal import is_effective_at, normalize_as_of_date
 
 logger = logging.getLogger(__name__)
@@ -170,7 +171,7 @@ class RetrievalPipeline:
         return self.reranker.rerank_top_k if self.reranker else min(5, self.retrieval_top_k)
 
     def run(self, query: str, top_k: int | None = None, *, query_id: str = "Q_CLI_001",
-            as_of_date: str | None = None) -> dict[str, Any]:
+            as_of_date: str | None = None, metadata_filters: Mapping[str, Any] | None = None) -> dict[str, Any]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         as_of_date = _parse_as_of_date(as_of_date)
@@ -191,6 +192,13 @@ class RetrievalPipeline:
         search_kwargs["as_of_date"] = as_of_date
         if self.retriever_takes_query_id:
             search_kwargs["query_id"] = query_id
+        retrieval_stage_latency: dict[str, float] = {}
+        if _accepts_keyword(self.retriever.search, "metadata_filters"):
+            search_kwargs["metadata_filters"] = metadata_filters
+        elif metadata_filters:
+            raise TypeError(f"Retriever {self.retriever_name} không hỗ trợ metadata_filters")
+        if _accepts_keyword(self.retriever.search, "latency_trace"):
+            search_kwargs["latency_trace"] = retrieval_stage_latency
         started = time.perf_counter()
         try:
             hits = self.retriever.search(query, self.retrieval_top_k, **search_kwargs)
@@ -203,9 +211,12 @@ class RetrievalPipeline:
         retrieved_at = time.perf_counter()
 
         rerank_stats: dict[str, Any] = {}
+        reranking_ms = None
         if self.reranker is not None:
             try:
+                rerank_started = time.perf_counter()
                 final = [to_contract_result(hit) for hit in self.reranker.rerank(query, candidates, top_k)]
+                reranking_ms = round((time.perf_counter() - rerank_started) * 1000.0, 3)
             except Exception as exc:
                 logger.error("Rerank stage failed: %s", exc)
                 raise PipelineError("rerank", exc) from exc
@@ -217,8 +228,11 @@ class RetrievalPipeline:
         for rank, row in enumerate(final, 1):
             row["rank"] = rank
         parent_stats: dict[str, Any] = {}
+        parent_context_ms = None
         if self.parent_resolver is not None:
+            parent_started = time.perf_counter()
             final = self.parent_resolver.resolve(final)
+            parent_context_ms = round((time.perf_counter() - parent_started) * 1000.0, 3)
             parent_stats = {"parent_context": dict(self.parent_resolver.last_stats)}
         finished = time.perf_counter()
 
@@ -230,6 +244,17 @@ class RetrievalPipeline:
             "retrieval_latency_ms": round((retrieved_at - started) * 1000.0, 3),
             "total_latency_ms": round((finished - started) * 1000.0, 3),
         }
+        latency_trace = {
+            "bm25_ms": retrieval_stage_latency.get("bm25"),
+            "dense_ms": retrieval_stage_latency.get("dense"),
+            "rrf_ms": retrieval_stage_latency.get("rrf_ms"),
+            "reranking_ms": reranking_ms,
+            "parent_context_ms": parent_context_ms,
+            "total_retrieval_ms": stats["total_latency_ms"],
+        }
+        # Keep stage timings inside the existing open-ended stats object. The active
+        # RetrievalEnvelope schema forbids new top-level fields such as retrieval_trace.
+        stats["latency_breakdown"] = latency_trace
         logger.info("Pipeline[%s] query_id=%s retrieved=%d returned=%d total=%.1fms",
                     self.name, query_id, len(candidates), len(final), stats["total_latency_ms"])
         return {
@@ -330,8 +355,11 @@ class PrecomputedRetriever:
             raise ValueError(f"Không đọc được file candidate {path}: {exc}") from exc
         return cls([data] if isinstance(data, dict) else data if isinstance(data, list) else [])
 
-    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, query_id: str, as_of_date: str,
+               metadata_filters: Mapping[str, Any] | None = None) -> list[dict[str, Any]]:
         _require_positive_int("top_k", top_k)
+        filters = normalize_metadata_filters(metadata_filters)
+        as_of_date = normalize_as_of_date(as_of_date)
         envelope = self.envelopes.get(query_id)
         if envelope is None:
             raise ValueError(f"File candidate không có query_id {query_id}")
@@ -347,7 +375,11 @@ class PrecomputedRetriever:
         if isinstance(saved, int) and saved < top_k:
             raise ValueError(f"File candidate chỉ lưu top {saved} của {query_id}, cần {top_k} "
                              f"(chạy lần 1 với --top-k {top_k})")
-        return [dict(hit) for hit in envelope["results"][:top_k]]
+        # Recheck the saved pool before slicing. Filtering a previously truncated
+        # top-k would hide eligible lower-ranked chunks and differ from ES/Qdrant.
+        # This only searches the stored pool; it does not recover unsaved chunks.
+        return [dict(hit) for hit in envelope["results"]
+                if is_effective_at(hit, as_of_date) and metadata_matches(hit, filters)][:top_k]
 
 
 def load_retrieval_settings(path: str | Path = DEFAULT_RETRIEVAL_CONFIG_PATH) -> dict[str, Any]:

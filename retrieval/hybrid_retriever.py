@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 import inspect
+import time
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -12,6 +13,7 @@ from typing import Any, Protocol, Sequence
 from retrieval.rrf import reciprocal_rank_fusion
 from retrieval.settings import load_settings, resolve_rrf_k
 from retrieval.temporal import effective_period, is_effective_at, normalize_as_of_date
+from retrieval.metadata_filters import metadata_matches, normalize_metadata_filters
 
 
 logger = logging.getLogger(__name__)
@@ -55,11 +57,13 @@ def _segment_bm25_query(query: str, *, tokenizer: str = BM25_TOKENIZER_NAME,
 class DenseRetriever(Protocol):
     """Interface expected by HybridRetriever; scores are local to dense ranking."""
 
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
+    def search(self, query: str, top_k: int, *, as_of_date: str,
+               metadata_filters: dict[str, Any] | None = None) -> list[dict[str, Any]]: ...
 
 
 class SparseRetriever(Protocol):
-    def search(self, query: str, top_k: int, *, as_of_date: str) -> list[dict[str, Any]]: ...
+    def search(self, query: str, top_k: int, *, as_of_date: str,
+               metadata_filters: dict[str, Any] | None = None) -> list[dict[str, Any]]: ...
 
 
 class Reranker(Protocol):
@@ -127,13 +131,15 @@ class ElasticsearchBM25Retriever:
             ], "minimum_should_match": 1}},
         ]
 
-    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, as_of_date: str | None = None,
+               metadata_filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
         if not isinstance(top_k, int) or isinstance(top_k, bool) or top_k < 1:
             raise ValueError("top_k phải là số nguyên lớn hơn 0")
         raw_query = query.strip()
         as_of = normalize_as_of_date(as_of_date)
+        filters = normalize_metadata_filters(metadata_filters)
         self._verify_index_tokenizer()
         segmented_query = _segment_bm25_query(
             raw_query, tokenizer=self.tokenizer, tokenizer_version=self.tokenizer_version,
@@ -157,7 +163,13 @@ class ElasticsearchBM25Retriever:
                     }},
                 ],
                 "minimum_should_match": 1,
-                "filter": self.build_temporal_filter(as_of),
+                "filter": [
+                    *self.build_temporal_filter(as_of),
+                    *[{"term": {
+                        (f"metadata.{key}" if key in {"document_type", "document_number", "validity_status"}
+                         else key): value
+                    }} for key, value in filters.items()],
+                ],
             }
         })
         rows = []
@@ -186,6 +198,8 @@ class ElasticsearchBM25Retriever:
                 "effective_to": effective_to,
                 "metadata": meta,
             })
+        # Defensive parity check for older or aliased Elasticsearch mappings.
+        rows = [row for row in rows if metadata_matches(row, filters)]
         return rows
 
 
@@ -195,10 +209,9 @@ def filter_legal_metadata(hits: Sequence[dict[str, Any]], *, as_of: date | None 
     as_of_str = normalize_as_of_date(as_of)
     accepted = []
     for hit in hits:
-        metadata = hit.get("metadata", {})
         if not is_effective_at(hit, as_of_str):
             continue
-        if filters and any(metadata.get(key) != value for key, value in filters.items()):
+        if filters and not metadata_matches(hit, filters):
             continue
         accepted.append(dict(hit))
     return accepted
@@ -246,7 +259,8 @@ class EmbeddingQdrantAdapter:
         self.embedding_service = embedding_service
         self.vector_store = vector_store
 
-    def search(self, query: str, top_k: int, *, as_of_date: str | None = None) -> list[dict[str, Any]]:
+    def search(self, query: str, top_k: int, *, as_of_date: str | None = None,
+               metadata_filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
         try:
             query_vector = self.embedding_service.embed_query(query)
             as_of = normalize_as_of_date(as_of_date)
@@ -258,7 +272,12 @@ class EmbeddingQdrantAdapter:
             if "as_of_date" in parameters or any(
                 parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
             ):
-                return search(query_vector, top_k=top_k, as_of_date=as_of)
+                kwargs = {"top_k": top_k, "as_of_date": as_of}
+                if "filters" in parameters or any(
+                    parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
+                ):
+                    kwargs["filters"] = metadata_filters
+                return search(query_vector, **kwargs)
             raise TypeError("Vector store search() phải nhận as_of_date để lọc Qdrant trước Top-K")
         except Exception:
             logger.exception("Dense retrieval failed; propagating error (no implicit BM25 fallback)")
@@ -283,7 +302,9 @@ class HybridRetriever:
         self.cache = cache
 
     def retrieve(self, query: str, top_k: int | None = None, *,
-                 as_of_date: str | None = None) -> dict[str, list[dict[str, Any]]]:
+                 as_of_date: str | None = None,
+                 metadata_filters: dict[str, Any] | None = None,
+                 latency_trace: dict[str, float] | None = None) -> dict[str, list[dict[str, Any]]]:
         """Return the top-K branch results and fusion from one execution."""
         if not isinstance(query, str) or not query.strip():
             raise ValueError("query phải là chuỗi không rỗng")
@@ -293,6 +314,7 @@ class HybridRetriever:
         if requested_top_k > self.config.candidate_k:
             raise ValueError("top_k không được lớn hơn candidate_k")
         as_of = normalize_as_of_date(as_of_date)
+        filters = normalize_metadata_filters(metadata_filters)
 
         cache_key = None
         if self.cache is not None:
@@ -310,6 +332,7 @@ class HybridRetriever:
                 normalized, f"as_of_date={as_of}", f"top_k={requested_top_k}",
                 f"candidate_k={self.config.candidate_k}",
                 f"rrf_k={self.config.rrf_k}", f"filter={component_key(self.metadata_filter)}",
+                f"metadata_filters={sorted(normalize_metadata_filters(metadata_filters).items())}",
                 f"reranker={component_key(self.reranker)}",
             ])
             cache_key = hashlib.sha256(key_text.encode("utf-8")).hexdigest()
@@ -318,7 +341,8 @@ class HybridRetriever:
                 return cached
 
         # Sparse and dense branches are independent in the system architecture.
-        def search_branch(retriever: Any) -> list[dict[str, Any]]:
+        branch_latencies: dict[str, float] = {}
+        def search_branch(name: str, retriever: Any) -> list[dict[str, Any]]:
             search = retriever.search
             try:
                 parameters = inspect.signature(search).parameters
@@ -328,15 +352,32 @@ class HybridRetriever:
                 parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
             )
             if supports_date:
-                return search(query, self.config.candidate_k, as_of_date=as_of)
+                kwargs = {"as_of_date": as_of}
+                try:
+                    parameters = inspect.signature(search).parameters
+                except (TypeError, ValueError):
+                    parameters = {}
+                accepts_kwargs = any(
+                    parameter.kind is inspect.Parameter.VAR_KEYWORD for parameter in parameters.values()
+                )
+                if "metadata_filters" in parameters or accepts_kwargs:
+                    kwargs["metadata_filters"] = filters
+                elif "filters" in parameters:
+                    kwargs["filters"] = filters
+                elif filters:
+                    raise TypeError(f"Retriever {type(retriever).__name__} không hỗ trợ metadata_filters")
+                started = time.perf_counter()
+                rows = search(query, self.config.candidate_k, **kwargs)
+                branch_latencies[name] = round((time.perf_counter() - started) * 1000.0, 3)
+                return rows
             raise TypeError(
                 f"Retriever {type(retriever).__name__}.search() phải nhận as_of_date "
                 "để lọc theo thời điểm trước Top-K"
             )
 
         with ThreadPoolExecutor(max_workers=2) as executor:
-            sparse_future = executor.submit(search_branch, self.bm25_index)
-            dense_future = executor.submit(search_branch, self.dense_retriever)
+            sparse_future = executor.submit(search_branch, "bm25", self.bm25_index)
+            dense_future = executor.submit(search_branch, "dense", self.dense_retriever)
             try:
                 lexical_hits = sparse_future.result()
             except Exception:
@@ -347,10 +388,11 @@ class HybridRetriever:
             except Exception:
                 logger.exception("Dense retrieval failed; propagating error (no implicit sparse fallback)")
                 raise
+        rrf_started = time.perf_counter()
         fused = reciprocal_rank_fusion(
             [lexical_hits, dense_hits], top_k=self.config.candidate_k, rrf_k=self.config.rrf_k
         )
-        fused = filter_legal_metadata(fused, as_of=date.fromisoformat(as_of))
+        fused = filter_legal_metadata(fused, as_of=date.fromisoformat(as_of), filters=filters)
         if self.metadata_filter is not None:
             try:
                 parameters = inspect.signature(self.metadata_filter).parameters
@@ -362,6 +404,9 @@ class HybridRetriever:
                 fused = self.metadata_filter(fused, as_of_date=as_of)
             else:
                 fused = self.metadata_filter(fused)
+        if latency_trace is not None:
+            latency_trace.update(branch_latencies)
+            latency_trace["rrf_ms"] = round((time.perf_counter() - rrf_started) * 1000.0, 3)
         final = self.reranker.rerank(query, fused, requested_top_k) if self.reranker else fused[:requested_top_k]
         result = {
             "bm25": lexical_hits[:requested_top_k],
@@ -374,9 +419,11 @@ class HybridRetriever:
         return result
 
     def search(self, query: str, top_k: int | None = None, *,
-               as_of_date: str | None = None) -> list[dict[str, Any]]:
+               as_of_date: str | None = None, metadata_filters: dict[str, Any] | None = None,
+               latency_trace: dict[str, float] | None = None) -> list[dict[str, Any]]:
         """Return top-K RRF results; defaults to ``config.top_k``."""
-        return self.retrieve(query, top_k=top_k, as_of_date=as_of_date)["hybrid"]
+        return self.retrieve(query, top_k=top_k, as_of_date=as_of_date,
+                             metadata_filters=metadata_filters, latency_trace=latency_trace)["hybrid"]
 
 
 def hybrid_search(

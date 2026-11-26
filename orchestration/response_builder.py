@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from agent.config import GENERAL_CHAT_MESSAGE
 from generation.prompt_builder import STANDARD_DISCLAIMER
 from orchestration.rag_pipeline import (
     ABSTAIN_MESSAGE,
@@ -16,10 +17,6 @@ from orchestration.rag_pipeline import (
 )
 from schemas.models import AskRequest, AskResponse, AskTimings, ErrorCode, ErrorDetail, RouteDecision
 
-GENERAL_CHAT_MESSAGE = (
-    "Tôi là trợ lý tra cứu pháp luật Hôn nhân và gia đình Việt Nam nên không trả lời các câu hỏi ngoài pháp "
-    "luật. Bạn có thể hỏi về kết hôn, ly hôn, tài sản vợ chồng, nuôi con, cấp dưỡng hoặc quan hệ giữa cha mẹ và con."
-)
 OUT_OF_SCOPE_MESSAGE = (
     "Hệ thống hiện chỉ hỗ trợ câu hỏi về pháp luật Hôn nhân và gia đình. Câu hỏi này thuộc lĩnh vực pháp "
     "luật khác nên hệ thống không đưa ra kết luận; vui lòng tham khảo văn bản hoặc chuyên gia của lĩnh vực đó."

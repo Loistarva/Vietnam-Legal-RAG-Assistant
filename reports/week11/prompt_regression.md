@@ -30,3 +30,9 @@
 
 - `verify_prompt_template_integrity()` kiểm tra SHA-256 của cả file template (`legal_rag_prompt_v1_0.md`, `legal_rag_prompt_v1_3.md`) lẫn output chuẩn của `v1.2`.
 - Test `test_prompt_template_modification_without_version_bump_fails_integrity_check` xác nhận mọi chỉnh sửa lên template mà không tăng phiên bản/hash đều làm test thất bại với thông báo lỗi rõ ràng.
+
+---
+
+## 4. Khắc phục hậu review Sprint 11 (Post-review fixes)
+
+- **[P2] Siết kiểm tra danh mục đóng `missing_facts` ở tầng Gateway cho `v1.3` (`FR4.4`):** `QwenGateway.generate` hiện gọi trực tiếp `generation.prompt_builder.validate_missing_facts()` khi `prompt_version` thuộc nhánh `v1.3` (hoặc có `allowed_missing_facts`), chuyển mọi mã ngoài `MISSING_FACTS_TAXONOMY` sang `error_code="JSON_INVALID"` để Grounding Gate chặn an toàn mà không làm thay đổi hành vi của prompt `v1.2`. Đã xác minh thêm qua `test_gateway_enforces_missing_facts_closed_taxonomy_for_v1_3_only`.

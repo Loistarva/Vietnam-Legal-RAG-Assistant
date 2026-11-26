@@ -23,7 +23,7 @@ def test_versioned_artifact_counts_and_hash():
     manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
     assert len(dataset) == 26
     assert manifest["dataset_canonical_sha256"] == canonical_hash(dataset)
-    assert manifest["review_status"] == "pending_peer_review"
+    assert manifest["review_status"] == "peer_reviewed"
     assert validate_rows(dataset, [], [], []) == []
 
 
@@ -98,7 +98,7 @@ def test_cli_rejects_tampered_manifest(tmp_path, change):
     result = subprocess.run([sys.executable, str(ROOT / "scripts/validate_negative_set.py"),
                              "--manifest", str(manifest_path)], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 1
-    assert "hash mismatch" in result.stdout.lower()
+    assert "hash mismatch" in result.stdout.lower() or "canonical dataset sha" in result.stdout.lower()
 
 
 @pytest.mark.parametrize("text", [
@@ -149,6 +149,20 @@ def test_manifest_must_not_disable_safety_checks(case):
     else:
         del manifest["baseline_files_git_sha256"]["data/chunking_output/chunks.jsonl"]
     with pytest.raises(ValueError):
+        validate_manifest(manifest)
+
+
+def test_partial_review_status_requires_current_canonical_sha_and_tech_lead_pending():
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
+    manifest["review_progress"]["reviewed_dataset_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="current canonical dataset SHA"):
+        validate_manifest(manifest)
+
+
+def test_peer_review_signoff_requires_both_reviewers_and_current_sha():
+    manifest = json.loads((DATA / "dev_negative_manifest_v2.json").read_text(encoding="utf-8"))
+    manifest["review_progress"]["pending"] = ["Tech Lead final dataset review"]
+    with pytest.raises(ValueError, match="Peer review sign-off"):
         validate_manifest(manifest)
 
 

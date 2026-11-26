@@ -121,8 +121,8 @@ def _non_empty_field(value: str, field_name: str) -> str:
 
 
 class StrictBaseModel(BaseModel):
-    """Base model forbidding unknown fields and stripping string inputs."""
-    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+    """Base model forbidding unknown fields, stripping strings, and blocking NaN/Inf."""
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True, allow_inf_nan=False)
 
 
 class CandidateChunk(StrictBaseModel):
@@ -343,6 +343,35 @@ class RouteDecision(StrictBaseModel):
         return _check_iso_date(v, "as_of_date", required=False)
 
 
+class MetadataFilters(StrictBaseModel):
+    """Serializable exact-match filters shared by BM25 and Dense retrieval."""
+    document_type: str | None = None
+    document_number: str | None = None
+    document_id: str | None = None
+    article_id: str | None = None
+    clause_id: str | None = None
+    validity_status: str | None = None
+
+    @field_validator(
+        "document_type", "document_number", "document_id", "article_id", "clause_id", "validity_status",
+    )
+    @classmethod
+    def validate_filter_values(cls, value: str | None, info) -> str | None:
+        if value is None:
+            return None
+        return _non_empty_field(value, info.field_name)
+
+
+class RetrievalLatencyBreakdown(StrictBaseModel):
+    """Stage timings measured by retrieval; null means that a stage was not measured."""
+    bm25_ms: float | None = Field(default=None, ge=0.0)
+    dense_ms: float | None = Field(default=None, ge=0.0)
+    rrf_ms: float | None = Field(default=None, ge=0.0)
+    reranking_ms: float | None = Field(default=None, ge=0.0)
+    parent_context_ms: float | None = Field(default=None, ge=0.0)
+    total_retrieval_ms: float | None = Field(default=None, ge=0.0)
+
+
 class RetrievalBundle(StrictBaseModel):
     """Gói kết quả truy xuất ứng viên trước khi xây ContextPayload (D3.1)."""
     schema_version: SchemaVersionType = SCHEMA_VERSION
@@ -356,6 +385,8 @@ class RetrievalBundle(StrictBaseModel):
     query: str | None = None
     retriever: str | None = None
     top_k: int | None = Field(default=None, ge=1)
+    metadata_filters: MetadataFilters | None = None
+    latency_breakdown: RetrievalLatencyBreakdown | None = None
 
     @field_validator("query_id", "retrieval_config_version", "corpus_hash")
     @classmethod
@@ -496,9 +527,30 @@ class ContextPayload(StrictBaseModel):
                 "provision_status": item.provision_status,
             }
 
-        # source_map luôn dựng từ evidence_items; nếu truyền vào thì phải giống hệt
-        if self.source_map and self.source_map != built_map:
-            raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")
+        # source_map luôn dựng từ evidence_items; chuẩn hóa các khóa optional bị thiếu từ
+        # bản ghi week10_v1.0 hoặc payload dump(exclude_none=True) về None trước khi đối chiếu,
+        # nhưng vẫn từ chối nếu sai giá trị, thiếu trường nguồn bắt buộc, thừa entry hoặc dư khóa lạ.
+        optional_source_keys = (
+            "effective_from",
+            "effective_to",
+            "source_url",
+            "document_number",
+            "document_title",
+            "article_number",
+            "clause_number",
+            "point_ref",
+            "breadcrumb",
+            "provision_status",
+        )
+        if self.source_map:
+            normalized_source_map: dict[int, dict[str, Any]] = {}
+            for idx, entry in self.source_map.items():
+                entry_copy = dict(entry)
+                for opt_key in optional_source_keys:
+                    entry_copy.setdefault(opt_key, None)
+                normalized_source_map[idx] = entry_copy
+            if normalized_source_map != built_map:
+                raise ValueError("source_map không khớp evidence_items; hãy bỏ trống để tự dựng")
         self.source_map = built_map
 
         return self
@@ -681,6 +733,7 @@ class RAGOutputRecord(StrictBaseModel):
     query: str
     as_of_date: str
     as_of_date_source: Literal["benchmark", "query_text", "user_input", "system_today"]
+    route: RouteType | None = None
     answer: str
     evidence_indices: list[int] = Field(default_factory=list)
     citations: list[MappedCitation] = Field(default_factory=list)

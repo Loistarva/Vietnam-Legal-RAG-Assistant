@@ -17,6 +17,7 @@ from model_gateway.llm_gateway import (
     GatewayExecutionError,
     QwenGateway,
     QwenGatewayConfig,
+    find_model_digest,
     summarize_truncation_and_provenance,
 )
 from schemas.models import SCHEMA_VERSION, LLMResponse
@@ -326,3 +327,313 @@ def test_qwen_gateway_config_defaults_load_config_version():
     cfg = QwenGateway.load_config(DEFAULT_CONFIG_PATH)
     assert cfg.config_version == "local_qwen_v1.1"
     assert QwenGatewayConfig().config_version == "local_qwen_v1.1"
+
+
+@pytest.mark.req("FR6.2")
+@pytest.mark.req("NFR4.1")
+@pytest.mark.parametrize("field", ["temperature", "repeat_penalty", "timeout_seconds"])
+@pytest.mark.parametrize("bad_num", [float("nan"), float("inf"), float("-inf")])
+def test_gateway_config_rejects_non_finite_floats(field: str, bad_num: float):
+    with pytest.raises((ValidationError, ValueError)):
+        QwenGatewayConfig(**{field: bad_num})
+    with pytest.raises((GatewayExecutionError, ValidationError, ValueError)):
+        QwenGateway({field: bad_num}, transport=lambda url, payload, timeout: {})
+
+
+@pytest.mark.req("FR4.4")
+def test_gateway_enforces_missing_facts_closed_taxonomy_for_v1_3_only():
+    from generation.prompt_builder import MISSING_FACTS_TAXONOMY, PROMPT_A_VERSION, PROMPT_B_V1_3_VERSION
+
+    valid_code = MISSING_FACTS_TAXONOMY[0]
+    ok_payload = json.dumps(
+        {
+            "answer": "Cần thêm mốc thời gian [1].",
+            "evidence_indices": [1],
+            "abstained": False,
+            "needs_clarification": True,
+            "missing_facts": [valid_code],
+        }
+    )
+    resp_ok = _make_gateway(ok_payload).generate(
+        prompt="Prompt v1.3",
+        query_id="q_v13_ok",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_V1_3_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_ok.parse_status == "ok"
+    assert resp_ok.error_code is None
+    assert resp_ok.missing_facts == [valid_code]
+
+    bad_payload = json.dumps(
+        {
+            "answer": "Thiếu thông tin.",
+            "evidence_indices": [1],
+            "abstained": False,
+            "needs_clarification": True,
+            "missing_facts": ["MA_KHONG_HOP_LE"],
+        }
+    )
+    resp_bad = _make_gateway(bad_payload).generate(
+        prompt="Prompt v1.3",
+        query_id="q_v13_bad",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_V1_3_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_bad.parse_status == "invalid_json"
+    assert resp_bad.error_code == "JSON_INVALID"
+    assert resp_bad.answer == ""
+    assert resp_bad.missing_facts == []
+
+    # Tương thích ngược với v1.2 (v1.2_controlled_rag & v1.2_zero_shot)
+    resp_v12_rag = _make_gateway(bad_payload).generate(
+        prompt="Prompt v1.2",
+        query_id="q_v12_rag",
+        run_mode="B_controlled_rag",
+        prompt_version=PROMPT_B_VERSION,
+        structured_output=True,
+        max_evidence_index=1,
+    )
+    assert resp_v12_rag.parse_status == "ok"
+    assert resp_v12_rag.error_code is None
+
+    resp_v12_zs = _make_gateway("Nam đủ 20 tuổi.").generate(
+        prompt="Prompt v1.2 zero-shot",
+        query_id="q_v12_zs",
+        run_mode="A_zero_shot",
+        prompt_version=PROMPT_A_VERSION,
+        structured_output=False,
+    )
+    assert resp_v12_zs.parse_status == "raw_text"
+    assert resp_v12_zs.error_code is None
+
+    # Edge cases trên v1.3: short version "v1.3", abstained=True, needs_clarification=True, và sai kiểu missing_facts
+    for pv in ("v1.3", PROMPT_B_V1_3_VERSION):
+        for extra_flags in (
+            {"abstained": True, "abstention_reason": "INSUFFICIENT", "needs_clarification": False},
+            {"abstained": False, "needs_clarification": True},
+        ):
+            edge_bad = json.dumps(
+                {
+                    "answer": "Không kết luận được.",
+                    "evidence_indices": [1],
+                    **extra_flags,
+                    "missing_facts": ["MA_KHONG_HOP_LE"],
+                }
+            )
+            r_edge = _make_gateway(edge_bad).generate(
+                prompt="P",
+                query_id="q_edge_v13",
+                run_mode="C_production_rag",
+                prompt_version=pv,
+                structured_output=True,
+                max_evidence_index=1,
+            )
+            assert r_edge.parse_status == "invalid_json"
+            assert r_edge.error_code == "JSON_INVALID"
+
+    for malformed_mf in ("STRING_THAY_VI_LIST", [123], None):
+        malformed_payload = json.dumps(
+            {
+                "answer": "Nội dung",
+                "evidence_indices": [1],
+                "abstained": False,
+                "missing_facts": malformed_mf,
+            }
+        )
+        r_mal = _make_gateway(malformed_payload).generate(
+            prompt="P",
+            query_id="q_mal_mf",
+            run_mode="C_production_rag",
+            prompt_version=PROMPT_B_V1_3_VERSION,
+            structured_output=True,
+            max_evidence_index=1,
+        )
+        assert r_mal.parse_status == "invalid_json"
+        assert r_mal.error_code == "JSON_INVALID"
+
+
+@pytest.mark.req("FR4.4")
+@pytest.mark.req("FR6.4")
+@pytest.mark.parametrize(
+    "bad_envelope",
+    [
+        [],
+        None,
+        "plain string",
+        123,
+        {},
+        {"response": None, "done": True},
+        {"response": 123, "done": True},
+        {"response": {"nested": 1}, "done": True},
+        {"response": ["item"], "done": True},
+        {"response": "ok", "error": "model error"},
+        {"response": "ok", "model": 123},
+    ],
+)
+@pytest.mark.parametrize("structured", [True, False])
+def test_gateway_handles_malformed_provider_envelopes_without_raw_exceptions(
+    bad_envelope: Any,
+    structured: bool,
+):
+    gateway = QwenGateway(transport=lambda url, payload, timeout: bad_envelope)
+    with pytest.raises(GatewayExecutionError) as exc_info:
+        gateway.generate(
+            prompt="Prompt",
+            query_id="q_malformed_env",
+            run_mode="C_production_rag" if structured else "A_zero_shot",
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=structured,
+        )
+    assert exc_info.value.error_code == "INTERNAL_ERROR"
+    assert exc_info.value.retryable is False
+
+
+@pytest.mark.req("FR4.4")
+@pytest.mark.req("FR6.4")
+def test_gateway_sanitizes_malformed_auxiliary_envelope_fields():
+    weird_envelope = {
+        "response": json.dumps({"answer": "ok"}),
+        "done": "not_a_bool",
+        "eval_count": "bad",
+        "prompt_eval_count": "bad",
+        "done_reason": 123,
+        "total_duration": "bad",
+    }
+    gateway = QwenGateway(transport=lambda url, payload, timeout: weird_envelope)
+    resp = gateway.generate(
+        prompt="Prompt",
+        query_id="q_weird_aux",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_VERSION,
+        structured_output=True,
+    )
+    assert resp.parse_status == "ok"
+    assert resp.error_code is None
+    assert resp.answer == "ok"
+    assert resp.done_reason == "unknown"
+    assert resp.token_usage.input is None
+    assert resp.token_usage.output is None
+    assert resp.total_duration_ms is None
+
+
+@pytest.mark.req("FR6.2")
+def test_gateway_config_and_load_config_boundary_validation(tmp_path: Path):
+    # bytes, empty-host URL, malformed IPv6, and >64-bit integers must fail with ValidationError
+    with pytest.raises(ValidationError):
+        QwenGatewayConfig(model=b"qwen2.5:7b")  # type: ignore[arg-type]
+    with pytest.raises(ValidationError):
+        QwenGatewayConfig(base_url="http://")
+    with pytest.raises(ValidationError):
+        QwenGatewayConfig(base_url="http://[::1")
+    with pytest.raises(ValidationError):
+        QwenGatewayConfig(num_ctx=10**5000)
+
+    # Non-str keys in dict config raise ValueError rather than raw TypeError from **kwargs unpacking
+    with pytest.raises(ValueError):
+        QwenGateway({1: "bad"}, transport=lambda u, p, t: {})  # type: ignore[arg-type]
+
+    # load_config preserves FileNotFoundError for missing path, wraps dir/bad-utf8/YAML/type in GatewayExecutionError
+    with pytest.raises(FileNotFoundError):
+        QwenGateway.load_config(tmp_path / "missing.yaml")
+
+    cfg_dir = tmp_path / "cfg_dir"
+    cfg_dir.mkdir()
+    with pytest.raises(GatewayExecutionError):
+        QwenGateway.load_config(cfg_dir)
+
+    bad_utf8 = tmp_path / "bad_utf8.yaml"
+    bad_utf8.write_bytes(b"\xff\xfe\xfd")
+    with pytest.raises(GatewayExecutionError):
+        QwenGateway.load_config(bad_utf8)
+
+    bad_yaml = tmp_path / "bad_yaml.yaml"
+    bad_yaml.write_text("model: [unclosed", encoding="utf-8")
+    with pytest.raises(GatewayExecutionError):
+        QwenGateway.load_config(bad_yaml)
+
+    with pytest.raises(GatewayExecutionError):
+        QwenGateway.load_config(123)  # type: ignore[arg-type]
+
+
+@pytest.mark.req("FR6.4")
+def test_gateway_generate_input_and_edge_envelope_hardening():
+    calls = 0
+
+    def counting_transport(url: str, payload: dict[str, Any], timeout: float) -> dict[str, Any]:
+        nonlocal calls
+        calls += 1
+        return {"response": json.dumps({"answer": "ok", "evidence_indices": None})}
+
+    gateway = QwenGateway(transport=counting_transport)
+
+    # Bad caller params must fail cleanly BEFORE invoking transport
+    with pytest.raises(TypeError):
+        gateway.generate(
+            prompt="Prompt",
+            query_id="q_bad_amf",
+            run_mode="C_production_rag",
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=True,
+            allowed_missing_facts="ngay_su_kien",  # type: ignore[arg-type]
+        )
+    with pytest.raises(TypeError):
+        gateway.generate(
+            prompt="Prompt",
+            query_id="q_bad_max",
+            run_mode="C_production_rag",
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=True,
+            max_evidence_index=float("nan"),  # type: ignore[arg-type]
+        )
+    with pytest.raises(ValueError):
+        gateway.generate(
+            prompt="Prompt",
+            query_id="q_bad_mode",
+            run_mode="INVALID_MODE",  # type: ignore[arg-type]
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=False,
+        )
+    assert calls == 0
+
+    # Explicit "evidence_indices": null must trigger CITATION_INVALID instead of silently passing
+    null_resp = gateway.generate(
+        prompt="Prompt",
+        query_id="q_null_idx",
+        run_mode="C_production_rag",
+        prompt_version=PROMPT_B_VERSION,
+        structured_output=True,
+    )
+    assert null_resp.parse_status == "ok"
+    assert null_resp.error_code == "CITATION_INVALID"
+    assert null_resp.evidence_indices == []
+
+    # Lone surrogate in response must not raise UnicodeEncodeError in reference hashing
+    surrogate_gw = QwenGateway(transport=lambda u, p, t: {"response": "abc\ud800def", "done": True})
+    sur_resp = surrogate_gw.generate(
+        prompt="Prompt",
+        query_id="q_surrogate",
+        run_mode="A_zero_shot",
+        prompt_version=PROMPT_B_VERSION,
+        structured_output=False,
+    )
+    assert sur_resp.parse_status == "raw_text"
+    assert sur_resp.answer == "abc?def"
+    assert sur_resp.raw_response_reference is not None
+
+    # Huge int in provider envelope error field must raise GatewayExecutionError cleanly
+    huge_err_gw = QwenGateway(transport=lambda u, p, t: {"response": "ok", "error": 10**5000})
+    with pytest.raises(GatewayExecutionError) as exc_info:
+        huge_err_gw.generate(
+            prompt="Prompt",
+            query_id="q_huge_err",
+            run_mode="A_zero_shot",
+            prompt_version=PROMPT_B_VERSION,
+            structured_output=False,
+        )
+    assert exc_info.value.error_code == "INTERNAL_ERROR"
+
+    assert find_model_digest({"models": [{"name": "qwen2.5:7b", "digest": "abc"}]}, None) is None

@@ -28,8 +28,11 @@ from schemas.models import (
     LLMResponse,
     LogEvent,
     MappedCitation,
+    MetadataFilters,
+    RAGOutputRecord,
     ResponseStatus,
     RetrievalBundle,
+    RetrievalLatencyBreakdown,
     RouteAction,
     RouteDecision,
     RouteType,
@@ -635,3 +638,172 @@ def test_week10_v1_0_backward_compatibility():
     assert legacy_response.evidence[0].point_ref is None
     assert legacy_llm.missing_facts == []
     assert legacy_log.stage == "rerank"
+
+
+@pytest.mark.req("FR2.11")
+@pytest.mark.req("FR9.4")
+@pytest.mark.req("FR1.9")
+@pytest.mark.req("FR9.8")
+def test_retrieval_bundle_filters_latency_and_rag_record_route():
+    # 1. RetrievalBundle v1.1 example với metadata_filters & latency_breakdown
+    source = json.loads((EXAMPLES_DIR / "retrieval_bundle_valid.json").read_text(encoding="utf-8"))
+    bundle = RetrievalBundle.model_validate(source)
+    dumped = bundle.model_dump(mode="json")
+    assert dumped["schema_version"] == "week10_v1.1"
+    assert dumped["metadata_filters"] == {
+        "document_type": None,
+        "document_number": None,
+        "document_id": "l_52_2014_qh13",
+        "article_id": "art_8",
+        "clause_id": None,
+        "validity_status": None,
+    }
+    assert dumped["latency_breakdown"] == {
+        "bm25_ms": 11.4,
+        "dense_ms": 24.7,
+        "rrf_ms": 0.4,
+        "reranking_ms": 6.2,
+        "parent_context_ms": None,
+        "total_retrieval_ms": 45.2,
+    }
+
+    # Tương thích ngược week10_v1.0 thiếu metadata_filters và latency_breakdown
+    legacy_source = {
+        k: v for k, v in source.items() if k not in {"metadata_filters", "latency_breakdown"}
+    }
+    legacy_source["schema_version"] = "week10_v1.0"
+    legacy_bundle = RetrievalBundle.model_validate(legacy_source)
+    assert legacy_bundle.metadata_filters is None
+    assert legacy_bundle.latency_breakdown is None
+
+    # MetadataFilters và RetrievalLatencyBreakdown ràng buộc nghiêm ngặt
+    with pytest.raises(ValidationError):
+        MetadataFilters(document_id="   ")
+    with pytest.raises(ValidationError):
+        MetadataFilters(unknown_field="x")  # type: ignore[call-arg]
+    with pytest.raises(ValidationError):
+        RetrievalLatencyBreakdown(bm25_ms=-0.1)
+
+    # 2. RAGOutputRecord.route (optional để bản ghi cũ thiếu route vẫn hợp lệ)
+    base_record = {
+        "query_id": "Q_ROUTE_01",
+        "query": "Điều kiện kết hôn?",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "answer": "",
+        "grounding_status": "ABSTAIN",
+        "abstained": True,
+        "abstention_reason": "LOW_CONFIDENCE",
+        "abstention_source": "confidence_filter",
+        "needs_clarification": False,
+        "prompt_version": "v1.2_controlled_rag",
+        "done_reason": "not_generated",
+        "truncated": False,
+        "corpus_version": "sha256:" + "a" * 64,
+        "retrieval_config_version": "v1",
+        "threshold_config_version": "conf_v1",
+        "latency_ms": 1.5,
+        "llm_calls": 0,
+    }
+    legacy_rec = RAGOutputRecord.model_validate(base_record)
+    assert legacy_rec.route is None
+
+    enriched_rec = RAGOutputRecord.model_validate({**base_record, "route": "LEGAL_IN_SCOPE"})
+    assert enriched_rec.route == "LEGAL_IN_SCOPE"
+
+    with pytest.raises(ValidationError):
+        RAGOutputRecord.model_validate({**base_record, "route": "LEGAL_HNGD"})
+
+
+@pytest.mark.req("FR4.7")
+@pytest.mark.req("IR1.4")
+def test_context_payload_source_map_backward_compatible_without_point_ref():
+    ev_without_point = _sample_evidence(1).model_copy(update={"point_ref": None})
+    built_ctx = ContextPayload(
+        query_id="Q_CTX_LEGACY",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_without_point],
+    )
+    legacy_source_entry = dict(built_ctx.source_map[1])
+    legacy_source_entry.pop("point_ref")
+
+    # 1. Payload week10_v1.0 thiếu khóa point_ref trong source_map -> hợp lệ và chuẩn hóa point_ref=None
+    legacy_payload = {
+        "query_id": "Q_CTX_LEGACY",
+        "query": "Tuổi kết hôn?",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "evidence_items": [ev_without_point.model_dump(exclude={"point_ref"})],
+        "source_map": {"1": legacy_source_entry},
+        "total_chars": len(ev_without_point.content),
+    }
+    parsed = ContextPayload.model_validate(legacy_payload)
+    assert parsed.source_map[1]["point_ref"] is None
+
+    # 1b. Deserialize từ JSON thô có key chuỗi "1", "2" và/hoặc exclude_none=True
+    ev_2 = _sample_evidence(2).model_copy(update={"point_ref": None, "effective_to": None, "document_title": None})
+    ev_1_min = ev_without_point.model_copy(update={"effective_to": None, "document_title": None})
+    ctx_two = ContextPayload(
+        query_id="Q_CTX_JSON",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_1_min, ev_2],
+    )
+    raw_dumped = ctx_two.model_dump(mode="json", exclude_none=True)
+    raw_dumped["source_map"]["1"].pop("point_ref", None)
+    raw_dumped["source_map"]["2"].pop("point_ref", None)
+    parsed_json = ContextPayload.model_validate_json(json.dumps(raw_dumped, ensure_ascii=False))
+    assert parsed_json.source_map[1]["point_ref"] is None
+    assert parsed_json.source_map[2]["point_ref"] is None
+
+    # 2. Sai point_ref, có khóa lạ, thiếu khóa bắt buộc, hoặc thừa key index "2" -> từ chối
+    for bad_map in (
+        {"1": {**legacy_source_entry, "point_ref": "Điểm a"}},
+        {"1": {**legacy_source_entry, "unexpected_key": "x"}},
+        {"1": {**legacy_source_entry, "section_title": "Mục I"}},
+        {"1": {**legacy_source_entry, "chunk_id": "wrong_chunk"}},
+        {"1": {**legacy_source_entry, "article_id": "art_999"}},
+        {"1": {k: v for k, v in legacy_source_entry.items() if k != "chunk_id"}},
+        {"1": legacy_source_entry, "2": legacy_source_entry},
+    ):
+        with pytest.raises(ValidationError):
+            ContextPayload.model_validate({**legacy_payload, "source_map": bad_map})
+
+    # Nếu EvidenceItem có effective_from hoặc point_ref thật (!= None) mà source_map bỏ thiếu -> từ chối
+    ev_dated = _sample_evidence(1).model_copy(update={"effective_from": "2015-01-01", "point_ref": "Điểm a"})
+    ctx_dated = ContextPayload(
+        query_id="Q_CTX_DATED",
+        query="Tuổi kết hôn?",
+        as_of_date="2026-10-15",
+        as_of_date_source="benchmark",
+        evidence_items=[ev_dated],
+    )
+    dated_entry = dict(ctx_dated.source_map[1])
+    for omit_key in ("effective_from", "point_ref"):
+        with pytest.raises(ValidationError):
+            ContextPayload.model_validate(
+                {
+                    "query_id": "Q_CTX_DATED",
+                    "query": "Tuổi kết hôn?",
+                    "as_of_date": "2026-10-15",
+                    "as_of_date_source": "benchmark",
+                    "evidence_items": [ev_dated.model_dump()],
+                    "source_map": {"1": {k: v for k, v in dated_entry.items() if k != omit_key}},
+                }
+            )
+
+    # 3. StrictBaseModel chặn NaN / Infinity trên các trường float
+    for bad_float in (float("nan"), float("inf"), float("-inf")):
+        with pytest.raises(ValidationError):
+            RetrievalBundle.model_validate(
+                {
+                    "query_id": "Q_INF",
+                    "as_of_date": "2026-11-16",
+                    "retrieval_config_version": "v1",
+                    "corpus_hash": "a" * 64,
+                    "latency_ms": bad_float,
+                }
+            )
