@@ -81,7 +81,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR2.8 | Một phần | `test/test_reranker.py` | Reranker đang giữ Top-5 (`rerank_top_k = 5`), sơ đồ là Top-10 (D-04). |
 | FR2.9 | Chưa | — | |
 | FR2.10 | Có | `test/orchestration/test_evidence_index_mapping.py` | |
-| FR2.11 | Một phần | như trên | `retrieval_trace` chưa ghi bộ lọc đã áp dụng (`as_of_date` chỉ ở cấp bản ghi). |
+| FR2.11 | Một phần | `test/orchestration/test_evidence_index_mapping.py`, `test/test_retrieval_adapter.py` | AC1 đã qua fixture kiểm ứng viên, phiên bản và bộ lọc trong trace. Chờ CI và review trên `testing`. |
 
 ## FR3. Ngưỡng tin cậy và làm rõ
 

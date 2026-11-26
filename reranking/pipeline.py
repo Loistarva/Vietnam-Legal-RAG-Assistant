@@ -193,9 +193,10 @@ class RetrievalPipeline:
         if self.retriever_takes_query_id:
             search_kwargs["query_id"] = query_id
         retrieval_stage_latency: dict[str, float] = {}
+        applied_filters = normalize_metadata_filters(metadata_filters)
         if _accepts_keyword(self.retriever.search, "metadata_filters"):
-            search_kwargs["metadata_filters"] = metadata_filters
-        elif metadata_filters:
+            search_kwargs["metadata_filters"] = applied_filters or None
+        elif applied_filters:
             raise TypeError(f"Retriever {self.retriever_name} không hỗ trợ metadata_filters")
         if _accepts_keyword(self.retriever.search, "latency_trace"):
             search_kwargs["latency_trace"] = retrieval_stage_latency
@@ -271,6 +272,7 @@ class RetrievalPipeline:
                 "parent_context": self.parent_resolver.describe() if self.parent_resolver else None,
                 "as_of_date": as_of_date,
                 "temporal_filter": temporal_filter,
+                "metadata_filters": applied_filters,
                 "top_k": top_k,
             },
             "stats": stats,

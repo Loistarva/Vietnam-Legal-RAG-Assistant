@@ -136,6 +136,34 @@ def test_missing_parent_uses_chunk_and_records_trace(rag, caplog, resolved_upstr
                for record in caplog.records)
 
 
+@pytest.mark.req("FR2.11-AC1")
+def test_retrieval_trace_records_candidates_versions_and_applied_filters(rag):
+    row = rag.make_row(1)
+
+    class FilteredSource:
+        name = "fixture"
+
+        def fetch(self, *, query_id, query, as_of_date):
+            return {
+                **rag.envelope(query_id, [row], query),
+                "config": {"temporal_filter": "retriever", "metadata_filters": {"document_id": "doc_a"}},
+            }
+
+    pipeline, _ = rag.make_pipeline([row], source=FilteredSource())
+    result = rag.run(pipeline)
+    trace = result.record.retrieval_trace
+    assert trace["corpus_version"] == result.record.corpus_version
+    assert trace["retrieval_config_version"] == result.record.retrieval_config_version
+    assert trace["candidates"] == [{key: row[key] for key in (
+        "chunk_id", "document_id", "article_id", "clause_id", "rank", "score", "reranker_score",
+    )}]
+    assert trace["filters"] == {
+        "as_of_date": "2026-10-15",
+        "temporal_filter": "retriever",
+        "metadata_filters": {"document_id": "doc_a"},
+    }
+
+
 def _g3_envelope(rag, **config_overrides):
     config = {"retriever": {"corpus_sha256": "abc"},
               "reranker": {"backend": "cross_encoder", "candidate_text": "document_breadcrumb_chunk_text"},
