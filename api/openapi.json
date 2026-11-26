@@ -19,6 +19,7 @@
               "RETRIEVAL_EMPTY",
               "LOW_CONFIDENCE",
               "LLM_TIMEOUT",
+              "LLM_UNAVAILABLE",
               "JSON_INVALID",
               "CITATION_INVALID",
               "GROUNDING_FAIL",
@@ -44,8 +45,11 @@
             "title": "Query Id"
           },
           "schema_version": {
-            "const": "week10_v1.0",
-            "default": "week10_v1.0",
+            "default": "week10_v1.1",
+            "enum": [
+              "week10_v1.0",
+              "week10_v1.1"
+            ],
             "title": "Schema Version",
             "type": "string"
           }
@@ -100,8 +104,11 @@
             "title": "Request Id"
           },
           "schema_version": {
-            "const": "week10_v1.0",
-            "default": "week10_v1.0",
+            "default": "week10_v1.1",
+            "enum": [
+              "week10_v1.0",
+              "week10_v1.1"
+            ],
             "title": "Schema Version",
             "type": "string"
           },
@@ -217,6 +224,7 @@
                   "RETRIEVAL_EMPTY",
                   "LOW_CONFIDENCE",
                   "LLM_TIMEOUT",
+                  "LLM_UNAVAILABLE",
                   "JSON_INVALID",
                   "CITATION_INVALID",
                   "GROUNDING_FAIL",
@@ -275,8 +283,11 @@
             "type": "string"
           },
           "schema_version": {
-            "const": "week10_v1.0",
-            "default": "week10_v1.0",
+            "default": "week10_v1.1",
+            "enum": [
+              "week10_v1.0",
+              "week10_v1.1"
+            ],
             "title": "Schema Version",
             "type": "string"
           },
@@ -530,6 +541,17 @@
             "title": "Parent Clause Id",
             "type": "string"
           },
+          "point_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Point Ref"
+          },
           "provision_status": {
             "anyOf": [
               {
@@ -577,8 +599,11 @@
             "type": "boolean"
           },
           "schema_version": {
-            "const": "week10_v1.0",
-            "default": "week10_v1.0",
+            "default": "week10_v1.1",
+            "enum": [
+              "week10_v1.0",
+              "week10_v1.1"
+            ],
             "title": "Schema Version",
             "type": "string"
           },
@@ -687,7 +712,7 @@
     }
   },
   "info": {
-    "description": "API hỏi đáp pháp luật Hôn nhân và gia đình. Contract `schemas/models.py` (`schema_version=week10_v1.0`). Mọi request hỏi đáp cần header `X-API-Key`.",
+    "description": "API hỏi đáp pháp luật Hôn nhân và gia đình. Contract `schemas/models.py` (`schema_version=week10_v1.1`). Mọi request hỏi đáp cần header `X-API-Key`.",
     "title": "Vietnam Legal RAG Assistant API",
     "version": "1.0.0"
   },

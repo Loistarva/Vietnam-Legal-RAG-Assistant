@@ -1,12 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "additionalProperties": false,
   "description": "Sự kiện log có cấu trúc qua 9 chặng của pipeline RAG (D3.1).",
   "properties": {
     "schema_version": {
-      "const": "week10_v1.0",
-      "default": "week10_v1.0",
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
       "title": "Schema Version",
       "type": "string"
     },
@@ -26,6 +29,7 @@
         "router",
         "retrieval",
         "rerank",
+        "confidence",
         "context",
         "llm",
         "citation",
@@ -73,6 +77,7 @@
             "RETRIEVAL_EMPTY",
             "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
+            "LLM_UNAVAILABLE",
             "JSON_INVALID",
             "CITATION_INVALID",
             "GROUNDING_FAIL",

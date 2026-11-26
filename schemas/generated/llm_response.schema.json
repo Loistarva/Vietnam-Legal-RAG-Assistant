@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_version": "week10_v1.0",
+  "schema_version": "week10_v1.1",
   "$defs": {
     "TokenUsage": {
       "additionalProperties": false,
@@ -92,6 +92,13 @@
       "default": false,
       "title": "Needs Clarification",
       "type": "boolean"
+    },
+    "missing_facts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Facts",
+      "type": "array"
     },
     "model": {
       "default": "qwen2.5:7b",
@@ -259,6 +266,7 @@
             "RETRIEVAL_EMPTY",
             "LOW_CONFIDENCE",
             "LLM_TIMEOUT",
+            "LLM_UNAVAILABLE",
             "JSON_INVALID",
             "CITATION_INVALID",
             "GROUNDING_FAIL",
@@ -298,8 +306,11 @@
       "title": "Model Digest"
     },
     "schema_version": {
-      "const": "week10_v1.0",
-      "default": "week10_v1.0",
+      "default": "week10_v1.1",
+      "enum": [
+        "week10_v1.0",
+        "week10_v1.1"
+      ],
       "title": "Schema Version",
       "type": "string"
     }

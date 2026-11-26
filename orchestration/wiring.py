@@ -18,9 +18,10 @@ from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from typing import Literal
 
+from agent.router.adapter import RuleRouterAdapter
 from monitoring.pii_masker import PIIMasker
 from monitoring.structured_logger import StructuredLogger
-from orchestration.ask_service import AskService, RuleRouterAdapter
+from orchestration.ask_service import AskService
 from orchestration.events import EventSink, NullEventSink
 
 PRODUCTION_RUN_MODE = "C_production_rag"

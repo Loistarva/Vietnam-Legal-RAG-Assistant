@@ -1,6 +1,6 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp tại `origin/testing` `01fe249` (17/11/2026, sau PR #49). Contract hiện hành: `schema_version = week10_v1.0` (`schemas/models.py`).** File này ghi đã làm tới đâu so với [SRS 2.1.1](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp nền tại `origin/testing` (`03a4989`, cập nhật phần Dev 3 Sprint 11 ngày 23/11/2026 trên nhánh `feature/week11-dev3-contracts-gateway`). Contract hiện hành: `schema_version = week10_v1.1` (`schemas/models.py`, tương thích ngược `week10_v1.0`).** File này ghi đã làm tới đâu so với [SRS 2.1.2](SRS.md) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
@@ -41,11 +41,13 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 
 | Hạng mục (SRS 5.6) | Phiên bản | Trạng thái | Ghi chú |
 | --- | --- | --- | --- |
-| `ErrorCode.LLM_UNAVAILABLE` (503) | `week10_v1.1` | Chưa | Owner contract; Gateway và test `test_structured_output.py` đổi cùng. |
-| `EventStage.confidence` | `week10_v1.1` | Chưa | Owner contract; logger và orchestrator emit theo. |
-| `EvidenceItem.point_ref` | `week10_v1.1` | Chưa | 272/2.322 chunk có `point_ref`. |
-| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; chờ Tech Lead duyệt và owner contract chốt bản `v1.1` thống nhất; chưa có trên ảnh chụp `testing`. |
-| `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Chưa | Owner Contract đồng ý nhận từ PR #56 ngày 17/11/2026; cùng đợt contract thống nhất, bản ghi cũ thiếu trường vẫn hợp lệ. |
+| `ErrorCode.LLM_UNAVAILABLE` (503) | `week10_v1.1` | Có | Đã thêm vào `schemas/models.py`, `model_gateway/llm_gateway.py` và `test/schemas/test_contracts.py` + `test/model_gateway/test_structured_output.py`. |
+| `EventStage.confidence` | `week10_v1.1` | Có | Đã thêm vào `schemas/models.py` (`test/schemas/test_contracts.py`); logger/orchestrator dùng theo stage mới. |
+| `EvidenceItem.point_ref` | `week10_v1.1` | Có | Đã thêm vào `EvidenceItem` và `ContextPayload.source_map` (`test/schemas/test_contracts.py`); 272/2.322 chunk có `point_ref`. |
+| `StructuredRAGOutput.missing_facts` / `LLMResponse.missing_facts` | `week10_v1.1` | Có | Đã thêm vào `schemas/models.py` (mặc định `[]`, tương thích `v1.2`) và prompt `v1.3` (`test/generation/test_prompt_builder.py`). |
+| `RouteDecision.router_route` & `RouteAction` | `week10_v1.1` | Có | Khóa 4 giá trị chuẩn theo SRS 5.3.3 (`test/schemas/test_contracts.py`). |
+| `RetrievalBundle.metadata_filters`, `latency_breakdown` | `week10_v1.1` | Có | Đã gộp `MetadataFilters` và `RetrievalLatencyBreakdown` từ PR #56 vào bản `week10_v1.1` thống nhất trên nhánh Dev 3 (PR #60); bản ghi cũ không có 2 trường này vẫn hợp lệ. |
+| `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Có | Đã gộp từ PR #56 vào bản `week10_v1.1` thống nhất trên nhánh Dev 3 (PR #60); bản ghi cũ thiếu `route` vẫn hợp lệ. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
 
@@ -99,11 +101,11 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | --- | --- | --- | --- |
 | FR4.1 | Một phần | `test/test_pipeline_context.py` | 1.079 parent, đều cấp Điều, ≤ 1.498 ký tự. AC2: thiếu parent mới chỉ ghi cảnh báo vào log, chưa vào `retrieval_trace`. |
 | FR4.2 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schema_test.py` | |
-| FR4.3 | Có | `test/schema_test.py` | |
-| FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py` | Prompt v1.2. |
-| FR4.5 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/orchestration/test_grounding_gate.py` | |
-| FR4.6 | Có | `test/test_p45_prompt_gateway.py` | Hash ở `retrieval_trace.prompt_sha256`. |
-| FR4.7 | Có | `test/orchestration/test_evidence_index_mapping.py` | AC1 có. AC2 chờ `EvidenceItem.point_ref` (`week10_v1.1`); hiển thị trên UI chờ IR1.4. |
+| FR4.3 | Có | `test/schema_test.py`, `test/generation/test_prompt_builder.py` | Prompt `v1.3` render thêm nhãn hiệu lực tại `as_of_date` (`FR4.3`). |
+| FR4.4 | Có | `test/test_p45_prompt_gateway.py`, `test/test_dev3_sprint9_contracts_prompt_gateway.py`, `test/generation/test_prompt_builder.py`, `test/schemas/test_contracts.py` | Prompt official `v1.2`; `v1.3` thêm `missing_facts` danh mục đóng. |
+| FR4.5 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/orchestration/test_grounding_gate.py`, `test/generation/test_prompt_builder.py` | |
+| FR4.6 | Có | `test/test_p45_prompt_gateway.py`, `test/generation/test_prompt_builder.py` | Hash ở `retrieval_trace.prompt_sha256`; thêm `verify_prompt_template_integrity` chặn sửa template không tăng version (`AC2`). |
+| FR4.7 | Có | `test/orchestration/test_evidence_index_mapping.py`, `test/schemas/test_contracts.py` | AC1 và `EvidenceItem.point_ref` (`week10_v1.1`, AC2) đã có trong contract; hiển thị trên UI chờ IR1.4. |
 
 ## FR5. Grounding Gate và từ chối
 
@@ -123,11 +125,11 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
 | FR6.1 | Một phần | `model_gateway/llm_gateway.py` | Một gateway, một provider (Ollama); chưa có giao diện tương thích OpenAI. |
-| FR6.2 | Có | `model_gateway/config/local_qwen.yaml` | |
+| FR6.2 | Có | `model_gateway/config/local_qwen.yaml`, `test/model_gateway/test_structured_output.py` | Khóa đủ 12 trường bắt buộc (gồm `config_version`) và kiểm tra kiểu khi khởi tạo Gateway (`AC1`). |
 | FR6.3 | Chưa | — | `fallback_locked = true`. |
-| FR6.4 | Một phần | `model_gateway/llm_gateway.py`, `test/model_gateway/test_structured_output.py` | Gateway gắn `LLM_TIMEOUT`; lỗi kết nối vẫn ra `INTERNAL_ERROR` (test hiện khẳng định như vậy), cần `LLM_UNAVAILABLE` (`week10_v1.1`); chưa có API. |
+| FR6.4 | Một phần | `model_gateway/llm_gateway.py`, `test/model_gateway/test_structured_output.py`, `test/schemas/test_contracts.py` | Gateway đã phân tách `LLM_UNAVAILABLE` (503) / `LLM_TIMEOUT` (504) (`retryable=True`) với lỗi parse/citation đi qua Gate; còn chờ API layer (Dev 5) nối HTTP 503/504 trên `testing`. |
 | FR6.5 | Chưa | — | |
-| FR6.6 | Có | `test/test_p45_prompt_gateway.py` | |
+| FR6.6 | Có | `test/test_p45_prompt_gateway.py`, `test/model_gateway/test_structured_output.py`, `test/model_gateway/test_run_metadata.py` | Giữ `None` khi thiếu token/duration (`AC2`). |
 | FR6.7 | Có | Manifest các lượt official | |
 | FR6.8 | Có | Manifest (`provider: ollama`) | |
 
@@ -187,15 +189,15 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | NFR1.3 | Có | `test/orchestration/test_record_abstention_latency.py` | |
 | NFR2.1 | Chưa | — | Cần SSE. |
 | NFR2.2 | Chưa | — | |
-| NFR2.3 | Một phần | `results_metrics.json` | Manifest chỉ có `platform`, không có GPU. |
+| NFR2.3 | Một phần | `results_metrics.json`, `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Manifest validator đã bắt buộc `hardware.{os,cpu,gpu,vram}`; các manifest lịch sử cũ chỉ có `platform`, chờ lượt đo mới trên máy tham chiếu. |
 | NFR3.1 | Chưa | — | |
 | NFR3.2 | Chưa | — | |
 | NFR3.3 | Một phần | — | Chưa có quét secret tự động. |
 | NFR3.4 | Chưa | — | |
 | NFR3.5 | Chưa | — | |
-| NFR4.1 | Có | Manifest (`cache_enabled`, `fallback_locked`, `working_tree_dirty`) | |
-| NFR4.2 | Một phần | Manifest | Thiếu cấu hình máy. |
-| NFR4.3 | Có | Manifest (hash cấu hình) | |
+| NFR4.1 | Có | `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Kiểm tra `working_tree_clean`, `temperature == 0`, cache tắt, fallback khóa khi `official=True`. |
+| NFR4.2 | Có | `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Đã có `build_model_run_manifest` và `validate_run_manifest` kiểm đủ git/hashes/runtime/hardware (`os`, `cpu`, `gpu`, `vram`)/timestamps UTC. |
+| NFR4.3 | Có | `model_gateway/run_metadata.py`, `test/model_gateway/test_run_metadata.py` | Bắt buộc SHA-256 cho `retrieval`, `rerank`, `model`, `threshold`. |
 | NFR5.1 | Có | `test/test_dense_retriever.py`, `test/test_bm25_retrieval.py` | |
 | NFR5.2 | Có | `deployment/qdrant/docker-compose.qdrant.yml` | |
 | NFR6.1 | Có | `.github/workflows/tests.yml` | |
