@@ -471,12 +471,11 @@
             <mxPoint x="-2" y="-156" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JmijQJ1AKe23ZkaHa9nL-11" edge="1" parent="1" source="1oe4r9BoHUVqIrmktM1M-8" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JmijQJ1AKe23ZkaHa9nL-18" value="">
+        <mxCell id="JmijQJ1AKe23ZkaHa9nL-11" edge="1" parent="1" source="1oe4r9BoHUVqIrmktM1M-8" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="92-1StGmne9POsEHWyz6-43" value="">
           <mxGeometry height="50" relative="1" width="50" x="-0.0638" as="geometry">
             <Array as="points">
               <mxPoint x="700" y="1795" />
-              <mxPoint x="700" y="530" />
-              <mxPoint x="1360" y="530" />
+              <mxPoint x="700" y="1272.5" />
             </Array>
             <mxPoint x="1110" y="1770" as="sourcePoint" />
             <mxPoint x="1300" y="1240.01" as="targetPoint" />
@@ -484,6 +483,23 @@
         </mxCell>
         <mxCell id="JmijQJ1AKe23ZkaHa9nL-12" connectable="0" parent="JmijQJ1AKe23ZkaHa9nL-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Low Confidence / Rỗng" vertex="1">
           <mxGeometry relative="1" x="-0.5842" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d11-gate-clarification" edge="1" parent="1" source="92-1StGmne9POsEHWyz6-45" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="JmijQJ1AKe23ZkaHa9nL-18" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1650" y="1142.5" />
+              <mxPoint x="1650" y="790" />
+              <mxPoint x="1460" y="790" />
+              <mxPoint x="1460" y="700" />
+            </Array>
+            <mxPoint x="1580" y="1142.5" as="sourcePoint" />
+            <mxPoint x="1420" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d11-gate-clarification-label" connectable="0" parent="d11-gate-clarification" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Needs clarification" vertex="1">
+          <mxGeometry relative="1" x="0.3" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
