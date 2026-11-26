@@ -10,6 +10,7 @@ Markers in the question pick a branch (the router still runs on the real text):
 * ``[mock:empty]``      no candidate            -> ABSTAIN, RETRIEVAL_EMPTY, no LLM call
 * ``[mock:low]``        top-1 score 0.2         -> ABSTAIN, LOW_CONFIDENCE, no LLM call
 * ``[mock:clarify]``    model asks for details  -> NEEDS_CLARIFICATION
+* ``[mock:clarify_facts]`` model supplies missing fact codes -> NEEDS_CLARIFICATION
 * ``[mock:abstain]``    model abstains          -> ABSTAIN (model)
 * ``[mock:gate_fail]``  model cites [6] of 2    -> Gate FAIL, CITATION_INVALID, no draft returned
 * ``[mock:bad_json]``   unparsable model output -> Gate FAIL, JSON_INVALID
@@ -116,8 +117,10 @@ class ScriptedGenerator:
         body: dict[str, Any] = {"answer": MOCK_ANSWER, "evidence_indices": [1, 2], "abstained": False,
                                 "abstention_reason": None, "needs_clarification": False}
         parse_status, error_code = "ok", None
-        if "clarify" in markers:
+        if markers & {"clarify", "clarify_facts"}:
             body.update(answer="", evidence_indices=[], needs_clarification=True)
+            if "clarify_facts" in markers:
+                body["missing_facts"] = ["ngay_su_kien", "tinh_trang_dang_ky_ket_hon", "ngay_su_kien", "ma_la"]
         elif "abstain" in markers:
             body.update(answer="", evidence_indices=[], abstained=True, abstention_reason="mock")
         elif "gate_fail" in markers:
@@ -137,6 +140,7 @@ class ScriptedGenerator:
         return LLMResponse(
             query_id=query_id, run_mode=run_mode, answer=body["answer"], evidence_indices=indices,
             rejected_evidence_values=rejected, abstained=body["abstained"],
+            missing_facts=body.get("missing_facts", []),
             abstention_reason=body["abstention_reason"], needs_clarification=body["needs_clarification"],
             prompt_version=prompt_version, done_reason="stop", parse_status=parse_status, latency_ms=5.0,
             token_usage=TokenUsage(input=800, output=60), raw_response=json.dumps(body, ensure_ascii=False),

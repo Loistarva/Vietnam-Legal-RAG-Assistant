@@ -2,14 +2,15 @@
 
 Settings come from the environment (or CLI flags):
 
-==============================  ======================================================
-``LEGAL_RAG_PIPELINE_MODE``     ``live`` (default) or ``mock`` (orchestration/fakes.py)
-``RAG_PRECOMPUTED``             reranked artifact instead of live retrieval (optional)
-``ELASTICSEARCH_URL``           BM25 index (live)
-``QDRANT_URL``                  Qdrant server (live; use it when a batch run also reads)
-``QDRANT_PATH``                 embedded Qdrant folder (live, single process only)
-``LEGAL_RAG_EVENT_LOG``         JSONL via monitoring.StructuredLogger (PII/secret masked)
-==============================  ======================================================
+===================================  =========================================================
+``LEGAL_RAG_PIPELINE_MODE``           ``live`` (default) or ``mock`` (orchestration/fakes.py)
+``RAG_PRECOMPUTED``                   reranked artifact instead of live retrieval (optional)
+``ELASTICSEARCH_URL``                 BM25 index (live)
+``QDRANT_URL``                        Qdrant server (live; use it when a batch run also reads)
+``QDRANT_PATH``                       embedded Qdrant folder (live, single process only)
+``LEGAL_RAG_EVENT_LOG``               JSONL via monitoring.StructuredLogger (PII/secret masked)
+``LEGAL_RAG_CLARIFICATION_CATALOG``  Optional YAML catalog path (unset: generic clarification)
+===================================  =========================================================
 """
 from __future__ import annotations
 
@@ -22,6 +23,7 @@ from agent.router.adapter import RuleRouterAdapter
 from monitoring.pii_masker import PIIMasker
 from monitoring.structured_logger import StructuredLogger
 from orchestration.ask_service import AskService
+from orchestration.clarification import load_clarification_catalog
 from orchestration.events import EventSink, NullEventSink
 
 PRODUCTION_RUN_MODE = "C_production_rag"
@@ -35,6 +37,7 @@ class ServiceSettings:
     qdrant_url: str | None = None
     qdrant_path: str | None = None
     event_log: str | None = None
+    clarification_catalog: str | None = None
 
     @classmethod
     def from_env(cls, env: Mapping[str, str] | None = None) -> "ServiceSettings":
@@ -48,7 +51,8 @@ class ServiceSettings:
         if mode not in ("live", "mock"):
             raise ValueError(f"LEGAL_RAG_PIPELINE_MODE={mode!r} không hợp lệ, cần live hoặc mock")
         return cls(mode=mode, precomputed=get("RAG_PRECOMPUTED"), elasticsearch_url=get("ELASTICSEARCH_URL"),
-                   qdrant_url=get("QDRANT_URL"), qdrant_path=get("QDRANT_PATH"), event_log=get("LEGAL_RAG_EVENT_LOG"))
+                   qdrant_url=get("QDRANT_URL"), qdrant_path=get("QDRANT_PATH"), event_log=get("LEGAL_RAG_EVENT_LOG"),
+                   clarification_catalog=get("LEGAL_RAG_CLARIFICATION_CATALOG"))
 
 
 def parse_api_keys(value: str) -> tuple[str, ...]:
@@ -65,6 +69,7 @@ def build_ask_service(settings: ServiceSettings | None = None, *, sink: EventSin
                       secret_values: Iterable[str] = ()) -> AskService:
     """Real router + the shared RAGPipeline in production mode (or the mock pipeline)."""
     settings = settings or ServiceSettings.from_env()
+    catalog = load_clarification_catalog(settings.clarification_catalog) if settings.clarification_catalog else None
     if settings.mode == "mock":
         from orchestration.fakes import build_mock_pipeline
 
@@ -78,7 +83,7 @@ def build_ask_service(settings: ServiceSettings | None = None, *, sink: EventSin
     router = RuleRouterAdapter()
     if sink is None:
         sink = build_event_sink(settings, secret_values=secret_values)
-    return AskService(router, pipeline, sink=sink)
+    return AskService(router, pipeline, sink=sink, clarification_catalog=catalog)
 
 
 __all__ = ["PRODUCTION_RUN_MODE", "ServiceSettings", "build_ask_service", "build_event_sink", "parse_api_keys"]

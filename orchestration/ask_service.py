@@ -27,6 +27,7 @@ from datetime import UTC, date, datetime
 from typing import Any
 
 from agent.router.adapter import RuleRouterAdapter
+from orchestration.clarification import ClarificationCatalog, build_clarification
 from orchestration.events import EventSink, FanOutSink, ListEventSink, NullEventSink, StageEmitter
 from orchestration.interfaces import Router
 from orchestration.rag_pipeline import RAGPipeline, RAGRunResult
@@ -101,9 +102,10 @@ class AskService:
     ``orchestration.wiring``)."""
 
     def __init__(self, router: Router, pipeline: RAGPipeline, *, sink: EventSink | None = None,
-                 today: Any = None):
+                 today: Any = None, clarification_catalog: ClarificationCatalog | None = None):
         self.router = router
         self.pipeline = pipeline
+        self.clarification_catalog = clarification_catalog
         self.sink = sink or NullEventSink()
         self._today = today  # callable returning a date, for tests
 
@@ -147,7 +149,15 @@ class AskService:
             try:
                 rag = self.pipeline.run(query_id=query_id, query=request.query, as_of_date=as_of_date,
                                         as_of_date_source=as_of_date_source, events=events)
-                fields = rag_fields(rag, as_of_date)
+                clarification = None
+                if rag.record.grounding_status == "NEEDS_CLARIFICATION":
+                    missing_facts = rag.llm_response.missing_facts if rag.llm_response is not None else []
+                    clarification = build_clarification(missing_facts, self.clarification_catalog)
+                    events.emit("response", "clarification_built", "NEEDS_CLARIFICATION",
+                                missing_facts=list(clarification.kept), kept_count=len(clarification.kept),
+                                dropped_count=clarification.dropped_count, catalog_version=clarification.catalog_version,
+                                generic_clarification=clarification.generic)
+                fields = rag_fields(rag, as_of_date, clarification=clarification)
             except Exception as exc:  # noqa: BLE001 - mapped to a typed error, details only in the log
                 fields, code = pipeline_error_fields(exc)
                 events.emit("response", "pipeline_failed", "error", error_code=code, error_type=type(exc).__name__,

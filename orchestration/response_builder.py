@@ -8,6 +8,7 @@ from typing import Any
 
 from agent.config import GENERAL_CHAT_MESSAGE
 from generation.prompt_builder import STANDARD_DISCLAIMER
+from orchestration.clarification import Clarification
 from orchestration.rag_pipeline import (
     ABSTAIN_MESSAGE,
     CLARIFY_MESSAGE,
@@ -72,7 +73,7 @@ def pipeline_error_fields(exc: BaseException) -> tuple[dict[str, Any], ErrorCode
     return {"status": "ERROR", "grounding_status": "NOT_RUN", "error_code": code, "error": error}, code
 
 
-def rag_fields(rag: RAGRunResult, as_of_date: str) -> dict[str, Any]:
+def rag_fields(rag: RAGRunResult, as_of_date: str, *, clarification: Clarification | None = None) -> dict[str, Any]:
     """AskResponse fields for a RAG run; the model text is only used after Gate PASS."""
     record, grounding = rag.record, rag.grounding
     status = record.grounding_status
@@ -83,7 +84,7 @@ def rag_fields(rag: RAGRunResult, as_of_date: str) -> dict[str, Any]:
                 "citations": list(record.citations), "evidence": list(rag.payload.evidence_items)}
     if status == "NEEDS_CLARIFICATION":
         return {"status": "NEEDS_CLARIFICATION", "grounding_status": "NEEDS_CLARIFICATION",
-                "clarification": CLARIFY_MESSAGE}
+                "clarification": clarification.message if clarification is not None else CLARIFY_MESSAGE}
     reason = record.abstention_reason or (grounding.reason if grounding else None) or status
     if status == "ABSTAIN":
         code: ErrorCode | None = {"EMPTY_RETRIEVAL": "RETRIEVAL_EMPTY",

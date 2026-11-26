@@ -24,6 +24,7 @@ Qdrant embedded khóa thư mục: chỉ một tiến trình mở được. Muố
 | `QDRANT_PATH` / `QDRANT_URL` | live | Qdrant embedded hoặc server |
 | `HF_HUB_OFFLINE=1` | nên đặt | Dùng model BGE-M3 và reranker đã cache, không tải lại |
 | `LEGAL_RAG_EVENT_LOG` | không | File JSONL sự kiện theo stage, ghi qua `monitoring.StructuredLogger` (che PII và các API key đã cấu hình) |
+| `LEGAL_RAG_CLARIFICATION_CATALOG` | không | Đường dẫn đến tệp YAML chứa các mẫu câu hỏi làm rõ. Để trống để dùng thông báo chung. Nếu tệp đã cấu hình bị thiếu hoặc không hợp lệ, dịch vụ báo lỗi khi khởi động. |
 | `LEGAL_RAG_MAX_CONCURRENCY` | không | Số request xử lý đồng thời (mặc định 1: một Qwen local) |
 | `LEGAL_RAG_API_URL`, `LEGAL_RAG_API_KEY`, `LEGAL_RAG_REQUEST_TIMEOUT_SECONDS` | UI | URL `/api/v1/ask`, key client, timeout của UI (mặc định 180 s) |
 
