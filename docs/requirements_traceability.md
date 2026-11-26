@@ -71,10 +71,10 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR2.1 | Một phần | `retrieval/temporal.py`, `test/test_pipeline_context.py` | Hàm có; pipeline chưa có chế độ tương tác; nhãn `question/ui/today` chưa ánh xạ sang `query_text/user_input/system_today`. |
+| FR2.1 | Một phần | `test/orchestration/test_ask_service.py`, `test/test_pipeline_context.py` | AC1–AC3 đã có fixture chạy qua AskService, kiểm cả ngày và nhãn nguồn. Chờ review và CI trên `testing`. |
 | FR2.2 | Chưa | — | Metadata có sẵn trong chunk (`document_number`, `document_type`, `issuing_body`, `issue_date`). |
 | FR2.3 | Chưa | — | |
-| FR2.4 | Một phần | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py` | AC1–AC3 có; AC4 chưa có test so sánh ba nhánh (Elasticsearch, Qdrant, precomputed). |
+| FR2.4 | Một phần | `test/test_e1_temporal_retrieval.py`, `test/test_provision_periods.py`, `test/test_retrieval_filter_conformance.py` | AC4 đã có test gắn marker so sánh Elasticsearch, Qdrant và precomputed; chạy cục bộ đạt. Chờ bằng chứng CI trên `testing`. |
 | FR2.5 | Có | `test/test_bm25_retrieval.py` | |
 | FR2.6 | Có | `test/test_dense_retriever.py` | |
 | FR2.7 | Có | `test/test_hybrid_retriever.py` | `retrieval_top_k = 50`, `rrf_k = 60`. |
