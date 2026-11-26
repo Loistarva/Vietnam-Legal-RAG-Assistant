@@ -1,0 +1,327 @@
+{
+  "schema": "sse_ttfb_v1",
+  "api_url": "http://127.0.0.1:8000",
+  "api_sha": "7d3c1745f040b65eb1a856d39438ec1d2c3f4b1b",
+  "started_at_utc": "2026-11-26T09:12:33.053528+00:00",
+  "finished_at_utc": "2026-11-26T12:35:31.690077+00:00",
+  "machine": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.10",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_cpus": 20,
+    "ram_gb": 15.71,
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096 MiB"
+  },
+  "rows": [
+    {
+      "query_id": "HN_001",
+      "http": 200,
+      "first_status_ms": 209.6480000182055,
+      "server_first_status_ms": 11.05,
+      "final_ms": 38452.381100010825,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_002",
+      "http": 200,
+      "first_status_ms": 54.36310000368394,
+      "server_first_status_ms": 8.19,
+      "final_ms": 30123.654399998486,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_004",
+      "http": 200,
+      "first_status_ms": 30.896299984306097,
+      "server_first_status_ms": 3.99,
+      "final_ms": 33732.74720000336,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_007",
+      "http": 200,
+      "first_status_ms": 26.783900015288964,
+      "server_first_status_ms": 6.3,
+      "final_ms": 41395.827900007134,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_009",
+      "http": 200,
+      "first_status_ms": 48.01430000225082,
+      "server_first_status_ms": 7.61,
+      "final_ms": 38357.65019999235,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_010",
+      "http": 200,
+      "first_status_ms": 22.414099978050217,
+      "server_first_status_ms": 3.78,
+      "final_ms": 27147.28340000147,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_013",
+      "http": 200,
+      "first_status_ms": 16.12290000775829,
+      "server_first_status_ms": 3.93,
+      "final_ms": 27240.206200018292,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_016",
+      "http": 200,
+      "first_status_ms": 14.078800013521686,
+      "server_first_status_ms": 2.43,
+      "final_ms": 33084.55209998647,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_017",
+      "http": 200,
+      "first_status_ms": 29.019699984928593,
+      "server_first_status_ms": 5.21,
+      "final_ms": 29080.133999988902,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_018",
+      "http": 200,
+      "first_status_ms": 43.83070001495071,
+      "server_first_status_ms": 8.5,
+      "final_ms": 42812.96010001097,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_020",
+      "http": 200,
+      "first_status_ms": 18.850000022212043,
+      "server_first_status_ms": 3.74,
+      "final_ms": 29002.458400005708,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_021",
+      "http": 200,
+      "first_status_ms": 3.8428999832831323,
+      "server_first_status_ms": 0.58,
+      "final_ms": 22870.719200000167,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_023",
+      "http": 200,
+      "first_status_ms": 4.707300016889349,
+      "server_first_status_ms": 0.87,
+      "final_ms": 28440.504700003657,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_025",
+      "http": 200,
+      "first_status_ms": 6.033899990143254,
+      "server_first_status_ms": 0.85,
+      "final_ms": 34926.684200007,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_028",
+      "http": 200,
+      "first_status_ms": 12.855300010414794,
+      "server_first_status_ms": 3.71,
+      "final_ms": 23115.116200002376,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_029",
+      "http": 200,
+      "first_status_ms": 5.09669998427853,
+      "server_first_status_ms": 1.19,
+      "final_ms": 103294.93279999588,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_030",
+      "http": 200,
+      "first_status_ms": 24.303700018208474,
+      "server_first_status_ms": 5.24,
+      "final_ms": 46013.0525000277,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_031",
+      "http": 200,
+      "first_status_ms": 21.71760000055656,
+      "server_first_status_ms": 4.22,
+      "final_ms": 97559.21840001247,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_032",
+      "http": 200,
+      "first_status_ms": 14.153600001009181,
+      "server_first_status_ms": 4.22,
+      "final_ms": 49102.22460000659,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_033",
+      "http": 200,
+      "first_status_ms": 15.421799995237961,
+      "server_first_status_ms": 3.38,
+      "final_ms": 25170.32810000819,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_035",
+      "http": 200,
+      "first_status_ms": 26.154100021813065,
+      "server_first_status_ms": 6.51,
+      "final_ms": 14218.938500009244,
+      "final_event": "final",
+      "status": "ABSTAIN",
+      "error_code": "LOW_CONFIDENCE"
+    },
+    {
+      "query_id": "HN_061",
+      "http": 200,
+      "first_status_ms": 12.231899978360161,
+      "server_first_status_ms": 2.97,
+      "final_ms": 91885.57709997986,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_062",
+      "http": 200,
+      "first_status_ms": 19.01650000945665,
+      "server_first_status_ms": 4.52,
+      "final_ms": 98491.6377000045,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_067",
+      "http": 200,
+      "first_status_ms": 34.26109999418259,
+      "server_first_status_ms": 5.73,
+      "final_ms": 95569.30199998897,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_087",
+      "http": 200,
+      "first_status_ms": 5.827699991641566,
+      "server_first_status_ms": 1.12,
+      "final_ms": 46974.34200000134,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_104",
+      "http": 200,
+      "first_status_ms": 22.42870000191033,
+      "server_first_status_ms": 4.83,
+      "final_ms": 30807.285899994895,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_155",
+      "http": 200,
+      "first_status_ms": 13.30469999811612,
+      "server_first_status_ms": 3.15,
+      "final_ms": 48511.258999991696,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_297",
+      "http": 200,
+      "first_status_ms": 22.287300002062693,
+      "server_first_status_ms": 3.65,
+      "final_ms": 48376.94710001233,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_299",
+      "http": 200,
+      "first_status_ms": 31.28079997259192,
+      "server_first_status_ms": 5.38,
+      "final_ms": 41201.02659999975,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    },
+    {
+      "query_id": "HN_300",
+      "http": 200,
+      "first_status_ms": 12.931200006278232,
+      "server_first_status_ms": 3.0,
+      "final_ms": 10861596.099100018,
+      "final_event": "final",
+      "status": "SUCCESS",
+      "error_code": null
+    }
+  ],
+  "summary": {
+    "n": 30,
+    "n_ok": 30,
+    "threshold_ms": 2000,
+    "first_status_p50_ms": 19.01650000945665,
+    "first_status_p95_ms": 54.36310000368394,
+    "final_p50_ms": 38357.65019999235,
+    "final_p95_ms": 103294.93279999588,
+    "pass": true
+  }
+}
