@@ -613,6 +613,18 @@ def ollama_durations_ms(raw_res: Any) -> dict[str, float | None]:
     return out
 
 
+def transcribe_ollama_image(*, model: str, prompt: str, image: bytes, keep_alive: str) -> Any:
+    """Send one document image to the configured Ollama vision model."""
+    import ollama
+
+    return ollama.chat(
+        model=model,
+        messages=[{"role": "user", "content": prompt, "images": [image]}],
+        options={"temperature": 0},
+        keep_alive=keep_alive,
+    )
+
+
 class OllamaPreflightError(RuntimeError):
     """The configured model could not be checked before a batch."""
 
