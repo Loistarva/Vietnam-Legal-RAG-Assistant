@@ -3,10 +3,10 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-SRS` |
-| Phiên bản | **2.1.3 — đề xuất 23/11/2026, chờ Tech Lead duyệt: danh sách phiên "Gần đây" (FR7.5, IR1.8, D-14); D-13 (Top-k) Tech Lead duyệt 24/11/2026. Phần còn lại giữ bản 2.1.2 được Tech Lead duyệt toàn bộ ngày 20/11/2026, kế thừa baseline 2.1 duyệt 16/11/2026** |
+| Phiên bản | **2.2.0 — tích hợp phân hệ Tóm tắt bản án pháp luật (Sprint 12, trạng thái `Proposed`, 25/11/2026), kế thừa bản 2.1.3 trên `testing` (2.1.2 & D-13 đã duyệt; FR7.5, IR1.8, D-14 còn `Proposed`; baseline 2.1 duyệt 16/11/2026)** |
 | Thay thế | SRS 1.0. Giữ nghĩa của FR1–FR5 và NFR1–NFR3; thêm mã con và nhóm mới. |
 | Kiến trúc tham chiếu | [`architecture/system_architecture.drawio`](../architecture/system_architecture.drawio). Phần Retrieval và Knowledge Base của sơ đồ là **chuẩn bắt buộc**; các phần khác là kiến trúc mục tiêu, được làm rõ trong tài liệu này. |
-| Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · quy ước hợp đồng (`schemas/models.py`) và quyền sở hữu module của dự án · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
+| Tài liệu liên quan | [BRD 2.2.0](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · quy ước hợp đồng (`schemas/models.py`) và quyền sở hữu module của dự án · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
 
 ## Lịch sử phiên bản
 
@@ -21,6 +21,7 @@
 | 2.1.2 (sửa) | 24/11/2026 | Mục 5.3.4 bỏ dòng "Thiếu dữ kiện, hỏi lại (FR3.4)" ghi `grounding_status = NOT_RUN`, còn sót từ trước D-11, và gộp với dòng "Model xin làm rõ". Theo D-11 phương án A, thiếu dữ kiện do model báo nên Gate có chạy: `status = NEEDS_CLARIFICATION`, `grounding_status = NEEDS_CLARIFICATION`, khớp mục 5.3.5 (`MODEL_NEEDS_CLARIFICATION`) và code (`orchestration/ask_service.py`). Không đổi contract (validator của `AskResponse` vẫn nhận `NOT_RUN` cho `NEEDS_CLARIFICATION`) và không đổi mã yêu cầu. Chờ Tech Lead xác nhận, vì bảng 5.3.4 đã duyệt (D-02). |
 | 2.1.3 | 23/11/2026 | Đề xuất danh sách phiên "Gần đây" để liệt kê, mở lại và xóa nhiều cuộc hội thoại; IR1.1 chỉ hiển thị lịch sử của phiên đang mở và FR7.2 chỉ lưu lượt hỏi đáp, chưa có cách đọc lại. Thêm FR7.5 (API đọc và xóa phiên, lưu kèm phần đã hiển thị), IR1.8 (thanh bên trên UI), quyết định D-14 (phiên thuộc về ai khi chưa có tài khoản người dùng), dòng contract ở 5.6, hai mã mới vào danh sách cần feature spec cùng các điểm feature spec phải chốt (mục 11). Tất cả ở trạng thái `Proposed`, GĐ3; không đổi yêu cầu đã duyệt. |
 | 2.1.3 (bổ sung) | 23/11/2026 | Thêm D-13 (Top-k), Tech Lead duyệt 24/11/2026, theo cấu hình đang có trong code: `rerank_top_k = 5` vừa là số đầu ra reranker vừa là số evidence; bỏ thí nghiệm 5 so với 10 evidence. FR2.8 ghi giá trị hiện hành; tách `rerank_output_k = 10` làm cùng MMR (FR3.2). Không đổi contract, không đổi cấu hình đã khóa trong manifest Test (12.1). |
+| 2.2.0 | 25/11/2026 | Tích hợp phân hệ Tóm tắt bản án pháp luật HNGĐ (Sprint 12, trạng thái `Proposed`): bổ sung nhóm yêu cầu chức năng `FR10.1`–`FR10.8` (tách riêng kiểm tra `%PDF-` và TXT UTF-8 có/không BOM), phi chức năng `NFR10.1`–`NFR10.4` (công thức KPI, rubric `Expert Quality`, Official Run Policy & Run Manifest chuẩn `model_gateway/run_metadata.py`), bảng Error Contract `5.3.4b` cho `POST /api/v1/summarize` (tách `SUMMARY_QA_FAILED` HTTP 200 khỏi lỗi 4xx/5xx), lộ trình contract `week12_v1.0` (mục 5.6, Owner: Dev 3), và cập nhật sơ đồ `architecture/system_architecture.drawio`. |
 
 ---
 
@@ -41,9 +42,10 @@ SRS là **nguồn yêu cầu duy nhất** của dự án. Code, test, kế hoạ
 - sinh câu trả lời tiếng Việt có trích dẫn tới Điều/Khoản/Điểm, chỉ phát ra sau khi qua Grounding Gate;
 - quản lý phiên hội thoại, cache, giới hạn truy cập, nhiều model với cơ chế dự phòng;
 - nạp và cập nhật kho văn bản từ nguồn chính thức;
+- tiếp nhận bản án HNGĐ (PDF có text / TXT), trích xuất có kiểm soát, tóm tắt có cấu trúc 5 trường gắn nguồn và kiểm chứng chất lượng đa tầng trước khi phát hành (`FR10`);
 - đo và ghi lại chất lượng, độ trễ, chi phí.
 
-**Ngoài phạm vi:** phân tích tài liệu hoặc hình ảnh cá nhân do người dùng tải lên; lĩnh vực pháp luật khác HNGĐ (bị từ chối); thay thế tư vấn của luật sư.
+**Ngoài phạm vi:** tệp PDF scan cần OCR và phân tích tài liệu hoặc hình ảnh cá nhân ngoài phạm vi bản án pháp luật HNGĐ; lĩnh vực pháp luật khác HNGĐ (bị từ chối); thay thế tư vấn của luật sư.
 
 ### 1.3. Quy ước
 
@@ -99,6 +101,7 @@ Yêu cầu của giai đoạn sau không được làm hỏng yêu cầu đã đ
 | LLM | Citation & Context Prompt Builder; Model Gateway (LiteLLM Proxy): OpenAI-Compatible Interface, Semantic Prompt & KV Cache (Redis), Model Router, Cascading Fallback Matrix & Retry, Exception Detector & User Notifier, SSE Streaming Proxy Controller; External Foundation Models (Primary, Fallback, Local Offline); Grounding Gate; Verified Grounded Answer + Citations Map | FR4, FR5, FR6 |
 | Knowledge Base | Raw Data Sources; Vision-LLM Parser (Qwen 3 VL); Vietnamese NLP Pipeline (underthesea_mixed Tokenizer); Hierarchical Parent-child Chunking; Elasticsearch Index; Vector DB (Qdrant) | FR8 |
 | Evaluation & Logging | Citation Accuracy; Grounding & Faithfulness Rate; Latency & Token Cost Metrics; Recall@5 & MRR | FR9 |
+| Summarization *(v2.2.0)* | Document Parser, Section Identifier, Adaptive Context Planner, Fact Extractor (`FactLedger`), Structured Summarizer, ChecklistQA, ReleaseGate & TargetedRepair (`summarization/`, `orchestration/summarization_service.py`, `api/`, `schemas/models.py`, `configs/summarization.yaml`, `configs/profiles/family_judgment_v1.yaml`, `prompts/summarization/`, `evaluation/summarization/`, `data/judgment_benchmark/`, `test/summarization/`) | FR10, NFR10 |
 
 ### 2.2. Luồng dữ liệu (theo các cạnh của sơ đồ)
 
@@ -169,7 +172,8 @@ Mỗi khối có một chỗ trong repo. Code mới của khối đặt vào đ�
 | Web UI | `frontend/` (`streamlit_app.py`, `api_client.py`, `components/`, `config.py`) |
 | Knowledge Base | `parser/`, `chunking/`, `data/reference/`, `data/chunking_output/` |
 | Evaluation | `evaluation/`, `scripts/run_rag_batch.py` |
-| Test | `test/<phân hệ>/`; test parser ở `parser/`, test retrieval ở `retrieval/test/` (`testpaths` trong `pytest.ini`) |
+| Summarization *(v2.2.0, Proposed)* | `summarization/`, `orchestration/summarization_service.py`, `configs/summarization.yaml`, `configs/profiles/family_judgment_v1.yaml`, `prompts/summarization/`, `evaluation/summarization/`, `data/judgment_benchmark/` |
+| Test | `test/<phân hệ>/` (bao gồm `test/summarization/`); test parser ở `parser/`, test retrieval ở `retrieval/test/` (`testpaths` trong `pytest.ini`) |
 
 ---
 
@@ -432,6 +436,48 @@ Tiêu chí chấp nhận:
 - **FR9.9-AC2** Given request đi nhánh xã giao, Then log chỉ có `api`, `router`, `response`.
 - **FR9.10-AC1** Given logger ném lỗi ở mọi lần ghi, Then phản hồi giống hệt trường hợp logger hoạt động; lỗi logger được báo ở kênh riêng.
 
+### FR10. Tóm tắt bản án pháp luật — Legal Judgment Summarization
+
+| Mã | Yêu cầu | Khối | GĐ | Phụ thuộc | Trạng thái | KC |
+| --- | --- | --- | --- | --- | --- | --- |
+| FR10.1 | Hệ thống phải tiếp nhận, kiểm tra hợp lệ tệp bản án (chỉ nhận PDF có lớp văn bản đúng magic bytes `%PDF-` và TXT UTF-8 hợp lệ, không áp dụng magic bytes cho TXT; đúng giới hạn dung lượng/số trang cấu hình; từ chối tệp rỗng, PDF scan cần OCR `OCR_REQUIRED` hoặc PDF mã hóa bằng HTTP `413`/`415`/`422`), trích xuất văn bản giữ nguyên thứ tự đọc và Unicode NFC (không làm mất số tiền, ngày tháng, tên đương sự, từ phủ định), và gán `paragraph_id` ổn định `Pxxx_yyy` kèm `char_start`/`char_end`. | Summarization Parser | Sprint 12 | mục 5.6 (`week12_v1.0`) | Proposed (mới 2.2.0) | T |
+| FR10.2 | Hệ thống phải nhận diện cấu trúc bản án thành 5 nhóm section (`HEADER`, `CASE_CONTENT`, `COURT_REASONING`, `DECISION`, `OTHER/UNKNOWN`) theo chiến lược rule-first (chỉ dùng LLM fallback khi rule không đủ tin cậy), gán mọi đoạn vào một section (không âm thầm loại đoạn `UNKNOWN`), bảo vệ `DECISION` (`protected=true`, cấm nén cắt/loại bỏ khi chunking), và chặn phát hành (`DECISION_NOT_FOUND`) nếu không xác định được `DECISION` sau fallback. | Section Identifier | Sprint 12 | FR10.1 | Proposed (mới 2.2.0) | T |
+| FR10.3 | Adaptive Context Planner phải tính ngân sách token khả dụng ($B = C_{server} - T_{sys} - T_{out} - T_{margin}$) theo cấu hình model server thực tế, chọn `FAST_PATH` khi vừa context và `LONG_PATH` khi vượt context (chia chunk tôn trọng ranh giới section/câu, giữ nguyên `paragraph_id` gốc, ghi `source_coverage_status`), phát hiện mọi cắt cụt đầu vào/đầu ra (không silent truncation), và giới hạn số lần gọi LLM + token budget tối đa mỗi request. | Adaptive Context Planner | Sprint 12 | FR10.2 | Proposed (mới 2.2.0) | T |
+| FR10.4 | Hệ thống phải trích xuất và hợp nhất sổ tình tiết pháp lý (`FactLedger`) kèm `assertion_type` phân tách rõ lời trình bày đương sự (`PLAINTIFF_STATEMENT`, `DEFENDANT_STATEMENT`) với nhận định và phán quyết của Tòa án (`COURT_FINDING`, `COURT_DECISION`), phân loại mức độ trọng yếu (`CRITICAL`, `IMPORTANT`, `SUPPORTING`) theo domain profile `family_judgment_v1` (bảo toàn phủ định, điều kiện, ngoại lệ, khoảng thời gian), gắn `source_refs` hợp lệ và giữ nguyên assertion mâu thuẫn khi hợp nhất nhiều chunk (`LONG_PATH`). | Fact Extractor | Sprint 12 | FR10.3 | Proposed (mới 2.2.0) | T |
+| FR10.5 | Hệ thống phải sinh JSON hợp lệ theo schema `StructuredSummary` gồm đủ 5 trường (`facts`, `legal_issues`, `arguments`, `court_reasoning`, `decision`) bằng tiếng Việt chuẩn mực, trung lập; chỉ dùng thông tin có trong bản án gốc (`NOT_STATED`/`NOT_APPLICABLE` khi thiếu dữ liệu; riêng `decision` không được ở trạng thái `UNRESOLVED` khi phát hành); mọi summary item ở trạng thái `PRESENT` phải gắn `source_refs` trỏ tới `paragraph_id` tồn tại và dùng prompt đã version hóa (`judgment_summary_v1`). | Structured Summarizer | Sprint 12 | FR10.4, FR6.1 | Proposed (mới 2.2.0) | T |
+| FR10.6 | Hệ thống phải kiểm chứng chất lượng đa tầng (`ChecklistQA`): tầng deterministic (kiểm tra JSON schema, tồn tại `source_refs`/`fact_ids`, khớp số tiền, ngày tháng, vai trò nguyên đơn/bị đơn, căn cứ điều luật) và tầng semantic & coverage (đối chiếu 2 chiều Claim Verification + Coverage Verification trên bản án gốc và `Decision Inventory` độc lập để phát hiện mâu thuẫn, đảo ngược phủ định, gán nhầm chủ thể hoặc bỏ sót quyết định trọng yếu), xuất `VerificationReport` phân loại mức `CRITICAL`/`MAJOR`/`MINOR`/`INFO` và cờ `verification_complete`. | ChecklistQA | Sprint 12 | FR10.5 | Proposed (mới 2.2.0) | T |
+| FR10.7 | Cổng phát hành (`ReleaseGate`) chỉ cho phép phát hành `PASS` hoặc `PASS_WITH_WARNINGS` khi `verification_complete == true`, `decision` đã xác định và không còn lỗi `CRITICAL` hoặc `MAJOR`; khi có lỗi thuộc `repairable_issue_types`, kích hoạt sửa cục bộ có giới hạn (`TargetedRepair`) tối đa 1 lần (`max_repair_attempts: 1`) chỉ trên item/section lỗi và bắt buộc chạy lại toàn bộ `ChecklistQA`; nếu vẫn không đạt sau repair, trả business outcome `SUMMARY_QA_FAILED` (`status: "QA_FAILED"`, `summary: null`, HTTP 200). | ReleaseGate & TargetedRepair | Sprint 12 | FR10.6 | Proposed (mới 2.2.0) | T |
+| FR10.8 | Hệ thống phải cung cấp endpoint `POST /api/v1/summarize` (`multipart/form-data`, tuân thủ `X-API-Key`, error envelope `ApiError` và cập nhật `api/openapi.json`), bổ sung tab *Tóm tắt bản án* trên Streamlit (upload PDF/TXT, hiển thị đủ 5 nhóm nội dung, trạng thái QA, xem đoạn nguồn đối chiếu và cảnh báo miễn trừ trách nhiệm AI), đồng thời bảo toàn 100% bộ kiểm thử hiện có của Legal Q&A (`test/api`, `test/e2e`, `test/orchestration`, `test/schemas`). | API Gateway & Web UI | Sprint 12 | FR10.7, IR1.6, IR2.2 | Proposed (mới 2.2.0) | T |
+
+Tiêu chí chấp nhận:
+
+- **FR10.1-AC1** Tách riêng quy tắc kiểm tra hợp lệ theo định dạng tệp và giới hạn dung lượng/số trang cấu hình (`413`/`415`/`422`):
+  - **Đối với PDF (`application/pdf`):** Kiểm tra header magic bytes `%PDF-` (`b"%PDF-"`), cấu trúc PDF hợp lệ, đúng giới hạn dung lượng/số trang cấu hình (`413`/`422`), không bị mã hóa mật khẩu (`DOCUMENT_PARSE_FAILED`), và trích xuất được lớp văn bản (`text layer`); từ chối tệp scan chỉ có ảnh bằng mã `OCR_REQUIRED` (HTTP 422).
+  - **Đối với TXT (`text/plain`):** Không áp dụng kiểm tra magic bytes; yêu cầu giải mã hợp lệ theo chuẩn **UTF-8** (hỗ trợ cả **UTF-8 không BOM** và **UTF-8 có BOM** `EF BB BF`), từ chối tệp chứa byte nhị phân / ký tự điều khiển bất hợp lệ (như `\x00`, ngoài khoảng trắng chuẩn `\t`, `\n`, `\r`) hoặc lỗi encoding (`UnicodeDecodeError` → `UNSUPPORTED_FILE_TYPE` / `DOCUMENT_PARSE_FAILED`), và từ chối tệp rỗng hoặc chỉ có khoảng trắng (`EMPTY_DOCUMENT`).
+- **FR10.1-AC2** Văn bản trích xuất giữ nguyên thứ tự đọc, chuẩn hóa Unicode NFC, không làm mất số tiền, ngày tháng, tên đương sự hoặc từ phủ định (`không`, `chưa`, `bác`).
+- **FR10.1-AC3** Mọi đoạn được gán định danh nguồn ổn định (`Pxxx_yyy` theo trang và đoạn) kèm `char_start`/`char_end` trước khi chunking; trả trạng thái `FAIL` nếu phát hiện trang scan mất nội dung.
+- **FR10.2-AC1** Bản án được phân tách thành 5 nhóm section vật lý (`HEADER`, `CASE_CONTENT`, `COURT_REASONING`, `DECISION`, `OTHER/UNKNOWN`) theo chiến lược *rule-first*, chỉ gọi LLM fallback khi rule không đủ tin cậy.
+- **FR10.2-AC2** Mọi đoạn văn đều được gán vào một section (không âm thầm loại bỏ đoạn `UNKNOWN`).
+- **FR10.2-AC3** Section `DECISION` được đánh dấu `protected=true`, cấm nén cắt hoặc loại bỏ khi chunking; không xác định được `DECISION` sau fallback thì chặn phát hành (`DECISION_NOT_FOUND`).
+- **FR10.3-AC1** Ngân sách token khả dụng ($B = C_{server} - T_{sys} - T_{out} - T_{margin}$) tính theo cấu hình model server thực tế; chọn `FAST_PATH` khi vừa context và `LONG_PATH` khi vượt context.
+- **FR10.3-AC2** Ở `LONG_PATH`, chunking tôn trọng ranh giới section/câu, giữ nguyên `paragraph_id` gốc và ghi nhận đầy đủ `source_coverage_status`.
+- **FR10.3-AC3** Phát hiện mọi trường hợp cắt cụt đầu vào/đầu ra (không silent truncation) và thực thi giới hạn số lần gọi LLM + token budget tối đa mỗi request.
+- **FR10.4-AC1** `FactLedger` tách rạch ròi lời trình bày đương sự (`PLAINTIFF_STATEMENT`, `DEFENDANT_STATEMENT`) với nhận định và phán quyết của Tòa (`COURT_FINDING`, `COURT_DECISION`).
+- **FR10.4-AC2** Mỗi fact mang mức trọng yếu (`CRITICAL`, `IMPORTANT`, `SUPPORTING`) theo profile `family_judgment_v1`, bảo toàn phủ định, điều kiện, ngoại lệ và khoảng thời gian.
+- **FR10.4-AC3** Từng fact gắn `source_refs` hợp lệ; khi hợp nhất nhiều chunk (`LONG_PATH`), các assertion mâu thuẫn giữa các bên được giữ nguyên thay vì tự ý gộp đè.
+- **FR10.5-AC1** Output JSON hợp lệ theo `StructuredSummary` gồm đủ 5 trường (`facts`, `legal_issues`, `arguments`, `court_reasoning`, `decision`) bằng tiếng Việt chuẩn mực, trung lập.
+- **FR10.5-AC2** Chỉ dùng thông tin có trong bản án gốc (`NOT_STATED`/`NOT_APPLICABLE` khi thiếu dữ liệu); riêng `decision` không được ở trạng thái `UNRESOLVED` khi phát hành.
+- **FR10.5-AC3** Mọi summary item ở trạng thái `PRESENT` đều gắn `source_refs` trỏ tới `paragraph_id` tồn tại và sử dụng prompt đã version hóa (`judgment_summary_v1`).
+- **FR10.6-AC1** *(Deterministic)* Kiểm tra hợp lệ JSON schema, sự tồn tại của `source_refs`/`fact_ids`, khớp chính xác số tiền, ngày tháng, vai trò nguyên đơn/bị đơn và căn cứ điều luật so với đoạn nguồn.
+- **FR10.6-AC2** *(Semantic & Coverage)* Đối chiếu 2 chiều (Claim Verification + Coverage Verification) trên bản án gốc và `Decision Inventory` độc lập để phát hiện mâu thuẫn, đảo ngược phủ định, gán nhầm chủ thể hoặc bỏ sót quyết định trọng yếu.
+- **FR10.6-AC3** Xuất `VerificationReport` phân loại lỗi theo mức (`CRITICAL`, `MAJOR`, `MINOR`, `INFO`) và cờ `verification_complete`.
+- **FR10.7-AC1** Chỉ phát hành `PASS` hoặc `PASS_WITH_WARNINGS` khi `verification_complete == true`, `decision` xác định và không còn lỗi `CRITICAL` hoặc `MAJOR`.
+- **FR10.7-AC2** Khi có lỗi thuộc `repairable_issue_types`, `TargetedRepair` chạy tối đa **1 lần** (`max_repair_attempts: 1`) chỉ trên item/section lỗi và bắt buộc chạy lại toàn bộ `ChecklistQA` trên bản vá.
+- **FR10.7-AC3** Nếu vẫn không đạt sau repair, trả business outcome `SUMMARY_QA_FAILED` (`status: "QA_FAILED"`, `summary: null`, HTTP 200), tuyệt đối không trả bản tóm tắt chưa đạt QA.
+- **FR10.8-AC1** Endpoint `POST /api/v1/summarize` (`multipart/form-data`) tuân thủ xác thực `X-API-Key`, body lỗi `ApiError` và cập nhật đồng bộ `api/openapi.json`.
+- **FR10.8-AC2** Tab *Tóm tắt bản án* trên Streamlit cho phép upload PDF/TXT, hiển thị đủ 5 nhóm nội dung, trạng thái QA, xem đoạn nguồn đối chiếu và cảnh báo miễn trừ trách nhiệm AI.
+- **FR10.8-AC3** Toàn bộ bộ kiểm thử hiện có của Legal Q&A (`test/api`, `test/e2e`, `test/orchestration`, `test/schemas`) tiếp tục PASS 100% không hồi quy.
+
 ---
 
 ## 4. Yêu cầu giao diện
@@ -523,8 +569,9 @@ Tiêu chí chấp nhận:
 | Chỉ mục | Elasticsearch, Qdrant | FR8.8 |
 | Cache | Redis | FR2.9, FR6.5, NFR3.2 |
 | Phiên, lịch sử | PostgreSQL | FR7 |
-| Log | JSONL | FR9.9 |
+| Log | JSONL | FR9.9, NFR10.2 |
 | Benchmark, Gold, tập câu âm, kết quả đánh giá | `data/benchmark/`, `evaluation/` | FR9 |
+| Benchmark tóm tắt bản án (đã ẩn danh PII) | `data/judgment_benchmark/`, `evaluation/summarization/` | BR-JS-09, BR-JS-11, NFR10.1, NFR10.3 |
 
 ### 5.2. Nguồn sự thật của contract
 
@@ -634,6 +681,36 @@ Lớp API phải cấu hình handler cho lỗi validation để trả `ApiError`
 
 HTTP 403 để dành cho key hợp lệ nhưng không đủ quyền (chưa dùng). Mã chi tiết (`route_reason` của router; `violation_codes` của Gate như `CITATION_OUTSIDE_CONTEXT`, `ANSWER_NOT_VIETNAMESE`) nằm trong `abstention_reason` và log; `error_code` công khai là nhóm ở các bảng trên.
 
+#### 5.3.4b. Error Contract cho `POST /api/v1/summarize` (Tóm tắt bản án — `FR10.7`–`FR10.8`)
+
+Chuẩn API tách bạch hoàn toàn **kết quả nghiệp vụ (Business Outcomes, HTTP `200 OK`)** với **lỗi đầu vào/hệ thống (HTTP `4xx / 5xx`)**:
+
+**Bảng 1 — Business Outcomes (HTTP `200 OK`, trả về `SummarizationResponse`):**
+
+| Trạng thái (`status`) | Nội dung phản hồi (`summary` & `verification_report`) | `error_code` | HTTP | Ý nghĩa nghiệp vụ |
+| --- | --- | --- | --- | --- |
+| `PASS` | Trả `summary` (`StructuredSummary`) đầy đủ và `VerificationReport` | — | 200 | Đạt toàn bộ kiểm chứng chất lượng `ChecklistQA` |
+| `PASS_WITH_WARNINGS` | Trả `summary` đầy đủ và `VerificationReport` kèm cảnh báo nhỏ (`MINOR`/`INFO`) | — | 200 | Đạt kiểm chứng chất lượng, có lưu ý trình bày |
+| `QA_FAILED` | `summary: null`, trả kèm `VerificationReport` nêu rõ lý do không phát hành | `SUMMARY_QA_FAILED` | 200 | Pipeline chạy hoàn tất nhưng `ReleaseGate` chặn phát hành sau tối đa 1 lần repair (tương tự `ABSTAIN` của luồng Q&A) |
+
+**Bảng 2 — HTTP Error Responses (HTTP `4xx / 5xx`, trả về `ApiError` chuẩn):**
+
+| Tình huống lỗi | `error_code` | HTTP | Ghi chú |
+| --- | --- | --- | --- |
+| Thiếu hoặc sai API key (`X-API-Key`) | `AUTH_REQUIRED` | 401 | Guard lớp API trước khi vào pipeline |
+| Vượt dung lượng tệp tối đa cấu hình | `FILE_TOO_LARGE` | 413 | Kiểm tra trước khi đọc toàn bộ tệp |
+| Định dạng tệp không hỗ trợ (PDF sai magic bytes `%PDF-`, TXT không phải UTF-8 hợp lệ hoặc chứa byte nhị phân, hoặc loại tệp khác) | `UNSUPPORTED_FILE_TYPE` | 415 | Từ chối ngay tại tầng tiếp nhận tệp |
+| Tệp rỗng sau khi trích xuất văn bản | `EMPTY_DOCUMENT` | 422 | Đầu vào không có nội dung để xử lý |
+| Tệp hỏng, PDF mã hóa hoặc giải mã thất bại | `DOCUMENT_PARSE_FAILED` | 422 | Lỗi trích xuất tài liệu |
+| PDF dạng ảnh scan không có text layer, cần OCR | `OCR_REQUIRED` | 422 | Ngoài phạm vi `FR10.1` |
+| Tài liệu không phải bản án pháp luật HNGĐ hợp lệ | `UNSUPPORTED_DOCUMENT_TYPE` | 422 | Từ chối theo phạm vi nghiệp vụ |
+| Không xác định được section `DECISION` sau fallback | `DECISION_NOT_FOUND` | 422 | Chặn phát hành do thiếu phần Quyết định (`FR10.2`) |
+| Vượt giới hạn số trang hoặc ngân sách xử lý tài liệu | `DOCUMENT_LIMIT_EXCEEDED` | 422 | Giới hạn bảo vệ tài nguyên (`FR10.3`) |
+| Lỗi nội bộ không mong đợi | `INTERNAL_ERROR` | 500 | Kèm `query_id`/`request_id`, không lộ stack trace |
+| Model Gateway lỗi sinh JSON/nội dung sau số lần retry | `SUMMARY_GENERATION_FAILED` | 502 | Lỗi tầng sinh mô hình |
+| Không kết nối được model / mọi model khả dụng thất bại | `LLM_UNAVAILABLE` | 503 | `retryable = true` |
+| Model xử lý quá `timeout_seconds` | `LLM_TIMEOUT` | 504 | `retryable = true` |
+
 #### 5.3.5. Mã chi tiết và `error_code`
 
 `abstention_reason` (ở `AskResponse` và bản ghi chạy lô) mang mã chi tiết; `error_code` mang mã nhóm. Pipeline được dùng mã chi tiết riêng; lớp tạo `AskResponse` chuyển sang `error_code` theo bảng dưới. Thêm mã chi tiết mới thì thêm dòng vào bảng này trong cùng PR; mã chưa có trong bảng mà Gate trả FAIL thì thuộc `GROUNDING_FAIL`.
@@ -704,6 +781,9 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 | `AskResponse.session_id`, `LogEvent.session_id`, stage `session` | FR7.1, FR7.2 | Khi FR7.2 vào sprint | Dự kiến |
 | `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | NFR3.2 | Khi NFR3.2 vào sprint | Dự kiến |
 | Endpoint liệt kê phiên, lấy các lượt của một phiên, xóa phiên, cùng model kết quả (tóm tắt phiên, lượt đã lưu) và mã lỗi khi phiên không có, đã xóa hoặc hết hạn (thêm giá trị `ErrorCode` nếu cần); tên và schema chốt trong feature spec của FR7.5 | FR7.4, FR7.5, IR1.8 | Khi FR7.5 vào sprint | Proposed (2.1.3), chờ D-14 |
+| Nhóm 1 Summarization: `ParsedDocument`, `SectionedDocument`, `ContextPlan` trong `schemas/models.py` (Consumer: `summarization/parser.py`, `section_identifier.py`, `context_planner.py`) | FR10.1–FR10.3 | `week12_v1.0` | Dự kiến (Owner: Dev 3) |
+| Nhóm 2 Summarization: `FactLedger`, `StructuredSummary`, `VerificationReport` trong `schemas/models.py` (Consumer: `summarization/structured_summarizer.py`, `checklist_qa.py`, `release_gate.py`) | FR10.4–FR10.7 | `week12_v1.0` | Dự kiến (Owner: Dev 3) |
+| Nhóm 3 Summarization: `SummarizationResponse`, mở rộng `ErrorCode` (`UNSUPPORTED_FILE_TYPE`, `FILE_TOO_LARGE`, `EMPTY_DOCUMENT`, `DOCUMENT_PARSE_FAILED`, `OCR_REQUIRED`, `UNSUPPORTED_DOCUMENT_TYPE`, `DECISION_NOT_FOUND`, `DOCUMENT_LIMIT_EXCEEDED`, `SUMMARY_GENERATION_FAILED`, `SUMMARY_QA_FAILED`) và `EventStage` (`summarization_*`) trong `schemas/models.py` (Consumer: `api/`, `orchestration/summarization_service.py`, `monitoring/`) | FR10.8, NFR10.2 | `week12_v1.0` | Dự kiến (Owner: Dev 3) |
 
 ---
 
@@ -742,6 +822,11 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 | NFR7.3 | Căn cứ pháp lý về bảo vệ dữ liệu cá nhân phải được người duyệt pháp lý xác nhận còn hiệu lực. | GĐ2 | D-09 | Approved (mới 2.1) | R |
 | **NFR8** | **Chi phí** | | | | |
 | NFR8.1 | Chi phí mỗi câu hỏi được ghi theo model thực sự đã dùng; có ngân sách theo ngày khi dùng provider trả phí. | GĐ3 | FR6.3 | Approved (mới 2.1) | A |
+| **NFR10** | **Yêu cầu phi chức năng — Tóm tắt bản án pháp luật** | | | | |
+| NFR10.1 | Chất lượng & Độ tin cậy đầu ra: thống nhất dùng **Factual Accuracy** ($FA \ge 90\%$ micro-average theo atomic claim trên tập bản án được chấp nhận, kèm macro-average; không tách trùng lặp với Factual Consistency), `Critical-fact Omission Rate` ($CFO < 10\%$ trên toàn bộ $N_{\text{total}}$ bản án benchmark), `Decision Accuracy` ($DA = 100\%$), `Decision Coverage` ($DC = 100\%$); bắt buộc báo cáo song hành **Acceptance Rate** ($AR$, nếu $AR = 0\%$ tự động kết luận `FAIL`), và **Expert Quality** $\ge 4.0 / 5.0$ theo rubric 5 tiêu chí kèm Hard Gate ($\le 2.0 / 5.0$ nếu sai/thiếu quyết định chính). | Sprint 12 | FR10.6, FR10.7 | Proposed (mới 2.2.0) | A, R |
+| NFR10.2 | Hiệu năng & Giới hạn tài nguyên: cấu hình và thực thi giới hạn token budget, số lần gọi LLM tối đa (`max_llm_calls`) và request timeout; ghi log latency chi tiết cho từng stage (`summarization_*`). | Sprint 12 | FR10.3, FR9.9 | Proposed (mới 2.2.0) | T, A |
+| NFR10.3 | Bảo mật & Quyền riêng tư: không lưu tệp bản án mặc định và không ghi log nội dung bản án hoặc PII; bắt buộc ẩn danh hóa PII toàn bộ 30 bản án HNGĐ (10 Dev, 20 Test) trước khi lưu vào `data/judgment_benchmark/` hoặc đưa vào đánh giá (`BR-JS-09`). | Sprint 12 | NFR3.4, BR-JS-09 | Proposed (mới 2.2.0) | T, I |
+| NFR10.4 | Official Run Policy & Tái lập thực nghiệm (`Run Manifest`): khi `official=True`, validator (`model_gateway/run_metadata.py`) bắt buộc từ chối nếu `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, hoặc bật fallback ngầm (`allow_model_fallback != false` / `fallback_locked != true`); Run Manifest tuân thủ cấu trúc chuẩn của `run_metadata.py` (`git_*`, `started_at`/`finished_at`, `hardware`, `config_hashes`, `base_model_config`, `base_model_config_hash`, `effective_model_config_hash`, `runtime`) cùng metadata riêng của nhánh `task_type = "legal_judgment_summarization"` (`profile_version`, `profile_sha256`, `dataset_version`, `dataset_sha256`). | Sprint 12 | NFR4.1–NFR4.3, BR-JS-11 | Proposed (mới 2.2.0) | T, A |
 
 Tiêu chí chấp nhận:
 
@@ -764,6 +849,95 @@ Tiêu chí chấp nhận:
 - **NFR6.3-AC1** Test của mỗi phân hệ chạy được khi không có Elasticsearch, Qdrant và model; test cần dịch vụ thật được đánh dấu riêng.
 - **NFR7.2-AC1** Với cấu hình mặc định, log không chứa nguyên văn câu hỏi hay prompt; bật cờ debug mới ghi, và cờ này tắt trong cấu hình production.
 - **NFR7.3-AC1** Chính sách log ghi văn bản pháp lý áp dụng, người duyệt pháp lý và ngày xác nhận.
+- **NFR10.1-AC1** *(Công thức, mẫu số & xử lý biên)* Báo cáo đánh giá tập Test ($N_{\text{total}} = 20$ bản án đã freeze) phải tính và công bố đầy đủ:
+  - **Acceptance Rate ($AR$):** $AR = \frac{N_{\text{accepted}}}{N_{\text{total}}} \times 100\%$, với $N_{\text{accepted}}$ là số bản án đạt trạng thái `PASS` hoặc `PASS_WITH_WARNINGS` (không tính `QA_FAILED` hay lỗi kỹ thuật). Bắt buộc báo cáo $AR$ song hành với mọi chỉ số chất lượng.
+  - **Quy tắc biên khi $N_{\text{accepted}} = 0$ ($AR = 0\%$):** Mọi chỉ số tính trên tập được chấp nhận ghi nhận `N/A` (không hợp lệ) và lượt đánh giá **tự động kết luận KHÔNG ĐẠT (`FAIL`)** toàn bộ `NFR10.1` (chống đạt điểm ảo bằng cách từ chối xử lý).
+  - **Factual Accuracy ($FA \ge 90\%$):** Tính trên tập bản án được chấp nhận ($N_{\text{accepted}}$), tổng hợp theo **tổng số atomic claims (micro-average)** và báo cáo kèm macro-average theo bản án:
+    $$FA = \frac{\sum_{d \in \text{Accepted}} N_{\text{supported\_claims}}(d)}{\sum_{d \in \text{Accepted}} N_{\text{total\_claims}}(d)} \times 100\%$$
+  - **Critical-fact Omission Rate ($CFO < 10\%$):** Tính trên **toàn bộ $N_{\text{total}}$ bản án benchmark** (đồng thời báo cáo tách bạch cả trên toàn bộ tập Test lẫn tập Accepted; bản án `QA_FAILED` không được miễn trừ khi đánh giá độ phủ toàn hệ thống):
+    $$CFO = \frac{\sum_{d=1}^{N_{\text{total}}} N_{\text{omitted\_critical\_facts}}(d)}{\sum_{d=1}^{N_{\text{total}}} N_{\text{gold\_critical\_facts}}(d)} \times 100\%$$
+  - **Decision Accuracy ($DA = 100\%$) & Decision Coverage ($DC = 100\%$):**
+    $$DC = \frac{\sum N_{\text{covered\_decisions}}}{\sum N_{\text{gold\_decisions}}} \times 100\% \qquad\text{và}\qquad DA = \frac{N_{\text{docs\_all\_decisions\_exact}}}{N_{\text{accepted}}} \times 100\% = 100\%$$
+    ($DC$ đo trên từng mục quyết định trọng yếu; $DA$ bảo đảm 100% bản án phát hành không bỏ sót, làm sai lệch hoặc đảo ngược nghĩa bất kỳ phán quyết trọng yếu nào).
+- **NFR10.1-AC2** *(Rubric chấm `Expert Quality >= 4.0 / 5.0`)* Chấm chuyên môn trên thang điểm 1–5 theo 5 tiêu chí có trọng số:
+  1. Độ chính xác tình tiết (*Factual correctness*): **30%**
+  2. Tính đầy đủ tình tiết trọng yếu (*Critical-fact completeness*): **25%**
+  3. Bảo toàn phán quyết của Tòa (*Decision preservation*): **25%**
+  4. Tính mạch lạc pháp lý & phân biệt chủ thể/vai trò (*Legal coherence & attribution*): **10%**
+  5. Cấu trúc & khả năng đọc hiểu (*Readability & structure*): **10%**
+  - **Quy tắc chốt chặn (Hard Gate):** Bất kỳ bản án nào bị bỏ sót hoặc làm sai lệch quyết định chính của Tòa án thì điểm tổng kết tối đa không vượt quá **2.0 / 5.0** và bị tính là **KHÔNG ĐẠT**, bất kể điểm trung bình trọng số các tiêu chí khác cao.
+- **NFR10.2-AC1** Request vượt `max_llm_calls` / token budget bị dừng có kiểm soát (`DOCUMENT_LIMIT_EXCEEDED` / `SUMMARY_GENERATION_FAILED`), không silent truncation; log JSONL ghi đủ `duration_ms` của từng stage `summarization_*`.
+- **NFR10.3-AC1** Không có nội dung bản án thô hoặc PII gốc trong log JSONL hay `data/judgment_benchmark/` (đã thay bằng ký hiệu như `Nguyên đơn Ông A`, `Bị đơn Bà B`, `Cháu C`).
+- **NFR10.4-AC1** Given `validate_run_manifest(..., official=True)` nhận manifest có `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, `cache_enabled == true`, `fallback_locked == false` hoặc `allow_model_fallback == true`, Then validator từ chối kèm thông báo lỗi rõ trường vi phạm. Lưu ý kiến trúc validator trong `model_gateway/run_metadata.py`: đối với `task_type = "legal_judgment_summarization"`, `validate_run_manifest()` phân nhánh theo `task_type` để **không** bắt buộc các trường riêng của Q&A (`corpus_hash`, `precomputed_retrieval`, `config_hashes.retrieval`, `config_hashes.rerank`, `config_hashes.threshold`), tránh phải điền giá trị giả; thay vào đó bắt buộc đầy đủ nhóm provenance chung (`manifest_version`, `git_branch`, `git_sha`, `working_tree_clean`, `config_hashes.model`, `base_model_config` 12 khóa, `base_model_config_hash`, `effective_model_config_hash`, `runtime_overrides`, `runtime`, `hardware`, `started_at`, `finished_at`) cùng nhóm bắt buộc của Summarization (`task_type`, `official`, `schema_version`, `dataset_version`, `dataset_sha256`, `dataset_ids_hash`, `profile_version`, `profile_sha256`, `config_hashes.summarization`, `config_hashes.profile`, `runtime.max_repair_attempts <= 1`, `runtime.allow_model_fallback == false`). Mẫu JSON Run Manifest đầy đủ chuẩn `model_gateway/run_metadata.py`:
+
+```json
+{
+  "manifest_version": "d3.4.run_manifest.v1",
+  "schema_version": "week12_v1.0",
+  "run_id": "sum_official_20261128T080000Z",
+  "task_type": "legal_judgment_summarization",
+  "official": true,
+  "git_branch": "feature/sprint12-summarization",
+  "git_sha": "0123456789abcdef0123456789abcdef01234567",
+  "working_tree_clean": true,
+  "dataset_version": "family_judgment_test_v1",
+  "dataset_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "dataset_ids_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "profile_version": "family_judgment_v1",
+  "profile_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "config_hashes": {
+    "model": "1111111111111111111111111111111111111111111111111111111111111111",
+    "summarization": "2222222222222222222222222222222222222222222222222222222222222222",
+    "profile": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "base_model_config": {
+    "config_version": "local_qwen_v1.1",
+    "provider": "ollama",
+    "base_url": "http://localhost:11434",
+    "model": "qwen2.5:7b",
+    "temperature": 0.0,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "timeout_seconds": 120.0,
+    "max_retries": 1,
+    "cache_enabled": false,
+    "fallback_locked": true
+  },
+  "base_model_config_hash": "a886f02721bfbd067572268f4f6163ce73012a7c11f0e34f3bc07ebc05ca3b98",
+  "effective_model_config_hash": "a886f02721bfbd067572268f4f6163ce73012a7c11f0e34f3bc07ebc05ca3b98",
+  "runtime_overrides": {},
+  "runtime": {
+    "model_config_version": "local_qwen_v1.1",
+    "provider": "ollama",
+    "base_url": "http://localhost:11434",
+    "model": "qwen2.5:7b",
+    "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "ollama_version": "0.40.16",
+    "prompt_version": "judgment_summary_v1",
+    "temperature": 0.0,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "timeout_seconds": 120.0,
+    "max_retries": 1,
+    "max_repair_attempts": 1,
+    "cache_enabled": false,
+    "cache": "OFF",
+    "fallback_locked": true,
+    "fallback": "LOCKED",
+    "allow_model_fallback": false
+  },
+  "hardware": {
+    "os": "Linux-6.8.0-x86_64",
+    "cpu": "AMD Ryzen 7 5800X",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "vram": "12288 MiB"
+  },
+  "started_at": "2026-11-28T08:00:00+00:00",
+  "finished_at": "2026-11-28T08:05:12+00:00"
+}
+```
 
 ---
 

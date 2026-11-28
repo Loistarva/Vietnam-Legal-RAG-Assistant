@@ -3,8 +3,8 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-BRD` |
-| Phiên bản | **2.1.1 — sửa 20/11/2026: tập đo BO-02, BO-03 theo SRS D-12, Tech Lead duyệt 20/11/2026. Kế thừa baseline 2.1 được Tech Lead duyệt 16/11/2026** |
-| Tài liệu liên quan | [SRS 2.1.2 / 2.1.3](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
+| Phiên bản | **2.2.0 — tích hợp phân hệ Tóm tắt bản án pháp luật (25/11/2026), kế thừa bản 2.1.1 (duyệt 20/11/2026) và baseline 2.1 (duyệt 16/11/2026)** |
+| Tài liệu liên quan | [SRS 2.2.0](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
 | Người duyệt | Tech Lead / PM |
 
 BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. Hệ thống làm gì nằm ở SRS; đã làm đến đâu nằm ở ma trận truy vết.
@@ -15,6 +15,7 @@ BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. H
 | --- | --- | --- |
 | 2.1 | 16/11/2026 | Tech Lead duyệt làm baseline cùng mục tiêu KPI. BRD cho toàn dự án, bám sơ đồ kiến trúc: mục tiêu, năng lực nghiệp vụ, quy tắc nghiệp vụ, ba giai đoạn, KPI có định nghĩa, tập đo và mục tiêu. |
 | 2.1.1 | 20/11/2026 | Tập đo của BO-02, BO-03 đổi từ "Tập A/B" sang A/B trên Test 30 (SRS D-12, Tech Lead duyệt 20/11/2026), vì Dev30 đã được dùng để chỉnh prompt. Mục tiêu KPI không đổi. |
+| 2.2.0 | 25/11/2026 | Tích hợp phân hệ Tóm tắt bản án pháp luật HNGĐ: bổ sung mục tiêu & KPI (`BO-JS-01`–`BO-JS-08`, gồm rubric `Expert Quality`), năng lực nghiệp vụ (`BC-12`), quy tắc nghiệp vụ (`BR-JS-09`, `BR-JS-11`), và đồng bộ phạm vi sản phẩm với SRS 2.2.0. |
 
 ---
 
@@ -73,6 +74,31 @@ Dự án xây một trợ lý hỏi đáp pháp luật HNGĐ: chỉ trả lời 
 
 Mục tiêu trong bảng được Tech Lead duyệt ngày 16/11/2026 (SRS D-08). Hai mục chưa có số: p95 thời gian tới câu trả lời (BO-05, chốt khi chọn máy tham chiếu) và thời gian cập nhật kho (BO-08, chốt khi viết feature spec của FR8.9–FR8.10). Đổi mục tiêu sau baseline phải qua PR sửa BRD.
 
+### 3.2. Mục tiêu và KPI — Phân hệ Tóm tắt bản án pháp luật (`BO-JS-01` – `BO-JS-08`)
+
+| Mã | Mục tiêu nghiệp vụ | KPI | Tập đo | Mục tiêu | GĐ đo lần đầu |
+| --- | --- | --- | --- | --- | --- |
+| BO-JS-01 | Tự động hóa tóm tắt bản án | Endpoint `POST /api/v1/summarize` và tab Streamlit UI hoạt động ổn định, không hồi quy Q&A | API, Web UI & bộ test Q&A | Vận hành ổn định; 100% test hồi quy Q&A PASS | Sprint 12 |
+| BO-JS-02 | Rút ngắn thời gian nắm bắt nội dung vụ án | Thời gian người dùng trích xuất đủ 5 nhóm thông tin cốt lõi qua bản tóm tắt có cấu trúc so với đọc bản án toàn văn | Usability Test | Thời gian trích xuất giảm rõ rệt (mục tiêu giảm ≥ 40%) | Sprint 12 |
+| BO-JS-03 | Bảo đảm độ chính xác tình tiết | Factual Accuracy ($FA$, micro-average theo atomic claim trên tập Accepted, kèm macro-average) & Acceptance Rate ($AR = N_{\text{accepted}} / N_{\text{total}}$); bắt buộc báo cáo song hành $AR$, nếu $AR = 0\%$ tự động kết luận `FAIL` | Test (20 bản án đã freeze) | $FA \ge 90\%$ (kèm báo cáo $AR$; $AR = 0\% \Rightarrow \text{FAIL}$) | Sprint 12 |
+| BO-JS-04 | Kiểm soát tỷ lệ bỏ sót tình tiết trọng yếu | Critical-fact Omission Rate ($CFO$, tính trên toàn bộ $N_{\text{total}}$ bản án Test; `QA_FAILED` không được miễn trừ khỏi đánh giá độ phủ hệ thống; tách bạch thêm trên Accepted) | Test (20 bản án đã freeze) | $CFO < 10\%$ | Sprint 12 |
+| BO-JS-05 | Đạt chuẩn chất lượng đánh giá chuyên môn | Expert Quality Score theo rubric 5 tiêu chí có trọng số (thang 1–5); áp dụng Hard Gate tối đa 2,0 / 5,0 (`FAIL`) nếu sai hoặc thiếu quyết định chính | Test (20 bản án đã freeze) | $\ge 4,0 / 5,0$ (không vi phạm Hard Gate) | Sprint 12 |
+| BO-JS-06 | Bảo toàn tuyệt đối phán quyết của Tòa án | Decision Accuracy ($DA$ trên bản án phát hành) & Decision Coverage ($DC$ theo từng mục quyết định trọng yếu) | Dev (10) + Test (20) | $DA = 100\%$ / $DC = 100\%$ | Sprint 12 |
+| BO-JS-07 | Bảo đảm khả năng truy vết kiểm chứng | Tỷ lệ mục ở trạng thái `PRESENT` trong bản tóm tắt phát hành (`PASS` / `PASS_WITH_WARNINGS`) có `source_refs` ánh xạ chính xác tới `paragraph_id` (`Pxxx_yyy`) trong bản án gốc | Dev (10) + Test (20) | 100% | Sprint 12 |
+| BO-JS-08 | An toàn dữ liệu & không gây hồi quy | Rò rỉ nội dung bản án/PII trong log; tỷ lệ PASS bộ kiểm thử hồi quy Q&A (`test/api`, `test/e2e`, `test/orchestration`, `test/schemas`) | Bộ test PII & CI Q&A | 0 rò rỉ; 100% test hồi quy Q&A PASS | Sprint 12 |
+
+**Rubric đánh giá chuyên môn `Expert Quality >= 4.0 / 5.0` (`BO-JS-05`, thang điểm 1–5):**
+
+| STT | Tiêu chí | Trọng số | Nội dung đánh giá |
+| :---: | --- | :---: | --- |
+| 1 | Độ chính xác tình tiết (*Factual correctness*) | 30% | Khớp sự kiện, số tiền, ngày tháng, vai trò đương sự, không suy diễn |
+| 2 | Tính đầy đủ tình tiết trọng yếu (*Critical-fact completeness*) | 25% | Phủ đủ các tình tiết cốt lõi, điều kiện, ngoại lệ, phủ định |
+| 3 | Bảo toàn phán quyết của Tòa (*Decision preservation*) | 25% | Giữ đúng toàn bộ quyết định của Hội đồng xét xử |
+| 4 | Tính mạch lạc pháp lý & phân biệt chủ thể/vai trò (*Legal coherence & attribution*) | 10% | Phân tách rõ lời trình bày nguyên đơn/bị đơn và nhận định của Tòa |
+| 5 | Cấu trúc & khả năng đọc hiểu (*Readability & structure*) | 10% | Tiếng Việt chuẩn mực, bố cục 5 phần rõ ràng |
+
+> **Quy tắc chốt chặn (Hard Gate):** Bất kỳ bản án nào bị bỏ sót hoặc làm sai lệch quyết định chính của Tòa án thì điểm tổng kết tối đa không vượt quá **2,0 / 5,0** và bị tính là **KHÔNG ĐẠT**, bất kể điểm trung bình trọng số các tiêu chí khác cao.
+
 ---
 
 ## 4. Các bên liên quan và người dùng
@@ -114,6 +140,7 @@ Mục tiêu trong bảng được Tech Lead duyệt ngày 16/11/2026 (SRS D-08).
 | BC-09 | Hoạt động liên tục khi model lỗi | LLM (Model Router, Cascading Fallback, Exception Notifier) | FR6 |
 | BC-10 | Nạp và cập nhật kho văn bản | Knowledge Base | FR8 |
 | BC-11 | Đo và giám sát chất lượng, chi phí | Evaluation & Logging | FR9 |
+| BC-12 | Tóm tắt bản án pháp luật HNGĐ có cấu trúc 5 trường, gắn nguồn và kiểm chứng chất lượng đa tầng | Summarization, API, Web UI, LLM | FR10.1–FR10.8, NFR10.1–NFR10.4 |
 
 ### 5.2. Giai đoạn
 
@@ -128,7 +155,7 @@ Lịch cụ thể theo sprint nằm trong kế hoạch sprint; kế hoạch ch�
 ### 5.3. Ngoài phạm vi
 
 - Lĩnh vực pháp luật khác HNGĐ (hệ thống từ chối).
-- Phân tích tài liệu hoặc hình ảnh cá nhân của người dùng.
+- Phân tích tài liệu hoặc hình ảnh cá nhân ngoài phạm vi bản án pháp luật HNGĐ dạng PDF có text / TXT (tệp PDF scan cần OCR và hồ sơ cá nhân khác vẫn nằm ngoài phạm vi).
 - Tư vấn thay luật sư, soạn đơn từ, đại diện pháp lý.
 - Ứng dụng di động riêng.
 
@@ -150,6 +177,8 @@ Lịch cụ thể theo sprint nằm trong kế hoạch sprint; kế hoạch ch�
 | BR-10 | Văn bản mới hoặc sửa đổi chỉ được đưa vào kho sau khi người duyệt pháp lý xác nhận. | FR8.10 |
 | BR-11 | Số liệu đánh giá phải tái lập được; không dùng tập Test để chỉnh hệ thống. | FR9.6–FR9.8, NFR4 |
 | BR-12 | Câu trả lời bằng tiếng Việt. | NFR1.3 |
+| BR-JS-09 | Không lưu tệp bản án mặc định sau khi xử lý, không ghi log nội dung bản án hoặc PII; bắt buộc ẩn danh hóa toàn bộ PII (thay thế họ tên đương sự, con chung, người liên quan bằng ký hiệu như `Nguyên đơn Ông A`, `Bị đơn Bà B`, `Cháu C`; che/mã hóa số CMND/CCCD, địa chỉ cư trú và thông tin tài khoản) cho toàn bộ 30 bản án HNGĐ (10 Dev, 20 Test) trước khi lưu vào `data/judgment_benchmark/` hoặc đưa vào đánh giá. | FR10.1, NFR10.3 |
+| BR-JS-11 | Khóa cứng ranh giới tập Dev (10 bản án) và tập Test (20 bản án) bằng mã băm SHA-256 (`dataset_sha256`); cấm dùng output LLM thô làm ground truth và cấm tuning prompt dựa trên tập Test. | NFR10.1, NFR10.4 |
 
 ---
 

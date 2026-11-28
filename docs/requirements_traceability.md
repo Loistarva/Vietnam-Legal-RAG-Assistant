@@ -1,10 +1,10 @@
 # Ma trận truy vết và trạng thái
 
-**Ảnh chụp nền tại `origin/testing` `01fe249` (17/11/2026); phần Dev 3 Sprint 11 cập nhật ngày 23/11/2026 (PR #63, merge 25/11). Chưa cập nhật theo PR #59, #61, #64 và #53 (merge 23–26/11); cập nhật toàn bộ theo SRS 2.1.3 làm cuối Sprint 12. Contract hiện hành: `schema_version = week10_v1.1` (`schemas/models.py`, tương thích ngược `week10_v1.0`).** File này ghi đã làm tới đâu so với [SRS 2.1.3](SRS.md) (FR7.5, IR1.8, D-14 còn `Proposed`) và số đo hiện tại của KPI trong [BRD](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
+**Ảnh chụp nền tại `origin/testing` `01fe249` (17/11/2026); phần Dev 3 Sprint 11 cập nhật ngày 23/11/2026 (PR #63, merge 25/11). Chưa cập nhật theo PR #59, #61, #64 và #53 (merge 23–26/11); cập nhật toàn bộ theo SRS 2.1.3 làm cuối Sprint 12; tích hợp đặc tả phân hệ Tóm tắt bản án `2.2.0` ngày 25/11/2026 (PR #66). Contract hiện hành: `schema_version = week10_v1.1` (`schemas/models.py`, tương thích ngược `week10_v1.0`); lộ trình Sprint 12 dự kiến `week12_v1.0`.** File này ghi đã làm tới đâu so với [SRS 2.2.0](SRS.md) (kế thừa `SRS 2.1.2` đã duyệt; `FR7.5`, `IR1.8`, `D-14` từ `2.1.3` và `FR10.1`–`FR10.8`, `NFR10.1`–`NFR10.4` từ `2.2.0` đang ở trạng thái `Proposed`) và số đo hiện tại của KPI trong [BRD 2.2.0](BRD.md). Nó được cập nhật theo từng PR hoặc lượt chạy; SRS và BRD thì không. Khi có marker `@pytest.mark.req` (SRS NFR6.2), bảng yêu cầu sẽ được sinh tự động.
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
-Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1.2 / 2.1.3, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
+Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1.2 / 2.1.3 (kế thừa cho khối Q&A) và SRS 2.2.0 (`Proposed` cho khối Tóm tắt bản án), đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
 
 ## Tóm tắt theo giai đoạn
 
@@ -13,8 +13,9 @@ Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nh
 | GĐ1 | 38 | 22 | 1 | Lõi RAG, Gate cấu trúc, kho văn bản, đánh giá lô đã có. Còn chấm mù A/B (NFR1.1, FR9.3–FR9.6), máy tham chiếu latency, Top-10 sau reranker, vài tiêu chí truy vết (FR2.4-AC4, FR2.11, FR4.1-AC2), nhãn hiệu lực tại `as_of_date` (FR4.3-AC2, hạ từ Có ở bản 2.1.2). |
 | GĐ2 | 1 | 8 | 25 | Contract API có (`week10_v1.0`); router chưa nối (FR1.9); chưa có API, UI trên `testing`, log, che PII, hỏi lại. |
 | GĐ3 | 0 | 0 | 18 | Chưa bắt đầu; mỗi khối cần feature spec trước (SRS mục 11). |
+| Sprint 12 (Tóm tắt bản án) | 0 | 0 | 12 | Đã đặc tả `FR10.1`–`FR10.8` và `NFR10.1`–`NFR10.4` trong SRS 2.2.0 (`Proposed`); chờ triển khai contract `week12_v1.0` và pipeline `summarization/`. |
 
-Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai giai đoạn (FR3.1, FR6.1, FR8.9, IR1.7, IR2.4) được đếm ở giai đoạn đầu; "Một phần" ở đó có thể là phần của giai đoạn sau chưa có.
+Tổng 125 yêu cầu (113 yêu cầu Q&A đếm theo cột GĐ của SRS + 12 yêu cầu `FR10.1`–`FR10.8`, `NFR10.1`–`NFR10.4` cho Sprint 12). Năm yêu cầu có hai giai đoạn (FR3.1, FR6.1, FR8.9, IR1.7, IR2.4) được đếm ở giai đoạn đầu; "Một phần" ở đó có thể là phần của giai đoạn sau chưa có.
 
 ## KPI
 
@@ -34,6 +35,14 @@ Tổng 113 yêu cầu, đếm theo cột GĐ của SRS. Năm yêu cầu có hai 
 | BO-05 Thời gian tới câu trả lời, p50 / p95 (Run B v1.2) | Dev30 | 31,8 s / 50,3 s | `results_metrics.json` | Chưa có máy tham chiếu; Run A chạy máy khác (manifest `platform` khác) |
 | BO-06 Câu khuyến cáo | Dev30 A / B | 30/30 / 30/30 | file kết quả | Đạt |
 | BO-07 Chi phí / câu | Dev30 | 0 USD (local) | `results_metrics.json` | Đạt |
+| BO-JS-01 Tóm tắt bản án API & Streamlit UI không hồi quy Q&A | Sprint 12 | Chưa có | Chưa triển khai (`FR10.8`) | Mục tiêu vận hành ổn định; 100% test hồi quy Q&A PASS |
+| BO-JS-02 Thời gian trích xuất 5 nhóm thông tin cốt lõi | Usability Test | Chưa có | Chưa đo (`FR10.5`, `FR10.8`) | Mục tiêu giảm ≥ 40% so với đọc toàn văn |
+| BO-JS-03 Factual Accuracy & Acceptance Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`NFR10.1`) | Mục tiêu $FA \ge 90\%$ (micro-average + macro-average) kèm $AR$; $AR = 0\% \Rightarrow \text{FAIL}$ |
+| BO-JS-04 Critical-fact Omission Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`FR10.4`, `NFR10.1`) | Mục tiêu $CFO < 10\%$ trên toàn bộ $N_{\text{total}}$ bản án (tách thêm trên Accepted) |
+| BO-JS-05 Expert Quality Score | Test (20 bản án freeze) | Chưa có | Chưa chấm (`FR10.6`, `NFR10.1`) | Mục tiêu $\ge 4,0 / 5,0$ theo rubric 5 tiêu chí + Hard Gate ($\le 2,0$ nếu sai/thiếu quyết định) |
+| BO-JS-06 Decision Accuracy & Decision Coverage | Dev (10) + Test (20) | Chưa có | Chưa triển khai (`FR10.2`, `FR10.7`, `NFR10.1`) | Mục tiêu $DA = 100\%$ (theo doc phát hành) / $DC = 100\%$ (theo mục quyết định) |
+| BO-JS-07 Tỷ lệ mục `PRESENT` có `source_refs` đúng tới `Pxxx_yyy` | Dev (10) + Test (20) | Chưa có | Chưa triển khai (`FR10.1`, `FR10.5`) | Mục tiêu 100% |
+| BO-JS-08 Rò rỉ PII bản án trong log & hồi quy Q&A | Bộ test PII & CI Q&A | Chưa có | Chưa triển khai (`NFR10.3`, `FR10.8`) | Mục tiêu 0 rò rỉ; 100% test Q&A PASS |
 
 ## Contract so với SRS mục 5
 
@@ -50,7 +59,10 @@ Quyết định contract được cập nhật theo [review của Owner Contract
 | `RAGOutputRecord.route: RouteType \| None = None` | `week10_v1.1` | Có | Đã gộp từ PR #56 vào bản `week10_v1.1` thống nhất trên nhánh Dev 3 (PR #63); bản ghi cũ thiếu `route` vẫn hợp lệ. |
 | `AskResponse.session_id`, stage `session` | khi FR7.2 | Dự kiến | |
 | Endpoint liệt kê, lấy, xóa phiên | khi FR7.5 | Proposed | SRS 2.1.3, chờ D-14. |
-| `ErrorCode.RATE_LIMITED` (429) | khi NFR3.2 | Dự kiến | |
+| `ErrorCode` thêm `RATE_LIMITED` (HTTP 429) | khi NFR3.2 | Dự kiến | |
+| Nhóm 1 Summarization: `ParsedDocument`, `SectionedDocument`, `ContextPlan` (`schemas/models.py`) | `week12_v1.0` | Dự kiến | Owner: Dev 3 (`FR10.1`–`FR10.3`); Consumer: `summarization/parser.py`, `section_identifier.py`, `context_planner.py`. |
+| Nhóm 2 Summarization: `FactLedger`, `StructuredSummary`, `VerificationReport` (`schemas/models.py`) | `week12_v1.0` | Dự kiến | Owner: Dev 3 (`FR10.4`–`FR10.7`); Consumer: `summarization/structured_summarizer.py`, `checklist_qa.py`, `release_gate.py`. |
+| Nhóm 3 Summarization: `SummarizationResponse`, mở rộng `ErrorCode` (`UNSUPPORTED_FILE_TYPE`, `FILE_TOO_LARGE`, `EMPTY_DOCUMENT`, `DOCUMENT_PARSE_FAILED`, `OCR_REQUIRED`, `UNSUPPORTED_DOCUMENT_TYPE`, `DECISION_NOT_FOUND`, `DOCUMENT_LIMIT_EXCEEDED`, `SUMMARY_GENERATION_FAILED`, `SUMMARY_QA_FAILED`) & `EventStage` (`summarization_*`) trong `schemas/models.py` | `week12_v1.0` | Dự kiến | Owner: Dev 3 (`FR10.8`, `NFR10.2`); Consumer: `api/`, `orchestration/summarization_service.py`, `monitoring/`. |
 
 Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key trả 401 (đang 403); từ chối của Confidence Filter trả `grounding_status = NOT_RUN` (đang `ABSTAIN`). Lớp API cần kiểm tra giới hạn 2.000 ký tự trước pipeline (FR1.7) và trả body `ApiError` cho 401/422, gồm cả lỗi validation của FastAPI (IR2.1-AC2, IR2.2-AC1); các AC này chưa được xác nhận trên ảnh chụp `testing`. Bảng mã chi tiết → `error_code` (SRS 5.3.5) xếp `LLM_OUTPUT_TRUNCATED` và `LLM_OUTPUT_RAW_TEXT` vào `JSON_INVALID`; PR #55 đang xếp hai mã này vào `GROUNDING_FAIL`.
 
@@ -172,6 +184,34 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | FR9.10 | Chưa | — | |
 | FR9.11 | Chưa | — | |
 
+## Ánh xạ BRD → SRS (Phân hệ Tóm tắt bản án)
+
+| Mã BRD | Nội dung ngắn | Mã SRS ánh xạ | Ghi chú kiểm chứng |
+| --- | --- | --- | --- |
+| BO-JS-01 | Tự động hóa tóm tắt bản án qua API & Streamlit UI, không hồi quy Q&A | FR10.1, FR10.8 | `POST /api/v1/summarize`, tab Streamlit, CI hồi quy Q&A |
+| BO-JS-02 | Giảm ≥ 40% thời gian trích xuất 5 nhóm thông tin cốt lõi | FR10.5, FR10.8 | Usability Test so sánh bản tóm tắt 5 trường với toàn văn |
+| BO-JS-03 | Factual Accuracy (Atomic Claim Precision) ≥ 90% kèm Acceptance Rate | FR10.4, FR10.5, FR10.6, NFR10.1 | Đo trên Test 20 bản án freeze |
+| BO-JS-04 | Critical-fact Omission Rate < 10% | FR10.4, FR10.6, NFR10.1 | Đo trên Test 20 bản án freeze |
+| BO-JS-05 | Expert Quality Score ≥ 4,0 / 5,0 (không đạt nếu sai/thiếu quyết định chính) | FR10.5, FR10.6, NFR10.1 | Chấm chuyên môn trên 20 bản án Test |
+| BO-JS-06 | Decision Accuracy = 100% và Decision Coverage = 100% | FR10.2, FR10.6, FR10.7, NFR10.1 | Bảo vệ `DECISION`, `Decision Inventory`, `ReleaseGate` |
+| BO-JS-07 | 100% mục `PRESENT` có `source_refs` đúng tới `paragraph_id` gốc | FR10.1, FR10.4, FR10.5, FR10.6 | Kiểm tra tất cả `PASS`/`PASS_WITH_WARNINGS` |
+| BO-JS-08 | 0 rò rỉ PII/nội dung bản án trong log; 100% test Q&A PASS | FR10.8, NFR10.2, NFR10.3 | Bộ test che PII & CI Q&A |
+| BR-JS-09 | Không lưu tệp mặc định, không log PII; ẩn danh hóa PII 30 bản án benchmark | FR10.1, NFR10.3 | Kiểm tra `data/judgment_benchmark/` & log JSONL |
+| BR-JS-11 | Khóa ranh giới Dev (10) / Test (20) bằng SHA-256; cấm dùng output LLM thô làm ground truth / tune trên Test | NFR10.1, NFR10.4 | Manifest `dataset_sha256` & test chống rò rỉ |
+
+## FR10. Tóm tắt bản án pháp luật
+
+| Mã | Trạng thái | Bằng chứng | Ghi chú |
+| --- | --- | --- | --- |
+| FR10.1 | Chưa | — | Chờ `week12_v1.0` (`ParsedDocument`) và `summarization/parser.py` (tách riêng kiểm tra `%PDF-` cho PDF và UTF-8 BOM/non-BOM cho TXT). |
+| FR10.2 | Chưa | — | Chờ `SectionedDocument` (`protected=true` cho `DECISION`) và `summarization/section_identifier.py`. |
+| FR10.3 | Chưa | — | Chờ `ContextPlan` và `summarization/context_planner.py`. |
+| FR10.4 | Chưa | — | Chờ `FactLedger`, profile `family_judgment_v1` và `summarization/fact_extractor.py`. |
+| FR10.5 | Chưa | — | Chờ `StructuredSummary`, prompt `judgment_summary_v1` và `summarization/structured_summarizer.py`. |
+| FR10.6 | Chưa | — | Chờ `VerificationReport` và `summarization/checklist_qa.py`. |
+| FR10.7 | Chưa | — | Chờ `summarization/release_gate.py`, `summarization/repair.py` và kết quả `SUMMARY_QA_FAILED` (HTTP 200). |
+| FR10.8 | Chưa | — | Chờ `SummarizationResponse`, endpoint `POST /api/v1/summarize`, đồng bộ `api/openapi.json` và tab Streamlit UI. |
+
 ## IR. Giao diện
 
 | Mã | Trạng thái | Ghi chú |
@@ -208,3 +248,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | NFR6.3 | Một phần | `test/orchestration/conftest.py` | Router, logger chưa có mock interface. |
 | NFR7.1–NFR7.3 | Chưa | — | |
 | NFR8.1 | Chưa | — | |
+| NFR10.1 | Chưa | — | Đo `Factual Accuracy` ($FA \ge 90\%$ micro-average + macro-average, hợp nhất không trùng `Factual Consistency`) kèm `Acceptance Rate` ($AR = 0\% \Rightarrow \text{FAIL}$), `Critical-fact Omission Rate` ($CFO < 10\%$ trên toàn bộ $N_{\text{total}}$), `Decision Accuracy`/`Coverage` (100%) và `Expert Quality` theo rubric 5 tiêu chí + Hard Gate. |
+| NFR10.2 | Chưa | — | Chờ giới hạn token budget, `max_llm_calls`, timeout và stage `summarization_*` trong `LogEvent`. |
+| NFR10.3 | Chưa | — | Chờ `data/judgment_benchmark/` ẩn danh PII toàn bộ 30 bản án (`BR-JS-09`) và kiểm thử không log PII. |
+| NFR10.4 | Chưa | — | Chờ mở rộng `validate_run_manifest()` theo nhánh `task_type = "legal_judgment_summarization"` trong `model_gateway/run_metadata.py` (kiểm tra `official=True`: `temperature == 0.0`, `max_retries <= 1`, `max_repair_attempts <= 1`, `allow_model_fallback: false`, `profile_sha256`, `dataset_sha256` cùng provenance chuẩn `git_*`/`runtime`/`hardware`/`config_hashes`). |
