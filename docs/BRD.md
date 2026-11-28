@@ -3,8 +3,8 @@
 | Thuộc tính | Giá trị |
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-BRD` |
-| Phiên bản | **2.1 — baseline, Tech Lead duyệt 16/11/2026** |
-| Tài liệu liên quan | [SRS 2.1](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
+| Phiên bản | **2.1.1 — sửa 20/11/2026: tập đo BO-02, BO-03 theo SRS D-12, Tech Lead duyệt 20/11/2026. Kế thừa baseline 2.1 được Tech Lead duyệt 16/11/2026** |
+| Tài liệu liên quan | [SRS 2.1.2 / 2.1.3](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
 | Người duyệt | Tech Lead / PM |
 
 BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. Hệ thống làm gì nằm ở SRS; đã làm đến đâu nằm ở ma trận truy vết.
@@ -14,6 +14,7 @@ BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. H
 | Phiên bản | Ngày | Nội dung |
 | --- | --- | --- |
 | 2.1 | 16/11/2026 | Tech Lead duyệt làm baseline cùng mục tiêu KPI. BRD cho toàn dự án, bám sơ đồ kiến trúc: mục tiêu, năng lực nghiệp vụ, quy tắc nghiệp vụ, ba giai đoạn, KPI có định nghĩa, tập đo và mục tiêu. |
+| 2.1.1 | 20/11/2026 | Tập đo của BO-02, BO-03 đổi từ "Tập A/B" sang A/B trên Test 30 (SRS D-12, Tech Lead duyệt 20/11/2026), vì Dev30 đã được dùng để chỉnh prompt. Mục tiêu KPI không đổi. |
 
 ---
 
@@ -45,18 +46,18 @@ Dự án xây một trợ lý hỏi đáp pháp luật HNGĐ: chỉ trả lời 
 
 ## 3. Mục tiêu và KPI
 
-Định nghĩa metric theo `evaluation/metric_definitions_v1.md`. Kết luận dựa trên tập Test hoặc chấm mù; Dev đã dùng để chỉnh chỉ để theo dõi. Mọi so sánh trên tập nhỏ phải kèm khoảng tin cậy. Số đo hiện tại xem [ma trận truy vết, mục KPI](requirements_traceability.md#kpi).
+Định nghĩa metric theo `evaluation/metric_definitions_v1.md`. Kết luận dựa trên tập Test hoặc chấm mù; Dev đã dùng để chỉnh chỉ để theo dõi. Mọi so sánh trên tập nhỏ phải kèm khoảng tin cậy. Với BO-02 và BO-03, tập A/B dùng để kết luận là Test 30 theo SRS D-12; Dev30 đã dùng để chỉnh prompt nên chỉ để theo dõi. Số đo hiện tại xem [ma trận truy vết, mục KPI](requirements_traceability.md#kpi).
 
 | Mã | Mục tiêu nghiệp vụ | KPI | Tập đo | Mục tiêu | GĐ đo lần đầu |
 | --- | --- | --- | --- | --- | --- |
 | BO-01 | Tìm đúng căn cứ pháp lý | Recall@5 sau rerank (chunk-level) | Test | ≥ 0,85 | GĐ1 |
 | | | MRR@5 sau rerank | Test | ≥ 0,80 | GĐ1 |
 | | | Temporal Violation Rate trong kết quả | Dev + Test | 0 | GĐ1 |
-| BO-02 | Trả lời đúng luật hơn model dùng một mình | Legal Correctness, chấm mù, hiệu RAG − model một mình | Tập A/B | > 0, CI95 không chứa 0 | GĐ1 |
-| | | Hallucination Rate | Tập A/B | RAG < model một mình; ≤ 10% | GĐ1 |
-| | | Context Faithfulness | Tập A/B (RAG) | ≥ 4/5 | GĐ1 |
-| BO-03 | Trích dẫn đúng và kiểm chứng được | Citation Precision / Recall theo Gold | Tập A/B | ≥ 0,80 / ≥ 0,80 | GĐ1 |
-| | | Citation Validity trước Gate | Tập A/B | 100% | GĐ1 |
+| BO-02 | Trả lời đúng luật hơn model dùng một mình | Legal Correctness, chấm mù, hiệu RAG − model một mình | Tập A/B held-out (D-12) | > 0, CI95 không chứa 0 | GĐ1 |
+| | | Hallucination Rate | Tập A/B held-out (D-12) | RAG < model một mình; ≤ 10% | GĐ1 |
+| | | Context Faithfulness | Tập A/B held-out (D-12), RAG | ≥ 4/5 | GĐ1 |
+| BO-03 | Trích dẫn đúng và kiểm chứng được | Citation Precision / Recall theo Gold | Tập A/B held-out (D-12) | ≥ 0,80 / ≥ 0,80 | GĐ1 |
+| | | Citation Validity trước Gate | Tập A/B held-out (D-12) | 100% | GĐ1 |
 | | | Câu trả lời không phải tiếng Việt | Mọi lượt chạy | 0 | GĐ1 |
 | BO-04 | Từ chối và hỏi lại đúng lúc | Tập câu âm xử lý đúng (toàn hệ thống): không phải pháp lý → trả lời xã giao; ngoài phạm vi → từ chối; kho không có căn cứ → từ chối; thiếu dữ kiện → hỏi lại | Tập câu âm | ≥ 90% / ≥ 90% / ≥ 80% / ≥ 70% | GĐ2 |
 | | | Từ chối nhầm (câu có căn cứ bị từ chối) | Dev Gold | ≤ 5% | GĐ1 |
