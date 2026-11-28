@@ -1,10 +1,12 @@
 """Public HTTP outcomes (SRS 5.3.4) and detail-code groups (SRS 5.3.5)."""
+from pathlib import Path
 from unittest.mock import Mock
 
 import pytest
 
 from api.errors import ApiError
 from generation.prompt_builder import STANDARD_DISCLAIMER
+from orchestration.clarification import load_clarification_catalog
 from orchestration.fakes import build_mock_pipeline
 from orchestration.response_builder import gate_fail_error_code, rag_fields
 from schemas.models import AskResponse
@@ -48,7 +50,19 @@ def test_route_and_retrieval_rows(api, query, route, status, grounding, code):
 
 @pytest.mark.req("FR3.4-AC1")
 def test_missing_facts_clarification():
-    pytest.skip("FR3.4 thuộc đợt 2")
+    pytest.skip("đo trên tập câu âm v2 (S12-D1.2)")
+
+
+@pytest.mark.req("FR3.4")
+@pytest.mark.req("FR3.4-AC3")
+@pytest.mark.req("FR3.4-AC4")
+def test_api_clarification_returns_fixed_questions(api):
+    path = Path(__file__).parents[1] / "fixtures/sprint12/clarification_catalog_test.yaml"
+    api.client.app.state.ask_service.clarification_catalog = load_clarification_catalog(path)
+    body, text = assert_ask_row(api, f"{LEGAL} [mock:clarify_facts]", "NEEDS_CLARIFICATION", "NEEDS_CLARIFICATION", None)
+    assert body.answer is None and body.citations == []
+    assert body.clarification.splitlines()[1:] == ["- Sự kiện xảy ra vào ngày nào?", "- Hai bên đã đăng ký kết hôn chưa?"]
+    assert "ma_la" not in text
 
 
 @pytest.mark.req("FR5.8-AC1")

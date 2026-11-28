@@ -1,0 +1,7 @@
+# Test data only. Dev 3 owns the production catalog (S12-D3.2).
+version: "test_fixture_v0"
+facts:
+  ngay_su_kien:
+    question: "Sự kiện xảy ra vào ngày nào?"
+  tinh_trang_dang_ky_ket_hon:
+    question: "Hai bên đã đăng ký kết hôn chưa?"

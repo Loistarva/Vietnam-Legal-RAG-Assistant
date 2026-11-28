@@ -20,10 +20,12 @@ Qdrant embedded khóa thư mục: chỉ một tiến trình mở được. Muố
 | --- | --- | --- |
 | `LEGAL_RAG_API_KEYS` | có (API) | Danh sách key, cách nhau bằng dấu phẩy. Không có giá trị mặc định; thiếu thì API không khởi động. Không commit, không ghi vào log. |
 | `LEGAL_RAG_PIPELINE_MODE` | không | `live` (mặc định) hoặc `mock` (không cần ES/Qdrant/Ollama, dùng cho UI) |
+| `LEGAL_RAG_REGENERATION` | không | `on` (mặc định) cho phép sinh lại tối đa một lần khi câu trả lời bị cắt hoặc dùng ký hiệu căn cứ chưa khai báo. Đặt `off` để tắt. Chế độ đánh giá chính thức luôn tắt sinh lại. |
 | `ELASTICSEARCH_URL` | live | URL Elasticsearch |
 | `QDRANT_PATH` / `QDRANT_URL` | live | Qdrant embedded hoặc server |
 | `HF_HUB_OFFLINE=1` | nên đặt | Dùng model BGE-M3 và reranker đã cache, không tải lại |
 | `LEGAL_RAG_EVENT_LOG` | không | File JSONL sự kiện theo stage, ghi qua `monitoring.StructuredLogger` (che PII và các API key đã cấu hình) |
+| `LEGAL_RAG_CLARIFICATION_CATALOG` | không | Đường dẫn đến tệp YAML chứa các mẫu câu hỏi làm rõ. Để trống để dùng thông báo chung. Nếu tệp đã cấu hình bị thiếu hoặc không hợp lệ, dịch vụ báo lỗi khi khởi động. |
 | `LEGAL_RAG_MAX_CONCURRENCY` | không | Số request xử lý đồng thời (mặc định 1: một Qwen local) |
 | `LEGAL_RAG_API_URL`, `LEGAL_RAG_API_KEY`, `LEGAL_RAG_REQUEST_TIMEOUT_SECONDS` | UI | URL `/api/v1/ask`, key client, timeout của UI (mặc định 180 s) |
 
