@@ -789,6 +789,114 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="sum-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fillColor=#f8f9fa;strokeColor=#666666;" value="Legal Judgment Summarization (Proposed — Sprint 12–13)" vertex="1">
+          <mxGeometry height="425" width="1000" x="2020" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Summarization Tab&lt;br&gt;(Streamlit UI)" vertex="1">
+          <mxGeometry height="55" width="180" x="2050" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-api" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="POST /api/v1/summarize&lt;br&gt;(FastAPI · Shared X-API-Key Guard)" vertex="1">
+          <mxGeometry height="55" width="230" x="2280" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="SummarizationService&lt;br&gt;(Isolated from AskService)" vertex="1">
+          <mxGeometry height="55" width="230" x="2560" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-parser" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="JudgmentParser&lt;br&gt;(PDF text / TXT UTF-8)" vertex="1">
+          <mxGeometry height="60" width="160" x="2050" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-section" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="SectionIdentifier&lt;br&gt;(Rule-first · DECISION protected)" vertex="1">
+          <mxGeometry height="60" width="170" x="2235" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-planner" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ContextPlanner&lt;br&gt;(Fast / Long Path)" vertex="1">
+          <mxGeometry height="60" width="160" x="2430" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-extract" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="FactExtractor (FactLedger) &amp;amp;&lt;br&gt;StructuredSummarizer" vertex="1">
+          <mxGeometry height="60" width="185" x="2615" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-qa-gate" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ChecklistQA &amp;amp; ReleaseGate&lt;br&gt;(Targeted Repair max 1)" vertex="1">
+          <mxGeometry height="60" width="175" x="2825" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-manifest" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Run Manifest &amp;amp; Validation&lt;br&gt;(Official Run Policy)" vertex="1">
+          <mxGeometry height="55" width="190" x="2815" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-ui-api" edge="1" parent="1" source="sum-ui" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-api" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-label-ui-api" connectable="0" parent="sum-edge-ui-api" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="multipart" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-edge-api-svc" edge="1" parent="1" source="sum-api" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-service" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-svc-parser" edge="1" parent="1" source="sum-service" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sum-parser" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="2675" y="658" />
+              <mxPoint x="2130" y="658" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-label-svc-parser" connectable="0" parent="sum-edge-svc-parser" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Validated PDF / TXT" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-edge-p-s" edge="1" parent="1" source="sum-parser" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-section" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-s-pl" edge="1" parent="1" source="sum-section" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-planner" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-pl-ex" edge="1" parent="1" source="sum-planner" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-extract" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-ex-qa" edge="1" parent="1" source="sum-extract" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sum-qa-gate" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-qa-api" edge="1" parent="1" source="sum-qa-gate" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sum-api" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="2912.5" y="553" />
+              <mxPoint x="2395" y="553" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-label-qa-api" connectable="0" parent="sum-edge-qa-api" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="PASS / QA_FAILED (HTTP 200)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-edge-qa-manifest" edge="1" parent="1" source="sum-qa-gate" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="sum-manifest" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sum-edge-llm" edge="1" parent="1" source="sum-extract" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.125;entryY=0;entryDx=0;entryDy=0;" target="-XyIUty4vGpHtgXUJJNO-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="2707.5" y="905" />
+              <mxPoint x="2080" y="905" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-label-llm" connectable="0" parent="sum-edge-llm" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Qwen Gateway (LLM Calls)" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-edge-log" edge="1" parent="1" source="sum-manifest" style="endArrow=classic;dashed=1;html=1;rounded=0;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="92-1StGmne9POsEHWyz6-47" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="3075" y="847.5" />
+              <mxPoint x="3075" y="1665" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sum-label-log" connectable="0" parent="sum-edge-log" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="StructuredLogger &amp;amp; Metrics" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
