@@ -7,9 +7,12 @@ from __future__ import annotations
 
 import hashlib
 import re
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
+
+import yaml
 
 from schemas.models import ContextPayload, EvidenceItem, MappedCitation
 
@@ -35,21 +38,134 @@ EXPECTED_V1_2_PROMPTS_SHA256: dict[str, str] = {
     PROMPT_A_VERSION: "c5c45e90894e9d58984f4c2b71a2fdaad75cf090a0323be1cde16bf2f918893b",
     PROMPT_B_VERSION: "5a19fe70f42efbb101945888d1f4cec8548f78a9a8b704bd31b68acfb4b75940",
 }
+EXPECTED_V1_3_PROMPT_SHA256: str = "f301d91b716354abbbf49cb95a8a2d493f648f524ae2f18dc34b18f5a49a1efb"
 
-# Danh mục đóng (closed taxonomy) cho trường missing_facts ở Prompt v1.3 (FR4.4, D-11).
-MISSING_FACTS_DESCRIPTIONS: dict[str, str] = {
-    "ngay_su_kien": "Mốc thời gian xảy ra sự kiện pháp lý (ngày kết hôn, giao dịch, ly hôn, tranh chấp)",
-    "tinh_trang_dang_ky_ket_hon": "Việc có đăng ký kết hôn hợp pháp tại cơ quan có thẩm quyền hay không",
-    "tuoi_cac_ben": "Độ tuổi của các bên liên quan hoặc độ tuổi của con",
-    "quan_he_giua_cac_ben": "Quan hệ hôn nhân, huyết thống, nuôi dưỡng hoặc thân thích giữa các bên",
-    "tinh_trang_hon_nhan": "Tình trạng hôn nhân hiện tại (độc thân hay đang có vợ/chồng)",
-    "nguon_goc_thoi_diem_tai_san": "Thời điểm hình thành và nguồn gốc tài sản (trước/trong hôn nhân, tặng cho/thừa kế riêng)",
-    "thoa_thuan_che_do_tai_san": "Có thỏa thuận chế độ tài sản vợ chồng hoặc thỏa thuận chia tài sản hay không",
-    "dieu_kien_nuoi_con": "Người trực tiếp chăm sóc, điều kiện kinh tế/nhân thân mỗi bên hoặc nguyện vọng của con",
-    "yeu_to_nuoc_ngoai": "Quốc tịch, nơi cư trú, nước dự định đăng ký hoặc yếu tố nước ngoài liên quan",
-    "giay_to_xac_nhan_chuyen_mon": "Giấy xác nhận y tế, quyết định tòa án hoặc giấy tờ hộ tịch liên quan",
-}
-MISSING_FACTS_TAXONOMY: tuple[str, ...] = tuple(MISSING_FACTS_DESCRIPTIONS.keys())
+DEFAULT_MISSING_FACTS_CONFIG_PATH: Path = (
+    Path(__file__).resolve().parents[1] / "configs" / "missing_facts_taxonomy.yaml"
+)
+REQUIRED_MISSING_FACTS_CONFIG_KEYS: tuple[str, ...] = (
+    "taxonomy_version",
+    "categories",
+    "generic_clarification_message",
+)
+
+
+class MissingFactsConfigError(ValueError):
+    """Lỗi fail-fast khi cấu hình danh mục missing_facts bị thiếu hoặc không hợp lệ (NFR5.1)."""
+
+
+@dataclass(frozen=True)
+class MissingFactsConfig:
+    """Cấu hình danh mục đóng missing_facts và mẫu câu hỏi làm rõ cố định (FR3.4, FR3.6, NFR4.3)."""
+
+    taxonomy_version: str
+    generic_clarification_message: str
+    descriptions: dict[str, str]
+    clarification_templates: dict[str, str]
+    taxonomy: tuple[str, ...]
+    config_sha256: str
+
+
+def _normalized_file_sha256(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _require_non_empty_str(value: object, *, label: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise MissingFactsConfigError(f"Cấu hình missing_facts thiếu hoặc rỗng trường bắt buộc '{label}'.")
+    return value.strip()
+
+
+def load_missing_facts_config(config_path: str | Path | None = None) -> MissingFactsConfig:
+    """Nạp và kiểm tra nghiêm ngặt file YAML danh mục missing_facts (NFR5.1, NFR4.3)."""
+    if config_path is None:
+        path = DEFAULT_MISSING_FACTS_CONFIG_PATH
+    elif isinstance(config_path, (str, Path)):
+        path = Path(config_path)
+    else:
+        raise MissingFactsConfigError(
+            f"config_path phải là str, Path hoặc None, nhận được {type(config_path).__name__}."
+        )
+
+    if not path.exists() or not path.is_file():
+        raise MissingFactsConfigError(f"Thiếu file cấu hình danh mục missing_facts tại '{path}'.")
+
+    try:
+        raw_text = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as exc:
+        raise MissingFactsConfigError(
+            f"Không đọc được file cấu hình missing_facts '{path}' theo chuẩn UTF-8: {exc}"
+        ) from exc
+
+    try:
+        loaded = yaml.safe_load(raw_text)
+    except yaml.YAMLError as exc:
+        raise MissingFactsConfigError(
+            f"File cấu hình missing_facts '{path}' có cú pháp YAML không hợp lệ: {exc}"
+        ) from exc
+
+    if not isinstance(loaded, Mapping):
+        raise MissingFactsConfigError(
+            f"Cấu hình missing_facts '{path}' phải có root là mapping YAML."
+        )
+
+    missing_keys = [key for key in REQUIRED_MISSING_FACTS_CONFIG_KEYS if key not in loaded]
+    if missing_keys:
+        raise MissingFactsConfigError(
+            f"Cấu hình missing_facts '{path}' thiếu khóa bắt buộc: {missing_keys}."
+        )
+
+    taxonomy_version = _require_non_empty_str(loaded["taxonomy_version"], label="taxonomy_version")
+    generic_message = _require_non_empty_str(
+        loaded["generic_clarification_message"], label="generic_clarification_message"
+    )
+
+    raw_categories = loaded["categories"]
+    if not isinstance(raw_categories, Mapping) or not raw_categories:
+        raise MissingFactsConfigError(
+            f"Khóa 'categories' trong '{path}' phải là mapping khác rỗng."
+        )
+
+    descriptions: dict[str, str] = {}
+    clarification_templates: dict[str, str] = {}
+    for raw_code, raw_entry in raw_categories.items():
+        code = _require_non_empty_str(raw_code, label="categories.<code_key>")
+        if code != raw_code or any(ch.isspace() for ch in code):
+            raise MissingFactsConfigError(
+                f"Mã nhóm missing_facts '{raw_code}' trong '{path}' không được chứa khoảng trắng."
+            )
+        if not isinstance(raw_entry, Mapping):
+            raise MissingFactsConfigError(
+                f"Nhóm '{code}' trong '{path}' phải là mapping chứa 'description' và 'clarification_template'."
+            )
+        descriptions[code] = _require_non_empty_str(
+            raw_entry.get("description"), label=f"categories.{code}.description"
+        )
+        clarification_templates[code] = _require_non_empty_str(
+            raw_entry.get("clarification_template"), label=f"categories.{code}.clarification_template"
+        )
+
+    return MissingFactsConfig(
+        taxonomy_version=taxonomy_version,
+        generic_clarification_message=generic_message,
+        descriptions=descriptions,
+        clarification_templates=clarification_templates,
+        taxonomy=tuple(descriptions.keys()),
+        config_sha256=_normalized_file_sha256(path),
+    )
+
+
+MISSING_FACTS_CONFIG: MissingFactsConfig = load_missing_facts_config()
+MISSING_FACTS_TAXONOMY_VERSION: str = MISSING_FACTS_CONFIG.taxonomy_version
+MISSING_FACTS_CONFIG_SHA256: str = MISSING_FACTS_CONFIG.config_sha256
+# Danh mục đóng (closed taxonomy) và mẫu câu hỏi làm rõ cho trường missing_facts (FR3.4, FR3.6, FR4.4, D-11).
+MISSING_FACTS_DESCRIPTIONS: dict[str, str] = dict(MISSING_FACTS_CONFIG.descriptions)
+MISSING_FACTS_CLARIFICATION_TEMPLATES: dict[str, str] = dict(
+    MISSING_FACTS_CONFIG.clarification_templates
+)
+GENERIC_CLARIFICATION_MESSAGE: str = MISSING_FACTS_CONFIG.generic_clarification_message
+MISSING_FACTS_TAXONOMY: tuple[str, ...] = MISSING_FACTS_CONFIG.taxonomy
 _TEMPLATE_BLOCK_RE = re.compile(r"```text\r?\n(.*?)\r?\n```", re.DOTALL)
 
 # Quy tắc ngôn ngữ và nguồn luật (P45-1): Prompt B là quy tắc 6, Prompt A là quy tắc 5
@@ -177,9 +293,59 @@ def validate_missing_facts(
     return list(missing_facts)
 
 
-def _normalized_file_sha256(path: Path) -> str:
-    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+def filter_missing_facts(
+    missing_facts: Sequence[str] | None,
+    *,
+    allowed: Sequence[str] | None = None,
+    config: MissingFactsConfig | None = None,
+) -> tuple[list[str], list[str]]:
+    """Lọc ``missing_facts`` thô từ model: giữ mã hợp lệ theo thứ tự (khử trùng), bỏ giá trị lạ (FR3.4-AC4)."""
+    if missing_facts is None:
+        return [], []
+    if isinstance(missing_facts, (str, bytes)) or not isinstance(missing_facts, Sequence):
+        raise TypeError(
+            f"missing_facts phải là Sequence[str] hoặc None, nhận được {type(missing_facts).__name__}."
+        )
+
+    cfg = config or MISSING_FACTS_CONFIG
+    allowed_set = set(allowed) if allowed is not None else set(cfg.taxonomy)
+    accepted: list[str] = []
+    dropped: list[str] = []
+    seen: set[str] = set()
+    for raw_item in missing_facts:
+        if not isinstance(raw_item, str):
+            dropped.append(repr(raw_item))
+            continue
+        code = raw_item.strip()
+        if code in allowed_set:
+            if code not in seen:
+                seen.add(code)
+                accepted.append(code)
+        else:
+            dropped.append(raw_item)
+    return accepted, dropped
+
+
+def build_clarification_message(
+    missing_facts: Sequence[str] | None,
+    *,
+    config: MissingFactsConfig | None = None,
+) -> str:
+    """Dựng câu hỏi làm rõ cố định từ cấu hình ``missing_facts`` hoặc rơi về thông báo chung FR3.6."""
+    cfg = config or MISSING_FACTS_CONFIG
+    valid_codes, _ = filter_missing_facts(missing_facts, config=cfg)
+    if not valid_codes:
+        return cfg.generic_clarification_message
+    if len(valid_codes) == 1:
+        return (
+            "Để tra cứu chính xác quy định pháp luật Hôn nhân và gia đình Việt Nam, "
+            f"vui lòng làm rõ thêm: {cfg.clarification_templates[valid_codes[0]]}"
+        )
+    lines = "\n".join(f"- {cfg.clarification_templates[code]}" for code in valid_codes)
+    return (
+        "Để tra cứu chính xác quy định pháp luật Hôn nhân và gia đình Việt Nam, "
+        f"vui lòng cung cấp thêm các dữ kiện sau:\n{lines}"
+    )
 
 
 def verify_prompt_template_integrity(
@@ -203,7 +369,7 @@ def verify_prompt_template_integrity(
             )
 
     if template_paths is None and expected_hashes is None:
-        # Khóa bất biến SHA-256 cho prompt official v1.2
+        # Khóa bất biến SHA-256 cho prompt official v1.2 và prompt v1.3 dựng từ cấu hình
         sample_ev = EvidenceItem(
             evidence_index=1,
             chunk_id="l_52_2014_qh13_art_8_clause_1_chunk_1",
@@ -228,6 +394,7 @@ def verify_prompt_template_integrity(
         )
         hash_a = get_prompt_hash(build_zero_shot_prompt(sample_ctx.query, sample_ctx.as_of_date))
         hash_b = get_prompt_hash(_build_controlled_rag_prompt_v1_2(sample_ctx))
+        hash_b13 = get_prompt_hash(build_controlled_rag_prompt_v1_3(sample_ctx))
         if hash_a != EXPECTED_V1_2_PROMPTS_SHA256[PROMPT_A_VERSION]:
             raise ValueError(
                 f"Nội dung official {PROMPT_A_VERSION} đã bị thay đổi nhưng chưa nâng phiên bản."
@@ -236,8 +403,13 @@ def verify_prompt_template_integrity(
             raise ValueError(
                 f"Nội dung official {PROMPT_B_VERSION} đã bị thay đổi nhưng chưa nâng phiên bản."
             )
+        if hash_b13 != EXPECTED_V1_3_PROMPT_SHA256:
+            raise ValueError(
+                f"Nội dung {PROMPT_B_V1_3_VERSION} đã bị thay đổi nhưng chưa nâng phiên bản."
+            )
         actual[PROMPT_A_VERSION] = hash_a
         actual[PROMPT_B_VERSION] = hash_b
+        actual[f"{PROMPT_B_V1_3_VERSION}_rendered"] = hash_b13
     return actual
 
 
@@ -303,13 +475,15 @@ CÂU HỎI CẦN GIẢI QUYẾT:
 def build_controlled_rag_prompt_v1_3(
     context_payload: ContextPayload,
     *,
-    missing_facts_taxonomy: Sequence[str] = MISSING_FACTS_TAXONOMY,
+    missing_facts_taxonomy: Sequence[str] | None = None,
     template_path: Path | None = None,
+    config: MissingFactsConfig | None = None,
 ) -> str:
     """Xây dựng Prompt B phiên bản thử nghiệm v1.3 có nhãn hiệu lực tại as_of_date và danh mục đóng missing_facts."""
     if not context_payload.evidence_items:
         raise ValueError("Empty retrieval: không có bằng chứng để tạo prompt.")
-    allowed_facts = list(missing_facts_taxonomy)
+    cfg = config or MISSING_FACTS_CONFIG
+    allowed_facts = list(cfg.taxonomy if missing_facts_taxonomy is None else missing_facts_taxonomy)
     if not allowed_facts:
         raise ValueError("Danh mục đóng missing_facts không được để rỗng.")
     validate_missing_facts(allowed_facts, allowed=allowed_facts)
@@ -318,8 +492,9 @@ def build_controlled_rag_prompt_v1_3(
     evidence_blocks = [
         format_evidence_item(item, as_of_date=as_of_date) for item in context_payload.evidence_items
     ]
+    descriptions = cfg.descriptions if config is not None else MISSING_FACTS_DESCRIPTIONS
     catalog_lines = [
-        f"     * `{code}`: {MISSING_FACTS_DESCRIPTIONS.get(code, code)}"
+        f"     * `{code}`: {descriptions.get(code, code)}"
         for code in allowed_facts
     ]
     template = _load_v1_3_template(template_path)

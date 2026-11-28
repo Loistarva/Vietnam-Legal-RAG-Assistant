@@ -1,0 +1,28 @@
+{
+  "schema_version": "week10_v1.1",
+  "query_id": "Q_S12_ABST_001",
+  "request_id": "req_s12_abst_001",
+  "as_of_date": "2026-11-28",
+  "as_of_date_source": "system_today",
+  "status": "ABSTAIN",
+  "route": "LEGAL_IN_SCOPE",
+  "answer": null,
+  "clarification": null,
+  "abstention_message": "Tại ngày 2026-11-28, hệ thống chưa tìm thấy đủ căn cứ pháp lý trực tiếp trong kho văn bản để kết luận chắc chắn cho câu hỏi này.",
+  "abstention_reason": "LOW_CONFIDENCE",
+  "citations": [],
+  "evidence": [],
+  "grounding_status": "NOT_RUN",
+  "disclaimer": "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn pháp lý chuyên nghiệp.",
+  "timings": {
+    "retrieval_ms": 36.2,
+    "llm_total_ms": null,
+    "ttft_model_ms": null,
+    "load_ms": null,
+    "prompt_eval_ms": null,
+    "eval_ms": null,
+    "total_ms": 41.0
+  },
+  "error_code": "LOW_CONFIDENCE",
+  "error": null
+}

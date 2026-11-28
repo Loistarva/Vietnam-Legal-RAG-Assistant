@@ -1,0 +1,55 @@
+taxonomy_version: "missing_facts_v1.0"
+generic_clarification_message: >-
+  Câu hỏi hiện chưa đủ dữ kiện cụ thể để đối chiếu chính xác quy định pháp luật Hôn nhân và gia đình Việt Nam.
+  Vui lòng bổ sung thêm thông tin chi tiết về bối cảnh sự việc (thời điểm, quan hệ giữa các bên,
+  tình trạng đăng ký hoặc tài sản liên quan) để hệ thống tra cứu lại.
+
+categories:
+  ngay_su_kien:
+    description: "Mốc thời gian xảy ra sự kiện pháp lý (ngày kết hôn, giao dịch, ly hôn, tranh chấp)"
+    clarification_template: >-
+      Sự kiện pháp lý bạn hỏi (ví dụ: thời điểm kết hôn, xác lập giao dịch, ly hôn hoặc phát sinh tranh chấp)
+      xảy ra vào ngày/tháng/năm nào?
+  tinh_trang_dang_ky_ket_hon:
+    description: "Việc có đăng ký kết hôn hợp pháp tại cơ quan có thẩm quyền hay không"
+    clarification_template: >-
+      Hai bên đã đăng ký kết hôn hợp pháp tại cơ quan có thẩm quyền chưa,
+      hay chỉ chung sống như vợ chồng mà không đăng ký kết hôn?
+  tuoi_cac_ben:
+    description: "Độ tuổi của các bên liên quan hoặc độ tuổi của con"
+    clarification_template: >-
+      Độ tuổi cụ thể của các bên liên quan (hoặc độ tuổi của con chung) tại thời điểm xảy ra sự việc là bao nhiêu?
+  quan_he_giua_cac_ben:
+    description: "Quan hệ hôn nhân, huyết thống, nuôi dưỡng hoặc thân thích giữa các bên"
+    clarification_template: >-
+      Mối quan hệ cụ thể giữa các bên liên quan (vợ chồng, cha mẹ - con, nuôi dưỡng hay họ hàng/thân thích mấy đời) là gì?
+  tinh_trang_hon_nhan:
+    description: "Tình trạng hôn nhân hiện tại (độc thân hay đang có vợ/chồng)"
+    clarification_template: >-
+      Tình trạng hôn nhân hiện tại của các bên (độc thân, đang có vợ/chồng, đã ly hôn hay có vợ/chồng đã chết)
+      là như thế nào?
+  nguon_goc_thoi_diem_tai_san:
+    description: "Thời điểm hình thành và nguồn gốc tài sản (trước/trong hôn nhân, tặng cho/thừa kế riêng)"
+    clarification_template: >-
+      Tài sản được hình thành trước hay trong thời kỳ hôn nhân,
+      và có nguồn gốc từ tạo lập chung hay được thừa kế riêng, tặng cho riêng?
+  thoa_thuan_che_do_tai_san:
+    description: "Có thỏa thuận chế độ tài sản vợ chồng hoặc thỏa thuận chia tài sản hay không"
+    clarification_template: >-
+      Hai vợ chồng có lập thỏa thuận về chế độ tài sản trước khi kết hôn
+      hoặc thỏa thuận chia tài sản hợp pháp hay không?
+  dieu_kien_nuoi_con:
+    description: "Người trực tiếp chăm sóc, điều kiện kinh tế/nhân thân mỗi bên hoặc nguyện vọng của con"
+    clarification_template: >-
+      Điều kiện kinh tế, thời gian chăm sóc của mỗi bên như thế nào
+      và (nếu con từ đủ 07 tuổi trở lên) nguyện vọng của con là gì?
+  yeu_to_nuoc_ngoai:
+    description: "Quốc tịch, nơi cư trú, nước dự định đăng ký hoặc yếu tố nước ngoài liên quan"
+    clarification_template: >-
+      Các bên có quốc tịch nào, đang thường trú ở đâu
+      và sự việc có yếu tố nước ngoài nào (đăng ký ở nước ngoài, tài sản ở nước ngoài) không?
+  giay_to_xac_nhan_chuyen_mon:
+    description: "Giấy xác nhận y tế, quyết định tòa án hoặc giấy tờ hộ tịch liên quan"
+    clarification_template: >-
+      Hiện có giấy tờ xác nhận liên quan nào (như giấy chứng nhận kết hôn, quyết định/bản án của tòa án,
+      giấy tờ hộ tịch hoặc xác nhận y tế) không?

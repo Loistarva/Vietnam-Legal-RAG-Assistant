@@ -1,0 +1,7 @@
+{
+  "schema_version": "week10_v1.1",
+  "error_code": "LLM_UNAVAILABLE",
+  "message": "Không kết nối được mô hình ngôn ngữ. Vui lòng thử lại sau.",
+  "query_id": "Q_S12_ERR_503",
+  "details": []
+}
