@@ -50,6 +50,7 @@ from orchestration.interfaces import (
     PromptBuilder,
     RetrievalSource,
 )
+from orchestration.regeneration import RegenerationPolicy
 from reranking.confidence import (
     DEFAULT_CONFIDENCE_CONFIG,
     ConfidenceConfig,
@@ -356,18 +357,29 @@ def _ms(value: Any) -> float | None:
     return None if value is None else round(float(value), 2)
 
 
-def latency_breakdown(llm: LLMResponse | None, *, retrieval_ms: float | None) -> LatencyBreakdown:
+def _sum_measured(first, second):
+    return None if first is None or second is None else first + second
+
+
+def latency_breakdown(llm: LLMResponse | None, *, retrieval_ms: float | None,
+                      previous: LLMResponse | None = None) -> LatencyBreakdown:
     """Per-step times (P45-6). The Ollama durations come from the gateway (P45-3) and stay
     null when Ollama did not return them; nothing is set to 0."""
     if llm is None:
         return LatencyBreakdown(retrieval_ms=retrieval_ms)
+    first = previous or llm
+    total, prompt_eval, eval_ms = llm.latency_ms, llm.prompt_eval_duration_ms, llm.eval_duration_ms
+    if previous is not None:
+        total = _sum_measured(previous.latency_ms, total)
+        prompt_eval = _sum_measured(previous.prompt_eval_duration_ms, prompt_eval)
+        eval_ms = _sum_measured(previous.eval_duration_ms, eval_ms)
     return LatencyBreakdown(
         retrieval_ms=retrieval_ms,
-        llm_total_ms=_ms(llm.latency_ms),
-        ttft_model_ms=_ms(llm.ttft_model_ms),
-        load_ms=_ms(llm.load_duration_ms),
-        prompt_eval_ms=_ms(llm.prompt_eval_duration_ms),
-        eval_ms=_ms(llm.eval_duration_ms),
+        llm_total_ms=_ms(total),
+        ttft_model_ms=_ms(first.ttft_model_ms),
+        load_ms=_ms(first.load_duration_ms),
+        prompt_eval_ms=_ms(prompt_eval),
+        eval_ms=_ms(eval_ms),
     )
 
 
@@ -406,12 +418,16 @@ class RAGPipeline:
                  context_aggregator: ContextAggregator = build_context_payload,
                  prompt_builder: PromptBuilder = build_controlled_rag_prompt,
                  gate: GroundingGate = apply_grounding_gate,
-                 validator: Callable[..., GroundingResult] | None = None):
+                 validator: Callable[..., GroundingResult] | None = None,
+                 regeneration: RegenerationPolicy | None = None):
         if not 1 <= rerank_top_k <= MAX_EVIDENCE_ITEMS:
             raise ValueError(f"rerank_top_k phải trong [1, {MAX_EVIDENCE_ITEMS}]")
         if run_mode not in RAG_RUN_MODES:
             raise ValueError(f"run_mode {run_mode!r} không hợp lệ, cần một trong {sorted(RAG_RUN_MODES)}")
         self.run_mode = run_mode
+        if regeneration is not None and run_mode != "C_production_rag":
+            raise ValueError("Sinh lại (FR5.6) chỉ dùng với run_mode C_production_rag; đánh giá official luôn tắt")
+        self.regeneration = regeneration
         self.source = source
         self.generator = generator
         self.versions = versions
@@ -485,17 +501,21 @@ class RAGPipeline:
                             "reranker_score": r.get("reranker_score")} for r in rows],
             "confidence": {**described, **self.confidence.describe()},
         }
+        parent_summary = (envelope.get("stats") or {}).get("parent_context")
+        if isinstance(parent_summary, Mapping):
+            trace["parent_context"] = dict(parent_summary)
+        if self.regeneration is not None:
+            trace["regeneration"] = {"attempted": False}
         if decision.status != "ok":
             reason = "EMPTY_RETRIEVAL" if decision.status == "empty" else "LOW_CONFIDENCE"
             grounding = _gate_result("ABSTAIN", reason)
             return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
-                                grounding=grounding, payload=None, llm=None, prompt=None,
+                                grounding=grounding, payload=None, llm=None, prompt=None, llm_calls=0,
                                 retrieval_ms=retrieval_ms, events=events)
 
         kept = decision.kept
         if self.parent_resolver is not None and any("parent_text" not in row for row in kept):
-            kept = self.parent_resolver.resolve(kept)
-            trace["parent_context"] = dict(self.parent_resolver.last_stats)
+            kept, trace["parent_context"] = self.parent_resolver.resolve_with_stats(kept)
         payload, context_trace = self.context_aggregator(
             kept, query_id=query_id, query=query, as_of_date=as_of_date, as_of_date_source=as_of_date_source,
             max_context_chars=self.max_context_chars, max_items=self.rerank_top_k)
@@ -505,12 +525,36 @@ class RAGPipeline:
 
         prompt = self.prompt_builder(payload)
         trace["prompt_sha256"] = get_prompt_hash(prompt)
-        events.emit("llm", "generation_started", "started", run_mode=self.run_mode,
-                    prompt_version=PROMPT_B_VERSION)
         # Production mode lets the gateway reject indices outside [1, n] (CITATION_INVALID).
         # Run B keeps every integer the model returned in evidence_indices: Dev 2's Citation
         # Validity metric counts out-of-context attempts from that list (evaluation/metrics.py).
         bounds = {"max_evidence_index": len(payload.evidence_items)} if self.run_mode == "C_production_rag" else {}
+        llm = self._generate(prompt, query_id, events, bounds)
+        grounding = self.gate(payload, llm)
+        previous = None
+        reason = grounding.reason
+        policy = self.regeneration
+        if policy and grounding.grounding_status == "FAIL" and reason and policy.note_for(reason):
+            previous = llm
+            prompt = policy.repair_prompt(prompt, reason)
+            trace["regeneration"] = {
+                "attempted": True, "first_reason": reason, "repair_notes_version": policy.version,
+                "first_prompt_sha256": trace["prompt_sha256"], "prompt_sha256": get_prompt_hash(prompt),
+                "first_answer_before_gate": previous.answer,
+            }
+            llm = self._generate(prompt, query_id, events, bounds, attempt=2, regeneration_reason=reason,
+                                 repair_notes_version=policy.version)
+            # FR5.6-AC1: the second Gate decides (PASS -> SUCCESS, anything else is not answered).
+            grounding = self.gate(payload, llm)
+        return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
+                            grounding=grounding, payload=payload, llm=llm, prompt=prompt,
+                            retrieval_ms=retrieval_ms, events=events, previous=previous,
+                            llm_calls=2 if previous is not None else 1)
+
+    def _generate(self, prompt: str, query_id: str, events: StageEmitter, bounds: dict[str, int],
+                  **metadata: Any) -> LLMResponse:
+        events.emit("llm", "generation_started", "started", run_mode=self.run_mode,
+                    prompt_version=PROMPT_B_VERSION, **metadata)
         try:
             llm = self.generator.generate(prompt, query_id, self.run_mode, PROMPT_B_VERSION, structured_output=True,
                                           **bounds)
@@ -524,15 +568,12 @@ class RAGPipeline:
                     prompt_version=llm.prompt_version, done_reason=llm.done_reason, truncated=llm.truncated,
                     parse_status=llm.parse_status, token_input=llm.token_usage.input,
                     token_output=llm.token_usage.output, ttft_model_ms=llm.ttft_model_ms)
-        grounding = self.gate(payload, llm)
-        return self._finish(query_id, query, as_of_date, as_of_date_source, started, trace,
-                            grounding=grounding, payload=payload, llm=llm, prompt=prompt,
-                            retrieval_ms=retrieval_ms, events=events)
+        return llm
 
     def _finish(self, query_id: str, query: str, as_of_date: str, as_of_date_source: str, started: float,
                 trace: dict[str, Any], *, grounding: GroundingResult, payload: ContextPayload | None,
                 llm: LLMResponse | None, prompt: str | None, retrieval_ms: float | None,
-                events: StageEmitter) -> RAGRunResult:
+                events: StageEmitter, llm_calls: int, previous: LLMResponse | None = None) -> RAGRunResult:
         status = grounding.grounding_status
         abs_fields = abstention_fields(grounding, llm_called=llm is not None)
         if llm is not None:
@@ -540,7 +581,7 @@ class RAGPipeline:
                         citation_count=len(grounding.valid_citations) if status == "PASS" else 0,
                         invalid_indices=list(grounding.invalid_indices) or None)
             events.emit("gate", "gate_decided", status, grounding_status=status, reason=grounding.reason,
-                        violation_codes=[] if status == "PASS" else [grounding.reason], llm_calls=1)
+                        violation_codes=[] if status == "PASS" else [grounding.reason], llm_calls=llm_calls)
         trace["gate"] = {
             "status": status,
             "reason": grounding.reason,
@@ -568,6 +609,10 @@ class RAGPipeline:
             }
         answer = with_disclaimer(llm.answer) if status == "PASS" and llm is not None else policy_message(status, as_of_date)
         meta = self._model_meta()
+        usage = llm.token_usage if llm is not None else TokenUsage()
+        if previous is not None:
+            usage = TokenUsage(input=_sum_measured(previous.token_usage.input, usage.input),
+                               output=_sum_measured(previous.token_usage.output, usage.output))
         record = RAGOutputRecord(
             query_id=query_id,
             query=query,
@@ -589,9 +634,9 @@ class RAGPipeline:
             retrieval_config_version=self.versions.retrieval_config_version,
             threshold_config_version=self.versions.threshold_config_version,
             latency_ms=round((time.perf_counter() - started) * 1000.0, 2),
-            llm_calls=1 if llm is not None else 0,
-            latency_breakdown=latency_breakdown(llm, retrieval_ms=retrieval_ms),
-            token_usage=llm.token_usage if llm is not None else TokenUsage(),
+            llm_calls=llm_calls,
+            latency_breakdown=latency_breakdown(llm, retrieval_ms=retrieval_ms, previous=previous),
+            token_usage=usage,
             fallback_status=llm.fallback_status if llm is not None else "none",
         )
         return RAGRunResult(record=record, payload=payload, llm_response=llm, grounding=grounding,
@@ -606,7 +651,8 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
                    retrieval_config: str | Path = DEFAULT_RETRIEVAL_CONFIG,
                    confidence_config: str | Path = DEFAULT_CONFIDENCE_CONFIG,
                    elasticsearch_url: str | None = None, qdrant_path: str | None = None,
-                   qdrant_url: str | None = None, run_mode: str = RUN_MODE) -> RAGPipeline:
+                   qdrant_url: str | None = None, run_mode: str = RUN_MODE,
+                   regeneration: RegenerationPolicy | None = None) -> RAGPipeline:
     """Precomputed artifact when given (official Run B), else live Hybrid + Cross-Encoder.
 
     ``qdrant_url`` (Qdrant server) lets the API and a batch run share the index; an embedded
@@ -643,7 +689,7 @@ def build_pipeline(*, precomputed: str | Path | None = None, generator: Generato
     return RAGPipeline(source, generator, versions=versions, confidence=confidence,
                        rerank_top_k=reranker_config.rerank_top_k,
                        max_context_chars=parent_config.max_context_chars, parent_resolver=resolver,
-                       run_mode=run_mode)
+                       run_mode=run_mode, regeneration=regeneration)
 
 
 _DEFAULT_PIPELINE: RAGPipeline | None = None

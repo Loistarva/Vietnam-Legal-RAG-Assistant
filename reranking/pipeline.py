@@ -231,9 +231,9 @@ class RetrievalPipeline:
         parent_context_ms = None
         if self.parent_resolver is not None:
             parent_started = time.perf_counter()
-            final = self.parent_resolver.resolve(final)
+            final, parent_summary = self.parent_resolver.resolve_with_stats(final)
             parent_context_ms = round((time.perf_counter() - parent_started) * 1000.0, 3)
-            parent_stats = {"parent_context": dict(self.parent_resolver.last_stats)}
+            parent_stats = {"parent_context": parent_summary}
         finished = time.perf_counter()
 
         stats = {

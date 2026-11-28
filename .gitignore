@@ -10,6 +10,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 .pytest_cache/
+# Local pytest cache variants (some were created with different permissions).
+/.pytest-cache-*/
 
 # Local embedded Qdrant database and index artifacts
 /qdrant_data/

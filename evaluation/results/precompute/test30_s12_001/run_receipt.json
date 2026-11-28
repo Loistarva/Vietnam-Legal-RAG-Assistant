@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED",
+  "query_count": 30,
+  "total_candidates": 1500,
+  "min_candidates": 50,
+  "max_candidates": 50,
+  "producer_git_sha": "9144dfddbc6a3610dab17271f1290216e30dbb8d",
+  "verifier_git_sha": "626d3705c9e9e9e2e9449e451066f7edf742746f",
+  "approved_by": "project_user",
+  "candidate_artifact_sha256": "3e985fb6ce6148a5ed6119e735c9d48603e080d1270bae549ff2e9a7221971e7",
+  "reranked_artifact_sha256": "cae316d2b1412cd316e9e590faad763a97855435e407c5acda3a840b8037f198",
+  "reranked_manifest_sha256": "5f5f39b9127ac43090ea5e9b7fa96005bf30e233dbb2bf765ccdefac306fee88",
+  "retrieval_seconds": 85.73,
+  "rerank_seconds_to_artifact": 2624.26,
+  "model_rerun": false,
+  "qwen_called": false,
+  "checker_correction": "Allow only exact pre-rerank retrieval source entry while preserving every original branch/evidence field"
+}

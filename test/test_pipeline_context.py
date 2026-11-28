@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 
 import jsonschema
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -61,14 +62,19 @@ class ParentContextResolverTest(unittest.TestCase):
         self.assertEqual(rows[0]["parent_text"], PARENTS[0]["text"])
         self.assertEqual(resolver.last_stats["upstream_parent_id_replaced"], 1)
 
+    @pytest.mark.req("FR4.1-AC2")
     def test_pipeline_output_with_parent_context_matches_schema(self):
         resolver = ParentContextResolver(PARENTS)
-        pipeline = RetrievalPipeline(FixtureRetriever([candidate("c1", 2), candidate("c3", 1)]),
+        pipeline = RetrievalPipeline(FixtureRetriever([
+            candidate("c1", 3), candidate("c3", 2), candidate("cx", 1, parent_id="missing"),
+        ]),
                                      retrieval_top_k=5, parent_resolver=resolver)
-        output = pipeline.run(QUERY, 2, query_id="HN_001")
+        output = pipeline.run(QUERY, 3, query_id="HN_001")
         jsonschema.validate(output, SCHEMA)
-        self.assertEqual([r["parent_id"] for r in output["results"]], ["p8", "p9"])
+        self.assertEqual([r["parent_id"] for r in output["results"]], ["p8", "p9", "missing"])
         self.assertEqual(output["stats"]["parent_context"]["parents_attached"], 2)
+        self.assertEqual(output["stats"]["parent_context"]["parents_missing"], 1)
+        self.assertEqual(output["stats"]["parent_context"]["missing_chunk_ids"], ["cx"])
         self.assertEqual(output["config"]["parent_context"]["max_context_chars"], resolver.max_context_chars)
         self.assertEqual(output["stats"]["latency_breakdown"]["total_retrieval_ms"],
                          output["stats"]["total_latency_ms"])

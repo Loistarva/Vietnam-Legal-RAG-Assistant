@@ -102,8 +102,12 @@ def branches(monkeypatch):
 
 @pytest.mark.req("FR2.4-AC4")
 @pytest.mark.parametrize("as_of_date,filters,expected", [
+    ("1999-12-31", {"document_id": "law-A"}, {"open"}),
+    ("2000-01-01", {"document_id": "law-A"}, {"old", "open"}),
     ("2019-12-31", {"document_id": "law-A"}, {"old", "open"}),
     ("2020-01-01", {"document_id": "law-A"}, {"current", "open"}),
+    ("2020-01-02", {"document_id": "law-A"}, {"current", "open"}),
+    ("2029-12-31", {"document_id": "law-A"}, {"current", "open"}),
     ("2030-01-01", {"document_id": "law-A"}, {"future", "current", "open"}),
     ("2020-01-01", {"document_id": "law-B"}, {"other"}),
     ("2020-01-01", {"document_id": "missing"}, set()),
@@ -127,6 +131,7 @@ def test_same_eligible_chunks_across_three_branches(branches, as_of_date, filter
     assert {r["chunk_id"] for r in precomputed} == expected
 
 
+@pytest.mark.req("FR2.4-AC4")
 def test_filters_before_top_k_and_saved_pool_reaches_canonical_adapter(branches):
     es, store, records = branches
     saved = PrecomputedRetriever([{
@@ -150,6 +155,7 @@ def test_filters_before_top_k_and_saved_pool_reaches_canonical_adapter(branches)
     assert trace["returned_candidate_count"] == 1
 
 
+@pytest.mark.req("FR2.4-AC4")
 def test_precomputed_rejects_wrong_date_and_unknown_filters(branches):
     _, _, records = branches
     saved = PrecomputedRetriever([{

@@ -1,0 +1,552 @@
+{
+  "fixture_version": "sprint12.dev4.retrieval_handoff.v1",
+  "synthetic": true,
+  "requirements": [
+    "FR2.11-AC1"
+  ],
+  "notes": [
+    "All questions, evidence, identifiers, scores and timings are synthetic; no official Dev/Test run.",
+    "bundle is canonical RetrievalBundle; trace is the request-local Dev4 sidecar, not an AskResponse.",
+    "Dev5 must propagate trace metadata to the final RAG trace and add consumer integration tests.",
+    "Unknown stage timings remain null; a reported zero is retained as zero.",
+    "Canonical RetrievalBundle requires numeric latency_ms. A missing total raises ValueError; no zero is fabricated.",
+    "Precomputed total is a supplied synthetic measurement, not an estimate of the original retrieval duration.",
+    "The adapter maps already-filtered producer output. Temporal filtering is tested separately across three branches.",
+    "Only the trace omits raw query and chunk text; do not log the full bundle."
+  ],
+  "cases": [
+    {
+      "case_id": "filtered",
+      "bundle": {
+        "schema_version": "week10_v1.1",
+        "query_id": "S12-SYNTHETIC-filtered",
+        "as_of_date": "2026-10-15",
+        "candidates": [
+          {
+            "query_id": "S12-SYNTHETIC-filtered",
+            "chunk_id": "synthetic-chunk-1",
+            "chunk_text": "Synthetic evidence for adapter consumer tests only.",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "as_of_date": "2026-10-15",
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "candidate_text": null,
+            "parent_text": null,
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            },
+            "evidence_index": null,
+            "vector_ref": null,
+            "metadata": {}
+          }
+        ],
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "precomputed": false,
+        "latency_ms": 12.5,
+        "query": "Synthetic adapter handoff question.",
+        "retriever": "hybrid_reranker",
+        "top_k": 5,
+        "metadata_filters": {
+          "document_type": null,
+          "document_number": null,
+          "document_id": "synthetic-law-A",
+          "article_id": null,
+          "clause_id": null,
+          "validity_status": null
+        },
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        }
+      },
+      "trace": {
+        "trace_version": "dev4_retrieval_trace_v1",
+        "query_id": "S12-SYNTHETIC-filtered",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "schema_version": "week10_v1.1",
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "corpus_version": "synthetic-corpus-v1",
+        "retriever": "hybrid_reranker",
+        "precomputed": false,
+        "metadata_filters": {
+          "document_id": "synthetic-law-A"
+        },
+        "result_top_k": 5,
+        "returned_candidate_count": 1,
+        "outcome": "RETRIEVED",
+        "latency_ms": 12.5,
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        },
+        "candidates": [
+          {
+            "chunk_id": "synthetic-chunk-1",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "unfiltered",
+      "bundle": {
+        "schema_version": "week10_v1.1",
+        "query_id": "S12-SYNTHETIC-unfiltered",
+        "as_of_date": "2026-10-15",
+        "candidates": [
+          {
+            "query_id": "S12-SYNTHETIC-unfiltered",
+            "chunk_id": "synthetic-chunk-1",
+            "chunk_text": "Synthetic evidence for adapter consumer tests only.",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "as_of_date": "2026-10-15",
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "candidate_text": null,
+            "parent_text": null,
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            },
+            "evidence_index": null,
+            "vector_ref": null,
+            "metadata": {}
+          }
+        ],
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "precomputed": false,
+        "latency_ms": 12.5,
+        "query": "Synthetic adapter handoff question.",
+        "retriever": "hybrid_reranker",
+        "top_k": 5,
+        "metadata_filters": null,
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        }
+      },
+      "trace": {
+        "trace_version": "dev4_retrieval_trace_v1",
+        "query_id": "S12-SYNTHETIC-unfiltered",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "schema_version": "week10_v1.1",
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "corpus_version": "synthetic-corpus-v1",
+        "retriever": "hybrid_reranker",
+        "precomputed": false,
+        "metadata_filters": {},
+        "result_top_k": 5,
+        "returned_candidate_count": 1,
+        "outcome": "RETRIEVED",
+        "latency_ms": 12.5,
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        },
+        "candidates": [
+          {
+            "chunk_id": "synthetic-chunk-1",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "empty",
+      "bundle": {
+        "schema_version": "week10_v1.1",
+        "query_id": "S12-SYNTHETIC-empty",
+        "as_of_date": "2026-10-15",
+        "candidates": [],
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "precomputed": false,
+        "latency_ms": 12.5,
+        "query": "Synthetic adapter handoff question.",
+        "retriever": "hybrid_reranker",
+        "top_k": 5,
+        "metadata_filters": {
+          "document_type": null,
+          "document_number": null,
+          "document_id": "synthetic-missing-law",
+          "article_id": null,
+          "clause_id": null,
+          "validity_status": null
+        },
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        }
+      },
+      "trace": {
+        "trace_version": "dev4_retrieval_trace_v1",
+        "query_id": "S12-SYNTHETIC-empty",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "schema_version": "week10_v1.1",
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "corpus_version": "synthetic-corpus-v1",
+        "retriever": "hybrid_reranker",
+        "precomputed": false,
+        "metadata_filters": {
+          "document_id": "synthetic-missing-law"
+        },
+        "result_top_k": 5,
+        "returned_candidate_count": 0,
+        "outcome": "EMPTY",
+        "latency_ms": 12.5,
+        "latency_breakdown": {
+          "bm25_ms": 3.0,
+          "dense_ms": 5.0,
+          "rrf_ms": 0.2,
+          "reranking_ms": 2.0,
+          "parent_context_ms": null,
+          "total_retrieval_ms": 12.5
+        },
+        "candidates": []
+      }
+    },
+    {
+      "case_id": "precomputed_unknown_stages",
+      "bundle": {
+        "schema_version": "week10_v1.1",
+        "query_id": "S12-SYNTHETIC-precomputed_unknown_stages",
+        "as_of_date": "2026-10-15",
+        "candidates": [
+          {
+            "query_id": "S12-SYNTHETIC-precomputed_unknown_stages",
+            "chunk_id": "synthetic-chunk-1",
+            "chunk_text": "Synthetic evidence for adapter consumer tests only.",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "as_of_date": "2026-10-15",
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "candidate_text": null,
+            "parent_text": null,
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            },
+            "evidence_index": null,
+            "vector_ref": null,
+            "metadata": {}
+          }
+        ],
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "precomputed": true,
+        "latency_ms": 12.5,
+        "query": "Synthetic adapter handoff question.",
+        "retriever": "hybrid_reranker",
+        "top_k": 5,
+        "metadata_filters": null,
+        "latency_breakdown": null
+      },
+      "trace": {
+        "trace_version": "dev4_retrieval_trace_v1",
+        "query_id": "S12-SYNTHETIC-precomputed_unknown_stages",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "schema_version": "week10_v1.1",
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "corpus_version": "synthetic-corpus-v1",
+        "retriever": "hybrid_reranker",
+        "precomputed": true,
+        "metadata_filters": {},
+        "result_top_k": 5,
+        "returned_candidate_count": 1,
+        "outcome": "RETRIEVED",
+        "latency_ms": 12.5,
+        "latency_breakdown": null,
+        "candidates": [
+          {
+            "chunk_id": "synthetic-chunk-1",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "partial_stages",
+      "bundle": {
+        "schema_version": "week10_v1.1",
+        "query_id": "S12-SYNTHETIC-partial_stages",
+        "as_of_date": "2026-10-15",
+        "candidates": [
+          {
+            "query_id": "S12-SYNTHETIC-partial_stages",
+            "chunk_id": "synthetic-chunk-1",
+            "chunk_text": "Synthetic evidence for adapter consumer tests only.",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "as_of_date": "2026-10-15",
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "candidate_text": null,
+            "parent_text": null,
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            },
+            "evidence_index": null,
+            "vector_ref": null,
+            "metadata": {}
+          }
+        ],
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "precomputed": false,
+        "latency_ms": 12.5,
+        "query": "Synthetic adapter handoff question.",
+        "retriever": "hybrid_reranker",
+        "top_k": 5,
+        "metadata_filters": null,
+        "latency_breakdown": {
+          "bm25_ms": 0.0,
+          "dense_ms": null,
+          "rrf_ms": null,
+          "reranking_ms": null,
+          "parent_context_ms": null,
+          "total_retrieval_ms": null
+        }
+      },
+      "trace": {
+        "trace_version": "dev4_retrieval_trace_v1",
+        "query_id": "S12-SYNTHETIC-partial_stages",
+        "as_of_date": "2026-10-15",
+        "as_of_date_source": "benchmark",
+        "schema_version": "week10_v1.1",
+        "retrieval_config_version": "hybrid-reranker-v1",
+        "corpus_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "corpus_version": "synthetic-corpus-v1",
+        "retriever": "hybrid_reranker",
+        "precomputed": false,
+        "metadata_filters": {},
+        "result_top_k": 5,
+        "returned_candidate_count": 1,
+        "outcome": "RETRIEVED",
+        "latency_ms": 12.5,
+        "latency_breakdown": {
+          "bm25_ms": 0.0,
+          "dense_ms": null,
+          "rrf_ms": null,
+          "reranking_ms": null,
+          "parent_context_ms": null,
+          "total_retrieval_ms": null
+        },
+        "candidates": [
+          {
+            "chunk_id": "synthetic-chunk-1",
+            "score": 0.91,
+            "rank": 1,
+            "retrieval_source": "hybrid_reranker",
+            "retrieval_sources": [
+              "bm25",
+              "dense"
+            ],
+            "validity_status": "active",
+            "effective_from": "2015-01-01",
+            "effective_to": null,
+            "document_id": "synthetic-law-A",
+            "article_id": "synthetic-article-1",
+            "clause_id": "synthetic-clause-1",
+            "parent_id": "synthetic-parent-1",
+            "parent_clause_id": "synthetic-clause-1",
+            "rrf_score": 0.03,
+            "reranker_score": 0.91,
+            "source_ranks": {
+              "bm25": 1,
+              "dense": 2
+            },
+            "source_scores": {
+              "bm25": 8.0,
+              "dense": 0.8
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "error_contract": [
+    {
+      "case_id": "backend_failure",
+      "expected": "Propagate backend exception; do not return EMPTY."
+    },
+    {
+      "case_id": "unknown_total",
+      "expected": "ValueError when neither total_latency_ms nor latency_ms is measured."
+    }
+  ]
+}

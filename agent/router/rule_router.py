@@ -93,6 +93,7 @@ class RouteDecision:
             as_of_date = as_of_date.isoformat()
         return CanonicalRouteDecision(
             route=map_router_route_to_canonical(self.route.value),
+            router_route=self.route.value,
             reason_code=self.route_reason.value,
             explanation=(
                 f"{self.route.value} -> {self.action.value} ({self.route_reason.value}): "

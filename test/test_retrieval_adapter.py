@@ -134,6 +134,7 @@ def test_adapter_rejects_incomplete_candidate_instead_of_fabricating_required_fi
         make_adapter(pipeline).retrieve("query", "2026-10-15")
 
 
+@pytest.mark.req("FR2.11-AC1")
 def test_handoff_trace_matches_bundle_without_raw_text_or_shared_state():
     import json
 
@@ -170,6 +171,7 @@ def test_handoff_trace_matches_bundle_without_raw_text_or_shared_state():
     assert trace["outcome"] == "RETRIEVED"  # No shared last_trace across requests.
 
 
+@pytest.mark.req("FR2.11-AC1")
 def test_handoff_trace_preserves_unknown_latency_and_precomputed_provenance():
     class SavedPipeline(FakePipeline):
         def run(self, **kwargs):
@@ -185,6 +187,7 @@ def test_handoff_trace_preserves_unknown_latency_and_precomputed_provenance():
     assert trace["latency_breakdown"] is None
 
 
+@pytest.mark.req("FR2.11-AC1")
 def test_handoff_trace_does_not_turn_pipeline_error_into_empty_result():
     class BrokenPipeline:
         def run(self, **kwargs):
@@ -212,6 +215,7 @@ def test_trace_preserves_resolved_date_source_and_branch_scores(source, day):
     assert trace["as_of_date_source"] == source
     assert trace["candidates"][0]["source_scores"] == row["source_scores"]
     assert trace["candidates"][0]["source_ranks"] == row["source_ranks"]
+    assert trace["candidates"][0]["rrf_score"] == row["rrf_score"]
     assert trace["candidates"][0]["reranker_score"] == row["reranker_score"]
 
 
@@ -225,3 +229,84 @@ def test_trace_rejects_missing_version_and_invalid_date_source_before_retrieval(
         adapter.retrieve_with_trace("query", "2026-10-15", corpus_version="v1",
                                     as_of_date_source="invented")
     assert pipeline.call is None
+
+
+@pytest.mark.req("FR2.11-AC1")
+@pytest.mark.parametrize("filters", [None, {}])
+def test_handoff_without_filters_explicitly_records_no_filter(filters):
+    pipeline = FakePipeline([candidate()])
+    bundle, trace = make_adapter(pipeline).retrieve_with_trace(
+        "synthetic query", "2026-10-15", filters=filters,
+        corpus_version="synthetic-v1", as_of_date_source="benchmark",
+    )
+    assert pipeline.call["metadata_filters"] is None
+    assert bundle.metadata_filters is None
+    assert trace["metadata_filters"] == {}
+
+
+@pytest.mark.req("FR2.11-AC1")
+def test_handoff_keeps_unmeasured_stages_null_and_measured_zero():
+    class PartialTimingPipeline(FakePipeline):
+        def run(self, **kwargs):
+            result = super().run(**kwargs)
+            result["stats"]["latency_breakdown"] = {"bm25_ms": 0.0, "dense_ms": None}
+            return result
+
+    bundle, trace = make_adapter(PartialTimingPipeline([])).retrieve_with_trace(
+        "synthetic query", "2026-10-15",
+        corpus_version="synthetic-v1", as_of_date_source="benchmark",
+    )
+    assert bundle.latency_ms == 12.5
+    assert trace["latency_breakdown"] == {
+        "bm25_ms": 0.0, "dense_ms": None, "rrf_ms": None, "reranking_ms": None,
+        "parent_context_ms": None, "total_retrieval_ms": None,
+    }
+
+
+@pytest.mark.req("FR2.11-AC1")
+@pytest.mark.parametrize("reported_total", [None, 0.0, 7.5])
+def test_unknown_total_is_rejected_without_inventing_zero(reported_total):
+    class TimingPipeline(FakePipeline):
+        def run(self, **kwargs):
+            result = super().run(**kwargs)
+            result["stats"]["total_latency_ms"] = None
+            result["latency_ms"] = reported_total
+            return result
+
+    adapter = make_adapter(TimingPipeline([]))
+    if reported_total is None:
+        with pytest.raises(ValueError, match="Thiếu latency_ms đã đo"):
+            adapter.retrieve("synthetic query", "2026-10-15")
+    else:
+        assert adapter.retrieve("synthetic query", "2026-10-15").latency_ms == reported_total
+
+
+@pytest.mark.req("FR2.11-AC1")
+def test_handoff_fixture_roundtrips_canonical_bundle_and_preserves_trace():
+    import json
+    from pathlib import Path
+
+    path = Path(__file__).parent / "fixtures/sprint12/retrieval_handoff_samples.json"
+    fixture = json.loads(path.read_text(encoding="utf-8"))
+    assert fixture["synthetic"] is True
+    for sample in fixture["cases"]:
+        bundle = RetrievalBundle.model_validate(sample["bundle"])
+        trace = sample["trace"]
+        assert bundle.model_dump(mode="json") == sample["bundle"]
+        assert trace["query_id"] == bundle.query_id
+        assert trace["as_of_date"] == bundle.as_of_date
+        assert trace["corpus_hash"] == bundle.corpus_hash
+        assert trace["retrieval_config_version"] == bundle.retrieval_config_version
+        assert trace["metadata_filters"] == (
+            bundle.metadata_filters.model_dump(exclude_none=True) if bundle.metadata_filters else {}
+        )
+        assert trace["returned_candidate_count"] == len(bundle.candidates)
+        assert trace["outcome"] == ("RETRIEVED" if bundle.candidates else "EMPTY")
+        assert trace["latency_breakdown"] == (
+            bundle.latency_breakdown.model_dump() if bundle.latency_breakdown else None
+        )
+        assert [row["chunk_id"] for row in trace["candidates"]] == [row.chunk_id for row in bundle.candidates]
+        encoded = json.dumps(trace, ensure_ascii=False)
+        assert bundle.query not in encoded
+        for row in bundle.candidates:
+            assert row.chunk_text not in encoded

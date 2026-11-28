@@ -93,9 +93,13 @@ class RetrievalAdapter:
             for row in rows
         ]
         stats = result.get("stats") or {}
-        latency_ms = stats.get("total_latency_ms", result.get("latency_ms", 0.0))
+        latency_ms = stats.get("total_latency_ms")
         if latency_ms is None:
-            latency_ms = 0.0
+            latency_ms = result.get("latency_ms")
+        if latency_ms is None:
+            # The canonical bundle requires a measured total. Stage timings may
+            # remain null, but an unknown total must never masquerade as zero.
+            raise ValueError("Thiếu latency_ms đã đo; RetrievalBundle yêu cầu tổng thời gian, không tự gán 0")
         raw_breakdown = stats.get("latency_breakdown")
         latency_breakdown = (
             RetrievalLatencyBreakdown.model_validate(raw_breakdown) if raw_breakdown is not None else None
