@@ -13,7 +13,9 @@ MAX_AS_OF_DATE = date(2046, 12, 31)
 
 @dataclass(frozen=True)
 class UIConfig:
-    api_url: str
+    local_api_url: str
+    cloud_api_url: str
+    mock_url: str
     api_key: str
     request_timeout_seconds: float
 
@@ -28,9 +30,11 @@ def load_config() -> UIConfig:
     if timeout <= 0:
         raise ValueError("LEGAL_RAG_REQUEST_TIMEOUT_SECONDS phải lớn hơn 0.")
     return UIConfig(
-        api_url=os.getenv(
-            "LEGAL_RAG_API_URL", "http://127.0.0.1:8000/api/v1/ask"
-        ),
+        local_api_url=os.getenv(
+            "LEGAL_RAG_LOCAL_API_URL", "http://127.0.0.1:8000/api/v1/ask"
+        ).strip(),
+        cloud_api_url=os.getenv("LEGAL_RAG_API_URL", "").strip(),
+        mock_url=os.getenv("LEGAL_RAG_MOCK_URL", "").strip(),
         api_key=os.getenv("LEGAL_RAG_API_KEY", ""),
         request_timeout_seconds=timeout,
     )

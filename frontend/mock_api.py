@@ -32,7 +32,8 @@ _MOCK_EVIDENCE = {
     "document_title": "Văn bản giả lập (không phải nguồn pháp luật)",
     "article_number": "Điều giả lập",
     "clause_number": "Khoản giả lập",
-    "breadcrumb": "Văn bản giả lập > Điều giả lập > Khoản giả lập",
+    "point_ref": "Điểm a",
+    "breadcrumb": "Văn bản giả lập > Điều giả lập > Khoản giả lập > Điểm a",
     "provision_status": "mock",
 }
 
@@ -56,6 +57,7 @@ def _mock_evidence(
             "document_title": f"Tài liệu giả lập {evidence_index} (không phải văn bản pháp luật)",
             "article_number": str(evidence_index),
             "clause_number": "1",
+            "point_ref": None,
             "breadcrumb": f"Tài liệu giả lập > Điều {evidence_index} > Khoản 1",
             "content": content or f"[Nội dung căn cứ giả lập số {evidence_index}.]",
         }
@@ -117,7 +119,8 @@ def ask(
     """Return a contract-shaped mock response for one question.
 
     Add one marker to the question to preview a specific UI state:
-    ``[mock:clarify]``, ``[mock:abstain]``, ``[mock:empty]``,
+    ``[mock:success]``, ``[mock:clarify]``, ``[mock:abstain]``, ``[mock:error]``,
+    ``[mock:empty]``,
     ``[mock:low]``, ``[mock:gate_fail]``, ``[mock:bad_json]``,
     ``[mock:timeout]``, ``[mock:network_timeout]``, ``[mock:out_of_scope]``,
     ``[mock:many_evidence]`` or ``[mock:long_evidence]``.
@@ -137,6 +140,19 @@ def ask(
             grounding_status="NOT_RUN",
             error_code="LLM_TIMEOUT",
             error={"message": "Mô phỏng Qwen timeout.", "retryable": True},
+            **common,
+        )
+
+    if "[mock:error]" in normalized:
+        return _response(
+            status="ERROR",
+            route="LEGAL_IN_SCOPE",
+            grounding_status="NOT_RUN",
+            error_code="INTERNAL_ERROR",
+            error={
+                "message": "Hệ thống đang bận và chưa xử lý được câu hỏi. Vui lòng thử lại.",
+                "retryable": True,
+            },
             **common,
         )
 

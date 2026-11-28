@@ -81,12 +81,10 @@ def render_result(payload: dict) -> None:
             render_answer_with_citations(answer, payload)
         else:
             st.info("API chưa trả nội dung câu trả lời.")
-        render_evidence_panel(payload)
     elif status == "NEEDS_CLARIFICATION":
         st.info(payload.get("clarification") or "Hệ thống cần thêm thông tin.")
     elif status == "ABSTAIN":
         st.info(payload.get("abstention_message") or "Hệ thống chưa đủ căn cứ để trả lời.")
-        render_evidence_panel(payload)
     elif status == "ERROR":
         error = payload.get("error")
         message = error.get("message") if isinstance(error, dict) else None
@@ -95,13 +93,18 @@ def render_result(payload: dict) -> None:
         st.error("API trả về status không được hỗ trợ.")
 
     # The API contract requires disclaimer in every user-visible response.
-    disclaimer = payload.get("disclaimer")
-    if disclaimer:
-        st.caption(f"⚖️ {disclaimer}")
+    disclaimer = payload.get("disclaimer") or FALLBACK_DISCLAIMER
+    st.caption(f"⚖️ {disclaimer}")
+    render_evidence_panel(payload)
 
 
 def _new_id(prefix: str) -> str:
     return f"{prefix}_{uuid4().hex}"
+
+
+def _append_message(role: str, **message_fields: object) -> None:
+    """Append one chat item to session history in display order."""
+    st.session_state.messages.append({"role": role, **message_fields})
 
 
 def main() -> None:
@@ -118,6 +121,11 @@ def main() -> None:
     with st.sidebar:
         st.subheader("Kết nối")
         mode = st.radio("Nguồn phản hồi", ["Demo (mock)", "API"], index=0)
+        api_environment = "Local"
+        if mode == "API":
+            api_environment = st.radio("Môi trường API", ["Local", "Cloud"], index=0)
+            if api_environment == "Cloud" and not config.cloud_api_url:
+                st.warning("Chưa cấu hình LEGAL_RAG_API_URL cho API Cloud.")
         st.markdown("**Thời điểm áp dụng pháp luật**")
         use_selected_date = st.checkbox("Tự chọn ngày tra cứu", value=False)
         selected_date = None
@@ -140,17 +148,20 @@ def main() -> None:
             ):
                 render_result(message["payload"])
             else:
-                st.markdown(message["content"])
+                # Markdown collapses plain newlines; render user text verbatim
+                # so Shift+Enter line breaks remain visible in chat history.
+                st.text(message["content"])
                 if message.get("disclaimer"):
                     st.caption(f"⚖️ {message['disclaimer']}")
 
+    st.caption("Nhấn Shift+Enter để xuống dòng; Enter để gửi.")
     question = st.chat_input("Nhập câu hỏi pháp lý của bạn…")
     if not question:
         return
 
-    st.session_state.messages.append({"role": "user", "content": question})
+    _append_message("user", content=question)
     with st.chat_message("user"):
-        st.markdown(question)
+        st.text(question)
 
     request_id = _new_id("req")
     selected_date_text = selected_date.isoformat() if selected_date else None
@@ -158,13 +169,34 @@ def main() -> None:
         with st.status("Đang xử lý câu hỏi…", expanded=False) as status_box:
             try:
                 if mode == "Demo (mock)":
-                    time.sleep(0.2)
-                    result = mock_ask(
-                        question,
-                        as_of_date=selected_date_text,
-                        request_id=request_id,
-                    )
+                    if config.mock_url:
+                        result = api_ask(
+                            question,
+                            api_url=config.mock_url,
+                            as_of_date=selected_date_text,
+                            request_id=request_id,
+                            timeout_seconds=(
+                                1
+                                if question.strip().casefold() == "[mock:network_timeout]"
+                                else config.request_timeout_seconds
+                            ),
+                        )
+                    else:
+                        time.sleep(0.2)
+                        result = mock_ask(
+                            question,
+                            as_of_date=selected_date_text,
+                            request_id=request_id,
+                        )
                 else:
+                    api_url = (
+                        config.cloud_api_url
+                        if api_environment == "Cloud"
+                        else config.local_api_url
+                    )
+                    if not api_url:
+                        raise ValueError("Chưa cấu hình URL cho môi trường API đã chọn.")
+
                     def update_progress(event: dict) -> None:
                         label = event.get("message") or event.get("stage")
                         if label:
@@ -172,7 +204,7 @@ def main() -> None:
 
                     result = api_ask(
                         question,
-                        api_url=config.api_url,
+                        api_url=api_url,
                         api_key=config.api_key,
                         as_of_date=selected_date_text,
                         session_id=st.session_state.session_id,
@@ -182,40 +214,28 @@ def main() -> None:
                     )
                 status_box.update(label="Đã nhận phản hồi", state="complete")
                 render_result(result)
-                st.session_state.messages.append(
-                    {"role": "assistant", "payload": result}
-                )
+                _append_message("assistant", payload=result)
             except requests.Timeout:
                 status_box.update(label="API quá thời gian chờ", state="error")
                 message = "API phản hồi quá chậm. Vui lòng thử lại sau."
                 st.error(message)
-                st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": message,
-                        "disclaimer": FALLBACK_DISCLAIMER,
-                    }
+                _append_message(
+                    "assistant", content=message, disclaimer=FALLBACK_DISCLAIMER
                 )
             except requests.RequestException:
                 status_box.update(label="Không kết nối được API", state="error")
                 message = "Không gọi được API. Hãy kiểm tra URL và trạng thái backend."
                 st.error(message)
-                st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": message,
-                        "disclaimer": FALLBACK_DISCLAIMER,
-                    }
+                _append_message(
+                    "assistant", content=message, disclaimer=FALLBACK_DISCLAIMER
                 )
             except (ValueError, TypeError) as exc:
                 status_box.update(label="Phản hồi không hợp lệ", state="error")
                 st.error(f"Không đọc được phản hồi từ API: {exc}")
-                st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": "API trả về dữ liệu không đúng định dạng.",
-                        "disclaimer": FALLBACK_DISCLAIMER,
-                    }
+                _append_message(
+                    "assistant",
+                    content="API trả về dữ liệu không đúng định dạng.",
+                    disclaimer=FALLBACK_DISCLAIMER,
                 )
 
 

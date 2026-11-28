@@ -78,6 +78,18 @@ Tham số chỉ được tuning trên Dev set. Test runner xác minh manifest c�
 
 ## Cấu hình
 
+### Frontend Streamlit
+
+Frontend đọc cấu hình từ biến môi trường trong `frontend/config.py`:
+
+- `LEGAL_RAG_LOCAL_API_URL`: endpoint API Local (mặc định `http://127.0.0.1:8000/api/v1/ask`).
+- `LEGAL_RAG_API_URL`: endpoint API Cloud; cần đặt biến này để dùng lựa chọn Cloud.
+- `LEGAL_RAG_MOCK_URL`: endpoint mock tùy chọn. Khi được đặt, chế độ **Demo (mock)** gửi request HTTP POST đến URL này theo contract Ask; nếu bỏ trống, frontend dùng mock nội bộ.
+- `LEGAL_RAG_API_KEY`: API key tùy chọn cho API thật.
+- `LEGAL_RAG_REQUEST_TIMEOUT_SECONDS`: timeout HTTP dùng cho request (mặc định 180 giây), áp dụng cả API thật và mock URL.
+
+Mock URL nhận JSON gồm `query` và các trường tùy chọn `as_of_date`, `session_id`, `request_id`, và trả về JSON theo AskResponse (hoặc SSE theo contract API).
+
 - `retrieval/config.yaml` (Dev 4): `retrieval.retrieval_top_k` (50), `rrf_k` (60), index và dense model.
 - `reranking/config.yaml` (Dev 5): `rerank_top_k` (5), `max_candidates` (50), `backend` (`cross_encoder` mặc định | `mock` cho test), `model` (`BAAI/bge-reranker-v2-m3`), `dtype` (`auto`: float16 trên GPU), `candidate_text` (`document_breadcrumb_chunk_text`: tên, số hiệu văn bản và breadcrumb ghép trước `chunk_text`).
 
