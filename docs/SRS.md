@@ -399,7 +399,7 @@ Tiêu chí chấp nhận:
 
 | Mã | Yêu cầu | Khối | GĐ | Phụ thuộc | Trạng thái | KC |
 | --- | --- | --- | --- | --- | --- | --- |
-| FR10.1 | Hệ thống phải tiếp nhận, kiểm tra hợp lệ tệp bản án (chỉ nhận PDF có text và TXT đúng magic bytes, đúng giới hạn dung lượng/số trang cấu hình; từ chối tệp rỗng, PDF scan cần OCR `OCR_REQUIRED` hoặc PDF mã hóa bằng HTTP `413`/`415`/`422`), trích xuất văn bản giữ nguyên thứ tự đọc và Unicode NFC (không làm mất số tiền, ngày tháng, tên đương sự, từ phủ định), và gán `paragraph_id` ổn định `Pxxx_yyy` kèm `char_start`/`char_end`. | Summarization Parser | Sprint 12 | mục 5.6 (`week12_v1.0`) | Proposed (mới 2.2.0) | T |
+| FR10.1 | Hệ thống phải tiếp nhận, kiểm tra hợp lệ tệp bản án (chỉ nhận PDF có lớp văn bản đúng magic bytes `%PDF-` và TXT UTF-8 hợp lệ, không áp dụng magic bytes cho TXT; đúng giới hạn dung lượng/số trang cấu hình; từ chối tệp rỗng, PDF scan cần OCR `OCR_REQUIRED` hoặc PDF mã hóa bằng HTTP `413`/`415`/`422`), trích xuất văn bản giữ nguyên thứ tự đọc và Unicode NFC (không làm mất số tiền, ngày tháng, tên đương sự, từ phủ định), và gán `paragraph_id` ổn định `Pxxx_yyy` kèm `char_start`/`char_end`. | Summarization Parser | Sprint 12 | mục 5.6 (`week12_v1.0`) | Proposed (mới 2.2.0) | T |
 | FR10.2 | Hệ thống phải nhận diện cấu trúc bản án thành 5 nhóm section (`HEADER`, `CASE_CONTENT`, `COURT_REASONING`, `DECISION`, `OTHER/UNKNOWN`) theo chiến lược rule-first (chỉ dùng LLM fallback khi rule không đủ tin cậy), gán mọi đoạn vào một section (không âm thầm loại đoạn `UNKNOWN`), bảo vệ `DECISION` (`protected=true`, cấm nén cắt/loại bỏ khi chunking), và chặn phát hành (`DECISION_NOT_FOUND`) nếu không xác định được `DECISION` sau fallback. | Section Identifier | Sprint 12 | FR10.1 | Proposed (mới 2.2.0) | T |
 | FR10.3 | Adaptive Context Planner phải tính ngân sách token khả dụng ($B = C_{server} - T_{sys} - T_{out} - T_{margin}$) theo cấu hình model server thực tế, chọn `FAST_PATH` khi vừa context và `LONG_PATH` khi vượt context (chia chunk tôn trọng ranh giới section/câu, giữ nguyên `paragraph_id` gốc, ghi `source_coverage_status`), phát hiện mọi cắt cụt đầu vào/đầu ra (không silent truncation), và giới hạn số lần gọi LLM + token budget tối đa mỗi request. | Adaptive Context Planner | Sprint 12 | FR10.2 | Proposed (mới 2.2.0) | T |
 | FR10.4 | Hệ thống phải trích xuất và hợp nhất sổ tình tiết pháp lý (`FactLedger`) kèm `assertion_type` phân tách rõ lời trình bày đương sự (`PLAINTIFF_STATEMENT`, `DEFENDANT_STATEMENT`) với nhận định và phán quyết của Tòa án (`COURT_FINDING`, `COURT_DECISION`), phân loại mức độ trọng yếu (`CRITICAL`, `IMPORTANT`, `SUPPORTING`) theo domain profile `family_judgment_v1` (bảo toàn phủ định, điều kiện, ngoại lệ, khoảng thời gian), gắn `source_refs` hợp lệ và giữ nguyên assertion mâu thuẫn khi hợp nhất nhiều chunk (`LONG_PATH`). | Fact Extractor | Sprint 12 | FR10.3 | Proposed (mới 2.2.0) | T |
@@ -410,7 +410,9 @@ Tiêu chí chấp nhận:
 
 Tiêu chí chấp nhận:
 
-- **FR10.1-AC1** Chỉ chấp nhận PDF có text và TXT đúng magic bytes, đúng giới hạn dung lượng/số trang cấu hình; từ chối tệp rỗng, tệp scan cần OCR (`OCR_REQUIRED`), hoặc PDF mã hóa (`413`/`415`/`422`).
+- **FR10.1-AC1** Tách riêng quy tắc kiểm tra hợp lệ theo định dạng tệp và giới hạn dung lượng/số trang cấu hình (`413`/`415`/`422`):
+  - **Đối với PDF (`application/pdf`):** Kiểm tra header magic bytes `%PDF-` (`b"%PDF-"`), cấu trúc PDF hợp lệ, đúng giới hạn dung lượng/số trang cấu hình (`413`/`422`), không bị mã hóa mật khẩu (`DOCUMENT_PARSE_FAILED`), và trích xuất được lớp văn bản (`text layer`); từ chối tệp scan chỉ có ảnh bằng mã `OCR_REQUIRED` (HTTP 422).
+  - **Đối với TXT (`text/plain`):** Không áp dụng kiểm tra magic bytes; yêu cầu giải mã hợp lệ theo chuẩn **UTF-8** (hỗ trợ cả **UTF-8 không BOM** và **UTF-8 có BOM** `EF BB BF`), từ chối tệp chứa byte nhị phân / ký tự điều khiển bất hợp lệ (như `\x00`, ngoài khoảng trắng chuẩn `\t`, `\n`, `\r`) hoặc lỗi encoding (`UnicodeDecodeError` → `UNSUPPORTED_FILE_TYPE` / `DOCUMENT_PARSE_FAILED`), và từ chối tệp rỗng hoặc chỉ có khoảng trắng (`EMPTY_DOCUMENT`).
 - **FR10.1-AC2** Văn bản trích xuất giữ nguyên thứ tự đọc, chuẩn hóa Unicode NFC, không làm mất số tiền, ngày tháng, tên đương sự hoặc từ phủ định (`không`, `chưa`, `bác`).
 - **FR10.1-AC3** Mọi đoạn được gán định danh nguồn ổn định (`Pxxx_yyy` theo trang và đoạn) kèm `char_start`/`char_end` trước khi chunking; trả trạng thái `FAIL` nếu phát hiện trang scan mất nội dung.
 - **FR10.2-AC1** Bản án được phân tách thành 5 nhóm section vật lý (`HEADER`, `CASE_CONTENT`, `COURT_REASONING`, `DECISION`, `OTHER/UNKNOWN`) theo chiến lược *rule-first*, chỉ gọi LLM fallback khi rule không đủ tin cậy.
@@ -654,7 +656,7 @@ Chuẩn API tách bạch hoàn toàn **kết quả nghiệp vụ (Business Outco
 | --- | --- | --- | --- |
 | Thiếu hoặc sai API key (`X-API-Key`) | `AUTH_REQUIRED` | 401 | Guard lớp API trước khi vào pipeline |
 | Vượt dung lượng tệp tối đa cấu hình | `FILE_TOO_LARGE` | 413 | Kiểm tra trước khi đọc toàn bộ tệp |
-| Định dạng tệp không hỗ trợ (không phải PDF text / TXT đúng magic bytes) | `UNSUPPORTED_FILE_TYPE` | 415 | Từ chối ngay tại tầng tiếp nhận tệp |
+| Định dạng tệp không hỗ trợ (PDF sai magic bytes `%PDF-`, TXT không phải UTF-8 hợp lệ hoặc chứa byte nhị phân, hoặc loại tệp khác) | `UNSUPPORTED_FILE_TYPE` | 415 | Từ chối ngay tại tầng tiếp nhận tệp |
 | Tệp rỗng sau khi trích xuất văn bản | `EMPTY_DOCUMENT` | 422 | Đầu vào không có nội dung để xử lý |
 | Tệp hỏng, PDF mã hóa hoặc giải mã thất bại | `DOCUMENT_PARSE_FAILED` | 422 | Lỗi trích xuất tài liệu |
 | PDF dạng ảnh scan không có text layer, cần OCR | `OCR_REQUIRED` | 422 | Ngoài phạm vi `FR10.1` |
@@ -753,10 +755,10 @@ Thay đổi contract đi theo thứ tự: ghi vào bảng này và Tech Lead duy
 | **NFR8** | **Chi phí** | | | | |
 | NFR8.1 | Chi phí mỗi câu hỏi được ghi theo model thực sự đã dùng; có ngân sách theo ngày khi dùng provider trả phí. | GĐ3 | FR6.3 | Approved (mới 2.1) | A |
 | **NFR10** | **Yêu cầu phi chức năng — Tóm tắt bản án pháp luật** | | | | |
-| NFR10.1 | Chất lượng & Độ tin cậy đầu ra: thống nhất dùng **Factual Accuracy** (Atomic Claim Precision, không tách trùng lặp với Factual Consistency) ≥ 90%, `Critical-fact Omission Rate` < 10%, `Decision Accuracy` = 100%, `Decision Coverage` = 100%; bắt buộc đo và báo cáo **Acceptance Rate** song hành với Factual Accuracy. | Sprint 12 | FR10.6, FR10.7 | Proposed (mới 2.2.0) | A, R |
+| NFR10.1 | Chất lượng & Độ tin cậy đầu ra: thống nhất dùng **Factual Accuracy** ($FA \ge 90\%$ micro-average theo atomic claim trên tập bản án được chấp nhận, kèm macro-average; không tách trùng lặp với Factual Consistency), `Critical-fact Omission Rate` ($CFO < 10\%$ trên toàn bộ $N_{\text{total}}$ bản án benchmark), `Decision Accuracy` ($DA = 100\%$), `Decision Coverage` ($DC = 100\%$); bắt buộc báo cáo song hành **Acceptance Rate** ($AR$, nếu $AR = 0\%$ tự động kết luận `FAIL`), và **Expert Quality** $\ge 4.0 / 5.0$ theo rubric 5 tiêu chí kèm Hard Gate ($\le 2.0 / 5.0$ nếu sai/thiếu quyết định chính). | Sprint 12 | FR10.6, FR10.7 | Proposed (mới 2.2.0) | A, R |
 | NFR10.2 | Hiệu năng & Giới hạn tài nguyên: cấu hình và thực thi giới hạn token budget, số lần gọi LLM tối đa (`max_llm_calls`) và request timeout; ghi log latency chi tiết cho từng stage (`summarization_*`). | Sprint 12 | FR10.3, FR9.9 | Proposed (mới 2.2.0) | T, A |
 | NFR10.3 | Bảo mật & Quyền riêng tư: không lưu tệp bản án mặc định và không ghi log nội dung bản án hoặc PII; bắt buộc ẩn danh hóa PII toàn bộ 30 bản án HNGĐ (10 Dev, 20 Test) trước khi lưu vào `data/judgment_benchmark/` hoặc đưa vào đánh giá (`BR-JS-09`). | Sprint 12 | NFR3.4, BR-JS-09 | Proposed (mới 2.2.0) | T, I |
-| NFR10.4 | Official Run Policy & Tái lập thực nghiệm (`Run Manifest`): khi `official=True`, validator (`model_gateway/run_metadata.py`) bắt buộc từ chối nếu `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, hoặc bật fallback ngầm (`allow_model_fallback != false` / `fallback_locked != true`); Run Manifest bắt buộc lưu đủ `task_type`, `official`, `schema_version`, `prompt_version`, `profile_version`, `profile_sha256`, `dataset_sha256`, `base_model_config_hash` và `effective_model_config_hash`. | Sprint 12 | NFR4.1–NFR4.3, BR-JS-11 | Proposed (mới 2.2.0) | T, A |
+| NFR10.4 | Official Run Policy & Tái lập thực nghiệm (`Run Manifest`): khi `official=True`, validator (`model_gateway/run_metadata.py`) bắt buộc từ chối nếu `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, hoặc bật fallback ngầm (`allow_model_fallback != false` / `fallback_locked != true`); Run Manifest tuân thủ cấu trúc chuẩn của `run_metadata.py` (`git_*`, `started_at`/`finished_at`, `hardware`, `config_hashes`, `base_model_config`, `base_model_config_hash`, `effective_model_config_hash`, `runtime`) cùng metadata riêng của nhánh `task_type = "legal_judgment_summarization"` (`profile_version`, `profile_sha256`, `dataset_version`, `dataset_sha256`). | Sprint 12 | NFR4.1–NFR4.3, BR-JS-11 | Proposed (mới 2.2.0) | T, A |
 
 Tiêu chí chấp nhận:
 
@@ -779,27 +781,93 @@ Tiêu chí chấp nhận:
 - **NFR6.3-AC1** Test của mỗi phân hệ chạy được khi không có Elasticsearch, Qdrant và model; test cần dịch vụ thật được đánh dấu riêng.
 - **NFR7.2-AC1** Với cấu hình mặc định, log không chứa nguyên văn câu hỏi hay prompt; bật cờ debug mới ghi, và cờ này tắt trong cấu hình production.
 - **NFR7.3-AC1** Chính sách log ghi văn bản pháp lý áp dụng, người duyệt pháp lý và ngày xác nhận.
-- **NFR10.1-AC1** Báo cáo đánh giá tập Test (20 bản án đã freeze) ghi đầy đủ `Factual Accuracy` (Atomic Claim Precision ≥ 90%), `Critical-fact Omission Rate` (< 10%), `Decision Accuracy` (100%), `Decision Coverage` (100%), và bắt buộc kèm `Acceptance Rate`.
+- **NFR10.1-AC1** *(Công thức, mẫu số & xử lý biên)* Báo cáo đánh giá tập Test ($N_{\text{total}} = 20$ bản án đã freeze) phải tính và công bố đầy đủ:
+  - **Acceptance Rate ($AR$):** $AR = \frac{N_{\text{accepted}}}{N_{\text{total}}} \times 100\%$, với $N_{\text{accepted}}$ là số bản án đạt trạng thái `PASS` hoặc `PASS_WITH_WARNINGS` (không tính `QA_FAILED` hay lỗi kỹ thuật). Bắt buộc báo cáo $AR$ song hành với mọi chỉ số chất lượng.
+  - **Quy tắc biên khi $N_{\text{accepted}} = 0$ ($AR = 0\%$):** Mọi chỉ số tính trên tập được chấp nhận ghi nhận `N/A` (không hợp lệ) và lượt đánh giá **tự động kết luận KHÔNG ĐẠT (`FAIL`)** toàn bộ `NFR10.1` (chống đạt điểm ảo bằng cách từ chối xử lý).
+  - **Factual Accuracy ($FA \ge 90\%$):** Tính trên tập bản án được chấp nhận ($N_{\text{accepted}}$), tổng hợp theo **tổng số atomic claims (micro-average)** và báo cáo kèm macro-average theo bản án:
+    $$FA = \frac{\sum_{d \in \text{Accepted}} N_{\text{supported\_claims}}(d)}{\sum_{d \in \text{Accepted}} N_{\text{total\_claims}}(d)} \times 100\%$$
+  - **Critical-fact Omission Rate ($CFO < 10\%$):** Tính trên **toàn bộ $N_{\text{total}}$ bản án benchmark** (đồng thời báo cáo tách bạch cả trên toàn bộ tập Test lẫn tập Accepted; bản án `QA_FAILED` không được miễn trừ khi đánh giá độ phủ toàn hệ thống):
+    $$CFO = \frac{\sum_{d=1}^{N_{\text{total}}} N_{\text{omitted\_critical\_facts}}(d)}{\sum_{d=1}^{N_{\text{total}}} N_{\text{gold\_critical\_facts}}(d)} \times 100\%$$
+  - **Decision Accuracy ($DA = 100\%$) & Decision Coverage ($DC = 100\%$):**
+    $$DC = \frac{\sum N_{\text{covered\_decisions}}}{\sum N_{\text{gold\_decisions}}} \times 100\% \qquad\text{và}\qquad DA = \frac{N_{\text{docs\_all\_decisions\_exact}}}{N_{\text{accepted}}} \times 100\% = 100\%$$
+    ($DC$ đo trên từng mục quyết định trọng yếu; $DA$ bảo đảm 100% bản án phát hành không bỏ sót, làm sai lệch hoặc đảo ngược nghĩa bất kỳ phán quyết trọng yếu nào).
+- **NFR10.1-AC2** *(Rubric chấm `Expert Quality >= 4.0 / 5.0`)* Chấm chuyên môn trên thang điểm 1–5 theo 5 tiêu chí có trọng số:
+  1. Độ chính xác tình tiết (*Factual correctness*): **30%**
+  2. Tính đầy đủ tình tiết trọng yếu (*Critical-fact completeness*): **25%**
+  3. Bảo toàn phán quyết của Tòa (*Decision preservation*): **25%**
+  4. Tính mạch lạc pháp lý & phân biệt chủ thể/vai trò (*Legal coherence & attribution*): **10%**
+  5. Cấu trúc & khả năng đọc hiểu (*Readability & structure*): **10%**
+  - **Quy tắc chốt chặn (Hard Gate):** Bất kỳ bản án nào bị bỏ sót hoặc làm sai lệch quyết định chính của Tòa án thì điểm tổng kết tối đa không vượt quá **2.0 / 5.0** và bị tính là **KHÔNG ĐẠT**, bất kể điểm trung bình trọng số các tiêu chí khác cao.
 - **NFR10.2-AC1** Request vượt `max_llm_calls` / token budget bị dừng có kiểm soát (`DOCUMENT_LIMIT_EXCEEDED` / `SUMMARY_GENERATION_FAILED`), không silent truncation; log JSONL ghi đủ `duration_ms` của từng stage `summarization_*`.
 - **NFR10.3-AC1** Không có nội dung bản án thô hoặc PII gốc trong log JSONL hay `data/judgment_benchmark/` (đã thay bằng ký hiệu như `Nguyên đơn Ông A`, `Bị đơn Bà B`, `Cháu C`).
-- **NFR10.4-AC1** Given `validate_run_manifest(..., official=True)` nhận manifest có `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, hoặc `allow_model_fallback == true` (`fallback_locked == false`), Then validator từ chối kèm thông báo lỗi rõ trường vi phạm. Mẫu JSON Run Manifest hợp lệ chuẩn `model_gateway/run_metadata.py`:
+- **NFR10.4-AC1** Given `validate_run_manifest(..., official=True)` nhận manifest có `temperature != 0.0`, `max_retries > 1`, `max_repair_attempts > 1`, `cache_enabled == true`, `fallback_locked == false` hoặc `allow_model_fallback == true`, Then validator từ chối kèm thông báo lỗi rõ trường vi phạm. Lưu ý kiến trúc validator trong `model_gateway/run_metadata.py`: đối với `task_type = "legal_judgment_summarization"`, `validate_run_manifest()` phân nhánh theo `task_type` để **không** bắt buộc các trường riêng của Q&A (`corpus_hash`, `precomputed_retrieval`, `config_hashes.retrieval`, `config_hashes.rerank`, `config_hashes.threshold`), tránh phải điền giá trị giả; thay vào đó bắt buộc đầy đủ nhóm provenance chung (`manifest_version`, `git_branch`, `git_sha`, `working_tree_clean`, `config_hashes.model`, `base_model_config` 12 khóa, `base_model_config_hash`, `effective_model_config_hash`, `runtime_overrides`, `runtime`, `hardware`, `started_at`, `finished_at`) cùng nhóm bắt buộc của Summarization (`task_type`, `official`, `schema_version`, `dataset_version`, `dataset_sha256`, `dataset_ids_hash`, `profile_version`, `profile_sha256`, `config_hashes.summarization`, `config_hashes.profile`, `runtime.max_repair_attempts <= 1`, `runtime.allow_model_fallback == false`). Mẫu JSON Run Manifest đầy đủ chuẩn `model_gateway/run_metadata.py`:
 
 ```json
 {
   "manifest_version": "d3.4.run_manifest.v1",
+  "schema_version": "week12_v1.0",
+  "run_id": "sum_official_20261128T080000Z",
   "task_type": "legal_judgment_summarization",
   "official": true,
-  "schema_version": "week12_v1.0",
-  "prompt_version": "judgment_summary_v1",
+  "git_branch": "feature/sprint12-summarization",
+  "git_sha": "0123456789abcdef0123456789abcdef01234567",
+  "working_tree_clean": true,
+  "dataset_version": "family_judgment_test_v1",
+  "dataset_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "dataset_ids_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
   "profile_version": "family_judgment_v1",
   "profile_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-  "dataset_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-  "temperature": 0.0,
-  "max_retries": 1,
-  "max_repair_attempts": 1,
-  "allow_model_fallback": false,
-  "base_model_config_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
-  "effective_model_config_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  "config_hashes": {
+    "model": "1111111111111111111111111111111111111111111111111111111111111111",
+    "summarization": "2222222222222222222222222222222222222222222222222222222222222222",
+    "profile": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "base_model_config": {
+    "config_version": "local_qwen_v1.1",
+    "provider": "ollama",
+    "base_url": "http://localhost:11434",
+    "model": "qwen2.5:7b",
+    "temperature": 0.0,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "timeout_seconds": 120.0,
+    "max_retries": 1,
+    "cache_enabled": false,
+    "fallback_locked": true
+  },
+  "base_model_config_hash": "a886f02721bfbd067572268f4f6163ce73012a7c11f0e34f3bc07ebc05ca3b98",
+  "effective_model_config_hash": "a886f02721bfbd067572268f4f6163ce73012a7c11f0e34f3bc07ebc05ca3b98",
+  "runtime_overrides": {},
+  "runtime": {
+    "model_config_version": "local_qwen_v1.1",
+    "provider": "ollama",
+    "base_url": "http://localhost:11434",
+    "model": "qwen2.5:7b",
+    "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "ollama_version": "0.40.16",
+    "prompt_version": "judgment_summary_v1",
+    "temperature": 0.0,
+    "repeat_penalty": 1.0,
+    "num_predict": 1024,
+    "num_ctx": 8192,
+    "timeout_seconds": 120.0,
+    "max_retries": 1,
+    "max_repair_attempts": 1,
+    "cache_enabled": false,
+    "cache": "OFF",
+    "fallback_locked": true,
+    "fallback": "LOCKED",
+    "allow_model_fallback": false
+  },
+  "hardware": {
+    "os": "Linux-6.8.0-x86_64",
+    "cpu": "AMD Ryzen 7 5800X",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "vram": "12288 MiB"
+  },
+  "started_at": "2026-11-28T08:00:00+00:00",
+  "finished_at": "2026-11-28T08:05:12+00:00"
 }
 ```
 

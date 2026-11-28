@@ -79,12 +79,24 @@ Mục tiêu trong bảng được Tech Lead duyệt ngày 16/11/2026 (SRS D-08).
 | --- | --- | --- | --- | --- | --- |
 | BO-JS-01 | Tự động hóa tóm tắt bản án | Endpoint `POST /api/v1/summarize` và tab Streamlit UI hoạt động ổn định, không hồi quy Q&A | API, Web UI & bộ test Q&A | Vận hành ổn định; 100% test hồi quy Q&A PASS | Sprint 12 |
 | BO-JS-02 | Rút ngắn thời gian nắm bắt nội dung vụ án | Thời gian người dùng trích xuất đủ 5 nhóm thông tin cốt lõi qua bản tóm tắt có cấu trúc so với đọc bản án toàn văn | Usability Test | Thời gian trích xuất giảm rõ rệt (mục tiêu giảm ≥ 40%) | Sprint 12 |
-| BO-JS-03 | Bảo đảm độ chính xác tình tiết | Factual Accuracy (Atomic Claim Precision); bắt buộc đo và báo cáo song hành Acceptance Rate để tránh đạt điểm ảo bằng cách từ chối xử lý bản án khó | Test (20 bản án đã freeze) | ≥ 90% (kèm báo cáo Acceptance Rate) | Sprint 12 |
-| BO-JS-04 | Kiểm soát tỷ lệ bỏ sót tình tiết trọng yếu | Critical-fact Omission Rate | Test (20 bản án đã freeze) | < 10% | Sprint 12 |
-| BO-JS-05 | Đạt chuẩn chất lượng đánh giá chuyên môn | Expert Quality (chấm chuyên môn; không đạt nếu sai hoặc thiếu quyết định chính) | Test (20 bản án đã freeze) | ≥ 4,0 / 5,0 | Sprint 12 |
-| BO-JS-06 | Bảo toàn tuyệt đối phán quyết của Tòa án | Decision Accuracy & Decision Coverage (không bỏ sót hoặc làm đảo ngược bất kỳ quyết định trọng yếu nào của Hội đồng xét xử) | Dev (10) + Test (20) | 100% / 100% | Sprint 12 |
+| BO-JS-03 | Bảo đảm độ chính xác tình tiết | Factual Accuracy ($FA$, micro-average theo atomic claim trên tập Accepted, kèm macro-average) & Acceptance Rate ($AR = N_{\text{accepted}} / N_{\text{total}}$); bắt buộc báo cáo song hành $AR$, nếu $AR = 0\%$ tự động kết luận `FAIL` | Test (20 bản án đã freeze) | $FA \ge 90\%$ (kèm báo cáo $AR$; $AR = 0\% \Rightarrow \text{FAIL}$) | Sprint 12 |
+| BO-JS-04 | Kiểm soát tỷ lệ bỏ sót tình tiết trọng yếu | Critical-fact Omission Rate ($CFO$, tính trên toàn bộ $N_{\text{total}}$ bản án Test; `QA_FAILED` không được miễn trừ khỏi đánh giá độ phủ hệ thống; tách bạch thêm trên Accepted) | Test (20 bản án đã freeze) | $CFO < 10\%$ | Sprint 12 |
+| BO-JS-05 | Đạt chuẩn chất lượng đánh giá chuyên môn | Expert Quality Score theo rubric 5 tiêu chí có trọng số (thang 1–5); áp dụng Hard Gate tối đa 2,0 / 5,0 (`FAIL`) nếu sai hoặc thiếu quyết định chính | Test (20 bản án đã freeze) | $\ge 4,0 / 5,0$ (không vi phạm Hard Gate) | Sprint 12 |
+| BO-JS-06 | Bảo toàn tuyệt đối phán quyết của Tòa án | Decision Accuracy ($DA$ trên bản án phát hành) & Decision Coverage ($DC$ theo từng mục quyết định trọng yếu) | Dev (10) + Test (20) | $DA = 100\%$ / $DC = 100\%$ | Sprint 12 |
 | BO-JS-07 | Bảo đảm khả năng truy vết kiểm chứng | Tỷ lệ mục ở trạng thái `PRESENT` trong bản tóm tắt phát hành (`PASS` / `PASS_WITH_WARNINGS`) có `source_refs` ánh xạ chính xác tới `paragraph_id` (`Pxxx_yyy`) trong bản án gốc | Dev (10) + Test (20) | 100% | Sprint 12 |
 | BO-JS-08 | An toàn dữ liệu & không gây hồi quy | Rò rỉ nội dung bản án/PII trong log; tỷ lệ PASS bộ kiểm thử hồi quy Q&A (`test/api`, `test/e2e`, `test/orchestration`, `test/schemas`) | Bộ test PII & CI Q&A | 0 rò rỉ; 100% test hồi quy Q&A PASS | Sprint 12 |
+
+**Rubric đánh giá chuyên môn `Expert Quality >= 4.0 / 5.0` (`BO-JS-05`, thang điểm 1–5):**
+
+| STT | Tiêu chí | Trọng số | Nội dung đánh giá |
+| :---: | --- | :---: | --- |
+| 1 | Độ chính xác tình tiết (*Factual correctness*) | 30% | Khớp sự kiện, số tiền, ngày tháng, vai trò đương sự, không suy diễn |
+| 2 | Tính đầy đủ tình tiết trọng yếu (*Critical-fact completeness*) | 25% | Phủ đủ các tình tiết cốt lõi, điều kiện, ngoại lệ, phủ định |
+| 3 | Bảo toàn phán quyết của Tòa (*Decision preservation*) | 25% | Giữ đúng toàn bộ quyết định của Hội đồng xét xử |
+| 4 | Tính mạch lạc pháp lý & phân biệt chủ thể/vai trò (*Legal coherence & attribution*) | 10% | Phân tách rõ lời trình bày nguyên đơn/bị đơn và nhận định của Tòa |
+| 5 | Cấu trúc & khả năng đọc hiểu (*Readability & structure*) | 10% | Tiếng Việt chuẩn mực, bố cục 5 phần rõ ràng |
+
+> **Quy tắc chốt chặn (Hard Gate):** Bất kỳ bản án nào bị bỏ sót hoặc làm sai lệch quyết định chính của Tòa án thì điểm tổng kết tối đa không vượt quá **2,0 / 5,0** và bị tính là **KHÔNG ĐẠT**, bất kể điểm trung bình trọng số các tiêu chí khác cao.
 
 ---
 

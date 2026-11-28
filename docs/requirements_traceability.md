@@ -37,10 +37,10 @@ Tổng 125 yêu cầu (113 yêu cầu Q&A đếm theo cột GĐ của SRS + 12 y
 | BO-07 Chi phí / câu | Dev30 | 0 USD (local) | `results_metrics.json` | Đạt |
 | BO-JS-01 Tóm tắt bản án API & Streamlit UI không hồi quy Q&A | Sprint 12 | Chưa có | Chưa triển khai (`FR10.8`) | Mục tiêu vận hành ổn định; 100% test hồi quy Q&A PASS |
 | BO-JS-02 Thời gian trích xuất 5 nhóm thông tin cốt lõi | Usability Test | Chưa có | Chưa đo (`FR10.5`, `FR10.8`) | Mục tiêu giảm ≥ 40% so với đọc toàn văn |
-| BO-JS-03 Factual Accuracy & Acceptance Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`NFR10.1`) | Mục tiêu ≥ 90% kèm báo cáo Acceptance Rate |
-| BO-JS-04 Critical-fact Omission Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`FR10.4`, `NFR10.1`) | Mục tiêu < 10% |
-| BO-JS-05 Expert Quality Score | Test (20 bản án freeze) | Chưa có | Chưa chấm (`FR10.6`, `NFR10.1`) | Mục tiêu ≥ 4,0 / 5,0 |
-| BO-JS-06 Decision Accuracy & Decision Coverage | Dev (10) + Test (20) | Chưa có | Chưa triển khai (`FR10.2`, `FR10.7`, `NFR10.1`) | Mục tiêu 100% / 100% |
+| BO-JS-03 Factual Accuracy & Acceptance Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`NFR10.1`) | Mục tiêu $FA \ge 90\%$ (micro-average + macro-average) kèm $AR$; $AR = 0\% \Rightarrow \text{FAIL}$ |
+| BO-JS-04 Critical-fact Omission Rate | Test (20 bản án freeze) | Chưa có | Chưa triển khai (`FR10.4`, `NFR10.1`) | Mục tiêu $CFO < 10\%$ trên toàn bộ $N_{\text{total}}$ bản án (tách thêm trên Accepted) |
+| BO-JS-05 Expert Quality Score | Test (20 bản án freeze) | Chưa có | Chưa chấm (`FR10.6`, `NFR10.1`) | Mục tiêu $\ge 4,0 / 5,0$ theo rubric 5 tiêu chí + Hard Gate ($\le 2,0$ nếu sai/thiếu quyết định) |
+| BO-JS-06 Decision Accuracy & Decision Coverage | Dev (10) + Test (20) | Chưa có | Chưa triển khai (`FR10.2`, `FR10.7`, `NFR10.1`) | Mục tiêu $DA = 100\%$ (theo doc phát hành) / $DC = 100\%$ (theo mục quyết định) |
 | BO-JS-07 Tỷ lệ mục `PRESENT` có `source_refs` đúng tới `Pxxx_yyy` | Dev (10) + Test (20) | Chưa có | Chưa triển khai (`FR10.1`, `FR10.5`) | Mục tiêu 100% |
 | BO-JS-08 Rò rỉ PII bản án trong log & hồi quy Q&A | Bộ test PII & CI Q&A | Chưa có | Chưa triển khai (`NFR10.3`, `FR10.8`) | Mục tiêu 0 rò rỉ; 100% test Q&A PASS |
 
@@ -201,7 +201,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 
 | Mã | Trạng thái | Bằng chứng | Ghi chú |
 | --- | --- | --- | --- |
-| FR10.1 | Chưa | — | Chờ `week12_v1.0` (`ParsedDocument`) và `summarization/parser.py`. |
+| FR10.1 | Chưa | — | Chờ `week12_v1.0` (`ParsedDocument`) và `summarization/parser.py` (tách riêng kiểm tra `%PDF-` cho PDF và UTF-8 BOM/non-BOM cho TXT). |
 | FR10.2 | Chưa | — | Chờ `SectionedDocument` (`protected=true` cho `DECISION`) và `summarization/section_identifier.py`. |
 | FR10.3 | Chưa | — | Chờ `ContextPlan` và `summarization/context_planner.py`. |
 | FR10.4 | Chưa | — | Chờ `FactLedger`, profile `family_judgment_v1` và `summarization/fact_extractor.py`. |
@@ -245,7 +245,7 @@ Hành vi của PR #55 cần khớp SRS 5.3.4 trước khi merge: sai API key tr�
 | NFR6.3 | Một phần | `test/orchestration/conftest.py` | Router, logger chưa có mock interface. |
 | NFR7.1–NFR7.3 | Chưa | — | |
 | NFR8.1 | Chưa | — | |
-| NFR10.1 | Chưa | — | Đo `Factual Accuracy` (≥ 90%, hợp nhất không trùng `Factual Consistency`) kèm `Acceptance Rate`, `Critical-fact Omission Rate` (< 10%), `Decision Accuracy`/`Coverage` (100%). |
+| NFR10.1 | Chưa | — | Đo `Factual Accuracy` ($FA \ge 90\%$ micro-average + macro-average, hợp nhất không trùng `Factual Consistency`) kèm `Acceptance Rate` ($AR = 0\% \Rightarrow \text{FAIL}$), `Critical-fact Omission Rate` ($CFO < 10\%$ trên toàn bộ $N_{\text{total}}$), `Decision Accuracy`/`Coverage` (100%) và `Expert Quality` theo rubric 5 tiêu chí + Hard Gate. |
 | NFR10.2 | Chưa | — | Chờ giới hạn token budget, `max_llm_calls`, timeout và stage `summarization_*` trong `LogEvent`. |
 | NFR10.3 | Chưa | — | Chờ `data/judgment_benchmark/` ẩn danh PII toàn bộ 30 bản án (`BR-JS-09`) và kiểm thử không log PII. |
-| NFR10.4 | Chưa | — | Chờ tích hợp kiểm tra `official=True` (`temperature == 0.0`, `max_retries <= 1`, `max_repair_attempts <= 1`, `allow_model_fallback: false`, `profile_sha256`, `dataset_sha256`) vào `model_gateway/run_metadata.py`. |
+| NFR10.4 | Chưa | — | Chờ mở rộng `validate_run_manifest()` theo nhánh `task_type = "legal_judgment_summarization"` trong `model_gateway/run_metadata.py` (kiểm tra `official=True`: `temperature == 0.0`, `max_retries <= 1`, `max_repair_attempts <= 1`, `allow_model_fallback: false`, `profile_sha256`, `dataset_sha256` cùng provenance chuẩn `git_*`/`runtime`/`hardware`/`config_hashes`). |
