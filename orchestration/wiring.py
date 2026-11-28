@@ -8,19 +8,21 @@ Settings come from the environment (or CLI flags):
 ``ELASTICSEARCH_URL``           BM25 index (live)
 ``QDRANT_URL``                  Qdrant server (live; use it when a batch run also reads)
 ``QDRANT_PATH``                 embedded Qdrant folder (live, single process only)
-``LEGAL_RAG_EVENT_LOG``         JSONL file for stage events (optional, local only)
+``LEGAL_RAG_EVENT_LOG``         JSONL via monitoring.StructuredLogger (PII/secret masked)
 ==============================  ======================================================
 """
 from __future__ import annotations
 
 import os
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from typing import Literal
 
 from agent.router.adapter import RuleRouterAdapter
+from monitoring.pii_masker import PIIMasker
+from monitoring.structured_logger import StructuredLogger
 from orchestration.ask_service import AskService
-from orchestration.events import EventSink, JsonlEventSink, NullEventSink
+from orchestration.events import EventSink, NullEventSink
 
 PRODUCTION_RUN_MODE = "C_production_rag"
 
@@ -49,14 +51,20 @@ class ServiceSettings:
                    qdrant_url=get("QDRANT_URL"), qdrant_path=get("QDRANT_PATH"), event_log=get("LEGAL_RAG_EVENT_LOG"))
 
 
-def build_event_sink(settings: ServiceSettings) -> EventSink:
-    return JsonlEventSink(settings.event_log) if settings.event_log else NullEventSink()
+def parse_api_keys(value: str) -> tuple[str, ...]:
+    return tuple(key for key in map(str.strip, value.split(",")) if key)
 
 
-def build_ask_service(settings: ServiceSettings | None = None, *, sink: EventSink | None = None) -> AskService:
+def build_event_sink(settings: ServiceSettings, *, secret_values: Iterable[str] = ()) -> EventSink:
+    if settings.event_log:
+        return StructuredLogger(settings.event_log, masker=PIIMasker(secret_values=secret_values))
+    return NullEventSink()
+
+
+def build_ask_service(settings: ServiceSettings | None = None, *, sink: EventSink | None = None,
+                      secret_values: Iterable[str] = ()) -> AskService:
     """Real router + the shared RAGPipeline in production mode (or the mock pipeline)."""
     settings = settings or ServiceSettings.from_env()
-    sink = sink or build_event_sink(settings)
     if settings.mode == "mock":
         from orchestration.fakes import build_mock_pipeline
 
@@ -67,7 +75,10 @@ def build_ask_service(settings: ServiceSettings | None = None, *, sink: EventSin
         pipeline = build_pipeline(precomputed=settings.precomputed, elasticsearch_url=settings.elasticsearch_url,
                                   qdrant_url=settings.qdrant_url, qdrant_path=settings.qdrant_path,
                                   run_mode=PRODUCTION_RUN_MODE)
-    return AskService(RuleRouterAdapter(), pipeline, sink=sink)
+    router = RuleRouterAdapter()
+    if sink is None:
+        sink = build_event_sink(settings, secret_values=secret_values)
+    return AskService(router, pipeline, sink=sink)
 
 
-__all__ = ["PRODUCTION_RUN_MODE", "ServiceSettings", "build_ask_service", "build_event_sink"]
+__all__ = ["PRODUCTION_RUN_MODE", "ServiceSettings", "build_ask_service", "build_event_sink", "parse_api_keys"]

@@ -19,7 +19,7 @@ from orchestration.events import StageEmitter
 from schemas.models import SCHEMA_VERSION, ErrorCode, SchemaVersionType
 
 # AskResponse.status=ERROR -> HTTP status
-ERROR_HTTP_STATUS: dict[str, int] = {"LLM_TIMEOUT": 504, "INTERNAL_ERROR": 500}
+ERROR_HTTP_STATUS: dict[str, int] = {"LLM_TIMEOUT": 504, "LLM_UNAVAILABLE": 503, "INTERNAL_ERROR": 500}
 
 
 class ValidationDetail(BaseModel):

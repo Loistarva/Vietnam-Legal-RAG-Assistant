@@ -5,7 +5,7 @@ API đưa pipeline RAG dùng chung (`orchestration/rag_pipeline.py`) ra HTTP. UI
 | Mục | Giá trị |
 | --- | --- |
 | Base URL (local) | `http://127.0.0.1:8000` |
-| Contract | `schemas/models.py`, `schema_version = week10_v1.0` (Dev 3) |
+| Contract | `schemas/models.py`, `schema_version = week10_v1.1` (Dev 3; vẫn nhận bản ghi `week10_v1.0`) |
 | OpenAPI snapshot | [api/openapi.json](../api/openapi.json); Swagger UI ở `/docs`, schema sống ở `/openapi.json` |
 | Xác thực | Header `X-API-Key` |
 | Code | [api/](../api/), [orchestration/ask_service.py](../orchestration/ask_service.py) |
@@ -38,7 +38,7 @@ Server không khởi động nếu thiếu `LEGAL_RAG_API_KEYS` hoặc có key n
 | `LEGAL_RAG_MAX_CONCURRENCY` | `1` | Số câu xử lý đồng thời (một Qwen local, Qdrant embedded) |
 | `LEGAL_RAG_PIPELINE_MODE` | `live` | `live` hoặc `mock` |
 | `RAG_PRECOMPUTED` | rỗng | Artifact reranked thay cho retrieval live (chỉ dùng cho câu benchmark) |
-| `LEGAL_RAG_EVENT_LOG` | rỗng | File JSONL ghi stage event (local; logger của Dev 1 sẽ thay) |
+| `LEGAL_RAG_EVENT_LOG` | rỗng | Đường dẫn tệp JSONL. `monitoring.StructuredLogger` che thông tin định danh cá nhân và các API key đã cấu hình trước khi ghi sự kiện của từng giai đoạn. |
 
 ## 2. Endpoint
 
@@ -92,6 +92,7 @@ Với lỗi 401/422, server cũng trả mã truy vết trong body và header. Ev
 | Gate FAIL: JSON model hỏng, đầu ra không phải JSON (`LLM_OUTPUT_RAW_TEXT`) hoặc bị cắt | 200 | `ABSTAIN` | `FAIL` | `JSON_INVALID` |
 | Gate FAIL khác (ví dụ câu trả lời chứa ký tự CJK) | 200 | `ABSTAIN` | `FAIL` | `GROUNDING_FAIL` |
 | Qwen timeout | 504 | `ERROR` | `NOT_RUN` | `LLM_TIMEOUT` |
+| Không kết nối được Ollama sau số lần thử lại | 503 | `ERROR` | `NOT_RUN` | `LLM_UNAVAILABLE` |
 | Lỗi nội bộ sau định tuyến | 500 | `ERROR` | `NOT_RUN` | `INTERNAL_ERROR` |
 | Router lỗi hoặc trả `action` rỗng/không hỗ trợ | 500 | – (`ApiError`) | – | `INTERNAL_ERROR` |
 | Thiếu `X-API-Key` | 401 | – (`ApiError`) | – | `AUTH_REQUIRED` |
@@ -106,7 +107,7 @@ Khi Gate FAIL, bản nháp của model không bao giờ được trả về: res
 `ApiError` (401/422/500 trước pipeline):
 
 ```json
-{"schema_version": "week10_v1.0", "error_code": "INVALID_REQUEST", "message": "Request không hợp lệ", "query_id": null,
+{"schema_version": "week10_v1.1", "error_code": "INVALID_REQUEST", "message": "Request không hợp lệ", "query_id": null,
  "details": [{"loc": ["body", "query"], "msg": "String should have at least 1 character", "type": "string_too_short"}]}
 ```
 
@@ -138,7 +139,7 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/v1/ask -Headers $h
 Response mẫu (live, rút gọn; xem [reports/week10/e2e_report.md](../reports/week10/e2e_report.md)):
 
 ```json
-{"schema_version": "week10_v1.0", "query_id": "q_20261116T145131_b2272742", "as_of_date": "2026-11-16",
+{"schema_version": "week10_v1.1", "query_id": "q_20261116T145131_b2272742", "as_of_date": "2026-11-16",
  "as_of_date_source": "user_input", "status": "SUCCESS", "route": "LEGAL_IN_SCOPE",
  "answer": "Theo quy định có hiệu lực tại ngày 2026-11-16, nam phải đủ 20 tuổi trở lên để kết hôn theo điểm a khoản 1 Điều 8 của Luật Hôn nhân và gia đình 2014.",
  "citations": [{"evidence_index": 1, "chunk_id": "l_52_2014_qh13_art_8_clause_1_chunk_1", "document_id": "l_52_2014_qh13", "...": "..."}],
@@ -161,10 +162,11 @@ Response mẫu (live, rút gọn; xem [reports/week10/e2e_report.md](../reports/
 | `[mock:gate_fail]` | `ABSTAIN`, `grounding_status=FAIL`, `CITATION_INVALID` |
 | `[mock:bad_json]` | `ABSTAIN`, `FAIL`, `JSON_INVALID` |
 | `[mock:timeout]` | HTTP 504, `ERROR`, `LLM_TIMEOUT` |
+| `[mock:unavailable]` | HTTP 503, `ERROR`, `LLM_UNAVAILABLE` |
 
 Câu non-legal và câu ngoài phạm vi đi qua router thật, nên vẫn cho ra `NON_LEGAL` / `LEGAL_OUT_OF_SCOPE`.
 
-Client Streamlit trên nhánh `testing` dùng timeout mặc định 180 giây. Khi nhận HTTP 500 hoặc 504 từ pipeline, client đọc `error.message` trong `AskResponse`. Khi dùng endpoint SSE, client đọc `AskResponse` ngay trong event `final` và hiển thị `message` của event `error`.
+Client Streamlit trên nhánh `testing` dùng timeout mặc định 180 giây. Khi nhận HTTP 500, 503 hoặc 504 từ pipeline, client đọc `error.message` trong `AskResponse`. Khi dùng endpoint SSE, client đọc `AskResponse` ngay trong event `final` và hiển thị `message` của event `error`.
 
 ## 5. Thay đổi contract
 

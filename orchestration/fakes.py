@@ -14,6 +14,7 @@ Markers in the question pick a branch (the router still runs on the real text):
 * ``[mock:gate_fail]``  model cites [6] of 2    -> Gate FAIL, CITATION_INVALID, no draft returned
 * ``[mock:bad_json]``   unparsable model output -> Gate FAIL, JSON_INVALID
 * ``[mock:timeout]``    gateway timeout         -> ERROR, LLM_TIMEOUT
+* ``[mock:unavailable]`` model not reachable   -> ERROR, LLM_UNAVAILABLE
 
 Every evidence text and title says it is mock data; nothing here is a real legal source.
 """
@@ -110,6 +111,8 @@ class ScriptedGenerator:
         markers = mock_markers(prompt)
         if "timeout" in markers:
             raise GatewayExecutionError("mock gateway timeout", error_code="LLM_TIMEOUT")
+        if "unavailable" in markers:
+            raise GatewayExecutionError("mock gateway unavailable", error_code="LLM_UNAVAILABLE")
         body: dict[str, Any] = {"answer": MOCK_ANSWER, "evidence_indices": [1, 2], "abstained": False,
                                 "abstention_reason": None, "needs_clarification": False}
         parse_status, error_code = "ok", None
