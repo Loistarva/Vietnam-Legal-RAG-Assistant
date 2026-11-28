@@ -4,7 +4,7 @@
 
 Trạng thái: **Có** = đã hiện thực và có bằng chứng · **Một phần** = thiếu phần ghi ở cột Ghi chú · **Chưa** = chưa có trên `testing`.
 
-Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1.1, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
+Trạng thái được đánh giá theo câu yêu cầu và tiêu chí chấp nhận của SRS 2.1.2 / 2.1.3, đối chiếu với code và test hiện có. Test chưa gắn marker theo mã tiêu chí (`-ACk`), nên một vài tiêu chí của yêu cầu ghi *Có* có thể chưa có test riêng; việc gắn marker (NFR6.2) sẽ làm lộ các chỗ này.
 
 ## Tóm tắt theo giai đoạn
 

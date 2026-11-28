@@ -4,7 +4,7 @@
 | --- | --- |
 | Mã tài liệu | `VN-LEGAL-RAG-BRD` |
 | Phiên bản | **2.1.1 — sửa 20/11/2026: tập đo BO-02, BO-03 theo SRS D-12, Tech Lead duyệt 20/11/2026. Kế thừa baseline 2.1 được Tech Lead duyệt 16/11/2026** |
-| Tài liệu liên quan | [SRS 2.1.2](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
+| Tài liệu liên quan | [SRS 2.1.2 / 2.1.3](SRS.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · sơ đồ [system_architecture.drawio](../architecture/system_architecture.drawio) |
 | Người duyệt | Tech Lead / PM |
 
 BRD trả lời **vì sao** làm dự án và **thế nào là thành công**. Hệ thống làm gì nằm ở SRS; đã làm đến đâu nằm ở ma trận truy vết.

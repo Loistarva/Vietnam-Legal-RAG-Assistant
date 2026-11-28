@@ -6,7 +6,7 @@
 | Phiên bản | **2.1.3 — đề xuất 23/11/2026, chờ Tech Lead duyệt: danh sách phiên "Gần đây" (FR7.5, IR1.8, D-14); D-13 (Top-k) Tech Lead duyệt 24/11/2026. Phần còn lại giữ bản 2.1.2 được Tech Lead duyệt toàn bộ ngày 20/11/2026, kế thừa baseline 2.1 duyệt 16/11/2026** |
 | Thay thế | SRS 1.0. Giữ nghĩa của FR1–FR5 và NFR1–NFR3; thêm mã con và nhóm mới. |
 | Kiến trúc tham chiếu | [`architecture/system_architecture.drawio`](../architecture/system_architecture.drawio). Phần Retrieval và Knowledge Base của sơ đồ là **chuẩn bắt buộc**; các phần khác là kiến trúc mục tiêu, được làm rõ trong tài liệu này. |
-| Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · [Hướng dẫn cho AI viết code](../AGENTS.md) · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
+| Tài liệu liên quan | [BRD](BRD.md) · [Ma trận truy vết và trạng thái](requirements_traceability.md) · quy ước hợp đồng (`schemas/models.py`) và quyền sở hữu module của dự án · [Mẫu feature spec](feature_specs/TEMPLATE.md) · [data_contract.md](data_contract.md) · [metric_definitions_v1.md](../evaluation/metric_definitions_v1.md) |
 
 ## Lịch sử phiên bản
 
@@ -154,7 +154,7 @@ Mỗi khối có một chỗ trong repo. Code mới của khối đặt vào đ�
 | Contract dùng chung | `schemas/models.py` (chỉ owner contract sửa), `schemas/generated/` (sinh tự động), `schemas/examples/` |
 | Heuristic Fast-Path, SuperRouter | `agent/router/rule_router.py` |
 | General Chat Responder, Active Clarification | chưa có trên `testing`; đặt trong `agent/` |
-| Orchestrator, Policy Abstention, Grounding Gate | `orchestration/rag_pipeline.py` (`apply_grounding_gate`, `abstention_fields`); lớp tạo `AskResponse` đặt trong `orchestration/` |
+| Orchestrator, Policy Abstention, Grounding Gate | `orchestration/rag_pipeline.py` (`apply_grounding_gate`, `abstention_fields`), `orchestration/ask_service.py`, `orchestration/interfaces.py`, `orchestration/response_builder.py`, `orchestration/wiring.py` |
 | Kiểm tra trích dẫn của Gate | `grounding/citation_validator.py` |
 | Metadata & Temporal Pre-filter | `retrieval/temporal.py` |
 | BM25, RRF | `retrieval/build_bm25_index.py`, `retrieval/hybrid_retriever.py`, `retrieval/config.yaml` |
@@ -164,9 +164,9 @@ Mỗi khối có một chỗ trong repo. Code mới của khối đặt vào đ�
 | Parent-Context Resolver, Context Aggregator | `reranking/parent_context.py`, `reranking/context_builder.py` |
 | Citation & Context Prompt Builder | `generation/prompt_builder.py`, `generation/prompts/` |
 | Model Gateway | `model_gateway/llm_gateway.py`, `model_gateway/config/` |
-| API (FastAPI Gateway, API Key Guard, SSE) | chưa có trên `testing`; `api/` |
-| Log có cấu trúc | chưa có trên `testing`; `orchestration/events.py` |
-| Web UI | chưa có trên `testing`; `frontend/` |
+| API (FastAPI Gateway, API Key Guard, SSE) | `api/` (`main.py`, `routes/ask.py`, `routes/ask_stream.py`, `errors.py`, `dependencies.py`, `settings.py`, `export_openapi.py`, `security/`) |
+| Log có cấu trúc | `monitoring/structured_logger.py`, `monitoring/pii_masker.py`, `monitoring/api_event_adapter.py`, `orchestration/events.py` |
+| Web UI | `frontend/` (`streamlit_app.py`, `api_client.py`, `components/`, `config.py`) |
 | Knowledge Base | `parser/`, `chunking/`, `data/reference/`, `data/chunking_output/` |
 | Evaluation | `evaluation/`, `scripts/run_rag_batch.py` |
 | Test | `test/<phân hệ>/`; test parser ở `parser/`, test retrieval ở `retrieval/test/` (`testpaths` trong `pytest.ini`) |
@@ -292,7 +292,7 @@ Tiêu chí chấp nhận:
 - **FR4.3-AC1** Mỗi evidence có `document_title`, `document_number`, `breadcrumb`, `validity_status`, `effective_from` không rỗng; `effective_to` có thể rỗng.
 - **FR4.3-AC2** Given evidence thuộc Luật HNGĐ 1986 (`effective_from = 1987-01-03`, `effective_to = 2001-01-01`, `validity_status = Hết hiệu lực`) và `as_of_date = 1995-06-01`, Then nhãn evidence trong prompt và trên UI ghi văn bản có hiệu lực tại 1995-06-01, không ghi "Hết hiệu lực" như tình trạng tại ngày đó. Đổi nhãn trong prompt là đổi nội dung prompt (FR4.6).
 - **FR4.4-AC1** Prompt B đã dựng chứa `as_of_date`, danh sách evidence `[1]..[n]`, quy tắc chỉ dùng evidence, quy tắc chỉ pháp luật Việt Nam, quy tắc trả lời tiếng Việt, quy tắc từ chối.
-- **FR4.4-AC2** Schema đầu ra gửi cho model có đúng các trường của `StructuredRAGOutput` theo `schema_version` hiện hành (5 trường ở `week10_v1.0`), không cho thêm trường lạ.
+- **FR4.4-AC2** Schema đầu ra gửi cho model có đúng các trường của `StructuredRAGOutput` theo `schema_version` hiện hành (`week10_v1.1`: 6 trường gồm `missing_facts` tùy chọn; `week10_v1.0`: 5 trường tương thích ngược), không cho thêm trường lạ.
 - **FR4.5-AC1** Given model trả `evidence_indices = [1, 3]`, Then citations được dựng từ `source_map[1]` và `source_map[3]`.
 - **FR4.5-AC2** Given câu trả lời chứa một `chunk_id` có trong ngữ cảnh, Then Gate kết luận Ungrounded với lý do `ANSWER_CONTAINS_CHUNK_ID`.
 - **FR4.6-AC1** Mỗi kết quả có `prompt_version` và SHA-256 của prompt; hai câu giống nhau với cùng ngữ cảnh và cùng phiên bản cho cùng SHA-256.
@@ -532,7 +532,7 @@ Tiêu chí chấp nhận:
 
 Contract gồm: `AskRequest`, `AskResponse`, `RouteDecision`, `RetrievalBundle`, `CandidateChunk`, `EvidenceItem`, `ContextPayload`, `LLMResponse`, `GroundingResult`, `LogEvent`, bản ghi kết quả chạy lô (`RAGOutputRecord`).
 
-**Phiên bản hiện hành: `week10_v1.0`.** Mục 5.3–5.4 mô tả đúng phiên bản này. Chỗ ghi *(v1.1)* là thay đổi đã duyệt ở mục 5.6 nhưng chưa có trong code; nó chỉ ràng buộc khi `schema_version` của code đạt phiên bản đó.
+**Phiên bản hiện hành: `week10_v1.1` (tương thích ngược `week10_v1.0`).** Các thay đổi `week10_v1.1` đã duyệt ở mục 5.6 (kể cả `LLM_UNAVAILABLE`, `EventStage.confidence`, `EvidenceItem.point_ref`, `RetrievalBundle.metadata_filters`/`latency_breakdown`, `RAGOutputRecord.route`, `missing_facts`, `RouteDecision.action: RouteAction | None`) đã được hợp nhất vào `schemas/models.py` trên `testing`; chỉ riêng `RouteDecision.router_route` hiện vẫn giữ kiểu `str | None` (chưa thu hẹp sang `Literal`). Các thay đổi đánh dấu *Dự kiến* hoặc `Proposed` ở mục 5.6 chưa có trong code và chỉ ràng buộc khi được duyệt và hợp nhất.
 
 ### 5.3. Contract API (duyệt 16/11/2026, sửa 17/11/2026 — D-01, D-02, D-03)
 
@@ -549,7 +549,7 @@ Contract gồm: `AskRequest`, `AskResponse`, `RouteDecision`, `RetrievalBundle`,
 
 Request không nhận trường nào khác (`extra = forbid`): không có tham số model, Top-K hay chế độ chạy; các giá trị này lấy từ cấu hình.
 
-**Trách nhiệm kiểm tra độ dài.** Với contract `week10_v1.0`, lớp API phải kiểm tra giới hạn 2.000 ký tự trước khi gọi pipeline và trả lỗi theo 5.3.4 nếu vượt giới hạn (FR1.7). Yêu cầu này không mặc định rằng `AskRequest` đã có `max_length=2000`. Nếu chuyển giới hạn vào model dùng chung, owner contract phải đánh giá ảnh hưởng tới batch và payload cũ, ghi thay đổi theo 5.6 trước khi sửa model.
+**Trách nhiệm kiểm tra độ dài.** Với contract `week10_v1.1` (kế thừa từ `week10_v1.0`), lớp API phải kiểm tra giới hạn 2.000 ký tự trước khi gọi pipeline và trả lỗi theo 5.3.4 nếu vượt giới hạn (FR1.7). Yêu cầu này không mặc định rằng `AskRequest` đã có `max_length=2000`. Nếu chuyển giới hạn vào model dùng chung, owner contract phải đánh giá ảnh hưởng tới batch và payload cũ, ghi thay đổi theo 5.6 trước khi sửa model.
 
 #### 5.3.2. `AskResponse`
 
@@ -598,7 +598,7 @@ Router dùng hai tầng nhãn. **`action` quyết định hành vi**; `RouteType
 
 - Có hai lớp cùng tên. `agent.router.rule_router.RouteDecision` là lớp nội bộ của router (`route: Route`, `action: Action`, `route_reason: RouteReason`, `classifier_version`). `schemas.models.RouteDecision` là lớp contract. Ngoài `agent/router/`, mọi module chỉ dùng lớp contract.
 - Adapter chuyển lớp nội bộ sang lớp contract: `route` = `map_router_route_to_canonical(Route)`, `reason_code` = giá trị `RouteReason`, `action` = giá trị `Action`, `policy_version` = `classifier_version`, `explanation` ghi `Route` gốc và `action`.
-- Ở `week10_v1.0`, `action` của contract là chuỗi tự do (`str | None`). Orchestrator chỉ nhận 4 giá trị của `Action` và coi giá trị khác hoặc rỗng là lỗi `INTERNAL_ERROR`. Kiểu chặt hơn và trường giữ `Route` gốc ở mục 5.6.
+- Ở `week10_v1.1` trên `testing`, `RouteDecision.action` của contract dùng `RouteAction | None` (`Literal[4 giá trị Action] | None`, giữ tương thích ngược `week10_v1.0`); orchestrator chỉ nhận 4 giá trị của `Action` và coi giá trị khác hoặc rỗng là lỗi `INTERNAL_ERROR`. Riêng `RouteDecision.router_route` hiện vẫn là `str | None` (xem mục 5.6).
 - Sự kiện log stage `router` ghi `route`, `action`, `reason_code`, `policy_version`.
 - Đánh giá router (FR1.8, tập câu âm) chấm trên `Route` gốc và `action`, không chấm trên `RouteType`. Đầu vào chấm là đầu ra của `RuleRouter` (lớp nội bộ).
 
@@ -684,8 +684,8 @@ Interface là `typing.Protocol`, đặt chung trong `orchestration/interfaces.py
 | Prompt Builder → Orchestrator | `build_controlled_rag_prompt(context_payload: ContextPayload, /) -> str` | `generation/prompt_builder.py` |
 | Orchestrator → Model Gateway | `generate(prompt: str, query_id: str, run_mode: str, prompt_version: str, structured_output: bool = False, schema: dict \| None = None) -> LLMResponse`. Orchestrator dùng thêm tham số tùy chọn `max_evidence_index: int \| None = None`: ở `C_production_rag` truyền số evidence của payload để Gateway loại chỉ số ngoài `[1, n]` (Gate trả `CITATION_INVALID`); Run B không truyền, giữ mọi số nguyên model trả cho metric Citation Validity | Protocol `Generator` trong `rag_pipeline.py`; `QwenGateway.generate()` |
 | Gate → Orchestrator | `apply_grounding_gate(payload: ContextPayload, llm: LLMResponse, /) -> GroundingResult`. Validator truyền được qua tham số khởi tạo của orchestrator (mặc định `validate_citations`) để test thay bằng bản giả (IR4.1-AC1) | `orchestration/rag_pipeline.py`, dùng `grounding/citation_validator.py` |
-| Mọi phân hệ → Logger | `emit(event: LogEvent) -> None`; không ném lỗi ra ngoài (FR9.10) | chưa có trên `testing` |
-| API → UI | HTTP JSON / SSE theo OpenAPI | chưa có trên `testing` |
+| Mọi phân hệ → Logger | `emit(event: LogEvent) -> None`; không ném lỗi ra ngoài (FR9.10) | `monitoring/structured_logger.py` (`StructuredLogger`), `monitoring/pii_masker.py`, `monitoring/api_event_adapter.py`, `orchestration/events.py` (`StageEmitter`) |
+| API → UI | HTTP JSON / SSE theo OpenAPI | `api/` (`routes/ask.py`, `routes/ask_stream.py`, `errors.py`, `api/openapi.json`) ↔ `frontend/` (`api_client.py`, `streamlit_app.py`) |
 | Chạy lô → Evaluation | JSONL `RAGOutputRecord` + manifest | `scripts/run_rag_batch.py` |
 
 ### 5.6. Lộ trình contract
@@ -813,7 +813,7 @@ Các yêu cầu trong cùng một đợt làm song song được nhờ mock theo
 
 | Đợt | Nội dung | Yêu cầu | Điều kiện bắt đầu |
 | --- | --- | --- | --- |
-| 0 | Đưa contract đã chốt vào code; chuẩn bị cho CI và AI | D-01, D-02, D-03, D-07 (đã chốt); mục 5.2–5.4 vào `schemas/models.py`; các dòng `week10_v1.1` đã duyệt ở mục 5.6; Protocol ở mục 5.5; bảng 5.3.5 vào lớp tạo `AskResponse`; đăng ký marker `req` trong `pytest.ini` (NFR6.2) | Đã bắt đầu: `week10_v1.0` xong, có `AGENTS.md`; còn `week10_v1.1`, Protocol 5.5, bảng 5.3.5, marker |
+| 0 | Đưa contract đã chốt vào code; chuẩn bị cho CI và kiểm thử yêu cầu | D-01, D-02, D-03, D-07 (đã chốt); mục 5.2–5.4 vào `schemas/models.py`; các dòng `week10_v1.1` đã duyệt ở mục 5.6; Protocol ở mục 5.5; bảng 5.3.5 vào lớp tạo `AskResponse`; đăng ký marker `req` trong `pytest.ini` (NFR6.2) | Đã hoàn tất trên `testing`: `week10_v1.1` trong `schemas/models.py`, Protocol mục 5.5 (`orchestration/interfaces.py`), bảng 5.3.5 (`orchestration/response_builder.py`), marker `req` trong `pytest.ini` (chỉ riêng `RouteDecision.router_route` còn là `str \| None`) |
 | 1 | Khung API, router trong pipeline, log, UI với API giả lập | FR1.9, FR1.1–FR1.6, IR2.1, IR2.2, IR2.3, IR2.5, NFR3.1, FR7.1, FR9.9, NFR3.4, NFR7.2, IR1.1–IR1.6, FR6.4 | Đợt 0 xong |
 | 2 | Stream, hỏi lại, sinh lại, CLI, độ bền log | IR2.4, NFR2.1, FR3.4, FR5.6, IR3.1, FR9.10, IR1.7 | IR2.1 và FR1.9 xong; D-05, D-06 chốt; dòng `missing_facts` (5.6) đã vào code |
 | 3 | Đo và nghiệm thu | FR1.8, NFR5.2, NFR6.2, NFR7.3; đo BO-04 và BO-05 trên toàn hệ thống | Đợt 2 xong |
@@ -893,7 +893,7 @@ Các tính năng dưới đây có ở các dự án RAG pháp luật tham khả
 | Cách hiện thực bên trong module (thuật toán, cấu trúc code, thư viện) | **Tự do**, miễn đạt tiêu chí chấp nhận và giữ contract. | — |
 | Ghi chú thiết kế (mục 7) | Hướng dẫn, không bắt buộc. | — |
 
-Khi gặp chỗ SRS sai, thiếu hoặc không làm được: dừng phần đó, mở issue hoặc PR sửa SRS nêu mã yêu cầu, làm tiếp phần khác. Không tự diễn giải lại rồi code. Quy tắc cho AI viết code nằm ở [`AGENTS.md`](../AGENTS.md) ở gốc repo.
+Khi gặp chỗ SRS sai, thiếu hoặc không làm được: dừng phần đó, mở issue hoặc PR sửa SRS nêu mã yêu cầu, làm tiếp phần khác. Không tự diễn giải lại rồi code, và tuân thủ nghiêm quy ước hợp đồng (`schemas/models.py`) cùng ranh giới quyền sở hữu module của dự án.
 
 ### 12.2. Quy trình
 
